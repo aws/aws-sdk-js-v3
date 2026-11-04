@@ -23,7 +23,8 @@ export interface CheckDNSAvailabilityCommandInput extends CheckDNSAvailabilityMe
 export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityResultMessage, __MetadataBearer {}
 
 /**
- * <p>Checks if the specified CNAME is available.</p>
+ * Checks if the specified CNAME is available.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To check the availability of a CNAME
  * ```javascript

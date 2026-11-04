@@ -23,10 +23,10 @@ export interface ListExplainabilityExportsCommandInput extends ListExplainabilit
 export interface ListExplainabilityExportsCommandOutput extends ListExplainabilityExportsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Explainability exports created using the <a>CreateExplainabilityExport</a> operation. This operation returns a summary
- *             for each Explainability export. You can filter the list using an array of <a>Filter</a> objects.</p>
- *          <p>To retrieve the complete set of properties for a particular Explainability export, use
- *             the ARN with the <a>DescribeExplainability</a> operation.</p>
+ * Returns a list of Explainability exports created using the CreateExplainabilityExport operation. This operation returns a summary for each Explainability export. You can filter the list using an array of Filter objects.
+ *
+ * To retrieve the complete set of properties for a particular Explainability export, use the ARN with the DescribeExplainability operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,15 +78,16 @@ export interface ListExplainabilityExportsCommandOutput extends ListExplainabili
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * The token is not valid. Tokens expire after 24 hours.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

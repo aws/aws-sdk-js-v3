@@ -23,16 +23,14 @@ export interface CreateArchiveCommandInput extends CreateArchiveRequest {}
 export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an archive of events with the specified settings. When you create an archive,
- *       incoming events might not immediately start being sent to the archive. Allow a short period of
- *       time for changes to take effect. If you do not specify a pattern to filter events sent to the
- *       archive, all events are sent to the archive except replayed events. Replayed events are not
- *       sent to an archive.</p>
- *          <important>
- *             <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a
- *         customer managed key for any archives for the event bus as well. </p>
- *             <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>
- *          </important>
+ * Creates an archive of events with the specified settings. When you create an archive, incoming events might not immediately start being sent to the archive. Allow a short period of time for changes to take effect. If you do not specify a pattern to filter events sent to the archive, all events are sent to the archive except replayed events. Replayed events are not sent to an archive.
+ *
+ * > **Important:**
+ * >
+ * > If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a customer managed key for any archives for the event bus as well.
+ * >
+ * > For more information, see [Encrypting archives](https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html) in the *Amazon EventBridge User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,27 +65,32 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link InvalidEventPatternException} (client fault)
- *  <p>The event pattern is not valid.</p>
+ *
+ * The event pattern is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
+ *
+ * The request failed because it attempted to create resource beyond the allowed service quota.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource you are trying to create already exists.</p>
+ *
+ * The resource you are trying to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

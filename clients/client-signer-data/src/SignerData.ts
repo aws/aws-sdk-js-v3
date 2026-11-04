@@ -40,7 +40,8 @@ export interface SignerData {
 }
 
 /**
- * <p>AWS Signer Data Plane service provides APIs for checking revocation status of signed artifacts.</p>
+ * AWS Signer Data Plane service provides APIs for checking revocation status of signed artifacts.
+ *
  * @public
  */
 export class SignerData extends SignerDataClient implements SignerData {}

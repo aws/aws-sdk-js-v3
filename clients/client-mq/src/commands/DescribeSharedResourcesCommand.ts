@@ -23,7 +23,8 @@ export interface DescribeSharedResourcesCommandInput extends DescribeSharedResou
 export interface DescribeSharedResourcesCommandOutput extends DescribeSharedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the resources shared to a broker.</p>
+ * Returns the resources shared to a broker.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,20 +70,24 @@ export interface DescribeSharedResourcesCommandOutput extends DescribeSharedReso
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link MqServiceException}
- * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * Base exception class for all service exceptions from Mq service.
  *
  * @public
  */

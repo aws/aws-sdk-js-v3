@@ -23,10 +23,8 @@ export interface CancelCapacityReservationCommandInput extends CancelCapacityRes
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels the capacity reservation with the specified name. Cancelled reservations
- *             remain in your account and will be deleted 45 days after cancellation. During the 45
- *             days, you cannot re-purpose or reuse a reservation that has been cancelled, but you can
- *             refer to its tags and view it for historical reference. </p>
+ * Cancels the capacity reservation with the specified name. Cancelled reservations remain in your account and will be deleted 45 days after cancellation. During the 45 days, you cannot re-purpose or reuse a reservation that has been cancelled, but you can refer to its tags and view it for historical reference.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,16 +49,16 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

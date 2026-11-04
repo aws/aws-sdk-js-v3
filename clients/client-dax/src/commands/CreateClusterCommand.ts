@@ -23,7 +23,8 @@ export interface CreateClusterCommandInput extends CreateClusterRequest {}
 export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.</p>
+ * Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,60 +131,68 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterAlreadyExistsFault} (client fault)
- *  <p>You already have a DAX cluster with the given identifier.</p>
+ *
+ * You already have a DAX cluster with the given identifier.
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of DAX clusters for
- *             your Amazon Web Services account.</p>
+ *
+ * You have attempted to exceed the maximum number of DAX clusters for your Amazon Web Services account.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>There are not enough system resources to create the cluster you requested (or to
- *             resize an already-existing cluster). </p>
+ *
+ * There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster).
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the
- *                 <i>available</i> state.</p>
+ *
+ * The requested DAX cluster is not in the *available* state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterGroupStateFault} (client fault)
- *  <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ * One or more parameters in a parameter group are in an invalid state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The VPC network is in an invalid state.</p>
+ *
+ * The VPC network is in an invalid state.
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of nodes for a DAX
- *             cluster.</p>
+ *
+ * You have attempted to exceed the maximum number of nodes for a DAX cluster.
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
+ *
+ * You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have reached the maximum number of x509 certificates that can be created for
- *             encrypted clusters in a 30 day period. Contact Amazon Web Services customer support to
- *             discuss options for continuing to create encrypted clusters.</p>
+ *
+ * You have reached the maximum number of x509 certificates that can be created for encrypted clusters in a 30 day period. Contact Amazon Web Services customer support to discuss options for continuing to create encrypted clusters.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The requested subnet group name does not refer to an existing subnet
- *             group.</p>
+ *
+ * The requested subnet group name does not refer to an existing subnet group.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
+ *
+ * You have exceeded the maximum number of tags for this DAX cluster.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

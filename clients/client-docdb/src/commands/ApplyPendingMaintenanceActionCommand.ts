@@ -23,8 +23,8 @@ export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingM
 export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPendingMaintenanceActionResult, __MetadataBearer {}
 
 /**
- * <p>Applies a pending maintenance action to a resource (for example,
- *             to an Amazon DocumentDB instance).</p>
+ * Applies a pending maintenance action to a resource (for example, to an Amazon DocumentDB instance).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,18 +65,20 @@ export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPending
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p> The specified instance isn't in the <i>available</i> state.
- *         </p>
+ *
+ * The specified instance isn't in the *available* state.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The specified resource ID was not found.</p>
+ *
+ * The specified resource ID was not found.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

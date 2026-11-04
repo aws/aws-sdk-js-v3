@@ -23,7 +23,8 @@ export interface AddTrustStoreRevocationsCommandInput extends AddTrustStoreRevoc
 export interface AddTrustStoreRevocationsCommandOutput extends AddTrustStoreRevocationsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified revocation file to the specified trust store.</p>
+ * Adds the specified revocation file to the specified trust store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface AddTrustStoreRevocationsCommandOutput extends AddTrustStoreRevo
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidRevocationContentException} (client fault)
- *  <p>The provided revocation file is an invalid format, or uses an incorrect algorithm.</p>
+ *
+ * The provided revocation file is an invalid format, or uses an incorrect algorithm.
  *
  * @throws {@link RevocationContentNotFoundException} (client fault)
- *  <p>The specified revocation file does not exist.</p>
+ *
+ * The specified revocation file does not exist.
  *
  * @throws {@link TooManyTrustStoreRevocationEntriesException} (client fault)
- *  <p>The specified trust store has too many revocation entries.</p>
+ *
+ * The specified trust store has too many revocation entries.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

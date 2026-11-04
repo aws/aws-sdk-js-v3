@@ -23,7 +23,8 @@ export interface CreateAuthenticationProfileCommandInput extends CreateAuthentic
 export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenticationProfileResult, __MetadataBearer {}
 
 /**
- * <p>Creates an authentication profile with the specified parameters.</p>
+ * Creates an authentication profile with the specified parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,19 +53,20 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AuthenticationProfileAlreadyExistsFault} (client fault)
- *  <p>The authentication profile already exists.</p>
+ *
+ * The authentication profile already exists.
  *
  * @throws {@link AuthenticationProfileQuotaExceededFault} (client fault)
- *  <p>The size or number of authentication profiles has exceeded the quota.
- *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+ *
+ * The size or number of authentication profiles has exceeded the quota. The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.
  *
  * @throws {@link InvalidAuthenticationProfileRequestFault} (client fault)
- *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
- *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ *
+ * The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

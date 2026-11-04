@@ -23,15 +23,14 @@ export interface PurchaseScheduledInstancesCommandInput extends PurchaseSchedule
 export interface PurchaseScheduledInstancesCommandOutput extends PurchaseScheduledInstancesResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>You can no longer purchase Scheduled Instances.</p>
- *          </note>
- *          <p>Purchases the Scheduled Instances with the specified schedule.</p>
- *          <p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term.
- *          Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
- *          to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
- *          you must call <a>RunScheduledInstances</a> during each scheduled time period.</p>
- *          <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ * > **Note:** You can no longer purchase Scheduled Instances.
+ *
+ * Purchases the Scheduled Instances with the specified schedule.
+ *
+ * Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call DescribeScheduledInstanceAvailability to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call RunScheduledInstances during each scheduled time period.
+ *
+ * After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +90,8 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

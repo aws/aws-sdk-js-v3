@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RAMServiceException as __BaseException } from "./RAMServiceException";
 
 /**
- * <p>The operation failed because the client token input parameter matched one that was
- *             used with a previous call to the operation, but at least one of the other input
- *             parameters is different from the previous call.</p>
+ * The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -27,7 +26,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified client token isn't valid.</p>
+ * The operation failed because the specified client token isn't valid.
+ *
  * @public
  */
 export class InvalidClientTokenException extends __BaseException {
@@ -48,8 +48,8 @@ export class InvalidClientTokenException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
+ *
  * @public
  */
 export class MalformedArnException extends __BaseException {
@@ -70,7 +70,8 @@ export class MalformedArnException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the requested operation isn't permitted.</p>
+ * The operation failed because the requested operation isn't permitted.
+ *
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -91,7 +92,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified invitation was already accepted.</p>
+ * The operation failed because the specified invitation was already accepted.
+ *
  * @public
  */
 export class ResourceShareInvitationAlreadyAcceptedException extends __BaseException {
@@ -112,7 +114,8 @@ export class ResourceShareInvitationAlreadyAcceptedException extends __BaseExcep
 }
 
 /**
- * <p>The operation failed because the specified invitation was already rejected.</p>
+ * The operation failed because the specified invitation was already rejected.
+ *
  * @public
  */
 export class ResourceShareInvitationAlreadyRejectedException extends __BaseException {
@@ -133,8 +136,8 @@ export class ResourceShareInvitationAlreadyRejectedException extends __BaseExcep
 }
 
 /**
- * <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> for an invitation was not
- *             found.</p>
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for an invitation was not found.
+ *
  * @public
  */
 export class ResourceShareInvitationArnNotFoundException extends __BaseException {
@@ -155,8 +158,8 @@ export class ResourceShareInvitationArnNotFoundException extends __BaseException
 }
 
 /**
- * <p>The operation failed because the specified invitation is past its expiration date and
- *             time.</p>
+ * The operation failed because the specified invitation is past its expiration date and time.
+ *
  * @public
  */
 export class ResourceShareInvitationExpiredException extends __BaseException {
@@ -177,8 +180,8 @@ export class ResourceShareInvitationExpiredException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
+ *
  * @public
  */
 export class ServerInternalException extends __BaseException {
@@ -199,7 +202,8 @@ export class ServerInternalException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the service isn't available. Try again later.</p>
+ * The operation failed because the service isn't available. Try again later.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -220,7 +224,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because a parameter you specified isn't valid.</p>
+ * The operation failed because a parameter you specified isn't valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -241,8 +246,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the requested operation isn't valid for the resource
- *             share in its current state.</p>
+ * The operation failed because the requested operation isn't valid for the resource share in its current state.
+ *
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
@@ -263,10 +268,8 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it would exceed the limit for resource shares for your account. You
- *             can associate up to 100 resources per call. To view the limits for your Amazon Web Services account,
- *             see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in
- *                 the Service Quotas console</a>.</p>
+ * The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
+ *
  * @public
  */
 export class ResourceShareLimitExceededException extends __BaseException {
@@ -287,8 +290,8 @@ export class ResourceShareLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it exceeded the rate at which you are allowed to perform
- *             this operation. Please try again later.</p>
+ * The operation failed because it exceeded the rate at which you are allowed to perform this operation. Please try again later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -309,7 +312,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because a specified resource couldn't be found.</p>
+ * The operation failed because a specified resource couldn't be found.
+ *
  * @public
  */
 export class UnknownResourceException extends __BaseException {
@@ -330,7 +334,8 @@ export class UnknownResourceException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because a policy you specified isn't valid.</p>
+ * The operation failed because a policy you specified isn't valid.
+ *
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
@@ -351,7 +356,8 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the policy template that you provided isn't valid.</p>
+ * The operation failed because the policy template that you provided isn't valid.
+ *
  * @public
  */
 export class MalformedPolicyTemplateException extends __BaseException {
@@ -372,8 +378,8 @@ export class MalformedPolicyTemplateException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because a permission with the specified name already exists in
- *             the requested Amazon Web Services Region. Choose a different name.</p>
+ * The operation failed because a permission with the specified name already exists in the requested Amazon Web Services Region. Choose a different name.
+ *
  * @public
  */
 export class PermissionAlreadyExistsException extends __BaseException {
@@ -394,9 +400,8 @@ export class PermissionAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it would exceed the maximum number of permissions you can
- *             create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
- *                 Service Quotas console</a>.</p>
+ * The operation failed because it would exceed the maximum number of permissions you can create in each Amazon Web Services Region. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
+ *
  * @public
  */
 export class PermissionLimitExceededException extends __BaseException {
@@ -417,9 +422,8 @@ export class PermissionLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it would exceed the limit for the number of versions you
- *             can have for a permission. To view the limits for your Amazon Web Services account, see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in the
- *                 Service Quotas console</a>.</p>
+ * The operation failed because it would exceed the limit for the number of versions you can have for a permission. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
+ *
  * @public
  */
 export class PermissionVersionsLimitExceededException extends __BaseException {
@@ -440,8 +444,8 @@ export class PermissionVersionsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it would exceed the limit for tags for your
- *             Amazon Web Services account.</p>
+ * The operation failed because it would exceed the limit for tags for your Amazon Web Services account.
+ *
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
@@ -462,8 +466,8 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified tag key is a reserved word and can't be
- *             used.</p>
+ * The operation failed because the specified tag key is a reserved word and can't be used.
+ *
  * @public
  */
 export class TagPolicyViolationException extends __BaseException {
@@ -484,9 +488,8 @@ export class TagPolicyViolationException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified value for <code>NextToken</code> isn't
- *             valid. You must specify a value you received in the <code>NextToken</code> response of a
- *             previous call to this operation.</p>
+ * The operation failed because the specified value for `NextToken` isn't valid. You must specify a value you received in the `NextToken` response of a previous call to this operation.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -507,7 +510,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> was not found.</p>
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) was not found.
+ *
  * @public
  */
 export class ResourceArnNotFoundException extends __BaseException {
@@ -528,8 +532,8 @@ export class ResourceArnNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified value for <code>MaxResults</code> isn't
- *             valid.</p>
+ * The operation failed because the specified value for `MaxResults` isn't valid.
+ *
  * @public
  */
 export class InvalidMaxResultsException extends __BaseException {
@@ -550,7 +554,8 @@ export class InvalidMaxResultsException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because a required input parameter is missing.</p>
+ * The operation failed because a required input parameter is missing.
+ *
  * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -571,7 +576,8 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the specified resource type isn't valid.</p>
+ * The operation failed because the specified resource type isn't valid.
+ *
  * @public
  */
 export class InvalidResourceTypeException extends __BaseException {
@@ -592,8 +598,8 @@ export class InvalidResourceTypeException extends __BaseException {
 }
 
 /**
- * <p>There isn't an existing managed permission defined in RAM that has the same IAM permissions as
- *             the resource-based policy attached to the resource. You should first run <a>PromotePermissionCreatedFromPolicy</a> to create that managed permission.</p>
+ * There isn't an existing managed permission defined in RAM that has the same IAM permissions as the resource-based policy attached to the resource. You should first run PromotePermissionCreatedFromPolicy to create that managed permission.
+ *
  * @public
  */
 export class UnmatchedPolicyPermissionException extends __BaseException {

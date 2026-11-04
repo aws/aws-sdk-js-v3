@@ -23,12 +23,10 @@ export interface DeleteCarrierGatewayCommandInput extends DeleteCarrierGatewayRe
 export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a carrier gateway.</p>
- *          <important>
- *             <p>If you do not delete the route that contains the carrier gateway as the
- *                 Target, the route is a blackhole route. For information about how to delete a route, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html">DeleteRoute</a>.</p>
- *          </important>
+ * Deletes a carrier gateway.
+ *
+ * > **Important:** If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see [DeleteRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +65,8 @@ export interface DeleteCarrierGatewayCommandOutput extends DeleteCarrierGatewayR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,23 +23,11 @@ export interface PutBotCommandInput extends PutBotRequest {}
 export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Lex conversational bot or replaces an existing bot.
- *       When you create or update a bot you are only required to specify a name, a
- *       locale, and whether the bot is directed toward children under age 13. You
- *       can use this to add intents later, or to remove intents from an existing
- *       bot. When you create a bot with the minimum information, the bot is
- *       created or updated but Amazon Lex returns the <code></code> response
- *         <code>FAILED</code>. You can build the bot after you add one or more
- *       intents. For more information about Amazon Lex bots, see <a>how-it-works</a>. </p>
- *          <p>If you specify the name of an existing bot, the fields in the
- *       request replace the existing values in the <code>$LATEST</code> version of
- *       the bot. Amazon Lex removes any fields that you don't provide values for in the
- *       request, except for the <code>idleTTLInSeconds</code> and
- *         <code>privacySettings</code> fields, which are set to their default
- *       values. If you don't specify values for required fields, Amazon Lex throws an
- *       exception.</p>
- *          <p>This operation requires permissions for the <code>lex:PutBot</code>
- *       action. For more information, see <a>security-iam</a>.</p>
+ * Creates an Amazon Lex conversational bot or replaces an existing bot. When you create or update a bot you are only required to specify a name, a locale, and whether the bot is directed toward children under age 13. You can use this to add intents later, or to remove intents from an existing bot. When you create a bot with the minimum information, the bot is created or updated but Amazon Lex returns the response `FAILED`. You can build the bot after you add one or more intents. For more information about Amazon Lex bots, see how-it-works.
+ *
+ * If you specify the name of an existing bot, the fields in the request replace the existing values in the `$LATEST` version of the bot. Amazon Lex removes any fields that you don't provide values for in the request, except for the `idleTTLInSeconds` and `privacySettings` fields, which are set to their default values. If you don't specify values for required fields, Amazon Lex throws an exception.
+ *
+ * This operation requires permissions for the `lex:PutBot` action. For more information, see security-iam.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -160,28 +148,28 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict processing the request. Try your request
- *       again. </p>
+ *
+ * There was a conflict processing the request. Try your request again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p> The checksum of the resource that you are trying to change does
- *       not match the checksum in the request. Check the resource's checksum and
- *       try again.</p>
+ *
+ * The checksum of the resource that you are trying to change does not match the checksum in the request. Check the resource's checksum and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @example To create a bot
  * ```javascript

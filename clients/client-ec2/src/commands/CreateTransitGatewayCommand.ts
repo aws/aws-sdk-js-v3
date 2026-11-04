@@ -23,19 +23,16 @@ export interface CreateTransitGatewayCommandInput extends CreateTransitGatewayRe
 export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Creates a transit gateway.</p>
- *          <p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks.
- *           After the transit gateway enters the <code>available</code> state, you can attach your VPCs and VPN
- *           connections to the transit gateway.</p>
- *          <p>To attach your VPCs, use <a>CreateTransitGatewayVpcAttachment</a>.</p>
- *          <p>To attach a VPN connection, use <a>CreateCustomerGateway</a> to create a customer
- *          gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to
- *          <a>CreateVpnConnection</a>.</p>
- *          <p>When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table
- *          and the default propagation route table. You can use <a>CreateTransitGatewayRouteTable</a> to create
- *          additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table.
- *          You can use <a>EnableTransitGatewayRouteTablePropagation</a> to propagate routes from a resource
- *          attachment to a transit gateway route table. If you disable automatic associations, you can use <a>AssociateTransitGatewayRouteTable</a> to associate a resource attachment with a transit gateway route table.</p>
+ * Creates a transit gateway.
+ *
+ * You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks. After the transit gateway enters the `available` state, you can attach your VPCs and VPN connections to the transit gateway.
+ *
+ * To attach your VPCs, use CreateTransitGatewayVpcAttachment.
+ *
+ * To attach a VPN connection, use CreateCustomerGateway to create a customer gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to CreateVpnConnection.
+ *
+ * When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. You can use CreateTransitGatewayRouteTable to create additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. You can use EnableTransitGatewayRouteTablePropagation to propagate routes from a resource attachment to a transit gateway route table. If you disable automatic associations, you can use AssociateTransitGatewayRouteTable to associate a resource attachment with a transit gateway route table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,8 +116,8 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

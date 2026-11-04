@@ -23,7 +23,8 @@ export interface CreateApplicationVersionCommandInput extends CreateApplicationV
 export interface CreateApplicationVersionCommandOutput extends CreateApplicationVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an application version.</p>
+ * Creates an application version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,23 +86,28 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>One of the parameters in the request is invalid.</p>
+ *
+ * One of the parameters in the request is invalid.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is not authenticated.</p>
+ *
+ * The client is not authenticated.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+ *
+ * The AWS Serverless Application Repository service encountered an internal error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
+ *
+ * The client is sending more than the allowed number of requests per unit of time.
  *
  * @throws {@link ServerlessApplicationRepositoryServiceException}
- * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * Base exception class for all service exceptions from ServerlessApplicationRepository service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetSubscriptionCommandInput extends GetSubscriptionInput {}
 export interface GetSubscriptionCommandOutput extends GetSubscriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of a flat-rate pricing subscription, including its current status, associated resources, and any pending scheduled changes.</p>
+ * Returns the details of a flat-rate pricing subscription, including its current status, associated resources, and any pending scheduled changes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,23 +70,28 @@ export interface GetSubscriptionCommandOutput extends GetSubscriptionOutput, __M
  * @see {@link PricingPlanManagerClientResolvedConfig | config} for PricingPlanManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.</p>
+ *
+ * You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred on the server. Retry the request.</p>
+ *
+ * An unexpected error occurred on the server. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.</p>
+ *
+ * The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeds the allowed limit. Wait briefly and retry the request.</p>
+ *
+ * The request rate exceeds the allowed limit. Wait briefly and retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.</p>
+ *
+ * The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.
  *
  * @throws {@link PricingPlanManagerServiceException}
- * <p>Base exception class for all service exceptions from PricingPlanManager service.</p>
  *
+ * Base exception class for all service exceptions from PricingPlanManager service.
  *
  * @example Get subscription details
  * ```javascript

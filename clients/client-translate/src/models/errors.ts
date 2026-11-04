@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { TranslateServiceException as __BaseException } from "./TranslateServiceException";
 
 /**
- * <p>Another modification is being made. That modification must complete before you can make
- *       your change.</p>
+ * Another modification is being made. That modification must complete before you can make your change.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -28,7 +28,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict processing the request. Try your request again.</p>
+ * There was a conflict processing the request. Try your request again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -51,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -74,8 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The value of the parameter is not valid. Review the value of the parameter you are using
- *       to correct it, and then retry your operation.</p>
+ * The value of the parameter is not valid. Review the value of the parameter you are using to correct it, and then retry your operation.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -98,8 +100,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p> The request that you made is not valid. Check your request to determine why it's not
- *       valid and then retry the request. </p>
+ * The request that you made is not valid. Check your request to determine why it's not valid and then retry the request.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -122,8 +124,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
- *       below the stated limit.</p>
+ * The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -146,8 +148,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -170,7 +172,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>You have added too many tags to this resource. The maximum is 50 tags.</p>
+ * You have added too many tags to this resource. The maximum is 50 tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -193,9 +196,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -218,7 +220,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Requested display language code is not supported.</p>
+ * Requested display language code is not supported.
+ *
  * @public
  */
 export class UnsupportedDisplayLanguageCodeException extends __BaseException {
@@ -227,7 +230,8 @@ export class UnsupportedDisplayLanguageCodeException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>Language code passed in with the request.</p>
+   * Language code passed in with the request.
+   *
    * @public
    */
   DisplayLanguageCode?: string | undefined;
@@ -247,7 +251,8 @@ export class UnsupportedDisplayLanguageCodeException extends __BaseException {
 }
 
 /**
- * <p>The filter specified for the operation is not valid. Specify a different filter.</p>
+ * The filter specified for the operation is not valid. Specify a different filter.
+ *
  * @public
  */
 export class InvalidFilterException extends __BaseException {
@@ -270,8 +275,8 @@ export class InvalidFilterException extends __BaseException {
 }
 
 /**
- * <p>Amazon Translate does not support translation from the language of the source text into the requested
- *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>. </p>
+ * Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see [Supported languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
+ *
  * @public
  */
 export class UnsupportedLanguagePairException extends __BaseException {
@@ -280,13 +285,15 @@ export class UnsupportedLanguagePairException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The language code for the language of the input text. </p>
+   * The language code for the language of the input text.
+   *
    * @public
    */
   SourceLanguageCode?: string | undefined;
 
   /**
-   * <p>The language code for the language of the translated text. </p>
+   * The language code for the language of the translated text.
+   *
    * @public
    */
   TargetLanguageCode?: string | undefined;
@@ -307,8 +314,8 @@ export class UnsupportedLanguagePairException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
- *       request.</p>
+ * The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your request.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -331,10 +338,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The confidence that Amazon Comprehend accurately detected the source language is low. If a
- *       low confidence level is acceptable for your application, you can use the language in the
- *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
- *         Guide</i>. </p>
+ * The confidence that Amazon Comprehend accurately detected the source language is low. If a low confidence level is acceptable for your application, you can use the language in the exception to call Amazon Translate again. For more information, see the [DetectDominantLanguage](https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html) operation in the *Amazon Comprehend Developer Guide*.
+ *
  * @public
  */
 export class DetectedLanguageLowConfidenceException extends __BaseException {
@@ -343,7 +348,8 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The language code of the auto-detected language from Amazon Comprehend.</p>
+   * The language code of the auto-detected language from Amazon Comprehend.
+   *
    * @public
    */
   DetectedLanguageCode?: string | undefined;
@@ -363,8 +369,8 @@ export class DetectedLanguageLowConfidenceException extends __BaseException {
 }
 
 /**
- * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
- *       use a smaller document and then retry your request. </p>
+ * The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request.
+ *
  * @public
  */
 export class TextSizeLimitExceededException extends __BaseException {

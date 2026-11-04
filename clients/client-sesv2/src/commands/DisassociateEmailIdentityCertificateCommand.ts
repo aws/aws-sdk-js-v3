@@ -26,15 +26,12 @@ export interface DisassociateEmailIdentityCertificateCommandInput extends Disass
 export interface DisassociateEmailIdentityCertificateCommandOutput extends DisassociateEmailIdentityCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the association between an S/MIME certificate and an email identity. After the
- *             association is removed, Amazon SES API v2 stops adding an S/MIME signature to messages sent from
- *             that address.</p>
- *          <p>If the email identity is a domain, specify the <code>FromAddress</code> whose
- *             certificate association you want to remove.</p>
- *          <p>This operation is idempotent. If the specified email identity exists but there's no
- *             matching certificate association, the operation succeeds without making any changes.
- *             Amazon SES API v2 returns a <code>NotFoundException</code> only when the specified email identity
- *             doesn't exist.</p>
+ * Removes the association between an S/MIME certificate and an email identity. After the association is removed, Amazon SES API v2 stops adding an S/MIME signature to messages sent from that address.
+ *
+ * If the email identity is a domain, specify the `FromAddress` whose certificate association you want to remove.
+ *
+ * This operation is idempotent. If the specified email identity exists but there's no matching certificate association, the operation succeeds without making any changes. Amazon SES API v2 returns a `NotFoundException` only when the specified email identity doesn't exist.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +57,20 @@ export interface DisassociateEmailIdentityCertificateCommandOutput extends Disas
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

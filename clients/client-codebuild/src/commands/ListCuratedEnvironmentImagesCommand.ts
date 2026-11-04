@@ -23,7 +23,8 @@ export interface ListCuratedEnvironmentImagesCommandInput extends ListCuratedEnv
 export interface ListCuratedEnvironmentImagesCommandOutput extends ListCuratedEnvironmentImagesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about Docker images that are managed by CodeBuild.</p>
+ * Gets information about Docker images that are managed by CodeBuild.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface ListCuratedEnvironmentImagesCommandOutput extends ListCuratedEn
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

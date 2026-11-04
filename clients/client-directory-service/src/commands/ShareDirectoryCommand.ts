@@ -23,19 +23,14 @@ export interface ShareDirectoryCommandInput extends ShareDirectoryRequest {}
 export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Shares a specified directory (<code>DirectoryId</code>) in your Amazon Web Services account (directory
- *       owner) with another Amazon Web Services account (directory consumer). With this operation you can use your
- *       directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.</p>
- *          <p>When you share your Managed Microsoft AD directory, Directory Service creates a shared directory in the
- *       directory consumer account. This shared directory contains the metadata to provide access to
- *       the directory within the directory owner account. The shared directory is visible in all VPCs
- *       in the directory consumer account.</p>
- *          <p>The <code>ShareMethod</code> parameter determines whether the specified directory can be
- *       shared between Amazon Web Services accounts inside the same Amazon Web Services organization (<code>ORGANIZATIONS</code>).
- *       It also determines whether you can share the directory with any other Amazon Web Services account either
- *       inside or outside of the organization (<code>HANDSHAKE</code>).</p>
- *          <p>The <code>ShareNotes</code> parameter is only used when <code>HANDSHAKE</code> is called,
- *       which sends a directory sharing request to the directory consumer. </p>
+ * Shares a specified directory (`DirectoryId`) in your Amazon Web Services account (directory owner) with another Amazon Web Services account (directory consumer). With this operation you can use your directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.
+ *
+ * When you share your Managed Microsoft AD directory, Directory Service creates a shared directory in the directory consumer account. This shared directory contains the metadata to provide access to the directory within the directory owner account. The shared directory is visible in all VPCs in the directory consumer account.
+ *
+ * The `ShareMethod` parameter determines whether the specified directory can be shared between Amazon Web Services accounts inside the same Amazon Web Services organization (`ORGANIZATIONS`). It also determines whether you can share the directory with any other Amazon Web Services account either inside or outside of the organization (`HANDSHAKE`).
+ *
+ * The `ShareNotes` parameter is only used when `HANDSHAKE` is called, which sends a directory sharing request to the directory consumer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,39 +63,48 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryAlreadySharedException} (client fault)
- *  <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+ *
+ * The specified directory has already been shared with this Amazon Web Services account.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link InvalidTargetException} (client fault)
- *  <p>The specified shared target is not valid.</p>
+ *
+ * The specified shared target is not valid.
  *
  * @throws {@link OrganizationsException} (client fault)
- *  <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
+ *
+ * Exception encountered while trying to access your Amazon Web Services organization.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link ShareLimitExceededException} (client fault)
- *  <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
- *             reached.</p>
+ *
+ * The maximum number of Amazon Web Services accounts that you can share with this directory has been reached.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

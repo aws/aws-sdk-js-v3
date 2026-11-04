@@ -23,7 +23,8 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon DocumentDB event notification subscription.</p>
+ * Deletes an Amazon DocumentDB event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,15 +66,16 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link InvalidEventSubscriptionStateFault} (client fault)
- *  <p>Someone else might be modifying a subscription. Wait a few seconds, and try
- *             again.</p>
+ *
+ * Someone else might be modifying a subscription. Wait a few seconds, and try again.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The subscription name does not exist. </p>
+ *
+ * The subscription name does not exist.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

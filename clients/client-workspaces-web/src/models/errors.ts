@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
 
 /**
- * <p>Access is denied.</p>
+ * Access is denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There is a conflict.</p>
+ * There is a conflict.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>There is an internal server error.</p>
+ * There is an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -70,7 +75,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
+   * Advice to clients on when the call can be safely retried.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -90,7 +96,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource cannot be found.</p>
+ * The resource cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -98,13 +105,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Hypothetical identifier of the resource affected.</p>
+   * Hypothetical identifier of the resource affected.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>Hypothetical type of the resource affected.</p>
+   * Hypothetical type of the resource affected.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -125,7 +134,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There is a throttling error.</p>
+ * There is a throttling error.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -133,19 +143,22 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The originating service.</p>
+   * The originating service.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The originating quota.</p>
+   * The originating quota.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>Advice to clients on when the call can be safely retried.</p>
+   * Advice to clients on when the call can be safely retried.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -167,7 +180,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>There is a validation error.</p>
+ * There is a validation error.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -175,13 +189,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Reason the request failed validation</p>
+   * Reason the request failed validation
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The field that caused the error.</p>
+   * The field that caused the error.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -202,7 +218,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The service quota has been exceeded.</p>
+ * The service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -210,25 +227,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p> Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The originating service.</p>
+   * The originating service.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The originating quota.</p>
+   * The originating quota.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -251,7 +272,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>There are too many tags.</p>
+ * There are too many tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -259,7 +281,8 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Name of the resource affected.</p>
+   * Name of the resource affected.
+   *
    * @public
    */
   resourceName?: string | undefined;

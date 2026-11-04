@@ -23,7 +23,8 @@ export interface DeleteScopeCommandInput extends DeleteScopeInput {}
 export interface DeleteScopeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified scope.</p>
+ * Deletes the specified scope.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +49,28 @@ export interface DeleteScopeCommandOutput extends __MetadataBearer {}
  * @see {@link NetworkSecurityManagerClientResolvedConfig | config} for NetworkSecurityManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. For example, the resource was modified concurrently, or it is in a state that does not allow the requested operation.</p>
+ *
+ * The request conflicts with the current state of the resource. For example, the resource was modified concurrently, or it is in a state that does not allow the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an internal error in the service. This is a retryable error.</p>
+ *
+ * The request processing failed because of an internal error in the service. This is a retryable error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>
+ *
+ * The request was denied because of request throttling. Reduce your request rate and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. For details, see the <code>reason</code> and <code>fieldList</code> members of the response.</p>
+ *
+ * The request failed validation. For details, see the `reason` and `fieldList` members of the response.
  *
  * @throws {@link NetworkSecurityManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkSecurityManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkSecurityManager service.
  *
  * @example Delete a scope
  * ```javascript

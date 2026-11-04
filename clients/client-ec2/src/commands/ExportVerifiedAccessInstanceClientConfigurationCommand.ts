@@ -26,7 +26,8 @@ export interface ExportVerifiedAccessInstanceClientConfigurationCommandInput ext
 export interface ExportVerifiedAccessInstanceClientConfigurationCommandOutput extends ExportVerifiedAccessInstanceClientConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Exports the client configuration for a Verified Access instance.</p>
+ * Exports the client configuration for a Verified Access instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +82,8 @@ export interface ExportVerifiedAccessInstanceClientConfigurationCommandOutput ex
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

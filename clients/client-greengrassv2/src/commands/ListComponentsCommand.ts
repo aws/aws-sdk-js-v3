@@ -23,8 +23,8 @@ export interface ListComponentsCommandInput extends ListComponentsRequest {}
 export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of component summaries. This list includes components that you
- *       have permission to view.</p>
+ * Retrieves a paginated list of component summaries. This list includes components that you have permission to view.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,25 +74,28 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *
+ * You don't have permission to perform the action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

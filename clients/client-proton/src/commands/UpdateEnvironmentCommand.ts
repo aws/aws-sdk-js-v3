@@ -23,60 +23,41 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Update an environment.</p>
- *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
- *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
- *          <p>You can only update to a new environment account connection if that connection was created in the same environment account that the current
- *       environment account connection was created in. The account connection must also be associated with the current environment.</p>
- *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include the
- *         <code>environmentAccountConnectionId</code> parameter. You <i>can't</i> update or connect the environment to an environment account
- *       connection if it <i>isn't</i> already associated with an environment connection.</p>
- *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t update
- *       both.</p>
- *          <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p>
- *          <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the
- *         <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
- *         Guide</i>.</p>
- *          <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>
- *          <dl>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>NONE</code>
- *                </p>
- *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested metadata parameters are updated.</p>
- *             </dd>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>CURRENT_VERSION</code>
- *                </p>
- *                <p>In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated.
- *               <i>Don’t</i> include minor or major version parameters when you use this <code>deployment-type</code>.</p>
- *             </dd>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>MINOR_VERSION</code>
- *                </p>
- *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version in
- *             use, by default. You can also specify a different minor version of the current major version in use.</p>
- *             </dd>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>MAJOR_VERSION</code>
- *                </p>
- *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template,
- *             by default. You can also specify a different major version that's higher than the major version in use and a minor version.</p>
- *             </dd>
- *          </dl>
+ * Update an environment.
  *
- * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
- * @example
- * Use a bare-bones client and the command you need to make an API call.
- * ```javascript
+ * If the environment is associated with an environment account connection, *don't* update or include the `protonServiceRoleArn` and `provisioningRepository` parameter to update or connect to an environment account connection.
+ *
+ * You can only update to a new environment account connection if that connection was created in the same environment account that the current environment account connection was created in. The account connection must also be associated with the current environment.
+ *
+ * If the environment *isn't* associated with an environment account connection, *don't* update or include the `environmentAccountConnectionId` parameter. You *can't* update or connect the environment to an environment account connection if it *isn't* already associated with an environment connection.
+ *
+ * You can update either the `environmentAccountConnectionId` or `protonServiceRoleArn` parameter and value. You can’t update both.
+ *
+ * If the environment was configured for Amazon Web Services-managed provisioning, omit the `provisioningRepository` parameter.
+ *
+ * If the environment was configured for self-managed provisioning, specify the `provisioningRepository` parameter and omit the `protonServiceRoleArn` and `environmentAccountConnectionId` parameters.
+ *
+ * For more information, see [Environments](https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html) and [Provisioning methods](https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html) in the *Proton User Guide*.
+ *
+ * There are four modes for updating an environment. The `deploymentType` field defines the mode.
+ *
+ * - **`NONE`
+ *
+ *   In this mode, a deployment *doesn't* occur. Only the requested metadata parameters are updated.
+ *
+ * - **`CURRENT_VERSION`
+ *
+ *   In this mode, the environment is deployed and updated with the new spec that you provide. Only requested parameters are updated. *Don’t* include minor or major version parameters when you use this `deployment-type`.
+ *
+ * - **`MINOR_VERSION`
+ *
+ *   In this mode, the environment is deployed and updated with the published, recommended (latest) minor version of the current major version in use, by default. You can also specify a different minor version of the current major version in use.
+ *
+ * - **`MAJOR_VERSION`
+ *
+ *   In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template, by default. You can also specify a different major version that's higher than the major version in use and a minor version.
+ *
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers. @example Use a bare-bones client and the command you need to make an API call.********```javascript
  * import { ProtonClient, UpdateEnvironmentCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
@@ -141,26 +122,32 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

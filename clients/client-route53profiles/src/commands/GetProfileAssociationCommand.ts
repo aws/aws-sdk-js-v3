@@ -23,9 +23,8 @@ export interface GetProfileAssociationCommandInput extends GetProfileAssociation
 export interface GetProfileAssociationCommandOutput extends GetProfileAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Retrieves a Route 53 Profile association for a VPC. A VPC can have only one Profile association, but a Profile can be associated with up to 5000 VPCs.
- * </p>
+ * Retrieves a Route 53 Profile association for a VPC. A VPC can have only one Profile association, but a Profile can be associated with up to 5000 VPCs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,28 +61,24 @@ export interface GetProfileAssociationCommandOutput extends GetProfileAssociatio
  * @see {@link Route53ProfilesClientResolvedConfig | config} for Route53ProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
+ *
  * The resource you are associating is not found.
- * </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *   You have provided an invalid command.
- * </p>
+ *
+ * You have provided an invalid command.
  *
  * @throws {@link Route53ProfilesServiceException}
- * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ * Base exception class for all service exceptions from Route53Profiles service.
  *
  * @public
  */

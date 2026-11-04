@@ -23,7 +23,8 @@ export interface DescribeCustomRoutingListenerCommandInput extends DescribeCusto
 export interface DescribeCustomRoutingListenerCommandOutput extends DescribeCustomRoutingListenerResponse, __MetadataBearer {}
 
 /**
- * <p>The description of a listener for a custom routing accelerator.</p>
+ * The description of a listener for a custom routing accelerator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface DescribeCustomRoutingListenerCommandOutput extends DescribeCust
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The listener that you specified doesn't exist.</p>
+ *
+ * The listener that you specified doesn't exist.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

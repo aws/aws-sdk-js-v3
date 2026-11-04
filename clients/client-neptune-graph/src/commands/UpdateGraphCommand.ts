@@ -23,7 +23,8 @@ export interface UpdateGraphCommandInput extends UpdateGraphInput {}
 export interface UpdateGraphCommandOutput extends UpdateGraphOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a specified Neptune Analytics graph</p>
+ * Updates the configuration of a specified Neptune Analytics graph
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,23 +70,28 @@ export interface UpdateGraphCommandOutput extends UpdateGraphOutput, __MetadataB
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Raised when a conflict is encountered.</p>
+ *
+ * Raised when a conflict is encountered.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be located.</p>
+ *
+ * A specified resource could not be located.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

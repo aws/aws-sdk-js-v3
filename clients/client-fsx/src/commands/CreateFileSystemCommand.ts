@@ -23,52 +23,22 @@ export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
 export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new, empty Amazon FSx file system. You can create the following supported
- *         Amazon FSx file systems using the <code>CreateFileSystem</code> API operation:</p>
- *          <ul>
- *             <li>
- *                <p>Amazon FSx for Lustre</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for NetApp ONTAP</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for OpenZFS</p>
- *             </li>
- *             <li>
- *                <p>Amazon FSx for Windows File Server</p>
- *             </li>
- *          </ul>
- *          <p>This operation requires a client request token in the request that Amazon FSx uses
- *             to ensure idempotent creation. This means that calling the operation multiple times with
- *             the same client request token has no effect. By using the idempotent operation, you can
- *             retry a <code>CreateFileSystem</code> operation without the risk of creating an extra
- *             file system. This approach can be useful when an initial call fails in a way that makes
- *             it unclear whether a file system was created. Examples are if a transport level timeout
- *             occurred, or your connection was reset. If you use the same client request token and the
- *             initial call created a file system, the client receives success as long as the
- *             parameters are the same.</p>
- *          <p>If a file system with the specified client request token exists and the parameters
- *             match, <code>CreateFileSystem</code> returns the description of the existing file
- *             system. If a file system with the specified client request token exists and the
- *             parameters don't match, this call returns <code>IncompatibleParameterError</code>. If a
- *             file system with the specified client request token doesn't exist,
- *                 <code>CreateFileSystem</code> does the following:</p>
- *          <ul>
- *             <li>
- *                <p>Creates a new, empty Amazon FSx file system with an assigned ID, and
- *                     an initial lifecycle state of <code>CREATING</code>.</p>
- *             </li>
- *             <li>
- *                <p>Returns the description of the file system in JSON format.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The <code>CreateFileSystem</code> call returns while the file system's lifecycle
- *                 state is still <code>CREATING</code>. You can check the file-system creation status
- *                 by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a> operation, which returns the file system state
- *                 along with other information.</p>
- *          </note>
+ * Creates a new, empty Amazon FSx file system. You can create the following supported Amazon FSx file systems using the `CreateFileSystem` API operation:
+ *
+ * - Amazon FSx for Lustre
+ * - Amazon FSx for NetApp ONTAP
+ * - Amazon FSx for OpenZFS
+ * - Amazon FSx for Windows File Server
+ *
+ * This operation requires a client request token in the request that Amazon FSx uses to ensure idempotent creation. This means that calling the operation multiple times with the same client request token has no effect. By using the idempotent operation, you can retry a `CreateFileSystem` operation without the risk of creating an extra file system. This approach can be useful when an initial call fails in a way that makes it unclear whether a file system was created. Examples are if a transport level timeout occurred, or your connection was reset. If you use the same client request token and the initial call created a file system, the client receives success as long as the parameters are the same.
+ *
+ * If a file system with the specified client request token exists and the parameters match, `CreateFileSystem` returns the description of the existing file system. If a file system with the specified client request token exists and the parameters don't match, this call returns `IncompatibleParameterError`. If a file system with the specified client request token doesn't exist, `CreateFileSystem` does the following:
+ *
+ * - Creates a new, empty Amazon FSx file system with an assigned ID, and an initial lifecycle state of `CREATING`.
+ * - Returns the description of the file system in JSON format.
+ *
+ * > **Note:** The `CreateFileSystem` call returns while the file system's lifecycle state is still `CREATING`. You can check the file-system creation status by calling the [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) operation, which returns the file system state along with other information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -864,41 +834,48 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link ActiveDirectoryError} (client fault)
- *  <p>An Active Directory error.</p>
+ *
+ * An Active Directory error.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link InvalidExportPath} (client fault)
- *  <p>The path provided for data repository export isn't valid.</p>
+ *
+ * The path provided for data repository export isn't valid.
  *
  * @throws {@link InvalidImportPath} (client fault)
- *  <p>The path provided for data repository import isn't valid.</p>
+ *
+ * The path provided for data repository import isn't valid.
  *
  * @throws {@link InvalidNetworkSettings} (client fault)
- *  <p>One or more network settings specified in the request are invalid.</p>
+ *
+ * One or more network settings specified in the request are invalid.
  *
  * @throws {@link InvalidPerUnitStorageThroughput} (client fault)
- *  <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+ *
+ * An invalid value for `PerUnitStorageThroughput` was provided. Please create your file system again, using a valid value.
  *
  * @throws {@link MissingFileSystemConfiguration} (client fault)
- *  <p>A file system configuration is required for this operation.</p>
+ *
+ * A file system configuration is required for this operation.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

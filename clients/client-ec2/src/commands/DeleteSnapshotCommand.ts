@@ -23,16 +23,14 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified snapshot.</p>
- *          <p>When you make periodic snapshots of a volume, the snapshots are incremental, and only the
- *       blocks on the device that have changed since your last snapshot are saved in the new snapshot.
- *       When you delete a snapshot, only the data not needed for any other snapshot is removed. So
- *       regardless of which prior snapshots have been deleted, all active snapshots will have access
- *       to all the information needed to restore the volume.</p>
- *          <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.
- *       You must first deregister the AMI before you can delete the snapshot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html">Delete an Amazon EBS snapshot</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Deletes the specified snapshot.
+ *
+ * When you make periodic snapshots of a volume, the snapshots are incremental, and only the blocks on the device that have changed since your last snapshot are saved in the new snapshot. When you delete a snapshot, only the data not needed for any other snapshot is removed. So regardless of which prior snapshots have been deleted, all active snapshots will have access to all the information needed to restore the volume.
+ *
+ * You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI. You must first deregister the AMI before you can delete the snapshot.
+ *
+ * For more information, see [Delete an Amazon EBS snapshot](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-snapshot.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +56,8 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a snapshot
  * ```javascript

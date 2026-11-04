@@ -23,7 +23,8 @@ export interface DeleteTargetDomainCommandInput extends DeleteTargetDomainInput 
 export interface DeleteTargetDomainCommandOutput extends DeleteTargetDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a target domain registration. After deletion, the domain can no longer be used for penetration testing.</p>
+ * Deletes a target domain registration. After deletion, the domain can no longer be used for penetration testing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +51,8 @@ export interface DeleteTargetDomainCommandOutput extends DeleteTargetDomainOutpu
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

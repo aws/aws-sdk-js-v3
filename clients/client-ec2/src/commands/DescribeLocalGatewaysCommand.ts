@@ -23,8 +23,8 @@ export interface DescribeLocalGatewaysCommandInput extends DescribeLocalGateways
 export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGatewaysResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more local gateways. By default, all local gateways are described.
- *         Alternatively, you can filter the results.</p>
+ * Describes one or more local gateways. By default, all local gateways are described. Alternatively, you can filter the results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +78,8 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

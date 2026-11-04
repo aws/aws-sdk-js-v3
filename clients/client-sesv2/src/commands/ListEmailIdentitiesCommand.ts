@@ -23,10 +23,8 @@ export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequ
 export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all of the email identities that are associated with your Amazon Web Services
- *             account. An identity can be either an email address or a domain. This operation returns
- *             identities that are verified as well as those that aren't. This operation returns
- *             identities that are associated with Amazon SES and Amazon Pinpoint.</p>
+ * Returns a list of all of the email identities that are associated with your Amazon Web Services account. An identity can be either an email address or a domain. This operation returns identities that are verified as well as those that aren't. This operation returns identities that are associated with Amazon SES and Amazon Pinpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +63,16 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

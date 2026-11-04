@@ -26,7 +26,8 @@ export interface DeleteIpamInternetRegistryAssociationCommandInput extends Delet
 export interface DeleteIpamInternetRegistryAssociationCommandOutput extends DeleteIpamInternetRegistryAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an IPAM internet registry association. Before deleting, you must remove all routing policy registrations associated with the internet registry.</p>
+ * Deletes an IPAM internet registry association. Before deleting, you must remove all routing policy registrations associated with the internet registry.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +73,8 @@ export interface DeleteIpamInternetRegistryAssociationCommandOutput extends Dele
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

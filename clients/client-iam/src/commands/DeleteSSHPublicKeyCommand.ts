@@ -23,11 +23,10 @@ export interface DeleteSSHPublicKeyCommandInput extends DeleteSSHPublicKeyReques
 export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified SSH public key.</p>
- *          <p>The SSH public key deleted by this operation is used only for authenticating the
- *             associated IAM user to an CodeCommit repository. For more information about using SSH keys
- *             to authenticate to an CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up CodeCommit for
- *                 SSH connections</a> in the <i>CodeCommit User Guide</i>.</p>
+ * Deletes the specified SSH public key.
+ *
+ * The SSH public key deleted by this operation is used only for authenticating the associated IAM user to an CodeCommit repository. For more information about using SSH keys to authenticate to an CodeCommit repository, see [Set up CodeCommit for SSH connections](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html) in the *CodeCommit User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,12 +52,12 @@ export interface DeleteSSHPublicKeyCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

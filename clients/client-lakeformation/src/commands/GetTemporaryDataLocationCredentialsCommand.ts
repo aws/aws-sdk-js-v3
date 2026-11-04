@@ -26,30 +26,19 @@ export interface GetTemporaryDataLocationCredentialsCommandInput extends GetTemp
 export interface GetTemporaryDataLocationCredentialsCommandOutput extends GetTemporaryDataLocationCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Allows a user or application in a secure environment to access data in a specific Amazon S3 location registered with Lake Formation by providing temporary scoped credentials that are limited to the requested data location and
- *       the caller's authorized access level.</p>
- *          <p>
- *             <code>GetDataAccess</code> is logged in CloudTrail whenever a principal requests temporary data location credentials to access data in a data lake location that is registered with Lake Formation.</p>
- *          <p> The API operation returns an error in the following scenarios:</p>
- *          <ul>
- *             <li>
- *                <p>The data location is not registered with Lake Formation. </p>
- *             </li>
- *             <li>
- *                <p>No Glue table is associated with the data location.</p>
- *             </li>
- *             <li>
- *                <p>The caller doesn't have required permissions on the associated table. The caller must have
- *             <code>SELECT</code> or <code>SUPER</code> permissions on the associated table, and
- *           credential vending for full table access must be enabled in the data lake settings. </p>
- *                <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/full-table-credential-vending.html">Application integration for full table access</a>.</p>
- *             </li>
- *             <li>
- *                <p>The data location is in a different Amazon Web Services Region. Lake Formation doesn't
- *           support cross-Region access when vending credentials for a data location. Lake Formation only supports Amazon S3 paths registered within the same Region as the API
- *           call. </p>
- *             </li>
- *          </ul>
+ * Allows a user or application in a secure environment to access data in a specific Amazon S3 location registered with Lake Formation by providing temporary scoped credentials that are limited to the requested data location and the caller's authorized access level.
+ *
+ * `GetDataAccess` is logged in CloudTrail whenever a principal requests temporary data location credentials to access data in a data lake location that is registered with Lake Formation.
+ *
+ * The API operation returns an error in the following scenarios:
+ *
+ * - The data location is not registered with Lake Formation.
+ * - No Glue table is associated with the data location.
+ * - The caller doesn't have required permissions on the associated table. The caller must have `SELECT` or `SUPER` permissions on the associated table, and credential vending for full table access must be enabled in the data lake settings.
+ *
+ *   For more information, see [Application integration for full table access](https://docs.aws.amazon.com/lake-formation/latest/dg/full-table-credential-vending.html).
+ * - The data location is in a different Amazon Web Services Region. Lake Formation doesn't support cross-Region access when vending credentials for a data location. Lake Formation only supports Amazon S3 paths registered within the same Region as the API call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,29 +81,36 @@ export interface GetTemporaryDataLocationCredentialsCommandOutput extends GetTem
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Multiple resources exist with the same Amazon S3 location</p>
+ *
+ * Multiple resources exist with the same Amazon S3 location
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link GlueEncryptionException} (client fault)
- *  <p>An encryption operation failed.</p>
+ *
+ * An encryption operation failed.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

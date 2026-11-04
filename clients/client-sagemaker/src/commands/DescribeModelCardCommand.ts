@@ -23,7 +23,10 @@ export interface DescribeModelCardCommandInput extends DescribeModelCardRequest 
 export interface DescribeModelCardCommandOutput extends DescribeModelCardResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.</p> <important> <p>To retrieve only metadata about a model card without requiring <code>kms:Decrypt</code> permission on the associated customer-managed Amazon Web Services KMS key, set <code>IncludedData</code> to <code>MetadataOnly</code>. The default is <code>AllData</code>, which returns the full model card <code>Content</code> and requires <code>kms:Decrypt</code> permission when a customer-managed key is configured.</p> </important>
+ * Describes the content, creation time, and security configuration of an Amazon SageMaker Model Card.
+ *
+ * > **Important:** To retrieve only metadata about a model card without requiring `kms:Decrypt` permission on the associated customer-managed Amazon Web Services KMS key, set `IncludedData` to `MetadataOnly`. The default is `AllData`, which returns the full model card `Content` and requires `kms:Decrypt` permission when a customer-managed key is configured.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +85,12 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

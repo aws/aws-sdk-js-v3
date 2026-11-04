@@ -23,16 +23,12 @@ export interface CreateLocationFsxOpenZfsCommandInput extends CreateLocationFsxO
 export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an Amazon FSx for OpenZFS file
- *       system. DataSync can use this location as a source or destination for
- *       transferring data.</p>
- *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access">accesses
- *           FSx for OpenZFS file systems</a>.</p>
- *          <note>
- *             <p>Request parameters related to <code>SMB</code> aren't supported with the
- *           <code>CreateLocationFsxOpenZfs</code> operation.</p>
- *          </note>
+ * Creates a transfer *location* for an Amazon FSx for OpenZFS file system. DataSync can use this location as a source or destination for transferring data.
+ *
+ * Before you begin, make sure that you understand how DataSync [accesses FSx for OpenZFS file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html#create-openzfs-access).
+ *
+ * > **Note:** Request parameters related to `SMB` aren't supported with the `CreateLocationFsxOpenZfs` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,15 +91,16 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

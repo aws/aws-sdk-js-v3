@@ -315,7 +315,8 @@ export type PcaConnectorScepClientResolvedConfigType = __SmithyResolvedConfigura
 export interface PcaConnectorScepClientResolvedConfig extends PcaConnectorScepClientResolvedConfigType {}
 
 /**
- * <p>Connector for SCEP creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep.html">Connector for SCEP</a> in the <i>Amazon Web Services Private CA User Guide</i>.</p>
+ * Connector for SCEP creates a connector between Amazon Web Services Private CA and your SCEP-enabled clients and devices. For more information, see [Connector for SCEP](https://docs.aws.amazon.com/privateca/latest/userguide/scep-connector.htmlconnector-for-scep.html) in the *Amazon Web Services Private CA User Guide*.
+ *
  * @public
  */
 export class PcaConnectorScepClient extends __Client<

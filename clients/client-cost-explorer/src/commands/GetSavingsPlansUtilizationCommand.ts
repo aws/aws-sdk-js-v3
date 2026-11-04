@@ -23,14 +23,10 @@ export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansU
 export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
- *       monthly granularity. Management account in an organization have access to member accounts. You
- *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
- *       possible dimension values.</p>
- *          <note>
- *             <p>You can't group by any dimension values for
- *         <code>GetSavingsPlansUtilization</code>.</p>
- *          </note>
+ * Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use `GetDimensionValues` in `SAVINGS_PLANS` to determine the possible dimension values.
+ *
+ * > **Note:** You can't group by any dimension values for `GetSavingsPlansUtilization`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,14 +181,16 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

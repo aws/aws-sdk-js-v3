@@ -26,50 +26,25 @@ export interface CreateMacSystemIntegrityProtectionModificationTaskCommandInput 
 export interface CreateMacSystemIntegrityProtectionModificationTaskCommandOutput extends CreateMacSystemIntegrityProtectionModificationTaskResult, __MetadataBearer {}
 
 /**
- * <p>Creates a System Integrity Protection (SIP) modification task to configure the SIP settings
- *          for an x86 Mac instance or Apple silicon Mac instance. For more information, see
- *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure">
- *             Configure SIP for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you configure the SIP settings for your instance, you can either enable
- *          or disable all SIP settings, or you can specify a custom SIP configuration that
- *          selectively enables or disables specific SIP settings.</p>
- *          <note>
- *             <p>If you implement a custom configuration, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-check-settings">
- *                connect to the instance and verify the settings</a> to ensure that your
- *             requirements are properly implemented and functioning as intended.</p>
- *             <p>SIP configurations might change with macOS updates. We recommend that you
- *             review custom SIP settings after any macOS version upgrade to ensure
- *             continued compatibility and proper functionality of your security configurations.</p>
- *          </note>
- *          <p>To enable or disable all SIP settings, use the <b>MacSystemIntegrityProtectionStatus</b>
- *          parameter only. For example, to enable all SIP settings, specify the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>MacSystemIntegrityProtectionStatus=enabled</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>To specify a custom configuration that selectively enables or disables specific SIP
- *          settings, use the <b>MacSystemIntegrityProtectionStatus</b>
- *          parameter to enable or disable all SIP settings, and then use the
- *          <b>MacSystemIntegrityProtectionConfiguration</b> parameter
- *          to specify exceptions. In this case, the exceptions you specify for <b>MacSystemIntegrityProtectionConfiguration</b> override the value
- *          you specify for <b>MacSystemIntegrityProtectionStatus</b>.
- *          For example, to enable all SIP settings, except <code>NvramProtections</code>,
- *          specify the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>MacSystemIntegrityProtectionStatus=enabled</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MacSystemIntegrityProtectionConfigurationRequest "NvramProtections=disabled"</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates a System Integrity Protection (SIP) modification task to configure the SIP settings for an x86 Mac instance or Apple silicon Mac instance. For more information, see [Configure SIP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure) in the *Amazon EC2 User Guide*.
+ *
+ * When you configure the SIP settings for your instance, you can either enable or disable all SIP settings, or you can specify a custom SIP configuration that selectively enables or disables specific SIP settings.
+ *
+ * > **Note:**
+ * >
+ * > If you implement a custom configuration, [connect to the instance and verify the settings](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-check-settings) to ensure that your requirements are properly implemented and functioning as intended.
+ * >
+ * > SIP configurations might change with macOS updates. We recommend that you review custom SIP settings after any macOS version upgrade to ensure continued compatibility and proper functionality of your security configurations.
+ *
+ * To enable or disable all SIP settings, use the **MacSystemIntegrityProtectionStatus** parameter only. For example, to enable all SIP settings, specify the following:
+ *
+ * - `MacSystemIntegrityProtectionStatus=enabled`
+ *
+ * To specify a custom configuration that selectively enables or disables specific SIP settings, use the **MacSystemIntegrityProtectionStatus** parameter to enable or disable all SIP settings, and then use the **MacSystemIntegrityProtectionConfiguration** parameter to specify exceptions. In this case, the exceptions you specify for **MacSystemIntegrityProtectionConfiguration** override the value you specify for **MacSystemIntegrityProtectionStatus**. For example, to enable all SIP settings, except `NvramProtections`, specify the following:
+ *
+ * - `MacSystemIntegrityProtectionStatus=enabled`
+ * - `MacSystemIntegrityProtectionConfigurationRequest "NvramProtections=disabled"`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,8 +117,8 @@ export interface CreateMacSystemIntegrityProtectionModificationTaskCommandOutput
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

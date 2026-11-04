@@ -23,49 +23,16 @@ export interface SendEmailCommandInput extends SendEmailRequest {}
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Composes an email message and immediately queues it for sending. To send email using
- *             this operation, your message must meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>The message must be sent from a verified email address or domain. If you
- *                     attempt to send email using a non-verified address or domain, the operation
- *                     results in an "Email address not verified" error. </p>
- *             </li>
- *             <li>
- *                <p>If your account is still in the Amazon SES sandbox, you may only send to verified
- *                     addresses or domains, or to email addresses associated with the Amazon SES Mailbox
- *                     Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html">Verifying Email
- *                         Addresses and Domains</a> in the <i>Amazon SES Developer
- *                         Guide.</i>
- *                </p>
- *             </li>
- *             <li>
- *                <p>The maximum message size is 10 MB.</p>
- *             </li>
- *             <li>
- *                <p>The message must include at least one recipient email address. The recipient
- *                     address can be a To: address, a CC: address, or a BCC: address. If a recipient
- *                     email address is invalid (that is, it is not in the format
- *                         <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire
- *                     message is rejected, even if the message contains other recipients that are
- *                     valid.</p>
- *             </li>
- *             <li>
- *                <p>The message may not include more than 50 recipients, across the To:, CC: and
- *                     BCC: fields. If you need to send an email message to a larger audience, you can
- *                     divide your recipient list into groups of 50 or fewer, and then call the
- *                         <code>SendEmail</code> operation several times to send the message to each
- *                     group.</p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>For every message that you send, the total number of recipients (including each
- *                 recipient in the To:, CC: and BCC: fields) is counted against the maximum number of
- *                 emails you can send in a 24-hour period (your <i>sending quota</i>).
- *                 For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/dg/manage-sending-quotas.html">Managing Your Amazon SES Sending
- *                     Limits</a> in the <i>Amazon SES Developer Guide.</i>
- *             </p>
- *          </important>
+ * Composes an email message and immediately queues it for sending. To send email using this operation, your message must meet the following requirements:
+ *
+ * - The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation results in an "Email address not verified" error.
+ * - If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see [Verifying Email Addresses and Domains](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html) in the *Amazon SES Developer Guide.*
+ * - The maximum message size is 10 MB.
+ * - The message must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format *UserName@[SubDomain.]Domain.TopLevelDomain*), the entire message is rejected, even if the message contains other recipients that are valid.
+ * - The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the `SendEmail` operation several times to send the message to each group.
+ *
+ * > **Important:** For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your *sending quota*). For more information about sending quotas in Amazon SES, see [Managing Your Amazon SES Sending Limits](https://docs.aws.amazon.com/ses/latest/dg/manage-sending-quotas.html) in the *Amazon SES Developer Guide.*
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,29 +99,32 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link AccountSendingPausedException} (client fault)
- *  <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
- *          <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
+ *
+ * Indicates that email sending is disabled for your entire Amazon SES account.
+ *
+ * You can enable or disable email sending for your Amazon SES account using UpdateAccountSendingEnabled.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link ConfigurationSetSendingPausedException} (client fault)
- *  <p>Indicates that email sending is disabled for the configuration set.</p>
- *          <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+ *
+ * Indicates that email sending is disabled for the configuration set.
+ *
+ * You can enable or disable email sending for a configuration set using UpdateConfigurationSetSendingEnabled.
  *
  * @throws {@link MailFromDomainNotVerifiedException} (client fault)
- *  <p> Indicates that the message could not be sent because Amazon SES could not read the MX
- *             record required to use the specified MAIL FROM domain. For information about editing the
- *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
- *                 Guide</a>.</p>
+ *
+ * Indicates that the message could not be sent because Amazon SES could not read the MX record required to use the specified MAIL FROM domain. For information about editing the custom MAIL FROM domain settings for an identity, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html).
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>Indicates that the action failed, and the message could not be sent. Check the error
- *             stack for more information about what caused the error.</p>
+ *
+ * Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example SendEmail
  * ```javascript

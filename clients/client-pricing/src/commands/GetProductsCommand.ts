@@ -23,7 +23,8 @@ export interface GetProductsCommandInput extends GetProductsRequest {}
 export interface GetProductsCommandOutput extends GetProductsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all products that match the filter criteria.</p>
+ * Returns a list of all products that match the filter criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +65,36 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
+ * General authentication failure. The request wasn't signed correctly.
  *
  * @throws {@link ExpiredNextTokenException} (client fault)
- *  <p>The pagination token expired. Try again without a pagination token.</p>
+ *
+ * The pagination token expired. Try again without a pagination token.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters had an invalid value.</p>
+ *
+ * One or more parameters had an invalid value.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas. </p>
+ *
+ * You've made too many requests exceeding service quotas.
  *
  * @throws {@link PricingServiceException}
- * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * Base exception class for all service exceptions from Pricing service.
  *
  * @public
  */

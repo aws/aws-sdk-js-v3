@@ -23,9 +23,8 @@ export interface CreateUserGroupCommandInput extends CreateUserGroupMessage {}
 export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user group. For more
- *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
- *          </p>
+ * For Valkey engine version 7.2 onwards and Redis OSS 6.0 to 7.1: Creates a user group. For more information, see [Using Role Based Access Control (RBAC)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,34 +82,40 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link DefaultUserRequired} (client fault)
- *  <p>You must add default user to a user group.</p>
+ *
+ * You must add default user to a user group.
  *
  * @throws {@link DuplicateUserNameFault} (client fault)
- *  <p>A user with this username already exists.</p>
+ *
+ * A user with this username already exists.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link UserGroupAlreadyExistsFault} (client fault)
- *  <p>The user group with this ID already exists.</p>
+ *
+ * The user group with this ID already exists.
  *
  * @throws {@link UserGroupQuotaExceededFault} (client fault)
- *  <p>The number of users exceeds the user group limit.</p>
+ *
+ * The number of users exceeds the user group limit.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The user does not exist or could not be found.</p>
+ *
+ * The user does not exist or could not be found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

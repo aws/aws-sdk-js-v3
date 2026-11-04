@@ -26,7 +26,8 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandInput exten
 export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput extends DescribeLocalGatewayRouteTableVpcAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
+ * Describes the specified associations between VPCs and local gateway route tables.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +84,8 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput exte
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

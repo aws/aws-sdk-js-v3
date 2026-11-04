@@ -16,136 +16,148 @@ import type {
 } from "./enums";
 
 /**
- * <p>The properties of the Accessor.</p>
+ * The properties of the Accessor.
+ *
  * @public
  */
 export interface Accessor {
   /**
-   * <p>The unique identifier of the accessor.</p>
+   * The unique identifier of the accessor.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The type of the accessor.</p>
-   *          <note>
-   *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
-   *          </note>
+   * The type of the accessor.
+   *
+   * > **Note:** Currently, accessor type is restricted to `BILLING_TOKEN`.
+   *
    * @public
    */
   Type?: AccessorType | undefined;
 
   /**
-   * <p>The billing token is a property of the Accessor. Use this token to
-   *          when making calls to the blockchain network. The billing token is used
-   *          to track your accessor token for billing requests.</p>
+   * The billing token is a property of the Accessor. Use this token to when making calls to the blockchain network. The billing token is used to track your accessor token for billing requests.
+   *
    * @public
    */
   BillingToken?: string | undefined;
 
   /**
-   * <p>The current status of the accessor.</p>
+   * The current status of the accessor.
+   *
    * @public
    */
   Status?: AccessorStatus | undefined;
 
   /**
-   * <p>The creation date and time of the accessor.</p>
+   * The creation date and time of the accessor.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the accessor. For more information about
-   *          ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the accessor. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The tags assigned to the Accessor.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * The tags assigned to the Accessor.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The blockchain network that the Accessor token is created for.</p>
+   * The blockchain network that the Accessor token is created for.
+   *
    * @public
    */
   NetworkType?: AccessorNetworkType | undefined;
 }
 
 /**
- * <p>A summary of accessor properties.</p>
+ * A summary of accessor properties.
+ *
  * @public
  */
 export interface AccessorSummary {
   /**
-   * <p>The unique identifier of the accessor.</p>
+   * The unique identifier of the accessor.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The type of the accessor.</p>
-   *          <note>
-   *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
-   *          </note>
+   * The type of the accessor.
+   *
+   * > **Note:** Currently accessor type is restricted to `BILLING_TOKEN`.
+   *
    * @public
    */
   Type?: AccessorType | undefined;
 
   /**
-   * <p>The current status of the accessor.</p>
+   * The current status of the accessor.
+   *
    * @public
    */
   Status?: AccessorStatus | undefined;
 
   /**
-   * <p>The creation date and time of the accessor.</p>
+   * The creation date and time of the accessor.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the accessor. For more information about
-   *          ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource
-   *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the accessor. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The blockchain network that the Accessor token is created for.</p>
+   * The blockchain network that the Accessor token is created for.
+   *
    * @public
    */
   NetworkType?: AccessorNetworkType | undefined;
 }
 
 /**
- * <p>A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of <code>YES</code> votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * A policy type that defines the voting rules for the network. The rules decide if a proposal is approved. Approval may be based on criteria such as the percentage of `YES` votes and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface ApprovalThresholdPolicy {
   /**
-   * <p>The percentage of votes among all members that must be <code>YES</code> for a proposal to be approved. For example, a <code>ThresholdPercentage</code> value of <code>50</code> indicates 50%. The <code>ThresholdComparator</code> determines the precise comparison. If a <code>ThresholdPercentage</code> value of <code>50</code> is specified on a network with 10 members, along with a <code>ThresholdComparator</code> value of <code>GREATER_THAN</code>, this indicates that 6 <code>YES</code> votes are required for the proposal to be approved.</p>
+   * The percentage of votes among all members that must be `YES` for a proposal to be approved. For example, a `ThresholdPercentage` value of `50` indicates 50%. The `ThresholdComparator` determines the precise comparison. If a `ThresholdPercentage` value of `50` is specified on a network with 10 members, along with a `ThresholdComparator` value of `GREATER_THAN`, this indicates that 6 `YES` votes are required for the proposal to be approved.
+   *
    * @public
    */
   ThresholdPercentage?: number | undefined;
 
   /**
-   * <p>The duration from the time that a proposal is created until it expires. If members cast neither the required number of <code>YES</code> votes to approve the proposal nor the number of <code>NO</code> votes required to reject it before the duration expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> aren't carried out.</p>
+   * The duration from the time that a proposal is created until it expires. If members cast neither the required number of `YES` votes to approve the proposal nor the number of `NO` votes required to reject it before the duration expires, the proposal is `EXPIRED` and `ProposalActions` aren't carried out.
+   *
    * @public
    */
   ProposalDurationInHours?: number | undefined;
 
   /**
-   * <p>Determines whether the vote percentage must be greater than the
-   *             <code>ThresholdPercentage</code> or must be greater than or equal to the
-   *             <code>ThresholdPercentage</code> to be approved.</p>
+   * Determines whether the vote percentage must be greater than the `ThresholdPercentage` or must be greater than or equal to the `ThresholdPercentage` to be approved.
+   *
    * @public
    */
   ThresholdComparator?: ThresholdComparator | undefined;
@@ -156,68 +168,46 @@ export interface ApprovalThresholdPolicy {
  */
 export interface CreateAccessorInput {
   /**
-   * <p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of
-   *          the operation. An idempotent operation completes no more than once. This
-   *          identifier is required only if you make a service request directly using
-   *          an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the
-   *          Amazon Web Services CLI.</p>
+   * This is a unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the Amazon Web Services CLI.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The type of accessor.</p>
-   *          <note>
-   *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
-   *          </note>
+   * The type of accessor.
+   *
+   * > **Note:** Currently, accessor type is restricted to `BILLING_TOKEN`.
+   *
    * @public
    */
   AccessorType: AccessorType | undefined;
 
   /**
-   * <p>Tags to assign to the Accessor.</p>
-   *          <p> Each tag consists of a key and an optional value. You can specify
-   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
-   *           allowed per resource.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags to assign to the Accessor.
+   *
+   * Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>Use the actual <code>networkType</code> value for the blockchain network that you are creating
-   *             the <code>Accessor</code> token for.</p>
-   *                </li>
-   *                <li>
-   *                   <p>With the shut down of the <i>Ethereum Goerli</i> and <i>Polygon Mumbai
-   *             Testnet</i> networks the following <code>networkType</code> values are no longer available
-   *             for selection and use.</p>
-   *                   <ul>
-   *                      <li>
-   *                         <p>
-   *                            <code>ETHEREUM_MAINNET_AND_GOERLI</code>
-   *                         </p>
-   *                      </li>
-   *                      <li>
-   *                         <p>
-   *                            <code>ETHEREUM_GOERLI</code>
-   *                         </p>
-   *                      </li>
-   *                      <li>
-   *                         <p>
-   *                            <code>POLYGON_MUMBAI</code>
-   *                         </p>
-   *                      </li>
-   *                   </ul>
-   *                   <p>However, your existing <code>Accessor</code> tokens with these <code>networkType</code>
-   *                values will remain unchanged.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
+   * The blockchain network that the `Accessor` token is created for.
+   *
+   * > **Note:**
+   * >
+   * > - Use the actual `networkType` value for the blockchain network that you are creating the `Accessor` token for.
+   * > - With the shut down of the *Ethereum Goerli* and *Polygon Mumbai Testnet* networks the following `networkType` values are no longer available for selection and use.
+   * >
+   * >   - `ETHEREUM_MAINNET_AND_GOERLI`
+   * >   - `ETHEREUM_GOERLI`
+   * >   - `POLYGON_MUMBAI`
+   * >
+   * >   However, your existing `Accessor` tokens with these `networkType` values will remain unchanged.
+   *
    * @public
    */
   NetworkType?: AccessorNetworkType | undefined;
@@ -228,158 +218,177 @@ export interface CreateAccessorInput {
  */
 export interface CreateAccessorOutput {
   /**
-   * <p>The unique identifier of the accessor.</p>
+   * The unique identifier of the accessor.
+   *
    * @public
    */
   AccessorId?: string | undefined;
 
   /**
-   * <p>The billing token is a property of the Accessor. Use this token to
-   *          when making calls to the blockchain network. The billing token is used
-   *          to track your accessor token for billing requests.</p>
+   * The billing token is a property of the Accessor. Use this token to when making calls to the blockchain network. The billing token is used to track your accessor token for billing requests.
+   *
    * @public
    */
   BillingToken?: string | undefined;
 
   /**
-   * <p>The blockchain network that the accessor token is created for.</p>
+   * The blockchain network that the accessor token is created for.
+   *
    * @public
    */
   NetworkType?: AccessorNetworkType | undefined;
 }
 
 /**
- * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network that is using the Hyperledger Fabric framework.</p>
+ * Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network that is using the Hyperledger Fabric framework.
+ *
  * @public
  */
 export interface MemberFabricConfiguration {
   /**
-   * <p>The user name for the member's initial administrative user.</p>
+   * The user name for the member's initial administrative user.
+   *
    * @public
    */
   AdminUsername: string | undefined;
 
   /**
-   * <p>The password for the member's initial administrative user. The <code>AdminPassword</code> must be at least 8 characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.</p>
+   * The password for the member's initial administrative user. The `AdminPassword` must be at least 8 characters long and no more than 32 characters. It must contain at least one uppercase letter, one lowercase letter, and one digit. It cannot have a single quotation mark (‘), a double quotation marks (“), a forward slash(/), a backward slash(\), @, or a space.
+   *
    * @public
    */
   AdminPassword: string | undefined;
 }
 
 /**
- * <p>Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
+ * Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.
+ *
  * @public
  */
 export interface MemberFrameworkConfiguration {
   /**
-   * <p>Attributes of Hyperledger Fabric for a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>
+   * Attributes of Hyperledger Fabric for a member on a Managed Blockchain network that uses Hyperledger Fabric.
+   *
    * @public
    */
   Fabric?: MemberFabricConfiguration | undefined;
 }
 
 /**
- * <p>A configuration for logging events.</p>
+ * A configuration for logging events.
+ *
  * @public
  */
 export interface LogConfiguration {
   /**
-   * <p>Indicates whether logging is enabled.</p>
+   * Indicates whether logging is enabled.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>A collection of log configurations.</p>
+ * A collection of log configurations.
+ *
  * @public
  */
 export interface LogConfigurations {
   /**
-   * <p>Parameters for publishing logs to Amazon CloudWatch Logs.</p>
+   * Parameters for publishing logs to Amazon CloudWatch Logs.
+   *
    * @public
    */
   Cloudwatch?: LogConfiguration | undefined;
 }
 
 /**
- * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+ * Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.
+ *
  * @public
  */
 export interface MemberFabricLogPublishingConfiguration {
   /**
-   * <p>Configuration properties for logging events associated with a member's Certificate Authority (CA). CA logs help you determine when a member in your account joins the network, or when new peers register with a member CA.</p>
+   * Configuration properties for logging events associated with a member's Certificate Authority (CA). CA logs help you determine when a member in your account joins the network, or when new peers register with a member CA.
+   *
    * @public
    */
   CaLogs?: LogConfigurations | undefined;
 }
 
 /**
- * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
+ * Configuration properties for logging events associated with a member of a Managed Blockchain network.
+ *
  * @public
  */
 export interface MemberLogPublishingConfiguration {
   /**
-   * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+   * Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.
+   *
    * @public
    */
   Fabric?: MemberFabricLogPublishingConfiguration | undefined;
 }
 
 /**
- * <p>Configuration properties of the member.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Configuration properties of the member.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface MemberConfiguration {
   /**
-   * <p>The name of the member.</p>
+   * The name of the member.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>An optional description of the member.</p>
+   * An optional description of the member.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Configuration properties of the blockchain framework relevant to the member.</p>
+   * Configuration properties of the blockchain framework relevant to the member.
+   *
    * @public
    */
   FrameworkConfiguration: MemberFrameworkConfiguration | undefined;
 
   /**
-   * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
+   * Configuration properties for logging events associated with a member of a Managed Blockchain network.
+   *
    * @public
    */
   LogPublishingConfiguration?: MemberLogPublishingConfiguration | undefined;
 
   /**
-   * <p>Tags assigned to the member. Tags consist of a key and optional value. </p>
-   *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags assigned to the member. Tags consist of a key and optional value.
+   *
+   * When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) to use for encryption at rest in the member. This parameter is inherited by any nodes that this member creates. For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
-   *          <p>Use one of the following options to specify this parameter:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Undefined or empty string</b> - By default, use an KMS key that is owned and managed by Amazon Web Services on your behalf.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>A valid symmetric customer managed KMS key</b> - Use the specified KMS key in your account that you create, own, and manage.</p>
-   *                <p>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
-   *                <p>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) to use for encryption at rest in the member. This parameter is inherited by any nodes that this member creates. For more information, see [Encryption at Rest](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
+   * Use one of the following options to specify this parameter:
+   *
+   * - **Undefined or empty string** - By default, use an KMS key that is owned and managed by Amazon Web Services on your behalf.
+   * - **A valid symmetric customer managed KMS key** - Use the specified KMS key in your account that you create, own, and manage.
+   *
+   *   Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see [Using symmetric and asymmetric keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
+   *
+   *   The following is an example of a KMS key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
@@ -390,25 +399,29 @@ export interface MemberConfiguration {
  */
 export interface CreateMemberInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the invitation that is sent to the member to join the network.</p>
+   * The unique identifier of the invitation that is sent to the member to join the network.
+   *
    * @public
    */
   InvitationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the network in which the member is created.</p>
+   * The unique identifier of the network in which the member is created.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>Member configuration parameters.</p>
+   * Member configuration parameters.
+   *
    * @public
    */
   MemberConfiguration: MemberConfiguration | undefined;
@@ -419,50 +432,52 @@ export interface CreateMemberInput {
  */
 export interface CreateMemberOutput {
   /**
-   * <p>The unique identifier of the member.</p>
+   * The unique identifier of the member.
+   *
    * @public
    */
   MemberId?: string | undefined;
 }
 
 /**
- * <p>Hyperledger Fabric configuration properties for the network.</p>
+ * Hyperledger Fabric configuration properties for the network.
+ *
  * @public
  */
 export interface NetworkFabricConfiguration {
   /**
-   * <p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
+   * The edition of Amazon Managed Blockchain that the network uses. For more information, see [Amazon Managed Blockchain Pricing](http://aws.amazon.com/managed-blockchain/pricing/).
+   *
    * @public
    */
   Edition: Edition | undefined;
 }
 
 /**
- * <p>
- *          Configuration properties relevant to the network for the blockchain framework that the network uses.
- *       </p>
+ * Configuration properties relevant to the network for the blockchain framework that the network uses.
+ *
  * @public
  */
 export interface NetworkFrameworkConfiguration {
   /**
-   * <p>
-   *          Hyperledger Fabric configuration properties for a Managed Blockchain network that uses Hyperledger Fabric.
-   *       </p>
+   * Hyperledger Fabric configuration properties for a Managed Blockchain network that uses Hyperledger Fabric.
+   *
    * @public
    */
   Fabric?: NetworkFabricConfiguration | undefined;
 }
 
 /**
- * <p>
- *          The voting rules for the network to decide if a proposal is accepted
- *       </p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * The voting rules for the network to decide if a proposal is accepted
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface VotingPolicy {
   /**
-   * <p>Defines the rules for the network for voting on proposals, such as the percentage of <code>YES</code> votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
+   * Defines the rules for the network for voting on proposals, such as the percentage of `YES` votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.
+   *
    * @public
    */
   ApprovalThresholdPolicy?: ApprovalThresholdPolicy | undefined;
@@ -473,67 +488,68 @@ export interface VotingPolicy {
  */
 export interface CreateNetworkInput {
   /**
-   * <p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than once. This identifier is required only
-   *          if you make a service request directly using an HTTP client. It is generated automatically if you
-   *          use an Amazon Web Services SDK or the Amazon Web Services CLI.
-   *       </p>
+   * This is a unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the Amazon Web Services CLI.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The name of the network.</p>
+   * The name of the network.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>An optional description for the network.</p>
+   * An optional description for the network.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The blockchain framework that the network uses.</p>
+   * The blockchain framework that the network uses.
+   *
    * @public
    */
   Framework: Framework | undefined;
 
   /**
-   * <p>The version of the blockchain framework that the network uses.</p>
+   * The version of the blockchain framework that the network uses.
+   *
    * @public
    */
   FrameworkVersion: string | undefined;
 
   /**
-   * <p>
-   *          Configuration properties of the blockchain framework relevant to the network configuration.
-   *       </p>
+   * Configuration properties of the blockchain framework relevant to the network configuration.
+   *
    * @public
    */
   FrameworkConfiguration?: NetworkFrameworkConfiguration | undefined;
 
   /**
-   * <p>
-   *          The voting rules used by the network to determine if a proposal is approved.
-   *       </p>
+   * The voting rules used by the network to determine if a proposal is approved.
+   *
    * @public
    */
   VotingPolicy: VotingPolicy | undefined;
 
   /**
-   * <p>Configuration properties for the first member within the network.</p>
+   * Configuration properties for the first member within the network.
+   *
    * @public
    */
   MemberConfiguration: MemberConfiguration | undefined;
 
   /**
-   * <p>Tags to assign to the network.</p>
-   *          <p> Each tag consists of a key and an optional value. You can specify
-   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
-   *           allowed per resource.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags to assign to the network.
+   *
+   * Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -544,75 +560,87 @@ export interface CreateNetworkInput {
  */
 export interface CreateNetworkOutput {
   /**
-   * <p>The unique identifier for the network.</p>
+   * The unique identifier for the network.
+   *
    * @public
    */
   NetworkId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the first member within the network.</p>
+   * The unique identifier for the first member within the network.
+   *
    * @public
    */
   MemberId?: string | undefined;
 }
 
 /**
- * <p>Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.</p>
+ * Configuration properties for logging events associated with a peer node owned by a member in a Managed Blockchain network.
+ *
  * @public
  */
 export interface NodeFabricLogPublishingConfiguration {
   /**
-   * <p>Configuration properties for logging events associated with chaincode execution on a peer node. Chaincode logs contain the results of instantiating, invoking, and querying the chaincode. A peer can run multiple instances of chaincode. When enabled, a log stream is created for all chaincodes, with an individual log stream for each chaincode.</p>
+   * Configuration properties for logging events associated with chaincode execution on a peer node. Chaincode logs contain the results of instantiating, invoking, and querying the chaincode. A peer can run multiple instances of chaincode. When enabled, a log stream is created for all chaincodes, with an individual log stream for each chaincode.
+   *
    * @public
    */
   ChaincodeLogs?: LogConfigurations | undefined;
 
   /**
-   * <p>Configuration properties for a peer node log. Peer node logs contain messages generated when your client submits transaction proposals to peer nodes, requests to join channels, enrolls an admin peer, and lists the chaincode instances on a peer node. </p>
+   * Configuration properties for a peer node log. Peer node logs contain messages generated when your client submits transaction proposals to peer nodes, requests to join channels, enrolls an admin peer, and lists the chaincode instances on a peer node.
+   *
    * @public
    */
   PeerLogs?: LogConfigurations | undefined;
 }
 
 /**
- * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
+ * Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.
+ *
  * @public
  */
 export interface NodeLogPublishingConfiguration {
   /**
-   * <p>Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+   * Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework.
+   *
    * @public
    */
   Fabric?: NodeFabricLogPublishingConfiguration | undefined;
 }
 
 /**
- * <p>Configuration properties of a node.</p>
+ * Configuration properties of a node.
+ *
  * @public
  */
 export interface NodeConfiguration {
   /**
-   * <p>The Amazon Managed Blockchain instance type for the node.</p>
+   * The Amazon Managed Blockchain instance type for the node.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the node exists. Required for Ethereum nodes. </p>
+   * The Availability Zone in which the node exists. Required for Ethereum nodes.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.
-   *       </p>
+   * Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.
+   *
    * @public
    */
   LogPublishingConfiguration?: NodeLogPublishingConfiguration | undefined;
 
   /**
-   * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * The state database that the node uses. Values are `LevelDB` or `CouchDB`. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is `CouchDB`.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   StateDB?: StateDBType | undefined;
@@ -623,44 +651,46 @@ export interface NodeConfiguration {
  */
 export interface CreateNodeInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network for the node.</p>
-   *          <p>Ethereum public networks have the following <code>NetworkId</code>s:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-mainnet</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The unique identifier of the network for the node.
+   *
+   * Ethereum public networks have the following `NetworkId`s:
+   *
+   * - `n-ethereum-mainnet`
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member that owns this node.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * The unique identifier of the member that owns this node.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The properties of a node configuration.</p>
+   * The properties of a node configuration.
+   *
    * @public
    */
   NodeConfiguration: NodeConfiguration | undefined;
 
   /**
-   * <p>Tags to assign to the node.</p>
-   *          <p> Each tag consists of a key and an optional value. You can specify
-   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
-   *           allowed per resource.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags to assign to the node.
+   *
+   * Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -671,58 +701,63 @@ export interface CreateNodeInput {
  */
 export interface CreateNodeOutput {
   /**
-   * <p>The unique identifier of the node.</p>
+   * The unique identifier of the node.
+   *
    * @public
    */
   NodeId?: string | undefined;
 }
 
 /**
- * <p>An action to invite a specific Amazon Web Services account to create a member and join the network. The <code>InviteAction</code> is carried out when a <code>Proposal</code> is <code>APPROVED</code>.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * An action to invite a specific Amazon Web Services account to create a member and join the network. The `InviteAction` is carried out when a `Proposal` is `APPROVED`.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface InviteAction {
   /**
-   * <p>The Amazon Web Services account ID to invite.</p>
+   * The Amazon Web Services account ID to invite.
+   *
    * @public
    */
   Principal: string | undefined;
 }
 
 /**
- * <p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is `APPROVED`. The member and all associated resources are deleted from the network.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface RemoveAction {
   /**
-   * <p>The unique identifier of the member to remove.</p>
+   * The unique identifier of the member to remove.
+   *
    * @public
    */
   MemberId: string | undefined;
 }
 
 /**
- * <p>
- *          The actions to carry out if a proposal is <code>APPROVED</code>.
- *       </p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * The actions to carry out if a proposal is `APPROVED`.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface ProposalActions {
   /**
-   * <p>
-   *          The actions to perform for an <code>APPROVED</code> proposal to invite an Amazon Web Services account to create a member and join the network.
-   *       </p>
+   * The actions to perform for an `APPROVED` proposal to invite an Amazon Web Services account to create a member and join the network.
+   *
    * @public
    */
   Invitations?: InviteAction[] | undefined;
 
   /**
-   * <p>
-   *          The actions to perform for an <code>APPROVED</code> proposal to remove a member from the network, which deletes the member and all associated member resources from the network.
-   *       </p>
+   * The actions to perform for an `APPROVED` proposal to remove a member from the network, which deletes the member and all associated member resources from the network.
+   *
    * @public
    */
   Removals?: RemoveAction[] | undefined;
@@ -733,44 +768,47 @@ export interface ProposalActions {
  */
 export interface CreateProposalInput {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the CLI.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of the network for which the proposal is made.</p>
+   * The unique identifier of the network for which the proposal is made.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member that is creating the proposal. This
-   *          identifier is especially useful for identifying the member making the proposal
-   *          when multiple members exist in a single Amazon Web Services account.</p>
+   * The unique identifier of the member that is creating the proposal. This identifier is especially useful for identifying the member making the proposal when multiple members exist in a single Amazon Web Services account.
+   *
    * @public
    */
   MemberId: string | undefined;
 
   /**
-   * <p>The type of actions proposed, such as inviting a member or removing a member. The types of <code>Actions</code> in a proposal are mutually exclusive. For example, a proposal with <code>Invitations</code> actions cannot also contain <code>Removals</code> actions.</p>
+   * The type of actions proposed, such as inviting a member or removing a member. The types of `Actions` in a proposal are mutually exclusive. For example, a proposal with `Invitations` actions cannot also contain `Removals` actions.
+   *
    * @public
    */
   Actions: ProposalActions | undefined;
 
   /**
-   * <p>A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."</p>
+   * A description for the proposal that is visible to voting members, for example, "Proposal to add Example Corp. as member."
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Tags to assign to the proposal.</p>
-   *          <p> Each tag consists of a key and an optional value. You can specify
-   *           multiple key-value pairs in a single request with an overall maximum of 50 tags
-   *           allowed per resource.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags to assign to the proposal.
+   *
+   * Each tag consists of a key and an optional value. You can specify multiple key-value pairs in a single request with an overall maximum of 50 tags allowed per resource.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -781,7 +819,8 @@ export interface CreateProposalInput {
  */
 export interface CreateProposalOutput {
   /**
-   * <p>The unique identifier of the proposal.</p>
+   * The unique identifier of the proposal.
+   *
    * @public
    */
   ProposalId?: string | undefined;
@@ -792,7 +831,8 @@ export interface CreateProposalOutput {
  */
 export interface DeleteAccessorInput {
   /**
-   * <p>The unique identifier of the accessor.</p>
+   * The unique identifier of the accessor.
+   *
    * @public
    */
   AccessorId: string | undefined;
@@ -808,13 +848,15 @@ export interface DeleteAccessorOutput {}
  */
 export interface DeleteMemberInput {
   /**
-   * <p>The unique identifier of the network from which the member is removed.</p>
+   * The unique identifier of the network from which the member is removed.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member to remove.</p>
+   * The unique identifier of the member to remove.
+   *
    * @public
    */
   MemberId: string | undefined;
@@ -830,28 +872,28 @@ export interface DeleteMemberOutput {}
  */
 export interface DeleteNodeInput {
   /**
-   * <p>The unique identifier of the network that the node is on.</p>
-   *          <p>Ethereum public networks have the following <code>NetworkId</code>s:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-mainnet</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The unique identifier of the network that the node is on.
+   *
+   * Ethereum public networks have the following `NetworkId`s:
+   *
+   * - `n-ethereum-mainnet`
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member that owns this node.</p>
-   *          <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
+   * The unique identifier of the member that owns this node.
+   *
+   * Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the node.</p>
+   * The unique identifier of the node.
+   *
    * @public
    */
   NodeId: string | undefined;
@@ -867,7 +909,8 @@ export interface DeleteNodeOutput {}
  */
 export interface GetAccessorInput {
   /**
-   * <p>The unique identifier of the accessor.</p>
+   * The unique identifier of the accessor.
+   *
    * @public
    */
   AccessorId: string | undefined;
@@ -878,7 +921,8 @@ export interface GetAccessorInput {
  */
 export interface GetAccessorOutput {
   /**
-   * <p>The properties of the accessor.</p>
+   * The properties of the accessor.
+   *
    * @public
    */
   Accessor?: Accessor | undefined;
@@ -889,151 +933,150 @@ export interface GetAccessorOutput {
  */
 export interface GetMemberInput {
   /**
-   * <p>The unique identifier of the network to which the member belongs.</p>
+   * The unique identifier of the network to which the member belongs.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member.</p>
+   * The unique identifier of the member.
+   *
    * @public
    */
   MemberId: string | undefined;
 }
 
 /**
- * <p>Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
+ * Attributes of Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.
+ *
  * @public
  */
 export interface MemberFabricAttributes {
   /**
-   * <p>The user name for the initial administrator user for the member.</p>
+   * The user name for the initial administrator user for the member.
+   *
    * @public
    */
   AdminUsername?: string | undefined;
 
   /**
-   * <p>The endpoint used to access the member's certificate authority.</p>
+   * The endpoint used to access the member's certificate authority.
+   *
    * @public
    */
   CaEndpoint?: string | undefined;
 }
 
 /**
- * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
+ * Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.
+ *
  * @public
  */
 export interface MemberFrameworkAttributes {
   /**
-   * <p>Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>
+   * Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain network that uses Hyperledger Fabric.
+   *
    * @public
    */
   Fabric?: MemberFabricAttributes | undefined;
 }
 
 /**
- * <p>Member configuration properties.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Member configuration properties.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface Member {
   /**
-   * <p>The unique identifier of the network to which the member belongs.</p>
+   * The unique identifier of the network to which the member belongs.
+   *
    * @public
    */
   NetworkId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the member.</p>
+   * The unique identifier of the member.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the member.</p>
+   * The name of the member.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>An optional description for the member.</p>
+   * An optional description for the member.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
+   * Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.
+   *
    * @public
    */
   FrameworkAttributes?: MemberFrameworkAttributes | undefined;
 
   /**
-   * <p>Configuration properties for logging events associated with a member.</p>
+   * Configuration properties for logging events associated with a member.
+   *
    * @public
    */
   LogPublishingConfiguration?: MemberLogPublishingConfiguration | undefined;
 
   /**
-   * <p>The status of a member.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - The Amazon Web Services account is in the process of creating a member.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> - The Amazon Web Services account attempted to create a member and creation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code> - The member is in the process of being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
-   *                   <code>PROPOSAL</code> to remove the member.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
-   *                   <code>PROPOSAL</code> to remove the member.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
-   *                <p>The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the member resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
-   *             </li>
-   *          </ul>
+   * The status of a member.
+   *
+   * - `CREATING` - The Amazon Web Services account is in the process of creating a member.
+   * - `AVAILABLE` - The member has been created and can participate in the network.
+   * - `CREATE_FAILED` - The Amazon Web Services account attempted to create a member and creation failed.
+   * - `UPDATING` - The member is in the process of being updated.
+   * - `DELETING` - The member and all associated resources are in the process of being deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an `APPROVED` `PROPOSAL` to remove the member.
+   * - `DELETED` - The member can no longer participate on the network and all associated resources are deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an `APPROVED` `PROPOSAL` to remove the member.
+   * - `INACCESSIBLE_ENCRYPTION_KEY` - The member is impaired and might not function as expected because it cannot access the specified customer managed key in KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.
+   *
+   *   The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the member resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.
+   *
    * @public
    */
   Status?: MemberStatus | undefined;
 
   /**
-   * <p>The date and time that the member was created.</p>
+   * The date and time that the member was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>Tags assigned to the member. Tags consist of a key and optional value.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags assigned to the member. Tags consist of a key and optional value.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) that the member uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the member uses an Amazon Web Services owned KMS key for encryption. This parameter is inherited by the nodes that this member owns.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) that the member uses for encryption at rest. If the value of this parameter is `"AWS Owned KMS Key"`, the member uses an Amazon Web Services owned KMS key for encryption. This parameter is inherited by the nodes that this member owns.
+   *
+   * For more information, see [Encryption at Rest](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
@@ -1044,7 +1087,8 @@ export interface Member {
  */
 export interface GetMemberOutput {
   /**
-   * <p>The properties of a member.</p>
+   * The properties of a member.
+   *
    * @public
    */
   Member?: Member | undefined;
@@ -1055,140 +1099,159 @@ export interface GetMemberOutput {
  */
 export interface GetNetworkInput {
   /**
-   * <p>The unique identifier of the network to get information about.</p>
+   * The unique identifier of the network to get information about.
+   *
    * @public
    */
   NetworkId: string | undefined;
 }
 
 /**
- * <p>Attributes of Ethereum for a network. </p>
+ * Attributes of Ethereum for a network.
+ *
  * @public
  */
 export interface NetworkEthereumAttributes {
   /**
-   * <p>The Ethereum <code>CHAIN_ID</code> associated with the Ethereum network. Chain IDs are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>mainnet = <code>1</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The Ethereum `CHAIN_ID` associated with the Ethereum network. Chain IDs are as follows:
+   *
+   * - mainnet = `1`
+   *
    * @public
    */
   ChainId?: string | undefined;
 }
 
 /**
- * <p>Attributes of Hyperledger Fabric for a network.</p>
+ * Attributes of Hyperledger Fabric for a network.
+ *
  * @public
  */
 export interface NetworkFabricAttributes {
   /**
-   * <p>The endpoint of the ordering service for the network.</p>
+   * The endpoint of the ordering service for the network.
+   *
    * @public
    */
   OrderingServiceEndpoint?: string | undefined;
 
   /**
-   * <p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
+   * The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see [Amazon Managed Blockchain Pricing](http://aws.amazon.com/managed-blockchain/pricing/).
+   *
    * @public
    */
   Edition?: Edition | undefined;
 }
 
 /**
- * <p>Attributes relevant to the network for the blockchain framework that the network uses.</p>
+ * Attributes relevant to the network for the blockchain framework that the network uses.
+ *
  * @public
  */
 export interface NetworkFrameworkAttributes {
   /**
-   * <p>Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric.</p>
+   * Attributes of Hyperledger Fabric for a Managed Blockchain network that uses Hyperledger Fabric.
+   *
    * @public
    */
   Fabric?: NetworkFabricAttributes | undefined;
 
   /**
-   * <p>Attributes of an Ethereum network for Managed Blockchain resources participating in an Ethereum network. </p>
+   * Attributes of an Ethereum network for Managed Blockchain resources participating in an Ethereum network.
+   *
    * @public
    */
   Ethereum?: NetworkEthereumAttributes | undefined;
 }
 
 /**
- * <p>Network configuration properties.</p>
+ * Network configuration properties.
+ *
  * @public
  */
 export interface Network {
   /**
-   * <p>The unique identifier of the network.</p>
+   * The unique identifier of the network.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the network.</p>
+   * The name of the network.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Attributes of the blockchain framework for the network.</p>
+   * Attributes of the blockchain framework for the network.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The blockchain framework that the network uses.</p>
+   * The blockchain framework that the network uses.
+   *
    * @public
    */
   Framework?: Framework | undefined;
 
   /**
-   * <p>The version of the blockchain framework that the network uses.</p>
+   * The version of the blockchain framework that the network uses.
+   *
    * @public
    */
   FrameworkVersion?: string | undefined;
 
   /**
-   * <p>Attributes of the blockchain framework that the network uses.</p>
+   * Attributes of the blockchain framework that the network uses.
+   *
    * @public
    */
   FrameworkAttributes?: NetworkFrameworkAttributes | undefined;
 
   /**
-   * <p>The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources.</p>
+   * The VPC endpoint service name of the VPC endpoint service of the network. Members use the VPC endpoint service name to create a VPC endpoint to access network resources.
+   *
    * @public
    */
   VpcEndpointServiceName?: string | undefined;
 
   /**
-   * <p>The voting rules that the network uses to decide if a proposal is accepted.</p>
+   * The voting rules that the network uses to decide if a proposal is accepted.
+   *
    * @public
    */
   VotingPolicy?: VotingPolicy | undefined;
 
   /**
-   * <p>The current status of the network.</p>
+   * The current status of the network.
+   *
    * @public
    */
   Status?: NetworkStatus | undefined;
 
   /**
-   * <p>The date and time that the network was created.</p>
+   * The date and time that the network was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>Tags assigned to the network. Each tag consists of a key and optional value.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags assigned to the network. Each tag consists of a key and optional value.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -1199,7 +1262,8 @@ export interface Network {
  */
 export interface GetNetworkOutput {
   /**
-   * <p>An object containing network configuration parameters.</p>
+   * An object containing network configuration parameters.
+   *
    * @public
    */
   Network?: Network | undefined;
@@ -1210,202 +1274,207 @@ export interface GetNetworkOutput {
  */
 export interface GetNodeInput {
   /**
-   * <p>The unique identifier of the network that the node is on.</p>
+   * The unique identifier of the network that the node is on.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member that owns the node.</p>
-   *          <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
+   * The unique identifier of the member that owns the node.
+   *
+   * Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the node.</p>
+   * The unique identifier of the node.
+   *
    * @public
    */
   NodeId: string | undefined;
 }
 
 /**
- * <p>Attributes of an Ethereum node.</p>
+ * Attributes of an Ethereum node.
+ *
  * @public
  */
 export interface NodeEthereumAttributes {
   /**
-   * <p>The endpoint on which the Ethereum node listens to run Ethereum API methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   * The endpoint on which the Ethereum node listens to run Ethereum API methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+   *
    * @public
    */
   HttpEndpoint?: string | undefined;
 
   /**
-   * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSocket connections from a client. Use this endpoint in client code for smart contracts when using a WebSocket connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
+   * The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSocket connections from a client. Use this endpoint in client code for smart contracts when using a WebSocket connection. Connections to this endpoint are authenticated using [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+   *
    * @public
    */
   WebSocketEndpoint?: string | undefined;
 }
 
 /**
- * <p>Attributes of Hyperledger Fabric for a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
+ * Attributes of Hyperledger Fabric for a peer node on a Hyperledger Fabric network on Managed Blockchain.
+ *
  * @public
  */
 export interface NodeFabricAttributes {
   /**
-   * <p>The endpoint that identifies the peer node for all services except peer channel-based event services.</p>
+   * The endpoint that identifies the peer node for all services except peer channel-based event services.
+   *
    * @public
    */
   PeerEndpoint?: string | undefined;
 
   /**
-   * <p>The endpoint that identifies the peer node for peer channel-based event services.</p>
+   * The endpoint that identifies the peer node for peer channel-based event services.
+   *
    * @public
    */
   PeerEventEndpoint?: string | undefined;
 }
 
 /**
- * <p>Attributes relevant to a node on a Managed Blockchain network for the blockchain framework that the network uses.</p>
+ * Attributes relevant to a node on a Managed Blockchain network for the blockchain framework that the network uses.
+ *
  * @public
  */
 export interface NodeFrameworkAttributes {
   /**
-   * <p>Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.</p>
+   * Attributes of Hyperledger Fabric for a peer node on a Managed Blockchain network that uses Hyperledger Fabric.
+   *
    * @public
    */
   Fabric?: NodeFabricAttributes | undefined;
 
   /**
-   * <p>Attributes of Ethereum for a node on a Managed Blockchain network that uses Ethereum. </p>
+   * Attributes of Ethereum for a node on a Managed Blockchain network that uses Ethereum.
+   *
    * @public
    */
   Ethereum?: NodeEthereumAttributes | undefined;
 }
 
 /**
- * <p>Configuration properties of a node.</p>
+ * Configuration properties of a node.
+ *
  * @public
  */
 export interface Node {
   /**
-   * <p>The unique identifier of the network that the node is on.</p>
+   * The unique identifier of the network that the node is on.
+   *
    * @public
    */
   NetworkId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the member to which the node belongs.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * The unique identifier of the member to which the node belongs.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the node.</p>
+   * The unique identifier of the node.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The instance type of the node.</p>
+   * The instance type of the node.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the node exists. Required for Ethereum nodes. </p>
+   * The Availability Zone in which the node exists. Required for Ethereum nodes.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>Attributes of the blockchain framework being used.</p>
+   * Attributes of the blockchain framework being used.
+   *
    * @public
    */
   FrameworkAttributes?: NodeFrameworkAttributes | undefined;
 
   /**
-   * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
+   * Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.
+   *
    * @public
    */
   LogPublishingConfiguration?: NodeLogPublishingConfiguration | undefined;
 
   /**
-   * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * The state database that the node uses. Values are `LevelDB` or `CouchDB`.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   StateDB?: StateDBType | undefined;
 
   /**
-   * <p>The status of the node.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - The Amazon Web Services account is in the process of creating a node.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - The node has been created and can participate in the network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNHEALTHY</code> - The node is impaired and might not function as expected. Amazon Managed Blockchain automatically finds nodes in this state and tries to recover them. If a node is recoverable, it returns to <code>AVAILABLE</code>. Otherwise, it moves to <code>FAILED</code> status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> - The Amazon Web Services account attempted to create a node and creation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code> - The node is in the process of being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The node is in the process of being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> - The node can no longer participate on the network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The node is no longer functional, cannot be recovered, and must be deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The node is impaired and might not function as expected because it cannot access the specified customer managed key in KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
-   *                <p>The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the node resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
-   *             </li>
-   *          </ul>
+   * The status of the node.
+   *
+   * - `CREATING` - The Amazon Web Services account is in the process of creating a node.
+   * - `AVAILABLE` - The node has been created and can participate in the network.
+   * - `UNHEALTHY` - The node is impaired and might not function as expected. Amazon Managed Blockchain automatically finds nodes in this state and tries to recover them. If a node is recoverable, it returns to `AVAILABLE`. Otherwise, it moves to `FAILED` status.
+   * - `CREATE_FAILED` - The Amazon Web Services account attempted to create a node and creation failed.
+   * - `UPDATING` - The node is in the process of being updated.
+   * - `DELETING` - The node is in the process of being deleted.
+   * - `DELETED` - The node can no longer participate on the network.
+   * - `FAILED` - The node is no longer functional, cannot be recovered, and must be deleted.
+   * - `INACCESSIBLE_ENCRYPTION_KEY` - The node is impaired and might not function as expected because it cannot access the specified customer managed key in KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.
+   *
+   *   The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the node resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.
+   *
    * @public
    */
   Status?: NodeStatus | undefined;
 
   /**
-   * <p>The date and time that the node was created.</p>
+   * The date and time that the node was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>Tags assigned to the node. Each tag consists of a key and optional value.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags assigned to the node. Each tag consists of a key and optional value.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) that the node uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the node uses an Amazon Web Services owned KMS key for encryption. The node inherits this parameter from the member that it belongs to.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * The Amazon Resource Name (ARN) of the customer managed key in Key Management Service (KMS) that the node uses for encryption at rest. If the value of this parameter is `"AWS Owned KMS Key"`, the node uses an Amazon Web Services owned KMS key for encryption. The node inherits this parameter from the member that it belongs to.
+   *
+   * For more information, see [Encryption at Rest](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
@@ -1416,7 +1485,8 @@ export interface Node {
  */
 export interface GetNodeOutput {
   /**
-   * <p>Properties of the node configuration.</p>
+   * Properties of the node configuration.
+   *
    * @public
    */
   Node?: Node | undefined;
@@ -1427,137 +1497,130 @@ export interface GetNodeOutput {
  */
 export interface GetProposalInput {
   /**
-   * <p>The unique identifier of the network for which the proposal is made.</p>
+   * The unique identifier of the network for which the proposal is made.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the proposal.</p>
+   * The unique identifier of the proposal.
+   *
    * @public
    */
   ProposalId: string | undefined;
 }
 
 /**
- * <p>Properties of a proposal on a Managed Blockchain network.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Properties of a proposal on a Managed Blockchain network.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface Proposal {
   /**
-   * <p>The unique identifier of the proposal.</p>
+   * The unique identifier of the proposal.
+   *
    * @public
    */
   ProposalId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the network for which the proposal is made.</p>
+   * The unique identifier of the network for which the proposal is made.
+   *
    * @public
    */
   NetworkId?: string | undefined;
 
   /**
-   * <p>The description of the proposal.</p>
+   * The description of the proposal.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The actions to perform on the network if the proposal is <code>APPROVED</code>.</p>
+   * The actions to perform on the network if the proposal is `APPROVED`.
+   *
    * @public
    */
   Actions?: ProposalActions | undefined;
 
   /**
-   * <p>The unique identifier of the member that created the proposal.</p>
+   * The unique identifier of the member that created the proposal.
+   *
    * @public
    */
   ProposedByMemberId?: string | undefined;
 
   /**
-   * <p>The name of the member that created the proposal.</p>
+   * The name of the member that created the proposal.
+   *
    * @public
    */
   ProposedByMemberName?: string | undefined;
 
   /**
-   * <p>The status of the proposal. Values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> aren't carried out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXPIRED</code> - Members didn't cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> aren't carried out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved couldn't be completed because of an error. The <code>ACTION_FAILED</code> status occurs even if only one ProposalAction fails and other actions are successful.</p>
-   *             </li>
-   *          </ul>
+   * The status of the proposal. Values are as follows:
+   *
+   * - `IN_PROGRESS` - The proposal is active and open for member voting.
+   * - `APPROVED` - The proposal was approved with sufficient `YES` votes among members according to the `VotingPolicy` specified for the `Network`. The specified proposal actions are carried out.
+   * - `REJECTED` - The proposal was rejected with insufficient `YES` votes among members according to the `VotingPolicy` specified for the `Network`. The specified `ProposalActions` aren't carried out.
+   * - `EXPIRED` - Members didn't cast the number of votes required to determine the proposal outcome before the proposal expired. The specified `ProposalActions` aren't carried out.
+   * - `ACTION_FAILED` - One or more of the specified `ProposalActions` in a proposal that was approved couldn't be completed because of an error. The `ACTION_FAILED` status occurs even if only one ProposalAction fails and other actions are successful.
+   *
    * @public
    */
   Status?: ProposalStatus | undefined;
 
   /**
-   * <p>
-   *          The date and time that the proposal was created.
-   *       </p>
+   * The date and time that the proposal was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>
-   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, if members haven't cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> aren't carried out.
-   *       </p>
+   * The date and time that the proposal expires. This is the `CreationDate` plus the `ProposalDurationInHours` that is specified in the `ProposalThresholdPolicy`. After this date and time, if members haven't cast enough votes to determine the outcome according to the voting policy, the proposal is `EXPIRED` and `Actions` aren't carried out.
+   *
    * @public
    */
   ExpirationDate?: Date | undefined;
 
   /**
-   * <p>
-   *          The current total of <code>YES</code> votes cast on the proposal by members.
-   *       </p>
+   * The current total of `YES` votes cast on the proposal by members.
+   *
    * @public
    */
   YesVoteCount?: number | undefined;
 
   /**
-   * <p>
-   *          The current total of <code>NO</code> votes cast on the proposal by members.
-   *       </p>
+   * The current total of `NO` votes cast on the proposal by members.
+   *
    * @public
    */
   NoVoteCount?: number | undefined;
 
   /**
-   * <p>
-   *          The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of <code>YES</code> votes and <code>NO</code> votes.
-   *       </p>
+   * The number of votes remaining to be cast on the proposal by members. In other words, the number of members minus the sum of `YES` votes and `NO` votes.
+   *
    * @public
    */
   OutstandingVoteCount?: number | undefined;
 
   /**
-   * <p>Tags assigned to the proposal. Each tag consists of a key and optional value.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
+   * Tags assigned to the proposal. Each tag consists of a key and optional value.
+   *
+   * For more information about tags, see [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html) in the *Amazon Managed Blockchain Ethereum Developer Guide*, or [Tagging Resources](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html) in the *Amazon Managed Blockchain Hyperledger Fabric Developer Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -1568,126 +1631,128 @@ export interface Proposal {
  */
 export interface GetProposalOutput {
   /**
-   * <p>Information about a proposal.</p>
+   * Information about a proposal.
+   *
    * @public
    */
   Proposal?: Proposal | undefined;
 }
 
 /**
- * <p>A summary of network configuration properties.</p>
+ * A summary of network configuration properties.
+ *
  * @public
  */
 export interface NetworkSummary {
   /**
-   * <p>The unique identifier of the network.</p>
+   * The unique identifier of the network.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the network.</p>
+   * The name of the network.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>An optional description of the network.</p>
+   * An optional description of the network.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The blockchain framework that the network uses.</p>
+   * The blockchain framework that the network uses.
+   *
    * @public
    */
   Framework?: Framework | undefined;
 
   /**
-   * <p>The version of the blockchain framework that the network uses.</p>
+   * The version of the blockchain framework that the network uses.
+   *
    * @public
    */
   FrameworkVersion?: string | undefined;
 
   /**
-   * <p>The current status of the network.</p>
+   * The current status of the network.
+   *
    * @public
    */
   Status?: NetworkStatus | undefined;
 
   /**
-   * <p>The date and time that the network was created.</p>
+   * The date and time that the network was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the network. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>An invitation to an Amazon Web Services account to create a member and join the network.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * An invitation to an Amazon Web Services account to create a member and join the network.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface Invitation {
   /**
-   * <p>The unique identifier for the invitation.</p>
+   * The unique identifier for the invitation.
+   *
    * @public
    */
   InvitationId?: string | undefined;
 
   /**
-   * <p>The date and time that the invitation was created.</p>
+   * The date and time that the invitation was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The date and time that the invitation expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>. After this date and time, the invitee can no longer create a member and join the network using this <code>InvitationId</code>.</p>
+   * The date and time that the invitation expires. This is the `CreationDate` plus the `ProposalDurationInHours` that is specified in the `ProposalThresholdPolicy`. After this date and time, the invitee can no longer create a member and join the network using this `InvitationId`.
+   *
    * @public
    */
   ExpirationDate?: Date | undefined;
 
   /**
-   * <p>The status of the invitation:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> - The invitee hasn't created a member to join the network, and the invitation hasn't yet expired.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACCEPTING</code> - The invitee has begun creating a member, and creation hasn't yet completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACCEPTED</code> - The invitee created a member and joined the network using the <code>InvitationID</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REJECTED</code> - The invitee rejected the invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXPIRED</code> - The invitee neither created a member nor rejected the invitation before the <code>ExpirationDate</code>.</p>
-   *             </li>
-   *          </ul>
+   * The status of the invitation:
+   *
+   * - `PENDING` - The invitee hasn't created a member to join the network, and the invitation hasn't yet expired.
+   * - `ACCEPTING` - The invitee has begun creating a member, and creation hasn't yet completed.
+   * - `ACCEPTED` - The invitee created a member and joined the network using the `InvitationID`.
+   * - `REJECTED` - The invitee rejected the invitation.
+   * - `EXPIRED` - The invitee neither created a member nor rejected the invitation before the `ExpirationDate`.
+   *
    * @public
    */
   Status?: InvitationStatus | undefined;
 
   /**
-   * <p>A summary of network configuration properties.</p>
+   * A summary of network configuration properties.
+   *
    * @public
    */
   NetworkSummary?: NetworkSummary | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the invitation. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the invitation. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -1698,24 +1763,24 @@ export interface Invitation {
  */
 export interface ListAccessorsInput {
   /**
-   * <p> The maximum number of accessors to list.</p>
+   * The maximum number of accessors to list.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The pagination token that indicates the next set of results to retrieve. </p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
-   *          <note>
-   *             <p>Use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> for all
-   *          existing <code>Accessors</code> tokens that were created before the <code>networkType</code>
-   *          property was introduced.</p>
-   *          </note>
+   * The blockchain network that the `Accessor` token is created for.
+   *
+   * > **Note:** Use the value `ETHEREUM_MAINNET_AND_GOERLI` for all existing `Accessors` tokens that were created before the `networkType` property was introduced.
+   *
    * @public
    */
   NetworkType?: AccessorNetworkType | undefined;
@@ -1726,14 +1791,15 @@ export interface ListAccessorsInput {
  */
 export interface ListAccessorsOutput {
   /**
-   * <p>An array of AccessorSummary objects that contain configuration properties for
-   *          each accessor.</p>
+   * An array of AccessorSummary objects that contain configuration properties for each accessor.
+   *
    * @public
    */
   Accessors?: AccessorSummary[] | undefined;
 
   /**
-   * <p> The pagination token that indicates the next set of results to retrieve. </p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1744,13 +1810,15 @@ export interface ListAccessorsOutput {
  */
 export interface ListInvitationsInput {
   /**
-   * <p>The maximum number of invitations to return.</p>
+   * The maximum number of invitations to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1761,13 +1829,15 @@ export interface ListInvitationsInput {
  */
 export interface ListInvitationsOutput {
   /**
-   * <p>The invitations for the network.</p>
+   * The invitations for the network.
+   *
    * @public
    */
   Invitations?: Invitation[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1778,121 +1848,111 @@ export interface ListInvitationsOutput {
  */
 export interface ListMembersInput {
   /**
-   * <p>The unique identifier of the network for which to list members.</p>
+   * The unique identifier of the network for which to list members.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The optional name of the member to list.</p>
+   * The optional name of the member to list.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>An optional status specifier. If provided, only members currently in this status are listed.</p>
+   * An optional status specifier. If provided, only members currently in this status are listed.
+   *
    * @public
    */
   Status?: MemberStatus | undefined;
 
   /**
-   * <p>An optional Boolean value. If provided, the request is limited either to
-   *          members that the current Amazon Web Services account owns (<code>true</code>) or that other Amazon Web Services accountsn
-   *          own (<code>false</code>). If omitted, all members are listed.</p>
+   * An optional Boolean value. If provided, the request is limited either to members that the current Amazon Web Services account owns (`true`) or that other Amazon Web Services accountsn own (`false`). If omitted, all members are listed.
+   *
    * @public
    */
   IsOwned?: boolean | undefined;
 
   /**
-   * <p>The maximum number of members to return in the request.</p>
+   * The maximum number of members to return in the request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of configuration properties for a member.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * A summary of configuration properties for a member.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface MemberSummary {
   /**
-   * <p>The unique identifier of the member.</p>
+   * The unique identifier of the member.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the member.</p>
+   * The name of the member.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>An optional description of the member.</p>
+   * An optional description of the member.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The status of the member.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - The Amazon Web Services account is in the process of creating a member.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - The member has been created and can participate in the network.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_FAILED</code> - The Amazon Web Services account attempted to create a member and creation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code> - The member is in the process of being updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
-   *                   <code>PROPOSAL</code> to remove the member.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
-   *                   <code>PROPOSAL</code> to remove the member.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in Key Management Service (KMS) for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
-   *                <p>The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the member resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
-   *             </li>
-   *          </ul>
+   * The status of the member.
+   *
+   * - `CREATING` - The Amazon Web Services account is in the process of creating a member.
+   * - `AVAILABLE` - The member has been created and can participate in the network.
+   * - `CREATE_FAILED` - The Amazon Web Services account attempted to create a member and creation failed.
+   * - `UPDATING` - The member is in the process of being updated.
+   * - `DELETING` - The member and all associated resources are in the process of being deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an `APPROVED` `PROPOSAL` to remove the member.
+   * - `DELETED` - The member can no longer participate on the network and all associated resources are deleted. Either the Amazon Web Services account that owns the member deleted it, or the member is being deleted as the result of an `APPROVED` `PROPOSAL` to remove the member.
+   * - `INACCESSIBLE_ENCRYPTION_KEY` - The member is impaired and might not function as expected because it cannot access the specified customer managed key in Key Management Service (KMS) for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.
+   *
+   *   The effect of disabling or deleting a key or of revoking a grant isn't immediate. It might take some time for the member resource to discover that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.
+   *
    * @public
    */
   Status?: MemberStatus | undefined;
 
   /**
-   * <p>The date and time that the member was created.</p>
+   * The date and time that the member was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>An indicator of whether the member is owned by your Amazon Web Services account or a different Amazon Web Services account.</p>
+   * An indicator of whether the member is owned by your Amazon Web Services account or a different Amazon Web Services account.
+   *
    * @public
    */
   IsOwned?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -1903,13 +1963,15 @@ export interface MemberSummary {
  */
 export interface ListMembersOutput {
   /**
-   * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
+   * An array of `MemberSummary` objects. Each object contains details about a network member.
+   *
    * @public
    */
   Members?: MemberSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1920,32 +1982,38 @@ export interface ListMembersOutput {
  */
 export interface ListNetworksInput {
   /**
-   * <p>The name of the network.</p>
+   * The name of the network.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>An optional framework specifier. If provided, only networks of this framework type are listed.</p>
+   * An optional framework specifier. If provided, only networks of this framework type are listed.
+   *
    * @public
    */
   Framework?: Framework | undefined;
 
   /**
-   * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * An optional status specifier. If provided, only networks currently in this status are listed.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   Status?: NetworkStatus | undefined;
 
   /**
-   * <p>The maximum number of networks to list.</p>
+   * The maximum number of networks to list.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1956,13 +2024,15 @@ export interface ListNetworksInput {
  */
 export interface ListNetworksOutput {
   /**
-   * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
+   * An array of `NetworkSummary` objects that contain configuration properties for each network.
+   *
    * @public
    */
   Networks?: NetworkSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1973,74 +2043,87 @@ export interface ListNetworksOutput {
  */
 export interface ListNodesInput {
   /**
-   * <p>The unique identifier of the network for which to list nodes.</p>
+   * The unique identifier of the network for which to list nodes.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member who owns the nodes to list.</p>
-   *          <p>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</p>
+   * The unique identifier of the member who owns the nodes to list.
+   *
+   * Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
+   * An optional status specifier. If provided, only nodes currently in this status are listed.
+   *
    * @public
    */
   Status?: NodeStatus | undefined;
 
   /**
-   * <p>The maximum number of nodes to list.</p>
+   * The maximum number of nodes to list.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of configuration properties for a node.</p>
+ * A summary of configuration properties for a node.
+ *
  * @public
  */
 export interface NodeSummary {
   /**
-   * <p>The unique identifier of the node.</p>
+   * The unique identifier of the node.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The status of the node.</p>
+   * The status of the node.
+   *
    * @public
    */
   Status?: NodeStatus | undefined;
 
   /**
-   * <p>The date and time that the node was created.</p>
+   * The date and time that the node was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The Availability Zone in which the node exists.</p>
+   * The Availability Zone in which the node exists.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The EC2 instance type for the node.</p>
+   * The EC2 instance type for the node.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -2051,13 +2134,15 @@ export interface NodeSummary {
  */
 export interface ListNodesOutput {
   /**
-   * <p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>
+   * An array of `NodeSummary` objects that contain configuration properties for each node.
+   *
    * @public
    */
   Nodes?: NodeSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2068,114 +2153,93 @@ export interface ListNodesOutput {
  */
 export interface ListProposalsInput {
   /**
-   * <p>
-   *          The unique identifier of the network.
-   *       </p>
+   * The unique identifier of the network.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>
-   *          The maximum number of proposals to return.
-   *       </p>
+   * The maximum number of proposals to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *          The pagination token that indicates the next set of results to retrieve.
-   *       </p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Properties of a proposal.</p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Properties of a proposal.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface ProposalSummary {
   /**
-   * <p>
-   *          The unique identifier of the proposal.
-   *       </p>
+   * The unique identifier of the proposal.
+   *
    * @public
    */
   ProposalId?: string | undefined;
 
   /**
-   * <p>
-   *          The description of the proposal.
-   *       </p>
+   * The description of the proposal.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of the member that created the proposal.
-   *       </p>
+   * The unique identifier of the member that created the proposal.
+   *
    * @public
    */
   ProposedByMemberId?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the member that created the proposal.
-   *       </p>
+   * The name of the member that created the proposal.
+   *
    * @public
    */
   ProposedByMemberName?: string | undefined;
 
   /**
-   * <p>The status of the proposal. Values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - The proposal is active and open for member voting.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code> - The proposal was approved with sufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified proposal actions are carried out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REJECTED</code> - The proposal was rejected with insufficient <code>YES</code> votes among members according to the <code>VotingPolicy</code> specified for the <code>Network</code>. The specified <code>ProposalActions</code> aren't carried out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXPIRED</code> - Members didn't cast the number of votes required to determine the proposal outcome before the proposal expired. The specified <code>ProposalActions</code> aren't carried out.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTION_FAILED</code> - One or more of the specified <code>ProposalActions</code> in a proposal that was approved couldn't be completed because of an error.</p>
-   *             </li>
-   *          </ul>
+   * The status of the proposal. Values are as follows:
+   *
+   * - `IN_PROGRESS` - The proposal is active and open for member voting.
+   * - `APPROVED` - The proposal was approved with sufficient `YES` votes among members according to the `VotingPolicy` specified for the `Network`. The specified proposal actions are carried out.
+   * - `REJECTED` - The proposal was rejected with insufficient `YES` votes among members according to the `VotingPolicy` specified for the `Network`. The specified `ProposalActions` aren't carried out.
+   * - `EXPIRED` - Members didn't cast the number of votes required to determine the proposal outcome before the proposal expired. The specified `ProposalActions` aren't carried out.
+   * - `ACTION_FAILED` - One or more of the specified `ProposalActions` in a proposal that was approved couldn't be completed because of an error.
+   *
    * @public
    */
   Status?: ProposalStatus | undefined;
 
   /**
-   * <p>
-   *          The date and time that the proposal was created.
-   *       </p>
+   * The date and time that the proposal was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>
-   *          The date and time that the proposal expires. This is the <code>CreationDate</code> plus the <code>ProposalDurationInHours</code> that is specified in the <code>ProposalThresholdPolicy</code>.  After this date and time, if members haven't cast enough votes to determine the outcome according to the voting policy, the proposal is <code>EXPIRED</code> and <code>Actions</code> aren't carried out.
-   *       </p>
+   * The date and time that the proposal expires. This is the `CreationDate` plus the `ProposalDurationInHours` that is specified in the `ProposalThresholdPolicy`. After this date and time, if members haven't cast enough votes to determine the outcome according to the voting policy, the proposal is `EXPIRED` and `Actions` aren't carried out.
+   *
    * @public
    */
   ExpirationDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the proposal. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   Arn?: string | undefined;
@@ -2186,13 +2250,15 @@ export interface ProposalSummary {
  */
 export interface ListProposalsOutput {
   /**
-   * <p>The summary of each proposal made on the network.</p>
+   * The summary of each proposal made on the network.
+   *
    * @public
    */
   Proposals?: ProposalSummary[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2203,66 +2269,59 @@ export interface ListProposalsOutput {
  */
 export interface ListProposalVotesInput {
   /**
-   * <p>
-   *          The unique identifier of the network.
-   *       </p>
+   * The unique identifier of the network.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of the proposal.
-   *       </p>
+   * The unique identifier of the proposal.
+   *
    * @public
    */
   ProposalId: string | undefined;
 
   /**
-   * <p>
-   *          The maximum number of votes to return.
-   *       </p>
+   * The maximum number of votes to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>
-   *          The pagination token that indicates the next set of results to retrieve.
-   *       </p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *          Properties of an individual vote that a member cast for a proposal.
- *       </p>
- *          <p>Applies only to Hyperledger Fabric.</p>
+ * Properties of an individual vote that a member cast for a proposal.
+ *
+ * Applies only to Hyperledger Fabric.
+ *
  * @public
  */
 export interface VoteSummary {
   /**
-   * <p>
-   *          The vote value, either <code>YES</code> or <code>NO</code>.
-   *       </p>
+   * The vote value, either `YES` or `NO`.
+   *
    * @public
    */
   Vote?: VoteValue | undefined;
 
   /**
-   * <p>
-   *          The name of the member that cast the vote.
-   *       </p>
+   * The name of the member that cast the vote.
+   *
    * @public
    */
   MemberName?: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of the member that cast the vote.
-   *       </p>
+   * The unique identifier of the member that cast the vote.
+   *
    * @public
    */
   MemberId?: string | undefined;
@@ -2273,17 +2332,15 @@ export interface VoteSummary {
  */
 export interface ListProposalVotesOutput {
   /**
-   * <p>
-   *          The list of votes.
-   *       </p>
+   * The list of votes.
+   *
    * @public
    */
   ProposalVotes?: VoteSummary[] | undefined;
 
   /**
-   * <p>
-   *          The pagination token that indicates the next set of results to retrieve.
-   *       </p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2294,7 +2351,8 @@ export interface ListProposalVotesOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -2305,7 +2363,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags assigned to the resource.</p>
+   * The tags assigned to the resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2316,7 +2375,8 @@ export interface ListTagsForResourceResponse {
  */
 export interface RejectInvitationInput {
   /**
-   * <p>The unique identifier of the invitation to reject.</p>
+   * The unique identifier of the invitation to reject.
+   *
    * @public
    */
   InvitationId: string | undefined;
@@ -2332,13 +2392,15 @@ export interface RejectInvitationOutput {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to assign to the specified resource. Tag values can be empty, for example, <code>"MyTagKey" : ""</code>. You can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
+   * The tags to assign to the specified resource. Tag values can be empty, for example, `"MyTagKey" : ""`. You can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -2354,13 +2416,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -2376,19 +2440,22 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateMemberInput {
   /**
-   * <p>The unique identifier of the Managed Blockchain network to which the member belongs.</p>
+   * The unique identifier of the Managed Blockchain network to which the member belongs.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member.</p>
+   * The unique identifier of the member.
+   *
    * @public
    */
   MemberId: string | undefined;
 
   /**
-   * <p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>
+   * Configuration properties for publishing to Amazon CloudWatch Logs.
+   *
    * @public
    */
   LogPublishingConfiguration?: MemberLogPublishingConfiguration | undefined;
@@ -2404,26 +2471,31 @@ export interface UpdateMemberOutput {}
  */
 export interface UpdateNodeInput {
   /**
-   * <p>The unique identifier of the network that the node is on.</p>
+   * The unique identifier of the network that the node is on.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member that owns the node.</p>
-   *          <p>Applies only to Hyperledger Fabric.</p>
+   * The unique identifier of the member that owns the node.
+   *
+   * Applies only to Hyperledger Fabric.
+   *
    * @public
    */
   MemberId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the node.</p>
+   * The unique identifier of the node.
+   *
    * @public
    */
   NodeId: string | undefined;
 
   /**
-   * <p>Configuration properties for publishing to Amazon CloudWatch Logs.</p>
+   * Configuration properties for publishing to Amazon CloudWatch Logs.
+   *
    * @public
    */
   LogPublishingConfiguration?: NodeLogPublishingConfiguration | undefined;
@@ -2439,32 +2511,29 @@ export interface UpdateNodeOutput {}
  */
 export interface VoteOnProposalInput {
   /**
-   * <p>
-   *          The unique identifier of the network.
-   *       </p>
+   * The unique identifier of the network.
+   *
    * @public
    */
   NetworkId: string | undefined;
 
   /**
-   * <p>
-   *          The unique identifier of the proposal.
-   *       </p>
+   * The unique identifier of the proposal.
+   *
    * @public
    */
   ProposalId: string | undefined;
 
   /**
-   * <p>The unique identifier of the member casting the vote.
-   *       </p>
+   * The unique identifier of the member casting the vote.
+   *
    * @public
    */
   VoterMemberId: string | undefined;
 
   /**
-   * <p>
-   *          The value of the vote.
-   *       </p>
+   * The value of the vote.
+   *
    * @public
    */
   Vote: VoteValue | undefined;

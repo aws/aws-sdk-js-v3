@@ -23,17 +23,12 @@ export interface ImportDiskImageCommandInput extends ImportDiskImageRequest {}
 export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, __MetadataBearer {}
 
 /**
- * <p>Imports a Windows operating system image from a verified Microsoft ISO disk
- * 			file. The following disk images are supported:</p>
- *          <ul>
- *             <li>
- *                <p>Windows 11 Enterprise</p>
- *             </li>
- *          </ul>
- *          <p>The response returns as soon as Image Builder creates the new image resource in the
- * 			<code>PENDING</code> state. The conversion from ISO file to AMI then runs
- * 			asynchronously on an EC2 instance that Image Builder launches with the specified
- * 			infrastructure configuration.</p>
+ * Imports a Windows operating system image from a verified Microsoft ISO disk file. The following disk images are supported:
+ *
+ * - Windows 11 Enterprise
+ *
+ * The response returns as soon as Image Builder creates the new image resource in the `PENDING` state. The conversion from ISO file to AMI then runs asynchronously on an EC2 instance that Image Builder launches with the specified infrastructure configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,26 +77,28 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permissions to perform the requested operation.</p>
+ *
+ * You do not have permissions to perform the requested operation.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You have attempted too many requests for the specific operation.</p>
+ *
+ * You have attempted too many requests for the specific operation.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example Import a Windows 11 ISO disk image
  * ```javascript

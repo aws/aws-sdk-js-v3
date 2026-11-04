@@ -23,14 +23,12 @@ export interface UpdateLocationFsxOpenZfsCommandInput extends UpdateLocationFsxO
 export interface UpdateLocationFsxOpenZfsCommandOutput extends UpdateLocationFsxOpenZfsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the following configuration parameters of the Amazon FSx for OpenZFS
- *       transfer location that you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Configuring DataSync
- *         transfers with FSx for OpenZFS</a>.</p>
- *          <note>
- *             <p>Request parameters related to <code>SMB</code> aren't supported with the
- *           <code>UpdateLocationFsxOpenZfs</code> operation.</p>
- *          </note>
+ * Modifies the following configuration parameters of the Amazon FSx for OpenZFS transfer location that you're using with DataSync.
+ *
+ * For more information, see [Configuring DataSync transfers with FSx for OpenZFS](https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html).
+ *
+ * > **Note:** Request parameters related to `SMB` aren't supported with the `UpdateLocationFsxOpenZfs` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,15 +80,16 @@ export interface UpdateLocationFsxOpenZfsCommandOutput extends UpdateLocationFsx
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

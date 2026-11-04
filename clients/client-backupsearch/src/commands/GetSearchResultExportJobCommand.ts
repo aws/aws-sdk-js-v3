@@ -23,7 +23,12 @@ export interface GetSearchResultExportJobCommandInput extends GetSearchResultExp
 export interface GetSearchResultExportJobCommandOutput extends GetSearchResultExportJobOutput, __MetadataBearer {}
 
 /**
- * <p>This operation retrieves the metadata of an export job.</p> <p>An export job is an operation that transmits the results of a search job to a specified S3 bucket in a .csv file.</p> <p>An export job allows you to retain results of a search beyond the search job's scheduled retention of 7 days.</p>
+ * This operation retrieves the metadata of an export job.
+ *
+ * An export job is an operation that transmits the results of a search job to a specified S3 bucket in a .csv file.
+ *
+ * An export job allows you to retain results of a search beyond the search job's scheduled retention of 7 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,23 +67,30 @@ export interface GetSearchResultExportJobCommandOutput extends GetSearchResultEx
  * @see {@link BackupSearchClientResolvedConfig | config} for BackupSearchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+ *
+ * The resource was not found for this request.
+ *
+ * Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link BackupSearchServiceException}
- * <p>Base exception class for all service exceptions from BackupSearch service.</p>
  *
+ * Base exception class for all service exceptions from BackupSearch service.
  *
  * @public
  */

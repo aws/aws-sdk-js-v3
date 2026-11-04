@@ -23,10 +23,12 @@ export interface CreateReceiptFilterCommandInput extends CreateReceiptFilterRequ
 export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new IP address filter.</p>
- *          <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates a new IP address filter.
+ *
+ * For information about setting up IP address filters, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,16 +59,16 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * Indicates that a resource could not be created because of a naming conflict.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example CreateReceiptFilter
  * ```javascript

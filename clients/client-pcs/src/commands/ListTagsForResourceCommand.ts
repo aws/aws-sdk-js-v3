@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all tags on an PCS resource.</p>
+ * Returns a list of all tags on an PCS resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +53,14 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link PCSClientResolvedConfig | config} for PCSClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
+ *
+ * The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.
+ *
+ * Examples
  *
  * @throws {@link PCSServiceException}
- * <p>Base exception class for all service exceptions from PCS service.</p>
  *
+ * Base exception class for all service exceptions from PCS service.
  *
  * @public
  */

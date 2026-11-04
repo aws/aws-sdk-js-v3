@@ -23,9 +23,8 @@ export interface ModifyGlobalClusterCommandInput extends ModifyGlobalClusterMess
 export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Modify a setting for an Amazon Neptune global cluster. You can change one
- *       or more database configuration parameters by specifying these parameters
- *       and their new values in the request.</p>
+ * Modify a setting for an Amazon Neptune global cluster. You can change one or more database configuration parameters by specifying these parameters and their new values in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,23 +86,28 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` already exists. Choose a new global database identifier (unique name) to create a new global database cluster.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+ *
+ * The global cluster is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

@@ -23,11 +23,12 @@ export interface RebootWorkspacesCommandInput extends RebootWorkspacesRequest {}
 export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Reboots the specified WorkSpaces.</p>
- *          <p>You cannot reboot a WorkSpace unless its state is <code>AVAILABLE</code>,
- *          <code>UNHEALTHY</code>, or <code>REBOOTING</code>. Reboot a WorkSpace in the <code>REBOOTING</code>
- *          state only if your WorkSpace has been stuck in the <code>REBOOTING</code> state for over 20 minutes.</p>
- *          <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p>
+ * Reboots the specified WorkSpaces.
+ *
+ * You cannot reboot a WorkSpace unless its state is `AVAILABLE`, `UNHEALTHY`, or `REBOOTING`. Reboot a WorkSpace in the `REBOOTING` state only if your WorkSpace has been stuck in the `REBOOTING` state for over 20 minutes.
+ *
+ * This operation is asynchronous and returns before the WorkSpaces have rebooted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +65,12 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

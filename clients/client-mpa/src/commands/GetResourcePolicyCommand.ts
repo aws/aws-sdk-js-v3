@@ -23,7 +23,8 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about a policy for a resource.</p>
+ * Returns details about a policy for a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +57,28 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @see {@link MPAClientResolvedConfig | config} for MPAClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+ *
+ * You do not have sufficient access to perform this action. Check your permissions, and try again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request contains an invalid parameter value.</p>
+ *
+ * The request contains an invalid parameter value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+ *
+ * The specified resource doesn't exist. Check the resource ID, and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link MPAServiceException}
- * <p>Base exception class for all service exceptions from MPA service.</p>
  *
+ * Base exception class for all service exceptions from MPA service.
  *
  * @public
  */

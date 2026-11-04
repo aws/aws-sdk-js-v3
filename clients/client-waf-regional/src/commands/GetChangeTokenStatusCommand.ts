@@ -23,31 +23,20 @@ export interface GetChangeTokenStatusCommandInput extends GetChangeTokenStatusRe
 export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- * 		       <p>Returns the status of a <code>ChangeToken</code> that you got by calling <a>GetChangeToken</a>. <code>ChangeTokenStatus</code> is
- * 			one of the following values:</p>
- * 		       <ul>
- *             <li>
- *                <p>
- *                   <code>PROVISIONED</code>: You requested the change token by calling <code>GetChangeToken</code>, but you haven't used it yet
- * 				in a call to create, update, or delete an AWS WAF object.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PENDING</code>: AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>INSYNC</code>: Propagation is complete.</p>
- *             </li>
- *          </ul>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Returns the status of a `ChangeToken` that you got by calling GetChangeToken. `ChangeTokenStatus` is one of the following values:
+ *
+ * - `PROVISIONED`: You requested the change token by calling `GetChangeToken`, but you haven't used it yet in a call to create, update, or delete an AWS WAF object.
+ * - `PENDING`: AWS WAF is propagating the create, update, or delete request to all AWS WAF servers.
+ * - `INSYNC`: Propagation is complete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +63,16 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * The operation failed because the referenced object doesn't exist.
  *
  * @throws {@link WAFRegionalServiceException}
- * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * Base exception class for all service exceptions from WAFRegional service.
  *
  * @example To get the change token status
  * ```javascript

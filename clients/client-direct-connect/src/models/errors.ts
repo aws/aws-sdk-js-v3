@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DirectConnectServiceException as __BaseException } from "./DirectConnectServiceException";
 
 /**
- * <p>One or more parameters are not valid.</p>
+ * One or more parameters are not valid.
+ *
  * @public
  */
 export class DirectConnectClientException extends __BaseException {
@@ -25,7 +26,8 @@ export class DirectConnectClientException extends __BaseException {
 }
 
 /**
- * <p>A server-side error occurred.</p>
+ * A server-side error occurred.
+ *
  * @public
  */
 export class DirectConnectServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class DirectConnectServerException extends __BaseException {
 }
 
 /**
- * <p>A tag key was specified more than once.</p>
+ * A tag key was specified more than once.
+ *
  * @public
  */
 export class DuplicateTagKeysException extends __BaseException {
@@ -67,7 +70,8 @@ export class DuplicateTagKeysException extends __BaseException {
 }
 
 /**
- * <p>You have reached the limit on the number of tags that can be assigned.</p>
+ * You have reached the limit on the number of tags that can be assigned.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -88,7 +92,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.</p>
+ * The rate limiter limit has been exceeded for the connection. You cannot add more rate limiters to virtual interfaces on this connection.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {

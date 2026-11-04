@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Resource Groups Tagging API</fullname>
+ * Resource Groups Tagging API
  *
  * @packageDocumentation
  */

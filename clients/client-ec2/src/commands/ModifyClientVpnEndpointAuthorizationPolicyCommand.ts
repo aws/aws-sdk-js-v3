@@ -26,7 +26,8 @@ export interface ModifyClientVpnEndpointAuthorizationPolicyCommandInput extends 
 export interface ModifyClientVpnEndpointAuthorizationPolicyCommandOutput extends ModifyClientVpnEndpointAuthorizationPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the authorization policy for a Client VPN endpoint. A Client VPN endpoint can have one authorization policy. If a policy already exists for the endpoint, the values that you specify replace the corresponding values in the existing policy, and values that you do not specify remain unchanged.</p>
+ * Creates or updates the authorization policy for a Client VPN endpoint. A Client VPN endpoint can have one authorization policy. If a policy already exists for the endpoint, the values that you specify replace the corresponding values in the existing policy, and values that you do not specify remain unchanged.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +59,8 @@ export interface ModifyClientVpnEndpointAuthorizationPolicyCommandOutput extends
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

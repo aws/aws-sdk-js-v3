@@ -5,7 +5,8 @@ import { DataExchangeServiceException as __BaseException } from "./DataExchangeS
 import type { ExceptionCause, LimitName, ResourceType } from "./enums";
 
 /**
- * <p>Access to the resource is denied.</p>
+ * Access to the resource is denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -13,7 +14,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Access to the resource is denied.</p>
+   * Access to the resource is denied.
+   *
    * @public
    */
   Message: string | undefined;
@@ -32,7 +34,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ * The request couldn't be completed because it conflicted with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -40,19 +43,22 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+   * The request couldn't be completed because it conflicted with the current state of the resource.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource with the conflict.</p>
+   * The unique identifier for the resource with the conflict.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource with the conflict.</p>
+   * The type of the resource with the conflict.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
@@ -73,7 +79,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An exception occurred with the service.</p>
+ * An exception occurred with the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -81,7 +88,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The message identifying the service exception that occurred.</p>
+   * The message identifying the service exception that occurred.
+   *
    * @public
    */
   Message: string | undefined;
@@ -100,7 +108,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource couldn't be found.</p>
+ * The resource couldn't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -108,19 +117,22 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource couldn't be found.</p>
+   * The resource couldn't be found.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource that couldn't be found.</p>
+   * The unique identifier for the resource that couldn't be found.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of resource that couldn't be found.</p>
+   * The type of resource that couldn't be found.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
@@ -141,7 +153,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second was exceeded.</p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -149,7 +162,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The limit on the number of requests per second was exceeded.</p>
+   * The limit on the number of requests per second was exceeded.
+   *
    * @public
    */
   Message: string | undefined;
@@ -168,7 +182,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request was invalid.</p>
+ * The request was invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -176,13 +191,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message that informs you about what was invalid about the request.</p>
+   * The message that informs you about what was invalid about the request.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The unique identifier for the resource that couldn't be found.</p>
+   * The unique identifier for the resource that couldn't be found.
+   *
    * @public
    */
   ExceptionCause?: ExceptionCause | undefined;
@@ -202,7 +219,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request has exceeded the quotas imposed by the service.</p>
+ * The request has exceeded the quotas imposed by the service.
+ *
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -210,19 +228,22 @@ export class ServiceLimitExceededException extends __BaseException {
   readonly name = "ServiceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the limit that was reached.</p>
+   * The name of the limit that was reached.
+   *
    * @public
    */
   LimitName?: LimitName | undefined;
 
   /**
-   * <p>The value of the exceeded limit.</p>
+   * The value of the exceeded limit.
+   *
    * @public
    */
   LimitValue?: number | undefined;
 
   /**
-   * <p>The request has exceeded the quotas imposed by the service.</p>
+   * The request has exceeded the quotas imposed by the service.
+   *
    * @public
    */
   Message: string | undefined;

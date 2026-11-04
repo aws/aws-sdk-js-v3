@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PricingServiceException as __BaseException } from "./PricingServiceException";
 
 /**
- * <p>General authentication failure. The request wasn't signed correctly.</p>
+ * General authentication failure. The request wasn't signed correctly.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The pagination token expired. Try again without a pagination token.</p>
+ * The pagination token expired. Try again without a pagination token.
+ *
  * @public
  */
 export class ExpiredNextTokenException extends __BaseException {
@@ -50,7 +52,8 @@ export class ExpiredNextTokenException extends __BaseException {
 }
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ * An error on the server occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -74,7 +77,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>The pagination token is invalid. Try again without a pagination token.</p>
+ * The pagination token is invalid. Try again without a pagination token.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -97,7 +101,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters had an invalid value.</p>
+ * One or more parameters had an invalid value.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -120,7 +125,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found.</p>
+ * The requested resource can't be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -143,7 +149,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've made too many requests exceeding service quotas. </p>
+ * You've made too many requests exceeding service quotas.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -169,7 +176,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found.</p>
+ * The requested resource can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

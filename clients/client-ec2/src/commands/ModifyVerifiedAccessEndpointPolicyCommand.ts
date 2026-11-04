@@ -26,7 +26,8 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandInput extends ModifyVe
 export interface ModifyVerifiedAccessEndpointPolicyCommandOutput extends ModifyVerifiedAccessEndpointPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified Amazon Web Services Verified Access endpoint policy.</p>
+ * Modifies the specified Amazon Web Services Verified Access endpoint policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput extends ModifyV
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

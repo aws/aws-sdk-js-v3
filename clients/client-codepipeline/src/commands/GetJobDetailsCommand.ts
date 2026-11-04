@@ -23,13 +23,10 @@ export interface GetJobDetailsCommandInput extends GetJobDetailsInput {}
 export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a job. Used for custom actions only.</p>
- *          <important>
- *             <p>When this API is called, CodePipeline returns temporary credentials for
- *                 the S3 bucket used to store artifacts for the pipeline, if the action requires
- *                 access to that S3 bucket for input or output artifacts. This API also returns any
- *                 secret values defined for the action.</p>
- *          </important>
+ * Returns information about a job. Used for custom actions only.
+ *
+ * > **Important:** When this API is called, CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,14 +117,16 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link JobNotFoundException} (client fault)
- *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * The job was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

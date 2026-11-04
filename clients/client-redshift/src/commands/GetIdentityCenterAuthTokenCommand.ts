@@ -23,16 +23,12 @@ export interface GetIdentityCenterAuthTokenCommandInput extends GetIdentityCente
 export interface GetIdentityCenterAuthTokenCommandOutput extends GetIdentityCenterAuthTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Generates an encrypted authentication token that propagates the caller's
- *             Amazon Web Services IAM Identity Center identity to Amazon Redshift clusters. This API extracts the
- *             Amazon Web Services IAM Identity Center identity from enhanced credentials and creates a secure token
- *             that Amazon Redshift drivers can use for authentication.</p>
- *          <p>The token is encrypted using Key Management Service (KMS) and can only be
- *             decrypted by the specified Amazon Redshift clusters. The token contains the caller's
- *             Amazon Web Services IAM Identity Center identity information and is valid for a limited time period.</p>
- *          <p>This API is exclusively for use with Amazon Web Services IAM Identity Center enhanced credentials. If the
- *             caller is not using enhanced credentials with embedded Amazon Web Services IAM Identity Center identity, the API will
- *             return an error.</p>
+ * Generates an encrypted authentication token that propagates the caller's Amazon Web Services IAM Identity Center identity to Amazon Redshift clusters. This API extracts the Amazon Web Services IAM Identity Center identity from enhanced credentials and creates a secure token that Amazon Redshift drivers can use for authentication.
+ *
+ * The token is encrypted using Key Management Service (KMS) and can only be decrypted by the specified Amazon Redshift clusters. The token contains the caller's Amazon Web Services IAM Identity Center identity information and is valid for a limited time period.
+ *
+ * This API is exclusively for use with Amazon Web Services IAM Identity Center enhanced credentials. If the caller is not using enhanced credentials with embedded Amazon Web Services IAM Identity Center identity, the API will return an error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,24 +58,24 @@ export interface GetIdentityCenterAuthTokenCommandOutput extends GetIdentityCent
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link RedshiftInvalidParameterFault} (client fault)
- *  <p>The request contains one or more invalid parameters.
- *             This error occurs when required parameters are missing,
- *             parameter values are outside acceptable ranges,
- *             or parameter formats are incorrect.</p>
+ *
+ * The request contains one or more invalid parameters. This error occurs when required parameters are missing, parameter values are outside acceptable ranges, or parameter formats are incorrect.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

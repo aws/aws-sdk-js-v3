@@ -23,20 +23,12 @@ export interface ListConfigurationHistoryCommandInput extends ListConfigurationH
 export interface ListConfigurationHistoryCommandOutput extends ListConfigurationHistoryResponse, __MetadataBearer {}
 
 /**
- * <p> Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by
- *          Application Insights. Examples of events represented are: </p>
- *          <ul>
- *             <li>
- *                <p>INFO: creating a new alarm or updating an alarm threshold.</p>
- *             </li>
- *             <li>
- *                <p>WARN: alarm not created due to insufficient data points used to predict
- *                thresholds.</p>
- *             </li>
- *             <li>
- *                <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p>
- *             </li>
- *          </ul>
+ * Lists the INFO, WARN, and ERROR events for periodic configuration updates performed by Application Insights. Examples of events represented are:
+ *
+ * - INFO: creating a new alarm or updating an alarm threshold.
+ * - WARN: alarm not created due to insufficient data points used to predict thresholds.
+ * - ERROR: alarm not created due to permission errors or exceeding quotas.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +73,20 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource does not exist in the customer account.</p>
+ *
+ * The resource does not exist in the customer account.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link ApplicationInsightsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationInsights service.
  *
  * @public
  */

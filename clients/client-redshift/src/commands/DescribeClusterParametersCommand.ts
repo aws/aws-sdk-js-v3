@@ -23,18 +23,12 @@ export interface DescribeClusterParametersCommandInput extends DescribeClusterPa
 export interface DescribeClusterParametersCommandOutput extends ClusterParameterGroupDetails, __MetadataBearer {}
 
 /**
- * <p>Returns a detailed list of parameters contained within the specified Amazon Redshift
- *             parameter group. For each parameter the response includes information such as parameter
- *             name, description, data type, value, whether the parameter value is modifiable, and so
- *             on.</p>
- *          <p>You can specify <i>source</i> filter to retrieve parameters of only
- *             specific type. For example, to retrieve parameters that were modified by a user action
- *             such as from <a>ModifyClusterParameterGroup</a>, you can specify
- *                 <i>source</i> equal to <i>user</i>.</p>
- *          <p>
- * For more information about parameters and parameter groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Returns a detailed list of parameters contained within the specified Amazon Redshift parameter group. For each parameter the response includes information such as parameter name, description, data type, value, whether the parameter value is modifiable, and so on.
+ *
+ * You can specify *source* filter to retrieve parameters of only specific type. For example, to retrieve parameters that were modified by a user action such as from ModifyClusterParameterGroup, you can specify *source* equal to *user*.
+ *
+ * For more information about parameters and parameter groups, go to [Amazon Redshift Parameter Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,11 +71,12 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

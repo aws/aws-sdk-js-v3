@@ -23,9 +23,8 @@ export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubs
 export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
- *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
- *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
+ * Adds an alert subscription to a cost anomaly detection monitor. You can use each subscription to define subscribers with email or SNS notifications. Email subscribers can set an absolute or percentage threshold and a time frequency for receiving notifications.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -155,14 +154,16 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link UnknownMonitorException} (client fault)
- *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
+ * The cost anomaly monitor does not exist for the account.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

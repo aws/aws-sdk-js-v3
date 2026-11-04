@@ -23,13 +23,10 @@ export interface GetModelsCommandInput extends GetModelsRequest {}
 export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBearer {}
 
 /**
- * <p>Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified. </p>
- *          <p>This is a paginated API. If you
- *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
- *          per page. If you provide a <code>maxResults</code>, the value must be between 1 and 10.
- *          To get the next page results, provide the pagination token from the
- *             response as part of your request. A null pagination token
- *          fetches the records from the beginning.</p>
+ * Gets one or more models. Gets all models for the Amazon Web Services account if no model type and no model id provided. Gets all models for the Amazon Web Services account and model type, if the model type is specified but model id is not provided. Gets a specific model if (model type, model id) tuple is specified.
+ *
+ * This is a paginated API. If you provide a null `maxResults`, this action retrieves a maximum of 10 records per page. If you provide a `maxResults`, the value must be between 1 and 10. To get the next page results, provide the pagination token from the response as part of your request. A null pagination token fetches the records from the beginning.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +67,28 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as <code>PutExternalModel</code>, that specifies a role that is not in your account.</p>
+ *
+ * An exception indicating Amazon Fraud Detector does not have the needed permissions. This can occur if you submit a request, such as `PutExternalModel`, that specifies a role that is not in your account.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception indicating an internal server error.</p>
+ *
+ * An exception indicating an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception indicating the specified resource was not found.</p>
+ *
+ * An exception indicating the specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An exception indicating a throttling error.</p>
+ *
+ * An exception indicating a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception indicating a specified value is not allowed.</p>
+ *
+ * An exception indicating a specified value is not allowed.
  *
  * @throws {@link FraudDetectorServiceException}
- * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ * Base exception class for all service exceptions from FraudDetector service.
  *
  * @public
  */

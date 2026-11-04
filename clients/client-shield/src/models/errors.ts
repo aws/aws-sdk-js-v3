@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { ShieldServiceException as __BaseException } from "./ShieldServiceException";
 
 /**
- * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
+ * Exception that indicates the specified `AttackId` does not exist, or the requester does not have the appropriate permissions to access the `AttackId`.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an Amazon Web Services Service</a>. </p>
+ * In order to grant the necessary access to the Shield Response Team (SRT) the user submitting the request must have the `iam:PassRole` permission. This error indicates the user did not have the appropriate permissions. For more information, see [Granting a User Permissions to Pass a Role to an Amazon Web Services Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
+ *
  * @public
  */
 export class AccessDeniedForDependencyException extends __BaseException {
@@ -48,7 +50,8 @@ export class AccessDeniedForDependencyException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -69,7 +72,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ * Exception that indicates that the operation would not cause any change to occur.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -90,7 +94,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ * Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -98,13 +103,15 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Additional information about the exception.</p>
+   * Additional information about the exception.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>Fields that caused the exception.</p>
+   * Fields that caused the exception.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -125,7 +132,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that the operation would exceed a limit.</p>
+ * Exception that indicates that the operation would exceed a limit.
+ *
  * @public
  */
 export class LimitsExceededException extends __BaseException {
@@ -133,13 +141,15 @@ export class LimitsExceededException extends __BaseException {
   readonly name = "LimitsExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The type of limit that would be exceeded.</p>
+   * The type of limit that would be exceeded.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The threshold that would be exceeded.</p>
+   * The threshold that would be exceeded.
+   *
    * @public
    */
   Limit?: number | undefined;
@@ -160,7 +170,8 @@ export class LimitsExceededException extends __BaseException {
 }
 
 /**
- * <p>The ARN of the role that you specified does not exist.</p>
+ * The ARN of the role that you specified does not exist.
+ *
  * @public
  */
 export class NoAssociatedRoleException extends __BaseException {
@@ -181,8 +192,8 @@ export class NoAssociatedRoleException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that the resource state has been modified by another
- *          client. Retrieve the resource and then retry your request.</p>
+ * Exception that indicates that the resource state has been modified by another client. Retrieve the resource and then retry your request.
+ *
  * @public
  */
 export class OptimisticLockException extends __BaseException {
@@ -203,7 +214,8 @@ export class OptimisticLockException extends __BaseException {
 }
 
 /**
- * <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ * Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -211,7 +223,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Type of resource.</p>
+   * Type of resource.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -231,7 +244,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
+ * Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.
+ *
  * @public
  */
 export class InvalidResourceException extends __BaseException {
@@ -252,7 +266,8 @@ export class InvalidResourceException extends __BaseException {
 }
 
 /**
- * <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+ * Exception indicating the specified resource already exists. If available, this exception includes details in additional properties.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -260,7 +275,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
   readonly name = "ResourceAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The type of resource that already exists.</p>
+   * The type of resource that already exists.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -280,7 +296,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
+ * You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the `AutoRenew` parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change `AutoRenew` prior to that period.
+ *
  * @public
  */
 export class LockedSubscriptionException extends __BaseException {
@@ -301,7 +318,8 @@ export class LockedSubscriptionException extends __BaseException {
 }
 
 /**
- * <p>Exception that indicates that the <code>NextToken</code> specified in the request is invalid. Submit the request using the <code>NextToken</code> value that was returned in the prior response.</p>
+ * Exception that indicates that the `NextToken` specified in the request is invalid. Submit the request using the `NextToken` value that was returned in the prior response.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {

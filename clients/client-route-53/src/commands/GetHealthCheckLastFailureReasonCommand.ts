@@ -26,7 +26,8 @@ export interface GetHealthCheckLastFailureReasonCommandInput extends GetHealthCh
 export interface GetHealthCheckLastFailureReasonCommandOutput extends GetHealthCheckLastFailureReasonResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the reason that a specified health check failed most recently.</p>
+ * Gets the reason that a specified health check failed most recently.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +63,16 @@ export interface GetHealthCheckLastFailureReasonCommandOutput extends GetHealthC
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
- *  <p>No health check exists with the specified ID.</p>
+ *
+ * No health check exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

@@ -23,8 +23,10 @@ export interface GetLifecyclePoliciesCommandInput extends GetLifecyclePoliciesRe
 export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all or the specified data lifecycle policies.</p>
- *          <p>To get complete information about a policy, use <a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html">GetLifecyclePolicy</a>.</p>
+ * Gets summary information about all or the specified data lifecycle policies.
+ *
+ * To get complete information about a policy, use [GetLifecyclePolicy](https://docs.aws.amazon.com/dlm/latest/APIReference/API_GetLifecyclePolicy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,21 +77,24 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service failed in an unexpected way.</p>
+ *
+ * The service failed in an unexpected way.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Bad request. The request is missing required parameters or has invalid
- * 			parameters.</p>
+ *
+ * Bad request. The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because a limit was exceeded.</p>
+ *
+ * The request failed because a limit was exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource was not found.</p>
+ *
+ * A requested resource was not found.
  *
  * @throws {@link DLMServiceException}
- * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * Base exception class for all service exceptions from DLM service.
  *
  * @public
  */

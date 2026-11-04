@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { OSISServiceException as __BaseException } from "./OSISServiceException";
 
 /**
- * <p>You don't have permissions to access the resource.</p>
+ * You don't have permissions to access the resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Exception is thrown when an operation has been disabled.</p>
+ * Exception is thrown when an operation has been disabled.
+ *
  * @public
  */
 export class DisabledOperationException extends __BaseException {
@@ -46,8 +48,8 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
- * <p>The request failed because of an unknown error, exception, or failure (the failure is
- *    internal to the service).</p>
+ * The request failed because of an unknown error, exception, or failure (the failure is internal to the service).
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -68,7 +70,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>You attempted to create more than the allowed number of tags.</p>
+ * You attempted to create more than the allowed number of tags.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -89,7 +92,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You attempted to create a resource that already exists.</p>
+ * You attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -110,7 +114,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>You attempted to access or delete a resource that does not exist.</p>
+ * You attempted to access or delete a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -131,7 +136,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An exception for missing or invalid input fields.</p>
+ * An exception for missing or invalid input fields.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -152,7 +158,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The client attempted to remove a resource that is currently in use.</p>
+ * The client attempted to remove a resource that is currently in use.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -173,7 +180,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An invalid pagination token provided in the request.</p>
+ * An invalid pagination token provided in the request.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {

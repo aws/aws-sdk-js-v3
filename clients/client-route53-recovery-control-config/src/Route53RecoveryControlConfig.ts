@@ -747,7 +747,8 @@ export interface Route53RecoveryControlConfig {
 }
 
 /**
- * <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>
+ * Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller
+ *
  * @public
  */
 export class Route53RecoveryControlConfig extends Route53RecoveryControlConfigClient implements Route53RecoveryControlConfig {}

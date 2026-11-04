@@ -23,12 +23,10 @@ export interface CreateReplaceRootVolumeTaskCommandInput extends CreateReplaceRo
 export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceRootVolumeTaskResult, __MetadataBearer {}
 
 /**
- * <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new
- *       volume that is restored to the original root volume's launch state, that is restored to a
- *       specific snapshot taken from the original root volume, that is restored from an AMI
- *       that has the same key characteristics as that of the instance, or that is replaced by
- *       a specified volume.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Replaces the EBS-backed root volume for a `running` instance with a new volume that is restored to the original root volume's launch state, that is restored to a specific snapshot taken from the original root volume, that is restored from an AMI that has the same key characteristics as that of the instance, or that is replaced by a specified volume.
+ *
+ * For more information, see [Replace a root volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +86,8 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

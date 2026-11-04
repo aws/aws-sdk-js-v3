@@ -23,10 +23,12 @@ export interface DescribeLimitsCommandInput extends DescribeLimitsInput {}
 export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the shard limits and usage for the account.</p>
- *          <p>If you update your account limits, the old limits might be returned for a few
- *             minutes.</p>
- *          <p>This operation has a limit of one transaction per second per account.</p>
+ * Describes the shard limits and usage for the account.
+ *
+ * If you update your account limits, the old limits might be returned for a few minutes.
+ *
+ * This operation has a limit of one transaction per second per account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,12 +58,12 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

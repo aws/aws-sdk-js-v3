@@ -23,28 +23,14 @@ export interface UpdateTieringConfigurationCommandInput extends UpdateTieringCon
 export interface UpdateTieringConfigurationCommandOutput extends UpdateTieringConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>This request will send changes to your specified tiering
- *          configuration. <code>TieringConfigurationName</code>
- *          cannot be updated after it is created.</p>
- *          <p>
- *             <code>ResourceSelection</code> can contain:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Resources</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TieringDownSettingsInDays</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ResourceType</code>
- *                </p>
- *             </li>
- *          </ul>
+ * This request will send changes to your specified tiering configuration. `TieringConfigurationName` cannot be updated after it is created.
+ *
+ * `ResourceSelection` can contain:
+ *
+ * - `Resources`
+ * - `TieringDownSettingsInDays`
+ * - `ResourceType`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,32 +72,36 @@ export interface UpdateTieringConfigurationCommandOutput extends UpdateTieringCo
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The required resource already exists.</p>
+ *
+ * The required resource already exists.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Backup can't perform the action that you requested until it finishes
- *          performing a previous action. Try again later.</p>
+ *
+ * Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

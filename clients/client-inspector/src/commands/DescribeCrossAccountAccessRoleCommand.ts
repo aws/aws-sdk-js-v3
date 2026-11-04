@@ -23,8 +23,8 @@ export interface DescribeCrossAccountAccessRoleCommandInput {}
 export interface DescribeCrossAccountAccessRoleCommandOutput extends DescribeCrossAccountAccessRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
- *          account.</p>
+ * Describes the IAM role that enables Amazon Inspector to access your AWS account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +51,12 @@ export interface DescribeCrossAccountAccessRoleCommandOutput extends DescribeCro
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @public
  */

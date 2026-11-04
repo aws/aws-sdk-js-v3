@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudSearchDomainServiceException as __BaseException } from "./CloudSearchDomainServiceException";
 
 /**
- * <p>Information about any problems encountered while processing a search request.</p>
+ * Information about any problems encountered while processing a search request.
+ *
  * @public
  */
 export class SearchException extends __BaseException {
@@ -25,7 +26,8 @@ export class SearchException extends __BaseException {
 }
 
 /**
- * <p>Information about any problems encountered while processing an upload request.</p>
+ * Information about any problems encountered while processing an upload request.
+ *
  * @public
  */
 export class DocumentServiceException extends __BaseException {
@@ -33,7 +35,8 @@ export class DocumentServiceException extends __BaseException {
   readonly name = "DocumentServiceException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>
+   * The return status of a document upload request, `error` or `success`.
+   *
    * @public
    */
   status?: string | undefined;

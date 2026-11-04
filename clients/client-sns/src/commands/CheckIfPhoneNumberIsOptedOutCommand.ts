@@ -23,11 +23,10 @@ export interface CheckIfPhoneNumberIsOptedOutCommandInput extends CheckIfPhoneNu
 export interface CheckIfPhoneNumberIsOptedOutCommandOutput extends CheckIfPhoneNumberIsOptedOutResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts a phone number and indicates whether the phone holder has opted out of
- *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
- *             that is opted out.</p>
- *          <p>To resume sending messages, you can opt in the number by using the
- *                 <code>OptInPhoneNumber</code> action.</p>
+ * Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number that is opted out.
+ *
+ * To resume sending messages, you can opt in the number by using the `OptInPhoneNumber` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,21 +53,24 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput extends CheckIfPhoneN
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

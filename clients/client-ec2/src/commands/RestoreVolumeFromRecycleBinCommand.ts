@@ -23,8 +23,8 @@ export interface RestoreVolumeFromRecycleBinCommandInput extends RestoreVolumeFr
 export interface RestoreVolumeFromRecycleBinCommandOutput extends RestoreVolumeFromRecycleBinResult, __MetadataBearer {}
 
 /**
- * <p>Restores a volume from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-volumes.html#recycle-bin-restore-volumes">Restore
- *       volumes from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Restores a volume from the Recycle Bin. For more information, see [Restore volumes from the Recycle Bin](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-volumes.html#recycle-bin-restore-volumes) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +52,8 @@ export interface RestoreVolumeFromRecycleBinCommandOutput extends RestoreVolumeF
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,11 +23,8 @@ export interface DeletePlacementGroupCommandInput extends DeletePlacementGroupRe
 export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified placement group. You must terminate all instances in the
- *             placement group before you can delete the placement group. You cannot delete a
- *             placement group that is a parent of a cluster placement group. Delete the cluster
- *             placement groups first. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. You cannot delete a placement group that is a parent of a cluster placement group. Delete the cluster placement groups first. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +50,8 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a placement group
  * ```javascript

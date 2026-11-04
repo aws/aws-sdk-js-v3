@@ -23,33 +23,18 @@ export interface DeregisterTargetsCommandInput extends DeregisterTargetsInput {}
 export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput, __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified targets from the specified target group. After the targets are
- *       deregistered, they no longer receive traffic from the load balancer.</p>
- *          <p>The load balancer stops sending requests to targets that are deregistering, but uses
- *       connection draining to ensure that in-flight traffic completes on the existing connections.
- *       This deregistration delay is configured by default but can be updated for each target group.</p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#deregistration-delay">
- *           Deregistration delay</a> in the <i>Application Load Balancers User Guide</i>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#deregistration-delay">
- *           Deregistration delay</a> in the <i>Network Load Balancers User Guide</i>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/edit-target-group-attributes.html#deregistration-delay">
- *           Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Note: If the specified target does not exist, the action returns successfully.</p>
+ * Deregisters the specified targets from the specified target group. After the targets are deregistered, they no longer receive traffic from the load balancer.
+ *
+ * The load balancer stops sending requests to targets that are deregistering, but uses connection draining to ensure that in-flight traffic completes on the existing connections. This deregistration delay is configured by default but can be updated for each target group.
+ *
+ * For more information, see the following:
+ *
+ * - [Deregistration delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#deregistration-delay) in the *Application Load Balancers User Guide*
+ * - [Deregistration delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#deregistration-delay) in the *Network Load Balancers User Guide*
+ * - [Deregistration delay](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/edit-target-group-attributes.html#deregistration-delay) in the *Gateway Load Balancers User Guide*
+ *
+ * Note: If the specified target does not exist, the action returns successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,15 +67,16 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidTargetException} (client fault)
- *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
- *       unsupported instance type.</p>
+ *
+ * The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To deregister a target from a target group
  * ```javascript

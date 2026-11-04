@@ -23,14 +23,12 @@ export interface DescribeAlarmHistoryCommandInput extends DescribeAlarmHistoryIn
 export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the history for the specified alarm. You can filter the results by date
- *             range or item type. If an alarm name is not specified, the histories for either all
- *             metric alarms or all composite alarms are returned.</p>
- *          <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
- *          <p>To use this operation and return information about a composite alarm, you must be
- *             signed on with the <code>cloudwatch:DescribeAlarmHistory</code> permission that is
- *             scoped to <code>*</code>. You can't return information about composite alarms if your
- *                 <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.</p>
+ * Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.
+ *
+ * CloudWatch retains the history of an alarm even if you delete the alarm.
+ *
+ * To use this operation and return information about a composite alarm, you must be signed on with the `cloudwatch:DescribeAlarmHistory` permission that is scoped to `*`. You can't return information about composite alarms if your `cloudwatch:DescribeAlarmHistory` permission has a narrower scope.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,11 +79,12 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The next token specified is invalid.</p>
+ *
+ * The next token specified is invalid.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

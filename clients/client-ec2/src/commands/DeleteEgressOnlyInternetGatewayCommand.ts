@@ -23,7 +23,8 @@ export interface DeleteEgressOnlyInternetGatewayCommandInput extends DeleteEgres
 export interface DeleteEgressOnlyInternetGatewayCommandOutput extends DeleteEgressOnlyInternetGatewayResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an egress-only internet gateway.</p>
+ * Deletes an egress-only internet gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput extends DeleteEgre
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

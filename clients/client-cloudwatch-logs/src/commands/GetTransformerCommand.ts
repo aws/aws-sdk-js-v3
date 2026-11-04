@@ -23,9 +23,10 @@ export interface GetTransformerCommandInput extends GetTransformerRequest {}
 export interface GetTransformerCommandOutput extends GetTransformerResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the information about the log transformer associated with this log group.</p>
- *          <p>This operation returns data only for transformers created at the log group level. To get
- *       information for an account-level transformer, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html">DescribeAccountPolicies</a>.</p>
+ * Returns the information about the log transformer associated with this log group.
+ *
+ * This operation returns data only for transformers created at the log group level. To get information for an account-level transformer, use [DescribeAccountPolicies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -205,20 +206,24 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

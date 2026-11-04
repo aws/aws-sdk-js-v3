@@ -23,29 +23,15 @@ export interface DescribeAccountPoliciesCommandInput extends DescribeAccountPoli
 export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all CloudWatch Logs account policies in the account.</p>
- *          <p>To use this operation, you must be signed on with the correct permissions depending on the
- *       type of policy that you are retrieving information for.</p>
- *          <ul>
- *             <li>
- *                <p>To see data protection policies, you must have the
- *             <code>logs:GetDataProtectionPolicy</code> and <code>logs:DescribeAccountPolicies</code>
- *           permissions.</p>
- *             </li>
- *             <li>
- *                <p>To see subscription filter policies, you must have the
- *             <code>logs:DescribeSubscriptionFilters</code> and
- *             <code>logs:DescribeAccountPolicies</code> permissions.</p>
- *             </li>
- *             <li>
- *                <p>To see transformer policies, you must have the <code>logs:GetTransformer</code> and
- *             <code>logs:DescribeAccountPolicies</code> permissions.</p>
- *             </li>
- *             <li>
- *                <p>To see field index policies, you must have the <code>logs:DescribeIndexPolicies</code>
- *           and <code>logs:DescribeAccountPolicies</code> permissions.</p>
- *             </li>
- *          </ul>
+ * Returns a list of all CloudWatch Logs account policies in the account.
+ *
+ * To use this operation, you must be signed on with the correct permissions depending on the type of policy that you are retrieving information for.
+ *
+ * - To see data protection policies, you must have the `logs:GetDataProtectionPolicy` and `logs:DescribeAccountPolicies` permissions.
+ * - To see subscription filter policies, you must have the `logs:DescribeSubscriptionFilters` and `logs:DescribeAccountPolicies` permissions.
+ * - To see transformer policies, you must have the `logs:GetTransformer` and `logs:DescribeAccountPolicies` permissions.
+ * - To see field index policies, you must have the `logs:DescribeIndexPolicies` and `logs:DescribeAccountPolicies` permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,20 +74,24 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

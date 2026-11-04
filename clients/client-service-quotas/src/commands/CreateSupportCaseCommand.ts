@@ -23,8 +23,8 @@ export interface CreateSupportCaseCommandInput extends CreateSupportCaseRequest 
 export interface CreateSupportCaseCommandOutput extends CreateSupportCaseResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Support case for an existing quota increase request. This call only creates
- *             a Support case if the request has a <code>Pending</code> status. </p>
+ * Creates a Support case for an existing quota increase request. This call only creates a Support case if the request has a `Pending` status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,33 +49,40 @@ export interface CreateSupportCaseCommandOutput extends CreateSupportCaseRespons
  * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permission to perform this action.</p>
+ *
+ * You do not have sufficient permission to perform this action.
  *
  * @throws {@link DependencyAccessDeniedException} (client fault)
- *  <p>You can't perform this action because a dependency does not have access.</p>
+ *
+ * You can't perform this action because a dependency does not have access.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Invalid input was provided.</p>
+ *
+ * Invalid input was provided.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The resource is in an invalid state.</p>
+ *
+ * The resource is in an invalid state.
  *
  * @throws {@link NoSuchResourceException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Something went wrong.</p>
+ *
+ * Something went wrong.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Due to throttling, the request was denied. Slow down the rate of request calls, or
- *             request an increase for this quota.</p>
+ *
+ * Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.
  *
  * @throws {@link ServiceQuotasServiceException}
- * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ * Base exception class for all service exceptions from ServiceQuotas service.
  *
  * @public
  */

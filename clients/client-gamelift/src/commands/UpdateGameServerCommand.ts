@@ -23,42 +23,22 @@ export interface UpdateGameServerCommandInput extends UpdateGameServerInput {}
 export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2 (FleetIQ)</p>
- *          <p>Updates information about a registered game server to help Amazon GameLift Servers FleetIQ track game server
- *             availability. This operation is called by a game server process that is running on an
- *             instance in a game server group. </p>
- *          <p>Use this operation to update the following types of game server information. You can
- *             make all three types of updates in the same request:</p>
- *          <ul>
- *             <li>
- *                <p>To update the game server's utilization status from <code>AVAILABLE</code>
- *                     (when the game server is available to be claimed) to <code>UTILIZED</code> (when
- *                     the game server is currently hosting games). Identify the game server and game
- *                     server group and specify the new utilization status. You can't change the status
- *                     from <code>UTILIZED</code> to <code>AVAILABLE</code> .</p>
- *             </li>
- *             <li>
- *                <p>To report health status, identify the game server and game server group and
- *                     set health check to <code>HEALTHY</code>. If a game server does not report
- *                     health status for a certain length of time, the game server is no longer
- *                     considered healthy. As a result, it will be eventually deregistered from the
- *                     game server group to avoid affecting utilization metrics. The best practice is
- *                     to report health every 60 seconds.</p>
- *             </li>
- *             <li>
- *                <p>To change game server metadata, provide updated game server data.</p>
- *             </li>
- *          </ul>
- *          <p>Once a game server is successfully updated, the relevant statuses and timestamps are
- *             updated.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
- *                 Guide</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2 (FleetIQ)
+ *
+ * Updates information about a registered game server to help Amazon GameLift Servers FleetIQ track game server availability. This operation is called by a game server process that is running on an instance in a game server group.
+ *
+ * Use this operation to update the following types of game server information. You can make all three types of updates in the same request:
+ *
+ * - To update the game server's utilization status from `AVAILABLE` (when the game server is available to be claimed) to `UTILIZED` (when the game server is currently hosting games). Identify the game server and game server group and specify the new utilization status. You can't change the status from `UTILIZED` to `AVAILABLE` .
+ * - To report health status, identify the game server and game server group and set health check to `HEALTHY`. If a game server does not report health status for a certain length of time, the game server is no longer considered healthy. As a result, it will be eventually deregistered from the game server group to avoid affecting utilization metrics. The best practice is to report health every 60 seconds.
+ * - To change game server metadata, provide updated game server data.
+ *
+ * Once a game server is successfully updated, the relevant statuses and timestamps are updated.
+ *
+ * **Learn more**
+ *
+ * [Amazon GameLift Servers FleetIQ Guide](https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,22 +81,24 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

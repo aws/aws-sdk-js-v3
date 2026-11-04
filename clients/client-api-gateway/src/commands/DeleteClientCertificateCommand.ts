@@ -23,7 +23,8 @@ export interface DeleteClientCertificateCommandInput extends DeleteClientCertifi
 export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the ClientCertificate resource.</p>
+ * Deletes the ClientCertificate resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +49,28 @@ export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * The requested resource is not found. Make sure that the request URI is correct.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * The request has reached its throttling limit. Retry after the specified time period.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ * The request is denied because the caller has insufficient permissions.
  *
  * @throws {@link APIGatewayServiceException}
- * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * Base exception class for all service exceptions from APIGateway service.
  *
  * @public
  */

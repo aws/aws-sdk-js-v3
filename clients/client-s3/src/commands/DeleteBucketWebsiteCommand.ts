@@ -23,35 +23,21 @@ export interface DeleteBucketWebsiteCommandInput extends DeleteBucketWebsiteRequ
 export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200 OK</code>
- *       response upon successfully deleting a website configuration on the specified bucket. You will get a
- *         <code>200 OK</code> response if the website configuration you are trying to delete does not exist on
- *       the bucket. Amazon S3 returns a <code>404</code> response if the bucket specified in the request does not
- *       exist.</p>
- *          <p>This DELETE action requires the <code>S3:DeleteBucketWebsite</code> permission. By default, only the
- *       bucket owner can delete the website configuration attached to a bucket. However, bucket owners can grant
- *       other users permission to delete the website configuration by writing a bucket policy granting them the
- *         <code>S3:DeleteBucketWebsite</code> permission. </p>
- *          <p>For more information about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>. </p>
- *          <p>The following operations are related to <code>DeleteBucketWebsite</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html">GetBucketWebsite</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html">PutBucketWebsite</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * This action removes the website configuration for a bucket. Amazon S3 returns a `200 OK` response upon successfully deleting a website configuration on the specified bucket. You will get a `200 OK` response if the website configuration you are trying to delete does not exist on the bucket. Amazon S3 returns a `404` response if the bucket specified in the request does not exist.
+ *
+ * This DELETE action requires the `S3:DeleteBucketWebsite` permission. By default, only the bucket owner can delete the website configuration attached to a bucket. However, bucket owners can grant other users permission to delete the website configuration by writing a bucket policy granting them the `S3:DeleteBucketWebsite` permission.
+ *
+ * For more information about hosting websites, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
+ *
+ * The following operations are related to `DeleteBucketWebsite`:
+ *
+ * - [GetBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketWebsite.html)
+ * - [PutBucketWebsite](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketWebsite.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +63,8 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To delete bucket website configuration
  * ```javascript

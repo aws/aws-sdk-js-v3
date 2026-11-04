@@ -39,594 +39,747 @@ import type {
 } from "./enums";
 
 /**
- * <p>Position of the access point represented by longitude and latitude for a vehicle.</p>
+ * Position of the access point represented by longitude and latitude for a vehicle.
+ *
  * @public
  */
 export interface AccessPoint {
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+   * The type of access point, indicating its intended use. Only applies to results of type place.
+   *
    * @public
    */
   Type?: AccessPointType | undefined;
 
   /**
-   * <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+   * Set to `true` for the primary access position when the place has more than one access point.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+   * A short textual description of the access point, such as `"North Entrance"`.
+   *
    * @public
    */
   Label?: string | undefined;
 }
 
 /**
- * <p>Category of the <code>Place</code> returned. </p>
+ * Category of the `Place` returned.
+ *
  * @public
  */
 export interface Category {
   /**
-   * <p>The category ID.</p>
+   * The category ID.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The category name.</p>
+   * The category name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Localized name of the category type.</p>
+   * Localized name of the category type.
+   *
    * @public
    */
   LocalizedName?: string | undefined;
 
   /**
-   * <p>Boolean which indicates if this category is the primary offered by the place.</p>
+   * Boolean which indicates if this category is the primary offered by the place.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 }
 
 /**
- * <p>Indicates if the access location is restricted. Index correlates to that of an access point and indicates if access through this point has some form of restriction. </p>
+ * Indicates if the access location is restricted. Index correlates to that of an access point and indicates if access through this point has some form of restriction.
+ *
  * @public
  */
 export interface AccessRestriction {
   /**
-   * <p>The restriction.</p>
+   * The restriction.
+   *
    * @public
    */
   Restricted?: boolean | undefined;
 
   /**
-   * <p>Categories of results that results must belong too.</p>
+   * Categories of results that results must belong too.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 }
 
 /**
- * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+ * The alpha-2 or alpha-3 character code for the country that the results will be present in.
+ *
  * @public
  */
 export interface Country {
   /**
-   * <p>Country, represented by its alpha 2-character code. </p>
+   * Country, represented by its alpha 2-character code.
+   *
    * @public
    */
   Code2?: string | undefined;
 
   /**
-   * <p>Country, represented by its alpha t-character code. </p>
+   * Country, represented by its alpha t-character code.
+   *
    * @public
    */
   Code3?: string | undefined;
 
   /**
-   * <p>Name of the country.</p>
+   * Name of the country.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>. </p>
+ * The region or state results should be to be present in.
+ *
+ * Example: `North Rhine-Westphalia`.
+ *
  * @public
  */
 export interface Region {
   /**
-   * <p> Abbreviated code for a the state, province or region of the country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>BC</code>.</p>
+   * Abbreviated code for a the state, province or region of the country. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * Example: `BC`.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>Name for a the state, province, or region of the country. </p> <p>Example: <code>British Columbia</code>. </p>
+   * Name for a the state, province, or region of the country.
+   *
+   * Example: `British Columbia`.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Components that correspond to secondary identifiers on an address. The only component type supported currently is Unit.</p>
+ * Components that correspond to secondary identifiers on an address. The only component type supported currently is Unit.
+ *
  * @public
  */
 export interface SecondaryAddressComponent {
   /**
-   * <p>Number that uniquely identifies a secondary address.</p>
+   * Number that uniquely identifies a secondary address.
+   *
    * @public
    */
   Number: string | undefined;
 
   /**
-   * <p>The designator of the secondary address component.</p> <p>Example: <code>Apt</code>.</p>
+   * The designator of the secondary address component.
+   *
+   * Example: `Apt`.
+   *
    * @public
    */
   Designator?: string | undefined;
 }
 
 /**
- * <p>Components of a street.</p>
+ * Components of a street.
+ *
  * @public
  */
 export interface StreetComponents {
   /**
-   * <p>Base name part of the street name. </p> <p>Example: Younge from the "Younge street".</p>
+   * Base name part of the street name.
+   *
+   * Example: Younge from the "Younge street".
+   *
    * @public
    */
   BaseName?: string | undefined;
 
   /**
-   * <p>Street type part of the street name. </p> <p>Example: <code>"avenue"</code>.</p>
+   * Street type part of the street name.
+   *
+   * Example: `"avenue"`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>Defines if the street type is before or after the base name.</p>
+   * Defines if the street type is before or after the base name.
+   *
    * @public
    */
   TypePlacement?: TypePlacement | undefined;
 
   /**
-   * <p>Defines a separator character such as <code>""</code> or <code>" "</code> between the base name and type.</p>
+   * Defines a separator character such as `""` or `" "` between the base name and type.
+   *
    * @public
    */
   TypeSeparator?: string | undefined;
 
   /**
-   * <p>A prefix is a directional identifier that precedes, but is not included in, the base name of a road. </p> <p>Example: E for East.</p>
+   * A prefix is a directional identifier that precedes, but is not included in, the base name of a road.
+   *
+   * Example: E for East.
+   *
    * @public
    */
   Prefix?: string | undefined;
 
   /**
-   * <p>A suffix is a directional identifier that follows, but is not included in, the base name of a road. </p> <p>Example W for West.</p>
+   * A suffix is a directional identifier that follows, but is not included in, the base name of a road.
+   *
+   * Example W for West.
+   *
    * @public
    */
   Suffix?: string | undefined;
 
   /**
-   * <p>Indicates the official directional identifiers assigned to highways.</p>
+   * Indicates the official directional identifiers assigned to highways.
+   *
    * @public
    */
   Direction?: string | undefined;
 
   /**
-   * <p>A <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * A [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.
+   *
    * @public
    */
   Language?: string | undefined;
 }
 
 /**
- * <p>The sub-region.</p>
+ * The sub-region.
+ *
  * @public
  */
 export interface SubRegion {
   /**
-   * <p> Abbreviated code for the county or sub-region. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Abbreviated code for the county or sub-region. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>Name for the county or sub-region.</p>
+   * Name for the county or sub-region.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>The place address.</p>
+ * The place address.
+ *
  * @public
  */
 export interface Address {
   /**
-   * <p>Assembled address value built out of the address components, according to the regional postal rules. This is the correctly formatted address.</p>
+   * Assembled address value built out of the address components, according to the regional postal rules. This is the correctly formatted address.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The country component of the address.</p>
+   * The country component of the address.
+   *
    * @public
    */
   Country?: Country | undefined;
 
   /**
-   * <p>The region or state results should be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * The region or state results should be present in.
+   *
+   * Example: `North Rhine-Westphalia`.
+   *
    * @public
    */
   Region?: Region | undefined;
 
   /**
-   * <p>The sub-region or county for which results should be present in. </p>
+   * The sub-region or county for which results should be present in.
+   *
    * @public
    */
   SubRegion?: SubRegion | undefined;
 
   /**
-   * <p>The city or locality of the address.</p> <p>Example: <code>Vancouver</code>.</p>
+   * The city or locality of the address.
+   *
+   * Example: `Vancouver`.
+   *
    * @public
    */
   Locality?: string | undefined;
 
   /**
-   * <p>The district or division of a locality associated with this address.</p>
+   * The district or division of a locality associated with this address.
+   *
    * @public
    */
   District?: string | undefined;
 
   /**
-   * <p>A subdivision of a district. </p> <p>Example: <code>Minden-Lübbecke</code>.</p>
+   * A subdivision of a district.
+   *
+   * Example: `Minden-Lübbecke`.
+   *
    * @public
    */
   SubDistrict?: string | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess. </p>
+   * An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess.
+   *
    * @public
    */
   PostalCode?: string | undefined;
 
   /**
-   * <p> Name of the block. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
+   * Name of the block. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * Example: `Sunny Mansion 203 block: 2 Chome`
+   *
    * @public
    */
   Block?: string | undefined;
 
   /**
-   * <p> Name of sub-block. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
+   * Name of sub-block. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * Example: `Sunny Mansion 203 sub-block: 4`
+   *
    * @public
    */
   SubBlock?: string | undefined;
 
   /**
-   * <p> Name of the streets in the intersection. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code> </p>
+   * Name of the streets in the intersection. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * Example: `["Friedrichstraße","Unter den Linden"]`
+   *
    * @public
    */
   Intersection?: string[] | undefined;
 
   /**
-   * <p>The name of the street results should be present in.</p>
+   * The name of the street results should be present in.
+   *
    * @public
    */
   Street?: string | undefined;
 
   /**
-   * <p> Components of the street. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <p>Example: Yonge from "Yonge street".</p>
+   * Components of the street. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * Example: Yonge from "Yonge street".
+   *
    * @public
    */
   StreetComponents?: StreetComponents[] | undefined;
 
   /**
-   * <p>The number that identifies an address within a street.</p>
+   * The number that identifies an address within a street.
+   *
    * @public
    */
   AddressNumber?: string | undefined;
 
   /**
-   * <p> The name of the building at the address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The name of the building at the address. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   Building?: string | undefined;
 
   /**
-   * <p> Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>Coverage for <code>Address.SecondaryAddressComponents</code> is available in the following countries:</p> <p>AUS, CAN, NZL, USA, PRI</p> </note>
+   * Components that correspond to secondary identifiers on an Address. Secondary address components include information such as Suite or Unit Number, Building, or Floor. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:**
+   * >
+   * > Coverage for `Address.SecondaryAddressComponents` is available in the following countries:
+   * >
+   * > AUS, CAN, NZL, USA, PRI
+   *
    * @public
    */
   SecondaryAddressComponents?: SecondaryAddressComponent[] | undefined;
 }
 
 /**
- * <p>Match score for a secondary address component in the result.</p>
+ * Match score for a secondary address component in the result.
+ *
  * @public
  */
 export interface SecondaryAddressComponentMatchScore {
   /**
-   * <p>Match score for the secondary address number.</p>
+   * Match score for the secondary address number.
+   *
    * @public
    */
   Number?: number | undefined;
 }
 
 /**
- * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
+ * Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.
+ *
  * @public
  */
 export interface AddressComponentMatchScores {
   /**
-   * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+   * The alpha-2 or alpha-3 character code for the country that the results will be present in.
+   *
    * @public
    */
   Country?: number | undefined;
 
   /**
-   * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * The region or state results should be to be present in.
+   *
+   * Example: `North Rhine-Westphalia`.
+   *
    * @public
    */
   Region?: number | undefined;
 
   /**
-   * <p>The sub-region or county for which results should be present in. </p>
+   * The sub-region or county for which results should be present in.
+   *
    * @public
    */
   SubRegion?: number | undefined;
 
   /**
-   * <p>The city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
+   * The city or locality results should be present in.
+   *
+   * Example: `Vancouver`.
+   *
    * @public
    */
   Locality?: number | undefined;
 
   /**
-   * <p>The district or division of a city the results should be present in.</p>
+   * The district or division of a city the results should be present in.
+   *
    * @public
    */
   District?: number | undefined;
 
   /**
-   * <p>A subdivision of a district. </p> <p>Example: <code>Minden-Lübbecke</code> </p>
+   * A subdivision of a district.
+   *
+   * Example: `Minden-Lübbecke`
+   *
    * @public
    */
   SubDistrict?: number | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess. </p>
+   * An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess.
+   *
    * @public
    */
   PostalCode?: number | undefined;
 
   /**
-   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
+   * Name of the block.
+   *
+   * Example: `Sunny Mansion 203 block: 2 Chome`
+   *
    * @public
    */
   Block?: number | undefined;
 
   /**
-   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
+   * Name of sub-block.
+   *
+   * Example: `Sunny Mansion 203 sub-block: 4`
+   *
    * @public
    */
   SubBlock?: number | undefined;
 
   /**
-   * <p>Name of the streets in the intersection. </p> <p>Example: <code>["Friedrichstraße","Unter den Linden"]</code> </p>
+   * Name of the streets in the intersection.
+   *
+   * Example: `["Friedrichstraße","Unter den Linden"]`
+   *
    * @public
    */
   Intersection?: number[] | undefined;
 
   /**
-   * <p>The house number or address results should have. </p>
+   * The house number or address results should have.
+   *
    * @public
    */
   AddressNumber?: number | undefined;
 
   /**
-   * <p>The name of the building at the address.</p>
+   * The name of the building at the address.
+   *
    * @public
    */
   Building?: number | undefined;
 
   /**
-   * <p>Match scores for the secondary address components in the result.</p> <note> <p>Coverage for this functionality is available in the following countries: AUS, AUT, BRA, CAN, ESP, FRA, GBR, IDN, IND, NZL, TUR, TWN, USA.</p> </note>
+   * Match scores for the secondary address components in the result.
+   *
+   * > **Note:** Coverage for this functionality is available in the following countries: AUS, AUT, BRA, CAN, ESP, FRA, GBR, IDN, IND, NZL, TUR, TWN, USA.
+   *
    * @public
    */
   SecondaryAddressComponents?: SecondaryAddressComponentMatchScore[] | undefined;
 }
 
 /**
- * <p>How to pronounce the various components of the address or place.</p>
+ * How to pronounce the various components of the address or place.
+ *
  * @public
  */
 export interface PhonemeTranscription {
   /**
-   * <p>Value which indicates how to pronounce the value.</p>
+   * Value which indicates how to pronounce the value.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>Boolean which indicates if it the preferred pronunciation.</p>
+   * Boolean which indicates if it the preferred pronunciation.
+   *
    * @public
    */
   Preferred?: boolean | undefined;
 }
 
 /**
- * <p>How to pronounce the various components of the address or place.</p>
+ * How to pronounce the various components of the address or place.
+ *
  * @public
  */
 export interface AddressComponentPhonemes {
   /**
-   * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+   * The alpha-2 or alpha-3 character code for the country that the results will be present in.
+   *
    * @public
    */
   Country?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the region or state results should be to be present in.</p>
+   * How to pronounce the region or state results should be to be present in.
+   *
    * @public
    */
   Region?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the sub-region or county for which results should be present in. </p>
+   * How to pronounce the sub-region or county for which results should be present in.
+   *
    * @public
    */
   SubRegion?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
+   * How to pronounce the city or locality results should be present in.
+   *
+   * Example: `Vancouver`.
+   *
    * @public
    */
   Locality?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the district or division of a city results should be present in.</p>
+   * How to pronounce the district or division of a city results should be present in.
+   *
    * @public
    */
   District?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the sub-district or division of a city results should be present in.</p>
+   * How to pronounce the sub-district or division of a city results should be present in.
+   *
    * @public
    */
   SubDistrict?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the name of the block.</p>
+   * How to pronounce the name of the block.
+   *
    * @public
    */
   Block?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the name of the sub-block.</p>
+   * How to pronounce the name of the sub-block.
+   *
    * @public
    */
   SubBlock?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the name of the street results should be present in.</p>
+   * How to pronounce the name of the street results should be present in.
+   *
    * @public
    */
   Street?: PhonemeTranscription[] | undefined;
 }
 
 /**
- * <p>A translation or alternative name for an address component.</p>
+ * A translation or alternative name for an address component.
+ *
  * @public
  */
 export interface TranslationName {
   /**
-   * <p>The translated or alternative name value.</p>
+   * The translated or alternative name value.
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>A <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language code for the translation name.</p>
+   * A [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language code for the translation name.
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The type of translation name. Valid values are <code>Abbreviation</code>, <code>AreaCode</code>, <code>BaseName</code>, <code>Exonym</code>, <code>Shortened</code>, and <code>Synonym</code>.</p>
+   * The type of translation name. Valid values are `Abbreviation`, `AreaCode`, `BaseName`, `Exonym`, `Shortened`, and `Synonym`.
+   *
    * @public
    */
   Type: TranslationNameType | undefined;
 
   /**
-   * <p>If <code>true</code>, indicates this is the primary name variant for the given language.</p>
+   * If `true`, indicates this is the primary name variant for the given language.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>If <code>true</code>, indicates this name is a transliterated version rather than a native script translation.</p>
+   * If `true`, indicates this name is a transliterated version rather than a native script translation.
+   *
    * @public
    */
   Transliterated?: boolean | undefined;
 }
 
 /**
- * <p>The official administrative names for an address component, returned when <code>AddressNamesMode</code> is set to <code>Administrative</code>.</p>
+ * The official administrative names for an address component, returned when `AddressNamesMode` is set to `Administrative`.
+ *
  * @public
  */
 export interface AdminNames {
   /**
-   * <p>A list of translation names for the administrative address component, including name variants and translations in available languages.</p>
+   * A list of translation names for the administrative address component, including name variants and translations in available languages.
+   *
    * @public
    */
   Names: TranslationName[] | undefined;
 
   /**
-   * <p>Indicates the preference level of the administrative name. Valid values are <code>Primary</code> and <code>Alternative</code>.</p>
+   * Indicates the preference level of the administrative name. Valid values are `Primary` and `Alternative`.
+   *
    * @public
    */
   Preference?: AdminNamesPreference | undefined;
 }
 
 /**
- * <p>The <code>Circle</code> that all results must be in. </p>
+ * The `Circle` that all results must be in.
+ *
  * @public
  */
 export interface FilterCircle {
   /**
-   * <p>The center position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The center position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Center: number[] | undefined;
 
   /**
-   * <p> The radius, in meters, of the <code>FilterCircle</code>. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers,<code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only up to a maximum value of 300,000. </p>
+   * The radius, in meters, of the `FilterCircle`. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers,`ap-southeast-1` and `ap-southeast-5` regions support only up to a maximum value of 300,000.
+   *
    * @public
    */
   Radius: number | undefined;
 }
 
 /**
- * <p>Autocomplete structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+ * Autocomplete structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+ *
  * @public
  */
 export interface AutocompleteFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   BoundingBox?: number[] | undefined;
 
   /**
-   * <p>The <code>Circle</code> that all results must be in. </p>
+   * The `Circle` that all results must be in.
+   *
    * @public
    */
   Circle?: FilterCircle | undefined;
 
   /**
-   * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
+   * A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.
+   *
    * @public
    */
   IncludeCountries?: string[] | undefined;
 
   /**
-   * <p>The included place types.</p>
+   * The included place types.
+   *
    * @public
    */
   IncludePlaceTypes?: AutocompleteFilterPlaceType[] | undefined;
@@ -637,307 +790,389 @@ export interface AutocompleteFilter {
  */
 export interface AutocompleteRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.
+   *
+   * > **Note:** The fields `QueryText`, and `QueryID` are mutually exclusive.
+   *
    * @public
    */
   QueryText: string | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 5</p>
+   * An optional limit for the number of results returned in a single call.
+   *
+   * Default value: 5
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
+   * The position in longitude and latitude that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in `[lng, lat]` and in the WGS 84 format.
+   *
+   * > **Note:** The fields `BiasPosition`, `FilterBoundingBox`, and `FilterCircle` are mutually exclusive.
+   *
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+   * A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+   *
    * @public
    */
   Filter?: AutocompleteFilter | undefined;
 
   /**
-   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+   * The `PostalCodeMode` affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value `EnumerateSpannedLocalities`, all cities in that postal code are returned. If it's populated with the value `EnumerateSpannedDistricts`, all combinations of the postal code with the corresponding district and city names are returned.
+   *
    * @public
    */
   PostalCodeMode?: PostalCodeMode | undefined;
 
   /**
-   * <p>A list of optional additional parameters that can be requested for each result.</p>
+   * A list of optional additional parameters that can be requested for each result.
+   *
    * @public
    */
   AdditionalFeatures?: AutocompleteAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p> <p>The following political views are currently supported:</p> <ul> <li> <p> <code>ARG</code>: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands</p> </li> <li> <p> <code>EGY</code>: Egypt's view on Bir Tawil</p> </li> <li> <p> <code>IND</code>: India's view on Gilgit-Baltistan</p> </li> <li> <p> <code>KEN</code>: Kenya's view on the Ilemi Triangle</p> </li> <li> <p> <code>MAR</code>: Morocco's view on Western Sahara</p> </li> <li> <p> <code>RUS</code>: Russia's view on Crimea</p> </li> <li> <p> <code>SDN</code>: Sudan's view on the Halaib Triangle</p> </li> <li> <p> <code>SRB</code>: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands</p> </li> <li> <p> <code>SUR</code>: Suriname's view on the Courantyne Headwaters and Lawa Headwaters</p> </li> <li> <p> <code>SYR</code>: Syria's view on the Golan Heights</p> </li> <li> <p> <code>TUR</code>: Turkey's view on Cyprus and Northern Cyprus</p> </li> <li> <p> <code>TZA</code>: Tanzania's view on Lake Malawi</p> </li> <li> <p> <code>URY</code>: Uruguay's view on Rincon de Artigas</p> </li> <li> <p> <code>VNM</code>: Vietnam's view on the Paracel Islands and Spratly Islands</p> </li> </ul>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
+   * The following political views are currently supported:
+   *
+   * - `ARG`: Argentina's view on the Southern Patagonian Ice Field and Tierra Del Fuego, including the Falkland Islands, South Georgia, and South Sandwich Islands
+   * - `EGY`: Egypt's view on Bir Tawil
+   * - `IND`: India's view on Gilgit-Baltistan
+   * - `KEN`: Kenya's view on the Ilemi Triangle
+   * - `MAR`: Morocco's view on Western Sahara
+   * - `RUS`: Russia's view on Crimea
+   * - `SDN`: Sudan's view on the Halaib Triangle
+   * - `SRB`: Serbia's view on Kosovo, Vukovar, and Sarengrad Islands
+   * - `SUR`: Suriname's view on the Courantyne Headwaters and Lawa Headwaters
+   * - `SYR`: Syria's view on the Golan Heights
+   * - `TUR`: Turkey's view on Cyprus and Northern Cyprus
+   * - `TZA`: Tanzania's view on Lake Malawi
+   * - `URY`: Uruguay's view on Rincon de Artigas
+   * - `VNM`: Vietnam's view on the Paracel Islands and Spratly Islands
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Currently, <code>Autocomplete</code> does not support storage of results. </p>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored). Currently, `Autocomplete` does not support storage of results.
+   *
    * @public
    */
   IntendedUse?: AutocompleteIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>Indicates the starting and ending index of the text query that match the found title.</p>
+ * Indicates the starting and ending index of the text query that match the found title.
+ *
  * @public
  */
 export interface Highlight {
   /**
-   * <p>Start index of the highlight.</p>
+   * Start index of the highlight.
+   *
    * @public
    */
   StartIndex?: number | undefined;
 
   /**
-   * <p>End index of the highlight.</p>
+   * End index of the highlight.
+   *
    * @public
    */
   EndIndex?: number | undefined;
 
   /**
-   * <p>The highlight's value.</p>
+   * The highlight's value.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Indicates the starting and ending index of the country in the text query that match the found title. </p>
+ * Indicates the starting and ending index of the country in the text query that match the found title.
+ *
  * @public
  */
 export interface CountryHighlights {
   /**
-   * <p>Indicates the starting and ending index of the country code in the text query that match the found title.</p>
+   * Indicates the starting and ending index of the country code in the text query that match the found title.
+   *
    * @public
    */
   Code?: Highlight[] | undefined;
 
   /**
-   * <p>Indicates the starting and ending index of the country code in the text query that match the found title.</p>
+   * Indicates the starting and ending index of the country code in the text query that match the found title.
+   *
    * @public
    */
   Name?: Highlight[] | undefined;
 }
 
 /**
- * <p>Indicates the starting and ending index of the region in the text query that match the found title. </p>
+ * Indicates the starting and ending index of the region in the text query that match the found title.
+ *
  * @public
  */
 export interface RegionHighlights {
   /**
-   * <p>Indicates the starting and ending index of the region in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the region in the text query that match the found title.
+   *
    * @public
    */
   Code?: Highlight[] | undefined;
 
   /**
-   * <p>Indicates the starting and ending index of the region name in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the region name in the text query that match the found title.
+   *
    * @public
    */
   Name?: Highlight[] | undefined;
 }
 
 /**
- * <p>Indicates the starting and ending index of the sub-region in the text query that match the found title. </p>
+ * Indicates the starting and ending index of the sub-region in the text query that match the found title.
+ *
  * @public
  */
 export interface SubRegionHighlights {
   /**
-   * <p>Indicates the starting and ending index of the sub-region in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the sub-region in the text query that match the found title.
+   *
    * @public
    */
   Code?: Highlight[] | undefined;
 
   /**
-   * <p>Indicates the starting and ending index of the name in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the name in the text query that match the found title.
+   *
    * @public
    */
   Name?: Highlight[] | undefined;
 }
 
 /**
- * <p>Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms.</p>
+ * Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms.
+ *
  * @public
  */
 export interface AutocompleteAddressHighlights {
   /**
-   * <p>Indicates the starting and ending indexes for result items where they are identified to match the input query. This should be used to provide emphasis to output display to make selecting the correct result from a list easier for end users.</p>
+   * Indicates the starting and ending indexes for result items where they are identified to match the input query. This should be used to provide emphasis to output display to make selecting the correct result from a list easier for end users.
+   *
    * @public
    */
   Label?: Highlight[] | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+   * The alpha-2 or alpha-3 character code for the country that the results will be present in.
+   *
    * @public
    */
   Country?: CountryHighlights | undefined;
 
   /**
-   * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * The region or state results should be to be present in.
+   *
+   * Example: `North Rhine-Westphalia`.
+   *
    * @public
    */
   Region?: RegionHighlights | undefined;
 
   /**
-   * <p>The sub-region or county for which results should be present in. </p>
+   * The sub-region or county for which results should be present in.
+   *
    * @public
    */
   SubRegion?: SubRegionHighlights | undefined;
 
   /**
-   * <p>The city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
+   * The city or locality results should be present in.
+   *
+   * Example: `Vancouver`.
+   *
    * @public
    */
   Locality?: Highlight[] | undefined;
 
   /**
-   * <p>The district or division of a city the results should be present in.</p>
+   * The district or division of a city the results should be present in.
+   *
    * @public
    */
   District?: Highlight[] | undefined;
 
   /**
-   * <p>Indicates the starting and ending index of the title in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the title in the text query that match the found title.
+   *
    * @public
    */
   SubDistrict?: Highlight[] | undefined;
 
   /**
-   * <p>The name of the street results should be present in.</p>
+   * The name of the street results should be present in.
+   *
    * @public
    */
   Street?: Highlight[] | undefined;
 
   /**
-   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
+   * Name of the block.
+   *
+   * Example: `Sunny Mansion 203 block: 2 Chome`
+   *
    * @public
    */
   Block?: Highlight[] | undefined;
 
   /**
-   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
+   * Name of sub-block.
+   *
+   * Example: `Sunny Mansion 203 sub-block: 4`
+   *
    * @public
    */
   SubBlock?: Highlight[] | undefined;
 
   /**
-   * <p>Name of the streets in the intersection. For example: e.g. ["Friedrichstraße","Unter den Linden"]</p>
+   * Name of the streets in the intersection. For example: e.g. ["Friedrichstraße","Unter den Linden"]
+   *
    * @public
    */
   Intersection?: Highlight[][] | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess. </p>
+   * An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess.
+   *
    * @public
    */
   PostalCode?: Highlight[] | undefined;
 
   /**
-   * <p>The house number or address results should have. </p>
+   * The house number or address results should have.
+   *
    * @public
    */
   AddressNumber?: Highlight[] | undefined;
 
   /**
-   * <p>The name of the building at the address.</p>
+   * The name of the building at the address.
+   *
    * @public
    */
   Building?: Highlight[] | undefined;
 }
 
 /**
- * <p>Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms.</p>
+ * Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms.
+ *
  * @public
  */
 export interface AutocompleteHighlights {
   /**
-   * <p>Indicates where the title field in the result matches the input query.</p>
+   * Indicates where the title field in the result matches the input query.
+   *
    * @public
    */
   Title?: Highlight[] | undefined;
 
   /**
-   * <p>Describes how part of the result address match the input query.</p>
+   * Describes how part of the result address match the input query.
+   *
    * @public
    */
   Address?: AutocompleteAddressHighlights | undefined;
 }
 
 /**
- * <p>A result matching the input query text.</p>
+ * A result matching the input query text.
+ *
  * @public
  */
 export interface AutocompleteResultItem {
   /**
-   * <p>The PlaceId of the place associated with this result. This can be used to look up additional details about the result via GetPlace.</p>
+   * The PlaceId of the place associated with this result. This can be used to look up additional details about the result via GetPlace.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>PlaceType describes the type of result entry returned.</p>
+   * PlaceType describes the type of result entry returned.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>A formatted string for display when presenting this result to an end user.</p>
+   * A formatted string for display when presenting this result to an end user.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The address associated with this result.</p>
+   * The address associated with this result.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>The distance in meters between the center of the search area and this result. Useful to evaluate how far away from the original bias position the result is.</p>
+   * The distance in meters between the center of the search area and this result. Useful to evaluate how far away from the original bias position the result is.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates the starting and ending index of the place in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the place in the text query that match the found title.
+   *
    * @public
    */
   Highlights?: AutocompleteHighlights | undefined;
 
   /**
-   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * If `true`, indicates that the coordinates of the position and access points of the point address are estimated.
+   *
    * @public
    */
   EstimatedPointAddress?: boolean | undefined;
@@ -948,241 +1183,287 @@ export interface AutocompleteResultItem {
  */
 export interface AutocompleteResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>List of places or results returned for a query. </p>
+   * List of places or results returned for a query.
+   *
    * @public
    */
   ResultItems?: AutocompleteResultItem[] | undefined;
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the Amazon Location service.</p>
+ * The input fails to satisfy the constraints specified by the Amazon Location service.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>A businesschain is a chain of businesses that belong to the same brand. For example <code>7-11</code>.</p>
+ * A businesschain is a chain of businesses that belong to the same brand. For example `7-11`.
+ *
  * @public
  */
 export interface BusinessChain {
   /**
-   * <p>The business chain name.</p>
+   * The business chain name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Business Chain Id.</p>
+   * The Business Chain Id.
+   *
    * @public
    */
   Id?: string | undefined;
 }
 
 /**
- * <p>Indicates how well the returned title and address components matches the input TextQuery. For each component a score is provied with 1 indicating all tokens were matched and 0 indicating no tokens were matched.</p>
+ * Indicates how well the returned title and address components matches the input TextQuery. For each component a score is provied with 1 indicating all tokens were matched and 0 indicating no tokens were matched.
+ *
  * @public
  */
 export interface ComponentMatchScores {
   /**
-   * <p>Indicates the match score of the title in the text query that match the found title. </p>
+   * Indicates the match score of the title in the text query that match the found title.
+   *
    * @public
    */
   Title?: number | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: AddressComponentMatchScores | undefined;
 }
 
 /**
- * <p>Details related to contacts.</p>
+ * Details related to contacts.
+ *
  * @public
  */
 export interface ContactDetails {
   /**
-   * <p>The contact's label.</p>
+   * The contact's label.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The contact's value.</p>
+   * The contact's value.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>Categories of results that results must belong too.</p>
+   * Categories of results that results must belong too.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 }
 
 /**
- * <p>A list of potential contact methods for the result/place.</p>
+ * A list of potential contact methods for the result/place.
+ *
  * @public
  */
 export interface Contacts {
   /**
-   * <p>List of phone numbers for the results contact. </p>
+   * List of phone numbers for the results contact.
+   *
    * @public
    */
   Phones?: ContactDetails[] | undefined;
 
   /**
-   * <p>List of fax addresses for the result contact. </p>
+   * List of fax addresses for the result contact.
+   *
    * @public
    */
   Faxes?: ContactDetails[] | undefined;
 
   /**
-   * <p>List of website URLs that belong to the result. </p>
+   * List of website URLs that belong to the result.
+   *
    * @public
    */
   Websites?: ContactDetails[] | undefined;
 
   /**
-   * <p>List of emails for contacts of the result. </p>
+   * List of emails for contacts of the result.
+   *
    * @public
    */
   Emails?: ContactDetails[] | undefined;
 }
 
 /**
- * <p>A reference to a third-party supplier's identifier for a place, enabling correlation of places across external systems.</p>
+ * A reference to a third-party supplier's identifier for a place, enabling correlation of places across external systems.
+ *
  * @public
  */
 export interface CrossReference {
   /**
-   * <p>The name of the third-party data supplier (for example, <code>Yelp</code> or <code>TripAdvisor</code>).</p>
+   * The name of the third-party data supplier (for example, `Yelp` or `TripAdvisor`).
+   *
    * @public
    */
   Source: string | undefined;
 
   /**
-   * <p>The place identifier assigned by the third-party supplier.</p>
+   * The place identifier assigned by the third-party supplier.
+   *
    * @public
    */
   SourcePlaceId: string | undefined;
 
   /**
-   * <p>The list of place category identifiers this supplier reference relates to.</p>
+   * The list of place category identifiers this supplier reference relates to.
+   *
    * @public
    */
   SourceCategories?: Category[] | undefined;
 }
 
 /**
- * <p>List of <code>Food</code> types offered by this result.</p>
+ * List of `Food` types offered by this result.
+ *
  * @public
  */
 export interface FoodType {
   /**
-   * <p>Localized name of the food type.</p>
+   * Localized name of the food type.
+   *
    * @public
    */
   LocalizedName: string | undefined;
 
   /**
-   * <p>The Food Type Id.</p>
+   * The Food Type Id.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>Boolean which indicates if this food type is the primary offered by the place. For example, if a location serves fast food, but also dessert, he primary would likely be fast food.</p>
+   * Boolean which indicates if this food type is the primary offered by the place. For example, if a location serves fast food, but also dessert, he primary would likely be fast food.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 }
 
 /**
- * <p>Geocode structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+ * Geocode structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+ *
  * @public
  */
 export interface GeocodeFilter {
   /**
-   * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
+   * A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.
+   *
    * @public
    */
   IncludeCountries?: string[] | undefined;
 
   /**
-   * <p>The included place types.</p>
+   * The included place types.
+   *
    * @public
    */
   IncludePlaceTypes?: GeocodeFilterPlaceType[] | undefined;
 }
 
 /**
- * <p>A structured free text query allows you to search for places by the name or text representation of specific properties of the place. </p>
+ * A structured free text query allows you to search for places by the name or text representation of specific properties of the place.
+ *
  * @public
  */
 export interface GeocodeQueryComponents {
   /**
-   * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+   * The alpha-2 or alpha-3 character code for the country that the results will be present in.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>The region or state results should be to be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * The region or state results should be to be present in.
+   *
+   * Example: `North Rhine-Westphalia`.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The sub-region or county for which results should be present in. </p>
+   * The sub-region or county for which results should be present in.
+   *
    * @public
    */
   SubRegion?: string | undefined;
 
   /**
-   * <p>The city or locality results should be present in. </p> <p>Example: <code>Vancouver</code>.</p>
+   * The city or locality results should be present in.
+   *
+   * Example: `Vancouver`.
+   *
    * @public
    */
   Locality?: string | undefined;
 
   /**
-   * <p>The district or division of a city the results should be present in.</p>
+   * The district or division of a city the results should be present in.
+   *
    * @public
    */
   District?: string | undefined;
 
   /**
-   * <p>The name of the street results should be present in.</p>
+   * The name of the street results should be present in.
+   *
    * @public
    */
   Street?: string | undefined;
 
   /**
-   * <p>The house number or address results should have. </p>
+   * The house number or address results should have.
+   *
    * @public
    */
   AddressNumber?: string | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess. </p>
+   * An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess.
+   *
    * @public
    */
   PostalCode?: string | undefined;
@@ -1193,613 +1474,741 @@ export interface GeocodeQueryComponents {
  */
 export interface GeocodeRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p>
+   * The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.
+   *
    * @public
    */
   QueryText?: string | undefined;
 
   /**
-   * <p>A structured free text query allows you to search for places by the name or text representation of specific properties of the place. </p>
+   * A structured free text query allows you to search for places by the name or text representation of specific properties of the place.
+   *
    * @public
    */
   QueryComponents?: GeocodeQueryComponents | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
+   * An optional limit for the number of results returned in a single call.
+   *
+   * Default value: 20
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p>
+   * The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in `[lng, lat]` and in the WGS 84 format.
+   *
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+   * A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+   *
    * @public
    */
   Filter?: GeocodeFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
+   * A list of optional additional parameters, such as time zone, that can be requested for each result.
+   *
    * @public
    */
   AdditionalFeatures?: GeocodeAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>When storing <code>Geocode</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored). Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:** When storing `Geocode` responses, you *must* set this field to `Storage` to comply with the terms of service. These requests will be charged at a higher rate. Please review the [user agreement](https://aws.amazon.com/location/sla/) and [service pricing structure](https://aws.amazon.com/location/pricing/) to determine the correct setting for your use case.
+   *
    * @public
    */
   IntendedUse?: GeocodeIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+   * The `PostalCodeMode` affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value `EnumerateSpannedLocalities`, all cities in that postal code are returned. If it's populated with the value `EnumerateSpannedDistricts`, all combinations of the postal code with the corresponding district and city names are returned.
+   *
    * @public
    */
   PostalCodeMode?: PostalCodeMode | undefined;
 
   /**
-   * <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+   * Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are `District`, `Locality`, `Region`, and `SubRegion`.
+   *
    * @public
    */
   AddressTranslations?: AddressTranslationComponent[] | undefined;
 
   /**
-   * <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+   * Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to `Matched`, address names in the response are based on the input query rather than official names. When set to `Administrative`, the service returns the official administrative names for address components. `Administrative` currently applies only to addresses in the United States.
+   *
    * @public
    */
   AddressNamesMode?: GeocodeAddressNamesMode | undefined;
 }
 
 /**
- * <p>All Intersections that are near the provided address.</p>
+ * All Intersections that are near the provided address.
+ *
  * @public
  */
 export interface Intersection {
   /**
-   * <p>The <code>PlaceId</code> of the place result.</p>
+   * The `PlaceId` of the place result.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * The localized display name of this result item based on request parameter `language`.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The place address.</p>
+   * The place address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The distance in meters from the QueryPosition.</p>
+   * The distance in meters from the QueryPosition.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>The distance from the routing position of the nearby address to the street result.</p>
+   * The distance from the routing position of the nearby address to the street result.
+   *
    * @public
    */
   RouteDistance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set of four coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set of four coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 }
 
 /**
- * <p>Place that is related to the result item.</p>
+ * Place that is related to the result item.
+ *
  * @public
  */
 export interface RelatedPlace {
   /**
-   * <p>The <code>PlaceId</code> of the place result.</p>
+   * The `PlaceId` of the place result.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * The localized display name of this result item based on request parameter `language`.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The place address.</p>
+   * The place address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 }
 
 /**
- * <p>Details related to the match score.</p>
+ * Details related to the match score.
+ *
  * @public
  */
 export interface MatchScoreDetails {
   /**
-   * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
+   * Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.
+   *
    * @public
    */
   Overall?: number | undefined;
 
   /**
-   * <p>Indicates how well the component input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
+   * Indicates how well the component input matches the returned. It is equal to 1 if all input tokens are recognized and matched.
+   *
    * @public
    */
   Components?: ComponentMatchScores | undefined;
 }
 
 /**
- * <p>Parsed components in the provided QueryText.</p>
+ * Parsed components in the provided QueryText.
+ *
  * @public
  */
 export interface ParsedQueryComponent {
   /**
-   * <p>Start index of the parsed query component.</p>
+   * Start index of the parsed query component.
+   *
    * @public
    */
   StartIndex?: number | undefined;
 
   /**
-   * <p>End index of the parsed query component.</p>
+   * End index of the parsed query component.
+   *
    * @public
    */
   EndIndex?: number | undefined;
 
   /**
-   * <p>Value of the parsed query component.</p>
+   * Value of the parsed query component.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The address component that the parsed query component corresponds to.</p>
+   * The address component that the parsed query component corresponds to.
+   *
    * @public
    */
   QueryComponent?: string | undefined;
 }
 
 /**
- * <p>Information about a secondary address component parsed from the query text.</p>
+ * Information about a secondary address component parsed from the query text.
+ *
  * @public
  */
 export interface ParsedQuerySecondaryAddressComponent {
   /**
-   * <p>Start index of the parsed secondary address component in the query text.</p>
+   * Start index of the parsed secondary address component in the query text.
+   *
    * @public
    */
   StartIndex: number | undefined;
 
   /**
-   * <p>End index of the parsed secondary address component in the query text.</p>
+   * End index of the parsed secondary address component in the query text.
+   *
    * @public
    */
   EndIndex: number | undefined;
 
   /**
-   * <p>Value of the parsed secondary address component.</p>
+   * Value of the parsed secondary address component.
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>Secondary address number provided in the query.</p>
+   * Secondary address number provided in the query.
+   *
    * @public
    */
   Number: string | undefined;
 
   /**
-   * <p>Secondary address designator provided in the query.</p>
+   * Secondary address designator provided in the query.
+   *
    * @public
    */
   Designator: string | undefined;
 }
 
 /**
- * <p>Parsed address components in the provided QueryText.</p>
+ * Parsed address components in the provided QueryText.
+ *
  * @public
  */
 export interface GeocodeParsedQueryAddressComponents {
   /**
-   * <p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>
+   * The alpha-2 or alpha-3 character code for the country that the results will be present in.
+   *
    * @public
    */
   Country?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The region or state results should be present in. </p> <p>Example: <code>North Rhine-Westphalia</code>.</p>
+   * The region or state results should be present in.
+   *
+   * Example: `North Rhine-Westphalia`.
+   *
    * @public
    */
   Region?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The sub-region or county for which results should be present in. </p>
+   * The sub-region or county for which results should be present in.
+   *
    * @public
    */
   SubRegion?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The city or locality of the address.</p> <p>Example: <code>Vancouver</code>.</p>
+   * The city or locality of the address.
+   *
+   * Example: `Vancouver`.
+   *
    * @public
    */
   Locality?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The district or division of a city the results should be present in.</p>
+   * The district or division of a city the results should be present in.
+   *
    * @public
    */
   District?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>A subdivision of a district. </p> <p>Example: <code>Minden-Lübbecke</code>.</p>
+   * A subdivision of a district.
+   *
+   * Example: `Minden-Lübbecke`.
+   *
    * @public
    */
   SubDistrict?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess. </p>
+   * An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code, for which the result should possess.
+   *
    * @public
    */
   PostalCode?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>Name of the block. </p> <p>Example: <code>Sunny Mansion 203 block: 2 Chome</code> </p>
+   * Name of the block.
+   *
+   * Example: `Sunny Mansion 203 block: 2 Chome`
+   *
    * @public
    */
   Block?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>Name of sub-block. </p> <p>Example: <code>Sunny Mansion 203 sub-block: 4</code> </p>
+   * Name of sub-block.
+   *
+   * Example: `Sunny Mansion 203 sub-block: 4`
+   *
    * @public
    */
   SubBlock?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The name of the street results should be present in.</p>
+   * The name of the street results should be present in.
+   *
    * @public
    */
   Street?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The number that identifies an address within a street.</p>
+   * The number that identifies an address within a street.
+   *
    * @public
    */
   AddressNumber?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The name of the building at the address.</p>
+   * The name of the building at the address.
+   *
    * @public
    */
   Building?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>Parsed secondary address components from the provided query text.</p> <note> <p>Coverage for <code>ParsedQuery.Address.SecondaryAddressComponents</code> is available in the following countries:</p> <p>AUS, AUT, BRA, CAN, ESP, FRA, GBR, HKG, IDN, IND, NZL, TUR, TWN, USA</p> </note>
+   * Parsed secondary address components from the provided query text.
+   *
+   * > **Note:**
+   * >
+   * > Coverage for `ParsedQuery.Address.SecondaryAddressComponents` is available in the following countries:
+   * >
+   * > AUS, AUT, BRA, CAN, ESP, FRA, GBR, HKG, IDN, IND, NZL, TUR, TWN, USA
+   *
    * @public
    */
   SecondaryAddressComponents?: ParsedQuerySecondaryAddressComponent[] | undefined;
 
   /**
-   * <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+   * Additional information extracted from the query that does not correspond to standard address components.
+   *
    * @public
    */
   OtherComponents?: ParsedQueryComponent[] | undefined;
 }
 
 /**
- * <p>Parsed components in the provided QueryText.</p>
+ * Parsed components in the provided QueryText.
+ *
  * @public
  */
 export interface GeocodeParsedQuery {
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * The localized display name of this result item based on request parameter `language`.
+   *
    * @public
    */
   Title?: ParsedQueryComponent[] | undefined;
 
   /**
-   * <p>The place address.</p>
+   * The place address.
+   *
    * @public
    */
   Address?: GeocodeParsedQueryAddressComponents | undefined;
 }
 
 /**
- * <p>The USPS zip code.</p>
+ * The USPS zip code.
+ *
  * @public
  */
 export interface UspsZip {
   /**
-   * <p>The ZIP Classification Code, or in other words what type of postal code is it. </p>
+   * The ZIP Classification Code, or in other words what type of postal code is it.
+   *
    * @public
    */
   ZipClassificationCode?: ZipClassificationCode | undefined;
 }
 
 /**
- * <p>The USPS zip+4 code.</p>
+ * The USPS zip+4 code.
+ *
  * @public
  */
 export interface UspsZipPlus4 {
   /**
-   * <p>The USPS ZIP+4 Record Type Code.</p>
+   * The USPS ZIP+4 Record Type Code.
+   *
    * @public
    */
   RecordTypeCode?: RecordTypeCode | undefined;
 }
 
 /**
- * <p>Contains details about the postal code of the place or result.</p>
+ * Contains details about the postal code of the place or result.
+ *
  * @public
  */
 export interface PostalCodeDetails {
   /**
-   * <p>An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess. </p>
+   * An alphanumeric string included in a postal address to facilitate mail sorting, such as post code, postcode, or ZIP code for which the result should possess.
+   *
    * @public
    */
   PostalCode?: string | undefined;
 
   /**
-   * <p>The postal authority or entity. This could be a governmental authority, a regulatory authority, or a designated postal operator.</p>
+   * The postal authority or entity. This could be a governmental authority, a regulatory authority, or a designated postal operator.
+   *
    * @public
    */
   PostalAuthority?: PostalAuthority | undefined;
 
   /**
-   * <p>The postal code type.</p>
+   * The postal code type.
+   *
    * @public
    */
   PostalCodeType?: PostalCodeType | undefined;
 
   /**
-   * <p>The ZIP Classification Code, or in other words what type of postal code is it.</p>
+   * The ZIP Classification Code, or in other words what type of postal code is it.
+   *
    * @public
    */
   UspsZip?: UspsZip | undefined;
 
   /**
-   * <p>The USPS ZIP+4 Record Type Code.</p>
+   * The USPS ZIP+4 Record Type Code.
+   *
    * @public
    */
   UspsZipPlus4?: UspsZipPlus4 | undefined;
 }
 
 /**
- * <p>The time zone in which the place is located.</p>
+ * The time zone in which the place is located.
+ *
  * @public
  */
 export interface TimeZone {
   /**
-   * <p>The time zone name.</p>
+   * The time zone name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Time zone offset of the timezone from UTC.</p>
+   * Time zone offset of the timezone from UTC.
+   *
    * @public
    */
   Offset?: string | undefined;
 
   /**
-   * <p>The offset of the time zone from UTC, in seconds.</p>
+   * The offset of the time zone from UTC, in seconds.
+   *
    * @public
    */
   OffsetSeconds?: number | undefined;
 }
 
 /**
- * <p>Translation details for the address, including alternative names and translations in available languages.</p>
+ * Translation details for the address, including alternative names and translations in available languages.
+ *
  * @public
  */
 export interface TranslationDetails {
   /**
-   * <p>A list of administrative names and translations for the locality address component.</p>
+   * A list of administrative names and translations for the locality address component.
+   *
    * @public
    */
   Locality?: AdminNames[] | undefined;
 
   /**
-   * <p>A list of administrative names and translations for the region address component.</p>
+   * A list of administrative names and translations for the region address component.
+   *
    * @public
    */
   Region?: AdminNames[] | undefined;
 
   /**
-   * <p>A list of administrative names and translations for the district address component.</p>
+   * A list of administrative names and translations for the district address component.
+   *
    * @public
    */
   District?: AdminNames[] | undefined;
 
   /**
-   * <p>A list of administrative names and translations for the sub-region address component.</p>
+   * A list of administrative names and translations for the sub-region address component.
+   *
    * @public
    */
   SubRegion?: AdminNames[] | undefined;
 }
 
 /**
- * <p>The Geocoded result.</p>
+ * The Geocoded result.
+ *
  * @public
  */
 export interface GeocodeResultItem {
   /**
-   * <p>The <code>PlaceId</code> of the place result.</p>
+   * The `PlaceId` of the place result.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>. </p>
+   * The localized display name of this result item based on request parameter `language`.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>Boolean indicating if the address provided has been corrected.</p>
+   * Boolean indicating if the address provided has been corrected.
+   *
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>Contains details about the postal code of the place/result. </p>
+   * Contains details about the postal code of the place/result.
+   *
    * @public
    */
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The distance in meters from the QueryPosition.</p>
+   * The distance in meters from the QueryPosition.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong to.</p>
+   * Categories of results that results must belong to.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 
   /**
-   * <p>List of food types offered by this result.</p>
+   * List of food types offered by this result.
+   *
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p>The time zone in which the place is located.</p>
+   * The time zone in which the place is located.
+   *
    * @public
    */
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.</p>
+   * Indicates how well the entire input matches the returned. It is equal to 1 if all input tokens are recognized and matched.
+   *
    * @public
    */
   MatchScores?: MatchScoreDetails | undefined;
 
   /**
-   * <p>Free-form text query.</p>
+   * Free-form text query.
+   *
    * @public
    */
   ParsedQuery?: GeocodeParsedQuery | undefined;
 
   /**
-   * <p>All Intersections that are near the provided address.</p>
+   * All Intersections that are near the provided address.
+   *
    * @public
    */
   Intersections?: Intersection[] | undefined;
 
   /**
-   * <p>The main address corresponding to a place of type Secondary Address.</p>
+   * The main address corresponding to a place of type Secondary Address.
+   *
    * @public
    */
   MainAddress?: RelatedPlace | undefined;
 
   /**
-   * <p>All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.</p> <note> <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p> </note>
+   * All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information.
+   *
+   * > **Note:** Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.
+   *
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
 
   /**
-   * <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+   * All name translations and alternative names for the requested address fields in all available languages.
+   *
    * @public
    */
   Translations?: TranslationDetails | undefined;
 
   /**
-   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * If `true`, indicates that the coordinates of the position and access points of the point address are estimated.
+   *
    * @public
    */
   EstimatedPointAddress?: boolean | undefined;
@@ -1810,13 +2219,17 @@ export interface GeocodeResultItem {
  */
 export interface GeocodeResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at, or the maximum pricing bucket when the query is charged per item within the query.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at, or the maximum pricing bucket when the query is charged per item within the query.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>List of places or results returned for a query. </p>
+   * List of places or results returned for a query.
+   *
    * @public
    */
   ResultItems?: GeocodeResultItem[] | undefined;
@@ -1827,115 +2240,138 @@ export interface GeocodeResponse {
  */
 export interface GetPlaceRequest {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * The `PlaceId` of the place you wish to receive the information for.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p> A list of optional additional parameters such as time zone that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value. </p>
+   * A list of optional additional parameters such as time zone that can be requested for each result. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the `TimeZone` value.
+   *
    * @public
    */
   AdditionalFeatures?: GetPlaceAdditionalFeature[] | undefined;
 
   /**
-   * <p> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the following codes: `en, id, km, lo, ms, my, pt, th, tl, vi, zh`
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>When storing <code>GetPlace</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored). Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:** When storing `GetPlace` responses, you *must* set this field to `Storage` to comply with the terms of service. These requests will be charged at a higher rate. Please review the [user agreement](https://aws.amazon.com/location/sla/) and [service pricing structure](https://aws.amazon.com/location/pricing/) to determine the correct setting for your use case.
+   *
    * @public
    */
   IntendedUse?: GetPlaceIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+   * Specifies how address names are returned. When set to `Administrative`, the service returns the official administrative names for address components. `Administrative` currently applies only to addresses in the United States.
+   *
    * @public
    */
   AddressNamesMode?: GetPlaceAddressNamesMode | undefined;
 }
 
 /**
- * <p>Components of the opening hours object.</p>
+ * Components of the opening hours object.
+ *
  * @public
  */
 export interface OpeningHoursComponents {
   /**
-   * <p>String which represents the opening hours, such as <code>"T070000"</code>.</p>
+   * String which represents the opening hours, such as `"T070000"`.
+   *
    * @public
    */
   OpenTime?: string | undefined;
 
   /**
-   * <p>String which represents the duration of the opening period, such as <code>"PT12H00M"</code>.</p>
+   * String which represents the duration of the opening period, such as `"PT12H00M"`.
+   *
    * @public
    */
   OpenDuration?: string | undefined;
 
   /**
-   * <p>Days or periods when the provided opening hours are in affect. </p> <p>Example: <code>FREQ:DAILY;BYDAY:MO,TU,WE,TH,SU</code> </p>
+   * Days or periods when the provided opening hours are in affect.
+   *
+   * Example: `FREQ:DAILY;BYDAY:MO,TU,WE,TH,SU`
+   *
    * @public
    */
   Recurrence?: string | undefined;
 }
 
 /**
- * <p>List of opening hours objects.</p>
+ * List of opening hours objects.
+ *
  * @public
  */
 export interface OpeningHours {
   /**
-   * <p>List of opening hours in the format they are displayed in. This can vary by result and in most cases represents how the result uniquely formats their opening hours. </p>
+   * List of opening hours in the format they are displayed in. This can vary by result and in most cases represents how the result uniquely formats their opening hours.
+   *
    * @public
    */
   Display?: string[] | undefined;
 
   /**
-   * <p>Boolean which indicates if the result/place is currently open. </p>
+   * Boolean which indicates if the result/place is currently open.
+   *
    * @public
    */
   OpenNow?: boolean | undefined;
 
   /**
-   * <p>Components of the opening hours object.</p>
+   * Components of the opening hours object.
+   *
    * @public
    */
   Components?: OpeningHoursComponents[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong too.</p>
+   * Categories of results that results must belong too.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 }
 
 /**
- * <p>The phoneme details.</p>
+ * The phoneme details.
+ *
  * @public
  */
 export interface PhonemeDetails {
   /**
-   * <p>List of <code>PhonemeTranscription</code>. See <code>PhonemeTranscription</code> for fields.</p>
+   * List of `PhonemeTranscription`. See `PhonemeTranscription` for fields.
+   *
    * @public
    */
   Title?: PhonemeTranscription[] | undefined;
 
   /**
-   * <p>How to pronounce the address.</p>
+   * How to pronounce the address.
+   *
    * @public
    */
   Address?: AddressComponentPhonemes | undefined;
@@ -1946,157 +2382,189 @@ export interface PhonemeDetails {
  */
 export interface GetPlaceResponse {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * The `PlaceId` of the place you wish to receive the information for.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>.</p>
+   * The localized display name of this result item based on request parameter `language`.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p> Boolean indicating if the address provided has been corrected. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Boolean indicating if the address provided has been corrected. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p> Contains details about the postal code of the place/result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Contains details about the postal code of the place/result. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set of four coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set of four coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong to.</p>
+   * Categories of results that results must belong to.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 
   /**
-   * <p> List of food types offered by this result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * List of food types offered by this result. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>The Business Chains associated with the place.</p>
+   * The Business Chains associated with the place.
+   *
    * @public
    */
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p> List of potential contact methods for the result/place. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * List of potential contact methods for the result/place. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   Contacts?: Contacts | undefined;
 
   /**
-   * <p> List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * List of opening hours objects. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p> Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p> Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
-   * <p>The time zone in which the place is located.</p>
+   * The time zone in which the place is located.
+   *
    * @public
    */
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> How the various components of the result's address are pronounced in various languages. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * How the various components of the result's address are pronounced in various languages. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
 
   /**
-   * <p> The main address corresponding to a place of type Secondary Address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The main address corresponding to a place of type Secondary Address. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   MainAddress?: RelatedPlace | undefined;
 
   /**
-   * <p> All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.</p> </note>
+   * All secondary addresses that are associated with a main address. A secondary address is one that includes secondary designators, such as a Suite or Unit Number, Building, or Floor information. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:** Coverage for this functionality is available in the following countries: AUS, CAN, NZL, USA, PRI.
+   *
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
 
   /**
-   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * A list of place attributes for the result, such as whether the business offers drive-through service.
+   *
    * @public
    */
   PlaceAttributes?: PlaceAttribute[] | undefined;
 
   /**
-   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * If `true`, indicates that the coordinates of the position and access points of the point address are estimated.
+   *
    * @public
    */
   EstimatedPointAddress?: boolean | undefined;
 
   /**
-   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * The list of supplier references available for this place. Requires the `CrossReferences` additional feature to be enabled.
+   *
    * @public
    */
   CrossReferences?: CrossReference[] | undefined;
 }
 
 /**
- * <p>The included place types.</p>
+ * The included place types.
+ *
  * @public
  */
 export interface ReverseGeocodeFilter {
   /**
-   * <p> The included place types. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only <code>Street</code> and <code>PointAddress</code> values. </p>
+   * The included place types. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only `Street` and `PointAddress` values.
+   *
    * @public
    */
   IncludePlaceTypes?: ReverseGeocodeFilterPlaceType[] | undefined;
@@ -2107,175 +2575,212 @@ export interface ReverseGeocodeFilter {
  */
 export interface ReverseGeocodeRequest {
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position
+   *
    * @public
    */
   QueryPosition: number[] | undefined;
 
   /**
-   * <p> The maximum distance in meters from the QueryPosition from which a result will be returned. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only up to a maximum value of 100,000. </p>
+   * The maximum distance in meters from the QueryPosition from which a result will be returned. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only up to a maximum value of 100,000.
+   *
    * @public
    */
   QueryRadius?: number | undefined;
 
   /**
-   * <p> An optional limit for the number of results returned in a single call.</p> <p>Default value: 1</p>
+   * An optional limit for the number of results returned in a single call.
+   *
+   * Default value: 1
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+   * A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+   *
    * @public
    */
   Filter?: ReverseGeocodeFilter | undefined;
 
   /**
-   * <p> A list of optional additional parameters, such as time zone that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value. </p>
+   * A list of optional additional parameters, such as time zone that can be requested for each result. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the `TimeZone` value.
+   *
    * @public
    */
   AdditionalFeatures?: ReverseGeocodeAdditionalFeature[] | undefined;
 
   /**
-   * <p> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the following codes: `en, id, km, lo, ms, my, pt, th, tl, vi, zh`
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). </p> <note> <p>When storing <code>ReverseGeocode</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored).
+   *
+   * > **Note:** When storing `ReverseGeocode` responses, you *must* set this field to `Storage` to comply with the terms of service. These requests will be charged at a higher rate. Please review the [user agreement](https://aws.amazon.com/location/sla/) and [service pricing structure](https://aws.amazon.com/location/pricing/) to determine the correct setting for your use case.
+   *
    * @public
    */
   IntendedUse?: ReverseGeocodeIntendedUse | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The heading in degrees from true north in a navigation context. The heading is measured as the angle clockwise from the North direction.</p> <p>Example: North is <code>0</code> degrees, East is <code>90</code> degrees, South is <code>180</code> degrees, and West is <code>270</code> degrees.</p>
+   * The heading in degrees from true north in a navigation context. The heading is measured as the angle clockwise from the North direction.
+   *
+   * Example: North is `0` degrees, East is `90` degrees, South is `180` degrees, and West is `270` degrees.
+   *
    * @public
    */
   Heading?: number | undefined;
 
   /**
-   * <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+   * Specifies how address names are returned. When set to `Administrative`, the service returns the official administrative names for address components. `Administrative` currently applies only to addresses in the United States.
+   *
    * @public
    */
   AddressNamesMode?: ReverseGeocodeAddressNamesMode | undefined;
 }
 
 /**
- * <p>The returned location from the <code>Reverse Geocode</code> action.</p>
+ * The returned location from the `Reverse Geocode` action.
+ *
  * @public
  */
 export interface ReverseGeocodeResultItem {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * The `PlaceId` of the place you wish to receive the information for.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The localized display name of this result item based on request parameter <code>language</code>. </p>
+   * The localized display name of this result item based on request parameter `language`.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p> Boolean indicating if the address provided has been corrected. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Boolean indicating if the address provided has been corrected. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p> Contains details about the postal code of the place/result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Contains details about the postal code of the place/result. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PostalCodeDetails?: PostalCodeDetails[] | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The distance in meters from the QueryPosition.</p>
+   * The distance in meters from the QueryPosition.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong to.</p>
+   * Categories of results that results must belong to.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 
   /**
-   * <p> List of food types offered by this result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * List of food types offered by this result. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p> Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p>The time zone in which the place is located.</p>
+   * The time zone in which the place is located.
+   *
    * @public
    */
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> All Intersections that are near the provided address. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * All Intersections that are near the provided address. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   Intersections?: Intersection[] | undefined;
 
   /**
-   * <p>The main address corresponding to a place of type Secondary Address.</p>
+   * The main address corresponding to a place of type Secondary Address.
+   *
    * @public
    */
   MainAddress?: RelatedPlace | undefined;
 
   /**
-   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * If `true`, indicates that the coordinates of the position and access points of the point address are estimated.
+   *
    * @public
    */
   EstimatedPointAddress?: boolean | undefined;
@@ -2286,67 +2791,82 @@ export interface ReverseGeocodeResultItem {
  */
 export interface ReverseGeocodeResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>List of places or results returned for a query. </p>
+   * List of places or results returned for a query.
+   *
    * @public
    */
   ResultItems?: ReverseGeocodeResultItem[] | undefined;
 }
 
 /**
- * <p>SearchNearby structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+ * SearchNearby structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+ *
  * @public
  */
 export interface SearchNearbyFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   BoundingBox?: number[] | undefined;
 
   /**
-   * <p>A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
+   * A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.
+   *
    * @public
    */
   IncludeCountries?: string[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong too.</p>
+   * Categories of results that results must belong too.
+   *
    * @public
    */
   IncludeCategories?: string[] | undefined;
 
   /**
-   * <p>Categories of results that results are excluded from.</p>
+   * Categories of results that results are excluded from.
+   *
    * @public
    */
   ExcludeCategories?: string[] | undefined;
 
   /**
-   * <p>The Business Chains associated with the place.</p>
+   * The Business Chains associated with the place.
+   *
    * @public
    */
   IncludeBusinessChains?: string[] | undefined;
 
   /**
-   * <p>The Business Chains associated with the place.</p>
+   * The Business Chains associated with the place.
+   *
    * @public
    */
   ExcludeBusinessChains?: string[] | undefined;
 
   /**
-   * <p>Food types that results are included from.</p>
+   * Food types that results are included from.
+   *
    * @public
    */
   IncludeFoodTypes?: string[] | undefined;
 
   /**
-   * <p>Food types that results are excluded from.</p>
+   * Food types that results are excluded from.
+   *
    * @public
    */
   ExcludeFoodTypes?: string[] | undefined;
@@ -2357,187 +2877,226 @@ export interface SearchNearbyFilter {
  */
 export interface SearchNearbyRequest {
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position
+   *
    * @public
    */
   QueryPosition: number[] | undefined;
 
   /**
-   * <p>The maximum distance in meters from the QueryPosition from which a result will be returned.</p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * The maximum distance in meters from the QueryPosition from which a result will be returned.
+   *
+   * > **Note:** The fields `QueryText`, and `QueryID` are mutually exclusive.
+   *
    * @public
    */
   QueryRadius?: number | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
+   * An optional limit for the number of results returned in a single call.
+   *
+   * Default value: 20
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+   * A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+   *
    * @public
    */
   Filter?: SearchNearbyFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result.</p>
+   * A list of optional additional parameters, such as time zone, that can be requested for each result.
+   *
    * @public
    */
   AdditionalFeatures?: SearchNearbyAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>When storing <code>SearchNearby</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored). Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:** When storing `SearchNearby` responses, you *must* set this field to `Storage` to comply with the terms of service. These requests will be charged at a higher rate. Please review the [user agreement](https://aws.amazon.com/location/sla/) and [service pricing structure](https://aws.amazon.com/location/pricing/) to determine the correct setting for your use case.
+   *
    * @public
    */
   IntendedUse?: SearchNearbyIntendedUse | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>The search results of nearby places.</p>
+ * The search results of nearby places.
+ *
  * @public
  */
 export interface SearchNearbyResultItem {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * The `PlaceId` of the place you wish to receive the information for.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The item's title.</p>
+   * The item's title.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>Boolean indicating if the address provided has been corrected.</p>
+   * Boolean indicating if the address provided has been corrected.
+   *
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The distance in meters from the QueryPosition.</p>
+   * The distance in meters from the QueryPosition.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong to.</p>
+   * Categories of results that results must belong to.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 
   /**
-   * <p>List of food types offered by this result.</p>
+   * List of food types offered by this result.
+   *
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>The Business Chains associated with the place.</p>
+   * The Business Chains associated with the place.
+   *
    * @public
    */
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p>List of potential contact methods for the result/place.</p>
+   * List of potential contact methods for the result/place.
+   *
    * @public
    */
   Contacts?: Contacts | undefined;
 
   /**
-   * <p>List of opening hours objects.</p>
+   * List of opening hours objects.
+   *
    * @public
    */
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
+   * Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.
+   *
    * @public
    */
   AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
-   * <p>The time zone in which the place is located.</p>
+   * The time zone in which the place is located.
+   *
    * @public
    */
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various languages.</p>
+   * How the various components of the result's address are pronounced in various languages.
+   *
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
 
   /**
-   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * A list of place attributes for the result, such as whether the business offers drive-through service.
+   *
    * @public
    */
   PlaceAttributes?: PlaceAttribute[] | undefined;
 
   /**
-   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * The list of supplier references available for this place. Requires the `CrossReferences` additional feature to be enabled.
+   *
    * @public
    */
   CrossReferences?: CrossReference[] | undefined;
@@ -2548,43 +3107,54 @@ export interface SearchNearbyResultItem {
  */
 export interface SearchNearbyResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>List of places or results returned for a query. </p>
+   * List of places or results returned for a query.
+   *
    * @public
    */
   ResultItems?: SearchNearbyResultItem[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>SearchText structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+ * SearchText structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+ *
  * @public
  */
 export interface SearchTextFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   BoundingBox?: number[] | undefined;
 
   /**
-   * <p>The <code>Circle</code> that all results must be in. </p>
+   * The `Circle` that all results must be in.
+   *
    * @public
    */
   Circle?: FilterCircle | undefined;
 
   /**
-   * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
+   * A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.
+   *
    * @public
    */
   IncludeCountries?: string[] | undefined;
@@ -2595,199 +3165,244 @@ export interface SearchTextFilter {
  */
 export interface SearchTextRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>
+   * The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.
+   *
+   * > **Note:** Exactly one of the following fields must be set: `QueryText` or `QueryId`.
+   *
    * @public
    */
   QueryText?: string | undefined;
 
   /**
-   * <p>The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>
+   * The query Id returned by the suggest API. If passed in the request, the SearchText API will preform a SearchText query with the improved query terms for the original query made to the suggest API. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:** Exactly one of the following fields must be set: `QueryText` or `QueryId`.
+   *
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p>An optional limit for the number of results returned in a single call.</p> <p>Default value: 20</p>
+   * An optional limit for the number of results returned in a single call.
+   *
+   * Default value: 20
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p> <note> <p>Exactly one of the following fields must be set: <code>BiasPosition</code>, <code>Filter.BoundingBox</code>, or <code>Filter.Circle</code>.</p> </note>
+   * The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in `[lng, lat]` and in the WGS 84 format.
+   *
+   * > **Note:** Exactly one of the following fields must be set: `BiasPosition`, `Filter.BoundingBox`, or `Filter.Circle`.
+   *
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+   * A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+   *
    * @public
    */
   Filter?: SearchTextFilter | undefined;
 
   /**
-   * <p>A list of optional additional parameters, such as time zone, that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>TimeZone</code> value.</p>
+   * A list of optional additional parameters, such as time zone, that can be requested for each result. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the `TimeZone` value.
+   *
    * @public
    */
   AdditionalFeatures?: SearchTextAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the following codes: `en, id, km, lo, ms, my, pt, th, tl, vi, zh`
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). </p> <note> <p>When storing <code>SearchText</code> responses, you <i>must</i> set this field to <code>Storage</code> to comply with the terms of service. These requests will be charged at a higher rate. Please review the <a href="https://aws.amazon.com/location/sla/">user agreement</a> and <a href="https://aws.amazon.com/location/pricing/">service pricing structure</a> to determine the correct setting for your use case.</p> </note>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored).
+   *
+   * > **Note:** When storing `SearchText` responses, you *must* set this field to `Storage` to comply with the terms of service. These requests will be charged at a higher rate. Please review the [user agreement](https://aws.amazon.com/location/sla/) and [service pricing structure](https://aws.amazon.com/location/pricing/) to determine the correct setting for your use case.
+   *
    * @public
    */
   IntendedUse?: SearchTextIntendedUse | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Indicates the mode of mobility used by the end user. This is used to improve the relevance of search results. Valid values are <code>Car</code>, <code>Scooter</code>, and <code>Truck</code>.</p>
+   * Indicates the mode of mobility used by the end user. This is used to improve the relevance of search results. Valid values are `Car`, `Scooter`, and `Truck`.
+   *
    * @public
    */
   TravelMode?: SearchTextTravelMode | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>The text search result.</p>
+ * The text search result.
+ *
  * @public
  */
 export interface SearchTextResultItem {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * The `PlaceId` of the place you wish to receive the information for.
+   *
    * @public
    */
   PlaceId: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType: PlaceType | undefined;
 
   /**
-   * <p>The item's title.</p>
+   * The item's title.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>Boolean indicating if the address provided has been corrected.</p>
+   * Boolean indicating if the address provided has been corrected.
+   *
    * @public
    */
   AddressNumberCorrected?: boolean | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The distance in meters from the QueryPosition.</p>
+   * The distance in meters from the QueryPosition.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong to.</p>
+   * Categories of results that results must belong to.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 
   /**
-   * <p>List of food types offered by this result.</p>
+   * List of food types offered by this result.
+   *
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p>The Business Chains associated with the place.</p>
+   * The Business Chains associated with the place.
+   *
    * @public
    */
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p>List of potential contact methods for the result/place.</p>
+   * List of potential contact methods for the result/place.
+   *
    * @public
    */
   Contacts?: Contacts | undefined;
 
   /**
-   * <p> List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * List of opening hours objects. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   OpeningHours?: OpeningHours[] | undefined;
 
   /**
-   * <p>Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p>Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.</p>
+   * Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction.
+   *
    * @public
    */
   AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
-   * <p>The time zone in which the place is located.</p>
+   * The time zone in which the place is located.
+   *
    * @public
    */
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p>The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.</p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p>How the various components of the result's address are pronounced in various languages.</p>
+   * How the various components of the result's address are pronounced in various languages.
+   *
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
 
   /**
-   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * A list of place attributes for the result, such as whether the business offers drive-through service.
+   *
    * @public
    */
   PlaceAttributes?: PlaceAttribute[] | undefined;
 
   /**
-   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * The list of supplier references available for this place. Requires the `CrossReferences` additional feature to be enabled.
+   *
    * @public
    */
   CrossReferences?: CrossReference[] | undefined;
@@ -2798,43 +3413,54 @@ export interface SearchTextResultItem {
  */
 export interface SearchTextResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>List of places or results returned for a query. </p>
+   * List of places or results returned for a query.
+   *
    * @public
    */
   ResultItems?: SearchTextResultItem[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. </p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>SuggestFilter structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+ * SuggestFilter structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+ *
  * @public
  */
 export interface SuggestFilter {
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   BoundingBox?: number[] | undefined;
 
   /**
-   * <p>The <code>Circle</code> that all results must be in. </p>
+   * The `Circle` that all results must be in.
+   *
    * @public
    */
   Circle?: FilterCircle | undefined;
 
   /**
-   * <p> A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.</p>
+   * A list of countries that all results must be in. Countries are represented by either their alpha-2 or alpha-3 character codes.
+   *
    * @public
    */
   IncludeCountries?: string[] | undefined;
@@ -2845,283 +3471,340 @@ export interface SuggestFilter {
  */
 export interface SuggestRequest {
   /**
-   * <p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>The fields <code>QueryText</code> and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.
+   *
+   * > **Note:** The fields `QueryText` and `QueryID` are mutually exclusive.
+   *
    * @public
    */
   QueryText: string | undefined;
 
   /**
-   * <p> An optional limit for the number of results returned in a single call. </p> <p>Default value: 20</p>
+   * An optional limit for the number of results returned in a single call.
+   *
+   * Default value: 20
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> Maximum number of query terms to be returned for use with a search text query. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Maximum number of query terms to be returned for use with a search text query. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   MaxQueryRefinements?: number | undefined;
 
   /**
-   * <p>The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in <code>[lng, lat]</code> and in the WGS 84 format.</p> <note> <p>The fields <code>BiasPosition</code>, <code>FilterBoundingBox</code>, and <code>FilterCircle</code> are mutually exclusive.</p> </note>
+   * The position, in longitude and latitude, that the results should be close to. Typically, place results returned are ranked higher the closer they are to this position. Stored in `[lng, lat]` and in the WGS 84 format.
+   *
+   * > **Note:** The fields `BiasPosition`, `FilterBoundingBox`, and `FilterCircle` are mutually exclusive.
+   *
    * @public
    */
   BiasPosition?: number[] | undefined;
 
   /**
-   * <p>A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.</p>
+   * A structure which contains a set of inclusion/exclusion properties that results must possess in order to be returned as a result.
+   *
    * @public
    */
   Filter?: SuggestFilter | undefined;
 
   /**
-   * <p> A list of optional additional parameters, such as time zone, that can be requested for each result. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>Core</code> and <code>TimeZone</code> values. </p>
+   * A list of optional additional parameters, such as time zone, that can be requested for each result. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the `Core` and `TimeZone` values.
+   *
    * @public
    */
   AdditionalFeatures?: SuggestAdditionalFeature[] | undefined;
 
   /**
-   * <p> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * A list of [BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers, `ap-southeast-1` and `ap-southeast-5` regions support only the following codes: `en, id, km, lo, ms, my, pt, th, tl, vi, zh`
+   *
    * @public
    */
   Language?: string | undefined;
 
   /**
-   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> Indicates if the query results will be persisted in customer infrastructure. Defaults to <code>SingleUse</code> (not stored). Currently, <code>Suggest</code> does not support storage of results. </p>
+   * Indicates if the query results will be persisted in customer infrastructure. Defaults to `SingleUse` (not stored). Currently, `Suggest` does not support storage of results.
+   *
    * @public
    */
   IntendedUse?: SuggestIntendedUse | undefined;
 
   /**
-   * <p>Indicates the mode of mobility used by the end user. This is used to improve the relevance of search results. Valid values are <code>Car</code>, <code>Scooter</code>, and <code>Truck</code>.</p>
+   * Indicates the mode of mobility used by the end user. This is used to improve the relevance of search results. Valid values are `Car`, `Scooter`, and `Truck`.
+   *
    * @public
    */
   TravelMode?: SuggestTravelMode | undefined;
 
   /**
-   * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
+   * Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.
+   *
    * @public
    */
   Key?: string | undefined;
 }
 
 /**
- * <p>Suggestions for refining individual query terms. Suggestions are returned as objects which note the term, suggested replacement, and its index in the query. </p>
+ * Suggestions for refining individual query terms. Suggestions are returned as objects which note the term, suggested replacement, and its index in the query.
+ *
  * @public
  */
 export interface QueryRefinement {
   /**
-   * <p>The term that will be suggested to the user.</p>
+   * The term that will be suggested to the user.
+   *
    * @public
    */
   RefinedTerm: string | undefined;
 
   /**
-   * <p>The sub-string of the original query that is replaced by this query term.</p>
+   * The sub-string of the original query that is replaced by this query term.
+   *
    * @public
    */
   OriginalTerm: string | undefined;
 
   /**
-   * <p>Start index of the parsed component.</p>
+   * Start index of the parsed component.
+   *
    * @public
    */
   StartIndex: number | undefined;
 
   /**
-   * <p>End index of the parsed query.</p>
+   * End index of the parsed query.
+   *
    * @public
    */
   EndIndex: number | undefined;
 }
 
 /**
- * <p>Describes how the parts of the textQuery matched the input query by returning the sections of the response which matched to textQuery terms.</p>
+ * Describes how the parts of the textQuery matched the input query by returning the sections of the response which matched to textQuery terms.
+ *
  * @public
  */
 export interface SuggestAddressHighlights {
   /**
-   * <p>Indicates the starting and ending indexes of the places in the result which were identified to match the textQuery. This result is useful for providing emphasis to results where the user query directly matched to make selecting the correct result from a list easier for an end user.</p>
+   * Indicates the starting and ending indexes of the places in the result which were identified to match the textQuery. This result is useful for providing emphasis to results where the user query directly matched to make selecting the correct result from a list easier for an end user.
+   *
    * @public
    */
   Label?: Highlight[] | undefined;
 }
 
 /**
- * <p>Describes how the parts of the textQuery matched the input query by returning the sections of the response which matched to textQuery terms.</p>
+ * Describes how the parts of the textQuery matched the input query by returning the sections of the response which matched to textQuery terms.
+ *
  * @public
  */
 export interface SuggestHighlights {
   /**
-   * <p>Indicates the starting and ending index of the title in the text query that match the found title. </p>
+   * Indicates the starting and ending index of the title in the text query that match the found title.
+   *
    * @public
    */
   Title?: Highlight[] | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: SuggestAddressHighlights | undefined;
 }
 
 /**
- * <p>The suggested place results.</p>
+ * The suggested place results.
+ *
  * @public
  */
 export interface SuggestPlaceResult {
   /**
-   * <p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>
+   * The `PlaceId` of the place you wish to receive the information for.
+   *
    * @public
    */
   PlaceId?: string | undefined;
 
   /**
-   * <p>A <code>PlaceType</code> is a category that the result place must belong to.</p>
+   * A `PlaceType` is a category that the result place must belong to.
+   *
    * @public
    */
   PlaceType?: PlaceType | undefined;
 
   /**
-   * <p>The place's address.</p>
+   * The place's address.
+   *
    * @public
    */
   Address?: Address | undefined;
 
   /**
-   * <p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>
+   * The position in World Geodetic System (WGS 84) format: [longitude, latitude].
+   *
    * @public
    */
   Position?: number[] | undefined;
 
   /**
-   * <p>The distance in meters from the QueryPosition.</p>
+   * The distance in meters from the QueryPosition.
+   *
    * @public
    */
   Distance?: number | undefined;
 
   /**
-   * <p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]</code> </p>
+   * The bounding box enclosing the geometric shape (area or line) that an individual result covers.
+   *
+   * The bounding box formed is defined as a set 4 coordinates: `[\{westward lng\}, \{southern lat\}, \{eastward lng\}, \{northern lat\}]`
+   *
    * @public
    */
   MapView?: number[] | undefined;
 
   /**
-   * <p>Categories of results that results must belong to.</p>
+   * Categories of results that results must belong to.
+   *
    * @public
    */
   Categories?: Category[] | undefined;
 
   /**
-   * <p> List of food types offered by this result. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * List of food types offered by this result. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   FoodTypes?: FoodType[] | undefined;
 
   /**
-   * <p> The Business Chains associated with the place. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The Business Chains associated with the place. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   BusinessChains?: BusinessChain[] | undefined;
 
   /**
-   * <p> Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Position of the access point in World Geodetic System (WGS 84) format: [longitude, latitude]. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AccessPoints?: AccessPoint[] | undefined;
 
   /**
-   * <p> Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Indicates known access restrictions on a vehicle access point. The index correlates to an access point and indicates if access through this point has some form of restriction. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   AccessRestrictions?: AccessRestriction[] | undefined;
 
   /**
-   * <p>The time zone in which the place is located.</p>
+   * The time zone in which the place is located.
+   *
    * @public
    */
   TimeZone?: TimeZone | undefined;
 
   /**
-   * <p> The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The alpha-2 or alpha-3 character code for the political view of a country. The political view applies to the results of the request to represent unresolved territorial claims through the point of view of the specified country. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   PoliticalView?: string | undefined;
 
   /**
-   * <p> How the various components of the result's address are pronounced in various languages. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * How the various components of the result's address are pronounced in various languages. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
 
   /**
-   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * A list of place attributes for the result, such as whether the business offers drive-through service.
+   *
    * @public
    */
   PlaceAttributes?: PlaceAttribute[] | undefined;
 
   /**
-   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * The list of supplier references available for this place. Requires the `CrossReferences` additional feature to be enabled.
+   *
    * @public
    */
   CrossReferences?: CrossReference[] | undefined;
 }
 
 /**
- * <p>The suggested query results.</p>
+ * The suggested query results.
+ *
  * @public
  */
 export interface SuggestQueryResult {
   /**
-   * <p>QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html">SearchText API docs</a>. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> <note> <p>The fields <code>QueryText</code>, and <code>QueryID</code> are mutually exclusive.</p> </note>
+   * QueryId can be used to complete a follow up query through the SearchText API. The QueryId retains context from the original Suggest request such as filters, political view and language. See the SearchText API documentation for more details [SearchText API docs](https://docs.aws.amazon.com/location/latest/APIReference/API_geoplaces_SearchText.html). Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
+   * > **Note:** The fields `QueryText`, and `QueryID` are mutually exclusive.
+   *
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p> The query type. Category queries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * The query type. Category queries will search for places which have an entry matching the given category, for example "doctor office". BusinessChain queries will search for instances of a given business. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   QueryType?: QueryType | undefined;
 }
 
 /**
- * <p>The resulting item from the suggested query.</p>
+ * The resulting item from the suggested query.
+ *
  * @public
  */
 export interface SuggestResultItem {
   /**
-   * <p>The display title that should be used when presenting this option to the end user.</p>
+   * The display title that should be used when presenting this option to the end user.
+   *
    * @public
    */
   Title: string | undefined;
 
   /**
-   * <p>The result type. Place results represent the final result for a point of interest, Query results represent a follow up query which can be completed through the SearchText operation.</p>
+   * The result type. Place results represent the final result for a point of interest, Query results represent a follow up query which can be completed through the SearchText operation.
+   *
    * @public
    */
   SuggestResultItemType: SuggestResultItemType | undefined;
 
   /**
-   * <p>The suggested place by its unique ID.</p>
+   * The suggested place by its unique ID.
+   *
    * @public
    */
   Place?: SuggestPlaceResult | undefined;
 
   /**
-   * <p>The suggested query results.</p>
+   * The suggested query results.
+   *
    * @public
    */
   Query?: SuggestQueryResult | undefined;
 
   /**
-   * <p>Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms. </p>
+   * Describes how the parts of the response element matched the input query by returning the sections of the response which matched to input query terms.
+   *
    * @public
    */
   Highlights?: SuggestHighlights | undefined;
@@ -3132,19 +3815,24 @@ export interface SuggestResultItem {
  */
 export interface SuggestResponse {
   /**
-   * <p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service Pricing</a>.</p>
+   * The pricing bucket for which the query is charged at.
+   *
+   * For more information on pricing, please visit [Amazon Location Service Pricing](https://aws.amazon.com/location/pricing/).
+   *
    * @public
    */
   PricingBucket: string | undefined;
 
   /**
-   * <p>List of places or results returned for a query. </p>
+   * List of places or results returned for a query.
+   *
    * @public
    */
   ResultItems?: SuggestResultItem[] | undefined;
 
   /**
-   * <p> Maximum number of query terms to be returned for use with a search text query. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
+   * Maximum number of query terms to be returned for use with a search text query. Not available in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+   *
    * @public
    */
   QueryRefinements?: QueryRefinement[] | undefined;

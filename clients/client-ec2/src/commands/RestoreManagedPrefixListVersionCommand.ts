@@ -23,7 +23,8 @@ export interface RestoreManagedPrefixListVersionCommandInput extends RestoreMana
 export interface RestoreManagedPrefixListVersionCommandOutput extends RestoreManagedPrefixListVersionResult, __MetadataBearer {}
 
 /**
- * <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
+ * Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface RestoreManagedPrefixListVersionCommandOutput extends RestoreMan
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,22 +23,18 @@ export interface DescribeCacheClustersCommandInput extends DescribeCacheClusters
 export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about all provisioned clusters if no cluster identifier is
- *             specified, or about a specific cache cluster if a cluster identifier is supplied.</p>
- *          <p>By default, abbreviated information about the clusters is returned. You can use the
- *             optional <i>ShowCacheNodeInfo</i> flag to retrieve detailed information
- *             about the cache nodes associated with the clusters. These details include the DNS
- *             address and port for the cache node endpoint.</p>
- *          <p>If the cluster is in the <i>creating</i> state, only cluster-level
- *             information is displayed until all of the nodes are successfully provisioned.</p>
- *          <p>If the cluster is in the <i>deleting</i> state, only cluster-level
- *             information is displayed.</p>
- *          <p>If cache nodes are currently being added to the cluster, node endpoint information and
- *             creation time for the additional nodes are not displayed until they are completely
- *             provisioned. When the cluster state is <i>available</i>, the cluster is
- *             ready for use.</p>
- *          <p>If cache nodes are currently being removed from the cluster, no endpoint information
- *             for the removed nodes is displayed.</p>
+ * Returns information about all provisioned clusters if no cluster identifier is specified, or about a specific cache cluster if a cluster identifier is supplied.
+ *
+ * By default, abbreviated information about the clusters is returned. You can use the optional *ShowCacheNodeInfo* flag to retrieve detailed information about the cache nodes associated with the clusters. These details include the DNS address and port for the cache node endpoint.
+ *
+ * If the cluster is in the *creating* state, only cluster-level information is displayed until all of the nodes are successfully provisioned.
+ *
+ * If the cluster is in the *deleting* state, only cluster-level information is displayed.
+ *
+ * If cache nodes are currently being added to the cluster, node endpoint information and creation time for the additional nodes are not displayed until they are completely provisioned. When the cluster state is *available*, the cluster is ready for use.
+ *
+ * If cache nodes are currently being removed from the cluster, no endpoint information for the removed nodes is displayed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -187,17 +183,20 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeCacheClusters
  * ```javascript

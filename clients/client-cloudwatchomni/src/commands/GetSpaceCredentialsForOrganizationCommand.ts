@@ -84,8 +84,8 @@ export interface GetSpaceCredentialsForOrganizationCommandOutput extends GetSpac
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Get space credentials for an organization member account
  * ```javascript

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { OmicsServiceException as __BaseException } from "./OmicsServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred. Try the request again.</p>
+ * An unexpected error occurred. Try the request again.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
+ * The operation is not supported by Amazon Omics, or the API does not exist.
+ *
  * @public
  */
 export class NotSupportedOperationException extends __BaseException {
@@ -68,7 +71,8 @@ export class NotSupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The request timed out.</p>
+ * The request timed out.
+ *
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
@@ -89,7 +93,8 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The target resource was not found in the current Region.</p>
+ * The target resource was not found in the current Region.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -110,7 +115,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a service quota.</p>
+ * The request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -131,7 +137,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -155,7 +162,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -176,7 +184,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request cannot be applied to the target resource in its current state.</p>
+ * The request cannot be applied to the target resource in its current state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -197,7 +206,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The ranges specified in the request are not valid.</p>
+ * The ranges specified in the request are not valid.
+ *
  * @public
  */
 export class RangeNotSatisfiableException extends __BaseException {

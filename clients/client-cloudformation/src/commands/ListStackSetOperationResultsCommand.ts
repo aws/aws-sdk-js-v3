@@ -23,11 +23,10 @@ export interface ListStackSetOperationResultsCommandInput extends ListStackSetOp
 export interface ListStackSetOperationResultsCommandOutput extends ListStackSetOperationResultsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about the results of a StackSet operation.</p>
- *          <note>
- *             <p>This API provides <i>eventually consistent</i> reads meaning it may take
- *         some time but will eventually return the most up-to-date data.</p>
- *          </note>
+ * Returns summary information about the results of a StackSet operation.
+ *
+ * > **Note:** This API provides *eventually consistent* reads meaning it may take some time but will eventually return the most up-to-date data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +76,16 @@ export interface ListStackSetOperationResultsCommandOutput extends ListStackSetO
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link OperationNotFoundException} (client fault)
- *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * The specified ID refers to an operation that doesn't exist.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified StackSet doesn't exist.</p>
+ *
+ * The specified StackSet doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

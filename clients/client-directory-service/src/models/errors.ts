@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DirectoryServiceServiceException as __BaseException } from "./DirectoryServiceServiceException";
 
 /**
- * <p>A client exception has occurred.</p>
+ * A client exception has occurred.
+ *
  * @public
  */
 export class ClientException extends __BaseException {
@@ -12,13 +13,15 @@ export class ClientException extends __BaseException {
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -38,7 +41,8 @@ export class ClientException extends __BaseException {
 }
 
 /**
- * <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+ * The specified directory has already been shared with this Amazon Web Services account.
+ *
  * @public
  */
 export class DirectoryAlreadySharedException extends __BaseException {
@@ -46,13 +50,15 @@ export class DirectoryAlreadySharedException extends __BaseException {
   readonly name = "DirectoryAlreadySharedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -72,7 +78,8 @@ export class DirectoryAlreadySharedException extends __BaseException {
 }
 
 /**
- * <p>The specified entity could not be found.</p>
+ * The specified entity could not be found.
+ *
  * @public
  */
 export class EntityDoesNotExistException extends __BaseException {
@@ -80,13 +87,15 @@ export class EntityDoesNotExistException extends __BaseException {
   readonly name = "EntityDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -106,7 +115,8 @@ export class EntityDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters are not valid.</p>
+ * One or more parameters are not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -114,13 +124,15 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -140,7 +152,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>An exception has occurred in Directory Service.</p>
+ * An exception has occurred in Directory Service.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -148,13 +161,15 @@ export class ServiceException extends __BaseException {
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -174,7 +189,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -182,13 +198,15 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -208,15 +226,12 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A directory assessment is automatically created when you create a hybrid directory.
- *             There are two types of assessments: <code>CUSTOMER</code> and <code>SYSTEM</code>. Your
- *             Amazon Web Services account has a limit of 100 <code>CUSTOMER</code> directory assessments.</p>
- *          <p>If you attempt to create a hybrid directory; and you already have 100
- *                 <code>CUSTOMER</code> directory assessments;, you will encounter an error. Delete
- *             assessments to free up capacity before trying again.</p>
- *          <p>You can request an increase to your <code>CUSTOMER</code> directory assessment quota
- *             by contacting customer support or delete existing CUSTOMER directory assessments; to
- *             free up capacity.</p>
+ * A directory assessment is automatically created when you create a hybrid directory. There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
+ *
+ * If you attempt to create a hybrid directory; and you already have 100 `CUSTOMER` directory assessments;, you will encounter an error. Delete assessments to free up capacity before trying again.
+ *
+ * You can request an increase to your `CUSTOMER` directory assessment quota by contacting customer support or delete existing CUSTOMER directory assessments; to free up capacity.
+ *
  * @public
  */
 export class ADAssessmentLimitExceededException extends __BaseException {
@@ -224,13 +239,15 @@ export class ADAssessmentLimitExceededException extends __BaseException {
   readonly name = "ADAssessmentLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -250,7 +267,8 @@ export class ADAssessmentLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified directory is unavailable.</p>
+ * The specified directory is unavailable.
+ *
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -258,13 +276,15 @@ export class DirectoryUnavailableException extends __BaseException {
   readonly name = "DirectoryUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -284,7 +304,8 @@ export class DirectoryUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The specified entity already exists.</p>
+ * The specified entity already exists.
+ *
  * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
@@ -292,13 +313,15 @@ export class EntityAlreadyExistsException extends __BaseException {
   readonly name = "EntityAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -318,8 +341,8 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP
- *          address blocks.</p>
+ * The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.
+ *
  * @public
  */
 export class IpRouteLimitExceededException extends __BaseException {
@@ -327,13 +350,15 @@ export class IpRouteLimitExceededException extends __BaseException {
   readonly name = "IpRouteLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -353,8 +378,8 @@ export class IpRouteLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created.
- *       Specify a different Region and try again.</p>
+ * The Region you specified is the same Region where the Managed Microsoft AD directory was created. Specify a different Region and try again.
+ *
  * @public
  */
 export class DirectoryAlreadyInRegionException extends __BaseException {
@@ -362,13 +387,15 @@ export class DirectoryAlreadyInRegionException extends __BaseException {
   readonly name = "DirectoryAlreadyInRegionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -388,7 +415,8 @@ export class DirectoryAlreadyInRegionException extends __BaseException {
 }
 
 /**
- * <p>The specified directory does not exist in the system.</p>
+ * The specified directory does not exist in the system.
+ *
  * @public
  */
 export class DirectoryDoesNotExistException extends __BaseException {
@@ -396,13 +424,15 @@ export class DirectoryDoesNotExistException extends __BaseException {
   readonly name = "DirectoryDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -422,8 +452,8 @@ export class DirectoryDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>You have reached the limit for maximum number of simultaneous Region replications per
- *       directory.</p>
+ * You have reached the limit for maximum number of simultaneous Region replications per directory.
+ *
  * @public
  */
 export class RegionLimitExceededException extends __BaseException {
@@ -431,13 +461,15 @@ export class RegionLimitExceededException extends __BaseException {
   readonly name = "RegionLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -457,7 +489,8 @@ export class RegionLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation is not supported.</p>
+ * The operation is not supported.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -465,13 +498,15 @@ export class UnsupportedOperationException extends __BaseException {
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -491,7 +526,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The maximum allowed number of tags was exceeded.</p>
+ * The maximum allowed number of tags was exceeded.
+ *
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
@@ -499,13 +535,15 @@ export class TagLimitExceededException extends __BaseException {
   readonly name = "TagLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -525,7 +563,8 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An authentication error occurred.</p>
+ * An authentication error occurred.
+ *
  * @public
  */
 export class AuthenticationFailedException extends __BaseException {
@@ -533,13 +572,15 @@ export class AuthenticationFailedException extends __BaseException {
   readonly name = "AuthenticationFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The textual message for the exception.</p>
+   * The textual message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The identifier of the request that caused the exception.</p>
+   * The identifier of the request that caused the exception.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -559,7 +600,8 @@ export class AuthenticationFailedException extends __BaseException {
 }
 
 /**
- * <p>The certificate has already been registered into the system.</p>
+ * The certificate has already been registered into the system.
+ *
  * @public
  */
 export class CertificateAlreadyExistsException extends __BaseException {
@@ -567,13 +609,15 @@ export class CertificateAlreadyExistsException extends __BaseException {
   readonly name = "CertificateAlreadyExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -593,7 +637,8 @@ export class CertificateAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The certificate is not present in the system for describe or deregister activities.</p>
+ * The certificate is not present in the system for describe or deregister activities.
+ *
  * @public
  */
 export class CertificateDoesNotExistException extends __BaseException {
@@ -601,13 +646,15 @@ export class CertificateDoesNotExistException extends __BaseException {
   readonly name = "CertificateDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -627,8 +674,8 @@ export class CertificateDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The certificate is being used for the LDAP security connection and cannot be removed
- *       without disabling LDAP security.</p>
+ * The certificate is being used for the LDAP security connection and cannot be removed without disabling LDAP security.
+ *
  * @public
  */
 export class CertificateInUseException extends __BaseException {
@@ -636,13 +683,15 @@ export class CertificateInUseException extends __BaseException {
   readonly name = "CertificateInUseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -662,7 +711,8 @@ export class CertificateInUseException extends __BaseException {
 }
 
 /**
- * <p>The certificate could not be added because the certificate limit has been reached.</p>
+ * The certificate could not be added because the certificate limit has been reached.
+ *
  * @public
  */
 export class CertificateLimitExceededException extends __BaseException {
@@ -670,13 +720,15 @@ export class CertificateLimitExceededException extends __BaseException {
   readonly name = "CertificateLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -696,9 +748,8 @@ export class CertificateLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of directories in the region has been reached. You can use the
- *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
- *             the region.</p>
+ * The maximum number of directories in the region has been reached. You can use the GetDirectoryLimits operation to determine your directory limits in the region.
+ *
  * @public
  */
 export class DirectoryLimitExceededException extends __BaseException {
@@ -706,13 +757,15 @@ export class DirectoryLimitExceededException extends __BaseException {
   readonly name = "DirectoryLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -732,7 +785,8 @@ export class DirectoryLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The account does not have sufficient permission to perform the operation.</p>
+ * The account does not have sufficient permission to perform the operation.
+ *
  * @public
  */
 export class InsufficientPermissionsException extends __BaseException {
@@ -740,13 +794,15 @@ export class InsufficientPermissionsException extends __BaseException {
   readonly name = "InsufficientPermissionsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -766,9 +822,8 @@ export class InsufficientPermissionsException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of manual snapshots for the directory has been reached. You can
- *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
- *             for a directory.</p>
+ * The maximum number of manual snapshots for the directory has been reached. You can use the GetSnapshotLimits operation to determine the snapshot limits for a directory.
+ *
  * @public
  */
 export class SnapshotLimitExceededException extends __BaseException {
@@ -776,13 +831,15 @@ export class SnapshotLimitExceededException extends __BaseException {
   readonly name = "SnapshotLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -802,7 +859,8 @@ export class SnapshotLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> value is not valid.</p>
+ * The `NextToken` value is not valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -810,13 +868,15 @@ export class InvalidNextTokenException extends __BaseException {
   readonly name = "InvalidNextTokenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -836,7 +896,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p> The directory is already updated to desired update type settings. </p>
+ * The directory is already updated to desired update type settings.
+ *
  * @public
  */
 export class DirectoryInDesiredStateException extends __BaseException {
@@ -844,13 +905,15 @@ export class DirectoryInDesiredStateException extends __BaseException {
   readonly name = "DirectoryInDesiredStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -870,7 +933,8 @@ export class DirectoryInDesiredStateException extends __BaseException {
 }
 
 /**
- * <p>The specified directory has not been shared with this Amazon Web Services account.</p>
+ * The specified directory has not been shared with this Amazon Web Services account.
+ *
  * @public
  */
 export class DirectoryNotSharedException extends __BaseException {
@@ -878,13 +942,15 @@ export class DirectoryNotSharedException extends __BaseException {
   readonly name = "DirectoryNotSharedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -904,7 +970,8 @@ export class DirectoryNotSharedException extends __BaseException {
 }
 
 /**
- * <p>A disable operation for CA enrollment policy is already in progress for this directory.</p>
+ * A disable operation for CA enrollment policy is already in progress for this directory.
+ *
  * @public
  */
 export class DisableAlreadyInProgressException extends __BaseException {
@@ -912,13 +979,15 @@ export class DisableAlreadyInProgressException extends __BaseException {
   readonly name = "DisableAlreadyInProgressException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -938,7 +1007,8 @@ export class DisableAlreadyInProgressException extends __BaseException {
 }
 
 /**
- * <p>Client authentication is already enabled.</p>
+ * Client authentication is already enabled.
+ *
  * @public
  */
 export class InvalidClientAuthStatusException extends __BaseException {
@@ -946,13 +1016,15 @@ export class InvalidClientAuthStatusException extends __BaseException {
   readonly name = "InvalidClientAuthStatusException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -972,8 +1044,8 @@ export class InvalidClientAuthStatusException extends __BaseException {
 }
 
 /**
- * <p>The LDAP activities could not be performed because they are limited by the LDAPS
- *       status.</p>
+ * The LDAP activities could not be performed because they are limited by the LDAPS status.
+ *
  * @public
  */
 export class InvalidLDAPSStatusException extends __BaseException {
@@ -981,13 +1053,15 @@ export class InvalidLDAPSStatusException extends __BaseException {
   readonly name = "InvalidLDAPSStatusException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1007,7 +1081,8 @@ export class InvalidLDAPSStatusException extends __BaseException {
 }
 
 /**
- * <p>An enable operation for CA enrollment policy is already in progress for this directory.</p>
+ * An enable operation for CA enrollment policy is already in progress for this directory.
+ *
  * @public
  */
 export class EnableAlreadyInProgressException extends __BaseException {
@@ -1015,13 +1090,15 @@ export class EnableAlreadyInProgressException extends __BaseException {
   readonly name = "EnableAlreadyInProgressException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1041,8 +1118,8 @@ export class EnableAlreadyInProgressException extends __BaseException {
 }
 
 /**
- * <p>Client authentication setup could not be completed because at least one valid certificate
- *       must be registered in the system.</p>
+ * Client authentication setup could not be completed because at least one valid certificate must be registered in the system.
+ *
  * @public
  */
 export class NoAvailableCertificateException extends __BaseException {
@@ -1050,13 +1127,15 @@ export class NoAvailableCertificateException extends __BaseException {
   readonly name = "NoAvailableCertificateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1076,7 +1155,8 @@ export class NoAvailableCertificateException extends __BaseException {
 }
 
 /**
- * <p>The certificate PEM that was provided has incorrect encoding.</p>
+ * The certificate PEM that was provided has incorrect encoding.
+ *
  * @public
  */
 export class InvalidCertificateException extends __BaseException {
@@ -1084,13 +1164,15 @@ export class InvalidCertificateException extends __BaseException {
   readonly name = "InvalidCertificateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1110,8 +1192,8 @@ export class InvalidCertificateException extends __BaseException {
 }
 
 /**
- * <p>The new password provided by the user does not meet the password complexity
- *             requirements defined in your directory.</p>
+ * The new password provided by the user does not meet the password complexity requirements defined in your directory.
+ *
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
@@ -1119,13 +1201,15 @@ export class InvalidPasswordException extends __BaseException {
   readonly name = "InvalidPasswordException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1145,7 +1229,8 @@ export class InvalidPasswordException extends __BaseException {
 }
 
 /**
- * <p>The user provided a username that does not exist in your directory.</p>
+ * The user provided a username that does not exist in your directory.
+ *
  * @public
  */
 export class UserDoesNotExistException extends __BaseException {
@@ -1153,13 +1238,15 @@ export class UserDoesNotExistException extends __BaseException {
   readonly name = "UserDoesNotExistException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1179,7 +1266,8 @@ export class UserDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The specified shared target is not valid.</p>
+ * The specified shared target is not valid.
+ *
  * @public
  */
 export class InvalidTargetException extends __BaseException {
@@ -1187,13 +1275,15 @@ export class InvalidTargetException extends __BaseException {
   readonly name = "InvalidTargetException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1213,7 +1303,8 @@ export class InvalidTargetException extends __BaseException {
 }
 
 /**
- * <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
+ * Exception encountered while trying to access your Amazon Web Services organization.
+ *
  * @public
  */
 export class OrganizationsException extends __BaseException {
@@ -1221,13 +1312,15 @@ export class OrganizationsException extends __BaseException {
   readonly name = "OrganizationsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1247,8 +1340,8 @@ export class OrganizationsException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
- *             reached.</p>
+ * The maximum number of Amazon Web Services accounts that you can share with this directory has been reached.
+ *
  * @public
  */
 export class ShareLimitExceededException extends __BaseException {
@@ -1256,13 +1349,15 @@ export class ShareLimitExceededException extends __BaseException {
   readonly name = "ShareLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1282,8 +1377,8 @@ export class ShareLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The maximum allowed number of domain controllers per directory was exceeded. The
- *       default limit per directory is 20 domain controllers.</p>
+ * The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.
+ *
  * @public
  */
 export class DomainControllerLimitExceededException extends __BaseException {
@@ -1291,13 +1386,15 @@ export class DomainControllerLimitExceededException extends __BaseException {
   readonly name = "DomainControllerLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1317,7 +1414,8 @@ export class DomainControllerLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified directory setting is not compatible with other settings.</p>
+ * The specified directory setting is not compatible with other settings.
+ *
  * @public
  */
 export class IncompatibleSettingsException extends __BaseException {
@@ -1325,13 +1423,15 @@ export class IncompatibleSettingsException extends __BaseException {
   readonly name = "IncompatibleSettingsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -1351,7 +1451,8 @@ export class IncompatibleSettingsException extends __BaseException {
 }
 
 /**
- * <p>The specified directory setting is not supported.</p>
+ * The specified directory setting is not supported.
+ *
  * @public
  */
 export class UnsupportedSettingsException extends __BaseException {
@@ -1359,13 +1460,15 @@ export class UnsupportedSettingsException extends __BaseException {
   readonly name = "UnsupportedSettingsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The descriptive message for the exception.</p>
+   * The descriptive message for the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services request identifier.</p>
+   * The Amazon Web Services request identifier.
+   *
    * @public
    */
   RequestId?: string | undefined;

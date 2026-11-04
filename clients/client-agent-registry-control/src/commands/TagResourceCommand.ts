@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified Amazon Web Services Agent Registry resource. Tags are key-value pairs that you can use to categorize and manage Amazon Web Services resources. If a tag with the same key already exists on the resource, the service replaces its value with the value you specify.</p>
+ * Adds or overwrites one or more tags for the specified Amazon Web Services Agent Registry resource. Tags are key-value pairs that you can use to categorize and manage Amazon Web Services resources. If a tag with the same key already exists on the resource, the service replaces its value with the value you specify.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link AgentRegistryControlClientResolvedConfig | config} for AgentRegistryControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller is not authorized to perform the requested action.</p>
+ *
+ * The caller is not authorized to perform the requested action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ *
+ * The request failed due to an unexpected internal error; the caller may retry.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service quota.</p>
+ *
+ * The request would exceed a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ *
+ * The request was denied due to request throttling; the caller may retry after a delay.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation of one or more input fields.</p>
+ *
+ * The request failed validation of one or more input fields.
  *
  * @throws {@link AgentRegistryControlServiceException}
- * <p>Base exception class for all service exceptions from AgentRegistryControl service.</p>
  *
+ * Base exception class for all service exceptions from AgentRegistryControl service.
  *
  * @public
  */

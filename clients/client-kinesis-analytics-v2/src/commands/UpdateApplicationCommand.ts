@@ -23,10 +23,10 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Managed Service for Apache Flink application. Using this operation, you
- *       can update application code, input configuration, and output configuration. </p>
- *          <p>Managed Service for Apache Flink updates the <code>ApplicationVersionId</code> each time you update
- *       your application. </p>
+ * Updates an existing Managed Service for Apache Flink application. Using this operation, you can update application code, input configuration, and output configuration.
+ *
+ * Managed Service for Apache Flink updates the `ApplicationVersionId` each time you update your application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -504,35 +504,40 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link CodeValidationException} (client fault)
- *  <p>The user-provided application code (query) is not valid. This can be a simple syntax
- *       error.</p>
+ *
+ * The user-provided application code (query) is not valid. This can be a simple syntax error.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
+ *
+ * Exception thrown as a result of concurrent modifications to an application. This error can be the result of attempting to modify an application without using the current application ID.
  *
  * @throws {@link InvalidApplicationConfigurationException} (client fault)
- *  <p>The user-provided application configuration is not valid.</p>
+ *
+ * The user-provided application configuration is not valid.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The number of allowed resources has been exceeded.</p>
+ *
+ * The number of allowed resources has been exceeded.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

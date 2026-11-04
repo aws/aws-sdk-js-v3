@@ -23,12 +23,12 @@ export interface RestoreFromSnapshotCommandInput extends RestoreFromSnapshotRequ
 export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Restores a directory using an existing directory snapshot.</p>
- *          <p>When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.</p>
- *          <p>This action returns as soon as the restore operation is initiated. You can monitor the
- *          progress of the restore operation by calling the <a>DescribeDirectories</a> operation with
- *          the directory identifier. When the <b>DirectoryDescription.Stage</b> value changes to
- *             <code>Active</code>, the restore operation is complete.</p>
+ * Restores a directory using an existing directory snapshot.
+ *
+ * When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.
+ *
+ * This action returns as soon as the restore operation is initiated. You can monitor the progress of the restore operation by calling the DescribeDirectories operation with the directory identifier. When the **DirectoryDescription.Stage** value changes to `Active`, the restore operation is complete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +53,24 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To restore a snapshot
  * ```javascript

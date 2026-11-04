@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>AWS Amplify Admin API</p>
+ * AWS Amplify Admin API
  *
  * @packageDocumentation
  */

@@ -26,11 +26,10 @@ export interface ReplaceIamInstanceProfileAssociationCommandInput extends Replac
 export interface ReplaceIamInstanceProfileAssociationCommandOutput extends ReplaceIamInstanceProfileAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Replaces an IAM instance profile for the specified running instance. You can use
- *             this action to change the IAM instance profile that's associated with an instance
- *             without having to disassociate the existing IAM instance profile first.</p>
- *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
- *             ID.</p>
+ * Replaces an IAM instance profile for the specified running instance. You can use this action to change the IAM instance profile that's associated with an instance without having to disassociate the existing IAM instance profile first.
+ *
+ * Use DescribeIamInstanceProfileAssociations to get the association ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +69,8 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput extends Repla
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

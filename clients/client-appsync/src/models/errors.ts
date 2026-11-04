@@ -6,7 +6,8 @@ import type { BadRequestReason } from "./enums";
 import type { BadRequestDetail } from "./models_0";
 
 /**
- * <p>You don't have access to perform this operation on this resource.</p>
+ * You don't have access to perform this operation on this resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The API key exceeded a limit. Try your request again.</p>
+ * The API key exceeded a limit. Try your request again.
+ *
  * @public
  */
 export class ApiKeyLimitExceededException extends __BaseException {
@@ -48,8 +50,8 @@ export class ApiKeyLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The API key expiration must be set to a value between 1 and 365 days from creation (for
- *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
+ * The API key expiration must be set to a value between 1 and 365 days from creation (for `CreateApiKey`) or from update (for `UpdateApiKey`).
+ *
  * @public
  */
 export class ApiKeyValidityOutOfBoundsException extends __BaseException {
@@ -70,7 +72,8 @@ export class ApiKeyValidityOutOfBoundsException extends __BaseException {
 }
 
 /**
- * <p>The GraphQL API exceeded a limit. Try your request again.</p>
+ * The GraphQL API exceeded a limit. Try your request again.
+ *
  * @public
  */
 export class ApiLimitExceededException extends __BaseException {
@@ -91,8 +94,8 @@ export class ApiLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request is not well formed. For example, a value is invalid or a required field is
- *          missing. Check the field values, and then try again.</p>
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and then try again.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -100,15 +103,15 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Provides context for the cause of the bad request. The only supported value is
-   *             <code>CODE_ERROR</code>.</p>
+   * Provides context for the cause of the bad request. The only supported value is `CODE_ERROR`.
+   *
    * @public
    */
   reason?: BadRequestReason | undefined;
 
   /**
-   * <p>Provides further details for the reason behind the bad request. For reason type
-   *             <code>CODE_ERROR</code>, the detail will contain a list of code errors.</p>
+   * Provides further details for the reason behind the bad request. For reason type `CODE_ERROR`, the detail will contain a list of code errors.
+   *
    * @public
    */
   detail?: BadRequestDetail | undefined;
@@ -129,7 +132,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>An internal AppSync error occurred. Try your request again.</p>
+ * An internal AppSync error occurred. Try your request again.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -150,8 +154,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request was not found. Check the resource, and then try
- *          again.</p>
+ * The resource specified in the request was not found. Check the resource, and then try again.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -172,8 +176,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Another modification is in progress at this time and it must complete before you can
- *          make your change.</p>
+ * Another modification is in progress at this time and it must complete before you can make your change.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -194,7 +198,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded a limit. Try your request again.</p>
+ * The request exceeded a limit. Try your request again.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -215,7 +220,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You aren't authorized to perform this operation.</p>
+ * You aren't authorized to perform this operation.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -236,7 +242,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The operation exceeded the service quota for this resource.</p>
+ * The operation exceeded the service quota for this resource.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -257,9 +264,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>A conflict with a previous successful update is detected. This typically occurs when the
- *          previous update did not have time to propagate before the next update was made. A retry
- *          (with appropriate backoff logic) is the recommended response to this exception.</p>
+ * A conflict with a previous successful update is detected. This typically occurs when the previous update did not have time to propagate before the next update was made. A retry (with appropriate backoff logic) is the recommended response to this exception.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -280,7 +286,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The GraphQL schema is not valid.</p>
+ * The GraphQL schema is not valid.
+ *
  * @public
  */
 export class GraphQLSchemaException extends __BaseException {

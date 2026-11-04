@@ -2,149 +2,166 @@
 import type { ApplicationType, AuthType, ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
 
 /**
- * <p>The contact handling configuration for the application.</p>
+ * The contact handling configuration for the application.
+ *
  * @public
  */
 export interface ContactHandling {
   /**
-   * <p>Indicates whether the application refreshes for each contact or refreshes only with each new browser session.</p>
+   * Indicates whether the application refreshes for each contact or refreshes only with each new browser session.
+   *
    * @public
    */
   Scope?: ContactHandlingScope | undefined;
 }
 
 /**
- * <p>The configuration settings for the application.</p>
+ * The configuration settings for the application.
+ *
  * @public
  */
 export interface ApplicationConfig {
   /**
-   * <p>The contact handling configuration for the application.</p>
+   * The contact handling configuration for the application.
+   *
    * @public
    */
   ContactHandling?: ContactHandling | undefined;
 }
 
 /**
- * <p>The external URL source for the application.</p>
+ * The external URL source for the application.
+ *
  * @public
  */
 export interface ExternalUrlConfig {
   /**
-   * <p>The URL to access the application.</p>
+   * The URL to access the application.
+   *
    * @public
    */
   AccessUrl: string | undefined;
 
   /**
-   * <p>Additional URLs to allow list if different than the access URL.</p>
+   * Additional URLs to allow list if different than the access URL.
+   *
    * @public
    */
   ApprovedOrigins?: string[] | undefined;
 }
 
 /**
- * <p>The configuration for where the application should be loaded from.</p>
+ * The configuration for where the application should be loaded from.
+ *
  * @public
  */
 export interface ApplicationSourceConfig {
   /**
-   * <p>The external URL source for the application.</p>
+   * The external URL source for the application.
+   *
    * @public
    */
   ExternalUrlConfig?: ExternalUrlConfig | undefined;
 }
 
 /**
- * <p>Contains the authentication settings that Connect Customer uses to call an external application endpoint.</p>
+ * Contains the authentication settings that Connect Customer uses to call an external application endpoint.
+ *
  * @public
  */
 export interface AuthConfig {
   /**
-   * <p>The type of authentication that Connect Customer uses to call the external application endpoint. You must specify an authentication type for <code>A2A_SERVER</code> applications. Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>API_KEY</code>: Connect Customer sends an API key that is stored in the Secrets Manager secret that you specify in <code>CredentialProviderIdentifier</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CONNECT_JWT</code>: Connect Customer issues a short-lived, signed JSON Web Token (JWT). This authentication type doesn't require a stored credential.</p>
-   *             </li>
-   *          </ul>
+   * The type of authentication that Connect Customer uses to call the external application endpoint. You must specify an authentication type for `A2A_SERVER` applications. Valid values:
+   *
+   * - `API_KEY`: Connect Customer sends an API key that is stored in the Secrets Manager secret that you specify in `CredentialProviderIdentifier`.
+   * - `CONNECT_JWT`: Connect Customer issues a short-lived, signed JSON Web Token (JWT). This authentication type doesn't require a stored credential.
+   *
    * @public
    */
   AuthType?: AuthType | undefined;
 
   /**
-   * <p>The ARN of the Secrets Manager secret that stores the credentials. The secret must be accessible to Connect Customer.</p>
-   *          <p>You must specify this ARN when <code>AuthType</code> is <code>API_KEY</code>. Don't specify it when <code>AuthType</code> is <code>CONNECT_JWT</code>.</p>
+   * The ARN of the Secrets Manager secret that stores the credentials. The secret must be accessible to Connect Customer.
+   *
+   * You must specify this ARN when `AuthType` is `API_KEY`. Don't specify it when `AuthType` is `CONNECT_JWT`.
+   *
    * @public
    */
   CredentialProviderIdentifier?: string | undefined;
 
   /**
-   * <p>The value that Connect Customer uses as the audience (<code>aud</code>) claim of the JSON Web Token (JWT) that it issues. You can specify this parameter only when <code>AuthType</code> is <code>CONNECT_JWT</code>. If you don't specify it, the audience is the <code>AccessUrl</code> of the application. The value can't contain <code>connect.amazonaws.com</code>.</p>
+   * The value that Connect Customer uses as the audience (`aud`) claim of the JSON Web Token (JWT) that it issues. You can specify this parameter only when `AuthType` is `CONNECT_JWT`. If you don't specify it, the audience is the `AccessUrl` of the application. The value can't contain `connect.amazonaws.com`.
+   *
    * @public
    */
   AudienceOverride?: string | undefined;
 }
 
 /**
- * <p>The iframe configuration for the application.</p>
+ * The iframe configuration for the application.
+ *
  * @public
  */
 export interface IframeConfig {
   /**
-   * <p>The list of features that are allowed in the iframe.</p>
+   * The list of features that are allowed in the iframe.
+   *
    * @public
    */
   Allow?: string[] | undefined;
 
   /**
-   * <p>The list of sandbox attributes for the iframe.</p>
+   * The list of sandbox attributes for the iframe.
+   *
    * @public
    */
   Sandbox?: string[] | undefined;
 }
 
 /**
- * <p>The configuration of an event that the application publishes.</p>
+ * The configuration of an event that the application publishes.
+ *
  * @public
  */
 export interface Publication {
   /**
-   * <p>The name of the publication.</p>
+   * The name of the publication.
+   *
    * @public
    */
   Event: string | undefined;
 
   /**
-   * <p>The JSON schema of the publication event.</p>
+   * The JSON schema of the publication event.
+   *
    * @public
    */
   Schema: string | undefined;
 
   /**
-   * <p>The description of the publication.</p>
+   * The description of the publication.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>The configuration of an event that the application subscribes.</p>
+ * The configuration of an event that the application subscribes.
+ *
  * @public
  */
 export interface Subscription {
   /**
-   * <p>The name of the subscription.</p>
+   * The name of the subscription.
+   *
    * @public
    */
   Event: string | undefined;
 
   /**
-   * <p>The description of the subscription.</p>
+   * The description of the subscription.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -155,31 +172,35 @@ export interface Subscription {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The namespace of the application.</p>
+   * The namespace of the application.
+   *
    * @public
    */
   Namespace: string | undefined;
 
   /**
-   * <p>The description of the application.</p>
+   * The description of the application.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for where the application should be loaded from.</p>
+   * The configuration for where the application should be loaded from.
+   *
    * @public
    */
   ApplicationSourceConfig: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>
+   * The events that the application subscribes.
    *
    * @deprecated Subscriptions has been replaced with Permissions.
    * @public
@@ -187,7 +208,7 @@ export interface CreateApplicationRequest {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>
+   * The events that the application publishes.
    *
    * @deprecated Publications has been replaced with Permissions.
    * @public
@@ -195,28 +216,28 @@ export interface CreateApplicationRequest {
   Publications?: Publication[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration of events or requests that the application has access to.</p>
+   * The configuration of events or requests that the application has access to.
+   *
    * @public
    */
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * Indicates whether the application is a service.
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -224,31 +245,36 @@ export interface CreateApplicationRequest {
   IsService?: boolean | undefined;
 
   /**
-   * <p>The maximum time in milliseconds allowed to establish a connection with the workspace.</p>
+   * The maximum time in milliseconds allowed to establish a connection with the workspace.
+   *
    * @public
    */
   InitializationTimeout?: number | undefined;
 
   /**
-   * <p>The configuration settings for the application.</p>
+   * The configuration settings for the application.
+   *
    * @public
    */
   ApplicationConfig?: ApplicationConfig | undefined;
 
   /**
-   * <p>The iframe configuration for the application.</p>
+   * The iframe configuration for the application.
+   *
    * @public
    */
   IframeConfig?: IframeConfig | undefined;
 
   /**
-   * <p>The type of application.</p>
+   * The type of application.
+   *
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
 
   /**
-   * <p>The authentication settings that Connect Customer uses when calling the external application.</p>
+   * The authentication settings that Connect Customer uses when calling the external application.
+   *
    * @public
    */
   AuthConfig?: AuthConfig | undefined;
@@ -259,56 +285,64 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A unique identifier for the Application.</p>
+   * A unique identifier for the Application.
+   *
    * @public
    */
   Id?: string | undefined;
 }
 
 /**
- * <p>The configuration for what files should be pulled from the source.</p>
+ * The configuration for what files should be pulled from the source.
+ *
  * @public
  */
 export interface FileConfiguration {
   /**
-   * <p>Identifiers for the source folders to pull all files from recursively.</p>
+   * Identifiers for the source folders to pull all files from recursively.
+   *
    * @public
    */
   Folders: string[] | undefined;
 
   /**
-   * <p>Restrictions for what files should be pulled from the source.</p>
+   * Restrictions for what files should be pulled from the source.
+   *
    * @public
    */
   Filters?: Record<string, string[]> | undefined;
 }
 
 /**
- * <p>The name of the data and how often it should be pulled from the source.</p>
+ * The name of the data and how often it should be pulled from the source.
+ *
  * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>The start date for objects to import in the first flow run as an Unix/epoch timestamp in
-   *       milliseconds or in ISO-8601 format.</p>
+   * The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format.
+   *
    * @public
    */
   FirstExecutionFrom?: string | undefined;
 
   /**
-   * <p>The name of the object to pull from the data source.</p>
+   * The name of the object to pull from the data source.
+   *
    * @public
    */
   Object?: string | undefined;
 
   /**
-   * <p>How often the data should be pulled from data source.</p>
+   * How often the data should be pulled from data source.
+   *
    * @public
    */
   ScheduleExpression: string | undefined;
@@ -319,58 +353,64 @@ export interface ScheduleConfiguration {
  */
 export interface CreateDataIntegrationRequest {
   /**
-   * <p>The name of the DataIntegration.</p>
+   * The name of the DataIntegration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A description of the DataIntegration.</p>
+   * A description of the DataIntegration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The KMS key ARN for the DataIntegration.</p>
+   * The KMS key ARN for the DataIntegration.
+   *
    * @public
    */
   KmsKey: string | undefined;
 
   /**
-   * <p>The URI of the data source.</p>
+   * The URI of the data source.
+   *
    * @public
    */
   SourceURI?: string | undefined;
 
   /**
-   * <p>The name of the data and how often it should be pulled from the source.</p>
+   * The name of the data and how often it should be pulled from the source.
+   *
    * @public
    */
   ScheduleConfig?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The configuration for what files should be pulled from the source.</p>
+   * The configuration for what files should be pulled from the source.
+   *
    * @public
    */
   FileConfiguration?: FileConfiguration | undefined;
 
   /**
-   * <p>The configuration for what data should be pulled from the source.</p>
+   * The configuration for what data should be pulled from the source.
+   *
    * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>> | undefined;
@@ -381,114 +421,127 @@ export interface CreateDataIntegrationRequest {
  */
 export interface CreateDataIntegrationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN)</p>
+   * The Amazon Resource Name (ARN)
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A unique identifier.</p>
+   * A unique identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the DataIntegration.</p>
+   * The name of the DataIntegration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the DataIntegration.</p>
+   * A description of the DataIntegration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The KMS key ARN for the DataIntegration.</p>
+   * The KMS key ARN for the DataIntegration.
+   *
    * @public
    */
   KmsKey?: string | undefined;
 
   /**
-   * <p>The URI of the data source.</p>
+   * The URI of the data source.
+   *
    * @public
    */
   SourceURI?: string | undefined;
 
   /**
-   * <p>The name of the data and how often it should be pulled from the source.</p>
+   * The name of the data and how often it should be pulled from the source.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The configuration for what files should be pulled from the source.</p>
+   * The configuration for what files should be pulled from the source.
+   *
    * @public
    */
   FileConfiguration?: FileConfiguration | undefined;
 
   /**
-   * <p>The configuration for what data should be pulled from the source.</p>
+   * The configuration for what data should be pulled from the source.
+   *
    * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>> | undefined;
 }
 
 /**
- * <p>The start and end time for data pull from the source.</p>
+ * The start and end time for data pull from the source.
+ *
  * @public
  */
 export interface OnDemandConfiguration {
   /**
-   * <p>The start time for data pull from the source as an Unix/epoch string in
-   *       milliseconds</p>
+   * The start time for data pull from the source as an Unix/epoch string in milliseconds
+   *
    * @public
    */
   StartTime: string | undefined;
 
   /**
-   * <p>The end time for data pull from the source as an Unix/epoch string in
-   *       milliseconds</p>
+   * The end time for data pull from the source as an Unix/epoch string in milliseconds
+   *
    * @public
    */
   EndTime?: string | undefined;
 }
 
 /**
- * <p>The configuration for how the files should be pulled from the source.</p>
+ * The configuration for how the files should be pulled from the source.
+ *
  * @public
  */
 export interface ExecutionConfiguration {
   /**
-   * <p>The mode for data import/export execution.</p>
+   * The mode for data import/export execution.
+   *
    * @public
    */
   ExecutionMode: ExecutionMode | undefined;
 
   /**
-   * <p>The start and end time for data pull from the source.</p>
+   * The start and end time for data pull from the source.
+   *
    * @public
    */
   OnDemandConfiguration?: OnDemandConfiguration | undefined;
 
   /**
-   * <p>The name of the data and how often it should be pulled from the source.</p>
+   * The name of the data and how often it should be pulled from the source.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
@@ -499,47 +552,50 @@ export interface ExecutionConfiguration {
  */
 export interface CreateDataIntegrationAssociationRequest {
   /**
-   * <p>A unique identifier for the DataIntegration.</p>
+   * A unique identifier for the DataIntegration.
+   *
    * @public
    */
   DataIntegrationIdentifier: string | undefined;
 
   /**
-   * <p>The identifier for the client that is associated with the DataIntegration
-   *       association.</p>
+   * The identifier for the client that is associated with the DataIntegration association.
+   *
    * @public
    */
   ClientId?: string | undefined;
 
   /**
-   * <p>The configuration for what data should be pulled from the source.</p>
+   * The configuration for what data should be pulled from the source.
+   *
    * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>> | undefined;
 
   /**
-   * <p>The URI of the data destination.</p>
+   * The URI of the data destination.
+   *
    * @public
    */
   DestinationURI?: string | undefined;
 
   /**
-   * <p>The mapping of metadata to be extracted from the data.</p>
+   * The mapping of metadata to be extracted from the data.
+   *
    * @public
    */
   ClientAssociationMetadata?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The configuration for how the files should be pulled from the source.</p>
+   * The configuration for how the files should be pulled from the source.
+   *
    * @public
    */
   ExecutionConfiguration?: ExecutionConfiguration | undefined;
@@ -550,25 +606,29 @@ export interface CreateDataIntegrationAssociationRequest {
  */
 export interface CreateDataIntegrationAssociationResponse {
   /**
-   * <p>A unique identifier. for the DataIntegrationAssociation.</p>
+   * A unique identifier. for the DataIntegrationAssociation.
+   *
    * @public
    */
   DataIntegrationAssociationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the DataIntegration.</p>
+   * The Amazon Resource Name (ARN) for the DataIntegration.
+   *
    * @public
    */
   DataIntegrationArn?: string | undefined;
 }
 
 /**
- * <p>The event filter.</p>
+ * The event filter.
+ *
  * @public
  */
 export interface EventFilter {
   /**
-   * <p>The source of the events.</p>
+   * The source of the events.
+   *
    * @public
    */
   Source: string | undefined;
@@ -579,40 +639,43 @@ export interface EventFilter {
  */
 export interface CreateEventIntegrationRequest {
   /**
-   * <p>The name of the event integration.</p>
+   * The name of the event integration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the event integration.</p>
+   * The description of the event integration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The event filter.</p>
+   * The event filter.
+   *
    * @public
    */
   EventFilter: EventFilter | undefined;
 
   /**
-   * <p>The EventBridge bus.</p>
+   * The EventBridge bus.
+   *
    * @public
    */
   EventBridgeBus: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -623,7 +686,8 @@ export interface CreateEventIntegrationRequest {
  */
 export interface CreateEventIntegrationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the event integration. </p>
+   * The Amazon Resource Name (ARN) of the event integration.
+   *
    * @public
    */
   EventIntegrationArn?: string | undefined;
@@ -634,20 +698,17 @@ export interface CreateEventIntegrationResponse {
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Specifies whether to delete the application even if it still has application associations.
-   *       If <code>true</code>, the operation removes the application and its associations. If
-   *       <code>false</code> or absent, the delete fails when associations exist.</p>
-   *          <important>
-   *             <p>Setting this parameter to <code>true</code> permanently removes all of the
-   *         application's associations. Doing so might impact other resources that rely on and
-   *         reference the application. This action can't be undone.</p>
-   *          </important>
+   * Specifies whether to delete the application even if it still has application associations. If `true`, the operation removes the application and its associations. If `false` or absent, the delete fails when associations exist.
+   *
+   * > **Important:** Setting this parameter to `true` permanently removes all of the application's associations. Doing so might impact other resources that rely on and reference the application. This action can't be undone.
+   *
    * @public
    */
   Force?: boolean | undefined;
@@ -663,7 +724,8 @@ export interface DeleteApplicationResponse {}
  */
 export interface DeleteDataIntegrationRequest {
   /**
-   * <p>A unique identifier for the DataIntegration.</p>
+   * A unique identifier for the DataIntegration.
+   *
    * @public
    */
   DataIntegrationIdentifier: string | undefined;
@@ -679,7 +741,8 @@ export interface DeleteDataIntegrationResponse {}
  */
 export interface DeleteEventIntegrationRequest {
   /**
-   * <p>The name of the event integration.</p>
+   * The name of the event integration.
+   *
    * @public
    */
   Name: string | undefined;
@@ -695,7 +758,8 @@ export interface DeleteEventIntegrationResponse {}
  */
 export interface GetApplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -706,43 +770,49 @@ export interface GetApplicationRequest {
  */
 export interface GetApplicationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A unique identifier for the Application.</p>
+   * A unique identifier for the Application.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The namespace of the application.</p>
+   * The namespace of the application.
+   *
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The description of the application.</p>
+   * The description of the application.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for where the application should be loaded from.</p>
+   * The configuration for where the application should be loaded from.
+   *
    * @public
    */
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>
+   * The events that the application subscribes.
    *
    * @deprecated Subscriptions has been replaced with Permissions.
    * @public
@@ -750,7 +820,7 @@ export interface GetApplicationResponse {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>
+   * The events that the application publishes.
    *
    * @deprecated Publications has been replaced with Permissions.
    * @public
@@ -758,31 +828,35 @@ export interface GetApplicationResponse {
   Publications?: Publication[] | undefined;
 
   /**
-   * <p>The created time of the Application.</p>
+   * The created time of the Application.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The last modified time of the Application.</p>
+   * The last modified time of the Application.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration of events or requests that the application has access to.</p>
+   * The configuration of events or requests that the application has access to.
+   *
    * @public
    */
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * Indicates whether the application is a service.
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -790,31 +864,36 @@ export interface GetApplicationResponse {
   IsService?: boolean | undefined;
 
   /**
-   * <p>The maximum time in milliseconds allowed to establish a connection with the workspace.</p>
+   * The maximum time in milliseconds allowed to establish a connection with the workspace.
+   *
    * @public
    */
   InitializationTimeout?: number | undefined;
 
   /**
-   * <p>The configuration settings for the application.</p>
+   * The configuration settings for the application.
+   *
    * @public
    */
   ApplicationConfig?: ApplicationConfig | undefined;
 
   /**
-   * <p>The iframe configuration for the application.</p>
+   * The iframe configuration for the application.
+   *
    * @public
    */
   IframeConfig?: IframeConfig | undefined;
 
   /**
-   * <p>The type of application.</p>
+   * The type of application.
+   *
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
 
   /**
-   * <p>The authentication settings that Connect Customer uses when calling the external application.</p>
+   * The authentication settings that Connect Customer uses when calling the external application.
+   *
    * @public
    */
   AuthConfig?: AuthConfig | undefined;
@@ -825,7 +904,8 @@ export interface GetApplicationResponse {
  */
 export interface GetDataIntegrationRequest {
   /**
-   * <p>A unique identifier.</p>
+   * A unique identifier.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -836,61 +916,71 @@ export interface GetDataIntegrationRequest {
  */
 export interface GetDataIntegrationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) for the DataIntegration.</p>
+   * The Amazon Resource Name (ARN) for the DataIntegration.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A unique identifier.</p>
+   * A unique identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the DataIntegration.</p>
+   * The name of the DataIntegration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The KMS key ARN for the DataIntegration.</p>
+   * The KMS key ARN for the DataIntegration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The KMS key ARN for the DataIntegration.</p>
+   * The KMS key ARN for the DataIntegration.
+   *
    * @public
    */
   KmsKey?: string | undefined;
 
   /**
-   * <p>The URI of the data source.</p>
+   * The URI of the data source.
+   *
    * @public
    */
   SourceURI?: string | undefined;
 
   /**
-   * <p>The name of the data and how often it should be pulled from the source.</p>
+   * The name of the data and how often it should be pulled from the source.
+   *
    * @public
    */
   ScheduleConfiguration?: ScheduleConfiguration | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration for what files should be pulled from the source.</p>
+   * The configuration for what files should be pulled from the source.
+   *
    * @public
    */
   FileConfiguration?: FileConfiguration | undefined;
 
   /**
-   * <p>The configuration for what data should be pulled from the source.</p>
+   * The configuration for what data should be pulled from the source.
+   *
    * @public
    */
   ObjectConfiguration?: Record<string, Record<string, string[]>> | undefined;
@@ -901,7 +991,8 @@ export interface GetDataIntegrationResponse {
  */
 export interface GetEventIntegrationRequest {
   /**
-   * <p>The name of the event integration. </p>
+   * The name of the event integration.
+   *
    * @public
    */
   Name: string | undefined;
@@ -912,37 +1003,43 @@ export interface GetEventIntegrationRequest {
  */
 export interface GetEventIntegrationResponse {
   /**
-   * <p>The name of the event integration. </p>
+   * The name of the event integration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the event integration.</p>
+   * The description of the event integration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the event integration.</p>
+   * The Amazon Resource Name (ARN) for the event integration.
+   *
    * @public
    */
   EventIntegrationArn?: string | undefined;
 
   /**
-   * <p>The EventBridge bus.</p>
+   * The EventBridge bus.
+   *
    * @public
    */
   EventBridgeBus?: string | undefined;
 
   /**
-   * <p>The event filter.</p>
+   * The event filter.
+   *
    * @public
    */
   EventFilter?: EventFilter | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -953,44 +1050,50 @@ export interface GetEventIntegrationResponse {
  */
 export interface ListApplicationAssociationsRequest {
   /**
-   * <p>A unique identifier for the Application.</p>
+   * A unique identifier for the Application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about the Application Association.</p>
+ * Summary information about the Application Association.
+ *
  * @public
  */
 export interface ApplicationAssociationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application Association.</p>
+   * The Amazon Resource Name (ARN) of the Application Association.
+   *
    * @public
    */
   ApplicationAssociationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
 
   /**
-   * <p>The identifier for the client that is associated with the Application Association.</p>
+   * The identifier for the client that is associated with the Application Association.
+   *
    * @public
    */
   ClientId?: string | undefined;
@@ -1001,13 +1104,15 @@ export interface ApplicationAssociationSummary {
  */
 export interface ListApplicationAssociationsResponse {
   /**
-   * <p>List of Application Associations for the Application.</p>
+   * List of Application Associations for the Application.
+   *
    * @public
    */
   ApplicationAssociations?: ApplicationAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1018,68 +1123,77 @@ export interface ListApplicationAssociationsResponse {
  */
 export interface ListApplicationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The type of application.</p>
+   * The type of application.
+   *
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
 }
 
 /**
- * <p>Summary information about the Application.</p>
+ * Summary information about the Application.
+ *
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>A unique identifier for the Application.</p>
+   * A unique identifier for the Application.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The namespace of the application.</p>
+   * The namespace of the application.
+   *
    * @public
    */
   Namespace?: string | undefined;
 
   /**
-   * <p>The time when the application was created.</p>
+   * The time when the application was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The time when the application was last modified.</p>
+   * The time when the application was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * Indicates whether the application is a service.
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -1087,7 +1201,8 @@ export interface ApplicationSummary {
   IsService?: boolean | undefined;
 
   /**
-   * <p>The type of application.</p>
+   * The type of application.
+   *
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
@@ -1098,13 +1213,15 @@ export interface ApplicationSummary {
  */
 export interface ListApplicationsResponse {
   /**
-   * <p>The Applications associated with this account.</p>
+   * The Applications associated with this account.
+   *
    * @public
    */
   Applications?: ApplicationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1115,81 +1232,92 @@ export interface ListApplicationsResponse {
  */
 export interface ListDataIntegrationAssociationsRequest {
   /**
-   * <p>A unique identifier for the DataIntegration.</p>
+   * A unique identifier for the DataIntegration.
+   *
    * @public
    */
   DataIntegrationIdentifier: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The execution status of the last job.</p>
+ * The execution status of the last job.
+ *
  * @public
  */
 export interface LastExecutionStatus {
   /**
-   * <p>The job status enum string.</p>
+   * The job status enum string.
+   *
    * @public
    */
   ExecutionStatus?: ExecutionStatus | undefined;
 
   /**
-   * <p>The status message of a job.</p>
+   * The status message of a job.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>Summary information about the DataIntegration association.</p>
+ * Summary information about the DataIntegration association.
+ *
  * @public
  */
 export interface DataIntegrationAssociationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DataIntegration association.</p>
+   * The Amazon Resource Name (ARN) of the DataIntegration association.
+   *
    * @public
    */
   DataIntegrationAssociationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DataIntegration.</p>
+   * The Amazon Resource Name (ARN) of the DataIntegration.
+   *
    * @public
    */
   DataIntegrationArn?: string | undefined;
 
   /**
-   * <p>The identifier for the client that is associated with the DataIntegration
-   *       association.</p>
+   * The identifier for the client that is associated with the DataIntegration association.
+   *
    * @public
    */
   ClientId?: string | undefined;
 
   /**
-   * <p>The URI of the data destination.</p>
+   * The URI of the data destination.
+   *
    * @public
    */
   DestinationURI?: string | undefined;
 
   /**
-   * <p>The execution status of the last job.</p>
+   * The execution status of the last job.
+   *
    * @public
    */
   LastExecutionStatus?: LastExecutionStatus | undefined;
 
   /**
-   * <p>The configuration for how the files should be pulled from the source.</p>
+   * The configuration for how the files should be pulled from the source.
+   *
    * @public
    */
   ExecutionConfiguration?: ExecutionConfiguration | undefined;
@@ -1200,13 +1328,15 @@ export interface DataIntegrationAssociationSummary {
  */
 export interface ListDataIntegrationAssociationsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.</p>
+   * The Amazon Resource Name (ARN) and unique ID of the DataIntegration association.
+   *
    * @public
    */
   DataIntegrationAssociations?: DataIntegrationAssociationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1217,38 +1347,43 @@ export interface ListDataIntegrationAssociationsResponse {
  */
 export interface ListDataIntegrationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about the DataIntegration.</p>
+ * Summary information about the DataIntegration.
+ *
  * @public
  */
 export interface DataIntegrationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DataIntegration.</p>
+   * The Amazon Resource Name (ARN) of the DataIntegration.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the DataIntegration.</p>
+   * The name of the DataIntegration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The URI of the data source.</p>
+   * The URI of the data source.
+   *
    * @public
    */
   SourceURI?: string | undefined;
@@ -1259,13 +1394,15 @@ export interface DataIntegrationSummary {
  */
 export interface ListDataIntegrationsResponse {
   /**
-   * <p>The DataIntegrations associated with this account.</p>
+   * The DataIntegrations associated with this account.
+   *
    * @public
    */
   DataIntegrations?: DataIntegrationSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1276,62 +1413,71 @@ export interface ListDataIntegrationsResponse {
  */
 export interface ListEventIntegrationAssociationsRequest {
   /**
-   * <p>The name of the event integration. </p>
+   * The name of the event integration.
+   *
    * @public
    */
   EventIntegrationName: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The event integration association.</p>
+ * The event integration association.
+ *
  * @public
  */
 export interface EventIntegrationAssociation {
   /**
-   * <p>The Amazon Resource Name (ARN) for the event integration association.</p>
+   * The Amazon Resource Name (ARN) for the event integration association.
+   *
    * @public
    */
   EventIntegrationAssociationArn?: string | undefined;
 
   /**
-   * <p>The identifier for the event integration association.</p>
+   * The identifier for the event integration association.
+   *
    * @public
    */
   EventIntegrationAssociationId?: string | undefined;
 
   /**
-   * <p>The name of the event integration.</p>
+   * The name of the event integration.
+   *
    * @public
    */
   EventIntegrationName?: string | undefined;
 
   /**
-   * <p>The identifier for the client that is associated with the event integration.</p>
+   * The identifier for the client that is associated with the event integration.
+   *
    * @public
    */
   ClientId?: string | undefined;
 
   /**
-   * <p>The name of the EventBridge rule.</p>
+   * The name of the EventBridge rule.
+   *
    * @public
    */
   EventBridgeRuleName?: string | undefined;
 
   /**
-   * <p>The metadata associated with the client.</p>
+   * The metadata associated with the client.
+   *
    * @public
    */
   ClientAssociationMetadata?: Record<string, string> | undefined;
@@ -1342,13 +1488,15 @@ export interface EventIntegrationAssociation {
  */
 export interface ListEventIntegrationAssociationsResponse {
   /**
-   * <p>The event integration associations.</p>
+   * The event integration associations.
+   *
    * @public
    */
   EventIntegrationAssociations?: EventIntegrationAssociation[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1359,56 +1507,64 @@ export interface ListEventIntegrationAssociationsResponse {
  */
 export interface ListEventIntegrationsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The event integration.</p>
+ * The event integration.
+ *
  * @public
  */
 export interface EventIntegration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the event integration.</p>
+   * The Amazon Resource Name (ARN) of the event integration.
+   *
    * @public
    */
   EventIntegrationArn?: string | undefined;
 
   /**
-   * <p>The name of the event integration.</p>
+   * The name of the event integration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The event integration description.</p>
+   * The event integration description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The event integration filter.</p>
+   * The event integration filter.
+   *
    * @public
    */
   EventFilter?: EventFilter | undefined;
 
   /**
-   * <p>The Amazon EventBridge bus for the event integration.</p>
+   * The Amazon EventBridge bus for the event integration.
+   *
    * @public
    */
   EventBridgeBus?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1419,13 +1575,15 @@ export interface EventIntegration {
  */
 export interface ListEventIntegrationsResponse {
   /**
-   * <p>The event integrations.</p>
+   * The event integrations.
+   *
    * @public
    */
   EventIntegrations?: EventIntegration[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1436,7 +1594,8 @@ export interface ListEventIntegrationsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. </p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1447,7 +1606,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Information about the tags.</p>
+   * Information about the tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1458,13 +1618,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * The tags used to organize, track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1480,13 +1642,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1502,31 +1666,35 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application.</p>
+   * The Amazon Resource Name (ARN) of the Application.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the application.</p>
+   * The description of the application.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The configuration for where the application should be loaded from.</p>
+   * The configuration for where the application should be loaded from.
+   *
    * @public
    */
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>
+   * The events that the application subscribes.
    *
    * @deprecated Subscriptions has been replaced with Permissions.
    * @public
@@ -1534,7 +1702,7 @@ export interface UpdateApplicationRequest {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>
+   * The events that the application publishes.
    *
    * @deprecated Publications has been replaced with Permissions.
    * @public
@@ -1542,13 +1710,14 @@ export interface UpdateApplicationRequest {
   Publications?: Publication[] | undefined;
 
   /**
-   * <p>The configuration of events or requests that the application has access to.</p>
+   * The configuration of events or requests that the application has access to.
+   *
    * @public
    */
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * Indicates whether the application is a service.
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -1556,31 +1725,36 @@ export interface UpdateApplicationRequest {
   IsService?: boolean | undefined;
 
   /**
-   * <p>The maximum time in milliseconds allowed to establish a connection with the workspace.</p>
+   * The maximum time in milliseconds allowed to establish a connection with the workspace.
+   *
    * @public
    */
   InitializationTimeout?: number | undefined;
 
   /**
-   * <p>The configuration settings for the application.</p>
+   * The configuration settings for the application.
+   *
    * @public
    */
   ApplicationConfig?: ApplicationConfig | undefined;
 
   /**
-   * <p>The iframe configuration for the application.</p>
+   * The iframe configuration for the application.
+   *
    * @public
    */
   IframeConfig?: IframeConfig | undefined;
 
   /**
-   * <p>The type of application.</p>
+   * The type of application.
+   *
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
 
   /**
-   * <p>The authentication settings that Connect Customer uses when calling the external application.</p>
+   * The authentication settings that Connect Customer uses when calling the external application.
+   *
    * @public
    */
   AuthConfig?: AuthConfig | undefined;
@@ -1596,19 +1770,22 @@ export interface UpdateApplicationResponse {}
  */
 export interface UpdateDataIntegrationRequest {
   /**
-   * <p>A unique identifier for the DataIntegration.</p>
+   * A unique identifier for the DataIntegration.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The name of the DataIntegration.</p>
+   * The name of the DataIntegration.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the DataIntegration.</p>
+   * A description of the DataIntegration.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -1624,19 +1801,22 @@ export interface UpdateDataIntegrationResponse {}
  */
 export interface UpdateDataIntegrationAssociationRequest {
   /**
-   * <p>A unique identifier for the DataIntegration.</p>
+   * A unique identifier for the DataIntegration.
+   *
    * @public
    */
   DataIntegrationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier. of the DataIntegrationAssociation resource</p>
+   * A unique identifier. of the DataIntegrationAssociation resource
+   *
    * @public
    */
   DataIntegrationAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The configuration for how the files should be pulled from the source.</p>
+   * The configuration for how the files should be pulled from the source.
+   *
    * @public
    */
   ExecutionConfiguration: ExecutionConfiguration | undefined;
@@ -1652,13 +1832,15 @@ export interface UpdateDataIntegrationAssociationResponse {}
  */
 export interface UpdateEventIntegrationRequest {
   /**
-   * <p>The name of the event integration.</p>
+   * The name of the event integration.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the event integration.</p>
+   * The description of the event integration.
+   *
    * @public
    */
   Description?: string | undefined;

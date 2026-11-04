@@ -23,7 +23,16 @@ export interface GenerateMappingCommandInput extends GenerateMappingRequest {}
 export interface GenerateMappingCommandOutput extends GenerateMappingResponse, __MetadataBearer {}
 
 /**
- * <p>Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.</p> <note> <p>Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see <a href="https://docs.aws.amazon.com/b2bi/latest/userguide/ai-assisted-mapping.html#ai-assist-prereq">AI-assisted template mapping prerequisites</a> in the <i>Amazon Web Services B2B Data Interchange User guide</i>.</p> </note> <p>To generate a mapping, perform the following steps:</p> <ol> <li> <p>Start with an X12 EDI document to use as the input.</p> </li> <li> <p>Call <code>TestMapping</code> using your EDI document.</p> </li> <li> <p>Use the output from the <code>TestMapping</code> operation as either input or output for your GenerateMapping call, along with your sample file.</p> </li> </ol>
+ * Takes sample input and output documents and uses Amazon Bedrock to generate a mapping automatically. Depending on the accuracy and other factors, you can then edit the mapping for your needs.
+ *
+ * > **Note:** Before you can use the AI-assisted feature for Amazon Web Services B2B Data Interchange you must enable models in Amazon Bedrock. For details, see [AI-assisted template mapping prerequisites](https://docs.aws.amazon.com/b2bi/latest/userguide/ai-assisted-mapping.html#ai-assist-prereq) in the *Amazon Web Services B2B Data Interchange User guide*.
+ *
+ * To generate a mapping, perform the following steps:
+ *
+ * 1. Start with an X12 EDI document to use as the input.
+ * 2. Call `TestMapping` using your EDI document.
+ * 3. Use the output from the `TestMapping` operation as either input or output for your GenerateMapping call, along with your sample file.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +62,24 @@ export interface GenerateMappingCommandOutput extends GenerateMappingResponse, _
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ *
+ * The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
+ *
+ * Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.
  *
  * @throws {@link B2biServiceException}
- * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * Base exception class for all service exceptions from B2bi service.
  *
  * @example Sample GenerateMapping call
  * ```javascript

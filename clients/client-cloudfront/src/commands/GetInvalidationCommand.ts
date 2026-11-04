@@ -23,7 +23,8 @@ export interface GetInvalidationCommandInput extends GetInvalidationRequest {}
 export interface GetInvalidationCommandOutput extends GetInvalidationResult, __MetadataBearer {}
 
 /**
- * <p>Get the information about an invalidation.</p>
+ * Get the information about an invalidation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +65,20 @@ export interface GetInvalidationCommandOutput extends GetInvalidationResult, __M
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchDistribution} (client fault)
- *  <p>The specified distribution does not exist.</p>
+ *
+ * The specified distribution does not exist.
  *
  * @throws {@link NoSuchInvalidation} (client fault)
- *  <p>The specified invalidation does not exist.</p>
+ *
+ * The specified invalidation does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

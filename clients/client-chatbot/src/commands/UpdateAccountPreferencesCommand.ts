@@ -23,7 +23,8 @@ export interface UpdateAccountPreferencesCommandInput extends UpdateAccountPrefe
 export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPreferencesResult, __MetadataBearer {}
 
 /**
- * <p>Updates AWS Chatbot account preferences.</p>
+ * Updates AWS Chatbot account preferences.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +55,20 @@ export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPref
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link UpdateAccountPreferencesException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

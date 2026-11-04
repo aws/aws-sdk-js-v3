@@ -25,7 +25,8 @@ export interface GetRawMessageContentCommandOutput extends Omit<GetRawMessageCon
 }
 
 /**
- * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
+ * Retrieves the raw content of an in-transit email message, in MIME format.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +58,12 @@ export interface GetRawMessageContentCommandOutput extends Omit<GetRawMessageCon
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested email message is not found.</p>
+ *
+ * The requested email message is not found.
  *
  * @throws {@link WorkMailMessageFlowServiceException}
- * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
+ * Base exception class for all service exceptions from WorkMailMessageFlow service.
  *
  * @public
  */

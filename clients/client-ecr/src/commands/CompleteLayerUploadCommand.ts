@@ -23,15 +23,12 @@ export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequ
 export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Informs Amazon ECR that the image layer upload has completed for a specified registry,
- *             repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
- *             of the image layer for data validation purposes.</p>
- *          <p>When an image is pushed, the CompleteLayerUpload API is called once per each new image
- *             layer to verify that the upload has completed.</p>
- *          <note>
- *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
- *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
- *          </note>
+ * Informs Amazon ECR that the image layer upload has completed for a specified registry, repository name, and upload ID. You can optionally provide a `sha256` digest of the image layer for data validation purposes.
+ *
+ * When an image is pushed, the CompleteLayerUpload API is called once per each new image layer to verify that the upload has completed.
+ *
+ * > **Note:** This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,39 +63,44 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link EmptyUploadException} (client fault)
- *  <p>The specified layer upload does not contain any layer parts.</p>
+ *
+ * The specified layer upload does not contain any layer parts.
  *
  * @throws {@link InvalidLayerException} (client fault)
- *  <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
- *             not match the digest specified.</p>
+ *
+ * The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link KmsException} (client fault)
- *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * The operation failed due to a KMS exception.
  *
  * @throws {@link LayerAlreadyExistsException} (client fault)
- *  <p>The image layer already exists in the associated repository.</p>
+ *
+ * The image layer already exists in the associated repository.
  *
  * @throws {@link LayerPartTooSmallException} (client fault)
- *  <p>Layer parts must be at least 5 MiB in size.</p>
+ *
+ * Layer parts must be at least 5 MiB in size.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UploadNotFoundException} (client fault)
- *  <p>The upload could not be found, or the specified upload ID is not valid for this
- *             repository.</p>
+ *
+ * The upload could not be found, or the specified upload ID is not valid for this repository.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

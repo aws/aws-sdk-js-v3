@@ -13,43 +13,55 @@ import type {
  */
 export interface GetRecordsInput {
   /**
-   * <p> The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the <code>GetShardIterator </code> operation. Each shard iterator is valid for 15 minutes after creation. </p>
+   * The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the `GetShardIterator` operation. Each shard iterator is valid for 15 minutes after creation.
+   *
    * @public
    */
   shardIterator: string | undefined;
 
   /**
-   * <p> The maximum number of records to return in a single <code>GetRecords</code> request. The default value is 100. You can specify a limit between 1 and 1000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit. </p>
+   * The maximum number of records to return in a single `GetRecords` request. The default value is 100. You can specify a limit between 1 and 1000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains metadata information associated with Amazon Keyspaces cells and rows.</p>
+ * Contains metadata information associated with Amazon Keyspaces cells and rows.
+ *
  * @public
  */
 export interface KeyspacesMetadata {
   /**
-   * <p>The time at which the associated data will expire, based on the time-to-live (TTL) setting.</p>
+   * The time at which the associated data will expire, based on the time-to-live (TTL) setting.
+   *
    * @public
    */
   expirationTime?: string | undefined;
 
   /**
-   * <p>The timestamp at which the associated data was written to the database.</p>
+   * The timestamp at which the associated data was written to the database.
+   *
    * @public
    */
   writeTime?: string | undefined;
 }
 
 /**
- * <p>Provides information about the current iterator.</p>
+ * Provides information about the current iterator.
+ *
  * @public
  */
 export interface IteratorDescription {
   /**
-   * <p> Indicates the current iterator's position within the shard. The possible values are: </p> <ul> <li> <p> <code>AT_TIP</code> - No more records are currently available.</p> </li> <li> <p> <code>BEHIND_TIP</code> - Additional records may be available.</p> </li> </ul> <p>Stream progresses in absence of customer records. <code>BEHIND_TIP</code> with an empty <code>changeRecords</code> list indicates the stream is progressing but no customer records are available at this position. Continue polling normally.</p>
+   * Indicates the current iterator's position within the shard. The possible values are:
+   *
+   * - `AT_TIP` - No more records are currently available.
+   * - `BEHIND_TIP` - Additional records may be available.
+   *
+   * Stream progresses in absence of customer records. `BEHIND_TIP` with an empty `changeRecords` list indicates the stream is progressing but no customer records are available at this position. Continue polling normally.
+   *
    * @public
    */
   iteratorPosition?: IteratorPosition | undefined;
@@ -60,25 +72,34 @@ export interface IteratorDescription {
  */
 export interface GetShardIteratorInput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the stream for which to get the shard iterator. The ARN uniquely identifies the stream within Amazon Keyspaces. </p>
+   * The Amazon Resource Name (ARN) of the stream for which to get the shard iterator. The ARN uniquely identifies the stream within Amazon Keyspaces.
+   *
    * @public
    */
   streamArn: string | undefined;
 
   /**
-   * <p> The identifier of the shard within the stream. The shard ID uniquely identifies a subset of the stream's data records that you want to access. </p>
+   * The identifier of the shard within the stream. The shard ID uniquely identifies a subset of the stream's data records that you want to access.
+   *
    * @public
    */
   shardId: string | undefined;
 
   /**
-   * <p> Determines how the shard iterator is positioned. Must be one of the following: </p> <ul> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the shard, which is the oldest data record in the shard.</p> </li> <li> <p> <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the specified sequence number.</p> </li> <li> <p> <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the specified sequence number. </p> </li> <li> <p> <code>LATEST</code> - Start reading just after the most recent record in the shard, so that you always read the most recent data. </p> </li> </ul>
+   * Determines how the shard iterator is positioned. Must be one of the following:
+   *
+   * - `TRIM_HORIZON` - Start reading at the last untrimmed record in the shard, which is the oldest data record in the shard.
+   * - `AT_SEQUENCE_NUMBER` - Start reading exactly from the specified sequence number.
+   * - `AFTER_SEQUENCE_NUMBER` - Start reading right after the specified sequence number.
+   * - `LATEST` - Start reading just after the most recent record in the shard, so that you always read the most recent data.
+   *
    * @public
    */
   shardIteratorType: ShardIteratorType | undefined;
 
   /**
-   * <p> The sequence number of the data record in the shard from which to start reading. Required if <code>ShardIteratorType</code> is <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>. This parameter is ignored for other iterator types. </p>
+   * The sequence number of the data record in the shard from which to start reading. Required if `ShardIteratorType` is `AT_SEQUENCE_NUMBER` or `AFTER_SEQUENCE_NUMBER`. This parameter is ignored for other iterator types.
+   *
    * @public
    */
   sequenceNumber?: string | undefined;
@@ -89,25 +110,29 @@ export interface GetShardIteratorInput {
  */
 export interface GetShardIteratorOutput {
   /**
-   * <p> The unique identifier for the shard iterator. This value is used in the <code>GetRecords</code> operation to retrieve data records from the specified shard. Each shard iterator expires 15 minutes after it is returned to the requester. </p>
+   * The unique identifier for the shard iterator. This value is used in the `GetRecords` operation to retrieve data records from the specified shard. Each shard iterator expires 15 minutes after it is returned to the requester.
+   *
    * @public
    */
   shardIterator?: string | undefined;
 }
 
 /**
- * <p>A filter used to limit the shards returned by a <code>GetStream</code> operation.</p>
+ * A filter used to limit the shards returned by a `GetStream` operation.
+ *
  * @public
  */
 export interface ShardFilter {
   /**
-   * <p>The type of shard filter to use, which determines how the shardId parameter is interpreted.</p>
+   * The type of shard filter to use, which determines how the shardId parameter is interpreted.
+   *
    * @public
    */
   type?: ShardFilterType | undefined;
 
   /**
-   * <p>The identifier of a specific shard used to filter results based on the specified filter type.</p>
+   * The identifier of a specific shard used to filter results based on the specified filter type.
+   *
    * @public
    */
   shardId?: string | undefined;
@@ -118,67 +143,78 @@ export interface ShardFilter {
  */
 export interface GetStreamInput {
   /**
-   * <p> The Amazon Resource Name (ARN) of the stream for which detailed information is requested. This uniquely identifies the specific stream you want to get information about. </p>
+   * The Amazon Resource Name (ARN) of the stream for which detailed information is requested. This uniquely identifies the specific stream you want to get information about.
+   *
    * @public
    */
   streamArn: string | undefined;
 
   /**
-   * <p> The maximum number of shard objects to return in a single <code>GetStream</code> request. The default value is 100. The minimum value is 1 and the maximum value is 100. </p>
+   * The maximum number of shard objects to return in a single `GetStream` request. The default value is 100. The minimum value is 1 and the maximum value is 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> Optional filter criteria to apply when retrieving shards. You can filter shards based on their parent <code>shardID</code> to get a list of children shards to narrow down the results returned by the <code>GetStream</code> operation. </p>
+   * Optional filter criteria to apply when retrieving shards. You can filter shards based on their parent `shardID` to get a list of children shards to narrow down the results returned by the `GetStream` operation.
+   *
    * @public
    */
   shardFilter?: ShardFilter | undefined;
 
   /**
-   * <p> An optional pagination token provided by a previous <code>GetStream</code> operation. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxResults</code>. </p>
+   * An optional pagination token provided by a previous `GetStream` operation. If this parameter is specified, the response includes only records beyond the token, up to the value specified by `MaxResults`.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Defines a range of sequence numbers within a change data capture stream's shard for Amazon Keyspaces.</p>
+ * Defines a range of sequence numbers within a change data capture stream's shard for Amazon Keyspaces.
+ *
  * @public
  */
 export interface SequenceNumberRange {
   /**
-   * <p>The starting sequence number of the range.</p>
+   * The starting sequence number of the range.
+   *
    * @public
    */
   startingSequenceNumber?: string | undefined;
 
   /**
-   * <p>The ending sequence number of the range, which may be null for open-ended ranges.</p>
+   * The ending sequence number of the range, which may be null for open-ended ranges.
+   *
    * @public
    */
   endingSequenceNumber?: string | undefined;
 }
 
 /**
- * <p>Represents a uniquely identified group of change records within a change data capture stream for Amazon Keyspaces.</p>
+ * Represents a uniquely identified group of change records within a change data capture stream for Amazon Keyspaces.
+ *
  * @public
  */
 export interface Shard {
   /**
-   * <p>A unique identifier for this shard within the stream.</p>
+   * A unique identifier for this shard within the stream.
+   *
    * @public
    */
   shardId?: string | undefined;
 
   /**
-   * <p>The range of sequence numbers contained within this shard.</p>
+   * The range of sequence numbers contained within this shard.
+   *
    * @public
    */
   sequenceNumberRange?: SequenceNumberRange | undefined;
 
   /**
-   * <p>The identifiers of parent shards that this shard evolved from, if this shard was created through resharding.</p>
+   * The identifiers of parent shards that this shard evolved from, if this shard was created through resharding.
+   *
    * @public
    */
   parentShardIds?: string[] | undefined;
@@ -189,55 +225,69 @@ export interface Shard {
  */
 export interface GetStreamOutput {
   /**
-   * <p> The Amazon Resource Name (ARN) that uniquely identifies the stream within Amazon Keyspaces. This ARN can be used in other API operations to reference this specific stream. </p>
+   * The Amazon Resource Name (ARN) that uniquely identifies the stream within Amazon Keyspaces. This ARN can be used in other API operations to reference this specific stream.
+   *
    * @public
    */
   streamArn: string | undefined;
 
   /**
-   * <p> A timestamp that serves as a unique identifier for this stream, used for debugging and monitoring purposes. The stream label represents the point in time when the stream was created. </p>
+   * A timestamp that serves as a unique identifier for this stream, used for debugging and monitoring purposes. The stream label represents the point in time when the stream was created.
+   *
    * @public
    */
   streamLabel: string | undefined;
 
   /**
-   * <p> The current status of the stream. Values can be <code>ENABLING</code>, <code>ENABLED</code>, <code>DISABLING</code>, or <code>DISABLED</code>. Operations on the stream depend on its current status. </p>
+   * The current status of the stream. Values can be `ENABLING`, `ENABLED`, `DISABLING`, or `DISABLED`. Operations on the stream depend on its current status.
+   *
    * @public
    */
   streamStatus: StreamStatus | undefined;
 
   /**
-   * <p> The format of the data records in this stream. Currently, this can be one of the following options: </p> <ul> <li> <p> <code>NEW_AND_OLD_IMAGES</code> - both versions of the row, before and after the change. This is the default.</p> </li> <li> <p> <code>NEW_IMAGE</code> - the version of the row after the change.</p> </li> <li> <p> <code>OLD_IMAGE</code> - the version of the row before the change.</p> </li> <li> <p> <code>KEYS_ONLY</code> - the partition and clustering keys of the row that was changed.</p> </li> </ul>
+   * The format of the data records in this stream. Currently, this can be one of the following options:
+   *
+   * - `NEW_AND_OLD_IMAGES` - both versions of the row, before and after the change. This is the default.
+   * - `NEW_IMAGE` - the version of the row after the change.
+   * - `OLD_IMAGE` - the version of the row before the change.
+   * - `KEYS_ONLY` - the partition and clustering keys of the row that was changed.
+   *
    * @public
    */
   streamViewType: StreamViewType | undefined;
 
   /**
-   * <p> The date and time when the request to create this stream was issued. The value is represented in ISO 8601 format. </p>
+   * The date and time when the request to create this stream was issued. The value is represented in ISO 8601 format.
+   *
    * @public
    */
   creationRequestDateTime: Date | undefined;
 
   /**
-   * <p> The name of the keyspace containing the table associated with this stream. The keyspace name is part of the table's hierarchical identifier in Amazon Keyspaces. </p>
+   * The name of the keyspace containing the table associated with this stream. The keyspace name is part of the table's hierarchical identifier in Amazon Keyspaces.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p> The name of the table associated with this stream. The stream captures changes to rows in this Amazon Keyspaces table. </p>
+   * The name of the table associated with this stream. The stream captures changes to rows in this Amazon Keyspaces table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p> An array of shard objects associated with this stream. Each shard contains a subset of the stream's data records and has its own unique identifier. The collection of shards represents the complete stream data. </p>
+   * An array of shard objects associated with this stream. Each shard contains a subset of the stream's data records and has its own unique identifier. The collection of shards represents the complete stream data.
+   *
    * @public
    */
   shards?: Shard[] | undefined;
 
   /**
-   * <p> A pagination token that can be used in a subsequent <code>GetStream</code> request. This token is returned if the response contains more shards than can be returned in a single response. </p>
+   * A pagination token that can be used in a subsequent `GetStream` request. This token is returned if the response contains more shards than can be returned in a single response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -248,55 +298,64 @@ export interface GetStreamOutput {
  */
 export interface ListStreamsInput {
   /**
-   * <p> The name of the keyspace for which to list streams. If specified, only streams associated with tables in this keyspace are returned. If omitted, streams from all keyspaces are included in the results. </p>
+   * The name of the keyspace for which to list streams. If specified, only streams associated with tables in this keyspace are returned. If omitted, streams from all keyspaces are included in the results.
+   *
    * @public
    */
   keyspaceName?: string | undefined;
 
   /**
-   * <p> The name of the table for which to list streams. Must be used together with <code>keyspaceName</code>. If specified, only streams associated with this specific table are returned. </p>
+   * The name of the table for which to list streams. Must be used together with `keyspaceName`. If specified, only streams associated with this specific table are returned.
+   *
    * @public
    */
   tableName?: string | undefined;
 
   /**
-   * <p> The maximum number of streams to return in a single <code>ListStreams</code> request. The default value is 100. The minimum value is 1 and the maximum value is 100. </p>
+   * The maximum number of streams to return in a single `ListStreams` request. The default value is 100. The minimum value is 1 and the maximum value is 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> An optional pagination token provided by a previous <code>ListStreams</code> operation. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>maxResults</code>. </p>
+   * An optional pagination token provided by a previous `ListStreams` operation. If this parameter is specified, the response includes only records beyond the token, up to the value specified by `maxResults`.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a change data capture stream for an Amazon Keyspaces table, which enables tracking and processing of data changes.</p>
+ * Represents a change data capture stream for an Amazon Keyspaces table, which enables tracking and processing of data changes.
+ *
  * @public
  */
 export interface _Stream {
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies this stream.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies this stream.
+   *
    * @public
    */
   streamArn: string | undefined;
 
   /**
-   * <p>The name of the keyspace containing the table associated with this stream.</p>
+   * The name of the keyspace containing the table associated with this stream.
+   *
    * @public
    */
   keyspaceName: string | undefined;
 
   /**
-   * <p>The name of the table associated with this stream.</p>
+   * The name of the table associated with this stream.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>A unique identifier for this stream that can be used in stream operations.</p>
+   * A unique identifier for this stream that can be used in stream operations.
+   *
    * @public
    */
   streamLabel: string | undefined;
@@ -307,20 +366,23 @@ export interface _Stream {
  */
 export interface ListStreamsOutput {
   /**
-   * <p> An array of stream objects, each containing summary information about a stream including its ARN, status, and associated table information. This list includes all streams that match the request criteria. </p>
+   * An array of stream objects, each containing summary information about a stream including its ARN, status, and associated table information. This list includes all streams that match the request criteria.
+   *
    * @public
    */
   streams?: _Stream[] | undefined;
 
   /**
-   * <p> A pagination token that can be used in a subsequent <code>ListStreams</code> request. This token is returned if the response contains more streams than can be returned in a single response based on the <code>maxResults</code> parameter. </p>
+   * A pagination token that can be used in a subsequent `ListStreams` request. This token is returned if the response contains more streams than can be returned in a single response based on the `maxResults` parameter.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the value of a cell in an Amazon Keyspaces table, supporting various data types with type-specific fields.</p>
+ * Represents the value of a cell in an Amazon Keyspaces table, supporting various data types with type-specific fields.
+ *
  * @public
  */
 export type KeyspacesCellValue =
@@ -357,7 +419,8 @@ export type KeyspacesCellValue =
  */
 export namespace KeyspacesCellValue {
   /**
-   * <p>A value of ASCII text type, containing US-ASCII characters. </p>
+   * A value of ASCII text type, containing US-ASCII characters.
+   *
    * @public
    */
   export interface AsciiTMember {
@@ -391,7 +454,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A 64-bit signed integer value. </p>
+   * A 64-bit signed integer value.
+   *
    * @public
    */
   export interface BigintTMember {
@@ -425,7 +489,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A binary large object (BLOB) value stored as a Base64-encoded string. </p>
+   * A binary large object (BLOB) value stored as a Base64-encoded string.
+   *
    * @public
    */
   export interface BlobTMember {
@@ -459,7 +524,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A Boolean value, either <code>true</code> or <code>false</code>. </p>
+   * A Boolean value, either `true` or `false`.
+   *
    * @public
    */
   export interface BoolTMember {
@@ -493,7 +559,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A distributed counter value that can be incremented and decremented. </p>
+   * A distributed counter value that can be incremented and decremented.
+   *
    * @public
    */
   export interface CounterTMember {
@@ -527,7 +594,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A date value without a time component, represented as days since epoch (January 1, 1970). </p>
+   * A date value without a time component, represented as days since epoch (January 1, 1970).
+   *
    * @public
    */
   export interface DateTMember {
@@ -561,7 +629,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A variable-precision decimal number value. </p>
+   * A variable-precision decimal number value.
+   *
    * @public
    */
   export interface DecimalTMember {
@@ -595,7 +664,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A 64-bit double-precision floating point value. </p>
+   * A 64-bit double-precision floating point value.
+   *
    * @public
    */
   export interface DoubleTMember {
@@ -629,7 +699,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A duration value with nanosecond precision, representing a period of time encoded as 32-bit months, 32-bit days, and 64-bit nanoseconds. </p>
+   * A duration value with nanosecond precision, representing a period of time encoded as 32-bit months, 32-bit days, and 64-bit nanoseconds.
+   *
    * @public
    */
   export interface DurationTMember {
@@ -663,7 +734,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A 32-bit single-precision floating point value. </p>
+   * A 32-bit single-precision floating point value.
+   *
    * @public
    */
   export interface FloatTMember {
@@ -697,7 +769,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>An IP address value, either IPv4 or IPv6 format. </p>
+   * An IP address value, either IPv4 or IPv6 format.
+   *
    * @public
    */
   export interface InetTMember {
@@ -731,7 +804,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A 32-bit signed integer value. </p>
+   * A 32-bit signed integer value.
+   *
    * @public
    */
   export interface IntTMember {
@@ -765,7 +839,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>An ordered collection of elements that can contain duplicate values. </p>
+   * An ordered collection of elements that can contain duplicate values.
+   *
    * @public
    */
   export interface ListTMember {
@@ -799,7 +874,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A collection of key-value pairs where each key is unique. </p>
+   * A collection of key-value pairs where each key is unique.
+   *
    * @public
    */
   export interface MapTMember {
@@ -833,7 +909,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>An unordered collection of unique elements. </p>
+   * An unordered collection of unique elements.
+   *
    * @public
    */
   export interface SetTMember {
@@ -867,7 +944,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A 16-bit signed integer value. </p>
+   * A 16-bit signed integer value.
+   *
    * @public
    */
   export interface SmallintTMember {
@@ -901,7 +979,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A UTF-8 encoded string value. </p>
+   * A UTF-8 encoded string value.
+   *
    * @public
    */
   export interface TextTMember {
@@ -935,7 +1014,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A time value without a date component, with nanosecond precision. </p>
+   * A time value without a date component, with nanosecond precision.
+   *
    * @public
    */
   export interface TimeTMember {
@@ -969,7 +1049,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A timestamp value representing date and time with millisecond precision. </p>
+   * A timestamp value representing date and time with millisecond precision.
+   *
    * @public
    */
   export interface TimestampTMember {
@@ -1003,7 +1084,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A universally unique identifier (UUID) that includes a timestamp component, ensuring both uniqueness and time ordering. </p>
+   * A universally unique identifier (UUID) that includes a timestamp component, ensuring both uniqueness and time ordering.
+   *
    * @public
    */
   export interface TimeuuidTMember {
@@ -1037,7 +1119,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>An 8-bit signed integer value. </p>
+   * An 8-bit signed integer value.
+   *
    * @public
    */
   export interface TinyintTMember {
@@ -1071,7 +1154,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A fixed-length ordered list of elements, where each element can be of a different data type. </p>
+   * A fixed-length ordered list of elements, where each element can be of a different data type.
+   *
    * @public
    */
   export interface TupleTMember {
@@ -1105,7 +1189,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A universally unique identifier (UUID) value. </p>
+   * A universally unique identifier (UUID) value.
+   *
    * @public
    */
   export interface UuidTMember {
@@ -1139,7 +1224,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A UTF-8 encoded string value, functionally equivalent to text type. </p>
+   * A UTF-8 encoded string value, functionally equivalent to text type.
+   *
    * @public
    */
   export interface VarcharTMember {
@@ -1173,7 +1259,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>An integer value within the +/-10^38 range. </p>
+   * An integer value within the +/-10^38 range.
+   *
    * @public
    */
   export interface VarintTMember {
@@ -1207,7 +1294,8 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A user-defined type (UDT) value consisting of named fields, each with its own data type. </p>
+   * A user-defined type (UDT) value consisting of named fields, each with its own data type.
+   *
    * @public
    */
   export interface UdtTMember {
@@ -1309,120 +1397,140 @@ export namespace KeyspacesCellValue {
 }
 
 /**
- * <p>Represents a cell in an Amazon Keyspaces table, containing both the value and metadata about the cell.</p>
+ * Represents a cell in an Amazon Keyspaces table, containing both the value and metadata about the cell.
+ *
  * @public
  */
 export interface KeyspacesCell {
   /**
-   * <p>The value stored in this cell, which can be of various data types supported by Amazon Keyspaces.</p>
+   * The value stored in this cell, which can be of various data types supported by Amazon Keyspaces.
+   *
    * @public
    */
   value?: KeyspacesCellValue | undefined;
 
   /**
-   * <p>Metadata associated with this cell, such as time-to-live (TTL) expiration time and write timestamp.</p>
+   * Metadata associated with this cell, such as time-to-live (TTL) expiration time and write timestamp.
+   *
    * @public
    */
   metadata?: KeyspacesMetadata | undefined;
 }
 
 /**
- * <p>Represents a key-value pair within a map data type in Amazon Keyspaces, including the associated metadata.</p>
+ * Represents a key-value pair within a map data type in Amazon Keyspaces, including the associated metadata.
+ *
  * @public
  */
 export interface KeyspacesCellMapDefinition {
   /**
-   * <p>The key of this map entry in the Amazon Keyspaces cell.</p>
+   * The key of this map entry in the Amazon Keyspaces cell.
+   *
    * @public
    */
   key?: KeyspacesCellValue | undefined;
 
   /**
-   * <p>The value associated with the key in this map entry.</p>
+   * The value associated with the key in this map entry.
+   *
    * @public
    */
   value?: KeyspacesCellValue | undefined;
 
   /**
-   * <p>Metadata for this specific key-value pair within the map, such as timestamps and TTL information.</p>
+   * Metadata for this specific key-value pair within the map, such as timestamps and TTL information.
+   *
    * @public
    */
   metadata?: KeyspacesMetadata | undefined;
 }
 
 /**
- * <p>Represents a row in an Amazon Keyspaces table, containing regular column values, static column values, and row-level metadata.</p>
+ * Represents a row in an Amazon Keyspaces table, containing regular column values, static column values, and row-level metadata.
+ *
  * @public
  */
 export interface KeyspacesRow {
   /**
-   * <p>A map of regular (non-static) column cells in the row, where keys are column names and values are the corresponding cells.</p>
+   * A map of regular (non-static) column cells in the row, where keys are column names and values are the corresponding cells.
+   *
    * @public
    */
   valueCells?: Record<string, KeyspacesCell> | undefined;
 
   /**
-   * <p>A map of static column cells shared by all rows with the same partition key, where keys are column names and values are the corresponding cells.</p>
+   * A map of static column cells shared by all rows with the same partition key, where keys are column names and values are the corresponding cells.
+   *
    * @public
    */
   staticCells?: Record<string, KeyspacesCell> | undefined;
 
   /**
-   * <p>Metadata that applies to the entire row, such as timestamps and TTL information.</p>
+   * Metadata that applies to the entire row, such as timestamps and TTL information.
+   *
    * @public
    */
   rowMetadata?: KeyspacesMetadata | undefined;
 }
 
 /**
- * <p>Represents a change data capture record for a row in an Amazon Keyspaces table, containing both the new and old states of the row.</p>
+ * Represents a change data capture record for a row in an Amazon Keyspaces table, containing both the new and old states of the row.
+ *
  * @public
  */
 export interface _Record {
   /**
-   * <p>The version of the record format, used to track the evolution of the record structure over time.</p>
+   * The version of the record format, used to track the evolution of the record structure over time.
+   *
    * @public
    */
   eventVersion?: string | undefined;
 
   /**
-   * <p>The timestamp indicating when this change data capture record was created.</p>
+   * The timestamp indicating when this change data capture record was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The origin or source of this change data capture record.</p>
+   * The origin or source of this change data capture record.
+   *
    * @public
    */
   origin?: OriginType | undefined;
 
   /**
-   * <p>The partition key columns and their values for the affected row.</p>
+   * The partition key columns and their values for the affected row.
+   *
    * @public
    */
   partitionKeys?: Record<string, KeyspacesCellValue> | undefined;
 
   /**
-   * <p>The clustering key columns and their values for the affected row, which determine the order of rows within a partition.</p>
+   * The clustering key columns and their values for the affected row, which determine the order of rows within a partition.
+   *
    * @public
    */
   clusteringKeys?: Record<string, KeyspacesCellValue> | undefined;
 
   /**
-   * <p>The state of the row after the change operation that generated this record.</p>
+   * The state of the row after the change operation that generated this record.
+   *
    * @public
    */
   newImage?: KeyspacesRow | undefined;
 
   /**
-   * <p>The state of the row before the change operation that generated this record.</p>
+   * The state of the row before the change operation that generated this record.
+   *
    * @public
    */
   oldImage?: KeyspacesRow | undefined;
 
   /**
-   * <p>A unique identifier assigned to this record within the shard, used for ordering and tracking purposes.</p>
+   * A unique identifier assigned to this record within the shard, used for ordering and tracking purposes.
+   *
    * @public
    */
   sequenceNumber?: string | undefined;
@@ -1433,19 +1541,22 @@ export interface _Record {
  */
 export interface GetRecordsOutput {
   /**
-   * <p> An array of change data records retrieved from the specified shard. Each record represents a single data modification (insert, update, or delete) to a row in the Amazon Keyspaces table. Records include the primary key columns and information about what data was modified. </p>
+   * An array of change data records retrieved from the specified shard. Each record represents a single data modification (insert, update, or delete) to a row in the Amazon Keyspaces table. Records include the primary key columns and information about what data was modified.
+   *
    * @public
    */
   changeRecords?: _Record[] | undefined;
 
   /**
-   * <p> The next position in the shard from which to start sequentially reading data records. If null, the shard has been closed and the requested iterator will not return any more data. </p>
+   * The next position in the shard from which to start sequentially reading data records. If null, the shard has been closed and the requested iterator will not return any more data.
+   *
    * @public
    */
   nextShardIterator?: string | undefined;
 
   /**
-   * <p> Provides information about the current iterator at the time GetRecords request was processed by Keyspaces. </p>
+   * Provides information about the current iterator at the time GetRecords request was processed by Keyspaces.
+   *
    * @public
    */
   iteratorDescription?: IteratorDescription | undefined;

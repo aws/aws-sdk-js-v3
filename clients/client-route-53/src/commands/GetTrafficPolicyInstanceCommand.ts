@@ -23,18 +23,12 @@ export interface GetTrafficPolicyInstanceCommandInput extends GetTrafficPolicyIn
 export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified traffic policy instance.</p>
- *          <note>
- *             <p>
- * 				Use <code>GetTrafficPolicyInstance</code> with the <code>id</code> of new traffic policy instance to confirm that the
- * 				<code>CreateTrafficPolicyInstance</code> or an <code>UpdateTrafficPolicyInstance</code> request completed successfully.
- * 				For more information, see the <code>State</code> response
- * 				element.</p>
- *          </note>
- *          <note>
- *             <p>In the Route 53 console, traffic policy instances are known as policy
- * 				records.</p>
- *          </note>
+ * Gets information about a specified traffic policy instance.
+ *
+ * > **Note:** Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to confirm that the `CreateTrafficPolicyInstance` or an `UpdateTrafficPolicyInstance` request completed successfully. For more information, see the `State` response element.
+ *
+ * > **Note:** In the Route 53 console, traffic policy instances are known as policy records.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +65,16 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
- *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ * No traffic policy instance exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

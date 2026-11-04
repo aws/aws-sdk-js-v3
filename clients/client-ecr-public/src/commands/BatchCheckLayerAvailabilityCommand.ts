@@ -23,13 +23,10 @@ export interface BatchCheckLayerAvailabilityCommandInput extends BatchCheckLayer
 export interface BatchCheckLayerAvailabilityCommandOutput extends BatchCheckLayerAvailabilityResponse, __MetadataBearer {}
 
 /**
- * <p>Checks the availability of one or more image layers that are within a repository in a
- *          public registry. When an image is pushed to a repository, each image layer is checked to
- *          verify if it has been uploaded before. If it has been uploaded, then the image layer is
- *          skipped.</p>
- *          <note>
- *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
- *          </note>
+ * Checks the availability of one or more image layers that are within a repository in a public registry. When an image is pushed to a repository, each image layer is checked to verify if it has been uploaded before. If it has been uploaded, then the image layer is skipped.
+ *
+ * > **Note:** This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,25 +71,28 @@ export interface BatchCheckLayerAvailabilityCommandOutput extends BatchCheckLaye
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RegistryNotFoundException} (client fault)
- *  <p>The registry doesn't exist.</p>
+ *
+ * The registry doesn't exist.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository can't be found. Check the spelling of the specified repository
- *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * The specified repository can't be found. Check the spelling of the specified repository and ensure that you're performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

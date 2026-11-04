@@ -23,7 +23,8 @@ export interface StopProductSubscriptionCommandInput extends StopProductSubscrip
 export interface StopProductSubscriptionCommandOutput extends StopProductSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a product subscription for a user with the specified identity provider.</p>
+ * Stops a product subscription for a user with the specified identity provider.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,29 +116,36 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (server fault)
- *  <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ *
+ * The request couldn't be completed because it conflicted with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found.</p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request failed because a service quota is exceeded.</p>
+ *
+ * The request failed because a service quota is exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Retry the request.</p>
+ *
+ * The request was denied because of request throttling. Retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
- * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.
  *
  * @public
  */

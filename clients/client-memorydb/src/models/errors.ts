@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MemoryDBServiceException as __BaseException } from "./MemoryDBServiceException";
 
 /**
- * <p>An ACL with the specified name already exists.</p>
+ * An ACL with the specified name already exists.
+ *
  * @public
  */
 export class ACLAlreadyExistsFault extends __BaseException {
@@ -25,7 +26,8 @@ export class ACLAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The specified ACL does not exist.</p>
+ * The specified ACL does not exist.
+ *
  * @public
  */
 export class ACLNotFoundFault extends __BaseException {
@@ -46,7 +48,8 @@ export class ACLNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of ACLs allowed.</p>
+ * The request cannot be processed because it would exceed the maximum number of ACLs allowed.
+ *
  * @public
  */
 export class ACLQuotaExceededFault extends __BaseException {
@@ -67,7 +70,8 @@ export class ACLQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified parameter value is not valid.</p>
+ * The specified parameter value is not valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -88,7 +92,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The specified service update does not exist.</p>
+ * The specified service update does not exist.
+ *
  * @public
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
@@ -109,7 +114,8 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified parameter combination is not valid.</p>
+ * The specified parameter combination is not valid.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -130,7 +136,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>The snapshot is not in a valid state for the requested operation.</p>
+ * The snapshot is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidSnapshotStateFault extends __BaseException {
@@ -151,7 +158,8 @@ export class InvalidSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p>The required service-linked role was not found.</p>
+ * The required service-linked role was not found.
+ *
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -172,7 +180,8 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>A snapshot with the specified name already exists.</p>
+ * A snapshot with the specified name already exists.
+ *
  * @public
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
@@ -193,7 +202,8 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The specified snapshot does not exist.</p>
+ * The specified snapshot does not exist.
+ *
  * @public
  */
 export class SnapshotNotFoundFault extends __BaseException {
@@ -214,7 +224,8 @@ export class SnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of snapshots allowed.</p>
+ * The request cannot be processed because it would exceed the maximum number of snapshots allowed.
+ *
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -235,7 +246,8 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
+ *
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -256,7 +268,8 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
 }
 
 /**
- * <p>A default user is required and must be specified.</p>
+ * A default user is required and must be specified.
+ *
  * @public
  */
 export class DefaultUserRequired extends __BaseException {
@@ -277,7 +290,8 @@ export class DefaultUserRequired extends __BaseException {
 }
 
 /**
- * <p>A user with the specified name already exists.</p>
+ * A user with the specified name already exists.
+ *
  * @public
  */
 export class DuplicateUserNameFault extends __BaseException {
@@ -298,7 +312,8 @@ export class DuplicateUserNameFault extends __BaseException {
 }
 
 /**
- * <p>The specified user does not exist.</p>
+ * The specified user does not exist.
+ *
  * @public
  */
 export class UserNotFoundFault extends __BaseException {
@@ -319,7 +334,8 @@ export class UserNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>A cluster with the specified name already exists.</p>
+ * A cluster with the specified name already exists.
+ *
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -340,7 +356,8 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
+ * The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.
+ *
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
@@ -361,7 +378,8 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>The cluster does not have sufficient capacity to perform the requested operation.</p>
+ * The cluster does not have sufficient capacity to perform the requested operation.
+ *
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
@@ -382,7 +400,8 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The ACL is not in a valid state for the requested operation.</p>
+ * The ACL is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidACLStateFault extends __BaseException {
@@ -403,7 +422,8 @@ export class InvalidACLStateFault extends __BaseException {
 }
 
 /**
- * <p>The provided credentials are not valid.</p>
+ * The provided credentials are not valid.
+ *
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
@@ -424,7 +444,8 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
- * <p>The requested operation cannot be performed on the multi-Region cluster in its current state.</p>
+ * The requested operation cannot be performed on the multi-Region cluster in its current state.
+ *
  * @public
  */
 export class InvalidMultiRegionClusterStateFault extends __BaseException {
@@ -445,7 +466,8 @@ export class InvalidMultiRegionClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>The VPC network is not in a valid state for the requested operation.</p>
+ * The VPC network is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -466,7 +488,8 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified multi-Region cluster does not exist.</p>
+ * The specified multi-Region cluster does not exist.
+ *
  * @public
  */
 export class MultiRegionClusterNotFoundFault extends __BaseException {
@@ -487,7 +510,8 @@ export class MultiRegionClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.</p>
+ * The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.
+ *
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
@@ -508,7 +532,8 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.</p>
+ * The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.
+ *
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
@@ -529,7 +554,8 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified parameter group does not exist.</p>
+ * The specified parameter group does not exist.
+ *
  * @public
  */
 export class ParameterGroupNotFoundFault extends __BaseException {
@@ -550,7 +576,8 @@ export class ParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.</p>
+ * The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.
+ *
  * @public
  */
 export class ShardsPerClusterQuotaExceededFault extends __BaseException {
@@ -571,7 +598,8 @@ export class ShardsPerClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified subnet group does not exist.</p>
+ * The specified subnet group does not exist.
+ *
  * @public
  */
 export class SubnetGroupNotFoundFault extends __BaseException {
@@ -592,7 +620,8 @@ export class SubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>A multi-Region cluster with the specified name already exists.</p>
+ * A multi-Region cluster with the specified name already exists.
+ *
  * @public
  */
 export class MultiRegionClusterAlreadyExistsFault extends __BaseException {
@@ -613,7 +642,8 @@ export class MultiRegionClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The specified multi-Region parameter group does not exist.</p>
+ * The specified multi-Region parameter group does not exist.
+ *
  * @public
  */
 export class MultiRegionParameterGroupNotFoundFault extends __BaseException {
@@ -634,7 +664,8 @@ export class MultiRegionParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The parameter group is not in a valid state for the requested operation.</p>
+ * The parameter group is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidParameterGroupStateFault extends __BaseException {
@@ -655,7 +686,8 @@ export class InvalidParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>A parameter group with the specified name already exists.</p>
+ * A parameter group with the specified name already exists.
+ *
  * @public
  */
 export class ParameterGroupAlreadyExistsFault extends __BaseException {
@@ -676,7 +708,8 @@ export class ParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of parameter groups allowed.</p>
+ * The request cannot be processed because it would exceed the maximum number of parameter groups allowed.
+ *
  * @public
  */
 export class ParameterGroupQuotaExceededFault extends __BaseException {
@@ -697,7 +730,8 @@ export class ParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified cluster does not exist.</p>
+ * The specified cluster does not exist.
+ *
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
@@ -718,7 +752,8 @@ export class ClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The cluster is not in a valid state for the requested operation.</p>
+ * The cluster is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
@@ -739,7 +774,8 @@ export class InvalidClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified subnet is not valid.</p>
+ * The specified subnet is not valid.
+ *
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -760,7 +796,8 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>A subnet group with the specified name already exists.</p>
+ * A subnet group with the specified name already exists.
+ *
  * @public
  */
 export class SubnetGroupAlreadyExistsFault extends __BaseException {
@@ -781,7 +818,8 @@ export class SubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of subnet groups allowed.</p>
+ * The request cannot be processed because it would exceed the maximum number of subnet groups allowed.
+ *
  * @public
  */
 export class SubnetGroupQuotaExceededFault extends __BaseException {
@@ -802,7 +840,8 @@ export class SubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified subnet is not allowed for this operation.</p>
+ * The specified subnet is not allowed for this operation.
+ *
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
@@ -823,7 +862,8 @@ export class SubnetNotAllowedFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of subnets allowed.</p>
+ * The request cannot be processed because it would exceed the maximum number of subnets allowed.
+ *
  * @public
  */
 export class SubnetQuotaExceededFault extends __BaseException {
@@ -844,7 +884,8 @@ export class SubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>A user with the specified name already exists.</p>
+ * A user with the specified name already exists.
+ *
  * @public
  */
 export class UserAlreadyExistsFault extends __BaseException {
@@ -865,7 +906,8 @@ export class UserAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of users allowed.</p>
+ * The request cannot be processed because it would exceed the maximum number of users allowed.
+ *
  * @public
  */
 export class UserQuotaExceededFault extends __BaseException {
@@ -886,7 +928,8 @@ export class UserQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The subnet group is currently in use and cannot be deleted.</p>
+ * The subnet group is currently in use and cannot be deleted.
+ *
  * @public
  */
 export class SubnetGroupInUseFault extends __BaseException {
@@ -907,7 +950,8 @@ export class SubnetGroupInUseFault extends __BaseException {
 }
 
 /**
- * <p>The user is not in a valid state for the requested operation.</p>
+ * The user is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidUserStateFault extends __BaseException {
@@ -928,7 +972,8 @@ export class InvalidUserStateFault extends __BaseException {
 }
 
 /**
- * <p>The requested node does not exist.</p>
+ * The requested node does not exist.
+ *
  * @public
  */
 export class ReservedNodeNotFoundFault extends __BaseException {
@@ -949,9 +994,8 @@ export class ReservedNodeNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested node offering does not exist.
+ * The requested node offering does not exist.
  *
- *       </p>
  * @public
  */
 export class ReservedNodesOfferingNotFoundFault extends __BaseException {
@@ -972,7 +1016,8 @@ export class ReservedNodesOfferingNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The customer has exceeded the maximum number of API requests allowed per time period.</p>
+ * The customer has exceeded the maximum number of API requests allowed per time period.
+ *
  * @public
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
@@ -993,7 +1038,8 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified KMS key is not valid or accessible.</p>
+ * The specified KMS key is not valid or accessible.
+ *
  * @public
  */
 export class InvalidKMSKeyFault extends __BaseException {
@@ -1014,7 +1060,8 @@ export class InvalidKMSKeyFault extends __BaseException {
 }
 
 /**
- * <p>The specified shard does not exist.</p>
+ * The specified shard does not exist.
+ *
  * @public
  */
 export class ShardNotFoundFault extends __BaseException {
@@ -1035,7 +1082,8 @@ export class ShardNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>Test failover is not available for this cluster configuration.</p>
+ * Test failover is not available for this cluster configuration.
+ *
  * @public
  */
 export class TestFailoverNotAvailableFault extends __BaseException {
@@ -1056,7 +1104,8 @@ export class TestFailoverNotAvailableFault extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Resource Name (ARN) is not valid.</p>
+ * The specified Amazon Resource Name (ARN) is not valid.
+ *
  * @public
  */
 export class InvalidARNFault extends __BaseException {
@@ -1077,7 +1126,8 @@ export class InvalidARNFault extends __BaseException {
 }
 
 /**
- * <p>You already have a reservation with the given identifier.</p>
+ * You already have a reservation with the given identifier.
+ *
  * @public
  */
 export class ReservedNodeAlreadyExistsFault extends __BaseException {
@@ -1098,7 +1148,8 @@ export class ReservedNodeAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the user's node quota.</p>
+ * The request cannot be processed because it would exceed the user's node quota.
+ *
  * @public
  */
 export class ReservedNodeQuotaExceededFault extends __BaseException {
@@ -1119,7 +1170,8 @@ export class ReservedNodeQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified tag does not exist.</p>
+ * The specified tag does not exist.
+ *
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
@@ -1140,7 +1192,8 @@ export class TagNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The node is not in a valid state for the requested operation.</p>
+ * The node is not in a valid state for the requested operation.
+ *
  * @public
  */
 export class InvalidNodeStateFault extends __BaseException {
@@ -1161,7 +1214,8 @@ export class InvalidNodeStateFault extends __BaseException {
 }
 
 /**
- * <p>The requested operation would result in no changes.</p>
+ * The requested operation would result in no changes.
+ *
  * @public
  */
 export class NoOperationFault extends __BaseException {
@@ -1182,7 +1236,8 @@ export class NoOperationFault extends __BaseException {
 }
 
 /**
- * <p>The subnet is currently in use and cannot be deleted.</p>
+ * The subnet is currently in use and cannot be deleted.
+ *
  * @public
  */
 export class SubnetInUse extends __BaseException {

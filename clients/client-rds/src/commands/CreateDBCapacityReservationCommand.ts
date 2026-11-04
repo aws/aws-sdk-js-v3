@@ -23,7 +23,24 @@ export interface CreateDBCapacityReservationCommandInput extends CreateDBCapacit
 export interface CreateDBCapacityReservationCommandOutput extends CreateDBCapacityReservationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a DB capacity reservation. A DB capacity reservation reserves compute and memory capacity for DB instances of one DB instance class and one database engine. Amazon RDS reserves that capacity in each Availability Zone that you specify.</p> <p>Amazon RDS reserves the same amount of capacity in every Availability Zone in the request. You set that amount with <code>CapacityPerAvailabilityZone</code>, and you set the Availability Zones with <code>AvailabilityZones</code>. The total reserved capacity is <code>CapacityPerAvailabilityZone</code> multiplied by the number of Availability Zones.</p> <p>Specify <code>StartDate</code> and <code>CommitmentDuration</code> together to create a future-dated reservation. A future-dated reservation reserves capacity for a period that starts later. Amazon RDS holds that capacity for the length of the commitment.</p> <p>A future-dated reservation has the following additional constraints:</p> <ul> <li> <p> <code>DBInstanceClass</code> must be a <code>db.c</code>, <code>db.m</code>, <code>db.r</code>, <code>db.t</code>, or <code>db.x</code> DB instance class. The letter after <code>db.</code> gives the DB instance class family. For example, <code>db.x2g.xlarge</code> qualifies, and <code>db.z1d.xlarge</code> doesn't.</p> </li> <li> <p>If <code>DBInstanceClass</code> is a <code>db.m</code> or <code>db.r</code> DB instance class, it must be from generation 7 or later. The digit after the family letter gives the generation. For example, <code>db.m7g.xlarge</code> qualifies, and <code>db.m5.xlarge</code> doesn't. A <code>db.c</code>, <code>db.t</code>, or <code>db.x</code> DB instance class has no generation requirement.</p> </li> <li> <p>The reserved capacity must total at least 32 vCPUs in each Availability Zone. Multiply <code>CapacityPerAvailabilityZone</code> by the number of vCPUs of the DB instance class. The product must be 32 or more.</p> </li> <li> <p> <code>CommitmentDuration</code> must be at least 14 days. For a <code>db.x</code> DB instance class, it must be at least 84 days.</p> </li> <li> <p> <code>StartDate</code> must be from 5 to 120 days in the future.</p> </li> </ul> <p>Therefore, a DB instance class with 2 vCPUs needs a <code>CapacityPerAvailabilityZone</code> of 16 or more, a class with 4 vCPUs needs 8 or more, a class with 8 vCPUs needs 4 or more, and a class with 16 vCPUs needs 2 or more. For the number of vCPUs of each DB instance class, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance classes</a> in the <i>Amazon RDS User Guide</i>.</p> <note> <p>You can't modify a future-dated reservation before it starts. You can't cancel a future-dated reservation in the <code>scheduled</code> state. You can't cancel a reservation in the <code>active</code> state during its capacity commitment. Therefore, you can't cancel a future-dated reservation from the time that Amazon RDS schedules it until the commitment ends.</p> </note>
+ * Creates a DB capacity reservation. A DB capacity reservation reserves compute and memory capacity for DB instances of one DB instance class and one database engine. Amazon RDS reserves that capacity in each Availability Zone that you specify.
+ *
+ * Amazon RDS reserves the same amount of capacity in every Availability Zone in the request. You set that amount with `CapacityPerAvailabilityZone`, and you set the Availability Zones with `AvailabilityZones`. The total reserved capacity is `CapacityPerAvailabilityZone` multiplied by the number of Availability Zones.
+ *
+ * Specify `StartDate` and `CommitmentDuration` together to create a future-dated reservation. A future-dated reservation reserves capacity for a period that starts later. Amazon RDS holds that capacity for the length of the commitment.
+ *
+ * A future-dated reservation has the following additional constraints:
+ *
+ * - `DBInstanceClass` must be a `db.c`, `db.m`, `db.r`, `db.t`, or `db.x` DB instance class. The letter after `db.` gives the DB instance class family. For example, `db.x2g.xlarge` qualifies, and `db.z1d.xlarge` doesn't.
+ * - If `DBInstanceClass` is a `db.m` or `db.r` DB instance class, it must be from generation 7 or later. The digit after the family letter gives the generation. For example, `db.m7g.xlarge` qualifies, and `db.m5.xlarge` doesn't. A `db.c`, `db.t`, or `db.x` DB instance class has no generation requirement.
+ * - The reserved capacity must total at least 32 vCPUs in each Availability Zone. Multiply `CapacityPerAvailabilityZone` by the number of vCPUs of the DB instance class. The product must be 32 or more.
+ * - `CommitmentDuration` must be at least 14 days. For a `db.x` DB instance class, it must be at least 84 days.
+ * - `StartDate` must be from 5 to 120 days in the future.
+ *
+ * Therefore, a DB instance class with 2 vCPUs needs a `CapacityPerAvailabilityZone` of 16 or more, a class with 4 vCPUs needs 8 or more, a class with 8 vCPUs needs 4 or more, and a class with 16 vCPUs needs 2 or more. For the number of vCPUs of each DB instance class, see [DB instance classes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the *Amazon RDS User Guide*.
+ *
+ * > **Note:** You can't modify a future-dated reservation before it starts. You can't cancel a future-dated reservation in the `scheduled` state. You can't cancel a reservation in the `active` state during its capacity commitment. Therefore, you can't cancel a future-dated reservation from the time that Amazon RDS schedules it until the commitment ends.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,20 +111,24 @@ export interface CreateDBCapacityReservationCommandOutput extends CreateDBCapaci
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBCapacityReservationAlreadyExistsFault} (client fault)
- *  <p>You already have a DB capacity reservation with the given name. Choose a different name for the new reservation, or use the existing reservation.</p>
+ *
+ * You already have a DB capacity reservation with the given name. Choose a different name for the new reservation, or use the existing reservation.
  *
  * @throws {@link DBCapacityReservationUnsupportedFault} (client fault)
- *  <p>The specified configuration isn't supported for DB capacity reservations.</p>
+ *
+ * The specified configuration isn't supported for DB capacity reservations.
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB instances.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified DB instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a DB capacity reservation in two Availability Zones
  * ```javascript

@@ -23,7 +23,8 @@ export interface ListDeploymentTargetsCommandInput extends ListDeploymentTargets
 export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
- * <p> Returns an array of target IDs that are associated a deployment. </p>
+ * Returns an array of target IDs that are associated a deployment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,45 +60,52 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ *
+ * The named deployment group with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link DeploymentNotStartedException} (client fault)
- *  <p>The specified deployment has not started.</p>
+ *
+ * The specified deployment has not started.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentInstanceTypeException} (client fault)
- *  <p>An instance type was specified for an in-place deployment. Instance types are
- *             supported for blue/green deployments only.</p>
+ *
+ * An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.
  *
  * @throws {@link InvalidInstanceStatusException} (client fault)
- *  <p>The specified instance status does not exist.</p>
+ *
+ * The specified instance status does not exist.
  *
  * @throws {@link InvalidInstanceTypeException} (client fault)
- *  <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
- *             values include "Blue" for an original environment and "Green" for a replacement
- *             environment.</p>
+ *
+ * An invalid instance type was specified for instances in a blue/green deployment. Valid values include "Blue" for an original environment and "Green" for a replacement environment.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link InvalidTargetFilterNameException} (client fault)
- *  <p> The target filter name is invalid. </p>
+ *
+ * The target filter name is invalid.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

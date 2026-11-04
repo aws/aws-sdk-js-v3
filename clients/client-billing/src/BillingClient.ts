@@ -438,7 +438,12 @@ export type BillingClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface BillingClientResolvedConfig extends BillingClientResolvedConfigType {}
 
 /**
- * <p> You can use the Billing API to programatically list the billing views available to you for a given time period. A billing view represents a set of billing data. </p> <p>The Billing API provides the following endpoint:</p> <p> <code>https://billing.us-east-1.api.aws</code> </p>
+ * You can use the Billing API to programatically list the billing views available to you for a given time period. A billing view represents a set of billing data.
+ *
+ * The Billing API provides the following endpoint:
+ *
+ * `https://billing.us-east-1.api.aws`
+ *
  * @public
  */
 export class BillingClient extends __Client<

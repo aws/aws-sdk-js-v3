@@ -87,8 +87,8 @@ export interface GetIntegrationCommandOutput extends GetIntegrationOutput, __Met
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Get an integration by id
  * ```javascript

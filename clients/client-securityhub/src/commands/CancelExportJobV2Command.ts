@@ -23,9 +23,12 @@ export interface CancelExportJobV2CommandInput extends CancelExportJobV2Request 
 export interface CancelExportJobV2CommandOutput extends CancelExportJobV2Response, __MetadataBearer {}
 
 /**
- * <p>Cancels a findings export job that is in progress. Security Hub transitions a running job to the <code>CANCELLED</code> state and returns the <code>ExportJobId</code> and its new <code>Status</code>. Canceling a job that is already in the <code>CANCELLED</code> state succeeds and returns the same result, so you can safely retry a cancel request.</p>
- *          <p>You can't cancel an export job that has already reached a terminal <code>SUCCEEDED</code> or <code>FAILED</code> state; in that case, this operation returns a <code>ConflictException</code>. If no export job matches the <code>ExportJobId</code> that you provide, this operation returns a <code>ResourceNotFoundException</code>.</p>
- *          <p>The <code>Status</code> value returned by this operation reflects the cancellation immediately, even though the job can take a short time to stop completely.</p>
+ * Cancels a findings export job that is in progress. Security Hub transitions a running job to the `CANCELLED` state and returns the `ExportJobId` and its new `Status`. Canceling a job that is already in the `CANCELLED` state succeeds and returns the same result, so you can safely retry a cancel request.
+ *
+ * You can't cancel an export job that has already reached a terminal `SUCCEEDED` or `FAILED` state; in that case, this operation returns a `ConflictException`. If no export job matches the `ExportJobId` that you provide, this operation returns a `ResourceNotFoundException`.
+ *
+ * The `Status` value returned by this operation reflects the cancellation immediately, even though the job can take a short time to stop completely.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,30 +56,32 @@ export interface CancelExportJobV2CommandOutput extends CancelExportJobV2Respons
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request causes conflict with the current state of the service resource.</p>
+ *
+ * The request causes conflict with the current state of the service resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example Example – Canceling a running export job
  * ```javascript

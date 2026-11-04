@@ -23,8 +23,8 @@ export interface ListCidrCollectionsCommandInput extends ListCidrCollectionsRequ
 export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of CIDR collections in the Amazon Web Services account
- * 			(metadata only).</p>
+ * Returns a paginated list of CIDR collections in the Amazon Web Services account (metadata only).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,11 +60,12 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

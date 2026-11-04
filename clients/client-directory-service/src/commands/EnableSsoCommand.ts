@@ -23,9 +23,8 @@ export interface EnableSsoCommandInput extends EnableSsoRequest {}
 export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBearer {}
 
 /**
- * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to
- *       access certain Amazon Web Services services from a computer joined to the directory without having to enter
- *       their credentials separately.</p>
+ * Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain Amazon Web Services services from a computer joined to the directory without having to enter their credentials separately.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +51,28 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AuthenticationFailedException} (client fault)
- *  <p>An authentication error occurred.</p>
+ *
+ * An authentication error occurred.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
- *  <p>The account does not have sufficient permission to perform the operation.</p>
+ *
+ * The account does not have sufficient permission to perform the operation.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To enable SSO
  * ```javascript

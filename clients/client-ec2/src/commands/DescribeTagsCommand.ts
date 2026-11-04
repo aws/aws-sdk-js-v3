@@ -23,18 +23,14 @@ export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
 export interface DescribeTagsCommandOutput extends DescribeTagsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified tags for your EC2 resources.</p>
- *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
- *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          <important>
- *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
- *             susceptible to throttling and timeouts.</p>
- *          </important>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *             structures, might vary. Applications should not assume the elements appear in a
- *             particular order.</p>
- *          </note>
+ * Describes the specified tags for your EC2 resources.
+ *
+ * For more information about tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
+ * > **Important:** We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +75,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the tags for a single resource
  * ```javascript

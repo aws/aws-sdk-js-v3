@@ -23,13 +23,10 @@ export interface DescribeDeliveryChannelsCommandInput extends DescribeDeliveryCh
 export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about the specified delivery channel. If a
- * 			delivery channel is not specified, this operation returns the details
- * 			of all delivery channels associated with the account.</p>
- *          <note>
- *             <p>Currently, you can specify only one delivery channel per
- * 				region in your account.</p>
- *          </note>
+ * Returns details about the specified delivery channel. If a delivery channel is not specified, this operation returns the details of all delivery channels associated with the account.
+ *
+ * > **Note:** Currently, you can specify only one delivery channel per region in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,12 +66,12 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoSuchDeliveryChannelException} (client fault)
- *  <p>You have specified a delivery channel that does not
- * 			exist.</p>
+ *
+ * You have specified a delivery channel that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

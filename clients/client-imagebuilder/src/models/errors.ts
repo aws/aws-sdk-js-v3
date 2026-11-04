@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ImagebuilderServiceException as __BaseException } from "./ImagebuilderServiceException";
 
 /**
- * <p>You do not have permissions to perform the requested operation.</p>
+ * You do not have permissions to perform the requested operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,9 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
- * 			calls on your behalf. Retry with an increasing or variable delay between
- * 			requests.</p>
+ * You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder calls on your behalf. Retry with an increasing or variable delay between requests.
+ *
  * @public
  */
 export class CallRateLimitExceededException extends __BaseException {
@@ -48,9 +48,8 @@ export class CallRateLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
+ *
  * @public
  */
 export class ClientException extends __BaseException {
@@ -71,7 +70,8 @@ export class ClientException extends __BaseException {
 }
 
 /**
- * <p>You are not authorized to perform the requested operation.</p>
+ * You are not authorized to perform the requested operation.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -92,8 +92,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>You have specified a client token for an operation using parameter values that differ
- * 			from a previous request that used the same client token.</p>
+ * You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -114,8 +114,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>The request is malformed or otherwise invalid. Verify the request and try
- * 			again.</p>
+ * The request is malformed or otherwise invalid. Verify the request and try again.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -136,8 +136,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource that you are trying to operate on is currently in use. Review the message
- * 			details and retry later.</p>
+ * The resource that you are trying to operate on is currently in use. Review the message details and retry later.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -158,8 +158,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -180,7 +180,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The service is unable to process your request at this time.</p>
+ * The service is unable to process your request at this time.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -201,7 +202,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
+ * The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.
+ *
  * @public
  */
 export class DryRunOperationException extends __BaseException {
@@ -222,9 +224,8 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * <p>You have specified a combination of parameters that isn't valid. For
- * 			example, two mutually exclusive parameters, or a parameter without its
- * 			required companion parameter. Review the error message for details.</p>
+ * You have specified a combination of parameters that isn't valid. For example, two mutually exclusive parameters, or a parameter without its required companion parameter. Review the error message for details.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -245,7 +246,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>Your version number is out of bounds or does not follow the required syntax.</p>
+ * Your version number is out of bounds or does not follow the required syntax.
+ *
  * @public
  */
 export class InvalidVersionNumberException extends __BaseException {
@@ -266,9 +268,8 @@ export class InvalidVersionNumberException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the number of permitted resources or operations for this service.
- * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
- * 				quotas</a>.</p>
+ * You have exceeded the number of permitted resources or operations for this service. For service quotas, see [EC2 Image Builder endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder).
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -289,7 +290,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource that you are trying to create already exists.</p>
+ * The resource that you are trying to create already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -310,8 +312,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>You have attempted to mutate or delete a resource with a dependency that prohibits
- * 			this action. See the error message for more details.</p>
+ * You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.
+ *
  * @public
  */
 export class ResourceDependencyException extends __BaseException {
@@ -332,7 +334,8 @@ export class ResourceDependencyException extends __BaseException {
 }
 
 /**
- * <p>At least one of the resources referenced by your request does not exist.</p>
+ * At least one of the resources referenced by your request does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -353,7 +356,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have attempted too many requests for the specific operation.</p>
+ * You have attempted too many requests for the specific operation.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -374,7 +378,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>You have provided an invalid pagination token in your request.</p>
+ * You have provided an invalid pagination token in your request.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -395,8 +400,8 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- * 			request.</p>
+ * The specified parameter is invalid. Review the available parameters for the API request.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -417,7 +422,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The value that you provided for the specified parameter is invalid.</p>
+ * The value that you provided for the specified parameter is invalid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {

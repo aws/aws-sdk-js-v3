@@ -23,7 +23,8 @@ export interface ListDataTransformationProfilesCommandInput extends ListDataTran
 export interface ListDataTransformationProfilesCommandOutput extends ListDataTransformationProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all data transformation profiles in your account, returning the latest version summary for each. Use <code>GetDataTransformationProfile</code> to retrieve profile content. Results are paginated. Use the <code>NextToken</code> parameter to retrieve additional results.</p>
+ * Lists all data transformation profiles in your account, returning the latest version summary for each. Use `GetDataTransformationProfile` to retrieve profile content. Results are paginated. Use the `NextToken` parameter to retrieve additional results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +64,24 @@ export interface ListDataTransformationProfilesCommandOutput extends ListDataTra
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * Access is denied. Your account is not authorized to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred in the service.</p>
+ *
+ * An unknown internal error occurred in the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ *
+ * The user has exceeded their maximum number of allowed calls to the given API.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input parameter was invalid.</p>
+ *
+ * The user input parameter was invalid.
  *
  * @throws {@link HealthLakeServiceException}
- * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ * Base exception class for all service exceptions from HealthLake service.
  *
  * @public
  */

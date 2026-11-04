@@ -822,7 +822,6 @@ export interface KinesisVideo {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class KinesisVideo extends KinesisVideoClient implements KinesisVideo {}

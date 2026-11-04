@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { WorkspacesInstancesServiceException as __BaseException } from "./WorkspacesInstancesServiceException";
 
 /**
- * <p>Indicates insufficient permissions to perform the requested action.</p>
+ * Indicates insufficient permissions to perform the requested action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Detailed explanation of the access denial.</p>
+   * Detailed explanation of the access denial.
+   *
    * @public
    */
   Message: string | undefined;
@@ -33,7 +35,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Signals a conflict with the current state of the resource.</p>
+ * Signals a conflict with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -41,19 +44,22 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the conflict encountered.</p>
+   * Description of the conflict encountered.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Identifier of the conflicting resource.</p>
+   * Identifier of the conflicting resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Type of the conflicting resource.</p>
+   * Type of the conflicting resource.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -74,7 +80,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Indicates an unexpected server-side error occurred.</p>
+ * Indicates an unexpected server-side error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -83,13 +90,15 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>Description of the internal server error.</p>
+   * Description of the internal server error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Recommended wait time before retrying the request.</p>
+   * Recommended wait time before retrying the request.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -109,7 +118,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Indicates the requested resource could not be found.</p>
+ * Indicates the requested resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -117,19 +127,22 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Details about the missing resource.</p>
+   * Details about the missing resource.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Identifier of the resource that was not found.</p>
+   * Identifier of the resource that was not found.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Type of the resource that was not found.</p>
+   * Type of the resource that was not found.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -150,7 +163,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates the request rate has exceeded limits.</p>
+ * Indicates the request rate has exceeded limits.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -161,25 +175,29 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>Description of the throttling event.</p>
+   * Description of the throttling event.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Code identifying the service experiencing throttling.</p>
+   * Code identifying the service experiencing throttling.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * <p>Specific code for the throttling quota.</p>
+   * Specific code for the throttling quota.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>Recommended wait time before retrying the request.</p>
+   * Recommended wait time before retrying the request.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -201,7 +219,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Indicates invalid input parameters in the request.</p>
+ * Indicates invalid input parameters in the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -209,19 +228,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Overall description of validation failures.</p>
+   * Overall description of validation failures.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Specific reason for the validation failure.</p>
+   * Specific reason for the validation failure.
+   *
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>List of fields that failed validation.</p>
+   * List of fields that failed validation.
+   *
    * @public
    */
   FieldList?: ValidationExceptionField[] | undefined;
@@ -242,7 +264,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a service quota has been exceeded.</p>
+ * Indicates that a service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -250,31 +273,36 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the quota limitation.</p>
+   * Description of the quota limitation.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Identifier of the resource related to the quota.</p>
+   * Identifier of the resource related to the quota.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Type of resource related to the quota.</p>
+   * Type of resource related to the quota.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Code identifying the service with the quota limitation.</p>
+   * Code identifying the service with the quota limitation.
+   *
    * @public
    */
   ServiceCode: string | undefined;
 
   /**
-   * <p>Specific code for the exceeded quota.</p>
+   * Specific code for the exceeded quota.
+   *
    * @public
    */
   QuotaCode: string | undefined;
@@ -297,7 +325,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The volume has a previous modification that is still in progress, or has reached the limit of four modifications in a rolling 24-hour period. Wait for the current modification to finish, or wait until the time indicated in the error message, and then retry the request.</p>
+ * The volume has a previous modification that is still in progress, or has reached the limit of four modifications in a rolling 24-hour period. Wait for the current modification to finish, or wait until the time indicated in the error message, and then retry the request.
+ *
  * @public
  */
 export class VolumeModificationRateExceededException extends __BaseException {
@@ -305,19 +334,22 @@ export class VolumeModificationRateExceededException extends __BaseException {
   readonly name = "VolumeModificationRateExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Specifies the reason that the modification request was rejected.</p>
+   * Specifies the reason that the modification request was rejected.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Specifies the identifier of the volume for which the modification request was rejected.</p>
+   * Specifies the identifier of the volume for which the modification request was rejected.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Specifies the type of the resource for which the modification request was rejected.</p>
+   * Specifies the type of the resource for which the modification request was rejected.
+   *
    * @public
    */
   ResourceType: string | undefined;

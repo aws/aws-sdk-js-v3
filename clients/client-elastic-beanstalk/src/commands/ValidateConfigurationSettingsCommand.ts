@@ -23,10 +23,10 @@ export interface ValidateConfigurationSettingsCommandInput extends ValidateConfi
 export interface ValidateConfigurationSettingsCommandOutput extends ConfigurationSettingsValidationMessages, __MetadataBearer {}
 
 /**
- * <p>Takes a set of configuration settings and either a configuration template or
- *       environment, and determines whether those values are valid.</p>
- *          <p>This action returns a list of messages indicating any errors or warnings associated
- *       with the selection of option values.</p>
+ * Takes a set of configuration settings and either a configuration template or environment, and determines whether those values are valid.
+ *
+ * This action returns a list of messages indicating any errors or warnings associated with the selection of option values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +70,16 @@ export interface ValidateConfigurationSettingsCommandOutput extends Configuratio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link TooManyBucketsException} (client fault)
- *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ * The specified account has reached its limit of Amazon S3 buckets.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To validate configuration settings
  * ```javascript

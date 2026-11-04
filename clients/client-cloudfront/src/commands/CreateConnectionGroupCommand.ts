@@ -23,7 +23,8 @@ export interface CreateConnectionGroupCommandInput extends CreateConnectionGroup
 export interface CreateConnectionGroupCommandOutput extends CreateConnectionGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a connection group.</p>
+ * Creates a connection group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,26 +83,32 @@ export interface CreateConnectionGroupCommandOutput extends CreateConnectionGrou
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The entity already exists. You must provide a unique entity.</p>
+ *
+ * The entity already exists. You must provide a unique entity.
  *
  * @throws {@link EntityLimitExceeded} (client fault)
- *  <p>The entity limit has been exceeded.</p>
+ *
+ * The entity limit has been exceeded.
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The entity was not found.</p>
+ *
+ * The entity was not found.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidTagging} (client fault)
- *  <p>The tagging specified is not valid.</p>
+ *
+ * The tagging specified is not valid.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

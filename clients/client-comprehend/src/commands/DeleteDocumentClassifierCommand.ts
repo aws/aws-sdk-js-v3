@@ -23,13 +23,12 @@ export interface DeleteDocumentClassifierCommandInput extends DeleteDocumentClas
 export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentClassifierResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a previously created document classifier</p>
- *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
- *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
- *       returned.</p>
- *          <p>This is an asynchronous action that puts the classifier into a DELETING state, and it is
- *       then removed by a background job. Once removed, the classifier disappears from your account
- *       and is no longer available for use. </p>
+ * Deletes a previously created document classifier
+ *
+ * Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted. If an active inference job is using the model, a `ResourceInUseException` will be returned.
+ *
+ * This is an asynchronous action that puts the classifier into a DELETING state, and it is then removed by a background job. Once removed, the classifier disappears from your account and is no longer available for use.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,28 +53,32 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
+ *
+ * The specified resource name is already in use. Use a different name and try your request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ *
+ * The specified resource is not available. Check the resource and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

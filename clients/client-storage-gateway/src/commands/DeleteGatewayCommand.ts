@@ -23,22 +23,12 @@ export interface DeleteGatewayCommandInput extends DeleteGatewayInput {}
 export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name
- *          (ARN) of the gateway in your request. The operation deletes the gateway; however, it does
- *          not delete the gateway virtual machine (VM) from your host computer.</p>
- *          <p>After you delete a gateway, you cannot reactivate it. Completed snapshots of the gateway
- *          volumes are not deleted upon deleting the gateway, however, pending snapshots will not
- *          complete. After you delete a gateway, your next step is to remove it from your
- *          environment.</p>
- *          <important>
- *             <p>You no longer pay software charges after the gateway is deleted; however, your
- *             existing Amazon EBS snapshots persist and you will continue to be billed for these
- *             snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your
- *             Amazon EC2 subscription.  If you prefer not to cancel your Amazon EC2 subscription, you
- *             can delete your snapshots using the Amazon EC2 console. For more information, see the
- *                <a href="http://aws.amazon.com/storagegateway">Storage Gateway detail
- *             page</a>.</p>
- *          </important>
+ * Deletes a gateway. To specify which gateway to delete, use the Amazon Resource Name (ARN) of the gateway in your request. The operation deletes the gateway; however, it does not delete the gateway virtual machine (VM) from your host computer.
+ *
+ * After you delete a gateway, you cannot reactivate it. Completed snapshots of the gateway volumes are not deleted upon deleting the gateway, however, pending snapshots will not complete. After you delete a gateway, your next step is to remove it from your environment.
+ *
+ * > **Important:** You no longer pay software charges after the gateway is deleted; however, your existing Amazon EBS snapshots persist and you will continue to be billed for these snapshots. You can choose to remove all remaining Amazon EBS snapshots by canceling your Amazon EC2 subscription.  If you prefer not to cancel your Amazon EC2 subscription, you can delete your snapshots using the Amazon EC2 console. For more information, see the [Storage Gateway detail page](http://aws.amazon.com/storagegateway).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,16 +55,16 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To delete a gatgeway
  * ```javascript

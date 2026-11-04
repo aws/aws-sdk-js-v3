@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.</p>
+ * Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, `"Environment": "Staging"`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * InternalServerException: An internal error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ * ResourceNotFoundException: The resource is not available.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ * ValidationException: The provided input is not valid.
  *
  * @throws {@link MWAAServiceException}
- * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * Base exception class for all service exceptions from MWAA service.
  *
  * @public
  */

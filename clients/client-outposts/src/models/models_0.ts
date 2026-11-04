@@ -49,259 +49,278 @@ import type {
 } from "./enums";
 
 /**
- * <p> Information about an address. </p>
+ * Information about an address.
+ *
  * @public
  */
 export interface Address {
   /**
-   * <p>The name of the contact.</p>
+   * The name of the contact.
+   *
    * @public
    */
   ContactName: string | undefined;
 
   /**
-   * <p>The phone number of the contact, including the country code (for example,
-   *       <code>+12065550100</code>).</p>
+   * The phone number of the contact, including the country code (for example, `+12065550100`).
+   *
    * @public
    */
   ContactPhoneNumber: string | undefined;
 
   /**
-   * <p>The first line of the address.</p>
+   * The first line of the address.
+   *
    * @public
    */
   AddressLine1: string | undefined;
 
   /**
-   * <p>The second line of the address.</p>
+   * The second line of the address.
+   *
    * @public
    */
   AddressLine2?: string | undefined;
 
   /**
-   * <p>The third line of the address.</p>
+   * The third line of the address.
+   *
    * @public
    */
   AddressLine3?: string | undefined;
 
   /**
-   * <p>The city for the address.</p>
+   * The city for the address.
+   *
    * @public
    */
   City: string | undefined;
 
   /**
-   * <p>The state for the address.</p>
+   * The state for the address.
+   *
    * @public
    */
   StateOrRegion: string | undefined;
 
   /**
-   * <p>The district or county for the address.</p>
+   * The district or county for the address.
+   *
    * @public
    */
   DistrictOrCounty?: string | undefined;
 
   /**
-   * <p>The postal code for the address.</p>
+   * The postal code for the address.
+   *
    * @public
    */
   PostalCode: string | undefined;
 
   /**
-   * <p>The ISO-3166 two-letter country code for the address.</p>
+   * The ISO-3166 two-letter country code for the address.
+   *
    * @public
    */
   CountryCode: string | undefined;
 
   /**
-   * <p>The municipality for the address.</p>
+   * The municipality for the address.
+   *
    * @public
    */
   Municipality?: string | undefined;
 }
 
 /**
- * <p> Information about the position of the asset in a rack. </p>
+ * Information about the position of the asset in a rack.
+ *
  * @public
  */
 export interface AssetLocation {
   /**
-   * <p> The position of an asset in a rack measured in rack units. </p>
+   * The position of an asset in a rack measured in rack units.
+   *
    * @public
    */
   RackElevation?: number | undefined;
 }
 
 /**
- * <p>The capacity for each instance type.</p>
+ * The capacity for each instance type.
+ *
  * @public
  */
 export interface AssetInstanceTypeCapacity {
   /**
-   * <p>The type of instance.</p>
+   * The type of instance.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The number of each instance type.</p>
+   * The number of each instance type.
+   *
    * @public
    */
   Count: number | undefined;
 }
 
 /**
- * <p> Information about compute hardware assets. </p>
+ * Information about compute hardware assets.
+ *
  * @public
  */
 export interface ComputeAttributes {
   /**
-   * <p> The host ID of the Dedicated Host on the asset. </p>
+   * The host ID of the Dedicated Host on the asset.
+   *
    * @public
    */
   HostId?: string | undefined;
 
   /**
-   * <p>The state.</p>
-   *          <ul>
-   *             <li>
-   *                <p>ACTIVE - The asset is available and can provide capacity for new compute
-   *           resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new
-   *           compute resources. Existing compute resources on the asset are not affected.</p>
-   *             </li>
-   *             <li>
-   *                <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute
-   *           resources is reduced. Amazon Web Services sends notifications for resources that must be stopped before
-   *           the asset can be replaced.</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTALLING - The asset is being installed and can't yet provide capacity for new compute
-   *           resources.</p>
-   *             </li>
-   *          </ul>
+   * The state.
+   *
+   * - ACTIVE - The asset is available and can provide capacity for new compute resources.
+   * - ISOLATED - The asset is undergoing maintenance and can't provide capacity for new compute resources. Existing compute resources on the asset are not affected.
+   * - RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute resources is reduced. Amazon Web Services sends notifications for resources that must be stopped before the asset can be replaced.
+   * - INSTALLING - The asset is being installed and can't yet provide capacity for new compute resources.
+   *
    * @public
    */
   State?: ComputeAssetState | undefined;
 
   /**
-   * <p>A list of the names of instance families that are currently associated with a given
-   *       asset.</p>
+   * A list of the names of instance families that are currently associated with a given asset.
+   *
    * @public
    */
   InstanceFamilies?: string[] | undefined;
 
   /**
-   * <p>The instance type capacities configured for this asset. This can be changed through a
-   *       capacity task.</p>
+   * The instance type capacities configured for this asset. This can be changed through a capacity task.
+   *
    * @public
    */
   InstanceTypeCapacities?: AssetInstanceTypeCapacity[] | undefined;
 
   /**
-   * <p>The maximum number of vCPUs possible for the specified asset.</p>
+   * The maximum number of vCPUs possible for the specified asset.
+   *
    * @public
    */
   MaxVcpus?: number | undefined;
 }
 
 /**
- * <p> Information about hardware assets. </p>
+ * Information about hardware assets.
+ *
  * @public
  */
 export interface AssetInfo {
   /**
-   * <p> The ID of the asset. An Outpost asset can be a single server within an Outposts rack or
-   *       an Outposts server configuration.</p>
+   * The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p> The rack ID of the asset. </p>
+   * The rack ID of the asset.
+   *
    * @public
    */
   RackId?: string | undefined;
 
   /**
-   * <p> The type of the asset. </p>
+   * The type of the asset.
+   *
    * @public
    */
   AssetType?: AssetType | undefined;
 
   /**
-   * <p> Information about compute hardware assets. </p>
+   * Information about compute hardware assets.
+   *
    * @public
    */
   ComputeAttributes?: ComputeAttributes | undefined;
 
   /**
-   * <p> The position of an asset in a rack. </p>
+   * The position of an asset in a rack.
+   *
    * @public
    */
   AssetLocation?: AssetLocation | undefined;
 }
 
 /**
- * <p>An Amazon EC2 instance.</p>
+ * An Amazon EC2 instance.
+ *
  * @public
  */
 export interface AssetInstance {
   /**
-   * <p>The ID of the instance.</p>
+   * The ID of the instance.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The type of instance.</p>
+   * The type of instance.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an
-   *       Outposts server configuration.</p>
+   * The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account.</p>
+   * The ID of the Amazon Web Services account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service name of the instance.</p>
+   * The Amazon Web Services service name of the instance.
+   *
    * @public
    */
   AwsServiceName?: AWSServiceName | undefined;
 }
 
 /**
- * <p>A running Amazon EC2 instance that can be stopped to free up capacity needed to run the
- *       capacity task.</p>
+ * A running Amazon EC2 instance that can be stopped to free up capacity needed to run the capacity task.
+ *
  * @public
  */
 export interface BlockingInstance {
   /**
-   * <p>The ID of the blocking instance.</p>
+   * The ID of the blocking instance.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account.</p>
+   * The ID of the Amazon Web Services account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service name that owns the specified blocking instance.</p>
+   * The Amazon Web Services service name that owns the specified blocking instance.
+   *
    * @public
    */
   AwsServiceName?: AWSServiceName | undefined;
@@ -312,13 +331,15 @@ export interface BlockingInstance {
  */
 export interface CancelCapacityTaskInput {
   /**
-   * <p>ID of the capacity task that you want to cancel.</p>
+   * ID of the capacity task that you want to cancel.
+   *
    * @public
    */
   CapacityTaskId: string | undefined;
 
   /**
-   * <p>ID or ARN of the Outpost associated with the capacity task that you want to cancel.</p>
+   * ID or ARN of the Outpost associated with the capacity task that you want to cancel.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
@@ -334,7 +355,8 @@ export interface CancelCapacityTaskOutput {}
  */
 export interface CancelOrderInput {
   /**
-   * <p> The ID of the order. </p>
+   * The ID of the order.
+   *
    * @public
    */
   OrderId: string | undefined;
@@ -346,266 +368,301 @@ export interface CancelOrderInput {
 export interface CancelOrderOutput {}
 
 /**
- * <p>A capacity requirement for a quote. Specifies the type of capacity, the unit, and the
- *       quantity.</p>
+ * A capacity requirement for a quote. Specifies the type of capacity, the unit, and the quantity.
+ *
  * @public
  */
 export interface QuoteCapacity {
   /**
-   * <p>The type of capacity. Valid values are <code>EC2</code>, <code>EBS</code>, and
-   *       <code>S3</code>.</p>
+   * The type of capacity. Valid values are `EC2`, `EBS`, and `S3`.
+   *
    * @public
    */
   QuoteCapacityType?: QuoteCapacityType | undefined;
 
   /**
-   * <p>The unit of measurement for the capacity. For Amazon EC2, this is the instance type (for
-   *       example, <code>c5.24xlarge</code>). For Amazon EBS and Amazon S3, this is the storage unit (for
-   *       example, <code>TiB</code> for tebibytes).</p>
+   * The unit of measurement for the capacity. For Amazon EC2, this is the instance type (for example, `c5.24xlarge`). For Amazon EBS and Amazon S3, this is the storage unit (for example, `TiB` for tebibytes).
+   *
    * @public
    */
   Unit?: string | undefined;
 
   /**
-   * <p>The quantity of the specified capacity unit. For Amazon EC2, this is the number of
-   *       additional instances to add to the Outpost. For Amazon EBS and Amazon S3, this is the total
-   *       desired end-state capacity of the Outpost.</p>
+   * The quantity of the specified capacity unit. For Amazon EC2, this is the number of additional instances to add to the Outpost. For Amazon EBS and Amazon S3, this is the total desired end-state capacity of the Outpost.
+   *
    * @public
    */
   Quantity?: number | undefined;
 }
 
 /**
- * <p>A summary of the capacity changes for a quote option.</p>
+ * A summary of the capacity changes for a quote option.
+ *
  * @public
  */
 export interface CapacitySummary {
   /**
-   * <p>The existing capacities on the Outpost before the quote is fulfilled.</p>
+   * The existing capacities on the Outpost before the quote is fulfilled.
+   *
    * @public
    */
   ExistingCapacities?: QuoteCapacity[] | undefined;
 
   /**
-   * <p>The final capacities on the Outpost after the quote is fulfilled.</p>
+   * The final capacities on the Outpost after the quote is fulfilled.
+   *
    * @public
    */
   FinalCapacities?: QuoteCapacity[] | undefined;
 
   /**
-   * <p>The change in capacity between the existing and final state.</p>
+   * The change in capacity between the existing and final state.
+   *
    * @public
    */
   CapacityChange?: QuoteCapacity[] | undefined;
 }
 
 /**
- * <p>The capacity tasks that failed.</p>
+ * The capacity tasks that failed.
+ *
  * @public
  */
 export interface CapacityTaskFailure {
   /**
-   * <p>The reason that the specified capacity task failed.</p>
+   * The reason that the specified capacity task failed.
+   *
    * @public
    */
   Reason: string | undefined;
 
   /**
-   * <p>The type of failure.</p>
+   * The type of failure.
+   *
    * @public
    */
   Type?: CapacityTaskFailureType | undefined;
 }
 
 /**
- * <p>The summary of the capacity task.</p>
+ * The summary of the capacity task.
+ *
  * @public
  */
 export interface CapacityTaskSummary {
   /**
-   * <p>The ID of the specified capacity task.</p>
+   * The ID of the specified capacity task.
+   *
    * @public
    */
   CapacityTaskId?: string | undefined;
 
   /**
-   * <p>The ID of the Outpost associated with the specified capacity task.</p>
+   * The ID of the Outpost associated with the specified capacity task.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Outposts order of the host associated with the capacity task.</p>
+   * The ID of the Amazon Web Services Outposts order of the host associated with the capacity task.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an
-   *       Outposts server configuration.</p>
+   * The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p>The status of the capacity task.</p>
+   * The status of the capacity task.
+   *
    * @public
    */
   CapacityTaskStatus?: CapacityTaskStatus | undefined;
 
   /**
-   * <p>The date that the specified capacity task was created.</p>
+   * The date that the specified capacity task was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The date that the specified capacity task successfully ran.</p>
+   * The date that the specified capacity task successfully ran.
+   *
    * @public
    */
   CompletionDate?: Date | undefined;
 
   /**
-   * <p>The date that the specified capacity was last modified.</p>
+   * The date that the specified capacity was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 }
 
 /**
- * <p> Information about EC2 capacity. </p>
+ * Information about EC2 capacity.
+ *
  * @public
  */
 export interface EC2Capacity {
   /**
-   * <p> The family of the EC2 capacity. </p>
+   * The family of the EC2 capacity.
+   *
    * @public
    */
   Family?: string | undefined;
 
   /**
-   * <p> The maximum size of the EC2 capacity. </p>
+   * The maximum size of the EC2 capacity.
+   *
    * @public
    */
   MaxSize?: string | undefined;
 
   /**
-   * <p> The quantity of the EC2 capacity. </p>
+   * The quantity of the EC2 capacity.
+   *
    * @public
    */
   Quantity?: string | undefined;
 }
 
 /**
- * <p> Information about a catalog item. </p>
+ * Information about a catalog item.
+ *
  * @public
  */
 export interface CatalogItem {
   /**
-   * <p> The ID of the catalog item. </p>
+   * The ID of the catalog item.
+   *
    * @public
    */
   CatalogItemId?: string | undefined;
 
   /**
-   * <p> The status of a catalog item. </p>
+   * The status of a catalog item.
+   *
    * @public
    */
   ItemStatus?: CatalogItemStatus | undefined;
 
   /**
-   * <p> Information about the EC2 capacity of an item. </p>
+   * Information about the EC2 capacity of an item.
+   *
    * @public
    */
   EC2Capacities?: EC2Capacity[] | undefined;
 
   /**
-   * <p> Information about the power draw of an item. </p>
+   * Information about the power draw of an item.
+   *
    * @public
    */
   PowerKva?: number | undefined;
 
   /**
-   * <p> The weight of the item in pounds. </p>
+   * The weight of the item in pounds.
+   *
    * @public
    */
   WeightLbs?: number | undefined;
 
   /**
-   * <p> The uplink speed this catalog item requires for the connection to the Region. </p>
+   * The uplink speed this catalog item requires for the connection to the Region.
+   *
    * @public
    */
   SupportedUplinkGbps?: number[] | undefined;
 
   /**
-   * <p> The supported storage options for the catalog item. </p>
+   * The supported storage options for the catalog item.
+   *
    * @public
    */
   SupportedStorage?: SupportedStorageEnum[] | undefined;
 
   /**
-   * <p>The rack scaling type supported by the catalog item. Valid values are
-   *       <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+   * The rack scaling type supported by the catalog item. Valid values are `SINGLE_RACK` and `MULTI_RACK`.
+   *
    * @public
    */
   RackScalingType?: RackScalingType | undefined;
 }
 
 /**
- * <p> Information about a connection. </p>
+ * Information about a connection.
+ *
  * @public
  */
 export interface ConnectionDetails {
   /**
-   * <p> The public key of the client. </p>
+   * The public key of the client.
+   *
    * @public
    */
   ClientPublicKey?: string | undefined;
 
   /**
-   * <p> The public key of the server. </p>
+   * The public key of the server.
+   *
    * @public
    */
   ServerPublicKey?: string | undefined;
 
   /**
-   * <p> The endpoint for the server. </p>
+   * The endpoint for the server.
+   *
    * @public
    */
   ServerEndpoint?: string | undefined;
 
   /**
-   * <p> The client tunnel address. </p>
+   * The client tunnel address.
+   *
    * @public
    */
   ClientTunnelAddress?: string | undefined;
 
   /**
-   * <p> The server tunnel address. </p>
+   * The server tunnel address.
+   *
    * @public
    */
   ServerTunnelAddress?: string | undefined;
 
   /**
-   * <p> The allowed IP addresses. </p>
+   * The allowed IP addresses.
+   *
    * @public
    */
   AllowedIps?: string[] | undefined;
 }
 
 /**
- * <p>Information about a line item request.</p>
+ * Information about a line item request.
+ *
  * @public
  */
 export interface LineItemRequest {
   /**
-   * <p>The ID of the catalog item.</p>
+   * The ID of the catalog item.
+   *
    * @public
    */
   CatalogItemId?: string | undefined;
 
   /**
-   * <p>The quantity of a line item request.</p>
+   * The quantity of a line item request.
+   *
    * @public
    */
   Quantity?: number | undefined;
@@ -616,231 +673,241 @@ export interface LineItemRequest {
  */
 export interface CreateOrderInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the quote to use for the order.</p>
+   * The ID of the quote to use for the order.
+   *
    * @public
    */
   QuoteIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the quote option to use for the order.</p>
+   * The ID of the quote option to use for the order.
+   *
    * @public
    */
   QuoteOptionIdentifier?: string | undefined;
 
   /**
-   * <p>The line items that make up the order.</p>
+   * The line items that make up the order.
+   *
    * @public
    */
   LineItems?: LineItemRequest[] | undefined;
 
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   PaymentOption: PaymentOption | undefined;
 
   /**
-   * <p>The payment terms.</p>
+   * The payment terms.
+   *
    * @public
    */
   PaymentTerm?: PaymentTerm | undefined;
 }
 
 /**
- * <p> Information about a line item asset. </p>
+ * Information about a line item asset.
+ *
  * @public
  */
 export interface LineItemAssetInformation {
   /**
-   * <p> The ID of the asset. An Outpost asset can be a single server within an Outposts rack or
-   *       an Outposts server configuration.</p>
+   * The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p> The MAC addresses of the asset. </p>
+   * The MAC addresses of the asset.
+   *
    * @public
    */
   MacAddressList?: string[] | undefined;
 }
 
 /**
- * <p> Information about a line item shipment. </p>
+ * Information about a line item shipment.
+ *
  * @public
  */
 export interface ShipmentInformation {
   /**
-   * <p> The tracking number of the shipment. </p>
+   * The tracking number of the shipment.
+   *
    * @public
    */
   ShipmentTrackingNumber?: string | undefined;
 
   /**
-   * <p> The carrier of the shipment. </p>
+   * The carrier of the shipment.
+   *
    * @public
    */
   ShipmentCarrier?: ShipmentCarrier | undefined;
 }
 
 /**
- * <p>Information about a line item.</p>
+ * Information about a line item.
+ *
  * @public
  */
 export interface LineItem {
   /**
-   * <p> The ID of the catalog item.</p>
+   * The ID of the catalog item.
+   *
    * @public
    */
   CatalogItemId?: string | undefined;
 
   /**
-   * <p>The ID of the line item.</p>
+   * The ID of the line item.
+   *
    * @public
    */
   LineItemId?: string | undefined;
 
   /**
-   * <p>The quantity of the line item.</p>
+   * The quantity of the line item.
+   *
    * @public
    */
   Quantity?: number | undefined;
 
   /**
-   * <p>The status of the line item.</p>
+   * The status of the line item.
+   *
    * @public
    */
   Status?: LineItemStatus | undefined;
 
   /**
-   * <p> Information about a line item shipment. </p>
+   * Information about a line item shipment.
+   *
    * @public
    */
   ShipmentInformation?: ShipmentInformation | undefined;
 
   /**
-   * <p> Information about assets. </p>
+   * Information about assets.
+   *
    * @public
    */
   AssetInformationList?: LineItemAssetInformation[] | undefined;
 
   /**
-   * <p>The ID of the previous line item.</p>
+   * The ID of the previous line item.
+   *
    * @public
    */
   PreviousLineItemId?: string | undefined;
 
   /**
-   * <p>The ID of the previous order.</p>
+   * The ID of the previous order.
+   *
    * @public
    */
   PreviousOrderId?: string | undefined;
 }
 
 /**
- * <p>Information about an order.</p>
+ * Information about an order.
+ *
  * @public
  */
 export interface Order {
   /**
-   * <p> The ID of the Outpost in the order. </p>
+   * The ID of the Outpost in the order.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>The ID of the quote associated with the order.</p>
+   * The ID of the quote associated with the order.
+   *
    * @public
    */
   QuoteIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the quote option associated with the order.</p>
+   * The ID of the quote option associated with the order.
+   *
    * @public
    */
   QuoteOptionIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the order.</p>
+   * The ID of the order.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The status of the order.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PREPARING</code> - Order is received and being prepared.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - Order is either being built or shipped. To get more
-   *           details, see the line item status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELIVERED</code> - Order was delivered to the Outpost site.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> - Order is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLED</code> - Order is cancelled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code> - Customer should contact support.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The following status are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,
-   *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
-   *          </note>
+   * The status of the order.
+   *
+   * - `PREPARING` - Order is received and being prepared.
+   * - `IN_PROGRESS` - Order is either being built or shipped. To get more details, see the line item status.
+   * - `DELIVERED` - Order was delivered to the Outpost site.
+   * - `COMPLETED` - Order is complete.
+   * - `CANCELLED` - Order is cancelled.
+   * - `ERROR` - Customer should contact support.
+   *
+   * > **Note:** The following status are deprecated: `RECEIVED`, `PENDING`, `PROCESSING`, `INSTALLING`, and `FULFILLED`.
+   *
    * @public
    */
   Status?: OrderStatus | undefined;
 
   /**
-   * <p>The line items for the order</p>
+   * The line items for the order
+   *
    * @public
    */
   LineItems?: LineItem[] | undefined;
 
   /**
-   * <p>The payment option for the order.</p>
+   * The payment option for the order.
+   *
    * @public
    */
   PaymentOption?: PaymentOption | undefined;
 
   /**
-   * <p>The submission date for the order.</p>
+   * The submission date for the order.
+   *
    * @public
    */
   OrderSubmissionDate?: Date | undefined;
 
   /**
-   * <p>The fulfillment date of the order.</p>
+   * The fulfillment date of the order.
+   *
    * @public
    */
   OrderFulfilledDate?: Date | undefined;
 
   /**
-   * <p>The payment term.</p>
+   * The payment term.
+   *
    * @public
    */
   PaymentTerm?: PaymentTerm | undefined;
 
   /**
-   * <p>The type of order.</p>
+   * The type of order.
+   *
    * @public
    */
   OrderType?: OrderType | undefined;
@@ -851,7 +918,8 @@ export interface Order {
  */
 export interface CreateOrderOutput {
   /**
-   * <p>Information about this order.</p>
+   * Information about this order.
+   *
    * @public
    */
   Order?: Order | undefined;
@@ -862,136 +930,155 @@ export interface CreateOrderOutput {
  */
 export interface CreateOutpostInput {
   /**
-   * <p>The name of the Outpost.</p>
+   * The name of the Outpost.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the Outpost.</p>
+   * The description of the Outpost.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
 
   /**
-   * <p>The Availability Zone.</p>
+   * The Availability Zone.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone.</p>
+   * The ID of the Availability Zone.
+   *
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>The tags to apply to the Outpost.</p>
+   * The tags to apply to the Outpost.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p> The type of hardware for this Outpost. </p>
+   * The type of hardware for this Outpost.
+   *
    * @public
    */
   SupportedHardwareType?: SupportedHardwareType | undefined;
 }
 
 /**
- * <p>Information about an Outpost.</p>
+ * Information about an Outpost.
+ *
  * @public
  */
 export interface Outpost {
   /**
-   * <p> The ID of the Outpost. </p>
+   * The ID of the Outpost.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the Outpost owner.</p>
+   * The Amazon Web Services account ID of the Outpost owner.
+   *
    * @public
    */
   OwnerId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * The Amazon Resource Name (ARN) of the Outpost.
+   *
    * @public
    */
   OutpostArn?: string | undefined;
 
   /**
-   * <p>The ID of the site.</p>
+   * The ID of the site.
+   *
    * @public
    */
   SiteId?: string | undefined;
 
   /**
-   * <p>The name of the Outpost.</p>
+   * The name of the Outpost.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the Outpost.</p>
+   * The description of the Outpost.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The life cycle status.</p>
+   * The life cycle status.
+   *
    * @public
    */
   LifeCycleStatus?: string | undefined;
 
   /**
-   * <p>The Availability Zone.</p>
+   * The Availability Zone.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone.</p>
+   * The ID of the Availability Zone.
+   *
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>The Outpost tags.</p>
+   * The Outpost tags.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the site.</p>
+   * The Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteArn?: string | undefined;
 
   /**
-   * <p> The hardware type. </p>
+   * The hardware type.
+   *
    * @public
    */
   SupportedHardwareType?: SupportedHardwareType | undefined;
 
   /**
-   * <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation
-   *       rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+   * The Outpost generation. Valid values are `GENERATION_1` for first-generation rack deployments and `GENERATION_2` for second-generation rack deployments.
+   *
    * @public
    */
   Generation?: OutpostGeneration | undefined;
 
   /**
-   * <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack
-   *       Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across
-   *       multiple racks.</p>
+   * The rack scaling type. Valid values are `SINGLE_RACK` for single-rack Outposts and `MULTI_RACK` for multi-rack Outposts that can expand across multiple racks.
+   *
    * @public
    */
   RackScalingType?: RackScalingType | undefined;
@@ -1002,35 +1089,36 @@ export interface Outpost {
  */
 export interface CreateOutpostOutput {
   /**
-   * <p>Information about an Outpost.</p>
+   * Information about an Outpost.
+   *
    * @public
    */
   Outpost?: Outpost | undefined;
 }
 
 /**
- * <p>Information about a VPC used for private connectivity, including its subnets and an
- *       associated VPC endpoint.</p>
+ * Information about a VPC used for private connectivity, including its subnets and an associated VPC endpoint.
+ *
  * @public
  */
 export interface VpcInformation {
   /**
-   * <p>The ID of the VPC used for private connectivity.</p>
+   * The ID of the VPC used for private connectivity.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The IDs of the subnets associated with the VPC endpoint. Currently, only one subnet is
-   *       supported.</p>
+   * The IDs of the subnets associated with the VPC endpoint. Currently, only one subnet is supported.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The ID of the interface VPC endpoint for the Amazon Web Services Outposts service. When specified, the endpoint
-   *       must be in the <code>available</code> state and the specified subnets must be associated with
-   *       it.</p>
+   * The ID of the interface VPC endpoint for the Amazon Web Services Outposts service. When specified, the endpoint must be in the `available` state and the specified subnets must be associated with it.
+   *
    * @public
    */
   VpcEndpointId?: string | undefined;
@@ -1041,49 +1129,50 @@ export interface VpcInformation {
  */
 export interface CreatePrivateConnectivityConfigInput {
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostId: string | undefined;
 
   /**
-   * <p>Information about the VPC used for private connectivity, including the VPC, its subnets,
-   *       and an associated VPC endpoint. You can specify at most one entry.</p>
+   * Information about the VPC used for private connectivity, including the VPC, its subnets, and an associated VPC endpoint. You can specify at most one entry.
+   *
    * @public
    */
   VpcInformationList: VpcInformation[] | undefined;
 }
 
 /**
- * <p>Information about the private connectivity configuration for an Outpost.</p>
+ * Information about the private connectivity configuration for an Outpost.
+ *
  * @public
  */
 export interface PrivateConnectivityConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked role that Amazon Web Services Outposts creates and uses to
-   *       provision and attach the network interfaces for private connectivity in your VPC. The role's
-   *       permissions are scoped to the specific Outpost and VPC.</p>
+   * The Amazon Resource Name (ARN) of the service-linked role that Amazon Web Services Outposts creates and uses to provision and attach the network interfaces for private connectivity in your VPC. The role's permissions are scoped to the specific Outpost and VPC.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The status of private connectivity for the Outpost. Valid values are <code>ENABLED</code>
-   *       and <code>DISABLED</code>.</p>
+   * The status of private connectivity for the Outpost. Valid values are `ENABLED` and `DISABLED`.
+   *
    * @public
    */
   PrivateConnectivityStatus?: PrivateConnectivityStatus | undefined;
 
   /**
-   * <p>Information about the VPC used for private connectivity.</p>
+   * Information about the VPC used for private connectivity.
+   *
    * @public
    */
   VpcInformationList?: VpcInformation[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the provisioning role in your account that Amazon Web Services Outposts uses
-   *       to establish the service link connection during Outpost installation. This field is present
-   *       only when VPC endpoint-based provisioning is configured.</p>
+   * The Amazon Resource Name (ARN) of the provisioning role in your account that Amazon Web Services Outposts uses to establish the service link connection during Outpost installation. This field is present only when VPC endpoint-based provisioning is configured.
+   *
    * @public
    */
   ProvisioningRoleArn?: string | undefined;
@@ -1094,33 +1183,36 @@ export interface PrivateConnectivityConfig {
  */
 export interface CreatePrivateConnectivityConfigOutput {
   /**
-   * <p>The private connectivity configuration for the Outpost.</p>
+   * The private connectivity configuration for the Outpost.
+   *
    * @public
    */
   PrivateConnectivityConfig?: PrivateConnectivityConfig | undefined;
 
   /**
-   * <p>The ID of the Outpost.</p>
+   * The ID of the Outpost.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 }
 
 /**
- * <p>A physical constraint for a quote.</p>
+ * A physical constraint for a quote.
+ *
  * @public
  */
 export interface QuoteConstraint {
   /**
-   * <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>,
-   *       <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and
-   *       <code>RACK_SPACE_CONSTRAINED</code>.</p>
+   * The type of constraint. Valid values are `RACK_MAXIMUM`, `RACK_MAX_POWER_KVA`, `RACK_MAX_WEIGHT_LBS`, and `RACK_SPACE_CONSTRAINED`.
+   *
    * @public
    */
   QuoteConstraintType?: QuoteConstraintType | undefined;
 
   /**
-   * <p>The value of the constraint.</p>
+   * The value of the constraint.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -1131,541 +1223,492 @@ export interface QuoteConstraint {
  */
 export interface CreateQuoteInput {
   /**
-   * <p>The ID or ARN of the Outpost to associate with the quote. If not specified, the quote is
-   *       created without an Outpost association.</p>
+   * The ID or ARN of the Outpost to associate with the quote. If not specified, the quote is created without an Outpost association.
+   *
    * @public
    */
   OutpostIdentifier?: string | undefined;
 
   /**
-   * <p>The country code for the Outpost site location.</p>
+   * The country code for the Outpost site location.
+   *
    * @public
    */
   CountryCode: string | undefined;
 
   /**
-   * <p>The capacity requirements for the quote. Each entry specifies a capacity type (such as
-   *       Amazon EC2), the unit, and the quantity. For Amazon EC2, the quantity is the number of additional
-   *       instances to add to the Outpost. For Amazon EBS and Amazon S3, the quantity is the total desired
-   *       end-state capacity of the Outpost.</p>
+   * The capacity requirements for the quote. Each entry specifies a capacity type (such as Amazon EC2), the unit, and the quantity. For Amazon EC2, the quantity is the number of additional instances to add to the Outpost. For Amazon EBS and Amazon S3, the quantity is the total desired end-state capacity of the Outpost.
+   *
    * @public
    */
   RequestedCapacities: QuoteCapacity[] | undefined;
 
   /**
-   * <p>The physical constraints for the quote, such as maximum number of racks, maximum power
-   *       draw per rack, or maximum weight per rack.</p>
+   * The physical constraints for the quote, such as maximum number of racks, maximum power draw per rack, or maximum weight per rack.
+   *
    * @public
    */
   RequestedConstraints?: QuoteConstraint[] | undefined;
 
   /**
-   * <p>The payment options to include in the quote pricing. If not specified, all available
-   *       payment options are returned.</p>
+   * The payment options to include in the quote pricing. If not specified, all available payment options are returned.
+   *
    * @public
    */
   RequestedPaymentOptions?: PaymentOption[] | undefined;
 
   /**
-   * <p>The payment terms to include in the quote pricing. If not specified, all available
-   *       payment terms are returned.</p>
+   * The payment terms to include in the quote pricing. If not specified, all available payment terms are returned.
+   *
    * @public
    */
   RequestedPaymentTerms?: PaymentTerm[] | undefined;
 
   /**
-   * <p>A description for the quote.</p>
+   * A description for the quote.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>A requirement that must be met before an order can be submitted for a quote.</p>
+ * A requirement that must be met before an order can be submitted for a quote.
+ *
  * @public
  */
 export interface OrderingRequirement {
   /**
-   * <p>A message about the ordering requirement.</p>
+   * A message about the ordering requirement.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The type of ordering requirement. Indicates which check failed or passed.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>OUTPOST_ACTIVE_CHECK_ERROR</code> - The Outpost must be in
-   *           an active state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MAXIMUM_ALLOWED_ORDERS_CHECK_ERROR</code> - The maximum
-   *           number of allowed orders has been reached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VALID_ZIP_CODE_CHECK_ERROR</code> - The site address must
-   *           have a valid zip code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RACK_PHYSICAL_PROPERTIES_CHECK_ERROR</code> - The rack
-   *           physical properties do not meet requirements.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPERATING_ADDRESS_EXISTENCE_CHECK_ERROR</code> - The site
-   *           must have an operating address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SHIPPING_ADDRESS_EXISTENCE_CHECK_ERROR</code> - The site
-   *           must have a shipping address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNTRY_CODE_MISMATCH_CHECK_ERROR</code> - The country
-   *           code on the quote does not match the Outpost site country.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTPOST_GENERATION_MISMATCH_ERROR</code> - The Outpost generation
-   *           does not match the requested configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTPOST_ID_MISSING_ON_QUOTE_ERROR</code> - The quote must
-   *           be associated with an Outpost before submitting an order.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENTERPRISE_SUPPORT_ERROR</code> - Enterprise Support is
-   *           required.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SHIPPING_ADDRESS_MISSING_CONTACT_NAME_ERROR</code> - The
-   *           shipping address must have a contact name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SHIPPING_ADDRESS_MISSING_CONTACT_NUMBER_ERROR</code> - The
-   *           shipping address must have a contact phone number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SHIPPING_ADDRESS_MISSING_CONTACT_INFO_ERROR</code> - The
-   *           shipping address must have contact information.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTPOST_STATE_CHANGED_ERROR</code> - The Outpost state has
-   *           changed since the quote was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTPOST_NOT_FOUND_ERROR</code> - The Outpost associated
-   *           with the quote was not found.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTPOST_RENEWAL_REQUIRED_ERROR</code> - The Outpost
-   *           requires a renewal before a new order can be submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNSUPPORTED</code> - The requirement type is not
-   *           recognized.</p>
-   *             </li>
-   *          </ul>
+   * The type of ordering requirement. Indicates which check failed or passed.
+   *
+   * - `OUTPOST_ACTIVE_CHECK_ERROR` - The Outpost must be in an active state.
+   * - `MAXIMUM_ALLOWED_ORDERS_CHECK_ERROR` - The maximum number of allowed orders has been reached.
+   * - `VALID_ZIP_CODE_CHECK_ERROR` - The site address must have a valid zip code.
+   * - `RACK_PHYSICAL_PROPERTIES_CHECK_ERROR` - The rack physical properties do not meet requirements.
+   * - `OPERATING_ADDRESS_EXISTENCE_CHECK_ERROR` - The site must have an operating address.
+   * - `SHIPPING_ADDRESS_EXISTENCE_CHECK_ERROR` - The site must have a shipping address.
+   * - `COUNTRY_CODE_MISMATCH_CHECK_ERROR` - The country code on the quote does not match the Outpost site country.
+   * - `OUTPOST_GENERATION_MISMATCH_ERROR` - The Outpost generation does not match the requested configuration.
+   * - `OUTPOST_ID_MISSING_ON_QUOTE_ERROR` - The quote must be associated with an Outpost before submitting an order.
+   * - `ENTERPRISE_SUPPORT_ERROR` - Enterprise Support is required.
+   * - `SHIPPING_ADDRESS_MISSING_CONTACT_NAME_ERROR` - The shipping address must have a contact name.
+   * - `SHIPPING_ADDRESS_MISSING_CONTACT_NUMBER_ERROR` - The shipping address must have a contact phone number.
+   * - `SHIPPING_ADDRESS_MISSING_CONTACT_INFO_ERROR` - The shipping address must have contact information.
+   * - `OUTPOST_STATE_CHANGED_ERROR` - The Outpost state has changed since the quote was created.
+   * - `OUTPOST_NOT_FOUND_ERROR` - The Outpost associated with the quote was not found.
+   * - `OUTPOST_RENEWAL_REQUIRED_ERROR` - The Outpost requires a renewal before a new order can be submitted.
+   * - `UNSUPPORTED` - The requirement type is not recognized.
+   *
    * @public
    */
   OrderingRequirementType?: OrderingRequirementType | undefined;
 
   /**
-   * <p>The status of the ordering requirement. Valid values are <code>PASS</code>,
-   *       <code>FAIL</code>, and <code>EXEMPT</code>.</p>
+   * The status of the ordering requirement. Valid values are `PASS`, `FAIL`, and `EXEMPT`.
+   *
    * @public
    */
   Status?: OrderingRequirementStatus | undefined;
 }
 
 /**
- * <p>The pricing details for a subscription.</p>
+ * The pricing details for a subscription.
+ *
  * @public
  */
 export interface SubscriptionPricingDetails {
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   PaymentOption?: PaymentOption | undefined;
 
   /**
-   * <p>The payment term.</p>
+   * The payment term.
+   *
    * @public
    */
   PaymentTerm?: PaymentTerm | undefined;
 
   /**
-   * <p>The upfront price.</p>
+   * The upfront price.
+   *
    * @public
    */
   UpfrontPrice?: number | undefined;
 
   /**
-   * <p>The monthly recurring price.</p>
+   * The monthly recurring price.
+   *
    * @public
    */
   MonthlyRecurringPrice?: number | undefined;
 
   /**
-   * <p>The currency of the price. Currently only <code>USD</code> is supported.</p>
+   * The currency of the price. Currently only `USD` is supported.
+   *
    * @public
    */
   Currency?: CurrencyCode | undefined;
 }
 
 /**
- * <p>A pricing option for the specified Outpost.</p>
+ * A pricing option for the specified Outpost.
+ *
  * @public
  */
 export interface PricingOption {
   /**
-   * <p>The type of pricing model.</p>
+   * The type of pricing model.
+   *
    * @public
    */
   PricingType?: QuotePricingType | undefined;
 
   /**
-   * <p>The subscription pricing details for this pricing option.</p>
+   * The subscription pricing details for this pricing option.
+   *
    * @public
    */
   SubscriptionPricingDetails?: SubscriptionPricingDetails | undefined;
 }
 
 /**
- * <p>The physical specification details for a rack in a quote option.</p>
+ * The physical specification details for a rack in a quote option.
+ *
  * @public
  */
 export interface RackSpecificationDetails {
   /**
-   * <p>The ID of the rack.</p>
+   * The ID of the rack.
+   *
    * @public
    */
   RackId?: string | undefined;
 
   /**
-   * <p>The use of the rack. Valid values are <code>COMPUTE</code> and
-   *       <code>NETWORKING</code>.</p>
+   * The use of the rack. Valid values are `COMPUTE` and `NETWORKING`.
+   *
    * @public
    */
   RackUse?: QuoteRackUseType | undefined;
 
   /**
-   * <p>The maximum power draw of the rack in kVA.</p>
+   * The maximum power draw of the rack in kVA.
+   *
    * @public
    */
   RackPowerDrawKva?: number | undefined;
 
   /**
-   * <p>The weight of the rack in pounds.</p>
+   * The weight of the rack in pounds.
+   *
    * @public
    */
   RackWeightLbs?: number | undefined;
 
   /**
-   * <p>The height of the rack in inches.</p>
+   * The height of the rack in inches.
+   *
    * @public
    */
   RackHeightInches?: number | undefined;
 
   /**
-   * <p>The width of the rack in inches.</p>
+   * The width of the rack in inches.
+   *
    * @public
    */
   RackWidthInches?: number | undefined;
 
   /**
-   * <p>The depth of the rack in inches.</p>
+   * The depth of the rack in inches.
+   *
    * @public
    */
   RackDepthInches?: number | undefined;
 
   /**
-   * <p>The rack unit height.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HEIGHT_42U</code> - 42 rack units.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HEIGHT_2U</code> - 2 rack units.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HEIGHT_1U</code> - 1 rack unit.</p>
-   *             </li>
-   *          </ul>
+   * The rack unit height.
+   *
+   * - `HEIGHT_42U` - 42 rack units.
+   * - `HEIGHT_2U` - 2 rack units.
+   * - `HEIGHT_1U` - 1 rack unit.
+   *
    * @public
    */
   RackUnitHeight?: RackUnitHeight | undefined;
 
   /**
-   * <p>The Amazon EC2 capacities for the rack.</p>
+   * The Amazon EC2 capacities for the rack.
+   *
    * @public
    */
   EC2Capacities?: EC2Capacity[] | undefined;
 }
 
 /**
- * <p>The physical specification details for a server in a quote option.</p>
+ * The physical specification details for a server in a quote option.
+ *
  * @public
  */
 export interface ServerSpecificationDetails {
   /**
-   * <p>The maximum power draw of the server in kVA.</p>
+   * The maximum power draw of the server in kVA.
+   *
    * @public
    */
   ServerPowerDrawKva?: number | undefined;
 
   /**
-   * <p>The weight of the server in pounds.</p>
+   * The weight of the server in pounds.
+   *
    * @public
    */
   ServerWeightLbs?: number | undefined;
 
   /**
-   * <p>The height of the server in inches.</p>
+   * The height of the server in inches.
+   *
    * @public
    */
   ServerHeightInches?: number | undefined;
 
   /**
-   * <p>The width of the server in inches.</p>
+   * The width of the server in inches.
+   *
    * @public
    */
   ServerWidthInches?: number | undefined;
 
   /**
-   * <p>The depth of the server in inches.</p>
+   * The depth of the server in inches.
+   *
    * @public
    */
   ServerDepthInches?: number | undefined;
 
   /**
-   * <p>The rack unit height of the server.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HEIGHT_2U</code> - 2 rack units.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HEIGHT_1U</code> - 1 rack unit.</p>
-   *             </li>
-   *          </ul>
+   * The rack unit height of the server.
+   *
+   * - `HEIGHT_2U` - 2 rack units.
+   * - `HEIGHT_1U` - 1 rack unit.
+   *
    * @public
    */
   RackUnitHeight?: RackUnitHeight | undefined;
 
   /**
-   * <p>The Amazon EC2 capacities for the server.</p>
+   * The Amazon EC2 capacities for the server.
+   *
    * @public
    */
   EC2Capacities?: EC2Capacity[] | undefined;
 }
 
 /**
- * <p>A physical specification for a quote option. Describes the rack or server configuration
- *       that would be deployed.</p>
+ * A physical specification for a quote option. Describes the rack or server configuration that would be deployed.
+ *
  * @public
  */
 export interface QuoteSpecification {
   /**
-   * <p>The type of specification. Valid values are <code>NEW_RACK</code>,
-   *       <code>UPDATED_RACK</code>, <code>EXISTING_RACK</code>, and <code>SERVER</code>.</p>
+   * The type of specification. Valid values are `NEW_RACK`, `UPDATED_RACK`, `EXISTING_RACK`, and `SERVER`.
+   *
    * @public
    */
   QuoteSpecificationType?: QuoteSpecificationType | undefined;
 
   /**
-   * <p>The existing rack specification details, if the specification type is
-   *       <code>UPDATED_RACK</code> or <code>EXISTING_RACK</code>.</p>
+   * The existing rack specification details, if the specification type is `UPDATED_RACK` or `EXISTING_RACK`.
+   *
    * @public
    */
   ExistingRackSpecificationDetails?: RackSpecificationDetails | undefined;
 
   /**
-   * <p>The final rack specification details after the quote is fulfilled.</p>
+   * The final rack specification details after the quote is fulfilled.
+   *
    * @public
    */
   FinalRackSpecificationDetails?: RackSpecificationDetails | undefined;
 
   /**
-   * <p>The server specification details, if the specification type is
-   *       <code>SERVER</code>.</p>
+   * The server specification details, if the specification type is `SERVER`.
+   *
    * @public
    */
   ServerSpecificationDetails?: ServerSpecificationDetails | undefined;
 }
 
 /**
- * <p>A configuration and pricing option for a quote. Each option includes the capacity
- *       breakdown, physical specifications for the racks or servers, and pricing details.</p>
+ * A configuration and pricing option for a quote. Each option includes the capacity breakdown, physical specifications for the racks or servers, and pricing details.
+ *
  * @public
  */
 export interface QuoteOption {
   /**
-   * <p>The ID of the quote option.</p>
+   * The ID of the quote option.
+   *
    * @public
    */
   QuoteOptionIdentifier?: string | undefined;
 
   /**
-   * <p>The capacities included in this quote option.</p>
+   * The capacities included in this quote option.
+   *
    * @public
    */
   Capacities?: QuoteCapacity[] | undefined;
 
   /**
-   * <p>A summary of the existing, final, and changed capacity for this quote option.</p>
+   * A summary of the existing, final, and changed capacity for this quote option.
+   *
    * @public
    */
   CapacitySummary?: CapacitySummary | undefined;
 
   /**
-   * <p>The physical specifications for the racks or servers in this quote option.</p>
+   * The physical specifications for the racks or servers in this quote option.
+   *
    * @public
    */
   Specifications?: QuoteSpecification[] | undefined;
 
   /**
-   * <p>The pricing options for this quote option.</p>
+   * The pricing options for this quote option.
+   *
    * @public
    */
   PricingOptions?: PricingOption[] | undefined;
 }
 
 /**
- * <p>Information about a quote for an Outpost. A quote provides pricing and configuration
- *       options based on the requested capacity.</p>
+ * Information about a quote for an Outpost. A quote provides pricing and configuration options based on the requested capacity.
+ *
  * @public
  */
 export interface Quote {
   /**
-   * <p>The ID of the quote.</p>
+   * The ID of the quote.
+   *
    * @public
    */
   QuoteId?: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the quote.</p>
+   * The ID of the account that owns the quote.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The status of the quote.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATED</code> - The quote has been created and is
-   *           available for review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ORDER_SUBMITTED</code> - An order has been submitted for
-   *           the quote.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXPIRED</code> - The quote has expired and can no longer
-   *           be used to submit an order.</p>
-   *             </li>
-   *          </ul>
+   * The status of the quote.
+   *
+   * - `CREATED` - The quote has been created and is available for review.
+   * - `ORDER_SUBMITTED` - An order has been submitted for the quote.
+   * - `EXPIRED` - The quote has expired and can no longer be used to submit an order.
+   *
    * @public
    */
   QuoteStatus?: QuoteStatus | undefined;
 
   /**
-   * <p>A message about the status of the quote.</p>
+   * A message about the status of the quote.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The ARN of the Outpost associated with the quote.</p>
+   * The ARN of the Outpost associated with the quote.
+   *
    * @public
    */
   OutpostArn?: string | undefined;
 
   /**
-   * <p>The country code for the Outpost site location.</p>
+   * The country code for the Outpost site location.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p>The capacity requirements specified in the quote request.</p>
+   * The capacity requirements specified in the quote request.
+   *
    * @public
    */
   RequestedCapacities?: QuoteCapacity[] | undefined;
 
   /**
-   * <p>The physical constraints specified in the quote request.</p>
+   * The physical constraints specified in the quote request.
+   *
    * @public
    */
   RequestedConstraints?: QuoteConstraint[] | undefined;
 
   /**
-   * <p>The payment options specified in the quote request.</p>
+   * The payment options specified in the quote request.
+   *
    * @public
    */
   RequestedPaymentOptions?: PaymentOption[] | undefined;
 
   /**
-   * <p>The payment terms specified in the quote request.</p>
+   * The payment terms specified in the quote request.
+   *
    * @public
    */
   RequestedPaymentTerms?: PaymentTerm[] | undefined;
 
   /**
-   * <p>The configuration and pricing options for the quote. Each option includes capacity
-   *       details, physical specifications, and pricing information.</p>
+   * The configuration and pricing options for the quote. Each option includes capacity details, physical specifications, and pricing information.
+   *
    * @public
    */
   QuoteOptions?: QuoteOption[] | undefined;
 
   /**
-   * <p>The requirements that must be met before an order can be submitted for the quote.</p>
+   * The requirements that must be met before an order can be submitted for the quote.
+   *
    * @public
    */
   OrderingRequirements?: OrderingRequirement[] | undefined;
 
   /**
-   * <p>The ID of the order submitted for the quote.</p>
+   * The ID of the order submitted for the quote.
+   *
    * @public
    */
   SubmittedOrderId?: string | undefined;
 
   /**
-   * <p>The date the quote was created.</p>
+   * The date the quote was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date the quote expires.</p>
+   * The date the quote expires.
+   *
    * @public
    */
   ExpirationDate?: Date | undefined;
 
   /**
-   * <p>The description of the quote.</p>
+   * The description of the quote.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -1676,7 +1719,8 @@ export interface Quote {
  */
 export interface CreateQuoteOutput {
   /**
-   * <p>Information about the quote.</p>
+   * Information about the quote.
+   *
    * @public
    */
   Quote?: Quote | undefined;
@@ -1687,26 +1731,29 @@ export interface CreateQuoteOutput {
  */
 export interface CreateRenewalInput {
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   PaymentOption: PaymentOption | undefined;
 
   /**
-   * <p>The payment term.</p>
+   * The payment term.
+   *
    * @public
    */
   PaymentTerm: PaymentTerm | undefined;
 
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -1717,107 +1764,113 @@ export interface CreateRenewalInput {
  */
 export interface CreateRenewalOutput {
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   PaymentOption?: PaymentOption | undefined;
 
   /**
-   * <p>The payment term.</p>
+   * The payment term.
+   *
    * @public
    */
   PaymentTerm?: PaymentTerm | undefined;
 
   /**
-   * <p>The ID of the Outpost.</p>
+   * The ID of the Outpost.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>The upfront price of the renewal.</p>
+   * The upfront price of the renewal.
+   *
    * @public
    */
   UpfrontPrice?: number | undefined;
 
   /**
-   * <p>The monthly recurring price of the renewal.</p>
+   * The monthly recurring price of the renewal.
+   *
    * @public
    */
   MonthlyRecurringPrice?: number | undefined;
 
   /**
-   * <p>The currency of the renewal price.</p>
+   * The currency of the renewal price.
+   *
    * @public
    */
   Currency?: CurrencyCode | undefined;
 }
 
 /**
- * <p> Information about the physical and logistical details for racks at sites.
- *       For more information
- *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
- *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.
- *         </p>
+ * Information about the physical and logistical details for racks at sites. For more information about hardware requirements for racks, see [Network readiness checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist) in the Amazon Web Services Outposts User Guide.
+ *
  * @public
  */
 export interface RackPhysicalProperties {
   /**
-   * <p>The power draw available at the hardware placement position for the rack. </p>
+   * The power draw available at the hardware placement position for the rack.
+   *
    * @public
    */
   PowerDrawKva?: PowerDrawKva | undefined;
 
   /**
-   * <p>The power option that you can provide for hardware.</p>
+   * The power option that you can provide for hardware.
+   *
    * @public
    */
   PowerPhase?: PowerPhase | undefined;
 
   /**
-   * <p>The power connector for the hardware. </p>
+   * The power connector for the hardware.
+   *
    * @public
    */
   PowerConnector?: PowerConnector | undefined;
 
   /**
-   * <p>The position of the power feed.</p>
+   * The position of the power feed.
+   *
    * @public
    */
   PowerFeedDrop?: PowerFeedDrop | undefined;
 
   /**
-   * <p>The uplink speed the rack supports for the connection to the Region. </p>
+   * The uplink speed the rack supports for the connection to the Region.
+   *
    * @public
    */
   UplinkGbps?: UplinkGbps | undefined;
 
   /**
-   * <p>The number of uplinks each Outpost network device.</p>
+   * The number of uplinks each Outpost network device.
+   *
    * @public
    */
   UplinkCount?: UplinkCount | undefined;
 
   /**
-   * <p>The type of fiber used to attach the Outpost to the network. </p>
+   * The type of fiber used to attach the Outpost to the network.
+   *
    * @public
    */
   FiberOpticCableType?: FiberOpticCableType | undefined;
 
   /**
-   * <p>The type of optical standard used to attach the Outpost to the network. This field is
-   *       dependent on uplink speed, fiber type, and distance to the upstream device.
-   *       For more information
-   *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
-   *         in the Amazon Web Services Outposts User Guide.
-   *         </p>
+   * The type of optical standard used to attach the Outpost to the network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see [Network](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking) in the Amazon Web Services Outposts User Guide.
+   *
    * @public
    */
   OpticalStandard?: OpticalStandard | undefined;
 
   /**
-   * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000 lbs
-   *       (907 kg). </p>
+   * The maximum rack weight that this site can support. `NO_LIMIT` is over 2000 lbs (907 kg).
+   *
    * @public
    */
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | undefined;
@@ -1828,124 +1881,134 @@ export interface RackPhysicalProperties {
  */
 export interface CreateSiteInput {
   /**
-   * <p>The name of the site.</p>
+   * The name of the site.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the site.</p>
+   * The description of the site.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Additional information that you provide about site access requirements, electrician
-   *       scheduling, personal protective equipment, or regulation of equipment materials that could
-   *       affect your installation process. </p>
+   * Additional information that you provide about site access requirements, electrician scheduling, personal protective equipment, or regulation of equipment materials that could affect your installation process.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p> The tags to apply to a site. </p>
+   * The tags to apply to a site.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p> The location to install and power on the hardware. This address might be different from
-   *       the shipping address. </p>
+   * The location to install and power on the hardware. This address might be different from the shipping address.
+   *
    * @public
    */
   OperatingAddress?: Address | undefined;
 
   /**
-   * <p> The location to ship the hardware. This address might be different from the operating
-   *       address. </p>
+   * The location to ship the hardware. This address might be different from the operating address.
+   *
    * @public
    */
   ShippingAddress?: Address | undefined;
 
   /**
-   * <p> Information about the physical and logistical details for the rack at this site.
-   *       For more information
-   *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
-   *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.
-   *         </p>
+   * Information about the physical and logistical details for the rack at this site. For more information about hardware requirements for racks, see [Network readiness checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist) in the Amazon Web Services Outposts User Guide.
+   *
    * @public
    */
   RackPhysicalProperties?: RackPhysicalProperties | undefined;
 }
 
 /**
- * <p>Information about a site.</p>
+ * Information about a site.
+ *
  * @public
  */
 export interface Site {
   /**
-   * <p>The ID of the site.</p>
+   * The ID of the site.
+   *
    * @public
    */
   SiteId?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account.</p>
+   * The ID of the Amazon Web Services account.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The name of the site.</p>
+   * The name of the site.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the site.</p>
+   * The description of the site.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The site tags.</p>
+   * The site tags.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the site.</p>
+   * The Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteArn?: string | undefined;
 
   /**
-   * <p> Notes about a site. </p>
+   * Notes about a site.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p> The ISO-3166 two-letter country code where the hardware is installed and powered on.
-   *     </p>
+   * The ISO-3166 two-letter country code where the hardware is installed and powered on.
+   *
    * @public
    */
   OperatingAddressCountryCode?: string | undefined;
 
   /**
-   * <p> State or region where the hardware is installed and powered on. </p>
+   * State or region where the hardware is installed and powered on.
+   *
    * @public
    */
   OperatingAddressStateOrRegion?: string | undefined;
 
   /**
-   * <p> City where the hardware is installed and powered on. </p>
+   * City where the hardware is installed and powered on.
+   *
    * @public
    */
   OperatingAddressCity?: string | undefined;
 
   /**
-   * <p> Information about the physical and logistical details for a rack at the site. </p>
+   * Information about the physical and logistical details for a rack at the site.
+   *
    * @public
    */
   RackPhysicalProperties?: RackPhysicalProperties | undefined;
@@ -1956,7 +2019,8 @@ export interface Site {
  */
 export interface CreateSiteOutput {
   /**
-   * <p>Information about a site.</p>
+   * Information about a site.
+   *
    * @public
    */
   Site?: Site | undefined;
@@ -1967,7 +2031,8 @@ export interface CreateSiteOutput {
  */
 export interface DeleteOutpostInput {
   /**
-   * <p> The ID or ARN of the Outpost. </p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostId: string | undefined;
@@ -1983,7 +2048,8 @@ export interface DeleteOutpostOutput {}
  */
 export interface DeleteQuoteInput {
   /**
-   * <p>The ID of the quote.</p>
+   * The ID of the quote.
+   *
    * @public
    */
   QuoteIdentifier: string | undefined;
@@ -1999,7 +2065,8 @@ export interface DeleteQuoteOutput {}
  */
 export interface DeleteSiteInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
@@ -2011,59 +2078,63 @@ export interface DeleteSiteInput {
 export interface DeleteSiteOutput {}
 
 /**
- * <p>A supported form factor and Outpost generation configuration for an instance type.</p>
+ * A supported form factor and Outpost generation configuration for an instance type.
+ *
  * @public
  */
 export interface FormFactorConfig {
   /**
-   * <p>The form factor. Valid values are <code>RACK</code> for rack-based Outposts and
-   *       <code>SERVER</code> for server-based Outposts.</p>
+   * The form factor. Valid values are `RACK` for rack-based Outposts and `SERVER` for server-based Outposts.
+   *
    * @public
    */
   FormFactor?: FormFactor | undefined;
 
   /**
-   * <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation
-   *       rack deployments and <code>GENERATION_2</code> for second-generation rack deployments. This
-   *       value is not set for server form factors.</p>
+   * The Outpost generation. Valid values are `GENERATION_1` for first-generation rack deployments and `GENERATION_2` for second-generation rack deployments. This value is not set for server form factors.
+   *
    * @public
    */
   OutpostGeneration?: OutpostGeneration | undefined;
 }
 
 /**
- * <p>Information about an instance type that can be ordered for an Outpost, including
- *       hardware specifications and supported form factors.</p>
+ * Information about an instance type that can be ordered for an Outpost, including hardware specifications and supported form factors.
+ *
  * @public
  */
 export interface DetailedInstanceTypeItem {
   /**
-   * <p>The instance type.</p>
+   * The instance type.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The number of default VCPUs in the instance type.</p>
+   * The number of default VCPUs in the instance type.
+   *
    * @public
    */
   VCPUs?: number | undefined;
 
   /**
-   * <p>The memory size of the instance type, in MiB.</p>
+   * The memory size of the instance type, in MiB.
+   *
    * @public
    */
   MemoryInMib?: number | undefined;
 
   /**
-   * <p>The network performance of the instance type.</p>
+   * The network performance of the instance type.
+   *
    * @public
    */
   NetworkPerformance?: string | undefined;
 
   /**
-   * <p>The supported form factor and Outpost generation configurations for the instance
-   *       type.</p>
+   * The supported form factor and Outpost generation configurations for the instance type.
+   *
    * @public
    */
   FormFactorConfigs?: FormFactorConfig[] | undefined;
@@ -2074,58 +2145,64 @@ export interface DetailedInstanceTypeItem {
  */
 export interface GetCapacityTaskInput {
   /**
-   * <p>ID of the capacity task.</p>
+   * ID of the capacity task.
+   *
    * @public
    */
   CapacityTaskId: string | undefined;
 
   /**
-   * <p>ID or ARN of the Outpost associated with the specified capacity task.</p>
+   * ID or ARN of the Outpost associated with the specified capacity task.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 }
 
 /**
- * <p>User-specified instances that must not be stopped. These instances will not appear in the
- *       list of instances that Amazon Web Services recommends to stop in order to free up capacity.</p>
+ * User-specified instances that must not be stopped. These instances will not appear in the list of instances that Amazon Web Services recommends to stop in order to free up capacity.
+ *
  * @public
  */
 export interface InstancesToExclude {
   /**
-   * <p>List of user-specified instances that must not be stopped.</p>
+   * List of user-specified instances that must not be stopped.
+   *
    * @public
    */
   Instances?: string[] | undefined;
 
   /**
-   * <p>IDs of the accounts that own each instance that must not be stopped.</p>
+   * IDs of the accounts that own each instance that must not be stopped.
+   *
    * @public
    */
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>Names of the services that own each instance that must not be stopped in order to free up
-   *       the capacity needed to run the capacity task.</p>
+   * Names of the services that own each instance that must not be stopped in order to free up the capacity needed to run the capacity task.
+   *
    * @public
    */
   Services?: AWSServiceName[] | undefined;
 }
 
 /**
- * <p>The instance type that you specify determines the combination of CPU, memory, storage, and
- *       networking capacity.</p>
+ * The instance type that you specify determines the combination of CPU, memory, storage, and networking capacity.
+ *
  * @public
  */
 export interface InstanceTypeCapacity {
   /**
-   * <p>The instance type of the hosts.</p>
+   * The instance type of the hosts.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The number of instances for the specified instance type.</p>
+   * The number of instances for the specified instance type.
+   *
    * @public
    */
   Count: number | undefined;
@@ -2136,129 +2213,105 @@ export interface InstanceTypeCapacity {
  */
 export interface GetCapacityTaskOutput {
   /**
-   * <p>ID of the capacity task.</p>
+   * ID of the capacity task.
+   *
    * @public
    */
   CapacityTaskId?: string | undefined;
 
   /**
-   * <p>ID of the Outpost associated with the specified capacity task.</p>
+   * ID of the Outpost associated with the specified capacity task.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>ID of the Amazon Web Services Outposts order associated with the specified capacity task.</p>
+   * ID of the Amazon Web Services Outposts order associated with the specified capacity task.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts
-   *       rack or an Outposts server configuration.</p>
+   * The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p>List of instance pools requested in the capacity task.</p>
+   * List of instance pools requested in the capacity task.
+   *
    * @public
    */
   RequestedInstancePools?: InstanceTypeCapacity[] | undefined;
 
   /**
-   * <p>Instances that the user specified they cannot stop in order to free up the capacity needed
-   *       to run the capacity task.</p>
+   * Instances that the user specified they cannot stop in order to free up the capacity needed to run the capacity task.
+   *
    * @public
    */
   InstancesToExclude?: InstancesToExclude | undefined;
 
   /**
-   * <p>Performs a dry run to determine if you are above or below instance capacity.</p>
+   * Performs a dry run to determine if you are above or below instance capacity.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Status of the capacity task.</p>
-   *          <p>A capacity task can have one of the following statuses:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>REQUESTED</code> - The capacity task was created and is awaiting the next step
-   *           by Amazon Web Services Outposts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - The capacity task is running and cannot be
-   *           cancelled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The capacity task could not be completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> - The capacity task has completed successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WAITING_FOR_EVACUATION</code> - The capacity task requires capacity to run. You
-   *           must stop the recommended EC2 running instances to free up capacity for the task to
-   *           run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLATION_IN_PROGRESS</code> - The capacity task has been cancelled and is in
-   *           the process of cleaning up resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLED</code> - The capacity task is cancelled.</p>
-   *             </li>
-   *          </ul>
+   * Status of the capacity task.
+   *
+   * A capacity task can have one of the following statuses:
+   *
+   * - `REQUESTED` - The capacity task was created and is awaiting the next step by Amazon Web Services Outposts.
+   * - `IN_PROGRESS` - The capacity task is running and cannot be cancelled.
+   * - `FAILED` - The capacity task could not be completed.
+   * - `COMPLETED` - The capacity task has completed successfully.
+   * - `WAITING_FOR_EVACUATION` - The capacity task requires capacity to run. You must stop the recommended EC2 running instances to free up capacity for the task to run.
+   * - `CANCELLATION_IN_PROGRESS` - The capacity task has been cancelled and is in the process of cleaning up resources.
+   * - `CANCELLED` - The capacity task is cancelled.
+   *
    * @public
    */
   CapacityTaskStatus?: CapacityTaskStatus | undefined;
 
   /**
-   * <p>Reason why the capacity task failed.</p>
+   * Reason why the capacity task failed.
+   *
    * @public
    */
   Failed?: CapacityTaskFailure | undefined;
 
   /**
-   * <p>The date the capacity task was created.</p>
+   * The date the capacity task was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>The date the capacity task ran successfully.</p>
+   * The date the capacity task ran successfully.
+   *
    * @public
    */
   CompletionDate?: Date | undefined;
 
   /**
-   * <p>The date the capacity task was last modified.</p>
+   * The date the capacity task was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>User-specified option in case an instance is blocking the capacity task from running.
-   *       Shows one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine
-   *           if instances have stopped and capacity is available to complete the task.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAIL_TASK</code> - The capacity task fails.</p>
-   *             </li>
-   *          </ul>
+   * User-specified option in case an instance is blocking the capacity task from running. Shows one of the following options:
+   *
+   * - `WAIT_FOR_EVACUATION` - Checks every 10 minutes over 48 hours to determine if instances have stopped and capacity is available to complete the task.
+   * - `FAIL_TASK` - The capacity task fails.
+   *
    * @public
    */
   TaskActionOnBlockingInstances?: TaskActionOnBlockingInstances | undefined;
@@ -2269,7 +2322,8 @@ export interface GetCapacityTaskOutput {
  */
 export interface GetCatalogItemInput {
   /**
-   * <p>The ID of the catalog item.</p>
+   * The ID of the catalog item.
+   *
    * @public
    */
   CatalogItemId: string | undefined;
@@ -2280,7 +2334,8 @@ export interface GetCatalogItemInput {
  */
 export interface GetCatalogItemOutput {
   /**
-   * <p>Information about this catalog item.</p>
+   * Information about this catalog item.
+   *
    * @public
    */
   CatalogItem?: CatalogItem | undefined;
@@ -2291,7 +2346,8 @@ export interface GetCatalogItemOutput {
  */
 export interface GetConnectionRequest {
   /**
-   * <p> The ID of the connection. </p>
+   * The ID of the connection.
+   *
    * @public
    */
   ConnectionId: string | undefined;
@@ -2302,13 +2358,15 @@ export interface GetConnectionRequest {
  */
 export interface GetConnectionResponse {
   /**
-   * <p> The ID of the connection. </p>
+   * The ID of the connection.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p> Information about the connection. </p>
+   * Information about the connection.
+   *
    * @public
    */
   ConnectionDetails?: ConnectionDetails | undefined;
@@ -2319,7 +2377,8 @@ export interface GetConnectionResponse {
  */
 export interface GetOrderInput {
   /**
-   * <p>The ID of the order.</p>
+   * The ID of the order.
+   *
    * @public
    */
   OrderId: string | undefined;
@@ -2330,7 +2389,8 @@ export interface GetOrderInput {
  */
 export interface GetOrderOutput {
   /**
-   * <p>Information about an order.</p>
+   * Information about an order.
+   *
    * @public
    */
   Order?: Order | undefined;
@@ -2341,7 +2401,8 @@ export interface GetOrderOutput {
  */
 export interface GetOutpostInput {
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostId: string | undefined;
@@ -2352,7 +2413,8 @@ export interface GetOutpostInput {
  */
 export interface GetOutpostOutput {
   /**
-   * <p>Information about an Outpost.</p>
+   * Information about an Outpost.
+   *
    * @public
    */
   Outpost?: Outpost | undefined;
@@ -2363,117 +2425,101 @@ export interface GetOutpostOutput {
  */
 export interface GetOutpostBillingInformationInput {
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 }
 
 /**
- * <p>Provides information about your Amazon Web Services Outposts subscriptions.</p>
+ * Provides information about your Amazon Web Services Outposts subscriptions.
+ *
  * @public
  */
 export interface Subscription {
   /**
-   * <p>The ID of the subscription that appears on the Amazon Web Services Billing Center console.</p>
+   * The ID of the subscription that appears on the Amazon Web Services Billing Center console.
+   *
    * @public
    */
   SubscriptionId?: string | undefined;
 
   /**
-   * <p>The type of subscription which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>ORIGINAL</b> - The first order on the Amazon Web Services Outposts.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>RENEWAL</b> - Renewal requests, both month to month and
-   *           longer term.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>CAPACITY_INCREASE</b> - Capacity scaling orders.</p>
-   *             </li>
-   *          </ul>
+   * The type of subscription which can be one of the following:
+   *
+   * - **ORIGINAL** - The first order on the Amazon Web Services Outposts.
+   * - **RENEWAL** - Renewal requests, both month to month and longer term.
+   * - **CAPACITY_INCREASE** - Capacity scaling orders.
+   *
    * @public
    */
   SubscriptionType?: SubscriptionType | undefined;
 
   /**
-   * <p>The status of subscription which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>INACTIVE</b> - Subscription requests that are
-   *           inactive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ACTIVE</b> - Subscription requests that are in progress
-   *           and have an end date in the future.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PENDING</b> - Subscription has been created but billing
-   *           has not yet commenced because the subscription begin date has not been reached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>CANCELLED</b> - Subscription requests that are
-   *           cancelled.</p>
-   *             </li>
-   *          </ul>
+   * The status of subscription which can be one of the following:
+   *
+   * - **INACTIVE** - Subscription requests that are inactive.
+   * - **ACTIVE** - Subscription requests that are in progress and have an end date in the future.
+   * - **PENDING** - Subscription has been created but billing has not yet commenced because the subscription begin date has not been reached.
+   * - **CANCELLED** - Subscription requests that are cancelled.
+   *
    * @public
    */
   SubscriptionStatus?: SubscriptionStatus | undefined;
 
   /**
-   * <p>The order ID for your subscription.</p>
+   * The order ID for your subscription.
+   *
    * @public
    */
   OrderIds?: string[] | undefined;
 
   /**
-   * <p>The date your subscription starts.</p>
+   * The date your subscription starts.
+   *
    * @public
    */
   BeginDate?: Date | undefined;
 
   /**
-   * <p>The date your subscription ends.</p>
+   * The date your subscription ends.
+   *
    * @public
    */
   EndDate?: Date | undefined;
 
   /**
-   * <p>The currency of the subscription price. Currently only <code>USD</code> is
-   *       supported.</p>
+   * The currency of the subscription price. Currently only `USD` is supported.
+   *
    * @public
    */
   Currency?: CurrencyCode | undefined;
 
   /**
-   * <p>The amount you are billed each month in the subscription period.</p>
+   * The amount you are billed each month in the subscription period.
+   *
    * @public
    */
   MonthlyRecurringPrice?: number | undefined;
 
   /**
-   * <p>The amount billed when the subscription is created. This is a one-time charge.</p>
+   * The amount billed when the subscription is created. This is a one-time charge.
+   *
    * @public
    */
   UpfrontPrice?: number | undefined;
@@ -2484,34 +2530,36 @@ export interface Subscription {
  */
 export interface GetOutpostBillingInformationOutput {
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The subscription details for the specified Outpost.</p>
+   * The subscription details for the specified Outpost.
+   *
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The date the current contract term ends for the specified Outpost. You must start the
-   *       renewal or decommission process at least 5 business days before the current term for your
-   *       Amazon Web Services Outposts ends. Failing to complete these steps at least 5 business days before the current term
-   *       ends might result in unanticipated charges.</p>
+   * The date the current contract term ends for the specified Outpost. You must start the renewal or decommission process at least 5 business days before the current term for your Amazon Web Services Outposts ends. Failing to complete these steps at least 5 business days before the current term ends might result in unanticipated charges.
+   *
    * @public
    */
   ContractEndDate?: string | undefined;
 
   /**
-   * <p>The payment term.</p>
+   * The payment term.
+   *
    * @public
    */
   PaymentTerm?: PaymentTerm | undefined;
 
   /**
-   * <p>The payment option.</p>
+   * The payment option.
+   *
    * @public
    */
   PaymentOption?: PaymentOption | undefined;
@@ -2522,37 +2570,43 @@ export interface GetOutpostBillingInformationOutput {
  */
 export interface GetOutpostInstanceTypesInput {
   /**
-   * <p> The ID or ARN of the Outpost. </p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostId: string | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Information about an instance type.</p>
+ * Information about an instance type.
+ *
  * @public
  */
 export interface InstanceTypeItem {
   /**
-   * <p>The instance type.</p>
+   * The instance type.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The number of default VCPUs in an instance type.</p>
+   * The number of default VCPUs in an instance type.
+   *
    * @public
    */
   VCPUs?: number | undefined;
@@ -2563,25 +2617,29 @@ export interface InstanceTypeItem {
  */
 export interface GetOutpostInstanceTypesOutput {
   /**
-   * <p>Information about the instance types.</p>
+   * Information about the instance types.
+   *
    * @public
    */
   InstanceTypes?: InstanceTypeItem[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The ID of the Outpost. </p>
+   * The ID of the Outpost.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * The Amazon Resource Name (ARN) of the Outpost.
+   *
    * @public
    */
   OutpostArn?: string | undefined;
@@ -2592,32 +2650,36 @@ export interface GetOutpostInstanceTypesOutput {
  */
 export interface GetOutpostSupportedInstanceTypesInput {
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>The ID for the Amazon Web Services Outposts order.</p>
+   * The ID for the Amazon Web Services Outposts order.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts
-   *       rack or an Outposts server configuration.</p>
+   * The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2628,13 +2690,15 @@ export interface GetOutpostSupportedInstanceTypesInput {
  */
 export interface GetOutpostSupportedInstanceTypesOutput {
   /**
-   * <p>Information about the instance types.</p>
+   * Information about the instance types.
+   *
    * @public
    */
   InstanceTypes?: InstanceTypeItem[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2645,7 +2709,8 @@ export interface GetOutpostSupportedInstanceTypesOutput {
  */
 export interface GetPrivateConnectivityConfigInput {
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostId: string | undefined;
@@ -2656,7 +2721,8 @@ export interface GetPrivateConnectivityConfigInput {
  */
 export interface GetPrivateConnectivityConfigOutput {
   /**
-   * <p>The private connectivity configuration for the Outpost.</p>
+   * The private connectivity configuration for the Outpost.
+   *
    * @public
    */
   PrivateConnectivityConfig?: PrivateConnectivityConfig | undefined;
@@ -2667,7 +2733,8 @@ export interface GetPrivateConnectivityConfigOutput {
  */
 export interface GetQuoteInput {
   /**
-   * <p>The ID of the quote.</p>
+   * The ID of the quote.
+   *
    * @public
    */
   QuoteIdentifier: string | undefined;
@@ -2678,7 +2745,8 @@ export interface GetQuoteInput {
  */
 export interface GetQuoteOutput {
   /**
-   * <p>Information about the quote.</p>
+   * Information about the quote.
+   *
    * @public
    */
   Quote?: Quote | undefined;
@@ -2689,7 +2757,8 @@ export interface GetQuoteOutput {
  */
 export interface GetRenewalPricingInput {
   /**
-   * <p>The ID or ARN of the Outpost.</p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
@@ -2700,13 +2769,15 @@ export interface GetRenewalPricingInput {
  */
 export interface GetRenewalPricingOutput {
   /**
-   * <p>The result of the pricing request.</p>
+   * The result of the pricing request.
+   *
    * @public
    */
   PricingResult?: PricingResult | undefined;
 
   /**
-   * <p>The pricing options for the specified Outpost.</p>
+   * The pricing options for the specified Outpost.
+   *
    * @public
    */
   PricingOptions?: PricingOption[] | undefined;
@@ -2717,7 +2788,8 @@ export interface GetRenewalPricingOutput {
  */
 export interface GetSiteInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
@@ -2728,7 +2800,8 @@ export interface GetSiteInput {
  */
 export interface GetSiteOutput {
   /**
-   * <p>Information about a site.</p>
+   * Information about a site.
+   *
    * @public
    */
   Site?: Site | undefined;
@@ -2739,13 +2812,15 @@ export interface GetSiteOutput {
  */
 export interface GetSiteAddressInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
 
   /**
-   * <p>The type of the address you request. </p>
+   * The type of the address you request.
+   *
    * @public
    */
   AddressType: AddressType | undefined;
@@ -2756,19 +2831,22 @@ export interface GetSiteAddressInput {
  */
 export interface GetSiteAddressOutput {
   /**
-   * <p>The ID of the site.</p>
+   * The ID of the site.
+   *
    * @public
    */
   SiteId?: string | undefined;
 
   /**
-   * <p>The type of the address you receive. </p>
+   * The type of the address you receive.
+   *
    * @public
    */
   AddressType?: AddressType | undefined;
 
   /**
-   * <p> Information about the address. </p>
+   * Information about the address.
+   *
    * @public
    */
   Address?: Address | undefined;
@@ -2779,43 +2857,50 @@ export interface GetSiteAddressOutput {
  */
 export interface ListAssetInstancesInput {
   /**
-   * <p>The ID of the Outpost.</p>
+   * The ID of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>Filters the results by asset ID.</p>
+   * Filters the results by asset ID.
+   *
    * @public
    */
   AssetIdFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by instance ID.</p>
+   * Filters the results by instance ID.
+   *
    * @public
    */
   InstanceTypeFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by account ID.</p>
+   * Filters the results by account ID.
+   *
    * @public
    */
   AccountIdFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by Amazon Web Services service.</p>
+   * Filters the results by Amazon Web Services service.
+   *
    * @public
    */
   AwsServiceFilter?: AWSServiceName[] | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2826,14 +2911,15 @@ export interface ListAssetInstancesInput {
  */
 export interface ListAssetInstancesOutput {
   /**
-   * <p>List of instances owned by all accounts on the Outpost. Does not include Amazon EBS or Amazon S3
-   *       instances.</p>
+   * List of instances owned by all accounts on the Outpost. Does not include Amazon EBS or Amazon S3 instances.
+   *
    * @public
    */
   AssetInstances?: AssetInstance[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2844,54 +2930,49 @@ export interface ListAssetInstancesOutput {
  */
 export interface ListAssetsInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>Filters the results by the host ID of a Dedicated Host.</p>
+   * Filters the results by the host ID of a Dedicated Host.
+   *
    * @public
    */
   HostIdFilter?: string[] | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Filters the results by state.</p>
+   * Filters the results by state.
+   *
    * @public
    */
   StatusFilter?: AssetState[] | undefined;
 
   /**
-   * <p>Filters the results by asset type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>COMPUTE - Server asset used for customer compute </p>
-   *             </li>
-   *             <li>
-   *                <p>STORAGE - Server asset used by storage services </p>
-   *             </li>
-   *             <li>
-   *                <p>POWERSHELF - Powershelf assets </p>
-   *             </li>
-   *             <li>
-   *                <p>SWITCH - Switch assets </p>
-   *             </li>
-   *             <li>
-   *                <p>NETWORKING - Asset managed by Amazon Web Services for networking purposes </p>
-   *             </li>
-   *          </ul>
+   * Filters the results by asset type.
+   *
+   * - COMPUTE - Server asset used for customer compute
+   * - STORAGE - Server asset used by storage services
+   * - POWERSHELF - Powershelf assets
+   * - SWITCH - Switch assets
+   * - NETWORKING - Asset managed by Amazon Web Services for networking purposes
+   *
    * @public
    */
   AssetTypeFilter?: AssetType[] | undefined;
@@ -2902,13 +2983,15 @@ export interface ListAssetsInput {
  */
 export interface ListAssetsOutput {
   /**
-   * <p>Information about the hardware assets.</p>
+   * Information about the hardware assets.
+   *
    * @public
    */
   Assets?: AssetInfo[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2919,25 +3002,29 @@ export interface ListAssetsOutput {
  */
 export interface ListBlockingInstancesForCapacityTaskInput {
   /**
-   * <p>The ID or ARN of the Outpost associated with the specified capacity task.</p>
+   * The ID or ARN of the Outpost associated with the specified capacity task.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the capacity task.</p>
+   * The ID of the capacity task.
+   *
    * @public
    */
   CapacityTaskId: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2948,14 +3035,15 @@ export interface ListBlockingInstancesForCapacityTaskInput {
  */
 export interface ListBlockingInstancesForCapacityTaskOutput {
   /**
-   * <p>A list of all running Amazon EC2 instances on the Outpost. Stopping one or more of these
-   *       instances can free up the capacity needed to run the capacity task.</p>
+   * A list of all running Amazon EC2 instances on the Outpost. Stopping one or more of these instances can free up the capacity needed to run the capacity task.
+   *
    * @public
    */
   BlockingInstances?: BlockingInstance[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2966,26 +3054,29 @@ export interface ListBlockingInstancesForCapacityTaskOutput {
  */
 export interface ListCapacityTasksInput {
   /**
-   * <p>Filters the results by an Outpost ID or an Outpost ARN.</p>
+   * Filters the results by an Outpost ID or an Outpost ARN.
+   *
    * @public
    */
   OutpostIdentifierFilter?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of statuses. For example, <code>REQUESTED</code> or
-   *         <code>WAITING_FOR_EVACUATION</code>.</p>
+   * A list of statuses. For example, `REQUESTED` or `WAITING_FOR_EVACUATION`.
+   *
    * @public
    */
   CapacityTaskStatusFilter?: CapacityTaskStatus[] | undefined;
@@ -2996,13 +3087,15 @@ export interface ListCapacityTasksInput {
  */
 export interface ListCapacityTasksOutput {
   /**
-   * <p>Lists all the capacity tasks.</p>
+   * Lists all the capacity tasks.
+   *
    * @public
    */
   CapacityTasks?: CapacityTaskSummary[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3013,31 +3106,36 @@ export interface ListCapacityTasksOutput {
  */
 export interface ListCatalogItemsInput {
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filters the results by item class.</p>
+   * Filters the results by item class.
+   *
    * @public
    */
   ItemClassFilter?: CatalogItemClass[] | undefined;
 
   /**
-   * <p>Filters the results by storage option.</p>
+   * Filters the results by storage option.
+   *
    * @public
    */
   SupportedStorageFilter?: SupportedStorageEnum[] | undefined;
 
   /**
-   * <p>Filters the results by EC2 family (for example, M5).</p>
+   * Filters the results by EC2 family (for example, M5).
+   *
    * @public
    */
   EC2FamilyFilter?: string[] | undefined;
@@ -3048,13 +3146,15 @@ export interface ListCatalogItemsInput {
  */
 export interface ListCatalogItemsOutput {
   /**
-   * <p>Information about the catalog items.</p>
+   * Information about the catalog items.
+   *
    * @public
    */
   CatalogItems?: CatalogItem[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3065,21 +3165,22 @@ export interface ListCatalogItemsOutput {
  */
 export interface ListOrderableInstanceTypesInput {
   /**
-   * <p>Filters the results by Outpost generation. Specify <code>GENERATION_1</code> for
-   *       first-generation rack deployments or <code>GENERATION_2</code> for second-generation rack
-   *       deployments.</p>
+   * Filters the results by Outpost generation. Specify `GENERATION_1` for first-generation rack deployments or `GENERATION_2` for second-generation rack deployments.
+   *
    * @public
    */
   OutpostGenerationFilter?: OutpostGeneration | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3090,13 +3191,15 @@ export interface ListOrderableInstanceTypesInput {
  */
 export interface ListOrderableInstanceTypesOutput {
   /**
-   * <p>Information about the instance types that can be ordered for the Outpost.</p>
+   * Information about the instance types that can be ordered for the Outpost.
+   *
    * @public
    */
   InstanceTypes?: DetailedInstanceTypeItem[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3107,94 +3210,86 @@ export interface ListOrderableInstanceTypesOutput {
  */
 export interface ListOrdersInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
+   * The ID or the Amazon Resource Name (ARN) of the Outpost.
+   *
    * @public
    */
   OutpostIdentifierFilter?: string | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p> A summary of line items in your order. </p>
+ * A summary of line items in your order.
+ *
  * @public
  */
 export interface OrderSummary {
   /**
-   * <p> The ID of the Outpost. </p>
+   * The ID of the Outpost.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p> The ID of the order. </p>
+   * The ID of the order.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The type of order.</p>
+   * The type of order.
+   *
    * @public
    */
   OrderType?: OrderType | undefined;
 
   /**
-   * <p>The status of the order.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PREPARING</code> - Order is received and is being prepared.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For
-   *           more information, see the <code>LineItem</code> status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> - Order is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLED</code> - Order is cancelled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code> - Customer should contact support.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The following statuses are deprecated: <code>RECEIVED</code>, <code>PENDING</code>,
-   *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
-   *          </note>
+   * The status of the order.
+   *
+   * - `PREPARING` - Order is received and is being prepared.
+   * - `IN_PROGRESS` - Order is either being built, shipped, or installed. For more information, see the `LineItem` status.
+   * - `COMPLETED` - Order is complete.
+   * - `CANCELLED` - Order is cancelled.
+   * - `ERROR` - Customer should contact support.
+   *
+   * > **Note:** The following statuses are deprecated: `RECEIVED`, `PENDING`, `PROCESSING`, `INSTALLING`, and `FULFILLED`.
+   *
    * @public
    */
   Status?: OrderStatus | undefined;
 
   /**
-   * <p> The status of all line items in the order. </p>
+   * The status of all line items in the order.
+   *
    * @public
    */
   LineItemCountsByStatus?: Partial<Record<LineItemStatus, number>> | undefined;
 
   /**
-   * <p> The submission date for the order. </p>
+   * The submission date for the order.
+   *
    * @public
    */
   OrderSubmissionDate?: Date | undefined;
 
   /**
-   * <p> The fulfilment date for the order. </p>
+   * The fulfilment date for the order.
+   *
    * @public
    */
   OrderFulfilledDate?: Date | undefined;
@@ -3205,13 +3300,15 @@ export interface OrderSummary {
  */
 export interface ListOrdersOutput {
   /**
-   * <p> Information about the orders. </p>
+   * Information about the orders.
+   *
    * @public
    */
   Orders?: OrderSummary[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3222,31 +3319,36 @@ export interface ListOrdersOutput {
  */
 export interface ListOutpostsInput {
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filters the results by the lifecycle status.</p>
+   * Filters the results by the lifecycle status.
+   *
    * @public
    */
   LifeCycleStatusFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by Availability Zone (for example, <code>us-east-1a</code>).</p>
+   * Filters the results by Availability Zone (for example, `us-east-1a`).
+   *
    * @public
    */
   AvailabilityZoneFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by AZ ID (for example, <code>use1-az1</code>).</p>
+   * Filters the results by AZ ID (for example, `use1-az1`).
+   *
    * @public
    */
   AvailabilityZoneIdFilter?: string[] | undefined;
@@ -3257,13 +3359,15 @@ export interface ListOutpostsInput {
  */
 export interface ListOutpostsOutput {
   /**
-   * <p>Information about the Outposts.</p>
+   * Information about the Outposts.
+   *
    * @public
    */
   Outposts?: Outpost[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3274,109 +3378,127 @@ export interface ListOutpostsOutput {
  */
 export interface ListQuotesInput {
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about a quote.</p>
+ * Summary information about a quote.
+ *
  * @public
  */
 export interface QuoteSummary {
   /**
-   * <p>The ID of the quote.</p>
+   * The ID of the quote.
+   *
    * @public
    */
   QuoteId?: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the quote.</p>
+   * The ID of the account that owns the quote.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The status of the quote.</p>
+   * The status of the quote.
+   *
    * @public
    */
   QuoteStatus?: QuoteStatus | undefined;
 
   /**
-   * <p>A message about the status of the quote.</p>
+   * A message about the status of the quote.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The ARN of the Outpost associated with the quote.</p>
+   * The ARN of the Outpost associated with the quote.
+   *
    * @public
    */
   OutpostArn?: string | undefined;
 
   /**
-   * <p>The country code for the Outpost site location.</p>
+   * The country code for the Outpost site location.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p>The capacity requirements specified in the quote request.</p>
+   * The capacity requirements specified in the quote request.
+   *
    * @public
    */
   RequestedCapacities?: QuoteCapacity[] | undefined;
 
   /**
-   * <p>The physical constraints specified in the quote request.</p>
+   * The physical constraints specified in the quote request.
+   *
    * @public
    */
   RequestedConstraints?: QuoteConstraint[] | undefined;
 
   /**
-   * <p>The payment options specified in the quote request.</p>
+   * The payment options specified in the quote request.
+   *
    * @public
    */
   RequestedPaymentOptions?: PaymentOption[] | undefined;
 
   /**
-   * <p>The payment terms specified in the quote request.</p>
+   * The payment terms specified in the quote request.
+   *
    * @public
    */
   RequestedPaymentTerms?: PaymentTerm[] | undefined;
 
   /**
-   * <p>The configuration and pricing options for the quote.</p>
+   * The configuration and pricing options for the quote.
+   *
    * @public
    */
   QuoteOptions?: QuoteOption[] | undefined;
 
   /**
-   * <p>The ID of the order submitted for the quote.</p>
+   * The ID of the order submitted for the quote.
+   *
    * @public
    */
   SubmittedOrderId?: string | undefined;
 
   /**
-   * <p>The date the quote was created.</p>
+   * The date the quote was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date the quote expires.</p>
+   * The date the quote expires.
+   *
    * @public
    */
   ExpirationDate?: Date | undefined;
 
   /**
-   * <p>The description of the quote.</p>
+   * The description of the quote.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -3387,13 +3509,15 @@ export interface QuoteSummary {
  */
 export interface ListQuotesOutput {
   /**
-   * <p>Information about the quotes.</p>
+   * Information about the quotes.
+   *
    * @public
    */
   Quotes?: QuoteSummary[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3404,31 +3528,36 @@ export interface ListQuotesOutput {
  */
 export interface ListSitesInput {
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum page size.</p>
+   * The maximum page size.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filters the results by country code.</p>
+   * Filters the results by country code.
+   *
    * @public
    */
   OperatingAddressCountryCodeFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by state or region.</p>
+   * Filters the results by state or region.
+   *
    * @public
    */
   OperatingAddressStateOrRegionFilter?: string[] | undefined;
 
   /**
-   * <p>Filters the results by city.</p>
+   * Filters the results by city.
+   *
    * @public
    */
   OperatingAddressCityFilter?: string[] | undefined;
@@ -3439,13 +3568,15 @@ export interface ListSitesInput {
  */
 export interface ListSitesOutput {
   /**
-   * <p>Information about the sites.</p>
+   * Information about the sites.
+   *
    * @public
    */
   Sites?: Site[] | undefined;
 
   /**
-   * <p>The pagination token.</p>
+   * The pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3456,7 +3587,8 @@ export interface ListSitesOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -3467,7 +3599,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The resource tags.</p>
+   * The resource tags.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3478,59 +3611,53 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartCapacityTaskInput {
   /**
-   * <p>The ID or ARN of the Outposts associated with the specified capacity task.</p>
+   * The ID or ARN of the Outposts associated with the specified capacity task.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services Outposts order associated with the specified capacity task.</p>
+   * The ID of the Amazon Web Services Outposts order associated with the specified capacity task.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts
-   *       rack or an Outposts server configuration.</p>
+   * The ID of the Outpost asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p>The instance pools specified in the capacity task.</p>
+   * The instance pools specified in the capacity task.
+   *
    * @public
    */
   InstancePools: InstanceTypeCapacity[] | undefined;
 
   /**
-   * <p>List of user-specified running instances that must not be stopped in order to free up the
-   *       capacity needed to run the capacity task.</p>
+   * List of user-specified running instances that must not be stopped in order to free up the capacity needed to run the capacity task.
+   *
    * @public
    */
   InstancesToExclude?: InstancesToExclude | undefined;
 
   /**
-   * <p>You can request a dry run to determine if the instance type and instance size changes is
-   *       above or below available instance capacity. Requesting a dry run does not make any changes to
-   *       your plan.</p>
+   * You can request a dry run to determine if the instance type and instance size changes is above or below available instance capacity. Requesting a dry run does not make any changes to your plan.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Specify one of the following options in case an instance is blocking the capacity task
-   *       from running.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine
-   *           if instances have stopped and capacity is available to complete the task.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAIL_TASK</code> - The capacity task fails.</p>
-   *             </li>
-   *          </ul>
+   * Specify one of the following options in case an instance is blocking the capacity task from running.
+   *
+   * - `WAIT_FOR_EVACUATION` - Checks every 10 minutes over 48 hours to determine if instances have stopped and capacity is available to complete the task.
+   * - `FAIL_TASK` - The capacity task fails.
+   *
    * @public
    */
   TaskActionOnBlockingInstances?: TaskActionOnBlockingInstances | undefined;
@@ -3541,94 +3668,95 @@ export interface StartCapacityTaskInput {
  */
 export interface StartCapacityTaskOutput {
   /**
-   * <p>ID of the capacity task that you want to start.</p>
+   * ID of the capacity task that you want to start.
+   *
    * @public
    */
   CapacityTaskId?: string | undefined;
 
   /**
-   * <p>ID of the Outpost associated with the capacity task.</p>
+   * ID of the Outpost associated with the capacity task.
+   *
    * @public
    */
   OutpostId?: string | undefined;
 
   /**
-   * <p>ID of the Amazon Web Services Outposts order of the host associated with the capacity task.</p>
+   * ID of the Amazon Web Services Outposts order of the host associated with the capacity task.
+   *
    * @public
    */
   OrderId?: string | undefined;
 
   /**
-   * <p>The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an
-   *       Outposts server configuration.</p>
+   * The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.
+   *
    * @public
    */
   AssetId?: string | undefined;
 
   /**
-   * <p>List of the instance pools requested in the specified capacity task.</p>
+   * List of the instance pools requested in the specified capacity task.
+   *
    * @public
    */
   RequestedInstancePools?: InstanceTypeCapacity[] | undefined;
 
   /**
-   * <p>User-specified instances that must not be stopped in order to free up the capacity needed
-   *       to run the capacity task.</p>
+   * User-specified instances that must not be stopped in order to free up the capacity needed to run the capacity task.
+   *
    * @public
    */
   InstancesToExclude?: InstancesToExclude | undefined;
 
   /**
-   * <p>Results of the dry run showing if the specified capacity task is above or below the
-   *       available instance capacity.</p>
+   * Results of the dry run showing if the specified capacity task is above or below the available instance capacity.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Status of the specified capacity task.</p>
+   * Status of the specified capacity task.
+   *
    * @public
    */
   CapacityTaskStatus?: CapacityTaskStatus | undefined;
 
   /**
-   * <p>Reason that the specified capacity task failed.</p>
+   * Reason that the specified capacity task failed.
+   *
    * @public
    */
   Failed?: CapacityTaskFailure | undefined;
 
   /**
-   * <p>Date that the specified capacity task was created.</p>
+   * Date that the specified capacity task was created.
+   *
    * @public
    */
   CreationDate?: Date | undefined;
 
   /**
-   * <p>Date that the specified capacity task ran successfully.</p>
+   * Date that the specified capacity task ran successfully.
+   *
    * @public
    */
   CompletionDate?: Date | undefined;
 
   /**
-   * <p>Date that the specified capacity task was last modified.</p>
+   * Date that the specified capacity task was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>User-specified option in case an instance is blocking the capacity task from
-   *       running.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>WAIT_FOR_EVACUATION</code> - Checks every 10 minutes over 48 hours to determine
-   *           if instances have stopped and capacity is available to complete the task.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAIL_TASK</code> - The capacity task fails.</p>
-   *             </li>
-   *          </ul>
+   * User-specified option in case an instance is blocking the capacity task from running.
+   *
+   * - `WAIT_FOR_EVACUATION` - Checks every 10 minutes over 48 hours to determine if instances have stopped and capacity is available to complete the task.
+   * - `FAIL_TASK` - The capacity task fails.
+   *
    * @public
    */
   TaskActionOnBlockingInstances?: TaskActionOnBlockingInstances | undefined;
@@ -3639,25 +3767,29 @@ export interface StartCapacityTaskOutput {
  */
 export interface StartConnectionRequest {
   /**
-   * <p> The serial number of the dongle. </p>
+   * The serial number of the dongle.
+   *
    * @public
    */
   DeviceSerialNumber?: string | undefined;
 
   /**
-   * <p> The ID of the Outpost server.</p>
+   * The ID of the Outpost server.
+   *
    * @public
    */
   AssetId: string | undefined;
 
   /**
-   * <p> The public key of the client. </p>
+   * The public key of the client.
+   *
    * @public
    */
   ClientPublicKey: string | undefined;
 
   /**
-   * <p> The device index of the network interface on the Outpost server. </p>
+   * The device index of the network interface on the Outpost server.
+   *
    * @public
    */
   NetworkInterfaceDeviceIndex: number | undefined;
@@ -3668,13 +3800,15 @@ export interface StartConnectionRequest {
  */
 export interface StartConnectionResponse {
   /**
-   * <p> The ID of the connection. </p>
+   * The ID of the connection.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p> The underlay IP address. </p>
+   * The underlay IP address.
+   *
    * @public
    */
   UnderlayIpAddress?: string | undefined;
@@ -3685,13 +3819,15 @@ export interface StartConnectionResponse {
  */
 export interface StartOutpostDecommissionInput {
   /**
-   * <p>The ID or ARN of the Outpost that you want to decommission.</p>
+   * The ID or ARN of the Outpost that you want to decommission.
+   *
    * @public
    */
   OutpostIdentifier: string | undefined;
 
   /**
-   * <p>Validates the request without starting the decommission process.</p>
+   * Validates the request without starting the decommission process.
+   *
    * @public
    */
   ValidateOnly?: boolean | undefined;
@@ -3702,13 +3838,15 @@ export interface StartOutpostDecommissionInput {
  */
 export interface StartOutpostDecommissionOutput {
   /**
-   * <p>The status of the decommission request.</p>
+   * The status of the decommission request.
+   *
    * @public
    */
   Status?: DecommissionRequestStatus | undefined;
 
   /**
-   * <p>The resources still associated with the Outpost that you are decommissioning.</p>
+   * The resources still associated with the Outpost that you are decommissioning.
+   *
    * @public
    */
   BlockingResourceTypes?: BlockingResourceType[] | undefined;
@@ -3719,13 +3857,15 @@ export interface StartOutpostDecommissionOutput {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource.</p>
+   * The tags to add to the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -3741,13 +3881,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3763,25 +3905,29 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateOutpostInput {
   /**
-   * <p> The ID or ARN of the Outpost. </p>
+   * The ID or ARN of the Outpost.
+   *
    * @public
    */
   OutpostId: string | undefined;
 
   /**
-   * <p>The name of the Outpost.</p>
+   * The name of the Outpost.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the Outpost.</p>
+   * The description of the Outpost.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The type of hardware for this Outpost. </p>
+   * The type of hardware for this Outpost.
+   *
    * @public
    */
   SupportedHardwareType?: SupportedHardwareType | undefined;
@@ -3792,7 +3938,8 @@ export interface UpdateOutpostInput {
  */
 export interface UpdateOutpostOutput {
   /**
-   * <p>Information about an Outpost.</p>
+   * Information about an Outpost.
+   *
    * @public
    */
   Outpost?: Outpost | undefined;
@@ -3803,50 +3950,57 @@ export interface UpdateOutpostOutput {
  */
 export interface UpdateQuoteInput {
   /**
-   * <p>The ID of the quote.</p>
+   * The ID of the quote.
+   *
    * @public
    */
   QuoteIdentifier: string | undefined;
 
   /**
-   * <p>The ID or ARN of the Outpost to associate with the quote. Specify an empty string to
-   *       remove the Outpost association.</p>
+   * The ID or ARN of the Outpost to associate with the quote. Specify an empty string to remove the Outpost association.
+   *
    * @public
    */
   OutpostIdentifier?: string | undefined;
 
   /**
-   * <p>The country code for the Outpost site location.</p>
+   * The country code for the Outpost site location.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p>The updated capacity requirements for the quote.</p>
+   * The updated capacity requirements for the quote.
+   *
    * @public
    */
   RequestedCapacities?: QuoteCapacity[] | undefined;
 
   /**
-   * <p>The updated physical constraints for the quote.</p>
+   * The updated physical constraints for the quote.
+   *
    * @public
    */
   RequestedConstraints?: QuoteConstraint[] | undefined;
 
   /**
-   * <p>The updated payment options to include in the quote pricing.</p>
+   * The updated payment options to include in the quote pricing.
+   *
    * @public
    */
   RequestedPaymentOptions?: PaymentOption[] | undefined;
 
   /**
-   * <p>The updated payment terms to include in the quote pricing.</p>
+   * The updated payment terms to include in the quote pricing.
+   *
    * @public
    */
   RequestedPaymentTerms?: PaymentTerm[] | undefined;
 
   /**
-   * <p>A description for the quote.</p>
+   * A description for the quote.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -3857,7 +4011,8 @@ export interface UpdateQuoteInput {
  */
 export interface UpdateQuoteOutput {
   /**
-   * <p>Information about the updated quote.</p>
+   * Information about the updated quote.
+   *
    * @public
    */
   Quote?: Quote | undefined;
@@ -3868,25 +4023,29 @@ export interface UpdateQuoteOutput {
  */
 export interface UpdateSiteInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
 
   /**
-   * <p>The name of the site.</p>
+   * The name of the site.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the site.</p>
+   * The description of the site.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Notes about a site.</p>
+   * Notes about a site.
+   *
    * @public
    */
   Notes?: string | undefined;
@@ -3897,7 +4056,8 @@ export interface UpdateSiteInput {
  */
 export interface UpdateSiteOutput {
   /**
-   * <p>Information about a site.</p>
+   * Information about a site.
+   *
    * @public
    */
   Site?: Site | undefined;
@@ -3908,19 +4068,22 @@ export interface UpdateSiteOutput {
  */
 export interface UpdateSiteAddressInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
 
   /**
-   * <p> The type of the address. </p>
+   * The type of the address.
+   *
    * @public
    */
   AddressType: AddressType | undefined;
 
   /**
-   * <p> The address for the site. </p>
+   * The address for the site.
+   *
    * @public
    */
   Address: Address | undefined;
@@ -3931,13 +4094,15 @@ export interface UpdateSiteAddressInput {
  */
 export interface UpdateSiteAddressOutput {
   /**
-   * <p> The type of the address. </p>
+   * The type of the address.
+   *
    * @public
    */
   AddressType?: AddressType | undefined;
 
   /**
-   * <p> Information about an address. </p>
+   * Information about an address.
+   *
    * @public
    */
   Address?: Address | undefined;
@@ -3948,180 +4113,102 @@ export interface UpdateSiteAddressOutput {
  */
 export interface UpdateSiteRackPhysicalPropertiesInput {
   /**
-   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
+   * The ID or the Amazon Resource Name (ARN) of the site.
+   *
    * @public
    */
   SiteId: string | undefined;
 
   /**
-   * <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
+   * The power draw, in kVA, available at the hardware placement position for the rack.
+   *
    * @public
    */
   PowerDrawKva?: PowerDrawKva | undefined;
 
   /**
-   * <p>The power option that you can provide for hardware. </p>
-   *          <ul>
-   *             <li>
-   *                <p>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</p>
-   *             </li>
-   *             <li>
-   *                <p>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</p>
-   *             </li>
-   *          </ul>
+   * The power option that you can provide for hardware.
+   *
+   * - Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz
+   * - Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz
+   *
    * @public
    */
   PowerPhase?: PowerPhase | undefined;
 
   /**
-   * <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware.
-   *       Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>Single-phase AC feed</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>L6-30P</b> – (common in US); 30A; single phase</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single
-   *               phase</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Three-phase AC feed</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three
-   *               phase</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three
-   *               phase</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <b>CS8365C</b> – (common in US); 3P+E, 50A; three
-   *               phase</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * The power connector that Amazon Web Services should plan to provide for connections to the hardware. Note the correlation between `PowerPhase` and `PowerConnector`.
+   *
+   * - Single-phase AC feed
+   *
+   *   - **L6-30P** – (common in US); 30A; single phase
+   *   - **IEC309 (blue)** – P+N+E, 6hr; 32 A; single phase
+   * - Three-phase AC feed
+   *
+   *   - **AH530P7W (red)** – 3P+N+E, 7hr; 30A; three phase
+   *   - **AH532P6W (red)** – 3P+N+E, 6hr; 32A; three phase
+   *   - **CS8365C** – (common in US); 3P+E, 50A; three phase
+   *
    * @public
    */
   PowerConnector?: PowerConnector | undefined;
 
   /**
-   * <p>Indicates whether the power feed comes above or below the rack. </p>
+   * Indicates whether the power feed comes above or below the rack.
+   *
    * @public
    */
   PowerFeedDrop?: PowerFeedDrop | undefined;
 
   /**
-   * <p>The uplink speed the rack should support for the connection to the Region. </p>
+   * The uplink speed the rack should support for the connection to the Region.
+   *
    * @public
    */
   UplinkGbps?: UplinkGbps | undefined;
 
   /**
-   * <p>Racks come with two Outpost network devices. Depending on the supported uplink speed at
-   *       the site, the Outpost network devices provide a variable number of uplinks. Specify the number
-   *       of uplinks for each Outpost network device that you intend to use to connect the rack to your
-   *       network. Note the correlation between <code>UplinkGbps</code> and <code>UplinkCount</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>1Gbps - Uplinks available: 1, 2, 4, 6, 8</p>
-   *             </li>
-   *             <li>
-   *                <p>10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16</p>
-   *             </li>
-   *             <li>
-   *                <p>40 and 100 Gbps- Uplinks available: 1, 2, 4</p>
-   *             </li>
-   *          </ul>
+   * Racks come with two Outpost network devices. Depending on the supported uplink speed at the site, the Outpost network devices provide a variable number of uplinks. Specify the number of uplinks for each Outpost network device that you intend to use to connect the rack to your network. Note the correlation between `UplinkGbps` and `UplinkCount`.
+   *
+   * - 1Gbps - Uplinks available: 1, 2, 4, 6, 8
+   * - 10Gbps - Uplinks available: 1, 2, 4, 8, 12, 16
+   * - 40 and 100 Gbps- Uplinks available: 1, 2, 4
+   *
    * @public
    */
   UplinkCount?: UplinkCount | undefined;
 
   /**
-   * <p>The type of fiber that you will use to attach the Outpost to your network. </p>
+   * The type of fiber that you will use to attach the Outpost to your network.
+   *
    * @public
    */
   FiberOpticCableType?: FiberOpticCableType | undefined;
 
   /**
-   * <p>The type of optical standard that you will use to attach the Outpost to your network. This
-   *       field is dependent on uplink speed, fiber type, and distance to the upstream device.
-   *       For more information
-   *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
-   *         in the Amazon Web Services Outposts User Guide.
-   *         </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_1000BASE_LX</code>: 1000Base-LX</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIC_1000BASE_SX</code> : 1000Base-SX</p>
-   *             </li>
-   *          </ul>
+   * The type of optical standard that you will use to attach the Outpost to your network. This field is dependent on uplink speed, fiber type, and distance to the upstream device. For more information about networking requirements for racks, see [Network](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking) in the Amazon Web Services Outposts User Guide.
+   *
+   * - `OPTIC_10GBASE_SR`: 10GBASE-SR
+   * - `OPTIC_10GBASE_IR`: 10GBASE-IR
+   * - `OPTIC_10GBASE_LR`: 10GBASE-LR
+   * - `OPTIC_40GBASE_SR`: 40GBASE-SR
+   * - `OPTIC_40GBASE_ESR`: 40GBASE-ESR
+   * - `OPTIC_40GBASE_IR4_LR4L`: 40GBASE-IR (LR4L)
+   * - `OPTIC_40GBASE_LR4`: 40GBASE-LR4
+   * - `OPTIC_100GBASE_SR4`: 100GBASE-SR4
+   * - `OPTIC_100GBASE_CWDM4`: 100GBASE-CWDM4
+   * - `OPTIC_100GBASE_LR4`: 100GBASE-LR4
+   * - `OPTIC_100G_PSM4_MSA`: 100G PSM4 MSA
+   * - `OPTIC_1000BASE_LX`: 1000Base-LX
+   * - `OPTIC_1000BASE_SX` : 1000Base-SX
+   *
    * @public
    */
   OpticalStandard?: OpticalStandard | undefined;
 
   /**
-   * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs.
-   *     </p>
+   * The maximum rack weight that this site can support. `NO_LIMIT` is over 2000lbs.
+   *
    * @public
    */
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | undefined;
@@ -4132,7 +4219,8 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
  */
 export interface UpdateSiteRackPhysicalPropertiesOutput {
   /**
-   * <p>Information about a site.</p>
+   * Information about a site.
+   *
    * @public
    */
   Site?: Site | undefined;

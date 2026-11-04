@@ -23,19 +23,12 @@ export interface DescribeClustersCommandInput extends DescribeClustersMessage {}
 export interface DescribeClustersCommandOutput extends ClustersMessage, __MetadataBearer {}
 
 /**
- * <p>Returns properties of provisioned clusters including general cluster properties,
- *             cluster database properties, maintenance and backup properties, and security and access
- *             properties. This operation supports pagination.
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
- *             all clusters that match any combination of the specified keys and values. For example,
- *             if you have <code>owner</code> and <code>environment</code> for tag keys, and
- *                 <code>admin</code> and <code>test</code> for tag values, all clusters that have any
- *             combination of those values are returned.</p>
- *          <p>If both tag keys and values are omitted from the request, clusters are returned
- *             regardless of whether they have tag keys or values associated with them.</p>
+ * Returns properties of provisioned clusters including general cluster properties, cluster database properties, maintenance and backup properties, and security and access properties. This operation supports pagination. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
+ * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all clusters that match any combination of the specified keys and values. For example, if you have `owner` and `environment` for tag keys, and `admin` and `test` for tag values, all clusters that have any combination of those values are returned.
+ *
+ * If both tag keys and values are omitted from the request, clusters are returned regardless of whether they have tag keys or values associated with them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -277,15 +270,16 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

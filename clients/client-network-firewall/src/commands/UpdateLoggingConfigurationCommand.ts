@@ -23,32 +23,18 @@ export interface UpdateLoggingConfigurationCommandInput extends UpdateLoggingCon
 export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the logging configuration for the specified firewall. </p>
- *          <p>To change the logging configuration, retrieve the <a>LoggingConfiguration</a> by calling <a>DescribeLoggingConfiguration</a>, then change it and provide
- *          the modified object to this update call. You must change the logging configuration one
- *             <a>LogDestinationConfig</a> at a time inside the retrieved <a>LoggingConfiguration</a> object. </p>
- *          <p>You can perform only one of the following actions in any call to
- *             <code>UpdateLoggingConfiguration</code>: </p>
- *          <ul>
- *             <li>
- *                <p>Create a new log destination object by adding a single
- *                   <code>LogDestinationConfig</code> array element to
- *                   <code>LogDestinationConfigs</code>.</p>
- *             </li>
- *             <li>
- *                <p>Delete a log destination object by removing a single
- *                   <code>LogDestinationConfig</code> array element from
- *                   <code>LogDestinationConfigs</code>.</p>
- *             </li>
- *             <li>
- *                <p>Change the <code>LogDestination</code> setting in a single
- *                   <code>LogDestinationConfig</code> array element.</p>
- *             </li>
- *          </ul>
- *          <p>You can't change the <code>LogDestinationType</code> or <code>LogType</code> in a
- *             <code>LogDestinationConfig</code>. To change these settings, delete the existing
- *             <code>LogDestinationConfig</code> object and create a new one, using two separate calls
- *          to this update operation.</p>
+ * Sets the logging configuration for the specified firewall.
+ *
+ * To change the logging configuration, retrieve the LoggingConfiguration by calling DescribeLoggingConfiguration, then change it and provide the modified object to this update call. You must change the logging configuration one LogDestinationConfig at a time inside the retrieved LoggingConfiguration object.
+ *
+ * You can perform only one of the following actions in any call to `UpdateLoggingConfiguration`:
+ *
+ * - Create a new log destination object by adding a single `LogDestinationConfig` array element to `LogDestinationConfigs`.
+ * - Delete a log destination object by removing a single `LogDestinationConfig` array element from `LogDestinationConfigs`.
+ * - Change the `LogDestination` setting in a single `LogDestinationConfig` array element.
+ *
+ * You can't change the `LogDestinationType` or `LogType` in a `LogDestinationConfig`. To change these settings, delete the existing `LogDestinationConfig` object and create a new one, using two separate calls to this update operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,40 +87,36 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ *
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p>The token you provided is stale or isn't valid for the operation. </p>
+ *
+ * The token you provided is stale or isn't valid for the operation.
  *
  * @throws {@link LogDestinationPermissionException} (client fault)
- *  <p>Unable to send logs to a configured logging destination. </p>
+ *
+ * Unable to send logs to a configured logging destination.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Unable to locate a resource using the parameters that you provided.</p>
+ *
+ * Unable to locate a resource using the parameters that you provided.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Unable to process the request due to throttling limitations.</p>
+ *
+ * Unable to process the request due to throttling limitations.
  *
  * @throws {@link NetworkFirewallServiceException}
- * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ * Base exception class for all service exceptions from NetworkFirewall service.
  *
  * @public
  */

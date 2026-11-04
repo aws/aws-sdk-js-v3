@@ -23,24 +23,13 @@ export interface AnalyzeExpenseCommandInput extends AnalyzeExpenseRequest {}
 export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>AnalyzeExpense</code> synchronously analyzes an input document for financially
- *          related relationships between text.</p>
- *          <p>Information is returned as <code>ExpenseDocuments</code> and seperated as
- *          follows:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>LineItemGroups</code>- A data set containing <code>LineItems</code> which
- *                store information about the lines of text, such as an item purchased and its price on
- *                a receipt.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SummaryFields</code>- Contains all other information a receipt, such as
- *                header information or the vendors name.</p>
- *             </li>
- *          </ul>
+ * `AnalyzeExpense` synchronously analyzes an input document for financially related relationships between text.
+ *
+ * Information is returned as `ExpenseDocuments` and seperated as follows:
+ *
+ * - `LineItemGroups`- A data set containing `LineItems` which store information about the lines of text, such as an item purchased and its price on a receipt.
+ * - `SummaryFields`- Contains all other information a receipt, such as header information or the vendors name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -242,48 +231,44 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
  *
  * @throws {@link BadDocumentException} (client fault)
- *  <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits.html">Hard limits</a>.</p>
+ *
+ * Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see [Hard limits](https://docs.aws.amazon.com/textract/latest/dg/limits.html).
  *
  * @throws {@link DocumentTooLargeException} (client fault)
- *  <p>The document can't be processed because it's too large. The maximum document size for
- *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
- *          MB for PDF files.</p>
+ *
+ * The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Textract experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ *
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
+ *
+ * Amazon Textract is unable to access the S3 object that's specified in the request. for more information, [Configure Access to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) For troubleshooting information, see [Troubleshooting Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html)
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link UnsupportedDocumentException} (client fault)
- *  <p>The format of the input document isn't supported. Documents for operations can be in
- *          PNG, JPEG, PDF, or TIFF format.</p>
+ *
+ * The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.
  *
  * @throws {@link TextractServiceException}
- * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * Base exception class for all service exceptions from Textract service.
  *
  * @public
  */

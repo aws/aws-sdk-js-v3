@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PIServiceException as __BaseException } from "./PIServiceException";
 
 /**
- * <p>The request failed due to an unknown error.</p>
+ * The request failed due to an unknown error.
+ *
  * @public
  */
 export class InternalServiceError extends __BaseException {
@@ -27,7 +28,8 @@ export class InternalServiceError extends __BaseException {
 }
 
 /**
- * <p>One of the arguments provided is invalid for this request.</p>
+ * One of the arguments provided is invalid for this request.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -50,7 +52,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The user is not authorized to perform this request.</p>
+ * The user is not authorized to perform this request.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {

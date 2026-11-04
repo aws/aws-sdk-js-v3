@@ -23,7 +23,8 @@ export interface ListKeysCommandInput extends ListKeysRequest {}
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of key value pairs.</p>
+ * Returns a list of key value pairs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,23 +59,28 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  * @see {@link CloudFrontKeyValueStoreClientResolvedConfig | config} for CloudFrontKeyValueStoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Resource is not in expected state.</p>
+ *
+ * Resource is not in expected state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation failed.</p>
+ *
+ * Validation failed.
  *
  * @throws {@link CloudFrontKeyValueStoreServiceException}
- * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * Base exception class for all service exceptions from CloudFrontKeyValueStore service.
  *
  * @example List keys in the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
  * ```javascript

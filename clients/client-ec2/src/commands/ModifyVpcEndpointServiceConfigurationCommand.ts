@@ -26,9 +26,10 @@ export interface ModifyVpcEndpointServiceConfigurationCommandInput extends Modif
 export interface ModifyVpcEndpointServiceConfigurationCommandOutput extends ModifyVpcEndpointServiceConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the attributes of the specified VPC endpoint service configuration.</p>
- *          <p>If you set or modify the private DNS name, you must prove that you own the private DNS
- *             domain name.</p>
+ * Modifies the attributes of the specified VPC endpoint service configuration.
+ *
+ * If you set or modify the private DNS name, you must prove that you own the private DNS domain name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +78,8 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput extends Modi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

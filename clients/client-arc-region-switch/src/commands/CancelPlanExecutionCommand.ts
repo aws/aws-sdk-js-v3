@@ -23,7 +23,10 @@ export interface CancelPlanExecutionCommandInput extends CancelPlanExecutionRequ
 export interface CancelPlanExecutionCommandOutput extends CancelPlanExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels an in-progress plan execution. This operation stops the execution of the plan and prevents any further steps from being processed.</p> <p>You must specify the plan ARN and execution ID. You can also provide an optional comment explaining why the execution was canceled.</p>
+ * Cancels an in-progress plan execution. This operation stops the execution of the plan and prevents any further steps from being processed.
+ *
+ * You must specify the plan ARN and execution ID. You can also provide an optional comment explaining why the execution was canceled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +53,20 @@ export interface CancelPlanExecutionCommandOutput extends CancelPlanExecutionRes
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * HTTP Status Code: 403
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

@@ -23,13 +23,12 @@ export interface DeleteAccessGrantCommandInput extends DeleteAccessGrantRequest 
 export interface DeleteAccessGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the access grant from the S3 Access Grants instance. You cannot undo an access grant deletion and the grantee will no longer have access to the S3 data.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:DeleteAccessGrant</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * Deletes the access grant from the S3 Access Grants instance. You cannot undo an access grant deletion and the grantee will no longer have access to the S3 data.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:DeleteAccessGrant` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +54,8 @@ export interface DeleteAccessGrantCommandOutput extends __MetadataBearer {}
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

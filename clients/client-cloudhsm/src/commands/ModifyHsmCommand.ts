@@ -23,23 +23,13 @@ export interface ModifyHsmCommandInput extends ModifyHsmRequest {}
 export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBearer {}
 
 /**
- * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
- *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
- *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
- *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
- *          <p>
- *             <b>For information about the current version of AWS
- *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
- *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
- *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
- *       Reference</a>.</p>
- *          <p>Modifies an HSM.</p>
- *          <important>
- *             <p>This operation can result in the HSM being offline for up to 15 minutes while the AWS
- *         CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure
- *         that your AWS CloudHSM service is configured for high availability, and consider executing this
- *         operation during a maintenance window.</p>
- *          </important>
+ * This is documentation for **AWS CloudHSM Classic**. For more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
+ *
+ * **For information about the current version of AWS CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+ *
+ * Modifies an HSM.
+ *
+ * > **Important:** This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.
  *
  * @deprecated This API is deprecated.
  * @example
@@ -73,17 +63,20 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  * @throws {@link CloudHsmInternalException} (server fault)
- *  <p>Indicates that an internal error occurred.</p>
+ *
+ * Indicates that an internal error occurred.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * Indicates that an exception occurred in the AWS CloudHSM service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
+ * Indicates that one or more of the request parameters are not valid.
  *
  * @throws {@link CloudHSMServiceException}
- * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSM service.
  *
  * @public
  */

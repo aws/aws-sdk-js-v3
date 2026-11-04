@@ -26,8 +26,8 @@ export interface PutDataCatalogEncryptionSettingsCommandInput extends PutDataCat
 export interface PutDataCatalogEncryptionSettingsCommandOutput extends PutDataCatalogEncryptionSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the security configuration for a specified catalog. After the configuration has been
- *       set, the specified encryption is applied to every catalog write thereafter.</p>
+ * Sets the security configuration for a specified catalog. After the configuration has been set, the specified encryption is applied to every catalog write thereafter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +63,20 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput extends PutDataCa
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

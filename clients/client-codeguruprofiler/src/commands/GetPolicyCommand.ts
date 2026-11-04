@@ -23,9 +23,8 @@ export interface GetPolicyCommandInput extends GetPolicyRequest {}
 export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Returns the JSON-formatted resource-based policy on a profiling group.
- *         </p>
+ * Returns the JSON-formatted resource-based policy on a profiling group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +52,20 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link CodeGuruProfilerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruProfiler service.
  *
  * @public
  */

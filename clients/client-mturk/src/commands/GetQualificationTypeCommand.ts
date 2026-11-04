@@ -23,9 +23,8 @@ export interface GetQualificationTypeCommandInput extends GetQualificationTypeRe
 export interface GetQualificationTypeCommandOutput extends GetQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>GetQualificationType</code>operation retrieves information about a Qualification type using its ID.
- *         </p>
+ * The `GetQualificationType`operation retrieves information about a Qualification type using its ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,14 +65,16 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

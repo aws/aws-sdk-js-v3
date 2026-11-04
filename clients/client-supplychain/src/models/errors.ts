@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SupplyChainServiceException as __BaseException } from "./SupplyChainServiceException";
 
 /**
- * <p>You do not have the required privileges to perform this action.</p>
+ * You do not have the required privileges to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
+ * Unexpected error during processing of request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Request references a resource which does not exist.</p>
+ * Request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Request would cause a service quota to be exceeded.</p>
+ * Request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -110,7 +115,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Request was denied due to request throttling.</p>
+ * Request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -134,7 +140,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by an AWS service.</p>
+ * The input does not satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

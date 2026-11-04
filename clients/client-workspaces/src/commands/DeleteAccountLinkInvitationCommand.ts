@@ -23,7 +23,8 @@ export interface DeleteAccountLinkInvitationCommandInput extends DeleteAccountLi
 export interface DeleteAccountLinkInvitationCommandOutput extends DeleteAccountLinkInvitationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the account link invitation.</p>
+ * Deletes the account link invitation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,24 +57,28 @@ export interface DeleteAccountLinkInvitationCommandOutput extends DeleteAccountL
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+ *
+ * The `TargetAccountId` is already linked or invited.
  *
  * @throws {@link InternalServerException} (client fault)
- *  <p>Unexpected server error occured.</p>
+ *
+ * Unexpected server error occured.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You either haven't provided a <code>TargetAccountId</code> or
- *          are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+ *
+ * You either haven't provided a `TargetAccountId` or are using the same value for `TargetAccountId` and `SourceAccountId`.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

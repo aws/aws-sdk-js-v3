@@ -23,7 +23,8 @@ export interface ListEntityRecognizerSummariesCommandInput extends ListEntityRec
 export interface ListEntityRecognizerSummariesCommandOutput extends ListEntityRecognizerSummariesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of summaries for the entity recognizers that you have created.</p>
+ * Gets a list of summaries for the entity recognizers that you have created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +61,20 @@ export interface ListEntityRecognizerSummariesCommandOutput extends ListEntityRe
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

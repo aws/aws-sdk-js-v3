@@ -23,10 +23,10 @@ export interface DescribeComputeEnvironmentsCommandInput extends DescribeCompute
 export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComputeEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your compute environments.</p>
- *          <p>If you're using an unmanaged compute environment, you can use the
- *         <code>DescribeComputeEnvironment</code> operation to determine the
- *         <code>ecsClusterArn</code> that you launch your Amazon ECS container instances into.</p>
+ * Describes one or more of your compute environments.
+ *
+ * If you're using an unmanaged compute environment, you can use the `DescribeComputeEnvironment` operation to determine the `ecsClusterArn` that you launch your Amazon ECS container instances into.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -180,16 +180,16 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To describe a compute environment
  * ```javascript

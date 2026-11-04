@@ -23,7 +23,8 @@ export interface ModifyVpcAttributeCommandInput extends ModifyVpcAttributeReques
 export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the specified attribute of the specified VPC.</p>
+ * Modifies the specified attribute of the specified VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +58,8 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To modify the enableDnsSupport attribute
  * ```javascript

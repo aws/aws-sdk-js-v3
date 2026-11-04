@@ -1679,7 +1679,8 @@ export interface Kendra {
 }
 
 /**
- * <p>Amazon Kendra is a service for indexing large document sets.</p>
+ * Amazon Kendra is a service for indexing large document sets.
+ *
  * @public
  */
 export class Kendra extends KendraClient implements Kendra {}

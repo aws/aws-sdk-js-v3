@@ -23,29 +23,25 @@ export interface CreateInstanceEventWindowCommandInput extends CreateInstanceEve
 export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
- * <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can
- *          run.</p>
- *          <p>You can define either a set of time ranges or a cron expression when creating the event
- *          window, but not both. All event window times are in UTC.</p>
- *          <p>You can create up to 200 event windows per Amazon Web Services Region.</p>
- *          <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
- *          are not yet associated with it. To ensure that the event window can be used, you must
- *          associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p>
- *          <important>
- *             <p>Event windows are applicable only for scheduled events that stop, reboot, or
- *             terminate instances.</p>
- *             <p>Event windows are <i>not</i> applicable for:</p>
- *             <ul>
- *                <li>
- *                   <p>Expedited scheduled events and network maintenance events. </p>
- *                </li>
- *                <li>
- *                   <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
- *                </li>
- *             </ul>
- *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
- *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Creates an event window in which scheduled events for the associated Amazon EC2 instances can run.
+ *
+ * You can define either a set of time ranges or a cron expression when creating the event window, but not both. All event window times are in UTC.
+ *
+ * You can create up to 200 event windows per Amazon Web Services Region.
+ *
+ * When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags) are not yet associated with it. To ensure that the event window can be used, you must associate one or more targets with it by using the AssociateInstanceEventWindow API.
+ *
+ * > **Important:**
+ * >
+ * > Event windows are applicable only for scheduled events that stop, reboot, or terminate instances.
+ * >
+ * > Event windows are *not* applicable for:
+ * >
+ * > - Expedited scheduled events and network maintenance events.
+ * > - Unscheduled maintenance such as AutoRecovery and unplanned reboots.
+ *
+ * For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,8 +122,8 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface PutActionRevisionCommandInput extends PutActionRevisionInput {}
 export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput, __MetadataBearer {}
 
 /**
- * <p>Provides information to CodePipeline about new revisions to a
- *             source.</p>
+ * Provides information to CodePipeline about new revisions to a source.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +59,28 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ActionNotFoundException} (client fault)
- *  <p>The specified action cannot be found.</p>
+ *
+ * The specified action cannot be found.
  *
  * @throws {@link ConcurrentPipelineExecutionsLimitExceededException} (client fault)
- *  <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ *
+ * The pipeline has reached the limit for concurrent pipeline executions.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotFoundException} (client fault)
- *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * The stage was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface BatchDeleteClusterSnapshotsCommandInput extends BatchDeleteClus
 export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClusterSnapshotsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a set of cluster snapshots.</p>
+ * Deletes a set of cluster snapshots.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,12 +66,12 @@ export interface BatchDeleteClusterSnapshotsCommandOutput extends BatchDeleteClu
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link BatchDeleteRequestSizeExceededFault} (client fault)
- *  <p>The maximum number for a batch delete of snapshots has been reached. The limit is
- *             100. </p>
+ *
+ * The maximum number for a batch delete of snapshots has been reached. The limit is 100.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

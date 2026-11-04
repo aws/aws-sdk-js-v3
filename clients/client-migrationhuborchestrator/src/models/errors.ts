@@ -6,7 +6,8 @@ import {
 } from "./MigrationHubOrchestratorServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The resource is not available.</p>
+ * The resource is not available.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -49,7 +51,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * The input fails to satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -71,7 +74,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An internal error has occurred.</p>
+ * An internal error has occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -92,7 +96,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -113,8 +118,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when an attempt to update or delete
- *             a resource would cause an inconsistent state.</p>
+ * This exception is thrown when an attempt to update or delete a resource would cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {

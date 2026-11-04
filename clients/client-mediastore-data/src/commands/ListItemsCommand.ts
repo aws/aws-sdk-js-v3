@@ -23,8 +23,8 @@ export interface ListItemsCommandInput extends ListItemsRequest {}
 export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of metadata entries about folders and objects in the specified
- *          folder.</p>
+ * Provides a list of metadata entries about folders and objects in the specified folder.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +63,16 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The specified container was not found for the specified account.</p>
+ *
+ * The specified container was not found for the specified account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreDataServiceException}
- * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * Base exception class for all service exceptions from MediaStoreData service.
  *
  * @public
  */

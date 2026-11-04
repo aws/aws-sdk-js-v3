@@ -23,19 +23,14 @@ export interface CreateApplicationPresignedUrlCommandInput extends CreateApplica
 export interface CreateApplicationPresignedUrlCommandOutput extends CreateApplicationPresignedUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and returns a URL that you can use to connect to
- *             an application's extension.</p>
- *          <p>The IAM role or user used to call this API defines the permissions to access the
- *       extension. After the presigned URL is created, no additional permission is required to access
- *       this URL. IAM authorization policies for this API are also enforced for every HTTP request
- *       that attempts to connect to the extension. </p>
- *          <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>
- *         parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p>
- *          <note>
- *             <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes
- *             to be valid.
- *             If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p>
- *          </note>
+ * Creates and returns a URL that you can use to connect to an application's extension.
+ *
+ * The IAM role or user used to call this API defines the permissions to access the extension. After the presigned URL is created, no additional permission is required to access this URL. IAM authorization policies for this API are also enforced for every HTTP request that attempts to connect to the extension.
+ *
+ * You control the amount of time that the URL will be valid using the `SessionExpirationDurationInSeconds` parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.
+ *
+ * > **Note:** The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes to be valid. If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +59,20 @@ export interface CreateApplicationPresignedUrlCommandOutput extends CreateApplic
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

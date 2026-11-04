@@ -23,7 +23,10 @@ export interface GetAgentTaskResponseUrlCommandInput extends GetAgentTaskRespons
 export interface GetAgentTaskResponseUrlCommandOutput extends GetAgentTaskResponseUrlResponse, __MetadataBearer {}
 
 /**
- * <note> <p> For use by AWS Ground Station Agent and shouldn't be called directly.</p> </note> <p>Gets a presigned URL for uploading agent task response logs.</p>
+ * > **Note:** For use by AWS Ground Station Agent and shouldn't be called directly.
+ *
+ * Gets a presigned URL for uploading agent task response logs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +56,20 @@ export interface GetAgentTaskResponseUrlCommandOutput extends GetAgentTaskRespon
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

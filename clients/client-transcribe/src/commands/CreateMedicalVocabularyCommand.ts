@@ -23,19 +23,14 @@ export interface CreateMedicalVocabularyCommandInput extends CreateMedicalVocabu
 export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom medical vocabulary.</p>
- *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
- *             that contains your vocabulary table into an Amazon S3 bucket.
- *             Note that this differs from , where you can
- *             include a list of terms within your request using the <code>Phrases</code> flag;
- *                 <code>CreateMedicalVocabulary</code> does not support the <code>Phrases</code>
- *             flag and only accepts vocabularies in table format.</p>
- *          <p>Each language has a character set that contains all allowed characters for that
- *             specific language. If you use unsupported characters, your custom vocabulary request
- *             fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a> to get the character set for your
- *             language.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
- *             vocabularies</a>.</p>
+ * Creates a new custom medical vocabulary.
+ *
+ * Before creating a new custom medical vocabulary, you must first upload a text file that contains your vocabulary table into an Amazon S3 bucket. Note that this differs from , where you can include a list of terms within your request using the `Phrases` flag; `CreateMedicalVocabulary` does not support the `Phrases` flag and only accepts vocabularies in table format.
+ *
+ * Each language has a character set that contains all allowed characters for that specific language. If you use unsupported characters, your custom vocabulary request fails. Refer to [Character Sets for Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html) to get the character set for your language.
+ *
+ * For more information, see [Custom vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +69,24 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
+ *
+ * A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

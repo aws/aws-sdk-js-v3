@@ -23,10 +23,8 @@ export interface DescribeActivationsCommandInput extends DescribeActivationsRequ
 export interface DescribeActivationsCommandOutput extends DescribeActivationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes details about the activation, such as the date and time the activation was
- *    created, its expiration date, the Identity and Access Management (IAM) role assigned to
- *    the managed nodes in the activation, and the number of nodes registered by using this
- *    activation.</p>
+ * Describes details about the activation, such as the date and time the activation was created, its expiration date, the Identity and Access Management (IAM) role assigned to the managed nodes in the activation, and the number of nodes registered by using this activation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +79,20 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+ *
+ * The filter name isn't valid. Verify that you entered the correct name and try again.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

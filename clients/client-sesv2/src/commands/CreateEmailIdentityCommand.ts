@@ -23,32 +23,18 @@ export interface CreateEmailIdentityCommandInput extends CreateEmailIdentityRequ
 export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the process of verifying an email identity. An <i>identity</i> is
- *             an email address or domain that you use when you send email. Before you can use an
- *             identity to send email, you first have to verify it. By verifying an identity, you
- *             demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2
- *             permission to send email from the identity.</p>
- *          <p>When you verify an email address, Amazon SES sends an email to the address. Your email
- *             address is verified as soon as you follow the link in the verification email.
+ * Starts the process of verifying an email identity. An *identity* is an email address or domain that you use when you send email. Before you can use an identity to send email, you first have to verify it. By verifying an identity, you demonstrate that you're the owner of the identity, and that you've given Amazon SES API v2 permission to send email from the identity.
  *
- *         </p>
- *          <p>When you verify a domain without specifying the <code>DkimSigningAttributes</code>
- *             object, this operation provides a set of DKIM tokens. You can convert these tokens into
- *             CNAME records, which you then add to the DNS configuration for your domain. Your domain
- *             is verified when Amazon SES detects these records in the DNS configuration for your domain.
- *             This verification method is known as <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
- *          <p>Alternatively, you can perform the verification process by providing your own
- *             public-private key pair. This verification method is known as Bring Your Own DKIM
- *             (BYODKIM). To use BYODKIM, your call to the <code>CreateEmailIdentity</code> operation
- *             has to include the <code>DkimSigningAttributes</code> object. When you specify this
- *             object, you provide a selector (a component of the DNS record name that identifies the
- *             public key to use for DKIM authentication) and a private key.</p>
- *          <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
- *             convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
- *             domain. Your domain is verified when Amazon SES detects these records in the DNS
- *             configuration for your domain. For some DNS providers, it can take 72 hours or more to
- *             complete the domain verification process.</p>
- *          <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
+ * When you verify an email address, Amazon SES sends an email to the address. Your email address is verified as soon as you follow the link in the verification email.
+ *
+ * When you verify a domain without specifying the `DkimSigningAttributes` object, this operation provides a set of DKIM tokens. You can convert these tokens into CNAME records, which you then add to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. This verification method is known as [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html).
+ *
+ * Alternatively, you can perform the verification process by providing your own public-private key pair. This verification method is known as Bring Your Own DKIM (BYODKIM). To use BYODKIM, your call to the `CreateEmailIdentity` operation has to include the `DkimSigningAttributes` object. When you specify this object, you provide a selector (a component of the DNS record name that identifies the public key to use for DKIM authentication) and a private key.
+ *
+ * When you verify a domain, this operation provides a set of DKIM tokens, which you can convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your domain. Your domain is verified when Amazon SES detects these records in the DNS configuration for your domain. For some DNS providers, it can take 72 hours or more to complete the domain verification process.
+ *
+ * Additionally, you can associate an existing configuration set with the email identity that you're verifying.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,26 +87,32 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * The resource is being modified by another operation or thread.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

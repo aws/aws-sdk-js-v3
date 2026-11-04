@@ -23,8 +23,8 @@ export interface ListDevicesCommandInput extends ListDevicesInput {}
 export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all devices on your Amazon Web Services account that have Amazon Web Services Snow Device Management
- *       enabled in the Amazon Web Services Region where the command is run.</p>
+ * Returns a list of all devices on your Amazon Web Services account that have Amazon Web Services Snow Device Management enabled in the Amazon Web Services Region where the command is run.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +63,24 @@ export interface ListDevicesCommandOutput extends ListDevicesOutput, __MetadataB
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SnowDeviceManagementServiceException}
- * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * Base exception class for all service exceptions from SnowDeviceManagement service.
  *
  * @public
  */

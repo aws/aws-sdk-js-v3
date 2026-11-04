@@ -23,11 +23,8 @@ export interface AssociatePersonasToEntitiesCommandInput extends AssociatePerson
 export interface AssociatePersonasToEntitiesCommandOutput extends AssociatePersonasToEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Defines the specific permissions of users or groups in your IAM Identity Center
- *             identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra
- *             experience such as a search application. For more information on creating a
- *             search application experience, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
- *                 a search experience with no code</a>.</p>
+ * Defines the specific permissions of users or groups in your IAM Identity Center identity source with access to your Amazon Kendra experience. You can create an Amazon Kendra experience such as a search application. For more information on creating a search application experience, see [Building a search experience with no code](https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,32 +63,32 @@ export interface AssociatePersonasToEntitiesCommandOutput extends AssociatePerso
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceAlreadyExistException} (client fault)
- *  <p>The resource you want to use already exists. Please check you have provided the
- *             correct resource and try again.</p>
+ *
+ * The resource you want to use already exists. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
+ *
+ * The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please reduce the number of requests
- *             and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.
  *
  * @throws {@link KendraServiceException}
- * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * Base exception class for all service exceptions from Kendra service.
  *
  * @public
  */

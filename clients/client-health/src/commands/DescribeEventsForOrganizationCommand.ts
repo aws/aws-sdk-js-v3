@@ -23,38 +23,20 @@ export interface DescribeEventsForOrganizationCommandInput extends DescribeEvent
 export interface DescribeEventsForOrganizationCommandOutput extends DescribeEventsForOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about events across your organization in Organizations. You can use
- *             the<code>filters</code> parameter to specify the events that you want to return. Events
- *          are returned in a summary form and don't include the affected accounts, detailed
- *          description, any additional metadata that depends on the event type, or any affected
- *          resources. To retrieve that information, use the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedAccountsForOrganization.html">DescribeAffectedAccountsForOrganization</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>If you don't specify a <code>filter</code>, the
- *             <code>DescribeEventsForOrganizations</code> returns all events across your organization.
- *          Results are sorted by <code>lastModifiedTime</code>, starting with the most recent event. </p>
- *          <p>For more information about the different types of Health events, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
- *          <p>Before you can call this operation, you must first enable Health to work with
- *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
- *          management account.</p>
- *          <note>
- *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
- *          </note>
+ * Returns information about events across your organization in Organizations. You can use the`filters` parameter to specify the events that you want to return. Events are returned in a summary form and don't include the affected accounts, detailed description, any additional metadata that depends on the event type, or any affected resources. To retrieve that information, use the following operations:
+ *
+ * - [DescribeAffectedAccountsForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedAccountsForOrganization.html)
+ * - [DescribeEventDetailsForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html)
+ * - [DescribeAffectedEntitiesForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html)
+ *
+ * If you don't specify a `filter`, the `DescribeEventsForOrganizations` returns all events across your organization. Results are sorted by `lastModifiedTime`, starting with the most recent event.
+ *
+ * For more information about the different types of Health events, see [Event](https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html).
+ *
+ * Before you can call this operation, you must first enable Health to work with Organizations. To do this, call the [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) operation from your organization's management account.
+ *
+ * > **Note:** This API operation uses pagination. Specify the `nextToken` parameter in the next request to return more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,14 +127,16 @@ export interface DescribeEventsForOrganizationCommandOutput extends DescribeEven
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * The specified pagination token (`nextToken`) is not valid.
  *
  * @throws {@link UnsupportedLocale} (client fault)
- *  <p>The specified locale is not supported.</p>
+ *
+ * The specified locale is not supported.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

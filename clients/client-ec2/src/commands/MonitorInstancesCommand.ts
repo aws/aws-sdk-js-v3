@@ -23,10 +23,10 @@ export interface MonitorInstancesCommandInput extends MonitorInstancesRequest {}
 export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
- *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
- *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
+ * Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see [Monitor your instances using CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html) in the *Amazon EC2 User Guide*.
+ *
+ * To disable detailed monitoring, see [UnmonitorInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +63,8 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

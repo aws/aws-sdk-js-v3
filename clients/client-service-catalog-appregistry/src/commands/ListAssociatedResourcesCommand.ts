@@ -23,27 +23,10 @@ export interface ListAssociatedResourcesCommandInput extends ListAssociatedResou
 export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *        Lists all
- *        of the resources
- *        that are associated
- *        with the specified application.
- *        Results are paginated.
- *      </p>
- *          <note>
- *             <p>
- *          If you share an application,
- *          and a consumer account associates a tag query
- *          to the application,
- *          all of the users
- *          who can access the application
- *          can also view the tag values
- *          in all accounts
- *          that are associated
- *          with it
- *          using this API.
- *        </p>
- *          </note>
+ * Lists all of the resources that are associated with the specified application. Results are paginated.
+ *
+ * > **Note:** If you share an application, and a consumer account associates a tag query to the application, all of the users who can access the application can also view the tag values in all accounts that are associated with it using this API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,17 +68,20 @@ export interface ListAssociatedResourcesCommandOutput extends ListAssociatedReso
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

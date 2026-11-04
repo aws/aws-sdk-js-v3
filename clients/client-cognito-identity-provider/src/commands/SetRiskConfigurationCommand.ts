@@ -23,35 +23,17 @@ export interface SetRiskConfigurationCommandInput extends SetRiskConfigurationRe
 export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Configures threat protection for a user pool or app client. Sets configuration for the
- *             following.</p>
- *          <ul>
- *             <li>
- *                <p>Responses to risks with adaptive authentication</p>
- *             </li>
- *             <li>
- *                <p>Responses to vulnerable passwords with compromised-credentials
- *                     detection</p>
- *             </li>
- *             <li>
- *                <p>Notifications to users who have had risky activity detected</p>
- *             </li>
- *             <li>
- *                <p>IP-address denylist and allowlist</p>
- *             </li>
- *          </ul>
- *          <p>To set the risk configuration for the user pool to defaults, send this request with
- *             only the <code>UserPoolId</code> parameter. To reset the threat protection settings of
- *             an app client to be inherited from the user pool, send <code>UserPoolId</code> and
- *                 <code>ClientId</code> parameters only. To change threat protection to audit-only or
- *             off, update the value of <code>UserPoolAddOns</code> in an <code>UpdateUserPool</code>
- *             request. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
- *                      Plus tier</a>.</p>
- *          <p>In secondary regions for user pools with multi-region replication, only the
- *                 <code>SourceARN</code> and <code>From</code> attributes of
- *                 <code>NotifyConfiguration</code> can be modified to configure region-specific SES
- *             integration. All other risk configuration settings must match the existing values to
- *             maintain consistency across replicas.</p>
+ * Configures threat protection for a user pool or app client. Sets configuration for the following.
+ *
+ * - Responses to risks with adaptive authentication
+ * - Responses to vulnerable passwords with compromised-credentials detection
+ * - Notifications to users who have had risky activity detected
+ * - IP-address denylist and allowlist
+ *
+ * To set the risk configuration for the user pool to defaults, send this request with only the `UserPoolId` parameter. To reset the threat protection settings of an app client to be inherited from the user pool, send `UserPoolId` and `ClientId` parameters only. To change threat protection to audit-only or off, update the value of `UserPoolAddOns` in an `UpdateUserPool` request. To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html).
+ *
+ * In secondary regions for user pools with multi-region replication, only the `SourceARN` and `From` attributes of `NotifyConfiguration` can be modified to configure region-specific SES integration. All other risk configuration settings must match the existing values to maintain consistency across replicas.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -187,40 +169,44 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link CodeDeliveryFailureException} (client fault)
- *  <p>This exception is thrown when a verification code fails to deliver
- *             successfully.</p>
+ *
+ * This exception is thrown when a verification code fails to deliver successfully.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
- *             status code: 400.</p>
+ *
+ * This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UserPoolAddOnNotEnabledException} (client fault)
- *  <p>This exception is thrown when user pool add-ons aren't enabled.</p>
+ *
+ * This exception is thrown when user pool add-ons aren't enabled.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

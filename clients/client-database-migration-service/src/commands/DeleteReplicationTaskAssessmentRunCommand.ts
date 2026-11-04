@@ -26,10 +26,10 @@ export interface DeleteReplicationTaskAssessmentRunCommandInput extends DeleteRe
 export interface DeleteReplicationTaskAssessmentRunCommandOutput extends DeleteReplicationTaskAssessmentRunResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the record of a single premigration assessment run.</p>
- *          <p>This operation removes all metadata that DMS maintains about this assessment run.
- *          However, the operation leaves untouched all information about this assessment run that is
- *          stored in your Amazon S3 bucket.</p>
+ * Deletes the record of a single premigration assessment run.
+ *
+ * This operation removes all metadata that DMS maintains about this assessment run. However, the operation leaves untouched all information about this assessment run that is stored in your Amazon S3 bucket.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,18 +81,20 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput extends DeleteR
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

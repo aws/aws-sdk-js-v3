@@ -23,15 +23,14 @@ export interface DeleteInvitationsCommandInput extends DeleteInvitationsRequest 
 export interface DeleteInvitationsCommandOutput extends DeleteInvitationsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts.
- *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub CSPM administrator and member accounts with Organizations</a>
- *            in the <i>Security Hub CSPM User Guide</i>.</p>
- *          </note>
- *          <p>Deletes invitations to become a Security Hub CSPM member account.</p>
- *          <p>A Security Hub CSPM administrator account can use this operation to delete invitations sent to one or more prospective member accounts.</p>
- *          <p>This operation is only used to delete invitations that are sent to prospective member accounts that aren't part of an Amazon Web Services organization.
- *          Organization accounts don't receive invitations.</p>
+ * > **Note:** We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts. For information, see [Managing Security Hub CSPM administrator and member accounts with Organizations](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html) in the *Security Hub CSPM User Guide*.
+ *
+ * Deletes invitations to become a Security Hub CSPM member account.
+ *
+ * A Security Hub CSPM administrator account can use this operation to delete invitations sent to one or more prospective member accounts.
+ *
+ * This operation is only used to delete invitations that are sent to prospective member accounts that aren't part of an Amazon Web Services organization. Organization accounts don't receive invitations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,25 +64,28 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To delete a custom insight
  * ```javascript

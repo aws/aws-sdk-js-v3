@@ -23,8 +23,8 @@ export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizat
 export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganizationAdminAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the Detective administrator account for an
- *          organization. Can only be called by the organization management account.</p>
+ * Returns information about the Detective administrator account for an organization. Can only be called by the organization management account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,22 +59,24 @@ export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganiza
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request cannot be completed because too many other requests are occurring at the
- *          same time.</p>
+ *
+ * The request cannot be completed because too many other requests are occurring at the same time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

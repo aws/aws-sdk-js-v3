@@ -23,22 +23,20 @@ export interface RequestEnvironmentInfoCommandInput extends RequestEnvironmentIn
 export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Initiates a request to compile the specified type of information of the deployed environment.</p>
- *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from the application server log files of every Amazon EC2 instance in
- *       your environment. </p>
- *          <p> Setting the <code>InfoType</code> to <code>bundle</code> compresses the application server log files for every Amazon EC2 instance into a
- *         <code>.zip</code> file. Legacy and .NET containers do not support bundle logs. </p>
- *          <p> Setting the <code>InfoType</code> to <code>analyze</code> collects recent events, instance health, and logs from your environment and sends them to
- *       Amazon Bedrock in your account to generate diagnostic insights and recommended next steps. </p>
- *          <p> Use <a>RetrieveEnvironmentInfo</a> to obtain the set of logs. </p>
- *          <p>Related Topics</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>RetrieveEnvironmentInfo</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Initiates a request to compile the specified type of information of the deployed environment.
+ *
+ * Setting the `InfoType` to `tail` compiles the last lines from the application server log files of every Amazon EC2 instance in your environment.
+ *
+ * Setting the `InfoType` to `bundle` compresses the application server log files for every Amazon EC2 instance into a `.zip` file. Legacy and .NET containers do not support bundle logs.
+ *
+ * Setting the `InfoType` to `analyze` collects recent events, instance health, and logs from your environment and sends them to Amazon Bedrock in your account to generate diagnostic insights and recommended next steps.
+ *
+ * Use RetrieveEnvironmentInfo to obtain the set of logs.
+ *
+ * Related Topics
+ *
+ * - RetrieveEnvironmentInfo
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +63,8 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To request tailed logs
  * ```javascript

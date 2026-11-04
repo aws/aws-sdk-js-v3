@@ -23,7 +23,8 @@ export interface CopyDBClusterParameterGroupCommandInput extends CopyDBClusterPa
 export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Copies the specified cluster parameter group.</p>
+ * Copies the specified cluster parameter group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,18 +64,20 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A parameter group with the same name already exists.</p>
+ *
+ * A parameter group with the same name already exists.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing parameter group.
  *
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
- *  <p>This request would cause you to exceed the allowed number of parameter groups.</p>
+ *
+ * This request would cause you to exceed the allowed number of parameter groups.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

@@ -24,7 +24,8 @@ export interface ResumeClusterCommandInput extends ResumeClusterMessage {}
 export interface ResumeClusterCommandOutput extends ResumeClusterResult, __MetadataBearer {}
 
 /**
- * <p>Resumes a paused cluster.</p>
+ * Resumes a paused cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -255,22 +256,24 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
+ *
+ * The number of nodes specified exceeds the allotted capacity of the cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

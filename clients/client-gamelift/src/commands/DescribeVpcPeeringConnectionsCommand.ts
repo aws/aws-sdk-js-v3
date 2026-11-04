@@ -23,21 +23,16 @@ export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPe
 export interface DescribeVpcPeeringConnectionsCommandOutput extends DescribeVpcPeeringConnectionsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2</p>
- *          <p>Retrieves information on VPC peering connections. Use this operation to get peering
- *             information for all fleets or for one specific fleet ID. </p>
- *          <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
- *             used to manage the Amazon GameLift Servers fleets. Specify a fleet ID or leave the parameter empty to
- *             retrieve all connection records. If successful, the retrieved information includes both
- *             active and pending connections. Active connections identify the IpV4 CIDR block that the
- *             VPC uses to connect. </p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2
+ *
+ * Retrieves information on VPC peering connections. Use this operation to get peering information for all fleets or for one specific fleet ID.
+ *
+ * To retrieve connection information, call this operation from the Amazon Web Services account that is used to manage the Amazon GameLift Servers fleets. Specify a fleet ID or leave the parameter empty to retrieve all connection records. If successful, the retrieved information includes both active and pending connections. Active connections identify the IpV4 CIDR block that the VPC uses to connect.
+ *
+ * **Related actions**
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,22 +72,24 @@ export interface DescribeVpcPeeringConnectionsCommandOutput extends DescribeVpcP
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

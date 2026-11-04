@@ -23,7 +23,8 @@ export interface GetRevenueAttributionCommandInput extends GetRevenueAttribution
 export interface GetRevenueAttributionCommandOutput extends GetRevenueAttributionOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a specific revenue attribution.</p>
+ * Retrieves the details of a specific revenue attribution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +71,28 @@ export interface GetRevenueAttributionCommandOutput extends GetRevenueAttributio
  * @see {@link PartnerCentralRevenueMeasurementClientResolvedConfig | config} for PartnerCentralRevenueMeasurementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions.</p>
+ *
+ * The request was denied due to insufficient permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Retry your request.</p>
+ *
+ * The request was throttled due to too many requests. Retry your request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation due to invalid input parameters.</p>
+ *
+ * The request failed validation due to invalid input parameters.
  *
  * @throws {@link PartnerCentralRevenueMeasurementServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralRevenueMeasurement service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralRevenueMeasurement service.
  *
  * @example Example for GetRevenueAttribution
  * ```javascript

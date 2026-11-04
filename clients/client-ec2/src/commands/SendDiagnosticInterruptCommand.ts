@@ -23,20 +23,14 @@ export interface SendDiagnosticInterruptCommandInput extends SendDiagnosticInter
 export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a
- *                 <i>kernel panic</i> (on Linux instances), or a <i>blue
- *                 screen</i>/<i>stop error</i> (on Windows instances). For
- *             instances based on Intel and AMD processors, the interrupt is received as a
- *                 <i>non-maskable interrupt</i> (NMI).</p>
- *          <p>In general, the operating system crashes and reboots when a kernel panic or stop error
- *             is triggered. The operating system can also be configured to perform diagnostic tasks,
- *             such as generating a memory dump file, loading a secondary kernel, or obtaining a call
- *             trace.</p>
- *          <p>Before sending a diagnostic interrupt to your instance, ensure that its operating
- *             system is configured to perform the required diagnostic tasks.</p>
- *          <p>For more information about configuring your operating system to generate a crash dump
- *             when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt
- *                 (for advanced users)</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a *kernel panic* (on Linux instances), or a *blue screen*\/*stop error* (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a *non-maskable interrupt* (NMI).
+ *
+ * In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.
+ *
+ * Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.
+ *
+ * For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see [Send a diagnostic interrupt (for advanced users)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +56,8 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

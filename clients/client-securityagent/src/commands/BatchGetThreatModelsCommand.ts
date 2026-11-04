@@ -23,7 +23,8 @@ export interface BatchGetThreatModelsCommandInput extends BatchGetThreatModelsIn
 export interface BatchGetThreatModelsCommandOutput extends BatchGetThreatModelsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about one or more threat models in an agent space.</p>
+ * Retrieves information about one or more threat models in an agent space.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,8 +149,8 @@ export interface BatchGetThreatModelsCommandOutput extends BatchGetThreatModelsO
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListCategoriesCommandInput extends ListCategoriesInput {}
 export interface ListCategoriesCommandOutput extends ListCategoriesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the categories of a Amazon Q Business application environment instance. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom labels for Amazon Q Apps</a>.</p>
+ * Lists the categories of a Amazon Q Business application environment instance. For more information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +58,32 @@ export interface ListCategoriesCommandOutput extends ListCategoriesOutput, __Met
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * The client is not authorized to perform the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred while processing the request.</p>
+ *
+ * An internal service error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+ *
+ * The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ *
+ * The client is not authenticated or authorized to perform the requested operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by the service.</p>
+ *
+ * The input failed to satisfy the constraints specified by the service.
  *
  * @throws {@link QAppsServiceException}
- * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ * Base exception class for all service exceptions from QApps service.
  *
  * @example List categories available for the library items in this instance
  * ```javascript

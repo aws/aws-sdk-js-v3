@@ -26,16 +26,12 @@ export interface CreateContainerServiceDeploymentCommandInput extends CreateCont
 export interface CreateContainerServiceDeploymentCommandOutput extends CreateContainerServiceDeploymentResult, __MetadataBearer {}
 
 /**
- * <p>Creates a deployment for your Amazon Lightsail container service.</p>
- *          <p>A deployment specifies the containers that will be launched on the container service and
- *       their settings, such as the ports to open, the environment variables to apply, and the launch
- *       command to run. It also specifies the container that will serve as the public endpoint of the
- *       deployment and its settings, such as the HTTP or HTTPS port to use, and the health check
- *       configuration.</p>
- *          <p>You can deploy containers to your container service using container images from a public
- *       registry such as Amazon ECR Public, or from your local machine. For more information, see
- *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
- *         <i>Amazon Lightsail Developer Guide</i>.</p>
+ * Creates a deployment for your Amazon Lightsail container service.
+ *
+ * A deployment specifies the containers that will be launched on the container service and their settings, such as the ports to open, the environment variables to apply, and the launch command to run. It also specifies the container that will serve as the public endpoint of the deployment and its settings, such as the HTTP or HTTPS port to use, and the health check configuration.
+ *
+ * You can deploy containers to your container service using container images from a public registry such as Amazon ECR Public, or from your local machine. For more information, see [Creating container images for your Amazon Lightsail container services](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images) in the *Amazon Lightsail Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -188,35 +184,34 @@ export interface CreateContainerServiceDeploymentCommandOutput extends CreateCon
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

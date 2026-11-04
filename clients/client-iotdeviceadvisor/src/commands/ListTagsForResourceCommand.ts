@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags attached to an IoT Device Advisor resource.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTagsForResource</a> action.</p>
+ * Lists the tags attached to an IoT Device Advisor resource.
+ *
+ * Requires permission to access the [ListTagsForResource](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +55,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Sends an Internal Failure exception.</p>
+ *
+ * Sends an Internal Failure exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Sends a Resource Not Found exception.</p>
+ *
+ * Sends a Resource Not Found exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Sends a validation exception.</p>
+ *
+ * Sends a validation exception.
  *
  * @throws {@link IotDeviceAdvisorServiceException}
- * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * Base exception class for all service exceptions from IotDeviceAdvisor service.
  *
  * @public
  */

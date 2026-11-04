@@ -23,9 +23,10 @@ export interface GetMLModelCommandInput extends GetMLModelInput {}
 export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>
- *         <p>
- *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
+ * Returns an `MLModel` that includes detailed metadata, data source information, and the current status of the `MLModel`.
+ *
+ * `GetMLModel` provides results in normal or verbose format.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +81,20 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

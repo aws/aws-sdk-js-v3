@@ -23,7 +23,8 @@ export interface DeleteMediaCapturePipelineCommandInput extends DeleteMediaCaptu
 export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the media pipeline.</p>
+ * Deletes the media pipeline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,29 +49,36 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * @see {@link ChimeSDKMediaPipelinesClientResolvedConfig | config} for ChimeSDKMediaPipelinesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMediaPipelines service.
  *
  * @public
  */

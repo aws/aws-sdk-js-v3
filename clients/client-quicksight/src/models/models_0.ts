@@ -84,188 +84,198 @@ import type {
 } from "./enums";
 
 /**
- * <p>The access control settings for a knowledge base. Use this structure to enable or disable document-level access control lists (ACLs) that filter query results based on the permissions from the source data connector.</p>
+ * The access control settings for a knowledge base. Use this structure to enable or disable document-level access control lists (ACLs) that filter query results based on the permissions from the source data connector.
+ *
  * @public
  */
 export interface AccessControlConfiguration {
   /**
-   * <p>Specifies whether ACLs are enabled for the knowledge base.</p>
-   *          <p>This setting works together with the data source connector's ACL crawling. To enforce document-level access control end to end, set <code>isACLEnabled</code> to <code>true</code> and enable ACL crawling on the connector. For example, for an Amazon S3 data source, set <code>accessControlConfiguration.crawlAcl</code> to <code>true</code> in the connector template. For more information, see <code>KbTemplateConfiguration</code>. Enabling only one of the two settings does not produce a fully ACL-enforced knowledge base.</p>
+   * Specifies whether ACLs are enabled for the knowledge base.
+   *
+   * This setting works together with the data source connector's ACL crawling. To enforce document-level access control end to end, set `isACLEnabled` to `true` and enable ACL crawling on the connector. For example, for an Amazon S3 data source, set `accessControlConfiguration.crawlAcl` to `true` in the connector template. For more information, see `KbTemplateConfiguration`. Enabling only one of the two settings does not produce a fully ACL-enforced knowledge base.
+   *
    * @public
    */
   isACLEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The Quick Sight customizations associated with your Amazon Web Services account or a Quick Sight namespace in a specific Amazon Web Services Region.</p>
+ * The Quick Sight customizations associated with your Amazon Web Services account or a Quick Sight namespace in a specific Amazon Web Services Region.
+ *
  * @public
  */
 export interface AccountCustomization {
   /**
-   * <p>The default theme for this Quick Sight subscription.</p>
+   * The default theme for this Quick Sight subscription.
+   *
    * @public
    */
   DefaultTheme?: string | undefined;
 
   /**
-   * <p>The default email customization template.</p>
+   * The default email customization template.
+   *
    * @public
    */
   DefaultEmailCustomizationTemplate?: string | undefined;
 }
 
 /**
- * <p>A structure that contains the following account information elements:
- *           </p>
- *          <ul>
- *             <li>
- *                <p>Your Quick Sight account name.</p>
- *             </li>
- *             <li>
- *                <p>The edition of Quick Sight that your account is using.</p>
- *             </li>
- *             <li>
- *                <p>The notification email address that is associated with the Quick Sight account.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The authentication type of the Quick Sight account.</p>
- *             </li>
- *             <li>
- *                <p>The status of the Quick Sight account's subscription.</p>
- *             </li>
- *          </ul>
+ * A structure that contains the following account information elements:
+ *
+ * - Your Quick Sight account name.
+ * - The edition of Quick Sight that your account is using.
+ * - The notification email address that is associated with the Quick Sight account.
+ * - The authentication type of the Quick Sight account.
+ * - The status of the Quick Sight account's subscription.
+ *
  * @public
  */
 export interface AccountInfo {
   /**
-   * <p>The account name that you provided for the Amazon Quick Sight subscription in your
-   *                 Amazon Web Services account. You create this name when you sign up for Quick. It's unique over all of Amazon Web Services, and it appears only when
-   *             users sign in.</p>
+   * The account name that you provided for the Amazon Quick Sight subscription in your Amazon Web Services account. You create this name when you sign up for Quick. It's unique over all of Amazon Web Services, and it appears only when users sign in.
+   *
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The edition of your Quick Sight account.</p>
+   * The edition of your Quick Sight account.
+   *
    * @public
    */
   Edition?: Edition | undefined;
 
   /**
-   * <p>The email address that will be used for Quick Sight to send notifications regarding your Amazon Web Services account or Quick Sight subscription.</p>
+   * The email address that will be used for Quick Sight to send notifications regarding your Amazon Web Services account or Quick Sight subscription.
+   *
    * @public
    */
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>The way that your Amazon Quick Sight account is authenticated.</p>
+   * The way that your Amazon Quick Sight account is authenticated.
+   *
    * @public
    */
   AuthenticationType?: string | undefined;
 
   /**
-   * <p>The status of your account subscription.</p>
+   * The status of your account subscription.
+   *
    * @public
    */
   AccountSubscriptionStatus?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>
+   * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+   *
    * @public
    */
   IAMIdentityCenterInstanceArn?: string | undefined;
 }
 
 /**
- * <p>The Quick Sight settings associated with your Amazon Web Services account.</p>
+ * The Quick Sight settings associated with your Amazon Web Services account.
+ *
  * @public
  */
 export interface AccountSettings {
   /**
-   * <p>The "account name" you provided for the Quick Sight subscription in your Amazon Web Services account.
-   *             You create this name when you sign up for Quick Sight. It is unique in all of Amazon Web Services and
-   *             it appears only when users sign in.</p>
+   * The "account name" you provided for the Quick Sight subscription in your Amazon Web Services account. You create this name when you sign up for Quick Sight. It is unique in all of Amazon Web Services and it appears only when users sign in.
+   *
    * @public
    */
   AccountName?: string | undefined;
 
   /**
-   * <p>The edition of Quick Sight that you're currently subscribed to:
-   *         Enterprise edition or Standard edition.</p>
+   * The edition of Quick Sight that you're currently subscribed to: Enterprise edition or Standard edition.
+   *
    * @public
    */
   Edition?: Edition | undefined;
 
   /**
-   * <p>The default Quick Sight namespace for your Amazon Web Services account. </p>
+   * The default Quick Sight namespace for your Amazon Web Services account.
+   *
    * @public
    */
   DefaultNamespace?: string | undefined;
 
   /**
-   * <p>The main notification email for your Quick Sight subscription.</p>
+   * The main notification email for your Quick Sight subscription.
+   *
    * @public
    */
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an Quick account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
+   * A Boolean value that indicates whether public sharing is turned on for an Quick account. For more information about turning on public sharing, see [UpdatePublicSharingSettings](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html).
+   *
    * @public
    */
   PublicSharingEnabled?: boolean | undefined;
 
   /**
-   * <p>A boolean value that determines whether or not an Quick Sight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>
+   * A boolean value that determines whether or not an Quick Sight account can be deleted. A `True` value doesn't allow the account to be deleted and results in an error message if a user tries to make a `DeleteAccountSubsctiption` request. A `False` value will allow the ccount to be deleted.
+   *
    * @public
    */
   TerminationProtectionEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Read-only authentication metadata for API key-based connections, containing non-sensitive configuration details.</p>
+ * Read-only authentication metadata for API key-based connections, containing non-sensitive configuration details.
+ *
  * @public
  */
 export interface ReadAPIKeyConnectionMetadata {
   /**
-   * <p>The base endpoint URL for API key authentication.</p>
+   * The base endpoint URL for API key authentication.
+   *
    * @public
    */
   BaseEndpoint: string | undefined;
 
   /**
-   * <p>The email address associated with the API key authentication.</p>
+   * The email address associated with the API key authentication.
+   *
    * @public
    */
   Email?: string | undefined;
 }
 
 /**
- * <p>Read-only configuration details for OAuth2 authorization code grant flow, including endpoints and client information.</p>
+ * Read-only configuration details for OAuth2 authorization code grant flow, including endpoints and client information.
+ *
  * @public
  */
 export interface ReadAuthorizationCodeGrantDetails {
   /**
-   * <p>The client identifier for the OAuth2 authorization code grant flow.</p>
+   * The client identifier for the OAuth2 authorization code grant flow.
+   *
    * @public
    */
   ClientId: string | undefined;
 
   /**
-   * <p>The authorization server endpoint used to obtain access tokens via the authorization code grant flow.</p>
+   * The authorization server endpoint used to obtain access tokens via the authorization code grant flow.
+   *
    * @public
    */
   TokenEndpoint: string | undefined;
 
   /**
-   * <p>The authorization server endpoint used to obtain authorization codes from the resource owner.</p>
+   * The authorization server endpoint used to obtain authorization codes from the resource owner.
+   *
    * @public
    */
   AuthorizationEndpoint: string | undefined;
 }
 
 /**
- * <p>Read-only credentials details for OAuth2 authorization code grant flow, containing non-sensitive configuration information.</p>
+ * Read-only credentials details for OAuth2 authorization code grant flow, containing non-sensitive configuration information.
+ *
  * @public
  */
 export type ReadAuthorizationCodeGrantCredentialsDetails =
@@ -277,7 +287,8 @@ export type ReadAuthorizationCodeGrantCredentialsDetails =
  */
 export namespace ReadAuthorizationCodeGrantCredentialsDetails {
   /**
-   * <p>The read-only authorization code grant configuration details.</p>
+   * The read-only authorization code grant configuration details.
+   *
    * @public
    */
   export interface ReadAuthorizationCodeGrantDetailsMember {
@@ -304,73 +315,85 @@ export namespace ReadAuthorizationCodeGrantCredentialsDetails {
 }
 
 /**
- * <p>Read-only metadata for OAuth2 authorization code grant authentication configuration.</p>
+ * Read-only metadata for OAuth2 authorization code grant authentication configuration.
+ *
  * @public
  */
 export interface ReadAuthorizationCodeGrantMetadata {
   /**
-   * <p>The base endpoint URL for the OAuth2 authorization code grant flow.</p>
+   * The base endpoint URL for the OAuth2 authorization code grant flow.
+   *
    * @public
    */
   BaseEndpoint: string | undefined;
 
   /**
-   * <p>The redirect URL where the authorization server will send the user after authorization.</p>
+   * The redirect URL where the authorization server will send the user after authorization.
+   *
    * @public
    */
   RedirectUrl: string | undefined;
 
   /**
-   * <p>The read-only credentials details for the authorization code grant flow.</p>
+   * The read-only credentials details for the authorization code grant flow.
+   *
    * @public
    */
   ReadAuthorizationCodeGrantCredentialsDetails?: ReadAuthorizationCodeGrantCredentialsDetails | undefined;
 
   /**
-   * <p>The source of credentials for the authorization code grant flow.</p>
+   * The source of credentials for the authorization code grant flow.
+   *
    * @public
    */
   AuthorizationCodeGrantCredentialsSource?: AuthorizationCodeGrantCredentialsSource | undefined;
 }
 
 /**
- * <p>Read-only metadata for basic authentication connections, containing non-sensitive configuration details.</p>
+ * Read-only metadata for basic authentication connections, containing non-sensitive configuration details.
+ *
  * @public
  */
 export interface ReadBasicAuthConnectionMetadata {
   /**
-   * <p>The base endpoint URL for basic authentication.</p>
+   * The base endpoint URL for basic authentication.
+   *
    * @public
    */
   BaseEndpoint: string | undefined;
 
   /**
-   * <p>The username used for basic authentication.</p>
+   * The username used for basic authentication.
+   *
    * @public
    */
   Username: string | undefined;
 }
 
 /**
- * <p>Read-only configuration details for OAuth2 client credentials grant flow, including client ID and token endpoint.</p>
+ * Read-only configuration details for OAuth2 client credentials grant flow, including client ID and token endpoint.
+ *
  * @public
  */
 export interface ReadClientCredentialsGrantDetails {
   /**
-   * <p>The client identifier for the OAuth2 client credentials grant flow.</p>
+   * The client identifier for the OAuth2 client credentials grant flow.
+   *
    * @public
    */
   ClientId: string | undefined;
 
   /**
-   * <p>The authorization server endpoint used to obtain access tokens via the client credentials grant flow.</p>
+   * The authorization server endpoint used to obtain access tokens via the client credentials grant flow.
+   *
    * @public
    */
   TokenEndpoint: string | undefined;
 }
 
 /**
- * <p>Read-only details for OAuth2 client credentials, containing non-sensitive configuration information.</p>
+ * Read-only details for OAuth2 client credentials, containing non-sensitive configuration information.
+ *
  * @public
  */
 export type ReadClientCredentialsDetails =
@@ -382,7 +405,8 @@ export type ReadClientCredentialsDetails =
  */
 export namespace ReadClientCredentialsDetails {
   /**
-   * <p>The read-only client credentials grant configuration details.</p>
+   * The read-only client credentials grant configuration details.
+   *
    * @public
    */
   export interface ReadClientCredentialsGrantDetailsMember {
@@ -409,61 +433,71 @@ export namespace ReadClientCredentialsDetails {
 }
 
 /**
- * <p>Read-only metadata for OAuth2 client credentials grant authentication configuration.</p>
+ * Read-only metadata for OAuth2 client credentials grant authentication configuration.
+ *
  * @public
  */
 export interface ReadClientCredentialsGrantMetadata {
   /**
-   * <p>The base endpoint URL for the OAuth2 client credentials grant flow.</p>
+   * The base endpoint URL for the OAuth2 client credentials grant flow.
+   *
    * @public
    */
   BaseEndpoint: string | undefined;
 
   /**
-   * <p>The read-only client credentials configuration details.</p>
+   * The read-only client credentials configuration details.
+   *
    * @public
    */
   ReadClientCredentialsDetails?: ReadClientCredentialsDetails | undefined;
 
   /**
-   * <p>The source of client credentials for the OAuth2 client credentials grant flow.</p>
+   * The source of client credentials for the OAuth2 client credentials grant flow.
+   *
    * @public
    */
   ClientCredentialsSource?: ClientCredentialsSource | undefined;
 }
 
 /**
- * <p>Read-only metadata for IAM-based connections, containing role and source ARN information.</p>
+ * Read-only metadata for IAM-based connections, containing role and source ARN information.
+ *
  * @public
  */
 export interface ReadIamConnectionMetadata {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for authentication.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to assume for authentication.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source resource for IAM authentication.</p>
+   * The Amazon Resource Name (ARN) of the source resource for IAM authentication.
+   *
    * @public
    */
   SourceArn: string | undefined;
 }
 
 /**
- * <p>Read-only metadata for connections that do not require authentication credentials.</p>
+ * Read-only metadata for connections that do not require authentication credentials.
+ *
  * @public
  */
 export interface ReadNoneConnectionMetadata {
   /**
-   * <p>The base endpoint URL for connections that do not require authentication.</p>
+   * The base endpoint URL for connections that do not require authentication.
+   *
    * @public
    */
   BaseEndpoint: string | undefined;
 }
 
 /**
- * <p>Read-only authentication metadata union containing non-sensitive configuration details for different authentication types.</p>
+ * Read-only authentication metadata union containing non-sensitive configuration details for different authentication types.
+ *
  * @public
  */
 export type ReadAuthenticationMetadata =
@@ -480,7 +514,8 @@ export type ReadAuthenticationMetadata =
  */
 export namespace ReadAuthenticationMetadata {
   /**
-   * <p>Read-only metadata for OAuth2 authorization code grant flow configuration.</p>
+   * Read-only metadata for OAuth2 authorization code grant flow configuration.
+   *
    * @public
    */
   export interface AuthorizationCodeGrantMetadataMember {
@@ -494,7 +529,8 @@ export namespace ReadAuthenticationMetadata {
   }
 
   /**
-   * <p>Read-only metadata for OAuth2 client credentials grant flow configuration.</p>
+   * Read-only metadata for OAuth2 client credentials grant flow configuration.
+   *
    * @public
    */
   export interface ClientCredentialsGrantMetadataMember {
@@ -508,7 +544,8 @@ export namespace ReadAuthenticationMetadata {
   }
 
   /**
-   * <p>Read-only metadata for basic authentication configuration.</p>
+   * Read-only metadata for basic authentication configuration.
+   *
    * @public
    */
   export interface BasicAuthConnectionMetadataMember {
@@ -522,7 +559,8 @@ export namespace ReadAuthenticationMetadata {
   }
 
   /**
-   * <p>Read-only metadata for API key authentication configuration.</p>
+   * Read-only metadata for API key authentication configuration.
+   *
    * @public
    */
   export interface ApiKeyConnectionMetadataMember {
@@ -536,7 +574,8 @@ export namespace ReadAuthenticationMetadata {
   }
 
   /**
-   * <p>Read-only metadata for connections that do not require authentication.</p>
+   * Read-only metadata for connections that do not require authentication.
+   *
    * @public
    */
   export interface NoneConnectionMetadataMember {
@@ -550,7 +589,8 @@ export namespace ReadAuthenticationMetadata {
   }
 
   /**
-   * <p>Read-only metadata for IAM-based authentication configuration.</p>
+   * Read-only metadata for IAM-based authentication configuration.
+   *
    * @public
    */
   export interface IamConnectionMetadataMember {
@@ -592,8095 +632,8712 @@ export namespace ReadAuthenticationMetadata {
 }
 
 /**
- * <p>Read-only authentication configuration containing non-sensitive authentication details for action connectors.</p>
+ * Read-only authentication configuration containing non-sensitive authentication details for action connectors.
+ *
  * @public
  */
 export interface ReadAuthConfig {
   /**
-   * <p>The type of authentication being used (BASIC, API_KEY, OAUTH2_CLIENT_CREDENTIALS, or OAUTH2_AUTHORIZATION_CODE).</p>
+   * The type of authentication being used (BASIC, API_KEY, OAUTH2_CLIENT_CREDENTIALS, or OAUTH2_AUTHORIZATION_CODE).
+   *
    * @public
    */
   AuthenticationType: ConnectionAuthType | undefined;
 
   /**
-   * <p>The authentication metadata containing configuration details specific to the authentication type.</p>
+   * The authentication metadata containing configuration details specific to the authentication type.
+   *
    * @public
    */
   AuthenticationMetadata: ReadAuthenticationMetadata | undefined;
 }
 
 /**
- * <p>Contains error information for an action connector that is in an error state.</p>
+ * Contains error information for an action connector that is in an error state.
+ *
  * @public
  */
 export interface ActionConnectorError {
   /**
-   * <p>The error message describing what went wrong with the action connector.</p>
+   * The error message describing what went wrong with the action connector.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The type or category of the error.</p>
+   * The type or category of the error.
+   *
    * @public
    */
   Type?: ActionConnectorErrorType | undefined;
 }
 
 /**
- * <p>Contains detailed information about an action connector, including its configuration, status, and enabled actions.</p>
+ * Contains detailed information about an action connector, including its configuration, status, and enabled actions.
+ *
  * @public
  */
 export interface ActionConnector {
   /**
-   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
+   * The Amazon Resource Name (ARN) of the action connector.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the action connector.</p>
+   * The unique identifier of the action connector.
+   *
    * @public
    */
   ActionConnectorId: string | undefined;
 
   /**
-   * <p>The type of action connector.</p>
+   * The type of action connector.
+   *
    * @public
    */
   Type: ActionConnectorType | undefined;
 
   /**
-   * <p>The name of the action connector.</p>
+   * The name of the action connector.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The timestamp when the action connector was created.</p>
+   * The timestamp when the action connector was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the action connector was last updated.</p>
+   * The date and time when the action connector was last updated.
+   *
    * @public
    */
   LastUpdatedTime: Date | undefined;
 
   /**
-   * <p>The current status of the action connector.</p>
+   * The current status of the action connector.
+   *
    * @public
    */
   Status?: ResourceStatus | undefined;
 
   /**
-   * <p>Error information if the action connector is in an error state.</p>
+   * Error information if the action connector is in an error state.
+   *
    * @public
    */
   Error?: ActionConnectorError | undefined;
 
   /**
-   * <p>The description of the action connector.</p>
+   * The description of the action connector.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The authentication configuration used to connect to the external service.</p>
+   * The authentication configuration used to connect to the external service.
+   *
    * @public
    */
   AuthenticationConfig?: ReadAuthConfig | undefined;
 
   /**
-   * <p>The list of actions that are enabled for this connector.</p>
+   * The list of actions that are enabled for this connector.
+   *
    * @public
    */
   EnabledActions?: string[] | undefined;
 
   /**
-   * <p>The ARN of the VPC connection used for secure connectivity to the external service.</p>
+   * The ARN of the VPC connection used for secure connectivity to the external service.
+   *
    * @public
    */
   VpcConnectionArn?: string | undefined;
 }
 
 /**
- * <p>A filter used to search for action connectors based on specific criteria.</p>
+ * A filter used to search for action connectors based on specific criteria.
+ *
  * @public
  */
 export interface ActionConnectorSearchFilter {
   /**
-   * <p>The name of the filter attribute (e.g., ACTION_CONNECTOR_NAME, ACTION_CONNECTOR_TYPE, QUICKSIGHT_VIEWER_OR_OWNER).</p>
+   * The name of the filter attribute (e.g., ACTION_CONNECTOR_NAME, ACTION_CONNECTOR_TYPE, QUICKSIGHT_VIEWER_OR_OWNER).
+   *
    * @public
    */
   Name: ActionConnectorSearchFilterNameEnum | undefined;
 
   /**
-   * <p>The comparison operator to use for the filter (e.g., StringEquals, StringLike).</p>
+   * The comparison operator to use for the filter (e.g., StringEquals, StringLike).
+   *
    * @public
    */
   Operator: FilterOperator | undefined;
 
   /**
-   * <p>The value to compare against using the specified operator.</p>
+   * The value to compare against using the specified operator.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>Contains summary information about an action connector, used in list and search operations.</p>
+ * Contains summary information about an action connector, used in list and search operations.
+ *
  * @public
  */
 export interface ActionConnectorSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
+   * The Amazon Resource Name (ARN) of the action connector.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the action connector.</p>
+   * The unique identifier of the action connector.
+   *
    * @public
    */
   ActionConnectorId: string | undefined;
 
   /**
-   * <p>The type of action connector (e.g., SALESFORCE, JIRA, CUSTOM, BEDROCK).</p>
+   * The type of action connector (e.g., SALESFORCE, JIRA, CUSTOM, BEDROCK).
+   *
    * @public
    */
   Type: ActionConnectorType | undefined;
 
   /**
-   * <p>The name of the action connector.</p>
+   * The name of the action connector.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The date and time when the action connector was created.</p>
+   * The date and time when the action connector was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the action connector was last updated.</p>
+   * The date and time when the action connector was last updated.
+   *
    * @public
    */
   LastUpdatedTime: Date | undefined;
 
   /**
-   * <p>The current status of the action connector.</p>
+   * The current status of the action connector.
+   *
    * @public
    */
   Status?: ResourceStatus | undefined;
 
   /**
-   * <p>Error information if the action connector is in an error state.</p>
+   * Error information if the action connector is in an error state.
+   *
    * @public
    */
   Error?: ActionConnectorError | undefined;
 }
 
 /**
- * <p>The active Identity and Access Management (IAM) policy assignment.</p>
+ * The active Identity and Access Management (IAM) policy assignment.
+ *
  * @public
  */
 export interface ActiveIAMPolicyAssignment {
   /**
-   * <p>A name for the IAM policy assignment.</p>
+   * A name for the IAM policy assignment.
+   *
    * @public
    */
   AssignmentName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   PolicyArn?: string | undefined;
 }
 
 /**
- * <p>Additional notes that provide supplementary context for a column.</p>
+ * Additional notes that provide supplementary context for a column.
+ *
  * @public
  */
 export interface AdditionalNotes {
   /**
-   * <p>The additional notes text.</p>
+   * The additional notes text.
+   *
    * @public
    */
   Text?: string | undefined;
 }
 
 /**
- * <p>An ad hoc (one-time) filtering option.</p>
+ * An ad hoc (one-time) filtering option.
+ *
  * @public
  */
 export interface AdHocFilteringOption {
   /**
-   * <p>Availability status.</p>
+   * Availability status.
+   *
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
 }
 
 /**
- * <p>The custom prompt interface configuration that defines how an agent's prompt is configured.</p>
+ * The custom prompt interface configuration that defines how an agent's prompt is configured.
+ *
  * @public
  */
 export interface CustomPromptInterface {
   /**
-   * <p>The identifier of the model profile.</p>
+   * The identifier of the model profile.
+   *
    * @public
    */
   ModelProfileId: string | undefined;
 
   /**
-   * <p>The subscription identifier.</p>
+   * The subscription identifier.
+   *
    * @public
    */
   SubscriptionId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID for the Q Business service.</p>
+   * The Amazon Web Services account ID for the Q Business service.
+   *
    * @public
    */
   QbsAwsAccountId: string | undefined;
 
   /**
-   * <p>Instructions for the desired response length.</p>
+   * Instructions for the desired response length.
+   *
    * @public
    */
   ResponseLength?: string | undefined;
 
   /**
-   * <p>Instructions for the desired output style.</p>
+   * Instructions for the desired output style.
+   *
    * @public
    */
   OutputStyle?: string | undefined;
 
   /**
-   * <p>Instructions that define the agent's identity and persona.</p>
+   * Instructions that define the agent's identity and persona.
+   *
    * @public
    */
   Identity?: string | undefined;
 
   /**
-   * <p>Instructions for the desired tone of responses.</p>
+   * Instructions for the desired tone of responses.
+   *
    * @public
    */
   Tone?: string | undefined;
 
   /**
-   * <p>Custom instructions for the agent's behavior.</p>
+   * Custom instructions for the agent's behavior.
+   *
    * @public
    */
   CustomInstructions?: string | undefined;
 
   /**
-   * <p>A summary of the custom prompt configuration.</p>
+   * A summary of the custom prompt configuration.
+   *
    * @public
    */
   promptSummary?: string | undefined;
 }
 
 /**
- * <p>An agent resource in Amazon QuickSight that provides AI-powered conversational experiences.</p>
+ * An agent resource in Amazon QuickSight that provides AI-powered conversational experiences.
+ *
  * @public
  */
 export interface Agent {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the spaces attached to the agent.</p>
+   * The Amazon Resource Names (ARNs) of the spaces attached to the agent.
+   *
    * @public
    */
   Spaces?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the action connectors attached to the agent.</p>
+   * The Amazon Resource Names (ARNs) of the action connectors attached to the agent.
+   *
    * @public
    */
   ActionConnectors?: string[] | undefined;
 
   /**
-   * <p>A description of the agent.</p>
+   * A description of the agent.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The icon identifier for the agent.</p>
+   * The icon identifier for the agent.
+   *
    * @public
    */
   IconId?: string | undefined;
 
   /**
-   * <p>The name of the agent.</p>
+   * The name of the agent.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A list of starter prompts that are displayed to users when they begin interacting with the agent.</p>
+   * A list of starter prompts that are displayed to users when they begin interacting with the agent.
+   *
    * @public
    */
   StarterPrompts?: string[] | undefined;
 
   /**
-   * <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
+   * The welcome message that is displayed when a user starts a conversation with the agent.
+   *
    * @public
    */
   WelcomeMessage?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * The Amazon Resource Name (ARN) of the agent.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier for the agent.</p>
+   * The unique identifier for the agent.
+   *
    * @public
    */
   AgentId: string | undefined;
 
   /**
-   * <p>The lifecycle state of the agent. Valid values are <code>PREVIEW</code> and <code>PUBLISHED</code>.</p>
+   * The lifecycle state of the agent. Valid values are `PREVIEW` and `PUBLISHED`.
+   *
    * @public
    */
   AgentLifecycle: AgentLifecycle | undefined;
 
   /**
-   * <p>The status of the agent.</p>
+   * The status of the agent.
+   *
    * @public
    */
   AgentStatus: AgentStatus | undefined;
 
   /**
-   * <p>The date and time that the agent was created.</p>
+   * The date and time that the agent was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The identity of the user who created the agent.</p>
+   * The identity of the user who created the agent.
+   *
    * @public
    */
   Creator: string | undefined;
 
   /**
-   * <p>The custom prompt interface configuration for the agent.</p>
+   * The custom prompt interface configuration for the agent.
+   *
    * @public
    */
   CustomPromptInterface?: CustomPromptInterface | undefined;
 
   /**
-   * <p>An error message associated with the agent, if applicable.</p>
+   * An error message associated with the agent, if applicable.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The date and time that the agent was last updated.</p>
+   * The date and time that the agent was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 }
 
 /**
- * <p>A filter to apply when searching agents.</p>
+ * A filter to apply when searching agents.
+ *
  * @public
  */
 export interface AgentSearchFilter {
   /**
-   * <p>The name of the field to filter on.</p>
+   * The name of the field to filter on.
+   *
    * @public
    */
   Name?: AgentOwnershipFilterAttribute | undefined;
 
   /**
-   * <p>The comparison operator to use for the filter.</p>
+   * The comparison operator to use for the filter.
+   *
    * @public
    */
   Operator?: ComparisonOperator | undefined;
 
   /**
-   * <p>The value to filter on.</p>
+   * The value to filter on.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>A summary of an agent, including its identifier, name, and metadata.</p>
+ * A summary of an agent, including its identifier, name, and metadata.
+ *
  * @public
  */
 export interface AgentSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * The Amazon Resource Name (ARN) of the agent.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier for the agent.</p>
+   * The unique identifier for the agent.
+   *
    * @public
    */
   AgentId: string | undefined;
 
   /**
-   * <p>The name of the agent.</p>
+   * The name of the agent.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A description of the agent.</p>
+   * A description of the agent.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date and time that the agent was created.</p>
+   * The date and time that the agent was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The date and time that the agent was last updated.</p>
+   * The date and time that the agent was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The icon identifier for the agent.</p>
+   * The icon identifier for the agent.
+   *
    * @public
    */
   IconId?: string | undefined;
 }
 
 /**
- * <p>The definition of an Agg function.</p>
+ * The definition of an Agg function.
+ *
  * @public
  */
 export interface AggFunction {
   /**
-   * <p>The aggregation of an Agg function.</p>
+   * The aggregation of an Agg function.
+   *
    * @public
    */
   Aggregation?: AggType | undefined;
 
   /**
-   * <p>The aggregation parameters for an Agg function.</p>
+   * The aggregation parameters for an Agg function.
+   *
    * @public
    */
   AggregationFunctionParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The period of an Agg function.</p>
+   * The period of an Agg function.
+   *
    * @public
    */
   Period?: TopicTimeGranularity | undefined;
 
   /**
-   * <p>The period field for an Agg function.</p>
+   * The period field for an Agg function.
+   *
    * @public
    */
   PeriodField?: string | undefined;
 }
 
 /**
- * <p>An aggregation function that concatenates values from multiple rows into a single string with a specified
- *            separator.</p>
+ * An aggregation function that concatenates values from multiple rows into a single string with a specified separator.
+ *
  * @public
  */
 export interface DataPrepListAggregationFunction {
   /**
-   * <p>The name of the column containing values to be concatenated.</p>
+   * The name of the column containing values to be concatenated.
+   *
    * @public
    */
   InputColumnName?: string | undefined;
 
   /**
-   * <p>The string used to separate values in the concatenated result.</p>
+   * The string used to separate values in the concatenated result.
+   *
    * @public
    */
   Separator: string | undefined;
 
   /**
-   * <p>Whether to include only distinct values in the concatenated result, removing duplicates.</p>
+   * Whether to include only distinct values in the concatenated result, removing duplicates.
+   *
    * @public
    */
   Distinct: boolean | undefined;
 }
 
 /**
- * <p>A simple aggregation function that performs standard statistical operations on a column.</p>
+ * A simple aggregation function that performs standard statistical operations on a column.
+ *
  * @public
  */
 export interface DataPrepSimpleAggregationFunction {
   /**
-   * <p>The name of the column on which to perform the aggregation function.</p>
+   * The name of the column on which to perform the aggregation function.
+   *
    * @public
    */
   InputColumnName?: string | undefined;
 
   /**
-   * <p>The type of aggregation function to perform, such as <code>COUNT</code>, <code>SUM</code>, <code>AVERAGE</code>,
-   *            <code>MIN</code>, <code>MAX</code>, <code>MEDIAN</code>, <code>VARIANCE</code>, or <code>STANDARD_DEVIATION</code>.</p>
+   * The type of aggregation function to perform, such as `COUNT`, `SUM`, `AVERAGE`, `MIN`, `MAX`, `MEDIAN`, `VARIANCE`, or `STANDARD_DEVIATION`.
+   *
    * @public
    */
   FunctionType: DataPrepSimpleAggregationFunctionType | undefined;
 }
 
 /**
- * <p>Defines the type of aggregation function to apply to data during data preparation, supporting simple
- *           and list aggregations.</p>
+ * Defines the type of aggregation function to apply to data during data preparation, supporting simple and list aggregations.
+ *
  * @public
  */
 export interface DataPrepAggregationFunction {
   /**
-   * <p>A simple aggregation function such as <code>SUM</code>, <code>COUNT</code>, <code>AVERAGE</code>,
-   *            <code>MIN</code>, <code>MAX</code>, <code>MEDIAN</code>, <code>VARIANCE</code>, or <code>STANDARD_DEVIATION</code>.</p>
+   * A simple aggregation function such as `SUM`, `COUNT`, `AVERAGE`, `MIN`, `MAX`, `MEDIAN`, `VARIANCE`, or `STANDARD_DEVIATION`.
+   *
    * @public
    */
   SimpleAggregation?: DataPrepSimpleAggregationFunction | undefined;
 
   /**
-   * <p>A list aggregation function that concatenates values from multiple rows into a single delimited string.</p>
+   * A list aggregation function that concatenates values from multiple rows into a single delimited string.
+   *
    * @public
    */
   ListAggregation?: DataPrepListAggregationFunction | undefined;
 }
 
 /**
- * <p>Defines an aggregation function to be applied to grouped data, creating a new column with
- *            the calculated result.</p>
+ * Defines an aggregation function to be applied to grouped data, creating a new column with the calculated result.
+ *
  * @public
  */
 export interface Aggregation {
   /**
-   * <p>The aggregation function to apply, such as <code>SUM</code>, <code>COUNT</code>, <code>AVERAGE</code>,
-   *            <code>MIN</code>, <code>MAX</code>
-   *          </p>
+   * The aggregation function to apply, such as `SUM`, `COUNT`, `AVERAGE`, `MIN`, `MAX`
+   *
    * @public
    */
   AggregationFunction: DataPrepAggregationFunction | undefined;
 
   /**
-   * <p>The name for the new column that will contain the aggregated values.</p>
+   * The name for the new column that will contain the aggregated values.
+   *
    * @public
    */
   NewColumnName: string | undefined;
 
   /**
-   * <p>A unique identifier for the new column that will contain the aggregated values.</p>
+   * A unique identifier for the new column that will contain the aggregated values.
+   *
    * @public
    */
   NewColumnId: string | undefined;
 }
 
 /**
- * <p>Maps a source column identifier to a target column identifier during transform operations.</p>
+ * Maps a source column identifier to a target column identifier during transform operations.
+ *
  * @public
  */
 export interface DataSetColumnIdMapping {
   /**
-   * <p>Source column ID.</p>
+   * Source column ID.
+   *
    * @public
    */
   SourceColumnId: string | undefined;
 
   /**
-   * <p>Target column ID.</p>
+   * Target column ID.
+   *
    * @public
    */
   TargetColumnId: string | undefined;
 }
 
 /**
- * <p>Specifies the source of data for a transform operation, including the source operation and column mappings.</p>
+ * Specifies the source of data for a transform operation, including the source operation and column mappings.
+ *
  * @public
  */
 export interface TransformOperationSource {
   /**
-   * <p>The identifier of the transform operation that provides input data.</p>
+   * The identifier of the transform operation that provides input data.
+   *
    * @public
    */
   TransformOperationId: string | undefined;
 
   /**
-   * <p>The mappings between source column identifiers and target column identifiers for this transformation.</p>
+   * The mappings between source column identifiers and target column identifiers for this transformation.
+   *
    * @public
    */
   ColumnIdMappings?: DataSetColumnIdMapping[] | undefined;
 }
 
 /**
- * <p>A transform operation that groups rows by specified columns and applies aggregation functions
- *            to calculate summary values.</p>
+ * A transform operation that groups rows by specified columns and applies aggregation functions to calculate summary values.
+ *
  * @public
  */
 export interface AggregateOperation {
   /**
-   * <p>Alias for this operation.</p>
+   * Alias for this operation.
+   *
    * @public
    */
   Alias: string | undefined;
 
   /**
-   * <p>The source transform operation that provides input data for the aggregation.</p>
+   * The source transform operation that provides input data for the aggregation.
+   *
    * @public
    */
   Source: TransformOperationSource | undefined;
 
   /**
-   * <p>The list of column names to group by when performing the aggregation. Rows with the same values in
-   *            these columns will be grouped together.</p>
+   * The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
+   *
    * @public
    */
   GroupByColumnNames?: string[] | undefined;
 
   /**
-   * <p>The list of aggregation functions to apply to the grouped data, such as <code>SUM</code>,
-   *            <code>COUNT</code>, or <code>AVERAGE</code>.</p>
+   * The list of aggregation functions to apply to the grouped data, such as `SUM`, `COUNT`, or `AVERAGE`.
+   *
    * @public
    */
   Aggregations: Aggregation[] | undefined;
 }
 
 /**
- * <p>Aggregation for attributes.</p>
+ * Aggregation for attributes.
+ *
  * @public
  */
 export interface AttributeAggregationFunction {
   /**
-   * <p>The built-in aggregation functions for attributes.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UNIQUE_VALUE</code>: Returns the unique value for a field, aggregated by the dimension fields.</p>
-   *             </li>
-   *          </ul>
+   * The built-in aggregation functions for attributes.
+   *
+   * - `UNIQUE_VALUE`: Returns the unique value for a field, aggregated by the dimension fields.
+   *
    * @public
    */
   SimpleAttributeAggregation?: SimpleAttributeAggregationFunction | undefined;
 
   /**
-   * <p>Used by the <code>UNIQUE_VALUE</code> aggregation function. If there are multiple values for the field used by the aggregation, the value for this property will be returned instead. Defaults to '*'.</p>
+   * Used by the `UNIQUE_VALUE` aggregation function. If there are multiple values for the field used by the aggregation, the value for this property will be returned instead. Defaults to '*'.
+   *
    * @public
    */
   ValueForMultipleValues?: string | undefined;
 }
 
 /**
- * <p>An aggregation based on the percentile of values in a dimension or measure.</p>
+ * An aggregation based on the percentile of values in a dimension or measure.
+ *
  * @public
  */
 export interface PercentileAggregation {
   /**
-   * <p>The percentile value. This value can be any numeric constant 0–100. A percentile value of 50 computes the median value of the measure.</p>
+   * The percentile value. This value can be any numeric constant 0–100. A percentile value of 50 computes the median value of the measure.
+   *
    * @public
    */
   PercentileValue?: number | undefined;
 }
 
 /**
- * <p>Aggregation for numerical values.</p>
+ * Aggregation for numerical values.
+ *
  * @public
  */
 export interface NumericalAggregationFunction {
   /**
-   * <p>Built-in aggregation functions for numerical values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUM</code>: The sum of a dimension or measure. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AVERAGE</code>: The average of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MIN</code>: The minimum value of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MAX</code>: The maximum value of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code>: The count of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISTINCT_COUNT</code>: The count of distinct values in a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VAR</code>: The variance of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VARP</code>: The partitioned variance of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STDEV</code>: The standard deviation of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STDEVP</code>: The partitioned standard deviation of a dimension or measure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MEDIAN</code>: The median value of a dimension or measure.</p>
-   *             </li>
-   *          </ul>
+   * Built-in aggregation functions for numerical values.
+   *
+   * - `SUM`: The sum of a dimension or measure.
+   * - `AVERAGE`: The average of a dimension or measure.
+   * - `MIN`: The minimum value of a dimension or measure.
+   * - `MAX`: The maximum value of a dimension or measure.
+   * - `COUNT`: The count of a dimension or measure.
+   * - `DISTINCT_COUNT`: The count of distinct values in a dimension or measure.
+   * - `VAR`: The variance of a dimension or measure.
+   * - `VARP`: The partitioned variance of a dimension or measure.
+   * - `STDEV`: The standard deviation of a dimension or measure.
+   * - `STDEVP`: The partitioned standard deviation of a dimension or measure.
+   * - `MEDIAN`: The median value of a dimension or measure.
+   *
    * @public
    */
   SimpleNumericalAggregation?: SimpleNumericalAggregationFunction | undefined;
 
   /**
-   * <p>An aggregation based on the percentile of values in a dimension or measure.</p>
+   * An aggregation based on the percentile of values in a dimension or measure.
+   *
    * @public
    */
   PercentileAggregation?: PercentileAggregation | undefined;
 }
 
 /**
- * <p>An aggregation function aggregates values from a dimension or measure.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * An aggregation function aggregates values from a dimension or measure.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface AggregationFunction {
   /**
-   * <p>Aggregation for numerical values.</p>
+   * Aggregation for numerical values.
+   *
    * @public
    */
   NumericalAggregationFunction?: NumericalAggregationFunction | undefined;
 
   /**
-   * <p>Aggregation for categorical values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code>: Aggregate by the total number of values, including duplicates.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISTINCT_COUNT</code>: Aggregate by the total number of distinct values.</p>
-   *             </li>
-   *          </ul>
+   * Aggregation for categorical values.
+   *
+   * - `COUNT`: Aggregate by the total number of values, including duplicates.
+   * - `DISTINCT_COUNT`: Aggregate by the total number of distinct values.
+   *
    * @public
    */
   CategoricalAggregationFunction?: CategoricalAggregationFunction | undefined;
 
   /**
-   * <p>Aggregation for date values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COUNT</code>: Aggregate by the total number of values, including duplicates.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISTINCT_COUNT</code>: Aggregate by the total number of distinct values.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MIN</code>: Select the smallest date value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MAX</code>: Select the largest date value.</p>
-   *             </li>
-   *          </ul>
+   * Aggregation for date values.
+   *
+   * - `COUNT`: Aggregate by the total number of values, including duplicates.
+   * - `DISTINCT_COUNT`: Aggregate by the total number of distinct values.
+   * - `MIN`: Select the smallest date value.
+   * - `MAX`: Select the largest date value.
+   *
    * @public
    */
   DateAggregationFunction?: DateAggregationFunction | undefined;
 
   /**
-   * <p>Aggregation for attributes.</p>
+   * Aggregation for attributes.
+   *
    * @public
    */
   AttributeAggregationFunction?: AttributeAggregationFunction | undefined;
 }
 
 /**
- * <p>The definition of an <code>AggregationPartitionBy</code>.</p>
+ * The definition of an `AggregationPartitionBy`.
+ *
  * @public
  */
 export interface AggregationPartitionBy {
   /**
-   * <p>The field Name for an <code>AggregationPartitionBy</code>.</p>
+   * The field Name for an `AggregationPartitionBy`.
+   *
    * @public
    */
   FieldName?: string | undefined;
 
   /**
-   * <p>The <code>TimeGranularity</code> for an <code>AggregationPartitionBy</code>.</p>
+   * The `TimeGranularity` for an `AggregationPartitionBy`.
+   *
    * @public
    */
   TimeGranularity?: TimeGranularity | undefined;
 }
 
 /**
- * <p>A column of a data set.</p>
+ * A column of a data set.
+ *
  * @public
  */
 export interface ColumnIdentifier {
   /**
-   * <p>The data set that the column belongs to.</p>
+   * The data set that the column belongs to.
+   *
    * @public
    */
   DataSetIdentifier?: string | undefined;
 
   /**
-   * <p>The topic that the column belongs to.</p>
+   * The topic that the column belongs to.
+   *
    * @public
    */
   TopicIdentifier?: string | undefined;
 
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   ColumnName: string | undefined;
 }
 
 /**
- * <p>The configuration options to sort aggregated values.</p>
+ * The configuration options to sort aggregated values.
+ *
  * @public
  */
 export interface AggregationSortConfiguration {
   /**
-   * <p>The column that determines the sort order of aggregated values.</p>
+   * The column that determines the sort order of aggregated values.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The sort direction of values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ASC</code>: Sort in ascending order.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DESC</code>: Sort in descending order.</p>
-   *             </li>
-   *          </ul>
+   * The sort direction of values.
+   *
+   * - `ASC`: Sort in ascending order.
+   * - `DESC`: Sort in descending order.
+   *
    * @public
    */
   SortDirection: SortDirection | undefined;
 
   /**
-   * <p>The function that aggregates the values in <code>Column</code>.</p>
+   * The function that aggregates the values in `Column`.
+   *
    * @public
    */
   AggregationFunction?: AggregationFunction | undefined;
 }
 
 /**
- * <p>An empty object that represents that the <code>AllSheets</code> option is the chosen value for the <code>FilterScopeConfiguration</code> parameter. This structure applies the filter to all visuals on all sheets of an Analysis, Dashboard, or Template.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * An empty object that represents that the `AllSheets` option is the chosen value for the `FilterScopeConfiguration` parameter. This structure applies the filter to all visuals on all sheets of an Analysis, Dashboard, or Template.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface AllSheetsFilterScopeConfiguration {}
 
 /**
- * <p>The parameters for OpenSearch.</p>
+ * The parameters for OpenSearch.
+ *
  * @public
  */
 export interface AmazonElasticsearchParameters {
   /**
-   * <p>The OpenSearch domain.</p>
+   * The OpenSearch domain.
+   *
    * @public
    */
   Domain: string | undefined;
 }
 
 /**
- * <p>The parameters for OpenSearch.</p>
+ * The parameters for OpenSearch.
+ *
  * @public
  */
 export interface AmazonOpenSearchParameters {
   /**
-   * <p>The OpenSearch domain.</p>
+   * The OpenSearch domain.
+   *
    * @public
    */
   Domain: string | undefined;
 }
 
 /**
- * <p>The generative Q&A settings of an embedded Quick Sight console.</p>
+ * The generative Q&A settings of an embedded Quick Sight console.
+ *
  * @public
  */
 export interface DataQnAConfigurations {
   /**
-   * <p>The generative Q&A settings of an embedded Quick Sight console.</p>
+   * The generative Q&A settings of an embedded Quick Sight console.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The data story settings of an embedded Quick Sight console.</p>
+ * The data story settings of an embedded Quick Sight console.
+ *
  * @public
  */
 export interface DataStoriesConfigurations {
   /**
-   * <p>The data story settings of an embedded Quick Sight console.</p>
+   * The data story settings of an embedded Quick Sight console.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The executive summary settings of an embedded Quick Sight console or dashboard.</p>
+ * The executive summary settings of an embedded Quick Sight console or dashboard.
+ *
  * @public
  */
 export interface ExecutiveSummaryConfigurations {
   /**
-   * <p>The executive summary settings of an embedded Quick Sight console or dashboard.</p>
+   * The executive summary settings of an embedded Quick Sight console or dashboard.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>The generative BI authoring settings of an embedded Quick Sight console.</p>
+ * The generative BI authoring settings of an embedded Quick Sight console.
+ *
  * @public
  */
 export interface GenerativeAuthoringConfigurations {
   /**
-   * <p>The generative BI authoring settings of an embedded Quick Sight console.</p>
+   * The generative BI authoring settings of an embedded Quick Sight console.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 }
 
 /**
- * <p>A collection of Amazon Q feature configurations in an embedded Quick Sight
- *             console.</p>
+ * A collection of Amazon Q feature configurations in an embedded Quick Sight console.
+ *
  * @public
  */
 export interface AmazonQInQuickSightConsoleConfigurations {
   /**
-   * <p>Adds generative Q&A capabilitiees to an embedded Quick Sight console.</p>
+   * Adds generative Q&A capabilitiees to an embedded Quick Sight console.
+   *
    * @public
    */
   DataQnA?: DataQnAConfigurations | undefined;
 
   /**
-   * <p>Adds the generative BI authoring experience to an embedded Quick Sight console.</p>
+   * Adds the generative BI authoring experience to an embedded Quick Sight console.
+   *
    * @public
    */
   GenerativeAuthoring?: GenerativeAuthoringConfigurations | undefined;
 
   /**
-   * <p>Adds the executive summaries feature to an embedded Quick Sight console.</p>
+   * Adds the executive summaries feature to an embedded Quick Sight console.
+   *
    * @public
    */
   ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
 
   /**
-   * <p>Adds the data stories feature to an embedded Quick Sight console.</p>
+   * Adds the data stories feature to an embedded Quick Sight console.
+   *
    * @public
    */
   DataStories?: DataStoriesConfigurations | undefined;
 }
 
 /**
- * <p>A collection of Amazon Q feature configurations in an embedded Quick Sight
- *             dashboard.</p>
+ * A collection of Amazon Q feature configurations in an embedded Quick Sight dashboard.
+ *
  * @public
  */
 export interface AmazonQInQuickSightDashboardConfigurations {
   /**
-   * <p>A generated executive summary of an embedded Quick Sight dashboard.</p>
+   * A generated executive summary of an embedded Quick Sight dashboard.
+   *
    * @public
    */
   ExecutiveSummary?: ExecutiveSummaryConfigurations | undefined;
 }
 
 /**
- * <p>An object, structure, or sub-structure of an analysis, template, or dashboard.</p>
+ * An object, structure, or sub-structure of an analysis, template, or dashboard.
+ *
  * @public
  */
 export interface Entity {
   /**
-   * <p>The hierarchical path of the entity within the analysis, template, or dashboard definition tree.</p>
+   * The hierarchical path of the entity within the analysis, template, or dashboard definition tree.
+   *
    * @public
    */
   Path?: string | undefined;
 }
 
 /**
- * <p>Analysis error.</p>
+ * Analysis error.
+ *
  * @public
  */
 export interface AnalysisError {
   /**
-   * <p>The type of the analysis error.</p>
+   * The type of the analysis error.
+   *
    * @public
    */
   Type?: AnalysisErrorType | undefined;
 
   /**
-   * <p>The message associated with the analysis error.</p>
+   * The message associated with the analysis error.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Lists the violated entities that caused the analysis error</p>
+   * Lists the violated entities that caused the analysis error
+   *
    * @public
    */
   ViolatedEntities?: Entity[] | undefined;
 }
 
 /**
- * <p>The navigation configuration for <code>CustomActionNavigationOperation</code>.</p>
+ * The navigation configuration for `CustomActionNavigationOperation`.
+ *
  * @public
  */
 export interface LocalNavigationConfiguration {
   /**
-   * <p>The sheet that is targeted for navigation in the same analysis.</p>
+   * The sheet that is targeted for navigation in the same analysis.
+   *
    * @public
    */
   TargetSheetId: string | undefined;
 }
 
 /**
- * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The navigation operation that navigates between different sheets in the same analysis.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface CustomActionNavigationOperation {
   /**
-   * <p>The configuration that chooses the navigation target.</p>
+   * The configuration that chooses the navigation target.
+   *
    * @public
    */
   LocalNavigationConfiguration?: LocalNavigationConfiguration | undefined;
 }
 
 /**
- * <p>The customized parameter values.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The customized parameter values.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface CustomParameterValues {
   /**
-   * <p>A list of string-type parameter values.</p>
+   * A list of string-type parameter values.
+   *
    * @public
    */
   StringValues?: string[] | undefined;
 
   /**
-   * <p>A list of integer-type parameter values.</p>
+   * A list of integer-type parameter values.
+   *
    * @public
    */
   IntegerValues?: number[] | undefined;
 
   /**
-   * <p>A list of decimal-type parameter values.</p>
+   * A list of decimal-type parameter values.
+   *
    * @public
    */
   DecimalValues?: number[] | undefined;
 
   /**
-   * <p>A list of datetime-type parameter values.</p>
+   * A list of datetime-type parameter values.
+   *
    * @public
    */
   DateTimeValues?: Date[] | undefined;
 }
 
 /**
- * <p>The configuration of custom values for the destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
+ * The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration`.
+ *
  * @public
  */
 export interface CustomValuesConfiguration {
   /**
-   * <p>Includes the null value in custom action parameter values.</p>
+   * Includes the null value in custom action parameter values.
+   *
    * @public
    */
   IncludeNullValue?: boolean | undefined;
 
   /**
-   * <p>The customized parameter values.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * The customized parameter values.
+   *
+   * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+   *
    * @public
    */
   CustomValues: CustomParameterValues | undefined;
 }
 
 /**
- * <p>The configuration of destination parameter values.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration of destination parameter values.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface DestinationParameterValueConfiguration {
   /**
-   * <p>The configuration of custom values for destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
+   * The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration`.
+   *
    * @public
    */
   CustomValuesConfiguration?: CustomValuesConfiguration | undefined;
 
   /**
-   * <p>The configuration that selects all options.</p>
+   * The configuration that selects all options.
+   *
    * @public
    */
   SelectAllValueOptions?: SelectAllValueOptions | undefined;
 
   /**
-   * <p>The source parameter name of the destination parameter.</p>
+   * The source parameter name of the destination parameter.
+   *
    * @public
    */
   SourceParameterName?: string | undefined;
 
   /**
-   * <p>The source field ID of the destination parameter.</p>
+   * The source field ID of the destination parameter.
+   *
    * @public
    */
   SourceField?: string | undefined;
 
   /**
-   * <p>A column of a data set.</p>
+   * A column of a data set.
+   *
    * @public
    */
   SourceColumn?: ColumnIdentifier | undefined;
 }
 
 /**
- * <p>The configuration of adding parameters in action.</p>
+ * The configuration of adding parameters in action.
+ *
  * @public
  */
 export interface SetParameterValueConfiguration {
   /**
-   * <p>The destination parameter name of the <code>SetParameterValueConfiguration</code>.</p>
+   * The destination parameter name of the `SetParameterValueConfiguration`.
+   *
    * @public
    */
   DestinationParameterName: string | undefined;
 
   /**
-   * <p>The configuration of destination parameter values.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * The configuration of destination parameter values.
+   *
+   * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+   *
    * @public
    */
   Value: DestinationParameterValueConfiguration | undefined;
 }
 
 /**
- * <p>The set parameter operation that sets parameters in custom action.</p>
+ * The set parameter operation that sets parameters in custom action.
+ *
  * @public
  */
 export interface CustomActionSetParametersOperation {
   /**
-   * <p>The parameter that determines the value configuration.</p>
+   * The parameter that determines the value configuration.
+   *
    * @public
    */
   ParameterValueConfigurations: SetParameterValueConfiguration[] | undefined;
 }
 
 /**
- * <p>The URL operation that opens a link to another webpage.</p>
+ * The URL operation that opens a link to another webpage.
+ *
  * @public
  */
 export interface CustomActionURLOperation {
   /**
-   * <p>THe URL link of the <code>CustomActionURLOperation</code>.</p>
+   * THe URL link of the `CustomActionURLOperation`.
+   *
    * @public
    */
   URLTemplate: string | undefined;
 
   /**
-   * <p>The target of the <code>CustomActionURLOperation</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_TAB</code>: Opens the target URL in a new browser tab.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_WINDOW</code>: Opens the target URL in a new browser window.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SAME_TAB</code>: Opens the target URL in the same browser tab.</p>
-   *             </li>
-   *          </ul>
+   * The target of the `CustomActionURLOperation`.
+   *
+   * Valid values are defined as follows:
+   *
+   * - `NEW_TAB`: Opens the target URL in a new browser tab.
+   * - `NEW_WINDOW`: Opens the target URL in a new browser window.
+   * - `SAME_TAB`: Opens the target URL in the same browser tab.
+   *
    * @public
    */
   URLTarget: URLTargetConfiguration | undefined;
 }
 
 /**
- * <p>The operation that is defined by the custom action.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The operation that is defined by the custom action.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface ImageCustomActionOperation {
   /**
-   * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * The navigation operation that navigates between different sheets in the same analysis.
+   *
+   * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+   *
    * @public
    */
   NavigationOperation?: CustomActionNavigationOperation | undefined;
 
   /**
-   * <p>The URL operation that opens a link to another webpage.</p>
+   * The URL operation that opens a link to another webpage.
+   *
    * @public
    */
   URLOperation?: CustomActionURLOperation | undefined;
 
   /**
-   * <p>The set parameter operation that sets parameters in custom action.</p>
+   * The set parameter operation that sets parameters in custom action.
+   *
    * @public
    */
   SetParametersOperation?: CustomActionSetParametersOperation | undefined;
 }
 
 /**
- * <p>A custom action defined on an image.</p>
+ * A custom action defined on an image.
+ *
  * @public
  */
 export interface ImageCustomAction {
   /**
-   * <p>The ID of the custom action.</p>
+   * The ID of the custom action.
+   *
    * @public
    */
   CustomActionId: string | undefined;
 
   /**
-   * <p>The name of the custom action.</p>
+   * The name of the custom action.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The status of the custom action.</p>
+   * The status of the custom action.
+   *
    * @public
    */
   Status?: WidgetStatus | undefined;
 
   /**
-   * <p>The trigger of the <code>VisualCustomAction</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLICK</code>: Initiates a custom action by a left pointer click on a data point.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MENU</code>: Initiates a custom action by right pointer click from the menu.</p>
-   *             </li>
-   *          </ul>
+   * The trigger of the `VisualCustomAction`.
+   *
+   * Valid values are defined as follows:
+   *
+   * - `CLICK`: Initiates a custom action by a left pointer click on a data point.
+   * - `MENU`: Initiates a custom action by right pointer click from the menu.
+   *
    * @public
    */
   Trigger: ImageCustomActionTrigger | undefined;
 
   /**
-   * <p>A list of <code>ImageCustomActionOperations</code>.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * A list of `ImageCustomActionOperations`.
+   *
+   * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+   *
    * @public
    */
   ActionOperations: ImageCustomActionOperation[] | undefined;
 }
 
 /**
- * <p>The menu options for the interactions of an image.</p>
+ * The menu options for the interactions of an image.
+ *
  * @public
  */
 export interface ImageMenuOption {
   /**
-   * <p>The availability status of the image menu. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the image menu.</p>
+   * The availability status of the image menu. If the value of this property is set to `ENABLED`, dashboard readers can interact with the image menu.
+   *
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
 }
 
 /**
- * <p>The general image interactions setup for image publish options.</p>
+ * The general image interactions setup for image publish options.
+ *
  * @public
  */
 export interface ImageInteractionOptions {
   /**
-   * <p>The menu options for the image.</p>
+   * The menu options for the image.
+   *
    * @public
    */
   ImageMenuOption?: ImageMenuOption | undefined;
 }
 
 /**
- * <p>Determines how the image is scaled</p>
+ * Determines how the image is scaled
+ *
  * @public
  */
 export interface SheetImageScalingConfiguration {
   /**
-   * <p>The scaling option to use when fitting the image inside the container.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SCALE_TO_WIDTH</code>: The image takes up the entire width of the container. The image aspect ratio is preserved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCALE_TO_HEIGHT</code>: The image takes up the entire height of the container. The image aspect ratio is preserved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCALE_TO_CONTAINER</code>: The image takes up the entire width and height of the container. The image aspect ratio is not preserved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCALE_NONE</code>: The image is displayed in its original size and is not scaled to the container.</p>
-   *             </li>
-   *          </ul>
+   * The scaling option to use when fitting the image inside the container.
+   *
+   * Valid values are defined as follows:
+   *
+   * - `SCALE_TO_WIDTH`: The image takes up the entire width of the container. The image aspect ratio is preserved.
+   * - `SCALE_TO_HEIGHT`: The image takes up the entire height of the container. The image aspect ratio is preserved.
+   * - `SCALE_TO_CONTAINER`: The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+   * - `SCALE_NONE`: The image is displayed in its original size and is not scaled to the container.
+   *
    * @public
    */
   ScalingType?: SheetImageScalingType | undefined;
 }
 
 /**
- * <p>The source of the static file that contains the image.</p>
+ * The source of the static file that contains the image.
+ *
  * @public
  */
 export interface SheetImageStaticFileSource {
   /**
-   * <p>The ID of the static file that contains the image.</p>
+   * The ID of the static file that contains the image.
+   *
    * @public
    */
   StaticFileId: string | undefined;
 }
 
 /**
- * <p>The source of the image.</p>
+ * The source of the image.
+ *
  * @public
  */
 export interface SheetImageSource {
   /**
-   * <p>The source of the static file that contains the image.</p>
+   * The source of the static file that contains the image.
+   *
    * @public
    */
   SheetImageStaticFileSource?: SheetImageStaticFileSource | undefined;
 }
 
 /**
- * <p>The text that appears in the sheet image tooltip.</p>
+ * The text that appears in the sheet image tooltip.
+ *
  * @public
  */
 export interface SheetImageTooltipText {
   /**
-   * <p>The plain text format.</p>
+   * The plain text format.
+   *
    * @public
    */
   PlainText?: string | undefined;
 }
 
 /**
- * <p>The tooltip configuration for a sheet image.</p>
+ * The tooltip configuration for a sheet image.
+ *
  * @public
  */
 export interface SheetImageTooltipConfiguration {
   /**
-   * <p>The text that appears in the tooltip.</p>
+   * The text that appears in the tooltip.
+   *
    * @public
    */
   TooltipText?: SheetImageTooltipText | undefined;
 
   /**
-   * <p>The visibility of the tooltip.</p>
+   * The visibility of the tooltip.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>An image that is located on a sheet.</p>
+ * An image that is located on a sheet.
+ *
  * @public
  */
 export interface SheetImage {
   /**
-   * <p>The ID of the sheet image.</p>
+   * The ID of the sheet image.
+   *
    * @public
    */
   SheetImageId: string | undefined;
 
   /**
-   * <p>The source of the image.</p>
+   * The source of the image.
+   *
    * @public
    */
   Source: SheetImageSource | undefined;
 
   /**
-   * <p>Determines how the image is scaled.</p>
+   * Determines how the image is scaled.
+   *
    * @public
    */
   Scaling?: SheetImageScalingConfiguration | undefined;
 
   /**
-   * <p>The tooltip to be shown when hovering over the image.</p>
+   * The tooltip to be shown when hovering over the image.
+   *
    * @public
    */
   Tooltip?: SheetImageTooltipConfiguration | undefined;
 
   /**
-   * <p>The alt text for the image.</p>
+   * The alt text for the image.
+   *
    * @public
    */
   ImageContentAltText?: string | undefined;
 
   /**
-   * <p>The general image interactions setup for an image.</p>
+   * The general image interactions setup for an image.
+   *
    * @public
    */
   Interactions?: ImageInteractionOptions | undefined;
 
   /**
-   * <p>A list of custom actions that are configured for an image.</p>
+   * A list of custom actions that are configured for an image.
+   *
    * @public
    */
   Actions?: ImageCustomAction[] | undefined;
 }
 
 /**
- * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
- *             are viewed together on one page in Quick Sight. Every analysis and dashboard
- *             contains at least one sheet. Each sheet contains at least one visualization widget, for
- *             example a chart, pivot table, or narrative insight. Sheets can be associated with other
- *             components, such as controls, filters, and so on.</p>
+ * A *sheet*, which is an object that contains a set of visuals that are viewed together on one page in Quick Sight. Every analysis and dashboard contains at least one sheet. Each sheet contains at least one visualization widget, for example a chart, pivot table, or narrative insight. Sheets can be associated with other components, such as controls, filters, and so on.
+ *
  * @public
  */
 export interface Sheet {
   /**
-   * <p>The unique identifier associated with a sheet.</p>
+   * The unique identifier associated with a sheet.
+   *
    * @public
    */
   SheetId?: string | undefined;
 
   /**
-   * <p>The name of a sheet. This name is displayed on the sheet's tab in the Quick Sight
-   *             console.</p>
+   * The name of a sheet. This name is displayed on the sheet's tab in the Quick Sight console.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A list of images on a sheet.</p>
+   * A list of images on a sheet.
+   *
    * @public
    */
   Images?: SheetImage[] | undefined;
 }
 
 /**
- * <p>Metadata structure for an analysis in Quick Sight</p>
+ * Metadata structure for an analysis in Quick Sight
+ *
  * @public
  */
 export interface Analysis {
   /**
-   * <p>The ID of the analysis.</p>
+   * The ID of the analysis.
+   *
    * @public
    */
   AnalysisId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis.</p>
+   * The Amazon Resource Name (ARN) of the analysis.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The descriptive name of the analysis.</p>
+   * The descriptive name of the analysis.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Status associated with the analysis.</p>
+   * Status associated with the analysis.
+   *
    * @public
    */
   Status?: ResourceStatus | undefined;
 
   /**
-   * <p>Errors associated with the analysis.</p>
+   * Errors associated with the analysis.
+   *
    * @public
    */
   Errors?: AnalysisError[] | undefined;
 
   /**
-   * <p>The ARNs of the datasets of the analysis.</p>
+   * The ARNs of the datasets of the analysis.
+   *
    * @public
    */
   DataSetArns?: string[] | undefined;
 
   /**
-   * <p>The ARNs of the topics associated with the analysis.</p>
+   * The ARNs of the topics associated with the analysis.
+   *
    * @public
    */
   TopicArns?: string[] | undefined;
 
   /**
-   * <p>The ARN of the theme of the analysis.</p>
+   * The ARN of the theme of the analysis.
+   *
    * @public
    */
   ThemeArn?: string | undefined;
 
   /**
-   * <p>The time that the analysis was created.</p>
+   * The time that the analysis was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The time that the analysis was last updated.</p>
+   * The time that the analysis was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
 
   /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   * A list of the associated sheets with the unique identifier and name of each sheet.
+   *
    * @public
    */
   Sheets?: Sheet[] | undefined;
 }
 
 /**
- * <p>The options that determine the sizing of the canvas used in a free-form layout.</p>
+ * The options that determine the sizing of the canvas used in a free-form layout.
+ *
  * @public
  */
 export interface FreeFormLayoutScreenCanvasSizeOptions {
   /**
-   * <p>The width that the view port will be optimized for when the layout renders.</p>
+   * The width that the view port will be optimized for when the layout renders.
+   *
    * @public
    */
   OptimizedViewPortWidth: string | undefined;
 }
 
 /**
- * <p>Configuration options for the canvas of a free-form layout.</p>
+ * Configuration options for the canvas of a free-form layout.
+ *
  * @public
  */
 export interface FreeFormLayoutCanvasSizeOptions {
   /**
-   * <p>The options that determine the sizing of the canvas used in a free-form layout.</p>
+   * The options that determine the sizing of the canvas used in a free-form layout.
+   *
    * @public
    */
   ScreenCanvasSizeOptions?: FreeFormLayoutScreenCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The options that determine the default settings of a free-form layout configuration.</p>
+ * The options that determine the default settings of a free-form layout configuration.
+ *
  * @public
  */
 export interface DefaultFreeFormLayoutConfiguration {
   /**
-   * <p>Determines the screen canvas size options for a free-form layout.</p>
+   * Determines the screen canvas size options for a free-form layout.
+   *
    * @public
    */
   CanvasSizeOptions: FreeFormLayoutCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The options that determine the sizing of the canvas used in a grid layout.</p>
+ * The options that determine the sizing of the canvas used in a grid layout.
+ *
  * @public
  */
 export interface GridLayoutScreenCanvasSizeOptions {
   /**
-   * <p>This value determines the layout behavior when the viewport is resized.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FIXED</code>: A fixed width will be used when optimizing the layout. In
-   *                     the Quick Sight console, this option is called <code>Classic</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESPONSIVE</code>: The width of the canvas will be responsive and
-   *                     optimized to the view port. In the Quick Sight console, this option is called <code>Tiled</code>.</p>
-   *             </li>
-   *          </ul>
+   * This value determines the layout behavior when the viewport is resized.
+   *
+   * - `FIXED`: A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic`.
+   * - `RESPONSIVE`: The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled`.
+   *
    * @public
    */
   ResizeOption: ResizeOption | undefined;
 
   /**
-   * <p>The width that the view port will be optimized for when the layout renders.</p>
+   * The width that the view port will be optimized for when the layout renders.
+   *
    * @public
    */
   OptimizedViewPortWidth?: string | undefined;
 }
 
 /**
- * <p>Configuration options for the canvas of a grid layout.</p>
+ * Configuration options for the canvas of a grid layout.
+ *
  * @public
  */
 export interface GridLayoutCanvasSizeOptions {
   /**
-   * <p>The options that determine the sizing of the canvas used in a grid layout.</p>
+   * The options that determine the sizing of the canvas used in a grid layout.
+   *
    * @public
    */
   ScreenCanvasSizeOptions?: GridLayoutScreenCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The options that determine the default settings for a grid layout configuration.</p>
+ * The options that determine the default settings for a grid layout configuration.
+ *
  * @public
  */
 export interface DefaultGridLayoutConfiguration {
   /**
-   * <p>Determines the screen canvas size options for a grid layout.</p>
+   * Determines the screen canvas size options for a grid layout.
+   *
    * @public
    */
   CanvasSizeOptions: GridLayoutCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The options that determine the default settings for interactive layout configuration.</p>
+ * The options that determine the default settings for interactive layout configuration.
+ *
  * @public
  */
 export interface DefaultInteractiveLayoutConfiguration {
   /**
-   * <p>The options that determine the default settings for a grid layout configuration.</p>
+   * The options that determine the default settings for a grid layout configuration.
+   *
    * @public
    */
   Grid?: DefaultGridLayoutConfiguration | undefined;
 
   /**
-   * <p>The options that determine the default settings of a free-form layout configuration.</p>
+   * The options that determine the default settings of a free-form layout configuration.
+   *
    * @public
    */
   FreeForm?: DefaultFreeFormLayoutConfiguration | undefined;
 }
 
 /**
- * <p>The configuration of spacing (often a margin or padding).</p>
+ * The configuration of spacing (often a margin or padding).
+ *
  * @public
  */
 export interface Spacing {
   /**
-   * <p>Define the top spacing.</p>
+   * Define the top spacing.
+   *
    * @public
    */
   Top?: string | undefined;
 
   /**
-   * <p>Define the bottom spacing.</p>
+   * Define the bottom spacing.
+   *
    * @public
    */
   Bottom?: string | undefined;
 
   /**
-   * <p>Define the left spacing.</p>
+   * Define the left spacing.
+   *
    * @public
    */
   Left?: string | undefined;
 
   /**
-   * <p>Define the right spacing.</p>
+   * Define the right spacing.
+   *
    * @public
    */
   Right?: string | undefined;
 }
 
 /**
- * <p>The options for a paper canvas of a section-based layout.</p>
+ * The options for a paper canvas of a section-based layout.
+ *
  * @public
  */
 export interface SectionBasedLayoutPaperCanvasSizeOptions {
   /**
-   * <p>The paper size that is used to define canvas dimensions.</p>
+   * The paper size that is used to define canvas dimensions.
+   *
    * @public
    */
   PaperSize?: PaperSize | undefined;
 
   /**
-   * <p>The paper orientation that
-   *             is used to define canvas dimensions. Choose one of the following
-   *             options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PORTRAIT</p>
-   *             </li>
-   *             <li>
-   *                <p>LANDSCAPE</p>
-   *             </li>
-   *          </ul>
+   * The paper orientation that is used to define canvas dimensions. Choose one of the following options:
+   *
+   * - PORTRAIT
+   * - LANDSCAPE
+   *
    * @public
    */
   PaperOrientation?: PaperOrientation | undefined;
 
   /**
-   * <p>Defines the spacing between the canvas content and the top, bottom, left, and right edges.</p>
+   * Defines the spacing between the canvas content and the top, bottom, left, and right edges.
+   *
    * @public
    */
   PaperMargin?: Spacing | undefined;
 }
 
 /**
- * <p>The options for the canvas of a section-based layout.</p>
+ * The options for the canvas of a section-based layout.
+ *
  * @public
  */
 export interface SectionBasedLayoutCanvasSizeOptions {
   /**
-   * <p>The options for a paper canvas of a section-based layout.</p>
+   * The options for a paper canvas of a section-based layout.
+   *
    * @public
    */
   PaperCanvasSizeOptions?: SectionBasedLayoutPaperCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The options that determine the default settings for a section-based layout configuration.</p>
+ * The options that determine the default settings for a section-based layout configuration.
+ *
  * @public
  */
 export interface DefaultSectionBasedLayoutConfiguration {
   /**
-   * <p>Determines the screen canvas size options for a section-based layout.</p>
+   * Determines the screen canvas size options for a section-based layout.
+   *
    * @public
    */
   CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The options that determine the default settings for a paginated layout configuration.</p>
+ * The options that determine the default settings for a paginated layout configuration.
+ *
  * @public
  */
 export interface DefaultPaginatedLayoutConfiguration {
   /**
-   * <p>The options that determine the default settings for a section-based layout configuration.</p>
+   * The options that determine the default settings for a section-based layout configuration.
+   *
    * @public
    */
   SectionBased?: DefaultSectionBasedLayoutConfiguration | undefined;
 }
 
 /**
- * <p>The configuration for default new sheet settings.</p>
+ * The configuration for default new sheet settings.
+ *
  * @public
  */
 export interface DefaultNewSheetConfiguration {
   /**
-   * <p>The options that determine the default settings for interactive layout configuration.</p>
+   * The options that determine the default settings for interactive layout configuration.
+   *
    * @public
    */
   InteractiveLayoutConfiguration?: DefaultInteractiveLayoutConfiguration | undefined;
 
   /**
-   * <p>The options that determine the default settings for a paginated layout configuration.</p>
+   * The options that determine the default settings for a paginated layout configuration.
+   *
    * @public
    */
   PaginatedLayoutConfiguration?: DefaultPaginatedLayoutConfiguration | undefined;
 
   /**
-   * <p>The option that determines the sheet content type.</p>
+   * The option that determines the sheet content type.
+   *
    * @public
    */
   SheetContentType?: SheetContentType | undefined;
 }
 
 /**
- * <p>The configuration for default analysis settings.</p>
+ * The configuration for default analysis settings.
+ *
  * @public
  */
 export interface AnalysisDefaults {
   /**
-   * <p>The configuration for default new sheet settings.</p>
+   * The configuration for default new sheet settings.
+   *
    * @public
    */
   DefaultNewSheetConfiguration: DefaultNewSheetConfiguration | undefined;
 }
 
 /**
- * <p>The calculated field of an analysis.</p>
+ * The calculated field of an analysis.
+ *
  * @public
  */
 export interface CalculatedField {
   /**
-   * <p>The data set that is used in this calculated field.</p>
+   * The data set that is used in this calculated field.
+   *
    * @public
    */
   DataSetIdentifier?: string | undefined;
 
   /**
-   * <p>The topic that is used in this calculated field.</p>
+   * The topic that is used in this calculated field.
+   *
    * @public
    */
   TopicIdentifier?: string | undefined;
 
   /**
-   * <p>The name of the calculated field.</p>
+   * The name of the calculated field.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The expression of the calculated field.</p>
+   * The expression of the calculated field.
+   *
    * @public
    */
   Expression: string | undefined;
 }
 
 /**
- * <p>Determines the color that's applied to a particular data value in a column.</p>
+ * Determines the color that's applied to a particular data value in a column.
+ *
  * @public
  */
 export interface CustomColor {
   /**
-   * <p>The data value that the color is applied to.</p>
+   * The data value that the color is applied to.
+   *
    * @public
    */
   FieldValue?: string | undefined;
 
   /**
-   * <p>The color that is applied to the data value.</p>
+   * The color that is applied to the data value.
+   *
    * @public
    */
   Color: string | undefined;
 
   /**
-   * <p>The value of a special data value.</p>
+   * The value of a special data value.
+   *
    * @public
    */
   SpecialValue?: SpecialValue | undefined;
 }
 
 /**
- * <p>The color configurations for a column.</p>
+ * The color configurations for a column.
+ *
  * @public
  */
 export interface ColorsConfiguration {
   /**
-   * <p>A list of up to 50 custom colors.</p>
+   * A list of up to 50 custom colors.
+   *
    * @public
    */
   CustomColors?: CustomColor[] | undefined;
 }
 
 /**
- * <p>Decal settings for accessibility features that define visual patterns and styling for data elements.</p>
+ * Decal settings for accessibility features that define visual patterns and styling for data elements.
+ *
  * @public
  */
 export interface DecalSettings {
   /**
-   * <p>Field value of the field that you are setting the decal pattern to. Applicable only for field level settings.</p>
+   * Field value of the field that you are setting the decal pattern to. Applicable only for field level settings.
+   *
    * @public
    */
   ElementValue?: string | undefined;
 
   /**
-   * <p>Visibility setting for the decal pattern.</p>
+   * Visibility setting for the decal pattern.
+   *
    * @public
    */
   DecalVisibility?: Visibility | undefined;
 
   /**
-   * <p>Color configuration for the decal pattern.</p>
+   * Color configuration for the decal pattern.
+   *
    * @public
    */
   DecalColor?: string | undefined;
 
   /**
-   * <p>Type of pattern used for the decal, such as solid, diagonal, or circular patterns in various sizes.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SOLID</code>: Solid fill pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAGONAL_SMALL</code>: Small diagonal stripes pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAGONAL_MEDIUM</code>: Medium diagonal stripes pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAGONAL_LARGE</code>: Large diagonal stripes pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAGONAL_OPPOSITE_SMALL</code>: Small cross-diagonal stripes pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAGONAL_OPPOSITE_MEDIUM</code>: Medium cross-diagonal stripes pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAGONAL_OPPOSITE_LARGE</code>: Large cross-diagonal stripes pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CIRCLE_SMALL</code>: Small circle pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CIRCLE_MEDIUM</code>: Medium circle pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CIRCLE_LARGE</code>: Large circle pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND_SMALL</code>: Small diamonds pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND_MEDIUM</code>: Medium diamonds pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND_LARGE</code>: Large diamonds pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND_GRID_SMALL</code>: Small diamond grid pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND_GRID_MEDIUM</code>: Medium diamond grid pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIAMOND_GRID_LARGE</code>: Large diamond grid pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CHECKERBOARD_SMALL</code>: Small checkerboard pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CHECKERBOARD_MEDIUM</code>: Medium checkerboard pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CHECKERBOARD_LARGE</code>: Large checkerboard pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRIANGLE_SMALL</code>: Small triangles pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRIANGLE_MEDIUM</code>: Medium triangles pattern.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRIANGLE_LARGE</code>: Large triangles pattern.</p>
-   *             </li>
-   *          </ul>
+   * Type of pattern used for the decal, such as solid, diagonal, or circular patterns in various sizes.
+   *
+   * - `SOLID`: Solid fill pattern.
+   * - `DIAGONAL_SMALL`: Small diagonal stripes pattern.
+   * - `DIAGONAL_MEDIUM`: Medium diagonal stripes pattern.
+   * - `DIAGONAL_LARGE`: Large diagonal stripes pattern.
+   * - `DIAGONAL_OPPOSITE_SMALL`: Small cross-diagonal stripes pattern.
+   * - `DIAGONAL_OPPOSITE_MEDIUM`: Medium cross-diagonal stripes pattern.
+   * - `DIAGONAL_OPPOSITE_LARGE`: Large cross-diagonal stripes pattern.
+   * - `CIRCLE_SMALL`: Small circle pattern.
+   * - `CIRCLE_MEDIUM`: Medium circle pattern.
+   * - `CIRCLE_LARGE`: Large circle pattern.
+   * - `DIAMOND_SMALL`: Small diamonds pattern.
+   * - `DIAMOND_MEDIUM`: Medium diamonds pattern.
+   * - `DIAMOND_LARGE`: Large diamonds pattern.
+   * - `DIAMOND_GRID_SMALL`: Small diamond grid pattern.
+   * - `DIAMOND_GRID_MEDIUM`: Medium diamond grid pattern.
+   * - `DIAMOND_GRID_LARGE`: Large diamond grid pattern.
+   * - `CHECKERBOARD_SMALL`: Small checkerboard pattern.
+   * - `CHECKERBOARD_MEDIUM`: Medium checkerboard pattern.
+   * - `CHECKERBOARD_LARGE`: Large checkerboard pattern.
+   * - `TRIANGLE_SMALL`: Small triangles pattern.
+   * - `TRIANGLE_MEDIUM`: Medium triangles pattern.
+   * - `TRIANGLE_LARGE`: Large triangles pattern.
+   *
    * @public
    */
   DecalPatternType?: DecalPatternType | undefined;
 
   /**
-   * <p>Style type for the decal, which can be either manual or automatic. This field is only applicable for line series.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Manual</code>: Apply manual line and marker configuration for line series.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Auto</code>: Apply automatic line and marker configuration for line series.</p>
-   *             </li>
-   *          </ul>
+   * Style type for the decal, which can be either manual or automatic. This field is only applicable for line series.
+   *
+   * - `Manual`: Apply manual line and marker configuration for line series.
+   * - `Auto`: Apply automatic line and marker configuration for line series.
+   *
    * @public
    */
   DecalStyleType?: DecalStyleType | undefined;
 }
 
 /**
- * <p>Decal settings configuration for a column</p>
+ * Decal settings configuration for a column
+ *
  * @public
  */
 export interface DecalSettingsConfiguration {
   /**
-   * <p>A list of up to 50 decal settings.</p>
+   * A list of up to 50 decal settings.
+   *
    * @public
    */
   CustomDecalSettings?: DecalSettings[] | undefined;
 }
 
 /**
- * <p>The options that determine the null value format configuration.</p>
+ * The options that determine the null value format configuration.
+ *
  * @public
  */
 export interface NullValueFormatConfiguration {
   /**
-   * <p>Determines the null string of null values.</p>
+   * Determines the null string of null values.
+   *
    * @public
    */
   NullString: string | undefined;
 }
 
 /**
- * <p>The option that determines the decimal places configuration.</p>
+ * The option that determines the decimal places configuration.
+ *
  * @public
  */
 export interface DecimalPlacesConfiguration {
   /**
-   * <p>The values of the decimal places.</p>
+   * The values of the decimal places.
+   *
    * @public
    */
   DecimalPlaces: number | undefined;
 }
 
 /**
- * <p>The options that determine the negative value configuration.</p>
+ * The options that determine the negative value configuration.
+ *
  * @public
  */
 export interface NegativeValueConfiguration {
   /**
-   * <p>Determines the display mode of the negative value configuration.</p>
+   * Determines the display mode of the negative value configuration.
+   *
    * @public
    */
   DisplayMode: NegativeValueDisplayMode | undefined;
 }
 
 /**
- * <p>The options that determine the thousands separator configuration.</p>
+ * The options that determine the thousands separator configuration.
+ *
  * @public
  */
 export interface ThousandSeparatorOptions {
   /**
-   * <p>Determines the thousands separator symbol.</p>
+   * Determines the thousands separator symbol.
+   *
    * @public
    */
   Symbol?: NumericSeparatorSymbol | undefined;
 
   /**
-   * <p>Determines the visibility of the thousands separator.</p>
+   * Determines the visibility of the thousands separator.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>Determines the way numbers are styled to accommodate different readability standards. The <code>DEFAULT</code> value uses the standard international grouping system and groups numbers by the thousands. The <code>LAKHS</code> value uses the Indian numbering system and groups numbers by lakhs and crores.</p>
+   * Determines the way numbers are styled to accommodate different readability standards. The `DEFAULT` value uses the standard international grouping system and groups numbers by the thousands. The `LAKHS` value uses the Indian numbering system and groups numbers by lakhs and crores.
+   *
    * @public
    */
   GroupingStyle?: DigitGroupingStyle | undefined;
 }
 
 /**
- * <p>The options that determine the numeric separator configuration.</p>
+ * The options that determine the numeric separator configuration.
+ *
  * @public
  */
 export interface NumericSeparatorConfiguration {
   /**
-   * <p>Determines the decimal separator.</p>
+   * Determines the decimal separator.
+   *
    * @public
    */
   DecimalSeparator?: NumericSeparatorSymbol | undefined;
 
   /**
-   * <p>The options that determine the thousands separator configuration.</p>
+   * The options that determine the thousands separator configuration.
+   *
    * @public
    */
   ThousandsSeparator?: ThousandSeparatorOptions | undefined;
 }
 
 /**
- * <p>The options that determine the currency display format configuration.</p>
+ * The options that determine the currency display format configuration.
+ *
  * @public
  */
 export interface CurrencyDisplayFormatConfiguration {
   /**
-   * <p>Determines the prefix value of the currency format.</p>
+   * Determines the prefix value of the currency format.
+   *
    * @public
    */
   Prefix?: string | undefined;
 
   /**
-   * <p>Determines the suffix value of the currency format.</p>
+   * Determines the suffix value of the currency format.
+   *
    * @public
    */
   Suffix?: string | undefined;
 
   /**
-   * <p>The options that determine the numeric separator configuration.</p>
+   * The options that determine the numeric separator configuration.
+   *
    * @public
    */
   SeparatorConfiguration?: NumericSeparatorConfiguration | undefined;
 
   /**
-   * <p>Determines the symbol for the currency format.</p>
+   * Determines the symbol for the currency format.
+   *
    * @public
    */
   Symbol?: string | undefined;
 
   /**
-   * <p>The option that determines the decimal places configuration.</p>
+   * The option that determines the decimal places configuration.
+   *
    * @public
    */
   DecimalPlacesConfiguration?: DecimalPlacesConfiguration | undefined;
 
   /**
-   * <p>Determines the number scale value for the currency format.</p>
+   * Determines the number scale value for the currency format.
+   *
    * @public
    */
   NumberScale?: NumberScale | undefined;
 
   /**
-   * <p>The options that determine the negative value configuration.</p>
+   * The options that determine the negative value configuration.
+   *
    * @public
    */
   NegativeValueConfiguration?: NegativeValueConfiguration | undefined;
 
   /**
-   * <p>The options that determine the null value format configuration.</p>
+   * The options that determine the null value format configuration.
+   *
    * @public
    */
   NullValueFormatConfiguration?: NullValueFormatConfiguration | undefined;
 }
 
 /**
- * <p>The options that determine the number display format configuration.</p>
+ * The options that determine the number display format configuration.
+ *
  * @public
  */
 export interface NumberDisplayFormatConfiguration {
   /**
-   * <p>Determines the prefix value of the number format.</p>
+   * Determines the prefix value of the number format.
+   *
    * @public
    */
   Prefix?: string | undefined;
 
   /**
-   * <p>Determines the suffix value of the number format.</p>
+   * Determines the suffix value of the number format.
+   *
    * @public
    */
   Suffix?: string | undefined;
 
   /**
-   * <p>The options that determine the numeric separator configuration.</p>
+   * The options that determine the numeric separator configuration.
+   *
    * @public
    */
   SeparatorConfiguration?: NumericSeparatorConfiguration | undefined;
 
   /**
-   * <p>The option that determines the decimal places configuration.</p>
+   * The option that determines the decimal places configuration.
+   *
    * @public
    */
   DecimalPlacesConfiguration?: DecimalPlacesConfiguration | undefined;
 
   /**
-   * <p>Determines the number scale value of the number format.</p>
+   * Determines the number scale value of the number format.
+   *
    * @public
    */
   NumberScale?: NumberScale | undefined;
 
   /**
-   * <p>The options that determine the negative value configuration.</p>
+   * The options that determine the negative value configuration.
+   *
    * @public
    */
   NegativeValueConfiguration?: NegativeValueConfiguration | undefined;
 
   /**
-   * <p>The options that determine the null value format configuration.</p>
+   * The options that determine the null value format configuration.
+   *
    * @public
    */
   NullValueFormatConfiguration?: NullValueFormatConfiguration | undefined;
 }
 
 /**
- * <p>The options that determine the percentage display format configuration.</p>
+ * The options that determine the percentage display format configuration.
+ *
  * @public
  */
 export interface PercentageDisplayFormatConfiguration {
   /**
-   * <p>Determines the prefix value of the percentage format.</p>
+   * Determines the prefix value of the percentage format.
+   *
    * @public
    */
   Prefix?: string | undefined;
 
   /**
-   * <p>Determines the suffix value of the percentage format.</p>
+   * Determines the suffix value of the percentage format.
+   *
    * @public
    */
   Suffix?: string | undefined;
 
   /**
-   * <p>The options that determine the numeric separator configuration.</p>
+   * The options that determine the numeric separator configuration.
+   *
    * @public
    */
   SeparatorConfiguration?: NumericSeparatorConfiguration | undefined;
 
   /**
-   * <p>The option that determines the decimal places configuration.</p>
+   * The option that determines the decimal places configuration.
+   *
    * @public
    */
   DecimalPlacesConfiguration?: DecimalPlacesConfiguration | undefined;
 
   /**
-   * <p>The options that determine the negative value configuration.</p>
+   * The options that determine the negative value configuration.
+   *
    * @public
    */
   NegativeValueConfiguration?: NegativeValueConfiguration | undefined;
 
   /**
-   * <p>The options that determine the null value format configuration.</p>
+   * The options that determine the null value format configuration.
+   *
    * @public
    */
   NullValueFormatConfiguration?: NullValueFormatConfiguration | undefined;
 }
 
 /**
- * <p>The options that determine the numeric format configuration.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The options that determine the numeric format configuration.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface NumericFormatConfiguration {
   /**
-   * <p>The options that determine the number display format configuration.</p>
+   * The options that determine the number display format configuration.
+   *
    * @public
    */
   NumberDisplayFormatConfiguration?: NumberDisplayFormatConfiguration | undefined;
 
   /**
-   * <p>The options that determine the currency display format configuration.</p>
+   * The options that determine the currency display format configuration.
+   *
    * @public
    */
   CurrencyDisplayFormatConfiguration?: CurrencyDisplayFormatConfiguration | undefined;
 
   /**
-   * <p>The options that determine the percentage display format configuration.</p>
+   * The options that determine the percentage display format configuration.
+   *
    * @public
    */
   PercentageDisplayFormatConfiguration?: PercentageDisplayFormatConfiguration | undefined;
 }
 
 /**
- * <p>Formatting configuration for <code>DateTime</code> fields.</p>
+ * Formatting configuration for `DateTime` fields.
+ *
  * @public
  */
 export interface DateTimeFormatConfiguration {
   /**
-   * <p>Determines the <code>DateTime</code> format.</p>
+   * Determines the `DateTime` format.
+   *
    * @public
    */
   DateTimeFormat?: string | undefined;
 
   /**
-   * <p>The options that determine the null value format configuration.</p>
+   * The options that determine the null value format configuration.
+   *
    * @public
    */
   NullValueFormatConfiguration?: NullValueFormatConfiguration | undefined;
 
   /**
-   * <p>The formatting configuration for numeric <code>DateTime</code> fields.</p>
+   * The formatting configuration for numeric `DateTime` fields.
+   *
    * @public
    */
   NumericFormatConfiguration?: NumericFormatConfiguration | undefined;
 }
 
 /**
- * <p>Formatting configuration for number fields.</p>
+ * Formatting configuration for number fields.
+ *
  * @public
  */
 export interface NumberFormatConfiguration {
   /**
-   * <p>The options that determine the numeric format configuration.</p>
+   * The options that determine the numeric format configuration.
+   *
    * @public
    */
   FormatConfiguration?: NumericFormatConfiguration | undefined;
 }
 
 /**
- * <p>Formatting configuration for string fields.</p>
+ * Formatting configuration for string fields.
+ *
  * @public
  */
 export interface StringFormatConfiguration {
   /**
-   * <p>The options that determine the null value format configuration.</p>
+   * The options that determine the null value format configuration.
+   *
    * @public
    */
   NullValueFormatConfiguration?: NullValueFormatConfiguration | undefined;
 
   /**
-   * <p>The formatting configuration for numeric strings.</p>
+   * The formatting configuration for numeric strings.
+   *
    * @public
    */
   NumericFormatConfiguration?: NumericFormatConfiguration | undefined;
 }
 
 /**
- * <p>The formatting configuration for all types of field.</p>
+ * The formatting configuration for all types of field.
+ *
  * @public
  */
 export interface FormatConfiguration {
   /**
-   * <p>Formatting configuration for string fields.</p>
+   * Formatting configuration for string fields.
+   *
    * @public
    */
   StringFormatConfiguration?: StringFormatConfiguration | undefined;
 
   /**
-   * <p>Formatting configuration for number fields.</p>
+   * Formatting configuration for number fields.
+   *
    * @public
    */
   NumberFormatConfiguration?: NumberFormatConfiguration | undefined;
 
   /**
-   * <p>Formatting configuration for <code>DateTime</code> fields.</p>
+   * Formatting configuration for `DateTime` fields.
+   *
    * @public
    */
   DateTimeFormatConfiguration?: DateTimeFormatConfiguration | undefined;
 }
 
 /**
- * <p>The general configuration of a column.</p>
+ * The general configuration of a column.
+ *
  * @public
  */
 export interface ColumnConfiguration {
   /**
-   * <p>The column.</p>
+   * The column.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The format configuration of a column.</p>
+   * The format configuration of a column.
+   *
    * @public
    */
   FormatConfiguration?: FormatConfiguration | undefined;
 
   /**
-   * <p>The role of the column.</p>
+   * The role of the column.
+   *
    * @public
    */
   Role?: ColumnRole | undefined;
 
   /**
-   * <p>The color configurations of the column.</p>
+   * The color configurations of the column.
+   *
    * @public
    */
   ColorsConfiguration?: ColorsConfiguration | undefined;
 
   /**
-   * <p>Decal configuration of the column.</p>
+   * Decal configuration of the column.
+   *
    * @public
    */
   DecalSettingsConfiguration?: DecalSettingsConfiguration | undefined;
 }
 
 /**
- * <p>A data set.</p>
+ * A data set.
+ *
  * @public
  */
 export interface DataSetIdentifierDeclaration {
   /**
-   * <p>The identifier of the data set, typically the data set's name.</p>
+   * The identifier of the data set, typically the data set's name.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the data set.</p>
+   * The Amazon Resource Name (ARN) of the data set.
+   *
    * @public
    */
   DataSetArn: string | undefined;
 }
 
 /**
- * <p>A custom filter that filters based on a single value. This filter can be partially matched.</p>
+ * A custom filter that filters based on a single value. This filter can be partially matched.
+ *
  * @public
  */
 export interface CustomFilterConfiguration {
   /**
-   * <p>The match operator that is used to determine if a filter should be applied.</p>
+   * The match operator that is used to determine if a filter should be applied.
+   *
    * @public
    */
   MatchOperator: CategoryFilterMatchOperator | undefined;
 
   /**
-   * <p>The category value for the filter.</p>
-   *          <p>This field is mutually exclusive to <code>ParameterName</code>.</p>
+   * The category value for the filter.
+   *
+   * This field is mutually exclusive to `ParameterName`.
+   *
    * @public
    */
   CategoryValue?: string | undefined;
 
   /**
-   * <p>Select all of the values. Null is not the assigned value of select all.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FILTER_ALL_VALUES</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Select all of the values. Null is not the assigned value of select all.
+   *
+   * - `FILTER_ALL_VALUES`
+   *
    * @public
    */
   SelectAllOptions?: CategoryFilterSelectAllOptions | undefined;
 
   /**
-   * <p>The parameter whose value should be used for the filter value.</p>
-   *          <p>This field is mutually exclusive to <code>CategoryValue</code>.</p>
+   * The parameter whose value should be used for the filter value.
+   *
+   * This field is mutually exclusive to `CategoryValue`.
+   *
    * @public
    */
   ParameterName?: string | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption: FilterNullOption | undefined;
 }
 
 /**
- * <p>A list of custom filter values.</p>
+ * A list of custom filter values.
+ *
  * @public
  */
 export interface CustomFilterListConfiguration {
   /**
-   * <p>The match operator that is used to determine if a filter should be applied.</p>
+   * The match operator that is used to determine if a filter should be applied.
+   *
    * @public
    */
   MatchOperator: CategoryFilterMatchOperator | undefined;
 
   /**
-   * <p>The list of category values for the filter.</p>
+   * The list of category values for the filter.
+   *
    * @public
    */
   CategoryValues?: string[] | undefined;
 
   /**
-   * <p>Select all of the values. Null is not the assigned value of select all.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FILTER_ALL_VALUES</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Select all of the values. Null is not the assigned value of select all.
+   *
+   * - `FILTER_ALL_VALUES`
+   *
    * @public
    */
   SelectAllOptions?: CategoryFilterSelectAllOptions | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption: FilterNullOption | undefined;
 }
 
 /**
- * <p>A list of filter configurations.</p>
+ * A list of filter configurations.
+ *
  * @public
  */
 export interface FilterListConfiguration {
   /**
-   * <p>The match operator that is used to determine if a filter should be applied.</p>
+   * The match operator that is used to determine if a filter should be applied.
+   *
    * @public
    */
   MatchOperator: CategoryFilterMatchOperator | undefined;
 
   /**
-   * <p>The list of category values for the filter.</p>
+   * The list of category values for the filter.
+   *
    * @public
    */
   CategoryValues?: string[] | undefined;
 
   /**
-   * <p>Select all of the values. Null is not the assigned value of select all.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FILTER_ALL_VALUES</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Select all of the values. Null is not the assigned value of select all.
+   *
+   * - `FILTER_ALL_VALUES`
+   *
    * @public
    */
   SelectAllOptions?: CategoryFilterSelectAllOptions | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption?: FilterNullOption | undefined;
 }
 
 /**
- * <p>The configuration for a <code>CategoryFilter</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration for a `CategoryFilter`.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface CategoryFilterConfiguration {
   /**
-   * <p>A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.</p>
+   * A list of filter configurations. In the Quick Sight console, this filter type is called a filter list.
+   *
    * @public
    */
   FilterListConfiguration?: FilterListConfiguration | undefined;
 
   /**
-   * <p>A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.</p>
+   * A list of custom filter values. In the Quick Sight console, this filter type is called a custom filter list.
+   *
    * @public
    */
   CustomFilterListConfiguration?: CustomFilterListConfiguration | undefined;
 
   /**
-   * <p>A custom filter that filters based on a single value. This filter can be partially matched.</p>
+   * A custom filter that filters based on a single value. This filter can be partially matched.
+   *
    * @public
    */
   CustomFilterConfiguration?: CustomFilterConfiguration | undefined;
 }
 
 /**
- * <p>A control to display info icons for filters and parameters.</p>
+ * A control to display info icons for filters and parameters.
+ *
  * @public
  */
 export interface SheetControlInfoIconLabelOptions {
   /**
-   * <p>The visibility configuration of info icon label options.</p>
+   * The visibility configuration of info icon label options.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p> The text content of info icon.</p>
+   * The text content of info icon.
+   *
    * @public
    */
   InfoIconText?: string | undefined;
 }
 
 /**
- * <p>The option that determines the text display size.</p>
+ * The option that determines the text display size.
+ *
  * @public
  */
 export interface FontSize {
   /**
-   * <p>The lexical name for the text size, proportional to its surrounding context.</p>
+   * The lexical name for the text size, proportional to its surrounding context.
+   *
    * @public
    */
   Relative?: RelativeFontSize | undefined;
 
   /**
-   * <p>The font size that you want to use in px.</p>
+   * The font size that you want to use in px.
+   *
    * @public
    */
   Absolute?: string | undefined;
 }
 
 /**
- * <p>The option that determines the text display weight, or boldness.</p>
+ * The option that determines the text display weight, or boldness.
+ *
  * @public
  */
 export interface FontWeight {
   /**
-   * <p>The lexical name for the level of boldness of the text display.</p>
+   * The lexical name for the level of boldness of the text display.
+   *
    * @public
    */
   Name?: FontWeightName | undefined;
 }
 
 /**
- * <p>Configures the display properties of the given text.</p>
+ * Configures the display properties of the given text.
+ *
  * @public
  */
 export interface FontConfiguration {
   /**
-   * <p>The option that determines the text display size.</p>
+   * The option that determines the text display size.
+   *
    * @public
    */
   FontSize?: FontSize | undefined;
 
   /**
-   * <p>Determines the appearance of decorative lines on the text.</p>
+   * Determines the appearance of decorative lines on the text.
+   *
    * @public
    */
   FontDecoration?: FontDecoration | undefined;
 
   /**
-   * <p>Determines the color of the text.</p>
+   * Determines the color of the text.
+   *
    * @public
    */
   FontColor?: string | undefined;
 
   /**
-   * <p>The option that determines the text display weight, or boldness.</p>
+   * The option that determines the text display weight, or boldness.
+   *
    * @public
    */
   FontWeight?: FontWeight | undefined;
 
   /**
-   * <p>Determines the text display face that is inherited by the given font family.</p>
+   * Determines the text display face that is inherited by the given font family.
+   *
    * @public
    */
   FontStyle?: FontStyle | undefined;
 
   /**
-   * <p>The font family that you want to use.</p>
+   * The font family that you want to use.
+   *
    * @public
    */
   FontFamily?: string | undefined;
 }
 
 /**
- * <p>The share label options for the labels.</p>
+ * The share label options for the labels.
+ *
  * @public
  */
 export interface LabelOptions {
   /**
-   * <p>Determines whether or not the label is visible.</p>
+   * Determines whether or not the label is visible.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The font configuration of the label.</p>
+   * The font configuration of the label.
+   *
    * @public
    */
   FontConfiguration?: FontConfiguration | undefined;
 
   /**
-   * <p>The text for the label.</p>
+   * The text for the label.
+   *
    * @public
    */
   CustomLabel?: string | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface DateTimePickerControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>Customize how dates are formatted in controls.</p>
+   * Customize how dates are formatted in controls.
+   *
    * @public
    */
   DateTimeFormat?: string | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 
   /**
-   * <p>The helper text visibility of the <code>DateTimePickerControlDisplayOptions</code>.</p>
+   * The helper text visibility of the `DateTimePickerControlDisplayOptions`.
+   *
    * @public
    */
   HelperTextVisibility?: Visibility | undefined;
 
   /**
-   * <p>The date icon visibility of the <code>DateTimePickerControlDisplayOptions</code>.</p>
+   * The date icon visibility of the `DateTimePickerControlDisplayOptions`.
+   *
    * @public
    */
   DateIconVisibility?: Visibility | undefined;
 }
 
 /**
- * <p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>
+ * The default options that correspond to the filter control type of a `DateTimePicker`.
+ *
  * @public
  */
 export interface DefaultDateTimePickerControlOptions {
   /**
-   * <p>The date time picker type of the <code>DefaultDateTimePickerControlOptions</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_VALUED</code>: The filter condition is a fixed date.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATE_RANGE</code>: The filter condition is a date time range.</p>
-   *             </li>
-   *          </ul>
+   * The date time picker type of the `DefaultDateTimePickerControlOptions`. Choose one of the following options:
+   *
+   * - `SINGLE_VALUED`: The filter condition is a fixed date.
+   * - `DATE_RANGE`: The filter condition is a date time range.
+   *
    * @public
    */
   Type?: SheetControlDateTimePickerType | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: DateTimePickerControlDisplayOptions | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>DateTimePickerControl</code>.</p>
+   * The visibility configuration of the Apply button on a `DateTimePickerControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 }
 
 /**
- * <p>The sort configuration for selectable values in a control.</p>
+ * The sort configuration for selectable values in a control.
+ *
  * @public
  */
 export interface SelectableValuesSort {
   /**
-   * <p>The sort direction for the selectable values. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ASC</code>: Sort in ascending order.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DESC</code>: Sort in descending order.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>USER_DEFINED_ORDER</code>: Preserve the order in which the values were entered.</p>
-   *             </li>
-   *          </ul>
+   * The sort direction for the selectable values. Choose one of the following options:
+   *
+   * - `ASC`: Sort in ascending order.
+   * - `DESC`: Sort in descending order.
+   * - `USER_DEFINED_ORDER`: Preserve the order in which the values were entered.
+   *
    * @public
    */
   Direction: ControlSortDirection | undefined;
 }
 
 /**
- * <p>The sort configuration for control values. This is a tagged union type. Specify either <code>SelectableValuesSort</code> or <code>ControlColumnSort</code>, but not both.</p>
+ * The sort configuration for control values. This is a tagged union type. Specify either `SelectableValuesSort` or `ControlColumnSort`, but not both.
+ *
  * @public
  */
 export interface ControlSortConfiguration {
   /**
-   * <p>The sort configuration for user-specified values in the control. Use this option to sort values that are manually entered by users in a dropdown or list control.</p>
+   * The sort configuration for user-specified values in the control. Use this option to sort values that are manually entered by users in a dropdown or list control.
+   *
    * @public
    */
   SelectableValuesSort?: SelectableValuesSort | undefined;
 
   /**
-   * <p>The sort configuration for controls that are tied to a dataset column. Use this option to sort control values by an aggregate of a column.</p>
+   * The sort configuration for controls that are tied to a dataset column. Use this option to sort control values by an aggregate of a column.
+   *
    * @public
    */
   ControlColumnSort?: AggregationSortConfiguration | undefined;
 }
 
 /**
- * <p>The configuration of the <code>Select all</code> options in a list control.</p>
+ * The configuration of the `Select all` options in a list control.
+ *
  * @public
  */
 export interface ListControlSelectAllOptions {
   /**
-   * <p>The visibility configuration of the <code>Select all</code> options in a list control.</p>
+   * The visibility configuration of the `Select all` options in a list control.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface DropDownControlDisplayOptions {
   /**
-   * <p>The configuration of the <code>Select all</code> options in a
-   *             dropdown control.</p>
+   * The configuration of the `Select all` options in a dropdown control.
+   *
    * @public
    */
   SelectAllOptions?: ListControlSelectAllOptions | undefined;
 
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>A list of selectable values that are used in a control.</p>
+ * A list of selectable values that are used in a control.
+ *
  * @public
  */
 export interface FilterSelectableValues {
   /**
-   * <p>The values that are used in the <code>FilterSelectableValues</code>.</p>
+   * The values that are used in the `FilterSelectableValues`.
+   *
    * @public
    */
   Values?: string[] | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>
+ * The default options that correspond to the `Dropdown` filter control type.
+ *
  * @public
  */
 export interface DefaultFilterDropDownControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: DropDownControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `FilterDropDownControl`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from a dropdown menu.
+   * - `SINGLE_SELECT`: The user can select a single entry from a dropdown menu.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>A list of selectable values that are used in a control.</p>
+   * A list of selectable values that are used in a control.
+   *
    * @public
    */
   SelectableValues?: FilterSelectableValues | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>FilterDropDownControl</code>.</p>
+   * The visibility configuration of the Apply button on a `FilterDropDownControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
- * <p>The title format text configuration for a sheet control. This is a tagged union type. Specify either <code>PlainText</code> or <code>RichText</code>, but not both.</p>
+ * The title format text configuration for a sheet control. This is a tagged union type. Specify either `PlainText` or `RichText`, but not both.
+ *
  * @public
  */
 export interface ControlTitleFormatText {
   /**
-   * <p>The plain text format of the title text.</p>
+   * The plain text format of the title text.
+   *
    * @public
    */
   PlainText?: string | undefined;
 
   /**
-   * <p>The rich text format of the title text.</p>
+   * The rich text format of the title text.
+   *
    * @public
    */
   RichText?: string | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface HierarchyFilterDropDownControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>HierarchyDropdown</code> filter control type.</p>
+ * The default options that correspond to the `HierarchyDropdown` filter control type.
+ *
  * @public
  */
 export interface DefaultHierarchyFilterDropDownControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: HierarchyFilterDropDownControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>DefaultHierarchyFilterDropDownControlOptions</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `DefaultHierarchyFilterDropDownControlOptions`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from a dropdown menu.
+   * - `SINGLE_SELECT`: The user can select a single entry from a dropdown menu.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterDropDownControl</code>.</p>
+   * The visibility configuration of the Apply button on a `HierarchyFilterDropDownControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>The configuration of the search options in a hierarchy list control.</p>
+ * The configuration of the search options in a hierarchy list control.
+ *
  * @public
  */
 export interface HierarchyFilterListControlSearchOptions {
   /**
-   * <p>The visibility configuration of the search options in a hierarchy list control.</p>
+   * The visibility configuration of the search options in a hierarchy list control.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface HierarchyFilterListControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 
   /**
-   * <p>The configuration of the search options in a hierarchy list control.</p>
+   * The configuration of the search options in a hierarchy list control.
+   *
    * @public
    */
   SearchOptions?: HierarchyFilterListControlSearchOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>HierarchyList</code> filter control type.</p>
+ * The default options that correspond to the `HierarchyList` filter control type.
+ *
  * @public
  */
 export interface DefaultHierarchyFilterListControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: HierarchyFilterListControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>DefaultHierarchyFilterListControlOptions</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `DefaultHierarchyFilterListControlOptions`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from the list.
+   * - `SINGLE_SELECT`: The user can select a single entry from the list.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterListControl</code>.</p>
+   * The visibility configuration of the Apply button on a `HierarchyFilterListControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>The configuration of the search options in a list control.</p>
+ * The configuration of the search options in a list control.
+ *
  * @public
  */
 export interface ListControlSearchOptions {
   /**
-   * <p>The visibility configuration of the search options in a list control.</p>
+   * The visibility configuration of the search options in a list control.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface ListControlDisplayOptions {
   /**
-   * <p>The configuration of the search options in a list control.</p>
+   * The configuration of the search options in a list control.
+   *
    * @public
    */
   SearchOptions?: ListControlSearchOptions | undefined;
 
   /**
-   * <p>The configuration of the <code>Select all</code> options in a list control.</p>
+   * The configuration of the `Select all` options in a list control.
+   *
    * @public
    */
   SelectAllOptions?: ListControlSelectAllOptions | undefined;
 
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>List</code> filter control type.</p>
+ * The default options that correspond to the `List` filter control type.
+ *
  * @public
  */
 export interface DefaultFilterListControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: ListControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>DefaultFilterListControlOptions</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `DefaultFilterListControlOptions`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from the list.
+   * - `SINGLE_SELECT`: The user can select a single entry from the list.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>A list of selectable values that are used in a control.</p>
+   * A list of selectable values that are used in a control.
+   *
    * @public
    */
   SelectableValues?: FilterSelectableValues | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface RelativeDateTimeControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>Customize how dates are formatted in controls.</p>
+   * Customize how dates are formatted in controls.
+   *
    * @public
    */
   DateTimeFormat?: string | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>RelativeDateTime</code> filter control type.</p>
+ * The default options that correspond to the `RelativeDateTime` filter control type.
+ *
  * @public
  */
 export interface DefaultRelativeDateTimeControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: RelativeDateTimeControlDisplayOptions | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>RelativeDateTimeControl</code>.</p>
+   * The visibility configuration of the Apply button on a `RelativeDateTimeControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface SliderControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>Slider</code> filter control type.</p>
+ * The default options that correspond to the `Slider` filter control type.
+ *
  * @public
  */
 export interface DefaultSliderControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: SliderControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>DefaultSliderControlOptions</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RANGE</code>: Filter data that is in a specified range.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `DefaultSliderControlOptions`. Choose one of the following options:
+   *
+   * - `SINGLE_POINT`: Filter against(equals) a single data point.
+   * - `RANGE`: Filter data that is in a specified range.
+   *
    * @public
    */
   Type?: SheetControlSliderType | undefined;
 
   /**
-   * <p>The larger value that is displayed at the right of the slider.</p>
+   * The larger value that is displayed at the right of the slider.
+   *
    * @public
    */
   MaximumValue: number | undefined;
 
   /**
-   * <p>The smaller value that is displayed at the left of the slider.</p>
+   * The smaller value that is displayed at the left of the slider.
+   *
    * @public
    */
   MinimumValue: number | undefined;
 
   /**
-   * <p>The number of increments that the slider bar is divided into.</p>
+   * The number of increments that the slider bar is divided into.
+   *
    * @public
    */
   StepSize: number | undefined;
 }
 
 /**
- * <p>The configuration of the placeholder options in a text control.</p>
+ * The configuration of the placeholder options in a text control.
+ *
  * @public
  */
 export interface TextControlPlaceholderOptions {
   /**
-   * <p>The visibility configuration of the placeholder options in a text control.</p>
+   * The visibility configuration of the placeholder options in a text control.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface TextAreaControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of the placeholder options in a text area control.</p>
+   * The configuration of the placeholder options in a text area control.
+   *
    * @public
    */
   PlaceholderOptions?: TextControlPlaceholderOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>TextArea</code> filter control type.</p>
+ * The default options that correspond to the `TextArea` filter control type.
+ *
  * @public
  */
 export interface DefaultTextAreaControlOptions {
   /**
-   * <p>The delimiter that is used to separate the lines in text.</p>
+   * The delimiter that is used to separate the lines in text.
+   *
    * @public
    */
   Delimiter?: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: TextAreaControlDisplayOptions | undefined;
 }
 
 /**
- * <p>The display options of a control.</p>
+ * The display options of a control.
+ *
  * @public
  */
 export interface TextFieldControlDisplayOptions {
   /**
-   * <p>The options to configure the title visibility, name, and font size.</p>
+   * The options to configure the title visibility, name, and font size.
+   *
    * @public
    */
   TitleOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The configuration of the placeholder options in a text field control.</p>
+   * The configuration of the placeholder options in a text field control.
+   *
    * @public
    */
   PlaceholderOptions?: TextControlPlaceholderOptions | undefined;
 
   /**
-   * <p>The configuration of info icon label options.</p>
+   * The configuration of info icon label options.
+   *
    * @public
    */
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions | undefined;
 }
 
 /**
- * <p>The default options that correspond to the <code>TextField</code> filter control type.</p>
+ * The default options that correspond to the `TextField` filter control type.
+ *
  * @public
  */
 export interface DefaultTextFieldControlOptions {
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: TextFieldControlDisplayOptions | undefined;
 }
 
 /**
- * <p>The option that corresponds to the control type of the filter.</p>
+ * The option that corresponds to the control type of the filter.
+ *
  * @public
  */
 export interface DefaultFilterControlOptions {
   /**
-   * <p>The default options that correspond to the filter control type of a <code>DateTimePicker</code>.</p>
+   * The default options that correspond to the filter control type of a `DateTimePicker`.
+   *
    * @public
    */
   DefaultDateTimePickerOptions?: DefaultDateTimePickerControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>List</code> filter control type.</p>
+   * The default options that correspond to the `List` filter control type.
+   *
    * @public
    */
   DefaultListOptions?: DefaultFilterListControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>Dropdown</code> filter control type.</p>
+   * The default options that correspond to the `Dropdown` filter control type.
+   *
    * @public
    */
   DefaultDropdownOptions?: DefaultFilterDropDownControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>TextField</code> filter control type.</p>
+   * The default options that correspond to the `TextField` filter control type.
+   *
    * @public
    */
   DefaultTextFieldOptions?: DefaultTextFieldControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>TextArea</code> filter control type.</p>
+   * The default options that correspond to the `TextArea` filter control type.
+   *
    * @public
    */
   DefaultTextAreaOptions?: DefaultTextAreaControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>Slider</code> filter control type.</p>
+   * The default options that correspond to the `Slider` filter control type.
+   *
    * @public
    */
   DefaultSliderOptions?: DefaultSliderControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>RelativeDateTime</code> filter control type.</p>
+   * The default options that correspond to the `RelativeDateTime` filter control type.
+   *
    * @public
    */
   DefaultRelativeDateTimeOptions?: DefaultRelativeDateTimeControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>HierarchyList</code> filter control type.</p>
+   * The default options that correspond to the `HierarchyList` filter control type.
+   *
    * @public
    */
   DefaultHierarchyList?: DefaultHierarchyFilterListControlOptions | undefined;
 
   /**
-   * <p>The default options that correspond to the <code>HierarchyDropdown</code> filter control type.</p>
+   * The default options that correspond to the `HierarchyDropdown` filter control type.
+   *
    * @public
    */
   DefaultHierarchyDropdown?: DefaultHierarchyFilterDropDownControlOptions | undefined;
 }
 
 /**
- * <p>The default configuration for all dependent controls of the filter.</p>
+ * The default configuration for all dependent controls of the filter.
+ *
  * @public
  */
 export interface DefaultFilterControlConfiguration {
   /**
-   * <p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>
+   * The title of the `DefaultFilterControlConfiguration`. This title is shared by all controls that are tied to this filter.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The control option for the <code>DefaultFilterControlConfiguration</code>.</p>
+   * The control option for the `DefaultFilterControlConfiguration`.
+   *
    * @public
    */
   ControlOptions: DefaultFilterControlOptions | undefined;
 
   /**
-   * <p>The title text format configuration for the default filter control.</p>
+   * The title text format configuration for the default filter control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A <code>CategoryFilter</code> filters text values.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html">Adding text filters</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+ * A `CategoryFilter` filters text values.
+ *
+ * For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide*.
+ *
  * @public
  */
 export interface CategoryFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The configuration for a <code>CategoryFilter</code>.</p>
+   * The configuration for a `CategoryFilter`.
+   *
    * @public
    */
   Configuration: CategoryFilterConfiguration | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>One level of the drill-down path of a <code>HierarchyFilter</code>.</p>
+ * One level of the drill-down path of a `HierarchyFilter`.
+ *
  * @public
  */
 export interface HierarchyFilterLevel {
   /**
-   * <p>The column that this level of the hierarchy drills down by. This column must belong to
-   *             the same dataset as <code>HierarchyFilter$Column</code>.</p>
+   * The column that this level of the hierarchy drills down by. This column must belong to the same dataset as `HierarchyFilter$Column`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 }
 
 /**
- * <p>A <code>CategoryInnerFilter</code> filters text values for the <code>NestedFilter</code>.</p>
+ * A `CategoryInnerFilter` filters text values for the `NestedFilter`.
+ *
  * @public
  */
 export interface CategoryInnerFilter {
   /**
-   * <p>A column of a data set.</p>
+   * A column of a data set.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The configuration for a <code>CategoryFilter</code>.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * The configuration for a `CategoryFilter`.
+   *
+   * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+   *
    * @public
    */
   Configuration: CategoryFilterConfiguration | undefined;
 
   /**
-   * <p>The default configuration for all dependent controls of the filter.</p>
+   * The default configuration for all dependent controls of the filter.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>The <code>InnerFilter</code> defines the subset of data to be used with the <code>NestedFilter</code>.</p>
+ * The `InnerFilter` defines the subset of data to be used with the `NestedFilter`.
+ *
  * @public
  */
 export interface InnerFilter {
   /**
-   * <p>A <code>CategoryInnerFilter</code> filters text values for the <code>NestedFilter</code>.</p>
+   * A `CategoryInnerFilter` filters text values for the `NestedFilter`.
+   *
    * @public
    */
   CategoryInnerFilter?: CategoryInnerFilter | undefined;
 }
 
 /**
- * <p>A <code>NestedFilter</code> filters data with a subset of data that is defined by the nested inner filter.</p>
+ * A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+ *
  * @public
  */
 export interface NestedFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.</p>
+   * A boolean condition to include or exclude the subset that is defined by the values of the nested inner filter.
+   *
    * @public
    */
   IncludeInnerSet: boolean | undefined;
 
   /**
-   * <p>The <code>InnerFilter</code> defines the subset of data to be used with the <code>NestedFilter</code>.</p>
+   * The `InnerFilter` defines the subset of data to be used with the `NestedFilter`.
+   *
    * @public
    */
   InnerFilter: InnerFilter | undefined;
 }
 
 /**
- * <p>A <code>NumericEqualityFilter</code> filters values that are equal to the specified value.</p>
+ * A `NumericEqualityFilter` filters values that are equal to the specified value.
+ *
  * @public
  */
 export interface NumericEqualityFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The input value.</p>
+   * The input value.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p>Select all of the values. Null is not the assigned value of select all.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FILTER_ALL_VALUES</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Select all of the values. Null is not the assigned value of select all.
+   *
+   * - `FILTER_ALL_VALUES`
+   *
    * @public
    */
   SelectAllOptions?: NumericFilterSelectAllOptions | undefined;
 
   /**
-   * <p>The match operator that is used to determine if a filter should be applied.</p>
+   * The match operator that is used to determine if a filter should be applied.
+   *
    * @public
    */
   MatchOperator: NumericEqualityMatchOperator | undefined;
 
   /**
-   * <p>The aggregation function of the filter.</p>
+   * The aggregation function of the filter.
+   *
    * @public
    */
   AggregationFunction?: AggregationFunction | undefined;
 
   /**
-   * <p>The parameter whose value should be used for the filter value.</p>
+   * The parameter whose value should be used for the filter value.
+   *
    * @public
    */
   ParameterName?: string | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption: FilterNullOption | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>The value input pf the numeric range filter.</p>
+ * The value input pf the numeric range filter.
+ *
  * @public
  */
 export interface NumericRangeFilterValue {
   /**
-   * <p>The static value of the numeric range filter.</p>
+   * The static value of the numeric range filter.
+   *
    * @public
    */
   StaticValue?: number | undefined;
 
   /**
-   * <p>The parameter that is used in the numeric range.</p>
+   * The parameter that is used in the numeric range.
+   *
    * @public
    */
   Parameter?: string | undefined;
 }
 
 /**
- * <p>A <code>NumericRangeFilter</code> filters values that are within the value range.</p>
+ * A `NumericRangeFilter` filters values that are within the value range.
+ *
  * @public
  */
 export interface NumericRangeFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>Determines whether the minimum value in the filter value range should be included in the filtered results.</p>
+   * Determines whether the minimum value in the filter value range should be included in the filtered results.
+   *
    * @public
    */
   IncludeMinimum?: boolean | undefined;
 
   /**
-   * <p>Determines whether the maximum value in the filter value range should be included in the filtered results.</p>
+   * Determines whether the maximum value in the filter value range should be included in the filtered results.
+   *
    * @public
    */
   IncludeMaximum?: boolean | undefined;
 
   /**
-   * <p>The minimum value for the filter value range.</p>
+   * The minimum value for the filter value range.
+   *
    * @public
    */
   RangeMinimum?: NumericRangeFilterValue | undefined;
 
   /**
-   * <p>The maximum value for the filter value range.</p>
+   * The maximum value for the filter value range.
+   *
    * @public
    */
   RangeMaximum?: NumericRangeFilterValue | undefined;
 
   /**
-   * <p>Select all of the values. Null is not the assigned value of select all.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>FILTER_ALL_VALUES</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Select all of the values. Null is not the assigned value of select all.
+   *
+   * - `FILTER_ALL_VALUES`
+   *
    * @public
    */
   SelectAllOptions?: NumericFilterSelectAllOptions | undefined;
 
   /**
-   * <p>The aggregation function of the filter.</p>
+   * The aggregation function of the filter.
+   *
    * @public
    */
   AggregationFunction?: AggregationFunction | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption: FilterNullOption | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>The date configuration of the filter.</p>
+ * The date configuration of the filter.
+ *
  * @public
  */
 export interface AnchorDateConfiguration {
   /**
-   * <p>The options for the date configuration. Choose one of the options below:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NOW</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The options for the date configuration. Choose one of the options below:
+   *
+   * - `NOW`
+   *
    * @public
    */
   AnchorOption?: AnchorOption | undefined;
 
   /**
-   * <p>The name of the parameter that is used for the anchor date configuration.</p>
+   * The name of the parameter that is used for the anchor date configuration.
+   *
    * @public
    */
   ParameterName?: string | undefined;
 }
 
 /**
- * <p>The exclude period of <code>TimeRangeFilter</code> or <code>RelativeDatesFilter</code>.</p>
+ * The exclude period of `TimeRangeFilter` or `RelativeDatesFilter`.
+ *
  * @public
  */
 export interface ExcludePeriodConfiguration {
   /**
-   * <p>The amount or number of the exclude period.</p>
+   * The amount or number of the exclude period.
+   *
    * @public
    */
   Amount: number | undefined;
 
   /**
-   * <p>The granularity or unit (day, month, year) of the exclude period.</p>
+   * The granularity or unit (day, month, year) of the exclude period.
+   *
    * @public
    */
   Granularity: TimeGranularity | undefined;
 
   /**
-   * <p>The status of the exclude period. Choose from the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The status of the exclude period. Choose from the following options:
+   *
+   * - `ENABLED`
+   * - `DISABLED`
+   *
    * @public
    */
   Status?: WidgetStatus | undefined;
 }
 
 /**
- * <p>A <code>RelativeDatesFilter</code> filters relative dates values.</p>
+ * A `RelativeDatesFilter` filters relative dates values.
+ *
  * @public
  */
 export interface RelativeDatesFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The date configuration of the filter.</p>
+   * The date configuration of the filter.
+   *
    * @public
    */
   AnchorDateConfiguration: AnchorDateConfiguration | undefined;
 
   /**
-   * <p>The minimum granularity (period granularity) of the relative dates filter.</p>
+   * The minimum granularity (period granularity) of the relative dates filter.
+   *
    * @public
    */
   MinimumGranularity?: TimeGranularity | undefined;
 
   /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * The level of time precision that is used to aggregate `DateTime` values.
+   *
    * @public
    */
   TimeGranularity: TimeGranularity | undefined;
 
   /**
-   * <p>The range date type of the filter. Choose one of the options below:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PREVIOUS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>THIS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LAST</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOW</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEXT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The range date type of the filter. Choose one of the options below:
+   *
+   * - `PREVIOUS`
+   * - `THIS`
+   * - `LAST`
+   * - `NOW`
+   * - `NEXT`
+   *
    * @public
    */
   RelativeDateType: RelativeDateType | undefined;
 
   /**
-   * <p>The date value of the filter.</p>
+   * The date value of the filter.
+   *
    * @public
    */
   RelativeDateValue?: number | undefined;
 
   /**
-   * <p>The parameter whose value should be used for the filter value.</p>
+   * The parameter whose value should be used for the filter value.
+   *
    * @public
    */
   ParameterName?: string | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption: FilterNullOption | undefined;
 
   /**
-   * <p>The configuration for the exclude period of the filter.</p>
+   * The configuration for the exclude period of the filter.
+   *
    * @public
    */
   ExcludePeriodConfiguration?: ExcludePeriodConfiguration | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>The rolling date configuration of a date time filter.</p>
+ * The rolling date configuration of a date time filter.
+ *
  * @public
  */
 export interface RollingDateConfiguration {
   /**
-   * <p>The data set that is used in the rolling date configuration.</p>
+   * The data set that is used in the rolling date configuration.
+   *
    * @public
    */
   DataSetIdentifier?: string | undefined;
 
   /**
-   * <p>The expression of the rolling date configuration.</p>
+   * The expression of the rolling date configuration.
+   *
    * @public
    */
   Expression: string | undefined;
 }
 
 /**
- * <p>A <code>TimeEqualityFilter</code> filters values that are equal to a given value.</p>
+ * A `TimeEqualityFilter` filters values that are equal to a given value.
+ *
  * @public
  */
 export interface TimeEqualityFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The value of a <code>TimeEquality</code> filter.</p>
-   *          <p>This field is mutually exclusive to <code>RollingDate</code> and <code>ParameterName</code>.</p>
+   * The value of a `TimeEquality` filter.
+   *
+   * This field is mutually exclusive to `RollingDate` and `ParameterName`.
+   *
    * @public
    */
   Value?: Date | undefined;
 
   /**
-   * <p>The parameter whose value should be used for the filter value.</p>
-   *          <p>This field is mutually exclusive to <code>Value</code> and <code>RollingDate</code>.</p>
+   * The parameter whose value should be used for the filter value.
+   *
+   * This field is mutually exclusive to `Value` and `RollingDate`.
+   *
    * @public
    */
   ParameterName?: string | undefined;
 
   /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * The level of time precision that is used to aggregate `DateTime` values.
+   *
    * @public
    */
   TimeGranularity?: TimeGranularity | undefined;
 
   /**
-   * <p>The rolling date input for the <code>TimeEquality</code> filter.</p>
-   *          <p>This field is mutually exclusive to <code>Value</code> and <code>ParameterName</code>.</p>
+   * The rolling date input for the `TimeEquality` filter.
+   *
+   * This field is mutually exclusive to `Value` and `ParameterName`.
+   *
    * @public
    */
   RollingDate?: RollingDateConfiguration | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>The value of a time range filter.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The value of a time range filter.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface TimeRangeFilterValue {
   /**
-   * <p>The static input value.</p>
+   * The static input value.
+   *
    * @public
    */
   StaticValue?: Date | undefined;
 
   /**
-   * <p>The rolling date input value.</p>
+   * The rolling date input value.
+   *
    * @public
    */
   RollingDate?: RollingDateConfiguration | undefined;
 
   /**
-   * <p>The parameter type input value.</p>
+   * The parameter type input value.
+   *
    * @public
    */
   Parameter?: string | undefined;
 }
 
 /**
- * <p>A <code>TimeRangeFilter</code> filters values that are between two specified values.</p>
+ * A `TimeRangeFilter` filters values that are between two specified values.
+ *
  * @public
  */
 export interface TimeRangeFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>Determines whether the minimum value in the filter value range should be included in the filtered results.</p>
+   * Determines whether the minimum value in the filter value range should be included in the filtered results.
+   *
    * @public
    */
   IncludeMinimum?: boolean | undefined;
 
   /**
-   * <p>Determines whether the maximum value in the filter value range should be included in the filtered results.</p>
+   * Determines whether the maximum value in the filter value range should be included in the filtered results.
+   *
    * @public
    */
   IncludeMaximum?: boolean | undefined;
 
   /**
-   * <p>The minimum value for the filter value range.</p>
+   * The minimum value for the filter value range.
+   *
    * @public
    */
   RangeMinimumValue?: TimeRangeFilterValue | undefined;
 
   /**
-   * <p>The maximum value for the filter value range.</p>
+   * The maximum value for the filter value range.
+   *
    * @public
    */
   RangeMaximumValue?: TimeRangeFilterValue | undefined;
 
   /**
-   * <p>This option determines how null values should be treated when filtering data.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
-   *             </li>
-   *          </ul>
+   * This option determines how null values should be treated when filtering data.
+   *
+   * - `ALL_VALUES`: Include null values in filtered results.
+   * - `NULLS_ONLY`: Only include null values in filtered results.
+   * - `NON_NULLS_ONLY`: Exclude null values from filtered results.
+   *
    * @public
    */
   NullOption: FilterNullOption | undefined;
 
   /**
-   * <p>The exclude period of the time range filter.</p>
+   * The exclude period of the time range filter.
+   *
    * @public
    */
   ExcludePeriodConfiguration?: ExcludePeriodConfiguration | undefined;
 
   /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * The level of time precision that is used to aggregate `DateTime` values.
+   *
    * @public
    */
   TimeGranularity?: TimeGranularity | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>A <code>TopBottomFilter</code> filters values that are at the top or the bottom.</p>
+ * A `TopBottomFilter` filters values that are at the top or the bottom.
+ *
  * @public
  */
 export interface TopBottomFilter {
   /**
-   * <p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>
+   * An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
+   *
    * @public
    */
   FilterId: string | undefined;
 
   /**
-   * <p>The column that the filter is applied to.</p>
+   * The column that the filter is applied to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The number of items to include in the top bottom filter results.</p>
+   * The number of items to include in the top bottom filter results.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The aggregation and sort configuration of the top bottom filter.</p>
+   * The aggregation and sort configuration of the top bottom filter.
+   *
    * @public
    */
   AggregationSortConfigurations: AggregationSortConfiguration[] | undefined;
 
   /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * The level of time precision that is used to aggregate `DateTime` values.
+   *
    * @public
    */
   TimeGranularity?: TimeGranularity | undefined;
 
   /**
-   * <p>The parameter whose value should be used for the filter value.</p>
+   * The parameter whose value should be used for the filter value.
+   *
    * @public
    */
   ParameterName?: string | undefined;
 
   /**
-   * <p>The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.</p>
+   * The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
+   *
    * @public
    */
   DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration | undefined;
 }
 
 /**
- * <p>The filter that is applied to the options.</p>
+ * The filter that is applied to the options.
+ *
  * @public
  */
 export interface SheetVisualScopingConfiguration {
   /**
-   * <p>The selected sheet that the filter is applied to.</p>
+   * The selected sheet that the filter is applied to.
+   *
    * @public
    */
   SheetId: string | undefined;
 
   /**
-   * <p>The scope of the applied entities. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VISUALS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SELECTED_VISUALS</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The scope of the applied entities. Choose one of the following options:
+   *
+   * - `ALL_VISUALS`
+   * - `SELECTED_VISUALS`
+   *
    * @public
    */
   Scope: FilterVisualScope | undefined;
 
   /**
-   * <p>The selected visuals that the filter is applied to.</p>
+   * The selected visuals that the filter is applied to.
+   *
    * @public
    */
   VisualIds?: string[] | undefined;
 }
 
 /**
- * <p>The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface SelectedSheetsFilterScopeConfiguration {
   /**
-   * <p>The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.</p>
+   * The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
+   *
    * @public
    */
   SheetVisualScopingConfigurations?: SheetVisualScopingConfiguration[] | undefined;
 }
 
 /**
- * <p>The scope configuration for a <code>FilterGroup</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The scope configuration for a `FilterGroup`.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface FilterScopeConfiguration {
   /**
-   * <p>The configuration for applying a filter to specific sheets.</p>
+   * The configuration for applying a filter to specific sheets.
+   *
    * @public
    */
   SelectedSheets?: SelectedSheetsFilterScopeConfiguration | undefined;
 
   /**
-   * <p>The configuration that applies a filter to all sheets. When you choose <code>AllSheets</code> as the value for a <code>FilterScopeConfiguration</code>, this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The <code>AllSheetsFilterScopeConfiguration</code> is chosen.</p>
+   * The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration`, this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
+   *
    * @public
    */
   AllSheets?: AllSheetsFilterScopeConfiguration | undefined;
 }
 
 /**
- * <p>Defines what initiates a highlight operation on a visual, such as a click or hover.</p>
+ * Defines what initiates a highlight operation on a visual, such as a click or hover.
+ *
  * @public
  */
 export interface VisualHighlightOperation {
   /**
-   * <p>Specifies whether a highlight operation is initiated by a click or hover, or whether it's disabled.</p>
+   * Specifies whether a highlight operation is initiated by a click or hover, or whether it's disabled.
+   *
    * @public
    */
   Trigger: VisualHighlightTrigger | undefined;
 }
 
 /**
- * <p>A list of custom actions applied to visuals in an analysis or sheet.</p>
+ * A list of custom actions applied to visuals in an analysis or sheet.
+ *
  * @public
  */
 export interface VisualCustomActionDefaults {
   /**
-   * <p>A list of highlight operations available for visuals in an analysis or sheet.</p>
+   * A list of highlight operations available for visuals in an analysis or sheet.
+   *
    * @public
    */
   highlightOperation?: VisualHighlightOperation | undefined;
 }
 
 /**
- * <p>The configuration for a customizable message displayed on a visual. Supports parameter substitution in text fields.</p>
+ * The configuration for a customizable message displayed on a visual. Supports parameter substitution in text fields.
+ *
  * @public
  */
 export interface VisualMessageConfiguration {
   /**
-   * <p>Specifies whether the custom message is displayed on the visual. When set to <code>true</code>, the custom message appears in place of the default message. When set to <code>false</code> or omitted, the default message is displayed.</p>
+   * Specifies whether the custom message is displayed on the visual. When set to `true`, the custom message appears in place of the default message. When set to `false` or omitted, the default message is displayed.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The title text of the message that is displayed on the visual.</p>
+   * The title text of the message that is displayed on the visual.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>Specifies whether the title of the message is displayed.</p>
+   * Specifies whether the title of the message is displayed.
+   *
    * @public
    */
   TitleVisibility?: Visibility | undefined;
 
   /**
-   * <p>The description text of the message that is displayed on the visual.</p>
+   * The description text of the message that is displayed on the visual.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether the description of the message is displayed.</p>
+   * Specifies whether the description of the message is displayed.
+   *
    * @public
    */
   DescriptionVisibility?: Visibility | undefined;
 
   /**
-   * <p>The display text of the hyperlink that is shown in the message.</p>
+   * The display text of the hyperlink that is shown in the message.
+   *
    * @public
    */
   LinkText?: string | undefined;
 
   /**
-   * <p>The destination URL of the hyperlink that is shown in the message. Only valid <code>http</code>, <code>https</code>, and <code>mailto</code> URLs are supported.</p>
+   * The destination URL of the hyperlink that is shown in the message. Only valid `http`, `https`, and `mailto` URLs are supported.
+   *
    * @public
    */
   LinkUrl?: string | undefined;
 
   /**
-   * <p>Specifies whether the hyperlink in the message is displayed.</p>
+   * Specifies whether the hyperlink in the message is displayed.
+   *
    * @public
    */
   LinkVisibility?: Visibility | undefined;
 }
 
 /**
- * <p>The messages that are displayed on a visual under specific conditions, such as when the visual returns no data.</p>
+ * The messages that are displayed on a visual under specific conditions, such as when the visual returns no data.
+ *
  * @public
  */
 export interface VisualMessages {
   /**
-   * <p>The message that is displayed on a visual when there is no data to display.</p>
+   * The message that is displayed on a visual when there is no data to display.
+   *
    * @public
    */
   NoDataMessage?: VisualMessageConfiguration | undefined;
 }
 
 /**
- * <p>An array of analysis level configurations.</p>
+ * An array of analysis level configurations.
+ *
  * @public
  */
 export interface AssetOptions {
   /**
-   * <p>Determines the timezone for the analysis.</p>
+   * Determines the timezone for the analysis.
+   *
    * @public
    */
   Timezone?: string | undefined;
 
   /**
-   * <p>Determines the week start day for an analysis.</p>
+   * Determines the week start day for an analysis.
+   *
    * @public
    */
   WeekStart?: DayOfTheWeek | undefined;
 
   /**
-   * <p>Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&A.</p>
+   * Determines whether insight summaries from Amazon Q Business are allowed in Dashboard Q&A.
+   *
    * @public
    */
   QBusinessInsightsStatus?: QBusinessInsightsStatus | undefined;
 
   /**
-   * <p>A list of dataset ARNS to exclude from Dashboard Q&A.</p>
+   * A list of dataset ARNS to exclude from Dashboard Q&A.
+   *
    * @public
    */
   ExcludedDataSetArns?: string[] | undefined;
 
   /**
-   * <p>A list of visual custom actions for the analysis.</p>
+   * A list of visual custom actions for the analysis.
+   *
    * @public
    */
   CustomActionDefaults?: VisualCustomActionDefaults | undefined;
 
   /**
-   * <p>The configuration options for the messages that are displayed on visuals in the analysis.</p>
+   * The configuration options for the messages that are displayed on visuals in the analysis.
+   *
    * @public
    */
   VisualMessages?: VisualMessages | undefined;
 }
 
 /**
- * <p>Defines different defaults to the users or groups based on mapping.</p>
+ * Defines different defaults to the users or groups based on mapping.
+ *
  * @public
  */
 export interface DynamicDefaultValue {
   /**
-   * <p>The column that contains the username.</p>
+   * The column that contains the username.
+   *
    * @public
    */
   UserNameColumn?: ColumnIdentifier | undefined;
 
   /**
-   * <p>The column that contains the group name.</p>
+   * The column that contains the group name.
+   *
    * @public
    */
   GroupNameColumn?: ColumnIdentifier | undefined;
 
   /**
-   * <p>The column that contains the default value of each user or group.</p>
+   * The column that contains the default value of each user or group.
+   *
    * @public
    */
   DefaultValueColumn: ColumnIdentifier | undefined;
 }
 
 /**
- * <p>The default values of the <code>DateTimeParameterDeclaration</code>.</p>
+ * The default values of the `DateTimeParameterDeclaration`.
+ *
  * @public
  */
 export interface DateTimeDefaultValues {
   /**
-   * <p>The dynamic value of the  <code>DataTimeDefaultValues</code>. Different defaults are displayed according to users, groups, and values mapping.</p>
+   * The dynamic value of the `DataTimeDefaultValues`. Different defaults are displayed according to users, groups, and values mapping.
+   *
    * @public
    */
   DynamicValue?: DynamicDefaultValue | undefined;
 
   /**
-   * <p>The static values of the <code>DataTimeDefaultValues</code>.</p>
+   * The static values of the `DataTimeDefaultValues`.
+   *
    * @public
    */
   StaticValues?: Date[] | undefined;
 
   /**
-   * <p>The rolling date of the <code>DataTimeDefaultValues</code>. The date is determined from the dataset based on input expression.</p>
+   * The rolling date of the `DataTimeDefaultValues`. The date is determined from the dataset based on input expression.
+   *
    * @public
    */
   RollingDate?: RollingDateConfiguration | undefined;
 }
 
 /**
- * <p>A dataset parameter that is mapped to an analysis parameter.</p>
+ * A dataset parameter that is mapped to an analysis parameter.
+ *
  * @public
  */
 export interface MappedDataSetParameter {
   /**
-   * <p>A unique name that identifies a dataset within the analysis or dashboard.</p>
+   * A unique name that identifies a dataset within the analysis or dashboard.
+   *
    * @public
    */
   DataSetIdentifier: string | undefined;
 
   /**
-   * <p>The name of the dataset parameter.</p>
+   * The name of the dataset parameter.
+   *
    * @public
    */
   DataSetParameterName: string | undefined;
 }
 
 /**
- * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
+ * The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+ *
  * @public
  */
 export interface DateTimeValueWhenUnsetConfiguration {
   /**
-   * <p>The built-in options for default values. The value can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RECOMMENDED</code>: The recommended value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULL</code>: The <code>NULL</code> value.</p>
-   *             </li>
-   *          </ul>
+   * The built-in options for default values. The value can be one of the following:
+   *
+   * - `RECOMMENDED`: The recommended value.
+   * - `NULL`: The `NULL` value.
+   *
    * @public
    */
   ValueWhenUnsetOption?: ValueWhenUnsetOption | undefined;
 
   /**
-   * <p>A custom value that's used when the value of a parameter isn't set.</p>
+   * A custom value that's used when the value of a parameter isn't set.
+   *
    * @public
    */
   CustomValue?: Date | undefined;
 }
 
 /**
- * <p>A parameter declaration for the <code>DateTime</code> data type.</p>
+ * A parameter declaration for the `DateTime` data type.
+ *
  * @public
  */
 export interface DateTimeParameterDeclaration {
   /**
-   * <p>The name of the parameter that is being declared.</p>
+   * The name of the parameter that is being declared.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.</p>
+   * The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+   *
    * @public
    */
   DefaultValues?: DateTimeDefaultValues | undefined;
 
   /**
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
+   * The level of time precision that is used to aggregate `DateTime` values.
+   *
    * @public
    */
   TimeGranularity?: TimeGranularity | undefined;
 
   /**
-   * <p>The configuration that defines the default value of a <code>DateTime</code> parameter when a value has not been set.</p>
+   * The configuration that defines the default value of a `DateTime` parameter when a value has not been set.
+   *
    * @public
    */
   ValueWhenUnset?: DateTimeValueWhenUnsetConfiguration | undefined;
 
   /**
-   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   * A list of dataset parameters that are mapped to an analysis parameter.
+   *
    * @public
    */
   MappedDataSetParameters?: MappedDataSetParameter[] | undefined;
 }
 
 /**
- * <p>The default values of the <code>DecimalParameterDeclaration</code>.</p>
+ * The default values of the `DecimalParameterDeclaration`.
+ *
  * @public
  */
 export interface DecimalDefaultValues {
   /**
-   * <p>The dynamic value of the <code>DecimalDefaultValues</code>. Different defaults are displayed according to users, groups, and values mapping.</p>
+   * The dynamic value of the `DecimalDefaultValues`. Different defaults are displayed according to users, groups, and values mapping.
+   *
    * @public
    */
   DynamicValue?: DynamicDefaultValue | undefined;
 
   /**
-   * <p>The static values of the <code>DecimalDefaultValues</code>.</p>
+   * The static values of the `DecimalDefaultValues`.
+   *
    * @public
    */
   StaticValues?: number[] | undefined;
 }
 
 /**
- * <p>The configuration that defines the default value of a <code>Decimal</code> parameter when a value has not been set.</p>
+ * The configuration that defines the default value of a `Decimal` parameter when a value has not been set.
+ *
  * @public
  */
 export interface DecimalValueWhenUnsetConfiguration {
   /**
-   * <p>The built-in options for default values. The value can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RECOMMENDED</code>: The recommended value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULL</code>: The <code>NULL</code> value.</p>
-   *             </li>
-   *          </ul>
+   * The built-in options for default values. The value can be one of the following:
+   *
+   * - `RECOMMENDED`: The recommended value.
+   * - `NULL`: The `NULL` value.
+   *
    * @public
    */
   ValueWhenUnsetOption?: ValueWhenUnsetOption | undefined;
 
   /**
-   * <p>A custom value that's used when the value of a parameter isn't set.</p>
+   * A custom value that's used when the value of a parameter isn't set.
+   *
    * @public
    */
   CustomValue?: number | undefined;
 }
 
 /**
- * <p>A parameter declaration for the <code>Decimal</code> data type.</p>
+ * A parameter declaration for the `Decimal` data type.
+ *
  * @public
  */
 export interface DecimalParameterDeclaration {
   /**
-   * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
+   * The value type determines whether the parameter is a single-value or multi-value parameter.
+   *
    * @public
    */
   ParameterValueType: ParameterValueType | undefined;
 
   /**
-   * <p>The name of the parameter that is being declared.</p>
+   * The name of the parameter that is being declared.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.</p>
+   * The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+   *
    * @public
    */
   DefaultValues?: DecimalDefaultValues | undefined;
 
   /**
-   * <p>The configuration that defines the default value of a <code>Decimal</code> parameter when a value has not been set.</p>
+   * The configuration that defines the default value of a `Decimal` parameter when a value has not been set.
+   *
    * @public
    */
   ValueWhenUnset?: DecimalValueWhenUnsetConfiguration | undefined;
 
   /**
-   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   * A list of dataset parameters that are mapped to an analysis parameter.
+   *
    * @public
    */
   MappedDataSetParameters?: MappedDataSetParameter[] | undefined;
 }
 
 /**
- * <p>The default values of the <code>IntegerParameterDeclaration</code>.</p>
+ * The default values of the `IntegerParameterDeclaration`.
+ *
  * @public
  */
 export interface IntegerDefaultValues {
   /**
-   * <p>The dynamic value of the <code>IntegerDefaultValues</code>. Different defaults are displayed according to users, groups, and values mapping.</p>
+   * The dynamic value of the `IntegerDefaultValues`. Different defaults are displayed according to users, groups, and values mapping.
+   *
    * @public
    */
   DynamicValue?: DynamicDefaultValue | undefined;
 
   /**
-   * <p>The static values of the <code>IntegerDefaultValues</code>.</p>
+   * The static values of the `IntegerDefaultValues`.
+   *
    * @public
    */
   StaticValues?: number[] | undefined;
 }
 
 /**
- * <p>A parameter declaration for the <code>Integer</code> data type.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * A parameter declaration for the `Integer` data type.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface IntegerValueWhenUnsetConfiguration {
   /**
-   * <p>The built-in options for default values. The value can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RECOMMENDED</code>: The recommended value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULL</code>: The <code>NULL</code> value.</p>
-   *             </li>
-   *          </ul>
+   * The built-in options for default values. The value can be one of the following:
+   *
+   * - `RECOMMENDED`: The recommended value.
+   * - `NULL`: The `NULL` value.
+   *
    * @public
    */
   ValueWhenUnsetOption?: ValueWhenUnsetOption | undefined;
 
   /**
-   * <p>A custom value that's used when the value of a parameter isn't set.</p>
+   * A custom value that's used when the value of a parameter isn't set.
+   *
    * @public
    */
   CustomValue?: number | undefined;
 }
 
 /**
- * <p>A parameter declaration for the <code>Integer</code> data type.</p>
+ * A parameter declaration for the `Integer` data type.
+ *
  * @public
  */
 export interface IntegerParameterDeclaration {
   /**
-   * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
+   * The value type determines whether the parameter is a single-value or multi-value parameter.
+   *
    * @public
    */
   ParameterValueType: ParameterValueType | undefined;
 
   /**
-   * <p>The name of the parameter that is being declared.</p>
+   * The name of the parameter that is being declared.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.</p>
+   * The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+   *
    * @public
    */
   DefaultValues?: IntegerDefaultValues | undefined;
 
   /**
-   * <p>A parameter declaration for the <code>Integer</code> data type.</p>
+   * A parameter declaration for the `Integer` data type.
+   *
    * @public
    */
   ValueWhenUnset?: IntegerValueWhenUnsetConfiguration | undefined;
 
   /**
-   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   * A list of dataset parameters that are mapped to an analysis parameter.
+   *
    * @public
    */
   MappedDataSetParameters?: MappedDataSetParameter[] | undefined;
 }
 
 /**
- * <p>The default values of the <code>StringParameterDeclaration</code>.</p>
+ * The default values of the `StringParameterDeclaration`.
+ *
  * @public
  */
 export interface StringDefaultValues {
   /**
-   * <p>The dynamic value of the <code>StringDefaultValues</code>. Different defaults displayed according to users, groups, and values mapping.</p>
+   * The dynamic value of the `StringDefaultValues`. Different defaults displayed according to users, groups, and values mapping.
+   *
    * @public
    */
   DynamicValue?: DynamicDefaultValue | undefined;
 
   /**
-   * <p>The static values of the <code>DecimalDefaultValues</code>.</p>
+   * The static values of the `DecimalDefaultValues`.
+   *
    * @public
    */
   StaticValues?: string[] | undefined;
 }
 
 /**
- * <p>The configuration that defines the default value of a <code>String</code> parameter when a value has not been set.</p>
+ * The configuration that defines the default value of a `String` parameter when a value has not been set.
+ *
  * @public
  */
 export interface StringValueWhenUnsetConfiguration {
   /**
-   * <p>The built-in options for default values. The value can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RECOMMENDED</code>: The recommended value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NULL</code>: The <code>NULL</code> value.</p>
-   *             </li>
-   *          </ul>
+   * The built-in options for default values. The value can be one of the following:
+   *
+   * - `RECOMMENDED`: The recommended value.
+   * - `NULL`: The `NULL` value.
+   *
    * @public
    */
   ValueWhenUnsetOption?: ValueWhenUnsetOption | undefined;
 
   /**
-   * <p>A custom value that's used when the value of a parameter isn't set.</p>
+   * A custom value that's used when the value of a parameter isn't set.
+   *
    * @public
    */
   CustomValue?: string | undefined;
 }
 
 /**
- * <p>A parameter declaration for the <code>String</code> data type.</p>
+ * A parameter declaration for the `String` data type.
+ *
  * @public
  */
 export interface StringParameterDeclaration {
   /**
-   * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
+   * The value type determines whether the parameter is a single-value or multi-value parameter.
+   *
    * @public
    */
   ParameterValueType: ParameterValueType | undefined;
 
   /**
-   * <p>The name of the parameter that is being declared.</p>
+   * The name of the parameter that is being declared.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.</p>
+   * The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+   *
    * @public
    */
   DefaultValues?: StringDefaultValues | undefined;
 
   /**
-   * <p>The configuration that defines the default value of a <code>String</code> parameter when a value has not been set.</p>
+   * The configuration that defines the default value of a `String` parameter when a value has not been set.
+   *
    * @public
    */
   ValueWhenUnset?: StringValueWhenUnsetConfiguration | undefined;
 
   /**
-   * <p>A list of dataset parameters that are mapped to an analysis parameter.</p>
+   * A list of dataset parameters that are mapped to an analysis parameter.
+   *
    * @public
    */
   MappedDataSetParameters?: MappedDataSetParameter[] | undefined;
 }
 
 /**
- * <p>The declaration definition of a parameter.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters in Amazon Quick Sight</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The declaration definition of a parameter.
+ *
+ * For more information, see [Parameters in Amazon Quick Sight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon Quick Suite User Guide*.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface ParameterDeclaration {
   /**
-   * <p>A parameter declaration for the <code>String</code> data type.</p>
+   * A parameter declaration for the `String` data type.
+   *
    * @public
    */
   StringParameterDeclaration?: StringParameterDeclaration | undefined;
 
   /**
-   * <p>A parameter declaration for the <code>Decimal</code> data type.</p>
+   * A parameter declaration for the `Decimal` data type.
+   *
    * @public
    */
   DecimalParameterDeclaration?: DecimalParameterDeclaration | undefined;
 
   /**
-   * <p>A parameter declaration for the <code>Integer</code> data type.</p>
+   * A parameter declaration for the `Integer` data type.
+   *
    * @public
    */
   IntegerParameterDeclaration?: IntegerParameterDeclaration | undefined;
 
   /**
-   * <p>A parameter declaration for the <code>DateTime</code> data type.</p>
+   * A parameter declaration for the `DateTime` data type.
+   *
    * @public
    */
   DateTimeParameterDeclaration?: DateTimeParameterDeclaration | undefined;
 }
 
 /**
- * <p>A structure that describes the query execution options.</p>
+ * A structure that describes the query execution options.
+ *
  * @public
  */
 export interface QueryExecutionOptions {
   /**
-   * <p>A structure that describes the query execution mode.</p>
+   * A structure that describes the query execution mode.
+   *
    * @public
    */
   QueryExecutionMode?: QueryExecutionMode | undefined;
 }
 
 /**
- * <p>The source controls that are used in a <code>CascadingControlConfiguration</code>.</p>
+ * The source controls that are used in a `CascadingControlConfiguration`.
+ *
  * @public
  */
 export interface CascadingControlSource {
   /**
-   * <p>The source sheet control ID of a <code>CascadingControlSource</code>.</p>
+   * The source sheet control ID of a `CascadingControlSource`.
+   *
    * @public
    */
   SourceSheetControlId?: string | undefined;
 
   /**
-   * <p>The column identifier that determines which column to look up for the source sheet control.</p>
+   * The column identifier that determines which column to look up for the source sheet control.
+   *
    * @public
    */
   ColumnToMatch?: ColumnIdentifier | undefined;
 }
 
 /**
- * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+ * The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+ *
  * @public
  */
 export interface CascadingControlConfiguration {
   /**
-   * <p>A list of source controls that determine the values that are used in the current control.</p>
+   * A list of source controls that determine the values that are used in the current control.
+   *
    * @public
    */
   SourceControls?: CascadingControlSource[] | undefined;
 }
 
 /**
- * <p>A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet</p>
+ * A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
+ *
  * @public
  */
 export interface FilterCrossSheetControl {
   /**
-   * <p>The ID of the <code>FilterCrossSheetControl</code>.</p>
+   * The ID of the `FilterCrossSheetControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterCrossSheetControl</code>.</p>
+   * The source filter ID of the `FilterCrossSheetControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+   * The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+   *
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
 }
 
 /**
- * <p>A control from a date filter that is used to specify date and time.</p>
+ * A control from a date filter that is used to specify date and time.
+ *
  * @public
  */
 export interface FilterDateTimePickerControl {
   /**
-   * <p>The ID of the <code>FilterDateTimePickerControl</code>.</p>
+   * The ID of the `FilterDateTimePickerControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterDateTimePickerControl</code>.</p>
+   * The title of the `FilterDateTimePickerControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterDateTimePickerControl</code>.</p>
+   * The source filter ID of the `FilterDateTimePickerControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: DateTimePickerControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `FilterDropDownControl`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from a dropdown menu.
+   * - `SINGLE_SELECT`: The user can select a single entry from a dropdown menu.
+   *
    * @public
    */
   Type?: SheetControlDateTimePickerType | undefined;
 
   /**
-   * <p>The visibility configurationof the Apply button on a <code>DateTimePickerControl</code>.</p>
+   * The visibility configurationof the Apply button on a `DateTimePickerControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
+ * A control to display a dropdown list with buttons that are used to select a single value.
+ *
  * @public
  */
 export interface FilterDropDownControl {
   /**
-   * <p>The ID of the <code>FilterDropDownControl</code>.</p>
+   * The ID of the `FilterDropDownControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterDropDownControl</code>.</p>
+   * The title of the `FilterDropDownControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterDropDownControl</code>.</p>
+   * The source filter ID of the `FilterDropDownControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The display options of the <code>FilterDropDownControl</code>.</p>
+   * The display options of the `FilterDropDownControl`.
+   *
    * @public
    */
   DisplayOptions?: DropDownControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>FilterDropDownControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `FilterDropDownControl`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from a dropdown menu.
+   * - `SINGLE_SELECT`: The user can select a single entry from a dropdown menu.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>A list of selectable values that are used in a control.</p>
+   * A list of selectable values that are used in a control.
+   *
    * @public
    */
   SelectableValues?: FilterSelectableValues | undefined;
 
   /**
-   * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+   * The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+   *
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>FilterDropDownControl</code>.</p>
+   * The visibility configuration of the Apply button on a `FilterDropDownControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control from a hierarchy filter that displays the hierarchy as a dropdown list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+ * A control from a hierarchy filter that displays the hierarchy as a dropdown list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.
+ *
  * @public
  */
 export interface HierarchyFilterDropDownControl {
   /**
-   * <p>The ID of the <code>HierarchyFilterDropDownControl</code>.</p>
+   * The ID of the `HierarchyFilterDropDownControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>HierarchyFilterDropDownControl</code>. This must be
-   *             the <code>FilterId</code> of a <code>HierarchyFilter</code>.</p>
+   * The source filter ID of the `HierarchyFilterDropDownControl`. This must be the `FilterId` of a `HierarchyFilter`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The title of the <code>HierarchyFilterDropDownControl</code>.</p>
+   * The title of the `HierarchyFilterDropDownControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: HierarchyFilterDropDownControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>HierarchyFilterDropDownControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from a dropdown menu.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from a dropdown menu.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `HierarchyFilterDropDownControl`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from a dropdown menu.
+   * - `SINGLE_SELECT`: The user can select a single entry from a dropdown menu.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterDropDownControl</code>.</p>
+   * The visibility configuration of the Apply button on a `HierarchyFilterDropDownControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control from a hierarchy filter that displays the hierarchy as a list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+ * A control from a hierarchy filter that displays the hierarchy as a list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.
+ *
  * @public
  */
 export interface HierarchyFilterListControl {
   /**
-   * <p>The ID of the <code>HierarchyFilterListControl</code>.</p>
+   * The ID of the `HierarchyFilterListControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>HierarchyFilterListControl</code>. This must be the
-   *             <code>FilterId</code> of a <code>HierarchyFilter</code>.</p>
+   * The source filter ID of the `HierarchyFilterListControl`. This must be the `FilterId` of a `HierarchyFilter`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The title of the <code>HierarchyFilterListControl</code>.</p>
+   * The title of the `HierarchyFilterListControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: HierarchyFilterListControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>HierarchyFilterListControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `HierarchyFilterListControl`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from the list.
+   * - `SINGLE_SELECT`: The user can select a single entry from the list.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>HierarchyFilterListControl</code>.</p>
+   * The visibility configuration of the Apply button on a `HierarchyFilterListControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.</p>
+ * A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.
+ *
  * @public
  */
 export interface FilterListControl {
   /**
-   * <p>The ID of the <code>FilterListControl</code>.</p>
+   * The ID of the `FilterListControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterListControl</code>.</p>
+   * The title of the `FilterListControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterListControl</code>.</p>
+   * The source filter ID of the `FilterListControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: ListControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>FilterListControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_SELECT</code>: The user can select multiple entries from the list.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_SELECT</code>: The user can select a single entry from the list.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `FilterListControl`. Choose one of the following options:
+   *
+   * - `MULTI_SELECT`: The user can select multiple entries from the list.
+   * - `SINGLE_SELECT`: The user can select a single entry from the list.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>A list of selectable values that are used in a control.</p>
+   * A list of selectable values that are used in a control.
+   *
    * @public
    */
   SelectableValues?: FilterSelectableValues | undefined;
 
   /**
-   * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+   * The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+   *
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control from a date filter that is used to specify the relative date.</p>
+ * A control from a date filter that is used to specify the relative date.
+ *
  * @public
  */
 export interface FilterRelativeDateTimeControl {
   /**
-   * <p>The ID of the <code>FilterTextAreaControl</code>.</p>
+   * The ID of the `FilterTextAreaControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterTextAreaControl</code>.</p>
+   * The title of the `FilterTextAreaControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterTextAreaControl</code>.</p>
+   * The source filter ID of the `FilterTextAreaControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: RelativeDateTimeControlDisplayOptions | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>FilterRelativeDateTimeControl</code>.</p>
+   * The visibility configuration of the Apply button on a `FilterRelativeDateTimeControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
+ * A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+ *
  * @public
  */
 export interface FilterSliderControl {
   /**
-   * <p>The ID of the <code>FilterSliderControl</code>.</p>
+   * The ID of the `FilterSliderControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterSliderControl</code>.</p>
+   * The title of the `FilterSliderControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterSliderControl</code>.</p>
+   * The source filter ID of the `FilterSliderControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: SliderControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of the <code>FilterSliderControl</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SINGLE_POINT</code>: Filter against(equals) a single data point.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RANGE</code>: Filter data that is in a specified range.</p>
-   *             </li>
-   *          </ul>
+   * The type of the `FilterSliderControl`. Choose one of the following options:
+   *
+   * - `SINGLE_POINT`: Filter against(equals) a single data point.
+   * - `RANGE`: Filter data that is in a specified range.
+   *
    * @public
    */
   Type?: SheetControlSliderType | undefined;
 
   /**
-   * <p>The larger value that is displayed at the right of the slider.</p>
+   * The larger value that is displayed at the right of the slider.
+   *
    * @public
    */
   MaximumValue: number | undefined;
 
   /**
-   * <p>The smaller value that is displayed at the left of the slider.</p>
+   * The smaller value that is displayed at the left of the slider.
+   *
    * @public
    */
   MinimumValue: number | undefined;
 
   /**
-   * <p>The number of increments that the slider bar is divided into.</p>
+   * The number of increments that the slider bar is divided into.
+   *
    * @public
    */
   StepSize: number | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a text box that is used to enter multiple entries.</p>
+ * A control to display a text box that is used to enter multiple entries.
+ *
  * @public
  */
 export interface FilterTextAreaControl {
   /**
-   * <p>The ID of the <code>FilterTextAreaControl</code>.</p>
+   * The ID of the `FilterTextAreaControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterTextAreaControl</code>.</p>
+   * The title of the `FilterTextAreaControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterTextAreaControl</code>.</p>
+   * The source filter ID of the `FilterTextAreaControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The delimiter that is used to separate the lines in text.</p>
+   * The delimiter that is used to separate the lines in text.
+   *
    * @public
    */
   Delimiter?: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: TextAreaControlDisplayOptions | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a text box that is used to enter a single entry.</p>
+ * A control to display a text box that is used to enter a single entry.
+ *
  * @public
  */
 export interface FilterTextFieldControl {
   /**
-   * <p>The ID of the <code>FilterTextFieldControl</code>.</p>
+   * The ID of the `FilterTextFieldControl`.
+   *
    * @public
    */
   FilterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>FilterTextFieldControl</code>.</p>
+   * The title of the `FilterTextFieldControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source filter ID of the <code>FilterTextFieldControl</code>.</p>
+   * The source filter ID of the `FilterTextFieldControl`.
+   *
    * @public
    */
   SourceFilterId: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: TextFieldControlDisplayOptions | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>The control of a filter that is used to interact with a dashboard or an analysis.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The control of a filter that is used to interact with a dashboard or an analysis.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface FilterControl {
   /**
-   * <p>A control from a date filter that is used to specify date and time.</p>
+   * A control from a date filter that is used to specify date and time.
+   *
    * @public
    */
   DateTimePicker?: FilterDateTimePickerControl | undefined;
 
   /**
-   * <p>A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.</p>
+   * A control to display a list of buttons or boxes. This is used to select either a single value or multiple values.
+   *
    * @public
    */
   List?: FilterListControl | undefined;
 
   /**
-   * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
+   * A control to display a dropdown list with buttons that are used to select a single value.
+   *
    * @public
    */
   Dropdown?: FilterDropDownControl | undefined;
 
   /**
-   * <p>A control to display a text box that is used to enter a single entry.</p>
+   * A control to display a text box that is used to enter a single entry.
+   *
    * @public
    */
   TextField?: FilterTextFieldControl | undefined;
 
   /**
-   * <p>A control to display a text box that is used to enter multiple entries.</p>
+   * A control to display a text box that is used to enter multiple entries.
+   *
    * @public
    */
   TextArea?: FilterTextAreaControl | undefined;
 
   /**
-   * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
+   * A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+   *
    * @public
    */
   Slider?: FilterSliderControl | undefined;
 
   /**
-   * <p>A control from a date filter that is used to specify the relative date.</p>
+   * A control from a date filter that is used to specify the relative date.
+   *
    * @public
    */
   RelativeDateTime?: FilterRelativeDateTimeControl | undefined;
 
   /**
-   * <p>A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet</p>
+   * A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
+   *
    * @public
    */
   CrossSheet?: FilterCrossSheetControl | undefined;
 
   /**
-   * <p>A control from a hierarchy filter that displays the hierarchy as a list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+   * A control from a hierarchy filter that displays the hierarchy as a list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.
+   *
    * @public
    */
   HierarchyList?: HierarchyFilterListControl | undefined;
 
   /**
-   * <p>A control from a hierarchy filter that displays the hierarchy as a dropdown list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.</p>
+   * A control from a hierarchy filter that displays the hierarchy as a dropdown list. You can expand a value to see and select the values beneath it, and select either a single value or multiple values.
+   *
    * @public
    */
   HierarchyDropdown?: HierarchyFilterDropDownControl | undefined;
 }
 
 /**
- * <p>The background style configuration of a free-form layout element.</p>
+ * The background style configuration of a free-form layout element.
+ *
  * @public
  */
 export interface FreeFormLayoutElementBackgroundStyle {
   /**
-   * <p>The background visibility of a free-form layout element.</p>
+   * The background visibility of a free-form layout element.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The background color of a free-form layout element.</p>
+   * The background color of a free-form layout element.
+   *
    * @public
    */
   Color?: string | undefined;
 }
 
 /**
- * <p>The background style configuration of a free-form layout element.</p>
+ * The background style configuration of a free-form layout element.
+ *
  * @public
  */
 export interface FreeFormLayoutElementBorderStyle {
   /**
-   * <p>The border visibility of a free-form layout element.</p>
+   * The border visibility of a free-form layout element.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The border color of a free-form layout element.</p>
+   * The border color of a free-form layout element.
+   *
    * @public
    */
   Color?: string | undefined;
 
   /**
-   * <p>The border width of a free-form layout element.</p>
+   * The border width of a free-form layout element.
+   *
    * @public
    */
   Width?: string | undefined;
 }
 
 /**
- * <p>The configuration of loading animation in free-form layout. </p>
+ * The configuration of loading animation in free-form layout.
+ *
  * @public
  */
 export interface LoadingAnimation {
   /**
-   * <p>The visibility configuration of <code>LoadingAnimation</code>.</p>
+   * The visibility configuration of `LoadingAnimation`.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The override configuration of the rendering rules of a sheet.</p>
+ * The override configuration of the rendering rules of a sheet.
+ *
  * @public
  */
 export interface SheetElementConfigurationOverrides {
   /**
-   * <p>Determines whether or not the overrides are visible. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>VISIBLE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIDDEN</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Determines whether or not the overrides are visible. Choose one of the following options:
+   *
+   * - `VISIBLE`
+   * - `HIDDEN`
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The rendering rules of a sheet that uses a free-form layout.</p>
+ * The rendering rules of a sheet that uses a free-form layout.
+ *
  * @public
  */
 export interface SheetElementRenderingRule {
   /**
-   * <p>The expression of the rendering rules of a sheet.</p>
+   * The expression of the rendering rules of a sheet.
+   *
    * @public
    */
   Expression: string | undefined;
 
   /**
-   * <p>The override configuration of the rendering rules of a sheet.</p>
+   * The override configuration of the rendering rules of a sheet.
+   *
    * @public
    */
   ConfigurationOverrides: SheetElementConfigurationOverrides | undefined;
 }
 
 /**
- * <p>An element within a free-form layout.</p>
+ * An element within a free-form layout.
+ *
  * @public
  */
 export interface FreeFormLayoutElement {
   /**
-   * <p>A unique identifier for an element within a free-form layout.</p>
+   * A unique identifier for an element within a free-form layout.
+   *
    * @public
    */
   ElementId: string | undefined;
 
   /**
-   * <p>The type of element.</p>
+   * The type of element.
+   *
    * @public
    */
   ElementType: LayoutElementType | undefined;
 
   /**
-   * <p>The x-axis coordinate of the element.</p>
+   * The x-axis coordinate of the element.
+   *
    * @public
    */
   XAxisLocation: string | undefined;
 
   /**
-   * <p>The y-axis coordinate of the element.</p>
+   * The y-axis coordinate of the element.
+   *
    * @public
    */
   YAxisLocation: string | undefined;
 
   /**
-   * <p>The width of an element within a free-form layout.</p>
+   * The width of an element within a free-form layout.
+   *
    * @public
    */
   Width: string | undefined;
 
   /**
-   * <p>The height of an element within a free-form layout.</p>
+   * The height of an element within a free-form layout.
+   *
    * @public
    */
   Height: string | undefined;
 
   /**
-   * <p>The visibility of an element within a free-form layout.</p>
+   * The visibility of an element within a free-form layout.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The rendering rules that determine when an element should be displayed within a free-form layout.</p>
+   * The rendering rules that determine when an element should be displayed within a free-form layout.
+   *
    * @public
    */
   RenderingRules?: SheetElementRenderingRule[] | undefined;
 
   /**
-   * <p>The border style configuration of a free-form layout element.</p>
+   * The border style configuration of a free-form layout element.
+   *
    * @public
    */
   BorderStyle?: FreeFormLayoutElementBorderStyle | undefined;
 
   /**
-   * <p>The border style configuration of a free-form layout element. This border style is used when the element is selected.</p>
+   * The border style configuration of a free-form layout element. This border style is used when the element is selected.
+   *
    * @public
    */
   SelectedBorderStyle?: FreeFormLayoutElementBorderStyle | undefined;
 
   /**
-   * <p>The background style configuration of a free-form layout element.</p>
+   * The background style configuration of a free-form layout element.
+   *
    * @public
    */
   BackgroundStyle?: FreeFormLayoutElementBackgroundStyle | undefined;
 
   /**
-   * <p>The loading animation configuration of a free-form layout element.</p>
+   * The loading animation configuration of a free-form layout element.
+   *
    * @public
    */
   LoadingAnimation?: LoadingAnimation | undefined;
 
   /**
-   * <p>The border radius of a free-form layout element.</p>
+   * The border radius of a free-form layout element.
+   *
    * @public
    */
   BorderRadius?: string | undefined;
 
   /**
-   * <p>The padding of a free-form layout element.</p>
+   * The padding of a free-form layout element.
+   *
    * @public
    */
   Padding?: string | undefined;
 }
 
 /**
- * <p>A member of a sheet layout group.</p>
+ * A member of a sheet layout group.
+ *
  * @public
  */
 export interface SheetLayoutGroupMember {
   /**
-   * <p>The unique identifier of the group member.</p>
+   * The unique identifier of the group member.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The type of the group member.</p>
+   * The type of the group member.
+   *
    * @public
    */
   Type: SheetLayoutGroupMemberType | undefined;
 }
 
 /**
- * <p>A group of elements within a sheet layout.</p>
+ * A group of elements within a sheet layout.
+ *
  * @public
  */
 export interface SheetLayoutGroup {
   /**
-   * <p>A unique identifier for the group.</p>
+   * A unique identifier for the group.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The members of the group.</p>
+   * The members of the group.
+   *
    * @public
    */
   Members: SheetLayoutGroupMember[] | undefined;
 }
 
 /**
- * <p>The configuration of a free-form layout.</p>
+ * The configuration of a free-form layout.
+ *
  * @public
  */
 export interface FreeFormLayoutConfiguration {
   /**
-   * <p>The elements that are included in a free-form layout.</p>
+   * The elements that are included in a free-form layout.
+   *
    * @public
    */
   Elements: FreeFormLayoutElement[] | undefined;
 
   /**
-   * <p>Configuration options for the canvas of a free-form layout.</p>
+   * Configuration options for the canvas of a free-form layout.
+   *
    * @public
    */
   CanvasSizeOptions?: FreeFormLayoutCanvasSizeOptions | undefined;
 
   /**
-   * <p>The groups that are included in a free-form layout.</p>
+   * The groups that are included in a free-form layout.
+   *
    * @public
    */
   Groups?: SheetLayoutGroup[] | undefined;
 }
 
 /**
- * <p>The background style configuration of a grid layout element.</p>
+ * The background style configuration of a grid layout element.
+ *
  * @public
  */
 export interface GridLayoutElementBackgroundStyle {
   /**
-   * <p>The background visibility of a grid layout element.</p>
+   * The background visibility of a grid layout element.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The background color of a grid layout element.</p>
+   * The background color of a grid layout element.
+   *
    * @public
    */
   Color?: string | undefined;
 }
 
 /**
- * <p>The border style configuration of a grid layout element.</p>
+ * The border style configuration of a grid layout element.
+ *
  * @public
  */
 export interface GridLayoutElementBorderStyle {
   /**
-   * <p>The border visibility of a grid layout element.</p>
+   * The border visibility of a grid layout element.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The border color of a grid layout element.</p>
+   * The border color of a grid layout element.
+   *
    * @public
    */
   Color?: string | undefined;
 
   /**
-   * <p>The border width of a grid layout element.</p>
+   * The border width of a grid layout element.
+   *
    * @public
    */
   Width?: string | undefined;
 }
 
 /**
- * <p>An element within a grid layout.</p>
+ * An element within a grid layout.
+ *
  * @public
  */
 export interface GridLayoutElement {
   /**
-   * <p>A unique identifier for an element within a grid layout.</p>
+   * A unique identifier for an element within a grid layout.
+   *
    * @public
    */
   ElementId: string | undefined;
 
   /**
-   * <p>The type of element.</p>
+   * The type of element.
+   *
    * @public
    */
   ElementType: LayoutElementType | undefined;
 
   /**
-   * <p>The column index for the upper left corner of an element.</p>
+   * The column index for the upper left corner of an element.
+   *
    * @public
    */
   ColumnIndex?: number | undefined;
 
   /**
-   * <p>The width of a grid element expressed as a number of grid columns.</p>
+   * The width of a grid element expressed as a number of grid columns.
+   *
    * @public
    */
   ColumnSpan: number | undefined;
 
   /**
-   * <p>The row index for the upper left corner of an element.</p>
+   * The row index for the upper left corner of an element.
+   *
    * @public
    */
   RowIndex?: number | undefined;
 
   /**
-   * <p>The height of a grid element expressed as a number of grid rows.</p>
+   * The height of a grid element expressed as a number of grid rows.
+   *
    * @public
    */
   RowSpan: number | undefined;
 
   /**
-   * <p>The border style configuration of a grid layout element.</p>
+   * The border style configuration of a grid layout element.
+   *
    * @public
    */
   BorderStyle?: GridLayoutElementBorderStyle | undefined;
 
   /**
-   * <p>The border style configuration of a grid layout element. This border style is used when the element is selected.</p>
+   * The border style configuration of a grid layout element. This border style is used when the element is selected.
+   *
    * @public
    */
   SelectedBorderStyle?: GridLayoutElementBorderStyle | undefined;
 
   /**
-   * <p>The background style configuration of a grid layout element.</p>
+   * The background style configuration of a grid layout element.
+   *
    * @public
    */
   BackgroundStyle?: GridLayoutElementBackgroundStyle | undefined;
 
   /**
-   * <p>The configuration of loading animation in free-form layout. </p>
+   * The configuration of loading animation in free-form layout.
+   *
    * @public
    */
   LoadingAnimation?: LoadingAnimation | undefined;
 
   /**
-   * <p>The border radius of a grid layout element.</p>
+   * The border radius of a grid layout element.
+   *
    * @public
    */
   BorderRadius?: string | undefined;
 
   /**
-   * <p>The padding of a grid layout element.</p>
+   * The padding of a grid layout element.
+   *
    * @public
    */
   Padding?: string | undefined;
 }
 
 /**
- * <p>The configuration for a grid layout. Also called a tiled layout.</p>
- *          <p>Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.</p>
+ * The configuration for a grid layout. Also called a tiled layout.
+ *
+ * Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+ *
  * @public
  */
 export interface GridLayoutConfiguration {
   /**
-   * <p>The elements that are included in a grid layout.</p>
+   * The elements that are included in a grid layout.
+   *
    * @public
    */
   Elements: GridLayoutElement[] | undefined;
 
   /**
-   * <p>Configuration options for the canvas of a grid layout.</p>
+   * Configuration options for the canvas of a grid layout.
+   *
    * @public
    */
   CanvasSizeOptions?: GridLayoutCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The free-form layout configuration of a section.</p>
+ * The free-form layout configuration of a section.
+ *
  * @public
  */
 export interface FreeFormSectionLayoutConfiguration {
   /**
-   * <p>The elements that are included in the free-form layout.</p>
+   * The elements that are included in the free-form layout.
+   *
    * @public
    */
   Elements: FreeFormLayoutElement[] | undefined;
 }
 
 /**
- * <p>The layout configuration of a section.</p>
+ * The layout configuration of a section.
+ *
  * @public
  */
 export interface SectionLayoutConfiguration {
   /**
-   * <p>The free-form layout configuration of a section.</p>
+   * The free-form layout configuration of a section.
+   *
    * @public
    */
   FreeFormLayout: FreeFormSectionLayoutConfiguration | undefined;
 }
 
 /**
- * <p>The configuration of content in a body section.</p>
+ * The configuration of content in a body section.
+ *
  * @public
  */
 export interface BodySectionContent {
   /**
-   * <p>The layout configuration of a body section.</p>
+   * The layout configuration of a body section.
+   *
    * @public
    */
   Layout?: SectionLayoutConfiguration | undefined;
 }
 
 /**
- * <p>The configuration of a page break after a section.</p>
+ * The configuration of a page break after a section.
+ *
  * @public
  */
 export interface SectionAfterPageBreak {
   /**
-   * <p>The option that enables or disables a page break at the end of a section.</p>
+   * The option that enables or disables a page break at the end of a section.
+   *
    * @public
    */
   Status?: SectionPageBreakStatus | undefined;
 }
 
 /**
- * <p>The configuration of a page break for a section.</p>
+ * The configuration of a page break for a section.
+ *
  * @public
  */
 export interface SectionPageBreakConfiguration {
   /**
-   * <p>The configuration of a page break after a section.</p>
+   * The configuration of a page break after a section.
+   *
    * @public
    */
   After?: SectionAfterPageBreak | undefined;
 }
 
 /**
- * <p>The sort configuration for a column that is not used in a field well.</p>
+ * The sort configuration for a column that is not used in a field well.
+ *
  * @public
  */
 export interface ColumnSort {
   /**
-   * <p>A column of a data set.</p>
+   * A column of a data set.
+   *
    * @public
    */
   SortBy: ColumnIdentifier | undefined;
 
   /**
-   * <p>The sort direction.</p>
+   * The sort direction.
+   *
    * @public
    */
   Direction: SortDirection | undefined;
 
   /**
-   * <p>The aggregation function that is defined in the column sort.</p>
+   * The aggregation function that is defined in the column sort.
+   *
    * @public
    */
   AggregationFunction?: AggregationFunction | undefined;
 }
 
 /**
- * <p>Describes the <b>Category</b> dataset column and constraints for the dynamic values used to repeat the contents of a section.</p>
+ * Describes the **Category** dataset column and constraints for the dynamic values used to repeat the contents of a section.
+ *
  * @public
  */
 export interface BodySectionDynamicCategoryDimensionConfiguration {
   /**
-   * <p>A column of a data set.</p>
+   * A column of a data set.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>Number of values to use from the column for repetition.</p>
+   * Number of values to use from the column for repetition.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>Sort criteria on the column values that you use for repetition. </p>
+   * Sort criteria on the column values that you use for repetition.
+   *
    * @public
    */
   SortByMetrics?: ColumnSort[] | undefined;
 }
 
 /**
- * <p>Describes the <b>Numeric</b> dataset column and constraints for the dynamic values used to repeat the  contents of a section.</p>
+ * Describes the **Numeric** dataset column and constraints for the dynamic values used to repeat the contents of a section.
+ *
  * @public
  */
 export interface BodySectionDynamicNumericDimensionConfiguration {
   /**
-   * <p>A column of a data set.</p>
+   * A column of a data set.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>Number of values to use from the column for repetition.</p>
+   * Number of values to use from the column for repetition.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>Sort criteria on the column values that you use for repetition. </p>
+   * Sort criteria on the column values that you use for repetition.
+   *
    * @public
    */
   SortByMetrics?: ColumnSort[] | undefined;
 }
 
 /**
- * <p>Describes the dataset column and constraints for the dynamic values used to repeat the contents of a section. The dataset column is either <b>Category</b> or <b>Numeric</b> column configuration</p>
+ * Describes the dataset column and constraints for the dynamic values used to repeat the contents of a section. The dataset column is either **Category** or **Numeric** column configuration
+ *
  * @public
  */
 export interface BodySectionRepeatDimensionConfiguration {
   /**
-   * <p>Describes the <b>Category</b> dataset column and constraints around the dynamic values that will be used in repeating the section contents.</p>
+   * Describes the **Category** dataset column and constraints around the dynamic values that will be used in repeating the section contents.
+   *
    * @public
    */
   DynamicCategoryDimensionConfiguration?: BodySectionDynamicCategoryDimensionConfiguration | undefined;
 
   /**
-   * <p>Describes the <b>Numeric</b> dataset column and constraints around the dynamic values used to repeat the  contents of a section.</p>
+   * Describes the **Numeric** dataset column and constraints around the dynamic values used to repeat the contents of a section.
+   *
    * @public
    */
   DynamicNumericDimensionConfiguration?: BodySectionDynamicNumericDimensionConfiguration | undefined;
 }
 
 /**
- * <p>The page break configuration to apply for each repeating instance.</p>
+ * The page break configuration to apply for each repeating instance.
+ *
  * @public
  */
 export interface BodySectionRepeatPageBreakConfiguration {
   /**
-   * <p>The configuration of a page break after a section.</p>
+   * The configuration of a page break after a section.
+   *
    * @public
    */
   After?: SectionAfterPageBreak | undefined;
 }
 
 /**
- * <p>Describes the configurations that are required to declare a section as repeating.</p>
+ * Describes the configurations that are required to declare a section as repeating.
+ *
  * @public
  */
 export interface BodySectionRepeatConfiguration {
   /**
-   * <p>List of <code>BodySectionRepeatDimensionConfiguration</code> values that describe the dataset column and constraints for the column used to repeat the contents of a section.</p>
+   * List of `BodySectionRepeatDimensionConfiguration` values that describe the dataset column and constraints for the column used to repeat the contents of a section.
+   *
    * @public
    */
   DimensionConfigurations?: BodySectionRepeatDimensionConfiguration[] | undefined;
 
   /**
-   * <p>Page break configuration to apply for each repeating instance.</p>
+   * Page break configuration to apply for each repeating instance.
+   *
    * @public
    */
   PageBreakConfiguration?: BodySectionRepeatPageBreakConfiguration | undefined;
 
   /**
-   * <p>List of visuals to exclude from repetition in repeating sections. The visuals will render identically, and ignore the repeating configurations in all repeating instances.</p>
+   * List of visuals to exclude from repetition in repeating sections. The visuals will render identically, and ignore the repeating configurations in all repeating instances.
+   *
    * @public
    */
   NonRepeatingVisuals?: string[] | undefined;
 }
 
 /**
- * <p>The options that style a section.</p>
+ * The options that style a section.
+ *
  * @public
  */
 export interface SectionStyle {
   /**
-   * <p>The height of a section.</p>
-   *          <p>Heights can only be defined for header and footer sections. The default height margin is 0.5 inches. </p>
+   * The height of a section.
+   *
+   * Heights can only be defined for header and footer sections. The default height margin is 0.5 inches.
+   *
    * @public
    */
   Height?: string | undefined;
 
   /**
-   * <p>The spacing between section content and its top, bottom, left, and right edges.</p>
-   *          <p>There is no padding by default.</p>
+   * The spacing between section content and its top, bottom, left, and right edges.
+   *
+   * There is no padding by default.
+   *
    * @public
    */
   Padding?: Spacing | undefined;
 }
 
 /**
- * <p>The configuration of a body section.</p>
+ * The configuration of a body section.
+ *
  * @public
  */
 export interface BodySectionConfiguration {
   /**
-   * <p>The unique identifier of a body section.</p>
+   * The unique identifier of a body section.
+   *
    * @public
    */
   SectionId: string | undefined;
 
   /**
-   * <p>The configuration of content in a body section.</p>
+   * The configuration of content in a body section.
+   *
    * @public
    */
   Content: BodySectionContent | undefined;
 
   /**
-   * <p>The style options of a body section.</p>
+   * The style options of a body section.
+   *
    * @public
    */
   Style?: SectionStyle | undefined;
 
   /**
-   * <p>The configuration of a page break for a section.</p>
+   * The configuration of a page break for a section.
+   *
    * @public
    */
   PageBreakConfiguration?: SectionPageBreakConfiguration | undefined;
 
   /**
-   * <p>Describes the configurations that are required to declare a section as repeating.</p>
+   * Describes the configurations that are required to declare a section as repeating.
+   *
    * @public
    */
   RepeatConfiguration?: BodySectionRepeatConfiguration | undefined;
 }
 
 /**
- * <p>The configuration of a header or footer section.</p>
+ * The configuration of a header or footer section.
+ *
  * @public
  */
 export interface HeaderFooterSectionConfiguration {
   /**
-   * <p>The unique identifier of the header or footer section.</p>
+   * The unique identifier of the header or footer section.
+   *
    * @public
    */
   SectionId: string | undefined;
 
   /**
-   * <p>The layout configuration of the header or footer section.</p>
+   * The layout configuration of the header or footer section.
+   *
    * @public
    */
   Layout: SectionLayoutConfiguration | undefined;
 
   /**
-   * <p>The style options of a header or footer section.</p>
+   * The style options of a header or footer section.
+   *
    * @public
    */
   Style?: SectionStyle | undefined;
 }
 
 /**
- * <p>The configuration for a
- *             section-based layout.</p>
+ * The configuration for a section-based layout.
+ *
  * @public
  */
 export interface SectionBasedLayoutConfiguration {
   /**
-   * <p>A list of header section configurations.</p>
+   * A list of header section configurations.
+   *
    * @public
    */
   HeaderSections: HeaderFooterSectionConfiguration[] | undefined;
 
   /**
-   * <p>A list of body section configurations.</p>
+   * A list of body section configurations.
+   *
    * @public
    */
   BodySections: BodySectionConfiguration[] | undefined;
 
   /**
-   * <p>A list of footer section configurations.</p>
+   * A list of footer section configurations.
+   *
    * @public
    */
   FooterSections: HeaderFooterSectionConfiguration[] | undefined;
 
   /**
-   * <p>The options for the canvas of a section-based layout.</p>
+   * The options for the canvas of a section-based layout.
+   *
    * @public
    */
   CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions | undefined;
 }
 
 /**
- * <p>The configuration that determines what the type of layout will be used on a sheet.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration that determines what the type of layout will be used on a sheet.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface LayoutConfiguration {
   /**
-   * <p>A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: <code>FIXED</code> or <code>RESPONSIVE</code>.</p>
+   * A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE`.
+   *
    * @public
    */
   GridLayout?: GridLayoutConfiguration | undefined;
 
   /**
-   * <p>A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.</p>
+   * A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
+   *
    * @public
    */
   FreeFormLayout?: FreeFormLayoutConfiguration | undefined;
 
   /**
-   * <p>A section based layout organizes visuals into multiple sections and has customized header, footer and page break.</p>
+   * A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
+   *
    * @public
    */
   SectionBasedLayout?: SectionBasedLayoutConfiguration | undefined;
 }
 
 /**
- * <p>A <code>Layout</code> defines the placement of elements within a sheet.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html">Types of layout</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * A `Layout` defines the placement of elements within a sheet.
+ *
+ * For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon Quick Suite User Guide*.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface Layout {
   /**
-   * <p>The configuration that determines what the type of layout for a sheet.</p>
+   * The configuration that determines what the type of layout for a sheet.
+   *
    * @public
    */
   Configuration: LayoutConfiguration | undefined;
 }
 
 /**
- * <p>A control from a date parameter that specifies date and time.</p>
+ * A control from a date parameter that specifies date and time.
+ *
  * @public
  */
 export interface ParameterDateTimePickerControl {
   /**
-   * <p>The ID of the <code>ParameterDateTimePickerControl</code>.</p>
+   * The ID of the `ParameterDateTimePickerControl`.
+   *
    * @public
    */
   ParameterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>ParameterDateTimePickerControl</code>.</p>
+   * The title of the `ParameterDateTimePickerControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The name of the <code>ParameterDateTimePickerControl</code>.</p>
+   * The name of the `ParameterDateTimePickerControl`.
+   *
    * @public
    */
   SourceParameterName: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: DateTimePickerControlDisplayOptions | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A list of selectable values that are used in a control.</p>
+ * A list of selectable values that are used in a control.
+ *
  * @public
  */
 export interface ParameterSelectableValues {
   /**
-   * <p>The values that are used in <code>ParameterSelectableValues</code>.</p>
+   * The values that are used in `ParameterSelectableValues`.
+   *
    * @public
    */
   Values?: string[] | undefined;
 
   /**
-   * <p>The column identifier that fetches values from the data set.</p>
+   * The column identifier that fetches values from the data set.
+   *
    * @public
    */
   LinkToDataSetColumn?: ColumnIdentifier | undefined;
 }
 
 /**
- * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
+ * A control to display a dropdown list with buttons that are used to select a single value.
+ *
  * @public
  */
 export interface ParameterDropDownControl {
   /**
-   * <p>The ID of the <code>ParameterDropDownControl</code>.</p>
+   * The ID of the `ParameterDropDownControl`.
+   *
    * @public
    */
   ParameterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>ParameterDropDownControl</code>.</p>
+   * The title of the `ParameterDropDownControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source parameter name of the <code>ParameterDropDownControl</code>.</p>
+   * The source parameter name of the `ParameterDropDownControl`.
+   *
    * @public
    */
   SourceParameterName: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: DropDownControlDisplayOptions | undefined;
 
   /**
-   * <p>The type parameter name of the <code>ParameterDropDownControl</code>.</p>
+   * The type parameter name of the `ParameterDropDownControl`.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>A list of selectable values that are used in a control.</p>
+   * A list of selectable values that are used in a control.
+   *
    * @public
    */
   SelectableValues?: ParameterSelectableValues | undefined;
 
   /**
-   * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+   * The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+   *
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
 
   /**
-   * <p>The visibility configuration of the Apply button on a <code>ParameterDropDownControl</code>.</p>
+   * The visibility configuration of the Apply button on a `ParameterDropDownControl`.
+   *
    * @public
    */
   CommitMode?: CommitMode | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a list with buttons or boxes that are used to select either a single value or multiple values.</p>
+ * A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+ *
  * @public
  */
 export interface ParameterListControl {
   /**
-   * <p>The ID of the <code>ParameterListControl</code>.</p>
+   * The ID of the `ParameterListControl`.
+   *
    * @public
    */
   ParameterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>ParameterListControl</code>.</p>
+   * The title of the `ParameterListControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source parameter name of the <code>ParameterListControl</code>.</p>
+   * The source parameter name of the `ParameterListControl`.
+   *
    * @public
    */
   SourceParameterName: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: ListControlDisplayOptions | undefined;
 
   /**
-   * <p>The type of <code>ParameterListControl</code>.</p>
+   * The type of `ParameterListControl`.
+   *
    * @public
    */
   Type?: SheetControlListType | undefined;
 
   /**
-   * <p>A list of selectable values that are used in a control.</p>
+   * A list of selectable values that are used in a control.
+   *
    * @public
    */
   SelectableValues?: ParameterSelectableValues | undefined;
 
   /**
-   * <p>The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.</p>
+   * The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
+   *
    * @public
    */
   CascadingControlConfiguration?: CascadingControlConfiguration | undefined;
 
   /**
-   * <p>The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.</p>
+   * The sort configuration for the values displayed in the control. Only one sort configuration can be applied per control.
+   *
    * @public
    */
   ControlSortConfigurations?: ControlSortConfiguration[] | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
+ * A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+ *
  * @public
  */
 export interface ParameterSliderControl {
   /**
-   * <p>The ID of the <code>ParameterSliderControl</code>.</p>
+   * The ID of the `ParameterSliderControl`.
+   *
    * @public
    */
   ParameterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>ParameterSliderControl</code>.</p>
+   * The title of the `ParameterSliderControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source parameter name of the <code>ParameterSliderControl</code>.</p>
+   * The source parameter name of the `ParameterSliderControl`.
+   *
    * @public
    */
   SourceParameterName: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: SliderControlDisplayOptions | undefined;
 
   /**
-   * <p>The larger value that is displayed at the right of the slider.</p>
+   * The larger value that is displayed at the right of the slider.
+   *
    * @public
    */
   MaximumValue: number | undefined;
 
   /**
-   * <p>The smaller value that is displayed at the left of the slider.</p>
+   * The smaller value that is displayed at the left of the slider.
+   *
    * @public
    */
   MinimumValue: number | undefined;
 
   /**
-   * <p>The number of increments that the slider bar is divided into.</p>
+   * The number of increments that the slider bar is divided into.
+   *
    * @public
    */
   StepSize: number | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a text box that is used to enter multiple entries.</p>
+ * A control to display a text box that is used to enter multiple entries.
+ *
  * @public
  */
 export interface ParameterTextAreaControl {
   /**
-   * <p>The ID of the <code>ParameterTextAreaControl</code>.</p>
+   * The ID of the `ParameterTextAreaControl`.
+   *
    * @public
    */
   ParameterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>ParameterTextAreaControl</code>.</p>
+   * The title of the `ParameterTextAreaControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source parameter name of the <code>ParameterTextAreaControl</code>.</p>
+   * The source parameter name of the `ParameterTextAreaControl`.
+   *
    * @public
    */
   SourceParameterName: string | undefined;
 
   /**
-   * <p>The delimiter that is used to separate the lines in text.</p>
+   * The delimiter that is used to separate the lines in text.
+   *
    * @public
    */
   Delimiter?: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: TextAreaControlDisplayOptions | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>A control to display a text box that is used to enter a single entry.</p>
+ * A control to display a text box that is used to enter a single entry.
+ *
  * @public
  */
 export interface ParameterTextFieldControl {
   /**
-   * <p>The ID of the <code>ParameterTextFieldControl</code>.</p>
+   * The ID of the `ParameterTextFieldControl`.
+   *
    * @public
    */
   ParameterControlId: string | undefined;
 
   /**
-   * <p>The title of the <code>ParameterTextFieldControl</code>.</p>
+   * The title of the `ParameterTextFieldControl`.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The source parameter name of the <code>ParameterTextFieldControl</code>.</p>
+   * The source parameter name of the `ParameterTextFieldControl`.
+   *
    * @public
    */
   SourceParameterName: string | undefined;
 
   /**
-   * <p>The display options of a control.</p>
+   * The display options of a control.
+   *
    * @public
    */
   DisplayOptions?: TextFieldControlDisplayOptions | undefined;
 
   /**
-   * <p>The title text format configuration for the control.</p>
+   * The title text format configuration for the control.
+   *
    * @public
    */
   ControlTitleFormatText?: ControlTitleFormatText | undefined;
 }
 
 /**
- * <p>The control of a parameter that users can interact with in a dashboard or an analysis.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The control of a parameter that users can interact with in a dashboard or an analysis.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface ParameterControl {
   /**
-   * <p>A control from a date parameter that specifies date and time.</p>
+   * A control from a date parameter that specifies date and time.
+   *
    * @public
    */
   DateTimePicker?: ParameterDateTimePickerControl | undefined;
 
   /**
-   * <p>A control to display a list with buttons or boxes that are used to select either a single value or multiple values.</p>
+   * A control to display a list with buttons or boxes that are used to select either a single value or multiple values.
+   *
    * @public
    */
   List?: ParameterListControl | undefined;
 
   /**
-   * <p>A control to display a dropdown list with buttons that are used to select a single value.</p>
+   * A control to display a dropdown list with buttons that are used to select a single value.
+   *
    * @public
    */
   Dropdown?: ParameterDropDownControl | undefined;
 
   /**
-   * <p>A control to display a text box that is used to enter a single entry.</p>
+   * A control to display a text box that is used to enter a single entry.
+   *
    * @public
    */
   TextField?: ParameterTextFieldControl | undefined;
 
   /**
-   * <p>A control to display a text box that is used to enter multiple entries.</p>
+   * A control to display a text box that is used to enter multiple entries.
+   *
    * @public
    */
   TextArea?: ParameterTextAreaControl | undefined;
 
   /**
-   * <p>A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.</p>
+   * A control to display a horizontal toggle bar. This is used to change a value by sliding the toggle.
+   *
    * @public
    */
   Slider?: ParameterSliderControl | undefined;
 }
 
 /**
- * <p>The configuration that determines the elements and canvas size options of sheet control.</p>
+ * The configuration that determines the elements and canvas size options of sheet control.
+ *
  * @public
  */
 export interface SheetControlLayoutConfiguration {
   /**
-   * <p>The configuration that determines the elements and canvas size options of sheet control.</p>
+   * The configuration that determines the elements and canvas size options of sheet control.
+   *
    * @public
    */
   GridLayout?: GridLayoutConfiguration | undefined;
 }
 
 /**
- * <p>A grid layout to define the placement of sheet control.</p>
+ * A grid layout to define the placement of sheet control.
+ *
  * @public
  */
 export interface SheetControlLayout {
   /**
-   * <p>The configuration that determines the elements and canvas size options of sheet control.</p>
+   * The configuration that determines the elements and canvas size options of sheet control.
+   *
    * @public
    */
   Configuration: SheetControlLayoutConfiguration | undefined;
 }
 
 /**
- * <p>The menu options for the interactions of a textbox.</p>
+ * The menu options for the interactions of a textbox.
+ *
  * @public
  */
 export interface TextBoxMenuOption {
   /**
-   * <p>The availability status of the textbox menu. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the textbox menu.</p>
+   * The availability status of the textbox menu. If the value of this property is set to `ENABLED`, dashboard readers can interact with the textbox menu.
+   *
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
 }
 
 /**
- * <p>The general textbox interactions setup for textbox publish options.</p>
+ * The general textbox interactions setup for textbox publish options.
+ *
  * @public
  */
 export interface TextBoxInteractionOptions {
   /**
-   * <p>The menu options for the textbox.</p>
+   * The menu options for the textbox.
+   *
    * @public
    */
   TextBoxMenuOption?: TextBoxMenuOption | undefined;
 }
 
 /**
- * <p>A text box.</p>
+ * A text box.
+ *
  * @public
  */
 export interface SheetTextBox {
   /**
-   * <p>The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.</p>
+   * The unique identifier for a text box. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have text boxes that share identifiers.
+   *
    * @public
    */
   SheetTextBoxId: string | undefined;
 
   /**
-   * <p>The content that is displayed in the text box.</p>
+   * The content that is displayed in the text box.
+   *
    * @public
    */
   Content?: string | undefined;
 
   /**
-   * <p>The general textbox interactions setup for a textbox.</p>
+   * The general textbox interactions setup for a textbox.
+   *
    * @public
    */
   Interactions?: TextBoxInteractionOptions | undefined;
 }
 
 /**
- * <p>The configuration of selected fields in the<code>CustomActionFilterOperation</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration of selected fields in the`CustomActionFilterOperation`.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface FilterOperationSelectedFieldsConfiguration {
   /**
-   * <p>Chooses the fields that are filtered in <code>CustomActionFilterOperation</code>.</p>
+   * Chooses the fields that are filtered in `CustomActionFilterOperation`.
+   *
    * @public
    */
   SelectedFields?: string[] | undefined;
 
   /**
-   * <p>A structure that contains the options that choose which fields are filtered in the <code>CustomActionFilterOperation</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_FIELDS</code>: Applies the filter operation to all fields.</p>
-   *             </li>
-   *          </ul>
+   * A structure that contains the options that choose which fields are filtered in the `CustomActionFilterOperation`.
+   *
+   * Valid values are defined as follows:
+   *
+   * - `ALL_FIELDS`: Applies the filter operation to all fields.
+   *
    * @public
    */
   SelectedFieldOptions?: SelectedFieldOptions | undefined;
 
   /**
-   * <p>The selected columns of a dataset.</p>
+   * The selected columns of a dataset.
+   *
    * @public
    */
   SelectedColumns?: ColumnIdentifier[] | undefined;
 }
 
 /**
- * <p>The configuration of the same-sheet target visuals that you want to be filtered.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration of the same-sheet target visuals that you want to be filtered.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface SameSheetTargetVisualConfiguration {
   /**
-   * <p>A list of the target visual IDs that are located in the same sheet of the analysis.</p>
+   * A list of the target visual IDs that are located in the same sheet of the analysis.
+   *
    * @public
    */
   TargetVisuals?: string[] | undefined;
 
   /**
-   * <p>The options that choose the target visual in the same sheet.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VISUALS</code>: Applies the filter operation to all visuals in the same sheet.</p>
-   *             </li>
-   *          </ul>
+   * The options that choose the target visual in the same sheet.
+   *
+   * Valid values are defined as follows:
+   *
+   * - `ALL_VISUALS`: Applies the filter operation to all visuals in the same sheet.
+   *
    * @public
    */
   TargetVisualOptions?: TargetVisualOptions | undefined;
 }
 
 /**
- * <p>The configuration of target visuals that you want to be filtered.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The configuration of target visuals that you want to be filtered.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface FilterOperationTargetVisualsConfiguration {
   /**
-   * <p>The configuration of the same-sheet target visuals that you want to be filtered.</p>
+   * The configuration of the same-sheet target visuals that you want to be filtered.
+   *
    * @public
    */
   SameSheetTargetVisualConfiguration?: SameSheetTargetVisualConfiguration | undefined;
 }
 
 /**
- * <p>The filter operation that filters data included in a visual or in an entire sheet.</p>
+ * The filter operation that filters data included in a visual or in an entire sheet.
+ *
  * @public
  */
 export interface CustomActionFilterOperation {
   /**
-   * <p>The configuration that chooses the fields to be filtered.</p>
+   * The configuration that chooses the fields to be filtered.
+   *
    * @public
    */
   SelectedFieldsConfiguration: FilterOperationSelectedFieldsConfiguration | undefined;
 
   /**
-   * <p>The configuration that chooses the target visuals to be filtered.</p>
+   * The configuration that chooses the target visuals to be filtered.
+   *
    * @public
    */
   TargetVisualsConfiguration: FilterOperationTargetVisualsConfiguration | undefined;
 }
 
 /**
- * <p>The operation that is defined by the custom action.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The operation that is defined by the custom action.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface VisualCustomActionOperation {
   /**
-   * <p>The filter operation that filters data included in a visual or in an entire sheet.</p>
+   * The filter operation that filters data included in a visual or in an entire sheet.
+   *
    * @public
    */
   FilterOperation?: CustomActionFilterOperation | undefined;
 
   /**
-   * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
+   * The navigation operation that navigates between different sheets in the same analysis.
+   *
    * @public
    */
   NavigationOperation?: CustomActionNavigationOperation | undefined;
 
   /**
-   * <p>The URL operation that opens a link to another webpage.</p>
+   * The URL operation that opens a link to another webpage.
+   *
    * @public
    */
   URLOperation?: CustomActionURLOperation | undefined;
 
   /**
-   * <p>The set parameter operation that sets parameters in custom action.</p>
+   * The set parameter operation that sets parameters in custom action.
+   *
    * @public
    */
   SetParametersOperation?: CustomActionSetParametersOperation | undefined;
 }
 
 /**
- * <p>A custom action defined on a visual.</p>
+ * A custom action defined on a visual.
+ *
  * @public
  */
 export interface VisualCustomAction {
   /**
-   * <p>The ID of the <code>VisualCustomAction</code>.</p>
+   * The ID of the `VisualCustomAction`.
+   *
    * @public
    */
   CustomActionId: string | undefined;
 
   /**
-   * <p>The name of the <code>VisualCustomAction</code>.</p>
+   * The name of the `VisualCustomAction`.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The status of the <code>VisualCustomAction</code>.</p>
+   * The status of the `VisualCustomAction`.
+   *
    * @public
    */
   Status?: WidgetStatus | undefined;
 
   /**
-   * <p>The trigger of the <code>VisualCustomAction</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DATA_POINT_CLICK</code>: Initiates a custom action by a left pointer click on a data point.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DATA_POINT_MENU</code>: Initiates a custom action by right pointer click from the menu.</p>
-   *             </li>
-   *          </ul>
+   * The trigger of the `VisualCustomAction`.
+   *
+   * Valid values are defined as follows:
+   *
+   * - `DATA_POINT_CLICK`: Initiates a custom action by a left pointer click on a data point.
+   * - `DATA_POINT_MENU`: Initiates a custom action by right pointer click from the menu.
+   *
    * @public
    */
   Trigger: VisualCustomActionTrigger | undefined;
 
   /**
-   * <p>A list of <code>VisualCustomActionOperations</code>.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * A list of `VisualCustomActionOperations`.
+   *
+   * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+   *
    * @public
    */
   ActionOperations: VisualCustomActionOperation[] | undefined;
 }
 
 /**
- * <p>The options that determine how a date axis is displayed.</p>
+ * The options that determine how a date axis is displayed.
+ *
  * @public
  */
 export interface DateAxisOptions {
   /**
-   * <p>Determines whether or not missing dates are displayed.</p>
+   * Determines whether or not missing dates are displayed.
+   *
    * @public
    */
   MissingDateVisibility?: Visibility | undefined;
 }
 
 /**
- * <p>The options that are saved for future extension.</p>
+ * The options that are saved for future extension.
+ *
  * @public
  */
 export interface AxisDisplayDataDrivenRange {}
 
 /**
- * <p>The minimum and maximum setup for an axis display range.</p>
+ * The minimum and maximum setup for an axis display range.
+ *
  * @public
  */
 export interface AxisDisplayMinMaxRange {
   /**
-   * <p>The minimum setup for an axis display range.</p>
+   * The minimum setup for an axis display range.
+   *
    * @public
    */
   Minimum?: number | undefined;
 
   /**
-   * <p>The maximum setup for an axis display range.</p>
+   * The maximum setup for an axis display range.
+   *
    * @public
    */
   Maximum?: number | undefined;
 }
 
 /**
- * <p>The range setup of a numeric axis display range.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The range setup of a numeric axis display range.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface AxisDisplayRange {
   /**
-   * <p>The minimum and maximum setup of an axis display range.</p>
+   * The minimum and maximum setup of an axis display range.
+   *
    * @public
    */
   MinMax?: AxisDisplayMinMaxRange | undefined;
 
   /**
-   * <p>The data-driven setup of an axis display range.</p>
+   * The data-driven setup of an axis display range.
+   *
    * @public
    */
   DataDriven?: AxisDisplayDataDrivenRange | undefined;
 }
 
 /**
- * <p>The liner axis scale setup.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The liner axis scale setup.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface AxisLinearScale {
   /**
-   * <p>The step count setup of a linear axis.</p>
+   * The step count setup of a linear axis.
+   *
    * @public
    */
   StepCount?: number | undefined;
 
   /**
-   * <p>The step size setup of a linear axis.</p>
+   * The step size setup of a linear axis.
+   *
    * @public
    */
   StepSize?: number | undefined;
 }
 
 /**
- * <p>The logarithmic axis scale setup.</p>
+ * The logarithmic axis scale setup.
+ *
  * @public
  */
 export interface AxisLogarithmicScale {
   /**
-   * <p>The base setup of a logarithmic axis scale.</p>
+   * The base setup of a logarithmic axis scale.
+   *
    * @public
    */
   Base?: number | undefined;
 }
 
 /**
- * <p>The scale setup
- *             options for a numeric axis display.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The scale setup options for a numeric axis display.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface AxisScale {
   /**
-   * <p>The linear axis scale setup.</p>
+   * The linear axis scale setup.
+   *
    * @public
    */
   Linear?: AxisLinearScale | undefined;
 
   /**
-   * <p>The logarithmic axis scale setup.</p>
+   * The logarithmic axis scale setup.
+   *
    * @public
    */
   Logarithmic?: AxisLogarithmicScale | undefined;
 }
 
 /**
- * <p>The options for an axis with a numeric field.</p>
+ * The options for an axis with a numeric field.
+ *
  * @public
  */
 export interface NumericAxisOptions {
   /**
-   * <p>The scale setup of a numeric axis.</p>
+   * The scale setup of a numeric axis.
+   *
    * @public
    */
   Scale?: AxisScale | undefined;
 
   /**
-   * <p>The range setup of a numeric axis.</p>
+   * The range setup of a numeric axis.
+   *
    * @public
    */
   Range?: AxisDisplayRange | undefined;
 }
 
 /**
- * <p>The data options for an axis.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The data options for an axis.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface AxisDataOptions {
   /**
-   * <p>The options for an axis with a numeric field.</p>
+   * The options for an axis with a numeric field.
+   *
    * @public
    */
   NumericAxisOptions?: NumericAxisOptions | undefined;
 
   /**
-   * <p>The options for an axis with a date field.</p>
+   * The options for an axis with a date field.
+   *
    * @public
    */
   DateAxisOptions?: DateAxisOptions | undefined;
 }
 
 /**
- * <p>The percent range in the visible range.</p>
+ * The percent range in the visible range.
+ *
  * @public
  */
 export interface PercentVisibleRange {
   /**
-   * <p>The lower bound of the range.</p>
+   * The lower bound of the range.
+   *
    * @public
    */
   From?: number | undefined;
 
   /**
-   * <p>The top bound of the range.</p>
+   * The top bound of the range.
+   *
    * @public
    */
   To?: number | undefined;
 }
 
 /**
- * <p>The range options for the data zoom scroll bar.</p>
+ * The range options for the data zoom scroll bar.
+ *
  * @public
  */
 export interface VisibleRangeOptions {
   /**
-   * <p>The percent range in the visible range.</p>
+   * The percent range in the visible range.
+   *
    * @public
    */
   PercentRange?: PercentVisibleRange | undefined;
 }
 
 /**
- * <p>The visual display options for a data zoom scroll bar.</p>
+ * The visual display options for a data zoom scroll bar.
+ *
  * @public
  */
 export interface ScrollBarOptions {
   /**
-   * <p>The visibility of the data zoom scroll bar.</p>
+   * The visibility of the data zoom scroll bar.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The visibility range for the data zoom scroll bar.</p>
+   * The visibility range for the data zoom scroll bar.
+   *
    * @public
    */
   VisibleRange?: VisibleRangeOptions | undefined;
 }
 
 /**
- * <p>The tick label options of an axis.</p>
+ * The tick label options of an axis.
+ *
  * @public
  */
 export interface AxisTickLabelOptions {
   /**
-   * <p>Determines whether or not the axis ticks are visible.</p>
+   * Determines whether or not the axis ticks are visible.
+   *
    * @public
    */
   LabelOptions?: LabelOptions | undefined;
 
   /**
-   * <p>The rotation angle of the axis tick labels.</p>
+   * The rotation angle of the axis tick labels.
+   *
    * @public
    */
   RotationAngle?: number | undefined;
 }
 
 /**
- * <p>The display options for the axis label.</p>
+ * The display options for the axis label.
+ *
  * @public
  */
 export interface AxisDisplayOptions {
   /**
-   * <p>The tick label options of an axis.</p>
+   * The tick label options of an axis.
+   *
    * @public
    */
   TickLabelOptions?: AxisTickLabelOptions | undefined;
 
   /**
-   * <p>Determines whether or not the axis line is visible.</p>
+   * Determines whether or not the axis line is visible.
+   *
    * @public
    */
   AxisLineVisibility?: Visibility | undefined;
 
   /**
-   * <p>Determines whether or not the grid line is visible.</p>
+   * Determines whether or not the grid line is visible.
+   *
    * @public
    */
   GridLineVisibility?: Visibility | undefined;
 
   /**
-   * <p>The data options for an axis.</p>
+   * The data options for an axis.
+   *
    * @public
    */
   DataOptions?: AxisDataOptions | undefined;
 
   /**
-   * <p>The scroll bar options for an axis.</p>
+   * The scroll bar options for an axis.
+   *
    * @public
    */
   ScrollbarOptions?: ScrollBarOptions | undefined;
 
   /**
-   * <p>The offset value that determines the starting placement of the axis within a visual's bounds.</p>
+   * The offset value that determines the starting placement of the axis within a visual's bounds.
+   *
    * @public
    */
   AxisOffset?: string | undefined;
 }
 
 /**
- * <p>The reference that specifies where the axis label is applied to.</p>
+ * The reference that specifies where the axis label is applied to.
+ *
  * @public
  */
 export interface AxisLabelReferenceOptions {
   /**
-   * <p>The field that the axis label is targeted to.</p>
+   * The field that the axis label is targeted to.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that the axis label is targeted to.</p>
+   * The column that the axis label is targeted to.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 }
 
 /**
- * <p>The label options for a chart axis. You must specify the field that the label is targeted to.</p>
+ * The label options for a chart axis. You must specify the field that the label is targeted to.
+ *
  * @public
  */
 export interface AxisLabelOptions {
   /**
-   * <p>The font configuration of the axis label.</p>
+   * The font configuration of the axis label.
+   *
    * @public
    */
   FontConfiguration?: FontConfiguration | undefined;
 
   /**
-   * <p>The text for the axis label.</p>
+   * The text for the axis label.
+   *
    * @public
    */
   CustomLabel?: string | undefined;
 
   /**
-   * <p>The options that indicate which field the label belongs to.</p>
+   * The options that indicate which field the label belongs to.
+   *
    * @public
    */
   ApplyTo?: AxisLabelReferenceOptions | undefined;
 }
 
 /**
- * <p>The label options for an axis on a chart.</p>
+ * The label options for an axis on a chart.
+ *
  * @public
  */
 export interface ChartAxisLabelOptions {
   /**
-   * <p>The visibility of an axis label on a chart. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>VISIBLE</code>: Shows the axis.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HIDDEN</code>: Hides the axis.</p>
-   *             </li>
-   *          </ul>
+   * The visibility of an axis label on a chart. Choose one of the following options:
+   *
+   * - `VISIBLE`: Shows the axis.
+   * - `HIDDEN`: Hides the axis.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The visibility configuration of the sort icon on a chart's axis label.</p>
+   * The visibility configuration of the sort icon on a chart's axis label.
+   *
    * @public
    */
   SortIconVisibility?: Visibility | undefined;
 
   /**
-   * <p>The label options for a chart axis.</p>
+   * The label options for a chart axis.
+   *
    * @public
    */
   AxisLabelOptions?: AxisLabelOptions[] | undefined;
 }
 
 /**
- * <p>The contribution analysis visual display for a line, pie, or bar chart.</p>
+ * The contribution analysis visual display for a line, pie, or bar chart.
+ *
  * @public
  */
 export interface ContributionAnalysisDefault {
   /**
-   * <p>The measure field that is used in the contribution analysis.</p>
+   * The measure field that is used in the contribution analysis.
+   *
    * @public
    */
   MeasureFieldId: string | undefined;
 
   /**
-   * <p>The dimensions columns that are used in the contribution analysis,
-   *             usually a list of <code>ColumnIdentifiers</code>.</p>
+   * The dimensions columns that are used in the contribution analysis, usually a list of `ColumnIdentifiers`.
+   *
    * @public
    */
   ContributorDimensions: ColumnIdentifier[] | undefined;
 }
 
 /**
- * <p>The option that specifies individual data values for labels.</p>
+ * The option that specifies individual data values for labels.
+ *
  * @public
  */
 export interface DataPathLabelType {
   /**
-   * <p>The field ID of the field that the data label needs to be applied to.</p>
+   * The field ID of the field that the data label needs to be applied to.
+   *
    * @public
    */
   FieldId?: string | undefined;
 
   /**
-   * <p>The actual value of the field that is labeled.</p>
+   * The actual value of the field that is labeled.
+   *
    * @public
    */
   FieldValue?: string | undefined;
 
   /**
-   * <p>The visibility of the data label.</p>
+   * The visibility of the data label.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The field label type.</p>
+ * The field label type.
+ *
  * @public
  */
 export interface FieldLabelType {
   /**
-   * <p>Indicates the field that is targeted by the field
-   *             label.</p>
+   * Indicates the field that is targeted by the field label.
+   *
    * @public
    */
   FieldId?: string | undefined;
 
   /**
-   * <p>The visibility of the field label.</p>
+   * The visibility of the field label.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The maximum label of a data path label.</p>
+ * The maximum label of a data path label.
+ *
  * @public
  */
 export interface MaximumLabelType {
   /**
-   * <p>The visibility of the maximum label.</p>
+   * The visibility of the maximum label.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The minimum label of a data path label.</p>
+ * The minimum label of a data path label.
+ *
  * @public
  */
 export interface MinimumLabelType {
   /**
-   * <p>The visibility of the minimum label.</p>
+   * The visibility of the minimum label.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The range ends label type of a data path label.</p>
+ * The range ends label type of a data path label.
+ *
  * @public
  */
 export interface RangeEndsLabelType {
   /**
-   * <p>The visibility of the range ends label.</p>
+   * The visibility of the range ends label.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 }
 
 /**
- * <p>The option that determines the data label type.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The option that determines the data label type.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface DataLabelType {
   /**
-   * <p>Determines the label configuration for the entire field.</p>
+   * Determines the label configuration for the entire field.
+   *
    * @public
    */
   FieldLabelType?: FieldLabelType | undefined;
 
   /**
-   * <p>The option that specifies individual data values for labels.</p>
+   * The option that specifies individual data values for labels.
+   *
    * @public
    */
   DataPathLabelType?: DataPathLabelType | undefined;
 
   /**
-   * <p>Determines the label configuration for range end value in a visual.</p>
+   * Determines the label configuration for range end value in a visual.
+   *
    * @public
    */
   RangeEndsLabelType?: RangeEndsLabelType | undefined;
 
   /**
-   * <p>Determines the label configuration for the minimum value in a visual.</p>
+   * Determines the label configuration for the minimum value in a visual.
+   *
    * @public
    */
   MinimumLabelType?: MinimumLabelType | undefined;
 
   /**
-   * <p>Determines the label configuration for the maximum value in a visual.</p>
+   * Determines the label configuration for the maximum value in a visual.
+   *
    * @public
    */
   MaximumLabelType?: MaximumLabelType | undefined;
 }
 
 /**
- * <p>The options that determine the presentation of the data labels.</p>
+ * The options that determine the presentation of the data labels.
+ *
  * @public
  */
 export interface DataLabelOptions {
   /**
-   * <p>Determines the visibility of the data labels.</p>
+   * Determines the visibility of the data labels.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>Determines the visibility of the category field labels.</p>
+   * Determines the visibility of the category field labels.
+   *
    * @public
    */
   CategoryLabelVisibility?: Visibility | undefined;
 
   /**
-   * <p>Determines the visibility of the measure field labels.</p>
+   * Determines the visibility of the measure field labels.
+   *
    * @public
    */
   MeasureLabelVisibility?: Visibility | undefined;
 
   /**
-   * <p>The option that determines the data label type.</p>
+   * The option that determines the data label type.
+   *
    * @public
    */
   DataLabelTypes?: DataLabelType[] | undefined;
 
   /**
-   * <p>Determines the position of the data labels.</p>
+   * Determines the position of the data labels.
+   *
    * @public
    */
   Position?: DataLabelPosition | undefined;
 
   /**
-   * <p>Determines the content of the data labels.</p>
+   * Determines the content of the data labels.
+   *
    * @public
    */
   LabelContent?: DataLabelContent | undefined;
 
   /**
-   * <p>Determines the font configuration of the data labels.</p>
+   * Determines the font configuration of the data labels.
+   *
    * @public
    */
   LabelFontConfiguration?: FontConfiguration | undefined;
 
   /**
-   * <p>Determines the color of the data labels.</p>
+   * Determines the color of the data labels.
+   *
    * @public
    */
   LabelColor?: string | undefined;
 
   /**
-   * <p>Determines whether overlap is enabled or disabled for the data labels.</p>
+   * Determines whether overlap is enabled or disabled for the data labels.
+   *
    * @public
    */
   Overlap?: DataLabelOverlap | undefined;
 
   /**
-   * <p>Determines the visibility of the total.</p>
+   * Determines the visibility of the total.
+   *
    * @public
    */
   TotalsVisibility?: Visibility | undefined;
 }
 
 /**
- * <p>Border settings configuration for visual elements, including visibility, width, and color properties.</p>
+ * Border settings configuration for visual elements, including visibility, width, and color properties.
+ *
  * @public
  */
 export interface BorderSettings {
   /**
-   * <p>Visibility setting for the border.</p>
+   * Visibility setting for the border.
+   *
    * @public
    */
   BorderVisibility?: Visibility | undefined;
 
   /**
-   * <p>Width of the border. Valid range is from 1px to 8px.</p>
+   * Width of the border. Valid range is from 1px to 8px.
+   *
    * @public
    */
   BorderWidth?: string | undefined;
 
   /**
-   * <p>Color of the border.</p>
+   * Color of the border.
+   *
    * @public
    */
   BorderColor?: string | undefined;
 }
 
 /**
- * <p>The options that determine the default presentation of all bar series in <code>BarChartVisual</code>.</p>
+ * The options that determine the default presentation of all bar series in `BarChartVisual`.
+ *
  * @public
  */
 export interface BarChartDefaultSeriesSettings {
   /**
-   * <p>Decal settings for all bar series in the visual.</p>
+   * Decal settings for all bar series in the visual.
+   *
    * @public
    */
   DecalSettings?: DecalSettings | undefined;
 
   /**
-   * <p>Border settings for all bar series in the visual.</p>
+   * Border settings for all bar series in the visual.
+   *
    * @public
    */
   BorderSettings?: BorderSettings | undefined;
 }
 
 /**
- * <p>The dimension type field with categorical type columns..</p>
+ * The dimension type field with categorical type columns..
+ *
  * @public
  */
 export interface CategoricalDimensionField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that is used in the <code>CategoricalDimensionField</code>.</p>
+   * The column that is used in the `CategoricalDimensionField`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The custom hierarchy ID.</p>
+   * The custom hierarchy ID.
+   *
    * @public
    */
   HierarchyId?: string | undefined;
 
   /**
-   * <p>The format configuration of the field.</p>
+   * The format configuration of the field.
+   *
    * @public
    */
   FormatConfiguration?: StringFormatConfiguration | undefined;
 }
 
 /**
- * <p>The dimension type field with date type columns.</p>
+ * The dimension type field with date type columns.
+ *
  * @public
  */
 export interface DateDimensionField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that is used in the <code>DateDimensionField</code>.</p>
+   * The column that is used in the `DateDimensionField`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The date granularity of the <code>DateDimensionField</code>. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>YEAR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUARTER</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MONTH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>WEEK</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DAY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HOUR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MINUTE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SECOND</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MILLISECOND</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The date granularity of the `DateDimensionField`. Choose one of the following options:
+   *
+   * - `YEAR`
+   * - `QUARTER`
+   * - `MONTH`
+   * - `WEEK`
+   * - `DAY`
+   * - `HOUR`
+   * - `MINUTE`
+   * - `SECOND`
+   * - `MILLISECOND`
+   *
    * @public
    */
   DateGranularity?: TimeGranularity | undefined;
 
   /**
-   * <p>The custom hierarchy ID.</p>
+   * The custom hierarchy ID.
+   *
    * @public
    */
   HierarchyId?: string | undefined;
 
   /**
-   * <p>The format configuration of the field.</p>
+   * The format configuration of the field.
+   *
    * @public
    */
   FormatConfiguration?: DateTimeFormatConfiguration | undefined;
 }
 
 /**
- * <p>The dimension type field with numerical type columns.</p>
+ * The dimension type field with numerical type columns.
+ *
  * @public
  */
 export interface NumericalDimensionField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that is used in the <code>NumericalDimensionField</code>.</p>
+   * The column that is used in the `NumericalDimensionField`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The custom hierarchy ID.</p>
+   * The custom hierarchy ID.
+   *
    * @public
    */
   HierarchyId?: string | undefined;
 
   /**
-   * <p>The format configuration of the field.</p>
+   * The format configuration of the field.
+   *
    * @public
    */
   FormatConfiguration?: NumberFormatConfiguration | undefined;
 }
 
 /**
- * <p>The dimension type field.</p>
+ * The dimension type field.
+ *
  * @public
  */
 export interface DimensionField {
   /**
-   * <p>The dimension type field with numerical type columns.</p>
+   * The dimension type field with numerical type columns.
+   *
    * @public
    */
   NumericalDimensionField?: NumericalDimensionField | undefined;
 
   /**
-   * <p>The dimension type field with categorical type columns.</p>
+   * The dimension type field with categorical type columns.
+   *
    * @public
    */
   CategoricalDimensionField?: CategoricalDimensionField | undefined;
 
   /**
-   * <p>The dimension type field with date type columns.</p>
+   * The dimension type field with date type columns.
+   *
    * @public
    */
   DateDimensionField?: DateDimensionField | undefined;
 }
 
 /**
- * <p>The table calculation measure field for pivot tables.</p>
+ * The table calculation measure field for pivot tables.
+ *
  * @public
  */
 export interface CalculatedMeasureField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The expression in the table calculation.</p>
+   * The expression in the table calculation.
+   *
    * @public
    */
   Expression: string | undefined;
 }
 
 /**
- * <p>The measure type field with categorical type columns.</p>
+ * The measure type field with categorical type columns.
+ *
  * @public
  */
 export interface CategoricalMeasureField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that is used in the <code>CategoricalMeasureField</code>.</p>
+   * The column that is used in the `CategoricalMeasureField`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The aggregation function of the measure field.</p>
+   * The aggregation function of the measure field.
+   *
    * @public
    */
   AggregationFunction?: CategoricalAggregationFunction | undefined;
 
   /**
-   * <p>The format configuration of the field.</p>
+   * The format configuration of the field.
+   *
    * @public
    */
   FormatConfiguration?: StringFormatConfiguration | undefined;
 }
 
 /**
- * <p>The measure type field with date type columns.</p>
+ * The measure type field with date type columns.
+ *
  * @public
  */
 export interface DateMeasureField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that is used in the <code>DateMeasureField</code>.</p>
+   * The column that is used in the `DateMeasureField`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The aggregation function of the measure field.</p>
+   * The aggregation function of the measure field.
+   *
    * @public
    */
   AggregationFunction?: DateAggregationFunction | undefined;
 
   /**
-   * <p>The format configuration of the field.</p>
+   * The format configuration of the field.
+   *
    * @public
    */
   FormatConfiguration?: DateTimeFormatConfiguration | undefined;
 }
 
 /**
- * <p>The measure type field with numerical type columns.</p>
+ * The measure type field with numerical type columns.
+ *
  * @public
  */
 export interface NumericalMeasureField {
   /**
-   * <p>The custom field ID.</p>
+   * The custom field ID.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>The column that is used in the <code>NumericalMeasureField</code>.</p>
+   * The column that is used in the `NumericalMeasureField`.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The aggregation function of the measure field.</p>
+   * The aggregation function of the measure field.
+   *
    * @public
    */
   AggregationFunction?: NumericalAggregationFunction | undefined;
 
   /**
-   * <p>The format configuration of the field.</p>
+   * The format configuration of the field.
+   *
    * @public
    */
   FormatConfiguration?: NumberFormatConfiguration | undefined;
 }
 
 /**
- * <p>The measure (metric) type field.</p>
+ * The measure (metric) type field.
+ *
  * @public
  */
 export interface MeasureField {
   /**
-   * <p>The measure type field with numerical type columns.</p>
+   * The measure type field with numerical type columns.
+   *
    * @public
    */
   NumericalMeasureField?: NumericalMeasureField | undefined;
 
   /**
-   * <p>The measure type field with categorical type columns.</p>
+   * The measure type field with categorical type columns.
+   *
    * @public
    */
   CategoricalMeasureField?: CategoricalMeasureField | undefined;
 
   /**
-   * <p>The measure type field with date type columns.</p>
+   * The measure type field with date type columns.
+   *
    * @public
    */
   DateMeasureField?: DateMeasureField | undefined;
 
   /**
-   * <p>The calculated measure field only used in pivot tables.</p>
+   * The calculated measure field only used in pivot tables.
+   *
    * @public
    */
   CalculatedMeasureField?: CalculatedMeasureField | undefined;
 }
 
 /**
- * <p>The aggregated field wells of a bar chart.</p>
+ * The aggregated field wells of a bar chart.
+ *
  * @public
  */
 export interface BarChartAggregatedFieldWells {
   /**
-   * <p>The category (y-axis) field well of a bar chart.</p>
+   * The category (y-axis) field well of a bar chart.
+   *
    * @public
    */
   Category?: DimensionField[] | undefined;
 
   /**
-   * <p>The value field wells of a bar chart. Values are aggregated by
-   *             category.</p>
+   * The value field wells of a bar chart. Values are aggregated by category.
+   *
    * @public
    */
   Values?: MeasureField[] | undefined;
 
   /**
-   * <p>The color (group/color) field well of a bar chart.</p>
+   * The color (group/color) field well of a bar chart.
+   *
    * @public
    */
   Colors?: DimensionField[] | undefined;
 
   /**
-   * <p>The small multiples field well of a bar chart.</p>
+   * The small multiples field well of a bar chart.
+   *
    * @public
    */
   SmallMultiples?: DimensionField[] | undefined;
 }
 
 /**
- * <p>The field wells of a <code>BarChartVisual</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The field wells of a `BarChartVisual`.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface BarChartFieldWells {
   /**
-   * <p>The aggregated field wells of a bar chart.</p>
+   * The aggregated field wells of a bar chart.
+   *
    * @public
    */
   BarChartAggregatedFieldWells?: BarChartAggregatedFieldWells | undefined;
 }
 
 /**
- * <p>The context menu options for a visual's interactions.</p>
+ * The context menu options for a visual's interactions.
+ *
  * @public
  */
 export interface ContextMenuOption {
   /**
-   * <p>The availability status of the context menu options. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the context menu.</p>
+   * The availability status of the context menu options. If the value of this property is set to `ENABLED`, dashboard readers can interact with the context menu.
+   *
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
 }
 
 /**
- * <p>The menu options for a visual.</p>
+ * The menu options for a visual.
+ *
  * @public
  */
 export interface VisualMenuOption {
   /**
-   * <p>The availaiblity status of a visual's menu options.</p>
+   * The availaiblity status of a visual's menu options.
+   *
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
 }
 
 /**
- * <p>The general visual interactions setup for visual publish options</p>
+ * The general visual interactions setup for visual publish options
+ *
  * @public
  */
 export interface VisualInteractionOptions {
   /**
-   * <p>The on-visual menu options for a visual.</p>
+   * The on-visual menu options for a visual.
+   *
    * @public
    */
   VisualMenuOption?: VisualMenuOption | undefined;
 
   /**
-   * <p>The context menu options for a visual.</p>
+   * The context menu options for a visual.
+   *
    * @public
    */
   ContextMenuOption?: ContextMenuOption | undefined;
 }
 
 /**
- * <p>The options for the legend setup of a visual.</p>
+ * The options for the legend setup of a visual.
+ *
  * @public
  */
 export interface LegendOptions {
   /**
-   * <p>Determines whether or not the legend is visible.</p>
+   * Determines whether or not the legend is visible.
+   *
    * @public
    */
   Visibility?: Visibility | undefined;
 
   /**
-   * <p>The custom title for the legend.</p>
+   * The custom title for the legend.
+   *
    * @public
    */
   Title?: LabelOptions | undefined;
 
   /**
-   * <p>The positions for the legend. Choose one of the following
-   *             options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RIGHT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BOTTOM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LEFT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The positions for the legend. Choose one of the following options:
+   *
+   * - `AUTO`
+   * - `RIGHT`
+   * - `BOTTOM`
+   * - `LEFT`
+   *
    * @public
    */
   Position?: LegendPosition | undefined;
 
   /**
-   * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
+   * The width of the legend. If this value is omitted, a default width is used when rendering.
+   *
    * @public
    */
   Width?: string | undefined;
 
   /**
-   * <p>The height of the legend. If this value is omitted, a default height is used when
-   *             rendering.</p>
+   * The height of the legend. If this value is omitted, a default height is used when rendering.
+   *
    * @public
    */
   Height?: string | undefined;
 
   /**
-   * <p>Configures the display properties of the given text.</p>
+   * Configures the display properties of the given text.
+   *
    * @public
    */
   ValueFontConfiguration?: FontConfiguration | undefined;
 }
 
 /**
- * <p>The dynamic configuration of the reference line data configuration.</p>
+ * The dynamic configuration of the reference line data configuration.
+ *
  * @public
  */
 export interface ReferenceLineDynamicDataConfiguration {
   /**
-   * <p>The column that the dynamic data targets.</p>
+   * The column that the dynamic data targets.
+   *
    * @public
    */
   Column: ColumnIdentifier | undefined;
 
   /**
-   * <p>The aggregation function that is used in the dynamic data.</p>
+   * The aggregation function that is used in the dynamic data.
+   *
    * @public
    */
   MeasureAggregationFunction?: AggregationFunction | undefined;
 
   /**
-   * <p>The calculation that is used in the dynamic data.</p>
+   * The calculation that is used in the dynamic data.
+   *
    * @public
    */
   Calculation: NumericalAggregationFunction | undefined;
 }
 
 /**
- * <p>The static data configuration of the reference line data configuration.</p>
+ * The static data configuration of the reference line data configuration.
+ *
  * @public
  */
 export interface ReferenceLineStaticDataConfiguration {
   /**
-   * <p>The double input of the static data.</p>
+   * The double input of the static data.
+   *
    * @public
    */
   Value: number | undefined;
 }
 
 /**
- * <p>The data configuration of the reference line.</p>
+ * The data configuration of the reference line.
+ *
  * @public
  */
 export interface ReferenceLineDataConfiguration {
   /**
-   * <p>The static data configuration of the reference line data configuration.</p>
+   * The static data configuration of the reference line data configuration.
+   *
    * @public
    */
   StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
 
   /**
-   * <p>The dynamic configuration of the reference line data configuration.</p>
+   * The dynamic configuration of the reference line data configuration.
+   *
    * @public
    */
   DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
 
   /**
-   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PrimaryY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SecondaryY</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The axis binding type of the reference line. Choose one of the following options:
+   *
+   * - `PrimaryY`
+   * - `SecondaryY`
+   *
    * @public
    */
   AxisBinding?: AxisBinding | undefined;
 
   /**
-   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BAR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LINE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The series type of the reference line data configuration. Choose one of the following options:
+   *
+   * - `BAR`
+   * - `LINE`
+   *
    * @public
    */
   SeriesType?: ReferenceLineSeriesType | undefined;
 }
 
 /**
- * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
+ * The configuration for a custom label on a `ReferenceLine`.
+ *
  * @public
  */
 export interface ReferenceLineCustomLabelConfiguration {
   /**
-   * <p>The string text of the custom label.</p>
+   * The string text of the custom label.
+   *
    * @public
    */
   CustomLabel: string | undefined;
 }
 
 /**
- * <p>The value label configuration of the label in a reference line.</p>
+ * The value label configuration of the label in a reference line.
+ *
  * @public
  */
 export interface ReferenceLineValueLabelConfiguration {
   /**
-   * <p>The relative position of the value label. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BEFORE_CUSTOM_LABEL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AFTER_CUSTOM_LABEL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The relative position of the value label. Choose one of the following options:
+   *
+   * - `BEFORE_CUSTOM_LABEL`
+   * - `AFTER_CUSTOM_LABEL`
+   *
    * @public
    */
   RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
 
   /**
-   * <p>The format configuration of the value label.</p>
+   * The format configuration of the value label.
+   *
    * @public
    */
   FormatConfiguration?: NumericFormatConfiguration | undefined;
 }
 
 /**
- * <p>The label configuration of a reference line.</p>
+ * The label configuration of a reference line.
+ *
  * @public
  */
 export interface ReferenceLineLabelConfiguration {
   /**
-   * <p>The value label configuration of the label in a reference line.</p>
+   * The value label configuration of the label in a reference line.
+   *
    * @public
    */
   ValueLabelConfiguration?: ReferenceLineValueLabelConfiguration | undefined;
 
   /**
-   * <p>The custom label configuration of the label in a reference line.</p>
+   * The custom label configuration of the label in a reference line.
+   *
    * @public
    */
   CustomLabelConfiguration?: ReferenceLineCustomLabelConfiguration | undefined;
 
   /**
-   * <p>The font configuration of the label in a reference line.</p>
+   * The font configuration of the label in a reference line.
+   *
    * @public
    */
   FontConfiguration?: FontConfiguration | undefined;
 
   /**
-   * <p>The font color configuration of the label in a reference line.</p>
+   * The font color configuration of the label in a reference line.
+   *
    * @public
    */
   FontColor?: string | undefined;
 
   /**
-   * <p>The horizontal position configuration of the label in a reference line. Choose one of
-   *             the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LEFT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CENTER</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RIGHT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The horizontal position configuration of the label in a reference line. Choose one of the following options:
+   *
+   * - `LEFT`
+   * - `CENTER`
+   * - `RIGHT`
+   *
    * @public
    */
   HorizontalPosition?: ReferenceLineLabelHorizontalPosition | undefined;
 
   /**
-   * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ABOVE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BELOW</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The vertical position configuration of the label in a reference line. Choose one of the following options:
+   *
+   * - `ABOVE`
+   * - `BELOW`
+   *
    * @public
    */
   VerticalPosition?: ReferenceLineLabelVerticalPosition | undefined;
 }
 
 /**
- * <p>The style configuration of the reference
- *             line.</p>
+ * The style configuration of the reference line.
+ *
  * @public
  */
 export interface ReferenceLineStyleConfiguration {
   /**
-   * <p>The pattern type of the line style. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SOLID</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DASHED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DOTTED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The pattern type of the line style. Choose one of the following options:
+   *
+   * - `SOLID`
+   * - `DASHED`
+   * - `DOTTED`
+   *
    * @public
    */
   Pattern?: ReferenceLinePatternType | undefined;
 
   /**
-   * <p>The hex color of the reference line.</p>
+   * The hex color of the reference line.
+   *
    * @public
    */
   Color?: string | undefined;
 }
 
 /**
- * <p>The reference line visual display options.</p>
+ * The reference line visual display options.
+ *
  * @public
  */
 export interface ReferenceLine {
   /**
-   * <p>The status of the reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The status of the reference line. Choose one of the following options:
+   *
+   * - `ENABLE`
+   * - `DISABLE`
+   *
    * @public
    */
   Status?: WidgetStatus | undefined;
 
   /**
-   * <p>The data configuration of the reference line.</p>
+   * The data configuration of the reference line.
+   *
    * @public
    */
   DataConfiguration: ReferenceLineDataConfiguration | undefined;
 
   /**
-   * <p>The style configuration of the reference line.</p>
+   * The style configuration of the reference line.
+   *
    * @public
    */
   StyleConfiguration?: ReferenceLineStyleConfiguration | undefined;
 
   /**
-   * <p>The label configuration of the reference line.</p>
+   * The label configuration of the reference line.
+   *
    * @public
    */
   LabelConfiguration?: ReferenceLineLabelConfiguration | undefined;
 }
 
 /**
- * <p>Options that determine the presentation of a bar series in the visual.</p>
+ * Options that determine the presentation of a bar series in the visual.
+ *
  * @public
  */
 export interface BarChartSeriesSettings {
   /**
-   * <p>Decal settings for the bar series.</p>
+   * Decal settings for the bar series.
+   *
    * @public
    */
   DecalSettings?: DecalSettings | undefined;
 
   /**
-   * <p>Border settings for the bar series.</p>
+   * Border settings for the bar series.
+   *
    * @public
    */
   BorderSettings?: BorderSettings | undefined;
 }
 
 /**
- * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
+ * The data field series item configuration of a `BarChartVisual`.
+ *
  * @public
  */
 export interface DataFieldBarSeriesItem {
   /**
-   * <p>Field ID of the field that you are setting the series configuration for.</p>
+   * Field ID of the field that you are setting the series configuration for.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>Field value of the field that you are setting the series configuration for.</p>
+   * Field value of the field that you are setting the series configuration for.
+   *
    * @public
    */
   FieldValue?: string | undefined;
 
   /**
-   * <p>Options that determine the presentation of bar series associated to the field.</p>
+   * Options that determine the presentation of bar series associated to the field.
+   *
    * @public
    */
   Settings?: BarChartSeriesSettings | undefined;
 }
 
 /**
- * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
+ * The field series item configuration of a `BarChartVisual`.
+ *
  * @public
  */
 export interface FieldBarSeriesItem {
   /**
-   * <p>Field ID of the field for which you are setting the series configuration.</p>
+   * Field ID of the field for which you are setting the series configuration.
+   *
    * @public
    */
   FieldId: string | undefined;
 
   /**
-   * <p>Options that determine the presentation of bar series associated to the field.</p>
+   * Options that determine the presentation of bar series associated to the field.
+   *
    * @public
    */
   Settings?: BarChartSeriesSettings | undefined;
 }
 
 /**
- * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * The series item configuration of a `BarChartVisual`.
+ *
+ * This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+ *
  * @public
  */
 export interface BarSeriesItem {
   /**
-   * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
+   * The field series item configuration of a `BarChartVisual`.
+   *
    * @public
    */
   FieldBarSeriesItem?: FieldBarSeriesItem | undefined;
 
   /**
-   * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
+   * The data field series item configuration of a `BarChartVisual`.
+   *
    * @public
    */
   DataFieldBarSeriesItem?: DataFieldBarSeriesItem | undefined;

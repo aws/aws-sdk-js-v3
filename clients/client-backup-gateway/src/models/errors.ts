@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BackupGatewayServiceException as __BaseException } from "./BackupGatewayServiceException";
 
 /**
- * <p>The operation cannot proceed because you have insufficient permissions.</p>
+ * The operation cannot proceed because you have insufficient permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,7 +13,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A description of why you have insufficient permissions.</p>
+   * A description of why you have insufficient permissions.
+   *
    * @public
    */
   ErrorCode: string | undefined;
@@ -34,7 +36,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The operation cannot proceed because it is not supported.</p>
+ * The operation cannot proceed because it is not supported.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -42,7 +45,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A description of why the operation is not supported.</p>
+   * A description of why the operation is not supported.
+   *
    * @public
    */
   ErrorCode: string | undefined;
@@ -64,7 +68,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ * The operation did not succeed because an internal error occurred. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -72,7 +77,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A description of which internal error occured.</p>
+   * A description of which internal error occured.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
@@ -94,7 +100,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+ * TPS has been limited to protect against intentional or unintentional high request volumes.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -102,7 +109,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Error: TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+   * Error: TPS has been limited to protect against intentional or unintentional high request volumes.
+   *
    * @public
    */
   ErrorCode: string | undefined;
@@ -124,7 +132,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The operation did not succeed because a validation error occurred.</p>
+ * The operation did not succeed because a validation error occurred.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -132,7 +141,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A description of what caused the validation error.</p>
+   * A description of what caused the validation error.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
@@ -154,7 +164,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A resource that is required for the action wasn't found.</p>
+ * A resource that is required for the action wasn't found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -162,7 +173,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A description of which resource wasn't found.</p>
+   * A description of which resource wasn't found.
+   *
    * @public
    */
   ErrorCode?: string | undefined;

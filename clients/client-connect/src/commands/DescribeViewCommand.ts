@@ -23,14 +23,14 @@ export interface DescribeViewCommandInput extends DescribeViewRequest {}
 export interface DescribeViewCommandOutput extends DescribeViewResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the view for the specified Connect Customer instance and view identifier.</p>
- *          <p>The view identifier can be supplied as a ViewId or ARN.</p>
- *          <p>
- *             <code>$SAVED</code> needs to be supplied if a view is unpublished.</p>
- *          <p>The view identifier can contain an optional qualifier, for example, <code><view-id>:$SAVED</code>, which
- *    is either an actual version number or an Connect Customer managed qualifier <code>$SAVED | $LATEST</code>. If it is
- *    not supplied, then <code>$LATEST</code> is assumed for customer managed views and an error is returned if there is no
- *    published content available. Version 1 is assumed for Amazon Web Services managed views.</p>
+ * Retrieves the view for the specified Connect Customer instance and view identifier.
+ *
+ * The view identifier can be supplied as a ViewId or ARN.
+ *
+ * `$SAVED` needs to be supplied if a view is unpublished.
+ *
+ * The view identifier can contain an optional qualifier, for example, `<view-id>:$SAVED`, which is either an actual version number or an Connect Customer managed qualifier `$SAVED | $LATEST`. If it is not supplied, then `$LATEST` is assumed for customer managed views and an error is returned if there is no published content available. Version 1 is assumed for Amazon Web Services managed views.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,26 +80,32 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Displayed when rate-related API limits are exceeded.</p>
+ *
+ * Displayed when rate-related API limits are exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

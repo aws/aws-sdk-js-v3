@@ -23,8 +23,8 @@ export interface GetAnomalySubscriptionsCommandInput extends GetAnomalySubscript
 export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
- *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
+ * Retrieves the cost anomaly subscription objects for your account. You can filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,17 +156,20 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link UnknownSubscriptionException} (client fault)
- *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
+ * The cost anomaly subscription does not exist for the account.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

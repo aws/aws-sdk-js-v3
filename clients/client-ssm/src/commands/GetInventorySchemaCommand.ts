@@ -23,8 +23,8 @@ export interface GetInventorySchemaCommandInput extends GetInventorySchemaReques
 export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResult, __MetadataBearer {}
 
 /**
- * <p>Return a list of inventory type names for the account, or return a list of attribute names
- *    for a specific Inventory item type.</p>
+ * Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,17 +68,20 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link InvalidTypeNameException} (client fault)
- *  <p>The parameter type name isn't valid.</p>
+ *
+ * The parameter type name isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

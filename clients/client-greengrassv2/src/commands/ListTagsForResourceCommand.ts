@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of tags for an IoT Greengrass resource.</p>
+ * Retrieves the list of tags for an IoT Greengrass resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,18 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

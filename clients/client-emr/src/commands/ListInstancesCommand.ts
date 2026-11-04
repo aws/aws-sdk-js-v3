@@ -23,10 +23,8 @@ export interface ListInstancesCommandInput extends ListInstancesInput {}
 export interface ListInstancesCommandOutput extends ListInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Provides information for all active Amazon EC2 instances and Amazon EC2
- *          instances terminated in the last 30 days, up to a maximum of 2,000. Amazon EC2
- *          instances in any of the following states are considered active: AWAITING_FULFILLMENT,
- *          PROVISIONING, BOOTSTRAPPING, RUNNING.</p>
+ * Provides information for all active Amazon EC2 instances and Amazon EC2 instances terminated in the last 30 days, up to a maximum of 2,000. Amazon EC2 instances in any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,15 +93,16 @@ export interface ListInstancesCommandOutput extends ListInstancesOutput, __Metad
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

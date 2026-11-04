@@ -23,28 +23,22 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
- *          </note>
- *          <p>Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by using
- *    an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition Custom Labels dataset.</p>
- *          <p>To create a training dataset for a project, specify <code>TRAIN</code> for the value of
- *       <code>DatasetType</code>. To create the test dataset for a project,
- *       specify <code>TEST</code> for the value of <code>DatasetType</code>.
- *     </p>
- *          <p>The response from <code>CreateDataset</code> is the Amazon Resource Name (ARN) for the dataset.
- *    Creating a dataset takes a while to complete. Use <a>DescribeDataset</a> to check the
- *    current status. The dataset created successfully if the value of <code>Status</code> is
- *    <code>CREATE_COMPLETE</code>. </p>
- *          <p>To check if any non-terminal errors occurred, call <a>ListDatasetEntries</a>
- * and check for the presence of <code>errors</code> lists in the JSON Lines.</p>
- *          <p>Dataset creation fails if a terminal error occurs (<code>Status</code> = <code>CREATE_FAILED</code>).
- *       Currently, you can't access the terminal error information.
+ * > **Note:** This operation applies only to Amazon Rekognition Custom Labels.
  *
- *    </p>
- *          <p>For more information, see Creating dataset in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.</p>
- *          <p>This operation requires permissions to perform the <code>rekognition:CreateDataset</code> action.
- *    If you want to copy an existing dataset, you also require permission to perform the <code>rekognition:ListDatasetEntries</code> action.</p>
+ * Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by using an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition Custom Labels dataset.
+ *
+ * To create a training dataset for a project, specify `TRAIN` for the value of `DatasetType`. To create the test dataset for a project, specify `TEST` for the value of `DatasetType`.
+ *
+ * The response from `CreateDataset` is the Amazon Resource Name (ARN) for the dataset. Creating a dataset takes a while to complete. Use DescribeDataset to check the current status. The dataset created successfully if the value of `Status` is `CREATE_COMPLETE`.
+ *
+ * To check if any non-terminal errors occurred, call ListDatasetEntries and check for the presence of `errors` lists in the JSON Lines.
+ *
+ * Dataset creation fails if a terminal error occurs (`Status` = `CREATE_FAILED`). Currently, you can't access the terminal error information.
+ *
+ * For more information, see Creating dataset in the *Amazon Rekognition Custom Labels Developer Guide*.
+ *
+ * This operation requires permissions to perform the `rekognition:CreateDataset` action. If you want to copy an existing dataset, you also require permission to perform the `rekognition:ListDatasetEntries` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,41 +79,44 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ *
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>A resource with the specified ID already exists.</p>
+ *
+ * A resource with the specified ID already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To create an Amazon Rekognition Custom Labels dataset
  * ```javascript

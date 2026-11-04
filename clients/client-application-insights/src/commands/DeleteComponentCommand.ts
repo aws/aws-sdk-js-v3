@@ -23,9 +23,8 @@ export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
 export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Ungroups a custom component. When you ungroup custom components, all applicable monitors
- *          that are set up for the component are removed and the instances revert to their standalone
- *          status.</p>
+ * Ungroups a custom component. When you ungroup custom components, all applicable monitors that are set up for the component are removed and the instances revert to their standalone status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +50,20 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource does not exist in the customer account.</p>
+ *
+ * The resource does not exist in the customer account.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link ApplicationInsightsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationInsights service.
  *
  * @public
  */

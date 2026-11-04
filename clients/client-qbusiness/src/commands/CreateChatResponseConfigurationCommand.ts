@@ -26,7 +26,8 @@ export interface CreateChatResponseConfigurationCommandInput extends CreateChatR
 export interface CreateChatResponseConfigurationCommandOutput extends CreateChatResponseConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new chat response configuration for an Amazon Q Business application. This operation establishes a set of parameters that define how the system generates and formats responses to user queries in chat interactions.</p>
+ * Creates a new chat response configuration for an Amazon Q Business application. This operation establishes a set of parameters that define how the system generates and formats responses to user queries in chat interactions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,29 +77,36 @@ export interface CreateChatResponseConfigurationCommandOutput extends CreateChat
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+ *
+ * You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+ *
+ * You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+ *
+ * The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+ *
+ * You have exceeded the set limits for your Amazon Q Business service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+ *
+ * The request was denied due to throttling. Reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+ *
+ * The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.
  *
  * @throws {@link QBusinessServiceException}
- * <p>Base exception class for all service exceptions from QBusiness service.</p>
  *
+ * Base exception class for all service exceptions from QBusiness service.
  *
  * @public
  */

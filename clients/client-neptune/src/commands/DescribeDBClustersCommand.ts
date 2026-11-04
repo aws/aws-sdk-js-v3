@@ -23,12 +23,10 @@ export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessag
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about provisioned DB clusters, and supports
- *       pagination.</p>
- *          <note>
- *             <p>This operation can also return information for Amazon RDS clusters
- *     and Amazon DocDB clusters.</p>
- *          </note>
+ * Returns information about provisioned DB clusters, and supports pagination.
+ *
+ * > **Note:** This operation can also return information for Amazon RDS clusters and Amazon DocDB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -164,12 +162,12 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

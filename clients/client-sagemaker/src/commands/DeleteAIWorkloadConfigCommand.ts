@@ -23,7 +23,8 @@ export interface DeleteAIWorkloadConfigCommandInput extends DeleteAIWorkloadConf
 export interface DeleteAIWorkloadConfigCommandOutput extends DeleteAIWorkloadConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified AI workload configuration. You cannot delete a configuration that is referenced by an active benchmark job.</p>
+ * Deletes the specified AI workload configuration. You cannot delete a configuration that is referenced by an active benchmark job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface DeleteAIWorkloadConfigCommandOutput extends DeleteAIWorkloadCon
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

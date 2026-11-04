@@ -23,13 +23,12 @@ export interface DescribeReservedInstancesCommandInput extends DescribeReservedI
 export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of the Reserved Instances that you purchased.</p>
- *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
- *         Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes one or more of the Reserved Instances that you purchased.
+ *
+ * For more information about Reserved Instances, see [Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html) in the *Amazon EC2 User Guide*.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,8 +100,8 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

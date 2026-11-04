@@ -23,23 +23,16 @@ export interface CreateAssetModelCompositeModelCommandInput extends CreateAssetM
 export interface CreateAssetModelCompositeModelCommandOutput extends CreateAssetModelCompositeModelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a custom composite model from specified property and hierarchy definitions. There
- *       are two types of custom composite models, <code>inline</code> and
- *         <code>component-model-based</code>. </p>
- *          <p>Use component-model-based custom composite models to define standard, reusable components.
- *       A component-model-based custom composite model consists of a name, a description, and the ID
- *       of the component model it references. A component-model-based custom composite model has no
- *       properties of its own; its referenced component model provides its associated properties to
- *       any created assets. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html">Custom composite models (Components)</a>
- *       in the <i>IoT SiteWise User Guide</i>.</p>
- *          <p>Use inline custom composite models to organize the properties of an asset model. The
- *       properties of inline custom composite models are local to the asset model where they are
- *       included and can't be used to create multiple assets.</p>
- *          <p>To create a component-model-based model, specify the <code>composedAssetModelId</code> of
- *       an existing asset model with <code>assetModelType</code> of
- *       <code>COMPONENT_MODEL</code>.</p>
- *          <p>To create an inline model, specify the <code>assetModelCompositeModelProperties</code> and
- *       don't include an <code>composedAssetModelId</code>.</p>
+ * Creates a custom composite model from specified property and hierarchy definitions. There are two types of custom composite models, `inline` and `component-model-based`.
+ *
+ * Use component-model-based custom composite models to define standard, reusable components. A component-model-based custom composite model consists of a name, a description, and the ID of the component model it references. A component-model-based custom composite model has no properties of its own; its referenced component model provides its associated properties to any created assets. For more information, see [Custom composite models (Components)](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html) in the *IoT SiteWise User Guide*.
+ *
+ * Use inline custom composite models to organize the properties of an asset model. The properties of inline custom composite models are local to the asset model where they are included and can't be used to create multiple assets.
+ *
+ * To create a component-model-based model, specify the `composedAssetModelId` of an existing asset model with `assetModelType` of `COMPONENT_MODEL`.
+ *
+ * To create an inline model, specify the `assetModelCompositeModelProperties` and don't include an `composedAssetModelId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,41 +163,44 @@ export interface CreateAssetModelCompositeModelCommandOutput extends CreateAsset
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The precondition in one or more of the request-header fields evaluated to
- *         <code>FALSE</code>.</p>
+ *
+ * The precondition in one or more of the request-header fields evaluated to `FALSE`.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

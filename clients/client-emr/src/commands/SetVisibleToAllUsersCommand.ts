@@ -23,19 +23,14 @@ export interface SetVisibleToAllUsersCommandInput extends SetVisibleToAllUsersIn
 export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
 
 /**
- * <important>
- *             <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be
- *             visible to all users in your account. To restrict cluster access using an IAM policy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-IAM.html">Identity and Access
- *                Management for Amazon EMR</a>. </p>
- *          </important>
- *          <p>Sets the <a>Cluster$VisibleToAllUsers</a> value for an Amazon EMR
- *          cluster. When <code>true</code>, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM
- *          principal that created the cluster and the Amazon Web Services account root user can perform
- *             Amazon EMR actions on the cluster, regardless of IAM permissions
- *          policies attached to other IAM principals.</p>
- *          <p>This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a> parameter.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users">Understanding the Amazon EMR Cluster VisibleToAllUsers Setting</a> in the
- *                <i>Amazon EMR Management Guide</i>.</p>
+ * > **Important:** The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be visible to all users in your account. To restrict cluster access using an IAM policy, see [Identity and Access Management for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-IAM.html).
+ *
+ * Sets the Cluster$VisibleToAllUsers value for an Amazon EMR cluster. When `true`, IAM principals in the Amazon Web Services account can perform Amazon EMR cluster actions that their IAM policies allow. When `false`, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform Amazon EMR actions on the cluster, regardless of IAM permissions policies attached to other IAM principals.
+ *
+ * This action works on running clusters. When you create a cluster, use the RunJobFlowInput$VisibleToAllUsers parameter.
+ *
+ * For more information, see [Understanding the Amazon EMR Cluster VisibleToAllUsers Setting](https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users) in the *Amazon EMR Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,12 +58,12 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface GetSerialConsoleAccessStatusCommandInput extends GetSerialConso
 export interface GetSerialConsoleAccessStatusCommandOutput extends GetSerialConsoleAccessStatusResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the access status of your account to the EC2 serial console of all instances. By
- * 			default, access to the EC2 serial console is disabled for your account. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
- * 				User Guide</i>.</p>
+ * Retrieves the access status of your account to the EC2 serial console of all instances. By default, access to the EC2 serial console is disabled for your account. For more information, see [Manage account access to the EC2 serial console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,8 +52,8 @@ export interface GetSerialConsoleAccessStatusCommandOutput extends GetSerialCons
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

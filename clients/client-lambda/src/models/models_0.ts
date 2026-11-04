@@ -52,54 +52,63 @@ import type {
 } from "./enums";
 
 /**
- * <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
+ * Limits that are related to concurrency and storage. All file and storage sizes are in bytes.
+ *
  * @public
  */
 export interface AccountLimit {
   /**
-   * <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
+   * The amount of storage space that you can use for all deployment packages and layer archives.
+   *
    * @public
    */
   TotalCodeSize?: number | undefined;
 
   /**
-   * <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
+   * The maximum size of a function's deployment package and layers when they're extracted.
+   *
    * @public
    */
   CodeSizeUnzipped?: number | undefined;
 
   /**
-   * <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.</p>
+   * The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.
+   *
    * @public
    */
   CodeSizeZipped?: number | undefined;
 
   /**
-   * <p>The maximum number of simultaneous function executions.</p>
+   * The maximum number of simultaneous function executions.
+   *
    * @public
    */
   ConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with <a>PutFunctionConcurrency</a>.</p>
+   * The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with PutFunctionConcurrency.
+   *
    * @public
    */
   UnreservedConcurrentExecutions?: number | undefined;
 }
 
 /**
- * <p>The number of functions and amount of storage in use.</p>
+ * The number of functions and amount of storage in use.
+ *
  * @public
  */
 export interface AccountUsage {
   /**
-   * <p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>
+   * The amount of storage space, in bytes, that's being used by deployment packages and layer archives.
+   *
    * @public
    */
   TotalCodeSize?: number | undefined;
 
   /**
-   * <p>The number of Lambda functions.</p>
+   * The number of Lambda functions.
+   *
    * @public
    */
   FunctionCount?: number | undefined;
@@ -110,43 +119,50 @@ export interface AccountUsage {
  */
 export interface AddLayerVersionPermissionRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   VersionNumber: number | undefined;
 
   /**
-   * <p>An identifier that distinguishes the policy from others on the same layer version.</p>
+   * An identifier that distinguishes the policy from others on the same layer version.
+   *
    * @public
    */
   StatementId: string | undefined;
 
   /**
-   * <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
+   * The API action that grants access to the layer. For example, `lambda:GetLayerVersion`.
+   *
    * @public
    */
   Action: string | undefined;
 
   /**
-   * <p>An account ID, or <code>*</code> to grant layer usage permission to all accounts in an organization, or all Amazon Web Services accounts (if <code>organizationId</code> is not specified). For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer. </p>
+   * An account ID, or `*` to grant layer usage permission to all accounts in an organization, or all Amazon Web Services accounts (if `organizationId` is not specified). For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer.
+   *
    * @public
    */
   Principal: string | undefined;
 
   /**
-   * <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
+   * With the principal set to `*`, grant permission to all accounts in the specified organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
+   * Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -157,13 +173,15 @@ export interface AddLayerVersionPermissionRequest {
  */
 export interface AddLayerVersionPermissionResponse {
   /**
-   * <p>The permission statement.</p>
+   * The permission statement.
+   *
    * @public
    */
   Statement?: string | undefined;
 
   /**
-   * <p>A unique identifier for the current revision of the policy.</p>
+   * A unique identifier for the current revision of the policy.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -174,73 +192,95 @@ export interface AddLayerVersionPermissionResponse {
  */
 export interface AddPermissionRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>A statement identifier that differentiates the statement from others in the same policy.</p>
+   * A statement identifier that differentiates the statement from others in the same policy.
+   *
    * @public
    */
   StatementId: string | undefined;
 
   /**
-   * <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or <code>lambda:GetFunction</code>.</p>
+   * The action that the principal can use on the function. For example, `lambda:InvokeFunction` or `lambda:GetFunction`.
+   *
    * @public
    */
   Action: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service, Amazon Web Services account, IAM user, or IAM role that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+   * The Amazon Web Services service, Amazon Web Services account, IAM user, or IAM role that invokes the function. If you specify a service, use `SourceArn` or `SourceAccount` to limit who can invoke the function through that service.
+   *
    * @public
    */
   Principal: string | undefined;
 
   /**
-   * <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p> <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
+   * For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
+   *
+   * Note that Lambda configures the comparison using the `StringLike` operator.
+   *
    * @public
    */
   SourceArn?: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   FunctionUrlAuthType?: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>Indicates whether the permission applies when the function is invoked through a function URL. </p>
+   * Indicates whether the permission applies when the function is invoked through a function URL.
+   *
    * @public
    */
   InvokedViaFunctionUrl?: boolean | undefined;
 
   /**
-   * <p>For Amazon Web Services service, the ID of the Amazon Web Services account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
+   * For Amazon Web Services service, the ID of the Amazon Web Services account that owns the resource. Use this together with `SourceArn` to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
+   *
    * @public
    */
   SourceAccount?: string | undefined;
 
   /**
-   * <p>For Alexa Smart Home functions, a token that the invoker must supply.</p>
+   * For Alexa Smart Home functions, a token that the invoker must supply.
+   *
    * @public
    */
   EventSourceToken?: string | undefined;
 
   /**
-   * <p>Specify a version or alias to add permissions to a published version of the function.</p>
+   * Specify a version or alias to add permissions to a published version of the function.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
+   * Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services accounts under this organization.</p>
+   * The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services accounts under this organization.
+   *
    * @public
    */
   PrincipalOrgID?: string | undefined;
@@ -251,295 +291,359 @@ export interface AddPermissionRequest {
  */
 export interface AddPermissionResponse {
   /**
-   * <p>The permission statement that's added to the function policy.</p>
+   * The permission statement that's added to the function policy.
+   *
    * @public
    */
   Statement?: string | undefined;
 }
 
 /**
- * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">traffic-shifting</a> configuration of a Lambda function alias.</p>
+ * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+ *
  * @public
  */
 export interface AliasRoutingConfiguration {
   /**
-   * <p>The second version, and the percentage of traffic that's routed to it.</p>
+   * The second version, and the percentage of traffic that's routed to it.
+   *
    * @public
    */
   AdditionalVersionWeights?: Record<string, number> | undefined;
 }
 
 /**
- * <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.</p>
+ * Provides configuration information about a Lambda function [alias](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html).
+ *
  * @public
  */
 export interface AliasConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the alias.</p>
+   * The Amazon Resource Name (ARN) of the alias.
+   *
    * @public
    */
   AliasArn?: string | undefined;
 
   /**
-   * <p>The name of the alias.</p>
+   * The name of the alias.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The function version that the alias invokes.</p>
+   * The function version that the alias invokes.
+   *
    * @public
    */
   FunctionVersion?: string | undefined;
 
   /**
-   * <p>A description of the alias.</p>
+   * A description of the alias.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
+   * The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
+   *
    * @public
    */
   RoutingConfig?: AliasRoutingConfiguration | undefined;
 
   /**
-   * <p>A unique identifier that changes when you update the alias.</p>
+   * A unique identifier that changes when you update the alias.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 }
 
 /**
- * <p>List of signing profiles that can sign a code package. </p>
+ * List of signing profiles that can sign a code package.
+ *
  * @public
  */
 export interface AllowedPublishers {
   /**
-   * <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. </p>
+   * The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+   *
    * @public
    */
   SigningProfileVersionArns: string[] | undefined;
 }
 
 /**
- * <p>Specific access configuration settings that tell Lambda how to authenticate with your schema registry.</p> <p>If you're working with an Glue schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.</p> <p>If you're working with a Confluent schema registry, choose the authentication method in the <code>Type</code> field, and provide the Secrets Manager secret ARN in the <code>URI</code> field.</p>
+ * Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+ *
+ * If you're working with an Glue schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+ *
+ * If you're working with a Confluent schema registry, choose the authentication method in the `Type` field, and provide the Secrets Manager secret ARN in the `URI` field.
+ *
  * @public
  */
 export interface KafkaSchemaRegistryAccessConfig {
   /**
-   * <p> The type of authentication Lambda uses to access your schema registry. </p> <ul> <li> <p> <code>BASIC_AUTH</code> – The Secrets Manager ARN of your secret key used for basic authentication with your Confluent schema registry.</p> </li> <li> <p> <code>CLIENT_CERTIFICATE_TLS_AUTH</code> – The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication with your Confluent schema registry.</p> </li> <li> <p> <code>SERVER_ROOT_CA_CERTIFICATE</code> – The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption with your Confluent schema registry.</p> </li> <li> <p> <code>OAUTHBEARER_AUTH</code> – The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses to acquire an access token for your Confluent schema registry. For the contents of the secret, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret">Configuring the OAuth secret</a>.</p> </li> </ul>
+   * The type of authentication Lambda uses to access your schema registry.
+   *
+   * - `BASIC_AUTH` – The Secrets Manager ARN of your secret key used for basic authentication with your Confluent schema registry.
+   * - `CLIENT_CERTIFICATE_TLS_AUTH` – The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication with your Confluent schema registry.
+   * - `SERVER_ROOT_CA_CERTIFICATE` – The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption with your Confluent schema registry.
+   * - `OAUTHBEARER_AUTH` – The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses to acquire an access token for your Confluent schema registry. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
+   *
    * @public
    */
   Type?: KafkaSchemaRegistryAuthType | undefined;
 
   /**
-   * <p> The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry. </p>
+   * The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
+   *
    * @public
    */
   URI?: string | undefined;
 }
 
 /**
- * <p>Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
+ * Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
+ *
  * @public
  */
 export interface KafkaSchemaValidationConfig {
   /**
-   * <p> The attributes you want your schema registry to validate and filter for. If you selected <code>JSON</code> as the <code>EventRecordFormat</code>, Lambda also deserializes the selected message attributes. </p>
+   * The attributes you want your schema registry to validate and filter for. If you selected `JSON` as the `EventRecordFormat`, Lambda also deserializes the selected message attributes.
+   *
    * @public
    */
   Attribute?: KafkaSchemaValidationAttribute | undefined;
 }
 
 /**
- * <p>Specific configuration settings for a Kafka schema registry.</p>
+ * Specific configuration settings for a Kafka schema registry.
+ *
  * @public
  */
 export interface KafkaSchemaRegistryConfig {
   /**
-   * <p>The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.</p> <ul> <li> <p>For Glue schema registries, use the ARN of the registry.</p> </li> <li> <p>For Confluent schema registries, use the URL of the registry.</p> </li> </ul>
+   * The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+   *
+   * - For Glue schema registries, use the ARN of the registry.
+   * - For Confluent schema registries, use the URL of the registry.
+   *
    * @public
    */
   SchemaRegistryURI?: string | undefined;
 
   /**
-   * <p>The record format that Lambda delivers to your function after schema validation.</p> <ul> <li> <p>Choose <code>JSON</code> to have Lambda deliver the record to your function as a standard JSON object.</p> </li> <li> <p>Choose <code>SOURCE</code> to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.</p> </li> </ul>
+   * The record format that Lambda delivers to your function after schema validation.
+   *
+   * - Choose `JSON` to have Lambda deliver the record to your function as a standard JSON object.
+   * - Choose `SOURCE` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+   *
    * @public
    */
   EventRecordFormat?: SchemaRegistryEventRecordFormat | undefined;
 
   /**
-   * <p>An array of access configuration objects that tell Lambda how to authenticate with your schema registry.</p>
+   * An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
+   *
    * @public
    */
   AccessConfigs?: KafkaSchemaRegistryAccessConfig[] | undefined;
 
   /**
-   * <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
+   * An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
+   *
    * @public
    */
   SchemaValidationConfigs?: KafkaSchemaValidationConfig[] | undefined;
 }
 
 /**
- * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+ * Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+ *
  * @public
  */
 export interface AmazonManagedKafkaEventSourceConfig {
   /**
-   * <p>The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id">Customizable consumer group ID</a>.</p>
+   * The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
+   *
    * @public
    */
   ConsumerGroupId?: string | undefined;
 
   /**
-   * <p>Specific configuration settings for a Kafka schema registry.</p>
+   * Specific configuration settings for a Kafka schema registry.
+   *
    * @public
    */
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
 }
 
 /**
- * <p>A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.</p>
+ * A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
+ *
  * @public
  */
 export interface TargetTrackingScalingPolicy {
   /**
-   * <p>The predefined metric type to track for scaling decisions.</p>
+   * The predefined metric type to track for scaling decisions.
+   *
    * @public
    */
   PredefinedMetricType: CapacityProviderPredefinedMetricType | undefined;
 
   /**
-   * <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
+   * The target value for the metric that the scaling policy attempts to maintain through scaling actions.
+   *
    * @public
    */
   TargetValue: number | undefined;
 }
 
 /**
- * <p>Configuration that defines how the capacity provider scales compute instances based on demand and policies.</p>
+ * Configuration that defines how the capacity provider scales compute instances based on demand and policies.
+ *
  * @public
  */
 export interface CapacityProviderScalingConfig {
   /**
-   * <p>The maximum number of vCPUs that the capacity provider can provision across all compute instances.</p>
+   * The maximum number of vCPUs that the capacity provider can provision across all compute instances.
+   *
    * @public
    */
   MaxVCpuCount?: number | undefined;
 
   /**
-   * <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
+   * The scaling mode that determines how the capacity provider responds to changes in demand.
+   *
    * @public
    */
   ScalingMode?: CapacityProviderScalingMode | undefined;
 
   /**
-   * <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
+   * A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.
+   *
    * @public
    */
   ScalingPolicies?: TargetTrackingScalingPolicy[] | undefined;
 }
 
 /**
- * <p>Specifications that define the characteristics and constraints for compute instances used by the capacity provider.</p>
+ * Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
+ *
  * @public
  */
 export interface InstanceRequirements {
   /**
-   * <p>A list of supported CPU architectures for compute instances. Valid values include <code>x86_64</code> and <code>arm64</code>.</p>
+   * A list of supported CPU architectures for compute instances. Valid values include `x86_64` and `arm64`.
+   *
    * @public
    */
   Architectures?: Architecture[] | undefined;
 
   /**
-   * <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
+   * A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
+   *
    * @public
    */
   AllowedInstanceTypes?: string[] | undefined;
 
   /**
-   * <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
+   * A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
+   *
    * @public
    */
   ExcludedInstanceTypes?: string[] | undefined;
 }
 
 /**
- * <p>Configuration that specifies the permissions required for the capacity provider to manage compute resources.</p>
+ * Configuration that specifies the permissions required for the capacity provider to manage compute resources.
+ *
  * @public
  */
 export interface CapacityProviderPermissionsConfig {
   /**
-   * <p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>
+   * The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.
+   *
    * @public
    */
   CapacityProviderOperatorRoleArn: string | undefined;
 }
 
 /**
- * <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
+ * Configuration for tag propagation to managed resources launched by the capacity provider.
+ *
  * @public
  */
 export interface PropagateTags {
   /**
-   * <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
+   * The tag propagation mode. Set to `Explicit` to propagate the tags specified in `ExplicitTags` to managed resources. Set to `None` to disable tag propagation.
+   *
    * @public
    */
   Mode?: PropagateTagsMode | undefined;
 
   /**
-   * <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
+   * A list of tags to apply to managed resources when `Mode` is set to `Explicit`. You can specify up to 40 tags.
+   *
    * @public
    */
   ExplicitTags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>
+ * The capacity provider's Amazon CloudWatch Logs configuration settings.
+ *
  * @public
  */
 export interface CapacityProviderLoggingConfig {
   /**
-   * <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
+   * Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where `DEBUG` is the highest level and `WARN` is the lowest.
+   *
    * @public
    */
   SystemLogLevel?: SystemLogLevel | undefined;
 
   /**
-   * <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
+   * The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named `/aws/lambda/capacity-provider/<capacity provider name>`. To use a different log group, enter an existing log group or enter a new log group name.
+   *
    * @public
    */
   LogGroup?: string | undefined;
 }
 
 /**
- * <p>Configuration that specifies the telemetry collection for the capacity provider.</p>
+ * Configuration that specifies the telemetry collection for the capacity provider.
+ *
  * @public
  */
 export interface CapacityProviderTelemetryConfig {
   /**
-   * <p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>
+   * The capacity provider's Amazon CloudWatch Logs configuration settings.
+   *
    * @public
    */
   LoggingConfig?: CapacityProviderLoggingConfig | undefined;
 }
 
 /**
- * <p>VPC configuration that specifies the network settings for compute instances managed by the capacity provider.</p>
+ * VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
+ *
  * @public
  */
 export interface CapacityProviderVpcConfig {
   /**
-   * <p>A list of subnet IDs where the capacity provider launches compute instances.</p>
+   * A list of subnet IDs where the capacity provider launches compute instances.
+   *
    * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
+   * A list of security group IDs that control network access for compute instances managed by the capacity provider.
+   *
    * @public
    */
   SecurityGroupIds: string[] | undefined;
@@ -550,121 +654,141 @@ export interface CapacityProviderVpcConfig {
  */
 export interface CreateCapacityProviderRequest {
   /**
-   * <p>The name of the capacity provider. </p>
+   * The name of the capacity provider.
+   *
    * @public
    */
   CapacityProviderName: string | undefined;
 
   /**
-   * <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
+   * The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.
+   *
    * @public
    */
   VpcConfig: CapacityProviderVpcConfig | undefined;
 
   /**
-   * <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
+   * The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.
+   *
    * @public
    */
   PermissionsConfig: CapacityProviderPermissionsConfig | undefined;
 
   /**
-   * <p>The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.</p>
+   * The instance requirements that specify the compute instance characteristics, including architectures and allowed or excluded instance types.
+   *
    * @public
    */
   InstanceRequirements?: InstanceRequirements | undefined;
 
   /**
-   * <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
+   * The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.
+   *
    * @public
    */
   CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt data associated with the capacity provider.</p>
+   * The ARN of the KMS key used to encrypt data associated with the capacity provider.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the capacity provider.</p>
+   * A list of tags to associate with the capacity provider.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>
+   * The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.
+   *
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
 
   /**
-   * <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+   * The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.
+   *
    * @public
    */
   TelemetryConfig?: CapacityProviderTelemetryConfig | undefined;
 }
 
 /**
- * <p>A capacity provider manages compute resources for Lambda functions.</p>
+ * A capacity provider manages compute resources for Lambda functions.
+ *
  * @public
  */
 export interface CapacityProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   CapacityProviderArn: string | undefined;
 
   /**
-   * <p>The current state of the capacity provider.</p>
+   * The current state of the capacity provider.
+   *
    * @public
    */
   State: CapacityProviderState | undefined;
 
   /**
-   * <p>The VPC configuration for the capacity provider.</p>
+   * The VPC configuration for the capacity provider.
+   *
    * @public
    */
   VpcConfig: CapacityProviderVpcConfig | undefined;
 
   /**
-   * <p>The permissions configuration for the capacity provider.</p>
+   * The permissions configuration for the capacity provider.
+   *
    * @public
    */
   PermissionsConfig: CapacityProviderPermissionsConfig | undefined;
 
   /**
-   * <p>The instance requirements for compute resources managed by the capacity provider.</p>
+   * The instance requirements for compute resources managed by the capacity provider.
+   *
    * @public
    */
   InstanceRequirements?: InstanceRequirements | undefined;
 
   /**
-   * <p>The scaling configuration for the capacity provider.</p>
+   * The scaling configuration for the capacity provider.
+   *
    * @public
    */
   CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
 
   /**
-   * <p>The ARN of the KMS key used to encrypt the capacity provider's resources.</p>
+   * The ARN of the KMS key used to encrypt the capacity provider's resources.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>The date and time when the capacity provider was last modified.</p>
+   * The date and time when the capacity provider was last modified.
+   *
    * @public
    */
   LastModified?: string | undefined;
 
   /**
-   * <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
+   * Configuration for tag propagation to managed resources launched by the capacity provider.
+   *
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
 
   /**
-   * <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+   * The telemetry configuration for the capacity provider, including logging settings.
+   *
    * @public
    */
   TelemetryConfig?: CapacityProviderTelemetryConfig | undefined;
@@ -675,7 +799,8 @@ export interface CapacityProvider {
  */
 export interface CreateCapacityProviderResponse {
   /**
-   * <p>Information about the capacity provider that was created.</p>
+   * Information about the capacity provider that was created.
+   *
    * @public
    */
   CapacityProvider: CapacityProvider | undefined;
@@ -686,7 +811,8 @@ export interface CreateCapacityProviderResponse {
  */
 export interface DeleteCapacityProviderRequest {
   /**
-   * <p>The name of the capacity provider to delete.</p>
+   * The name of the capacity provider to delete.
+   *
    * @public
    */
   CapacityProviderName: string | undefined;
@@ -697,7 +823,8 @@ export interface DeleteCapacityProviderRequest {
  */
 export interface DeleteCapacityProviderResponse {
   /**
-   * <p>Information about the deleted capacity provider.</p>
+   * Information about the deleted capacity provider.
+   *
    * @public
    */
   CapacityProvider: CapacityProvider | undefined;
@@ -708,7 +835,8 @@ export interface DeleteCapacityProviderResponse {
  */
 export interface GetCapacityProviderRequest {
   /**
-   * <p>The name of the capacity provider to retrieve.</p>
+   * The name of the capacity provider to retrieve.
+   *
    * @public
    */
   CapacityProviderName: string | undefined;
@@ -719,7 +847,8 @@ export interface GetCapacityProviderRequest {
  */
 export interface GetCapacityProviderResponse {
   /**
-   * <p>Information about the capacity provider, including its configuration and current state.</p>
+   * Information about the capacity provider, including its configuration and current state.
+   *
    * @public
    */
   CapacityProvider: CapacityProvider | undefined;
@@ -730,19 +859,22 @@ export interface GetCapacityProviderResponse {
  */
 export interface ListCapacityProvidersRequest {
   /**
-   * <p>Filter capacity providers by their current state.</p>
+   * Filter capacity providers by their current state.
+   *
    * @public
    */
   State?: CapacityProviderState | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of capacity providers to return.</p>
+   * The maximum number of capacity providers to return.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -753,13 +885,15 @@ export interface ListCapacityProvidersRequest {
  */
 export interface ListCapacityProvidersResponse {
   /**
-   * <p>A list of capacity providers in your account.</p>
+   * A list of capacity providers in your account.
+   *
    * @public
    */
   CapacityProviders: CapacityProvider[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -770,37 +904,43 @@ export interface ListCapacityProvidersResponse {
  */
 export interface ListFunctionVersionsByCapacityProviderRequest {
   /**
-   * <p>The name of the capacity provider to list function versions for.</p>
+   * The name of the capacity provider to list function versions for.
+   *
    * @public
    */
   CapacityProviderName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of function versions to return in the response.</p>
+   * The maximum number of function versions to return in the response.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>Information about a function version that uses a specific capacity provider, including its ARN and current state.</p>
+ * Information about a function version that uses a specific capacity provider, including its ARN and current state.
+ *
  * @public
  */
 export interface FunctionVersionsByCapacityProviderListItem {
   /**
-   * <p>The Amazon Resource Name (ARN) of the function version.</p>
+   * The Amazon Resource Name (ARN) of the function version.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The current state of the function version.</p>
+   * The current state of the function version.
+   *
    * @public
    */
   State: State | undefined;
@@ -811,19 +951,22 @@ export interface FunctionVersionsByCapacityProviderListItem {
  */
 export interface ListFunctionVersionsByCapacityProviderResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   CapacityProviderArn: string | undefined;
 
   /**
-   * <p>A list of function versions that use the specified capacity provider.</p>
+   * A list of function versions that use the specified capacity provider.
+   *
    * @public
    */
   FunctionVersions: FunctionVersionsByCapacityProviderListItem[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -834,25 +977,29 @@ export interface ListFunctionVersionsByCapacityProviderResponse {
  */
 export interface UpdateCapacityProviderRequest {
   /**
-   * <p>The name of the capacity provider to update.</p>
+   * The name of the capacity provider to update.
+   *
    * @public
    */
   CapacityProviderName: string | undefined;
 
   /**
-   * <p>The updated scaling configuration for the capacity provider.</p>
+   * The updated scaling configuration for the capacity provider.
+   *
    * @public
    */
   CapacityProviderScalingConfig?: CapacityProviderScalingConfig | undefined;
 
   /**
-   * <p>Configuration for tag propagation to managed resources launched by the capacity provider.</p>
+   * Configuration for tag propagation to managed resources launched by the capacity provider.
+   *
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
 
   /**
-   * <p>The updated telemetry configuration for the capacity provider.</p>
+   * The updated telemetry configuration for the capacity provider.
+   *
    * @public
    */
   TelemetryConfig?: CapacityProviderTelemetryConfig | undefined;
@@ -863,19 +1010,24 @@ export interface UpdateCapacityProviderRequest {
  */
 export interface UpdateCapacityProviderResponse {
   /**
-   * <p>Information about the updated capacity provider.</p>
+   * Information about the updated capacity provider.
+   *
    * @public
    */
   CapacityProvider: CapacityProvider | undefined;
 }
 
 /**
- * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or expiry.</p>
+ * Code signing configuration [policies](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies) specify the validation failure action for signature mismatch or expiry.
+ *
  * @public
  */
 export interface CodeSigningPolicies {
   /**
-   * <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and issues a new Amazon CloudWatch metric (<code>SignatureValidationErrors</code>) and also stores the warning in the CloudTrail log.</p> <p>Default value: <code>Warn</code> </p>
+   * Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and issues a new Amazon CloudWatch metric (`SignatureValidationErrors`) and also stores the warning in the CloudTrail log.
+   *
+   * Default value: `Warn`
+   *
    * @public
    */
   UntrustedArtifactOnDeployment?: CodeSigningPolicy | undefined;
@@ -886,67 +1038,78 @@ export interface CodeSigningPolicies {
  */
 export interface CreateCodeSigningConfigRequest {
   /**
-   * <p>Descriptive name for this code signing configuration.</p>
+   * Descriptive name for this code signing configuration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Signing profiles for this code signing configuration.</p>
+   * Signing profiles for this code signing configuration.
+   *
    * @public
    */
   AllowedPublishers: AllowedPublishers | undefined;
 
   /**
-   * <p>The code signing policies define the actions to take if the validation checks fail. </p>
+   * The code signing policies define the actions to take if the validation checks fail.
+   *
    * @public
    */
   CodeSigningPolicies?: CodeSigningPolicies | undefined;
 
   /**
-   * <p>A list of tags to add to the code signing configuration.</p>
+   * A list of tags to add to the code signing configuration.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
+ * Details about a [Code signing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
+ *
  * @public
  */
 export interface CodeSigningConfig {
   /**
-   * <p>Unique identifer for the Code signing configuration.</p>
+   * Unique identifer for the Code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
+   * The Amazon Resource Name (ARN) of the Code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
 
   /**
-   * <p>Code signing configuration description.</p>
+   * Code signing configuration description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>List of allowed publishers.</p>
+   * List of allowed publishers.
+   *
    * @public
    */
   AllowedPublishers: AllowedPublishers | undefined;
 
   /**
-   * <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
+   * The code signing policy controls the validation failure action for signature mismatch or expiry.
+   *
    * @public
    */
   CodeSigningPolicies: CodeSigningPolicies | undefined;
 
   /**
-   * <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>
+   * The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   LastModified: string | undefined;
@@ -957,7 +1120,8 @@ export interface CodeSigningConfig {
  */
 export interface CreateCodeSigningConfigResponse {
   /**
-   * <p>The code signing configuration.</p>
+   * The code signing configuration.
+   *
    * @public
    */
   CodeSigningConfig: CodeSigningConfig | undefined;
@@ -968,7 +1132,8 @@ export interface CreateCodeSigningConfigResponse {
  */
 export interface DeleteCodeSigningConfigRequest {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
@@ -984,7 +1149,8 @@ export interface DeleteCodeSigningConfigResponse {}
  */
 export interface GetCodeSigningConfigRequest {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
@@ -995,7 +1161,8 @@ export interface GetCodeSigningConfigRequest {
  */
 export interface GetCodeSigningConfigResponse {
   /**
-   * <p>The code signing configuration</p>
+   * The code signing configuration
+   *
    * @public
    */
   CodeSigningConfig: CodeSigningConfig | undefined;
@@ -1006,13 +1173,15 @@ export interface GetCodeSigningConfigResponse {
  */
 export interface ListCodeSigningConfigsRequest {
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>Maximum number of items to return.</p>
+   * Maximum number of items to return.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -1023,13 +1192,15 @@ export interface ListCodeSigningConfigsRequest {
  */
 export interface ListCodeSigningConfigsResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>The code signing configurations</p>
+   * The code signing configurations
+   *
    * @public
    */
   CodeSigningConfigs?: CodeSigningConfig[] | undefined;
@@ -1040,19 +1211,22 @@ export interface ListCodeSigningConfigsResponse {
  */
 export interface ListFunctionsByCodeSigningConfigRequest {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>Maximum number of items to return.</p>
+   * Maximum number of items to return.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -1063,13 +1237,15 @@ export interface ListFunctionsByCodeSigningConfigRequest {
  */
 export interface ListFunctionsByCodeSigningConfigResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>The function ARNs. </p>
+   * The function ARNs.
+   *
    * @public
    */
   FunctionArns?: string[] | undefined;
@@ -1080,25 +1256,29 @@ export interface ListFunctionsByCodeSigningConfigResponse {
  */
 export interface UpdateCodeSigningConfigRequest {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
 
   /**
-   * <p>Descriptive name for this code signing configuration.</p>
+   * Descriptive name for this code signing configuration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Signing profiles for this code signing configuration.</p>
+   * Signing profiles for this code signing configuration.
+   *
    * @public
    */
   AllowedPublishers?: AllowedPublishers | undefined;
 
   /**
-   * <p>The code signing policy.</p>
+   * The code signing policy.
+   *
    * @public
    */
   CodeSigningPolicies?: CodeSigningPolicies | undefined;
@@ -1109,7 +1289,8 @@ export interface UpdateCodeSigningConfigRequest {
  */
 export interface UpdateCodeSigningConfigResponse {
   /**
-   * <p>The code signing configuration</p>
+   * The code signing configuration
+   *
    * @public
    */
   CodeSigningConfig: CodeSigningConfig | undefined;
@@ -1120,13 +1301,23 @@ export interface UpdateCodeSigningConfigResponse {
  */
 export interface DeleteFunctionRequest {
   /**
-   * <p>The name or ARN of the Lambda function or version.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function or version.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:1` (with version).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version to delete. You can't delete a version that an alias references.</p>
+   * Specify a version to delete. You can't delete a version that an alias references.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -1137,7 +1328,8 @@ export interface DeleteFunctionRequest {
  */
 export interface DeleteFunctionResponse {
   /**
-   * <p>The HTTP status code returned by the operation.</p>
+   * The HTTP status code returned by the operation.
+   *
    * @public
    */
   StatusCode?: number | undefined;
@@ -1148,13 +1340,23 @@ export interface DeleteFunctionResponse {
  */
 export interface DeleteFunctionEventInvokeConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** - `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>A version number or alias name.</p>
+   * A version number or alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -1165,205 +1367,241 @@ export interface DeleteFunctionEventInvokeConfigRequest {
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy from. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
+   * The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy from. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
+   * The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a `PreconditionFailedException` error. To retrieve the current revision ID, use the GetResourcePolicy operation.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 }
 
 /**
- * <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
+ * Configuration options for callback operations in durable executions, including timeout settings and retry behavior.
+ *
  * @public
  */
 export interface CallbackOptions {
   /**
-   * <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
+   * The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.
+   *
    * @public
    */
   TimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
+   * The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.
+   *
    * @public
    */
   HeartbeatTimeoutSeconds?: number | undefined;
 }
 
 /**
- * <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
+ * Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.
+ *
  * @public
  */
 export interface ChainedInvokeOptions {
   /**
-   * <p>The name or ARN of the Lambda function to invoke.</p>
+   * The name or ARN of the Lambda function to invoke.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The tenant identifier for the chained invocation.</p>
+   * The tenant identifier for the chained invocation.
+   *
    * @public
    */
   TenantId?: string | undefined;
 
   /**
-   * <p>The X-Ray trace header to use when starting the chained invocation. This parameter is optional. If you omit this value, the child invocation inherits the parent durable execution's trace header.</p> <p>Specify this value on the <code>START</code> update for the chained invocation operation. For more information about the header format, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the <i>X-Ray Developer Guide</i>.</p>
+   * The X-Ray trace header to use when starting the chained invocation. This parameter is optional. If you omit this value, the child invocation inherits the parent durable execution's trace header.
+   *
+   * Specify this value on the `START` update for the chained invocation operation. For more information about the header format, see [Tracing header](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader) in the *X-Ray Developer Guide*.
+   *
    * @public
    */
   XAmznTraceId?: string | undefined;
 }
 
 /**
- * <p>Configuration options for a durable execution context.</p>
+ * Configuration options for a durable execution context.
+ *
  * @public
  */
 export interface ContextOptions {
   /**
-   * <p>Whether the state data of children of the completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
+   * Whether the state data of children of the completed context should be included in the invoke payload and `GetDurableExecutionState` response.
+   *
    * @public
    */
   ReplayChildren?: boolean | undefined;
 }
 
 /**
- * <p>An object that contains error information.</p>
+ * An object that contains error information.
+ *
  * @public
  */
 export interface ErrorObject {
   /**
-   * <p>A human-readable error message.</p>
+   * A human-readable error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   ErrorType?: string | undefined;
 
   /**
-   * <p>Machine-readable error data.</p>
+   * Machine-readable error data.
+   *
    * @public
    */
   ErrorData?: string | undefined;
 
   /**
-   * <p>Stack trace information for the error.</p>
+   * Stack trace information for the error.
+   *
    * @public
    */
   StackTrace?: string[] | undefined;
 }
 
 /**
- * <p>Configuration options for a step operation.</p>
+ * Configuration options for a step operation.
+ *
  * @public
  */
 export interface StepOptions {
   /**
-   * <p>The delay in seconds before the next retry attempt.</p>
+   * The delay in seconds before the next retry attempt.
+   *
    * @public
    */
   NextAttemptDelaySeconds?: number | undefined;
 }
 
 /**
- * <p>Specifies how long to pause the durable execution.</p>
+ * Specifies how long to pause the durable execution.
+ *
  * @public
  */
 export interface WaitOptions {
   /**
-   * <p>The duration to wait, in seconds.</p>
+   * The duration to wait, in seconds.
+   *
    * @public
    */
   WaitSeconds?: number | undefined;
 }
 
 /**
- * <p>An update to be applied to an operation during checkpointing.</p>
+ * An update to be applied to an operation during checkpointing.
+ *
  * @public
  */
 export interface OperationUpdate {
   /**
-   * <p>The unique identifier for this operation.</p>
+   * The unique identifier for this operation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
+   * The unique identifier of the parent operation, if this operation is running within a child context.
+   *
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>The customer-provided name for this operation.</p>
+   * The customer-provided name for this operation.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of operation to update.</p>
+   * The type of operation to update.
+   *
    * @public
    */
   Type: OperationType | undefined;
 
   /**
-   * <p>The subtype of the operation, providing additional categorization.</p>
+   * The subtype of the operation, providing additional categorization.
+   *
    * @public
    */
   SubType?: string | undefined;
 
   /**
-   * <p>The action to take on the operation.</p>
+   * The action to take on the operation.
+   *
    * @public
    */
   Action: OperationAction | undefined;
 
   /**
-   * <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), and 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType), <code>CHAINED_INVOKE</code>, <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
+   * The payload for successful operations. The maximum payload size is 6 MB for synchronous `EXECUTION` operations (RequestResponse invocationType), and 1 MB for asynchronous `EXECUTION` (Event invocationType), `CHAINED_INVOKE`, `CONTEXT`, `STEP`, `WAIT`, and `CALLBACK` operations.
+   *
    * @public
    */
   Payload?: string | undefined;
 
   /**
-   * <p>The error information for failed operations. The combined size of all error fields is limited to 1 MB.</p>
+   * The error information for failed operations. The combined size of all error fields is limited to 1 MB.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
 
   /**
-   * <p>Options for context operations.</p>
+   * Options for context operations.
+   *
    * @public
    */
   ContextOptions?: ContextOptions | undefined;
 
   /**
-   * <p>Options for step operations.</p>
+   * Options for step operations.
+   *
    * @public
    */
   StepOptions?: StepOptions | undefined;
 
   /**
-   * <p>Options for wait operations.</p>
+   * Options for wait operations.
+   *
    * @public
    */
   WaitOptions?: WaitOptions | undefined;
 
   /**
-   * <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
+   * Configuration options for callback operations in durable executions, including timeout settings and retry behavior.
+   *
    * @public
    */
   CallbackOptions?: CallbackOptions | undefined;
 
   /**
-   * <p>Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.</p>
+   * Configuration options for chained function invocations in durable executions, including retry settings and timeout configuration.
+   *
    * @public
    */
   ChainedInvokeOptions?: ChainedInvokeOptions | undefined;
@@ -1374,271 +1612,316 @@ export interface OperationUpdate {
  */
 export interface CheckpointDurableExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
+   * A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.
+   *
    * @public
    */
   CheckpointToken: string | undefined;
 
   /**
-   * <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
+   * An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.
+   *
    * @public
    */
   Updates?: OperationUpdate[] | undefined;
 
   /**
-   * <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
+   * An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 }
 
 /**
- * <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
+ * Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.
+ *
  * @public
  */
 export interface CallbackDetails {
   /**
-   * <p>The callback ID. Callback IDs are generated by the <code>DurableContext</code> when a durable function calls <code>ctx.waitForCallback</code>.</p>
+   * The callback ID. Callback IDs are generated by the `DurableContext` when a durable function calls `ctx.waitForCallback`.
+   *
    * @public
    */
   CallbackId?: string | undefined;
 
   /**
-   * <p>The response payload from the callback operation as a string.</p>
+   * The response payload from the callback operation as a string.
+   *
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>An error object that contains details about the failure.</p>
+   * An error object that contains details about the failure.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
 }
 
 /**
- * <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
+ * Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.
+ *
  * @public
  */
 export interface ChainedInvokeDetails {
   /**
-   * <p>The response payload from the chained invocation.</p>
+   * The response payload from the chained invocation.
+   *
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>Details about the chained invocation failure.</p>
+   * Details about the chained invocation failure.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
 }
 
 /**
- * <p>Details about a durable execution context.</p>
+ * Details about a durable execution context.
+ *
  * @public
  */
 export interface ContextDetails {
   /**
-   * <p>Whether the state data of child operations of this completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
+   * Whether the state data of child operations of this completed context should be included in the invoke payload and `GetDurableExecutionState` response.
+   *
    * @public
    */
   ReplayChildren?: boolean | undefined;
 
   /**
-   * <p>The response payload from the context.</p>
+   * The response payload from the context.
+   *
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>Details about the context failure.</p>
+   * Details about the context failure.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
 }
 
 /**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
+ * Details about a [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+ *
  * @public
  */
 export interface ExecutionDetails {
   /**
-   * <p>The original input payload provided for the durable execution.</p>
+   * The original input payload provided for the durable execution.
+   *
    * @public
    */
   InputPayload?: string | undefined;
 }
 
 /**
- * <p>Details about a step operation.</p>
+ * Details about a step operation.
+ *
  * @public
  */
 export interface StepDetails {
   /**
-   * <p>The current attempt number for this step.</p>
+   * The current attempt number for this step.
+   *
    * @public
    */
   Attempt?: number | undefined;
 
   /**
-   * <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
+   * The date and time when the next attempt is scheduled, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.
+   *
    * @public
    */
   NextAttemptTimestamp?: Date | undefined;
 
   /**
-   * <p>The JSON response payload from the step operation.</p>
+   * The JSON response payload from the step operation.
+   *
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>Details about the step failure.</p>
+   * Details about the step failure.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
 }
 
 /**
- * <p>Details about a wait operation.</p>
+ * Details about a wait operation.
+ *
  * @public
  */
 export interface WaitDetails {
   /**
-   * <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the wait operation is scheduled to complete, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   ScheduledEndTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Information about an operation within a durable execution.</p>
+ * Information about an operation within a durable execution.
+ *
  * @public
  */
 export interface Operation {
   /**
-   * <p>The unique identifier for this operation.</p>
+   * The unique identifier for this operation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
+   * The unique identifier of the parent operation, if this operation is running within a child context.
+   *
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>The customer-provided name for this operation.</p>
+   * The customer-provided name for this operation.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of operation.</p>
+   * The type of operation.
+   *
    * @public
    */
   Type: OperationType | undefined;
 
   /**
-   * <p>The subtype of the operation, providing additional categorization.</p>
+   * The subtype of the operation, providing additional categorization.
+   *
    * @public
    */
   SubType?: string | undefined;
 
   /**
-   * <p>The date and time when the operation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the operation started, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   StartTimestamp: Date | undefined;
 
   /**
-   * <p>The date and time when the operation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the operation ended, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   EndTimestamp?: Date | undefined;
 
   /**
-   * <p>The current status of the operation.</p>
+   * The current status of the operation.
+   *
    * @public
    */
   Status: OperationStatus | undefined;
 
   /**
-   * <p>Details about the execution, if this operation represents an execution.</p>
+   * Details about the execution, if this operation represents an execution.
+   *
    * @public
    */
   ExecutionDetails?: ExecutionDetails | undefined;
 
   /**
-   * <p>Details about the context, if this operation represents a context.</p>
+   * Details about the context, if this operation represents a context.
+   *
    * @public
    */
   ContextDetails?: ContextDetails | undefined;
 
   /**
-   * <p>Details about the step, if this operation represents a step.</p>
+   * Details about the step, if this operation represents a step.
+   *
    * @public
    */
   StepDetails?: StepDetails | undefined;
 
   /**
-   * <p>Details about the wait operation, if this operation represents a wait.</p>
+   * Details about the wait operation, if this operation represents a wait.
+   *
    * @public
    */
   WaitDetails?: WaitDetails | undefined;
 
   /**
-   * <p>Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.</p>
+   * Contains details about a callback operation in a durable execution, including the callback token and timeout configuration.
+   *
    * @public
    */
   CallbackDetails?: CallbackDetails | undefined;
 
   /**
-   * <p>Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.</p>
+   * Contains details about a chained function invocation in a durable execution, including the target function and invocation parameters.
+   *
    * @public
    */
   ChainedInvokeDetails?: ChainedInvokeDetails | undefined;
 }
 
 /**
- * <p>Contains operations that have been updated since the last checkpoint, such as completed asynchronous work like timers or callbacks.</p>
+ * Contains operations that have been updated since the last checkpoint, such as completed asynchronous work like timers or callbacks.
+ *
  * @public
  */
 export interface CheckpointUpdatedExecutionState {
   /**
-   * <p>A list of operations that have been updated since the last checkpoint.</p>
+   * A list of operations that have been updated since the last checkpoint.
+   *
    * @public
    */
   Operations?: Operation[] | undefined;
 
   /**
-   * <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
+   * Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 }
 
 /**
- * <p>The response from the CheckpointDurableExecution operation.</p>
+ * The response from the CheckpointDurableExecution operation.
+ *
  * @public
  */
 export interface CheckpointDurableExecutionResponse {
   /**
-   * <p>A new checkpoint token to use for the next checkpoint operation. This token replaces the one provided in the request and must be used for subsequent checkpoints to maintain proper ordering.</p>
+   * A new checkpoint token to use for the next checkpoint operation. This token replaces the one provided in the request and must be used for subsequent checkpoints to maintain proper ordering.
+   *
    * @public
    */
   CheckpointToken?: string | undefined;
 
   /**
-   * <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
+   * Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.
+   *
    * @public
    */
   NewExecutionState: CheckpointUpdatedExecutionState | undefined;
@@ -1649,133 +1932,155 @@ export interface CheckpointDurableExecutionResponse {
  */
 export interface GetDurableExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
+   * Specifies whether to include execution data such as input payload, result, and error information in the response. Set to `false` for a more compact response that includes only execution metadata. The default value is set to `true`.
+   *
    * @public
    */
   IncludeExecutionData?: boolean | undefined;
 }
 
 /**
- * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+ * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+ *
  * @public
  */
 export interface DurableConfig {
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.</p>
+   * The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
+   *
    * @public
    */
   RetentionPeriodInDays?: number | undefined;
 
   /**
-   * <p>The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.</p>
+   * The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
+   *
    * @public
    */
   ExecutionTimeout?: number | undefined;
 }
 
 /**
- * <p>Contains trace headers for the Lambda durable execution.</p>
+ * Contains trace headers for the Lambda durable execution.
+ *
  * @public
  */
 export interface TraceHeader {
   /**
-   * <p>The X-Ray trace header associated with the durable execution.</p>
+   * The X-Ray trace header associated with the durable execution.
+   *
    * @public
    */
   XAmznTraceId?: string | undefined;
 }
 
 /**
- * <p>The response from the GetDurableExecution operation, containing detailed information about the durable execution.</p>
+ * The response from the GetDurableExecution operation, containing detailed information about the durable execution.
+ *
  * @public
  */
 export interface GetDurableExecutionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
+   * The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.
+   *
    * @public
    */
   DurableExecutionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.</p>
+   * The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The JSON input payload that you provided when you started the durable execution. Asynchronous invocations support up to 1 MB, and synchronous invocations support up to 6 MB.</p>
+   * The JSON input payload that you provided when you started the durable execution. Asynchronous invocations support up to 1 MB, and synchronous invocations support up to 6 MB.
+   *
    * @public
    */
   InputPayload?: string | undefined;
 
   /**
-   * <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. Asynchronous invocations support up to 1 MB, and synchronous invocations support up to 6 MB.</p>
+   * The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is `SUCCEEDED`. Asynchronous invocations support up to 1 MB, and synchronous invocations support up to 6 MB.
+   *
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 1 MB.</p>
+   * Error information if the durable execution failed. This field is only present when the execution status is `FAILED`, `TIMED_OUT`, or `STOPPED`. The combined size of all error fields is limited to 1 MB.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
 
   /**
-   * <p>The date and time when the durable execution started, in Unix timestamp format.</p>
+   * The date and time when the durable execution started, in Unix timestamp format.
+   *
    * @public
    */
   StartTimestamp: Date | undefined;
 
   /**
-   * <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+   * The current status of the durable execution. Valid values are `RUNNING`, `SUCCEEDED`, `FAILED`, `TIMED_OUT`, and `STOPPED`.
+   *
    * @public
    */
   Status: ExecutionStatus | undefined;
 
   /**
-   * <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
+   * The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is `SUCCEEDED`, `FAILED`, `TIMED_OUT`, or `STOPPED`).
+   *
    * @public
    */
   EndTimestamp?: Date | undefined;
 
   /**
-   * <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
+   * The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The trace headers associated with the durable execution.</p>
+   * The trace headers associated with the durable execution.
+   *
    * @public
    */
   TraceHeader?: TraceHeader | undefined;
 
   /**
-   * <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
+   * Indicates whether execution data is included in this response. Returns `false` when `IncludeExecutionData` is set to `false` in the request.
+   *
    * @public
    */
   ExecutionDataIncluded?: boolean | undefined;
 
   /**
-   * <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+   *
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
@@ -1786,667 +2091,778 @@ export interface GetDurableExecutionResponse {
  */
 export interface GetDurableExecutionHistoryRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>Specifies whether to include execution data such as step results and callback payloads in the history events. Set to <code>true</code> to include data, or <code>false</code> to exclude it for a more compact response. The default is <code>true</code>.</p>
+   * Specifies whether to include execution data such as step results and callback payloads in the history events. Set to `true` to include data, or `false` to exclude it for a more compact response. The default is `true`.
+   *
    * @public
    */
   IncludeExecutionData?: boolean | undefined;
 
   /**
-   * <p>The maximum number of history events to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
+   * The maximum number of history events to return per call. You can use `Marker` to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 
   /**
-   * <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of results. Each pagination token expires after 24 hours.</p>
+   * If `NextMarker` was returned from a previous request, use this value to retrieve the next page of results. Each pagination token expires after 24 hours.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>When set to <code>true</code>, returns the history events in reverse chronological order (newest first). By default, events are returned in chronological order (oldest first).</p>
+   * When set to `true`, returns the history events in reverse chronological order (newest first). By default, events are returned in chronological order (oldest first).
+   *
    * @public
    */
   ReverseOrder?: boolean | undefined;
 }
 
 /**
- * <p>Error information for an event.</p>
+ * Error information for an event.
+ *
  * @public
  */
 export interface EventError {
   /**
-   * <p>The error payload.</p>
+   * The error payload.
+   *
    * @public
    */
   Payload?: ErrorObject | undefined;
 
   /**
-   * <p>Indicates if the error payload was truncated due to size limits.</p>
+   * Indicates if the error payload was truncated due to size limits.
+   *
    * @public
    */
   Truncated?: boolean | undefined;
 }
 
 /**
- * <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
+ * Contains details about a failed callback operation, including error information and the reason for failure.
+ *
  * @public
  */
 export interface CallbackFailedDetails {
   /**
-   * <p>An error object that contains details about the failure.</p>
+   * An error object that contains details about the failure.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
+ * Contains details about a callback operation that has started, including timing information and callback metadata.
+ *
  * @public
  */
 export interface CallbackStartedDetails {
   /**
-   * <p>The callback ID. Callback IDs are generated by the <code>DurableContext</code> when a durable function calls <code>ctx.waitForCallback</code>.</p>
+   * The callback ID. Callback IDs are generated by the `DurableContext` when a durable function calls `ctx.waitForCallback`.
+   *
    * @public
    */
   CallbackId: string | undefined;
 
   /**
-   * <p>The heartbeat timeout value, in seconds.</p>
+   * The heartbeat timeout value, in seconds.
+   *
    * @public
    */
   HeartbeatTimeout?: number | undefined;
 
   /**
-   * <p>The timeout value, in seconds.</p>
+   * The timeout value, in seconds.
+   *
    * @public
    */
   Timeout?: number | undefined;
 }
 
 /**
- * <p>Result information for an event.</p>
+ * Result information for an event.
+ *
  * @public
  */
 export interface EventResult {
   /**
-   * <p>The result payload.</p>
+   * The result payload.
+   *
    * @public
    */
   Payload?: string | undefined;
 
   /**
-   * <p>Indicates if the error payload was truncated due to size limits.</p>
+   * Indicates if the error payload was truncated due to size limits.
+   *
    * @public
    */
   Truncated?: boolean | undefined;
 }
 
 /**
- * <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
+ * Contains details about a successfully completed callback operation, including the result data and completion timestamp.
+ *
  * @public
  */
 export interface CallbackSucceededDetails {
   /**
-   * <p>The response payload from the successful operation.</p>
+   * The response payload from the successful operation.
+   *
    * @public
    */
   Result: EventResult | undefined;
 }
 
 /**
- * <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
+ * Contains details about a callback operation that timed out, including timeout duration and any partial results.
+ *
  * @public
  */
 export interface CallbackTimedOutDetails {
   /**
-   * <p>Details about the callback timeout.</p>
+   * Details about the callback timeout.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
+ * Contains details about a failed chained function invocation, including error information and failure reason.
+ *
  * @public
  */
 export interface ChainedInvokeFailedDetails {
   /**
-   * <p>Details about the chained invocation failure.</p>
+   * Details about the chained invocation failure.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Input information for an event.</p>
+ * Input information for an event.
+ *
  * @public
  */
 export interface EventInput {
   /**
-   * <p>The input payload.</p>
+   * The input payload.
+   *
    * @public
    */
   Payload?: string | undefined;
 
   /**
-   * <p>Indicates if the error payload was truncated due to size limits.</p>
+   * Indicates if the error payload was truncated due to size limits.
+   *
    * @public
    */
   Truncated?: boolean | undefined;
 }
 
 /**
- * <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
+ * Contains details about a chained function invocation that has started execution, including start time and execution context.
+ *
  * @public
  */
 export interface ChainedInvokeStartedDetails {
   /**
-   * <p>The name or ARN of the Lambda function being invoked.</p>
+   * The name or ARN of the Lambda function being invoked.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The tenant identifier for the chained invocation.</p>
+   * The tenant identifier for the chained invocation.
+   *
    * @public
    */
   TenantId?: string | undefined;
 
   /**
-   * <p>The JSON input payload provided to the chained invocation.</p>
+   * The JSON input payload provided to the chained invocation.
+   *
    * @public
    */
   Input?: EventInput | undefined;
 
   /**
-   * <p>The version of the function that was executed.</p>
+   * The version of the function that was executed.
+   *
    * @public
    */
   ExecutedVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
+   * The Amazon Resource Name (ARN) that identifies the durable execution.
+   *
    * @public
    */
   DurableExecutionArn?: string | undefined;
 }
 
 /**
- * <p>Details about a chained invocation that was stopped.</p>
+ * Details about a chained invocation that was stopped.
+ *
  * @public
  */
 export interface ChainedInvokeStoppedDetails {
   /**
-   * <p>Details about why the chained invocation stopped.</p>
+   * Details about why the chained invocation stopped.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Details about a chained invocation that succeeded.</p>
+ * Details about a chained invocation that succeeded.
+ *
  * @public
  */
 export interface ChainedInvokeSucceededDetails {
   /**
-   * <p>The response payload from the successful operation.</p>
+   * The response payload from the successful operation.
+   *
    * @public
    */
   Result: EventResult | undefined;
 }
 
 /**
- * <p>Details about a chained invocation that timed out.</p>
+ * Details about a chained invocation that timed out.
+ *
  * @public
  */
 export interface ChainedInvokeTimedOutDetails {
   /**
-   * <p>Details about the chained invocation timeout.</p>
+   * Details about the chained invocation timeout.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Details about a context that failed.</p>
+ * Details about a context that failed.
+ *
  * @public
  */
 export interface ContextFailedDetails {
   /**
-   * <p>Details about the context failure.</p>
+   * Details about the context failure.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Details about a context that has started.</p>
+ * Details about a context that has started.
+ *
  * @public
  */
 export interface ContextStartedDetails {}
 
 /**
- * <p>Details about a context that succeeded.</p>
+ * Details about a context that succeeded.
+ *
  * @public
  */
 export interface ContextSucceededDetails {
   /**
-   * <p>The JSON response payload from the successful context.</p>
+   * The JSON response payload from the successful context.
+   *
    * @public
    */
   Result: EventResult | undefined;
 }
 
 /**
- * <p>Details about a failed <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
+ * Details about a failed [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+ *
  * @public
  */
 export interface ExecutionFailedDetails {
   /**
-   * <p>Details about the execution failure.</p>
+   * Details about the execution failure.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Details about a durable execution that started.</p>
+ * Details about a durable execution that started.
+ *
  * @public
  */
 export interface ExecutionStartedDetails {
   /**
-   * <p>The input payload provided for the durable execution.</p>
+   * The input payload provided for the durable execution.
+   *
    * @public
    */
   Input: EventInput | undefined;
 
   /**
-   * <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
+   * The maximum amount of time that the durable execution is allowed to run, in seconds.
+   *
    * @public
    */
   ExecutionTimeout: number | undefined;
 }
 
 /**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that stopped.</p>
+ * Details about a [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) that stopped.
+ *
  * @public
  */
 export interface ExecutionStoppedDetails {
   /**
-   * <p>Details about why the execution stopped.</p>
+   * Details about why the execution stopped.
+   *
    * @public
    */
   Error: EventError | undefined;
 }
 
 /**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that succeeded.</p>
+ * Details about a [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) that succeeded.
+ *
  * @public
  */
 export interface ExecutionSucceededDetails {
   /**
-   * <p>The response payload from the successful operation.</p>
+   * The response payload from the successful operation.
+   *
    * @public
    */
   Result: EventResult | undefined;
 }
 
 /**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that timed out.</p>
+ * Details about a [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) that timed out.
+ *
  * @public
  */
 export interface ExecutionTimedOutDetails {
   /**
-   * <p>Details about the execution timeout.</p>
+   * Details about the execution timeout.
+   *
    * @public
    */
   Error?: EventError | undefined;
 }
 
 /**
- * <p>Details about a function invocation that completed.</p>
+ * Details about a function invocation that completed.
+ *
  * @public
  */
 export interface InvocationCompletedDetails {
   /**
-   * <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the invocation started, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   StartTimestamp: Date | undefined;
 
   /**
-   * <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the invocation ended, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   EndTimestamp: Date | undefined;
 
   /**
-   * <p>The request ID for the invocation.</p>
+   * The request ID for the invocation.
+   *
    * @public
    */
   RequestId: string | undefined;
 
   /**
-   * <p>Details about the invocation failure.</p>
+   * Details about the invocation failure.
+   *
    * @public
    */
   Error?: EventError | undefined;
 }
 
 /**
- * <p>Information about retry attempts for an operation.</p>
+ * Information about retry attempts for an operation.
+ *
  * @public
  */
 export interface RetryDetails {
   /**
-   * <p>The current attempt number for this operation.</p>
+   * The current attempt number for this operation.
+   *
    * @public
    */
   CurrentAttempt?: number | undefined;
 
   /**
-   * <p>The delay before the next retry attempt, in seconds.</p>
+   * The delay before the next retry attempt, in seconds.
+   *
    * @public
    */
   NextAttemptDelaySeconds?: number | undefined;
 }
 
 /**
- * <p>Details about a step that failed.</p>
+ * Details about a step that failed.
+ *
  * @public
  */
 export interface StepFailedDetails {
   /**
-   * <p>Details about the step failure.</p>
+   * Details about the step failure.
+   *
    * @public
    */
   Error: EventError | undefined;
 
   /**
-   * <p>Information about retry attempts for this step operation.</p>
+   * Information about retry attempts for this step operation.
+   *
    * @public
    */
   RetryDetails: RetryDetails | undefined;
 }
 
 /**
- * <p>Details about a step that has started.</p>
+ * Details about a step that has started.
+ *
  * @public
  */
 export interface StepStartedDetails {}
 
 /**
- * <p>Details about a step that succeeded.</p>
+ * Details about a step that succeeded.
+ *
  * @public
  */
 export interface StepSucceededDetails {
   /**
-   * <p>The response payload from the successful operation.</p>
+   * The response payload from the successful operation.
+   *
    * @public
    */
   Result: EventResult | undefined;
 
   /**
-   * <p>Information about retry attempts for this step operation.</p>
+   * Information about retry attempts for this step operation.
+   *
    * @public
    */
   RetryDetails: RetryDetails | undefined;
 }
 
 /**
- * <p>Details about a wait operation that was cancelled.</p>
+ * Details about a wait operation that was cancelled.
+ *
  * @public
  */
 export interface WaitCancelledDetails {
   /**
-   * <p>Details about why the wait operation was cancelled.</p>
+   * Details about why the wait operation was cancelled.
+   *
    * @public
    */
   Error?: EventError | undefined;
 }
 
 /**
- * <p>Details about a wait operation that has started.</p>
+ * Details about a wait operation that has started.
+ *
  * @public
  */
 export interface WaitStartedDetails {
   /**
-   * <p>The duration to wait, in seconds.</p>
+   * The duration to wait, in seconds.
+   *
    * @public
    */
   Duration: number | undefined;
 
   /**
-   * <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the wait operation is scheduled to complete, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   ScheduledEndTimestamp: Date | undefined;
 }
 
 /**
- * <p>Details about a wait operation that succeeded.</p>
+ * Details about a wait operation that succeeded.
+ *
  * @public
  */
 export interface WaitSucceededDetails {
   /**
-   * <p>The wait duration, in seconds.</p>
+   * The wait duration, in seconds.
+   *
    * @public
    */
   Duration?: number | undefined;
 }
 
 /**
- * <p>An event that occurred during the execution of a durable function.</p>
+ * An event that occurred during the execution of a durable function.
+ *
  * @public
  */
 export interface Event {
   /**
-   * <p>The type of event that occurred.</p>
+   * The type of event that occurred.
+   *
    * @public
    */
   EventType?: EventType | undefined;
 
   /**
-   * <p>The subtype of the event, providing additional categorization.</p>
+   * The subtype of the event, providing additional categorization.
+   *
    * @public
    */
   SubType?: string | undefined;
 
   /**
-   * <p>The unique identifier for this event. Event IDs increment sequentially.</p>
+   * The unique identifier for this event. Event IDs increment sequentially.
+   *
    * @public
    */
   EventId?: number | undefined;
 
   /**
-   * <p>The unique identifier for this operation.</p>
+   * The unique identifier for this operation.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The customer-provided name for this operation.</p>
+   * The customer-provided name for this operation.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The date and time when this event occurred, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when this event occurred, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   EventTimestamp?: Date | undefined;
 
   /**
-   * <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
+   * The unique identifier of the parent operation, if this operation is running within a child context.
+   *
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>Details about an execution that started.</p>
+   * Details about an execution that started.
+   *
    * @public
    */
   ExecutionStartedDetails?: ExecutionStartedDetails | undefined;
 
   /**
-   * <p>Details about an execution that succeeded.</p>
+   * Details about an execution that succeeded.
+   *
    * @public
    */
   ExecutionSucceededDetails?: ExecutionSucceededDetails | undefined;
 
   /**
-   * <p>Details about an execution that failed.</p>
+   * Details about an execution that failed.
+   *
    * @public
    */
   ExecutionFailedDetails?: ExecutionFailedDetails | undefined;
 
   /**
-   * <p>Details about an execution that timed out.</p>
+   * Details about an execution that timed out.
+   *
    * @public
    */
   ExecutionTimedOutDetails?: ExecutionTimedOutDetails | undefined;
 
   /**
-   * <p>Details about an execution that was stopped.</p>
+   * Details about an execution that was stopped.
+   *
    * @public
    */
   ExecutionStoppedDetails?: ExecutionStoppedDetails | undefined;
 
   /**
-   * <p>Details about a context that started.</p>
+   * Details about a context that started.
+   *
    * @public
    */
   ContextStartedDetails?: ContextStartedDetails | undefined;
 
   /**
-   * <p>Details about a context that succeeded.</p>
+   * Details about a context that succeeded.
+   *
    * @public
    */
   ContextSucceededDetails?: ContextSucceededDetails | undefined;
 
   /**
-   * <p>Details about a context that failed.</p>
+   * Details about a context that failed.
+   *
    * @public
    */
   ContextFailedDetails?: ContextFailedDetails | undefined;
 
   /**
-   * <p>Details about a wait operation that started.</p>
+   * Details about a wait operation that started.
+   *
    * @public
    */
   WaitStartedDetails?: WaitStartedDetails | undefined;
 
   /**
-   * <p>Details about a wait operation that succeeded.</p>
+   * Details about a wait operation that succeeded.
+   *
    * @public
    */
   WaitSucceededDetails?: WaitSucceededDetails | undefined;
 
   /**
-   * <p>Details about a wait operation that was cancelled.</p>
+   * Details about a wait operation that was cancelled.
+   *
    * @public
    */
   WaitCancelledDetails?: WaitCancelledDetails | undefined;
 
   /**
-   * <p>Details about a step that started.</p>
+   * Details about a step that started.
+   *
    * @public
    */
   StepStartedDetails?: StepStartedDetails | undefined;
 
   /**
-   * <p>Details about a step that succeeded.</p>
+   * Details about a step that succeeded.
+   *
    * @public
    */
   StepSucceededDetails?: StepSucceededDetails | undefined;
 
   /**
-   * <p>Details about a step that failed.</p>
+   * Details about a step that failed.
+   *
    * @public
    */
   StepFailedDetails?: StepFailedDetails | undefined;
 
   /**
-   * <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
+   * Contains details about a chained function invocation that has started execution, including start time and execution context.
+   *
    * @public
    */
   ChainedInvokeStartedDetails?: ChainedInvokeStartedDetails | undefined;
 
   /**
-   * <p>Details about a chained invocation that succeeded.</p>
+   * Details about a chained invocation that succeeded.
+   *
    * @public
    */
   ChainedInvokeSucceededDetails?: ChainedInvokeSucceededDetails | undefined;
 
   /**
-   * <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
+   * Contains details about a failed chained function invocation, including error information and failure reason.
+   *
    * @public
    */
   ChainedInvokeFailedDetails?: ChainedInvokeFailedDetails | undefined;
 
   /**
-   * <p>Details about a chained invocation that timed out.</p>
+   * Details about a chained invocation that timed out.
+   *
    * @public
    */
   ChainedInvokeTimedOutDetails?: ChainedInvokeTimedOutDetails | undefined;
 
   /**
-   * <p>Details about a chained invocation that was stopped.</p>
+   * Details about a chained invocation that was stopped.
+   *
    * @public
    */
   ChainedInvokeStoppedDetails?: ChainedInvokeStoppedDetails | undefined;
 
   /**
-   * <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
+   * Contains details about a callback operation that has started, including timing information and callback metadata.
+   *
    * @public
    */
   CallbackStartedDetails?: CallbackStartedDetails | undefined;
 
   /**
-   * <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
+   * Contains details about a successfully completed callback operation, including the result data and completion timestamp.
+   *
    * @public
    */
   CallbackSucceededDetails?: CallbackSucceededDetails | undefined;
 
   /**
-   * <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
+   * Contains details about a failed callback operation, including error information and the reason for failure.
+   *
    * @public
    */
   CallbackFailedDetails?: CallbackFailedDetails | undefined;
 
   /**
-   * <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
+   * Contains details about a callback operation that timed out, including timeout duration and any partial results.
+   *
    * @public
    */
   CallbackTimedOutDetails?: CallbackTimedOutDetails | undefined;
 
   /**
-   * <p>Details about a function invocation that completed.</p>
+   * Details about a function invocation that completed.
+   *
    * @public
    */
   InvocationCompletedDetails?: InvocationCompletedDetails | undefined;
 }
 
 /**
- * <p>The response from the GetDurableExecutionHistory operation, containing the execution history and events.</p>
+ * The response from the GetDurableExecutionHistory operation, containing the execution history and events.
+ *
  * @public
  */
 export interface GetDurableExecutionHistoryResponse {
   /**
-   * <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
+   * An array of execution history events, ordered chronologically unless `ReverseOrder` is set to `true`. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.
+   *
    * @public
    */
   Events: Event[] | undefined;
 
   /**
-   * <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
+   * If present, indicates that more history events are available. Use this value as the `Marker` parameter in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -2457,43 +2873,50 @@ export interface GetDurableExecutionHistoryResponse {
  */
 export interface GetDurableExecutionStateRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
+   * A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.
+   *
    * @public
    */
   CheckpointToken: string | undefined;
 
   /**
-   * <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of operations. Each pagination token expires after 24 hours.</p>
+   * If `NextMarker` was returned from a previous request, use this value to retrieve the next page of operations. Each pagination token expires after 24 hours.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of operations to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
+   * The maximum number of operations to return per call. You can use `Marker` to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>The response from the GetDurableExecutionState operation, containing the current execution state for replay.</p>
+ * The response from the GetDurableExecutionState operation, containing the current execution state for replay.
+ *
  * @public
  */
 export interface GetDurableExecutionStateResponse {
   /**
-   * <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
+   * An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.
+   *
    * @public
    */
   Operations: Operation[] | undefined;
 
   /**
-   * <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
+   * If present, indicates that more operations are available. Use this value as the `Marker` parameter in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -2504,13 +2927,15 @@ export interface GetDurableExecutionStateResponse {
  */
 export interface StopDurableExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>Optional error details explaining why the execution is being stopped. The combined size of all error fields is limited to 1 MB.</p>
+   * Optional error details explaining why the execution is being stopped. The combined size of all error fields is limited to 1 MB.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
@@ -2521,211 +2946,288 @@ export interface StopDurableExecutionRequest {
  */
 export interface StopDurableExecutionResponse {
   /**
-   * <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
+   * The timestamp when the execution was stopped (ISO 8601 format).
+   *
    * @public
    */
   StopTimestamp: Date | undefined;
 }
 
 /**
- * <p>A destination for events that failed processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
+ * A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
+ *
  * @public
  */
 export interface OnFailure {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">self-managed Apache Kafka</a>, or <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.</p> <note> <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p> </note> <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
+   * The Amazon Resource Name (ARN) of the destination resource.
+   *
+   * To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Apache Kafka](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/kafka-on-failure.html), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka topic as the destination.
+   *
+   * > **Note:** Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending `OnFailure` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+   *
+   * To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+   *
    * @public
    */
   Destination?: string | undefined;
 }
 
 /**
- * <p>A destination for events that were processed successfully.</p> <p>To retain records of successful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.</p> <note> <p> <code>OnSuccess</code> is not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code> requests.</p> </note>
+ * A destination for events that were processed successfully.
+ *
+ * To retain records of successful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
+ *
+ * > **Note:** `OnSuccess` is not supported in `CreateEventSourceMapping` or `UpdateEventSourceMapping` requests.
+ *
  * @public
  */
 export interface OnSuccess {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination resource.</p> <note> <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p> </note>
+   * The Amazon Resource Name (ARN) of the destination resource.
+   *
+   * > **Note:** Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending `OnFailure` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+   *
    * @public
    */
   Destination?: string | undefined;
 }
 
 /**
- * <p>A configuration object that specifies the destination of an event after Lambda processes it. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
+ * A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
+ *
  * @public
  */
 export interface DestinationConfig {
   /**
-   * <p>The destination configuration for successful invocations. Not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code>.</p>
+   * The destination configuration for successful invocations. Not supported in `CreateEventSourceMapping` or `UpdateEventSourceMapping`.
+   *
    * @public
    */
   OnSuccess?: OnSuccess | undefined;
 
   /**
-   * <p>The destination configuration for failed invocations.</p>
+   * The destination configuration for failed invocations.
+   *
    * @public
    */
   OnFailure?: OnFailure | undefined;
 }
 
 /**
- * <p> Specific configuration settings for a DocumentDB event source. </p>
+ * Specific configuration settings for a DocumentDB event source.
+ *
  * @public
  */
 export interface DocumentDBEventSourceConfig {
   /**
-   * <p> The name of the database to consume within the DocumentDB cluster. </p>
+   * The name of the database to consume within the DocumentDB cluster.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p> The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections. </p>
+   * The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+   *
    * @public
    */
   CollectionName?: string | undefined;
 
   /**
-   * <p> Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. </p>
+   * Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
+   *
    * @public
    */
   FullDocument?: FullDocument | undefined;
 }
 
 /**
- * <p> A structure within a <code>FilterCriteria</code> object that defines an event filtering pattern. </p>
+ * A structure within a `FilterCriteria` object that defines an event filtering pattern.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p> A filter pattern. For more information on the syntax of a filter pattern, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax"> Filter rule syntax</a>. </p>
+   * A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+   *
    * @public
    */
   Pattern?: string | undefined;
 }
 
 /**
- * <p> An object that contains the filters for an event source. </p>
+ * An object that contains the filters for an event source.
+ *
  * @public
  */
 export interface FilterCriteria {
   /**
-   * <p> A list of filters. </p>
+   * A list of filters.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 }
 
 /**
- * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping. </p>
+ * (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.
+ *
  * @public
  */
 export interface EventSourceMappingLoggingConfig {
   /**
-   * <p> The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html"> Event source mapping logging</a>. </p>
+   * The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where `DEBUG` is the highest level and `WARN` is the lowest. For more information about these metrics, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
+   *
    * @public
    */
   SystemLogLevel?: EventSourceMappingSystemLogLevel | undefined;
 }
 
 /**
- * <p>The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.</p>
+ * The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
+ *
  * @public
  */
 export interface EventSourceMappingMetricsConfig {
   /**
-   * <p> The metrics you want your event source mapping to produce, including <code>EventCount</code>, <code>ErrorCount</code>, <code>KafkaMetrics</code>. </p> <ul> <li> <p> <code>EventCount</code> to receive metrics related to the number of events processed by your event source mapping.</p> </li> <li> <p> <code>ErrorCount</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.</p> </li> <li> <p> <code>KafkaMetrics</code> (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.</p> </li> </ul> <p> For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics"> Event source mapping metrics</a>. </p>
+   * The metrics you want your event source mapping to produce, including `EventCount`, `ErrorCount`, `KafkaMetrics`.
+   *
+   * - `EventCount` to receive metrics related to the number of events processed by your event source mapping.
+   * - `ErrorCount` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the number of errors in your event source mapping processing.
+   * - `KafkaMetrics` (Amazon MSK and self-managed Apache Kafka) to receive metrics related to the Kafka consumers from your event source mapping.
+   *
+   * For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+   *
    * @public
    */
   Metrics?: EventSourceMappingMetric[] | undefined;
 }
 
 /**
- * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode"> provisioned mode</a> configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.</p>
+ * The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
+ *
  * @public
  */
 export interface ProvisionedPollerConfig {
   /**
-   * <p>The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.</p>
+   * The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
+   *
    * @public
    */
   MinimumPollers?: number | undefined;
 
   /**
-   * <p>The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.</p>
+   * The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.
+   *
    * @public
    */
   MaximumPollers?: number | undefined;
 
   /**
-   * <p>(Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.</p>
+   * (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+   *
    * @public
    */
   PollerGroupName?: string | undefined;
 }
 
 /**
- * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
+ * (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
+ *
  * @public
  */
 export interface ScalingConfig {
   /**
-   * <p>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</p>
+   * Limits the number of concurrent instances that the Amazon SQS event source can invoke.
+   *
    * @public
    */
   MaximumConcurrency?: number | undefined;
 }
 
 /**
- * <p>The self-managed Apache Kafka cluster for your event source.</p>
+ * The self-managed Apache Kafka cluster for your event source.
+ *
  * @public
  */
 export interface SelfManagedEventSource {
   /**
-   * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
+   * The list of bootstrap servers for your Kafka brokers in the following format: `"KAFKA_BOOTSTRAP_SERVERS": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]`.
+   *
    * @public
    */
   Endpoints?: Partial<Record<EndPointType, string[]>> | undefined;
 }
 
 /**
- * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+ * Specific configuration settings for a self-managed Apache Kafka event source.
+ *
  * @public
  */
 export interface SelfManagedKafkaEventSourceConfig {
   /**
-   * <p> The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add">Customizable consumer group ID</a>.</p>
+   * The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
+   *
    * @public
    */
   ConsumerGroupId?: string | undefined;
 
   /**
-   * <p>Specific configuration settings for a Kafka schema registry.</p>
+   * Specific configuration settings for a Kafka schema registry.
+   *
    * @public
    */
   SchemaRegistryConfig?: KafkaSchemaRegistryConfig | undefined;
 
   /**
-   * <p>The mode that Lambda uses to consume records from your self-managed Apache Kafka topic. The default is <code>Stream</code>.</p> <ul> <li> <p> <code>Stream</code> – Lambda consumes records using a Kafka consumer group and preserves the order of records within each partition. This is the default when you omit <code>ConsumptionMode</code>.</p> </li> <li> <p> <code>Queue</code> – Lambda consumes records using a Kafka share group. Multiple consumers can process records from the same partitions concurrently. Queue mode does not preserve per-partition order. Queue mode requires an Apache Kafka cluster running version 4.2 or later with share groups enabled.</p> </li> </ul> <p>You cannot change <code>ConsumptionMode</code> after you create the event source mapping. To use a different consumption mode, create a new event source mapping.</p> <p>When <code>ConsumptionMode</code> is <code>Queue</code>, the <code>StartingPosition</code>, <code>StartingPositionTimestamp</code>, and <code>MaximumBatchingWindowInSeconds</code> parameters are not supported.</p>
+   * The mode that Lambda uses to consume records from your self-managed Apache Kafka topic. The default is `Stream`.
+   *
+   * - `Stream` – Lambda consumes records using a Kafka consumer group and preserves the order of records within each partition. This is the default when you omit `ConsumptionMode`.
+   * - `Queue` – Lambda consumes records using a Kafka share group. Multiple consumers can process records from the same partitions concurrently. Queue mode does not preserve per-partition order. Queue mode requires an Apache Kafka cluster running version 4.2 or later with share groups enabled.
+   *
+   * You cannot change `ConsumptionMode` after you create the event source mapping. To use a different consumption mode, create a new event source mapping.
+   *
+   * When `ConsumptionMode` is `Queue`, the `StartingPosition`, `StartingPositionTimestamp`, and `MaximumBatchingWindowInSeconds` parameters are not supported.
+   *
    * @public
    */
   ConsumptionMode?: KafkaEventSourceMappingConsumptionMode | undefined;
 }
 
 /**
- * <p>To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.</p>
+ * To secure and define access to your event source, you can specify the authentication protocol, VPC components, or virtual host.
+ *
  * @public
  */
 export interface SourceAccessConfiguration {
   /**
-   * <p>The type of authentication protocol, VPC components, or virtual host for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p> <ul> <li> <p> <code>BASIC_AUTH</code> – (Amazon MQ) The Secrets Manager secret that stores your broker credentials.</p> </li> <li> <p> <code>BASIC_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.</p> </li> <li> <p> <code>VPC_SUBNET</code> – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.</p> </li> <li> <p> <code>VPC_SECURITY_GROUP</code> – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL_SCRAM_256_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>SASL_SCRAM_512_AUTH</code> – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.</p> </li> <li> <p> <code>VIRTUAL_HOST</code> –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.</p> </li> <li> <p> <code>CLIENT_CERTIFICATE_TLS_AUTH</code> – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.</p> </li> <li> <p> <code>SERVER_ROOT_CA_CERTIFICATE</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers. </p> </li> <li> <p> <code>OAUTHBEARER_AUTH</code> – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses for SASL/OAUTHBEARER authentication with your Apache Kafka brokers. For the contents of the secret, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret">Configuring the OAuth secret</a>.</p> </li> <li> <p> <code>OAUTHBEARER_SCOPE</code> – (Self-managed Apache Kafka) The OAuth 2.0 scope that Lambda requests when it acquires an access token. The <code>URI</code> field holds the scope value, not a secret ARN. This type requires <code>OAUTHBEARER_AUTH</code>.</p> </li> <li> <p> <code>OAUTHBEARER_AUDIENCE</code> – (Self-managed Apache Kafka) The OAuth 2.0 audience that Lambda requests when it acquires an access token. The <code>URI</code> field holds the audience value, not a secret ARN. This type requires either <code>OAUTHBEARER_AUTH</code> or <code>IAM_OAUTHBEARER_AUTH</code>.</p> </li> <li> <p> <code>OAUTHBEARER_LOGICAL_CLUSTER</code> – (Self-managed Apache Kafka) The logical cluster identifier that Lambda sends to a Confluent Cloud broker. The <code>URI</code> field holds the identifier, not a secret ARN. This type requires <code>OAUTHBEARER_AUTH</code>.</p> </li> <li> <p> <code>OAUTHBEARER_IDENTITY_POOL</code> – (Self-managed Apache Kafka) The identity pool identifier that Lambda sends to a Confluent Cloud broker. The <code>URI</code> field holds the identifier, not a secret ARN. This type requires <code>OAUTHBEARER_AUTH</code>.</p> </li> <li> <p> <code>IAM_AUTH</code> – (Self-managed Apache Kafka) Authenticate with Identity and Access Management (IAM). Your function's execution role signs each connection, so there is no secret to provide. Omit the <code>URI</code> field for this type.</p> </li> <li> <p> <code>IAM_OAUTHBEARER_AUTH</code> – (Self-managed Apache Kafka) Authenticate with an Amazon Web Services web identity token over SASL/OAUTHBEARER. Lambda requests the token for your function's execution role, so there is no secret to provide. Omit the <code>URI</code> field for this type. This type requires <code>OAUTHBEARER_AUDIENCE</code> and does not support the other <code>OAUTHBEARER</code> types.</p> </li> </ul>
+   * The type of authentication protocol, VPC components, or virtual host for your event source. For example: `"Type":"SASL_SCRAM_512_AUTH"`.
+   *
+   * - `BASIC_AUTH` – (Amazon MQ) The Secrets Manager secret that stores your broker credentials.
+   * - `BASIC_AUTH` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
+   * - `VPC_SUBNET` – (Self-managed Apache Kafka) The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your self-managed Apache Kafka cluster.
+   * - `VPC_SECURITY_GROUP` – (Self-managed Apache Kafka) The VPC security group used to manage access to your self-managed Apache Kafka brokers.
+   * - `SASL_SCRAM_256_AUTH` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your self-managed Apache Kafka brokers.
+   * - `SASL_SCRAM_512_AUTH` – (Amazon MSK, Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your self-managed Apache Kafka brokers.
+   * - `VIRTUAL_HOST` –- (RabbitMQ) The name of the virtual host in your RabbitMQ broker. Lambda uses this RabbitMQ host as the event source. This property cannot be specified in an UpdateEventSourceMapping API call.
+   * - `CLIENT_CERTIFICATE_TLS_AUTH` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
+   * - `SERVER_ROOT_CA_CERTIFICATE` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
+   * - `OAUTHBEARER_AUTH` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the OAuth 2.0 credentials that Lambda uses for SASL/OAUTHBEARER authentication with your Apache Kafka brokers. For the contents of the secret, see [Configuring the OAuth secret](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html#smaa-auth-oauth-secret).
+   * - `OAUTHBEARER_SCOPE` – (Self-managed Apache Kafka) The OAuth 2.0 scope that Lambda requests when it acquires an access token. The `URI` field holds the scope value, not a secret ARN. This type requires `OAUTHBEARER_AUTH`.
+   * - `OAUTHBEARER_AUDIENCE` – (Self-managed Apache Kafka) The OAuth 2.0 audience that Lambda requests when it acquires an access token. The `URI` field holds the audience value, not a secret ARN. This type requires either `OAUTHBEARER_AUTH` or `IAM_OAUTHBEARER_AUTH`.
+   * - `OAUTHBEARER_LOGICAL_CLUSTER` – (Self-managed Apache Kafka) The logical cluster identifier that Lambda sends to a Confluent Cloud broker. The `URI` field holds the identifier, not a secret ARN. This type requires `OAUTHBEARER_AUTH`.
+   * - `OAUTHBEARER_IDENTITY_POOL` – (Self-managed Apache Kafka) The identity pool identifier that Lambda sends to a Confluent Cloud broker. The `URI` field holds the identifier, not a secret ARN. This type requires `OAUTHBEARER_AUTH`.
+   * - `IAM_AUTH` – (Self-managed Apache Kafka) Authenticate with Identity and Access Management (IAM). Your function's execution role signs each connection, so there is no secret to provide. Omit the `URI` field for this type.
+   * - `IAM_OAUTHBEARER_AUTH` – (Self-managed Apache Kafka) Authenticate with an Amazon Web Services web identity token over SASL/OAUTHBEARER. Lambda requests the token for your function's execution role, so there is no secret to provide. Omit the `URI` field for this type. This type requires `OAUTHBEARER_AUDIENCE` and does not support the other `OAUTHBEARER` types.
+   *
    * @public
    */
   Type?: SourceAccessType | undefined;
 
   /**
-   * <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
+   * The value for your chosen configuration in `Type`. For example: `"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"`.
+   *
    * @public
    */
   URI?: string | undefined;
@@ -2736,391 +3238,506 @@ export interface SourceAccessConfiguration {
  */
 export interface CreateEventSourceMappingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>
+   * The Amazon Resource Name (ARN) of the event source.
+   *
+   * - **Amazon Kinesis** – The ARN of the data stream or a stream consumer.
+   * - **Amazon DynamoDB Streams** – The ARN of the stream.
+   * - **Amazon Simple Queue Service** – The ARN of the queue.
+   * - **Amazon Managed Streaming for Apache Kafka** – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
+   * - **Amazon MQ** – The ARN of the broker.
+   * - **Amazon DocumentDB** – The ARN of the DocumentDB change stream.
+   *
    * @public
    */
   EventSourceArn?: string | undefined;
 
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `MyFunction`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Version or Alias ARN** – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD`.
+   * - **Partial ARN** – `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p> <p>Default: True</p>
+   * When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
+   *
+   * Default: True
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>
+   * The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
+   *
+   * - **Amazon Kinesis** – Default 100. Max 10,000.
+   * - **Amazon DynamoDB Streams** – Default 100. Max 10,000.
+   * - **Amazon Simple Queue Service** – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+   * - **Amazon Managed Streaming for Apache Kafka** – Default 100. Max 10,000.
+   * - **Self-managed Apache Kafka** – Default 100. Max 10,000.
+   * - **Amazon MQ (ActiveMQ and RabbitMQ)** – Default 100. Max 10,000.
+   * - **DocumentDB** – Default 100. Max 10,000.
+   *
    * @public
    */
   BatchSize?: number | undefined;
 
   /**
-   * <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+   * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
+   *
    * @public
    */
   FilterCriteria?: FilterCriteria | undefined;
 
   /**
-   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+   * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics). By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key.
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+   *
    * @public
    */
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
+   * (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
+   *
    * @public
    */
   LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
 
   /**
-   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+   *
    * @public
    */
   ScalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
+   * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure `MaximumBatchingWindowInSeconds` to any value from 0 seconds to 300 seconds in increments of seconds.
+   *
+   * For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change `MaximumBatchingWindowInSeconds` in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.
+   *
+   * Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
+   *
+   * Not supported for Kafka event source mappings when `ConsumptionMode` is `Queue`.
+   *
    * @public
    */
   MaximumBatchingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+   * (Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.
+   *
    * @public
    */
   ParallelizationFactor?: number | undefined;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
+   * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. `AT_TIMESTAMP` is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.
+   *
+   * Not supported for Kafka event source mappings when `ConsumptionMode` is `Queue`.
+   *
    * @public
    */
   StartingPosition?: EventSourcePosition | undefined;
 
   /**
-   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
+   * With `StartingPosition` set to `AT_TIMESTAMP`, the time from which to start reading. `StartingPositionTimestamp` cannot be in the future.
+   *
+   * Not supported for Kafka event source mappings when `ConsumptionMode` is `Queue`.
+   *
    * @public
    */
   StartingPositionTimestamp?: Date | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
+   *
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).
+   *
    * @public
    */
   MaximumRecordAgeInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.
+   *
    * @public
    */
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka <code>Stream</code> consumption mode, the default is <code>-1</code> (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka <code>Queue</code> consumption mode, the default is <code>0</code>, and if no on-failure destination is configured the Kafka broker performs retries.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+   *
+   * For Kafka `Stream` consumption mode, the default is `-1` (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka `Queue` consumption mode, the default is `0`, and if no on-failure destination is configured the Kafka broker performs retries.
+   *
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>A list of tags to apply to the event source mapping.</p>
+   * A list of tags to apply to the event source mapping.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+   * (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
+   *
    * @public
    */
   TumblingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>The name of the Kafka topic.</p>
+   * The name of the Kafka topic.
+   *
    * @public
    */
   Topics?: string[] | undefined;
 
   /**
-   * <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
+   * (MQ) The name of the Amazon MQ broker destination queue to consume.
+   *
    * @public
    */
   Queues?: string[] | undefined;
 
   /**
-   * <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+   * An array of authentication protocols or VPC components required to secure your event source.
+   *
    * @public
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[] | undefined;
 
   /**
-   * <p>The self-managed Apache Kafka cluster to receive records from.</p>
+   * The self-managed Apache Kafka cluster to receive records from.
+   *
    * @public
    */
   SelfManagedEventSource?: SelfManagedEventSource | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.
+   *
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;
 
   /**
-   * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+   * Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+   *
    * @public
    */
   AmazonManagedKafkaEventSourceConfig?: AmazonManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+   * Specific configuration settings for a self-managed Apache Kafka event source.
+   *
    * @public
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   * Specific configuration settings for a DocumentDB event source.
+   *
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig | undefined;
 
   /**
-   * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
+   * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+   *
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
 }
 
 /**
- * <p>An object that contains details about an error related to filter criteria encryption.</p>
+ * An object that contains details about an error related to filter criteria encryption.
+ *
  * @public
  */
 export interface FilterCriteriaError {
   /**
-   * <p>The KMS exception that resulted from filter criteria encryption or decryption.</p>
+   * The KMS exception that resulted from filter criteria encryption or decryption.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
+ * A mapping between an Amazon Web Services resource and a Lambda function. For details, see CreateEventSourceMapping.
+ *
  * @public
  */
 export interface EventSourceMappingConfiguration {
   /**
-   * <p>The identifier of the event source mapping.</p>
+   * The identifier of the event source mapping.
+   *
    * @public
    */
   UUID?: string | undefined;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
+   * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Stream event sources. `AT_TIMESTAMP` is supported only for Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.
+   *
    * @public
    */
   StartingPosition?: EventSourcePosition | undefined;
 
   /**
-   * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading. <code>StartingPositionTimestamp</code> cannot be in the future.</p>
+   * With `StartingPosition` set to `AT_TIMESTAMP`, the time from which to start reading. `StartingPositionTimestamp` cannot be in the future.
+   *
    * @public
    */
   StartingPositionTimestamp?: Date | undefined;
 
   /**
-   * <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <p>Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.</p> <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
+   *
+   * Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.
+   *
+   * Related setting: When you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
+   *
    * @public
    */
   BatchSize?: number | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
+   * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure `MaximumBatchingWindowInSeconds` to any value from 0 seconds to 300 seconds in increments of seconds.
+   *
+   * For streams and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change `MaximumBatchingWindowInSeconds` in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.
+   *
+   * Related setting: For streams and Amazon SQS event sources, when you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
+   *
    * @public
    */
   MaximumBatchingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
+   * (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
+   *
    * @public
    */
   ParallelizationFactor?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the event source.</p>
+   * The Amazon Resource Name (ARN) of the event source.
+   *
    * @public
    */
   EventSourceArn?: string | undefined;
 
   /**
-   * <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p> <p>If filter criteria is encrypted, this field shows up as <code>null</code> in the response of ListEventSourceMapping API calls. You can view this field in plaintext in the response of GetEventSourceMapping and DeleteEventSourceMapping calls if you have <code>kms:Decrypt</code> permissions for the correct KMS key.</p>
+   * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
+   *
+   * If filter criteria is encrypted, this field shows up as `null` in the response of ListEventSourceMapping API calls. You can view this field in plaintext in the response of GetEventSourceMapping and DeleteEventSourceMapping calls if you have `kms:Decrypt` permissions for the correct KMS key.
+   *
    * @public
    */
   FilterCriteria?: FilterCriteria | undefined;
 
   /**
-   * <p>An object that contains details about an error related to filter criteria encryption.</p>
+   * An object that contains details about an error related to filter criteria encryption.
+   *
    * @public
    */
   FilterCriteriaError?: FilterCriteriaError | undefined;
 
   /**
-   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+   *
    * @public
    */
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
+   * (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. For more information, see [Event source mapping logging](https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html).
+   *
    * @public
    */
   LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
 
   /**
-   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+   *
    * @public
    */
   ScalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The ARN of the Lambda function.</p>
+   * The ARN of the Lambda function.
+   *
    * @public
    */
   FunctionArn?: string | undefined;
 
   /**
-   * <p>The date that the event source mapping was last updated or that its state changed.</p>
+   * The date that the event source mapping was last updated or that its state changed.
+   *
    * @public
    */
   LastModified?: Date | undefined;
 
   /**
-   * <p>The result of the event source mapping's last processing attempt.</p>
+   * The result of the event source mapping's last processing attempt.
+   *
    * @public
    */
   LastProcessingResult?: string | undefined;
 
   /**
-   * <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>, <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>, <code>Updating</code>, or <code>Deleting</code>.</p>
+   * The state of the event source mapping. It can be one of the following: `Creating`, `Enabling`, `Enabled`, `Disabling`, `Disabled`, `Updating`, or `Deleting`.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>Indicates whether a user or Lambda made the last change to the event source mapping.</p>
+   * Indicates whether a user or Lambda made the last change to the event source mapping.
+   *
    * @public
    */
   StateTransitionReason?: string | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
+   *
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>The name of the Kafka topic.</p>
+   * The name of the Kafka topic.
+   *
    * @public
    */
   Topics?: string[] | undefined;
 
   /**
-   * <p> (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.</p>
+   * (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
+   *
    * @public
    */
   Queues?: string[] | undefined;
 
   /**
-   * <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
+   * An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
+   *
    * @public
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[] | undefined;
 
   /**
-   * <p>The self-managed Apache Kafka cluster for your event source.</p>
+   * The self-managed Apache Kafka cluster for your event source.
+   *
    * @public
    */
   SelfManagedEventSource?: SelfManagedEventSource | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.</p> <note> <p>The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed</p> </note>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
+   *
+   * > **Note:** The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
+   *
    * @public
    */
   MaximumRecordAgeInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry. The default value is false.
+   *
    * @public
    */
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
+   *
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+   * (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
+   *
    * @public
    */
   TumblingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.
+   *
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;
 
   /**
-   * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+   * Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+   *
    * @public
    */
   AmazonManagedKafkaEventSourceConfig?: AmazonManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+   * Specific configuration settings for a self-managed Apache Kafka event source.
+   *
    * @public
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   * Specific configuration settings for a DocumentDB event source.
+   *
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
+   * The Amazon Resource Name (ARN) of the event source mapping.
+   *
    * @public
    */
   EventSourceMappingArn?: string | undefined;
 
   /**
-   * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
+   * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+   *
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
@@ -3131,7 +3748,8 @@ export interface EventSourceMappingConfiguration {
  */
 export interface DeleteEventSourceMappingRequest {
   /**
-   * <p>The identifier of the event source mapping.</p>
+   * The identifier of the event source mapping.
+   *
    * @public
    */
   UUID: string | undefined;
@@ -3142,7 +3760,8 @@ export interface DeleteEventSourceMappingRequest {
  */
 export interface GetEventSourceMappingRequest {
   /**
-   * <p>The identifier of the event source mapping.</p>
+   * The identifier of the event source mapping.
+   *
    * @public
    */
   UUID: string | undefined;
@@ -3153,25 +3772,45 @@ export interface GetEventSourceMappingRequest {
  */
 export interface ListEventSourceMappingsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>
+   * The Amazon Resource Name (ARN) of the event source.
+   *
+   * - **Amazon Kinesis** – The ARN of the data stream or a stream consumer.
+   * - **Amazon DynamoDB Streams** – The ARN of the stream.
+   * - **Amazon Simple Queue Service** – The ARN of the queue.
+   * - **Amazon Managed Streaming for Apache Kafka** – The ARN of the cluster or the ARN of the VPC connection (for [cross-account event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc)).
+   * - **Amazon MQ** – The ARN of the broker.
+   * - **Amazon DocumentDB** – The ARN of the DocumentDB change stream.
+   *
    * @public
    */
   EventSourceArn?: string | undefined;
 
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `MyFunction`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Version or Alias ARN** – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD`.
+   * - **Partial ARN** – `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName?: string | undefined;
 
   /**
-   * <p>A pagination token returned by a previous call.</p>
+   * A pagination token returned by a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of 100 items in each response, even if you set the number higher.</p>
+   * The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of 100 items in each response, even if you set the number higher.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -3182,13 +3821,15 @@ export interface ListEventSourceMappingsRequest {
  */
 export interface ListEventSourceMappingsResponse {
   /**
-   * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
+   * A pagination token that's returned when the response doesn't contain all event source mappings.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>A list of event source mappings.</p>
+   * A list of event source mappings.
+   *
    * @public
    */
   EventSourceMappings?: EventSourceMappingConfiguration[] | undefined;
@@ -3199,403 +3840,506 @@ export interface ListEventSourceMappingsResponse {
  */
 export interface UpdateEventSourceMappingRequest {
   /**
-   * <p>The identifier of the event source mapping.</p>
+   * The identifier of the event source mapping.
+   *
    * @public
    */
   UUID: string | undefined;
 
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Version or Alias ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `MyFunction`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Version or Alias ARN** – `arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD`.
+   * - **Partial ARN** – `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName?: string | undefined;
 
   /**
-   * <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p> <p>Default: True</p>
+   * When true, the event source mapping is active. When false, Lambda pauses polling and invocation.
+   *
+   * Default: True
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p> <ul> <li> <p> <b>Amazon Kinesis</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</p> </li> <li> <p> <b>DocumentDB</b> – Default 100. Max 10,000.</p> </li> </ul>
+   * The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).
+   *
+   * - **Amazon Kinesis** – Default 100. Max 10,000.
+   * - **Amazon DynamoDB Streams** – Default 100. Max 10,000.
+   * - **Amazon Simple Queue Service** – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.
+   * - **Amazon Managed Streaming for Apache Kafka** – Default 100. Max 10,000.
+   * - **Self-managed Apache Kafka** – Default 100. Max 10,000.
+   * - **Amazon MQ (ActiveMQ and RabbitMQ)** – Default 100. Max 10,000.
+   * - **DocumentDB** – Default 100. Max 10,000.
+   *
    * @public
    */
   BatchSize?: number | undefined;
 
   /**
-   * <p>An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+   * An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).
+   *
    * @public
    */
   FilterCriteria?: FilterCriteria | undefined;
 
   /**
-   * <p> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key. </p>
+   * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics). By default, Lambda does not encrypt your filter criteria object. Specify this property to encrypt data using your own customer managed key.
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
+   *
    * @public
    */
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 
   /**
-   * <p>(Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping. </p>
+   * (Amazon MSK, and self-managed Apache Kafka only) The logging configuration for your event source. Use this configuration object to define the level of logs for your event source mapping.
+   *
    * @public
    */
   LoggingConfig?: EventSourceMappingLoggingConfig | undefined;
 
   /**
-   * <p>(Amazon SQS only) The scaling configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency">Configuring maximum concurrency for Amazon SQS event sources</a>.</p>
+   * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+   *
    * @public
    */
   ScalingConfig?: ScalingConfig | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code> to any value from 0 seconds to 300 seconds in increments of seconds.</p> <p>For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code> in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.</p> <p>Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p> <p>Not supported for Kafka event source mappings when <code>ConsumptionMode</code> is <code>Queue</code>.</p>
+   * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function. You can configure `MaximumBatchingWindowInSeconds` to any value from 0 seconds to 300 seconds in increments of seconds.
+   *
+   * For Kinesis, DynamoDB, and Amazon SQS event sources, the default batching window is 0 seconds. For Amazon MSK, Self-managed Apache Kafka, Amazon MQ, and DocumentDB event sources, the default batching window is 500 ms. Note that because you can only change `MaximumBatchingWindowInSeconds` in increments of seconds, you cannot revert back to the 500 ms default batching window after you have changed it. To restore the default batching window, you must create a new event source mapping.
+   *
+   * Related setting: For Kinesis, DynamoDB, and Amazon SQS event sources, when you set `BatchSize` to a value greater than 10, you must set `MaximumBatchingWindowInSeconds` to at least 1.
+   *
+   * Not supported for Kafka event source mappings when `ConsumptionMode` is `Queue`.
+   *
    * @public
    */
   MaximumBatchingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.</p>
+   * (Kinesis and DynamoDB Streams only) The number of batches to process from each shard concurrently.
+   *
    * @public
    */
   ParallelizationFactor?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) A configuration object that specifies the destination of an event after Lambda processes it.
+   *
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records older than the specified age. The default value is infinite (-1).
+   *
    * @public
    */
   MaximumRecordAgeInSeconds?: number | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) If the function returns an error, split the batch in two and retry.
+   *
    * @public
    */
   BisectBatchOnFunctionError?: boolean | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p> <p>For Kafka <code>Stream</code> consumption mode, the default is <code>-1</code> (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka <code>Queue</code> consumption mode, the default is <code>0</code>, and if no on-failure destination is configured the Kafka broker performs retries.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+   *
+   * For Kafka `Stream` consumption mode, the default is `-1` (infinite retries; capped at 10 when an on-failure destination is configured). For Kafka `Queue` consumption mode, the default is `0`, and if no on-failure destination is configured the Kafka broker performs retries.
+   *
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.</p>
+   * (Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.
+   *
    * @public
    */
   TumblingWindowInSeconds?: number | undefined;
 
   /**
-   * <p>An array of authentication protocols or VPC components required to secure your event source.</p>
+   * An array of authentication protocols or VPC components required to secure your event source.
+   *
    * @public
    */
   SourceAccessConfigurations?: SourceAccessConfiguration[] | undefined;
 
   /**
-   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
+   * (Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.
+   *
    * @public
    */
   FunctionResponseTypes?: FunctionResponseType[] | undefined;
 
   /**
-   * <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
+   * Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
+   *
    * @public
    */
   AmazonManagedKafkaEventSourceConfig?: AmazonManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
+   * Specific configuration settings for a self-managed Apache Kafka event source.
+   *
    * @public
    */
   SelfManagedKafkaEventSourceConfig?: SelfManagedKafkaEventSourceConfig | undefined;
 
   /**
-   * <p>Specific configuration settings for a DocumentDB event source.</p>
+   * Specific configuration settings for a DocumentDB event source.
+   *
    * @public
    */
   DocumentDBEventSourceConfig?: DocumentDBEventSourceConfig | undefined;
 
   /**
-   * <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
+   * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+   *
    * @public
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
 }
 
 /**
- * <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
+ * Configuration for Lambda-managed instances used by the capacity provider.
+ *
  * @public
  */
 export interface LambdaManagedInstancesCapacityProviderConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   *
    * @public
    */
   CapacityProviderArn: string | undefined;
 
   /**
-   * <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
+   * The maximum number of concurrent execution environments that can run on each compute instance.
+   *
    * @public
    */
   PerExecutionEnvironmentMaxConcurrency?: number | undefined;
 
   /**
-   * <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
+   * The amount of memory in GiB allocated per vCPU for execution environments.
+   *
    * @public
    */
   ExecutionEnvironmentMemoryGiBPerVCpu?: number | undefined;
 }
 
 /**
- * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+ * Configuration for the capacity provider that manages compute resources for Lambda functions.
+ *
  * @public
  */
 export interface CapacityProviderConfig {
   /**
-   * <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
+   * Configuration for Lambda-managed instances used by the capacity provider.
+   *
    * @public
    */
   LambdaManagedInstancesCapacityProviderConfig: LambdaManagedInstancesCapacityProviderConfig | undefined;
 }
 
 /**
- * <p>The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.</p>
+ * The code for the Lambda function. You can either specify an object in Amazon S3, upload a .zip file archive deployment package directly, or specify the URI of a container image.
+ *
  * @public
  */
 export interface FunctionCode {
   /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>
+   * The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.
+   *
    * @public
    */
   ZipFile?: Uint8Array | undefined;
 
   /**
-   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
+   * An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.
+   *
    * @public
    */
   S3Bucket?: string | undefined;
 
   /**
-   * <p>The Amazon S3 key of the deployment package.</p>
+   * The Amazon S3 key of the deployment package.
+   *
    * @public
    */
   S3Key?: string | undefined;
 
   /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   * For versioned objects, the version of the deployment package object to use.
+   *
    * @public
    */
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>
+   * Specifies how the deployment package is stored. Valid values:
+   *
+   * - `COPY` (default) – Uploads a copy of your deployment package to Lambda.
+   * - `REFERENCE` – Lambda references the deployment package from the specified Amazon S3 bucket.
+   *
    * @public
    */
   S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
 
   /**
-   * <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
+   * URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
+   *
    * @public
    */
   ImageUri?: string | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [Amazon Web Services owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
+   *
    * @public
    */
   SourceKMSKeyArn?: string | undefined;
 }
 
 /**
- * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq">dead-letter queue</a> for failed asynchronous invocations.</p>
+ * The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) for failed asynchronous invocations.
+ *
  * @public
  */
 export interface DeadLetterConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
+   * The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
+   *
    * @public
    */
   TargetArn?: string | undefined;
 }
 
 /**
- * <p>A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.</p>
+ * A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
+ *
  * @public
  */
 export interface Environment {
   /**
-   * <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
+   * Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+   *
    * @public
    */
   Variables?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+ * The size of the function's `/tmp` directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see [Configuring ephemeral storage (console)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage).
+ *
  * @public
  */
 export interface EphemeralStorage {
   /**
-   * <p>The size of the function's <code>/tmp</code> directory.</p>
+   * The size of the function's `/tmp` directory.
+   *
    * @public
    */
   Size: number | undefined;
 }
 
 /**
- * <p>Setting controls how your function accesses data from an Amazon S3 file system.</p>
+ * Setting controls how your function accesses data from an Amazon S3 file system.
+ *
  * @public
  */
 export interface S3FilesConfig {
   /**
-   * <p>Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:</p> <ul> <li> <p> <code>AUTO</code> (default) – Direct reads are active for functions you configure with 512 MB or more of memory.</p> </li> <li> <p> <code>ENABLED</code> – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).</p> </li> <li> <p> <code>DISABLED</code> – Routes all reads through the file system, regardless of memory configuration.</p> </li> </ul> <p>To use direct reads, you must grant the execution role the <code>s3:GetObject</code> and <code>s3:GetObjectVersion</code> permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.</p>
+   * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:
+   *
+   * - `AUTO` (default) – Direct reads are active for functions you configure with 512 MB or more of memory.
+   * - `ENABLED` – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).
+   * - `DISABLED` – Routes all reads through the file system, regardless of memory configuration.
+   *
+   * To use direct reads, you must grant the execution role the `s3:GetObject` and `s3:GetObjectVersion` permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.
+   *
    * @public
    */
   DirectS3Read?: DirectS3Read | undefined;
 }
 
 /**
- * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 file system</a>.</p>
+ * Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+ *
  * @public
  */
 export interface FileSystemConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.</p>
+   * The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
+   * The path where the function can access the file system, starting with `/mnt/`.
+   *
    * @public
    */
   LocalMountPath: string | undefined;
 
   /**
-   * <p>The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an <code>InvalidParameterException</code>.</p>
+   * The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an `InvalidParameterException`.
+   *
    * @public
    */
   S3FilesConfig?: S3FilesConfig | undefined;
 }
 
 /**
- * <p>Configuration values that override the container image Dockerfile settings. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image settings</a>.</p>
+ * Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+ *
  * @public
  */
 export interface ImageConfig {
   /**
-   * <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
+   * Specifies the entry point to their application, which is typically the location of the runtime executable.
+   *
    * @public
    */
   EntryPoint?: string[] | undefined;
 
   /**
-   * <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
+   * Specifies parameters that you want to pass in with ENTRYPOINT.
+   *
    * @public
    */
   Command?: string[] | undefined;
 
   /**
-   * <p>Specifies the working directory.</p>
+   * Specifies the working directory.
+   *
    * @public
    */
   WorkingDirectory?: string | undefined;
 }
 
 /**
- * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ * The function's Amazon CloudWatch Logs configuration settings.
+ *
  * @public
  */
 export interface LoggingConfig {
   /**
-   * <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>
+   * The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
+   *
    * @public
    */
   LogFormat?: LogFormat | undefined;
 
   /**
-   * <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
+   * Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where `TRACE` is the highest level and `FATAL` is the lowest.
+   *
    * @public
    */
   ApplicationLogLevel?: ApplicationLogLevel | undefined;
 
   /**
-   * <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
+   * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where `DEBUG` is the highest level and `WARN` is the lowest.
+   *
    * @public
    */
   SystemLogLevel?: SystemLogLevel | undefined;
 
   /**
-   * <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named <code>/aws/lambda/&lt;function name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
+   * The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named `/aws/lambda/<function name>`. To use a different log group, enter an existing log group or enter a new log group name.
+   *
    * @public
    */
   LogGroup?: string | undefined;
 }
 
 /**
- * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a> setting. Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
+ * The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting. Set `ApplyOn` to `PublishedVersions` to create a snapshot of the initialized execution environment when you publish a function version.
+ *
  * @public
  */
 export interface SnapStart {
   /**
-   * <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
+   * Set to `PublishedVersions` to create a snapshot of the initialized execution environment when you publish a function version.
+   *
    * @public
    */
   ApplyOn?: SnapStartApplyOn | undefined;
 }
 
 /**
- * <p>Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.</p>
+ * Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
+ *
  * @public
  */
 export interface TenancyConfig {
   /**
-   * <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
+   * Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
+   *
    * @public
    */
   TenantIsolationMode: TenantIsolationMode | undefined;
 }
 
 /**
- * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a> tracing configuration. To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
+ * The function's [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set `Mode` to `Active`.
+ *
  * @public
  */
 export interface TracingConfig {
   /**
-   * <p>The tracing mode.</p>
+   * The tracing mode.
+   *
    * @public
    */
   Mode?: TracingMode | undefined;
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
+ * The VPC security groups and subnets that are attached to a Lambda function. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>A list of VPC subnet IDs.</p>
+   * A list of VPC subnet IDs.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>A list of VPC security group IDs.</p>
+   * A list of VPC security group IDs.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+   * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+   *
    * @public
    */
   Ipv6AllowedForDualStack?: boolean | undefined;
@@ -3606,655 +4350,796 @@ export interface VpcConfig {
  */
 export interface CreateFunctionRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
+   *
+   * The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   Runtime?: Runtime | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
+   * The Amazon Resource Name (ARN) of the function's execution role.
+   *
    * @public
    */
   Role: string | undefined;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
+   * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
+   *
    * @public
    */
   Handler?: string | undefined;
 
   /**
-   * <p>The code for the function.</p>
+   * The code for the function.
+   *
    * @public
    */
   Code: FunctionCode | undefined;
 
   /**
-   * <p>A description of the function.</p>
+   * A description of the function.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 900 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+   * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 900 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+   * The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
+   *
    * @public
    */
   MemorySize?: number | undefined;
 
   /**
-   * <p>Set to true to publish the first version of the function during creation.</p>
+   * Set to true to publish the first version of the function during creation.
+   *
    * @public
    */
   Publish?: boolean | undefined;
 
   /**
-   * <p>Specifies where to publish the function version or configuration.</p>
+   * Specifies where to publish the function version or configuration.
+   *
    * @public
    */
   PublishTo?: FunctionVersionLatestPublished | undefined;
 
   /**
-   * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
+   * For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
+   * The type of deployment package. Set to `Image` for container image and set to `Zip` for .zip file archive.
+   *
    * @public
    */
   PackageType?: PackageType | undefined;
 
   /**
-   * <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
+   * A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
+   *
    * @public
    */
   DeadLetterConfig?: DeadLetterConfig | undefined;
 
   /**
-   * <p>Environment variables that are accessible from function code during execution.</p>
+   * Environment variables that are accessible from function code during execution.
+   *
    * @public
    */
   Environment?: Environment | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p> <ul> <li> <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p> </li> <li> <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p> </li> <li> <p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption"> Specifying a customer managed key for Lambda</a>.</p> </li> <li> <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p> </li> </ul> <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:
+   *
+   * - The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+   * - The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+   * - When used with `SourceKMSKeyArn`, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+   * - The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+   *
+   * If you don't provide a customer managed key, Lambda uses an [Amazon Web Services owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
+   * Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
+   *
    * @public
    */
   TracingConfig?: TracingConfig | undefined;
 
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the function.</p>
+   * A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
+   * A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+   *
    * @public
    */
   Layers?: string[] | undefined;
 
   /**
-   * <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
+   * Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.
+   *
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;
 
   /**
-   * <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>
+   * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+   *
    * @public
    */
   CodeSigningConfigArn?: string | undefined;
 
   /**
-   * <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">configuration values</a> that override the values in the container image Dockerfile.</p>
+   * Container image [configuration values](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) that override the values in the container image Dockerfile.
+   *
    * @public
    */
   ImageConfig?: ImageConfig | undefined;
 
   /**
-   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
+   * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is `x86_64`.
+   *
    * @public
    */
   Architectures?: Architecture[] | undefined;
 
   /**
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * The size of the function's `/tmp` directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see [Configuring ephemeral storage (console)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage).
+   *
    * @public
    */
   EphemeralStorage?: EphemeralStorage | undefined;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+   * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+   *
    * @public
    */
   SnapStart?: SnapStart | undefined;
 
   /**
-   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   * The function's Amazon CloudWatch Logs configuration settings.
+   *
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
 
   /**
-   * <p>Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.</p>
+   * Configuration for multi-tenant applications that use Lambda functions. Defines tenant isolation settings and resource allocations. Required for functions supporting multiple tenants.
+   *
    * @public
    */
   TenancyConfig?: TenancyConfig | undefined;
 
   /**
-   * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+   * Configuration for the capacity provider that manages compute resources for Lambda functions.
+   *
    * @public
    */
   CapacityProviderConfig?: CapacityProviderConfig | undefined;
 
   /**
-   * <p>Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.</p>
+   * Configuration settings for durable functions. Enables creating functions with durability that can remember their state and continue execution even after interruptions.
+   *
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
 }
 
 /**
- * <p>Error messages for environment variables that couldn't be applied.</p>
+ * Error messages for environment variables that couldn't be applied.
+ *
  * @public
  */
 export interface EnvironmentError {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>The results of an operation to update or read environment variables. If the operation succeeds, the response contains the environment variables. If it fails, the response contains details about the error.</p>
+ * The results of an operation to update or read environment variables. If the operation succeeds, the response contains the environment variables. If it fails, the response contains details about the error.
+ *
  * @public
  */
 export interface EnvironmentResponse {
   /**
-   * <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
+   * Environment variable key-value pairs. Omitted from CloudTrail logs.
+   *
    * @public
    */
   Variables?: Record<string, string> | undefined;
 
   /**
-   * <p>Error messages for environment variables that couldn't be applied.</p>
+   * Error messages for environment variables that couldn't be applied.
+   *
    * @public
    */
   Error?: EnvironmentError | undefined;
 }
 
 /**
- * <p>Error response to <code>GetFunctionConfiguration</code>.</p>
+ * Error response to `GetFunctionConfiguration`.
+ *
  * @public
  */
 export interface ImageConfigError {
   /**
-   * <p>Error code.</p>
+   * Error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Response to a <code>GetFunctionConfiguration</code> request.</p>
+ * Response to a `GetFunctionConfiguration` request.
+ *
  * @public
  */
 export interface ImageConfigResponse {
   /**
-   * <p>Configuration values that override the container image Dockerfile.</p>
+   * Configuration values that override the container image Dockerfile.
+   *
    * @public
    */
   ImageConfig?: ImageConfig | undefined;
 
   /**
-   * <p>Error response to <code>GetFunctionConfiguration</code>.</p>
+   * Error response to `GetFunctionConfiguration`.
+   *
    * @public
    */
   Error?: ImageConfigError | undefined;
 }
 
 /**
- * <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
+ * An [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ *
  * @public
  */
 export interface Layer {
   /**
-   * <p>The Amazon Resource Name (ARN) of the function layer.</p>
+   * The Amazon Resource Name (ARN) of the function layer.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The size of the layer archive in bytes.</p>
+   * The size of the layer archive in bytes.
+   *
    * @public
    */
   CodeSize?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
+   * The Amazon Resource Name (ARN) for a signing profile version.
+   *
    * @public
    */
   SigningProfileVersionArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a signing job.</p>
+   * The Amazon Resource Name (ARN) of a signing job.
+   *
    * @public
    */
   SigningJobArn?: string | undefined;
 }
 
 /**
- * <p>Any error returned when the runtime version information for the function could not be retrieved.</p>
+ * Any error returned when the runtime version information for the function could not be retrieved.
+ *
  * @public
  */
 export interface RuntimeVersionError {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>The ARN of the runtime and any errors that occured.</p>
+ * The ARN of the runtime and any errors that occured.
+ *
  * @public
  */
 export interface RuntimeVersionConfig {
   /**
-   * <p>The ARN of the runtime version you want the function to use.</p>
+   * The ARN of the runtime version you want the function to use.
+   *
    * @public
    */
   RuntimeVersionArn?: string | undefined;
 
   /**
-   * <p>Error response when Lambda is unable to retrieve the runtime version for a function.</p>
+   * Error response when Lambda is unable to retrieve the runtime version for a function.
+   *
    * @public
    */
   Error?: RuntimeVersionError | undefined;
 }
 
 /**
- * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+ * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+ *
  * @public
  */
 export interface SnapStartResponse {
   /**
-   * <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
+   * When set to `PublishedVersions`, Lambda creates a snapshot of the execution environment when you publish a function version.
+   *
    * @public
    */
   ApplyOn?: SnapStartApplyOn | undefined;
 
   /**
-   * <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
+   * When you provide a [qualified Amazon Resource Name (ARN)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using), this response element indicates whether SnapStart is activated for the specified function version.
+   *
    * @public
    */
   OptimizationStatus?: SnapStartOptimizationStatus | undefined;
 }
 
 /**
- * <p>The function's X-Ray tracing configuration.</p>
+ * The function's X-Ray tracing configuration.
+ *
  * @public
  */
 export interface TracingConfigResponse {
   /**
-   * <p>The tracing mode.</p>
+   * The tracing mode.
+   *
    * @public
    */
   Mode?: TracingMode | undefined;
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
+ * The VPC security groups and subnets that are attached to a Lambda function.
+ *
  * @public
  */
 export interface VpcConfigResponse {
   /**
-   * <p>A list of VPC subnet IDs.</p>
+   * A list of VPC subnet IDs.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>A list of VPC security group IDs.</p>
+   * A list of VPC security group IDs.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The ID of the VPC.</p>
+   * The ID of the VPC.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+   * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
+   *
    * @public
    */
   Ipv6AllowedForDualStack?: boolean | undefined;
 }
 
 /**
- * <p>Details about a function's configuration.</p>
+ * Details about a function's configuration.
+ *
  * @public
  */
 export interface FunctionConfiguration {
   /**
-   * <p>The name of the function.</p>
+   * The name of the function.
+   *
    * @public
    */
   FunctionName?: string | undefined;
 
   /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
+   * The function's Amazon Resource Name (ARN).
+   *
    * @public
    */
   FunctionArn?: string | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
+   *
+   * The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   Runtime?: Runtime | undefined;
 
   /**
-   * <p>The function's execution role.</p>
+   * The function's execution role.
+   *
    * @public
    */
   Role?: string | undefined;
 
   /**
-   * <p>The function that Lambda calls to begin running your function.</p>
+   * The function that Lambda calls to begin running your function.
+   *
    * @public
    */
   Handler?: string | undefined;
 
   /**
-   * <p>The size of the function's deployment package, in bytes.</p>
+   * The size of the function's deployment package, in bytes.
+   *
    * @public
    */
   CodeSize?: number | undefined;
 
   /**
-   * <p>The function's description.</p>
+   * The function's description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
+   * The amount of time in seconds that Lambda allows a function to run before stopping it.
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>The amount of memory available to the function at runtime.</p>
+   * The amount of memory available to the function at runtime.
+   *
    * @public
    */
   MemorySize?: number | undefined;
 
   /**
-   * <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time that the function was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   LastModified?: string | undefined;
 
   /**
-   * <p>The SHA256 hash of the function's deployment package.</p>
+   * The SHA256 hash of the function's deployment package.
+   *
    * @public
    */
   CodeSha256?: string | undefined;
 
   /**
-   * <p>The version of the Lambda function.</p>
+   * The version of the Lambda function.
+   *
    * @public
    */
   Version?: string | undefined;
 
   /**
-   * <p>The function's networking configuration.</p>
+   * The function's networking configuration.
+   *
    * @public
    */
   VpcConfig?: VpcConfigResponse | undefined;
 
   /**
-   * <p>The function's dead letter queue.</p>
+   * The function's dead letter queue.
+   *
    * @public
    */
   DeadLetterConfig?: DeadLetterConfig | undefined;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>. Omitted from CloudTrail logs.</p>
+   * The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html). Omitted from CloudTrail logs.
+   *
    * @public
    */
   Environment?: EnvironmentResponse | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p> <ul> <li> <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p> </li> <li> <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p> </li> <li> <p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption"> Specifying a customer managed key for Lambda</a>.</p> </li> <li> <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p> </li> </ul> <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:
+   *
+   * - The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+   * - The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+   * - When used with `SourceKMSKeyArn`, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+   * - The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+   *
+   * If you don't provide a customer managed key, Lambda uses an [Amazon Web Services owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>The function's X-Ray tracing configuration.</p>
+   * The function's X-Ray tracing configuration.
+   *
    * @public
    */
   TracingConfig?: TracingConfigResponse | undefined;
 
   /**
-   * <p>For Lambda@Edge functions, the ARN of the main function.</p>
+   * For Lambda@Edge functions, the ARN of the main function.
+   *
    * @public
    */
   MasterArn?: string | undefined;
 
   /**
-   * <p>The latest updated revision of the function or alias.</p>
+   * The latest updated revision of the function or alias.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">layers</a>.</p>
+   * The function's [layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+   *
    * @public
    */
   Layers?: Layer[] | undefined;
 
   /**
-   * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
+   * The current state of the function. When the state is `Inactive`, you can reactivate the function by invoking it.
+   *
    * @public
    */
   State?: State | undefined;
 
   /**
-   * <p>The reason for the function's current state.</p>
+   * The reason for the function's current state.
+   *
    * @public
    */
   StateReason?: string | undefined;
 
   /**
-   * <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
+   * The reason code for the function's current state. When the code is `Creating`, you can't invoke or modify the function.
+   *
    * @public
    */
   StateReasonCode?: StateReasonCode | undefined;
 
   /**
-   * <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code> after function creation completes.</p>
+   * The status of the last update that was performed on the function. This is first set to `Successful` after function creation completes.
+   *
    * @public
    */
   LastUpdateStatus?: LastUpdateStatus | undefined;
 
   /**
-   * <p>The reason for the last update that was performed on the function.</p>
+   * The reason for the last update that was performed on the function.
+   *
    * @public
    */
   LastUpdateStatusReason?: string | undefined;
 
   /**
-   * <p>The reason code for the last update that was performed on the function.</p>
+   * The reason code for the last update that was performed on the function.
+   *
    * @public
    */
   LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | undefined;
 
   /**
-   * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 file system</a>.</p>
+   * Connection settings for an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
+   *
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;
 
   /**
-   * <p>The ARN of the signing profile version.</p>
+   * The ARN of the signing profile version.
+   *
    * @public
    */
   SigningProfileVersionArn?: string | undefined;
 
   /**
-   * <p>The ARN of the signing job.</p>
+   * The ARN of the signing job.
+   *
    * @public
    */
   SigningJobArn?: string | undefined;
 
   /**
-   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+   * The type of deployment package. Set to `Image` for container image and set `Zip` for .zip file archive.
+   *
    * @public
    */
   PackageType?: PackageType | undefined;
 
   /**
-   * <p>The function's image configuration values.</p>
+   * The function's image configuration values.
+   *
    * @public
    */
   ImageConfigResponse?: ImageConfigResponse | undefined;
 
   /**
-   * <p>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is <code>x86_64</code>.</p>
+   * The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is `x86_64`.
+   *
    * @public
    */
   Architectures?: Architecture[] | undefined;
 
   /**
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * The size of the function's `/tmp` directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see [Configuring ephemeral storage (console)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage).
+   *
    * @public
    */
   EphemeralStorage?: EphemeralStorage | undefined;
 
   /**
-   * <p>Set <code>ApplyOn</code> to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Improving startup performance with Lambda SnapStart</a>.</p>
+   * Set `ApplyOn` to `PublishedVersions` to create a snapshot of the initialized execution environment when you publish a function version. For more information, see [Improving startup performance with Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
+   *
    * @public
    */
   SnapStart?: SnapStartResponse | undefined;
 
   /**
-   * <p>The ARN of the runtime and any errors that occured.</p>
+   * The ARN of the runtime and any errors that occured.
+   *
    * @public
    */
   RuntimeVersionConfig?: RuntimeVersionConfig | undefined;
 
   /**
-   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   * The function's Amazon CloudWatch Logs configuration settings.
+   *
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
 
   /**
-   * <p>The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.</p>
+   * The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+   *
    * @public
    */
   TenancyConfig?: TenancyConfig | undefined;
 
   /**
-   * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+   * Configuration for the capacity provider that manages compute resources for Lambda functions.
+   *
    * @public
    */
   CapacityProviderConfig?: CapacityProviderConfig | undefined;
 
   /**
-   * <p>The SHA256 hash of the function configuration.</p>
+   * The SHA256 hash of the function configuration.
+   *
    * @public
    */
   ConfigSha256?: string | undefined;
 
   /**
-   * <p>The function's durable execution configuration settings, if the function is configured for durability.</p>
+   * The function's durable execution configuration settings, if the function is configured for durability.
+   *
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
 }
 
 /**
- * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your Lambda function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.</p>
+ * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your Lambda function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+ *
  * @public
  */
 export interface Cors {
   /**
-   * <p>Whether to allow cookies or other credentials in requests to your function URL. The default is <code>false</code>.</p>
+   * Whether to allow cookies or other credentials in requests to your function URL. The default is `false`.
+   *
    * @public
    */
   AllowCredentials?: boolean | undefined;
 
   /**
-   * <p>The HTTP headers that origins can include in requests to your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+   * The HTTP headers that origins can include in requests to your function URL. For example: `Date`, `Keep-Alive`, `X-Custom-Header`.
+   *
    * @public
    */
   AllowHeaders?: string[] | undefined;
 
   /**
-   * <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
+   * The HTTP methods that are allowed when calling your function URL. For example: `GET`, `POST`, `DELETE`, or the wildcard character (`*`).
+   *
    * @public
    */
   AllowMethods?: string[] | undefined;
 
   /**
-   * <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p> <p>Alternatively, you can grant access to all origins using the wildcard character (<code>*</code>).</p>
+   * The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: `https://www.example.com`, `http://localhost:60905`.
+   *
+   * Alternatively, you can grant access to all origins using the wildcard character (`*`).
+   *
    * @public
    */
   AllowOrigins?: string[] | undefined;
 
   /**
-   * <p>The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: <code>Date</code>, <code>Keep-Alive</code>, <code>X-Custom-Header</code>.</p>
+   * The HTTP headers in your function response that you want to expose to origins that call your function URL. For example: `Date`, `Keep-Alive`, `X-Custom-Header`.
+   *
    * @public
    */
   ExposeHeaders?: string[] | undefined;
 
   /**
-   * <p>The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to <code>0</code>, which means that the browser doesn't cache results.</p>
+   * The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results.
+   *
    * @public
    */
   MaxAge?: number | undefined;
@@ -4265,31 +5150,47 @@ export interface Cors {
  */
 export interface CreateFunctionUrlConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The alias name.</p>
+   * The alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+   * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+   *
    * @public
    */
   Cors?: Cors | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+   * - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 200 MB.
+   *
    * @public
    */
   InvokeMode?: InvokeMode | undefined;
@@ -4300,37 +5201,46 @@ export interface CreateFunctionUrlConfigRequest {
  */
 export interface CreateFunctionUrlConfigResponse {
   /**
-   * <p>The HTTP URL endpoint for your function.</p>
+   * The HTTP URL endpoint for your function.
+   *
    * @public
    */
   FunctionUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   * The Amazon Resource Name (ARN) of your function.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+   * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+   *
    * @public
    */
   Cors?: Cors | undefined;
 
   /**
-   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   CreationTime: string | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+   * - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 200 MB.
+   *
    * @public
    */
   InvokeMode?: InvokeMode | undefined;
@@ -4341,7 +5251,16 @@ export interface CreateFunctionUrlConfigResponse {
  */
 export interface DeleteFunctionCodeSigningConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -4352,7 +5271,16 @@ export interface DeleteFunctionCodeSigningConfigRequest {
  */
 export interface DeleteFunctionConcurrencyRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -4363,13 +5291,23 @@ export interface DeleteFunctionConcurrencyRequest {
  */
 export interface DeleteFunctionUrlConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The alias name.</p>
+   * The alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -4380,103 +5318,128 @@ export interface DeleteFunctionUrlConfigRequest {
  */
 export interface GetFunctionRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version or alias to get details about a published version of the function.</p>
+   * Specify a version or alias to get details about a published version of the function.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 }
 
 /**
- * <p>Contains details about an error that occurred when Lambda attempted to retrieve a function's deployment package.</p>
+ * Contains details about an error that occurred when Lambda attempted to retrieve a function's deployment package.
+ *
  * @public
  */
 export interface FunctionCodeLocationError {
   /**
-   * <p>The error code that identifies why Lambda failed to retrieve the deployment package.</p>
+   * The error code that identifies why Lambda failed to retrieve the deployment package.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The human-readable message that describes why Lambda failed to retrieve the deployment package.</p>
+   * The human-readable message that describes why Lambda failed to retrieve the deployment package.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Details about the resolved Amazon S3 object that contains a function's deployment package.</p>
+ * Details about the resolved Amazon S3 object that contains a function's deployment package.
+ *
  * @public
  */
 export interface ResolvedS3Object {
   /**
-   * <p>The Amazon S3 bucket that contains the deployment package.</p>
+   * The Amazon S3 bucket that contains the deployment package.
+   *
    * @public
    */
   S3Bucket?: string | undefined;
 
   /**
-   * <p>The Amazon S3 key of the deployment package.</p>
+   * The Amazon S3 key of the deployment package.
+   *
    * @public
    */
   S3Key?: string | undefined;
 
   /**
-   * <p>The version of the deployment package object.</p>
+   * The version of the deployment package object.
+   *
    * @public
    */
   S3ObjectVersion?: string | undefined;
 }
 
 /**
- * <p>Details about a function's deployment package.</p>
+ * Details about a function's deployment package.
+ *
  * @public
  */
 export interface FunctionCodeLocation {
   /**
-   * <p>The service that's hosting the file.</p>
+   * The service that's hosting the file.
+   *
    * @public
    */
   RepositoryType?: string | undefined;
 
   /**
-   * <p>A presigned URL that you can use to download the deployment package.</p>
+   * A presigned URL that you can use to download the deployment package.
+   *
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>URI of a container image in the Amazon ECR registry.</p>
+   * URI of a container image in the Amazon ECR registry.
+   *
    * @public
    */
   ImageUri?: string | undefined;
 
   /**
-   * <p>The resolved URI for the image.</p>
+   * The resolved URI for the image.
+   *
    * @public
    */
   ResolvedImageUri?: string | undefined;
 
   /**
-   * <p>The resolved Amazon S3 object that contains the deployment package.</p>
+   * The resolved Amazon S3 object that contains the deployment package.
+   *
    * @public
    */
   ResolvedS3Object?: ResolvedS3Object | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [Amazon Web Services owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
+   *
    * @public
    */
   SourceKMSKeyArn?: string | undefined;
 
   /**
-   * <p>An object that contains details about an error related to function deployment package retrieval.</p>
+   * An object that contains details about an error related to function deployment package retrieval.
+   *
    * @public
    */
   Error?: FunctionCodeLocationError | undefined;
@@ -4487,25 +5450,29 @@ export interface FunctionCodeLocation {
  */
 export interface Concurrency {
   /**
-   * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved concurrency</a>.</p>
+   * The number of concurrent executions that are reserved for this function. For more information, see [Managing Lambda reserved concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html).
+   *
    * @public
    */
   ReservedConcurrentExecutions?: number | undefined;
 }
 
 /**
- * <p>An object that contains details about an error related to retrieving tags.</p>
+ * An object that contains details about an error related to retrieving tags.
+ *
  * @public
  */
 export interface TagsError {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message: string | undefined;
@@ -4516,31 +5483,36 @@ export interface TagsError {
  */
 export interface GetFunctionResponse {
   /**
-   * <p>The configuration of the function or version.</p>
+   * The configuration of the function or version.
+   *
    * @public
    */
   Configuration?: FunctionConfiguration | undefined;
 
   /**
-   * <p>The deployment package of the function or version.</p>
+   * The deployment package of the function or version.
+   *
    * @public
    */
   Code?: FunctionCodeLocation | undefined;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. Lambda returns tag data only if you have explicit allow permissions for <a href="https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html">lambda:ListTags</a>.</p>
+   * The function's [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html). Lambda returns tag data only if you have explicit allow permissions for [lambda:ListTags](https://docs.aws.amazon.com/lambda/latest/api/API_ListTags.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>An object that contains details about an error related to retrieving tags.</p>
+   * An object that contains details about an error related to retrieving tags.
+   *
    * @public
    */
   TagsError?: TagsError | undefined;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved concurrency</a>.</p>
+   * The function's [reserved concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html).
+   *
    * @public
    */
   Concurrency?: Concurrency | undefined;
@@ -4551,7 +5523,16 @@ export interface GetFunctionResponse {
  */
 export interface GetFunctionCodeSigningConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -4562,13 +5543,23 @@ export interface GetFunctionCodeSigningConfigRequest {
  */
 export interface GetFunctionCodeSigningConfigResponse {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -4579,7 +5570,16 @@ export interface GetFunctionCodeSigningConfigResponse {
  */
 export interface GetFunctionConcurrencyRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -4590,7 +5590,8 @@ export interface GetFunctionConcurrencyRequest {
  */
 export interface GetFunctionConcurrencyResponse {
   /**
-   * <p>The number of simultaneous executions that are reserved for the function.</p>
+   * The number of simultaneous executions that are reserved for the function.
+   *
    * @public
    */
   ReservedConcurrentExecutions?: number | undefined;
@@ -4601,13 +5602,23 @@ export interface GetFunctionConcurrencyResponse {
  */
 export interface GetFunctionConfigurationRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version or alias to get details about a published version of the function.</p>
+   * Specify a version or alias to get details about a published version of the function.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -4618,7 +5629,8 @@ export interface GetFunctionConfigurationRequest {
  */
 export interface GetFunctionRecursionConfigRequest {
   /**
-   * <p>The name of the function.</p>
+   * The name of the function.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -4629,7 +5641,12 @@ export interface GetFunctionRecursionConfigRequest {
  */
 export interface GetFunctionRecursionConfigResponse {
   /**
-   * <p>If your function's recursive loop detection configuration is <code>Allow</code>, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop.</p> <p>If your function's recursive loop detection configuration is <code>Terminate</code>, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p> <p>By default, Lambda sets your function's configuration to <code>Terminate</code>. You can update this configuration using the <a>PutFunctionRecursionConfig</a> action.</p>
+   * If your function's recursive loop detection configuration is `Allow`, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop.
+   *
+   * If your function's recursive loop detection configuration is `Terminate`, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.
+   *
+   * By default, Lambda sets your function's configuration to `Terminate`. You can update this configuration using the PutFunctionRecursionConfig action.
+   *
    * @public
    */
   RecursiveLoop?: RecursiveLoop | undefined;
@@ -4640,31 +5657,36 @@ export interface GetFunctionRecursionConfigResponse {
  */
 export interface GetFunctionScalingConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p>
+   * The name or ARN of the Lambda function.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
+   * Specify a version or alias to get the scaling configuration for a published version of the function.
+   *
    * @public
    */
   Qualifier: string | undefined;
 }
 
 /**
- * <p>Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.</p>
+ * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+ *
  * @public
  */
 export interface FunctionScalingConfig {
   /**
-   * <p>The minimum number of execution environments to maintain for the function.</p>
+   * The minimum number of execution environments to maintain for the function.
+   *
    * @public
    */
   MinExecutionEnvironments?: number | undefined;
 
   /**
-   * <p>The maximum number of execution environments that can be provisioned for the function.</p>
+   * The maximum number of execution environments that can be provisioned for the function.
+   *
    * @public
    */
   MaxExecutionEnvironments?: number | undefined;
@@ -4675,19 +5697,22 @@ export interface FunctionScalingConfig {
  */
 export interface GetFunctionScalingConfigResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * The Amazon Resource Name (ARN) of the function.
+   *
    * @public
    */
   FunctionArn?: string | undefined;
 
   /**
-   * <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
+   * The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.
+   *
    * @public
    */
   AppliedFunctionScalingConfig?: FunctionScalingConfig | undefined;
 
   /**
-   * <p>The scaling configuration that was requested for the function.</p>
+   * The scaling configuration that was requested for the function.
+   *
    * @public
    */
   RequestedFunctionScalingConfig?: FunctionScalingConfig | undefined;
@@ -4698,13 +5723,23 @@ export interface GetFunctionScalingConfigResponse {
  */
 export interface GetFunctionUrlConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The alias name.</p>
+   * The alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -4715,43 +5750,53 @@ export interface GetFunctionUrlConfigRequest {
  */
 export interface GetFunctionUrlConfigResponse {
   /**
-   * <p>The HTTP URL endpoint for your function.</p>
+   * The HTTP URL endpoint for your function.
+   *
    * @public
    */
   FunctionUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   * The Amazon Resource Name (ARN) of your function.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+   * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+   *
    * @public
    */
   Cors?: Cors | undefined;
 
   /**
-   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   CreationTime: string | undefined;
 
   /**
-   * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   LastModifiedTime: string | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+   * - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 200 MB.
+   *
    * @public
    */
   InvokeMode?: InvokeMode | undefined;
@@ -4762,13 +5807,23 @@ export interface GetFunctionUrlConfigResponse {
  */
 export interface GetPolicyRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version or alias to get the policy for that resource.</p>
+   * Specify a version or alias to get the policy for that resource.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -4779,13 +5834,15 @@ export interface GetPolicyRequest {
  */
 export interface GetPolicyResponse {
   /**
-   * <p>The resource-based policy.</p>
+   * The resource-based policy.
+   *
    * @public
    */
   Policy?: string | undefined;
 
   /**
-   * <p>A unique identifier for the current revision of the policy.</p>
+   * A unique identifier for the current revision of the policy.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -4796,13 +5853,23 @@ export interface GetPolicyResponse {
  */
 export interface GetRuntimeManagementConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
+   * Specify a version of the function. This can be `$LATEST` or a published version number. If no value is specified, the configuration for the `$LATEST` version is returned.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -4813,19 +5880,22 @@ export interface GetRuntimeManagementConfigRequest {
  */
 export interface GetRuntimeManagementConfigResponse {
   /**
-   * <p>The current runtime update mode of the function.</p>
+   * The current runtime update mode of the function.
+   *
    * @public
    */
   UpdateRuntimeOn?: UpdateRuntimeOn | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   * The Amazon Resource Name (ARN) of your function.
+   *
    * @public
    */
   FunctionArn?: string | undefined;
 
   /**
-   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>Manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
+   * The ARN of the runtime the function is configured to use. If the runtime update mode is **Manual**, the ARN is returned, otherwise `null` is returned.
+   *
    * @public
    */
   RuntimeVersionArn?: string | undefined;
@@ -4836,49 +5906,73 @@ export interface GetRuntimeManagementConfigResponse {
  */
 export interface InvocationRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Choose from the following options.</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p> </li> <li> <p> <code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p> </li> </ul>
+   * Choose from the following options.
+   *
+   * - `RequestResponse` (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.
+   * - `Event` – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.
+   * - `DryRun` – Validate parameter values and verify that the user or role has permission to invoke the function.
+   *
    * @public
    */
   InvocationType?: InvocationType | undefined;
 
   /**
-   * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
+   * Set to `Tail` to include the execution log in the response. Applies to synchronously invoked functions only.
+   *
    * @public
    */
   LogType?: LogType | undefined;
 
   /**
-   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>
+   * Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the `ClientContext` object to your function for synchronous invocations only.
+   *
    * @public
    */
   ClientContext?: string | undefined;
 
   /**
-   * <p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p> <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names">Execution names</a>.</p>
+   * A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a `DurableExecutionAlreadyStartedException` error.
+   *
+   * If not specified, Lambda generates a unique identifier automatically. For more information, see [Execution names](https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names).
+   *
    * @public
    */
   DurableExecutionName?: string | undefined;
 
   /**
-   * <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p> <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
+   * The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.
+   *
+   * You can enter the JSON directly. For example, `--payload '\{ "key": "value" \}'`. You can also specify a file path. For example, `--payload file://payload.json`.
+   *
    * @public
    */
   Payload?: Uint8Array | undefined;
 
   /**
-   * <p>Specify a version or alias to invoke a published version of the function.</p>
+   * Specify a version or alias to invoke a published version of the function.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+   * The identifier of the tenant in a multi-tenant Lambda function.
+   *
    * @public
    */
   TenantId?: string | undefined;
@@ -4889,37 +5983,43 @@ export interface InvocationRequest {
  */
 export interface InvocationResponse {
   /**
-   * <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
+   * The HTTP status code is in the 200 range for a successful request. For the `RequestResponse` invocation type, this status code is 200. For the `Event` invocation type, this status code is 202. For the `DryRun` invocation type, the status code is 204.
+   *
    * @public
    */
   StatusCode?: number | undefined;
 
   /**
-   * <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
+   * If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.
+   *
    * @public
    */
   FunctionError?: string | undefined;
 
   /**
-   * <p>The last 4 KB of the execution log, which is base64-encoded.</p>
+   * The last 4 KB of the execution log, which is base64-encoded.
+   *
    * @public
    */
   LogResult?: string | undefined;
 
   /**
-   * <p>The response from the function, or an error object.</p>
+   * The response from the function, or an error object.
+   *
    * @public
    */
   Payload?: Uint8Array | undefined;
 
   /**
-   * <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
+   * The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
+   *
    * @public
    */
   ExecutedVersion?: string | undefined;
 
   /**
-   * <p>The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.</p>
+   * The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.
+   *
    * @public
    */
   DurableExecutionArn?: string | undefined;
@@ -4931,27 +6031,38 @@ export interface InvocationResponse {
  */
 export interface InvokeAsyncRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The JSON that you want to provide to your Lambda function as input.</p>
+   * The JSON that you want to provide to your Lambda function as input.
+   *
    * @public
    */
   InvokeArgs: StreamingBlobTypes | undefined;
 }
 
 /**
- * <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation.</p>
+ * A success response (`202 Accepted`) indicates that the request is queued for invocation.
  *
  * @deprecated deprecated.
  * @public
  */
 export interface InvokeAsyncResponse {
   /**
-   * <p>The status code.</p>
+   * The status code.
+   *
    * @public
    */
   Status?: number | undefined;
@@ -4962,86 +6073,113 @@ export interface InvokeAsyncResponse {
  */
 export interface InvokeWithResponseStreamRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
+   * Set to `Tail` to include the execution log in the response. Applies to synchronously invoked functions only.
+   *
    * @public
    */
   LogType?: LogType | undefined;
 
   /**
-   * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.</p>
+   * Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
+   *
    * @public
    */
   ClientContext?: string | undefined;
 
   /**
-   * <p>The alias name.</p>
+   * The alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>The JSON that you want to provide to your Lambda function as input.</p> <p>You can enter the JSON directly. For example, <code>--payload '\{ "key": "value" \}'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
+   * The JSON that you want to provide to your Lambda function as input.
+   *
+   * You can enter the JSON directly. For example, `--payload '\{ "key": "value" \}'`. You can also specify a file path. For example, `--payload file://payload.json`.
+   *
    * @public
    */
   Payload?: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
+   * The identifier of the tenant in a multi-tenant Lambda function.
+   *
    * @public
    */
   TenantId?: string | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `RequestResponse` (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.
+   * - `DryRun` – Validate parameter values and verify that the IAM user or role has permission to invoke the function.
+   *
    * @public
    */
   InvocationType?: ResponseStreamingInvocationType | undefined;
 }
 
 /**
- * <p>A response confirming that the event stream is complete.</p>
+ * A response confirming that the event stream is complete.
+ *
  * @public
  */
 export interface InvokeWithResponseStreamCompleteEvent {
   /**
-   * <p>An error code.</p>
+   * An error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The details of any returned error.</p>
+   * The details of any returned error.
+   *
    * @public
    */
   ErrorDetails?: string | undefined;
 
   /**
-   * <p>The last 4 KB of the execution log, which is base64-encoded.</p>
+   * The last 4 KB of the execution log, which is base64-encoded.
+   *
    * @public
    */
   LogResult?: string | undefined;
 }
 
 /**
- * <p>A chunk of the streamed response payload.</p>
+ * A chunk of the streamed response payload.
+ *
  * @public
  */
 export interface InvokeResponseStreamUpdate {
   /**
-   * <p>Data returned by your Lambda function.</p>
+   * Data returned by your Lambda function.
+   *
    * @public
    */
   Payload?: Uint8Array | undefined;
 }
 
 /**
- * <p>An object that includes a chunk of the response payload. When the stream has ended, Lambda includes a <code>InvokeComplete</code> object.</p>
+ * An object that includes a chunk of the response payload. When the stream has ended, Lambda includes a `InvokeComplete` object.
+ *
  * @public
  */
 export type InvokeWithResponseStreamResponseEvent =
@@ -5054,7 +6192,8 @@ export type InvokeWithResponseStreamResponseEvent =
  */
 export namespace InvokeWithResponseStreamResponseEvent {
   /**
-   * <p>A chunk of the streamed response payload.</p>
+   * A chunk of the streamed response payload.
+   *
    * @public
    */
   export interface PayloadChunkMember {
@@ -5064,7 +6203,8 @@ export namespace InvokeWithResponseStreamResponseEvent {
   }
 
   /**
-   * <p>An object that's returned when the stream has ended and all the payload chunks have been returned.</p>
+   * An object that's returned when the stream has ended and all the payload chunks have been returned.
+   *
    * @public
    */
   export interface InvokeCompleteMember {
@@ -5098,25 +6238,29 @@ export namespace InvokeWithResponseStreamResponseEvent {
  */
 export interface InvokeWithResponseStreamResponse {
   /**
-   * <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
+   * For a successful request, the HTTP status code is in the 200 range. For the `RequestResponse` invocation type, this status code is 200. For the `DryRun` invocation type, this status code is 204.
+   *
    * @public
    */
   StatusCode?: number | undefined;
 
   /**
-   * <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
+   * The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
+   *
    * @public
    */
   ExecutedVersion?: string | undefined;
 
   /**
-   * <p>The stream of response payloads.</p>
+   * The stream of response payloads.
+   *
    * @public
    */
   EventStream?: AsyncIterable<InvokeWithResponseStreamResponseEvent> | undefined;
 
   /**
-   * <p>The type of data the stream is returning.</p>
+   * The type of data the stream is returning.
+   *
    * @public
    */
   ResponseStreamContentType?: string | undefined;
@@ -5127,121 +6271,141 @@ export interface InvokeWithResponseStreamResponse {
  */
 export interface ListDurableExecutionsByFunctionRequest {
   /**
-   * <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
+   * The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The function version to filter executions by. If you don't specify a qualifier, this operation returns executions across all versions of the Lambda function.</p>
+   * The function version to filter executions by. If you don't specify a qualifier, this operation returns executions across all versions of the Lambda function.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
+   * Filter executions by name. Only executions with names that matches this string are returned.
+   *
    * @public
    */
   DurableExecutionName?: string | undefined;
 
   /**
-   * <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
+   * Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.
+   *
    * @public
    */
   Statuses?: ExecutionStatus[] | undefined;
 
   /**
-   * <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
+   * Filter executions that started after this timestamp (ISO 8601 format).
+   *
    * @public
    */
   StartedAfter?: Date | undefined;
 
   /**
-   * <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
+   * Filter executions that started before this timestamp (ISO 8601 format).
+   *
    * @public
    */
   StartedBefore?: Date | undefined;
 
   /**
-   * <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
+   * Set to true to return results in chronological order (oldest first). Default is false.
+   *
    * @public
    */
   ReverseOrder?: boolean | undefined;
 
   /**
-   * <p>Pagination token from a previous request to continue retrieving results.</p>
+   * Pagination token from a previous request to continue retrieving results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>Maximum number of executions to return (1-1000). Default is 100.</p>
+   * Maximum number of executions to return (1-1000). Default is 100.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>Information about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
+ * Information about a [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+ *
  * @public
  */
 export interface Execution {
   /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
+   * The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.
+   *
    * @public
    */
   DurableExecutionArn: string | undefined;
 
   /**
-   * <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
+   * The unique name of the durable execution, if one was provided when the execution was started.
+   *
    * @public
    */
   DurableExecutionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
+   * The Amazon Resource Name (ARN) of the Lambda function.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The current status of the durable execution.</p>
+   * The current status of the durable execution.
+   *
    * @public
    */
   Status: ExecutionStatus | undefined;
 
   /**
-   * <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the durable execution started, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   StartTimestamp: Date | undefined;
 
   /**
-   * <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date and time when the durable execution ended, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   EndTimestamp?: Date | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 }
 
 /**
- * <p>The response from the ListDurableExecutionsByFunction operation, containing a list of durable executions and pagination information.</p>
+ * The response from the ListDurableExecutionsByFunction operation, containing a list of durable executions and pagination information.
+ *
  * @public
  */
 export interface ListDurableExecutionsByFunctionResponse {
   /**
-   * <p>List of durable execution summaries matching the filter criteria.</p>
+   * List of durable execution summaries matching the filter criteria.
+   *
    * @public
    */
   DurableExecutions?: Execution[] | undefined;
 
   /**
-   * <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
+   * Pagination token for retrieving additional results. Present only if there are more results available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -5252,43 +6416,50 @@ export interface ListDurableExecutionsByFunctionResponse {
  */
 export interface ListFunctionsRequest {
   /**
-   * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+   * For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, `us-east-1` filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set `FunctionVersion` to `ALL`.
+   *
    * @public
    */
   MasterRegion?: string | undefined;
 
   /**
-   * <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
+   * Set to `ALL` to include entries for all published versions of each function.
+   *
    * @public
    */
   FunctionVersion?: FunctionVersion | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+   * The maximum number of functions to return in the response. Note that `ListFunctions` returns a maximum of 50 items in each response, even if you set the number higher.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>A list of Lambda functions.</p>
+ * A list of Lambda functions.
+ *
  * @public
  */
 export interface ListFunctionsResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>A list of Lambda functions.</p>
+   * A list of Lambda functions.
+   *
    * @public
    */
   Functions?: FunctionConfiguration[] | undefined;
@@ -5299,67 +6470,89 @@ export interface ListFunctionsResponse {
  */
 export interface ListFunctionUrlConfigsRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+   * The maximum number of function URLs to return in the response. Note that `ListFunctionUrlConfigs` returns a maximum of 50 items in each response, even if you set the number higher.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>Details about a Lambda function URL.</p>
+ * Details about a Lambda function URL.
+ *
  * @public
  */
 export interface FunctionUrlConfig {
   /**
-   * <p>The HTTP URL endpoint for your function.</p>
+   * The HTTP URL endpoint for your function.
+   *
    * @public
    */
   FunctionUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   * The Amazon Resource Name (ARN) of your function.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   CreationTime: string | undefined;
 
   /**
-   * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   LastModifiedTime: string | undefined;
 
   /**
-   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+   * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+   *
    * @public
    */
   Cors?: Cors | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+   * - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 200 MB.
+   *
    * @public
    */
   InvokeMode?: InvokeMode | undefined;
@@ -5370,13 +6563,15 @@ export interface FunctionUrlConfig {
  */
 export interface ListFunctionUrlConfigsResponse {
   /**
-   * <p>A list of function URL configurations.</p>
+   * A list of function URL configurations.
+   *
    * @public
    */
   FunctionUrlConfigs: FunctionUrlConfig[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -5387,67 +6582,86 @@ export interface ListFunctionUrlConfigsResponse {
  */
 export interface ListProvisionedConcurrencyConfigsRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>Specify a number to limit the number of configurations returned.</p>
+   * Specify a number to limit the number of configurations returned.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
+ * Details about the provisioned concurrency configuration for a function alias or version.
+ *
  * @public
  */
 export interface ProvisionedConcurrencyConfigListItem {
   /**
-   * <p>The Amazon Resource Name (ARN) of the alias or version.</p>
+   * The Amazon Resource Name (ARN) of the alias or version.
+   *
    * @public
    */
   FunctionArn?: string | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency requested.</p>
+   * The amount of provisioned concurrency requested.
+   *
    * @public
    */
   RequestedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency available.</p>
+   * The amount of provisioned concurrency available.
+   *
    * @public
    */
   AvailableProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
+   * The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.
+   *
    * @public
    */
   AllocatedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The status of the allocation process.</p>
+   * The status of the allocation process.
+   *
    * @public
    */
   Status?: ProvisionedConcurrencyStatusEnum | undefined;
 
   /**
-   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   * For failed allocations, the reason that provisioned concurrency could not be allocated.
+   *
    * @public
    */
   StatusReason?: string | undefined;
 
   /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+   * The date and time that a user last updated the configuration, in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html).
+   *
    * @public
    */
   LastModified?: string | undefined;
@@ -5458,13 +6672,15 @@ export interface ProvisionedConcurrencyConfigListItem {
  */
 export interface ListProvisionedConcurrencyConfigsResponse {
   /**
-   * <p>A list of provisioned concurrency configurations.</p>
+   * A list of provisioned concurrency configurations.
+   *
    * @public
    */
   ProvisionedConcurrencyConfigs?: ProvisionedConcurrencyConfigListItem[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -5475,13 +6691,23 @@ export interface ListProvisionedConcurrencyConfigsResponse {
  */
 export interface PutFunctionCodeSigningConfigRequest {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -5492,13 +6718,23 @@ export interface PutFunctionCodeSigningConfigRequest {
  */
 export interface PutFunctionCodeSigningConfigResponse {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * The The Amazon Resource Name (ARN) of the code signing configuration.
+   *
    * @public
    */
   CodeSigningConfigArn: string | undefined;
 
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
@@ -5509,13 +6745,23 @@ export interface PutFunctionCodeSigningConfigResponse {
  */
 export interface PutFunctionConcurrencyRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The number of simultaneous executions to reserve for the function.</p>
+   * The number of simultaneous executions to reserve for the function.
+   *
    * @public
    */
   ReservedConcurrentExecutions: number | undefined;
@@ -5526,13 +6772,29 @@ export interface PutFunctionConcurrencyRequest {
  */
 export interface PutFunctionRecursionConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>If you set your function's recursive loop detection configuration to <code>Allow</code>, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop. We recommend that you only use this setting if your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes it.</p> <p>If you set your function's recursive loop detection configuration to <code>Terminate</code>, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p> <p>By default, Lambda sets your function's configuration to <code>Terminate</code>.</p> <important> <p>If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see <a href="https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway">Recursive patterns that cause run-away Lambda functions</a> in Serverless Land.</p> </important>
+   * If you set your function's recursive loop detection configuration to `Allow`, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop. We recommend that you only use this setting if your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes it.
+   *
+   * If you set your function's recursive loop detection configuration to `Terminate`, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.
+   *
+   * By default, Lambda sets your function's configuration to `Terminate`.
+   *
+   * > **Important:** If your design intentionally uses a Lambda function to write data back to the same Amazon Web Services resource that invokes the function, then use caution and implement suitable guard rails to prevent unexpected charges being billed to your Amazon Web Services account. To learn more about best practices for using recursive invocation patterns, see [Recursive patterns that cause run-away Lambda functions](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway) in Serverless Land.
+   *
    * @public
    */
   RecursiveLoop: RecursiveLoop | undefined;
@@ -5543,7 +6805,12 @@ export interface PutFunctionRecursionConfigRequest {
  */
 export interface PutFunctionRecursionConfigResponse {
   /**
-   * <p>The status of your function's recursive loop detection configuration.</p> <p>When this value is set to <code>Allow</code>and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.</p> <p>When this value is set to <code>Terminate</code> and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you. </p>
+   * The status of your function's recursive loop detection configuration.
+   *
+   * When this value is set to `Allow`and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
+   *
+   * When this value is set to `Terminate` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
+   *
    * @public
    */
   RecursiveLoop?: RecursiveLoop | undefined;
@@ -5554,19 +6821,22 @@ export interface PutFunctionRecursionConfigResponse {
  */
 export interface PutFunctionScalingConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p>
+   * The name or ARN of the Lambda function.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
+   * Specify a version or alias to set the scaling configuration for a published version of the function.
+   *
    * @public
    */
   Qualifier: string | undefined;
 
   /**
-   * <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
+   * The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+   *
    * @public
    */
   FunctionScalingConfig?: FunctionScalingConfig | undefined;
@@ -5577,7 +6847,8 @@ export interface PutFunctionScalingConfigRequest {
  */
 export interface PutFunctionScalingConfigResponse {
   /**
-   * <p>The current state of the function after applying the scaling configuration.</p>
+   * The current state of the function after applying the scaling configuration.
+   *
    * @public
    */
   FunctionState?: State | undefined;
@@ -5588,25 +6859,43 @@ export interface PutFunctionScalingConfigResponse {
  */
 export interface PutRuntimeManagementConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a version of the function. This can be <code>$LATEST</code> or a published version number. If no value is specified, the configuration for the <code>$LATEST</code> version is returned.</p>
+   * Specify a version of the function. This can be `$LATEST` or a published version number. If no value is specified, the configuration for the `$LATEST` version is returned.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>Specify the runtime update mode.</p> <ul> <li> <p> <b>Auto (default)</b> - Automatically update to the most recent and secure runtime version using a <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase">Two-phase runtime version rollout</a>. This is the best choice for most customers to ensure they always benefit from runtime updates.</p> </li> <li> <p> <b>Function update</b> - Lambda updates the runtime of your function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.</p> </li> <li> <p> <b>Manual</b> - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback">Roll back a runtime version</a>.</p> </li> </ul>
+   * Specify the runtime update mode.
+   *
+   * - **Auto (default)** - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
+   * - **Function update** - Lambda updates the runtime of your function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
+   * - **Manual** - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
+   *
    * @public
    */
   UpdateRuntimeOn: UpdateRuntimeOn | undefined;
 
   /**
-   * <p>The ARN of the runtime version you want the function to use.</p> <note> <p>This is only required if you're using the <b>Manual</b> runtime update mode.</p> </note>
+   * The ARN of the runtime version you want the function to use.
+   *
+   * > **Note:** This is only required if you're using the **Manual** runtime update mode.
+   *
    * @public
    */
   RuntimeVersionArn?: string | undefined;
@@ -5617,19 +6906,22 @@ export interface PutRuntimeManagementConfigRequest {
  */
 export interface PutRuntimeManagementConfigResponse {
   /**
-   * <p>The runtime update mode.</p>
+   * The runtime update mode.
+   *
    * @public
    */
   UpdateRuntimeOn: UpdateRuntimeOn | undefined;
 
   /**
-   * <p>The ARN of the function</p>
+   * The ARN of the function
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The ARN of the runtime the function is configured to use. If the runtime update mode is <b>manual</b>, the ARN is returned, otherwise <code>null</code> is returned.</p>
+   * The ARN of the runtime the function is configured to use. If the runtime update mode is **manual**, the ARN is returned, otherwise `null` is returned.
+   *
    * @public
    */
   RuntimeVersionArn?: string | undefined;
@@ -5640,79 +6932,103 @@ export interface PutRuntimeManagementConfigResponse {
  */
 export interface UpdateFunctionCodeRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
+   * The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.
+   *
    * @public
    */
   ZipFile?: Uint8Array | undefined;
 
   /**
-   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
+   * An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.
+   *
    * @public
    */
   S3Bucket?: string | undefined;
 
   /**
-   * <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
+   * The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.
+   *
    * @public
    */
   S3Key?: string | undefined;
 
   /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   * For versioned objects, the version of the deployment package object to use.
+   *
    * @public
    */
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>
+   * Specifies how the deployment package is stored. Valid values:
+   *
+   * - `COPY` (default) – Uploads a copy of your deployment package to Lambda.
+   * - `REFERENCE` – Lambda references the deployment package from the specified Amazon S3 bucket.
+   *
    * @public
    */
   S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
 
   /**
-   * <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p>
+   * URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.
+   *
    * @public
    */
   ImageUri?: string | undefined;
 
   /**
-   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p>
+   * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is `x86_64`.
+   *
    * @public
    */
   Architectures?: Architecture[] | undefined;
 
   /**
-   * <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
+   * Set to true to publish a new version of the function after updating the code. This has the same effect as calling PublishVersion separately.
+   *
    * @public
    */
   Publish?: boolean | undefined;
 
   /**
-   * <p>Specifies where to publish the function version or configuration.</p>
+   * Specifies where to publish the function version or configuration.
+   *
    * @public
    */
   PublishTo?: FunctionVersionLatestPublished | undefined;
 
   /**
-   * <p>Set to true to validate the request parameters and access permissions without modifying the function code.</p>
+   * Set to true to validate the request parameters and access permissions without modifying the function code.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
+   * Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an Amazon Web Services managed key.
+   *
    * @public
    */
   SourceKMSKeyArn?: string | undefined;
@@ -5723,127 +7039,167 @@ export interface UpdateFunctionCodeRequest {
  */
 export interface UpdateFunctionConfigurationRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
+   * The Amazon Resource Name (ARN) of the function's execution role.
+   *
    * @public
    */
   Role?: string | undefined;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda programming model</a>.</p>
+   * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
+   *
    * @public
    */
   Handler?: string | undefined;
 
   /**
-   * <p>A description of the function.</p>
+   * A description of the function.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 900 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
+   * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds, and the maximum allowed value is 900 seconds. For functions using Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+   * The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.
+   *
    * @public
    */
   MemorySize?: number | undefined;
 
   /**
-   * <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
+   * For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>Environment variables that are accessible from function code during execution.</p>
+   * Environment variables that are accessible from function code during execution.
+   *
    * @public
    */
   Environment?: Environment | undefined;
 
   /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html"> runtime</a>. Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.</p> <p>The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
+   *
+   * The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   Runtime?: Runtime | undefined;
 
   /**
-   * <p>A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq">Dead-letter queues</a>.</p>
+   * A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
+   *
    * @public
    */
   DeadLetterConfig?: DeadLetterConfig | undefined;
 
   /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:</p> <ul> <li> <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment variables</a>.</p> </li> <li> <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda SnapStart</a> snapshots.</p> </li> <li> <p>When used with <code>SourceKMSKeyArn</code>, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption"> Specifying a customer managed key for Lambda</a>.</p> </li> <li> <p>The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle">Function lifecycle</a>.</p> </li> </ul> <p>If you don't provide a customer managed key, Lambda uses an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
+   * The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt the following resources:
+   *
+   * - The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
+   * - The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
+   * - When used with `SourceKMSKeyArn`, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
+   * - The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
+   *
+   * If you don't provide a customer managed key, Lambda uses an [Amazon Web Services owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [Amazon Web Services managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
+   *
    * @public
    */
   KMSKeyArn?: string | undefined;
 
   /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
+   * Set `Mode` to `Active` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
+   *
    * @public
    */
   TracingConfig?: TracingConfig | undefined;
 
   /**
-   * <p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p>
+   * Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
+   * A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
+   *
    * @public
    */
   Layers?: string[] | undefined;
 
   /**
-   * <p>Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.</p>
+   * Connection settings for an Amazon EFS file system or an Amazon S3 Files file system.
+   *
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;
 
   /**
-   * <p> <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container image configuration values</a> that override the values in the container image Docker file.</p>
+   * [Container image configuration values](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms) that override the values in the container image Docker file.
+   *
    * @public
    */
   ImageConfig?: ImageConfig | undefined;
 
   /**
-   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
+   * The size of the function's `/tmp` directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB. For more information, see [Configuring ephemeral storage (console)](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage).
+   *
    * @public
    */
   EphemeralStorage?: EphemeralStorage | undefined;
 
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
+   * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+   *
    * @public
    */
   SnapStart?: SnapStart | undefined;
 
   /**
-   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   * The function's Amazon CloudWatch Logs configuration settings.
+   *
    * @public
    */
   LoggingConfig?: LoggingConfig | undefined;
 
   /**
-   * <p>Configuration for the capacity provider that manages compute resources for Lambda functions.</p>
+   * Configuration for the capacity provider that manages compute resources for Lambda functions.
+   *
    * @public
    */
   CapacityProviderConfig?: CapacityProviderConfig | undefined;
 
   /**
-   * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+   *
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
@@ -5854,31 +7210,47 @@ export interface UpdateFunctionConfigurationRequest {
  */
 export interface UpdateFunctionUrlConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The alias name.</p>
+   * The alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   AuthType?: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+   * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+   *
    * @public
    */
   Cors?: Cors | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+   * - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 200 MB.
+   *
    * @public
    */
   InvokeMode?: InvokeMode | undefined;
@@ -5889,43 +7261,53 @@ export interface UpdateFunctionUrlConfigRequest {
  */
 export interface UpdateFunctionUrlConfigResponse {
   /**
-   * <p>The HTTP URL endpoint for your function.</p>
+   * The HTTP URL endpoint for your function.
+   *
    * @public
    */
   FunctionUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of your function.</p>
+   * The Amazon Resource Name (ARN) of your function.
+   *
    * @public
    */
   FunctionArn: string | undefined;
 
   /**
-   * <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Control access to Lambda function URLs</a>.</p>
+   * The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+   *
    * @public
    */
   AuthType: FunctionUrlAuthType | undefined;
 
   /**
-   * <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings for your function URL.</p>
+   * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+   *
    * @public
    */
   Cors?: Cors | undefined;
 
   /**
-   * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   CreationTime: string | undefined;
 
   /**
-   * <p>When the function URL configuration was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   LastModifiedTime: string | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>BUFFERED</code> – This is the default option. Lambda invokes your function using the <code>Invoke</code> API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.</p> </li> <li> <p> <code>RESPONSE_STREAM</code> – Your function streams payload results as they become available. Lambda invokes your function using the <code>InvokeWithResponseStream</code> API operation. The maximum response payload size is 200 MB.</p> </li> </ul>
+   * Use one of the following options:
+   *
+   * - `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.
+   * - `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 200 MB.
+   *
    * @public
    */
   InvokeMode?: InvokeMode | undefined;
@@ -5936,31 +7318,44 @@ export interface UpdateFunctionUrlConfigResponse {
  */
 export interface CreateAliasRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The name of the alias.</p>
+   * The name of the alias.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The function version that the alias invokes.</p>
+   * The function version that the alias invokes.
+   *
    * @public
    */
   FunctionVersion: string | undefined;
 
   /**
-   * <p>A description of the alias.</p>
+   * A description of the alias.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
+   * The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing) of the alias.
+   *
    * @public
    */
   RoutingConfig?: AliasRoutingConfiguration | undefined;
@@ -5971,13 +7366,23 @@ export interface CreateAliasRequest {
  */
 export interface DeleteAliasRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The name of the alias.</p>
+   * The name of the alias.
+   *
    * @public
    */
   Name: string | undefined;
@@ -5988,13 +7393,23 @@ export interface DeleteAliasRequest {
  */
 export interface GetAliasRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The name of the alias.</p>
+   * The name of the alias.
+   *
    * @public
    */
   Name: string | undefined;
@@ -6005,25 +7420,37 @@ export interface GetAliasRequest {
  */
 export interface ListAliasesRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a function version to only list aliases that invoke that version.</p>
+   * Specify a function version to only list aliases that invoke that version.
+   *
    * @public
    */
   FunctionVersion?: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>Limit the number of aliases returned.</p>
+   * Limit the number of aliases returned.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -6034,13 +7461,15 @@ export interface ListAliasesRequest {
  */
 export interface ListAliasesResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>A list of aliases.</p>
+   * A list of aliases.
+   *
    * @public
    */
   Aliases?: AliasConfiguration[] | undefined;
@@ -6051,37 +7480,51 @@ export interface ListAliasesResponse {
  */
 export interface UpdateAliasRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The name of the alias.</p>
+   * The name of the alias.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The function version that the alias invokes.</p>
+   * The function version that the alias invokes.
+   *
    * @public
    */
   FunctionVersion?: string | undefined;
 
   /**
-   * <p>A description of the alias.</p>
+   * A description of the alias.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
+   * The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing) of the alias.
+   *
    * @public
    */
   RoutingConfig?: AliasRoutingConfiguration | undefined;
 
   /**
-   * <p>Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.</p>
+   * Only update the alias if the revision ID matches the ID that's specified. Use this option to avoid modifying an alias that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -6092,19 +7535,30 @@ export interface UpdateAliasRequest {
  */
 export interface ListVersionsByFunctionRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
+   * The maximum number of versions to return. Note that `ListVersionsByFunction` returns a maximum of 50 items in each response, even if you set the number higher.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -6115,13 +7569,15 @@ export interface ListVersionsByFunctionRequest {
  */
 export interface ListVersionsByFunctionResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>A list of Lambda function versions.</p>
+   * A list of Lambda function versions.
+   *
    * @public
    */
   Versions?: FunctionConfiguration[] | undefined;
@@ -6132,31 +7588,44 @@ export interface ListVersionsByFunctionResponse {
  */
 export interface PublishVersionRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>MyFunction</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `MyFunction`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:MyFunction`.
+   * - **Partial ARN** - `123456789012:function:MyFunction`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p>
+   * Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of UpdateFunctionCode.
+   *
    * @public
    */
   CodeSha256?: string | undefined;
 
   /**
-   * <p>A description for the version to override the description in the function configuration.</p>
+   * A description for the version to override the description in the function configuration.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p>
+   * Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
 
   /**
-   * <p>Specifies where to publish the function version or configuration.</p>
+   * Specifies where to publish the function version or configuration.
+   *
    * @public
    */
   PublishTo?: FunctionVersionLatestPublished | undefined;
@@ -6172,13 +7641,15 @@ export interface GetAccountSettingsRequest {}
  */
 export interface GetAccountSettingsResponse {
   /**
-   * <p>Limits that are related to concurrency and code storage.</p>
+   * Limits that are related to concurrency and code storage.
+   *
    * @public
    */
   AccountLimit?: AccountLimit | undefined;
 
   /**
-   * <p>The number of functions and amount of storage in use.</p>
+   * The number of functions and amount of storage in use.
+   *
    * @public
    */
   AccountUsage?: AccountUsage | undefined;
@@ -6189,31 +7660,46 @@ export interface GetAccountSettingsResponse {
  */
 export interface FunctionEventInvokeConfig {
   /**
-   * <p>The date and time that the configuration was last updated.</p>
+   * The date and time that the configuration was last updated.
+   *
    * @public
    */
   LastModified?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   * The Amazon Resource Name (ARN) of the function.
+   *
    * @public
    */
   FunctionArn?: string | undefined;
 
   /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
+   * The maximum number of times to retry when the function returns an error.
+   *
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   * The maximum age of a request that Lambda sends to a function for processing.
+   *
    * @public
    */
   MaximumEventAgeInSeconds?: number | undefined;
 
   /**
-   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
+   * A destination for events after they have been sent to a function for processing.
+   *
+   * **Destinations**
+   *
+   * - **Function** - The Amazon Resource Name (ARN) of a Lambda function.
+   * - **Queue** - The ARN of a standard SQS queue.
+   * - **Bucket** - The ARN of an Amazon S3 bucket.
+   * - **Topic** - The ARN of a standard SNS topic.
+   * - **Event Bus** - The ARN of an Amazon EventBridge event bus.
+   *
+   * > **Note:** S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
+   *
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
@@ -6224,13 +7710,23 @@ export interface FunctionEventInvokeConfig {
  */
 export interface GetFunctionEventInvokeConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** - `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>A version number or alias name.</p>
+   * A version number or alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
@@ -6241,7 +7737,8 @@ export interface GetFunctionEventInvokeConfigRequest {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
+   * The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -6252,13 +7749,15 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The resource-based policy attached to the Lambda resource you specified.</p>
+   * The resource-based policy attached to the Lambda resource you specified.
+   *
    * @public
    */
   Policy?: string | undefined;
 
   /**
-   * <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <a>PutResourcePolicy</a> or <a>DeleteResourcePolicy</a> request. Doing so ensures the operation acts on the expected version of the policy.</p>
+   * The revision ID of the policy. Pass this value as the `RevisionId` in a PutResourcePolicy or DeleteResourcePolicy request. Doing so ensures the operation acts on the expected version of the policy.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -6269,97 +7768,121 @@ export interface GetResourcePolicyResponse {
  */
 export interface ListLayersRequest {
   /**
-   * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+   * The compatible [instruction set architecture](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+   *
    * @public
    */
   CompatibleArchitecture?: Architecture | undefined;
 
   /**
-   * <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * A runtime identifier.
+   *
+   * The following list includes deprecated runtimes. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   CompatibleRuntime?: Runtime | undefined;
 
   /**
-   * <p>A pagination token returned by a previous call.</p>
+   * A pagination token returned by a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of layers to return.</p>
+   * The maximum number of layers to return.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
+ * Details about a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ *
  * @public
  */
 export interface LayerVersionsListItem {
   /**
-   * <p>The ARN of the layer version.</p>
+   * The ARN of the layer version.
+   *
    * @public
    */
   LayerVersionArn?: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   Version?: number | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
+   * The date that the version was created, in ISO 8601 format. For example, `2018-11-27T15:10:45.123+0000`.
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+   *
    * @public
    */
   CompatibleArchitectures?: Architecture[] | undefined;
 
   /**
-   * <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * The layer's compatible runtimes.
+   *
+   * The following list includes deprecated runtimes. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   CompatibleRuntimes?: Runtime[] | undefined;
 
   /**
-   * <p>The layer's open-source license.</p>
+   * The layer's open-source license.
+   *
    * @public
    */
   LicenseInfo?: string | undefined;
 }
 
 /**
- * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
+ * Details about an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ *
  * @public
  */
 export interface LayersListItem {
   /**
-   * <p>The name of the layer.</p>
+   * The name of the layer.
+   *
    * @public
    */
   LayerName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the function layer.</p>
+   * The Amazon Resource Name (ARN) of the function layer.
+   *
    * @public
    */
   LayerArn?: string | undefined;
 
   /**
-   * <p>The newest version of the layer.</p>
+   * The newest version of the layer.
+   *
    * @public
    */
   LatestMatchingVersion?: LayerVersionsListItem | undefined;
@@ -6370,13 +7893,15 @@ export interface LayersListItem {
  */
 export interface ListLayersResponse {
   /**
-   * <p>A pagination token returned when the response doesn't contain all layers.</p>
+   * A pagination token returned when the response doesn't contain all layers.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>A list of function layers.</p>
+   * A list of function layers.
+   *
    * @public
    */
   Layers?: LayersListItem[] | undefined;
@@ -6387,13 +7912,15 @@ export interface ListLayersResponse {
  */
 export interface DeleteLayerVersionRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   VersionNumber: number | undefined;
@@ -6404,55 +7931,64 @@ export interface DeleteLayerVersionRequest {
  */
 export interface GetLayerVersionRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   VersionNumber: number | undefined;
 }
 
 /**
- * <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
+ * Details about a version of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+ *
  * @public
  */
 export interface LayerVersionContentOutput {
   /**
-   * <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
+   * A link to the layer archive in Amazon S3 that is valid for 10 minutes.
+   *
    * @public
    */
   Location?: string | undefined;
 
   /**
-   * <p>The SHA-256 hash of the layer archive.</p>
+   * The SHA-256 hash of the layer archive.
+   *
    * @public
    */
   CodeSha256?: string | undefined;
 
   /**
-   * <p>The size of the layer archive in bytes.</p>
+   * The size of the layer archive in bytes.
+   *
    * @public
    */
   CodeSize?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
+   * The Amazon Resource Name (ARN) for a signing profile version.
+   *
    * @public
    */
   SigningProfileVersionArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a signing job.</p>
+   * The Amazon Resource Name (ARN) of a signing job.
+   *
    * @public
    */
   SigningJobArn?: string | undefined;
 
   /**
-   * <p>The resolved Amazon S3 object that contains the layer archive.</p>
+   * The resolved Amazon S3 object that contains the layer archive.
+   *
    * @public
    */
   ResolvedS3Object?: ResolvedS3Object | undefined;
@@ -6463,55 +7999,68 @@ export interface LayerVersionContentOutput {
  */
 export interface GetLayerVersionResponse {
   /**
-   * <p>Details about the layer version.</p>
+   * Details about the layer version.
+   *
    * @public
    */
   Content?: LayerVersionContentOutput | undefined;
 
   /**
-   * <p>The ARN of the layer.</p>
+   * The ARN of the layer.
+   *
    * @public
    */
   LayerArn?: string | undefined;
 
   /**
-   * <p>The ARN of the layer version.</p>
+   * The ARN of the layer version.
+   *
    * @public
    */
   LayerVersionArn?: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date that the layer version was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   Version?: number | undefined;
 
   /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+   *
    * @public
    */
   CompatibleArchitectures?: Architecture[] | undefined;
 
   /**
-   * <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * The layer's compatible runtimes.
+   *
+   * The following list includes deprecated runtimes. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   CompatibleRuntimes?: Runtime[] | undefined;
 
   /**
-   * <p>The layer's software license.</p>
+   * The layer's software license.
+   *
    * @public
    */
   LicenseInfo?: string | undefined;
@@ -6522,7 +8071,8 @@ export interface GetLayerVersionResponse {
  */
 export interface GetLayerVersionByArnRequest {
   /**
-   * <p>The ARN of the layer version.</p>
+   * The ARN of the layer version.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -6533,13 +8083,15 @@ export interface GetLayerVersionByArnRequest {
  */
 export interface GetLayerVersionPolicyRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   VersionNumber: number | undefined;
@@ -6550,13 +8102,15 @@ export interface GetLayerVersionPolicyRequest {
  */
 export interface GetLayerVersionPolicyResponse {
   /**
-   * <p>The policy document.</p>
+   * The policy document.
+   *
    * @public
    */
   Policy?: string | undefined;
 
   /**
-   * <p>A unique identifier for the current revision of the policy.</p>
+   * A unique identifier for the current revision of the policy.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -6567,31 +8121,40 @@ export interface GetLayerVersionPolicyResponse {
  */
 export interface ListLayerVersionsRequest {
   /**
-   * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+   * The compatible [instruction set architecture](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+   *
    * @public
    */
   CompatibleArchitecture?: Architecture | undefined;
 
   /**
-   * <p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * A runtime identifier.
+   *
+   * The following list includes deprecated runtimes. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   CompatibleRuntime?: Runtime | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>A pagination token returned by a previous call.</p>
+   * A pagination token returned by a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of versions to return.</p>
+   * The maximum number of versions to return.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -6602,49 +8165,60 @@ export interface ListLayerVersionsRequest {
  */
 export interface ListLayerVersionsResponse {
   /**
-   * <p>A pagination token returned when the response doesn't contain all versions.</p>
+   * A pagination token returned when the response doesn't contain all versions.
+   *
    * @public
    */
   NextMarker?: string | undefined;
 
   /**
-   * <p>A list of versions.</p>
+   * A list of versions.
+   *
    * @public
    */
   LayerVersions?: LayerVersionsListItem[] | undefined;
 }
 
 /**
- * <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. You can specify either an Amazon S3 location, or upload a layer archive directly.</p>
+ * A ZIP archive that contains the contents of an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html). You can specify either an Amazon S3 location, or upload a layer archive directly.
+ *
  * @public
  */
 export interface LayerVersionContentInput {
   /**
-   * <p>The Amazon S3 bucket of the layer archive.</p>
+   * The Amazon S3 bucket of the layer archive.
+   *
    * @public
    */
   S3Bucket?: string | undefined;
 
   /**
-   * <p>The Amazon S3 key of the layer archive.</p>
+   * The Amazon S3 key of the layer archive.
+   *
    * @public
    */
   S3Key?: string | undefined;
 
   /**
-   * <p>For versioned objects, the version of the layer archive object to use.</p>
+   * For versioned objects, the version of the layer archive object to use.
+   *
    * @public
    */
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>Specifies how the layer archive is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p> </li> </ul>
+   * Specifies how the layer archive is stored. Valid values:
+   *
+   * - `COPY` (default) – Uploads a copy of your layer archive to Lambda.
+   * - `REFERENCE` – Lambda references the layer archive from the specified Amazon S3 bucket.
+   *
    * @public
    */
   S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
 
   /**
-   * <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
+   * The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.
+   *
    * @public
    */
   ZipFile?: Uint8Array | undefined;
@@ -6655,37 +8229,49 @@ export interface LayerVersionContentInput {
  */
 export interface PublishLayerVersionRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The function layer archive.</p>
+   * The function layer archive.
+   *
    * @public
    */
   Content: LayerVersionContentInput | undefined;
 
   /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+   *
    * @public
    */
   CompatibleArchitectures?: Architecture[] | undefined;
 
   /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
+   * A list of compatible [function runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Used for filtering with ListLayers and ListLayerVersions.
+   *
+   * The following list includes deprecated runtimes. For more information, see [Runtime deprecation policy](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy).
+   *
    * @public
    */
   CompatibleRuntimes?: Runtime[] | undefined;
 
   /**
-   * <p>The layer's software license. It can be any of the following:</p> <ul> <li> <p>An <a href="https://spdx.org/licenses/">SPDX license identifier</a>. For example, <code>MIT</code>.</p> </li> <li> <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p> </li> <li> <p>The full text of the license.</p> </li> </ul>
+   * The layer's software license. It can be any of the following:
+   *
+   * - An [SPDX license identifier](https://spdx.org/licenses/). For example, `MIT`.
+   * - The URL of a license hosted on the internet. For example, `https://opensource.org/licenses/MIT`.
+   * - The full text of the license.
+   *
    * @public
    */
   LicenseInfo?: string | undefined;
@@ -6696,55 +8282,68 @@ export interface PublishLayerVersionRequest {
  */
 export interface PublishLayerVersionResponse {
   /**
-   * <p>Details about the layer version.</p>
+   * Details about the layer version.
+   *
    * @public
    */
   Content?: LayerVersionContentOutput | undefined;
 
   /**
-   * <p>The ARN of the layer.</p>
+   * The ARN of the layer.
+   *
    * @public
    */
   LayerArn?: string | undefined;
 
   /**
-   * <p>The ARN of the layer version.</p>
+   * The ARN of the layer version.
+   *
    * @public
    */
   LayerVersionArn?: string | undefined;
 
   /**
-   * <p>The description of the version.</p>
+   * The description of the version.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * The date that the layer version was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
+   *
    * @public
    */
   CreatedDate?: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   Version?: number | undefined;
 
   /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   * A list of compatible [instruction set architectures](https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html).
+   *
    * @public
    */
   CompatibleArchitectures?: Architecture[] | undefined;
 
   /**
-   * <p>The layer's compatible runtimes.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
+   * The layer's compatible runtimes.
+   *
+   * The following list includes deprecated runtimes. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
+   *
+   * For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
+   *
    * @public
    */
   CompatibleRuntimes?: Runtime[] | undefined;
 
   /**
-   * <p>The layer's software license.</p>
+   * The layer's software license.
+   *
    * @public
    */
   LicenseInfo?: string | undefined;
@@ -6755,25 +8354,29 @@ export interface PublishLayerVersionResponse {
  */
 export interface RemoveLayerVersionPermissionRequest {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * The name or Amazon Resource Name (ARN) of the layer.
+   *
    * @public
    */
   LayerName: string | undefined;
 
   /**
-   * <p>The version number.</p>
+   * The version number.
+   *
    * @public
    */
   VersionNumber: number | undefined;
 
   /**
-   * <p>The identifier that was specified when the statement was added.</p>
+   * The identifier that was specified when the statement was added.
+   *
    * @public
    */
   StatementId: string | undefined;
 
   /**
-   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
+   * Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -6784,19 +8387,30 @@ export interface RemoveLayerVersionPermissionRequest {
  */
 export interface ListFunctionEventInvokeConfigsRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `my-function`.
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** - `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of configurations to return.</p>
+   * The maximum number of configurations to return.
+   *
    * @public
    */
   MaxItems?: number | undefined;
@@ -6807,13 +8421,15 @@ export interface ListFunctionEventInvokeConfigsRequest {
  */
 export interface ListFunctionEventInvokeConfigsResponse {
   /**
-   * <p>A list of configurations.</p>
+   * A list of configurations.
+   *
    * @public
    */
   FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   NextMarker?: string | undefined;
@@ -6824,7 +8440,8 @@ export interface ListFunctionEventInvokeConfigsResponse {
  */
 export interface ListTagsRequest {
   /**
-   * <p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>
+   * The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.
+   *
    * @public
    */
   Resource: string | undefined;
@@ -6835,7 +8452,8 @@ export interface ListTagsRequest {
  */
 export interface ListTagsResponse {
   /**
-   * <p>The function's tags.</p>
+   * The function's tags.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -6846,25 +8464,37 @@ export interface ListTagsResponse {
  */
 export interface RemovePermissionRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>Statement ID of the permission to remove.</p>
+   * Statement ID of the permission to remove.
+   *
    * @public
    */
   StatementId: string | undefined;
 
   /**
-   * <p>Specify a version or alias to remove permissions from a published version of the function.</p>
+   * Specify a version or alias to remove permissions from a published version of the function.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
+   * Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -6875,13 +8505,23 @@ export interface RemovePermissionRequest {
  */
 export interface DeleteProvisionedConcurrencyConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The version number or alias name.</p>
+   * The version number or alias name.
+   *
    * @public
    */
   Qualifier: string | undefined;
@@ -6892,13 +8532,23 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
  */
 export interface GetProvisionedConcurrencyConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The version number or alias name.</p>
+   * The version number or alias name.
+   *
    * @public
    */
   Qualifier: string | undefined;
@@ -6909,37 +8559,43 @@ export interface GetProvisionedConcurrencyConfigRequest {
  */
 export interface GetProvisionedConcurrencyConfigResponse {
   /**
-   * <p>The amount of provisioned concurrency requested.</p>
+   * The amount of provisioned concurrency requested.
+   *
    * @public
    */
   RequestedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency available.</p>
+   * The amount of provisioned concurrency available.
+   *
    * @public
    */
   AvailableProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
+   * The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.
+   *
    * @public
    */
   AllocatedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The status of the allocation process.</p>
+   * The status of the allocation process.
+   *
    * @public
    */
   Status?: ProvisionedConcurrencyStatusEnum | undefined;
 
   /**
-   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   * For failed allocations, the reason that provisioned concurrency could not be allocated.
+   *
    * @public
    */
   StatusReason?: string | undefined;
 
   /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+   * The date and time that a user last updated the configuration, in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html).
+   *
    * @public
    */
   LastModified?: string | undefined;
@@ -6950,19 +8606,30 @@ export interface GetProvisionedConcurrencyConfigResponse {
  */
 export interface PutProvisionedConcurrencyConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code>.</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function.
+   *
+   * **Name formats**
+   *
+   * - **Function name** – `my-function`.
+   * - **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** – `123456789012:function:my-function`.
+   *
+   * The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>The version number or alias name.</p>
+   * The version number or alias name.
+   *
    * @public
    */
   Qualifier: string | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
+   * The amount of provisioned concurrency to allocate for the version or alias.
+   *
    * @public
    */
   ProvisionedConcurrentExecutions: number | undefined;
@@ -6973,37 +8640,43 @@ export interface PutProvisionedConcurrencyConfigRequest {
  */
 export interface PutProvisionedConcurrencyConfigResponse {
   /**
-   * <p>The amount of provisioned concurrency requested.</p>
+   * The amount of provisioned concurrency requested.
+   *
    * @public
    */
   RequestedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.</p>
+   * The amount of provisioned concurrency allocated. When a weighted alias is used during linear and canary deployments, this value fluctuates depending on the amount of concurrency that is provisioned for the function versions.
+   *
    * @public
    */
   AllocatedProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The amount of provisioned concurrency available.</p>
+   * The amount of provisioned concurrency available.
+   *
    * @public
    */
   AvailableProvisionedConcurrentExecutions?: number | undefined;
 
   /**
-   * <p>The status of the allocation process.</p>
+   * The status of the allocation process.
+   *
    * @public
    */
   Status?: ProvisionedConcurrencyStatusEnum | undefined;
 
   /**
-   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   * For failed allocations, the reason that provisioned concurrency could not be allocated.
+   *
    * @public
    */
   StatusReason?: string | undefined;
 
   /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+   * The date and time that a user last updated the configuration, in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html).
+   *
    * @public
    */
   LastModified?: string | undefined;
@@ -7014,31 +8687,54 @@ export interface PutProvisionedConcurrencyConfigResponse {
  */
 export interface PutFunctionEventInvokeConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** - `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>A version number or alias name.</p>
+   * A version number or alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
+   * The maximum number of times to retry when the function returns an error.
+   *
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   * The maximum age of a request that Lambda sends to a function for processing.
+   *
    * @public
    */
   MaximumEventAgeInSeconds?: number | undefined;
 
   /**
-   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
+   * A destination for events after they have been sent to a function for processing.
+   *
+   * **Destinations**
+   *
+   * - **Function** - The Amazon Resource Name (ARN) of a Lambda function.
+   * - **Queue** - The ARN of a standard SQS queue.
+   * - **Bucket** - The ARN of an Amazon S3 bucket.
+   * - **Topic** - The ARN of a standard SNS topic.
+   * - **Event Bus** - The ARN of an Amazon EventBridge event bus.
+   *
+   * > **Note:** S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
+   *
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
@@ -7049,19 +8745,24 @@ export interface PutFunctionEventInvokeConfigRequest {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda resource you want to add the policy to. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
+   * The Amazon Resource Name (ARN) of the Lambda resource you want to add the policy to. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The policy document you want to add to your Lambda resource. This is formatted as a JSON string.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Working with resource-based policies in Lambda</a> in the <i>Lambda Developer Guide</i>.</p>
+   * The policy document you want to add to your Lambda resource. This is formatted as a JSON string.
+   *
+   * For more information, see [Working with resource-based policies in Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Lambda Developer Guide*.
+   *
    * @public
    */
   Policy: string | undefined;
 
   /**
-   * <p>The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
+   * The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a `PreconditionFailedException` error. To retrieve the current revision ID, use the GetResourcePolicy operation.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -7072,13 +8773,15 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResponse {
   /**
-   * <p>The resource-based policy that Lambda adds to the resource.</p>
+   * The resource-based policy that Lambda adds to the resource.
+   *
    * @public
    */
   Policy?: string | undefined;
 
   /**
-   * <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
+   * The revision ID of the policy that Lambda adds to your Lambda resource.
+   *
    * @public
    */
   RevisionId?: string | undefined;
@@ -7089,13 +8792,15 @@ export interface PutResourcePolicyResponse {
  */
 export interface SendDurableExecutionCallbackFailureRequest {
   /**
-   * <p>The unique identifier for the callback operation.</p>
+   * The unique identifier for the callback operation.
+   *
    * @public
    */
   CallbackId: string | undefined;
 
   /**
-   * <p>Error details describing why the callback operation failed. The combined size of all error fields is limited to 1 MB.</p>
+   * Error details describing why the callback operation failed. The combined size of all error fields is limited to 1 MB.
+   *
    * @public
    */
   Error?: ErrorObject | undefined;
@@ -7111,7 +8816,8 @@ export interface SendDurableExecutionCallbackFailureResponse {}
  */
 export interface SendDurableExecutionCallbackHeartbeatRequest {
   /**
-   * <p>The unique identifier for the callback operation.</p>
+   * The unique identifier for the callback operation.
+   *
    * @public
    */
   CallbackId: string | undefined;
@@ -7127,13 +8833,15 @@ export interface SendDurableExecutionCallbackHeartbeatResponse {}
  */
 export interface SendDurableExecutionCallbackSuccessRequest {
   /**
-   * <p>The unique identifier for the callback operation.</p>
+   * The unique identifier for the callback operation.
+   *
    * @public
    */
   CallbackId: string | undefined;
 
   /**
-   * <p>The result data from the successful callback operation. Maximum size is 1 MB.</p>
+   * The result data from the successful callback operation. Maximum size is 1 MB.
+   *
    * @public
    */
   Result?: Uint8Array | undefined;
@@ -7149,13 +8857,15 @@ export interface SendDurableExecutionCallbackSuccessResponse {}
  */
 export interface TagResourceRequest {
   /**
-   * <p>The resource's Amazon Resource Name (ARN).</p>
+   * The resource's Amazon Resource Name (ARN).
+   *
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>A list of tags to apply to the resource.</p>
+   * A list of tags to apply to the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -7166,13 +8876,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The resource's Amazon Resource Name (ARN).</p>
+   * The resource's Amazon Resource Name (ARN).
+   *
    * @public
    */
   Resource: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the resource.</p>
+   * A list of tag keys to remove from the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -7183,31 +8895,54 @@ export interface UntagResourceRequest {
  */
 export interface UpdateFunctionEventInvokeConfigRequest {
   /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * The name or ARN of the Lambda function, version, or alias.
+   *
+   * **Name formats**
+   *
+   * - **Function name** - `my-function` (name-only), `my-function:v1` (with alias).
+   * - **Function ARN** - `arn:aws:lambda:us-west-2:123456789012:function:my-function`.
+   * - **Partial ARN** - `123456789012:function:my-function`.
+   *
+   * You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+   *
    * @public
    */
   FunctionName: string | undefined;
 
   /**
-   * <p>A version number or alias name.</p>
+   * A version number or alias name.
+   *
    * @public
    */
   Qualifier?: string | undefined;
 
   /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
+   * The maximum number of times to retry when the function returns an error.
+   *
    * @public
    */
   MaximumRetryAttempts?: number | undefined;
 
   /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   * The maximum age of a request that Lambda sends to a function for processing.
+   *
    * @public
    */
   MaximumEventAgeInSeconds?: number | undefined;
 
   /**
-   * <p>A destination for events after they have been sent to a function for processing.</p> <p class="title"> <b>Destinations</b> </p> <ul> <li> <p> <b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p> </li> <li> <p> <b>Queue</b> - The ARN of a standard SQS queue.</p> </li> <li> <p> <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p> </li> <li> <p> <b>Topic</b> - The ARN of a standard SNS topic.</p> </li> <li> <p> <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p> </li> </ul> <note> <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p> </note>
+   * A destination for events after they have been sent to a function for processing.
+   *
+   * **Destinations**
+   *
+   * - **Function** - The Amazon Resource Name (ARN) of a Lambda function.
+   * - **Queue** - The ARN of a standard SQS queue.
+   * - **Bucket** - The ARN of an Amazon S3 bucket.
+   * - **Topic** - The ARN of a standard SNS topic.
+   * - **Event Bus** - The ARN of an Amazon EventBridge event bus.
+   *
+   * > **Note:** S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
+   *
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;

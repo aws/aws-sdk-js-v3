@@ -26,39 +26,22 @@ export interface PutObjectAnnotationCommandInput extends Omit<PutObjectAnnotatio
 export interface PutObjectAnnotationCommandOutput extends PutObjectAnnotationOutput, __MetadataBearer {}
 
 /**
- * <p>Attaches an annotation to an Amazon S3 object. An annotation is a named payload of 1 byte to 1 MiB
- *       that you can associate with a specific object or object version. Each object can have up to 1,000
- *       annotations.</p>
- *          <p>For annotation naming rules and restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/annotations-overview.html">Annotation naming guidelines</a>
- *       in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>Annotations inherit the encryption of their parent object. For objects without server-side
- *       encryption, annotations are encrypted with SSE-S3 (the default for new objects). Objects
- *       encrypted with SSE-C cannot have annotations.</p>
- *          <p>To use this operation, you must have the <code>s3:PutObjectAnnotation</code> permission. If the
- *       bucket has Requester Pays enabled, you must include the <code>x-amz-request-payer</code> header.</p>
- *          <note>
- *             <p>Annotations are not supported by the following features: S3 Inventory Reports,
- *       API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and
- *       S3 Express One Zone (directory buckets).</p>
- *          </note>
- *          <p>The following operations are related to <code>PutObjectAnnotation</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html">GetObjectAnnotation</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html">ListObjectAnnotations</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html">DeleteObjectAnnotation</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Attaches an annotation to an Amazon S3 object. An annotation is a named payload of 1 byte to 1 MiB that you can associate with a specific object or object version. Each object can have up to 1,000 annotations.
+ *
+ * For annotation naming rules and restrictions, see [Annotation naming guidelines](https://docs.aws.amazon.com/AmazonS3/latest/userguide/annotations-overview.html) in the *Amazon S3 User Guide*.
+ *
+ * Annotations inherit the encryption of their parent object. For objects without server-side encryption, annotations are encrypted with SSE-S3 (the default for new objects). Objects encrypted with SSE-C cannot have annotations.
+ *
+ * To use this operation, you must have the `s3:PutObjectAnnotation` permission. If the bucket has Requester Pays enabled, you must include the `x-amz-request-payer` header.
+ *
+ * > **Note:** Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).
+ *
+ * The following operations are related to `PutObjectAnnotation`:
+ *
+ * - [GetObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html)
+ * - [ListObjectAnnotations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html)
+ * - [DeleteObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,30 +103,36 @@ export interface PutObjectAnnotationCommandOutput extends PutObjectAnnotationOut
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link AnnotationLimitExceeded} (client fault)
- *  <p>The request would exceed the maximum number of annotations allowed per object.</p>
+ *
+ * The request would exceed the maximum number of annotations allowed per object.
  *
  * @throws {@link AnnotationNameTooLong} (client fault)
- *  <p>The annotation name exceeds 512 bytes.</p>
+ *
+ * The annotation name exceeds 512 bytes.
  *
  * @throws {@link InvalidAnnotationName} (client fault)
- *  <p>The annotation name you provided is invalid.</p>
+ *
+ * The annotation name you provided is invalid.
  *
  * @throws {@link InvalidRequest} (client fault)
- *  <p>A parameter or header in your request isn't valid. For details, see the description of this API
- *       operation.</p>
+ *
+ * A parameter or header in your request isn't valid. For details, see the description of this API operation.
  *
  * @throws {@link NoSuchBucket} (client fault)
- *  <p>The specified bucket does not exist.</p>
+ *
+ * The specified bucket does not exist.
  *
  * @throws {@link NoSuchKey} (client fault)
- *  <p>The specified key does not exist.</p>
+ *
+ * The specified key does not exist.
  *
  * @throws {@link UnsupportedMediaType} (client fault)
- *  <p>The annotation payload is not valid UTF-8 encoded text.</p>
+ *
+ * The annotation payload is not valid UTF-8 encoded text.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

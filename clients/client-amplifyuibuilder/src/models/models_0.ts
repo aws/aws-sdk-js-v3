@@ -18,37 +18,42 @@ import type {
 } from "./enums";
 
 /**
- * <p>Associates a component property to a binding property. This enables exposed properties on
- *       the top level component to propagate data to the component's property values.</p>
+ * Associates a component property to a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+ *
  * @public
  */
 export interface ComponentPropertyBindingProperties {
   /**
-   * <p>The component property to bind to the data field.</p>
+   * The component property to bind to the data field.
+   *
    * @public
    */
   property: string | undefined;
 
   /**
-   * <p>The data field to bind the property to.</p>
+   * The data field to bind the property to.
+   *
    * @public
    */
   field?: string | undefined;
 }
 
 /**
- * <p>Describes how to bind a component property to form data.</p>
+ * Describes how to bind a component property to form data.
+ *
  * @public
  */
 export interface FormBindingElement {
   /**
-   * <p>The name of the component to retrieve a value from.</p>
+   * The name of the component to retrieve a value from.
+   *
    * @public
    */
   element: string | undefined;
 
   /**
-   * <p>The property to retrieve a value from.</p>
+   * The property to retrieve a value from.
+   *
    * @public
    */
   property: string | undefined;
@@ -59,314 +64,366 @@ export interface FormBindingElement {
  */
 export interface GetCodegenJobRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the code generation job.</p>
+   * The unique ID of the Amplify app associated with the code generation job.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app associated with the code generation job.</p>
+   * The name of the backend environment that is a part of the Amplify app associated with the code generation job.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the code generation job.</p>
+   * The unique ID of the code generation job.
+   *
    * @public
    */
   id: string | undefined;
 }
 
 /**
- * <p>Describes an asset for a code generation job.</p>
+ * Describes an asset for a code generation job.
+ *
  * @public
  */
 export interface CodegenJobAsset {
   /**
-   * <p>The URL to use to access the asset.</p>
+   * The URL to use to access the asset.
+   *
    * @public
    */
   downloadUrl?: string | undefined;
 }
 
 /**
- * <p>Dependency package that may be required for the project code to run.</p>
+ * Dependency package that may be required for the project code to run.
+ *
  * @public
  */
 export interface CodegenDependency {
   /**
-   * <p>Name of the dependency package.</p>
+   * Name of the dependency package.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates the version of the supported dependency package.</p>
+   * Indicates the version of the supported dependency package.
+   *
    * @public
    */
   supportedVersion?: string | undefined;
 
   /**
-   * <p>Determines if the dependency package is using Semantic versioning. If set to true, it indicates that the dependency package uses Semantic versioning.</p>
+   * Determines if the dependency package is using Semantic versioning. If set to true, it indicates that the dependency package uses Semantic versioning.
+   *
    * @public
    */
   isSemVer?: boolean | undefined;
 
   /**
-   * <p>Indicates the reason to include the dependency package in your project code.</p>
+   * Indicates the reason to include the dependency package in your project code.
+   *
    * @public
    */
   reason?: string | undefined;
 }
 
 /**
- * <p>Describes the feature flags that you can specify for a code generation job.</p>
+ * Describes the feature flags that you can specify for a code generation job.
+ *
  * @public
  */
 export interface CodegenFeatureFlags {
   /**
-   * <p>Specifes whether a code generation job supports data relationships.</p>
+   * Specifes whether a code generation job supports data relationships.
+   *
    * @public
    */
   isRelationshipSupported?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a code generation job supports non models.</p>
+   * Specifies whether a code generation job supports non models.
+   *
    * @public
    */
   isNonModelSupported?: boolean | undefined;
 }
 
 /**
- * <p>Describes the enums in a generic data schema.</p>
+ * Describes the enums in a generic data schema.
+ *
  * @public
  */
 export interface CodegenGenericDataEnum {
   /**
-   * <p>The list of enum values in the generic data schema.</p>
+   * The list of enum values in the generic data schema.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Describes the relationship between generic data models.</p>
+ * Describes the relationship between generic data models.
+ *
  * @public
  */
 export interface CodegenGenericDataRelationshipType {
   /**
-   * <p>The data relationship type.</p>
+   * The data relationship type.
+   *
    * @public
    */
   type: GenericDataRelationshipType | undefined;
 
   /**
-   * <p>The name of the related model in the data relationship.</p>
+   * The name of the related model in the data relationship.
+   *
    * @public
    */
   relatedModelName: string | undefined;
 
   /**
-   * <p>The related model fields in the data relationship.</p>
+   * The related model fields in the data relationship.
+   *
    * @public
    */
   relatedModelFields?: string[] | undefined;
 
   /**
-   * <p>Specifies whether the relationship can unlink the associated model.</p>
+   * Specifies whether the relationship can unlink the associated model.
+   *
    * @public
    */
   canUnlinkAssociatedModel?: boolean | undefined;
 
   /**
-   * <p>The name of the related join field in the data relationship.</p>
+   * The name of the related join field in the data relationship.
+   *
    * @public
    */
   relatedJoinFieldName?: string | undefined;
 
   /**
-   * <p>The name of the related join table in the data relationship.</p>
+   * The name of the related join table in the data relationship.
+   *
    * @public
    */
   relatedJoinTableName?: string | undefined;
 
   /**
-   * <p>The value of the <code>belongsTo</code> field on the related data model. </p>
+   * The value of the `belongsTo` field on the related data model.
+   *
    * @public
    */
   belongsToFieldOnRelatedModel?: string | undefined;
 
   /**
-   * <p>The associated fields of the data relationship.</p>
+   * The associated fields of the data relationship.
+   *
    * @public
    */
   associatedFields?: string[] | undefined;
 
   /**
-   * <p>Specifies whether the <code>@index</code> directive is supported for a <code>hasMany</code> data relationship.</p>
+   * Specifies whether the `@index` directive is supported for a `hasMany` data relationship.
+   *
    * @public
    */
   isHasManyIndex?: boolean | undefined;
 }
 
 /**
- * <p>Describes a field in a generic data schema.</p>
+ * Describes a field in a generic data schema.
+ *
  * @public
  */
 export interface CodegenGenericDataField {
   /**
-   * <p>The data type for the generic data field.</p>
+   * The data type for the generic data field.
+   *
    * @public
    */
   dataType: CodegenGenericDataFieldDataType | undefined;
 
   /**
-   * <p>The value of the data type for the generic data field.</p>
+   * The value of the data type for the generic data field.
+   *
    * @public
    */
   dataTypeValue: string | undefined;
 
   /**
-   * <p>Specifies whether the generic data field is required.</p>
+   * Specifies whether the generic data field is required.
+   *
    * @public
    */
   required: boolean | undefined;
 
   /**
-   * <p>Specifies whether the generic data field is read-only.</p>
+   * Specifies whether the generic data field is read-only.
+   *
    * @public
    */
   readOnly: boolean | undefined;
 
   /**
-   * <p>Specifies whether the generic data field is an array.</p>
+   * Specifies whether the generic data field is an array.
+   *
    * @public
    */
   isArray: boolean | undefined;
 
   /**
-   * <p>The relationship of the generic data schema.</p>
+   * The relationship of the generic data schema.
+   *
    * @public
    */
   relationship?: CodegenGenericDataRelationshipType | undefined;
 }
 
 /**
- * <p>Describes a model in a generic data schema.</p>
+ * Describes a model in a generic data schema.
+ *
  * @public
  */
 export interface CodegenGenericDataModel {
   /**
-   * <p>The fields in the generic data model.</p>
+   * The fields in the generic data model.
+   *
    * @public
    */
   fields: Record<string, CodegenGenericDataField> | undefined;
 
   /**
-   * <p>Specifies whether the generic data model is a join table.</p>
+   * Specifies whether the generic data model is a join table.
+   *
    * @public
    */
   isJoinTable?: boolean | undefined;
 
   /**
-   * <p>The primary keys of the generic data model.</p>
+   * The primary keys of the generic data model.
+   *
    * @public
    */
   primaryKeys: string[] | undefined;
 }
 
 /**
- * <p>Describes a non-model in a generic data schema.</p>
+ * Describes a non-model in a generic data schema.
+ *
  * @public
  */
 export interface CodegenGenericDataNonModel {
   /**
-   * <p>The fields in a generic data schema non model.</p>
+   * The fields in a generic data schema non model.
+   *
    * @public
    */
   fields: Record<string, CodegenGenericDataField> | undefined;
 }
 
 /**
- * <p>Describes the data schema for a code generation job.</p>
+ * Describes the data schema for a code generation job.
+ *
  * @public
  */
 export interface CodegenJobGenericDataSchema {
   /**
-   * <p>The type of the data source for the schema. Currently, the only valid value is an Amplify <code>DataStore</code>.</p>
+   * The type of the data source for the schema. Currently, the only valid value is an Amplify `DataStore`.
+   *
    * @public
    */
   dataSourceType: CodegenJobGenericDataSourceType | undefined;
 
   /**
-   * <p>The name of a <code>CodegenGenericDataModel</code>.</p>
+   * The name of a `CodegenGenericDataModel`.
+   *
    * @public
    */
   models: Record<string, CodegenGenericDataModel> | undefined;
 
   /**
-   * <p>The name of a <code>CodegenGenericDataEnum</code>.</p>
+   * The name of a `CodegenGenericDataEnum`.
+   *
    * @public
    */
   enums: Record<string, CodegenGenericDataEnum> | undefined;
 
   /**
-   * <p>The name of a <code>CodegenGenericDataNonModel</code>.</p>
+   * The name of a `CodegenGenericDataNonModel`.
+   *
    * @public
    */
   nonModels: Record<string, CodegenGenericDataNonModel> | undefined;
 }
 
 /**
- * <p>Describes the DataStore configuration for an API for a code generation job.</p>
+ * Describes the DataStore configuration for an API for a code generation job.
+ *
  * @public
  */
 export interface DataStoreRenderConfig {}
 
 /**
- * <p>Describes the GraphQL configuration for an API for a code generation job.</p>
+ * Describes the GraphQL configuration for an API for a code generation job.
+ *
  * @public
  */
 export interface GraphQLRenderConfig {
   /**
-   * <p>The path to the GraphQL types file, relative to the component output directory.</p>
+   * The path to the GraphQL types file, relative to the component output directory.
+   *
    * @public
    */
   typesFilePath: string | undefined;
 
   /**
-   * <p>The path to the GraphQL queries file, relative to the component output directory.</p>
+   * The path to the GraphQL queries file, relative to the component output directory.
+   *
    * @public
    */
   queriesFilePath: string | undefined;
 
   /**
-   * <p>The path to the GraphQL mutations file, relative to the component output directory.</p>
+   * The path to the GraphQL mutations file, relative to the component output directory.
+   *
    * @public
    */
   mutationsFilePath: string | undefined;
 
   /**
-   * <p>The path to the GraphQL subscriptions file, relative to the component output directory.</p>
+   * The path to the GraphQL subscriptions file, relative to the component output directory.
+   *
    * @public
    */
   subscriptionsFilePath: string | undefined;
 
   /**
-   * <p>The path to the GraphQL fragments file, relative to the component output directory.</p>
+   * The path to the GraphQL fragments file, relative to the component output directory.
+   *
    * @public
    */
   fragmentsFilePath: string | undefined;
 }
 
 /**
- * <p>Describes the configuration for an application with no API being used.</p>
+ * Describes the configuration for an application with no API being used.
+ *
  * @public
  */
 export interface NoApiRenderConfig {}
 
 /**
- * <p>Describes the API configuration for a code generation job.</p>
+ * Describes the API configuration for a code generation job.
+ *
  * @public
  */
 export type ApiConfiguration =
@@ -380,7 +437,8 @@ export type ApiConfiguration =
  */
 export namespace ApiConfiguration {
   /**
-   * <p>The configuration for an application using GraphQL APIs.</p>
+   * The configuration for an application using GraphQL APIs.
+   *
    * @public
    */
   export interface GraphQLConfigMember {
@@ -391,7 +449,8 @@ export namespace ApiConfiguration {
   }
 
   /**
-   * <p>The configuration for an application using DataStore APIs.</p>
+   * The configuration for an application using DataStore APIs.
+   *
    * @public
    */
   export interface DataStoreConfigMember {
@@ -402,7 +461,8 @@ export namespace ApiConfiguration {
   }
 
   /**
-   * <p>The configuration for an application with no API being used.</p>
+   * The configuration for an application with no API being used.
+   *
    * @public
    */
   export interface NoApiConfigMember {
@@ -435,55 +495,64 @@ export namespace ApiConfiguration {
 }
 
 /**
- * <p>Describes the code generation job configuration for a React project.</p>
+ * Describes the code generation job configuration for a React project.
+ *
  * @public
  */
 export interface ReactStartCodegenJobData {
   /**
-   * <p>The JavaScript module type.</p>
+   * The JavaScript module type.
+   *
    * @public
    */
   module?: JSModule | undefined;
 
   /**
-   * <p>The ECMAScript specification to use.</p>
+   * The ECMAScript specification to use.
+   *
    * @public
    */
   target?: JSTarget | undefined;
 
   /**
-   * <p>The file type to use for a JavaScript project.</p>
+   * The file type to use for a JavaScript project.
+   *
    * @public
    */
   script?: JSScript | undefined;
 
   /**
-   * <p>Specifies whether the code generation job should render type declaration files.</p>
+   * Specifies whether the code generation job should render type declaration files.
+   *
    * @public
    */
   renderTypeDeclarations?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the code generation job should render inline source maps.</p>
+   * Specifies whether the code generation job should render inline source maps.
+   *
    * @public
    */
   inlineSourceMap?: boolean | undefined;
 
   /**
-   * <p>The API configuration for the code generation job.</p>
+   * The API configuration for the code generation job.
+   *
    * @public
    */
   apiConfiguration?: ApiConfiguration | undefined;
 
   /**
-   * <p>Lists the dependency packages that may be required for the project code to run.</p>
+   * Lists the dependency packages that may be required for the project code to run.
+   *
    * @public
    */
   dependencies?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Describes the configuration information for rendering the UI component associated with the code generation job.</p>
+ * Describes the configuration information for rendering the UI component associated with the code generation job.
+ *
  * @public
  */
 export type CodegenJobRenderConfig =
@@ -495,7 +564,8 @@ export type CodegenJobRenderConfig =
  */
 export namespace CodegenJobRenderConfig {
   /**
-   * <p>The name of the <code>ReactStartCodegenJobData</code> object.</p>
+   * The name of the `ReactStartCodegenJobData` object.
+   *
    * @public
    */
   export interface ReactMember {
@@ -522,90 +592,105 @@ export namespace CodegenJobRenderConfig {
 }
 
 /**
- * <p>Describes the configuration for a code generation job that is associated with an Amplify app.</p>
+ * Describes the configuration for a code generation job that is associated with an Amplify app.
+ *
  * @public
  */
 export interface CodegenJob {
   /**
-   * <p>The unique ID for the code generation job.</p>
+   * The unique ID for the code generation job.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the Amplify app associated with the code generation job.</p>
+   * The ID of the Amplify app associated with the code generation job.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment associated with the code generation job.</p>
+   * The name of the backend environment associated with the code generation job.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>Describes the configuration information for rendering the UI component associated with the code generation job.</p>
+   * Describes the configuration information for rendering the UI component associated with the code generation job.
+   *
    * @public
    */
   renderConfig?: CodegenJobRenderConfig | undefined;
 
   /**
-   * <p>Describes the data schema for a code generation job.</p>
+   * Describes the data schema for a code generation job.
+   *
    * @public
    */
   genericDataSchema?: CodegenJobGenericDataSchema | undefined;
 
   /**
-   * <p>Specifies whether to autogenerate forms in the code generation job.</p>
+   * Specifies whether to autogenerate forms in the code generation job.
+   *
    * @public
    */
   autoGenerateForms?: boolean | undefined;
 
   /**
-   * <p>Describes the feature flags that you can specify for a code generation job.</p>
+   * Describes the feature flags that you can specify for a code generation job.
+   *
    * @public
    */
   features?: CodegenFeatureFlags | undefined;
 
   /**
-   * <p>The status of the code generation job.</p>
+   * The status of the code generation job.
+   *
    * @public
    */
   status?: CodegenJobStatus | undefined;
 
   /**
-   * <p>The customized status message for the code generation job.</p>
+   * The customized status message for the code generation job.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The <code>CodegenJobAsset</code> to use for the code generation job.</p>
+   * The `CodegenJobAsset` to use for the code generation job.
+   *
    * @public
    */
   asset?: CodegenJobAsset | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the code generation job.</p>
+   * One or more key-value pairs to use when tagging the code generation job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The time that the code generation job was created.</p>
+   * The time that the code generation job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time that the code generation job was modified.</p>
+   * The time that the code generation job was modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>Lists the dependency packages that may be required for the project code to run.</p>
+   * Lists the dependency packages that may be required for the project code to run.
+   *
    * @public
    */
   dependencies?: CodegenDependency[] | undefined;
@@ -616,7 +701,8 @@ export interface CodegenJob {
  */
 export interface GetCodegenJobResponse {
   /**
-   * <p>The configuration settings for the code generation job.</p>
+   * The configuration settings for the code generation job.
+   *
    * @public
    */
   job?: CodegenJob | undefined;
@@ -627,61 +713,71 @@ export interface GetCodegenJobResponse {
  */
 export interface ListCodegenJobsRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of jobs to retrieve.</p>
+   * The maximum number of jobs to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the basic information about the code generation job.</p>
+ * A summary of the basic information about the code generation job.
+ *
  * @public
  */
 export interface CodegenJobSummary {
   /**
-   * <p>The unique ID of the Amplify app associated with the code generation job.</p>
+   * The unique ID of the Amplify app associated with the code generation job.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment associated with the code generation job.</p>
+   * The name of the backend environment associated with the code generation job.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID for the code generation job summary.</p>
+   * The unique ID for the code generation job summary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The time that the code generation job summary was created.</p>
+   * The time that the code generation job summary was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The time that the code generation job summary was modified.</p>
+   * The time that the code generation job summary was modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
@@ -692,49 +788,57 @@ export interface CodegenJobSummary {
  */
 export interface ListCodegenJobsResponse {
   /**
-   * <p>The list of code generation jobs for the Amplify app.</p>
+   * The list of code generation jobs for the Amplify app.
+   *
    * @public
    */
   entities: CodegenJobSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The code generation job resource configuration.</p>
+ * The code generation job resource configuration.
+ *
  * @public
  */
 export interface StartCodegenJobData {
   /**
-   * <p>The code generation configuration for the codegen job.</p>
+   * The code generation configuration for the codegen job.
+   *
    * @public
    */
   renderConfig: CodegenJobRenderConfig | undefined;
 
   /**
-   * <p>The data schema to use for a code generation job.</p>
+   * The data schema to use for a code generation job.
+   *
    * @public
    */
   genericDataSchema?: CodegenJobGenericDataSchema | undefined;
 
   /**
-   * <p>Specifies whether to autogenerate forms in the code generation job.</p>
+   * Specifies whether to autogenerate forms in the code generation job.
+   *
    * @public
    */
   autoGenerateForms?: boolean | undefined;
 
   /**
-   * <p>The feature flags for a code generation job.</p>
+   * The feature flags for a code generation job.
+   *
    * @public
    */
   features?: CodegenFeatureFlags | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the code generation job data.</p>
+   * One or more key-value pairs to use when tagging the code generation job data.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -745,25 +849,29 @@ export interface StartCodegenJobData {
  */
 export interface StartCodegenJobRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The idempotency token used to ensure that the code generation job request completes only once.</p>
+   * The idempotency token used to ensure that the code generation job request completes only once.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The code generation job resource configuration.</p>
+   * The code generation job resource configuration.
+   *
    * @public
    */
   codegenJobToCreate: StartCodegenJobData | undefined;
@@ -774,46 +882,50 @@ export interface StartCodegenJobRequest {
  */
 export interface StartCodegenJobResponse {
   /**
-   * <p>The code generation job for a UI component that is associated with an Amplify app.</p>
+   * The code generation job for a UI component that is associated with an Amplify app.
+   *
    * @public
    */
   entity?: CodegenJob | undefined;
 }
 
 /**
- * <p>Describes how to sort the data that you bind to a component.</p>
+ * Describes how to sort the data that you bind to a component.
+ *
  * @public
  */
 export interface SortProperty {
   /**
-   * <p>The field to perform the sort on.</p>
+   * The field to perform the sort on.
+   *
    * @public
    */
   field: string | undefined;
 
   /**
-   * <p>The direction of the sort, either ascending or descending.</p>
+   * The direction of the sort, either ascending or descending.
+   *
    * @public
    */
   direction: SortDirection | undefined;
 }
 
 /**
- * <p>Describes the style configuration of a unique variation of a main component.</p>
+ * Describes the style configuration of a unique variation of a main component.
+ *
  * @public
  */
 export interface ComponentVariant {
   /**
-   * <p>The combination of variants that comprise this variant. You can't specify
-   *         <code>tags</code> as a valid property for <code>variantValues</code>.</p>
+   * The combination of variants that comprise this variant. You can't specify `tags` as a valid property for `variantValues`.
+   *
    * @public
    */
   variantValues?: Record<string, string> | undefined;
 
   /**
-   * <p>The properties of the component variant that can be overriden when customizing an instance
-   *       of the component. You can't specify <code>tags</code> as a valid property for
-   *         <code>overrides</code>.</p>
+   * The properties of the component variant that can be overriden when customizing an instance of the component. You can't specify `tags` as a valid property for `overrides`.
+   *
    * @public
    */
   overrides?: Record<string, Record<string, string>> | undefined;
@@ -824,21 +936,22 @@ export interface ComponentVariant {
  */
 export interface DeleteComponentRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the component to
-   *       delete.</p>
+   * The unique ID of the Amplify app associated with the component to delete.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the component to delete.</p>
+   * The unique ID of the component to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -849,20 +962,22 @@ export interface DeleteComponentRequest {
  */
 export interface ExportComponentsRequest {
   /**
-   * <p>The unique ID of the Amplify app to export components to.</p>
+   * The unique ID of the Amplify app to export components to.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -873,19 +988,22 @@ export interface ExportComponentsRequest {
  */
 export interface GetComponentRequest {
   /**
-   * <p>The unique ID of the Amplify app.</p>
+   * The unique ID of the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the component.</p>
+   * The unique ID of the component.
+   *
    * @public
    */
   id: string | undefined;
@@ -896,64 +1014,71 @@ export interface GetComponentRequest {
  */
 export interface ListComponentsRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of components to retrieve.</p>
+   * The maximum number of components to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains a summary of a component. This is a read-only data type that is returned by
- *         <code>ListComponents</code>.</p>
+ * Contains a summary of a component. This is a read-only data type that is returned by `ListComponents`.
+ *
  * @public
  */
 export interface ComponentSummary {
   /**
-   * <p>The unique ID of the Amplify app associated with the component.</p>
+   * The unique ID of the Amplify app associated with the component.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the component.</p>
+   * The unique ID of the component.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The component type.</p>
+   * The component type.
+   *
    * @public
    */
   componentType: string | undefined;
@@ -964,37 +1089,43 @@ export interface ComponentSummary {
  */
 export interface ListComponentsResponse {
   /**
-   * <p>The list of components for the Amplify app.</p>
+   * The list of components for the Amplify app.
+   *
    * @public
    */
   entities: ComponentSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes the configuration of a request to exchange an access code for a token.</p>
+ * Describes the configuration of a request to exchange an access code for a token.
+ *
  * @public
  */
 export interface ExchangeCodeForTokenRequestBody {
   /**
-   * <p>The access code to send in the request.</p>
+   * The access code to send in the request.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The location of the application that will receive the access code.</p>
+   * The location of the application that will receive the access code.
+   *
    * @public
    */
   redirectUri: string | undefined;
 
   /**
-   * <p>The ID of the client to request the token from.</p>
+   * The ID of the client to request the token from.
+   *
    * @public
    */
   clientId?: string | undefined;
@@ -1005,13 +1136,15 @@ export interface ExchangeCodeForTokenRequestBody {
  */
 export interface ExchangeCodeForTokenRequest {
   /**
-   * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
+   * The third-party provider for the token. The only valid value is `figma`.
+   *
    * @public
    */
   provider: TokenProviders | undefined;
 
   /**
-   * <p>Describes the configuration of the request.</p>
+   * Describes the configuration of the request.
+   *
    * @public
    */
   request: ExchangeCodeForTokenRequestBody | undefined;
@@ -1022,27 +1155,30 @@ export interface ExchangeCodeForTokenRequest {
  */
 export interface ExchangeCodeForTokenResponse {
   /**
-   * <p>The access token.</p>
+   * The access token.
+   *
    * @public
    */
   accessToken: string | undefined;
 
   /**
-   * <p>The date and time when the new access token expires.</p>
+   * The date and time when the new access token expires.
+   *
    * @public
    */
   expiresIn: number | undefined;
 
   /**
-   * <p>The token to use to refresh a previously issued access token that might have
-   *       expired.</p>
+   * The token to use to refresh a previously issued access token that might have expired.
+   *
    * @public
    */
   refreshToken: string | undefined;
 }
 
 /**
- * <p>Describes the field position.</p>
+ * Describes the field position.
+ *
  * @public
  */
 export type FieldPosition =
@@ -1056,7 +1192,8 @@ export type FieldPosition =
  */
 export namespace FieldPosition {
   /**
-   * <p>The field position is fixed and doesn't change in relation to other fields.</p>
+   * The field position is fixed and doesn't change in relation to other fields.
+   *
    * @public
    */
   export interface FixedMember {
@@ -1067,7 +1204,8 @@ export namespace FieldPosition {
   }
 
   /**
-   * <p>The field position is to the right of the field specified by the string.</p>
+   * The field position is to the right of the field specified by the string.
+   *
    * @public
    */
   export interface RightOfMember {
@@ -1078,7 +1216,8 @@ export namespace FieldPosition {
   }
 
   /**
-   * <p>The field position is below the field specified by the string.</p>
+   * The field position is below the field specified by the string.
+   *
    * @public
    */
   export interface BelowMember {
@@ -1111,266 +1250,283 @@ export namespace FieldPosition {
 }
 
 /**
- * <p>Describes the configuration for a button UI element that is a part of a form.</p>
+ * Describes the configuration for a button UI element that is a part of a form.
+ *
  * @public
  */
 export interface FormButton {
   /**
-   * <p>Specifies whether the button is visible on the form.</p>
+   * Specifies whether the button is visible on the form.
+   *
    * @public
    */
   excluded?: boolean | undefined;
 
   /**
-   * <p>Describes the button's properties.</p>
+   * Describes the button's properties.
+   *
    * @public
    */
   children?: string | undefined;
 
   /**
-   * <p>The position of the button.</p>
+   * The position of the button.
+   *
    * @public
    */
   position?: FieldPosition | undefined;
 }
 
 /**
- * <p>Describes the call to action button configuration for the form.</p>
+ * Describes the call to action button configuration for the form.
+ *
  * @public
  */
 export interface FormCTA {
   /**
-   * <p>The position of the button.</p>
+   * The position of the button.
+   *
    * @public
    */
   position?: FormButtonsPosition | undefined;
 
   /**
-   * <p>Displays a clear button.</p>
+   * Displays a clear button.
+   *
    * @public
    */
   clear?: FormButton | undefined;
 
   /**
-   * <p>Displays a cancel button.</p>
+   * Displays a cancel button.
+   *
    * @public
    */
   cancel?: FormButton | undefined;
 
   /**
-   * <p>Displays a submit button.</p>
+   * Displays a submit button.
+   *
    * @public
    */
   submit?: FormButton | undefined;
 }
 
 /**
- * <p>Describes the data type configuration for the data source associated with a form.</p>
+ * Describes the data type configuration for the data source associated with a form.
+ *
  * @public
  */
 export interface FormDataTypeConfig {
   /**
-   * <p>The data source type, either an Amplify DataStore model or a custom data type.</p>
+   * The data source type, either an Amplify DataStore model or a custom data type.
+   *
    * @public
    */
   dataSourceType: FormDataSourceType | undefined;
 
   /**
-   * <p>The unique name of the data type you are using as the data source for the form.</p>
+   * The unique name of the data type you are using as the data source for the form.
+   *
    * @public
    */
   dataTypeName: string | undefined;
 }
 
 /**
- * <p>Describes the configuration for the file uploader field.</p>
+ * Describes the configuration for the file uploader field.
+ *
  * @public
  */
 export interface FileUploaderFieldConfig {
   /**
-   * <p>The access level to assign to the uploaded files in the Amazon S3 bucket where
-   *       they are stored. The valid values for this property are <code>private</code>,
-   *         <code>protected</code>, or <code>public</code>. For detailed information about the
-   *       permissions associated with each access level, see <a href="https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/">File access
-   *         levels</a> in the <i>Amplify documentation</i>.</p>
+   * The access level to assign to the uploaded files in the Amazon S3 bucket where they are stored. The valid values for this property are `private`, `protected`, or `public`. For detailed information about the permissions associated with each access level, see [File access levels](https://docs.amplify.aws/lib/storage/configureaccess/q/platform/js/) in the *Amplify documentation*.
+   *
    * @public
    */
   accessLevel: StorageAccessLevel | undefined;
 
   /**
-   * <p>The file types that are allowed to be uploaded by the file uploader. Provide this
-   *       information in an array of strings specifying the valid file extensions.</p>
+   * The file types that are allowed to be uploaded by the file uploader. Provide this information in an array of strings specifying the valid file extensions.
+   *
    * @public
    */
   acceptedFileTypes: string[] | undefined;
 
   /**
-   * <p>Specifies whether to display or hide the image preview after selecting a file for upload.
-   *       The default value is <code>true</code> to display the image preview.</p>
+   * Specifies whether to display or hide the image preview after selecting a file for upload. The default value is `true` to display the image preview.
+   *
    * @public
    */
   showThumbnails?: boolean | undefined;
 
   /**
-   * <p>Allows the file upload operation to be paused and resumed. The default value is
-   *         <code>false</code>.</p>
-   *          <p>When <code>isResumable</code> is set to <code>true</code>, the file uploader uses a
-   *       multipart upload to break the files into chunks before upload. The progress of the upload
-   *       isn't continuous, because the file uploader uploads a chunk at a time.</p>
+   * Allows the file upload operation to be paused and resumed. The default value is `false`.
+   *
+   * When `isResumable` is set to `true`, the file uploader uses a multipart upload to break the files into chunks before upload. The progress of the upload isn't continuous, because the file uploader uploads a chunk at a time.
+   *
    * @public
    */
   isResumable?: boolean | undefined;
 
   /**
-   * <p>Specifies the maximum number of files that can be selected to upload. The default value is
-   *       an unlimited number of files.</p>
+   * Specifies the maximum number of files that can be selected to upload. The default value is an unlimited number of files.
+   *
    * @public
    */
   maxFileCount?: number | undefined;
 
   /**
-   * <p>The maximum file size in bytes that the file uploader will accept. The default value is an
-   *       unlimited file size.</p>
+   * The maximum file size in bytes that the file uploader will accept. The default value is an unlimited file size.
+   *
    * @public
    */
   maxSize?: number | undefined;
 }
 
 /**
- * <p>Represents the data binding configuration for a specific property using data stored in
- *         Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to
- *       data stored in an Amplify DataStore model.</p>
+ * Represents the data binding configuration for a specific property using data stored in Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to data stored in an Amplify DataStore model.
+ *
  * @public
  */
 export interface FormInputBindingPropertiesValueProperties {
   /**
-   * <p>An Amplify DataStore model.</p>
+   * An Amplify DataStore model.
+   *
    * @public
    */
   model?: string | undefined;
 }
 
 /**
- * <p>Represents the data binding configuration for a form's input fields at runtime.You can use
- *         <code>FormInputBindingPropertiesValue</code> to add exposed properties to a form to allow
- *       different values to be entered when a form is reused in different places in an app.</p>
+ * Represents the data binding configuration for a form's input fields at runtime.You can use `FormInputBindingPropertiesValue` to add exposed properties to a form to allow different values to be entered when a form is reused in different places in an app.
+ *
  * @public
  */
 export interface FormInputBindingPropertiesValue {
   /**
-   * <p>The property type.</p>
+   * The property type.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>Describes the properties to customize with data at runtime.</p>
+   * Describes the properties to customize with data at runtime.
+   *
    * @public
    */
   bindingProperties?: FormInputBindingPropertiesValueProperties | undefined;
 }
 
 /**
- * <p>Associates a form property to a binding property. This enables exposed properties on the
- *       top level form to propagate data to the form's property values.</p>
+ * Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
+ *
  * @public
  */
 export interface FormInputValuePropertyBindingProperties {
   /**
-   * <p>The form property to bind to the data field.</p>
+   * The form property to bind to the data field.
+   *
    * @public
    */
   property: string | undefined;
 
   /**
-   * <p>The data field to bind the property to.</p>
+   * The data field to bind the property to.
+   *
    * @public
    */
   field?: string | undefined;
 }
 
 /**
- * <p>Describes the validation configuration for a field.</p>
+ * Describes the validation configuration for a field.
+ *
  * @public
  */
 export interface FieldValidationConfiguration {
   /**
-   * <p>The validation to perform on an object type.<code/>
-   *          </p>
+   * The validation to perform on an object type.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>The validation to perform on a string value.</p>
+   * The validation to perform on a string value.
+   *
    * @public
    */
   strValues?: string[] | undefined;
 
   /**
-   * <p>The validation to perform on a number value.</p>
+   * The validation to perform on a number value.
+   *
    * @public
    */
   numValues?: number[] | undefined;
 
   /**
-   * <p>The validation message to display.</p>
+   * The validation message to display.
+   *
    * @public
    */
   validationMessage?: string | undefined;
 }
 
 /**
- * <p>Stores the configuration information for a visual helper element for a form. A sectional
- *       element can be a header, a text block, or a divider. These elements are static and not
- *       associated with any data.</p>
+ * Stores the configuration information for a visual helper element for a form. A sectional element can be a header, a text block, or a divider. These elements are static and not associated with any data.
+ *
  * @public
  */
 export interface SectionalElement {
   /**
-   * <p>The type of sectional element. Valid values are <code>Heading</code>, <code>Text</code>,
-   *       and <code>Divider</code>.</p>
+   * The type of sectional element. Valid values are `Heading`, `Text`, and `Divider`.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>Specifies the position of the text in a field for a <code>Text</code> sectional
-   *       element.</p>
+   * Specifies the position of the text in a field for a `Text` sectional element.
+   *
    * @public
    */
   position?: FieldPosition | undefined;
 
   /**
-   * <p>The text for a <code>Text</code> sectional element.</p>
+   * The text for a `Text` sectional element.
+   *
    * @public
    */
   text?: string | undefined;
 
   /**
-   * <p>Specifies the size of the font for a <code>Heading</code> sectional element. Valid values
-   *       are <code>1 | 2 | 3 | 4 | 5 | 6</code>.</p>
+   * Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6`.
+   *
    * @public
    */
   level?: number | undefined;
 
   /**
-   * <p>Specifies the orientation for a <code>Divider</code> sectional element. Valid values are
-   *         <code>horizontal</code> or <code>vertical</code>.</p>
+   * Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical`.
+   *
    * @public
    */
   orientation?: string | undefined;
 
   /**
-   * <p>Excludes a sectional element that was generated by default for a specified data
-   *       model.</p>
+   * Excludes a sectional element that was generated by default for a specified data model.
+   *
    * @public
    */
   excluded?: boolean | undefined;
 }
 
 /**
- * <p>Describes the configuration settings for the form's style properties.</p>
+ * Describes the configuration settings for the form's style properties.
+ *
  * @public
  */
 export type FormStyleConfig =
@@ -1383,8 +1539,8 @@ export type FormStyleConfig =
  */
 export namespace FormStyleConfig {
   /**
-   * <p>A reference to a design token to use to bind the form's style properties to an existing
-   *       theme.</p>
+   * A reference to a design token to use to bind the form's style properties to an existing theme.
+   *
    * @public
    */
   export interface TokenReferenceMember {
@@ -1394,7 +1550,8 @@ export namespace FormStyleConfig {
   }
 
   /**
-   * <p>The value of the style setting.</p>
+   * The value of the style setting.
+   *
    * @public
    */
   export interface ValueMember {
@@ -1424,24 +1581,28 @@ export namespace FormStyleConfig {
 }
 
 /**
- * <p>Describes the configuration for the form's style.</p>
+ * Describes the configuration for the form's style.
+ *
  * @public
  */
 export interface FormStyle {
   /**
-   * <p>The spacing for the horizontal gap.</p>
+   * The spacing for the horizontal gap.
+   *
    * @public
    */
   horizontalGap?: FormStyleConfig | undefined;
 
   /**
-   * <p>The spacing for the vertical gap.</p>
+   * The spacing for the vertical gap.
+   *
    * @public
    */
   verticalGap?: FormStyleConfig | undefined;
 
   /**
-   * <p>The size of the outer padding for the form.</p>
+   * The size of the outer padding for the form.
+   *
    * @public
    */
   outerPadding?: FormStyleConfig | undefined;
@@ -1452,19 +1613,22 @@ export interface FormStyle {
  */
 export interface DeleteFormRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the form to delete.</p>
+   * The unique ID of the Amplify app associated with the form to delete.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the form to delete.</p>
+   * The unique ID of the form to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -1475,19 +1639,22 @@ export interface DeleteFormRequest {
  */
 export interface ExportFormsRequest {
   /**
-   * <p>The unique ID of the Amplify app to export forms to.</p>
+   * The unique ID of the Amplify app to export forms to.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1498,19 +1665,22 @@ export interface ExportFormsRequest {
  */
 export interface GetFormRequest {
   /**
-   * <p>The unique ID of the Amplify app.</p>
+   * The unique ID of the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the form.</p>
+   * The unique ID of the form.
+   *
    * @public
    */
   id: string | undefined;
@@ -1521,67 +1691,78 @@ export interface GetFormRequest {
  */
 export interface ListFormsRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of forms to retrieve.</p>
+   * The maximum number of forms to retrieve.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Describes the basic information about a form.</p>
+ * Describes the basic information about a form.
+ *
  * @public
  */
 export interface FormSummary {
   /**
-   * <p>The unique ID for the app associated with the form summary.</p>
+   * The unique ID for the app associated with the form summary.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The form's data source type.</p>
+   * The form's data source type.
+   *
    * @public
    */
   dataType: FormDataTypeConfig | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The type of operation to perform on the form.</p>
+   * The type of operation to perform on the form.
+   *
    * @public
    */
   formActionType: FormActionType | undefined;
 
   /**
-   * <p>The ID of the form.</p>
+   * The ID of the form.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the form.</p>
+   * The name of the form.
+   *
    * @public
    */
   name: string | undefined;
@@ -1592,13 +1773,15 @@ export interface FormSummary {
  */
 export interface ListFormsResponse {
   /**
-   * <p>The list of forms for the Amplify app.</p>
+   * The list of forms for the Amplify app.
+   *
    * @public
    */
   entities: FormSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1609,13 +1792,15 @@ export interface ListFormsResponse {
  */
 export interface GetMetadataRequest {
   /**
-   * <p>The unique ID of the Amplify app.</p>
+   * The unique ID of the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
@@ -1626,7 +1811,8 @@ export interface GetMetadataRequest {
  */
 export interface GetMetadataResponse {
   /**
-   * <p>Represents the configuration settings for the features metadata.</p>
+   * Represents the configuration settings for the features metadata.
+   *
    * @public
    */
   features: Record<string, string> | undefined;
@@ -1637,7 +1823,8 @@ export interface GetMetadataResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to list tags.</p>
+   * The Amazon Resource Name (ARN) to use to list tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1648,19 +1835,22 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tag key value pairs for a specified Amazon Resource Name (ARN).</p>
+   * A list of tag key value pairs for a specified Amazon Resource Name (ARN).
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>Stores the metadata information about a feature on a form.</p>
+ * Stores the metadata information about a feature on a form.
+ *
  * @public
  */
 export interface PutMetadataFlagBody {
   /**
-   * <p>The new information to store.</p>
+   * The new information to store.
+   *
    * @public
    */
   newValue: string | undefined;
@@ -1671,44 +1861,50 @@ export interface PutMetadataFlagBody {
  */
 export interface PutMetadataFlagRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The name of the feature associated with the metadata.</p>
+   * The name of the feature associated with the metadata.
+   *
    * @public
    */
   featureName: string | undefined;
 
   /**
-   * <p>The metadata information to store.</p>
+   * The metadata information to store.
+   *
    * @public
    */
   body: PutMetadataFlagBody | undefined;
 }
 
 /**
- * <p>Describes a refresh token.</p>
+ * Describes a refresh token.
+ *
  * @public
  */
 export interface RefreshTokenRequestBody {
   /**
-   * <p>The token to use to refresh a previously issued access token that might have
-   *       expired.</p>
+   * The token to use to refresh a previously issued access token that might have expired.
+   *
    * @public
    */
   token: string | undefined;
 
   /**
-   * <p>The ID of the client to request the token from.</p>
+   * The ID of the client to request the token from.
+   *
    * @public
    */
   clientId?: string | undefined;
@@ -1719,13 +1915,15 @@ export interface RefreshTokenRequestBody {
  */
 export interface RefreshTokenRequest {
   /**
-   * <p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>
+   * The third-party provider for the token. The only valid value is `figma`.
+   *
    * @public
    */
   provider: TokenProviders | undefined;
 
   /**
-   * <p>Information about the refresh token request.</p>
+   * Information about the refresh token request.
+   *
    * @public
    */
   refreshTokenBody: RefreshTokenRequestBody | undefined;
@@ -1736,13 +1934,15 @@ export interface RefreshTokenRequest {
  */
 export interface RefreshTokenResponse {
   /**
-   * <p>The access token.</p>
+   * The access token.
+   *
    * @public
    */
   accessToken: string | undefined;
 
   /**
-   * <p>The date and time when the new access token expires.</p>
+   * The date and time when the new access token expires.
+   *
    * @public
    */
   expiresIn: number | undefined;
@@ -1753,13 +1953,15 @@ export interface RefreshTokenResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to tag a resource.</p>
+   * The Amazon Resource Name (ARN) to use to tag a resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tag key value pairs for a specified Amazon Resource Name (ARN).</p>
+   * A list of tag key value pairs for a specified Amazon Resource Name (ARN).
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1775,21 +1977,22 @@ export interface TagResourceResponse {}
  */
 export interface DeleteThemeRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the theme to
-   *       delete.</p>
+   * The unique ID of the Amplify app associated with the theme to delete.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the theme to delete.</p>
+   * The unique ID of the theme to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -1800,19 +2003,22 @@ export interface DeleteThemeRequest {
  */
 export interface ExportThemesRequest {
   /**
-   * <p>The unique ID of the Amplify app to export the themes to.</p>
+   * The unique ID of the Amplify app to export the themes to.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1823,19 +2029,22 @@ export interface ExportThemesRequest {
  */
 export interface GetThemeRequest {
   /**
-   * <p>The unique ID of the Amplify app.</p>
+   * The unique ID of the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID for the theme.</p>
+   * The unique ID for the theme.
+   *
    * @public
    */
   id: string | undefined;
@@ -1846,56 +2055,64 @@ export interface GetThemeRequest {
  */
 export interface ListThemesRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The token to request the next page of results.</p>
+   * The token to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of theme results to return in the response.</p>
+   * The maximum number of theme results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Describes the basic information about a theme.</p>
+ * Describes the basic information about a theme.
+ *
  * @public
  */
 export interface ThemeSummary {
   /**
-   * <p>The unique ID for the app associated with the theme summary.</p>
+   * The unique ID for the app associated with the theme summary.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The ID of the theme.</p>
+   * The ID of the theme.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the theme.</p>
+   * The name of the theme.
+   *
    * @public
    */
   name: string | undefined;
@@ -1906,13 +2123,15 @@ export interface ThemeSummary {
  */
 export interface ListThemesResponse {
   /**
-   * <p>The list of themes for the Amplify app.</p>
+   * The list of themes for the Amplify app.
+   *
    * @public
    */
   entities: ThemeSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's returned if more results are available.</p>
+   * The pagination token that's returned if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1923,13 +2142,15 @@ export interface ListThemesResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) to use to untag a resource.</p>
+   * The Amazon Resource Name (ARN) to use to untag a resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys to use to untag a resource.</p>
+   * The tag keys to use to untag a resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1941,541 +2162,602 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Describes the configuration for an input field on a form. Use
- *         <code>FormInputValueProperty</code> to specify the values to render or bind by
- *       default.</p>
+ * Describes the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+ *
  * @public
  */
 export interface FormInputValueProperty {
   /**
-   * <p>The value to assign to the input field.</p>
+   * The value to assign to the input field.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>The information to bind fields to data at runtime.</p>
+   * The information to bind fields to data at runtime.
+   *
    * @public
    */
   bindingProperties?: FormInputValuePropertyBindingProperties | undefined;
 
   /**
-   * <p>A list of form properties to concatenate to create the value to assign to this field
-   *       property.</p>
+   * A list of form properties to concatenate to create the value to assign to this field property.
+   *
    * @public
    */
   concat?: FormInputValueProperty[] | undefined;
 }
 
 /**
- * <p>Describes the configuration of a theme's properties.</p>
+ * Describes the configuration of a theme's properties.
+ *
  * @public
  */
 export interface ThemeValue {
   /**
-   * <p>The value of a theme property.</p>
+   * The value of a theme property.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs that define the theme's properties.</p>
+   * A list of key-value pairs that define the theme's properties.
+   *
    * @public
    */
   children?: ThemeValues[] | undefined;
 }
 
 /**
- * <p>A key-value pair that defines a property of a theme.</p>
+ * A key-value pair that defines a property of a theme.
+ *
  * @public
  */
 export interface ThemeValues {
   /**
-   * <p>The name of the property.</p>
+   * The name of the property.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>The value of the property.</p>
+   * The value of the property.
+   *
    * @public
    */
   value?: ThemeValue | undefined;
 }
 
 /**
- * <p>Stores information for generating Amplify DataStore queries. Use a
- *         <code>Predicate</code> to retrieve a subset of the data in a collection.</p>
+ * Stores information for generating Amplify DataStore queries. Use a `Predicate` to retrieve a subset of the data in a collection.
+ *
  * @public
  */
 export interface Predicate {
   /**
-   * <p>A list of predicates to combine logically.</p>
+   * A list of predicates to combine logically.
+   *
    * @public
    */
   or?: Predicate[] | undefined;
 
   /**
-   * <p>A list of predicates to combine logically.</p>
+   * A list of predicates to combine logically.
+   *
    * @public
    */
   and?: Predicate[] | undefined;
 
   /**
-   * <p>The field to query.</p>
+   * The field to query.
+   *
    * @public
    */
   field?: string | undefined;
 
   /**
-   * <p>The operator to use to perform the evaluation.</p>
+   * The operator to use to perform the evaluation.
+   *
    * @public
    */
   operator?: string | undefined;
 
   /**
-   * <p>The value to use when performing the evaluation.</p>
+   * The value to use when performing the evaluation.
+   *
    * @public
    */
   operand?: string | undefined;
 
   /**
-   * <p>The type of value to use when performing the evaluation.</p>
+   * The type of value to use when performing the evaluation.
+   *
    * @public
    */
   operandType?: string | undefined;
 }
 
 /**
- * <p>Represents the data binding configuration for a specific property using data stored in
- *         Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to
- *       data stored in an Amazon S3 bucket, an Amplify DataStore model or an
- *       authenticated user attribute.</p>
+ * Represents the data binding configuration for a specific property using data stored in Amazon Web Services. For Amazon Web Services connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
+ *
  * @public
  */
 export interface ComponentBindingPropertiesValueProperties {
   /**
-   * <p>An Amplify DataStore model.</p>
+   * An Amplify DataStore model.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The field to bind the data to.</p>
+   * The field to bind the data to.
+   *
    * @public
    */
   field?: string | undefined;
 
   /**
-   * <p>A list of predicates for binding a component's properties to data.</p>
+   * A list of predicates for binding a component's properties to data.
+   *
    * @public
    */
   predicates?: Predicate[] | undefined;
 
   /**
-   * <p>An authenticated user attribute.</p>
+   * An authenticated user attribute.
+   *
    * @public
    */
   userAttribute?: string | undefined;
 
   /**
-   * <p>An Amazon S3 bucket.</p>
+   * An Amazon S3 bucket.
+   *
    * @public
    */
   bucket?: string | undefined;
 
   /**
-   * <p>The storage key for an Amazon S3 bucket.</p>
+   * The storage key for an Amazon S3 bucket.
+   *
    * @public
    */
   key?: string | undefined;
 
   /**
-   * <p>The default value to assign to the property.</p>
+   * The default value to assign to the property.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 
   /**
-   * <p>The name of a component slot.</p>
+   * The name of a component slot.
+   *
    * @public
    */
   slotName?: string | undefined;
 }
 
 /**
- * <p>Describes the configuration for binding a component's properties to data.</p>
+ * Describes the configuration for binding a component's properties to data.
+ *
  * @public
  */
 export interface ComponentDataConfiguration {
   /**
-   * <p>The name of the data model to use to bind data to a component.</p>
+   * The name of the data model to use to bind data to a component.
+   *
    * @public
    */
   model: string | undefined;
 
   /**
-   * <p>Describes how to sort the component's properties.</p>
+   * Describes how to sort the component's properties.
+   *
    * @public
    */
   sort?: SortProperty[] | undefined;
 
   /**
-   * <p>Represents the conditional logic to use when binding data to a component. Use this
-   *       property to retrieve only a subset of the data in a collection.</p>
+   * Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
+   *
    * @public
    */
   predicate?: Predicate | undefined;
 
   /**
-   * <p>A list of IDs to use to bind data to a component. Use this property to bind specifically
-   *       chosen data, rather than data retrieved from a query.</p>
+   * A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
+   *
    * @public
    */
   identifiers?: string[] | undefined;
 }
 
 /**
- * <p>Describes the configuration for all of a component's properties. Use
- *         <code>ComponentProperty</code> to specify the values to render or bind by default.</p>
+ * Describes the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+ *
  * @public
  */
 export interface ComponentProperty {
   /**
-   * <p>The value to assign to the component property.</p>
+   * The value to assign to the component property.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>The information to bind the component property to data at runtime.</p>
+   * The information to bind the component property to data at runtime.
+   *
    * @public
    */
   bindingProperties?: ComponentPropertyBindingProperties | undefined;
 
   /**
-   * <p>The information to bind the component property to data at runtime. Use this for collection
-   *       components.</p>
+   * The information to bind the component property to data at runtime. Use this for collection components.
+   *
    * @public
    */
   collectionBindingProperties?: ComponentPropertyBindingProperties | undefined;
 
   /**
-   * <p>The default value to assign to the component property.</p>
+   * The default value to assign to the component property.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 
   /**
-   * <p>The data model to use to assign a value to the component property.</p>
+   * The data model to use to assign a value to the component property.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The information to bind the component property to form data.</p>
+   * The information to bind the component property to form data.
+   *
    * @public
    */
   bindings?: Record<string, FormBindingElement> | undefined;
 
   /**
-   * <p>An event that occurs in your app. Use this for workflow data binding.</p>
+   * An event that occurs in your app. Use this for workflow data binding.
+   *
    * @public
    */
   event?: string | undefined;
 
   /**
-   * <p>An authenticated user attribute to use to assign a value to the component property.</p>
+   * An authenticated user attribute to use to assign a value to the component property.
+   *
    * @public
    */
   userAttribute?: string | undefined;
 
   /**
-   * <p>A list of component properties to concatenate to create the value to assign to this
-   *       component property.</p>
+   * A list of component properties to concatenate to create the value to assign to this component property.
+   *
    * @public
    */
   concat?: ComponentProperty[] | undefined;
 
   /**
-   * <p>The conditional expression to use to assign a value to the component property.</p>
+   * The conditional expression to use to assign a value to the component property.
+   *
    * @public
    */
   condition?: ComponentConditionProperty | undefined;
 
   /**
-   * <p>Specifies whether the user configured the property in Amplify Studio after
-   *       importing it.</p>
+   * Specifies whether the user configured the property in Amplify Studio after importing it.
+   *
    * @public
    */
   configured?: boolean | undefined;
 
   /**
-   * <p>The component type.</p>
+   * The component type.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>The default value assigned to the property when the component is imported into an
-   *       app.</p>
+   * The default value assigned to the property when the component is imported into an app.
+   *
    * @public
    */
   importedValue?: string | undefined;
 
   /**
-   * <p>The name of the component that is affected by an event.</p>
+   * The name of the component that is affected by an event.
+   *
    * @public
    */
   componentName?: string | undefined;
 
   /**
-   * <p>The name of the component's property that is affected by an event.</p>
+   * The name of the component's property that is affected by an event.
+   *
    * @public
    */
   property?: string | undefined;
 }
 
 /**
- * <p>Associates a complex object with a display value. Use <code>ValueMapping</code> to store
- *       how to represent complex objects when they are displayed.</p>
+ * Associates a complex object with a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+ *
  * @public
  */
 export interface ValueMapping {
   /**
-   * <p>The value to display for the complex object.</p>
+   * The value to display for the complex object.
+   *
    * @public
    */
   displayValue?: FormInputValueProperty | undefined;
 
   /**
-   * <p>The complex object.</p>
+   * The complex object.
+   *
    * @public
    */
   value: FormInputValueProperty | undefined;
 }
 
 /**
- * <p>Represents the data binding configuration for a component at runtime. You can use
- *         <code>ComponentBindingPropertiesValue</code> to add exposed properties to a component to
- *       allow different values to be entered when a component is reused in different places in an
- *       app.</p>
+ * Represents the data binding configuration for a component at runtime. You can use `ComponentBindingPropertiesValue` to add exposed properties to a component to allow different values to be entered when a component is reused in different places in an app.
+ *
  * @public
  */
 export interface ComponentBindingPropertiesValue {
   /**
-   * <p>The property type.</p>
+   * The property type.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>Describes the properties to customize with data at runtime.</p>
+   * Describes the properties to customize with data at runtime.
+   *
    * @public
    */
   bindingProperties?: ComponentBindingPropertiesValueProperties | undefined;
 
   /**
-   * <p>The default value of the property.</p>
+   * The default value of the property.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 }
 
 /**
- * <p>Represents all of the information that is required to create a theme.</p>
+ * Represents all of the information that is required to create a theme.
+ *
  * @public
  */
 export interface CreateThemeData {
   /**
-   * <p>The name of the theme.</p>
+   * The name of the theme.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A list of key-value pairs that deﬁnes the properties of the theme.</p>
+   * A list of key-value pairs that deﬁnes the properties of the theme.
+   *
    * @public
    */
   values: ThemeValues[] | undefined;
 
   /**
-   * <p>Describes the properties that can be overriden to customize an instance of the
-   *       theme.</p>
+   * Describes the properties that can be overriden to customize an instance of the theme.
+   *
    * @public
    */
   overrides?: ThemeValues[] | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the theme data.</p>
+   * One or more key-value pairs to use when tagging the theme data.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A theme is a collection of style settings that apply globally to the components associated
- *       with an Amplify application.</p>
+ * A theme is a collection of style settings that apply globally to the components associated with an Amplify application.
+ *
  * @public
  */
 export interface Theme {
   /**
-   * <p>The unique ID for the Amplify app associated with the theme.</p>
+   * The unique ID for the Amplify app associated with the theme.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The ID for the theme.</p>
+   * The ID for the theme.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the theme.</p>
+   * The name of the theme.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time that the theme was created.</p>
+   * The time that the theme was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time that the theme was modified.</p>
+   * The time that the theme was modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>A list of key-value pairs that defines the properties of the theme.</p>
+   * A list of key-value pairs that defines the properties of the theme.
+   *
    * @public
    */
   values: ThemeValues[] | undefined;
 
   /**
-   * <p>Describes the properties that can be overriden to customize a theme.</p>
+   * Describes the properties that can be overriden to customize a theme.
+   *
    * @public
    */
   overrides?: ThemeValues[] | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the theme.</p>
+   * One or more key-value pairs to use when tagging the theme.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Saves the data binding information for a theme.</p>
+ * Saves the data binding information for a theme.
+ *
  * @public
  */
 export interface UpdateThemeData {
   /**
-   * <p>The unique ID of the theme to update.</p>
+   * The unique ID of the theme to update.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the theme to update.</p>
+   * The name of the theme to update.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs that define the theme's properties.</p>
+   * A list of key-value pairs that define the theme's properties.
+   *
    * @public
    */
   values: ThemeValues[] | undefined;
 
   /**
-   * <p>Describes the properties that can be overriden to customize the theme.</p>
+   * Describes the properties that can be overriden to customize the theme.
+   *
    * @public
    */
   overrides?: ThemeValues[] | undefined;
 }
 
 /**
- * <p>Represents the state configuration when an action modifies a property of another element
- *       within the same component.</p>
+ * Represents the state configuration when an action modifies a property of another element within the same component.
+ *
  * @public
  */
 export interface MutationActionSetStateParameter {
   /**
-   * <p>The name of the component that is being modified.</p>
+   * The name of the component that is being modified.
+   *
    * @public
    */
   componentName: string | undefined;
 
   /**
-   * <p>The name of the component property to apply the state configuration to.</p>
+   * The name of the component property to apply the state configuration to.
+   *
    * @public
    */
   property: string | undefined;
 
   /**
-   * <p>The state configuration to assign to the property.</p>
+   * The state configuration to assign to the property.
+   *
    * @public
    */
   set: ComponentProperty | undefined;
 }
 
 /**
- * <p>Represents a conditional expression to set a component property. Use
- *         <code>ComponentConditionProperty</code> to set a property to different values conditionally,
- *       based on the value of another property.</p>
+ * Represents a conditional expression to set a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+ *
  * @public
  */
 export interface ComponentConditionProperty {
   /**
-   * <p>The name of the conditional property.</p>
+   * The name of the conditional property.
+   *
    * @public
    */
   property?: string | undefined;
 
   /**
-   * <p>The name of a field. Specify this when the property is a data model.</p>
+   * The name of a field. Specify this when the property is a data model.
+   *
    * @public
    */
   field?: string | undefined;
 
   /**
-   * <p>The operator to use to perform the evaluation, such as <code>eq</code> to represent
-   *       equals.</p>
+   * The operator to use to perform the evaluation, such as `eq` to represent equals.
+   *
    * @public
    */
   operator?: string | undefined;
 
   /**
-   * <p>The value of the property to evaluate.</p>
+   * The value of the property to evaluate.
+   *
    * @public
    */
   operand?: string | undefined;
 
   /**
-   * <p>The value to assign to the property if the condition is met.</p>
+   * The value to assign to the property if the condition is met.
+   *
    * @public
    */
   then?: ComponentProperty | undefined;
 
   /**
-   * <p>The value to assign to the property if the condition is not met.</p>
+   * The value to assign to the property if the condition is not met.
+   *
    * @public
    */
   else?: ComponentProperty | undefined;
 
   /**
-   * <p>The type of the property to evaluate.</p>
+   * The type of the property to evaluate.
+   *
    * @public
    */
   operandType?: string | undefined;
@@ -2486,26 +2768,29 @@ export interface ComponentConditionProperty {
  */
 export interface CreateThemeRequest {
   /**
-   * <p>The unique ID of the Amplify app associated with the theme.</p>
+   * The unique ID of the Amplify app associated with the theme.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * The unique client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Represents the configuration of the theme to create.</p>
+   * Represents the configuration of the theme to create.
+   *
    * @public
    */
   themeToCreate: CreateThemeData | undefined;
@@ -2516,7 +2801,8 @@ export interface CreateThemeRequest {
  */
 export interface CreateThemeResponse {
   /**
-   * <p>Describes the configuration of the new theme.</p>
+   * Describes the configuration of the new theme.
+   *
    * @public
    */
   entity?: Theme | undefined;
@@ -2527,7 +2813,8 @@ export interface CreateThemeResponse {
  */
 export interface GetThemeResponse {
   /**
-   * <p>Represents the configuration settings for the theme.</p>
+   * Represents the configuration settings for the theme.
+   *
    * @public
    */
   theme?: Theme | undefined;
@@ -2538,31 +2825,36 @@ export interface GetThemeResponse {
  */
 export interface UpdateThemeRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID for the theme.</p>
+   * The unique ID for the theme.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * The unique client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The configuration of the updated theme.</p>
+   * The configuration of the updated theme.
+   *
    * @public
    */
   updatedTheme: UpdateThemeData | undefined;
@@ -2573,25 +2865,29 @@ export interface UpdateThemeRequest {
  */
 export interface UpdateThemeResponse {
   /**
-   * <p>Describes the configuration of the updated theme.</p>
+   * Describes the configuration of the updated theme.
+   *
    * @public
    */
   entity?: Theme | undefined;
 }
 
 /**
- * <p>Represents the data binding configuration for a value map.</p>
+ * Represents the data binding configuration for a value map.
+ *
  * @public
  */
 export interface ValueMappings {
   /**
-   * <p>The value and display value pairs.</p>
+   * The value and display value pairs.
+   *
    * @public
    */
   values: ValueMapping[] | undefined;
 
   /**
-   * <p>The information to bind fields to data at runtime.</p>
+   * The information to bind fields to data at runtime.
+   *
    * @public
    */
   bindingProperties?: Record<string, FormInputBindingPropertiesValue> | undefined;
@@ -2602,369 +2898,421 @@ export interface ValueMappings {
  */
 export interface ExportThemesResponse {
   /**
-   * <p>Represents the configuration of the exported themes.</p>
+   * Represents the configuration of the exported themes.
+   *
    * @public
    */
   entities: Theme[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes the configuration for the default input values to display for a field.</p>
+ * Describes the configuration for the default input values to display for a field.
+ *
  * @public
  */
 export interface FieldInputConfig {
   /**
-   * <p>The input type for the field. </p>
+   * The input type for the field.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>Specifies a field that requires input.</p>
+   * Specifies a field that requires input.
+   *
    * @public
    */
   required?: boolean | undefined;
 
   /**
-   * <p>Specifies a read only field.</p>
+   * Specifies a read only field.
+   *
    * @public
    */
   readOnly?: boolean | undefined;
 
   /**
-   * <p>The text to display as a placeholder for the field.</p>
+   * The text to display as a placeholder for the field.
+   *
    * @public
    */
   placeholder?: string | undefined;
 
   /**
-   * <p>The default value for the field.</p>
+   * The default value for the field.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 
   /**
-   * <p>The text to display to describe the field.</p>
+   * The text to display to describe the field.
+   *
    * @public
    */
   descriptiveText?: string | undefined;
 
   /**
-   * <p>Specifies whether a field has a default value.</p>
+   * Specifies whether a field has a default value.
+   *
    * @public
    */
   defaultChecked?: boolean | undefined;
 
   /**
-   * <p>The default country code for a phone number.</p>
+   * The default country code for a phone number.
+   *
    * @public
    */
   defaultCountryCode?: string | undefined;
 
   /**
-   * <p>The information to use to customize the input fields with data at runtime.</p>
+   * The information to use to customize the input fields with data at runtime.
+   *
    * @public
    */
   valueMappings?: ValueMappings | undefined;
 
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The minimum value to display for the field.</p>
+   * The minimum value to display for the field.
+   *
    * @public
    */
   minValue?: number | undefined;
 
   /**
-   * <p>The maximum value to display for the field.</p>
+   * The maximum value to display for the field.
+   *
    * @public
    */
   maxValue?: number | undefined;
 
   /**
-   * <p>The stepping increment for a numeric value in a field.</p>
+   * The stepping increment for a numeric value in a field.
+   *
    * @public
    */
   step?: number | undefined;
 
   /**
-   * <p>The value for the field.</p>
+   * The value for the field.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>Specifies whether to render the field as an array. This property is ignored if the
-   *         <code>dataSourceType</code> for the form is a Data Store.</p>
+   * Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
+   *
    * @public
    */
   isArray?: boolean | undefined;
 
   /**
-   * <p>The configuration for the file uploader field.</p>
+   * The configuration for the file uploader field.
+   *
    * @public
    */
   fileUploaderConfig?: FileUploaderFieldConfig | undefined;
 }
 
 /**
- * <p>Describes the configuration information for a field in a table.</p>
+ * Describes the configuration information for a field in a table.
+ *
  * @public
  */
 export interface FieldConfig {
   /**
-   * <p>The label for the field.</p>
+   * The label for the field.
+   *
    * @public
    */
   label?: string | undefined;
 
   /**
-   * <p>Specifies the field position.</p>
+   * Specifies the field position.
+   *
    * @public
    */
   position?: FieldPosition | undefined;
 
   /**
-   * <p>Specifies whether to hide a field.</p>
+   * Specifies whether to hide a field.
+   *
    * @public
    */
   excluded?: boolean | undefined;
 
   /**
-   * <p>Describes the configuration for the default input value to display for a field.</p>
+   * Describes the configuration for the default input value to display for a field.
+   *
    * @public
    */
   inputType?: FieldInputConfig | undefined;
 
   /**
-   * <p>The validations to perform on the value in the field.</p>
+   * The validations to perform on the value in the field.
+   *
    * @public
    */
   validations?: FieldValidationConfiguration[] | undefined;
 }
 
 /**
- * <p>Represents all of the information that is required to create a form.</p>
+ * Represents all of the information that is required to create a form.
+ *
  * @public
  */
 export interface CreateFormData {
   /**
-   * <p>The name of the form.</p>
+   * The name of the form.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of data source to use to create the form.</p>
+   * The type of data source to use to create the form.
+   *
    * @public
    */
   dataType: FormDataTypeConfig | undefined;
 
   /**
-   * <p>Specifies whether to perform a create or update action on the form.</p>
+   * Specifies whether to perform a create or update action on the form.
+   *
    * @public
    */
   formActionType: FormActionType | undefined;
 
   /**
-   * <p>The configuration information for the form's fields.</p>
+   * The configuration information for the form's fields.
+   *
    * @public
    */
   fields: Record<string, FieldConfig> | undefined;
 
   /**
-   * <p>The configuration for the form's style.</p>
+   * The configuration for the form's style.
+   *
    * @public
    */
   style: FormStyle | undefined;
 
   /**
-   * <p>The configuration information for the visual helper elements for the form. These elements
-   *       are not associated with any data.</p>
+   * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+   *
    * @public
    */
   sectionalElements: Record<string, SectionalElement> | undefined;
 
   /**
-   * <p>The schema version of the form.</p>
+   * The schema version of the form.
+   *
    * @public
    */
   schemaVersion: string | undefined;
 
   /**
-   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
-   *       form.</p>
+   * The `FormCTA` object that stores the call to action configuration for the form.
+   *
    * @public
    */
   cta?: FormCTA | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the form data.</p>
+   * One or more key-value pairs to use when tagging the form data.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies an icon or decoration to display on the form.</p>
+   * Specifies an icon or decoration to display on the form.
+   *
    * @public
    */
   labelDecorator?: LabelDecorator | undefined;
 }
 
 /**
- * <p>Contains the configuration settings for a <code>Form</code> user interface (UI) element
- *       for an Amplify app. A form is a component you can add to your project by specifying a data
- *       source as the default configuration for the form.</p>
+ * Contains the configuration settings for a `Form` user interface (UI) element for an Amplify app. A form is a component you can add to your project by specifying a data source as the default configuration for the form.
+ *
  * @public
  */
 export interface Form {
   /**
-   * <p>The unique ID of the Amplify app associated with the form.</p>
+   * The unique ID of the Amplify app associated with the form.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the form.</p>
+   * The unique ID of the form.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the form.</p>
+   * The name of the form.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The operation to perform on the specified form.</p>
+   * The operation to perform on the specified form.
+   *
    * @public
    */
   formActionType: FormActionType | undefined;
 
   /**
-   * <p>Stores the configuration for the form's style.</p>
+   * Stores the configuration for the form's style.
+   *
    * @public
    */
   style: FormStyle | undefined;
 
   /**
-   * <p>The type of data source to use to create the form.</p>
+   * The type of data source to use to create the form.
+   *
    * @public
    */
   dataType: FormDataTypeConfig | undefined;
 
   /**
-   * <p>Stores the information about the form's fields.</p>
+   * Stores the information about the form's fields.
+   *
    * @public
    */
   fields: Record<string, FieldConfig> | undefined;
 
   /**
-   * <p>Stores the visual helper elements for the form that are not associated with any
-   *       data.</p>
+   * Stores the visual helper elements for the form that are not associated with any data.
+   *
    * @public
    */
   sectionalElements: Record<string, SectionalElement> | undefined;
 
   /**
-   * <p>The schema version of the form when it was imported.</p>
+   * The schema version of the form when it was imported.
+   *
    * @public
    */
   schemaVersion: string | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the form.</p>
+   * One or more key-value pairs to use when tagging the form.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Stores the call to action configuration for the form.</p>
+   * Stores the call to action configuration for the form.
+   *
    * @public
    */
   cta?: FormCTA | undefined;
 
   /**
-   * <p>Specifies an icon or decoration to display on the form.</p>
+   * Specifies an icon or decoration to display on the form.
+   *
    * @public
    */
   labelDecorator?: LabelDecorator | undefined;
 }
 
 /**
- * <p>Updates and saves all of the information about a form, based on form ID.</p>
+ * Updates and saves all of the information about a form, based on form ID.
+ *
  * @public
  */
 export interface UpdateFormData {
   /**
-   * <p>The name of the form.</p>
+   * The name of the form.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The type of data source to use to create the form.</p>
+   * The type of data source to use to create the form.
+   *
    * @public
    */
   dataType?: FormDataTypeConfig | undefined;
 
   /**
-   * <p>Specifies whether to perform a create or update action on the form.</p>
+   * Specifies whether to perform a create or update action on the form.
+   *
    * @public
    */
   formActionType?: FormActionType | undefined;
 
   /**
-   * <p>The configuration information for the form's fields.</p>
+   * The configuration information for the form's fields.
+   *
    * @public
    */
   fields?: Record<string, FieldConfig> | undefined;
 
   /**
-   * <p>The configuration for the form's style.</p>
+   * The configuration for the form's style.
+   *
    * @public
    */
   style?: FormStyle | undefined;
 
   /**
-   * <p>The configuration information for the visual helper elements for the form. These elements
-   *       are not associated with any data.</p>
+   * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
+   *
    * @public
    */
   sectionalElements?: Record<string, SectionalElement> | undefined;
 
   /**
-   * <p>The schema version of the form.</p>
+   * The schema version of the form.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
-   *       form.</p>
+   * The `FormCTA` object that stores the call to action configuration for the form.
+   *
    * @public
    */
   cta?: FormCTA | undefined;
 
   /**
-   * <p>Specifies an icon or decoration to display on the form.</p>
+   * Specifies an icon or decoration to display on the form.
+   *
    * @public
    */
   labelDecorator?: LabelDecorator | undefined;
@@ -2975,25 +3323,29 @@ export interface UpdateFormData {
  */
 export interface CreateFormRequest {
   /**
-   * <p>The unique ID of the Amplify app to associate with the form.</p>
+   * The unique ID of the Amplify app to associate with the form.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * The unique client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Represents the configuration of the form to create.</p>
+   * Represents the configuration of the form to create.
+   *
    * @public
    */
   formToCreate: CreateFormData | undefined;
@@ -3004,7 +3356,8 @@ export interface CreateFormRequest {
  */
 export interface CreateFormResponse {
   /**
-   * <p>Describes the configuration of the new form.</p>
+   * Describes the configuration of the new form.
+   *
    * @public
    */
   entity?: Form | undefined;
@@ -3015,7 +3368,8 @@ export interface CreateFormResponse {
  */
 export interface GetFormResponse {
   /**
-   * <p>Represents the configuration settings for the form.</p>
+   * Represents the configuration settings for the form.
+   *
    * @public
    */
   form?: Form | undefined;
@@ -3026,31 +3380,36 @@ export interface GetFormResponse {
  */
 export interface UpdateFormRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID for the form.</p>
+   * The unique ID for the form.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * The unique client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The request accepts the following data in JSON format.</p>
+   * The request accepts the following data in JSON format.
+   *
    * @public
    */
   updatedForm: UpdateFormData | undefined;
@@ -3061,7 +3420,8 @@ export interface UpdateFormRequest {
  */
 export interface UpdateFormResponse {
   /**
-   * <p>Describes the configuration of the updated form.</p>
+   * Describes the configuration of the updated form.
+   *
    * @public
    */
   entity?: Form | undefined;
@@ -3072,437 +3432,470 @@ export interface UpdateFormResponse {
  */
 export interface ExportFormsResponse {
   /**
-   * <p>Represents the configuration of the exported forms.</p>
+   * Represents the configuration of the exported forms.
+   *
    * @public
    */
   entities: Form[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the event action configuration for an element of a <code>Component</code> or
- *         <code>ComponentChild</code>. Use for the workflow feature in Amplify Studio
- *       that allows you to bind events and actions to components. <code>ActionParameters</code>
- *       defines the action that is performed when an event occurs on the component.</p>
+ * Represents the event action configuration for an element of a `Component` or `ComponentChild`. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
+ *
  * @public
  */
 export interface ActionParameters {
   /**
-   * <p>The type of navigation action. Valid values are <code>url</code> and <code>anchor</code>.
-   *       This value is required for a navigation action.</p>
+   * The type of navigation action. Valid values are `url` and `anchor`. This value is required for a navigation action.
+   *
    * @public
    */
   type?: ComponentProperty | undefined;
 
   /**
-   * <p>The URL to the location to open. Specify this value for a navigation action.</p>
+   * The URL to the location to open. Specify this value for a navigation action.
+   *
    * @public
    */
   url?: ComponentProperty | undefined;
 
   /**
-   * <p>The HTML anchor link to the location to open. Specify this value for a navigation
-   *       action.</p>
+   * The HTML anchor link to the location to open. Specify this value for a navigation action.
+   *
    * @public
    */
   anchor?: ComponentProperty | undefined;
 
   /**
-   * <p>The element within the same component to modify when the action occurs.</p>
+   * The element within the same component to modify when the action occurs.
+   *
    * @public
    */
   target?: ComponentProperty | undefined;
 
   /**
-   * <p>Specifies whether the user should be signed out globally. Specify this value for an auth
-   *       sign out action.</p>
+   * Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
+   *
    * @public
    */
   global?: ComponentProperty | undefined;
 
   /**
-   * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore model.</p>
+   * The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The unique ID of the component that the <code>ActionParameters</code> apply to.</p>
+   * The unique ID of the component that the `ActionParameters` apply to.
+   *
    * @public
    */
   id?: ComponentProperty | undefined;
 
   /**
-   * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields
-   *       in a data model. Use when the action performs an operation on an Amplify
-   *       DataStore model.</p>
+   * A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
+   *
    * @public
    */
   fields?: Record<string, ComponentProperty> | undefined;
 
   /**
-   * <p>A key-value pair that specifies the state property name and its initial value.</p>
+   * A key-value pair that specifies the state property name and its initial value.
+   *
    * @public
    */
   state?: MutationActionSetStateParameter | undefined;
 }
 
 /**
- * <p>Describes the configuration of an event. You can bind an event and a corresponding action
- *       to a <code>Component</code> or a <code>ComponentChild</code>. A button click is an example of
- *       an event. </p>
+ * Describes the configuration of an event. You can bind an event and a corresponding action to a `Component` or a `ComponentChild`. A button click is an example of an event.
+ *
  * @public
  */
 export interface ComponentEvent {
   /**
-   * <p>The action to perform when a specific event is raised.</p>
+   * The action to perform when a specific event is raised.
+   *
    * @public
    */
   action?: string | undefined;
 
   /**
-   * <p>Describes information about the action.</p>
+   * Describes information about the action.
+   *
    * @public
    */
   parameters?: ActionParameters | undefined;
 
   /**
-   * <p>Binds an event to an action on a component. When you specify a <code>bindingEvent</code>,
-   *       the event is called when the action is performed.</p>
+   * Binds an event to an action on a component. When you specify a `bindingEvent`, the event is called when the action is performed.
+   *
    * @public
    */
   bindingEvent?: string | undefined;
 }
 
 /**
- * <p>A nested UI configuration within a parent <code>Component</code>.</p>
+ * A nested UI configuration within a parent `Component`.
+ *
  * @public
  */
 export interface ComponentChild {
   /**
-   * <p>The type of the child component. </p>
+   * The type of the child component.
+   *
    * @public
    */
   componentType: string | undefined;
 
   /**
-   * <p>The name of the child component.</p>
+   * The name of the child component.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Describes the properties of the child component. You can't specify <code>tags</code> as a
-   *       valid property for <code>properties</code>.</p>
+   * Describes the properties of the child component. You can't specify `tags` as a valid property for `properties`.
+   *
    * @public
    */
   properties: Record<string, ComponentProperty> | undefined;
 
   /**
-   * <p>The list of <code>ComponentChild</code> instances for this component.</p>
+   * The list of `ComponentChild` instances for this component.
+   *
    * @public
    */
   children?: ComponentChild[] | undefined;
 
   /**
-   * <p>Describes the events that can be raised on the child component. Use for the workflow
-   *       feature in Amplify Studio that allows you to bind events and actions to
-   *       components.</p>
+   * Describes the events that can be raised on the child component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+   *
    * @public
    */
   events?: Record<string, ComponentEvent> | undefined;
 
   /**
-   * <p>The unique ID of the child component in its original source system, such as Figma.</p>
+   * The unique ID of the child component in its original source system, such as Figma.
+   *
    * @public
    */
   sourceId?: string | undefined;
 }
 
 /**
- * <p>Contains the configuration settings for a user interface (UI) element for an Amplify app. A component is configured as a primary, stand-alone UI element. Use
- *         <code>ComponentChild</code> to configure an instance of a <code>Component</code>. A
- *         <code>ComponentChild</code> instance inherits the configuration of the main
- *         <code>Component</code>.</p>
+ * Contains the configuration settings for a user interface (UI) element for an Amplify app. A component is configured as a primary, stand-alone UI element. Use `ComponentChild` to configure an instance of a `Component`. A `ComponentChild` instance inherits the configuration of the main `Component`.
+ *
  * @public
  */
 export interface Component {
   /**
-   * <p>The unique ID of the Amplify app associated with the component.</p>
+   * The unique ID of the Amplify app associated with the component.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID of the component in its original source system, such as Figma.</p>
+   * The unique ID of the component in its original source system, such as Figma.
+   *
    * @public
    */
   sourceId?: string | undefined;
 
   /**
-   * <p>The unique ID of the component.</p>
+   * The unique ID of the component.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the component.</p>
+   * The name of the component.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the component. This can be an Amplify custom UI component or
-   *       another custom component.</p>
+   * The type of the component. This can be an Amplify custom UI component or another custom component.
+   *
    * @public
    */
   componentType: string | undefined;
 
   /**
-   * <p>Describes the component's properties. You can't specify <code>tags</code> as a valid
-   *       property for <code>properties</code>.</p>
+   * Describes the component's properties. You can't specify `tags` as a valid property for `properties`.
+   *
    * @public
    */
   properties: Record<string, ComponentProperty> | undefined;
 
   /**
-   * <p>A list of the component's <code>ComponentChild</code> instances.</p>
+   * A list of the component's `ComponentChild` instances.
+   *
    * @public
    */
   children?: ComponentChild[] | undefined;
 
   /**
-   * <p>A list of the component's variants. A variant is a unique style configuration of a main
-   *       component.</p>
+   * A list of the component's variants. A variant is a unique style configuration of a main component.
+   *
    * @public
    */
   variants: ComponentVariant[] | undefined;
 
   /**
-   * <p>Describes the component's properties that can be overriden in a customized instance of the
-   *       component. You can't specify <code>tags</code> as a valid property for
-   *       <code>overrides</code>.</p>
+   * Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides`.
+   *
    * @public
    */
   overrides: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The information to connect a component's properties to data at runtime. You can't specify
-   *         <code>tags</code> as a valid property for <code>bindingProperties</code>.</p>
-   *          <p/>
+   * The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties`.
+   *
    * @public
    */
   bindingProperties: Record<string, ComponentBindingPropertiesValue> | undefined;
 
   /**
-   * <p>The data binding configuration for the component's properties. Use this for a collection
-   *       component. You can't specify <code>tags</code> as a valid property for
-   *         <code>collectionProperties</code>.</p>
+   * The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties`.
+   *
    * @public
    */
   collectionProperties?: Record<string, ComponentDataConfiguration> | undefined;
 
   /**
-   * <p>The time that the component was created.</p>
+   * The time that the component was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time that the component was modified.</p>
+   * The time that the component was modified.
+   *
    * @public
    */
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the component.</p>
+   * One or more key-value pairs to use when tagging the component.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Describes the events that can be raised on the component. Use for the workflow feature in
-   *         Amplify Studio that allows you to bind events and actions to
-   *       components.</p>
+   * Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+   *
    * @public
    */
   events?: Record<string, ComponentEvent> | undefined;
 
   /**
-   * <p>The schema version of the component when it was imported.</p>
+   * The schema version of the component when it was imported.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 }
 
 /**
- * <p>Represents all of the information that is required to create a component.</p>
+ * Represents all of the information that is required to create a component.
+ *
  * @public
  */
 export interface CreateComponentData {
   /**
-   * <p>The name of the component</p>
+   * The name of the component
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique ID of the component in its original source system, such as Figma.</p>
+   * The unique ID of the component in its original source system, such as Figma.
+   *
    * @public
    */
   sourceId?: string | undefined;
 
   /**
-   * <p>The component type. This can be an Amplify custom UI component or another
-   *       custom component.</p>
+   * The component type. This can be an Amplify custom UI component or another custom component.
+   *
    * @public
    */
   componentType: string | undefined;
 
   /**
-   * <p>Describes the component's properties.</p>
+   * Describes the component's properties.
+   *
    * @public
    */
   properties: Record<string, ComponentProperty> | undefined;
 
   /**
-   * <p>A list of child components that are instances of the main component.</p>
+   * A list of child components that are instances of the main component.
+   *
    * @public
    */
   children?: ComponentChild[] | undefined;
 
   /**
-   * <p>A list of the unique variants of this component.</p>
+   * A list of the unique variants of this component.
+   *
    * @public
    */
   variants: ComponentVariant[] | undefined;
 
   /**
-   * <p>Describes the component properties that can be overriden to customize an instance of the
-   *       component.</p>
+   * Describes the component properties that can be overriden to customize an instance of the component.
+   *
    * @public
    */
   overrides: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The data binding information for the component's properties.</p>
+   * The data binding information for the component's properties.
+   *
    * @public
    */
   bindingProperties: Record<string, ComponentBindingPropertiesValue> | undefined;
 
   /**
-   * <p>The data binding configuration for customizing a component's properties. Use this for a
-   *       collection component.</p>
+   * The data binding configuration for customizing a component's properties. Use this for a collection component.
+   *
    * @public
    */
   collectionProperties?: Record<string, ComponentDataConfiguration> | undefined;
 
   /**
-   * <p>One or more key-value pairs to use when tagging the component data.</p>
+   * One or more key-value pairs to use when tagging the component data.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
+   * The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+   *
    * @public
    */
   events?: Record<string, ComponentEvent> | undefined;
 
   /**
-   * <p>The schema version of the component when it was imported.</p>
+   * The schema version of the component when it was imported.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 }
 
 /**
- * <p>Updates and saves all of the information about a component, based on component ID.</p>
+ * Updates and saves all of the information about a component, based on component ID.
+ *
  * @public
  */
 export interface UpdateComponentData {
   /**
-   * <p>The unique ID of the component to update.</p>
+   * The unique ID of the component to update.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the component to update.</p>
+   * The name of the component to update.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The unique ID of the component in its original source system, such as Figma.</p>
+   * The unique ID of the component in its original source system, such as Figma.
+   *
    * @public
    */
   sourceId?: string | undefined;
 
   /**
-   * <p>The type of the component. This can be an Amplify custom UI component or
-   *       another custom component.</p>
+   * The type of the component. This can be an Amplify custom UI component or another custom component.
+   *
    * @public
    */
   componentType?: string | undefined;
 
   /**
-   * <p>Describes the component's properties.</p>
+   * Describes the component's properties.
+   *
    * @public
    */
   properties?: Record<string, ComponentProperty> | undefined;
 
   /**
-   * <p>The components that are instances of the main component.</p>
+   * The components that are instances of the main component.
+   *
    * @public
    */
   children?: ComponentChild[] | undefined;
 
   /**
-   * <p>A list of the unique variants of the main component being updated.</p>
+   * A list of the unique variants of the main component being updated.
+   *
    * @public
    */
   variants?: ComponentVariant[] | undefined;
 
   /**
-   * <p>Describes the properties that can be overriden to customize the component.</p>
+   * Describes the properties that can be overriden to customize the component.
+   *
    * @public
    */
   overrides?: Record<string, Record<string, string>> | undefined;
 
   /**
-   * <p>The data binding information for the component's properties.</p>
+   * The data binding information for the component's properties.
+   *
    * @public
    */
   bindingProperties?: Record<string, ComponentBindingPropertiesValue> | undefined;
 
   /**
-   * <p>The configuration for binding a component's properties to a data model. Use this for a
-   *       collection component.</p>
+   * The configuration for binding a component's properties to a data model. Use this for a collection component.
+   *
    * @public
    */
   collectionProperties?: Record<string, ComponentDataConfiguration> | undefined;
 
   /**
-   * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
+   * The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
+   *
    * @public
    */
   events?: Record<string, ComponentEvent> | undefined;
 
   /**
-   * <p>The schema version of the component when it was imported.</p>
+   * The schema version of the component when it was imported.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
@@ -3513,26 +3906,29 @@ export interface UpdateComponentData {
  */
 export interface CreateComponentRequest {
   /**
-   * <p>The unique ID of the Amplify app to associate with the component.</p>
+   * The unique ID of the Amplify app to associate with the component.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is a part of the Amplify
-   *       app.</p>
+   * The name of the backend environment that is a part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * The unique client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Represents the configuration of the component to create.</p>
+   * Represents the configuration of the component to create.
+   *
    * @public
    */
   componentToCreate: CreateComponentData | undefined;
@@ -3543,7 +3939,8 @@ export interface CreateComponentRequest {
  */
 export interface CreateComponentResponse {
   /**
-   * <p>Describes the configuration of the new component.</p>
+   * Describes the configuration of the new component.
+   *
    * @public
    */
   entity?: Component | undefined;
@@ -3554,7 +3951,8 @@ export interface CreateComponentResponse {
  */
 export interface GetComponentResponse {
   /**
-   * <p>Represents the configuration settings for the component.</p>
+   * Represents the configuration settings for the component.
+   *
    * @public
    */
   component?: Component | undefined;
@@ -3565,31 +3963,36 @@ export interface GetComponentResponse {
  */
 export interface UpdateComponentRequest {
   /**
-   * <p>The unique ID for the Amplify app.</p>
+   * The unique ID for the Amplify app.
+   *
    * @public
    */
   appId: string | undefined;
 
   /**
-   * <p>The name of the backend environment that is part of the Amplify app.</p>
+   * The name of the backend environment that is part of the Amplify app.
+   *
    * @public
    */
   environmentName: string | undefined;
 
   /**
-   * <p>The unique ID for the component.</p>
+   * The unique ID for the component.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * The unique client token.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The configuration of the updated component.</p>
+   * The configuration of the updated component.
+   *
    * @public
    */
   updatedComponent: UpdateComponentData | undefined;
@@ -3600,7 +4003,8 @@ export interface UpdateComponentRequest {
  */
 export interface UpdateComponentResponse {
   /**
-   * <p>Describes the configuration of the updated component.</p>
+   * Describes the configuration of the updated component.
+   *
    * @public
    */
   entity?: Component | undefined;
@@ -3611,13 +4015,15 @@ export interface UpdateComponentResponse {
  */
 export interface ExportComponentsResponse {
   /**
-   * <p>Represents the configuration of the exported components.</p>
+   * Represents the configuration of the exported components.
+   *
    * @public
    */
   entities: Component[] | undefined;
 
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * The pagination token that's included if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;

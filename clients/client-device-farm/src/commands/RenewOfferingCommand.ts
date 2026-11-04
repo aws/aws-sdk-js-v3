@@ -23,9 +23,8 @@ export interface RenewOfferingCommandInput extends RenewOfferingRequest {}
 export interface RenewOfferingCommandOutput extends RenewOfferingResult, __MetadataBearer {}
 
 /**
- * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
- *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
- *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ * Explicitly sets the quantity of devices to renew for an offering, starting from the `effectiveDate` of the next period. The API returns a `NotEligible` error if the user is not permitted to invoke the operation. If you must be able to invoke this operation, contact [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,24 +80,28 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link NotEligibleException} (client fault)
- *  <p>Exception gets thrown when a user is not eligible to perform the specified
- *             transaction.</p>
+ *
+ * Exception gets thrown when a user is not eligible to perform the specified transaction.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link ServiceAccountException} (client fault)
- *  <p>There was a problem with the service account.</p>
+ *
+ * There was a problem with the service account.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

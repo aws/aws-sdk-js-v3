@@ -23,10 +23,10 @@ export interface GetExportJobCommandInput extends GetExportJobRequest {}
 export interface GetExportJobCommandOutput extends GetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about an export job.</p>
- *          <p>When the job status is <code>COMPLETED</code>, the response includes a pre-signed
- *             URL in <code>ExportDestination.S3Url</code> that you use to download the export
- *             file.</p>
+ * Provides information about an export job.
+ *
+ * When the job status is `COMPLETED`, the response includes a pre-signed URL in `ExportDestination.S3Url` that you use to download the export file.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,17 +138,20 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

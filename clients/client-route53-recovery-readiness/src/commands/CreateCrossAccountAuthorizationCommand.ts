@@ -26,7 +26,8 @@ export interface CreateCrossAccountAuthorizationCommandInput extends CreateCross
 export interface CreateCrossAccountAuthorizationCommandOutput extends CreateCrossAccountAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.</p>
+ * Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface CreateCrossAccountAuthorizationCommandOutput extends CreateCros
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

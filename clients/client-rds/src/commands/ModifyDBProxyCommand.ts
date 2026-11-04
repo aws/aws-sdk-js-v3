@@ -23,7 +23,8 @@ export interface ModifyDBProxyCommandInput extends ModifyDBProxyRequest {}
 export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the settings for an existing DB proxy.</p>
+ * Changes the settings for an existing DB proxy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,17 +102,20 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyAlreadyExistsFault} (client fault)
- *  <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link InvalidDBProxyStateFault} (client fault)
- *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ * The requested operation can't be performed while the proxy is in this state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface UpdateServiceSpecificCredentialCommandInput extends UpdateServi
 export interface UpdateServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the status of a service-specific credential to <code>Active</code> or
- *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
- *             for authentication to the service. This operation can be used to disable a user's
- *             service-specific credential as part of a credential rotation work flow.</p>
+ * Sets the status of a service-specific credential to `Active` or `Inactive`. Service-specific credentials that are inactive cannot be used for authentication to the service. This operation can be used to disable a user's service-specific credential as part of a credential rotation work flow.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,12 +51,12 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

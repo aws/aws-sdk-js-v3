@@ -23,29 +23,14 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __MetadataBearer {}
 
 /**
- * <p>This operation deletes the specified domain. This action is permanent. For more
- * 			information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html">Deleting a domain name
- * 				registration</a>.</p>
- *          <p>To transfer the domain registration to another registrar, use the transfer process
- * 			that’s provided by the registrar to which you want to transfer the registration.
- * 			Otherwise, the following apply:</p>
- *          <ol>
- *             <li>
- *                <p>You can’t get a refund for the cost of a deleted domain registration.</p>
- *             </li>
- *             <li>
- *                <p>The registry for the top-level domain might hold the domain name for a brief
- * 					time before releasing it for other users to register (varies by registry).
- * 				</p>
- *             </li>
- *             <li>
- *                <p>When the registration has been deleted, we'll send you a confirmation to the
- * 					registrant contact. The email will come from
- * 						<code>noreply@domainnameverification.net</code> or
- * 						<code>noreply@emailverification.info</code> or
- * 						<code>noreply@registrar.amazon</code>.</p>
- *             </li>
- *          </ol>
+ * This operation deletes the specified domain. This action is permanent. For more information, see [Deleting a domain name registration](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-delete.html).
+ *
+ * To transfer the domain registration to another registrar, use the transfer process that’s provided by the registrar to which you want to transfer the registration. Otherwise, the following apply:
+ *
+ * 1. You can’t get a refund for the cost of a deleted domain registration.
+ * 2. The registry for the top-level domain might hold the domain name for a brief time before releasing it for other users to register (varies by registry).
+ * 3. When the registration has been deleted, we'll send you a confirmation to the registrant contact. The email will come from `noreply@domainnameverification.net` or `noreply@emailverification.info` or `noreply@registrar.amazon`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,23 +57,24 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The request is already in progress for the domain.</p>
+ *
+ * The request is already in progress for the domain.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link TLDRulesViolation} (client fault)
- *  <p>The top-level domain does not support this operation.</p>
+ *
+ * The top-level domain does not support this operation.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

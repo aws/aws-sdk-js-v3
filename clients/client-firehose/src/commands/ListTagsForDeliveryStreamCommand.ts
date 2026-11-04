@@ -23,8 +23,8 @@ export interface ListTagsForDeliveryStreamCommandInput extends ListTagsForDelive
 export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified Firehose stream. This operation has a limit of five
- *          transactions per second per account. </p>
+ * Lists the tags for the specified Firehose stream. This operation has a limit of five transactions per second per account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,17 +59,20 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * The specified input parameter has a value that is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * You have already reached the limit for a requested resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link FirehoseServiceException}
- * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * Base exception class for all service exceptions from Firehose service.
  *
  * @public
  */

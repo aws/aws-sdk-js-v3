@@ -23,7 +23,8 @@ export interface CreateS3TableIntegrationCommandInput extends CreateS3TableInteg
 export interface CreateS3TableIntegrationCommandOutput extends CreateS3TableIntegrationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an integration between CloudWatch and S3 Tables for analytics. This integration enables querying CloudWatch telemetry data using analytics engines like Amazon Athena, Amazon Redshift, and Apache Spark.</p>
+ * Creates an integration between CloudWatch and S3 Tables for analytics. This integration enables querying CloudWatch telemetry data using analytics engines like Amazon Athena, Amazon Redshift, and Apache Spark.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +58,32 @@ export interface CreateS3TableIntegrationCommandOutput extends CreateS3TableInte
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ *
+ * Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management for Amazon Web Services resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the IAM user guide.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The requested operation conflicts with the current state of the specified resource or with another request. </p>
+ *
+ * The requested operation conflicts with the current state of the specified resource or with another request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ *
+ * Indicates the request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The requested operation would exceed the allowed quota for the specified resource type. </p>
+ *
+ * The requested operation would exceed the allowed quota for the specified resource type.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> The request throughput limit was exceeded. </p>
+ *
+ * The request throughput limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ *
+ * Indicates input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link ObservabilityAdminServiceException}
- * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ * Base exception class for all service exceptions from ObservabilityAdmin service.
  *
  * @public
  */

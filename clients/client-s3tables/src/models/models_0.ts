@@ -26,13 +26,15 @@ import type {
  */
 export interface CreateNamespaceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket to create the namespace in.</p>
+   * The Amazon Resource Name (ARN) of the table bucket to create the namespace in.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>A name for the namespace.</p>
+   * A name for the namespace.
+   *
    * @public
    */
   namespace: string[] | undefined;
@@ -43,278 +45,324 @@ export interface CreateNamespaceRequest {
  */
 export interface CreateNamespaceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket the namespace was created in.</p>
+   * The Amazon Resource Name (ARN) of the table bucket the namespace was created in.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespace: string[] | undefined;
 }
 
 /**
- * <p>Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.</p>
+ * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+ *
  * @public
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>The server-side encryption algorithm to use. Valid values are <code>AES256</code> for S3-managed encryption keys, or <code>aws:kms</code> for Amazon Web Services KMS-managed encryption keys. If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p>
+   * The server-side encryption algorithm to use. Valid values are `AES256` for S3-managed encryption keys, or `aws:kms` for Amazon Web Services KMS-managed encryption keys. If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
+   *
    * @public
    */
   sseAlgorithm: SSEAlgorithm | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is required only when <code>sseAlgorithm</code> is set to <code>aws:kms</code>.</p>
+   * The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is required only when `sseAlgorithm` is set to `aws:kms`.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 }
 
 /**
- * <p>Defines a single partition field in an Iceberg partition specification.</p>
+ * Defines a single partition field in an Iceberg partition specification.
+ *
  * @public
  */
 export interface IcebergPartitionField {
   /**
-   * <p>The ID of the source schema field to partition by. This must reference a valid field ID from the table schema.</p>
+   * The ID of the source schema field to partition by. This must reference a valid field ID from the table schema.
+   *
    * @public
    */
   sourceId: number | undefined;
 
   /**
-   * <p>The partition transform to apply to the source field. Supported transforms include <code>identity</code>, <code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>bucket</code>, and <code>truncate</code>. For more information, see the <a href="https://iceberg.apache.org/spec/#partition-transforms">Apache Iceberg partition transforms documentation</a>.</p>
+   * The partition transform to apply to the source field. Supported transforms include `identity`, `year`, `month`, `day`, `hour`, `bucket`, and `truncate`. For more information, see the [Apache Iceberg partition transforms documentation](https://iceberg.apache.org/spec/#partition-transforms).
+   *
    * @public
    */
   transform: string | undefined;
 
   /**
-   * <p>The name for this partition field. This name is used in the partitioned file paths.</p>
+   * The name for this partition field. This name is used in the partitioned file paths.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An optional unique identifier for this partition field. If not specified, S3 Tables automatically assigns a field ID.</p>
+   * An optional unique identifier for this partition field. If not specified, S3 Tables automatically assigns a field ID.
+   *
    * @public
    */
   fieldId?: number | undefined;
 }
 
 /**
- * <p>Defines how data in an Iceberg table is partitioned. Partitioning helps optimize query performance by organizing data into separate files based on field values. Each partition field specifies a transform to apply to a source field.</p>
+ * Defines how data in an Iceberg table is partitioned. Partitioning helps optimize query performance by organizing data into separate files based on field values. Each partition field specifies a transform to apply to a source field.
+ *
  * @public
  */
 export interface IcebergPartitionSpec {
   /**
-   * <p>The list of partition fields that define how the table data is partitioned. Each field specifies a source field and a transform to apply. This field is required if <code>partitionSpec</code> is provided.</p>
+   * The list of partition fields that define how the table data is partitioned. Each field specifies a source field and a transform to apply. This field is required if `partitionSpec` is provided.
+   *
    * @public
    */
   fields: IcebergPartitionField[] | undefined;
 
   /**
-   * <p>The unique identifier for this partition specification. If not specified, defaults to <code>0</code>.</p>
+   * The unique identifier for this partition specification. If not specified, defaults to `0`.
+   *
    * @public
    */
   specId?: number | undefined;
 }
 
 /**
- * <p>Contains details about a schema field.</p>
+ * Contains details about a schema field.
+ *
  * @public
  */
 export interface SchemaField {
   /**
-   * <p>An optional unique identifier for the schema field. Field IDs are used by Apache Iceberg to track schema evolution and maintain compatibility across schema changes. If not specified, S3 Tables automatically assigns field IDs.</p>
+   * An optional unique identifier for the schema field. Field IDs are used by Apache Iceberg to track schema evolution and maintain compatibility across schema changes. If not specified, S3 Tables automatically assigns field IDs.
+   *
    * @public
    */
   id?: number | undefined;
 
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The field type. S3 Tables supports all Apache Iceberg primitive types. For more information, see the <a href="https://iceberg.apache.org/spec/#primitive-types">Apache Iceberg documentation</a>.</p>
+   * The field type. S3 Tables supports all Apache Iceberg primitive types. For more information, see the [Apache Iceberg documentation](https://iceberg.apache.org/spec/#primitive-types).
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether values are required for each row in this field. By default, this is <code>false</code> and null values are allowed in the field. If this is <code>true</code> the field does not allow null values.</p>
+   * A Boolean value that specifies whether values are required for each row in this field. By default, this is `false` and null values are allowed in the field. If this is `true` the field does not allow null values.
+   *
    * @public
    */
   required?: boolean | undefined;
 }
 
 /**
- * <p>Contains details about the schema for an Iceberg table.</p>
+ * Contains details about the schema for an Iceberg table.
+ *
  * @public
  */
 export interface IcebergSchema {
   /**
-   * <p>The schema fields for the table</p>
+   * The schema fields for the table
+   *
    * @public
    */
   fields: SchemaField[] | undefined;
 }
 
 /**
- * <p>Contains details about a schema field in the V2 format. This field format supports nested and complex data types such as <code>struct</code>, <code>list</code>, and <code>map</code>, in addition to primitive types.</p>
+ * Contains details about a schema field in the V2 format. This field format supports nested and complex data types such as `struct`, `list`, and `map`, in addition to primitive types.
+ *
  * @public
  */
 export interface SchemaV2Field {
   /**
-   * <p>The unique identifier for the schema field. Field IDs are used by Apache Iceberg to track schema evolution and maintain compatibility across schema changes.</p>
+   * The unique identifier for the schema field. Field IDs are used by Apache Iceberg to track schema evolution and maintain compatibility across schema changes.
+   *
    * @public
    */
   id: number | undefined;
 
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The data type of the field. This can be a primitive type string such as <code>boolean</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>string</code>, <code>binary</code>, <code>date</code>, <code>timestamp</code>, or <code>timestamptz</code>, or a complex type represented as a JSON object for nested types such as <code>struct</code>, <code>list</code>, or <code>map</code>. For more information, see the <a href="https://iceberg.apache.org/spec/#schemas-and-data-types">Apache Iceberg schemas and data types documentation</a>.</p>
+   * The data type of the field. This can be a primitive type string such as `boolean`, `int`, `long`, `float`, `double`, `string`, `binary`, `date`, `timestamp`, or `timestamptz`, or a complex type represented as a JSON object for nested types such as `struct`, `list`, or `map`. For more information, see the [Apache Iceberg schemas and data types documentation](https://iceberg.apache.org/spec/#schemas-and-data-types).
+   *
    * @public
    */
   type: __DocumentType | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether values are required for each row in this field. If this is <code>true</code>, the field does not allow null values.</p>
+   * A Boolean value that specifies whether values are required for each row in this field. If this is `true`, the field does not allow null values.
+   *
    * @public
    */
   required: boolean | undefined;
 
   /**
-   * <p>An optional description of the field.</p>
+   * An optional description of the field.
+   *
    * @public
    */
   doc?: string | undefined;
 }
 
 /**
- * <p>Contains details about the schema for an Iceberg table using the V2 format. This schema format supports nested and complex data types such as <code>struct</code>, <code>list</code>, and <code>map</code>, in addition to primitive types.</p>
+ * Contains details about the schema for an Iceberg table using the V2 format. This schema format supports nested and complex data types such as `struct`, `list`, and `map`, in addition to primitive types.
+ *
  * @public
  */
 export interface IcebergSchemaV2 {
   /**
-   * <p>The type of the top-level schema, which is always a <code>struct</code> type as defined in the <a href="https://iceberg.apache.org/spec/#schemas-and-data-types">Apache Iceberg specification</a>. This value must be <code>struct</code>.</p>
+   * The type of the top-level schema, which is always a `struct` type as defined in the [Apache Iceberg specification](https://iceberg.apache.org/spec/#schemas-and-data-types). This value must be `struct`.
+   *
    * @public
    */
   type: SchemaV2FieldType | undefined;
 
   /**
-   * <p>The schema fields for the table. Each field defines a column in the table, including its name, type, and whether it is required.</p>
+   * The schema fields for the table. Each field defines a column in the table, including its name, type, and whether it is required.
+   *
    * @public
    */
   fields: SchemaV2Field[] | undefined;
 
   /**
-   * <p>An optional unique identifier for the schema. Schema IDs are used by Apache Iceberg to track schema evolution.</p>
+   * An optional unique identifier for the schema. Schema IDs are used by Apache Iceberg to track schema evolution.
+   *
    * @public
    */
   schemaId?: number | undefined;
 
   /**
-   * <p>A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.</p>
+   * A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+   *
    * @public
    */
   identifierFieldIds?: number[] | undefined;
 }
 
 /**
- * <p>Defines a single sort field in an Iceberg sort order specification.</p>
+ * Defines a single sort field in an Iceberg sort order specification.
+ *
  * @public
  */
 export interface IcebergSortField {
   /**
-   * <p>The ID of the source schema field to sort by. This must reference a valid field ID from the table schema.</p>
+   * The ID of the source schema field to sort by. This must reference a valid field ID from the table schema.
+   *
    * @public
    */
   sourceId: number | undefined;
 
   /**
-   * <p>The transform to apply to the source field before sorting. Use <code>identity</code> to sort by the field value directly, or specify other transforms as needed.</p>
+   * The transform to apply to the source field before sorting. Use `identity` to sort by the field value directly, or specify other transforms as needed.
+   *
    * @public
    */
   transform: string | undefined;
 
   /**
-   * <p>The sort direction. Valid values are <code>asc</code> for ascending order or <code>desc</code> for descending order.</p>
+   * The sort direction. Valid values are `asc` for ascending order or `desc` for descending order.
+   *
    * @public
    */
   direction: IcebergSortDirection | undefined;
 
   /**
-   * <p>Specifies how null values are ordered. Valid values are <code>nulls-first</code> to place nulls before non-null values, or <code>nulls-last</code> to place nulls after non-null values.</p>
+   * Specifies how null values are ordered. Valid values are `nulls-first` to place nulls before non-null values, or `nulls-last` to place nulls after non-null values.
+   *
    * @public
    */
   nullOrder: IcebergNullOrder | undefined;
 }
 
 /**
- * <p>Defines the sort order for data within an Iceberg table. Sorting data can improve query performance by enabling more efficient data skipping.</p>
+ * Defines the sort order for data within an Iceberg table. Sorting data can improve query performance by enabling more efficient data skipping.
+ *
  * @public
  */
 export interface IcebergSortOrder {
   /**
-   * <p>The unique identifier for this sort order. If not specified, defaults to <code>1</code>. The order ID is used by Apache Iceberg to track sort order evolution.</p>
+   * The unique identifier for this sort order. If not specified, defaults to `1`. The order ID is used by Apache Iceberg to track sort order evolution.
+   *
    * @public
    */
   orderId: number | undefined;
 
   /**
-   * <p>The list of sort fields that define how data is sorted within files. Each field specifies a source field, sort direction, and null ordering. This field is required if <code>writeOrder</code> is provided.</p>
+   * The list of sort fields that define how data is sorted within files. Each field specifies a source field, sort direction, and null ordering. This field is required if `writeOrder` is provided.
+   *
    * @public
    */
   fields: IcebergSortField[] | undefined;
 }
 
 /**
- * <p>Contains details about the metadata for an Iceberg table.</p>
+ * Contains details about the metadata for an Iceberg table.
+ *
  * @public
  */
 export interface IcebergMetadata {
   /**
-   * <p>The schema for an Iceberg table. Use this property to define table schemas with primitive types only. For schemas that include nested or complex types such as <code>struct</code>, <code>list</code>, or <code>map</code>, use <code>schemaV2</code> instead.</p>
+   * The schema for an Iceberg table. Use this property to define table schemas with primitive types only. For schemas that include nested or complex types such as `struct`, `list`, or `map`, use `schemaV2` instead.
+   *
    * @public
    */
   schema?: IcebergSchema | undefined;
 
   /**
-   * <p>The schema for an Iceberg table using the V2 format. Use this property to define table schemas that include nested or complex data types such as <code>struct</code>, <code>list</code>, or <code>map</code>, in addition to primitive types. For schemas with only primitive types, you can use either <code>schema</code> or <code>schemaV2</code>.</p>
+   * The schema for an Iceberg table using the V2 format. Use this property to define table schemas that include nested or complex data types such as `struct`, `list`, or `map`, in addition to primitive types. For schemas with only primitive types, you can use either `schema` or `schemaV2`.
+   *
    * @public
    */
   schemaV2?: IcebergSchemaV2 | undefined;
 
   /**
-   * <p>The partition specification for the Iceberg table. Partitioning organizes data into separate files based on the values of one or more fields, which can improve query performance by reducing the amount of data scanned. Each partition field applies a transform (such as identity, year, month, or bucket) to a single field.</p>
+   * The partition specification for the Iceberg table. Partitioning organizes data into separate files based on the values of one or more fields, which can improve query performance by reducing the amount of data scanned. Each partition field applies a transform (such as identity, year, month, or bucket) to a single field.
+   *
    * @public
    */
   partitionSpec?: IcebergPartitionSpec | undefined;
 
   /**
-   * <p>The sort order for the Iceberg table. Sort order defines how data is sorted within data files, which can improve query performance by enabling more efficient data skipping and filtering.</p>
+   * The sort order for the Iceberg table. Sort order defines how data is sorted within data files, which can improve query performance by enabling more efficient data skipping and filtering.
+   *
    * @public
    */
   writeOrder?: IcebergSortOrder | undefined;
 
   /**
-   * <p>A map of custom configuration properties for the Iceberg table.</p>
+   * A map of custom configuration properties for the Iceberg table.
+   *
    * @public
    */
   properties?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains details about the table metadata.</p>
+ * Contains details about the table metadata.
+ *
  * @public
  */
 export type TableMetadata =
@@ -326,7 +374,8 @@ export type TableMetadata =
  */
 export namespace TableMetadata {
   /**
-   * <p>Contains details about the metadata of an Iceberg table.</p>
+   * Contains details about the metadata of an Iceberg table.
+   *
    * @public
    */
   export interface IcebergMember {
@@ -353,12 +402,14 @@ export namespace TableMetadata {
 }
 
 /**
- * <p>The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.</p>
+ * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+ *
  * @public
  */
 export interface StorageClassConfiguration {
   /**
-   * <p>The storage class for the table or table bucket. Valid values include storage classes optimized for different access patterns and cost profiles.</p>
+   * The storage class for the table or table bucket. Valid values include storage classes optimized for different access patterns and cost profiles.
+   *
    * @public
    */
   storageClass: StorageClass | undefined;
@@ -369,49 +420,61 @@ export interface StorageClassConfiguration {
  */
 export interface CreateTableRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket to create the table in.</p>
+   * The Amazon Resource Name (ARN) of the table bucket to create the table in.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace to associated with the table.</p>
+   * The namespace to associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name for the table.</p>
+   * The name for the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The format for the table.</p>
+   * The format for the table.
+   *
    * @public
    */
   format: OpenTableFormat | undefined;
 
   /**
-   * <p>The metadata for the table.</p>
+   * The metadata for the table.
+   *
    * @public
    */
   metadata?: TableMetadata | undefined;
 
   /**
-   * <p>The encryption configuration to use for the table. This configuration specifies the encryption algorithm and, if using SSE-KMS, the KMS key to use for encrypting the table. </p> <note> <p>If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html">Permissions requirements for S3 Tables SSE-KMS encryption</a>.</p> </note>
+   * The encryption configuration to use for the table. This configuration specifies the encryption algorithm and, if using SSE-KMS, the KMS key to use for encrypting the table.
+   *
+   * > **Note:** If you choose SSE-KMS encryption you must grant the S3 Tables maintenance principal access to your KMS key. For more information, see [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>The storage class configuration for the table. If not specified, the table inherits the storage class configuration from its table bucket. Specify this parameter to override the bucket's default storage class for this table.</p>
+   * The storage class configuration for the table. If not specified, the table inherits the storage class configuration from its table bucket. Specify this parameter to override the bucket's default storage class for this table.
+   *
    * @public
    */
   storageClassConfiguration?: StorageClassConfiguration | undefined;
 
   /**
-   * <p>A map of user-defined tags that you would like to apply to the table that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize, track costs for, and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTable</code> permission to create a table with tags.</p> </note>
+   * A map of user-defined tags that you would like to apply to the table that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize, track costs for, and control access to resources. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
+   * > **Note:** You must have the `s3tables:TagResource` permission in addition to `s3tables:CreateTable` permission to create a table with tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -422,13 +485,15 @@ export interface CreateTableRequest {
  */
 export interface CreateTableResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableARN: string | undefined;
 
   /**
-   * <p>The version token of the table.</p>
+   * The version token of the table.
+   *
    * @public
    */
   versionToken: string | undefined;
@@ -439,25 +504,31 @@ export interface CreateTableResponse {
  */
 export interface CreateTableBucketRequest {
   /**
-   * <p>The name for the table bucket.</p>
+   * The name for the table bucket.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The encryption configuration to use for the table bucket. This configuration specifies the default encryption settings that will be applied to all tables created in this bucket unless overridden at the table level. The configuration includes the encryption algorithm and, if using SSE-KMS, the KMS key to use.</p>
+   * The encryption configuration to use for the table bucket. This configuration specifies the default encryption settings that will be applied to all tables created in this bucket unless overridden at the table level. The configuration includes the encryption algorithm and, if using SSE-KMS, the KMS key to use.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>The default storage class configuration for the table bucket. This configuration will be applied to all new tables created in this bucket unless overridden at the table level. If not specified, the service default storage class will be used.</p>
+   * The default storage class configuration for the table bucket. This configuration will be applied to all new tables created in this bucket unless overridden at the table level. If not specified, the service default storage class will be used.
+   *
    * @public
    */
   storageClassConfiguration?: StorageClassConfiguration | undefined;
 
   /**
-   * <p>A map of user-defined tags that you would like to apply to the table bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3tables:TagResource</code> permission in addition to <code>s3tables:CreateTableBucket</code> permisson to create a table bucket with tags.</p> </note>
+   * A map of user-defined tags that you would like to apply to the table bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
+   * > **Note:** You must have the `s3tables:TagResource` permission in addition to `s3tables:CreateTableBucket` permisson to create a table bucket with tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -468,7 +539,8 @@ export interface CreateTableBucketRequest {
  */
 export interface CreateTableBucketResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   arn: string | undefined;
@@ -479,13 +551,15 @@ export interface CreateTableBucketResponse {
  */
 export interface DeleteNamespaceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the namespace.</p>
+   * The Amazon Resource Name (ARN) of the table bucket associated with the namespace.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespace: string | undefined;
@@ -496,25 +570,29 @@ export interface DeleteNamespaceRequest {
  */
 export interface DeleteTableRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version token of the table.</p>
+   * The version token of the table.
+   *
    * @public
    */
   versionToken?: string | undefined;
@@ -525,7 +603,8 @@ export interface DeleteTableRequest {
  */
 export interface DeleteTableBucketRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -536,7 +615,8 @@ export interface DeleteTableBucketRequest {
  */
 export interface DeleteTableBucketEncryptionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -547,7 +627,8 @@ export interface DeleteTableBucketEncryptionRequest {
  */
 export interface DeleteTableBucketMetricsConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -558,7 +639,8 @@ export interface DeleteTableBucketMetricsConfigurationRequest {
  */
 export interface DeleteTableBucketPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -569,13 +651,15 @@ export interface DeleteTableBucketPolicyRequest {
  */
 export interface DeleteTableBucketReplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>A version token from a previous GetTableBucketReplication call. Use this token to ensure you're deleting the expected version of the configuration.</p>
+   * A version token from a previous GetTableBucketReplication call. Use this token to ensure you're deleting the expected version of the configuration.
+   *
    * @public
    */
   versionToken?: string | undefined;
@@ -586,19 +670,22 @@ export interface DeleteTableBucketReplicationRequest {
  */
 export interface DeleteTablePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table. </p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The table name.</p>
+   * The table name.
+   *
    * @public
    */
   name: string | undefined;
@@ -609,13 +696,15 @@ export interface DeleteTablePolicyRequest {
  */
 export interface DeleteTableReplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn: string | undefined;
 
   /**
-   * <p>A version token from a previous GetTableReplication call. Use this token to ensure you're deleting the expected version of the configuration.</p>
+   * A version token from a previous GetTableReplication call. Use this token to ensure you're deleting the expected version of the configuration.
+   *
    * @public
    */
   versionToken: string | undefined;
@@ -626,13 +715,15 @@ export interface DeleteTableReplicationRequest {
  */
 export interface GetNamespaceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespace: string | undefined;
@@ -643,37 +734,43 @@ export interface GetNamespaceRequest {
  */
 export interface GetNamespaceResponse {
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespace: string[] | undefined;
 
   /**
-   * <p>The date and time the namespace was created at.</p>
+   * The date and time the namespace was created at.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The ID of the account that created the namespace.</p>
+   * The ID of the account that created the namespace.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the namespcace.</p>
+   * The ID of the account that owns the namespcace.
+   *
    * @public
    */
   ownerAccountId: string | undefined;
 
   /**
-   * <p>The unique identifier of the namespace.</p>
+   * The unique identifier of the namespace.
+   *
    * @public
    */
   namespaceId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the table bucket containing this namespace.</p>
+   * The unique identifier of the table bucket containing this namespace.
+   *
    * @public
    */
   tableBucketId?: string | undefined;
@@ -684,49 +781,57 @@ export interface GetNamespaceResponse {
  */
 export interface GetTableRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket associated with the table.
+   *
    * @public
    */
   tableBucketARN?: string | undefined;
 
   /**
-   * <p>The name of the namespace the table is associated with.</p>
+   * The name of the namespace the table is associated with.
+   *
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn?: string | undefined;
 }
 
 /**
- * <p>Contains information about the source of a replicated table.</p>
+ * Contains information about the source of a replicated table.
+ *
  * @public
  */
 export interface ReplicationInformation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source table from which this table is replicated.</p>
+   * The Amazon Resource Name (ARN) of the source table from which this table is replicated.
+   *
    * @public
    */
   sourceTableARN: string | undefined;
 }
 
 /**
- * <p>Contains information about tables that are managed by S3 Tables, including replication information for replica tables.</p>
+ * Contains information about tables that are managed by S3 Tables, including replication information for replica tables.
+ *
  * @public
  */
 export interface ManagedTableInformation {
   /**
-   * <p>If this table is a replica, contains information about the source table from which it is replicated.</p>
+   * If this table is a replica, contains information about the source table from which it is replicated.
+   *
    * @public
    */
   replicationInformation?: ReplicationInformation | undefined;
@@ -737,103 +842,120 @@ export interface ManagedTableInformation {
  */
 export interface GetTableResponse {
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the table.</p>
+   * The type of the table.
+   *
    * @public
    */
   type: TableType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the namespace containing this table.</p>
+   * The unique identifier of the namespace containing this table.
+   *
    * @public
    */
   namespaceId?: string | undefined;
 
   /**
-   * <p>The version token of the table.</p>
+   * The version token of the table.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The metadata location of the table.</p>
+   * The metadata location of the table.
+   *
    * @public
    */
   metadataLocation?: string | undefined;
 
   /**
-   * <p>The warehouse location of the table.</p>
+   * The warehouse location of the table.
+   *
    * @public
    */
   warehouseLocation: string | undefined;
 
   /**
-   * <p>The date and time the table bucket was created at.</p>
+   * The date and time the table bucket was created at.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The ID of the account that created the table.</p>
+   * The ID of the account that created the table.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The service that manages the table.</p>
+   * The service that manages the table.
+   *
    * @public
    */
   managedByService?: string | undefined;
 
   /**
-   * <p>The date and time the table was last modified on.</p>
+   * The date and time the table was last modified on.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The ID of the account that last modified the table.</p>
+   * The ID of the account that last modified the table.
+   *
    * @public
    */
   modifiedBy: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the table.</p>
+   * The ID of the account that owns the table.
+   *
    * @public
    */
   ownerAccountId: string | undefined;
 
   /**
-   * <p>The format of the table.</p>
+   * The format of the table.
+   *
    * @public
    */
   format: OpenTableFormat | undefined;
 
   /**
-   * <p>The unique identifier of the table bucket containing this table.</p>
+   * The unique identifier of the table bucket containing this table.
+   *
    * @public
    */
   tableBucketId?: string | undefined;
 
   /**
-   * <p>If this table is managed by S3 Tables, contains additional information such as replication details.</p>
+   * If this table is managed by S3 Tables, contains additional information such as replication details.
+   *
    * @public
    */
   managedTableInformation?: ManagedTableInformation | undefined;
@@ -844,7 +966,8 @@ export interface GetTableResponse {
  */
 export interface GetTableBucketRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -855,37 +978,43 @@ export interface GetTableBucketRequest {
  */
 export interface GetTableBucketResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the table bucket</p>
+   * The name of the table bucket
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the table bucket.</p>
+   * The ID of the account that owns the table bucket.
+   *
    * @public
    */
   ownerAccountId: string | undefined;
 
   /**
-   * <p>The date and time the table bucket was created.</p>
+   * The date and time the table bucket was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The unique identifier of the table bucket.</p>
+   * The unique identifier of the table bucket.
+   *
    * @public
    */
   tableBucketId?: string | undefined;
 
   /**
-   * <p>The type of the table bucket.</p>
+   * The type of the table bucket.
+   *
    * @public
    */
   type?: TableBucketType | undefined;
@@ -896,7 +1025,8 @@ export interface GetTableBucketResponse {
  */
 export interface GetTableBucketEncryptionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -907,7 +1037,8 @@ export interface GetTableBucketEncryptionRequest {
  */
 export interface GetTableBucketEncryptionResponse {
   /**
-   * <p>The encryption configuration for the table bucket.</p>
+   * The encryption configuration for the table bucket.
+   *
    * @public
    */
   encryptionConfiguration: EncryptionConfiguration | undefined;
@@ -918,32 +1049,37 @@ export interface GetTableBucketEncryptionResponse {
  */
 export interface GetTableBucketMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
+   * The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 }
 
 /**
- * <p>Contains details about the unreferenced file removal settings for an Iceberg table bucket.</p>
+ * Contains details about the unreferenced file removal settings for an Iceberg table bucket.
+ *
  * @public
  */
 export interface IcebergUnreferencedFileRemovalSettings {
   /**
-   * <p>The number of days an object has to be unreferenced before it is marked as non-current.</p>
+   * The number of days an object has to be unreferenced before it is marked as non-current.
+   *
    * @public
    */
   unreferencedDays?: number | undefined;
 
   /**
-   * <p>The number of days an object has to be non-current before it is deleted.</p>
+   * The number of days an object has to be non-current before it is deleted.
+   *
    * @public
    */
   nonCurrentDays?: number | undefined;
 }
 
 /**
- * <p>Contains details about the maintenance settings for the table bucket.</p>
+ * Contains details about the maintenance settings for the table bucket.
+ *
  * @public
  */
 export type TableBucketMaintenanceSettings =
@@ -955,7 +1091,8 @@ export type TableBucketMaintenanceSettings =
  */
 export namespace TableBucketMaintenanceSettings {
   /**
-   * <p>The unreferenced file removal settings for the table bucket.</p>
+   * The unreferenced file removal settings for the table bucket.
+   *
    * @public
    */
   export interface IcebergUnreferencedFileRemovalMember {
@@ -982,18 +1119,21 @@ export namespace TableBucketMaintenanceSettings {
 }
 
 /**
- * <p>Details about the values that define the maintenance configuration for a table bucket.</p>
+ * Details about the values that define the maintenance configuration for a table bucket.
+ *
  * @public
  */
 export interface TableBucketMaintenanceConfigurationValue {
   /**
-   * <p>The status of the maintenance configuration.</p>
+   * The status of the maintenance configuration.
+   *
    * @public
    */
   status?: MaintenanceStatus | undefined;
 
   /**
-   * <p>Contains details about the settings of the maintenance configuration.</p>
+   * Contains details about the settings of the maintenance configuration.
+   *
    * @public
    */
   settings?: TableBucketMaintenanceSettings | undefined;
@@ -1004,13 +1144,15 @@ export interface TableBucketMaintenanceConfigurationValue {
  */
 export interface GetTableBucketMaintenanceConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
+   * The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>Details about the maintenance configuration for the table bucket.</p>
+   * Details about the maintenance configuration for the table bucket.
+   *
    * @public
    */
   configuration: Partial<Record<TableBucketMaintenanceType, TableBucketMaintenanceConfigurationValue>> | undefined;
@@ -1021,7 +1163,8 @@ export interface GetTableBucketMaintenanceConfigurationResponse {
  */
 export interface GetTableBucketMetricsConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1032,13 +1175,15 @@ export interface GetTableBucketMetricsConfigurationRequest {
  */
 export interface GetTableBucketMetricsConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The unique identifier of the metrics configuration.</p>
+   * The unique identifier of the metrics configuration.
+   *
    * @public
    */
   id?: string | undefined;
@@ -1049,7 +1194,8 @@ export interface GetTableBucketMetricsConfigurationResponse {
  */
 export interface GetTableBucketPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1060,7 +1206,8 @@ export interface GetTableBucketPolicyRequest {
  */
 export interface GetTableBucketPolicyResponse {
   /**
-   * <p>The <code>JSON</code> that defines the policy.</p>
+   * The `JSON` that defines the policy.
+   *
    * @public
    */
   resourcePolicy: string | undefined;
@@ -1071,49 +1218,57 @@ export interface GetTableBucketPolicyResponse {
  */
 export interface GetTableBucketReplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 }
 
 /**
- * <p>Specifies a destination table bucket for replication.</p>
+ * Specifies a destination table bucket for replication.
+ *
  * @public
  */
 export interface ReplicationDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination table bucket where tables will be replicated.</p>
+   * The Amazon Resource Name (ARN) of the destination table bucket where tables will be replicated.
+   *
    * @public
    */
   destinationTableBucketARN: string | undefined;
 }
 
 /**
- * <p>Defines a rule for replicating tables from a source table bucket to one or more destination table buckets.</p>
+ * Defines a rule for replicating tables from a source table bucket to one or more destination table buckets.
+ *
  * @public
  */
 export interface TableBucketReplicationRule {
   /**
-   * <p>An array of destination table buckets where tables should be replicated.</p>
+   * An array of destination table buckets where tables should be replicated.
+   *
    * @public
    */
   destinations: ReplicationDestination[] | undefined;
 }
 
 /**
- * <p>The replication configuration for a table bucket. This configuration defines how tables in the source bucket are replicated to destination table buckets, including the IAM role used for replication.</p>
+ * The replication configuration for a table bucket. This configuration defines how tables in the source bucket are replicated to destination table buckets, including the IAM role used for replication.
+ *
  * @public
  */
 export interface TableBucketReplicationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that S3 Tables assumes to replicate tables on your behalf.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that S3 Tables assumes to replicate tables on your behalf.
+   *
    * @public
    */
   role: string | undefined;
 
   /**
-   * <p>An array of replication rules that define which tables to replicate and where to replicate them.</p>
+   * An array of replication rules that define which tables to replicate and where to replicate them.
+   *
    * @public
    */
   rules: TableBucketReplicationRule[] | undefined;
@@ -1124,13 +1279,15 @@ export interface TableBucketReplicationConfiguration {
  */
 export interface GetTableBucketReplicationResponse {
   /**
-   * <p>A version token that represents the current state of the replication configuration. Use this token when updating the configuration to ensure consistency.</p>
+   * A version token that represents the current state of the replication configuration. Use this token when updating the configuration to ensure consistency.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The replication configuration for the table bucket, including the IAM role and replication rules.</p>
+   * The replication configuration for the table bucket, including the IAM role and replication rules.
+   *
    * @public
    */
   configuration: TableBucketReplicationConfiguration | undefined;
@@ -1141,7 +1298,8 @@ export interface GetTableBucketReplicationResponse {
  */
 export interface GetTableBucketStorageClassRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -1152,7 +1310,8 @@ export interface GetTableBucketStorageClassRequest {
  */
 export interface GetTableBucketStorageClassResponse {
   /**
-   * <p>The storage class configuration for the table bucket.</p>
+   * The storage class configuration for the table bucket.
+   *
    * @public
    */
   storageClassConfiguration: StorageClassConfiguration | undefined;
@@ -1163,19 +1322,22 @@ export interface GetTableBucketStorageClassResponse {
  */
 export interface GetTableEncryptionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket containing the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket containing the table.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
@@ -1186,7 +1348,8 @@ export interface GetTableEncryptionRequest {
  */
 export interface GetTableEncryptionResponse {
   /**
-   * <p>The encryption configuration for the table.</p>
+   * The encryption configuration for the table.
+   *
    * @public
    */
   encryptionConfiguration: EncryptionConfiguration | undefined;
@@ -1197,62 +1360,72 @@ export interface GetTableEncryptionResponse {
  */
 export interface GetTableMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>Contains details about the compaction settings for an Iceberg table.</p>
+ * Contains details about the compaction settings for an Iceberg table.
+ *
  * @public
  */
 export interface IcebergCompactionSettings {
   /**
-   * <p>The target file size for the table in MB.</p>
+   * The target file size for the table in MB.
+   *
    * @public
    */
   targetFileSizeMB?: number | undefined;
 
   /**
-   * <p>The compaction strategy to use for the table. This determines how files are selected and combined during compaction operations.</p>
+   * The compaction strategy to use for the table. This determines how files are selected and combined during compaction operations.
+   *
    * @public
    */
   strategy?: IcebergCompactionStrategy | undefined;
 }
 
 /**
- * <p>Contains details about the snapshot management settings for an Iceberg table. The oldest snapshot expires when its age exceeds the <code>maxSnapshotAgeHours</code> and the total number of snapshots exceeds the value for the minimum number of snapshots to keep <code>minSnapshotsToKeep</code>.</p>
+ * Contains details about the snapshot management settings for an Iceberg table. The oldest snapshot expires when its age exceeds the `maxSnapshotAgeHours` and the total number of snapshots exceeds the value for the minimum number of snapshots to keep `minSnapshotsToKeep`.
+ *
  * @public
  */
 export interface IcebergSnapshotManagementSettings {
   /**
-   * <p>The minimum number of snapshots to keep.</p>
+   * The minimum number of snapshots to keep.
+   *
    * @public
    */
   minSnapshotsToKeep?: number | undefined;
 
   /**
-   * <p>The maximum age of a snapshot before it can be expired.</p>
+   * The maximum age of a snapshot before it can be expired.
+   *
    * @public
    */
   maxSnapshotAgeHours?: number | undefined;
 }
 
 /**
- * <p>Contains details about maintenance settings for the table.</p>
+ * Contains details about maintenance settings for the table.
+ *
  * @public
  */
 export type TableMaintenanceSettings =
@@ -1265,7 +1438,8 @@ export type TableMaintenanceSettings =
  */
 export namespace TableMaintenanceSettings {
   /**
-   * <p>Contains details about the Iceberg compaction settings for the table.</p>
+   * Contains details about the Iceberg compaction settings for the table.
+   *
    * @public
    */
   export interface IcebergCompactionMember {
@@ -1275,7 +1449,8 @@ export namespace TableMaintenanceSettings {
   }
 
   /**
-   * <p>Contains details about the Iceberg snapshot management settings for the table.</p>
+   * Contains details about the Iceberg snapshot management settings for the table.
+   *
    * @public
    */
   export interface IcebergSnapshotManagementMember {
@@ -1305,18 +1480,21 @@ export namespace TableMaintenanceSettings {
 }
 
 /**
- * <p>The values that define a maintenance configuration for a table.</p>
+ * The values that define a maintenance configuration for a table.
+ *
  * @public
  */
 export interface TableMaintenanceConfigurationValue {
   /**
-   * <p>The status of the maintenance configuration.</p>
+   * The status of the maintenance configuration.
+   *
    * @public
    */
   status?: MaintenanceStatus | undefined;
 
   /**
-   * <p>Contains details about the settings for the maintenance configuration.</p>
+   * Contains details about the settings for the maintenance configuration.
+   *
    * @public
    */
   settings?: TableMaintenanceSettings | undefined;
@@ -1327,13 +1505,15 @@ export interface TableMaintenanceConfigurationValue {
  */
 export interface GetTableMaintenanceConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableARN: string | undefined;
 
   /**
-   * <p>Details about the maintenance configuration for the table bucket.</p>
+   * Details about the maintenance configuration for the table bucket.
+   *
    * @public
    */
   configuration: Partial<Record<TableMaintenanceType, TableMaintenanceConfigurationValue>> | undefined;
@@ -1344,43 +1524,50 @@ export interface GetTableMaintenanceConfigurationResponse {
  */
 export interface GetTableMaintenanceJobStatusRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The name of the namespace the table is associated with. </p>
+   * The name of the namespace the table is associated with.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table containing the maintenance job status you want to check.</p>
+   * The name of the table containing the maintenance job status you want to check.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>Details about the status of a maintenance job.</p>
+ * Details about the status of a maintenance job.
+ *
  * @public
  */
 export interface TableMaintenanceJobStatusValue {
   /**
-   * <p>The status of the job.</p>
+   * The status of the job.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>The date and time that the maintenance job was last run.</p>
+   * The date and time that the maintenance job was last run.
+   *
    * @public
    */
   lastRunTimestamp?: Date | undefined;
 
   /**
-   * <p>The failure message of a failed job.</p>
+   * The failure message of a failed job.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -1391,13 +1578,15 @@ export interface TableMaintenanceJobStatusValue {
  */
 export interface GetTableMaintenanceJobStatusResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableARN: string | undefined;
 
   /**
-   * <p>The status of the maintenance job.</p>
+   * The status of the maintenance job.
+   *
    * @public
    */
   status: Partial<Record<TableMaintenanceJobType, TableMaintenanceJobStatusValue>> | undefined;
@@ -1408,19 +1597,22 @@ export interface GetTableMaintenanceJobStatusResponse {
  */
 export interface GetTableMetadataLocationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace of the table.</p>
+   * The namespace of the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
@@ -1431,19 +1623,22 @@ export interface GetTableMetadataLocationRequest {
  */
 export interface GetTableMetadataLocationResponse {
   /**
-   * <p>The version token.</p>
+   * The version token.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The metadata location.</p>
+   * The metadata location.
+   *
    * @public
    */
   metadataLocation?: string | undefined;
 
   /**
-   * <p>The warehouse location.</p>
+   * The warehouse location.
+   *
    * @public
    */
   warehouseLocation: string | undefined;
@@ -1454,19 +1649,22 @@ export interface GetTableMetadataLocationResponse {
  */
 export interface GetTablePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
@@ -1477,7 +1675,8 @@ export interface GetTablePolicyRequest {
  */
 export interface GetTablePolicyResponse {
   /**
-   * <p>The <code>JSON</code> that defines the policy.</p>
+   * The `JSON` that defines the policy.
+   *
    * @public
    */
   resourcePolicy: string | undefined;
@@ -1488,37 +1687,43 @@ export interface GetTablePolicyResponse {
  */
 export interface GetTableRecordExpirationConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn: string | undefined;
 }
 
 /**
- * <p>The record expiration setting that specifies when records expire and are automatically removed from a table.</p>
+ * The record expiration setting that specifies when records expire and are automatically removed from a table.
+ *
  * @public
  */
 export interface TableRecordExpirationSettings {
   /**
-   * <p>If you enable record expiration for a table, you can specify the number of days to retain your table records. For example, to retain your table records for one year, set this value to <code>365</code>.</p>
+   * If you enable record expiration for a table, you can specify the number of days to retain your table records. For example, to retain your table records for one year, set this value to `365`.
+   *
    * @public
    */
   days?: number | undefined;
 }
 
 /**
- * <p>The expiration configuration settings for records in a table, and the status of the configuration. If the status of the configuration is enabled, records expire and are automatically removed after the number of days specified in the record expiration settings for the table.</p>
+ * The expiration configuration settings for records in a table, and the status of the configuration. If the status of the configuration is enabled, records expire and are automatically removed after the number of days specified in the record expiration settings for the table.
+ *
  * @public
  */
 export interface TableRecordExpirationConfigurationValue {
   /**
-   * <p>The status of the expiration settings for records in the table.</p>
+   * The status of the expiration settings for records in the table.
+   *
    * @public
    */
   status?: TableRecordExpirationStatus | undefined;
 
   /**
-   * <p>The expiration settings for records in the table.</p>
+   * The expiration settings for records in the table.
+   *
    * @public
    */
   settings?: TableRecordExpirationSettings | undefined;
@@ -1529,7 +1734,8 @@ export interface TableRecordExpirationConfigurationValue {
  */
 export interface GetTableRecordExpirationConfigurationResponse {
   /**
-   * <p>The record expiration configuration for the table, including the status and retention settings.</p>
+   * The record expiration configuration for the table, including the status and retention settings.
+   *
    * @public
    */
   configuration: TableRecordExpirationConfigurationValue | undefined;
@@ -1540,31 +1746,36 @@ export interface GetTableRecordExpirationConfigurationResponse {
  */
 export interface GetTableRecordExpirationJobStatusRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn: string | undefined;
 }
 
 /**
- * <p>Provides metrics for the record expiration job that most recently ran for a table. The metrics provide insight into the amount of data that was removed when the job ran.</p>
+ * Provides metrics for the record expiration job that most recently ran for a table. The metrics provide insight into the amount of data that was removed when the job ran.
+ *
  * @public
  */
 export interface TableRecordExpirationJobMetrics {
   /**
-   * <p>The total number of data files that were removed when the job ran.</p>
+   * The total number of data files that were removed when the job ran.
+   *
    * @public
    */
   deletedDataFiles?: number | undefined;
 
   /**
-   * <p>The total number of records that were removed when the job ran.</p>
+   * The total number of records that were removed when the job ran.
+   *
    * @public
    */
   deletedRecords?: number | undefined;
 
   /**
-   * <p>The total size (in bytes) of the data files that were removed when the job ran.</p>
+   * The total size (in bytes) of the data files that were removed when the job ran.
+   *
    * @public
    */
   removedFilesSize?: number | undefined;
@@ -1575,25 +1786,29 @@ export interface TableRecordExpirationJobMetrics {
  */
 export interface GetTableRecordExpirationJobStatusResponse {
   /**
-   * <p>The current status of the most recent expiration job.</p>
+   * The current status of the most recent expiration job.
+   *
    * @public
    */
   status: TableRecordExpirationJobStatus | undefined;
 
   /**
-   * <p>The timestamp when the expiration job was last executed.</p>
+   * The timestamp when the expiration job was last executed.
+   *
    * @public
    */
   lastRunTimestamp?: Date | undefined;
 
   /**
-   * <p>If the job failed, this field contains an error message describing the failure reason.</p>
+   * If the job failed, this field contains an error message describing the failure reason.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>Metrics about the most recent expiration job execution, including the number of records and files deleted.</p>
+   * Metrics about the most recent expiration job execution, including the number of records and files deleted.
+   *
    * @public
    */
   metrics?: TableRecordExpirationJobMetrics | undefined;
@@ -1604,37 +1819,43 @@ export interface GetTableRecordExpirationJobStatusResponse {
  */
 export interface GetTableReplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn: string | undefined;
 }
 
 /**
- * <p>Defines a rule for replicating a table to one or more destination tables.</p>
+ * Defines a rule for replicating a table to one or more destination tables.
+ *
  * @public
  */
 export interface TableReplicationRule {
   /**
-   * <p>An array of destination table buckets where this table should be replicated.</p>
+   * An array of destination table buckets where this table should be replicated.
+   *
    * @public
    */
   destinations: ReplicationDestination[] | undefined;
 }
 
 /**
- * <p>The replication configuration for an individual table. This configuration defines how the table is replicated to destination tables.</p>
+ * The replication configuration for an individual table. This configuration defines how the table is replicated to destination tables.
+ *
  * @public
  */
 export interface TableReplicationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that S3 Tables assumes to replicate the table on your behalf.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that S3 Tables assumes to replicate the table on your behalf.
+   *
    * @public
    */
   role: string | undefined;
 
   /**
-   * <p>An array of replication rules that define where this table should be replicated.</p>
+   * An array of replication rules that define where this table should be replicated.
+   *
    * @public
    */
   rules: TableReplicationRule[] | undefined;
@@ -1645,13 +1866,15 @@ export interface TableReplicationConfiguration {
  */
 export interface GetTableReplicationResponse {
   /**
-   * <p>A version token that represents the current state of the table's replication configuration. Use this token when updating the configuration to ensure consistency.</p>
+   * A version token that represents the current state of the table's replication configuration. Use this token when updating the configuration to ensure consistency.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The replication configuration for the table, including the IAM role and replication rules.</p>
+   * The replication configuration for the table, including the IAM role and replication rules.
+   *
    * @public
    */
   configuration: TableReplicationConfiguration | undefined;
@@ -1662,61 +1885,71 @@ export interface GetTableReplicationResponse {
  */
 export interface GetTableReplicationStatusRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn: string | undefined;
 }
 
 /**
- * <p>Contains information about the most recent successful replication update to a destination.</p>
+ * Contains information about the most recent successful replication update to a destination.
+ *
  * @public
  */
 export interface LastSuccessfulReplicatedUpdate {
   /**
-   * <p>The S3 location of the metadata that was successfully replicated.</p>
+   * The S3 location of the metadata that was successfully replicated.
+   *
    * @public
    */
   metadataLocation: string | undefined;
 
   /**
-   * <p>The timestamp when the replication update completed successfully.</p>
+   * The timestamp when the replication update completed successfully.
+   *
    * @public
    */
   timestamp: Date | undefined;
 }
 
 /**
- * <p>Contains status information for a replication destination, including the current replication state, last successful update, and any error messages.</p>
+ * Contains status information for a replication destination, including the current replication state, last successful update, and any error messages.
+ *
  * @public
  */
 export interface ReplicationDestinationStatusModel {
   /**
-   * <p>The current status of replication to this destination.</p>
+   * The current status of replication to this destination.
+   *
    * @public
    */
   replicationStatus: ReplicationStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination table bucket.</p>
+   * The Amazon Resource Name (ARN) of the destination table bucket.
+   *
    * @public
    */
   destinationTableBucketArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination table.</p>
+   * The Amazon Resource Name (ARN) of the destination table.
+   *
    * @public
    */
   destinationTableArn?: string | undefined;
 
   /**
-   * <p>Information about the most recent successful replication update to this destination.</p>
+   * Information about the most recent successful replication update to this destination.
+   *
    * @public
    */
   lastSuccessfulReplicatedUpdate?: LastSuccessfulReplicatedUpdate | undefined;
 
   /**
-   * <p>If replication has failed, this field contains an error message describing the failure reason.</p>
+   * If replication has failed, this field contains an error message describing the failure reason.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -1727,13 +1960,15 @@ export interface ReplicationDestinationStatusModel {
  */
 export interface GetTableReplicationStatusResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source table being replicated.</p>
+   * The Amazon Resource Name (ARN) of the source table being replicated.
+   *
    * @public
    */
   sourceTableArn: string | undefined;
 
   /**
-   * <p>An array of status information for each replication destination, including the current state, last successful update, and any error messages.</p>
+   * An array of status information for each replication destination, including the current state, last successful update, and any error messages.
+   *
    * @public
    */
   destinations: ReplicationDestinationStatusModel[] | undefined;
@@ -1744,19 +1979,22 @@ export interface GetTableReplicationStatusResponse {
  */
 export interface GetTableStorageClassRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
@@ -1767,7 +2005,8 @@ export interface GetTableStorageClassRequest {
  */
 export interface GetTableStorageClassResponse {
   /**
-   * <p>The storage class configuration for the table.</p>
+   * The storage class configuration for the table.
+   *
    * @public
    */
   storageClassConfiguration: StorageClassConfiguration | undefined;
@@ -1778,67 +2017,78 @@ export interface GetTableStorageClassResponse {
  */
 export interface ListNamespacesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The prefix of the namespaces.</p>
+   * The prefix of the namespaces.
+   *
    * @public
    */
   prefix?: string | undefined;
 
   /**
-   * <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * `ContinuationToken` indicates to Amazon S3 that the list is being continued on this bucket with a token. `ContinuationToken` is obfuscated and is not a real key. You can use this `ContinuationToken` for pagination of the list results.
+   *
    * @public
    */
   continuationToken?: string | undefined;
 
   /**
-   * <p>The maximum number of namespaces to return in the list.</p>
+   * The maximum number of namespaces to return in the list.
+   *
    * @public
    */
   maxNamespaces?: number | undefined;
 }
 
 /**
- * <p>Contains details about a namespace.</p>
+ * Contains details about a namespace.
+ *
  * @public
  */
 export interface NamespaceSummary {
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespace: string[] | undefined;
 
   /**
-   * <p>The date and time the namespace was created at.</p>
+   * The date and time the namespace was created at.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The ID of the account that created the namespace.</p>
+   * The ID of the account that created the namespace.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the namespace.</p>
+   * The ID of the account that owns the namespace.
+   *
    * @public
    */
   ownerAccountId: string | undefined;
 
   /**
-   * <p>The system-assigned unique identifier for the namespace.</p>
+   * The system-assigned unique identifier for the namespace.
+   *
    * @public
    */
   namespaceId?: string | undefined;
 
   /**
-   * <p>The system-assigned unique identifier for the table bucket that contains this namespace.</p>
+   * The system-assigned unique identifier for the table bucket that contains this namespace.
+   *
    * @public
    */
   tableBucketId?: string | undefined;
@@ -1849,13 +2099,15 @@ export interface NamespaceSummary {
  */
 export interface ListNamespacesResponse {
   /**
-   * <p>A list of namespaces.</p>
+   * A list of namespaces.
+   *
    * @public
    */
   namespaces: NamespaceSummary[] | undefined;
 
   /**
-   * <p>The <code>ContinuationToken</code> for pagination of the list results.</p>
+   * The `ContinuationToken` for pagination of the list results.
+   *
    * @public
    */
   continuationToken?: string | undefined;
@@ -1866,67 +2118,78 @@ export interface ListNamespacesResponse {
  */
 export interface ListTableBucketsRequest {
   /**
-   * <p>The prefix of the table buckets.</p>
+   * The prefix of the table buckets.
+   *
    * @public
    */
   prefix?: string | undefined;
 
   /**
-   * <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * `ContinuationToken` indicates to Amazon S3 that the list is being continued on this bucket with a token. `ContinuationToken` is obfuscated and is not a real key. You can use this `ContinuationToken` for pagination of the list results.
+   *
    * @public
    */
   continuationToken?: string | undefined;
 
   /**
-   * <p>The maximum number of table buckets to return in the list.</p>
+   * The maximum number of table buckets to return in the list.
+   *
    * @public
    */
   maxBuckets?: number | undefined;
 
   /**
-   * <p>The type of table buckets to filter by in the list.</p>
+   * The type of table buckets to filter by in the list.
+   *
    * @public
    */
   type?: TableBucketType | undefined;
 }
 
 /**
- * <p>Contains details about a table bucket.</p>
+ * Contains details about a table bucket.
+ *
  * @public
  */
 export interface TableBucketSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the table bucket.</p>
+   * The name of the table bucket.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the table bucket.</p>
+   * The ID of the account that owns the table bucket.
+   *
    * @public
    */
   ownerAccountId: string | undefined;
 
   /**
-   * <p>The date and time the table bucket was created at.</p>
+   * The date and time the table bucket was created at.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The system-assigned unique identifier for the table bucket.</p>
+   * The system-assigned unique identifier for the table bucket.
+   *
    * @public
    */
   tableBucketId?: string | undefined;
 
   /**
-   * <p>The type of the table bucket.</p>
+   * The type of the table bucket.
+   *
    * @public
    */
   type?: TableBucketType | undefined;
@@ -1937,13 +2200,15 @@ export interface TableBucketSummary {
  */
 export interface ListTableBucketsResponse {
   /**
-   * <p>A list of table buckets.</p>
+   * A list of table buckets.
+   *
    * @public
    */
   tableBuckets: TableBucketSummary[] | undefined;
 
   /**
-   * <p>You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * You can use this `ContinuationToken` for pagination of the list results.
+   *
    * @public
    */
   continuationToken?: string | undefined;
@@ -1954,91 +2219,106 @@ export interface ListTableBucketsResponse {
  */
 export interface ListTablesRequest {
   /**
-   * <p>The Amazon resource Name (ARN) of the table bucket.</p>
+   * The Amazon resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace of the tables.</p>
+   * The namespace of the tables.
+   *
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>The prefix of the tables.</p>
+   * The prefix of the tables.
+   *
    * @public
    */
   prefix?: string | undefined;
 
   /**
-   * <p> <code>ContinuationToken</code> indicates to Amazon S3 that the list is being continued on this bucket with a token. <code>ContinuationToken</code> is obfuscated and is not a real key. You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * `ContinuationToken` indicates to Amazon S3 that the list is being continued on this bucket with a token. `ContinuationToken` is obfuscated and is not a real key. You can use this `ContinuationToken` for pagination of the list results.
+   *
    * @public
    */
   continuationToken?: string | undefined;
 
   /**
-   * <p>The maximum number of tables to return.</p>
+   * The maximum number of tables to return.
+   *
    * @public
    */
   maxTables?: number | undefined;
 }
 
 /**
- * <p>Contains details about a table.</p>
+ * Contains details about a table.
+ *
  * @public
  */
 export interface TableSummary {
   /**
-   * <p>The name of the namespace.</p>
+   * The name of the namespace.
+   *
    * @public
    */
   namespace: string[] | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the table.</p>
+   * The type of the table.
+   *
    * @public
    */
   type: TableType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableARN: string | undefined;
 
   /**
-   * <p>The date and time the table was created at.</p>
+   * The date and time the table was created at.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the table was last modified at.</p>
+   * The date and time the table was last modified at.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Web Services service managing this table, if applicable. For example, a replicated table is managed by the S3 Tables replication service.</p>
+   * The Amazon Web Services service managing this table, if applicable. For example, a replicated table is managed by the S3 Tables replication service.
+   *
    * @public
    */
   managedByService?: string | undefined;
 
   /**
-   * <p>The unique identifier for the namespace that contains this table.</p>
+   * The unique identifier for the namespace that contains this table.
+   *
    * @public
    */
   namespaceId?: string | undefined;
 
   /**
-   * <p>The unique identifier for the table bucket that contains this table.</p>
+   * The unique identifier for the table bucket that contains this table.
+   *
    * @public
    */
   tableBucketId?: string | undefined;
@@ -2049,13 +2329,15 @@ export interface TableSummary {
  */
 export interface ListTablesResponse {
   /**
-   * <p>A list of tables.</p>
+   * A list of tables.
+   *
    * @public
    */
   tables: TableSummary[] | undefined;
 
   /**
-   * <p>You can use this <code>ContinuationToken</code> for pagination of the list results.</p>
+   * You can use this `ContinuationToken` for pagination of the list results.
+   *
    * @public
    */
   continuationToken?: string | undefined;
@@ -2066,7 +2348,8 @@ export interface ListTablesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you want to list tags for. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you want to list tags for. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see [Managing tags for Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -2077,7 +2360,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The user-defined tags that are applied to the resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * The user-defined tags that are applied to the resource. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2088,13 +2372,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutTableBucketEncryptionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The encryption configuration to apply to the table bucket.</p>
+   * The encryption configuration to apply to the table bucket.
+   *
    * @public
    */
   encryptionConfiguration: EncryptionConfiguration | undefined;
@@ -2105,19 +2391,22 @@ export interface PutTableBucketEncryptionRequest {
  */
 export interface PutTableBucketMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.</p>
+   * The Amazon Resource Name (ARN) of the table bucket associated with the maintenance configuration.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The type of the maintenance configuration.</p>
+   * The type of the maintenance configuration.
+   *
    * @public
    */
   type: TableBucketMaintenanceType | undefined;
 
   /**
-   * <p>Defines the values of the maintenance configuration for the table bucket.</p>
+   * Defines the values of the maintenance configuration for the table bucket.
+   *
    * @public
    */
   value: TableBucketMaintenanceConfigurationValue | undefined;
@@ -2128,7 +2417,8 @@ export interface PutTableBucketMaintenanceConfigurationRequest {
  */
 export interface PutTableBucketMetricsConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
@@ -2139,13 +2429,15 @@ export interface PutTableBucketMetricsConfigurationRequest {
  */
 export interface PutTableBucketPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The <code>JSON</code> that defines the policy.</p>
+   * The `JSON` that defines the policy.
+   *
    * @public
    */
   resourcePolicy: string | undefined;
@@ -2156,19 +2448,22 @@ export interface PutTableBucketPolicyRequest {
  */
 export interface PutTableBucketReplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source table bucket.</p>
+   * The Amazon Resource Name (ARN) of the source table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>A version token from a previous GetTableBucketReplication call. Use this token to ensure you're updating the expected version of the configuration.</p>
+   * A version token from a previous GetTableBucketReplication call. Use this token to ensure you're updating the expected version of the configuration.
+   *
    * @public
    */
   versionToken?: string | undefined;
 
   /**
-   * <p>The replication configuration to apply, including the IAM role and replication rules.</p>
+   * The replication configuration to apply, including the IAM role and replication rules.
+   *
    * @public
    */
   configuration: TableBucketReplicationConfiguration | undefined;
@@ -2179,13 +2474,15 @@ export interface PutTableBucketReplicationRequest {
  */
 export interface PutTableBucketReplicationResponse {
   /**
-   * <p>A new version token representing the updated replication configuration.</p>
+   * A new version token representing the updated replication configuration.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The status of the replication configuration operation.</p>
+   * The status of the replication configuration operation.
+   *
    * @public
    */
   status: string | undefined;
@@ -2196,13 +2493,15 @@ export interface PutTableBucketReplicationResponse {
  */
 export interface PutTableBucketStorageClassRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket.</p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The storage class configuration to apply to the table bucket. This configuration will serve as the default for new tables created in this bucket.</p>
+   * The storage class configuration to apply to the table bucket. This configuration will serve as the default for new tables created in this bucket.
+   *
    * @public
    */
   storageClassConfiguration: StorageClassConfiguration | undefined;
@@ -2213,31 +2512,36 @@ export interface PutTableBucketStorageClassRequest {
  */
 export interface PutTableMaintenanceConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table associated with the maintenance configuration.</p>
+   * The Amazon Resource Name (ARN) of the table associated with the maintenance configuration.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace of the table.</p>
+   * The namespace of the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the maintenance configuration.</p>
+   * The type of the maintenance configuration.
+   *
    * @public
    */
   type: TableMaintenanceType | undefined;
 
   /**
-   * <p>Defines the values of the maintenance configuration for the table.</p>
+   * Defines the values of the maintenance configuration for the table.
+   *
    * @public
    */
   value: TableMaintenanceConfigurationValue | undefined;
@@ -2248,25 +2552,29 @@ export interface PutTableMaintenanceConfigurationRequest {
  */
 export interface PutTablePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>
+   * The Amazon Resource Name (ARN) of the table bucket that contains the table.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table.</p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The <code>JSON</code> that defines the policy.</p>
+   * The `JSON` that defines the policy.
+   *
    * @public
    */
   resourcePolicy: string | undefined;
@@ -2277,13 +2585,15 @@ export interface PutTablePolicyRequest {
  */
 export interface PutTableRecordExpirationConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableArn: string | undefined;
 
   /**
-   * <p>The record expiration configuration to apply to the table, including the status (<code>enabled</code> or <code>disabled</code>) and retention period in days.</p>
+   * The record expiration configuration to apply to the table, including the status (`enabled` or `disabled`) and retention period in days.
+   *
    * @public
    */
   value: TableRecordExpirationConfigurationValue | undefined;
@@ -2294,19 +2604,22 @@ export interface PutTableRecordExpirationConfigurationRequest {
  */
 export interface PutTableReplicationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source table.</p>
+   * The Amazon Resource Name (ARN) of the source table.
+   *
    * @public
    */
   tableArn: string | undefined;
 
   /**
-   * <p>A version token from a previous GetTableReplication call. Use this token to ensure you're updating the expected version of the configuration.</p>
+   * A version token from a previous GetTableReplication call. Use this token to ensure you're updating the expected version of the configuration.
+   *
    * @public
    */
   versionToken?: string | undefined;
 
   /**
-   * <p>The replication configuration to apply to the table, including the IAM role and replication rules.</p>
+   * The replication configuration to apply to the table, including the IAM role and replication rules.
+   *
    * @public
    */
   configuration: TableReplicationConfiguration | undefined;
@@ -2317,13 +2630,15 @@ export interface PutTableReplicationRequest {
  */
 export interface PutTableReplicationResponse {
   /**
-   * <p>A new version token representing the updated replication configuration.</p>
+   * A new version token representing the updated replication configuration.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The status of the replication configuration operation.</p>
+   * The status of the replication configuration operation.
+   *
    * @public
    */
   status: string | undefined;
@@ -2334,37 +2649,43 @@ export interface PutTableReplicationResponse {
  */
 export interface RenameTableRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket. </p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace associated with the table. </p>
+   * The namespace associated with the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The current name of the table.</p>
+   * The current name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new name for the namespace.</p>
+   * The new name for the namespace.
+   *
    * @public
    */
   newNamespaceName?: string | undefined;
 
   /**
-   * <p>The new name for the table.</p>
+   * The new name for the table.
+   *
    * @public
    */
   newName?: string | undefined;
 
   /**
-   * <p>The version token of the table.</p>
+   * The version token of the table.
+   *
    * @public
    */
   versionToken?: string | undefined;
@@ -2375,31 +2696,36 @@ export interface RenameTableRequest {
  */
 export interface UpdateTableMetadataLocationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the table bucket. </p>
+   * The Amazon Resource Name (ARN) of the table bucket.
+   *
    * @public
    */
   tableBucketARN: string | undefined;
 
   /**
-   * <p>The namespace of the table.</p>
+   * The namespace of the table.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version token of the table. </p>
+   * The version token of the table.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The new metadata location for the table. </p>
+   * The new metadata location for the table.
+   *
    * @public
    */
   metadataLocation: string | undefined;
@@ -2410,31 +2736,36 @@ export interface UpdateTableMetadataLocationRequest {
  */
 export interface UpdateTableMetadataLocationResponse {
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table.</p>
+   * The Amazon Resource Name (ARN) of the table.
+   *
    * @public
    */
   tableARN: string | undefined;
 
   /**
-   * <p>The namespace the table is associated with.</p>
+   * The namespace the table is associated with.
+   *
    * @public
    */
   namespace: string[] | undefined;
 
   /**
-   * <p>The version token of the table.</p>
+   * The version token of the table.
+   *
    * @public
    */
   versionToken: string | undefined;
 
   /**
-   * <p>The metadata location of the table.</p>
+   * The metadata location of the table.
+   *
    * @public
    */
   metadataLocation: string | undefined;
@@ -2445,13 +2776,15 @@ export interface UpdateTableMetadataLocationResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you're applying tags to. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you're applying tags to. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see [Managing tags for Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The user-defined tag that you want to add to the specified S3 Tables resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * The user-defined tag that you want to add to the specified S3 Tables resource. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2467,13 +2800,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you're removing tags from. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 Tables resource that you're removing tags from. The tagged resource can be a table bucket or a table. For a list of all S3 resources that support tagging, see [Managing tags for Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The array of tag keys that you're removing from the S3 Tables resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * The array of tag keys that you're removing from the S3 Tables resource. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
    * @public
    */
   tagKeys: string[] | undefined;

@@ -23,14 +23,12 @@ export interface ListEntitiesForPolicyCommandInput extends ListEntitiesForPolicy
 export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all IAM users, groups, and roles that the specified managed policy is attached
- *             to.</p>
- *          <p>You can use the optional <code>EntityFilter</code> parameter to limit the results to a
- *             particular type of entity (users, groups, or roles). For example, to list only the roles
- *             that are attached to the specified policy, set <code>EntityFilter</code> to
- *                 <code>Role</code>.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
+ * Lists all IAM users, groups, and roles that the specified managed policy is attached to.
+ *
+ * You can use the optional `EntityFilter` parameter to limit the results to a particular type of entity (users, groups, or roles). For example, to list only the roles that are attached to the specified policy, set `EntityFilter` to `Role`.
+ *
+ * You can paginate the results using the `MaxItems` and `Marker` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +79,20 @@ export interface ListEntitiesForPolicyCommandOutput extends ListEntitiesForPolic
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

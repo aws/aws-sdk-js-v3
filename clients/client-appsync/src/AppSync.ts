@@ -1858,8 +1858,8 @@ export interface AppSync {
 }
 
 /**
- * <p>AppSync provides API actions for creating and interacting with data
- *          sources using GraphQL from your application.</p>
+ * AppSync provides API actions for creating and interacting with data sources using GraphQL from your application.
+ *
  * @public
  */
 export class AppSync extends AppSyncClient implements AppSync {}

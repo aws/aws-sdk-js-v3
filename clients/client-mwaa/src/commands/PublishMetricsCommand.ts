@@ -23,7 +23,7 @@ export interface PublishMetricsCommandInput extends PublishMetricsInput {}
 export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __MetadataBearer {}
 
 /**
- * <p> <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>
+ * **Internal only**. Publishes environment health metrics to Amazon CloudWatch.
  *
  * @deprecated This API is for internal use and not meant for public use, and is no longer available.
  * @example
@@ -70,14 +70,16 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * InternalServerException: An internal error has occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ * ValidationException: The provided input is not valid.
  *
  * @throws {@link MWAAServiceException}
- * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * Base exception class for all service exceptions from MWAA service.
  *
  * @public
  */

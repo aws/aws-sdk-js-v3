@@ -23,37 +23,21 @@ export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
- * <p>Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code>
- *       instance, and exposes it to the instance with the specified device name.</p>
- *          <note>
- *             <p>The maximum number of Amazon EBS volumes that you can attach to an instance depends on the
- *         instance type. If you exceed the volume attachment limit for an instance type, the attachment
- *         request fails with the <code>AttachmentLimitExceeded</code> error. For more information,
- *         see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Instance
- *           volume limits</a>.</p>
- *          </note>
- *          <p>After you attach an EBS volume, you must make it available for use. For more information,
- *       see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make an
- *         EBS volume available for use</a>.</p>
- *          <p>If a volume has an Amazon Web Services Marketplace product code:</p>
- *          <ul>
- *             <li>
- *                <p>The volume can be attached only to a stopped instance.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Marketplace product codes are copied from the volume to the instance.</p>
- *             </li>
- *             <li>
- *                <p>You must be subscribed to the product.</p>
- *             </li>
- *             <li>
- *                <p>The instance type and operating system of the instance must support the product. For
- *           example, you can't detach a volume from a Windows instance and attach it to a Linux
- *           instance.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html">Attach an Amazon EBS volume to an instance</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Attaches an Amazon EBS volume to a `running` or `stopped` instance, and exposes it to the instance with the specified device name.
+ *
+ * > **Note:** The maximum number of Amazon EBS volumes that you can attach to an instance depends on the instance type. If you exceed the volume attachment limit for an instance type, the attachment request fails with the `AttachmentLimitExceeded` error. For more information, see [Instance volume limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html).
+ *
+ * After you attach an EBS volume, you must make it available for use. For more information, see [Make an EBS volume available for use](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html).
+ *
+ * If a volume has an Amazon Web Services Marketplace product code:
+ *
+ * - The volume can be attached only to a stopped instance.
+ * - Amazon Web Services Marketplace product codes are copied from the volume to the instance.
+ * - You must be subscribed to the product.
+ * - The instance type and operating system of the instance must support the product. For example, you can't detach a volume from a Windows instance and attach it to a Linux instance.
+ *
+ * For more information, see [Attach an Amazon EBS volume to an instance](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,8 +76,8 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To attach a volume to an instance
  * ```javascript

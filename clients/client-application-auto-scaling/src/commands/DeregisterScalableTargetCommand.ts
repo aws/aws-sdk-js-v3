@@ -23,12 +23,10 @@ export interface DeregisterScalableTargetCommandInput extends DeregisterScalable
 export interface DeregisterScalableTargetCommandOutput extends DeregisterScalableTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which
- *          resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. </p>
- *          <note>
- *             <p>Deregistering a scalable target deletes the scaling policies and the scheduled
- *             actions that are associated with it.</p>
- *          </note>
+ * Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which resources have been registered, use [DescribeScalableTargets](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html).
+ *
+ * > **Note:** Deregistering a scalable target deletes the scaling policies and the scheduled actions that are associated with it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +53,24 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>The specified object could not be found. For any operation that depends on the existence
- *          of a scalable target, this exception is thrown if the scalable target with the specified
- *          service namespace, resource ID, and scalable dimension does not exist. For any operation
- *          that deletes or deregisters a resource, this exception is thrown if the resource cannot be
- *          found.</p>
+ *
+ * The specified object could not be found. For any operation that depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any operation that deletes or deregisters a resource, this exception is thrown if the resource cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To deregister a scalable target
  * ```javascript

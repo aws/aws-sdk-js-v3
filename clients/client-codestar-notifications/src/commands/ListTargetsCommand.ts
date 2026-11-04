@@ -23,7 +23,8 @@ export interface ListTargetsCommandInput extends ListTargetsRequest {}
 export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the notification rule targets for an Amazon Web Services account.</p>
+ * Returns a list of the notification rule targets for an Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +65,16 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+ *
+ * The value for the enumeration token used in the request to return the next batch of the results is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

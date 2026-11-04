@@ -114,13 +114,15 @@ import type {
  */
 export interface GetNotebookInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -131,127 +133,148 @@ export interface GetNotebookInput {
  */
 export interface GetNotebookOutput {
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the notebook.</p>
+   * The name of the notebook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ordered list of cells in the notebook.</p>
+   * The ordered list of cells in the notebook.
+   *
    * @public
    */
   cellOrder: CellInformation[] | undefined;
 
   /**
-   * <p>The status of the notebook.</p>
+   * The status of the notebook.
+   *
    * @public
    */
   status: NotebookStatus | undefined;
 
   /**
-   * <p>The type of the notebook.</p>
+   * The type of the notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The description of the notebook.</p>
+   * The description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was created.</p>
+   * The timestamp of when the notebook was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook.</p>
+   * The identifier of the user who created the notebook.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was last updated.</p>
+   * The timestamp of when the notebook was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook.</p>
+   * The identifier of the user who last updated the notebook.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the user who locked the notebook.</p>
+   * The identifier of the user who locked the notebook.
+   *
    * @public
    */
   lockedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was locked.</p>
+   * The timestamp of when the notebook was locked.
+   *
    * @public
    */
   lockedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook lock expires.</p>
+   * The timestamp of when the notebook lock expires.
+   *
    * @public
    */
   lockExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the compute associated with the notebook.</p>
+   * The identifier of the compute associated with the notebook.
+   *
    * @public
    */
   computeId?: string | undefined;
 
   /**
-   * <p>The metadata of the notebook.</p>
+   * The metadata of the notebook.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters of the notebook.</p>
+   * The sensitive parameters of the notebook.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment configuration of the notebook.</p>
+   * The environment configuration of the notebook.
+   *
    * @public
    */
   environmentConfiguration?: EnvironmentConfig | undefined;
 
   /**
-   * <p>The error details if the notebook is in a failed state.</p>
+   * The error details if the notebook is in a failed state.
+   *
    * @public
    */
   error?: NotebookError | undefined;
 
   /**
-   * <p>The Git metadata associated with the notebook.</p>
+   * The Git metadata associated with the notebook.
+   *
    * @public
    */
   gitMetadata?: GitMetadata | undefined;
@@ -262,121 +285,141 @@ export interface GetNotebookOutput {
  */
 export interface ListNotebooksInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebooks.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which to list notebooks.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebooks.</p>
+   * The identifier of the project that owns the notebooks.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of notebooks to return in a single call. When the number of notebooks exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>
+   * The maximum number of notebooks to return in a single call. When the number of notebooks exceeds the value of `MaxResults`, the response contains a `NextToken` value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The sort order for the results.</p>
+   * The sort order for the results.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The field to sort the results by.</p>
+   * The field to sort the results by.
+   *
    * @public
    */
   sortBy?: SortKey | undefined;
 
   /**
-   * <p>The status to filter notebooks by.</p>
+   * The status to filter notebooks by.
+   *
    * @public
    */
   status?: NotebookStatus | undefined;
 
   /**
-   * <p>The type to filter notebooks by.</p>
+   * The type to filter notebooks by.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>When the number of notebooks is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebooks, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebooks</code> to list the next set of notebooks.</p>
+   * When the number of notebooks is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of notebooks, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `ListNotebooks` to list the next set of notebooks.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The summary of a notebook in Amazon SageMaker Unified Studio.</p>
+ * The summary of a notebook in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NotebookSummary {
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the notebook.</p>
+   * The name of the notebook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The status of the notebook.</p>
+   * The status of the notebook.
+   *
    * @public
    */
   status: NotebookStatus | undefined;
 
   /**
-   * <p>The type of the notebook.</p>
+   * The type of the notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The description of the notebook.</p>
+   * The description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was created.</p>
+   * The timestamp of when the notebook was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook.</p>
+   * The identifier of the user who created the notebook.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was last updated.</p>
+   * The timestamp of when the notebook was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook.</p>
+   * The identifier of the user who last updated the notebook.
+   *
    * @public
    */
   updatedBy?: string | undefined;
@@ -387,13 +430,15 @@ export interface NotebookSummary {
  */
 export interface ListNotebooksOutput {
   /**
-   * <p>The results of the <code>ListNotebooks</code> action.</p>
+   * The results of the `ListNotebooks` action.
+   *
    * @public
    */
   items?: NotebookSummary[] | undefined;
 
   /**
-   * <p>When the number of notebooks is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebooks, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebooks</code> to list the next set of notebooks.</p>
+   * When the number of notebooks is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of notebooks, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `ListNotebooks` to list the next set of notebooks.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -404,67 +449,78 @@ export interface ListNotebooksOutput {
  */
 export interface UpdateNotebookInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook to update.</p>
+   * The identifier of the notebook to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The updated description of the notebook.</p>
+   * The updated description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated status of the notebook.</p>
+   * The updated status of the notebook.
+   *
    * @public
    */
   status?: NotebookStatus | undefined;
 
   /**
-   * <p>The updated name of the notebook.</p>
+   * The updated name of the notebook.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated ordered list of cells in the notebook.</p>
+   * The updated ordered list of cells in the notebook.
+   *
    * @public
    */
   cellOrder?: CellInformation[] | undefined;
 
   /**
-   * <p>The updated type of the notebook.</p>
+   * The updated type of the notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The updated metadata for the notebook, specified as key-value pairs.</p>
+   * The updated metadata for the notebook, specified as key-value pairs.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The updated sensitive parameters for the notebook, specified as key-value pairs.</p>
+   * The updated sensitive parameters for the notebook, specified as key-value pairs.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The updated environment configuration for the notebook.</p>
+   * The updated environment configuration for the notebook.
+   *
    * @public
    */
   environmentConfiguration?: EnvironmentConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -475,127 +531,148 @@ export interface UpdateNotebookInput {
  */
 export interface UpdateNotebookOutput {
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the notebook.</p>
+   * The name of the notebook.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ordered list of cells in the notebook.</p>
+   * The ordered list of cells in the notebook.
+   *
    * @public
    */
   cellOrder: CellInformation[] | undefined;
 
   /**
-   * <p>The status of the notebook.</p>
+   * The status of the notebook.
+   *
    * @public
    */
   status: NotebookStatus | undefined;
 
   /**
-   * <p>The type of the notebook.</p>
+   * The type of the notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The description of the notebook.</p>
+   * The description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was created.</p>
+   * The timestamp of when the notebook was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook.</p>
+   * The identifier of the user who created the notebook.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was last updated.</p>
+   * The timestamp of when the notebook was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook.</p>
+   * The identifier of the user who last updated the notebook.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the user who locked the notebook.</p>
+   * The identifier of the user who locked the notebook.
+   *
    * @public
    */
   lockedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook was locked.</p>
+   * The timestamp of when the notebook was locked.
+   *
    * @public
    */
   lockedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook lock expires.</p>
+   * The timestamp of when the notebook lock expires.
+   *
    * @public
    */
   lockExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the compute associated with the notebook.</p>
+   * The identifier of the compute associated with the notebook.
+   *
    * @public
    */
   computeId?: string | undefined;
 
   /**
-   * <p>The metadata of the notebook.</p>
+   * The metadata of the notebook.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters of the notebook.</p>
+   * The sensitive parameters of the notebook.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment configuration of the notebook.</p>
+   * The environment configuration of the notebook.
+   *
    * @public
    */
   environmentConfiguration?: EnvironmentConfig | undefined;
 
   /**
-   * <p>The error details if the notebook is in a failed state.</p>
+   * The error details if the notebook is in a failed state.
+   *
    * @public
    */
   error?: NotebookError | undefined;
 
   /**
-   * <p>The Git metadata associated with the notebook.</p>
+   * The Git metadata associated with the notebook.
+   *
    * @public
    */
   gitMetadata?: GitMetadata | undefined;
@@ -606,44 +683,51 @@ export interface UpdateNotebookOutput {
  */
 export interface GetNotebookExportInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook export exists.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which the notebook export exists.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook export.</p>
+   * The identifier of the notebook export.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>The error details of a failed notebook export in Amazon SageMaker Unified Studio.</p>
+ * The error details of a failed notebook export in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NotebookExportError {
   /**
-   * <p>The error message. The maximum length is 256 characters.</p>
+   * The error message. The maximum length is 256 characters.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The Amazon Simple Storage Service destination for a notebook export in Amazon SageMaker Unified Studio.</p>
+ * The Amazon Simple Storage Service destination for a notebook export in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface S3Destination {
   /**
-   * <p>The Amazon Simple Storage Service URI of the exported notebook.</p>
+   * The Amazon Simple Storage Service URI of the exported notebook.
+   *
    * @public
    */
   uri?: string | undefined;
 }
 
 /**
- * <p>The output location for a notebook export in Amazon SageMaker Unified Studio.</p>
+ * The output location for a notebook export in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export type OutputLocation =
@@ -655,7 +739,8 @@ export type OutputLocation =
  */
 export namespace OutputLocation {
   /**
-   * <p>The Amazon Simple Storage Service destination for the notebook export.</p>
+   * The Amazon Simple Storage Service destination for the notebook export.
+   *
    * @public
    */
   export interface S3Member {
@@ -686,67 +771,78 @@ export namespace OutputLocation {
  */
 export interface GetNotebookExportOutput {
   /**
-   * <p>The identifier of the notebook export.</p>
+   * The identifier of the notebook export.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   notebookId: string | undefined;
 
   /**
-   * <p>The file format of the notebook export.</p>
+   * The file format of the notebook export.
+   *
    * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>The status of the notebook export.</p>
+   * The status of the notebook export.
+   *
    * @public
    */
   status: NotebookExportStatus | undefined;
 
   /**
-   * <p>The output location of the exported notebook in Amazon Simple Storage Service.</p>
+   * The output location of the exported notebook in Amazon Simple Storage Service.
+   *
    * @public
    */
   outputLocation?: OutputLocation | undefined;
 
   /**
-   * <p>The error details if the notebook export failed.</p>
+   * The error details if the notebook export failed.
+   *
    * @public
    */
   error?: NotebookExportError | undefined;
 
   /**
-   * <p>The timestamp of when the notebook export completed.</p>
+   * The timestamp of when the notebook export completed.
+   *
    * @public
    */
   completedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook export was started.</p>
+   * The timestamp of when the notebook export was started.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who started the notebook export.</p>
+   * The identifier of the user who started the notebook export.
+   *
    * @public
    */
   createdBy?: string | undefined;
@@ -757,31 +853,36 @@ export interface GetNotebookExportOutput {
  */
 export interface StartNotebookExportInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to export the notebook.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which to export the notebook.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook to export.</p>
+   * The identifier of the notebook to export.
+   *
    * @public
    */
   notebookIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The file format for the notebook export. Valid values are <code>PDF</code> and <code>IPYNB</code>.</p>
+   * The file format for the notebook export. Valid values are `PDF` and `IPYNB`.
+   *
    * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -792,49 +893,57 @@ export interface StartNotebookExportInput {
  */
 export interface StartNotebookExportOutput {
   /**
-   * <p>The identifier of the notebook export.</p>
+   * The identifier of the notebook export.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook.</p>
+   * The identifier of the project that owns the notebook.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   notebookId: string | undefined;
 
   /**
-   * <p>The file format of the notebook export.</p>
+   * The file format of the notebook export.
+   *
    * @public
    */
   fileFormat: FileFormat | undefined;
 
   /**
-   * <p>The status of the notebook export.</p>
+   * The status of the notebook export.
+   *
    * @public
    */
   status: NotebookExportStatus | undefined;
 
   /**
-   * <p>The timestamp of when the notebook export was started.</p>
+   * The timestamp of when the notebook export was started.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who started the notebook export.</p>
+   * The identifier of the user who started the notebook export.
+   *
    * @public
    */
   createdBy?: string | undefined;
@@ -845,115 +954,134 @@ export interface StartNotebookExportOutput {
  */
 export interface GetNotebookRunInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run exists.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run exists.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook run.</p>
+   * The identifier of the notebook run.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>The error details of a failed notebook run in Amazon SageMaker Unified Studio.</p>
+ * The error details of a failed notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NotebookRunError {
   /**
-   * <p>The error message. The maximum length is 1024 characters.</p>
+   * The error message. The maximum length is 1024 characters.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The network configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The network configuration for a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NetworkConfig {
   /**
-   * <p>The network access type for the notebook run. Valid values are <code>PUBLIC_INTERNET_ONLY</code> and <code>VPC_ONLY</code>.</p>
+   * The network access type for the notebook run. Valid values are `PUBLIC_INTERNET_ONLY` and `VPC_ONLY`.
+   *
    * @public
    */
   networkAccessType: NetworkAccessType | undefined;
 
   /**
-   * <p>The identifier of the VPC for the notebook run. This is required when the network access type is <code>VPC_ONLY</code>.</p>
+   * The identifier of the VPC for the notebook run. This is required when the network access type is `VPC_ONLY`.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The identifiers of the subnets for the notebook run. You can specify up to 10 subnets.</p>
+   * The identifiers of the subnets for the notebook run. You can specify up to 10 subnets.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The identifiers of the security groups for the notebook run. You can specify up to 5 security groups.</p>
+   * The identifiers of the security groups for the notebook run. You can specify up to 5 security groups.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 }
 
 /**
- * <p>The notification configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The notification configuration for a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NotificationConfig {
   /**
-   * <p>The notebook run states that trigger notifications. You can specify up to 7 states, and the ordering of the states is not significant.</p>
+   * The notebook run states that trigger notifications. You can specify up to 7 states, and the ordering of the states is not significant.
+   *
    * @public
    */
   notifyOn: NotifyOnState[] | undefined;
 }
 
 /**
- * <p>The storage configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The storage configuration for a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface StorageConfig {
   /**
-   * <p>The Amazon Simple Storage Service path for the project storage.</p>
+   * The Amazon Simple Storage Service path for the project storage.
+   *
    * @public
    */
   projectS3Path?: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key used for encryption.</p>
+   * The ARN of the KMS key used for encryption.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 }
 
 /**
- * <p>The timeout configuration for a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The timeout configuration for a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface TimeoutConfig {
   /**
-   * <p>The timeout for the notebook run, in minutes. The minimum value is 60 minutes (1 hour), the maximum value is 1440 minutes (24 hours), and the default value is 720 minutes (12 hours).</p>
+   * The timeout for the notebook run, in minutes. The minimum value is 60 minutes (1 hour), the maximum value is 1440 minutes (24 hours), and the default value is 720 minutes (12 hours).
+   *
    * @public
    */
   runTimeoutInMinutes?: number | undefined;
 }
 
 /**
- * <p>The source that triggered a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The source that triggered a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface TriggerSource {
   /**
-   * <p>The type of the trigger source. Valid values are <code>MANUAL</code>, <code>SCHEDULED</code>, and <code>WORKFLOW</code>.</p>
+   * The type of the trigger source. Valid values are `MANUAL`, `SCHEDULED`, and `WORKFLOW`.
+   *
    * @public
    */
   type?: TriggerSourceType | undefined;
 
   /**
-   * <p>The name of the trigger source.</p>
+   * The name of the trigger source.
+   *
    * @public
    */
   name?: string | undefined;
@@ -964,139 +1092,162 @@ export interface TriggerSource {
  */
 export interface GetNotebookRunOutput {
   /**
-   * <p>The identifier of the notebook run.</p>
+   * The identifier of the notebook run.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook run.</p>
+   * The identifier of the project that owns the notebook run.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   notebookId: string | undefined;
 
   /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * The identifier of the schedule associated with the notebook run.
+   *
    * @public
    */
   scheduleId?: string | undefined;
 
   /**
-   * <p>The status of the notebook run.</p>
+   * The status of the notebook run.
+   *
    * @public
    */
   status: NotebookRunStatus | undefined;
 
   /**
-   * <p>The ordered list of cells in the notebook run.</p>
+   * The ordered list of cells in the notebook run.
+   *
    * @public
    */
   cellOrder?: CellInformation[] | undefined;
 
   /**
-   * <p>The metadata of the notebook run.</p>
+   * The metadata of the notebook run.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters of the notebook run.</p>
+   * The sensitive parameters of the notebook run.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The compute configuration of the notebook run.</p>
+   * The compute configuration of the notebook run.
+   *
    * @public
    */
   computeConfiguration?: ComputeConfig | undefined;
 
   /**
-   * <p>The network configuration of the notebook run.</p>
+   * The network configuration of the notebook run.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfig | undefined;
 
   /**
-   * <p>The timeout configuration of the notebook run.</p>
+   * The timeout configuration of the notebook run.
+   *
    * @public
    */
   timeoutConfiguration?: TimeoutConfig | undefined;
 
   /**
-   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
+   * The environment configuration of the notebook run, including image version and package settings.
+   *
    * @public
    */
   environmentConfiguration?: EnvironmentConfig | undefined;
 
   /**
-   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
+   * The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.
+   *
    * @public
    */
   storageConfiguration?: StorageConfig | undefined;
 
   /**
-   * <p>The notification configuration of the notebook run, including the notebook run states that trigger notifications.</p>
+   * The notification configuration of the notebook run, including the notebook run states that trigger notifications.
+   *
    * @public
    */
   notificationConfiguration?: NotificationConfig | undefined;
 
   /**
-   * <p>The source that triggered the notebook run.</p>
+   * The source that triggered the notebook run.
+   *
    * @public
    */
   triggerSource?: TriggerSource | undefined;
 
   /**
-   * <p>The error details if the notebook run failed.</p>
+   * The error details if the notebook run failed.
+   *
    * @public
    */
   error?: NotebookRunError | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run was created.</p>
+   * The timestamp of when the notebook run was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook run.</p>
+   * The identifier of the user who created the notebook run.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run was last updated.</p>
+   * The timestamp of when the notebook run was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook run.</p>
+   * The identifier of the user who last updated the notebook run.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run started executing.</p>
+   * The timestamp of when the notebook run started executing.
+   *
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run completed.</p>
+   * The timestamp of when the notebook run completed.
+   *
    * @public
    */
   completedAt?: Date | undefined;
@@ -1107,133 +1258,155 @@ export interface GetNotebookRunOutput {
  */
 export interface ListNotebookRunsInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook runs.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which to list notebook runs.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook runs.</p>
+   * The identifier of the project that owns the notebook runs.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook to filter runs by.</p>
+   * The identifier of the notebook to filter runs by.
+   *
    * @public
    */
   notebookIdentifier?: string | undefined;
 
   /**
-   * <p>The status to filter notebook runs by.</p>
+   * The status to filter notebook runs by.
+   *
    * @public
    */
   status?: NotebookRunStatus | undefined;
 
   /**
-   * <p>The identifier of the schedule to filter notebook runs by.</p>
+   * The identifier of the schedule to filter notebook runs by.
+   *
    * @public
    */
   scheduleIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of notebook runs to return in a single call. When the number of notebook runs exceeds the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value.</p>
+   * The maximum number of notebook runs to return in a single call. When the number of notebook runs exceeds the value of `MaxResults`, the response contains a `NextToken` value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The sort order for the results.</p>
+   * The sort order for the results.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
+   * When the number of notebook runs is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of notebook runs, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `ListNotebookRuns` to list the next set of notebook runs.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The summary of a notebook run in Amazon SageMaker Unified Studio.</p>
+ * The summary of a notebook run in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export interface NotebookRunSummary {
   /**
-   * <p>The identifier of the notebook run.</p>
+   * The identifier of the notebook run.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook run.</p>
+   * The identifier of the project that owns the notebook run.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   notebookId: string | undefined;
 
   /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * The identifier of the schedule associated with the notebook run.
+   *
    * @public
    */
   scheduleId?: string | undefined;
 
   /**
-   * <p>The status of the notebook run.</p>
+   * The status of the notebook run.
+   *
    * @public
    */
   status: NotebookRunStatus | undefined;
 
   /**
-   * <p>The source that triggered the notebook run.</p>
+   * The source that triggered the notebook run.
+   *
    * @public
    */
   triggerSource?: TriggerSource | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run was created.</p>
+   * The timestamp of when the notebook run was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook run.</p>
+   * The identifier of the user who created the notebook run.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run was last updated.</p>
+   * The timestamp of when the notebook run was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook run.</p>
+   * The identifier of the user who last updated the notebook run.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run started executing.</p>
+   * The timestamp of when the notebook run started executing.
+   *
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run completed.</p>
+   * The timestamp of when the notebook run completed.
+   *
    * @public
    */
   completedAt?: Date | undefined;
@@ -1244,13 +1417,15 @@ export interface NotebookRunSummary {
  */
 export interface ListNotebookRunsOutput {
   /**
-   * <p>The results of the <code>ListNotebookRuns</code> action.</p>
+   * The results of the `ListNotebookRuns` action.
+   *
    * @public
    */
   items?: NotebookRunSummary[] | undefined;
 
   /**
-   * <p>When the number of notebook runs is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebook runs, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebookRuns</code> to list the next set of notebook runs.</p>
+   * When the number of notebook runs is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of notebook runs, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `ListNotebookRuns` to list the next set of notebook runs.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1261,73 +1436,85 @@ export interface ListNotebookRunsOutput {
  */
 export interface StartNotebookRunInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is started.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is started.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook run.</p>
+   * The identifier of the project that owns the notebook run.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook to run.</p>
+   * The identifier of the notebook to run.
+   *
    * @public
    */
   notebookIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * The identifier of the schedule associated with the notebook run.
+   *
    * @public
    */
   scheduleIdentifier?: string | undefined;
 
   /**
-   * <p>The compute configuration for the notebook run, including instance type and environment version.</p>
+   * The compute configuration for the notebook run, including instance type and environment version.
+   *
    * @public
    */
   computeConfiguration?: ComputeConfig | undefined;
 
   /**
-   * <p>The network configuration for the notebook run, including network access type and optional VPC settings.</p>
+   * The network configuration for the notebook run, including network access type and optional VPC settings.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfig | undefined;
 
   /**
-   * <p>The timeout configuration for the notebook run. The default timeout is 720 minutes (12 hours) and the maximum is 1440 minutes (24 hours).</p>
+   * The timeout configuration for the notebook run. The default timeout is 720 minutes (12 hours) and the maximum is 1440 minutes (24 hours).
+   *
    * @public
    */
   timeoutConfiguration?: TimeoutConfig | undefined;
 
   /**
-   * <p>The notification configuration for the notebook run. Use this to specify the notebook run states that trigger notifications.</p>
+   * The notification configuration for the notebook run. Use this to specify the notebook run states that trigger notifications.
+   *
    * @public
    */
   notificationConfiguration?: NotificationConfig | undefined;
 
   /**
-   * <p>The source that triggered the notebook run.</p>
+   * The source that triggered the notebook run.
+   *
    * @public
    */
   triggerSource?: TriggerSource | undefined;
 
   /**
-   * <p>The metadata for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * The metadata for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
+   * The sensitive parameters for the notebook run, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1338,139 +1525,162 @@ export interface StartNotebookRunInput {
  */
 export interface StartNotebookRunOutput {
   /**
-   * <p>The identifier of the notebook run.</p>
+   * The identifier of the notebook run.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook run.</p>
+   * The identifier of the project that owns the notebook run.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The identifier of the notebook.</p>
+   * The identifier of the notebook.
+   *
    * @public
    */
   notebookId: string | undefined;
 
   /**
-   * <p>The identifier of the schedule associated with the notebook run.</p>
+   * The identifier of the schedule associated with the notebook run.
+   *
    * @public
    */
   scheduleId?: string | undefined;
 
   /**
-   * <p>The status of the notebook run.</p>
+   * The status of the notebook run.
+   *
    * @public
    */
   status: NotebookRunStatus | undefined;
 
   /**
-   * <p>The ordered list of cells in the notebook run.</p>
+   * The ordered list of cells in the notebook run.
+   *
    * @public
    */
   cellOrder?: CellInformation[] | undefined;
 
   /**
-   * <p>The metadata of the notebook run.</p>
+   * The metadata of the notebook run.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The sensitive parameters of the notebook run.</p>
+   * The sensitive parameters of the notebook run.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The compute configuration of the notebook run.</p>
+   * The compute configuration of the notebook run.
+   *
    * @public
    */
   computeConfiguration?: ComputeConfig | undefined;
 
   /**
-   * <p>The network configuration of the notebook run.</p>
+   * The network configuration of the notebook run.
+   *
    * @public
    */
   networkConfiguration?: NetworkConfig | undefined;
 
   /**
-   * <p>The timeout configuration of the notebook run.</p>
+   * The timeout configuration of the notebook run.
+   *
    * @public
    */
   timeoutConfiguration?: TimeoutConfig | undefined;
 
   /**
-   * <p>The environment configuration of the notebook run, including image version and package settings.</p>
+   * The environment configuration of the notebook run, including image version and package settings.
+   *
    * @public
    */
   environmentConfiguration?: EnvironmentConfig | undefined;
 
   /**
-   * <p>The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.</p>
+   * The storage configuration of the notebook run, including the Amazon Simple Storage Service path and KMS key ARN.
+   *
    * @public
    */
   storageConfiguration?: StorageConfig | undefined;
 
   /**
-   * <p>The notification configuration of the notebook run, including the notebook run states that trigger notifications.</p>
+   * The notification configuration of the notebook run, including the notebook run states that trigger notifications.
+   *
    * @public
    */
   notificationConfiguration?: NotificationConfig | undefined;
 
   /**
-   * <p>The source that triggered the notebook run.</p>
+   * The source that triggered the notebook run.
+   *
    * @public
    */
   triggerSource?: TriggerSource | undefined;
 
   /**
-   * <p>The error details if the notebook run failed.</p>
+   * The error details if the notebook run failed.
+   *
    * @public
    */
   error?: NotebookRunError | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run was created.</p>
+   * The timestamp of when the notebook run was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who created the notebook run.</p>
+   * The identifier of the user who created the notebook run.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run was last updated.</p>
+   * The timestamp of when the notebook run was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who last updated the notebook run.</p>
+   * The identifier of the user who last updated the notebook run.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run started executing.</p>
+   * The timestamp of when the notebook run started executing.
+   *
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the notebook run completed.</p>
+   * The timestamp of when the notebook run completed.
+   *
    * @public
    */
   completedAt?: Date | undefined;
@@ -1481,19 +1691,22 @@ export interface StartNotebookRunOutput {
  */
 export interface StopNotebookRunInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is stopped.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run is stopped.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the notebook run to stop.</p>
+   * The identifier of the notebook run to stop.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1504,25 +1717,29 @@ export interface StopNotebookRunInput {
  */
 export interface StopNotebookRunOutput {
   /**
-   * <p>The identifier of the notebook run.</p>
+   * The identifier of the notebook run.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the notebook run.</p>
+   * The identifier of the project that owns the notebook run.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The status of the notebook run.</p>
+   * The status of the notebook run.
+   *
    * @public
    */
   status: NotebookRunStatus | undefined;
@@ -1533,19 +1750,22 @@ export interface StopNotebookRunOutput {
  */
 export interface PostLineageEventInput {
   /**
-   * <p>The ID of the domain where you want to post a data lineage event.</p>
+   * The ID of the domain where you want to post a data lineage event.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The data lineage event that you want to post. Only open-lineage run event are supported as events. </p>
+   * The data lineage event that you want to post. Only open-lineage run event are supported as events.
+   *
    * @public
    */
   event: Uint8Array | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1556,49 +1776,57 @@ export interface PostLineageEventInput {
  */
 export interface PostLineageEventOutput {
   /**
-   * <p>The ID of the lineage event.</p>
+   * The ID of the lineage event.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ID of the domain.</p>
+   * The ID of the domain.
+   *
    * @public
    */
   domainId?: string | undefined;
 }
 
 /**
- * <p>The time series data points form.</p>
+ * The time series data points form.
+ *
  * @public
  */
 export interface TimeSeriesDataPointFormInput {
   /**
-   * <p>The name of the time series data points form.</p>
+   * The name of the time series data points form.
+   *
    * @public
    */
   formName: string | undefined;
 
   /**
-   * <p>The ID of the type of the time series data points form.</p>
+   * The ID of the type of the time series data points form.
+   *
    * @public
    */
   typeIdentifier: string | undefined;
 
   /**
-   * <p>The revision type of the time series data points form.</p>
+   * The revision type of the time series data points form.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>The timestamp of the time series data points form.</p>
+   * The timestamp of the time series data points form.
+   *
    * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * <p>The content of the time series data points form.</p>
+   * The content of the time series data points form.
+   *
    * @public
    */
   content?: string | undefined;
@@ -1609,31 +1837,36 @@ export interface TimeSeriesDataPointFormInput {
  */
 export interface PostTimeSeriesDataPointsInput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
+   * The ID of the Amazon DataZone domain in which you want to post time series data points.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * The ID of the asset for which you want to post time series data points.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The type of the asset for which you want to post data points.</p>
+   * The type of the asset for which you want to post data points.
+   *
    * @public
    */
   entityType: TimeSeriesEntityType | undefined;
 
   /**
-   * <p>The forms that contain the data points that you want to post.</p>
+   * The forms that contain the data points that you want to post.
+   *
    * @public
    */
   forms: TimeSeriesDataPointFormInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1644,25 +1877,29 @@ export interface PostTimeSeriesDataPointsInput {
  */
 export interface PostTimeSeriesDataPointsOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain in which you want to post time series data points.</p>
+   * The ID of the Amazon DataZone domain in which you want to post time series data points.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The ID of the asset for which you want to post time series data points.</p>
+   * The ID of the asset for which you want to post time series data points.
+   *
    * @public
    */
   entityId?: string | undefined;
 
   /**
-   * <p>The type of the asset for which you want to post data points.</p>
+   * The type of the asset for which you want to post data points.
+   *
    * @public
    */
   entityType?: TimeSeriesEntityType | undefined;
 
   /**
-   * <p>The forms that contain the data points that you have posted.</p>
+   * The forms that contain the data points that you have posted.
+   *
    * @public
    */
   forms?: TimeSeriesDataPointFormOutput[] | undefined;
@@ -1673,25 +1910,31 @@ export interface PostTimeSeriesDataPointsOutput {
  */
 export interface PutDataExportConfigurationInput {
   /**
-   * <p>The domain ID for which you want to create data export configuration details.</p>
+   * The domain ID for which you want to create data export configuration details.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>Specifies that the export is to be enabled as part of creating data export configuration details.</p>
+   * Specifies that the export is to be enabled as part of creating data export configuration details.
+   *
    * @public
    */
   enableExport: boolean | undefined;
 
   /**
-   * <p>The encryption configuration as part of creating data export configuration details.</p> <p>The KMS key provided here as part of encryptionConfiguration must have the required permissions as described in <a href="https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.html">KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio</a>.</p>
+   * The encryption configuration as part of creating data export configuration details.
+   *
+   * The KMS key provided here as part of encryptionConfiguration must have the required permissions as described in [KMS permissions for exporting asset metadata in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.html).
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1703,157 +1946,183 @@ export interface PutDataExportConfigurationInput {
 export interface PutDataExportConfigurationOutput {}
 
 /**
- * <p>A search filter in Amazon DataZone.</p>
+ * A search filter in Amazon DataZone.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>A search filter attribute in Amazon DataZone.</p>
+   * A search filter attribute in Amazon DataZone.
+   *
    * @public
    */
   attribute: string | undefined;
 
   /**
-   * <p>A search filter string value in Amazon DataZone.</p>
+   * A search filter string value in Amazon DataZone.
+   *
    * @public
    */
   value?: string | undefined;
 
   /**
-   * <p>A search filter integer value in Amazon DataZone.</p>
+   * A search filter integer value in Amazon DataZone.
+   *
    * @public
    */
   intValue?: number | undefined;
 
   /**
-   * <p>Specifies the search filter operator.</p>
+   * Specifies the search filter operator.
+   *
    * @public
    */
   operator?: FilterOperator | undefined;
 }
 
 /**
- * <p>The pattern describing the query's relational traversal.</p>
+ * The pattern describing the query's relational traversal.
+ *
  * @public
  */
 export interface RelationPattern {
   /**
-   * <p>The type of relation to query.</p>
+   * The type of relation to query.
+   *
    * @public
    */
   relationType: RelationType | undefined;
 
   /**
-   * <p>The direction to query.</p>
+   * The direction to query.
+   *
    * @public
    */
   relationDirection: RelationDirection | undefined;
 
   /**
-   * <p>The number of hops to query.</p>
+   * The number of hops to query.
+   *
    * @public
    */
   maxPathLength?: number | undefined;
 }
 
 /**
- * <p>The summary and output forms of a LineageNode</p>
+ * The summary and output forms of a LineageNode
+ *
  * @public
  */
 export interface LineageNodeItem {
   /**
-   * <p>The ID of the domain of the data lineage node.</p>
+   * The ID of the domain of the data lineage node.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the data lineage node.</p>
+   * The name of the data lineage node.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the data lineage node.</p>
+   * The description of the data lineage node.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp at which the data lineage node was created.</p>
+   * The timestamp at which the data lineage node was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The user who created the data lineage node.</p>
+   * The user who created the data lineage node.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp at which the data lineage node was updated.</p>
+   * The timestamp at which the data lineage node was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user who updated the data lineage node.</p>
+   * The user who updated the data lineage node.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The ID of the data lineage node.</p>
+   * The ID of the data lineage node.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the type of the data lineage node.</p>
+   * The name of the type of the data lineage node.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The type of the revision of the data lineage node.</p>
+   * The type of the revision of the data lineage node.
+   *
    * @public
    */
   typeRevision?: string | undefined;
 
   /**
-   * <p>The alternate ID of the data lineage node.</p>
+   * The alternate ID of the data lineage node.
+   *
    * @public
    */
   sourceIdentifier?: string | undefined;
 
   /**
-   * <p>The event timestamp of the data lineage node.</p>
+   * The event timestamp of the data lineage node.
+   *
    * @public
    */
   eventTimestamp?: Date | undefined;
 
   /**
-   * <p>The forms included in the additional attributes of a data lineage node.</p>
+   * The forms included in the additional attributes of a data lineage node.
+   *
    * @public
    */
   formsOutput?: FormOutput[] | undefined;
 
   /**
-   * <p>The IDs of the upstream data lineage nodes.</p>
+   * The IDs of the upstream data lineage nodes.
+   *
    * @public
    */
   upstreamLineageNodeIds?: string[] | undefined;
 
   /**
-   * <p>The IDs of the downstream data lineage nodes.</p>
+   * The IDs of the downstream data lineage nodes.
+   *
    * @public
    */
   downstreamLineageNodeIds?: string[] | undefined;
 }
 
 /**
- * <p>Resulting entity from the query.</p>
+ * Resulting entity from the query.
+ *
  * @public
  */
 export type ResultItem =
@@ -1865,7 +2134,8 @@ export type ResultItem =
  */
 export namespace ResultItem {
   /**
-   * <p>Resulting data lineage node from the query.</p>
+   * Resulting data lineage node from the query.
+   *
    * @public
    */
   export interface LineageNodeMember {
@@ -1896,49 +2166,57 @@ export namespace ResultItem {
  */
 export interface QueryGraphOutput {
   /**
-   * <p>The results of the <code>QueryGraph</code> action.</p>
+   * The results of the `QueryGraph` action.
+   *
    * @public
    */
   items?: ResultItem[] | undefined;
 
   /**
-   * <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+   * When the number of entities is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of entities, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `QueryGraph` to list the next set of entities.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The details of the automatically generated business metadata that is rejected.</p>
+ * The details of the automatically generated business metadata that is rejected.
+ *
  * @public
  */
 export interface RejectChoice {
   /**
-   * <p>Specifies the target (for example, a column name) where a prediction can be rejected.</p>
+   * Specifies the target (for example, a column name) where a prediction can be rejected.
+   *
    * @public
    */
   predictionTarget: string | undefined;
 
   /**
-   * <p>Specifies the the automatically generated business metadata that can be rejected.</p>
+   * Specifies the the automatically generated business metadata that can be rejected.
+   *
    * @public
    */
   predictionChoices?: number[] | undefined;
 }
 
 /**
- * <p>Specifies the rule and the threshold under which a prediction can be rejected.</p>
+ * Specifies the rule and the threshold under which a prediction can be rejected.
+ *
  * @public
  */
 export interface RejectRule {
   /**
-   * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
+   * Specifies whether you want to reject the top prediction for all targets or none.
+   *
    * @public
    */
   rule?: RejectRuleBehavior | undefined;
 
   /**
-   * <p>The confidence score that specifies the condition at which a prediction can be rejected.</p>
+   * The confidence score that specifies the condition at which a prediction can be rejected.
+   *
    * @public
    */
   threshold?: number | undefined;
@@ -1949,37 +2227,43 @@ export interface RejectRule {
  */
 export interface RejectPredictionsInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
+   * The identifier of the Amazon DataZone domain.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the prediction.</p>
+   * The identifier of the prediction.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision that is to be made to the asset.</p>
+   * The revision that is to be made to the asset.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>Specifies the rule (or the conditions) under which a prediction can be rejected.</p>
+   * Specifies the rule (or the conditions) under which a prediction can be rejected.
+   *
    * @public
    */
   rejectRule?: RejectRule | undefined;
 
   /**
-   * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be rejected.</p>
+   * Specifies the prediction (aka, the automatically generated piece of metadata) and the target (for example, a column name) that can be rejected.
+   *
    * @public
    */
   rejectChoices?: RejectChoice[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1990,19 +2274,22 @@ export interface RejectPredictionsInput {
  */
 export interface RejectPredictionsOutput {
   /**
-   * <p>The ID of the Amazon DataZone domain.</p>
+   * The ID of the Amazon DataZone domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the asset.</p>
+   * The ID of the asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The revision that is to be made to the asset.</p>
+   * The revision that is to be made to the asset.
+   *
    * @public
    */
   assetRevision: string | undefined;
@@ -2013,19 +2300,22 @@ export interface RejectPredictionsOutput {
  */
 export interface RejectSubscriptionRequestInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
+   * The identifier of the Amazon DataZone domain in which the subscription request was rejected.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the subscription request that was rejected.</p>
+   * The identifier of the subscription request that was rejected.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The decision comment of the rejected subscription request.</p>
+   * The decision comment of the rejected subscription request.
+   *
    * @public
    */
   decisionComment?: string | undefined;
@@ -2036,85 +2326,99 @@ export interface RejectSubscriptionRequestInput {
  */
 export interface RejectSubscriptionRequestOutput {
   /**
-   * <p>The identifier of the subscription request that was rejected.</p>
+   * The identifier of the subscription request that was rejected.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The timestamp of when the subscription request was rejected.</p>
+   * The timestamp of when the subscription request was rejected.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * The Amazon DataZone user who updated the subscription request.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the subscription request was rejected.</p>
+   * The identifier of the Amazon DataZone domain in which the subscription request was rejected.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The status of the subscription request.</p>
+   * The status of the subscription request.
+   *
    * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * <p>The timestamp of when the subscription request was rejected.</p>
+   * The timestamp of when the subscription request was rejected.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the subscription request was updated.</p>
+   * The timestamp of when the subscription request was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reason for the subscription request.</p>
+   * The reason for the subscription request.
+   *
    * @public
    */
   requestReason: string | undefined;
 
   /**
-   * <p>The subscribed principals of the subscription request.</p>
+   * The subscribed principals of the subscription request.
+   *
    * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * <p>The subscribed listings of the subscription request.</p>
+   * The subscribed listings of the subscription request.
+   *
    * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * <p>The identifier of the subscription request reviewer.</p>
+   * The identifier of the subscription request reviewer.
+   *
    * @public
    */
   reviewerId?: string | undefined;
 
   /**
-   * <p>The decision comment of the rejected subscription request.</p>
+   * The decision comment of the rejected subscription request.
+   *
    * @public
    */
   decisionComment?: string | undefined;
 
   /**
-   * <p>The ID of the existing subscription.</p>
+   * The ID of the existing subscription.
+   *
    * @public
    */
   existingSubscriptionId?: string | undefined;
 
   /**
-   * <p>Metadata forms included in the subscription request.</p>
+   * Metadata forms included in the subscription request.
+   *
    * @public
    */
   metadataForms?: FormOutput[] | undefined;
@@ -2125,31 +2429,36 @@ export interface RejectSubscriptionRequestOutput {
  */
 export interface RemoveEntityOwnerInput {
   /**
-   * <p>The ID of the domain where you want to remove an owner from an entity.</p>
+   * The ID of the domain where you want to remove an owner from an entity.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The type of the entity from which you want to remove an owner.</p>
+   * The type of the entity from which you want to remove an owner.
+   *
    * @public
    */
   entityType: DataZoneEntityType | undefined;
 
   /**
-   * <p>The ID of the entity from which you want to remove an owner.</p>
+   * The ID of the entity from which you want to remove an owner.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The owner that you want to remove from an entity.</p>
+   * The owner that you want to remove from an entity.
+   *
    * @public
    */
   owner: OwnerProperties | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2165,43 +2474,50 @@ export interface RemoveEntityOwnerOutput {}
  */
 export interface RemovePolicyGrantInput {
   /**
-   * <p>The ID of the domain where you want to remove a policy grant.</p>
+   * The ID of the domain where you want to remove a policy grant.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The type of the entity from which you want to remove a policy grant.</p>
+   * The type of the entity from which you want to remove a policy grant.
+   *
    * @public
    */
   entityType: TargetEntityType | undefined;
 
   /**
-   * <p>The ID of the entity from which you want to remove a policy grant.</p>
+   * The ID of the entity from which you want to remove a policy grant.
+   *
    * @public
    */
   entityIdentifier: string | undefined;
 
   /**
-   * <p>The type of the policy that you want to remove.</p>
+   * The type of the policy that you want to remove.
+   *
    * @public
    */
   policyType: ManagedPolicyType | undefined;
 
   /**
-   * <p>The principal from which you want to remove a policy grant.</p>
+   * The principal from which you want to remove a policy grant.
+   *
    * @public
    */
   principal: PolicyGrantPrincipal | undefined;
 
   /**
-   * <p>The ID of the policy grant that is to be removed from a specified entity.</p>
+   * The ID of the policy grant that is to be removed from a specified entity.
+   *
    * @public
    */
   grantIdentifier?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2217,19 +2533,22 @@ export interface RemovePolicyGrantOutput {}
  */
 export interface RevokeSubscriptionInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * The identifier of the Amazon DataZone domain where you want to revoke a subscription.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the revoked subscription.</p>
+   * The identifier of the revoked subscription.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * Specifies whether permissions are retained when the subscription is revoked.
+   *
    * @public
    */
   retainPermissions?: boolean | undefined;
@@ -2240,67 +2559,78 @@ export interface RevokeSubscriptionInput {
  */
 export interface RevokeSubscriptionOutput {
   /**
-   * <p>The identifier of the revoked subscription.</p>
+   * The identifier of the revoked subscription.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the user who revoked the subscription.</p>
+   * The identifier of the user who revoked the subscription.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who revoked the subscription.</p>
+   * The Amazon DataZone user who revoked the subscription.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
+   * The identifier of the Amazon DataZone domain where you want to revoke a subscription.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The status of the revoked subscription.</p>
+   * The status of the revoked subscription.
+   *
    * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * <p>The timestamp of when the subscription was revoked.</p>
+   * The timestamp of when the subscription was revoked.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the subscription was revoked.</p>
+   * The timestamp of when the subscription was revoked.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The subscribed principal of the revoked subscription.</p>
+   * The subscribed principal of the revoked subscription.
+   *
    * @public
    */
   subscribedPrincipal: SubscribedPrincipal | undefined;
 
   /**
-   * <p>The subscribed listing of the revoked subscription.</p>
+   * The subscribed listing of the revoked subscription.
+   *
    * @public
    */
   subscribedListing: SubscribedListing | undefined;
 
   /**
-   * <p>The identifier of the subscription request for the revoked subscription.</p>
+   * The identifier of the subscription request for the revoked subscription.
+   *
    * @public
    */
   subscriptionRequestId?: string | undefined;
 
   /**
-   * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
+   * Specifies whether permissions are retained when the subscription is revoked.
+   *
    * @public
    */
   retainPermissions?: boolean | undefined;
@@ -2311,13 +2641,15 @@ export interface RevokeSubscriptionOutput {
  */
 export interface DeleteRuleInput {
   /**
-   * <p>The ID of the domain that where the rule is to be deleted.</p>
+   * The ID of the domain that where the rule is to be deleted.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the rule that is to be deleted.</p>
+   * The ID of the rule that is to be deleted.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -2333,19 +2665,22 @@ export interface DeleteRuleOutput {}
  */
 export interface GetRuleInput {
   /**
-   * <p>The ID of the domain where the <code>GetRule</code> action is to be invoked.</p>
+   * The ID of the domain where the `GetRule` action is to be invoked.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision of the rule.</p>
+   * The revision of the rule.
+   *
    * @public
    */
   revision?: string | undefined;
@@ -2356,85 +2691,99 @@ export interface GetRuleInput {
  */
 export interface GetRuleOutput {
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision of the rule.</p>
+   * The revision of the rule.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the rule.</p>
+   * The type of the rule.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p>The target of the rule.</p>
+   * The target of the rule.
+   *
    * @public
    */
   target: RuleTarget | undefined;
 
   /**
-   * <p>The action of the rule.</p>
+   * The action of the rule.
+   *
    * @public
    */
   action: RuleAction | undefined;
 
   /**
-   * <p>The scope of the rule.</p>
+   * The scope of the rule.
+   *
    * @public
    */
   scope: RuleScope | undefined;
 
   /**
-   * <p>The detail of the rule.</p>
+   * The detail of the rule.
+   *
    * @public
    */
   detail: RuleDetail | undefined;
 
   /**
-   * <p>The target type of the rule.</p>
+   * The target type of the rule.
+   *
    * @public
    */
   targetType?: RuleTargetType | undefined;
 
   /**
-   * <p>The description of the rule.</p>
+   * The description of the rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp at which the rule was created.</p>
+   * The timestamp at which the rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp at which the rule was last updated.</p>
+   * The timestamp at which the rule was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The user who created the rule.</p>
+   * The user who created the rule.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp at which the rule was last updated.</p>
+   * The timestamp at which the rule was last updated.
+   *
    * @public
    */
   lastUpdatedBy: string | undefined;
@@ -2445,133 +2794,155 @@ export interface GetRuleOutput {
  */
 export interface ListRulesInput {
   /**
-   * <p>The ID of the domain in which the rules are to be listed.</p>
+   * The ID of the domain in which the rules are to be listed.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The target type of the rule.</p>
+   * The target type of the rule.
+   *
    * @public
    */
   targetType: RuleTargetType | undefined;
 
   /**
-   * <p>The target ID of the rule.</p>
+   * The target ID of the rule.
+   *
    * @public
    */
   targetIdentifier: string | undefined;
 
   /**
-   * <p>The type of the rule.</p>
+   * The type of the rule.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The action of the rule.</p>
+   * The action of the rule.
+   *
    * @public
    */
   action?: RuleAction | undefined;
 
   /**
-   * <p>The IDs of projects in which rules are to be listed.</p>
+   * The IDs of projects in which rules are to be listed.
+   *
    * @public
    */
   projectIds?: string[] | undefined;
 
   /**
-   * <p>The asset types of the rule.</p>
+   * The asset types of the rule.
+   *
    * @public
    */
   assetTypes?: string[] | undefined;
 
   /**
-   * <p>The data product of the rule.</p>
+   * The data product of the rule.
+   *
    * @public
    */
   dataProduct?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to include cascading rules in the results.</p>
+   * Specifies whether to include cascading rules in the results.
+   *
    * @public
    */
   includeCascaded?: boolean | undefined;
 
   /**
-   * <p>The maximum number of rules to return in a single call to <code>ListRules</code>. When the number of rules to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * The maximum number of rules to return in a single call to `ListRules`. When the number of rules to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `ListRules` to list the next set of rules.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * When the number of rules is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of rules, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `ListRules` to list the next set of rules.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The summary of the rule.</p>
+ * The summary of the rule.
+ *
  * @public
  */
 export interface RuleSummary {
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   identifier?: string | undefined;
 
   /**
-   * <p>The revision of the rule.</p>
+   * The revision of the rule.
+   *
    * @public
    */
   revision?: string | undefined;
 
   /**
-   * <p>The type of the rule.</p>
+   * The type of the rule.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The target type of the rule.</p>
+   * The target type of the rule.
+   *
    * @public
    */
   targetType?: RuleTargetType | undefined;
 
   /**
-   * <p>The target of the rule.</p>
+   * The target of the rule.
+   *
    * @public
    */
   target?: RuleTarget | undefined;
 
   /**
-   * <p>The action of the rule.</p>
+   * The action of the rule.
+   *
    * @public
    */
   action?: RuleAction | undefined;
 
   /**
-   * <p>The scope of the rule.</p>
+   * The scope of the rule.
+   *
    * @public
    */
   scope?: RuleScope | undefined;
 
   /**
-   * <p>The timestamp at which the rule was last updated.</p>
+   * The timestamp at which the rule was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp at which the rule was last updated.</p>
+   * The timestamp at which the rule was last updated.
+   *
    * @public
    */
   lastUpdatedBy?: string | undefined;
@@ -2582,13 +2953,15 @@ export interface RuleSummary {
  */
 export interface ListRulesOutput {
   /**
-   * <p>The results of the <code>ListRules</code> action.</p>
+   * The results of the `ListRules` action.
+   *
    * @public
    */
   items: RuleSummary[] | undefined;
 
   /**
-   * <p>When the number of rules is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of rules, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListRules</code> to list the next set of rules.</p>
+   * When the number of rules is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of rules, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `ListRules` to list the next set of rules.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2599,43 +2972,50 @@ export interface ListRulesOutput {
  */
 export interface UpdateRuleInput {
   /**
-   * <p>The ID of the domain in which a rule is to be updated.</p>
+   * The ID of the domain in which a rule is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the rule that is to be updated</p>
+   * The ID of the rule that is to be updated
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the rule.</p>
+   * The description of the rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The scrope of the rule.</p>
+   * The scrope of the rule.
+   *
    * @public
    */
   scope?: RuleScope | undefined;
 
   /**
-   * <p>The detail of the rule.</p>
+   * The detail of the rule.
+   *
    * @public
    */
   detail?: RuleDetail | undefined;
 
   /**
-   * <p>Specifies whether to update this rule in the child domain units.</p>
+   * Specifies whether to update this rule in the child domain units.
+   *
    * @public
    */
   includeChildDomainUnits?: boolean | undefined;
@@ -2646,308 +3026,359 @@ export interface UpdateRuleInput {
  */
 export interface UpdateRuleOutput {
   /**
-   * <p>The ID of the rule.</p>
+   * The ID of the rule.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The revision of the rule.</p>
+   * The revision of the rule.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the rule.</p>
+   * The type of the rule.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p>The target of the rule.</p>
+   * The target of the rule.
+   *
    * @public
    */
   target: RuleTarget | undefined;
 
   /**
-   * <p>The action of the rule.</p>
+   * The action of the rule.
+   *
    * @public
    */
   action: RuleAction | undefined;
 
   /**
-   * <p>The scope of the rule.</p>
+   * The scope of the rule.
+   *
    * @public
    */
   scope: RuleScope | undefined;
 
   /**
-   * <p>The detail of the rule.</p>
+   * The detail of the rule.
+   *
    * @public
    */
   detail: RuleDetail | undefined;
 
   /**
-   * <p>The description of the rule.</p>
+   * The description of the rule.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp at which the rule was created.</p>
+   * The timestamp at which the rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp at which the rule was last updated.</p>
+   * The timestamp at which the rule was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The user who created the rule.</p>
+   * The user who created the rule.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp at which the rule was last updated.</p>
+   * The timestamp at which the rule was last updated.
+   *
    * @public
    */
   lastUpdatedBy: string | undefined;
 }
 
 /**
- * <p>The details of the search.</p>
+ * The details of the search.
+ *
  * @public
  */
 export interface SearchInItem {
   /**
-   * <p>The search attribute.</p>
+   * The search attribute.
+   *
    * @public
    */
   attribute: string | undefined;
 }
 
 /**
- * <p>The details of the way to sort search results.</p>
+ * The details of the way to sort search results.
+ *
  * @public
  */
 export interface SearchSort {
   /**
-   * <p>The attribute detail of the way to sort search results.</p>
+   * The attribute detail of the way to sort search results.
+   *
    * @public
    */
   attribute: string | undefined;
 
   /**
-   * <p>The order detail of the wya to sort search results.</p>
+   * The order detail of the wya to sort search results.
+   *
    * @public
    */
   order?: SortOrder | undefined;
 }
 
 /**
- * <p>The additional attributes of an Amazon DataZone glossary.</p>
+ * The additional attributes of an Amazon DataZone glossary.
+ *
  * @public
  */
 export interface GlossaryItemAdditionalAttributes {
   /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
+   * List of rationales indicating why this item was matched by search.
+   *
    * @public
    */
   matchRationale?: MatchRationaleItem[] | undefined;
 }
 
 /**
- * <p>The details of a business glossary.</p>
+ * The details of a business glossary.
+ *
  * @public
  */
 export interface GlossaryItem {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
+   * The identifier of the Amazon DataZone domain in which the business glossary exists.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the glossary.</p>
+   * The identifier of the glossary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the glossary.</p>
+   * The name of the glossary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the business glosary.</p>
+   * The identifier of the project that owns the business glosary.
+   *
    * @public
    */
   owningProjectId: string | undefined;
 
   /**
-   * <p>The business glossary description.</p>
+   * The business glossary description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The business glossary status.</p>
+   * The business glossary status.
+   *
    * @public
    */
   status: GlossaryStatus | undefined;
 
   /**
-   * <p>The usage restrictions associated with a goverened glossary term.</p>
+   * The usage restrictions associated with a goverened glossary term.
+   *
    * @public
    */
   usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 
   /**
-   * <p>The timestamp of when the glossary was created.</p>
+   * The timestamp of when the glossary was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the glossary.</p>
+   * The Amazon DataZone user who created the glossary.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when the business glossary was updated.</p>
+   * The timestamp of when the business glossary was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the business glossary.</p>
+   * The Amazon DataZone user who updated the business glossary.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The additional attributes of an Amazon DataZone glossary.</p>
+   * The additional attributes of an Amazon DataZone glossary.
+   *
    * @public
    */
   additionalAttributes?: GlossaryItemAdditionalAttributes | undefined;
 }
 
 /**
- * <p>The additional attributes of an Amazon DataZone glossary term.</p>
+ * The additional attributes of an Amazon DataZone glossary term.
+ *
  * @public
  */
 export interface GlossaryTermItemAdditionalAttributes {
   /**
-   * <p>List of rationales indicating why this item was matched by search.</p>
+   * List of rationales indicating why this item was matched by search.
+   *
    * @public
    */
   matchRationale?: MatchRationaleItem[] | undefined;
 }
 
 /**
- * <p>The details of a business glossary term.</p>
+ * The details of a business glossary term.
+ *
  * @public
  */
 export interface GlossaryTermItem {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the business glossary exists.</p>
+   * The identifier of the Amazon DataZone domain in which the business glossary exists.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the business glossary to which the term belongs.</p>
+   * The identifier of the business glossary to which the term belongs.
+   *
    * @public
    */
   glossaryId: string | undefined;
 
   /**
-   * <p>The identifier of the business glossary term.</p>
+   * The identifier of the business glossary term.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the business glossary term.</p>
+   * The name of the business glossary term.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The short description of the business glossary term.</p>
+   * The short description of the business glossary term.
+   *
    * @public
    */
   shortDescription?: string | undefined;
 
   /**
-   * <p>The usage restrictions associated with a goverened glossary term.</p>
+   * The usage restrictions associated with a goverened glossary term.
+   *
    * @public
    */
   usageRestrictions?: GlossaryUsageRestriction[] | undefined;
 
   /**
-   * <p>The long description of the business glossary term.</p>
+   * The long description of the business glossary term.
+   *
    * @public
    */
   longDescription?: string | undefined;
 
   /**
-   * <p>The relations of the business glossary term.</p>
+   * The relations of the business glossary term.
+   *
    * @public
    */
   termRelations?: TermRelations | undefined;
 
   /**
-   * <p>The status of the business glossary term.</p>
+   * The status of the business glossary term.
+   *
    * @public
    */
   status: GlossaryTermStatus | undefined;
 
   /**
-   * <p>The timestamp of when a business glossary term was created.</p>
+   * The timestamp of when a business glossary term was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the business glossary.</p>
+   * The Amazon DataZone user who created the business glossary.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when a business glossary term was updated.</p>
+   * The timestamp of when a business glossary term was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the business glossary term.</p>
+   * The Amazon DataZone user who updated the business glossary term.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The additional attributes of an Amazon DataZone glossary term.</p>
+   * The additional attributes of an Amazon DataZone glossary term.
+   *
    * @public
    */
   additionalAttributes?: GlossaryTermItemAdditionalAttributes | undefined;
 }
 
 /**
- * <p>The details of the search results.</p>
+ * The details of the search results.
+ *
  * @public
  */
 export type SearchInventoryResultItem =
@@ -2962,7 +3393,8 @@ export type SearchInventoryResultItem =
  */
 export namespace SearchInventoryResultItem {
   /**
-   * <p>The glossary item included in the search results.</p>
+   * The glossary item included in the search results.
+   *
    * @public
    */
   export interface GlossaryItemMember {
@@ -2974,7 +3406,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
-   * <p>The glossary term item included in the search results.</p>
+   * The glossary term item included in the search results.
+   *
    * @public
    */
   export interface GlossaryTermItemMember {
@@ -2986,7 +3419,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
-   * <p>The asset item included in the search results.</p>
+   * The asset item included in the search results.
+   *
    * @public
    */
   export interface AssetItemMember {
@@ -2998,7 +3432,8 @@ export namespace SearchInventoryResultItem {
   }
 
   /**
-   * <p>The data product.</p>
+   * The data product.
+   *
    * @public
    */
   export interface DataProductItemMember {
@@ -3038,19 +3473,22 @@ export namespace SearchInventoryResultItem {
  */
 export interface SearchOutput {
   /**
-   * <p>The results of the <code>Search</code> action.</p>
+   * The results of the `Search` action.
+   *
    * @public
    */
   items?: SearchInventoryResultItem[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `Search` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Total number of search results.</p>
+   * Total number of search results.
+   *
    * @public
    */
   totalMatchCount?: number | undefined;
@@ -3061,73 +3499,85 @@ export interface SearchOutput {
  */
 export interface SearchGroupProfilesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to search group profiles.</p>
+   * The identifier of the Amazon DataZone domain in which you want to search group profiles.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The group type for which to search.</p>
+   * The group type for which to search.
+   *
    * @public
    */
   groupType: GroupSearchType | undefined;
 
   /**
-   * <p>Specifies the text for which to search.</p>
+   * Specifies the text for which to search.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>SearchGroupProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results. </p>
+   * The maximum number of results to return in a single call to `SearchGroupProfiles`. When the number of results to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `SearchGroupProfiles` to list the next set of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchGroupProfiles` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The details of a group profile.</p>
+ * The details of a group profile.
+ *
  * @public
  */
 export interface GroupProfileSummary {
   /**
-   * <p>The ID of the Amazon DataZone domain of a group profile.</p>
+   * The ID of the Amazon DataZone domain of a group profile.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The ID of a group profile.</p>
+   * The ID of a group profile.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status of a group profile.</p>
+   * The status of a group profile.
+   *
    * @public
    */
   status?: GroupProfileStatus | undefined;
 
   /**
-   * <p>The group name of a group profile.</p>
+   * The group name of a group profile.
+   *
    * @public
    */
   groupName?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role principal. This role is associated with the group profile.</p>
+   * The ARN of the IAM role principal. This role is associated with the group profile.
+   *
    * @public
    */
   rolePrincipalArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the IAM role principal. This principal is associated with the group profile.</p>
+   * The unique identifier of the IAM role principal. This principal is associated with the group profile.
+   *
    * @public
    */
   rolePrincipalId?: string | undefined;
@@ -3138,20 +3588,23 @@ export interface GroupProfileSummary {
  */
 export interface SearchGroupProfilesOutput {
   /**
-   * <p>The results of the <code>SearchGroupProfiles</code> action.</p>
+   * The results of the `SearchGroupProfiles` action.
+   *
    * @public
    */
   items?: GroupProfileSummary[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchGroupProfiles</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchGroupProfiles` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The details of the results of the <code>SearchListings</code> action.</p>
+ * The details of the results of the `SearchListings` action.
+ *
  * @public
  */
 export type SearchResultItem =
@@ -3164,7 +3617,8 @@ export type SearchResultItem =
  */
 export namespace SearchResultItem {
   /**
-   * <p>The asset listing included in the results of the <code>SearchListings</code> action.</p>
+   * The asset listing included in the results of the `SearchListings` action.
+   *
    * @public
    */
   export interface AssetListingMember {
@@ -3174,7 +3628,8 @@ export namespace SearchResultItem {
   }
 
   /**
-   * <p>The data product listing.</p>
+   * The data product listing.
+   *
    * @public
    */
   export interface DataProductListingMember {
@@ -3208,170 +3663,198 @@ export namespace SearchResultItem {
  */
 export interface SearchListingsOutput {
   /**
-   * <p>The results of the <code>SearchListings</code> action.</p>
+   * The results of the `SearchListings` action.
+   *
    * @public
    */
   items?: SearchResultItem[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchListings</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchListings` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Total number of search results.</p>
+   * Total number of search results.
+   *
    * @public
    */
   totalMatchCount?: number | undefined;
 
   /**
-   * <p>Contains computed counts grouped by field values based on the requested aggregation attributes for the matching listings.</p>
+   * Contains computed counts grouped by field values based on the requested aggregation attributes for the matching listings.
+   *
    * @public
    */
   aggregates?: AggregationOutput[] | undefined;
 }
 
 /**
- * <p>The details of the metadata form type.</p>
+ * The details of the metadata form type.
+ *
  * @public
  */
 export interface FormTypeData {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the form type exists.</p>
+   * The identifier of the Amazon DataZone domain in which the form type exists.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the form type.</p>
+   * The name of the form type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The revision of the form type.</p>
+   * The revision of the form type.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The model of the form type.</p>
+   * The model of the form type.
+   *
    * @public
    */
   model?: Model | undefined;
 
   /**
-   * <p>The status of the form type.</p>
+   * The status of the form type.
+   *
    * @public
    */
   status?: FormTypeStatus | undefined;
 
   /**
-   * <p>The identifier of the project that owns the form type.</p>
+   * The identifier of the project that owns the form type.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the form type was originally created.</p>
+   * The identifier of the Amazon DataZone domain in which the form type was originally created.
+   *
    * @public
    */
   originDomainId?: string | undefined;
 
   /**
-   * <p>The identifier of the project in which the form type was originally created.</p>
+   * The identifier of the project in which the form type was originally created.
+   *
    * @public
    */
   originProjectId?: string | undefined;
 
   /**
-   * <p>The timestamp of when the metadata form type was created.</p>
+   * The timestamp of when the metadata form type was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created teh metadata form type.</p>
+   * The Amazon DataZone user who created teh metadata form type.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The description of the metadata form type.</p>
+   * The description of the metadata form type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The imports specified in the form type.</p>
+   * The imports specified in the form type.
+   *
    * @public
    */
   imports?: Import[] | undefined;
 }
 
 /**
- * <p>The details of a data lineage node type.</p>
+ * The details of a data lineage node type.
+ *
  * @public
  */
 export interface LineageNodeTypeItem {
   /**
-   * <p>The ID of the domain where the data lineage node type lives.</p>
+   * The ID of the domain where the data lineage node type lives.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The name of the data lineage node type.</p>
+   * The name of the data lineage node type.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the data lineage node type.</p>
+   * The description of the data lineage node type.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp at which the data lineage node type was created.</p>
+   * The timestamp at which the data lineage node type was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The user who created the data lineage node type.</p>
+   * The user who created the data lineage node type.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>The timestamp at which the data lineage node type was updated.</p>
+   * The timestamp at which the data lineage node type was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The user who updated the data lineage node type.</p>
+   * The user who updated the data lineage node type.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The revision of the data lineage node type.</p>
+   * The revision of the data lineage node type.
+   *
    * @public
    */
   revision: string | undefined;
 
   /**
-   * <p>The forms output of the data lineage node type.</p>
+   * The forms output of the data lineage node type.
+   *
    * @public
    */
   formsOutput: Record<string, FormEntryOutput> | undefined;
 }
 
 /**
- * <p>The details of the results of the <code>SearchTypes</code> action.</p>
+ * The details of the results of the `SearchTypes` action.
+ *
  * @public
  */
 export type SearchTypesResultItem =
@@ -3385,7 +3868,8 @@ export type SearchTypesResultItem =
  */
 export namespace SearchTypesResultItem {
   /**
-   * <p>The asset type included in the results of the <code>SearchTypes</code> action.</p>
+   * The asset type included in the results of the `SearchTypes` action.
+   *
    * @public
    */
   export interface AssetTypeItemMember {
@@ -3396,7 +3880,8 @@ export namespace SearchTypesResultItem {
   }
 
   /**
-   * <p>The form type included in the results of the <code>SearchTypes</code> action.</p>
+   * The form type included in the results of the `SearchTypes` action.
+   *
    * @public
    */
   export interface FormTypeItemMember {
@@ -3407,7 +3892,8 @@ export namespace SearchTypesResultItem {
   }
 
   /**
-   * <p>The details of a data lineage node type.</p>
+   * The details of a data lineage node type.
+   *
    * @public
    */
   export interface LineageNodeTypeItemMember {
@@ -3444,19 +3930,22 @@ export namespace SearchTypesResultItem {
  */
 export interface SearchTypesOutput {
   /**
-   * <p>The results of the <code>SearchTypes</code> action.</p>
+   * The results of the `SearchTypes` action.
+   *
    * @public
    */
   items?: SearchTypesResultItem[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchTypes` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Total number of search results.</p>
+   * Total number of search results.
+   *
    * @public
    */
   totalMatchCount?: number | undefined;
@@ -3467,67 +3956,78 @@ export interface SearchTypesOutput {
  */
 export interface SearchUserProfilesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to search user profiles.</p>
+   * The identifier of the Amazon DataZone domain in which you want to search user profiles.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the user type for the <code>SearchUserProfiles</code> action.</p>
+   * Specifies the user type for the `SearchUserProfiles` action.
+   *
    * @public
    */
   userType: UserSearchType | undefined;
 
   /**
-   * <p>Specifies the text for which to search.</p>
+   * Specifies the text for which to search.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>SearchUserProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results. </p>
+   * The maximum number of results to return in a single call to `SearchUserProfiles`. When the number of results to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `SearchUserProfiles` to list the next set of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchUserProfiles` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The details of the user profile.</p>
+ * The details of the user profile.
+ *
  * @public
  */
 export interface UserProfileSummary {
   /**
-   * <p>The ID of the Amazon DataZone domain of the user profile.</p>
+   * The ID of the Amazon DataZone domain of the user profile.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The ID of the user profile.</p>
+   * The ID of the user profile.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The type of the user profile.</p>
+   * The type of the user profile.
+   *
    * @public
    */
   type?: UserProfileType | undefined;
 
   /**
-   * <p>The status of the user profile.</p>
+   * The status of the user profile.
+   *
    * @public
    */
   status?: UserProfileStatus | undefined;
 
   /**
-   * <p>The details of the user profile.</p>
+   * The details of the user profile.
+   *
    * @public
    */
   details?: UserProfileDetails | undefined;
@@ -3538,50 +4038,58 @@ export interface UserProfileSummary {
  */
 export interface SearchUserProfilesOutput {
   /**
-   * <p>The results of the <code>SearchUserProfiles</code> action.</p>
+   * The results of the `SearchUserProfiles` action.
+   *
    * @public
    */
   items?: UserProfileSummary[] | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchUserProfiles` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A single Amazon Simple Storage Service object to import as a notebook cell.</p>
+ * A single Amazon Simple Storage Service object to import as a notebook cell.
+ *
  * @public
  */
 export interface S3File {
   /**
-   * <p>The key of the Amazon Simple Storage Service object to import.</p>
+   * The key of the Amazon Simple Storage Service object to import.
+   *
    * @public
    */
   key: string | undefined;
 }
 
 /**
- * <p>The Amazon Simple Storage Service objects to import as the cells of a notebook, specified as a bucket and an ordered list of object keys.</p>
+ * The Amazon Simple Storage Service objects to import as the cells of a notebook, specified as a bucket and an ordered list of object keys.
+ *
  * @public
  */
 export interface S3FilesLocation {
   /**
-   * <p>The name of the Amazon Simple Storage Service bucket that contains the files to import.</p>
+   * The name of the Amazon Simple Storage Service bucket that contains the files to import.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>The files to import. Cells are created in the order in which you list the files. You can specify between 1 and 100 files.</p>
+   * The files to import. Cells are created in the order in which you list the files. You can specify between 1 and 100 files.
+   *
    * @public
    */
   fileList: S3File[] | undefined;
 }
 
 /**
- * <p>The source location for a notebook import in Amazon SageMaker Unified Studio.</p>
+ * The source location for a notebook import in Amazon SageMaker Unified Studio.
+ *
  * @public
  */
 export type SourceLocation =
@@ -3594,7 +4102,8 @@ export type SourceLocation =
  */
 export namespace SourceLocation {
   /**
-   * <p>The Amazon Simple Storage Service URI of the notebook source file.</p>
+   * The Amazon Simple Storage Service URI of the notebook source file.
+   *
    * @public
    */
   export interface S3Member {
@@ -3604,7 +4113,8 @@ export namespace SourceLocation {
   }
 
   /**
-   * <p>The Amazon Simple Storage Service objects to import as the notebook's cells. One cell is created for each object, in the order in which you list them.</p>
+   * The Amazon Simple Storage Service objects to import as the notebook's cells. One cell is created for each object, in the order in which you list them.
+   *
    * @public
    */
   export interface S3FilesMember {
@@ -3638,43 +4148,50 @@ export namespace SourceLocation {
  */
 export interface StartNotebookImportInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to import the notebook.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which to import the notebook.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that will own the imported notebook.</p>
+   * The identifier of the project that will own the imported notebook.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The source location of the notebook to import. Specify either a single Amazon Simple Storage Service URI, or a list of objects to import as the notebook's cells.</p>
+   * The source location of the notebook to import. Specify either a single Amazon Simple Storage Service URI, or a list of objects to import as the notebook's cells.
+   *
    * @public
    */
   sourceLocation: SourceLocation | undefined;
 
   /**
-   * <p>The name of the imported notebook. The name must be between 1 and 256 characters.</p>
+   * The name of the imported notebook. The name must be between 1 and 256 characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the imported notebook.</p>
+   * The description of the imported notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the notebook to import. If not specified, defaults to <code>DATA</code>.</p>
+   * The type of the notebook to import. If not specified, defaults to `DATA`.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3685,61 +4202,71 @@ export interface StartNotebookImportInput {
  */
 export interface StartNotebookImportOutput {
   /**
-   * <p>The identifier of the imported notebook.</p>
+   * The identifier of the imported notebook.
+   *
    * @public
    */
   notebookId?: string | undefined;
 
   /**
-   * <p>The status of the notebook import.</p>
+   * The status of the notebook import.
+   *
    * @public
    */
   status?: NotebookStatus | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the imported notebook.</p>
+   * The identifier of the project that owns the imported notebook.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The name of the imported notebook.</p>
+   * The name of the imported notebook.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the imported notebook.</p>
+   * The description of the imported notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the imported notebook.</p>
+   * The type of the imported notebook.
+   *
    * @public
    */
   type?: NotebookType | undefined;
 
   /**
-   * <p>The source location from which the notebook was imported.</p>
+   * The source location from which the notebook was imported.
+   *
    * @public
    */
   sourceLocation?: SourceLocation | undefined;
 
   /**
-   * <p>The timestamp of when the notebook import was started.</p>
+   * The timestamp of when the notebook import was started.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who started the notebook import.</p>
+   * The identifier of the user who started the notebook import.
+   *
    * @public
    */
   createdBy?: string | undefined;
@@ -3750,49 +4277,57 @@ export interface StartNotebookImportOutput {
  */
 export interface StartNotebookSyncInput {
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to sync the notebook.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain in which to sync the notebook.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that will own the synced notebook.</p>
+   * The identifier of the project that will own the synced notebook.
+   *
    * @public
    */
   owningProjectIdentifier: string | undefined;
 
   /**
-   * <p>The source location of the notebook to sync. This specifies the Amazon Simple Storage Service URI of the notebook file.</p>
+   * The source location of the notebook to sync. This specifies the Amazon Simple Storage Service URI of the notebook file.
+   *
    * @public
    */
   sourceLocation: SourceLocation | undefined;
 
   /**
-   * <p>The Git metadata for the notebook sync, including repository, branch, and commit information.</p>
+   * The Git metadata for the notebook sync, including repository, branch, and commit information.
+   *
    * @public
    */
   gitMetadata?: GitMetadata | undefined;
 
   /**
-   * <p>The identifier of an existing notebook to sync. If not specified, a new notebook is created.</p>
+   * The identifier of an existing notebook to sync. If not specified, a new notebook is created.
+   *
    * @public
    */
   notebookId?: string | undefined;
 
   /**
-   * <p>The name of the notebook. The name must be between 1 and 256 characters.</p>
+   * The name of the notebook. The name must be between 1 and 256 characters.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the notebook.</p>
+   * The description of the notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3803,61 +4338,71 @@ export interface StartNotebookSyncInput {
  */
 export interface StartNotebookSyncOutput {
   /**
-   * <p>The identifier of the synced notebook.</p>
+   * The identifier of the synced notebook.
+   *
    * @public
    */
   notebookId?: string | undefined;
 
   /**
-   * <p>The status of the notebook sync.</p>
+   * The status of the notebook sync.
+   *
    * @public
    */
   status?: NotebookStatus | undefined;
 
   /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * The identifier of the Amazon SageMaker Unified Studio domain.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The identifier of the project that owns the synced notebook.</p>
+   * The identifier of the project that owns the synced notebook.
+   *
    * @public
    */
   owningProjectId?: string | undefined;
 
   /**
-   * <p>The source location from which the notebook was synced.</p>
+   * The source location from which the notebook was synced.
+   *
    * @public
    */
   sourceLocation?: SourceLocation | undefined;
 
   /**
-   * <p>The Git metadata associated with the synced notebook.</p>
+   * The Git metadata associated with the synced notebook.
+   *
    * @public
    */
   gitMetadata?: GitMetadata | undefined;
 
   /**
-   * <p>The name of the synced notebook.</p>
+   * The name of the synced notebook.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the synced notebook.</p>
+   * The description of the synced notebook.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the notebook sync was started.</p>
+   * The timestamp of when the notebook sync was started.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the user who started the notebook sync.</p>
+   * The identifier of the user who started the notebook sync.
+   *
    * @public
    */
   createdBy?: string | undefined;
@@ -3868,13 +4413,15 @@ export interface StartNotebookSyncOutput {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to be tagged in Amazon DataZone.</p>
+   * The ARN of the resource to be tagged in Amazon DataZone.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Specifies the tags for the <code>TagResource</code> action.</p>
+   * Specifies the tags for the `TagResource` action.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -3890,13 +4437,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource to be untagged in Amazon DataZone.</p>
+   * The ARN of the resource to be untagged in Amazon DataZone.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Specifies the tag keys for the <code>UntagResource</code> action.</p>
+   * Specifies the tag keys for the `UntagResource` action.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -3912,37 +4461,43 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountPoolInput {
   /**
-   * <p>The domain ID where the account pool that is to be updated lives.</p>
+   * The domain ID where the account pool that is to be updated lives.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the account pool that is to be updated.</p>
+   * The ID of the account pool that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name of the account pool that is to be updated.</p>
+   * The name of the account pool that is to be updated.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the account pool that is to be udpated.</p>
+   * The description of the account pool that is to be udpated.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * The mechanism used to resolve the account selection from the account pool.
+   *
    * @public
    */
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+   * The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler.
+   *
    * @public
    */
   accountSource?: AccountSource | undefined;
@@ -3953,67 +4508,78 @@ export interface UpdateAccountPoolInput {
  */
 export interface UpdateAccountPoolOutput {
   /**
-   * <p>The domain ID where the account pool that is to be updated lives.</p>
+   * The domain ID where the account pool that is to be updated lives.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The name of the account pool that is to be updated.</p>
+   * The name of the account pool that is to be updated.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the account pool that is to be updated.</p>
+   * The ID of the account pool that is to be updated.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The description of the account pool that is to be udpated.</p>
+   * The description of the account pool that is to be udpated.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The mechanism used to resolve the account selection from the account pool.</p>
+   * The mechanism used to resolve the account selection from the account pool.
+   *
    * @public
    */
   resolutionStrategy?: ResolutionStrategy | undefined;
 
   /**
-   * <p>The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler. </p>
+   * The source of accounts for the account pool. In the current release, it's either a static list of accounts provided by the customer or a custom Amazon Web Services Lambda handler.
+   *
    * @public
    */
   accountSource: AccountSource | undefined;
 
   /**
-   * <p>The user who created the account pool.</p>
+   * The user who created the account pool.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp at which the account pool was created.</p>
+   * The timestamp at which the account pool was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp at which the account pool was last updated.</p>
+   * The timestamp at which the account pool was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The user who last updated the account pool.</p>
+   * The user who last updated the account pool.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The domain ID in which the account pool that is to be updated lives.</p>
+   * The domain ID in which the account pool that is to be updated lives.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
@@ -4024,37 +4590,43 @@ export interface UpdateAccountPoolOutput {
  */
 export interface UpdateConnectionInput {
   /**
-   * <p>The configurations of the connection.</p>
+   * The configurations of the connection.
+   *
    * @public
    */
   configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The ID of the domain where a connection is to be updated.</p>
+   * The ID of the domain where a connection is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the connection to be updated.</p>
+   * The ID of the connection to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The description of a connection.</p>
+   * The description of a connection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The location where a connection is to be updated.</p>
+   * The location where a connection is to be updated.
+   *
    * @public
    */
   awsLocation?: AwsLocation | undefined;
 
   /**
-   * <p>The connection props.</p>
+   * The connection props.
+   *
    * @public
    */
   props?: ConnectionPropertiesPatch | undefined;
@@ -4065,73 +4637,85 @@ export interface UpdateConnectionInput {
  */
 export interface UpdateConnectionOutput {
   /**
-   * <p>The configurations of the connection.</p>
+   * The configurations of the connection.
+   *
    * @public
    */
   configurations?: Configuration[] | undefined;
 
   /**
-   * <p>The ID of the connection.</p>
+   * The ID of the connection.
+   *
    * @public
    */
   connectionId: string | undefined;
 
   /**
-   * <p>The connection description.</p>
+   * The connection description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The ID of the domain where a connection is to be updated.</p>
+   * The ID of the domain where a connection is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the domain unit where a connection is to be updated.</p>
+   * The ID of the domain unit where a connection is to be updated.
+   *
    * @public
    */
   domainUnitId: string | undefined;
 
   /**
-   * <p>The ID of the environment where a connection is to be updated.</p>
+   * The ID of the environment where a connection is to be updated.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>The name of the connection.</p>
+   * The name of the connection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The physical endpoints of the connection.</p>
+   * The physical endpoints of the connection.
+   *
    * @public
    */
   physicalEndpoints: PhysicalEndpoint[] | undefined;
 
   /**
-   * <p>The project ID of the connection.</p>
+   * The project ID of the connection.
+   *
    * @public
    */
   projectId?: string | undefined;
 
   /**
-   * <p>The connection props.</p>
+   * The connection props.
+   *
    * @public
    */
   props?: ConnectionPropertiesOutput | undefined;
 
   /**
-   * <p>The connection type.</p>
+   * The connection type.
+   *
    * @public
    */
   type: ConnectionType | undefined;
 
   /**
-   * <p>The scope of the connection.</p>
+   * The scope of the connection.
+   *
    * @public
    */
   scope?: ConnectionScope | undefined;
@@ -4142,25 +4726,29 @@ export interface UpdateConnectionOutput {
  */
 export interface UpdateDesignationInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain that contains the designation to update.</p>
+   * The identifier of the Amazon DataZone domain that contains the designation to update.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The unique ID of the designation to update.</p>
+   * The unique ID of the designation to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The updated name of the designation. The name must be unique within the domain.</p>
+   * The updated name of the designation. The name must be unique within the domain.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated human-readable description of the designation and its intended use.</p>
+   * The updated human-readable description of the designation and its intended use.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4185,25 +4773,29 @@ export interface UpdateDesignationInput {
  */
 export interface UpdateDesignationOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain that contains the designation.</p>
+   * The identifier of the Amazon DataZone domain that contains the designation.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The unique ID of the designation.</p>
+   * The unique ID of the designation.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the designation. The name is unique within the domain.</p>
+   * The name of the designation. The name is unique within the domain.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of the designation and its intended use.</p>
+   * A human-readable description of the designation and its intended use.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4230,19 +4822,22 @@ export interface UpdateDesignationOutput {
   deletionProtection: boolean | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone user who created the designation.</p>
+   * The identifier of the Amazon DataZone user who created the designation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The date and time when the designation was created.</p>
+   * The date and time when the designation was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the designation was last updated.</p>
+   * The date and time when the designation was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -4253,49 +4848,57 @@ export interface UpdateDesignationOutput {
  */
 export interface UpdateEnvironmentInput {
   /**
-   * <p>The identifier of the domain in which the environment is to be updated.</p>
+   * The identifier of the domain in which the environment is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the environment that is to be updated.</p>
+   * The identifier of the environment that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The name to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The description to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The glossary terms to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The blueprint version to which the environment should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
+   * The blueprint version to which the environment should be updated. You can only specify the following string for this parameter: `latest`.
+   *
    * @public
    */
   blueprintVersion?: string | undefined;
 
   /**
-   * <p>The user parameters of the environment.</p>
+   * The user parameters of the environment.
+   *
    * @public
    */
   userParameters?: EnvironmentParameter[] | undefined;
 
   /**
-   * <p>The configuration name of the environment.</p>
+   * The configuration name of the environment.
+   *
    * @public
    */
   environmentConfigurationName?: string | undefined;
@@ -4306,139 +4909,162 @@ export interface UpdateEnvironmentInput {
  */
 export interface UpdateEnvironmentOutput {
   /**
-   * <p>The project identifier of the environment.</p>
+   * The project identifier of the environment.
+   *
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * <p>The identifier of the environment that is to be updated.</p>
+   * The identifier of the environment that is to be updated.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The identifier of the domain in which the environment is to be updated.</p>
+   * The identifier of the domain in which the environment is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the environment.</p>
+   * The Amazon DataZone user who created the environment.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp of when the environment was created.</p>
+   * The timestamp of when the environment was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the environment was updated.</p>
+   * The timestamp of when the environment was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The name to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The description to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The profile identifier of the environment.</p>
+   * The profile identifier of the environment.
+   *
    * @public
    */
   environmentProfileId?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account in which the environment is to be updated.</p>
+   * The identifier of the Amazon Web Services account in which the environment is to be updated.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which the environment is updated.</p>
+   * The Amazon Web Services Region in which the environment is updated.
+   *
    * @public
    */
   awsAccountRegion?: string | undefined;
 
   /**
-   * <p>The provider identifier of the environment.</p>
+   * The provider identifier of the environment.
+   *
    * @public
    */
   provider: string | undefined;
 
   /**
-   * <p>The provisioned resources to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The provisioned resources to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   provisionedResources?: Resource[] | undefined;
 
   /**
-   * <p>The status to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The status to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   status?: EnvironmentStatus | undefined;
 
   /**
-   * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The environment actions to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   environmentActions?: ConfigurableEnvironmentAction[] | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The glossary terms to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The user parameters to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 
   /**
-   * <p>The last deployment of the environment.</p>
+   * The last deployment of the environment.
+   *
    * @public
    */
   lastDeployment?: Deployment | undefined;
 
   /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The provisioning properties to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   provisioningProperties?: ProvisioningProperties | undefined;
 
   /**
-   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code> action.</p>
+   * The deployment properties to be updated as part of the `UpdateEnvironment` action.
+   *
    * @public
    */
   deploymentProperties?: DeploymentProperties | undefined;
 
   /**
-   * <p>The blueprint identifier of the environment.</p>
+   * The blueprint identifier of the environment.
+   *
    * @public
    */
   environmentBlueprintId?: string | undefined;
 
   /**
-   * <p>The configuration ID of the environment.</p>
+   * The configuration ID of the environment.
+   *
    * @public
    */
   environmentConfigurationId?: string | undefined;
 
   /**
-   * <p>The configuration name of the environment.</p>
+   * The configuration name of the environment.
+   *
    * @public
    */
   environmentConfigurationName?: string | undefined;
@@ -4449,37 +5075,43 @@ export interface UpdateEnvironmentOutput {
  */
 export interface UpdateEnvironmentActionInput {
   /**
-   * <p>The domain ID of the environment action.</p>
+   * The domain ID of the environment action.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The environment ID of the environment action.</p>
+   * The environment ID of the environment action.
+   *
    * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the environment action.</p>
+   * The ID of the environment action.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The parameters of the environment action.</p>
+   * The parameters of the environment action.
+   *
    * @public
    */
   parameters?: ActionParameters | undefined;
 
   /**
-   * <p>The name of the environment action.</p>
+   * The name of the environment action.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the environment action.</p>
+   * The description of the environment action.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4490,37 +5122,43 @@ export interface UpdateEnvironmentActionInput {
  */
 export interface UpdateEnvironmentActionOutput {
   /**
-   * <p>The domain ID of the environment action.</p>
+   * The domain ID of the environment action.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The environment ID of the environment action.</p>
+   * The environment ID of the environment action.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The ID of the environment action.</p>
+   * The ID of the environment action.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the environment action.</p>
+   * The name of the environment action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The parameters of the environment action.</p>
+   * The parameters of the environment action.
+   *
    * @public
    */
   parameters: ActionParameters | undefined;
 
   /**
-   * <p>The description of the environment action.</p>
+   * The description of the environment action.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4531,37 +5169,43 @@ export interface UpdateEnvironmentActionOutput {
  */
 export interface UpdateEnvironmentBlueprintInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which an environment blueprint is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which an environment blueprint is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the environment blueprint to be updated.</p>
+   * The identifier of the environment blueprint to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The description to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The provisioning properties to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   provisioningProperties?: ProvisioningProperties | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The user parameters to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 
   /**
-   * <p>The category to update. The only valid value is <code>TOOLING</code>.</p>
+   * The category to update. The only valid value is `TOOLING`.
+   *
    * @public
    */
   blueprintCategory?: BlueprintCategory | undefined;
@@ -4572,67 +5216,78 @@ export interface UpdateEnvironmentBlueprintInput {
  */
 export interface UpdateEnvironmentBlueprintOutput {
   /**
-   * <p>The identifier of the blueprint to be updated.</p>
+   * The identifier of the blueprint to be updated.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The name to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The description to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The provider of the blueprint to be udpated.</p>
+   * The provider of the blueprint to be udpated.
+   *
    * @public
    */
   provider: string | undefined;
 
   /**
-   * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The provisioning properties to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   provisioningProperties: ProvisioningProperties | undefined;
 
   /**
-   * <p>The deployment properties to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The deployment properties to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   deploymentProperties?: DeploymentProperties | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The user parameters to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateEnvironmentBlueprint</code> action.</p>
+   * The glossary terms to be updated as part of the `UpdateEnvironmentBlueprint` action.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The category of the environment blueprint. The only valid value is <code>TOOLING</code>.</p>
+   * The category of the environment blueprint. The only valid value is `TOOLING`.
+   *
    * @public
    */
   blueprintCategory?: BlueprintCategory | undefined;
 
   /**
-   * <p>The timestamp of when the environment blueprint was created.</p>
+   * The timestamp of when the environment blueprint was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the blueprint was updated.</p>
+   * The timestamp of when the blueprint was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4643,43 +5298,50 @@ export interface UpdateEnvironmentBlueprintOutput {
  */
 export interface UpdateEnvironmentProfileInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which an environment profile is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which an environment profile is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the environment profile that is to be updated.</p>
+   * The identifier of the environment profile that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * The name to be updated as part of the `UpdateEnvironmentProfile` action.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * The description to be updated as part of the `UpdateEnvironmentProfile` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * The user parameters to be updated as part of the `UpdateEnvironmentProfile` action.
+   *
    * @public
    */
   userParameters?: EnvironmentParameter[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
+   * The Amazon Web Services account in which a specified environment profile is to be udpated.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
+   * The Amazon Web Services Region in which a specified environment profile is to be updated.
+   *
    * @public
    */
   awsAccountRegion?: string | undefined;
@@ -4690,73 +5352,85 @@ export interface UpdateEnvironmentProfileInput {
  */
 export interface UpdateEnvironmentProfileOutput {
   /**
-   * <p>The identifier of the environment profile that is to be udpated.</p>
+   * The identifier of the environment profile that is to be udpated.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which the environment profile is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which the environment profile is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account in which a specified environment profile is to be udpated.</p>
+   * The Amazon Web Services account in which a specified environment profile is to be udpated.
+   *
    * @public
    */
   awsAccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region in which a specified environment profile is to be updated.</p>
+   * The Amazon Web Services Region in which a specified environment profile is to be updated.
+   *
    * @public
    */
   awsAccountRegion?: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the environment profile.</p>
+   * The Amazon DataZone user who created the environment profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp of when the environment profile was created.</p>
+   * The timestamp of when the environment profile was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the environment profile was updated.</p>
+   * The timestamp of when the environment profile was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * The name to be updated as part of the `UpdateEnvironmentProfile` action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * The description to be updated as part of the `UpdateEnvironmentProfile` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the blueprint of the environment profile that is to be updated.</p>
+   * The identifier of the blueprint of the environment profile that is to be updated.
+   *
    * @public
    */
   environmentBlueprintId: string | undefined;
 
   /**
-   * <p>The identifier of the project of the environment profile that is to be updated.</p>
+   * The identifier of the project of the environment profile that is to be updated.
+   *
    * @public
    */
   projectId?: string | undefined;
 
   /**
-   * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code> action.</p>
+   * The user parameters to be updated as part of the `UpdateEnvironmentProfile` action.
+   *
    * @public
    */
   userParameters?: CustomParameter[] | undefined;
@@ -4767,19 +5441,22 @@ export interface UpdateEnvironmentProfileOutput {
  */
 export interface UpdateGroupProfileInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+   * The identifier of the Amazon DataZone domain in which a group profile is updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the group profile that is updated.</p>
+   * The identifier of the group profile that is updated.
+   *
    * @public
    */
   groupIdentifier: string | undefined;
 
   /**
-   * <p>The status of the group profile that is updated.</p>
+   * The status of the group profile that is updated.
+   *
    * @public
    */
   status: GroupProfileStatus | undefined;
@@ -4790,37 +5467,43 @@ export interface UpdateGroupProfileInput {
  */
 export interface UpdateGroupProfileOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
+   * The identifier of the Amazon DataZone domain in which a group profile is updated.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The identifier of the group profile that is updated.</p>
+   * The identifier of the group profile that is updated.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The status of the group profile that is updated.</p>
+   * The status of the group profile that is updated.
+   *
    * @public
    */
   status?: GroupProfileStatus | undefined;
 
   /**
-   * <p>The name of the group profile that is updated.</p>
+   * The name of the group profile that is updated.
+   *
    * @public
    */
   groupName?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role principal. This role is associated with the updated group profile.</p>
+   * The ARN of the IAM role principal. This role is associated with the updated group profile.
+   *
    * @public
    */
   rolePrincipalArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the IAM role principal. This principal is associated with the updated group profile.</p>
+   * The unique identifier of the IAM role principal. This principal is associated with the updated group profile.
+   *
    * @public
    */
   rolePrincipalId?: string | undefined;
@@ -4831,61 +5514,71 @@ export interface UpdateGroupProfileOutput {
  */
 export interface UpdateProjectInput {
   /**
-   * <p>The ID of the Amazon DataZone domain where a project is being updated.</p>
+   * The ID of the Amazon DataZone domain where a project is being updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the project that is to be updated.</p>
+   * The identifier of the project that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateProject</code> action.</p>
+   * The name to be updated as part of the `UpdateProject` action.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description to be updated as part of the <code>UpdateProject</code> action.</p>
+   * The description to be updated as part of the `UpdateProject` action.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The resource tags of the project.</p>
+   * The resource tags of the project.
+   *
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
 
   /**
-   * <p>The glossary terms to be updated as part of the <code>UpdateProject</code> action.</p>
+   * The glossary terms to be updated as part of the `UpdateProject` action.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 
   /**
-   * <p>The environment deployment details of the project.</p>
+   * The environment deployment details of the project.
+   *
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
 
   /**
-   * <p>The user parameters of the project.</p>
+   * The user parameters of the project.
+   *
    * @public
    */
   userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
 
   /**
-   * <p>The project profile version to which the project should be updated. You can only specify the following string for this parameter: <code>latest</code>.</p>
+   * The project profile version to which the project should be updated. You can only specify the following string for this parameter: `latest`.
+   *
    * @public
    */
   projectProfileVersion?: string | undefined;
@@ -4896,97 +5589,113 @@ export interface UpdateProjectInput {
  */
 export interface UpdateProjectOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a project is updated.</p>
+   * The identifier of the Amazon DataZone domain in which a project is updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project that is to be updated.</p>
+   * The identifier of the project that is to be updated.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the project that is to be updated.</p>
+   * The name of the project that is to be updated.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the project that is to be updated.</p>
+   * The description of the project that is to be updated.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the project.</p>
+   * The status of the project.
+   *
    * @public
    */
   projectStatus?: ProjectStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+   * Specifies the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   failureReasons?: ProjectDeletionError[] | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the project.</p>
+   * The Amazon DataZone user who created the project.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp of when the project was created.</p>
+   * The timestamp of when the project was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the project was last updated.</p>
+   * The timestamp of when the project was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The resource tags of the project.</p>
+   * The resource tags of the project.
+   *
    * @public
    */
   resourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p>The glossary terms of the project that are to be updated.</p>
+   * The glossary terms of the project that are to be updated.
+   *
    * @public
    */
   glossaryTerms?: string[] | undefined;
 
   /**
-   * <p>The ID of the domain unit.</p>
+   * The ID of the domain unit.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
 
   /**
-   * <p>The ID of the project profile.</p>
+   * The ID of the project profile.
+   *
    * @public
    */
   projectProfileId?: string | undefined;
 
   /**
-   * <p>The user parameters of the project.</p>
+   * The user parameters of the project.
+   *
    * @public
    */
   userParameters?: EnvironmentConfigurationUserParameter[] | undefined;
 
   /**
-   * <p>The environment deployment details of the project.</p>
+   * The environment deployment details of the project.
+   *
    * @public
    */
   environmentDeploymentDetails?: EnvironmentDeploymentDetails | undefined;
 
   /**
-   * <p>The category of the project.</p>
+   * The category of the project.
+   *
    * @public
    */
   projectCategory?: string | undefined;
@@ -4997,61 +5706,71 @@ export interface UpdateProjectOutput {
  */
 export interface UpdateProjectProfileInput {
   /**
-   * <p>The ID of the domain where a project profile is to be updated.</p>
+   * The ID of the domain where a project profile is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of a project profile that is to be updated.</p>
+   * The ID of a project profile that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name of a project profile.</p>
+   * The name of a project profile.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of a project profile.</p>
+   * The description of a project profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of a project profile.</p>
+   * The status of a project profile.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The resource tags of the project profile.</p>
+   * The resource tags of the project profile.
+   *
    * @public
    */
   projectResourceTags?: ResourceTagParameter[] | undefined;
 
   /**
-   * <p>Specifies whether custom project resource tags are supported.</p>
+   * Specifies whether custom project resource tags are supported.
+   *
    * @public
    */
   allowCustomProjectResourceTags?: boolean | undefined;
 
   /**
-   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * Field viewable through the UI that provides a project user with the allowed resource tag specifications.
+   *
    * @public
    */
   projectResourceTagsDescription?: string | undefined;
 
   /**
-   * <p>The environment configurations of a project profile.</p>
+   * The environment configurations of a project profile.
+   *
    * @public
    */
   environmentConfigurations?: EnvironmentConfiguration[] | undefined;
 
   /**
-   * <p>The ID of the domain unit where a project profile is to be updated.</p>
+   * The ID of the domain unit where a project profile is to be updated.
+   *
    * @public
    */
   domainUnitIdentifier?: string | undefined;
@@ -5062,79 +5781,92 @@ export interface UpdateProjectProfileInput {
  */
 export interface UpdateProjectProfileOutput {
   /**
-   * <p>The ID of the domain where project profile is to be updated.</p>
+   * The ID of the domain where project profile is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the project profile.</p>
+   * The ID of the project profile.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the project profile.</p>
+   * The name of the project profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of a project profile.</p>
+   * The description of a project profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the project profile.</p>
+   * The status of the project profile.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The resource tags of the project profile.</p>
+   * The resource tags of the project profile.
+   *
    * @public
    */
   projectResourceTags?: ResourceTagParameter[] | undefined;
 
   /**
-   * <p>Specifies whether custom project resource tags are supported.</p>
+   * Specifies whether custom project resource tags are supported.
+   *
    * @public
    */
   allowCustomProjectResourceTags?: boolean | undefined;
 
   /**
-   * <p>Field viewable through the UI that provides a project user with the allowed resource tag specifications.</p>
+   * Field viewable through the UI that provides a project user with the allowed resource tag specifications.
+   *
    * @public
    */
   projectResourceTagsDescription?: string | undefined;
 
   /**
-   * <p>The environment configurations of a project profile.</p>
+   * The environment configurations of a project profile.
+   *
    * @public
    */
   environmentConfigurations?: EnvironmentConfiguration[] | undefined;
 
   /**
-   * <p>The user who created a project profile.</p>
+   * The user who created a project profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp at which a project profile is created.</p>
+   * The timestamp at which a project profile is created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp at which a project profile was last updated.</p>
+   * The timestamp at which a project profile was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The domain unit ID of the project profile to be updated.</p>
+   * The domain unit ID of the project profile to be updated.
+   *
    * @public
    */
   domainUnitId?: string | undefined;
@@ -5145,25 +5877,29 @@ export interface UpdateProjectProfileOutput {
  */
 export interface UpdateRootDomainUnitOwnerInput {
   /**
-   * <p>The ID of the domain where the root domain unit owner is to be updated.</p>
+   * The ID of the domain where the root domain unit owner is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The current owner of the root domain unit.</p>
+   * The current owner of the root domain unit.
+   *
    * @public
    */
   currentOwner: string | undefined;
 
   /**
-   * <p>The new owner of the root domain unit.</p>
+   * The new owner of the root domain unit.
+   *
    * @public
    */
   newOwner: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -5179,37 +5915,43 @@ export interface UpdateRootDomainUnitOwnerOutput {}
  */
 export interface UpdateSubscriptionGrantStatusInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the subscription grant the status of which is to be updated.</p>
+   * The identifier of the subscription grant the status of which is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The identifier of the asset the subscription grant status of which is to be updated.</p>
+   * The identifier of the asset the subscription grant status of which is to be updated.
+   *
    * @public
    */
   assetIdentifier: string | undefined;
 
   /**
-   * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
+   * The status to be updated as part of the `UpdateSubscriptionGrantStatus` action.
+   *
    * @public
    */
   status: SubscriptionGrantStatus | undefined;
 
   /**
-   * <p>Specifies the error message that is returned if the operation cannot be successfully completed.</p>
+   * Specifies the error message that is returned if the operation cannot be successfully completed.
+   *
    * @public
    */
   failureCause?: FailureCause | undefined;
 
   /**
-   * <p>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
+   * The target name to be updated as part of the `UpdateSubscriptionGrantStatus` action.
+   *
    * @public
    */
   targetName?: string | undefined;
@@ -5220,73 +5962,84 @@ export interface UpdateSubscriptionGrantStatusInput {
  */
 export interface UpdateSubscriptionGrantStatusOutput {
   /**
-   * <p>The identifier of the subscription grant.</p>
+   * The identifier of the subscription grant.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon DataZone domain user who created the subscription grant status.</p>
+   * The Amazon DataZone domain user who created the subscription grant status.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the subscription grant status.</p>
+   * The Amazon DataZone user who updated the subscription grant status.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The timestamp of when the subscription grant status was created.</p>
+   * The timestamp of when the subscription grant status was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the subscription grant status is to be updated.</p>
+   * The timestamp of when the subscription grant status is to be updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The ID of the environment in which the subscription grant is updated.</p>
+   * The ID of the environment in which the subscription grant is updated.
+   *
    * @public
    */
   environmentId?: string | undefined;
 
   /**
-   * <p>The identifier of the subscription target whose subscription grant status is to be updated.</p>
+   * The identifier of the subscription target whose subscription grant status is to be updated.
+   *
    * @public
    */
   subscriptionTargetId: string | undefined;
 
   /**
-   * <p>The granted entity to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
+   * The granted entity to be updated as part of the `UpdateSubscriptionGrantStatus` action.
+   *
    * @public
    */
   grantedEntity: GrantedEntity | undefined;
 
   /**
-   * <p>The status to be updated as part of the <code>UpdateSubscriptionGrantStatus</code> action.</p>
+   * The status to be updated as part of the `UpdateSubscriptionGrantStatus` action.
+   *
    * @public
    */
   status: SubscriptionGrantOverallStatus | undefined;
 
   /**
-   * <p>The details of the asset for which the subscription grant is created.</p>
+   * The details of the asset for which the subscription grant is created.
+   *
    * @public
    */
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * <p>The identifier of the subscription.</p>
+   * The identifier of the subscription.
    *
    * @deprecated Multiple subscriptions can exist for a single grant.
    * @public
@@ -5299,19 +6052,22 @@ export interface UpdateSubscriptionGrantStatusOutput {
  */
 export interface UpdateSubscriptionRequestInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which a subscription request is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the subscription request that is to be updated.</p>
+   * The identifier of the subscription request that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The reason for the <code>UpdateSubscriptionRequest</code> action.</p>
+   * The reason for the `UpdateSubscriptionRequest` action.
+   *
    * @public
    */
   requestReason: string | undefined;
@@ -5322,85 +6078,99 @@ export interface UpdateSubscriptionRequestInput {
  */
 export interface UpdateSubscriptionRequestOutput {
   /**
-   * <p>The identifier of the subscription request that is to be updated.</p>
+   * The identifier of the subscription request that is to be updated.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the subscription request.</p>
+   * The Amazon DataZone user who created the subscription request.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the subscription request.</p>
+   * The Amazon DataZone user who updated the subscription request.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which a subscription request is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The status of the subscription request.</p>
+   * The status of the subscription request.
+   *
    * @public
    */
   status: SubscriptionRequestStatus | undefined;
 
   /**
-   * <p>The timestamp of when the subscription request was created.</p>
+   * The timestamp of when the subscription request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the subscription request was updated.</p>
+   * The timestamp of when the subscription request was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reason for the <code>UpdateSubscriptionRequest</code> action.</p>
+   * The reason for the `UpdateSubscriptionRequest` action.
+   *
    * @public
    */
   requestReason: string | undefined;
 
   /**
-   * <p>The subscribed principals of the subscription request.</p>
+   * The subscribed principals of the subscription request.
+   *
    * @public
    */
   subscribedPrincipals: SubscribedPrincipal[] | undefined;
 
   /**
-   * <p>The subscribed listings of the subscription request.</p>
+   * The subscribed listings of the subscription request.
+   *
    * @public
    */
   subscribedListings: SubscribedListing[] | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone user who reviews the subscription request.</p>
+   * The identifier of the Amazon DataZone user who reviews the subscription request.
+   *
    * @public
    */
   reviewerId?: string | undefined;
 
   /**
-   * <p>The decision comment of the <code>UpdateSubscriptionRequest</code> action.</p>
+   * The decision comment of the `UpdateSubscriptionRequest` action.
+   *
    * @public
    */
   decisionComment?: string | undefined;
 
   /**
-   * <p>The ID of the existing subscription.</p>
+   * The ID of the existing subscription.
+   *
    * @public
    */
   existingSubscriptionId?: string | undefined;
 
   /**
-   * <p>Metadata forms included in the subscription request.</p>
+   * Metadata forms included in the subscription request.
+   *
    * @public
    */
   metadataForms?: FormOutput[] | undefined;
@@ -5411,61 +6181,71 @@ export interface UpdateSubscriptionRequestOutput {
  */
 export interface UpdateSubscriptionTargetInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which a subscription target is to be updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the environment in which a subscription target is to be updated.</p>
+   * The identifier of the environment in which a subscription target is to be updated.
+   *
    * @public
    */
   environmentIdentifier: string | undefined;
 
   /**
-   * <p>Identifier of the subscription target that is to be updated.</p>
+   * Identifier of the subscription target that is to be updated.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The name to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The authorized principals to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The authorized principals to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   authorizedPrincipals?: string[] | undefined;
 
   /**
-   * <p>The applicable asset types to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The applicable asset types to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   applicableAssetTypes?: string[] | undefined;
 
   /**
-   * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The configuration to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   subscriptionTargetConfig?: SubscriptionTargetForm[] | undefined;
 
   /**
-   * <p>The manage access role to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The manage access role to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   manageAccessRole?: string | undefined;
 
   /**
-   * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The provider to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   provider?: string | undefined;
 
   /**
-   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually.
+   *
    * @public
    */
   subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
@@ -5476,97 +6256,113 @@ export interface UpdateSubscriptionTargetInput {
  */
 export interface UpdateSubscriptionTargetOutput {
   /**
-   * <p>Identifier of the subscription target that is to be updated.</p>
+   * Identifier of the subscription target that is to be updated.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The authorized principals to be updated as part of the <code>UpdateSubscriptionTarget</code> action. Updates are supported in batches of 5 at a time.</p>
+   * The authorized principals to be updated as part of the `UpdateSubscriptionTarget` action. Updates are supported in batches of 5 at a time.
+   *
    * @public
    */
   authorizedPrincipals: string[] | undefined;
 
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a subscription target is to be updated.</p>
+   * The identifier of the Amazon DataZone domain in which a subscription target is to be updated.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The identifier of the project in which a subscription target is to be updated.</p>
+   * The identifier of the project in which a subscription target is to be updated.
+   *
    * @public
    */
   projectId: string | undefined;
 
   /**
-   * <p>The identifier of the environment in which a subscription target is to be updated.</p>
+   * The identifier of the environment in which a subscription target is to be updated.
+   *
    * @public
    */
   environmentId: string | undefined;
 
   /**
-   * <p>The name to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The name to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The type to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who created the subscription target.</p>
+   * The Amazon DataZone user who created the subscription target.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The Amazon DataZone user who updated the subscription target.</p>
+   * The Amazon DataZone user who updated the subscription target.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>The timestamp of when a subscription target was created.</p>
+   * The timestamp of when a subscription target was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the subscription target was updated.</p>
+   * The timestamp of when the subscription target was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The manage access role to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The manage access role to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   manageAccessRole?: string | undefined;
 
   /**
-   * <p>The applicable asset types to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The applicable asset types to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   applicableAssetTypes: string[] | undefined;
 
   /**
-   * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The configuration to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
 
   /**
-   * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code> action.</p>
+   * The provider to be updated as part of the `UpdateSubscriptionTarget` action.
+   *
    * @public
    */
   provider: string | undefined;
 
   /**
-   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
+   * Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually.
+   *
    * @public
    */
   subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
@@ -5577,31 +6373,36 @@ export interface UpdateSubscriptionTargetOutput {
  */
 export interface UpdateUserProfileInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a user profile is updated.</p>
+   * The identifier of the Amazon DataZone domain in which a user profile is updated.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the user whose user profile is to be updated.</p>
+   * The identifier of the user whose user profile is to be updated.
+   *
    * @public
    */
   userIdentifier: string | undefined;
 
   /**
-   * <p>The type of the user profile that are to be updated.</p>
+   * The type of the user profile that are to be updated.
+   *
    * @public
    */
   type?: UserProfileType | undefined;
 
   /**
-   * <p>The status of the user profile that are to be updated.</p>
+   * The status of the user profile that are to be updated.
+   *
    * @public
    */
   status: UserProfileStatus | undefined;
 
   /**
-   * <p>The session name for IAM role sessions.</p>
+   * The session name for IAM role sessions.
+   *
    * @public
    */
   sessionName?: string | undefined;
@@ -5612,38 +6413,44 @@ export interface UpdateUserProfileInput {
  */
 export interface UpdateUserProfileOutput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which a user profile is updated.</p>
+   * The identifier of the Amazon DataZone domain in which a user profile is updated.
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The identifier of the user profile.</p>
+   * The identifier of the user profile.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The type of the user profile.</p>
+   * The type of the user profile.
+   *
    * @public
    */
   type?: UserProfileType | undefined;
 
   /**
-   * <p>The status of the user profile.</p>
+   * The status of the user profile.
+   *
    * @public
    */
   status?: UserProfileStatus | undefined;
 
   /**
-   * <p>The results of the UpdateUserProfile action.</p>
+   * The results of the UpdateUserProfile action.
+   *
    * @public
    */
   details?: UserProfileDetails | undefined;
 }
 
 /**
- * <p>A search filter clause in Amazon DataZone.</p>
+ * A search filter clause in Amazon DataZone.
+ *
  * @public
  */
 export type FilterClause =
@@ -5657,7 +6464,8 @@ export type FilterClause =
  */
 export namespace FilterClause {
   /**
-   * <p>A search filter in Amazon DataZone.</p>
+   * A search filter in Amazon DataZone.
+   *
    * @public
    */
   export interface FilterMember {
@@ -5668,7 +6476,8 @@ export namespace FilterClause {
   }
 
   /**
-   * <p>The 'and' search filter clause in Amazon DataZone.</p>
+   * The 'and' search filter clause in Amazon DataZone.
+   *
    * @public
    */
   export interface AndMember {
@@ -5679,7 +6488,8 @@ export namespace FilterClause {
   }
 
   /**
-   * <p>The 'or' search filter clause in Amazon DataZone.</p>
+   * The 'or' search filter clause in Amazon DataZone.
+   *
    * @public
    */
   export interface OrMember {
@@ -5712,7 +6522,8 @@ export namespace FilterClause {
 }
 
 /**
- * <p>The row filter.</p>
+ * The row filter.
+ *
  * @public
  */
 export type RowFilter =
@@ -5726,7 +6537,8 @@ export type RowFilter =
  */
 export namespace RowFilter {
   /**
-   * <p>The expression of the row filter.</p>
+   * The expression of the row filter.
+   *
    * @public
    */
   export interface ExpressionMember {
@@ -5737,7 +6549,8 @@ export namespace RowFilter {
   }
 
   /**
-   * <p>The 'and' clause of the row filter.</p>
+   * The 'and' clause of the row filter.
+   *
    * @public
    */
   export interface AndMember {
@@ -5748,7 +6561,8 @@ export namespace RowFilter {
   }
 
   /**
-   * <p>The 'or' clause of the row filter.</p>
+   * The 'or' clause of the row filter.
+   *
    * @public
    */
   export interface OrMember {
@@ -5781,42 +6595,49 @@ export namespace RowFilter {
 }
 
 /**
- * <p>The pattern describing the entities to be matched during the graph query.</p>
+ * The pattern describing the entities to be matched during the graph query.
+ *
  * @public
  */
 export interface EntityPattern {
   /**
-   * <p>The type of entity to be matched during the graph query.</p>
+   * The type of entity to be matched during the graph query.
+   *
    * @public
    */
   entityType: GraphEntityType | undefined;
 
   /**
-   * <p>The identifier of the root entity to start traversal from during the graph query.</p>
+   * The identifier of the root entity to start traversal from during the graph query.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>A search filter clause in Amazon DataZone.</p>
+   * A search filter clause in Amazon DataZone.
+   *
    * @public
    */
   filters?: FilterClause | undefined;
 }
 
 /**
- * <p>The row filter configuration details.</p>
+ * The row filter configuration details.
+ *
  * @public
  */
 export interface RowFilterConfiguration {
   /**
-   * <p>The row filter.</p>
+   * The row filter.
+   *
    * @public
    */
   rowFilter: RowFilter | undefined;
 
   /**
-   * <p>Specifies whether the row filter is sensitive.</p>
+   * Specifies whether the row filter is sensitive.
+   *
    * @public
    */
   sensitive?: boolean | undefined;
@@ -5827,61 +6648,71 @@ export interface RowFilterConfiguration {
  */
 export interface SearchInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
+   * The identifier of the Amazon DataZone domain.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The identifier of the owning project specified for the search.</p>
+   * The identifier of the owning project specified for the search.
+   *
    * @public
    */
   owningProjectIdentifier?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>Search</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * The maximum number of results to return in a single call to `Search`. When the number of results to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `Search` to list the next set of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>Search</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `Search` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The scope of the search.</p>
+   * The scope of the search.
+   *
    * @public
    */
   searchScope: InventorySearchScope | undefined;
 
   /**
-   * <p>Specifies the text for which to search.</p>
+   * Specifies the text for which to search.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>The details of the search.</p>
+   * The details of the search.
+   *
    * @public
    */
   searchIn?: SearchInItem[] | undefined;
 
   /**
-   * <p>Specifies the search filters.</p>
+   * Specifies the search filters.
+   *
    * @public
    */
   filters?: FilterClause | undefined;
 
   /**
-   * <p>Specifies the way in which the search results are to be sorted.</p>
+   * Specifies the way in which the search results are to be sorted.
+   *
    * @public
    */
   sort?: SearchSort | undefined;
 
   /**
-   * <p>Specifies additional attributes for the <code>Search</code> action.</p>
+   * Specifies additional attributes for the `Search` action.
+   *
    * @public
    */
   additionalAttributes?: SearchOutputAdditionalAttribute[] | undefined;
@@ -5892,55 +6723,64 @@ export interface SearchInput {
  */
 export interface SearchListingsInput {
   /**
-   * <p>The identifier of the domain in which to search listings.</p>
+   * The identifier of the domain in which to search listings.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the text for which to search.</p>
+   * Specifies the text for which to search.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>The details of the search.</p>
+   * The details of the search.
+   *
    * @public
    */
   searchIn?: SearchInItem[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>SearchListings</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchListings</code> to list the next set of results. </p>
+   * The maximum number of results to return in a single call to `SearchListings`. When the number of results to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `SearchListings` to list the next set of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchListings</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchListings` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Specifies the filters for the search of listings.</p>
+   * Specifies the filters for the search of listings.
+   *
    * @public
    */
   filters?: FilterClause | undefined;
 
   /**
-   * <p>Enables you to specify one or more attributes to compute and return counts grouped by field values.</p>
+   * Enables you to specify one or more attributes to compute and return counts grouped by field values.
+   *
    * @public
    */
   aggregations?: AggregationListItem[] | undefined;
 
   /**
-   * <p>Specifies the way for sorting the search results.</p>
+   * Specifies the way for sorting the search results.
+   *
    * @public
    */
   sort?: SearchSort | undefined;
 
   /**
-   * <p>Specifies additional attributes for the search.</p>
+   * Specifies additional attributes for the search.
+   *
    * @public
    */
   additionalAttributes?: SearchOutputAdditionalAttribute[] | undefined;
@@ -5951,62 +6791,72 @@ export interface SearchListingsInput {
  */
 export interface SearchTypesInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain in which to invoke the <code>SearchTypes</code> action.</p>
+   * The identifier of the Amazon DataZone domain in which to invoke the `SearchTypes` action.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call to <code>SearchTypes</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchTypes</code> to list the next set of results. </p>
+   * The maximum number of results to return in a single call to `SearchTypes`. When the number of results to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `SearchTypes` to list the next set of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
+   * When the number of results is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of results, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `SearchTypes` to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Specifies the scope of the search for types.</p>
+   * Specifies the scope of the search for types.
+   *
    * @public
    */
   searchScope: TypesSearchScope | undefined;
 
   /**
-   * <p>Specifies the text for which to search.</p>
+   * Specifies the text for which to search.
+   *
    * @public
    */
   searchText?: string | undefined;
 
   /**
-   * <p>The details of the search.</p>
+   * The details of the search.
+   *
    * @public
    */
   searchIn?: SearchInItem[] | undefined;
 
   /**
-   * <p>The filters for the <code>SearchTypes</code> action.</p>
+   * The filters for the `SearchTypes` action.
+   *
    * @public
    */
   filters?: FilterClause | undefined;
 
   /**
-   * <p>The specifies the way to sort the <code>SearchTypes</code> results.</p>
+   * The specifies the way to sort the `SearchTypes` results.
+   *
    * @public
    */
   sort?: SearchSort | undefined;
 
   /**
-   * <p>Specifies whether the search is managed.</p>
+   * Specifies whether the search is managed.
+   *
    * @public
    */
   managed: boolean | undefined;
 }
 
 /**
- * <p>The configuration details of the asset filter.</p>
+ * The configuration details of the asset filter.
+ *
  * @public
  */
 export type AssetFilterConfiguration =
@@ -6019,7 +6869,8 @@ export type AssetFilterConfiguration =
  */
 export namespace AssetFilterConfiguration {
   /**
-   * <p>The column configuration of the asset filter.</p>
+   * The column configuration of the asset filter.
+   *
    * @public
    */
   export interface ColumnConfigurationMember {
@@ -6029,7 +6880,8 @@ export namespace AssetFilterConfiguration {
   }
 
   /**
-   * <p>The row configuration of the asset filter.</p>
+   * The row configuration of the asset filter.
+   *
    * @public
    */
   export interface RowConfigurationMember {
@@ -6059,7 +6911,8 @@ export namespace AssetFilterConfiguration {
 }
 
 /**
- * <p>A clause to match a query pattern</p>
+ * A clause to match a query pattern
+ *
  * @public
  */
 export type MatchClause =
@@ -6072,7 +6925,8 @@ export type MatchClause =
  */
 export namespace MatchClause {
   /**
-   * <p>The pattern describing the query's relational traversal.</p>
+   * The pattern describing the query's relational traversal.
+   *
    * @public
    */
   export interface RelationPatternMember {
@@ -6082,7 +6936,8 @@ export namespace MatchClause {
   }
 
   /**
-   * <p>The pattern describing the entities for the query to traverse.</p>
+   * The pattern describing the entities for the query to traverse.
+   *
    * @public
    */
   export interface EntityPatternMember {
@@ -6116,37 +6971,43 @@ export namespace MatchClause {
  */
 export interface CreateAssetFilterInput {
   /**
-   * <p>The ID of the domain in which you want to create an asset filter.</p>
+   * The ID of the domain in which you want to create an asset filter.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the data asset.</p>
+   * The ID of the data asset.
+   *
    * @public
    */
   assetIdentifier: string | undefined;
 
   /**
-   * <p>The name of the asset filter.</p>
+   * The name of the asset filter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the asset filter.</p>
+   * The description of the asset filter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration of the asset filter.</p>
+   * The configuration of the asset filter.
+   *
    * @public
    */
   configuration: AssetFilterConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -6157,67 +7018,78 @@ export interface CreateAssetFilterInput {
  */
 export interface CreateAssetFilterOutput {
   /**
-   * <p>The ID of the asset filter.</p>
+   * The ID of the asset filter.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the domain where the asset filter is created.</p>
+   * The ID of the domain where the asset filter is created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the asset.</p>
+   * The ID of the asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The name of the asset filter.</p>
+   * The name of the asset filter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the asset filter.</p>
+   * The description of the asset filter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the asset filter.</p>
+   * The status of the asset filter.
+   *
    * @public
    */
   status?: FilterStatus | undefined;
 
   /**
-   * <p>The configuration of the asset filter.</p>
+   * The configuration of the asset filter.
+   *
    * @public
    */
   configuration: AssetFilterConfiguration | undefined;
 
   /**
-   * <p>The timestamp at which the asset filter was created.</p>
+   * The timestamp at which the asset filter was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The error message that is displayed if the asset filter is not created successfully.</p>
+   * The error message that is displayed if the asset filter is not created successfully.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The column names in the asset filter.</p>
+   * The column names in the asset filter.
+   *
    * @public
    */
   effectiveColumnNames?: string[] | undefined;
 
   /**
-   * <p>The row filter in the asset filter.</p>
+   * The row filter in the asset filter.
+   *
    * @public
    */
   effectiveRowFilter?: string | undefined;
@@ -6228,67 +7100,78 @@ export interface CreateAssetFilterOutput {
  */
 export interface GetAssetFilterOutput {
   /**
-   * <p>The ID of the asset filter.</p>
+   * The ID of the asset filter.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the domain where you want to get an asset filter.</p>
+   * The ID of the domain where you want to get an asset filter.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the data asset.</p>
+   * The ID of the data asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The name of the asset filter.</p>
+   * The name of the asset filter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the asset filter.</p>
+   * The description of the asset filter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the asset filter.</p>
+   * The status of the asset filter.
+   *
    * @public
    */
   status?: FilterStatus | undefined;
 
   /**
-   * <p>The configuration of the asset filter.</p>
+   * The configuration of the asset filter.
+   *
    * @public
    */
   configuration: AssetFilterConfiguration | undefined;
 
   /**
-   * <p>The timestamp at which the asset filter was created.</p>
+   * The timestamp at which the asset filter was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The error message that is displayed if the action does not complete successfully.</p>
+   * The error message that is displayed if the action does not complete successfully.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The column names of the asset filter.</p>
+   * The column names of the asset filter.
+   *
    * @public
    */
   effectiveColumnNames?: string[] | undefined;
 
   /**
-   * <p>The row filter of the asset filter.</p>
+   * The row filter of the asset filter.
+   *
    * @public
    */
   effectiveRowFilter?: string | undefined;
@@ -6299,37 +7182,43 @@ export interface GetAssetFilterOutput {
  */
 export interface UpdateAssetFilterInput {
   /**
-   * <p>The ID of the domain where you want to update an asset filter.</p>
+   * The ID of the domain where you want to update an asset filter.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the data asset.</p>
+   * The ID of the data asset.
+   *
    * @public
    */
   assetIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the asset filter.</p>
+   * The ID of the asset filter.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The name of the asset filter.</p>
+   * The name of the asset filter.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the asset filter.</p>
+   * The description of the asset filter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration of the asset filter.</p>
+   * The configuration of the asset filter.
+   *
    * @public
    */
   configuration?: AssetFilterConfiguration | undefined;
@@ -6340,67 +7229,78 @@ export interface UpdateAssetFilterInput {
  */
 export interface UpdateAssetFilterOutput {
   /**
-   * <p>The ID of the asset filter.</p>
+   * The ID of the asset filter.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of the domain where the asset filter was created.</p>
+   * The ID of the domain where the asset filter was created.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ID of the data asset.</p>
+   * The ID of the data asset.
+   *
    * @public
    */
   assetId: string | undefined;
 
   /**
-   * <p>The name of the asset filter.</p>
+   * The name of the asset filter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the asset filter.</p>
+   * The description of the asset filter.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the asset filter.</p>
+   * The status of the asset filter.
+   *
    * @public
    */
   status?: FilterStatus | undefined;
 
   /**
-   * <p>The configuration of the asset filter.</p>
+   * The configuration of the asset filter.
+   *
    * @public
    */
   configuration: AssetFilterConfiguration | undefined;
 
   /**
-   * <p>The timestamp at which the asset filter was created.</p>
+   * The timestamp at which the asset filter was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The error message that is displayed if the action is not completed successfully.</p>
+   * The error message that is displayed if the action is not completed successfully.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The column names of the asset filter.</p>
+   * The column names of the asset filter.
+   *
    * @public
    */
   effectiveColumnNames?: string[] | undefined;
 
   /**
-   * <p>The row filter of the asset filter.</p>
+   * The row filter of the asset filter.
+   *
    * @public
    */
   effectiveRowFilter?: string | undefined;
@@ -6411,31 +7311,36 @@ export interface UpdateAssetFilterOutput {
  */
 export interface QueryGraphInput {
   /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
+   * The identifier of the Amazon DataZone domain.
+   *
    * @public
    */
   domainIdentifier: string | undefined;
 
   /**
-   * <p>List of query match clauses.</p>
+   * List of query match clauses.
+   *
    * @public
    */
   match: MatchClause[] | undefined;
 
   /**
-   * <p>The maximum number of entities to return in a single call to <code>QueryGraph</code>. When the number of entities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+   * The maximum number of entities to return in a single call to `QueryGraph`. When the number of entities to be listed is greater than the value of `MaxResults`, the response contains a `NextToken` value that you can use in a subsequent call to `QueryGraph` to list the next set of entities.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+   * When the number of entities is greater than the default value for the `MaxResults` parameter, or if you explicitly specify a value for `MaxResults` that is less than the number of entities, the response includes a pagination token named `NextToken`. You can specify this `NextToken` value in a subsequent call to `QueryGraph` to list the next set of entities.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Additional details on the queried entity that can be requested in the response.</p>
+   * Additional details on the queried entity that can be requested in the response.
+   *
    * @public
    */
   additionalAttributes?: AdditionalAttributes | undefined;

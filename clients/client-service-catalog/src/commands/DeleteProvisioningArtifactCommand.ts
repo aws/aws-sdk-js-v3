@@ -23,10 +23,10 @@ export interface DeleteProvisioningArtifactCommandInput extends DeleteProvisioni
 export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>
- *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
- *          You cannot delete the last provisioning artifact for a product, because a product must have at
- *          least one provisioning artifact.</p>
+ * Deletes the specified provisioning artifact (also known as a version) for the specified product.
+ *
+ * You cannot delete a provisioning artifact associated with a product that was shared with you. You cannot delete the last provisioning artifact for a product, because a product must have at least one provisioning artifact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +53,20 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
+ *
+ * A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

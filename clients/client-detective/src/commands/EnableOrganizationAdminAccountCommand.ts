@@ -23,18 +23,16 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
 export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Designates the Detective administrator account for the organization in the
- *          current Region.</p>
- *          <p>If the account does not have Detective enabled, then enables Detective
- *          for that account and creates a new behavior graph.</p>
- *          <p>Can only be called by the organization management account.</p>
- *          <p>If the organization has a delegated administrator account in Organizations, then the
- *             Detective administrator account must be either the delegated administrator
- *          account or the organization management account.</p>
- *          <p>If the organization does not have a delegated administrator account in Organizations, then you can choose any account in the organization. If you choose an account other
- *          than the organization management account, Detective calls Organizations to
- *          make that account the delegated administrator account for Detective. The
- *          organization management account cannot be the delegated administrator account.</p>
+ * Designates the Detective administrator account for the organization in the current Region.
+ *
+ * If the account does not have Detective enabled, then enables Detective for that account and creates a new behavior graph.
+ *
+ * Can only be called by the organization management account.
+ *
+ * If the organization has a delegated administrator account in Organizations, then the Detective administrator account must be either the delegated administrator account or the organization management account.
+ *
+ * If the organization does not have a delegated administrator account in Organizations, then you can choose any account in the organization. If you choose an account other than the organization management account, Detective calls Organizations to make that account the delegated administrator account for Detective. The organization management account cannot be the delegated administrator account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,22 +57,24 @@ export interface EnableOrganizationAdminAccountCommandOutput extends __MetadataB
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request cannot be completed because too many other requests are occurring at the
- *          same time.</p>
+ *
+ * The request cannot be completed because too many other requests are occurring at the same time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

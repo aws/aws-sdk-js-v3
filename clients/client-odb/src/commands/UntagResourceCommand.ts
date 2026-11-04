@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes tags from the specified resource.</p>
+ * Removes tags from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,12 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link OdbClientResolvedConfig | config} for OdbClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+ *
+ * The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.
  *
  * @throws {@link OdbServiceException}
- * <p>Base exception class for all service exceptions from Odb service.</p>
  *
+ * Base exception class for all service exceptions from Odb service.
  *
  * @public
  */

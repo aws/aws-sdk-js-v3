@@ -23,12 +23,10 @@ export interface AddUploadBufferCommandInput extends AddUploadBufferInput {}
 export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __MetadataBearer {}
 
 /**
- * <p>Configures one or more gateway local disks as upload buffer for a specified gateway.
- *          This operation is supported for the stored volume, cached volume, and tape gateway
- *          types.</p>
- *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
- *          add upload buffer, and one or more disk IDs that you want to configure as upload
- *          buffer.</p>
+ * Configures one or more gateway local disks as upload buffer for a specified gateway. This operation is supported for the stored volume, cached volume, and tape gateway types.
+ *
+ * In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to add upload buffer, and one or more disk IDs that you want to configure as upload buffer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,16 +56,16 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To add upload buffer on local disk
  * ```javascript

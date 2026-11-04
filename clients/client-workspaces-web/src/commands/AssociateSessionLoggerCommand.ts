@@ -23,7 +23,8 @@ export interface AssociateSessionLoggerCommandInput extends AssociateSessionLogg
 export interface AssociateSessionLoggerCommandOutput extends AssociateSessionLoggerResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a session logger with a portal.</p>
+ * Associates a session logger with a portal.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +53,32 @@ export interface AssociateSessionLoggerCommandOutput extends AssociateSessionLog
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict.</p>
+ *
+ * There is a conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is an internal server error.</p>
+ *
+ * There is an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>There is a throttling error.</p>
+ *
+ * There is a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There is a validation error.</p>
+ *
+ * There is a validation error.
  *
  * @throws {@link WorkSpacesWebServiceException}
- * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpacesWeb service.
  *
  * @example Associate Session Logger with Portal
  * ```javascript

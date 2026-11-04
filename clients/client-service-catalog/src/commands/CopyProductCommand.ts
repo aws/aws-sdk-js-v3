@@ -23,13 +23,12 @@ export interface CopyProductCommandInput extends CopyProductInput {}
 export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataBearer {}
 
 /**
- * <p>Copies the specified source product to the specified target product or a new
- *          product.</p>
- *          <p>You can copy a product to the same account or another account. You can copy a product
- *          to the same Region or another Region. If you copy a product to another account, you must
- *          first share the product in a portfolio using <a>CreatePortfolioShare</a>.</p>
- *          <p>This operation is performed asynchronously. To track the progress of the
- *          operation, use <a>DescribeCopyProductStatus</a>.</p>
+ * Copies the specified source product to the specified target product or a new product.
+ *
+ * You can copy a product to the same account or another account. You can copy a product to the same Region or another Region. If you copy a product to another account, you must first share the product in a portfolio using CreatePortfolioShare.
+ *
+ * This operation is performed asynchronously. To track the progress of the operation, use DescribeCopyProductStatus.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +67,16 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

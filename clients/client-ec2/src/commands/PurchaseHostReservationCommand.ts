@@ -23,10 +23,8 @@ export interface PurchaseHostReservationCommandInput extends PurchaseHostReserva
 export interface PurchaseHostReservationCommandOutput extends PurchaseHostReservationResult, __MetadataBearer {}
 
 /**
- * <p>Purchase a reservation with configurations that match those of your Dedicated Host.
- *             You must have active Dedicated Hosts in your account before you purchase a reservation.
- *             This action results in the specified reservation being purchased and charged to your
- *             account.</p>
+ * Purchase a reservation with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation. This action results in the specified reservation being purchased and charged to your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,8 +85,8 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceException";
 
 /**
- * <p>The target request is invalid.</p>
+ * The target request is invalid.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -29,7 +30,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>A conflict occurred.</p>
+ * A conflict occurred.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -54,7 +56,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An access permissions issue occurred.</p>
+ * An access permissions issue occurred.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -79,7 +82,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred.</p>
+ * An internal server error occurred.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -104,7 +108,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>A service limit was exceeded.</p>
+ * A service limit was exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -129,7 +134,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The target resource cannot be found.</p>
+ * The target resource cannot be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -154,7 +160,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Too many service requests were made over the given time period.</p>
+ * Too many service requests were made over the given time period.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -179,7 +186,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>A concurrent access issue occurred.</p>
+ * A concurrent access issue occurred.
+ *
  * @public
  */
 export class ConcurrentAccessException extends __BaseException {

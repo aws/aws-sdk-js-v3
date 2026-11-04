@@ -23,7 +23,8 @@ export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
 export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new dashboard that can contain multiple widgets displaying cost and usage data. You can add custom widgets or use predefined widgets, arranging them in your preferred layout.</p>
+ * Creates a new dashboard that can contain multiple widgets displaying cost and usage data. You can add custom widgets or use predefined widgets, arranging them in your preferred layout.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -235,23 +236,28 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  * @see {@link BCMDashboardsClientResolvedConfig | config} for BCMDashboardsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+ *
+ * You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+ *
+ * An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.</p>
+ *
+ * The request would exceed a service quota. Review the service quotas for Amazon Web Services Billing and Cost Management Dashboards and retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+ *
+ * The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+ *
+ * The input parameters do not satisfy the requirements. Check the error message for specific validation details.
  *
  * @throws {@link BCMDashboardsServiceException}
- * <p>Base exception class for all service exceptions from BCMDashboards service.</p>
  *
+ * Base exception class for all service exceptions from BCMDashboards service.
  *
  * @example Creating a dashboard
  * ```javascript

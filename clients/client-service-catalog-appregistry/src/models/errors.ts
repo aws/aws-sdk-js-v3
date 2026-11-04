@@ -6,8 +6,8 @@ import {
 } from "./ServiceCatalogAppRegistryServiceException";
 
 /**
- * <p>There was a conflict when processing the request (for example, a resource with the given
- *       name already exists within the account).</p>
+ * There was a conflict when processing the request (for example, a resource with the given name already exists within the account).
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -28,7 +28,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The service is experiencing internal problems.</p>
+ * The service is experiencing internal problems.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -49,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -70,10 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *       The maximum number
- *       of resources per account
- *       has been reached.</p>
+ * The maximum number of resources per account has been reached.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -94,7 +94,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request has invalid or missing parameters.</p>
+ * The request has invalid or missing parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -115,11 +116,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>
- *       The maximum number
- *       of API requests
- *       has been exceeded.
- *     </p>
+ * The maximum number of API requests has been exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -127,7 +125,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The originating service code.</p>
+   * The originating service code.
+   *
    * @public
    */
   serviceCode?: string | undefined;

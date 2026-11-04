@@ -23,7 +23,10 @@ export interface ListRecommendationSummariesCommandInput extends ListRecommendat
 export interface ListRecommendationSummariesCommandOutput extends ListRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a concise representation of savings estimates for resources. Also returns de-duped savings across different types of recommendations.</p> <note> <p>The following filters are not supported for this API: <code>recommendationIds</code>, <code>resourceArns</code>, and <code>resourceIds</code>.</p> </note>
+ * Returns a concise representation of savings estimates for resources. Also returns de-duped savings across different types of recommendations.
+ *
+ * > **Note:** The following filters are not supported for this API: `recommendationIds`, `resourceArns`, and `resourceIds`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,20 +105,24 @@ export interface ListRecommendationSummariesCommandOutput extends ListRecommenda
  * @see {@link CostOptimizationHubClientResolvedConfig | config} for CostOptimizationHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * You are not authorized to use this operation with the given parameters.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link CostOptimizationHubServiceException}
- * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * Base exception class for all service exceptions from CostOptimizationHub service.
  *
  * @public
  */

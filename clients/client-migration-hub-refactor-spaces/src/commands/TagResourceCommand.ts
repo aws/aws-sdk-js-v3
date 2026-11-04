@@ -23,13 +23,10 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the tags of a given resource. Tags are metadata which can be used to manage a
- *       resource. To tag a resource, the caller account must be the same as the resource’s
- *         <code>OwnerAccountId</code>. Tagging resources in other accounts is not supported.</p>
- *          <note>
- *             <p>Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated resources, such as an
- *         environment’s transit gateway.</p>
- *          </note>
+ * Removes the tags of a given resource. Tags are metadata which can be used to manage a resource. To tag a resource, the caller account must be the same as the resource’s `OwnerAccountId`. Tagging resources in other accounts is not supported.
+ *
+ * > **Note:** Amazon Web Services Migration Hub Refactor Spaces does not propagate tags to orchestrated resources, such as an environment’s transit gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,18 +54,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link MigrationHubRefactorSpacesClientResolvedConfig | config} for MigrationHubRefactorSpacesClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist. </p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Service.
- *     </p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Service.
  *
  * @throws {@link MigrationHubRefactorSpacesServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubRefactorSpaces service.
  *
  * @public
  */

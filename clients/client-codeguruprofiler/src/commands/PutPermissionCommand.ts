@@ -23,32 +23,20 @@ export interface PutPermissionCommandInput extends PutPermissionRequest {}
 export interface PutPermissionCommandOutput extends PutPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Adds permissions to a profiling group's resource-based policy
- *             that are provided using an action group. If a profiling group doesn't have
- *             a resource-based policy, one is created for it using the permissions in the action group and
- *             the roles and users in the <code>principals</code> parameter.
- *         </p>
+ * Adds permissions to a profiling group's resource-based policy that are provided using an action group. If a profiling group doesn't have a resource-based policy, one is created for it using the permissions in the action group and the roles and users in the `principals` parameter.
  *
- *         <p> The one supported action group that can be added is <code>agentPermission</code>
- *             which grants <code>ConfigureAgent</code> and <code>PostAgent</code> permissions. For
- *             more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html">Resource-based
- *                 policies in CodeGuru Profiler</a> in the <i>Amazon CodeGuru Profiler User
- *                 Guide</i>, <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html">
- *                <code>ConfigureAgent</code>
- *             </a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html">
- *                <code>PostAgentProfile</code>
- *             </a>. </p>
  *
- *         <p>
- *             The first time you call <code>PutPermission</code> on a profiling group, do not specify a <code>revisionId</code> because
- *             it doesn't have a resource-based policy. Subsequent calls must provide a <code>revisionId</code> to specify
- *             which revision of the resource-based policy to add the permissions to.
- *         </p>
  *
- *         <p>
- *             The response contains the profiling group's JSON-formatted resource policy.
- *         </p>
+ * The one supported action group that can be added is `agentPermission` which grants `ConfigureAgent` and `PostAgent` permissions. For more information, see [Resource-based policies in CodeGuru Profiler](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html) in the *Amazon CodeGuru Profiler User Guide*, [`ConfigureAgent`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html), and [`PostAgentProfile`](https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html).
+ *
+ *
+ *
+ * The first time you call `PutPermission` on a profiling group, do not specify a `revisionId` because it doesn't have a resource-based policy. Subsequent calls must provide a `revisionId` to specify which revision of the resource-based policy to add the permissions to.
+ *
+ *
+ *
+ * The response contains the profiling group's JSON-formatted resource policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,26 +69,28 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state
- *         of a service resource associated with the request. Resolve the conflict
- *         before retrying this request.
- *       </p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request does not exist.</p>
+ *
+ * The resource specified in the request does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link CodeGuruProfilerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruProfiler service.
  *
  * @public
  */

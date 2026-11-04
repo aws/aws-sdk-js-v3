@@ -23,9 +23,10 @@ export interface UpdateScalingPlanCommandInput extends UpdateScalingPlanRequest 
 export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified scaling plan.</p>
- *          <p>You cannot update a scaling plan if it is in the process of being created, updated, or
- *          deleted.</p>
+ * Updates the specified scaling plan.
+ *
+ * You cannot update a scaling plan if it is in the process of being created, updated, or deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,21 +119,24 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to a
- *          scaling plan that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>The specified object could not be found.</p>
+ *
+ * The specified object could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ * An exception was thrown for a validation issue. Review the parameters provided.
  *
  * @throws {@link AutoScalingPlansServiceException}
- * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * Base exception class for all service exceptions from AutoScalingPlans service.
  *
  * @public
  */

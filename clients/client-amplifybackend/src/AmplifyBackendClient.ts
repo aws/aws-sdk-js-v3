@@ -405,7 +405,8 @@ export type AmplifyBackendClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface AmplifyBackendClientResolvedConfig extends AmplifyBackendClientResolvedConfigType {}
 
 /**
- * <p>AWS Amplify Admin API</p>
+ * AWS Amplify Admin API
+ *
  * @public
  */
 export class AmplifyBackendClient extends __Client<

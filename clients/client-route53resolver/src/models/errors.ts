@@ -4,9 +4,10 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Route53ResolverServiceException as __BaseException } from "./Route53ResolverServiceException";
 
 /**
- * <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
- *          <p>This error can also be thrown when a customer has reached the 5120 character limit for a
- * 			resource policy for CloudWatch Logs.</p>
+ * The current account doesn't have the IAM permissions required to perform the specified Resolver operation.
+ *
+ * This error can also be thrown when a customer has reached the 5120 character limit for a resource policy for CloudWatch Logs.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,9 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The requested state transition isn't valid. For example, you can't delete a firewall
- * 			domain list if it is in the process of being deleted, or you can't import domains into a
- * 			domain list that is in the process of being deleted.</p>
+ * The requested state transition isn't valid. For example, you can't delete a firewall domain list if it is in the process of being deleted, or you can't import domains into a domain list that is in the process of being deleted.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -54,7 +54,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>We encountered an unknown error. Try again in a few minutes.</p>
+ * We encountered an unknown error. Try again in a few minutes.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -77,7 +78,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>The request caused one or more limits to be exceeded.</p>
+ * The request caused one or more limits to be exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -86,7 +88,8 @@ export class LimitExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
+   * For a `LimitExceededException` error, the type of resource that exceeded the current limit.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -106,7 +109,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * The specified resource doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -115,7 +119,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>
+   * For a `ResourceNotFoundException` error, the type of resource that doesn't exist.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -135,7 +140,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled. Try again in a few minutes.</p>
+ * The request was throttled. Try again in a few minutes.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -158,8 +164,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
- * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
+ * You have provided an invalid command. If you ran the `UpdateFirewallDomains` request. supported values are `ADD`, `REMOVE`, or `REPLACE` a domain.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -182,7 +188,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters in this request are not valid.</p>
+ * One or more parameters in this request are not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -191,7 +198,8 @@ export class InvalidParameterException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>
+   * For an `InvalidParameterException` error, the name of the parameter that's invalid.
+   *
    * @public
    */
   FieldName?: string | undefined;
@@ -211,7 +219,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid.</p>
+ * The request is invalid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -234,7 +243,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource that you tried to create already exists.</p>
+ * The resource that you tried to create already exists.
+ *
  * @public
  */
 export class ResourceExistsException extends __BaseException {
@@ -243,7 +253,8 @@ export class ResourceExistsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>
+   * For a `ResourceExistsException` error, the type of resource that the error applies to.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -263,7 +274,8 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified resource isn't available.</p>
+ * The specified resource isn't available.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -272,7 +284,8 @@ export class ResourceUnavailableException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>
+   * For a `ResourceUnavailableException` error, the type of resource that isn't available.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -292,7 +305,8 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Fulfilling the request would cause one or more quotas to be exceeded.</p>
+ * Fulfilling the request would cause one or more quotas to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -315,7 +329,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource that you tried to update or delete is currently in use.</p>
+ * The resource that you tried to update or delete is currently in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -324,7 +339,8 @@ export class ResourceInUseException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>
+   * For a `ResourceInUseException` error, the type of resource that is currently in use.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -344,7 +360,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * The specified resource doesn't exist.
+ *
  * @public
  */
 export class UnknownResourceException extends __BaseException {
@@ -367,7 +384,8 @@ export class UnknownResourceException extends __BaseException {
 }
 
 /**
- * <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
+ * The value that you specified for `NextToken` in a `List` request isn't valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -390,7 +408,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The specified Resolver rule policy is invalid.</p>
+ * The specified Resolver rule policy is invalid.
+ *
  * @public
  */
 export class InvalidPolicyDocument extends __BaseException {
@@ -413,7 +432,8 @@ export class InvalidPolicyDocument extends __BaseException {
 }
 
 /**
- * <p>The specified tag is invalid.</p>
+ * The specified tag is invalid.
+ *
  * @public
  */
 export class InvalidTagException extends __BaseException {

@@ -286,8 +286,8 @@ export interface GetContextGraphCommandOutput extends GetContextGraphOutput, __M
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Query a service and its immediate dependencies
  * ```javascript

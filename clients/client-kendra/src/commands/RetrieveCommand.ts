@@ -23,49 +23,25 @@ export interface RetrieveCommandInput extends RetrieveRequest {}
 export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves relevant passages or text excerpts given an input query.</p>
- *          <p>This API is similar to the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html">Query</a> API. However, by
- *             default, the <code>Query</code> API only returns excerpt passages of up to 100 token
- *             words. With the <code>Retrieve</code> API, you can retrieve longer passages of up to 200
- *             token words and up to 100 semantically relevant passages. This doesn't include
- *             question-answer or FAQ type responses from your index. The passages are text excerpts
- *             that can be semantically extracted from multiple documents and multiple parts of the
- *             same document. If in extreme cases your documents produce zero passages using the
- *                 <code>Retrieve</code> API, you can alternatively use the <code>Query</code> API and
- *             its types of responses.</p>
- *          <p>You can also do the following:</p>
- *          <ul>
- *             <li>
- *                <p>Override boosting at the index level</p>
- *             </li>
- *             <li>
- *                <p>Filter based on document fields or attributes</p>
- *             </li>
- *             <li>
- *                <p>Filter based on the user or their group access to documents</p>
- *             </li>
- *             <li>
- *                <p>View the confidence score bucket for a retrieved passage result. The
- *                     confidence bucket provides a relative ranking that indicates how confident
- *                         Amazon Kendra is that the response is relevant to the query.</p>
- *                <note>
- *                   <p>Confidence score buckets are currently available only for English.</p>
- *                </note>
- *             </li>
- *          </ul>
- *          <p>You can also include certain fields in the response that might provide useful
- *             additional information.</p>
- *          <p>The <code>Retrieve</code> API shares the number of <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html">query capacity
- *                 units</a> that you set for your index. For more information on what's included
- *             in a single capacity unit and the default base capacity for an index, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
- *                 capacity</a>.</p>
- *          <important>
- *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
- *                     <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If
- *                 you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
- *                     <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
- *                     <code>ValidationException</code> error.</p>
- *          </important>
+ * Retrieves relevant passages or text excerpts given an input query.
+ *
+ * This API is similar to the [Query](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Query.html) API. However, by default, the `Query` API only returns excerpt passages of up to 100 token words. With the `Retrieve` API, you can retrieve longer passages of up to 200 token words and up to 100 semantically relevant passages. This doesn't include question-answer or FAQ type responses from your index. The passages are text excerpts that can be semantically extracted from multiple documents and multiple parts of the same document. If in extreme cases your documents produce zero passages using the `Retrieve` API, you can alternatively use the `Query` API and its types of responses.
+ *
+ * You can also do the following:
+ *
+ * - Override boosting at the index level
+ * - Filter based on document fields or attributes
+ * - Filter based on the user or their group access to documents
+ * - View the confidence score bucket for a retrieved passage result. The confidence bucket provides a relative ranking that indicates how confident Amazon Kendra is that the response is relevant to the query.
+ *
+ *   > **Note:** Confidence score buckets are currently available only for English.
+ *
+ * You can also include certain fields in the response that might provide useful additional information.
+ *
+ * The `Retrieve` API shares the number of [query capacity units](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html) that you set for your index. For more information on what's included in a single capacity unit and the default base capacity for an index, see [Adjusting capacity](https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html).
+ *
+ * > **Important:** If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use `ATTRIBUTE_FILTER` to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use `USER_TOKEN` to configure user context policy, Amazon Kendra returns a `ValidationException` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -231,38 +207,36 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred with the request. Please fix any inconsistences with your
- *             resources and try again.</p>
+ *
+ * A conflict occurred with the request. Please fix any inconsistences with your resources and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
+ *
+ * The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
- *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
- *             an increase of limits.</p>
+ *
+ * You have exceeded the set limits for your Amazon Kendra service. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please reduce the number of requests
- *             and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.
  *
  * @throws {@link KendraServiceException}
- * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * Base exception class for all service exceptions from Kendra service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListDomainsCommandInput extends ListDomainsInput {}
 export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists Domains for a given account.</p>
+ * Lists Domains for a given account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface ListDomainsCommandOutput extends ListDomainsOutput, __MetadataB
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

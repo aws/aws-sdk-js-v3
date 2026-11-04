@@ -23,7 +23,8 @@ export interface ListRepositoriesCommandInput extends ListRepositoriesInput {}
 export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about one or more repositories.</p>
+ * Gets information about one or more repositories.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link InvalidContinuationTokenException} (client fault)
- *  <p>The specified continuation token is not valid.</p>
+ *
+ * The specified continuation token is not valid.
  *
  * @throws {@link InvalidOrderException} (client fault)
- *  <p>The specified sort order is not valid.</p>
+ *
+ * The specified sort order is not valid.
  *
  * @throws {@link InvalidSortByException} (client fault)
- *  <p>The specified sort by value is not valid.</p>
+ *
+ * The specified sort by value is not valid.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

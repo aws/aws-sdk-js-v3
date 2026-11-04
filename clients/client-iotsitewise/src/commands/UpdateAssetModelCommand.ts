@@ -23,27 +23,17 @@ export interface UpdateAssetModelCommandInput extends UpdateAssetModelRequest {}
 export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an asset model and all of the assets that were created from the model. Each asset
- *       created from the model inherits the updated asset model's property and hierarchy definitions.
- *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
- *         <i>IoT SiteWise User Guide</i>.</p>
- *          <important>
- *             <p>If you remove a property from an asset model, IoT SiteWise deletes all previous data for that
- *         property. You can’t change the type or data type of an existing property.</p>
- *             <p>To replace an existing asset model property with a new one with the same
- *           <code>name</code>, do the following:</p>
- *             <ol>
- *                <li>
- *                   <p>Submit an <code>UpdateAssetModel</code> request with the entire existing property
- *             removed.</p>
- *                </li>
- *                <li>
- *                   <p>Submit a second <code>UpdateAssetModel</code> request that includes the new
- *             property. The new asset property will have the same <code>name</code> as the previous
- *             one and IoT SiteWise will generate a new unique <code>id</code>.</p>
- *                </li>
- *             </ol>
- *          </important>
+ * Updates an asset model and all of the assets that were created from the model. Each asset created from the model inherits the updated asset model's property and hierarchy definitions. For more information, see [Updating assets and models](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html) in the *IoT SiteWise User Guide*.
+ *
+ * > **Important:**
+ * >
+ * > If you remove a property from an asset model, IoT SiteWise deletes all previous data for that property. You can’t change the type or data type of an existing property.
+ * >
+ * > To replace an existing asset model property with a new one with the same `name`, do the following:
+ * >
+ * > 1. Submit an `UpdateAssetModel` request with the entire existing property removed.
+ * > 2. Submit a second `UpdateAssetModel` request that includes the new property. The new asset property will have the same `name` as the previous one and IoT SiteWise will generate a new unique `id`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -250,41 +240,44 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The precondition in one or more of the request-header fields evaluated to
- *         <code>FALSE</code>.</p>
+ *
+ * The precondition in one or more of the request-header fields evaluated to `FALSE`.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

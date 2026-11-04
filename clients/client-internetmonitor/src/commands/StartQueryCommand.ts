@@ -23,12 +23,10 @@ export interface StartQueryCommandInput extends StartQueryInput {}
 export interface StartQueryCommandOutput extends StartQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period
- * 			for the data that you want returned by using <code>StartTime</code> and <code>EndTime</code>. You filter the query
- * 			results to return by providing parameters that you specify with <code>FilterParameters</code>.</p>
- *          <p>For more information about using the query interface, including examples, see
- * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">Using the Amazon CloudWatch Internet Monitor query interface</a>
- * 		in the Amazon CloudWatch Internet Monitor User Guide.</p>
+ * Start a query to return data for a specific query type for the Amazon CloudWatch Internet Monitor query interface. Specify a time period for the data that you want returned by using `StartTime` and `EndTime`. You filter the query results to return by providing parameters that you specify with `FilterParameters`.
+ *
+ * For more information about using the query interface, including examples, see [Using the Amazon CloudWatch Internet Monitor query interface](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html) in the Amazon CloudWatch Internet Monitor User Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +66,28 @@ export interface StartQueryCommandOutput extends StartQueryOutput, __MetadataBea
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

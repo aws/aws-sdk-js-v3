@@ -23,8 +23,8 @@ export interface MonitorContactCommandInput extends MonitorContactRequest {}
 export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by
- *     <i>userId</i> will be set to silent monitoring mode on the contact.</p>
+ * Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by *userId* will be set to silent monitoring mode on the contact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,29 +58,36 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link IdempotencyException} (client fault)
- *  <p>An entity with the same name already exists.</p>
+ *
+ * An entity with the same name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

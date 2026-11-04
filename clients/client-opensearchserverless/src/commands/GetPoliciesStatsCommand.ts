@@ -23,7 +23,8 @@ export interface GetPoliciesStatsCommandInput extends GetPoliciesStatsRequest {}
 export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns statistical information about your OpenSearch Serverless access policies, security configurations, and security policies.</p>
+ * Returns statistical information about your OpenSearch Serverless access policies, security configurations, and security policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,11 +62,12 @@ export interface GetPoliciesStatsCommandOutput extends GetPoliciesStatsResponse,
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * Thrown when an error internal to the service occurs while processing a request.
  *
  * @throws {@link OpenSearchServerlessServiceException}
- * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearchServerless service.
  *
  * @public
  */

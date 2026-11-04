@@ -23,9 +23,8 @@ export interface GetImageAncestryCommandInput extends GetImageAncestryRequest {}
 export interface GetImageAncestryCommandOutput extends GetImageAncestryResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the ancestry chain of the specified AMI, tracing its lineage back to the root
- *       AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html">AMI ancestry</a> in
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * Retrieves the ancestry chain of the specified AMI, tracing its lineage back to the root AMI. For more information, see [AMI ancestry](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-ancestry.html) in *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +60,8 @@ export interface GetImageAncestryCommandOutput extends GetImageAncestryResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

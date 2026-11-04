@@ -23,7 +23,8 @@ export interface DescribeNotificationRuleCommandInput extends DescribeNotificati
 export interface DescribeNotificationRuleCommandOutput extends DescribeNotificationRuleResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specified notification rule.</p>
+ * Returns information about a specified notification rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,15 +76,16 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *
+ * CodeStar Notifications can't find a resource that matches the provided ARN.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

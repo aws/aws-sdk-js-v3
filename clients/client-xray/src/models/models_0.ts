@@ -13,31 +13,36 @@ import type {
 } from "./enums";
 
 /**
- * <p>An alias for an edge.</p>
+ * An alias for an edge.
+ *
  * @public
  */
 export interface Alias {
   /**
-   * <p>The canonical name of the alias.</p>
+   * The canonical name of the alias.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A list of names for the alias, including the canonical name.</p>
+   * A list of names for the alias, including the canonical name.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The type of the alias.</p>
+   * The type of the alias.
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Value of a segment annotation. Has one of three value types: Number, Boolean, or String.</p>
+ * Value of a segment annotation. Has one of three value types: Number, Boolean, or String.
+ *
  * @public
  */
 export type AnnotationValue =
@@ -51,7 +56,8 @@ export type AnnotationValue =
  */
 export namespace AnnotationValue {
   /**
-   * <p>Value for a Number annotation.</p>
+   * Value for a Number annotation.
+   *
    * @public
    */
   export interface NumberValueMember {
@@ -62,7 +68,8 @@ export namespace AnnotationValue {
   }
 
   /**
-   * <p>Value for a Boolean annotation.</p>
+   * Value for a Boolean annotation.
+   *
    * @public
    */
   export interface BooleanValueMember {
@@ -73,7 +80,8 @@ export namespace AnnotationValue {
   }
 
   /**
-   * <p>Value for a String annotation.</p>
+   * Value for a String annotation.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -106,72 +114,72 @@ export namespace AnnotationValue {
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface ServiceId {
   /**
-   * <p></p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Information about a segment annotation.</p>
+ * Information about a segment annotation.
+ *
  * @public
  */
 export interface ValueWithServiceIds {
   /**
-   * <p>Values of the annotation.</p>
+   * Values of the annotation.
+   *
    * @public
    */
   AnnotationValue?: AnnotationValue | undefined;
 
   /**
-   * <p>Services to which the annotation applies.</p>
+   * Services to which the annotation applies.
+   *
    * @public
    */
   ServiceIds?: ServiceId[] | undefined;
 }
 
 /**
- * <p>The service within the service graph that has anomalously high fault rates. </p>
+ * The service within the service graph that has anomalously high fault rates.
+ *
  * @public
  */
 export interface AnomalousService {
   /**
-   * <p></p>
    * @public
    */
   ServiceId?: ServiceId | undefined;
 }
 
 /**
- * <p>A list of Availability Zones corresponding to the segments in a trace.</p>
+ * A list of Availability Zones corresponding to the segments in a trace.
+ *
  * @public
  */
 export interface AvailabilityZoneDetail {
   /**
-   * <p>The name of a corresponding Availability Zone.</p>
+   * The name of a corresponding Availability Zone.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -182,68 +190,73 @@ export interface AvailabilityZoneDetail {
  */
 export interface BatchGetTracesRequest {
   /**
-   * <p>Specify the trace IDs of requests for which to retrieve segments.</p>
+   * Specify the trace IDs of requests for which to retrieve segments.
+   *
    * @public
    */
   TraceIds: string[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be
- *       compiled from documents uploaded with <a href="https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html">PutTraceSegments</a>, or an
- *         <code>inferred</code> segment for a downstream service, generated from a subsegment sent by
- *       the service that called it.</p>
- *          <p>For the full segment document schema, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-api.html#xray-api-segmentdocuments">Amazon Web Services X-Ray segment
- *       documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
+ * A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with [PutTraceSegments](https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html), or an `inferred` segment for a downstream service, generated from a subsegment sent by the service that called it.
+ *
+ * For the full segment document schema, see [Amazon Web Services X-Ray segment documents](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-api.html#xray-api-segmentdocuments) in the *Amazon Web Services X-Ray Developer Guide*.
+ *
  * @public
  */
 export interface Segment {
   /**
-   * <p>The segment's ID.</p>
+   * The segment's ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The segment document.</p>
+   * The segment document.
+   *
    * @public
    */
   Document?: string | undefined;
 }
 
 /**
- * <p>A collection of segment documents with matching trace IDs.</p>
+ * A collection of segment documents with matching trace IDs.
+ *
  * @public
  */
 export interface Trace {
   /**
-   * <p>The unique identifier for the request that generated the trace's segments and
-   *       subsegments.</p>
+   * The unique identifier for the request that generated the trace's segments and subsegments.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The length of time in seconds between the start time of the earliest segment that started and the end time of the last segment that completed.</p>
+   * The length of time in seconds between the start time of the earliest segment that started and the end time of the last segment that completed.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>LimitExceeded is set to true when the trace has exceeded the <code>Trace document size</code> limit. For
-   *       more information about this limit and other X-Ray limits and quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">Amazon Web Services X-Ray endpoints and quotas</a>.</p>
+   * LimitExceeded is set to true when the trace has exceeded the `Trace document size` limit. For more information about this limit and other X-Ray limits and quotas, see [Amazon Web Services X-Ray endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/xray.html).
+   *
    * @public
    */
   LimitExceeded?: boolean | undefined;
 
   /**
-   * <p>Segment documents for the segments and subsegments that comprise the trace.</p>
+   * Segment documents for the segments and subsegments that comprise the trace.
+   *
    * @public
    */
   Segments?: Segment[] | undefined;
@@ -254,19 +267,22 @@ export interface Trace {
  */
 export interface BatchGetTracesResult {
   /**
-   * <p>Full traces for the specified requests.</p>
+   * Full traces for the specified requests.
+   *
    * @public
    */
   Traces?: Trace[] | undefined;
 
   /**
-   * <p>Trace IDs of requests that haven't been processed.</p>
+   * Trace IDs of requests that haven't been processed.
+   *
    * @public
    */
   UnprocessedTraceIds?: string[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -277,9 +293,8 @@ export interface BatchGetTracesResult {
  */
 export interface CancelTraceRetrievalRequest {
   /**
-   * <p>
    * Retrieval token.
-   * </p>
+   *
    * @public
    */
   RetrievalToken: string | undefined;
@@ -291,59 +306,48 @@ export interface CancelTraceRetrievalRequest {
 export interface CancelTraceRetrievalResult {}
 
 /**
- * <p>The structure containing configurations related to insights.</p>
+ * The structure containing configurations related to insights.
+ *
  * @public
  */
 export interface InsightsConfiguration {
   /**
-   * <p>Set the InsightsEnabled value to true to enable insights or false to disable
-   *             insights.</p>
+   * Set the InsightsEnabled value to true to enable insights or false to disable insights.
+   *
    * @public
    */
   InsightsEnabled?: boolean | undefined;
 
   /**
-   * <p>Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be
-   *             enabled on a group with InsightsEnabled set to true.</p>
+   * Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+   *
    * @public
    */
   NotificationsEnabled?: boolean | undefined;
 }
 
 /**
- * <p>A map that contains tag keys and tag values to attach to an Amazon Web Services X-Ray group or sampling
- *       rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
- *       in the <i>Amazon Web Services General Reference</i>.</p>
- *          <p>The following restrictions apply to tags:</p>
- *          <ul>
- *             <li>
- *                <p>Maximum number of user-applied tags per resource: 50</p>
- *             </li>
- *             <li>
- *                <p>Tag keys and values are case sensitive.</p>
- *             </li>
- *             <li>
- *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use. You
- *           cannot edit or delete system tags.</p>
- *             </li>
- *          </ul>
+ * A map that contains tag keys and tag values to attach to an Amazon Web Services X-Ray group or sampling rule. For more information about ways to use tags, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+ *
+ * The following restrictions apply to tags:
+ *
+ * - Maximum number of user-applied tags per resource: 50
+ * - Tag keys and values are case sensitive.
+ * - Don't use `aws:` as a prefix for keys; it's reserved for Amazon Web Services use. You cannot edit or delete system tags.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The
-   *       key can be a maximum of 128 characters, and can contain only Unicode letters, numbers, or separators,
-   *       or the following special characters: <code>+ - = . _ : /</code>
-   *          </p>
+   * A tag key, such as `Stage` or `Name`. A tag key cannot be empty. The key can be a maximum of 128 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>An optional tag value, such as <code>Production</code> or <code>test-only</code>. The value can be
-   *       a maximum of 255 characters, and contain only Unicode letters, numbers, or separators, or the following
-   *       special characters: <code>+ - = . _ : /</code>
-   *          </p>
+   * An optional tag value, such as `Production` or `test-only`. The value can be a maximum of 255 characters, and contain only Unicode letters, numbers, or separators, or the following special characters: `+ - = . _ : /`
+   *
    * @public
    */
   Value: string | undefined;
@@ -354,102 +358,79 @@ export interface Tag {
  */
 export interface CreateGroupRequest {
   /**
-   * <p>The case-sensitive name of the new group. Default is a reserved name and names must
-   *             be unique.</p>
+   * The case-sensitive name of the new group. Default is a reserved name and names must be unique.
+   *
    * @public
    */
   GroupName: string | undefined;
 
   /**
-   * <p>The filter expression defining criteria by which to group traces.</p>
+   * The filter expression defining criteria by which to group traces.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
 
   /**
-   * <p>The structure containing configurations related to insights.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
-   *                     new group or false to disable insights for the new group.</p>
-   *             </li>
-   *             <li>
-   *                <p>The NotificationsEnabled boolean can be set to true to enable insights
-   *                     notifications for the new group. Notifications may only be enabled on a group
-   *                     with InsightsEnabled set to true.</p>
-   *             </li>
-   *          </ul>
+   * The structure containing configurations related to insights.
+   *
+   * - The InsightsEnabled boolean can be set to true to enable insights for the new group or false to disable insights for the new group.
+   * - The NotificationsEnabled boolean can be set to true to enable insights notifications for the new group. Notifications may only be enabled on a group with InsightsEnabled set to true.
+   *
    * @public
    */
   InsightsConfiguration?: InsightsConfiguration | undefined;
 
   /**
-   * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group.
-   *             For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *          <p>The following restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of user-applied tags per resource: 50</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum tag key length: 128 Unicode characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum tag value length: 256 Unicode characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
-   *                     / = + - and @</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
-   *                     use.</p>
-   *             </li>
-   *          </ul>
+   * A map that contains one or more tag keys and tag values to attach to an X-Ray group. For more information about ways to use tags, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+   *
+   * The following restrictions apply to tags:
+   *
+   * - Maximum number of user-applied tags per resource: 50
+   * - Maximum tag key length: 128 Unicode characters
+   * - Maximum tag value length: 256 Unicode characters
+   * - Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @
+   * - Tag keys and values are case sensitive.
+   * - Don't use `aws:` as a prefix for keys; it's reserved for Amazon Web Services use.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Details and metadata for a group.</p>
+ * Details and metadata for a group.
+ *
  * @public
  */
 export interface Group {
   /**
-   * <p>The unique case-sensitive name of the group.</p>
+   * The unique case-sensitive name of the group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the group generated based on the GroupName.</p>
+   * The Amazon Resource Name (ARN) of the group generated based on the GroupName.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>The filter expression defining the parameters to include traces.</p>
+   * The filter expression defining the parameters to include traces.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
 
   /**
-   * <p>The structure containing configurations related to insights.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
-   *                     group or false to disable insights for the group.</p>
-   *             </li>
-   *             <li>
-   *                <p>The NotificationsEnabled boolean can be set to true to enable insights
-   *                     notifications through Amazon EventBridge for the group.</p>
-   *             </li>
-   *          </ul>
+   * The structure containing configurations related to insights.
+   *
+   * - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+   * - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
+   *
    * @public
    */
   InsightsConfiguration?: InsightsConfiguration | undefined;
@@ -460,124 +441,134 @@ export interface Group {
  */
 export interface CreateGroupResult {
   /**
-   * <p>The group that was created. Contains the name of the group that was created, the Amazon Resource Name
-   *             (ARN) of the group that was generated based on the group name, the filter expression, and the insight
-   *             configuration that was assigned to the group.</p>
+   * The group that was created. Contains the name of the group that was created, the Amazon Resource Name (ARN) of the group that was generated based on the group name, the filter expression, and the insight configuration that was assigned to the group.
+   *
    * @public
    */
   Group?: Group | undefined;
 }
 
 /**
- * <p>Enable temporary sampling rate increases when you detect anomalies to improve visibility.</p>
+ * Enable temporary sampling rate increases when you detect anomalies to improve visibility.
+ *
  * @public
  */
 export interface SamplingRateBoost {
   /**
-   * <p>Defines max temporary sampling rate to apply when a boost is triggered.
-   *       Calculated boost rate by X-Ray will be less than or equal to this max rate.</p>
+   * Defines max temporary sampling rate to apply when a boost is triggered. Calculated boost rate by X-Ray will be less than or equal to this max rate.
+   *
    * @public
    */
   MaxRate: number | undefined;
 
   /**
-   * <p>Sets the time window (in minutes) in which only one sampling rate boost can be triggered.
-   *       After a boost occurs, no further boosts are allowed until the next window.</p>
+   * Sets the time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+   *
    * @public
    */
   CooldownWindowMinutes: number | undefined;
 }
 
 /**
- * <p>A sampling rule that services use to decide whether to instrument a request. Rule
- *       fields can match properties of the service, or properties of a request. The service can ignore
- *       rules that don't match its properties.</p>
+ * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+ *
  * @public
  */
 export interface SamplingRule {
   /**
-   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+   *
    * @public
    */
   RuleARN?: string | undefined;
 
   /**
-   * <p>Matches the ARN of the Amazon Web Services resource on which the service runs.</p>
+   * Matches the ARN of the Amazon Web Services resource on which the service runs.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The priority of the sampling rule.</p>
+   * The priority of the sampling rule.
+   *
    * @public
    */
   Priority: number | undefined;
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * The percentage of matching requests to instrument, after the reservoir is exhausted.
+   *
    * @public
    */
   FixedRate: number | undefined;
 
   /**
-   * <p>A fixed number of matching requests to instrument per second, prior to applying the
-   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
+   * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+   *
    * @public
    */
   ReservoirSize: number | undefined;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * Matches the `name` that the service uses to identify itself in segments.
+   *
    * @public
    */
   ServiceName: string | undefined;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * Matches the `origin` that the service uses to identify its type in segments.
+   *
    * @public
    */
   ServiceType: string | undefined;
 
   /**
-   * <p>Matches the hostname from a request URL.</p>
+   * Matches the hostname from a request URL.
+   *
    * @public
    */
   Host: string | undefined;
 
   /**
-   * <p>Matches the HTTP method of a request.</p>
+   * Matches the HTTP method of a request.
+   *
    * @public
    */
   HTTPMethod: string | undefined;
 
   /**
-   * <p>Matches the path from a request URL.</p>
+   * Matches the path from a request URL.
+   *
    * @public
    */
   URLPath: string | undefined;
 
   /**
-   * <p>The version of the sampling rule format (<code>1</code>).</p>
+   * The version of the sampling rule format (`1`).
+   *
    * @public
    */
   Version: number | undefined;
 
   /**
-   * <p>Matches attributes derived from the request.</p>
+   * Matches attributes derived from the request.
+   *
    * @public
    */
   Attributes?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the multiplier applied to the base sampling rate.
-   *       This boost allows you to temporarily increase sampling without changing the rule's configuration.</p>
+   * Specifies the multiplier applied to the base sampling rate. This boost allows you to temporarily increase sampling without changing the rule's configuration.
+   *
    * @public
    */
   SamplingRateBoost?: SamplingRateBoost | undefined;
@@ -588,62 +579,52 @@ export interface SamplingRule {
  */
 export interface CreateSamplingRuleRequest {
   /**
-   * <p>The rule definition.</p>
+   * The rule definition.
+   *
    * @public
    */
   SamplingRule: SamplingRule | undefined;
 
   /**
-   * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling
-   *          rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
-   *          <p>The following restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of user-applied tags per resource: 50</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum tag key length: 128 Unicode characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum tag value length: 256 Unicode characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
-   *                / = + - and @</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services
-   *                use.</p>
-   *             </li>
-   *          </ul>
+   * A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+   *
+   * The following restrictions apply to tags:
+   *
+   * - Maximum number of user-applied tags per resource: 50
+   * - Maximum tag key length: 128 Unicode characters
+   * - Maximum tag value length: 256 Unicode characters
+   * - Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @
+   * - Tag keys and values are case sensitive.
+   * - Don't use `aws:` as a prefix for keys; it's reserved for Amazon Web Services use.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>A <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingRule.html">SamplingRule</a> and its metadata.</p>
+ * A [SamplingRule](https://docs.aws.amazon.com/xray/latest/api/API_SamplingRule.html) and its metadata.
+ *
  * @public
  */
 export interface SamplingRuleRecord {
   /**
-   * <p>The sampling rule.</p>
+   * The sampling rule.
+   *
    * @public
    */
   SamplingRule?: SamplingRule | undefined;
 
   /**
-   * <p>When the rule was created.</p>
+   * When the rule was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>When the rule was last modified.</p>
+   * When the rule was last modified.
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
@@ -654,7 +635,8 @@ export interface SamplingRuleRecord {
  */
 export interface CreateSamplingRuleResult {
   /**
-   * <p>The saved rule definition and metadata.</p>
+   * The saved rule definition and metadata.
+   *
    * @public
    */
   SamplingRuleRecord?: SamplingRuleRecord | undefined;
@@ -665,13 +647,15 @@ export interface CreateSamplingRuleResult {
  */
 export interface DeleteGroupRequest {
   /**
-   * <p>The case-sensitive name of the group.</p>
+   * The case-sensitive name of the group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The ARN of the group that was generated on creation.</p>
+   * The ARN of the group that was generated on creation.
+   *
    * @public
    */
   GroupARN?: string | undefined;
@@ -687,15 +671,15 @@ export interface DeleteGroupResult {}
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The name of the resource policy to delete.</p>
+   * The name of the resource policy to delete.
+   *
    * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * <p>Specifies a specific policy revision to delete. Provide a <code>PolicyRevisionId</code> to ensure an atomic delete operation. If the provided revision id does
-   *             not match the latest policy revision id, an <code>InvalidPolicyRevisionIdException</code> exception is returned.
-   *         </p>
+   * Specifies a specific policy revision to delete. Provide a `PolicyRevisionId` to ensure an atomic delete operation. If the provided revision id does not match the latest policy revision id, an `InvalidPolicyRevisionIdException` exception is returned.
+   *
    * @public
    */
   PolicyRevisionId?: string | undefined;
@@ -711,13 +695,15 @@ export interface DeleteResourcePolicyResult {}
  */
 export interface DeleteSamplingRuleRequest {
   /**
-   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+   *
    * @public
    */
   RuleARN?: string | undefined;
@@ -728,7 +714,8 @@ export interface DeleteSamplingRuleRequest {
  */
 export interface DeleteSamplingRuleResult {
   /**
-   * <p>The deleted rule definition and metadata.</p>
+   * The deleted rule definition and metadata.
+   *
    * @public
    */
   SamplingRuleRecord?: SamplingRuleRecord | undefined;
@@ -740,25 +727,28 @@ export interface DeleteSamplingRuleResult {
 export interface GetEncryptionConfigRequest {}
 
 /**
- * <p>A configuration document that specifies encryption configuration settings.</p>
+ * A configuration document that specifies encryption configuration settings.
+ *
  * @public
  */
 export interface EncryptionConfig {
   /**
-   * <p>The ID of the KMS key used for encryption, if applicable.</p>
+   * The ID of the KMS key used for encryption, if applicable.
+   *
    * @public
    */
   KeyId?: string | undefined;
 
   /**
-   * <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
+   * The encryption status. While the status is `UPDATING`, X-Ray may encrypt data with a combination of the new and old settings.
+   *
    * @public
    */
   Status?: EncryptionStatus | undefined;
 
   /**
-   * <p>The type of encryption. Set to <code>KMS</code> for encryption with KMS keys. Set to <code>NONE</code> for
-   *       default encryption.</p>
+   * The type of encryption. Set to `KMS` for encryption with KMS keys. Set to `NONE` for default encryption.
+   *
    * @public
    */
   Type?: EncryptionType | undefined;
@@ -769,7 +759,8 @@ export interface EncryptionConfig {
  */
 export interface GetEncryptionConfigResult {
   /**
-   * <p>The encryption configuration document.</p>
+   * The encryption configuration document.
+   *
    * @public
    */
   EncryptionConfig?: EncryptionConfig | undefined;
@@ -780,13 +771,15 @@ export interface GetEncryptionConfigResult {
  */
 export interface GetGroupRequest {
   /**
-   * <p>The case-sensitive name of the group.</p>
+   * The case-sensitive name of the group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The ARN of the group that was generated on creation.</p>
+   * The ARN of the group that was generated on creation.
+   *
    * @public
    */
   GroupARN?: string | undefined;
@@ -797,8 +790,8 @@ export interface GetGroupRequest {
  */
 export interface GetGroupResult {
   /**
-   * <p>The group that was requested. Contains the name of the group, the ARN of the group,
-   *             the filter expression, and the insight configuration assigned to the group.</p>
+   * The group that was requested. Contains the name of the group, the ARN of the group, the filter expression, and the insight configuration assigned to the group.
+   *
    * @public
    */
   Group?: Group | undefined;
@@ -809,47 +802,46 @@ export interface GetGroupResult {
  */
 export interface GetGroupsRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Details for a group without metadata.</p>
+ * Details for a group without metadata.
+ *
  * @public
  */
 export interface GroupSummary {
   /**
-   * <p>The unique case-sensitive name of the group.</p>
+   * The unique case-sensitive name of the group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The ARN of the group generated based on the GroupName.</p>
+   * The ARN of the group generated based on the GroupName.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>The filter expression defining the parameters to include traces.</p>
+   * The filter expression defining the parameters to include traces.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
 
   /**
-   * <p>The structure containing configurations related to insights.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
-   *                     group or false to disable insights for the group.</p>
-   *             </li>
-   *             <li>
-   *                <p>The NotificationsEnabled boolean can be set to true to enable insights notifications.
-   *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
-   *             </li>
-   *          </ul>
+   * The structure containing configurations related to insights.
+   *
+   * - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+   * - The NotificationsEnabled boolean can be set to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
+   *
    * @public
    */
   InsightsConfiguration?: InsightsConfiguration | undefined;
@@ -860,13 +852,15 @@ export interface GroupSummary {
  */
 export interface GetGroupsResult {
   /**
-   * <p>The collection of all active groups.</p>
+   * The collection of all active groups.
+   *
    * @public
    */
   Groups?: GroupSummary[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -877,44 +871,37 @@ export interface GetGroupsResult {
  */
 export interface GetIndexingRulesRequest {
   /**
-   * <p>
    * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
    *
-   *
-   * </p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *   The indexing rule configuration for probabilistic sampling.
- * </p>
+ * The indexing rule configuration for probabilistic sampling.
+ *
  * @public
  */
 export interface ProbabilisticRuleValue {
   /**
-   * <p>
-   *   Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data.
-   * </p>
+   * Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data.
+   *
    * @public
    */
   DesiredSamplingPercentage: number | undefined;
 
   /**
-   * <p>
-   *   Applied sampling percentage of traceIds.
-   * </p>
+   * Applied sampling percentage of traceIds.
+   *
    * @public
    */
   ActualSamplingPercentage?: number | undefined;
 }
 
 /**
- * <p>
- *   The indexing rule configuration.
- * </p>
+ * The indexing rule configuration.
+ *
  * @public
  */
 export type IndexingRuleValue =
@@ -926,9 +913,8 @@ export type IndexingRuleValue =
  */
 export namespace IndexingRuleValue {
   /**
-   * <p>
-   *   Indexing rule configuration that is used to probabilistically  sample traceIds.
-   * </p>
+   * Indexing rule configuration that is used to probabilistically sample traceIds.
+   *
    * @public
    */
   export interface ProbabilisticMember {
@@ -955,32 +941,28 @@ export namespace IndexingRuleValue {
 }
 
 /**
- * <p>
  * Rule used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray.
- * </p>
+ *
  * @public
  */
 export interface IndexingRule {
   /**
-   * <p>
-   *   The name of the indexing rule.
-   * </p>
+   * The name of the indexing rule.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
    * Displays when the rule was last modified, in Unix time seconds.
-   * </p>
+   *
    * @public
    */
   ModifiedAt?: Date | undefined;
 
   /**
-   * <p>
-   *   The indexing rule.
-   * </p>
+   * The indexing rule.
+   *
    * @public
    */
   Rule?: IndexingRuleValue | undefined;
@@ -991,16 +973,15 @@ export interface IndexingRule {
  */
 export interface GetIndexingRulesResult {
   /**
-   * <p>
-   *     Retrieves all indexing rules.</p>
+   * Retrieves all indexing rules.
+   *
    * @public
    */
   IndexingRules?: IndexingRule[] | undefined;
 
   /**
-   * <p>
-   *       Specify the pagination token returned by a previous request to retrieve the next page of indexes.
-   *     </p>
+   * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1011,112 +992,125 @@ export interface GetIndexingRulesResult {
  */
 export interface GetInsightRequest {
   /**
-   * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
+   * The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+   *
    * @public
    */
   InsightId: string | undefined;
 }
 
 /**
- * <p>Statistics that describe how the incident has impacted a service.</p>
+ * Statistics that describe how the incident has impacted a service.
+ *
  * @public
  */
 export interface RequestImpactStatistics {
   /**
-   * <p>The number of requests that have resulted in a fault,</p>
+   * The number of requests that have resulted in a fault,
+   *
    * @public
    */
   FaultCount?: number | undefined;
 
   /**
-   * <p>The number of successful requests.</p>
+   * The number of successful requests.
+   *
    * @public
    */
   OkCount?: number | undefined;
 
   /**
-   * <p>The total number of requests to the service.</p>
+   * The total number of requests to the service.
+   *
    * @public
    */
   TotalCount?: number | undefined;
 }
 
 /**
- * <p>When fault rates go outside of the expected range, X-Ray creates an insight. Insights
- *          tracks emergent issues within your applications.</p>
+ * When fault rates go outside of the expected range, X-Ray creates an insight. Insights tracks emergent issues within your applications.
+ *
  * @public
  */
 export interface Insight {
   /**
-   * <p>The insights unique identifier. </p>
+   * The insights unique identifier.
+   *
    * @public
    */
   InsightId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the group that the insight belongs to.</p>
+   * The Amazon Resource Name (ARN) of the group that the insight belongs to.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>The name of the group  that the insight belongs to.</p>
+   * The name of the group that the insight belongs to.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   RootCauseServiceId?: ServiceId | undefined;
 
   /**
-   * <p>The categories that label and describe the type of insight.</p>
+   * The categories that label and describe the type of insight.
+   *
    * @public
    */
   Categories?: InsightCategory[] | undefined;
 
   /**
-   * <p>The current state of the insight.</p>
+   * The current state of the insight.
+   *
    * @public
    */
   State?: InsightState | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the insight began.</p>
+   * The time, in Unix seconds, at which the insight began.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the insight ended.</p>
+   * The time, in Unix seconds, at which the insight ended.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>A brief description of the insight.</p>
+   * A brief description of the insight.
+   *
    * @public
    */
   Summary?: string | undefined;
 
   /**
-   * <p>The impact statistics of the client side service. This includes the number of requests to the client service
-   *          and whether the requests were faults or okay.</p>
+   * The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+   *
    * @public
    */
   ClientRequestImpactStatistics?: RequestImpactStatistics | undefined;
 
   /**
-   * <p>The impact statistics of the root cause service. This includes the number of requests to the client service
-   *          and whether the requests were faults or okay.</p>
+   * The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+   *
    * @public
    */
   RootCauseServiceRequestImpactStatistics?: RequestImpactStatistics | undefined;
 
   /**
-   * <p>The service within the insight that is most impacted by the incident.</p>
+   * The service within the insight that is most impacted by the incident.
+   *
    * @public
    */
   TopAnomalousServices?: AnomalousService[] | undefined;
@@ -1127,7 +1121,8 @@ export interface Insight {
  */
 export interface GetInsightResult {
   /**
-   * <p>The summary information of an insight.</p>
+   * The summary information of an insight.
+   *
    * @public
    */
   Insight?: Insight | undefined;
@@ -1138,58 +1133,64 @@ export interface GetInsightResult {
  */
 export interface GetInsightEventsRequest {
   /**
-   * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
+   * The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+   *
    * @public
    */
   InsightId: string | undefined;
 
   /**
-   * <p>Used to retrieve at most the specified value of events.</p>
+   * Used to retrieve at most the specified value of events.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Specify the pagination token returned by a previous request to retrieve the next page of events. </p>
+   * Specify the pagination token returned by a previous request to retrieve the next page of events.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>X-Ray reevaluates insights periodically until they are resolved, and records each intermediate state in an
- *          event. You can review incident events in the Impact Timeline on the Inspect page in the X-Ray console.</p>
+ * X-Ray reevaluates insights periodically until they are resolved, and records each intermediate state in an event. You can review incident events in the Impact Timeline on the Inspect page in the X-Ray console.
+ *
  * @public
  */
 export interface InsightEvent {
   /**
-   * <p>A brief description of the event.</p>
+   * A brief description of the event.
+   *
    * @public
    */
   Summary?: string | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the event was recorded.</p>
+   * The time, in Unix seconds, at which the event was recorded.
+   *
    * @public
    */
   EventTime?: Date | undefined;
 
   /**
-   * <p>The impact statistics of the client side service. This includes the number of requests to the client service
-   *          and whether the requests were faults or okay.</p>
+   * The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+   *
    * @public
    */
   ClientRequestImpactStatistics?: RequestImpactStatistics | undefined;
 
   /**
-   * <p>The impact statistics of the root cause service. This includes the number of requests to the client service
-   *          and whether the requests were faults or okay.</p>
+   * The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+   *
    * @public
    */
   RootCauseServiceRequestImpactStatistics?: RequestImpactStatistics | undefined;
 
   /**
-   * <p>The service during the event that is most impacted by the incident.</p>
+   * The service during the event that is most impacted by the incident.
+   *
    * @public
    */
   TopAnomalousServices?: AnomalousService[] | undefined;
@@ -1200,15 +1201,15 @@ export interface InsightEvent {
  */
 export interface GetInsightEventsResult {
   /**
-   * <p>A detailed description of the event. This includes the time of the event, client and
-   *          root cause impact statistics, and the top anomalous service at the time of the
-   *          event.</p>
+   * A detailed description of the event. This includes the time of the event, client and root cause impact statistics, and the top anomalous service at the time of the event.
+   *
    * @public
    */
   InsightEvents?: InsightEvent[] | undefined;
 
   /**
-   * <p>Use this token to retrieve the next page of insight events.</p>
+   * Use this token to retrieve the next page of insight events.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1219,99 +1220,97 @@ export interface GetInsightEventsResult {
  */
 export interface GetInsightImpactGraphRequest {
   /**
-   * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
+   * The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+   *
    * @public
    */
   InsightId: string | undefined;
 
   /**
-   * <p>The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value
-   *          provided and can't be more than 30 days old.</p>
+   * The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided.
-   *          The time range between the start time and end time can't be more than six hours. </p>
+   * The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided. The time range between the start time and end time can't be more than six hours.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>Specify the pagination token returned by a previous request to retrieve the next page of results. </p>
+   * Specify the pagination token returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The connection between two service in an insight impact graph.</p>
+ * The connection between two service in an insight impact graph.
+ *
  * @public
  */
 export interface InsightImpactGraphEdge {
   /**
-   * <p>Identifier of the edge. Unique within a service map.</p>
+   * Identifier of the edge. Unique within a service map.
+   *
    * @public
    */
   ReferenceId?: number | undefined;
 }
 
 /**
- * <p>Information about an application that processed requests, users that made requests, or downstream services,
- *          resources, and applications that an application used. </p>
+ * Information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
+ *
  * @public
  */
 export interface InsightImpactGraphService {
   /**
-   * <p>Identifier for the service. Unique within the service map.</p>
+   * Identifier for the service. Unique within the service map.
+   *
    * @public
    */
   ReferenceId?: number | undefined;
 
   /**
-   * <p>Identifier for the service. Unique within the service map.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, AWS::EC2::Instance for an application running
-   *                on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table that the application used. </p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, AWS::DynamoDB for downstream calls to Amazon
-   *                DynamoDB that didn't target a specific table. </p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, AWS::DynamoDB for downstream calls to Amazon
-   *                DynamoDB that didn't target a specific table. </p>
-   *             </li>
-   *             <li>
-   *                <p>remote - A downstream service of indeterminate type.</p>
-   *             </li>
-   *          </ul>
+   * Identifier for the service. Unique within the service map.
+   *
+   * - Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, AWS::EC2::Instance for an application running on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table that the application used.
+   * - Amazon Web Services Service - The type of an Amazon Web Services service. For example, AWS::DynamoDB for downstream calls to Amazon DynamoDB that didn't target a specific table.
+   * - Amazon Web Services Service - The type of an Amazon Web Services service. For example, AWS::DynamoDB for downstream calls to Amazon DynamoDB that didn't target a specific table.
+   * - remote - A downstream service of indeterminate type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The canonical name of the service.</p>
+   * The canonical name of the service.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A list of names for the service, including the canonical name.</p>
+   * A list of names for the service, including the canonical name.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>Identifier of the Amazon Web Services account in which the service runs.</p>
+   * Identifier of the Amazon Web Services account in which the service runs.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Connections to downstream services.</p>
+   * Connections to downstream services.
+   *
    * @public
    */
   Edges?: InsightImpactGraphEdge[] | undefined;
@@ -1322,43 +1321,50 @@ export interface InsightImpactGraphService {
  */
 export interface GetInsightImpactGraphResult {
   /**
-   * <p>The insight's unique identifier.</p>
+   * The insight's unique identifier.
+   *
    * @public
    */
   InsightId?: string | undefined;
 
   /**
-   * <p>The provided start time.</p>
+   * The provided start time.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The provided end time. </p>
+   * The provided end time.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the service graph started.</p>
+   * The time, in Unix seconds, at which the service graph started.
+   *
    * @public
    */
   ServiceGraphStartTime?: Date | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the service graph ended.</p>
+   * The time, in Unix seconds, at which the service graph ended.
+   *
    * @public
    */
   ServiceGraphEndTime?: Date | undefined;
 
   /**
-   * <p>The Amazon Web Services instrumented services related to the insight.</p>
+   * The Amazon Web Services instrumented services related to the insight.
+   *
    * @public
    */
   Services?: InsightImpactGraphService[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1369,130 +1375,146 @@ export interface GetInsightImpactGraphResult {
  */
 export interface GetInsightSummariesRequest {
   /**
-   * <p>The list of insight states. </p>
+   * The list of insight states.
+   *
    * @public
    */
   States?: InsightState[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.</p>
+   * The Amazon Resource Name (ARN) of the group. Required if the GroupName isn't provided.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>The name of the group. Required if the GroupARN isn't provided.</p>
+   * The name of the group. Required if the GroupARN isn't provided.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The beginning of the time frame in which the insights started. The start time can't be more than 30 days
-   *          old.</p>
+   * The beginning of the time frame in which the insights started. The start time can't be more than 30 days old.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time frame in which the insights ended. The end time can't be more than 30 days old.</p>
+   * The end of the time frame in which the insights ended. The end time can't be more than 30 days old.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * The maximum number of results to display.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Information that describes an insight.</p>
+ * Information that describes an insight.
+ *
  * @public
  */
 export interface InsightSummary {
   /**
-   * <p>The insights unique identifier. </p>
+   * The insights unique identifier.
+   *
    * @public
    */
   InsightId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the group that the insight belongs to.</p>
+   * The Amazon Resource Name (ARN) of the group that the insight belongs to.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>The name of the group  that the insight belongs to.</p>
+   * The name of the group that the insight belongs to.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   RootCauseServiceId?: ServiceId | undefined;
 
   /**
-   * <p> Categories The categories that label and describe the type of insight.</p>
+   * Categories The categories that label and describe the type of insight.
+   *
    * @public
    */
   Categories?: InsightCategory[] | undefined;
 
   /**
-   * <p>The current state of the insight.</p>
+   * The current state of the insight.
+   *
    * @public
    */
   State?: InsightState | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the insight began.</p>
+   * The time, in Unix seconds, at which the insight began.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time, in Unix seconds, at which the insight ended.</p>
+   * The time, in Unix seconds, at which the insight ended.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>A brief description of the insight.</p>
+   * A brief description of the insight.
+   *
    * @public
    */
   Summary?: string | undefined;
 
   /**
-   * <p>The impact statistics of the client side service. This includes the number of requests
-   *          to the client service and whether the requests were faults or okay. </p>
+   * The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+   *
    * @public
    */
   ClientRequestImpactStatistics?: RequestImpactStatistics | undefined;
 
   /**
-   * <p>The impact statistics of the root cause service. This includes the number of requests to
-   *          the client service and whether the requests were faults or okay. </p>
+   * The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+   *
    * @public
    */
   RootCauseServiceRequestImpactStatistics?: RequestImpactStatistics | undefined;
 
   /**
-   * <p>The service within the insight that is most impacted by the incident.</p>
+   * The service within the insight that is most impacted by the incident.
+   *
    * @public
    */
   TopAnomalousServices?: AnomalousService[] | undefined;
 
   /**
-   * <p>The time, in Unix seconds, that the insight was last updated.</p>
+   * The time, in Unix seconds, that the insight was last updated.
+   *
    * @public
    */
   LastUpdateTime?: Date | undefined;
@@ -1503,15 +1525,15 @@ export interface InsightSummary {
  */
 export interface GetInsightSummariesResult {
   /**
-   * <p>The summary of each insight within the group matching the provided filters. The summary
-   *          contains the InsightID, start and end time, the root cause service, the root cause and
-   *          client impact statistics, the top anomalous services, and the status of the insight.</p>
+   * The summary of each insight within the group matching the provided filters. The summary contains the InsightID, start and end time, the root cause service, the root cause and client impact statistics, the top anomalous services, and the status of the insight.
+   *
    * @public
    */
   InsightSummaries?: InsightSummary[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1522,373 +1544,384 @@ export interface GetInsightSummariesResult {
  */
 export interface GetRetrievedTracesGraphRequest {
   /**
-   * <p>
-   *     Retrieval token.
-   *   </p>
+   * Retrieval token.
+   *
    * @public
    */
   RetrievalToken: string | undefined;
 
   /**
-   * <p>
-   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
    *
-   *
-   *   </p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
  * The relation between two services.
- * </p>
+ *
  * @public
  */
 export interface GraphLink {
   /**
-   * <p>
    * Relationship of a trace to the corresponding service.
-   * </p>
+   *
    * @public
    */
   ReferenceType?: string | undefined;
 
   /**
-   * <p>
    * Source trace of a link relationship.
-   * </p>
+   *
    * @public
    */
   SourceTraceId?: string | undefined;
 
   /**
-   * <p>
    * Destination traces of a link relationship.
-   * </p>
+   *
    * @public
    */
   DestinationTraceIds?: string[] | undefined;
 }
 
 /**
- * <p>An entry in a histogram for a statistic. A histogram maps the range of observed values
- *       on the X axis, and the prevalence of each value on the Y axis.</p>
+ * An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.
+ *
  * @public
  */
 export interface HistogramEntry {
   /**
-   * <p>The value of the entry.</p>
+   * The value of the entry.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p>The prevalence of the entry.</p>
+   * The prevalence of the entry.
+   *
    * @public
    */
   Count?: number | undefined;
 }
 
 /**
- * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+ * Information about requests that failed with a 4xx Client Error status code.
+ *
  * @public
  */
 export interface ErrorStatistics {
   /**
-   * <p>The number of requests that failed with a 429 throttling status code.</p>
+   * The number of requests that failed with a 429 throttling status code.
+   *
    * @public
    */
   ThrottleCount?: number | undefined;
 
   /**
-   * <p>The number of requests that failed with untracked 4xx Client Error status
-   *       codes.</p>
+   * The number of requests that failed with untracked 4xx Client Error status codes.
+   *
    * @public
    */
   OtherCount?: number | undefined;
 
   /**
-   * <p>The total number of requests that failed with a 4xx Client Error status code.</p>
+   * The total number of requests that failed with a 4xx Client Error status code.
+   *
    * @public
    */
   TotalCount?: number | undefined;
 }
 
 /**
- * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+ * Information about requests that failed with a 5xx Server Error status code.
+ *
  * @public
  */
 export interface FaultStatistics {
   /**
-   * <p>The number of requests that failed with untracked 5xx Server Error status
-   *       codes.</p>
+   * The number of requests that failed with untracked 5xx Server Error status codes.
+   *
    * @public
    */
   OtherCount?: number | undefined;
 
   /**
-   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
+   * The total number of requests that failed with a 5xx Server Error status code.
+   *
    * @public
    */
   TotalCount?: number | undefined;
 }
 
 /**
- * <p>Response statistics for an edge.</p>
+ * Response statistics for an edge.
+ *
  * @public
  */
 export interface EdgeStatistics {
   /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   * The number of requests that completed with a 2xx Success status code.
+   *
    * @public
    */
   OkCount?: number | undefined;
 
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * Information about requests that failed with a 4xx Client Error status code.
+   *
    * @public
    */
   ErrorStatistics?: ErrorStatistics | undefined;
 
   /**
-   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+   * Information about requests that failed with a 5xx Server Error status code.
+   *
    * @public
    */
   FaultStatistics?: FaultStatistics | undefined;
 
   /**
-   * <p>The total number of completed requests.</p>
+   * The total number of completed requests.
+   *
    * @public
    */
   TotalCount?: number | undefined;
 
   /**
-   * <p>The aggregate response time of completed requests.</p>
+   * The aggregate response time of completed requests.
+   *
    * @public
    */
   TotalResponseTime?: number | undefined;
 }
 
 /**
- * <p>Information about a connection between two services. An edge can be a synchronous connection, such as typical
- *     call between client and service, or an asynchronous link, such as a Lambda function which retrieves an event from an
- *     SNS queue.</p>
+ * Information about a connection between two services. An edge can be a synchronous connection, such as typical call between client and service, or an asynchronous link, such as a Lambda function which retrieves an event from an SNS queue.
+ *
  * @public
  */
 export interface Edge {
   /**
-   * <p>Identifier of the edge. Unique within a service map.</p>
+   * Identifier of the edge. Unique within a service map.
+   *
    * @public
    */
   ReferenceId?: number | undefined;
 
   /**
-   * <p>The start time of the first segment on the edge.</p>
+   * The start time of the first segment on the edge.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time of the last segment on the edge.</p>
+   * The end time of the last segment on the edge.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>Response statistics for segments on the edge.</p>
+   * Response statistics for segments on the edge.
+   *
    * @public
    */
   SummaryStatistics?: EdgeStatistics | undefined;
 
   /**
-   * <p>A histogram that maps the spread of client response times on an edge. Only populated
-   *              for synchronous edges.</p>
+   * A histogram that maps the spread of client response times on an edge. Only populated for synchronous edges.
+   *
    * @public
    */
   ResponseTimeHistogram?: HistogramEntry[] | undefined;
 
   /**
-   * <p>Aliases for the edge.</p>
+   * Aliases for the edge.
+   *
    * @public
    */
   Aliases?: Alias[] | undefined;
 
   /**
-   * <p>Describes an asynchronous connection, with a value of <code>link</code>.</p>
+   * Describes an asynchronous connection, with a value of `link`.
+   *
    * @public
    */
   EdgeType?: string | undefined;
 
   /**
-   * <p>A histogram that maps the spread of event age when received by consumers.
-   *       Age is calculated each time an event is received. Only populated when <i>EdgeType</i> is
-   *       <code>link</code>.</p>
+   * A histogram that maps the spread of event age when received by consumers. Age is calculated each time an event is received. Only populated when *EdgeType* is `link`.
+   *
    * @public
    */
   ReceivedEventAgeHistogram?: HistogramEntry[] | undefined;
 }
 
 /**
- * <p>Response statistics for a service.</p>
+ * Response statistics for a service.
+ *
  * @public
  */
 export interface ServiceStatistics {
   /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   * The number of requests that completed with a 2xx Success status code.
+   *
    * @public
    */
   OkCount?: number | undefined;
 
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * Information about requests that failed with a 4xx Client Error status code.
+   *
    * @public
    */
   ErrorStatistics?: ErrorStatistics | undefined;
 
   /**
-   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+   * Information about requests that failed with a 5xx Server Error status code.
+   *
    * @public
    */
   FaultStatistics?: FaultStatistics | undefined;
 
   /**
-   * <p>The total number of completed requests.</p>
+   * The total number of completed requests.
+   *
    * @public
    */
   TotalCount?: number | undefined;
 
   /**
-   * <p>The aggregate response time of completed requests.</p>
+   * The aggregate response time of completed requests.
+   *
    * @public
    */
   TotalResponseTime?: number | undefined;
 }
 
 /**
- * <p>Information about an application that processed requests, users that made requests, or downstream services,
- *       resources, and applications that an application used.</p>
+ * Information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
+ *
  * @public
  */
 export interface Service {
   /**
-   * <p>Identifier for the service. Unique within the service map.</p>
+   * Identifier for the service. Unique within the service map.
+   *
    * @public
    */
   ReferenceId?: number | undefined;
 
   /**
-   * <p>The canonical name of the service.</p>
+   * The canonical name of the service.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A list of names for the service, including the canonical name.</p>
+   * A list of names for the service, including the canonical name.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>Indicates that the service was the first service to process a request.</p>
+   * Indicates that the service was the first service to process a request.
+   *
    * @public
    */
   Root?: boolean | undefined;
 
   /**
-   * <p>Identifier of the Amazon Web Services account in which the service runs.</p>
+   * Identifier of the Amazon Web Services account in which the service runs.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The type of service.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, <code>AWS::EC2::Instance</code> for an
-   *           application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the
-   *           application used.</p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Web Services Service - The type of an Amazon Web Services service. For example, <code>AWS::DynamoDB</code>
-   *           for downstream calls to Amazon DynamoDB that didn't target a specific table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>client</code> - Represents the clients that sent requests to a root
-   *           service.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>remote</code> - A downstream service of indeterminate type.</p>
-   *             </li>
-   *          </ul>
+   * The type of service.
+   *
+   * - Amazon Web Services Resource - The type of an Amazon Web Services resource. For example, `AWS::EC2::Instance` for an application running on Amazon EC2 or `AWS::DynamoDB::Table` for an Amazon DynamoDB table that the application used.
+   * - Amazon Web Services Service - The type of an Amazon Web Services service. For example, `AWS::DynamoDB` for downstream calls to Amazon DynamoDB that didn't target a specific table.
+   * - `client` - Represents the clients that sent requests to a root service.
+   * - `remote` - A downstream service of indeterminate type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The service's state.</p>
+   * The service's state.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The start time of the first segment that the service generated.</p>
+   * The start time of the first segment that the service generated.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time of the last segment that the service generated.</p>
+   * The end time of the last segment that the service generated.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>Connections to downstream services.</p>
+   * Connections to downstream services.
+   *
    * @public
    */
   Edges?: Edge[] | undefined;
 
   /**
-   * <p>Aggregated statistics for the service.</p>
+   * Aggregated statistics for the service.
+   *
    * @public
    */
   SummaryStatistics?: ServiceStatistics | undefined;
 
   /**
-   * <p>A histogram that maps the spread of service durations.</p>
+   * A histogram that maps the spread of service durations.
+   *
    * @public
    */
   DurationHistogram?: HistogramEntry[] | undefined;
 
   /**
-   * <p>A histogram that maps the spread of service response times.</p>
+   * A histogram that maps the spread of service response times.
+   *
    * @public
    */
   ResponseTimeHistogram?: HistogramEntry[] | undefined;
 }
 
 /**
- * <p>
- *   Retrieved information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
- * </p>
+ * Retrieved information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
+ *
  * @public
  */
 export interface RetrievedService {
   /**
-   * <p>Information about an application that processed requests, users that made requests, or downstream services,
-   *       resources, and applications that an application used.</p>
+   * Information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
+   *
    * @public
    */
   Service?: Service | undefined;
 
   /**
-   * <p>
-   *  Relation between two 2 services.
-   * </p>
+   * Relation between two 2 services.
+   *
    * @public
    */
   Links?: GraphLink[] | undefined;
@@ -1899,27 +1932,22 @@ export interface RetrievedService {
  */
 export interface GetRetrievedTracesGraphResult {
   /**
-   * <p>
    * Status of the retrieval.
-   * </p>
+   *
    * @public
    */
   RetrievalStatus?: RetrievalStatus | undefined;
 
   /**
-   * <p>
    * Retrieved services.
-   * </p>
+   *
    * @public
    */
   Services?: RetrievedService[] | undefined;
 
   /**
-   * <p>
-   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
    *
-   *
-   *   </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1930,7 +1958,8 @@ export interface GetRetrievedTracesGraphResult {
  */
 export interface GetSamplingRulesRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1941,13 +1970,15 @@ export interface GetSamplingRulesRequest {
  */
 export interface GetSamplingRulesResult {
   /**
-   * <p>Rule definitions and metadata.</p>
+   * Rule definitions and metadata.
+   *
    * @public
    */
   SamplingRuleRecords?: SamplingRuleRecord[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1958,43 +1989,50 @@ export interface GetSamplingRulesResult {
  */
 export interface GetSamplingStatisticSummariesRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Aggregated request sampling data for a sampling rule across all services for a 10-second window.</p>
+ * Aggregated request sampling data for a sampling rule across all services for a 10-second window.
+ *
  * @public
  */
 export interface SamplingStatisticSummary {
   /**
-   * <p>The name of the sampling rule.</p>
+   * The name of the sampling rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The start time of the reporting window.</p>
+   * The start time of the reporting window.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
 
   /**
-   * <p>The number of requests that matched the rule.</p>
+   * The number of requests that matched the rule.
+   *
    * @public
    */
   RequestCount?: number | undefined;
 
   /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * The number of requests recorded with borrowed reservoir quota.
+   *
    * @public
    */
   BorrowCount?: number | undefined;
 
   /**
-   * <p>The number of requests recorded.</p>
+   * The number of requests recorded.
+   *
    * @public
    */
   SampledCount?: number | undefined;
@@ -2005,102 +2043,113 @@ export interface SamplingStatisticSummary {
  */
 export interface GetSamplingStatisticSummariesResult {
   /**
-   * <p>Information about the number of requests instrumented for each sampling
-   *          rule.</p>
+   * Information about the number of requests instrumented for each sampling rule.
+   *
    * @public
    */
   SamplingStatisticSummaries?: SamplingStatisticSummary[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Request anomaly stats for a single rule from a service. Results are for the last 10
- *       seconds unless the service has been assigned a longer reporting interval after a previous call
- *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * Request anomaly stats for a single rule from a service. Results are for the last 10 seconds unless the service has been assigned a longer reporting interval after a previous call to [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html).
+ *
  * @public
  */
 export interface SamplingBoostStatisticsDocument {
   /**
-   * <p>The name of the sampling rule.</p>
+   * The name of the sampling rule.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * Matches the `name` that the service uses to identify itself in segments.
+   *
    * @public
    */
   ServiceName: string | undefined;
 
   /**
-   * <p>The current time.</p>
+   * The current time.
+   *
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The number of requests with anomaly.</p>
+   * The number of requests with anomaly.
+   *
    * @public
    */
   AnomalyCount: number | undefined;
 
   /**
-   * <p>The number of requests that associated to the rule.</p>
+   * The number of requests that associated to the rule.
+   *
    * @public
    */
   TotalCount: number | undefined;
 
   /**
-   * <p>The number of requests with anomaly recorded.</p>
+   * The number of requests with anomaly recorded.
+   *
    * @public
    */
   SampledAnomalyCount: number | undefined;
 }
 
 /**
- * <p>Request sampling results for a single rule from a service. Results are for the last 10
- *       seconds unless the service has been assigned a longer reporting interval after a previous call
- *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * Request sampling results for a single rule from a service. Results are for the last 10 seconds unless the service has been assigned a longer reporting interval after a previous call to [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html).
+ *
  * @public
  */
 export interface SamplingStatisticsDocument {
   /**
-   * <p>The name of the sampling rule.</p>
+   * The name of the sampling rule.
+   *
    * @public
    */
   RuleName: string | undefined;
 
   /**
-   * <p>A unique identifier for the service in hexadecimal.</p>
+   * A unique identifier for the service in hexadecimal.
+   *
    * @public
    */
   ClientID: string | undefined;
 
   /**
-   * <p>The current time.</p>
+   * The current time.
+   *
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>The number of requests that matched the rule.</p>
+   * The number of requests that matched the rule.
+   *
    * @public
    */
   RequestCount: number | undefined;
 
   /**
-   * <p>The number of requests recorded.</p>
+   * The number of requests recorded.
+   *
    * @public
    */
   SampledCount: number | undefined;
 
   /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * The number of requests recorded with borrowed reservoir quota.
+   *
    * @public
    */
   BorrowCount?: number | undefined;
@@ -2111,103 +2160,113 @@ export interface SamplingStatisticsDocument {
  */
 export interface GetSamplingTargetsRequest {
   /**
-   * <p>Information about rules that the service is using to sample requests.</p>
+   * Information about rules that the service is using to sample requests.
+   *
    * @public
    */
   SamplingStatisticsDocuments: SamplingStatisticsDocument[] | undefined;
 
   /**
-   * <p>Information about rules that the service is using to boost sampling rate.</p>
+   * Information about rules that the service is using to boost sampling rate.
+   *
    * @public
    */
   SamplingBoostStatisticsDocuments?: SamplingBoostStatisticsDocument[] | undefined;
 }
 
 /**
- * <p>Temporary boost sampling rate. X-Ray calculates sampling boost for each service based on the recent sampling boost stats of all services that called
- *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * Temporary boost sampling rate. X-Ray calculates sampling boost for each service based on the recent sampling boost stats of all services that called [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html).
+ *
  * @public
  */
 export interface SamplingBoost {
   /**
-   * <p>The calculated sampling boost rate for this service </p>
+   * The calculated sampling boost rate for this service
+   *
    * @public
    */
   BoostRate: number | undefined;
 
   /**
-   * <p>When the sampling boost expires.</p>
+   * When the sampling boost expires.
+   *
    * @public
    */
   BoostRateTTL: Date | undefined;
 }
 
 /**
- * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray
- *       calculates a new reservoir for each service based on the recent sampling results of all services that called
- *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray calculates a new reservoir for each service based on the recent sampling results of all services that called [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html).
+ *
  * @public
  */
 export interface SamplingTargetDocument {
   /**
-   * <p>The name of the sampling rule.</p>
+   * The name of the sampling rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * The percentage of matching requests to instrument, after the reservoir is exhausted.
+   *
    * @public
    */
   FixedRate?: number | undefined;
 
   /**
-   * <p>The number of requests per second that X-Ray allocated for this service.</p>
+   * The number of requests per second that X-Ray allocated for this service.
+   *
    * @public
    */
   ReservoirQuota?: number | undefined;
 
   /**
-   * <p>When the reservoir quota expires.</p>
+   * When the reservoir quota expires.
+   *
    * @public
    */
   ReservoirQuotaTTL?: Date | undefined;
 
   /**
-   * <p>The number of seconds for the service to wait before getting sampling targets
-   *       again.</p>
+   * The number of seconds for the service to wait before getting sampling targets again.
+   *
    * @public
    */
   Interval?: number | undefined;
 
   /**
-   * <p>The sampling boost that X-Ray allocated for this service.</p>
+   * The sampling boost that X-Ray allocated for this service.
+   *
    * @public
    */
   SamplingBoost?: SamplingBoost | undefined;
 }
 
 /**
- * <p>Sampling statistics from a call to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> that X-Ray
- *       could not process.</p>
+ * Sampling statistics from a call to [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html) that X-Ray could not process.
+ *
  * @public
  */
 export interface UnprocessedStatistics {
   /**
-   * <p>The name of the sampling rule.</p>
+   * The name of the sampling rule.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -2218,29 +2277,29 @@ export interface UnprocessedStatistics {
  */
 export interface GetSamplingTargetsResult {
   /**
-   * <p>Updated rules that the service should use to sample requests.</p>
+   * Updated rules that the service should use to sample requests.
+   *
    * @public
    */
   SamplingTargetDocuments?: SamplingTargetDocument[] | undefined;
 
   /**
-   * <p>The last time a user changed the sampling rule configuration. If
-   *          the sampling rule configuration changed since the service last retrieved it, the service
-   *          should call <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a> to get the latest version.</p>
+   * The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html) to get the latest version.
+   *
    * @public
    */
   LastRuleModification?: Date | undefined;
 
   /**
-   * <p>Information about <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html">SamplingStatisticsDocument</a> that X-Ray could not
-   *          process.</p>
+   * Information about [SamplingStatisticsDocument](https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html) that X-Ray could not process.
+   *
    * @public
    */
   UnprocessedStatistics?: UnprocessedStatistics[] | undefined;
 
   /**
-   * <p>Information about <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingBoostStatisticsDocument.html">SamplingBoostStatisticsDocument</a> that X-Ray could not
-   *          process.</p>
+   * Information about [SamplingBoostStatisticsDocument](https://docs.aws.amazon.com/xray/latest/api/API_SamplingBoostStatisticsDocument.html) that X-Ray could not process.
+   *
    * @public
    */
   UnprocessedBoostStatistics?: UnprocessedStatistics[] | undefined;
@@ -2251,31 +2310,36 @@ export interface GetSamplingTargetsResult {
  */
 export interface GetServiceGraphRequest {
   /**
-   * <p>The start of the time frame for which to generate a graph.</p>
+   * The start of the time frame for which to generate a graph.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the timeframe for which to generate a graph.</p>
+   * The end of the timeframe for which to generate a graph.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The name of a group based on which you want to generate a graph.</p>
+   * The name of a group based on which you want to generate a graph.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</p>
+   * The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2286,34 +2350,36 @@ export interface GetServiceGraphRequest {
  */
 export interface GetServiceGraphResult {
   /**
-   * <p>The start of the time frame for which the graph was generated.</p>
+   * The start of the time frame for which the graph was generated.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end of the time frame for which the graph was generated.</p>
+   * The end of the time frame for which the graph was generated.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The services that have processed a traced request during the specified time
-   *       frame.</p>
+   * The services that have processed a traced request during the specified time frame.
+   *
    * @public
    */
   Services?: Service[] | undefined;
 
   /**
-   * <p>A flag indicating whether the group's filter expression has been consistent, or
-   *       if the returned service graph may show traces from an older version of the group's filter
-   *       expression.</p>
+   * A flag indicating whether the group's filter expression has been consistent, or if the returned service graph may show traces from an older version of the group's filter expression.
+   *
    * @public
    */
   ContainsOldGroupVersions?: boolean | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2324,107 +2390,120 @@ export interface GetServiceGraphResult {
  */
 export interface GetTimeSeriesServiceStatisticsRequest {
   /**
-   * <p>The start of the time frame for which to aggregate statistics.</p>
+   * The start of the time frame for which to aggregate statistics.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time frame for which to aggregate statistics.</p>
+   * The end of the time frame for which to aggregate statistics.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>The case-sensitive name of the group for which to pull statistics from.</p>
+   * The case-sensitive name of the group for which to pull statistics from.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the group for which to pull statistics from.</p>
+   * The Amazon Resource Name (ARN) of the group for which to pull statistics from.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>A filter expression defining entities that will be aggregated for statistics.
-   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
-   *             statistics are returned. </p>
+   * A filter expression defining entities that will be aggregated for statistics. Supports ID, service, and edge functions. If no selector expression is specified, edge statistics are returned.
+   *
    * @public
    */
   EntitySelectorExpression?: string | undefined;
 
   /**
-   * <p>Aggregation period in seconds.</p>
+   * Aggregation period in seconds.
+   *
    * @public
    */
   Period?: number | undefined;
 
   /**
-   * <p>The forecasted high and low fault count values. Forecast enabled requests require the
-   *             EntitySelectorExpression ID be provided.</p>
+   * The forecasted high and low fault count values. Forecast enabled requests require the EntitySelectorExpression ID be provided.
+   *
    * @public
    */
   ForecastStatistics?: boolean | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The predicted high and low fault count. This is used to determine if a service has
- *          become anomalous and if an insight should be created.</p>
+ * The predicted high and low fault count. This is used to determine if a service has become anomalous and if an insight should be created.
+ *
  * @public
  */
 export interface ForecastStatistics {
   /**
-   * <p>The upper limit of fault counts for a service.</p>
+   * The upper limit of fault counts for a service.
+   *
    * @public
    */
   FaultCountHigh?: number | undefined;
 
   /**
-   * <p>The lower limit of fault counts for a service.</p>
+   * The lower limit of fault counts for a service.
+   *
    * @public
    */
   FaultCountLow?: number | undefined;
 }
 
 /**
- * <p>A list of TimeSeriesStatistic structures.</p>
+ * A list of TimeSeriesStatistic structures.
+ *
  * @public
  */
 export interface TimeSeriesServiceStatistics {
   /**
-   * <p>Timestamp of the window for which statistics are aggregated.</p>
+   * Timestamp of the window for which statistics are aggregated.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
 
   /**
-   * <p>Response statistics for an edge.</p>
+   * Response statistics for an edge.
+   *
    * @public
    */
   EdgeSummaryStatistics?: EdgeStatistics | undefined;
 
   /**
-   * <p>Response statistics for a service.</p>
+   * Response statistics for a service.
+   *
    * @public
    */
   ServiceSummaryStatistics?: ServiceStatistics | undefined;
 
   /**
-   * <p>The forecasted high and low fault count values.</p>
+   * The forecasted high and low fault count values.
+   *
    * @public
    */
   ServiceForecastStatistics?: ForecastStatistics | undefined;
 
   /**
-   * <p>The response time histogram for the selected entities.</p>
+   * The response time histogram for the selected entities.
+   *
    * @public
    */
   ResponseTimeHistogram?: HistogramEntry[] | undefined;
@@ -2435,20 +2514,22 @@ export interface TimeSeriesServiceStatistics {
  */
 export interface GetTimeSeriesServiceStatisticsResult {
   /**
-   * <p>The collection of statistics.</p>
+   * The collection of statistics.
+   *
    * @public
    */
   TimeSeriesServiceStatistics?: TimeSeriesServiceStatistics[] | undefined;
 
   /**
-   * <p>A flag indicating whether or not a group's filter expression has been consistent, or if a returned
-   *             aggregation might show statistics from an older version of the group's filter expression.</p>
+   * A flag indicating whether or not a group's filter expression has been consistent, or if a returned aggregation might show statistics from an older version of the group's filter expression.
+   *
    * @public
    */
   ContainsOldGroupVersions?: boolean | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2459,13 +2540,15 @@ export interface GetTimeSeriesServiceStatisticsResult {
  */
 export interface GetTraceGraphRequest {
   /**
-   * <p>Trace IDs of requests for which to generate a service graph.</p>
+   * Trace IDs of requests for which to generate a service graph.
+   *
    * @public
    */
   TraceIds: string[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2476,13 +2559,15 @@ export interface GetTraceGraphRequest {
  */
 export interface GetTraceGraphResult {
   /**
-   * <p>The services that have processed one of the specified requests.</p>
+   * The services that have processed one of the specified requests.
+   *
    * @public
    */
   Services?: Service[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2498,35 +2583,36 @@ export interface GetTraceSegmentDestinationRequest {}
  */
 export interface GetTraceSegmentDestinationResult {
   /**
-   * <p>
    * Retrieves the current destination.
-   * </p>
+   *
    * @public
    */
   Destination?: TraceSegmentDestination | undefined;
 
   /**
-   * <p>
-   *     Status of the retrieval.
-   *   </p>
+   * Status of the retrieval.
+   *
    * @public
    */
   Status?: TraceSegmentDestinationStatus | undefined;
 }
 
 /**
- * <p>The name and value of a sampling rule to apply to a trace summary.</p>
+ * The name and value of a sampling rule to apply to a trace summary.
+ *
  * @public
  */
 export interface SamplingStrategy {
   /**
-   * <p>The name of a sampling rule.</p>
+   * The name of a sampling rule.
+   *
    * @public
    */
   Name?: SamplingStrategyName | undefined;
 
   /**
-   * <p>The value of a sampling rule.</p>
+   * The value of a sampling rule.
+   *
    * @public
    */
   Value?: number | undefined;
@@ -2537,540 +2623,610 @@ export interface SamplingStrategy {
  */
 export interface GetTraceSummariesRequest {
   /**
-   * <p>The start of the time frame for which to retrieve traces.</p>
+   * The start of the time frame for which to retrieve traces.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>The end of the time frame for which to retrieve traces.</p>
+   * The end of the time frame for which to retrieve traces.
+   *
    * @public
    */
   EndTime: Date | undefined;
 
   /**
-   * <p>Query trace summaries by TraceId (trace start time), Event (trace update time), or Service (trace segment end time).</p>
+   * Query trace summaries by TraceId (trace start time), Event (trace update time), or Service (trace segment end time).
+   *
    * @public
    */
   TimeRangeType?: TimeRangeType | undefined;
 
   /**
-   * <p>Set to <code>true</code> to get summaries for only a subset of available
-   *       traces.</p>
+   * Set to `true` to get summaries for only a subset of available traces.
+   *
    * @public
    */
   Sampling?: boolean | undefined;
 
   /**
-   * <p>A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and
-   *             Value.</p>
+   * A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.
+   *
    * @public
    */
   SamplingStrategy?: SamplingStrategy | undefined;
 
   /**
-   * <p>Specify a filter expression to retrieve trace summaries for services or requests that
-   *       meet certain requirements.</p>
+   * Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
 
   /**
-   * <p>Specify the pagination token returned by a previous request to retrieve the next page
-   *       of results.</p>
+   * Specify the pagination token returned by a previous request to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The exception associated with a root cause.</p>
+ * The exception associated with a root cause.
+ *
  * @public
  */
 export interface RootCauseException {
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The message of the exception.</p>
+   * The message of the exception.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>A collection of segments and corresponding subsegments associated to a trace summary
- *       error.</p>
+ * A collection of segments and corresponding subsegments associated to a trace summary error.
+ *
  * @public
  */
 export interface ErrorRootCauseEntity {
   /**
-   * <p>The name of the entity.</p>
+   * The name of the entity.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The types and messages of the exceptions.</p>
+   * The types and messages of the exceptions.
+   *
    * @public
    */
   Exceptions?: RootCauseException[] | undefined;
 
   /**
-   * <p>A flag that denotes a remote subsegment.</p>
+   * A flag that denotes a remote subsegment.
+   *
    * @public
    */
   Remote?: boolean | undefined;
 }
 
 /**
- * <p>A collection of fields identifying the services in a trace summary error.</p>
+ * A collection of fields identifying the services in a trace summary error.
+ *
  * @public
  */
 export interface ErrorRootCauseService {
   /**
-   * <p>The service name.</p>
+   * The service name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A collection of associated service names.</p>
+   * A collection of associated service names.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The type associated to the service.</p>
+   * The type associated to the service.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The account ID associated to the service.</p>
+   * The account ID associated to the service.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The path of root cause entities found on the service. </p>
+   * The path of root cause entities found on the service.
+   *
    * @public
    */
   EntityPath?: ErrorRootCauseEntity[] | undefined;
 
   /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   * A Boolean value indicating if the service is inferred from the trace.
+   *
    * @public
    */
   Inferred?: boolean | undefined;
 }
 
 /**
- * <p>The root cause of a trace summary error.</p>
+ * The root cause of a trace summary error.
+ *
  * @public
  */
 export interface ErrorRootCause {
   /**
-   * <p>A list of services corresponding to an error. A service identifies a segment and it
-   *       contains a name, account ID, type, and inferred flag.</p>
+   * A list of services corresponding to an error. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
+   *
    * @public
    */
   Services?: ErrorRootCauseService[] | undefined;
 
   /**
-   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   * A flag that denotes that the root cause impacts the trace client.
+   *
    * @public
    */
   ClientImpacting?: boolean | undefined;
 }
 
 /**
- * <p>A collection of segments and corresponding subsegments associated to a trace summary
- *       fault error.</p>
+ * A collection of segments and corresponding subsegments associated to a trace summary fault error.
+ *
  * @public
  */
 export interface FaultRootCauseEntity {
   /**
-   * <p>The name of the entity.</p>
+   * The name of the entity.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The types and messages of the exceptions.</p>
+   * The types and messages of the exceptions.
+   *
    * @public
    */
   Exceptions?: RootCauseException[] | undefined;
 
   /**
-   * <p>A flag that denotes a remote subsegment.</p>
+   * A flag that denotes a remote subsegment.
+   *
    * @public
    */
   Remote?: boolean | undefined;
 }
 
 /**
- * <p>A collection of fields identifying the services in a trace summary fault.</p>
+ * A collection of fields identifying the services in a trace summary fault.
+ *
  * @public
  */
 export interface FaultRootCauseService {
   /**
-   * <p>The service name.</p>
+   * The service name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A collection of associated service names.</p>
+   * A collection of associated service names.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The type associated to the service.</p>
+   * The type associated to the service.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The account ID associated to the service.</p>
+   * The account ID associated to the service.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The path of root cause entities found on the service. </p>
+   * The path of root cause entities found on the service.
+   *
    * @public
    */
   EntityPath?: FaultRootCauseEntity[] | undefined;
 
   /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   * A Boolean value indicating if the service is inferred from the trace.
+   *
    * @public
    */
   Inferred?: boolean | undefined;
 }
 
 /**
- * <p>The root cause information for a trace summary fault.</p>
+ * The root cause information for a trace summary fault.
+ *
  * @public
  */
 export interface FaultRootCause {
   /**
-   * <p>A list of corresponding services. A service identifies a segment and it contains a
-   *       name, account ID, type, and inferred flag.</p>
+   * A list of corresponding services. A service identifies a segment and it contains a name, account ID, type, and inferred flag.
+   *
    * @public
    */
   Services?: FaultRootCauseService[] | undefined;
 
   /**
-   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   * A flag that denotes that the root cause impacts the trace client.
+   *
    * @public
    */
   ClientImpacting?: boolean | undefined;
 }
 
 /**
- * <p>Information about an HTTP request.</p>
+ * Information about an HTTP request.
+ *
  * @public
  */
 export interface Http {
   /**
-   * <p>The request URL.</p>
+   * The request URL.
+   *
    * @public
    */
   HttpURL?: string | undefined;
 
   /**
-   * <p>The response status.</p>
+   * The response status.
+   *
    * @public
    */
   HttpStatus?: number | undefined;
 
   /**
-   * <p>The request method.</p>
+   * The request method.
+   *
    * @public
    */
   HttpMethod?: string | undefined;
 
   /**
-   * <p>The request's user agent string.</p>
+   * The request's user agent string.
+   *
    * @public
    */
   UserAgent?: string | undefined;
 
   /**
-   * <p>The IP address of the requestor.</p>
+   * The IP address of the requestor.
+   *
    * @public
    */
   ClientIp?: string | undefined;
 }
 
 /**
- * <p>A list of EC2 instance IDs corresponding to the segments in a trace. </p>
+ * A list of EC2 instance IDs corresponding to the segments in a trace.
+ *
  * @public
  */
 export interface InstanceIdDetail {
   /**
-   * <p>The ID of a corresponding EC2 instance.</p>
+   * The ID of a corresponding EC2 instance.
+   *
    * @public
    */
   Id?: string | undefined;
 }
 
 /**
- * <p>A list of resources ARNs corresponding to the segments in a trace.</p>
+ * A list of resources ARNs corresponding to the segments in a trace.
+ *
  * @public
  */
 export interface ResourceARNDetail {
   /**
-   * <p>The ARN of a corresponding resource.</p>
+   * The ARN of a corresponding resource.
+   *
    * @public
    */
   ARN?: string | undefined;
 }
 
 /**
- * <p>A collection of segments and corresponding subsegments associated to a response time
- *       warning.</p>
+ * A collection of segments and corresponding subsegments associated to a response time warning.
+ *
  * @public
  */
 export interface ResponseTimeRootCauseEntity {
   /**
-   * <p>The name of the entity.</p>
+   * The name of the entity.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type and messages of the exceptions.</p>
+   * The type and messages of the exceptions.
+   *
    * @public
    */
   Coverage?: number | undefined;
 
   /**
-   * <p>A flag that denotes a remote subsegment.</p>
+   * A flag that denotes a remote subsegment.
+   *
    * @public
    */
   Remote?: boolean | undefined;
 }
 
 /**
- * <p>A collection of fields identifying the service in a response time warning.</p>
+ * A collection of fields identifying the service in a response time warning.
+ *
  * @public
  */
 export interface ResponseTimeRootCauseService {
   /**
-   * <p>The service name.</p>
+   * The service name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A collection of associated service names.</p>
+   * A collection of associated service names.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The type associated to the service.</p>
+   * The type associated to the service.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The account ID associated to the service.</p>
+   * The account ID associated to the service.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The path of root cause entities found on the service. </p>
+   * The path of root cause entities found on the service.
+   *
    * @public
    */
   EntityPath?: ResponseTimeRootCauseEntity[] | undefined;
 
   /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   * A Boolean value indicating if the service is inferred from the trace.
+   *
    * @public
    */
   Inferred?: boolean | undefined;
 }
 
 /**
- * <p>The root cause information for a response time warning.</p>
+ * The root cause information for a response time warning.
+ *
  * @public
  */
 export interface ResponseTimeRootCause {
   /**
-   * <p>A list of corresponding services. A service identifies a segment and contains a name,
-   *       account ID, type, and inferred flag.</p>
+   * A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.
+   *
    * @public
    */
   Services?: ResponseTimeRootCauseService[] | undefined;
 
   /**
-   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   * A flag that denotes that the root cause impacts the trace client.
+   *
    * @public
    */
   ClientImpacting?: boolean | undefined;
 }
 
 /**
- * <p>Information about a user recorded in segment documents.</p>
+ * Information about a user recorded in segment documents.
+ *
  * @public
  */
 export interface TraceUser {
   /**
-   * <p>The user's name.</p>
+   * The user's name.
+   *
    * @public
    */
   UserName?: string | undefined;
 
   /**
-   * <p>Services that the user's request hit.</p>
+   * Services that the user's request hit.
+   *
    * @public
    */
   ServiceIds?: ServiceId[] | undefined;
 }
 
 /**
- * <p>Metadata generated from the segment documents in a trace.</p>
+ * Metadata generated from the segment documents in a trace.
+ *
  * @public
  */
 export interface TraceSummary {
   /**
-   * <p>The unique identifier for the request that generated the trace's segments and
-   *       subsegments.</p>
+   * The unique identifier for the request that generated the trace's segments and subsegments.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The start time of a trace, based on the earliest trace segment start time.</p>
+   * The start time of a trace, based on the earliest trace segment start time.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p> The length of time in seconds between the start time of the earliest segment that started and the end time of the last segment that completed.</p>
+   * The length of time in seconds between the start time of the earliest segment that started and the end time of the last segment that completed.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The length of time in seconds between the start and end times of the root segment. If
-   *       the service performs work asynchronously, the response time measures the time before the
-   *       response is sent to the user, while the duration measures the amount of time before the last
-   *       traced activity completes.</p>
+   * The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
+   *
    * @public
    */
   ResponseTime?: number | undefined;
 
   /**
-   * <p>The root segment document has a 500 series error.</p>
+   * The root segment document has a 500 series error.
+   *
    * @public
    */
   HasFault?: boolean | undefined;
 
   /**
-   * <p>The root segment document has a 400 series error.</p>
+   * The root segment document has a 400 series error.
+   *
    * @public
    */
   HasError?: boolean | undefined;
 
   /**
-   * <p>One or more of the segment documents has a 429 throttling error.</p>
+   * One or more of the segment documents has a 429 throttling error.
+   *
    * @public
    */
   HasThrottle?: boolean | undefined;
 
   /**
-   * <p>One or more of the segment documents is in progress.</p>
+   * One or more of the segment documents is in progress.
+   *
    * @public
    */
   IsPartial?: boolean | undefined;
 
   /**
-   * <p>Information about the HTTP request served by the trace.</p>
+   * Information about the HTTP request served by the trace.
+   *
    * @public
    */
   Http?: Http | undefined;
 
   /**
-   * <p>Annotations from the trace's segment documents.</p>
+   * Annotations from the trace's segment documents.
+   *
    * @public
    */
   Annotations?: Record<string, ValueWithServiceIds[]> | undefined;
 
   /**
-   * <p>Users from the trace's segment documents.</p>
+   * Users from the trace's segment documents.
+   *
    * @public
    */
   Users?: TraceUser[] | undefined;
 
   /**
-   * <p>Service IDs from the trace's segment documents.</p>
+   * Service IDs from the trace's segment documents.
+   *
    * @public
    */
   ServiceIds?: ServiceId[] | undefined;
 
   /**
-   * <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
+   * A list of resource ARNs for any resource corresponding to the trace segments.
+   *
    * @public
    */
   ResourceARNs?: ResourceARNDetail[] | undefined;
 
   /**
-   * <p>A list of EC2 instance IDs for any instance corresponding to the trace
-   *       segments.</p>
+   * A list of EC2 instance IDs for any instance corresponding to the trace segments.
+   *
    * @public
    */
   InstanceIds?: InstanceIdDetail[] | undefined;
 
   /**
-   * <p>A list of Availability Zones for any zone corresponding to the trace segments.</p>
+   * A list of Availability Zones for any zone corresponding to the trace segments.
+   *
    * @public
    */
   AvailabilityZones?: AvailabilityZoneDetail[] | undefined;
 
   /**
-   * <p>The root of a trace.</p>
+   * The root of a trace.
+   *
    * @public
    */
   EntryPoint?: ServiceId | undefined;
 
   /**
-   * <p>A collection of FaultRootCause structures corresponding to the trace segments.</p>
+   * A collection of FaultRootCause structures corresponding to the trace segments.
+   *
    * @public
    */
   FaultRootCauses?: FaultRootCause[] | undefined;
 
   /**
-   * <p>A collection of ErrorRootCause structures corresponding to the trace
-   *       segments.</p>
+   * A collection of ErrorRootCause structures corresponding to the trace segments.
+   *
    * @public
    */
   ErrorRootCauses?: ErrorRootCause[] | undefined;
 
   /**
-   * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
-   *       segments.</p>
+   * A collection of ResponseTimeRootCause structures corresponding to the trace segments.
+   *
    * @public
    */
   ResponseTimeRootCauses?: ResponseTimeRootCause[] | undefined;
 
   /**
-   * <p>The revision number of a trace.</p>
+   * The revision number of a trace.
+   *
    * @public
    */
   Revision?: number | undefined;
 
   /**
-   * <p>The matched time stamp of a defined event.</p>
+   * The matched time stamp of a defined event.
+   *
    * @public
    */
   MatchedEventTime?: Date | undefined;
@@ -3081,28 +3237,29 @@ export interface TraceSummary {
  */
 export interface GetTraceSummariesResult {
   /**
-   * <p>Trace IDs and annotations for traces that were found in the specified time
-   *       frame.</p>
+   * Trace IDs and annotations for traces that were found in the specified time frame.
+   *
    * @public
    */
   TraceSummaries?: TraceSummary[] | undefined;
 
   /**
-   * <p>The start time of this page of results.</p>
+   * The start time of this page of results.
+   *
    * @public
    */
   ApproximateTime?: Date | undefined;
 
   /**
-   * <p>The total number of traces processed, including traces that did not match the specified
-   *       filter expression.</p>
+   * The total number of traces processed, including traces that did not match the specified filter expression.
+   *
    * @public
    */
   TracesProcessedCount?: number | undefined;
 
   /**
-   * <p>If the requested time frame contained more than one page of results, you can use this token to retrieve the
-   *       next page. The first page contains the most recent results, closest to the end of the time frame.</p>
+   * If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most recent results, closest to the end of the time frame.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3113,39 +3270,43 @@ export interface GetTraceSummariesResult {
  */
 export interface ListResourcePoliciesRequest {
   /**
-   * <p>Not currently supported.</p>
+   * Not currently supported.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A resource policy grants one or more Amazon Web Services services and accounts permissions
- *             to access X-Ray. Each resource policy is associated with a
- *             specific Amazon Web Services account.</p>
+ * A resource policy grants one or more Amazon Web Services services and accounts permissions to access X-Ray. Each resource policy is associated with a specific Amazon Web Services account.
+ *
  * @public
  */
 export interface ResourcePolicy {
   /**
-   * <p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>
+   * The name of the resource policy. Must be unique within a specific Amazon Web Services account.
+   *
    * @public
    */
   PolicyName?: string | undefined;
 
   /**
-   * <p>The resource policy document, which can be up to 5kb in size.</p>
+   * The resource policy document, which can be up to 5kb in size.
+   *
    * @public
    */
   PolicyDocument?: string | undefined;
 
   /**
-   * <p>Returns the current policy revision id for this policy name.</p>
+   * Returns the current policy revision id for this policy name.
+   *
    * @public
    */
   PolicyRevisionId?: string | undefined;
 
   /**
-   * <p>When the policy was last updated, in Unix time seconds.</p>
+   * When the policy was last updated, in Unix time seconds.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
@@ -3156,13 +3317,15 @@ export interface ResourcePolicy {
  */
 export interface ListResourcePoliciesResult {
   /**
-   * <p>The list of resource policies in the target Amazon Web Services account.</p>
+   * The list of resource policies in the target Amazon Web Services account.
+   *
    * @public
    */
   ResourcePolicies?: ResourcePolicy[] | undefined;
 
   /**
-   * <p>Pagination token. Not currently supported.</p>
+   * Pagination token. Not currently supported.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3173,80 +3336,71 @@ export interface ListResourcePoliciesResult {
  */
 export interface ListRetrievedTracesRequest {
   /**
-   * <p>
    * Retrieval token.
-   * </p>
+   *
    * @public
    */
   RetrievalToken: string | undefined;
 
   /**
-   * <p>
    * Format of the requested traces.
-   * </p>
+   *
    * @public
    */
   TraceFormat?: TraceFormatType | undefined;
 
   /**
-   * <p>
-   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
    *
-   *
-   *   </p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *   A span from a trace that has been ingested by the X-Ray service. A span represents a unit of work or an operation performed by a service.
- * </p>
+ * A span from a trace that has been ingested by the X-Ray service. A span represents a unit of work or an operation performed by a service.
+ *
  * @public
  */
 export interface Span {
   /**
-   * <p>The span ID.</p>
+   * The span ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   * The span document.</p>
+   * The span document.
+   *
    * @public
    */
   Document?: string | undefined;
 }
 
 /**
- * <p>
- *   Retrieved collection of spans with matching trace IDs.
- * </p>
+ * Retrieved collection of spans with matching trace IDs.
+ *
  * @public
  */
 export interface RetrievedTrace {
   /**
-   * <p>
-   *   The unique identifier for the span.
-   * </p>
+   * The unique identifier for the span.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>
-   *   The length of time in seconds between the start time of the root span and the end time of the last span that completed.
-   * </p>
+   * The length of time in seconds between the start time of the root span and the end time of the last span that completed.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>
-   *   Spans that comprise the trace.
-   * </p>
+   * Spans that comprise the trace.
+   *
    * @public
    */
   Spans?: Span[] | undefined;
@@ -3257,35 +3411,29 @@ export interface RetrievedTrace {
  */
 export interface ListRetrievedTracesResult {
   /**
-   * <p>
-   *     Status of the retrieval.
-   *   </p>
+   * Status of the retrieval.
+   *
    * @public
    */
   RetrievalStatus?: RetrievalStatus | undefined;
 
   /**
-   * <p>
-   *     Format of the requested traces.
-   *   </p>
+   * Format of the requested traces.
+   *
    * @public
    */
   TraceFormat?: TraceFormatType | undefined;
 
   /**
-   * <p>
    * Full traces for the specified requests.
-   * </p>
+   *
    * @public
    */
   Traces?: RetrievedTrace[] | undefined;
 
   /**
-   * <p>
-   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
    *
-   *
-   *   </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -3296,14 +3444,15 @@ export interface ListRetrievedTracesResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
+   * The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with
-   *     the current page of results as the value of this parameter to get the next page of results.</p>
+   * A pagination token. If multiple pages of results are returned, use the `NextToken` value returned with the current page of results as the value of this parameter to get the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3314,14 +3463,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.</p>
+   * A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with
-   *       the current page of results to get the next page of results.</p>
+   * A pagination token. If multiple pages of results are returned, use the `NextToken` value returned with the current page of results to get the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3332,34 +3482,21 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutEncryptionConfigRequest {
   /**
-   * <p>An Amazon Web Services KMS key in one of the following formats:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Alias</b> - The name of the key. For example,
-   *             <code>alias/MyKey</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Key ID</b> - The KMS key ID of the key. For example,
-   *           <code>ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>. Amazon Web Services X-Ray does not support asymmetric KMS keys.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ARN</b> - The full Amazon Resource Name of the key ID or alias.
-   *           For example,
-   *             <code>arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>.
-   *           Use this format to specify a key in a different account.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Omit this key if you set <code>Type</code> to <code>NONE</code>.</p>
+   * An Amazon Web Services KMS key in one of the following formats:
+   *
+   * - **Alias** - The name of the key. For example, `alias/MyKey`.
+   * - **Key ID** - The KMS key ID of the key. For example, `ae4aa6d49-a4d8-9df9-a475-4ff6d7898456`. Amazon Web Services X-Ray does not support asymmetric KMS keys.
+   * - **ARN** - The full Amazon Resource Name of the key ID or alias. For example, `arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456`. Use this format to specify a key in a different account.
+   *
+   * Omit this key if you set `Type` to `NONE`.
+   *
    * @public
    */
   KeyId?: string | undefined;
 
   /**
-   * <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set
-   *       to <code>NONE</code> for default encryption.</p>
+   * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+   *
    * @public
    */
   Type: EncryptionType | undefined;
@@ -3370,7 +3507,8 @@ export interface PutEncryptionConfigRequest {
  */
 export interface PutEncryptionConfigResult {
   /**
-   * <p>The new encryption configuration.</p>
+   * The new encryption configuration.
+   *
    * @public
    */
   EncryptionConfig?: EncryptionConfig | undefined;
@@ -3381,34 +3519,37 @@ export interface PutEncryptionConfigResult {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>
+   * The name of the resource policy. Must be unique within a specific Amazon Web Services account.
+   *
    * @public
    */
   PolicyName: string | undefined;
 
   /**
-   * <p>The resource policy document, which can be up to 5kb in size.</p>
+   * The resource policy document, which can be up to 5kb in size.
+   *
    * @public
    */
   PolicyDocument: string | undefined;
 
   /**
-   * <p>Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id.
-   *             The revision id is unique to each policy in the account.</p>
-   *          <p>If the policy revision id does not match the latest revision id, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception. You can also provide a
-   *             <code>PolicyRevisionId</code> of 0. In this case, the operation will fail with an <code>InvalidPolicyRevisionIdException</code> exception if a resource policy with the same name already exists.
-   *         </p>
+   * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account.
+   *
+   * If the policy revision id does not match the latest revision id, the operation will fail with an `InvalidPolicyRevisionIdException` exception. You can also provide a `PolicyRevisionId` of 0. In this case, the operation will fail with an `InvalidPolicyRevisionIdException` exception if a resource policy with the same name already exists.
+   *
    * @public
    */
   PolicyRevisionId?: string | undefined;
 
   /**
-   * <p>A flag to indicate whether to bypass the resource policy lockout safety check.</p>
-   *          <important>
-   *             <p>Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately.</p>
-   *          </important>
-   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <code>PutResourcePolicy</code> request.</p>
-   *          <p>The default value is false.</p>
+   * A flag to indicate whether to bypass the resource policy lockout safety check.
+   *
+   * > **Important:** Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately.
+   *
+   * Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent `PutResourcePolicy` request.
+   *
+   * The default value is false.
+   *
    * @public
    */
   BypassPolicyLockoutCheck?: boolean | undefined;
@@ -3419,91 +3560,78 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResult {
   /**
-   * <p>The resource policy document, as provided in the <code>PutResourcePolicyRequest</code>.</p>
+   * The resource policy document, as provided in the `PutResourcePolicyRequest`.
+   *
    * @public
    */
   ResourcePolicy?: ResourcePolicy | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface BackendConnectionErrors {
   /**
-   * <p></p>
    * @public
    */
   TimeoutCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   ConnectionRefusedCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   HTTPCode4XXCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   HTTPCode5XXCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   UnknownHostCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   OtherCount?: number | undefined;
 }
 
 /**
- * <p></p>
  * @public
  */
 export interface TelemetryRecord {
   /**
-   * <p></p>
    * @public
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   SegmentsReceivedCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   SegmentsSentCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   SegmentsSpilloverCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   SegmentsRejectedCount?: number | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   BackendConnectionErrors?: BackendConnectionErrors | undefined;
@@ -3514,25 +3642,21 @@ export interface TelemetryRecord {
  */
 export interface PutTelemetryRecordsRequest {
   /**
-   * <p></p>
    * @public
    */
   TelemetryRecords: TelemetryRecord[] | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   EC2InstanceId?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Hostname?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   ResourceARN?: string | undefined;
@@ -3548,32 +3672,36 @@ export interface PutTelemetryRecordsResult {}
  */
 export interface PutTraceSegmentsRequest {
   /**
-   * <p>A string containing a JSON document defining one or more segments or
-   *       subsegments.</p>
+   * A string containing a JSON document defining one or more segments or subsegments.
+   *
    * @public
    */
   TraceSegmentDocuments: string[] | undefined;
 }
 
 /**
- * <p>Information about a segment that failed processing.</p>
+ * Information about a segment that failed processing.
+ *
  * @public
  */
 export interface UnprocessedTraceSegment {
   /**
-   * <p>The segment's ID.</p>
+   * The segment's ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The error that caused processing to fail.</p>
+   * The error that caused processing to fail.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -3584,7 +3712,8 @@ export interface UnprocessedTraceSegment {
  */
 export interface PutTraceSegmentsResult {
   /**
-   * <p>Segments that failed processing.</p>
+   * Segments that failed processing.
+   *
    * @public
    */
   UnprocessedTraceSegments?: UnprocessedTraceSegment[] | undefined;
@@ -3595,26 +3724,22 @@ export interface PutTraceSegmentsResult {
  */
 export interface StartTraceRetrievalRequest {
   /**
-   * <p>
-   *   Specify the trace IDs of the traces to be retrieved.
-   * </p>
+   * Specify the trace IDs of the traces to be retrieved.
+   *
    * @public
    */
   TraceIds: string[] | undefined;
 
   /**
-   * <p>
-   *   The start of the time range to retrieve traces. The range is inclusive, so the specified start time is included in the query.
-   *   Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
-   * </p>
+   * The start of the time range to retrieve traces. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+   *
    * @public
    */
   StartTime: Date | undefined;
 
   /**
-   * <p>
-   *   The end of the time range to retrieve traces. The range is inclusive, so the specified end time is included in the query. Specified as epoch time,
-   *   the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+   * The end of the time range to retrieve traces. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+   *
    * @public
    */
   EndTime: Date | undefined;
@@ -3625,9 +3750,8 @@ export interface StartTraceRetrievalRequest {
  */
 export interface StartTraceRetrievalResult {
   /**
-   * <p>
    * Retrieval token.
-   * </p>
+   *
    * @public
    */
   RetrievalToken?: string | undefined;
@@ -3638,38 +3762,24 @@ export interface StartTraceRetrievalResult {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
+   * The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group or
-   *       sampling rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
-   *       in the <i>Amazon Web Services General Reference</i>.</p>
-   *          <p>The following restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of user-applied tags per resource: 50</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum tag key length: 128 Unicode characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum tag value length: 256 Unicode characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
-   *           / = + - and @</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for Amazon Web Services use. You
-   *           cannot edit or delete system tags.</p>
-   *             </li>
-   *          </ul>
+   * A map that contains one or more tag keys and tag values to attach to an X-Ray group or sampling rule. For more information about ways to use tags, see [Tagging Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+   *
+   * The following restrictions apply to tags:
+   *
+   * - Maximum number of user-applied tags per resource: 50
+   * - Maximum tag key length: 128 Unicode characters
+   * - Maximum tag value length: 256 Unicode characters
+   * - Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @
+   * - Tag keys and values are case sensitive.
+   * - Don't use `aws:` as a prefix for keys; it's reserved for Amazon Web Services use. You cannot edit or delete system tags.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3685,13 +3795,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
+   * The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>Keys for one or more tags that you want to remove from an X-Ray group or sampling rule.</p>
+   * Keys for one or more tags that you want to remove from an X-Ray group or sampling rule.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3707,35 +3819,32 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateGroupRequest {
   /**
-   * <p>The case-sensitive name of the group.</p>
+   * The case-sensitive name of the group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>The ARN that was generated upon creation.</p>
+   * The ARN that was generated upon creation.
+   *
    * @public
    */
   GroupARN?: string | undefined;
 
   /**
-   * <p>The updated filter expression defining criteria by which to group traces.</p>
+   * The updated filter expression defining criteria by which to group traces.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
 
   /**
-   * <p>The structure containing configurations related to insights.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The InsightsEnabled boolean can be set to true to enable insights for the
-   *                     group or false to disable insights for the group.</p>
-   *             </li>
-   *             <li>
-   *                <p>The NotificationsEnabled boolean can be set to true to enable insights notifications for the group.
-   *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
-   *             </li>
-   *          </ul>
+   * The structure containing configurations related to insights.
+   *
+   * - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+   * - The NotificationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
+   *
    * @public
    */
   InsightsConfiguration?: InsightsConfiguration | undefined;
@@ -3746,34 +3855,30 @@ export interface UpdateGroupRequest {
  */
 export interface UpdateGroupResult {
   /**
-   * <p>The group that was updated. Contains the name of the group that was updated, the
-   *             ARN of the group that was updated, the updated filter expression, and the updated insight
-   *             configuration assigned to the group.</p>
+   * The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, the updated filter expression, and the updated insight configuration assigned to the group.
+   *
    * @public
    */
   Group?: Group | undefined;
 }
 
 /**
- * <p>
- *   Update to the indexing rule configuration for probabilistic sampling.
- * </p>
+ * Update to the indexing rule configuration for probabilistic sampling.
+ *
  * @public
  */
 export interface ProbabilisticRuleValueUpdate {
   /**
-   * <p>
-   *   Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data.
-   * </p>
+   * Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data.
+   *
    * @public
    */
   DesiredSamplingPercentage: number | undefined;
 }
 
 /**
- * <p>
- *   Update to an indexing rule.
- * </p>
+ * Update to an indexing rule.
+ *
  * @public
  */
 export type IndexingRuleValueUpdate =
@@ -3785,9 +3890,8 @@ export type IndexingRuleValueUpdate =
  */
 export namespace IndexingRuleValueUpdate {
   /**
-   * <p>
-   *     Indexing rule configuration that is used to probabilistically  sample traceIds.
-   *   </p>
+   * Indexing rule configuration that is used to probabilistically sample traceIds.
+   *
    * @public
    */
   export interface ProbabilisticMember {
@@ -3818,17 +3922,15 @@ export namespace IndexingRuleValueUpdate {
  */
 export interface UpdateIndexingRuleRequest {
   /**
-   * <p>
-   *   Name of the indexing rule to be updated.
-   * </p>
+   * Name of the indexing rule to be updated.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>
-   *     Rule configuration to be updated.
-   *   </p>
+   * Rule configuration to be updated.
+   *
    * @public
    */
   Rule: IndexingRuleValueUpdate | undefined;
@@ -3839,96 +3941,106 @@ export interface UpdateIndexingRuleRequest {
  */
 export interface UpdateIndexingRuleResult {
   /**
-   * <p>
-   *     Updated indexing rule.
-   *   </p>
+   * Updated indexing rule.
+   *
    * @public
    */
   IndexingRule?: IndexingRule | undefined;
 }
 
 /**
- * <p>A document specifying changes to a sampling rule's configuration.</p>
+ * A document specifying changes to a sampling rule's configuration.
+ *
  * @public
  */
 export interface SamplingRuleUpdate {
   /**
-   * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+   *
    * @public
    */
   RuleName?: string | undefined;
 
   /**
-   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   * The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+   *
    * @public
    */
   RuleARN?: string | undefined;
 
   /**
-   * <p>Matches the ARN of the Amazon Web Services resource on which the service runs.</p>
+   * Matches the ARN of the Amazon Web Services resource on which the service runs.
+   *
    * @public
    */
   ResourceARN?: string | undefined;
 
   /**
-   * <p>The priority of the sampling rule.</p>
+   * The priority of the sampling rule.
+   *
    * @public
    */
   Priority?: number | undefined;
 
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
+   * The percentage of matching requests to instrument, after the reservoir is exhausted.
+   *
    * @public
    */
   FixedRate?: number | undefined;
 
   /**
-   * <p>A fixed number of matching requests to instrument per second, prior to applying the
-   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
+   * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+   *
    * @public
    */
   ReservoirSize?: number | undefined;
 
   /**
-   * <p>Matches the hostname from a request URL.</p>
+   * Matches the hostname from a request URL.
+   *
    * @public
    */
   Host?: string | undefined;
 
   /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   * Matches the `name` that the service uses to identify itself in segments.
+   *
    * @public
    */
   ServiceName?: string | undefined;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * Matches the `origin` that the service uses to identify its type in segments.
+   *
    * @public
    */
   ServiceType?: string | undefined;
 
   /**
-   * <p>Matches the HTTP method of a request.</p>
+   * Matches the HTTP method of a request.
+   *
    * @public
    */
   HTTPMethod?: string | undefined;
 
   /**
-   * <p>Matches the path from a request URL.</p>
+   * Matches the path from a request URL.
+   *
    * @public
    */
   URLPath?: string | undefined;
 
   /**
-   * <p>Matches attributes derived from the request.</p>
+   * Matches attributes derived from the request.
+   *
    * @public
    */
   Attributes?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the multiplier applied to the base sampling rate.
-   *       This boost allows you to temporarily increase sampling without changing the rule's configuration.</p>
+   * Specifies the multiplier applied to the base sampling rate. This boost allows you to temporarily increase sampling without changing the rule's configuration.
+   *
    * @public
    */
   SamplingRateBoost?: SamplingRateBoost | undefined;
@@ -3939,7 +4051,8 @@ export interface SamplingRuleUpdate {
  */
 export interface UpdateSamplingRuleRequest {
   /**
-   * <p>The rule and fields to change.</p>
+   * The rule and fields to change.
+   *
    * @public
    */
   SamplingRuleUpdate: SamplingRuleUpdate | undefined;
@@ -3950,29 +4063,26 @@ export interface UpdateSamplingRuleRequest {
  */
 export interface UpdateSamplingRuleResult {
   /**
-   * <p>The updated rule definition and metadata.</p>
+   * The updated rule definition and metadata.
+   *
    * @public
    */
   SamplingRuleRecord?: SamplingRuleRecord | undefined;
 }
 
 /**
- * <p>
  * Contains the settings for the CloudWatch Logs log groups that X-Ray creates for Transaction Search.
- * </p>
+ *
  * @public
  */
 export interface CloudWatchLogsConfiguration {
   /**
-   * <p>
-   * The ARN of an AWS Key Management Service (AWS KMS) key that you create and manage, in the same account and Region, used to encrypt the <code>aws/spans</code> log group. Key IDs and alias ARNs are not supported.
-   * </p>
-   *          <p>
-   * X-Ray applies the key only when it creates <code>aws/spans</code>. If the account already has an <code>aws/spans</code> log group, X-Ray fails the request with an <code>InvalidRequestException</code> and does not change the log group. To enable Transaction Search with the existing log group as it is, call <code>UpdateTraceSegmentDestination</code> again without <code>SpansLogGroupKmsKeyId</code>. To set or change the key of the existing log group, use the CloudWatch Logs <code>AssociateKmsKey</code> operation.
-   * </p>
-   *          <p>
-   * You need <code>kms:DescribeKey</code> permission on the key, and the key policy must allow CloudWatch Logs to use the key. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html">Encrypt log data in CloudWatch Logs using AWS Key Management Service</a>.
-   * </p>
+   * The ARN of an AWS Key Management Service (AWS KMS) key that you create and manage, in the same account and Region, used to encrypt the `aws/spans` log group. Key IDs and alias ARNs are not supported.
+   *
+   * X-Ray applies the key only when it creates `aws/spans`. If the account already has an `aws/spans` log group, X-Ray fails the request with an `InvalidRequestException` and does not change the log group. To enable Transaction Search with the existing log group as it is, call `UpdateTraceSegmentDestination` again without `SpansLogGroupKmsKeyId`. To set or change the key of the existing log group, use the CloudWatch Logs `AssociateKmsKey` operation.
+   *
+   * You need `kms:DescribeKey` permission on the key, and the key policy must allow CloudWatch Logs to use the key. For more information, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html).
+   *
    * @public
    */
   SpansLogGroupKmsKeyId?: string | undefined;
@@ -3983,17 +4093,15 @@ export interface CloudWatchLogsConfiguration {
  */
 export interface UpdateTraceSegmentDestinationRequest {
   /**
-   * <p>
    * The configured destination of trace segments.
-   * </p>
+   *
    * @public
    */
   Destination?: TraceSegmentDestination | undefined;
 
   /**
-   * <p>
-   * Specifies settings for the CloudWatch Logs log groups that X-Ray creates for Transaction Search. Specify this only when <code>Destination</code> is <code>CloudWatchLogs</code>.
-   * </p>
+   * Specifies settings for the CloudWatch Logs log groups that X-Ray creates for Transaction Search. Specify this only when `Destination` is `CloudWatchLogs`.
+   *
    * @public
    */
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration | undefined;
@@ -4004,17 +4112,15 @@ export interface UpdateTraceSegmentDestinationRequest {
  */
 export interface UpdateTraceSegmentDestinationResult {
   /**
-   * <p>
-   *     The destination of the trace segments.
-   *   </p>
+   * The destination of the trace segments.
+   *
    * @public
    */
   Destination?: TraceSegmentDestination | undefined;
 
   /**
-   * <p>
    * The status of the update.
-   * </p>
+   *
    * @public
    */
   Status?: TraceSegmentDestinationStatus | undefined;

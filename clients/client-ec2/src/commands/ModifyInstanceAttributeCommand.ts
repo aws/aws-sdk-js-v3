@@ -23,17 +23,12 @@ export interface ModifyInstanceAttributeCommandInput extends ModifyInstanceAttri
 export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the specified attribute of the specified instance. You can specify only one
- *             attribute at a time.</p>
- *          <p>
- *             <b>Note: </b>Using this action to change the security groups
- *             associated with an elastic network interface (ENI) attached to an instance can
- *             result in an error if the instance has more than one ENI. To change the security groups
- *             associated with an ENI attached to an instance that has multiple ENIs, we recommend that
- *             you use the <a>ModifyNetworkInterfaceAttribute</a> action.</p>
- *          <p>To modify some attributes, the instance must be stopped. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modify a stopped instance</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
+ * Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.
+ *
+ * **Note:** Using this action to change the security groups associated with an elastic network interface (ENI) attached to an instance can result in an error if the instance has more than one ENI. To change the security groups associated with an ENI attached to an instance that has multiple ENIs, we recommend that you use the ModifyNetworkInterfaceAttribute action.
+ *
+ * To modify some attributes, the instance must be stopped. For more information, see [Modify a stopped instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,8 +106,8 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To enable enhanced networking
  * ```javascript

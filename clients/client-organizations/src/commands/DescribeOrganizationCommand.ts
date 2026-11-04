@@ -23,14 +23,12 @@ export interface DescribeOrganizationCommandInput {}
 export interface DescribeOrganizationCommandOutput extends DescribeOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the organization that the user's account belongs
- *             to.</p>
- *          <p>You can call this operation from any account in a organization.</p>
- *          <note>
- *             <p>Even if a policy type is shown as available in the organization, you can disable
- *                 it separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of policy types for a specified
- *                 root.</p>
- *          </note>
+ * Retrieves information about the organization that the user's account belongs to.
+ *
+ * You can call this operation from any account in a organization.
+ *
+ * > **Note:** Even if a policy type is shown as available in the organization, you can disable it separately at the root level with DisablePolicyType. Use ListRoots to see the status of policy types for a specified root.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,32 +66,30 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The user or role that
- *             is making the request must have at least one IAM permissions policy attached that
- *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide</i>.</p>
+ *
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
- *  <p>Your account isn't a member of an organization. To make this request, you must use the
- *             credentials of an account that belongs to an organization.</p>
+ *
+ * Your account isn't a member of an organization. To make this request, you must use the credentials of an account that belongs to an organization.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The target of the operation is currently being modified by a different request. Try
- *             again later.</p>
+ *
+ * The target of the operation is currently being modified by a different request. Try again later.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>Organizations can't complete your request because of an internal service error. Try again
- *             later.</p>
+ *
+ * Organizations can't complete your request because of an internal service error. Try again later.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You have sent too many requests in too short a period of time. The quota helps protect
- *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
- *                 <i>Organizations User Guide</i>.</p>
+ *
+ * You have sent too many requests in too short a period of time. The quota helps protect against denial-of-service attacks. Try again later.
+ *
+ * For information about quotas that affect Organizations, see [Quotas for Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html) in the *Organizations User Guide*.
  *
  * @throws {@link OrganizationsServiceException}
- * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ * Base exception class for all service exceptions from Organizations service.
  *
  * @example To get information about an organization
  * ```javascript

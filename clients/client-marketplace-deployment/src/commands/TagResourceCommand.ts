@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Tags a resource.</p>
+ * Tags a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link MarketplaceDeploymentClientResolvedConfig | config} for MarketplaceDeploymentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal service exception.</p>
+ *
+ * There was an internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
+ *
+ * The specified resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
+ *
+ * Too many requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
+ *
+ * An error occurred during validation.
  *
  * @throws {@link MarketplaceDeploymentServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceDeployment service.
  *
  * @example Adding tags to a deployment parameter
  * ```javascript

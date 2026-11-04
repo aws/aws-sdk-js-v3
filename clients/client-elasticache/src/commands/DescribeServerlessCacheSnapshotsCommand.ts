@@ -26,10 +26,8 @@ export interface DescribeServerlessCacheSnapshotsCommandInput extends DescribeSe
 export interface DescribeServerlessCacheSnapshotsCommandOutput extends DescribeServerlessCacheSnapshotsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about serverless cache snapshots.
- *            By default, this API lists all of the customer’s serverless cache snapshots.
- *            It can also describe a single serverless cache snapshot, or the snapshots associated with
- *            a particular serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * Returns information about serverless cache snapshots. By default, this API lists all of the customer’s serverless cache snapshots. It can also describe a single serverless cache snapshot, or the snapshots associated with a particular serverless cache. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +75,24 @@ export interface DescribeServerlessCacheSnapshotsCommandOutput extends DescribeS
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

@@ -23,35 +23,22 @@ export interface ListContainerFleetsCommandInput extends ListContainerFleetsInpu
 export interface ListContainerFleetsCommandOutput extends ListContainerFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Retrieves a collection of container fleet resources in an Amazon Web Services Region. For fleets
- *             that have multiple locations, this operation retrieves fleets based on their home Region
- *             only.</p>
- *          <p>
- *             <b>Request options</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Get a list of all fleets. Call this operation without specifying a container
- *                     group definition. </p>
- *             </li>
- *             <li>
- *                <p>Get a list of fleets filtered by container group definition. Provide the
- *                     container group definition name or ARN value.</p>
- *             </li>
- *             <li>
- *                <p>To get a list of all Amazon GameLift Servers Realtime fleets with a specific configuration script,
- *                     provide the script ID. </p>
- *             </li>
- *          </ul>
- *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *          <p>If successful, this operation returns a collection of container fleets that match the request
- *             parameters. A NextToken value is also returned if there are more result pages to
- *             retrieve.</p>
- *          <note>
- *             <p>Fleet IDs are returned in no particular order.</p>
- *          </note>
+ * **This API works with the following fleet types:** Container
+ *
+ * Retrieves a collection of container fleet resources in an Amazon Web Services Region. For fleets that have multiple locations, this operation retrieves fleets based on their home Region only.
+ *
+ * **Request options**
+ *
+ * - Get a list of all fleets. Call this operation without specifying a container group definition.
+ * - Get a list of fleets filtered by container group definition. Provide the container group definition name or ARN value.
+ * - To get a list of all Amazon GameLift Servers Realtime fleets with a specific configuration script, provide the script ID.
+ *
+ * Use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, this operation returns a collection of container fleets that match the request parameters. A NextToken value is also returned if there are more result pages to retrieve.
+ *
+ * > **Note:** Fleet IDs are returned in no particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -134,22 +121,24 @@ export interface ListContainerFleetsCommandOutput extends ListContainerFleetsOut
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

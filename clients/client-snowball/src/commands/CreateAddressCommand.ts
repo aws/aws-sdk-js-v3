@@ -23,10 +23,8 @@ export interface CreateAddressCommandInput extends CreateAddressRequest {}
 export interface CreateAddressCommandOutput extends CreateAddressResult, __MetadataBearer {}
 
 /**
- * <p>Creates an address for a Snow device to be shipped to. In most regions,
- *       addresses are validated at the time of creation. The address you provide must be located
- *       within the serviceable area of your region. If the address is invalid or unsupported, then an
- *       exception is thrown. If providing an address as a JSON file through the <code>cli-input-json</code> option, include the full file path. For example, <code>--cli-input-json file://create-address.json</code>.</p>
+ * Creates an address for a Snow device to be shipped to. In most regions, addresses are validated at the time of creation. The address you provide must be located within the serviceable area of your region. If the address is invalid or unsupported, then an exception is thrown. If providing an address as a JSON file through the `cli-input-json` option, include the full file path. For example, `--cli-input-json file://create-address.json`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,17 +67,16 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidAddressException} (client fault)
- *  <p>The address provided was invalid. Check the address with your region's carrier, and try
- *       again.</p>
+ *
+ * The address provided was invalid. Check the address with your region's carrier, and try again.
  *
  * @throws {@link UnsupportedAddressException} (client fault)
- *  <p>The address is either outside the serviceable area for your region, or an error
- *       occurred. Check the address with your region's carrier and try again. If the issue persists,
- *       contact Amazon Web Services Support.</p>
+ *
+ * The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact Amazon Web Services Support.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To create an address for a job
  * ```javascript

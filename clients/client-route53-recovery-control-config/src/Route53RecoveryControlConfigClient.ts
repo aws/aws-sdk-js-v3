@@ -384,7 +384,8 @@ export type Route53RecoveryControlConfigClientResolvedConfigType = __SmithyResol
 export interface Route53RecoveryControlConfigClientResolvedConfig extends Route53RecoveryControlConfigClientResolvedConfigType {}
 
 /**
- * <p>Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller</p>
+ * Recovery Control Configuration API Reference for Amazon Route 53 Application Recovery Controller
+ *
  * @public
  */
 export class Route53RecoveryControlConfigClient extends __Client<

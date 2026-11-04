@@ -23,11 +23,10 @@ export interface StartEntitiesDetectionJobCommandInput extends StartEntitiesDete
 export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
- *          <p>This API can be used for either standard entity detection or custom entity recognition. In
- *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
- *       must be used in order to provide access to the recognizer being used to detect the custom
- *       entity.</p>
+ * Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.
+ *
+ * This API can be used for either standard entity detection or custom entity recognition. In order to be used for custom entity recognition, the optional `EntityRecognizerArn` must be used in order to provide access to the recognizer being used to detect the custom entity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,37 +91,40 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link KmsKeyValidationException} (client fault)
- *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
+ *
+ * The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
+ *
+ * The specified resource name is already in use. Use a different name and try your request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ *
+ * The specified resource is not available. Check the resource and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
+ *
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

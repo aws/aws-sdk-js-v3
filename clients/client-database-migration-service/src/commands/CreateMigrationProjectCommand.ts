@@ -23,13 +23,12 @@ export interface CreateMigrationProjectCommandInput extends CreateMigrationProje
 export interface CreateMigrationProjectCommandOutput extends CreateMigrationProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the migration project using the specified parameters.</p>
- *          <p>You can run this action only after you create an instance profile and data providers
- *          using <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html">CreateInstanceProfile</a> and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html">CreateDataProvider</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:CreateMigrationProject</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Creates the migration project using the specified parameters.
+ *
+ * You can run this action only after you create an instance profile and data providers using [CreateInstanceProfile](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateInstanceProfile.html) and [CreateDataProvider](https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateDataProvider.html).
+ *
+ * **Required permissions:** `dms:CreateMigrationProject`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,31 +111,36 @@ export interface CreateMigrationProjectCommandOutput extends CreateMigrationProj
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link S3ResourceNotFoundFault} (client fault)
- *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ *
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Create a migration project
  * ```javascript

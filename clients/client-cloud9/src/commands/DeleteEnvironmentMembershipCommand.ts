@@ -23,13 +23,10 @@ export interface DeleteEnvironmentMembershipCommandInput extends DeleteEnvironme
 export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironmentMembershipResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an environment member from a development environment.</p>
- *          <important>
- *             <p>Cloud9 is no longer available to new customers. Existing customers of
- *         Cloud9 can continue to use the service as normal.
- *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
- *             </p>
- *          </important>
+ * Deletes an environment member from a development environment.
+ *
+ * > **Important:** Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,29 +52,36 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The target request is invalid.</p>
+ *
+ * The target request is invalid.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred.</p>
+ *
+ * A conflict occurred.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>An access permissions issue occurred.</p>
+ *
+ * An access permissions issue occurred.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A service limit was exceeded.</p>
+ *
+ * A service limit was exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The target resource cannot be found.</p>
+ *
+ * The target resource cannot be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many service requests were made over the given time period.</p>
+ *
+ * Too many service requests were made over the given time period.
  *
  * @throws {@link Cloud9ServiceException}
- * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * Base exception class for all service exceptions from Cloud9 service.
  *
  * @example DeleteEnvironmentMembership
  * ```javascript

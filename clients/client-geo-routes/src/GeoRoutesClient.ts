@@ -291,7 +291,14 @@ export type GeoRoutesClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface GeoRoutesClientResolvedConfig extends GeoRoutesClientResolvedConfigType {}
 
 /**
- * <p>With the Routes API you can calculate routes and estimate travel time based on up-to-date road network and live traffic information. Key features include:</p> <ul> <li> <p>Point-to-point routing with estimated travel time, distance, and turn-by-turn directions. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoutes.html">CalculateRoutes</a>.</p> </li> <li> <p>Multi-point route optimization to minimize travel time or distance. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_OptimizeWaypoints.html">OptimizeWaypoints</a>.</p> </li> <li> <p>Route matrices for efficient multi-destination planning. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html">CalculateRouteMatrix</a>.</p> </li> <li> <p>Isoline calculations to determine reachable areas within specified time or distance thresholds. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateIsolines.html">CalculateIsolines</a>.</p> </li> <li> <p>Map-matching to align GPS traces with the road network. See <a href="https://docs.aws.amazon.com/location/latest/APIReference/API_SnapToRoads.html">SnapToRoads</a>.</p> </li> </ul>
+ * With the Routes API you can calculate routes and estimate travel time based on up-to-date road network and live traffic information. Key features include:
+ *
+ * - Point-to-point routing with estimated travel time, distance, and turn-by-turn directions. See [CalculateRoutes](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRoutes.html).
+ * - Multi-point route optimization to minimize travel time or distance. See [OptimizeWaypoints](https://docs.aws.amazon.com/location/latest/APIReference/API_OptimizeWaypoints.html).
+ * - Route matrices for efficient multi-destination planning. See [CalculateRouteMatrix](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateRouteMatrix.html).
+ * - Isoline calculations to determine reachable areas within specified time or distance thresholds. See [CalculateIsolines](https://docs.aws.amazon.com/location/latest/APIReference/API_CalculateIsolines.html).
+ * - Map-matching to align GPS traces with the road network. See [SnapToRoads](https://docs.aws.amazon.com/location/latest/APIReference/API_SnapToRoads.html).
+ *
  * @public
  */
 export class GeoRoutesClient extends __Client<

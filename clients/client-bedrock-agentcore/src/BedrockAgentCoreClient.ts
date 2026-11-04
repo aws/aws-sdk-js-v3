@@ -635,7 +635,8 @@ export type BedrockAgentCoreClientResolvedConfigType = __SmithyResolvedConfigura
 export interface BedrockAgentCoreClientResolvedConfig extends BedrockAgentCoreClientResolvedConfigType {}
 
 /**
- * <p>Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services. </p>
+ * Welcome to the Amazon Bedrock AgentCore Data Plane API reference. Data Plane actions process and handle data or workloads within Amazon Web Services services.
+ *
  * @public
  */
 export class BedrockAgentCoreClient extends __Client<

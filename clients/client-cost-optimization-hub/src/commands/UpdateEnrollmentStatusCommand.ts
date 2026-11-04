@@ -23,7 +23,12 @@ export interface UpdateEnrollmentStatusCommandInput extends UpdateEnrollmentStat
 export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the enrollment (opt in and opt out) status of an account to the Cost Optimization Hub service.</p> <p>If the account is a management account of an organization, this action can also be used to enroll member accounts of the organization.</p> <p>You must have the appropriate permissions to opt in to Cost Optimization Hub and to view its recommendations. When you opt in, Cost Optimization Hub automatically creates a service-linked role in your account to access its data.</p>
+ * Updates the enrollment (opt in and opt out) status of an account to the Cost Optimization Hub service.
+ *
+ * If the account is a management account of an organization, this action can also be used to enroll member accounts of the organization.
+ *
+ * You must have the appropriate permissions to opt in to Cost Optimization Hub and to view its recommendations. When you opt in, Cost Optimization Hub automatically creates a service-linked role in your account to access its data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +56,24 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  * @see {@link CostOptimizationHubClientResolvedConfig | config} for CostOptimizationHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * You are not authorized to use this operation with the given parameters.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link CostOptimizationHubServiceException}
- * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
  *
+ * Base exception class for all service exceptions from CostOptimizationHub service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DeviceFarmServiceException as __BaseException } from "./DeviceFarmServiceException";
 
 /**
- * <p>An invalid argument was specified.</p>
+ * An invalid argument was specified.
+ *
  * @public
  */
 export class ArgumentException extends __BaseException {
@@ -25,7 +26,8 @@ export class ArgumentException extends __BaseException {
 }
 
 /**
- * <p>The requested object could not be deleted.</p>
+ * The requested object could not be deleted.
+ *
  * @public
  */
 export class CannotDeleteException extends __BaseException {
@@ -46,7 +48,8 @@ export class CannotDeleteException extends __BaseException {
 }
 
 /**
- * <p>A limit was exceeded.</p>
+ * A limit was exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -67,7 +70,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified entity was not found.</p>
+ * The specified entity was not found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -88,7 +92,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was a problem with the service account.</p>
+ * There was a problem with the service account.
+ *
  * @public
  */
 export class ServiceAccountException extends __BaseException {
@@ -109,7 +114,8 @@ export class ServiceAccountException extends __BaseException {
 }
 
 /**
- * <p>The operation was not successful. Try again.</p>
+ * The operation was not successful. Try again.
+ *
  * @public
  */
 export class TagOperationException extends __BaseException {
@@ -132,8 +138,8 @@ export class TagOperationException extends __BaseException {
 }
 
 /**
- * <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
- *          error. </p>
+ * An internal exception was raised in the service. Contact [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if you see this error.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -154,8 +160,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>There was an error with the update request, or you do not have sufficient permissions
- *             to update this VPC endpoint configuration.</p>
+ * There was an error with the update request, or you do not have sufficient permissions to update this VPC endpoint configuration.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -176,8 +182,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>Exception gets thrown when a user is not eligible to perform the specified
- *             transaction.</p>
+ * Exception gets thrown when a user is not eligible to perform the specified transaction.
+ *
  * @public
  */
 export class NotEligibleException extends __BaseException {
@@ -198,7 +204,8 @@ export class NotEligibleException extends __BaseException {
 }
 
 /**
- * <p>An entity with the same name already exists.</p>
+ * An entity with the same name already exists.
+ *
  * @public
  */
 export class IdempotencyException extends __BaseException {
@@ -219,8 +226,8 @@ export class IdempotencyException extends __BaseException {
 }
 
 /**
- * <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag
- *             policy. Correct your request and then retry it.</p>
+ * The request doesn't comply with the AWS Identity and Access Management (IAM) tag policy. Correct your request and then retry it.
+ *
  * @public
  */
 export class TagPolicyException extends __BaseException {
@@ -243,8 +250,8 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
- * <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *             can be applied to a repository is 50. </p>
+ * The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

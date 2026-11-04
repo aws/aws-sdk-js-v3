@@ -26,7 +26,8 @@ export interface DescribeNotificationSubscriptionsCommandInput extends DescribeN
 export interface DescribeNotificationSubscriptionsCommandOutput extends DescribeNotificationSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the specified notification subscriptions.</p>
+ * Lists the specified notification subscriptions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface DescribeNotificationSubscriptionsCommandOutput extends Describe
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link EntityNotExistsException} (client fault)
- *  <p>The resource does not exist.</p>
+ *
+ * The resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

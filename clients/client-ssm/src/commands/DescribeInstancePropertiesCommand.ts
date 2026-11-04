@@ -23,8 +23,8 @@ export interface DescribeInstancePropertiesCommandInput extends DescribeInstance
 export interface DescribeInstancePropertiesCommandOutput extends DescribeInstancePropertiesResult, __MetadataBearer {}
 
 /**
- * <p>An API operation used by the Systems Manager console to display information about Systems Manager managed
- *    nodes.</p>
+ * An API operation used by the Systems Manager console to display information about Systems Manager managed nodes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,47 +106,41 @@ export interface DescribeInstancePropertiesCommandOutput extends DescribeInstanc
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidActivationId} (client fault)
- *  <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
- *    ActivationCode and try again.</p>
+ *
+ * The activation ID isn't valid. Verify that you entered the correct ActivationId or ActivationCode and try again.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidFilterKey} (client fault)
- *  <p>The specified key isn't valid.</p>
+ *
+ * The specified key isn't valid.
  *
  * @throws {@link InvalidInstanceId} (client fault)
- *  <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
  *
  * @throws {@link InvalidInstancePropertyFilterValue} (client fault)
- *  <p>The specified filter value isn't valid.</p>
+ *
+ * The specified filter value isn't valid.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

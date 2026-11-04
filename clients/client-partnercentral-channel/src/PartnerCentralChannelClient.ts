@@ -360,7 +360,8 @@ export type PartnerCentralChannelClientResolvedConfigType = __SmithyResolvedConf
 export interface PartnerCentralChannelClientResolvedConfig extends PartnerCentralChannelClientResolvedConfigType {}
 
 /**
- * <p>AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.</p>
+ * AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.
+ *
  * @public
  */
 export class PartnerCentralChannelClient extends __Client<

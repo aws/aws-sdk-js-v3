@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Tags a resource.</p>
+ * Tags a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CleanRoomsServiceException}
- * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * Base exception class for all service exceptions from CleanRooms service.
  *
  * @public
  */

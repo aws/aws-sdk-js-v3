@@ -23,7 +23,8 @@ export interface DeleteTrustStoreCommandInput extends DeleteTrustStoreInput {}
 export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a trust store.</p>
+ * Deletes a trust store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteTrustStoreCommandOutput extends DeleteTrustStoreOutput, _
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link TrustStoreInUseException} (client fault)
- *  <p>The specified trust store is currently in use.</p>
+ *
+ * The specified trust store is currently in use.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

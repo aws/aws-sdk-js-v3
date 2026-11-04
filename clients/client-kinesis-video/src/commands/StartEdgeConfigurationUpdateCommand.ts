@@ -23,20 +23,12 @@ export interface StartEdgeConfigurationUpdateCommandInput extends StartEdgeConfi
 export interface StartEdgeConfigurationUpdateCommandOutput extends StartEdgeConfigurationUpdateOutput, __MetadataBearer {}
 
 /**
- * <p>An asynchronous API that updates a stream’s existing edge configuration.
- *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
- *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
- *             and depends on the connectivity of the Hub Device.
- *             The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged,
- *             and synced with the Edge Agent. </p>
- *          <p>If this API is invoked for the first time, a new edge configuration will be created for the stream,
- *             and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status
- *             to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again.
- *             If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown.
- *             The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes,
- *             the status will transition into the <code>SYNC_FAILED</code> state.</p>
- *          <p>To move an edge configuration from one device to another, use <a>DeleteEdgeConfiguration</a> to delete
- *             the current edge configuration. You can then invoke StartEdgeConfigurationUpdate with an updated Hub Device ARN.</p>
+ * An asynchronous API that updates a stream’s existing edge configuration. The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The `SyncStatus` will be updated as the edge configuration is acknowledged, and synced with the Edge Agent.
+ *
+ * If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to `SYNCING`. You will have to wait for the sync status to reach a terminal state such as: `IN_SYNC`, or `SYNC_FAILED`, before using this API again. If you invoke this API during the syncing process, a `ResourceInUseException` will be thrown. The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the `SYNC_FAILED` state.
+ *
+ * To move an edge configuration from one device to another, use DeleteEdgeConfiguration to delete the current edge configuration. You can then invoke StartEdgeConfigurationUpdate with an updated Hub Device ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,44 +115,36 @@ export interface StartEdgeConfigurationUpdateCommandOutput extends StartEdgeConf
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * You do not have required permissions to perform this operation.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link NoDataRetentionException} (client fault)
- *  <p>The Stream data retention in hours is equal to zero.</p>
+ *
+ * The Stream data retention in hours is equal to zero.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
- *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
- *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
- *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
- *          <ol>
- *             <li>
- *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
- *             </p>
- *             </li>
- *          </ol>
+ *
+ * When the input `StreamARN` or `ChannelARN` in `CLOUD_STORAGE_MODE` is already mapped to a different Kinesis Video Stream resource, or if the provided input `StreamARN` or `ChannelARN` is not in Active status, try one of the following :
+ *
+ * 1. The `DescribeMediaStorageConfiguration` API to determine what the stream given channel is mapped to.
+ * 2. The `DescribeMappedResourceConfiguration` API to determine the channel that the given stream is mapped to.
+ * 3. The `DescribeStream` or `DescribeSignalingChannel` API to determine the status of the resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

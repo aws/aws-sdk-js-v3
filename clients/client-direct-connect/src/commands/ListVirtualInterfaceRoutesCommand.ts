@@ -23,18 +23,13 @@ export interface ListVirtualInterfaceRoutesCommandInput extends ListVirtualInter
 export interface ListVirtualInterfaceRoutesCommandOutput extends ListVirtualInterfaceRoutesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the routes for the specified virtual interface.</p>
- *          <p>Use the <code>routeDirection</code> filter to control which routes are returned:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>accepted</code>: routes received from the customer network over the virtual interface.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>advertised</code>: routes advertised to the customer network over the virtual interface.</p>
- *             </li>
- *          </ul>
+ * Lists the routes for the specified virtual interface.
+ *
+ * Use the `routeDirection` filter to control which routes are returned:
+ *
+ * - `accepted`: routes received from the customer network over the virtual interface.
+ * - `advertised`: routes advertised to the customer network over the virtual interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,14 +92,16 @@ export interface ListVirtualInterfaceRoutesCommandOutput extends ListVirtualInte
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

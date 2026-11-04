@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags (keys and values) from an Amazon Macie resource.</p>
+ * Removes one or more tags (keys and values) from an Amazon Macie resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  * @throws {@link Macie2ServiceException}
- * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * Base exception class for all service exceptions from Macie2 service.
  *
  * @public
  */

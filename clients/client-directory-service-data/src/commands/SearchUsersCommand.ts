@@ -23,15 +23,12 @@ export interface SearchUsersCommandInput extends SearchUsersRequest {}
 export interface SearchUsersCommandOutput extends SearchUsersResult, __MetadataBearer {}
 
 /**
- * <p> Searches the specified directory for a user. You can find users that match the
- *         <code>SearchString</code> parameter with the value of their attributes included in the
- *         <code>SearchString</code> parameter.</p>
- *          <p> This operation supports pagination with the use of the <code>NextToken</code> request and
- *       response parameters. If more results are available, the <code>SearchUsers.NextToken</code>
- *       member contains a token that you pass in the next call to <code>SearchUsers</code>. This
- *       retrieves the next set of items. </p>
- *          <p> You can also specify a maximum number of return results with the <code>MaxResults</code>
- *       parameter. </p>
+ * Searches the specified directory for a user. You can find users that match the `SearchString` parameter with the value of their attributes included in the `SearchString` parameter.
+ *
+ * This operation supports pagination with the use of the `NextToken` request and response parameters. If more results are available, the `SearchUsers.NextToken` member contains a token that you pass in the next call to `SearchUsers`. This retrieves the next set of items.
+ *
+ * You can also specify a maximum number of return results with the `MaxResults` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,30 +86,30 @@ export interface SearchUsersCommandOutput extends SearchUsersResult, __MetadataB
  * @see {@link DirectoryServiceDataClientResolvedConfig | config} for DirectoryServiceDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have permission to perform the request or access the directory. It can also
- *       occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be
- *       outside of your organizational unit (OU). </p>
- *          <p> Make sure that you have the authentication and authorization to perform the action.
- *       Review the directory information in the request, and make sure that the object isn't outside
- *       of your OU. </p>
+ *
+ * You don't have permission to perform the request or access the directory. It can also occur when the `DirectoryId` doesn't exist or the user, member, or group might be outside of your organizational unit (OU).
+ *
+ * Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p> The request could not be completed due to a problem in the configuration or current state
- *       of the specified directory. </p>
+ *
+ * The request could not be completed due to a problem in the configuration or current state of the specified directory.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+ *
+ * The operation didn't succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The limit on the number of requests per second has been exceeded. </p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request isn't valid. Review the details in the error message to update the invalid
- *       parameters or values in your request. </p>
+ *
+ * The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request.
  *
  * @throws {@link DirectoryServiceDataServiceException}
- * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryServiceData service.
  *
  * @example To search for users
  * ```javascript

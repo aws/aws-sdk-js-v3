@@ -23,11 +23,10 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your
- *       Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups,
- *       trust stores, listeners, and rules.</p>
- *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with the
- *       same key, <code>AddTags</code> updates its value.</p>
+ * Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, Gateway Load Balancers, target groups, trust stores, listeners, and rules.
+ *
+ * Each tag consists of a key and an optional value. If a resource already has a tag with the same key, `AddTags` updates its value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,29 +59,36 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link RuleNotFoundException} (client fault)
- *  <p>The specified rule does not exist.</p>
+ *
+ * The specified rule does not exist.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * You've reached the limit on the number of tags for this resource.
  *
  * @throws {@link TrustStoreNotFoundException} (client fault)
- *  <p>The specified trust store does not exist.</p>
+ *
+ * The specified trust store does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To add tags to a load balancer
  * ```javascript

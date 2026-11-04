@@ -23,7 +23,8 @@ export interface ListScheduledReportsCommandInput extends ListScheduledReportsRe
 export interface ListScheduledReportsCommandOutput extends ListScheduledReportsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of scheduled reports in your account.</p>
+ * Returns a list of scheduled reports in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,20 +72,24 @@ export interface ListScheduledReportsCommandOutput extends ListScheduledReportsR
  * @see {@link BCMDashboardsClientResolvedConfig | config} for BCMDashboardsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+ *
+ * You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+ *
+ * An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+ *
+ * The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+ *
+ * The input parameters do not satisfy the requirements. Check the error message for specific validation details.
  *
  * @throws {@link BCMDashboardsServiceException}
- * <p>Base exception class for all service exceptions from BCMDashboards service.</p>
  *
+ * Base exception class for all service exceptions from BCMDashboards service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface DeregisterWebhookWithThirdPartyCommandInput extends DeregisterW
 export interface DeregisterWebhookWithThirdPartyCommandOutput extends DeregisterWebhookWithThirdPartyOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the connection between the webhook that was created by CodePipeline
- *             and the external tool with events to be detected. Currently supported only for webhooks
- *             that target an action type of GitHub.</p>
+ * Removes the connection between the webhook that was created by CodePipeline and the external tool with events to be detected. Currently supported only for webhooks that target an action type of GitHub.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,15 +49,16 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput extends Deregister
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link WebhookNotFoundException} (client fault)
- *  <p>The specified webhook was entered in an invalid format or cannot be
- *             found.</p>
+ *
+ * The specified webhook was entered in an invalid format or cannot be found.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

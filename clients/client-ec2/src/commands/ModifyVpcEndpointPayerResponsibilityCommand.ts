@@ -26,7 +26,8 @@ export interface ModifyVpcEndpointPayerResponsibilityCommandInput extends Modify
 export interface ModifyVpcEndpointPayerResponsibilityCommandOutput extends ModifyVpcEndpointPayerResponsibilityResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the billing account for VPC endpoint usage/charges.</p>
+ * Modifies the billing account for VPC endpoint usage/charges.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface ModifyVpcEndpointPayerResponsibilityCommandOutput extends Modif
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

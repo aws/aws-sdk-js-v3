@@ -357,7 +357,8 @@ export type PartnerCentralBenefitsClientResolvedConfigType = __SmithyResolvedCon
 export interface PartnerCentralBenefitsClientResolvedConfig extends PartnerCentralBenefitsClientResolvedConfigType {}
 
 /**
- * <p>AWS Partner Central Benefits Service provides APIs for managing partner benefits, applications, and allocations within the AWS Partner Network ecosystem.</p>
+ * AWS Partner Central Benefits Service provides APIs for managing partner benefits, applications, and allocations within the AWS Partner Network ecosystem.
+ *
  * @public
  */
 export class PartnerCentralBenefitsClient extends __Client<

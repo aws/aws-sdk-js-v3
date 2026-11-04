@@ -23,10 +23,10 @@ export interface CancelReservedInstancesListingCommandInput extends CancelReserv
 export interface CancelReservedInstancesListingCommandOutput extends CancelReservedInstancesListingResult, __MetadataBearer {}
 
 /**
- * <p>Cancels the specified Reserved Instance listing in the Reserved Instance
- *       Marketplace.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
- *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
+ *
+ * For more information, see [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +83,8 @@ export interface CancelReservedInstancesListingCommandOutput extends CancelReser
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

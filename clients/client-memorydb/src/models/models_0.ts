@@ -13,92 +13,105 @@ import type {
 } from "./enums";
 
 /**
- * <p>Returns the updates being applied to the ACL.</p>
+ * Returns the updates being applied to the ACL.
+ *
  * @public
  */
 export interface ACLPendingChanges {
   /**
-   * <p>A list of user names being removed from the ACL</p>
+   * A list of user names being removed from the ACL
+   *
    * @public
    */
   UserNamesToRemove?: string[] | undefined;
 
   /**
-   * <p>A list of users being added to the ACL</p>
+   * A list of users being added to the ACL
+   *
    * @public
    */
   UserNamesToAdd?: string[] | undefined;
 }
 
 /**
- * <p>An Access Control List. You can authenticate users with Access Contol Lists.
+ * An Access Control List. You can authenticate users with Access Contol Lists. ACLs enable you to control cluster access by grouping users. These Access control lists are designed as a way to organize access to clusters.
  *
- *          ACLs enable you to control cluster access by grouping users. These Access control lists are designed as a way to organize access to clusters.</p>
  * @public
  */
 export interface ACL {
   /**
-   * <p>The name of the Access Control List</p>
+   * The name of the Access Control List
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Indicates ACL status. Can be "creating", "active", "modifying", "deleting".</p>
+   * Indicates ACL status. Can be "creating", "active", "modifying", "deleting".
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The list of user names that belong to the ACL.</p>
+   * The list of user names that belong to the ACL.
+   *
    * @public
    */
   UserNames?: string[] | undefined;
 
   /**
-   * <p>The minimum engine version supported for the ACL</p>
+   * The minimum engine version supported for the ACL
+   *
    * @public
    */
   MinimumEngineVersion?: string | undefined;
 
   /**
-   * <p>A list of updates being applied to the ACL.</p>
+   * A list of updates being applied to the ACL.
+   *
    * @public
    */
   PendingChanges?: ACLPendingChanges | undefined;
 
   /**
-   * <p>A list of clusters associated with the ACL.</p>
+   * A list of clusters associated with the ACL.
+   *
    * @public
    */
   Clusters?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACL</p>
+   * The Amazon Resource Name (ARN) of the ACL
+   *
    * @public
    */
   ARN?: string | undefined;
 }
 
 /**
- * <p>The status of the ACL update</p>
+ * The status of the ACL update
+ *
  * @public
  */
 export interface ACLsUpdateStatus {
   /**
-   * <p>A list of ACLs pending to be applied.</p>
+   * A list of ACLs pending to be applied.
+   *
    * @public
    */
   ACLToApply?: string | undefined;
 }
 
 /**
- * <p>A request to apply a service update</p>
+ * A request to apply a service update
+ *
  * @public
  */
 export interface ServiceUpdateRequest {
   /**
-   * <p>The unique ID of the service update</p>
+   * The unique ID of the service update
+   *
    * @public
    */
   ServiceUpdateNameToApply?: string | undefined;
@@ -109,402 +122,463 @@ export interface ServiceUpdateRequest {
  */
 export interface BatchUpdateClusterRequest {
   /**
-   * <p>The cluster names to apply the updates.</p>
+   * The cluster names to apply the updates.
+   *
    * @public
    */
   ClusterNames: string[] | undefined;
 
   /**
-   * <p>The unique ID of the service update</p>
+   * The unique ID of the service update
+   *
    * @public
    */
   ServiceUpdate?: ServiceUpdateRequest | undefined;
 }
 
 /**
- * <p>Represents the information required for client programs to connect to the cluster and its nodes.</p>
+ * Represents the information required for client programs to connect to the cluster and its nodes.
+ *
  * @public
  */
 export interface Endpoint {
   /**
-   * <p>The DNS hostname of the node.</p>
+   * The DNS hostname of the node.
+   *
    * @public
    */
   Address?: string | undefined;
 
   /**
-   * <p>The port number that the engine is listening on.</p>
+   * The port number that the engine is listening on.
+   *
    * @public
    */
   Port?: number | undefined;
 }
 
 /**
- * <p>Represents the progress of an online resharding operation.</p>
+ * Represents the progress of an online resharding operation.
+ *
  * @public
  */
 export interface SlotMigration {
   /**
-   * <p>The percentage of the slot migration that is complete.</p>
+   * The percentage of the slot migration that is complete.
+   *
    * @public
    */
   ProgressPercentage?: number | undefined;
 }
 
 /**
- * <p>The status of the online resharding</p>
+ * The status of the online resharding
+ *
  * @public
  */
 export interface ReshardingStatus {
   /**
-   * <p>The status of the online resharding slot migration</p>
+   * The status of the online resharding slot migration
+   *
    * @public
    */
   SlotMigration?: SlotMigration | undefined;
 }
 
 /**
- * <p>Update action that has yet to be processed for the corresponding apply/stop request</p>
+ * Update action that has yet to be processed for the corresponding apply/stop request
+ *
  * @public
  */
 export interface PendingModifiedServiceUpdate {
   /**
-   * <p>The unique ID of the service update</p>
+   * The unique ID of the service update
+   *
    * @public
    */
   ServiceUpdateName?: string | undefined;
 
   /**
-   * <p>The status of the service update</p>
+   * The status of the service update
+   *
    * @public
    */
   Status?: ServiceUpdateStatus | undefined;
 }
 
 /**
- * <p>A list of updates being applied to the cluster</p>
+ * A list of updates being applied to the cluster
+ *
  * @public
  */
 export interface ClusterPendingUpdates {
   /**
-   * <p>The status of an online resharding operation.</p>
+   * The status of an online resharding operation.
+   *
    * @public
    */
   Resharding?: ReshardingStatus | undefined;
 
   /**
-   * <p>A list of ACLs associated with the cluster that are being updated</p>
+   * A list of ACLs associated with the cluster that are being updated
+   *
    * @public
    */
   ACLs?: ACLsUpdateStatus | undefined;
 
   /**
-   * <p>A list of service updates being applied to the cluster</p>
+   * A list of service updates being applied to the cluster
+   *
    * @public
    */
   ServiceUpdates?: PendingModifiedServiceUpdate[] | undefined;
 }
 
 /**
- * <p>Represents a single security group and its status.</p>
+ * Represents a single security group and its status.
+ *
  * @public
  */
 export interface SecurityGroupMembership {
   /**
-   * <p>The identifier of the security group.</p>
+   * The identifier of the security group.
+   *
    * @public
    */
   SecurityGroupId?: string | undefined;
 
   /**
-   * <p>The status of the security group membership. The status changes whenever a security group is modified, or when the security groups assigned to a cluster are modified.</p>
+   * The status of the security group membership. The status changes whenever a security group is modified, or when the security groups assigned to a cluster are modified.
+   *
    * @public
    */
   Status?: string | undefined;
 }
 
 /**
- * <p>Represents an individual node within a cluster. Each node runs its own instance of the cluster's protocol-compliant caching software.</p>
+ * Represents an individual node within a cluster. Each node runs its own instance of the cluster's protocol-compliant caching software.
+ *
  * @public
  */
 export interface Node {
   /**
-   * <p>The  node identifier. A node name is a numeric identifier (0001, 0002, etc.). The combination of cluster name, shard name and node name uniquely identifies every node used in a customer's Amazon account.</p>
+   * The node identifier. A node name is a numeric identifier (0001, 0002, etc.). The combination of cluster name, shard name and node name uniquely identifies every node used in a customer's Amazon account.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The status of the service update on the node</p>
+   * The status of the service update on the node
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the node resides</p>
+   * The Availability Zone in which the node resides
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The date and time when the node was created.</p>
+   * The date and time when the node was created.
+   *
    * @public
    */
   CreateTime?: Date | undefined;
 
   /**
-   * <p>The hostname for connecting to this node.</p>
+   * The hostname for connecting to this node.
+   *
    * @public
    */
   Endpoint?: Endpoint | undefined;
 }
 
 /**
- * <p>Represents a collection of nodes in a cluster. One node in the node group is the read/write primary node. All the other nodes are read-only Replica nodes.</p>
+ * Represents a collection of nodes in a cluster. One node in the node group is the read/write primary node. All the other nodes are read-only Replica nodes.
+ *
  * @public
  */
 export interface Shard {
   /**
-   * <p>The name of the shard</p>
+   * The name of the shard
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current state of this replication group - creating, available, modifying, deleting.</p>
+   * The current state of this replication group - creating, available, modifying, deleting.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The keyspace for this shard.</p>
+   * The keyspace for this shard.
+   *
    * @public
    */
   Slots?: string | undefined;
 
   /**
-   * <p>A list containing information about individual nodes within the shard</p>
+   * A list containing information about individual nodes within the shard
+   *
    * @public
    */
   Nodes?: Node[] | undefined;
 
   /**
-   * <p>The number of nodes in the shard</p>
+   * The number of nodes in the shard
+   *
    * @public
    */
   NumberOfNodes?: number | undefined;
 }
 
 /**
- * <p>Contains all of the attributes of a specific cluster.</p>
+ * Contains all of the attributes of a specific cluster.
+ *
  * @public
  */
 export interface Cluster {
   /**
-   * <p>The user-supplied name of the cluster. This identifier is a unique key that identifies a cluster.</p>
+   * The user-supplied name of the cluster. This identifier is a unique key that identifies a cluster.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the cluster</p>
+   * A description of the cluster
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The status of the cluster. For example, Available, Updating, Creating.</p>
+   * The status of the cluster. For example, Available, Updating, Creating.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>A group of settings that are currently being applied.</p>
+   * A group of settings that are currently being applied.
+   *
    * @public
    */
   PendingUpdates?: ClusterPendingUpdates | undefined;
 
   /**
-   * <p>The name of the multi-Region cluster that this cluster belongs to.</p>
+   * The name of the multi-Region cluster that this cluster belongs to.
+   *
    * @public
    */
   MultiRegionClusterName?: string | undefined;
 
   /**
-   * <p>The number of shards in the cluster</p>
+   * The number of shards in the cluster
+   *
    * @public
    */
   NumberOfShards?: number | undefined;
 
   /**
-   * <p>A list of shards that are members of the cluster.</p>
+   * A list of shards that are members of the cluster.
+   *
    * @public
    */
   Shards?: Shard[] | undefined;
 
   /**
-   * <p>Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).</p>
+   * Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).
+   *
    * @public
    */
   AvailabilityMode?: AZStatus | undefined;
 
   /**
-   * <p>The cluster's configuration endpoint</p>
+   * The cluster's configuration endpoint
+   *
    * @public
    */
   ClusterEndpoint?: Endpoint | undefined;
 
   /**
-   * <p>The cluster's node type</p>
+   * The cluster's node type
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The name of the engine used by the cluster.</p>
+   * The name of the engine used by the cluster.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The Redis OSS engine version used by the cluster</p>
+   * The Redis OSS engine version used by the cluster
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The Redis OSS engine patch version used by the cluster</p>
+   * The Redis OSS engine patch version used by the cluster
+   *
    * @public
    */
   EnginePatchVersion?: string | undefined;
 
   /**
-   * <p>The name of the parameter group used by the cluster</p>
+   * The name of the parameter group used by the cluster
+   *
    * @public
    */
   ParameterGroupName?: string | undefined;
 
   /**
-   * <p>The status of the parameter group used by the cluster, for example 'active' or 'applying'.</p>
+   * The status of the parameter group used by the cluster, for example 'active' or 'applying'.
+   *
    * @public
    */
   ParameterGroupStatus?: string | undefined;
 
   /**
-   * <p>A list of security groups used by the cluster</p>
+   * A list of security groups used by the cluster
+   *
    * @public
    */
   SecurityGroups?: SecurityGroupMembership[] | undefined;
 
   /**
-   * <p>The name of the subnet group used by the cluster</p>
+   * The name of the subnet group used by the cluster
+   *
    * @public
    */
   SubnetGroupName?: string | undefined;
 
   /**
-   * <p>A flag to indicate if In-transit encryption is enabled</p>
+   * A flag to indicate if In-transit encryption is enabled
+   *
    * @public
    */
   TLSEnabled?: boolean | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt the cluster</p>
+   * The ID of the KMS key used to encrypt the cluster
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * The Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   ARN?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS notification topic</p>
+   * The Amazon Resource Name (ARN) of the SNS notification topic
+   *
    * @public
    */
   SnsTopicArn?: string | undefined;
 
   /**
-   * <p>The SNS topic must be in Active status to receive notifications</p>
+   * The SNS topic must be in Active status to receive notifications
+   *
    * @public
    */
   SnsTopicStatus?: string | undefined;
 
   /**
-   * <p>The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.</p>
+   * The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
+   *
    * @public
    */
   SnapshotRetentionLimit?: number | undefined;
 
   /**
-   * <p>Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. </p>
+   * Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
+   *
    * @public
    */
   MaintenanceWindow?: string | undefined;
 
   /**
-   * <p>The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.
+   * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: 05:00-09:00 If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.
    *
-   *          Example: 05:00-09:00
-   *
-   *          If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.</p>
    * @public
    */
   SnapshotWindow?: string | undefined;
 
   /**
-   * <p>The name of the Access Control List associated with this cluster.</p>
+   * The name of the Access Control List associated with this cluster.
+   *
    * @public
    */
   ACLName?: string | undefined;
 
   /**
-   * <p>When set to true, the cluster will automatically receive minor engine version upgrades after launch.</p>
+   * When set to true, the cluster will automatically receive minor engine version upgrades after launch.
+   *
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
-   * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
-   *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
+   * Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+   *
    * @public
    */
   DataTiering?: DataTieringStatus | undefined;
 
   /**
-   * <p>The IP address type for the cluster. Returns 'ipv4' for IPv4 only, 'ipv6' for IPv6 only, or 'dual-stack' if the cluster supports both IPv4 and IPv6 addressing.</p>
+   * The IP address type for the cluster. Returns 'ipv4' for IPv4 only, 'ipv6' for IPv6 only, or 'dual-stack' if the cluster supports both IPv4 and IPv6 addressing.
+   *
    * @public
    */
   NetworkType?: NetworkType | undefined;
 
   /**
-   * <p>The mechanism that the cluster uses to discover IP addresses. Returns 'ipv4' when DNS endpoints resolve to IPv4 addresses, or 'ipv6' when DNS endpoints resolve to IPv6 addresses.</p>
+   * The mechanism that the cluster uses to discover IP addresses. Returns 'ipv4' when DNS endpoints resolve to IPv4 addresses, or 'ipv6' when DNS endpoints resolve to IPv6 addresses.
+   *
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
 }
 
 /**
- * <p>A cluster whose updates have failed</p>
+ * A cluster whose updates have failed
+ *
  * @public
  */
 export interface UnprocessedCluster {
   /**
-   * <p>The name of the cluster</p>
+   * The name of the cluster
+   *
    * @public
    */
   ClusterName?: string | undefined;
 
   /**
-   * <p>The error type associated with the update failure</p>
+   * The error type associated with the update failure
+   *
    * @public
    */
   ErrorType?: string | undefined;
 
   /**
-   * <p>The error message associated with the update failure</p>
+   * The error message associated with the update failure
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -515,34 +589,36 @@ export interface UnprocessedCluster {
  */
 export interface BatchUpdateClusterResponse {
   /**
-   * <p>The list of clusters that have been updated.</p>
+   * The list of clusters that have been updated.
+   *
    * @public
    */
   ProcessedClusters?: Cluster[] | undefined;
 
   /**
-   * <p>The list of clusters where updates have not been applied.</p>
+   * The list of clusters where updates have not been applied.
+   *
    * @public
    */
   UnprocessedClusters?: UnprocessedCluster[] | undefined;
 }
 
 /**
- * <p>A tag that can be added to an MemoryDB resource. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your MemoryDB resources.
- *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. A tag with a null Value is permitted. For more information, see
- *          <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging-resources.html">Tagging your MemoryDB resources</a>
- *          </p>
+ * A tag that can be added to an MemoryDB resource. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your MemoryDB resources. When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. A tag with a null Value is permitted. For more information, see [Tagging your MemoryDB resources](https://docs.aws.amazon.com/MemoryDB/latest/devguide/tagging-resources.html)
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key for the tag. May not be null.</p>
+   * The key for the tag. May not be null.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The tag's value. May be null.</p>
+   * The tag's value. May be null.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -553,242 +629,274 @@ export interface Tag {
  */
 export interface CopySnapshotRequest {
   /**
-   * <p>The name of an existing snapshot from which to make a copy.</p>
+   * The name of an existing snapshot from which to make a copy.
+   *
    * @public
    */
   SourceSnapshotName: string | undefined;
 
   /**
-   * <p>A name for the snapshot copy. MemoryDB does not permit overwriting a snapshot, therefore this name must be unique within its context - MemoryDB or an Amazon S3 bucket if exporting.</p>
+   * A name for the snapshot copy. MemoryDB does not permit overwriting a snapshot, therefore this name must be unique within its context - MemoryDB or an Amazon S3 bucket if exporting.
+   *
    * @public
    */
   TargetSnapshotName: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access.
+   * The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access. When using this parameter to export a snapshot, be sure MemoryDB has the needed permissions to this S3 bucket. For more information, see [Step 2: Grant MemoryDB Access to Your Amazon S3 Bucket](https://docs.aws.amazon.com/MemoryDB/latest/devguide/snapshots-exporting.html).
    *
-   *        When using this parameter to export a snapshot, be sure MemoryDB has the needed permissions to this S3 bucket. For more information, see
-   *
-   *        <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/snapshots-exporting.html">Step 2: Grant MemoryDB Access to Your Amazon S3 Bucket</a>.
-   *
-   *      </p>
    * @public
    */
   TargetBucket?: string | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt the target snapshot.</p>
+   * The ID of the KMS key used to encrypt the target snapshot.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Shard configuration options. Each shard configuration has the following: Slots and ReplicaCount.</p>
+ * Shard configuration options. Each shard configuration has the following: Slots and ReplicaCount.
+ *
  * @public
  */
 export interface ShardConfiguration {
   /**
-   * <p>A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format startkey-endkey.</p>
+   * A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format startkey-endkey.
+   *
    * @public
    */
   Slots?: string | undefined;
 
   /**
-   * <p>The number of read replica nodes in this shard.</p>
+   * The number of read replica nodes in this shard.
+   *
    * @public
    */
   ReplicaCount?: number | undefined;
 }
 
 /**
- * <p>Provides details of a shard in a snapshot</p>
+ * Provides details of a shard in a snapshot
+ *
  * @public
  */
 export interface ShardDetail {
   /**
-   * <p>The name of the shard</p>
+   * The name of the shard
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The configuration details of the shard</p>
+   * The configuration details of the shard
+   *
    * @public
    */
   Configuration?: ShardConfiguration | undefined;
 
   /**
-   * <p>The size of the shard's snapshot</p>
+   * The size of the shard's snapshot
+   *
    * @public
    */
   Size?: string | undefined;
 
   /**
-   * <p>The date and time that the shard's snapshot was created</p>
+   * The date and time that the shard's snapshot was created
+   *
    * @public
    */
   SnapshotCreationTime?: Date | undefined;
 }
 
 /**
- * <p>A list of cluster configuration options. </p>
+ * A list of cluster configuration options.
+ *
  * @public
  */
 export interface ClusterConfiguration {
   /**
-   * <p>The name of the cluster</p>
+   * The name of the cluster
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the cluster configuration</p>
+   * The description of the cluster configuration
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The node type used for the cluster</p>
+   * The node type used for the cluster
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The name of the engine used by the cluster configuration.</p>
+   * The name of the engine used by the cluster configuration.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The Redis OSS engine version used by the cluster</p>
+   * The Redis OSS engine version used by the cluster
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The specified maintenance window for the cluster</p>
+   * The specified maintenance window for the cluster
+   *
    * @public
    */
   MaintenanceWindow?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SNS notification topic for the cluster</p>
+   * The Amazon Resource Name (ARN) of the SNS notification topic for the cluster
+   *
    * @public
    */
   TopicArn?: string | undefined;
 
   /**
-   * <p>The port used by the cluster</p>
+   * The port used by the cluster
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The name of parameter group used by the cluster</p>
+   * The name of parameter group used by the cluster
+   *
    * @public
    */
   ParameterGroupName?: string | undefined;
 
   /**
-   * <p>The name of the subnet group used by the cluster</p>
+   * The name of the subnet group used by the cluster
+   *
    * @public
    */
   SubnetGroupName?: string | undefined;
 
   /**
-   * <p>The ID of the VPC the cluster belongs to</p>
+   * The ID of the VPC the cluster belongs to
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>The snapshot retention limit set by the cluster</p>
+   * The snapshot retention limit set by the cluster
+   *
    * @public
    */
   SnapshotRetentionLimit?: number | undefined;
 
   /**
-   * <p>The snapshot window set by the cluster</p>
+   * The snapshot window set by the cluster
+   *
    * @public
    */
   SnapshotWindow?: string | undefined;
 
   /**
-   * <p>The number of shards in the cluster</p>
+   * The number of shards in the cluster
+   *
    * @public
    */
   NumShards?: number | undefined;
 
   /**
-   * <p>The list of shards in the cluster</p>
+   * The list of shards in the cluster
+   *
    * @public
    */
   Shards?: ShardDetail[] | undefined;
 
   /**
-   * <p>The name of the multi-Region parameter group associated with the cluster configuration.</p>
+   * The name of the multi-Region parameter group associated with the cluster configuration.
+   *
    * @public
    */
   MultiRegionParameterGroupName?: string | undefined;
 
   /**
-   * <p>The name for the multi-Region cluster associated with the cluster configuration.</p>
+   * The name for the multi-Region cluster associated with the cluster configuration.
+   *
    * @public
    */
   MultiRegionClusterName?: string | undefined;
 }
 
 /**
- * <p>Represents a copy of an entire cluster as of the time when the snapshot was taken.</p>
+ * Represents a copy of an entire cluster as of the time when the snapshot was taken.
+ *
  * @public
  */
 export interface Snapshot {
   /**
-   * <p>The name of the snapshot</p>
+   * The name of the snapshot
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The status of the snapshot. Valid values: creating | available | restoring | copying | deleting.</p>
+   * The status of the snapshot. Valid values: creating | available | restoring | copying | deleting.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>Indicates whether the snapshot is from an automatic backup (automated) or was created manually (manual).</p>
+   * Indicates whether the snapshot is from an automatic backup (automated) or was created manually (manual).
+   *
    * @public
    */
   Source?: string | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt the snapshot.</p>
+   * The ID of the KMS key used to encrypt the snapshot.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the snapshot.</p>
+   * The ARN (Amazon Resource Name) of the snapshot.
+   *
    * @public
    */
   ARN?: string | undefined;
 
   /**
-   * <p>The configuration of the cluster from which the snapshot was taken</p>
+   * The configuration of the cluster from which the snapshot was taken
+   *
    * @public
    */
   ClusterConfiguration?: ClusterConfiguration | undefined;
 
   /**
-   * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
-   *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
+   * Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+   *
    * @public
    */
   DataTiering?: DataTieringStatus | undefined;
@@ -799,7 +907,8 @@ export interface Snapshot {
  */
 export interface CopySnapshotResponse {
   /**
-   * <p>Represents a copy of an entire cluster as of the time when the snapshot was taken.</p>
+   * Represents a copy of an entire cluster as of the time when the snapshot was taken.
+   *
    * @public
    */
   Snapshot?: Snapshot | undefined;
@@ -810,19 +919,22 @@ export interface CopySnapshotResponse {
  */
 export interface CreateACLRequest {
   /**
-   * <p>The name of the Access Control List.</p>
+   * The name of the Access Control List.
+   *
    * @public
    */
   ACLName: string | undefined;
 
   /**
-   * <p>The list of users that belong to the Access Control List.</p>
+   * The list of users that belong to the Access Control List.
+   *
    * @public
    */
   UserNames?: string[] | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -833,7 +945,8 @@ export interface CreateACLRequest {
  */
 export interface CreateACLResponse {
   /**
-   * <p>The newly-created Access Control List.</p>
+   * The newly-created Access Control List.
+   *
    * @public
    */
   ACL?: ACL | undefined;
@@ -844,203 +957,199 @@ export interface CreateACLResponse {
  */
 export interface CreateClusterRequest {
   /**
-   * <p>The name of the cluster. This value must be unique as it also serves as the cluster identifier.</p>
+   * The name of the cluster. This value must be unique as it also serves as the cluster identifier.
+   *
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The compute and memory capacity of the nodes in the cluster.</p>
+   * The compute and memory capacity of the nodes in the cluster.
+   *
    * @public
    */
   NodeType: string | undefined;
 
   /**
-   * <p>The name of the multi-Region cluster to be created.</p>
+   * The name of the multi-Region cluster to be created.
+   *
    * @public
    */
   MultiRegionClusterName?: string | undefined;
 
   /**
-   * <p>The name of the parameter group associated with the cluster.</p>
+   * The name of the parameter group associated with the cluster.
+   *
    * @public
    */
   ParameterGroupName?: string | undefined;
 
   /**
-   * <p>An optional description of the cluster.</p>
+   * An optional description of the cluster.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The number of shards the cluster will contain. The default value is 1. </p>
+   * The number of shards the cluster will contain. The default value is 1.
+   *
    * @public
    */
   NumShards?: number | undefined;
 
   /**
-   * <p>The number of replicas to apply to each shard. The default value is 1. The maximum is 5. </p>
+   * The number of replicas to apply to each shard. The default value is 1. The maximum is 5.
+   *
    * @public
    */
   NumReplicasPerShard?: number | undefined;
 
   /**
-   * <p>The name of the subnet group to be used for the cluster.</p>
+   * The name of the subnet group to be used for the cluster.
+   *
    * @public
    */
   SubnetGroupName?: string | undefined;
 
   /**
-   * <p>A list of security group names to associate with this cluster.</p>
+   * A list of security group names to associate with this cluster.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Specifies the weekly time range during which maintenance
-   *          on the cluster is performed. It is specified as a range in
-   *          the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *          maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
+   * Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
+   *
+   * Valid values for `ddd` are:
+   *
+   * - `sun`
+   * - `mon`
+   * - `tue`
+   * - `wed`
+   * - `thu`
+   * - `fri`
+   * - `sat`
+   *
+   * Example: `sun:23:00-mon:01:30`
+   *
    * @public
    */
   MaintenanceWindow?: string | undefined;
 
   /**
-   * <p>The port number on which each of the nodes accepts connections.</p>
+   * The port number on which each of the nodes accepts connections.
+   *
    * @public
    */
   Port?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
+   *
    * @public
    */
   SnsTopicArn?: string | undefined;
 
   /**
-   * <p>A flag to enable in-transit encryption on the cluster.</p>
+   * A flag to enable in-transit encryption on the cluster.
+   *
    * @public
    */
   TLSEnabled?: boolean | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt the cluster.</p>
+   * The ID of the KMS key used to encrypt the cluster.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas.</p>
+   * A list of Amazon Resource Names (ARN) that uniquely identify the RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the new cluster. The Amazon S3 object name in the ARN cannot contain any commas.
+   *
    * @public
    */
   SnapshotArns?: string[] | undefined;
 
   /**
-   * <p>The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created.</p>
+   * The name of a snapshot from which to restore data into the new cluster. The snapshot status changes to restoring while the new cluster is being created.
+   *
    * @public
    */
   SnapshotName?: string | undefined;
 
   /**
-   * <p>The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.</p>
+   * The number of days for which MemoryDB retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
+   *
    * @public
    */
   SnapshotRetentionLimit?: number | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. Tags are comma-separated key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.</p>
+   * A list of tags to be added to this resource. Tags are comma-separated key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.</p>
-   *          <p>    Example: 05:00-09:00</p>
-   *          <p>    If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.</p>
+   * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard.
+   *
+   * Example: 05:00-09:00
+   *
+   * If you do not specify this parameter, MemoryDB automatically chooses an appropriate time range.
+   *
    * @public
    */
   SnapshotWindow?: string | undefined;
 
   /**
-   * <p>The name of the Access Control List to associate with the cluster.</p>
+   * The name of the Access Control List to associate with the cluster.
+   *
    * @public
    */
   ACLName: string | undefined;
 
   /**
-   * <p>The name of the engine to be used for the cluster.</p>
+   * The name of the engine to be used for the cluster.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The version number of the Redis OSS engine to be used for the cluster.</p>
+   * The version number of the Redis OSS engine to be used for the cluster.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>When set to true, the cluster will automatically receive minor engine version upgrades after launch.</p>
+   * When set to true, the cluster will automatically receive minor engine version upgrades after launch.
+   *
    * @public
    */
   AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
-   * <p>Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
-   *             This parameter must be set when using r6gd nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data tiering</a>.</p>
+   * Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
+   *
    * @public
    */
   DataTiering?: boolean | undefined;
 
   /**
-   * <p>Specifies the IP address type for the cluster. Valid values are 'ipv4', 'ipv6', or 'dual_stack'. When set to 'ipv4', the cluster will only be accessible via IPv4 addresses. When set to 'ipv6', the cluster will only be accessible via IPv6 addresses. When set to 'dual_stack', the cluster will be accessible via both IPv4 and IPv6 addresses. If not specified, the default is 'ipv4'.</p>
+   * Specifies the IP address type for the cluster. Valid values are 'ipv4', 'ipv6', or 'dual_stack'. When set to 'ipv4', the cluster will only be accessible via IPv4 addresses. When set to 'ipv6', the cluster will only be accessible via IPv6 addresses. When set to 'dual_stack', the cluster will be accessible via both IPv4 and IPv6 addresses. If not specified, the default is 'ipv4'.
+   *
    * @public
    */
   NetworkType?: NetworkType | undefined;
 
   /**
-   * <p>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.</p>
+   * The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.
+   *
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -1051,7 +1160,8 @@ export interface CreateClusterRequest {
  */
 export interface CreateClusterResponse {
   /**
-   * <p>The newly-created cluster.</p>
+   * The newly-created cluster.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -1062,157 +1172,183 @@ export interface CreateClusterResponse {
  */
 export interface CreateMultiRegionClusterRequest {
   /**
-   * <p>A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with "virxk", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.</p>
+   * A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with "virxk", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.
+   *
    * @public
    */
   MultiRegionClusterNameSuffix: string | undefined;
 
   /**
-   * <p>A description for the multi-Region cluster.</p>
+   * A description for the multi-Region cluster.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the engine to be used for the multi-Region cluster.</p>
+   * The name of the engine to be used for the multi-Region cluster.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The version of the engine to be used for the multi-Region cluster.</p>
+   * The version of the engine to be used for the multi-Region cluster.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The node type to be used for the multi-Region cluster.</p>
+   * The node type to be used for the multi-Region cluster.
+   *
    * @public
    */
   NodeType: string | undefined;
 
   /**
-   * <p>The name of the multi-Region parameter group to be associated with the cluster.</p>
+   * The name of the multi-Region parameter group to be associated with the cluster.
+   *
    * @public
    */
   MultiRegionParameterGroupName?: string | undefined;
 
   /**
-   * <p>The number of shards for the multi-Region cluster.</p>
+   * The number of shards for the multi-Region cluster.
+   *
    * @public
    */
   NumShards?: number | undefined;
 
   /**
-   * <p>Whether to enable TLS encryption for the multi-Region cluster.</p>
+   * Whether to enable TLS encryption for the multi-Region cluster.
+   *
    * @public
    */
   TLSEnabled?: boolean | undefined;
 
   /**
-   * <p>A list of tags to be applied to the multi-Region cluster.</p>
+   * A list of tags to be applied to the multi-Region cluster.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Represents a Regional cluster</p>
+ * Represents a Regional cluster
+ *
  * @public
  */
 export interface RegionalCluster {
   /**
-   * <p>The name of the Regional cluster</p>
+   * The name of the Regional cluster
+   *
    * @public
    */
   ClusterName?: string | undefined;
 
   /**
-   * <p>The Region the current Regional cluster is assigned to.</p>
+   * The Region the current Regional cluster is assigned to.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The status of the Regional cluster.</p>
+   * The status of the Regional cluster.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) the Regional cluster</p>
+   * The Amazon Resource Name (ARN) the Regional cluster
+   *
    * @public
    */
   ARN?: string | undefined;
 }
 
 /**
- * <p>Represents a multi-Region cluster.</p>
+ * Represents a multi-Region cluster.
+ *
  * @public
  */
 export interface MultiRegionCluster {
   /**
-   * <p>The name of the multi-Region cluster.</p>
+   * The name of the multi-Region cluster.
+   *
    * @public
    */
   MultiRegionClusterName?: string | undefined;
 
   /**
-   * <p>The description of the multi-Region cluster.</p>
+   * The description of the multi-Region cluster.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The current status of the multi-Region cluster.</p>
+   * The current status of the multi-Region cluster.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The node type used by the multi-Region cluster.</p>
+   * The node type used by the multi-Region cluster.
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The name of the engine used by the multi-Region cluster.</p>
+   * The name of the engine used by the multi-Region cluster.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The version of the engine used by the multi-Region cluster.</p>
+   * The version of the engine used by the multi-Region cluster.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The number of shards in the multi-Region cluster.</p>
+   * The number of shards in the multi-Region cluster.
+   *
    * @public
    */
   NumberOfShards?: number | undefined;
 
   /**
-   * <p>The clusters in this multi-Region cluster.</p>
+   * The clusters in this multi-Region cluster.
+   *
    * @public
    */
   Clusters?: RegionalCluster[] | undefined;
 
   /**
-   * <p>The name of the multi-Region parameter group associated with the cluster.</p>
+   * The name of the multi-Region parameter group associated with the cluster.
+   *
    * @public
    */
   MultiRegionParameterGroupName?: string | undefined;
 
   /**
-   * <p>Indiciates if the multi-Region cluster is TLS enabled.</p>
+   * Indiciates if the multi-Region cluster is TLS enabled.
+   *
    * @public
    */
   TLSEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the multi-Region cluster.</p>
+   * The Amazon Resource Name (ARN) of the multi-Region cluster.
+   *
    * @public
    */
   ARN?: string | undefined;
@@ -1223,7 +1359,8 @@ export interface MultiRegionCluster {
  */
 export interface CreateMultiRegionClusterResponse {
   /**
-   * <p>Details about the newly created multi-Region cluster.</p>
+   * Details about the newly created multi-Region cluster.
+   *
    * @public
    */
   MultiRegionCluster?: MultiRegionCluster | undefined;
@@ -1234,55 +1371,64 @@ export interface CreateMultiRegionClusterResponse {
  */
 export interface CreateParameterGroupRequest {
   /**
-   * <p>The name of the parameter group.</p>
+   * The name of the parameter group.
+   *
    * @public
    */
   ParameterGroupName: string | undefined;
 
   /**
-   * <p>The name of the parameter group family that the parameter group can be used with.</p>
+   * The name of the parameter group family that the parameter group can be used with.
+   *
    * @public
    */
   Family: string | undefined;
 
   /**
-   * <p>An optional description of the parameter group.</p>
+   * An optional description of the parameter group.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Represents the output of a CreateParameterGroup operation. A parameter group represents a combination of specific values for the parameters that are passed to the engine software during startup.</p>
+ * Represents the output of a CreateParameterGroup operation. A parameter group represents a combination of specific values for the parameters that are passed to the engine software during startup.
+ *
  * @public
  */
 export interface ParameterGroup {
   /**
-   * <p>The name of the parameter group</p>
+   * The name of the parameter group
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The name of the parameter group family that this  parameter group is compatible with.</p>
+   * The name of the parameter group family that this parameter group is compatible with.
+   *
    * @public
    */
   Family?: string | undefined;
 
   /**
-   * <p>A description of the parameter group</p>
+   * A description of the parameter group
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the parameter group</p>
+   * The Amazon Resource Name (ARN) of the parameter group
+   *
    * @public
    */
   ARN?: string | undefined;
@@ -1293,7 +1439,8 @@ export interface ParameterGroup {
  */
 export interface CreateParameterGroupResponse {
   /**
-   * <p>The newly-created parameter group.</p>
+   * The newly-created parameter group.
+   *
    * @public
    */
   ParameterGroup?: ParameterGroup | undefined;
@@ -1304,25 +1451,29 @@ export interface CreateParameterGroupResponse {
  */
 export interface CreateSnapshotRequest {
   /**
-   * <p>The snapshot is created from this cluster.</p>
+   * The snapshot is created from this cluster.
+   *
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>A name for the snapshot being created.</p>
+   * A name for the snapshot being created.
+   *
    * @public
    */
   SnapshotName: string | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt the snapshot.</p>
+   * The ID of the KMS key used to encrypt the snapshot.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1333,7 +1484,8 @@ export interface CreateSnapshotRequest {
  */
 export interface CreateSnapshotResponse {
   /**
-   * <p>The newly-created snapshot.</p>
+   * The newly-created snapshot.
+   *
    * @public
    */
   Snapshot?: Snapshot | undefined;
@@ -1344,112 +1496,125 @@ export interface CreateSnapshotResponse {
  */
 export interface CreateSubnetGroupRequest {
   /**
-   * <p>The name of the subnet group.</p>
+   * The name of the subnet group.
+   *
    * @public
    */
   SubnetGroupName: string | undefined;
 
   /**
-   * <p>A description for the subnet group.</p>
+   * A description for the subnet group.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs for the subnet group.</p>
+   * A list of VPC subnet IDs for the subnet group.
+   *
    * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).</p>
+ * Indicates if the cluster has a Multi-AZ configuration (multiaz) or not (singleaz).
+ *
  * @public
  */
 export interface AvailabilityZone {
   /**
-   * <p>The name of the Availability Zone.</p>
+   * The name of the Availability Zone.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Represents the subnet associated with a cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with MemoryDB.</p>
+ * Represents the subnet associated with a cluster. This parameter refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and used with MemoryDB.
+ *
  * @public
  */
 export interface Subnet {
   /**
-   * <p>The unique identifier for the subnet.</p>
+   * The unique identifier for the subnet.
+   *
    * @public
    */
   Identifier?: string | undefined;
 
   /**
-   * <p>The Availability Zone where the subnet resides</p>
+   * The Availability Zone where the subnet resides
+   *
    * @public
    */
   AvailabilityZone?: AvailabilityZone | undefined;
 
   /**
-   * <p>The network types supported by this subnet. Returns an array of strings that can include 'ipv4', 'ipv6', or both, indicating whether the subnet supports IPv4 only, IPv6 only, or dual-stack deployments.</p>
+   * The network types supported by this subnet. Returns an array of strings that can include 'ipv4', 'ipv6', or both, indicating whether the subnet supports IPv4 only, IPv6 only, or dual-stack deployments.
+   *
    * @public
    */
   SupportedNetworkTypes?: NetworkType[] | undefined;
 }
 
 /**
- * <p>Represents the output of one of the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>CreateSubnetGroup</p>
- *             </li>
- *             <li>
- *                <p>UpdateSubnetGroup</p>
- *             </li>
- *          </ul>
- *          <p>A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.</p>
+ * Represents the output of one of the following operations:
+ *
+ * - CreateSubnetGroup
+ * - UpdateSubnetGroup
+ *
+ * A subnet group is a collection of subnets (typically private) that you can designate for your clusters running in an Amazon Virtual Private Cloud (VPC) environment.
+ *
  * @public
  */
 export interface SubnetGroup {
   /**
-   * <p>The name of the subnet group</p>
+   * The name of the subnet group
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the subnet group</p>
+   * A description of the subnet group
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.</p>
+   * The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>A list of subnets associated with the subnet group.</p>
+   * A list of subnets associated with the subnet group.
+   *
    * @public
    */
   Subnets?: Subnet[] | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the subnet group.</p>
+   * The ARN (Amazon Resource Name) of the subnet group.
+   *
    * @public
    */
   ARN?: string | undefined;
 
   /**
-   * <p>The network types supported by this subnet group. Returns an array of strings that can include 'ipv4', 'ipv6', or both, indicating the IP address types that can be used for clusters deployed in this subnet group.</p>
+   * The network types supported by this subnet group. Returns an array of strings that can include 'ipv4', 'ipv6', or both, indicating the IP address types that can be used for clusters deployed in this subnet group.
+   *
    * @public
    */
   SupportedNetworkTypes?: NetworkType[] | undefined;
@@ -1460,25 +1625,29 @@ export interface SubnetGroup {
  */
 export interface CreateSubnetGroupResponse {
   /**
-   * <p>The newly-created subnet group.</p>
+   * The newly-created subnet group.
+   *
    * @public
    */
   SubnetGroup?: SubnetGroup | undefined;
 }
 
 /**
- * <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.</p>
+ * Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.
+ *
  * @public
  */
 export interface AuthenticationMode {
   /**
-   * <p>Indicates whether the user requires a password to authenticate. All newly-created users require a password.</p>
+   * Indicates whether the user requires a password to authenticate. All newly-created users require a password.
+   *
    * @public
    */
   Type?: InputAuthenticationType | undefined;
 
   /**
-   * <p>The password(s) used for authentication</p>
+   * The password(s) used for authentication
+   *
    * @public
    */
   Passwords?: string[] | undefined;
@@ -1489,93 +1658,106 @@ export interface AuthenticationMode {
  */
 export interface CreateUserRequest {
   /**
-   * <p>The name of the user. This value must be unique as it also serves as the user identifier.</p>
+   * The name of the user. This value must be unique as it also serves as the user identifier.
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate.</p>
+   * Denotes the user's authentication properties, such as whether it requires a password to authenticate.
+   *
    * @public
    */
   AuthenticationMode: AuthenticationMode | undefined;
 
   /**
-   * <p>Access permissions string used for this user.</p>
+   * Access permissions string used for this user.
+   *
    * @public
    */
   AccessString: string | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.</p>
+ * Denotes the user's authentication properties, such as whether it requires a password to authenticate. Used in output responses.
+ *
  * @public
  */
 export interface Authentication {
   /**
-   * <p>Indicates whether the user requires a password to authenticate.</p>
+   * Indicates whether the user requires a password to authenticate.
+   *
    * @public
    */
   Type?: AuthenticationType | undefined;
 
   /**
-   * <p>The number of passwords belonging to the user. The maximum is two.</p>
+   * The number of passwords belonging to the user. The maximum is two.
+   *
    * @public
    */
   PasswordCount?: number | undefined;
 }
 
 /**
- * <p>You create users and assign them specific permissions by using an access string. You assign the users to Access Control Lists aligned with a specific role (administrators, human resources) that are then deployed to one or more MemoryDB clusters.</p>
+ * You create users and assign them specific permissions by using an access string. You assign the users to Access Control Lists aligned with a specific role (administrators, human resources) that are then deployed to one or more MemoryDB clusters.
+ *
  * @public
  */
 export interface User {
   /**
-   * <p>The name of the user</p>
+   * The name of the user
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Indicates the user status. Can be "active", "modifying" or "deleting".</p>
+   * Indicates the user status. Can be "active", "modifying" or "deleting".
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>Access permissions string used for this user.</p>
+   * Access permissions string used for this user.
+   *
    * @public
    */
   AccessString?: string | undefined;
 
   /**
-   * <p>The names of the Access Control Lists to which the user belongs</p>
+   * The names of the Access Control Lists to which the user belongs
+   *
    * @public
    */
   ACLNames?: string[] | undefined;
 
   /**
-   * <p>The minimum engine version supported for the user</p>
+   * The minimum engine version supported for the user
+   *
    * @public
    */
   MinimumEngineVersion?: string | undefined;
 
   /**
-   * <p>Denotes whether the user requires a password to authenticate.</p>
+   * Denotes whether the user requires a password to authenticate.
+   *
    * @public
    */
   Authentication?: Authentication | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user.
+   * The Amazon Resource Name (ARN) of the user.
    *
-   *       </p>
    * @public
    */
   ARN?: string | undefined;
@@ -1586,7 +1768,8 @@ export interface User {
  */
 export interface CreateUserResponse {
   /**
-   * <p>The newly-created user.</p>
+   * The newly-created user.
+   *
    * @public
    */
   User?: User | undefined;
@@ -1597,7 +1780,8 @@ export interface CreateUserResponse {
  */
 export interface DeleteACLRequest {
   /**
-   * <p>The name of the Access Control List to delete.</p>
+   * The name of the Access Control List to delete.
+   *
    * @public
    */
   ACLName: string | undefined;
@@ -1608,7 +1792,8 @@ export interface DeleteACLRequest {
  */
 export interface DeleteACLResponse {
   /**
-   * <p>The Access Control List object that has been deleted.</p>
+   * The Access Control List object that has been deleted.
+   *
    * @public
    */
   ACL?: ACL | undefined;
@@ -1619,19 +1804,22 @@ export interface DeleteACLResponse {
  */
 export interface DeleteClusterRequest {
   /**
-   * <p>The name of the cluster to be deleted</p>
+   * The name of the cluster to be deleted
+   *
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The name of the multi-Region cluster to be deleted.</p>
+   * The name of the multi-Region cluster to be deleted.
+   *
    * @public
    */
   MultiRegionClusterName?: string | undefined;
 
   /**
-   * <p>The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.</p>
+   * The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
+   *
    * @public
    */
   FinalSnapshotName?: string | undefined;
@@ -1642,7 +1830,8 @@ export interface DeleteClusterRequest {
  */
 export interface DeleteClusterResponse {
   /**
-   * <p>The cluster object that has been deleted.</p>
+   * The cluster object that has been deleted.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -1653,7 +1842,8 @@ export interface DeleteClusterResponse {
  */
 export interface DeleteMultiRegionClusterRequest {
   /**
-   * <p>The name of the multi-Region cluster to be deleted.</p>
+   * The name of the multi-Region cluster to be deleted.
+   *
    * @public
    */
   MultiRegionClusterName: string | undefined;
@@ -1664,7 +1854,8 @@ export interface DeleteMultiRegionClusterRequest {
  */
 export interface DeleteMultiRegionClusterResponse {
   /**
-   * <p>Details about the deleted multi-Region cluster.</p>
+   * Details about the deleted multi-Region cluster.
+   *
    * @public
    */
   MultiRegionCluster?: MultiRegionCluster | undefined;
@@ -1675,7 +1866,8 @@ export interface DeleteMultiRegionClusterResponse {
  */
 export interface DeleteParameterGroupRequest {
   /**
-   * <p>The name of the parameter group to delete.</p>
+   * The name of the parameter group to delete.
+   *
    * @public
    */
   ParameterGroupName: string | undefined;
@@ -1686,7 +1878,8 @@ export interface DeleteParameterGroupRequest {
  */
 export interface DeleteParameterGroupResponse {
   /**
-   * <p>The parameter group that has been deleted.</p>
+   * The parameter group that has been deleted.
+   *
    * @public
    */
   ParameterGroup?: ParameterGroup | undefined;
@@ -1697,7 +1890,8 @@ export interface DeleteParameterGroupResponse {
  */
 export interface DeleteSnapshotRequest {
   /**
-   * <p>The name of the snapshot to delete.</p>
+   * The name of the snapshot to delete.
+   *
    * @public
    */
   SnapshotName: string | undefined;
@@ -1708,7 +1902,8 @@ export interface DeleteSnapshotRequest {
  */
 export interface DeleteSnapshotResponse {
   /**
-   * <p>The snapshot object that has been deleted.</p>
+   * The snapshot object that has been deleted.
+   *
    * @public
    */
   Snapshot?: Snapshot | undefined;
@@ -1719,7 +1914,8 @@ export interface DeleteSnapshotResponse {
  */
 export interface DeleteSubnetGroupRequest {
   /**
-   * <p>The name of the subnet group to delete.</p>
+   * The name of the subnet group to delete.
+   *
    * @public
    */
   SubnetGroupName: string | undefined;
@@ -1730,7 +1926,8 @@ export interface DeleteSubnetGroupRequest {
  */
 export interface DeleteSubnetGroupResponse {
   /**
-   * <p>The subnet group object that has been deleted.</p>
+   * The subnet group object that has been deleted.
+   *
    * @public
    */
   SubnetGroup?: SubnetGroup | undefined;
@@ -1741,7 +1938,8 @@ export interface DeleteSubnetGroupResponse {
  */
 export interface DeleteUserRequest {
   /**
-   * <p>The name of the user to delete</p>
+   * The name of the user to delete
+   *
    * @public
    */
   UserName: string | undefined;
@@ -1752,7 +1950,8 @@ export interface DeleteUserRequest {
  */
 export interface DeleteUserResponse {
   /**
-   * <p>The user object that has been deleted.</p>
+   * The user object that has been deleted.
+   *
    * @public
    */
   User?: User | undefined;
@@ -1763,19 +1962,22 @@ export interface DeleteUserResponse {
  */
 export interface DescribeACLsRequest {
   /**
-   * <p>The name of the ACL.</p>
+   * The name of the ACL.
+   *
    * @public
    */
   ACLName?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1786,13 +1988,15 @@ export interface DescribeACLsRequest {
  */
 export interface DescribeACLsResponse {
   /**
-   * <p>The list of ACLs.</p>
+   * The list of ACLs.
+   *
    * @public
    */
   ACLs?: ACL[] | undefined;
 
   /**
-   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1803,25 +2007,29 @@ export interface DescribeACLsResponse {
  */
 export interface DescribeClustersRequest {
   /**
-   * <p>The name of the cluster.</p>
+   * The name of the cluster.
+   *
    * @public
    */
   ClusterName?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An optional flag that can be included in the request to retrieve information about the individual shard(s).</p>
+   * An optional flag that can be included in the request to retrieve information about the individual shard(s).
+   *
    * @public
    */
   ShowShardDetails?: boolean | undefined;
@@ -1832,13 +2040,15 @@ export interface DescribeClustersRequest {
  */
 export interface DescribeClustersResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of clusters</p>
+   * A list of clusters
+   *
    * @public
    */
   Clusters?: Cluster[] | undefined;
@@ -1849,67 +2059,78 @@ export interface DescribeClustersResponse {
  */
 export interface DescribeEngineVersionsRequest {
   /**
-   * <p>The name of the engine for which to list available versions.</p>
+   * The name of the engine for which to list available versions.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The Redis OSS engine version</p>
+   * The Redis OSS engine version
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The name of a specific parameter group family to return details for.</p>
+   * The name of a specific parameter group family to return details for.
+   *
    * @public
    */
   ParameterGroupFamily?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>If true, specifies that only the default version of the specified engine or engine and major version combination is to be returned.</p>
+   * If true, specifies that only the default version of the specified engine or engine and major version combination is to be returned.
+   *
    * @public
    */
   DefaultOnly?: boolean | undefined;
 }
 
 /**
- * <p>Provides details of the Redis OSS engine version</p>
+ * Provides details of the Redis OSS engine version
+ *
  * @public
  */
 export interface EngineVersionInfo {
   /**
-   * <p>The name of the engine for which version information is provided.</p>
+   * The name of the engine for which version information is provided.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The engine version</p>
+   * The engine version
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The patched engine version</p>
+   * The patched engine version
+   *
    * @public
    */
   EnginePatchVersion?: string | undefined;
 
   /**
-   * <p>Specifies the name of the parameter group family to which the engine default parameters apply.</p>
+   * Specifies the name of the parameter group family to which the engine default parameters apply.
+   *
    * @public
    */
   ParameterGroupFamily?: string | undefined;
@@ -1920,13 +2141,15 @@ export interface EngineVersionInfo {
  */
 export interface DescribeEngineVersionsResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of engine version details. Each element in the list contains detailed information about one engine version.</p>
+   * A list of engine version details. Each element in the list contains detailed information about one engine version.
+   *
    * @public
    */
   EngineVersions?: EngineVersionInfo[] | undefined;
@@ -1937,78 +2160,85 @@ export interface DescribeEngineVersionsResponse {
  */
 export interface DescribeEventsRequest {
   /**
-   * <p>The identifier of the event source for which events are returned. If not specified, all sources are included in the response.</p>
+   * The identifier of the event source for which events are returned. If not specified, all sources are included in the response.
+   *
    * @public
    */
   SourceName?: string | undefined;
 
   /**
-   * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
+   * The event source to retrieve events for. If no value is specified, all events are returned.
+   *
    * @public
    */
   SourceType?: SourceType | undefined;
 
   /**
-   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+   * The beginning of the time interval to retrieve events for, specified in ISO 8601 format. Example: 2017-03-30T07:03:49.555Z
    *
-   *          Example: 2017-03-30T07:03:49.555Z</p>
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+   * The end of the time interval for which to retrieve events, specified in ISO 8601 format. Example: 2017-03-30T07:03:49.555Z
    *
-   *          Example: 2017-03-30T07:03:49.555Z</p>
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The number of minutes worth of events to retrieve.</p>
+   * The number of minutes worth of events to retrieve.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a single occurrence of something interesting within the system. Some examples of events are creating a cluster or adding or removing a
- *          node.</p>
+ * Represents a single occurrence of something interesting within the system. Some examples of events are creating a cluster or adding or removing a node.
+ *
  * @public
  */
 export interface Event {
   /**
-   * <p>The name for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.</p>
+   * The name for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.
+   *
    * @public
    */
   SourceName?: string | undefined;
 
   /**
-   * <p>Specifies the origin of this event - a cluster, a parameter group, a security group, etc.</p>
+   * Specifies the origin of this event - a cluster, a parameter group, a security group, etc.
+   *
    * @public
    */
   SourceType?: SourceType | undefined;
 
   /**
-   * <p>The text of the event.</p>
+   * The text of the event.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The date and time when the event occurred.</p>
+   * The date and time when the event occurred.
+   *
    * @public
    */
   Date?: Date | undefined;
@@ -2019,13 +2249,15 @@ export interface Event {
  */
 export interface DescribeEventsResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of events. Each element in the list contains detailed information about one event.</p>
+   * A list of events. Each element in the list contains detailed information about one event.
+   *
    * @public
    */
   Events?: Event[] | undefined;
@@ -2036,25 +2268,29 @@ export interface DescribeEventsResponse {
  */
 export interface DescribeMultiRegionClustersRequest {
   /**
-   * <p>The name of a specific multi-Region cluster to describe.</p>
+   * The name of a specific multi-Region cluster to describe.
+   *
    * @public
    */
   MultiRegionClusterName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating.</p>
+   * A token to specify where to start paginating.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Details about the multi-Region cluster.</p>
+   * Details about the multi-Region cluster.
+   *
    * @public
    */
   ShowClusterDetails?: boolean | undefined;
@@ -2065,13 +2301,15 @@ export interface DescribeMultiRegionClustersRequest {
  */
 export interface DescribeMultiRegionClustersResponse {
   /**
-   * <p>A token to use to retrieve the next page of results.</p>
+   * A token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of multi-Region clusters.</p>
+   * A list of multi-Region clusters.
+   *
    * @public
    */
   MultiRegionClusters?: MultiRegionCluster[] | undefined;
@@ -2082,49 +2320,57 @@ export interface DescribeMultiRegionClustersResponse {
  */
 export interface DescribeMultiRegionParameterGroupsRequest {
   /**
-   * <p>The request for information on a specific multi-region parameter group.</p>
+   * The request for information on a specific multi-region parameter group.
+   *
    * @public
    */
   MultiRegionParameterGroupName?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the output of a CreateMultiRegionParameterGroup operation. A multi-region parameter group represents a collection of parameters that can be applied to clusters across multiple regions.</p>
+ * Represents the output of a CreateMultiRegionParameterGroup operation. A multi-region parameter group represents a collection of parameters that can be applied to clusters across multiple regions.
+ *
  * @public
  */
 export interface MultiRegionParameterGroup {
   /**
-   * <p>The name of the multi-region parameter group.</p>
+   * The name of the multi-region parameter group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The name of the parameter group family that this multi-region parameter group is compatible with.</p>
+   * The name of the parameter group family that this multi-region parameter group is compatible with.
+   *
    * @public
    */
   Family?: string | undefined;
 
   /**
-   * <p>A description of the multi-region parameter group.</p>
+   * A description of the multi-region parameter group.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the multi-region parameter group.</p>
+   * The Amazon Resource Name (ARN) of the multi-region parameter group.
+   *
    * @public
    */
   ARN?: string | undefined;
@@ -2135,13 +2381,15 @@ export interface MultiRegionParameterGroup {
  */
 export interface DescribeMultiRegionParameterGroupsResponse {
   /**
-   * <p>An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of multi-region parameter groups. Each element in the list contains detailed information about one parameter group.</p>
+   * A list of multi-region parameter groups. Each element in the list contains detailed information about one parameter group.
+   *
    * @public
    */
   MultiRegionParameterGroups?: MultiRegionParameterGroup[] | undefined;
@@ -2152,73 +2400,85 @@ export interface DescribeMultiRegionParameterGroupsResponse {
  */
 export interface DescribeMultiRegionParametersRequest {
   /**
-   * <p>The name of the multi-region parameter group to return details for.</p>
+   * The name of the multi-region parameter group to return details for.
+   *
    * @public
    */
   MultiRegionParameterGroupName: string | undefined;
 
   /**
-   * <p>The parameter types to return. Valid values: user | system | engine-default</p>
+   * The parameter types to return. Valid values: user | system | engine-default
+   *
    * @public
    */
   Source?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Describes an individual setting that controls some aspect of MemoryDB behavior across multiple regions.</p>
+ * Describes an individual setting that controls some aspect of MemoryDB behavior across multiple regions.
+ *
  * @public
  */
 export interface MultiRegionParameter {
   /**
-   * <p>The name of the parameter.</p>
+   * The name of the parameter.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of the parameter.</p>
+   * The value of the parameter.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>A description of the parameter.</p>
+   * A description of the parameter.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Indicates the source of the parameter value. Valid values: user | system | engine-default</p>
+   * Indicates the source of the parameter value. Valid values: user | system | engine-default
+   *
    * @public
    */
   Source?: string | undefined;
 
   /**
-   * <p>The valid data type for the parameter.</p>
+   * The valid data type for the parameter.
+   *
    * @public
    */
   DataType?: string | undefined;
 
   /**
-   * <p>The valid range of values for the parameter.</p>
+   * The valid range of values for the parameter.
+   *
    * @public
    */
   AllowedValues?: string | undefined;
 
   /**
-   * <p>The earliest engine version to which the parameter can apply.</p>
+   * The earliest engine version to which the parameter can apply.
+   *
    * @public
    */
   MinimumEngineVersion?: string | undefined;
@@ -2229,13 +2489,15 @@ export interface MultiRegionParameter {
  */
 export interface DescribeMultiRegionParametersResponse {
   /**
-   * <p>An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of parameters specific to a particular multi-region parameter group. Each element in the list contains detailed information about one parameter.</p>
+   * A list of parameters specific to a particular multi-region parameter group. Each element in the list contains detailed information about one parameter.
+   *
    * @public
    */
   MultiRegionParameters?: MultiRegionParameter[] | undefined;
@@ -2246,19 +2508,22 @@ export interface DescribeMultiRegionParametersResponse {
  */
 export interface DescribeParameterGroupsRequest {
   /**
-   * <p>The name of a specific  parameter group to return details for.</p>
+   * The name of a specific parameter group to return details for.
+   *
    * @public
    */
   ParameterGroupName?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2269,13 +2534,15 @@ export interface DescribeParameterGroupsRequest {
  */
 export interface DescribeParameterGroupsResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of parameter groups. Each element in the list contains detailed information about one parameter group.</p>
+   * A list of parameter groups. Each element in the list contains detailed information about one parameter group.
+   *
    * @public
    */
   ParameterGroups?: ParameterGroup[] | undefined;
@@ -2286,61 +2553,71 @@ export interface DescribeParameterGroupsResponse {
  */
 export interface DescribeParametersRequest {
   /**
-   * <p>he name of a specific  parameter group to return details for.</p>
+   * he name of a specific parameter group to return details for.
+   *
    * @public
    */
   ParameterGroupName: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Describes an individual setting that controls some aspect of MemoryDB behavior.</p>
+ * Describes an individual setting that controls some aspect of MemoryDB behavior.
+ *
  * @public
  */
 export interface Parameter {
   /**
-   * <p>The name of the parameter</p>
+   * The name of the parameter
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The value of the parameter</p>
+   * The value of the parameter
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>A description of the parameter</p>
+   * A description of the parameter
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The parameter's data type</p>
+   * The parameter's data type
+   *
    * @public
    */
   DataType?: string | undefined;
 
   /**
-   * <p>The valid range of values for the parameter.</p>
+   * The valid range of values for the parameter.
+   *
    * @public
    */
   AllowedValues?: string | undefined;
 
   /**
-   * <p>The earliest engine version to which the parameter can apply.</p>
+   * The earliest engine version to which the parameter can apply.
+   *
    * @public
    */
   MinimumEngineVersion?: string | undefined;
@@ -2351,13 +2628,15 @@ export interface Parameter {
  */
 export interface DescribeParametersResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of parameters specific to a particular parameter group. Each element in the list contains detailed information about one parameter.</p>
+   * A list of parameters specific to a particular parameter group. Each element in the list contains detailed information about one parameter.
+   *
    * @public
    */
   Parameters?: Parameter[] | undefined;
@@ -2368,134 +2647,155 @@ export interface DescribeParametersResponse {
  */
 export interface DescribeReservedNodesRequest {
   /**
-   * <p>The reserved node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.</p>
+   * The reserved node identifier filter value. Use this parameter to show only the reservation that matches the specified reservation ID.
+   *
    * @public
    */
   ReservationId?: string | undefined;
 
   /**
-   * <p>The offering identifier filter value. Use this parameter to show only purchased reservations matching the specified offering identifier.</p>
+   * The offering identifier filter value. Use this parameter to show only purchased reservations matching the specified offering identifier.
+   *
    * @public
    */
   ReservedNodesOfferingId?: string | undefined;
 
   /**
-   * <p>The node type filter value. Use this parameter to show only those reservations matching the specified  node type. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported">Supported node types</a>.</p>
+   * The node type filter value. Use this parameter to show only those reservations matching the specified node type. For more information, see [Supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported).
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The duration filter value, specified in years or seconds. Use this parameter to show only reservations for this duration.</p>
+   * The duration filter value, specified in years or seconds. Use this parameter to show only reservations for this duration.
+   *
    * @public
    */
   Duration?: string | undefined;
 
   /**
-   * <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
-   *          Valid values: "All Upfront"|"Partial Upfront"| "No Upfront"</p>
+   * The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type. Valid values: "All Upfront"|"Partial Upfront"| "No Upfront"
+   *
    * @public
    */
   OfferingType?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   * An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The recurring charge to run this reserved node.</p>
+ * The recurring charge to run this reserved node.
+ *
  * @public
  */
 export interface RecurringCharge {
   /**
-   * <p>The amount of the recurring charge to run this reserved node.</p>
+   * The amount of the recurring charge to run this reserved node.
+   *
    * @public
    */
   RecurringChargeAmount?: number | undefined;
 
   /**
-   * <p>The frequency of the recurring price charged to run this reserved node.</p>
+   * The frequency of the recurring price charged to run this reserved node.
+   *
    * @public
    */
   RecurringChargeFrequency?: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>
+ * Represents the output of a `PurchaseReservedNodesOffering` operation.
+ *
  * @public
  */
 export interface ReservedNode {
   /**
-   * <p>A customer-specified identifier to track this reservation.</p>
+   * A customer-specified identifier to track this reservation.
+   *
    * @public
    */
   ReservationId?: string | undefined;
 
   /**
-   * <p>The ID of the reserved node offering to purchase.</p>
+   * The ID of the reserved node offering to purchase.
+   *
    * @public
    */
   ReservedNodesOfferingId?: string | undefined;
 
   /**
-   * <p>The node type for the reserved nodes.</p>
+   * The node type for the reserved nodes.
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The time the reservation started.</p>
+   * The time the reservation started.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The duration of the reservation in seconds.</p>
+   * The duration of the reservation in seconds.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The fixed price charged for this reserved node.</p>
+   * The fixed price charged for this reserved node.
+   *
    * @public
    */
   FixedPrice?: number | undefined;
 
   /**
-   * <p>The number of nodes that have been reserved.</p>
+   * The number of nodes that have been reserved.
+   *
    * @public
    */
   NodeCount?: number | undefined;
 
   /**
-   * <p>The offering type of this reserved node.</p>
+   * The offering type of this reserved node.
+   *
    * @public
    */
   OfferingType?: string | undefined;
 
   /**
-   * <p>The state of the reserved node.</p>
+   * The state of the reserved node.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The recurring price charged to run this reserved node.</p>
+   * The recurring price charged to run this reserved node.
+   *
    * @public
    */
   RecurringCharges?: RecurringCharge[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the reserved node.</p>
+   * The Amazon Resource Name (ARN) of the reserved node.
+   *
    * @public
    */
   ARN?: string | undefined;
@@ -2506,13 +2806,15 @@ export interface ReservedNode {
  */
 export interface DescribeReservedNodesResponse {
   /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   * An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Returns information about reserved nodes for this account, or about a specified reserved node.</p>
+   * Returns information about reserved nodes for this account, or about a specified reserved node.
+   *
    * @public
    */
   ReservedNodes?: ReservedNode[] | undefined;
@@ -2523,80 +2825,92 @@ export interface DescribeReservedNodesResponse {
  */
 export interface DescribeReservedNodesOfferingsRequest {
   /**
-   * <p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>
+   * The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
+   *
    * @public
    */
   ReservedNodesOfferingId?: string | undefined;
 
   /**
-   * <p>The node type for the reserved nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported">Supported node types</a>.</p>
+   * The node type for the reserved nodes. For more information, see [Supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported).
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>Duration filter value, specified in years or seconds. Use this parameter to show only reservations for a given duration.</p>
+   * Duration filter value, specified in years or seconds. Use this parameter to show only reservations for a given duration.
+   *
    * @public
    */
   Duration?: string | undefined;
 
   /**
-   * <p>The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type.
-   *          Valid values: "All Upfront"|"Partial Upfront"| "No Upfront"</p>
+   * The offering type filter value. Use this parameter to show only the available offerings matching the specified offering type. Valid values: "All Upfront"|"Partial Upfront"| "No Upfront"
+   *
    * @public
    */
   OfferingType?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   * An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The offering type of this node.</p>
+ * The offering type of this node.
+ *
  * @public
  */
 export interface ReservedNodesOffering {
   /**
-   * <p>The offering identifier.</p>
+   * The offering identifier.
+   *
    * @public
    */
   ReservedNodesOfferingId?: string | undefined;
 
   /**
-   * <p>The node type for the reserved nodes. For more information, see <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported">Supported node types</a>.</p>
+   * The node type for the reserved nodes. For more information, see [Supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.reserved.html#reserved-nodes-supported).
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The duration of the reservation in seconds.</p>
+   * The duration of the reservation in seconds.
+   *
    * @public
    */
   Duration?: number | undefined;
 
   /**
-   * <p>The fixed price charged for this reserved node.</p>
+   * The fixed price charged for this reserved node.
+   *
    * @public
    */
   FixedPrice?: number | undefined;
 
   /**
-   * <p>The offering type of this reserved node.</p>
+   * The offering type of this reserved node.
+   *
    * @public
    */
   OfferingType?: string | undefined;
 
   /**
-   * <p>The recurring price charged to run this reserved node.</p>
+   * The recurring price charged to run this reserved node.
+   *
    * @public
    */
   RecurringCharges?: RecurringCharge[] | undefined;
@@ -2607,13 +2921,15 @@ export interface ReservedNodesOffering {
  */
 export interface DescribeReservedNodesOfferingsResponse {
   /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>
+   * An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Lists available reserved node offerings.</p>
+   * Lists available reserved node offerings.
+   *
    * @public
    */
   ReservedNodesOfferings?: ReservedNodesOffering[] | undefined;
@@ -2624,91 +2940,106 @@ export interface DescribeReservedNodesOfferingsResponse {
  */
 export interface DescribeServiceUpdatesRequest {
   /**
-   * <p>The unique ID of the service update to describe.</p>
+   * The unique ID of the service update to describe.
+   *
    * @public
    */
   ServiceUpdateName?: string | undefined;
 
   /**
-   * <p>The list of cluster names to identify service updates to apply.</p>
+   * The list of cluster names to identify service updates to apply.
+   *
    * @public
    */
   ClusterNames?: string[] | undefined;
 
   /**
-   * <p>The status(es) of the service updates to filter on.</p>
+   * The status(es) of the service updates to filter on.
+   *
    * @public
    */
   Status?: ServiceUpdateStatus[] | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>An update that you can apply to your MemoryDB clusters.</p>
+ * An update that you can apply to your MemoryDB clusters.
+ *
  * @public
  */
 export interface ServiceUpdate {
   /**
-   * <p>The name of the cluster to which the service update applies</p>
+   * The name of the cluster to which the service update applies
+   *
    * @public
    */
   ClusterName?: string | undefined;
 
   /**
-   * <p>The unique ID of the service update</p>
+   * The unique ID of the service update
+   *
    * @public
    */
   ServiceUpdateName?: string | undefined;
 
   /**
-   * <p>The date when the service update is initially available</p>
+   * The date when the service update is initially available
+   *
    * @public
    */
   ReleaseDate?: Date | undefined;
 
   /**
-   * <p>Provides details of the service update</p>
+   * Provides details of the service update
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The status of the service update</p>
+   * The status of the service update
+   *
    * @public
    */
   Status?: ServiceUpdateStatus | undefined;
 
   /**
-   * <p>Reflects the nature of the service update</p>
+   * Reflects the nature of the service update
+   *
    * @public
    */
   Type?: ServiceUpdateType | undefined;
 
   /**
-   * <p>The name of the engine for which a service update is available.</p>
+   * The name of the engine for which a service update is available.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>A list of nodes updated by the service update</p>
+   * A list of nodes updated by the service update
+   *
    * @public
    */
   NodesUpdated?: string | undefined;
 
   /**
-   * <p>The date at which the service update will be automatically applied</p>
+   * The date at which the service update will be automatically applied
+   *
    * @public
    */
   AutoUpdateStartDate?: Date | undefined;
@@ -2719,13 +3050,15 @@ export interface ServiceUpdate {
  */
 export interface DescribeServiceUpdatesResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of service updates</p>
+   * A list of service updates
+   *
    * @public
    */
   ServiceUpdates?: ServiceUpdate[] | undefined;
@@ -2736,37 +3069,43 @@ export interface DescribeServiceUpdatesResponse {
  */
 export interface DescribeSnapshotsRequest {
   /**
-   * <p>A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.</p>
+   * A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.
+   *
    * @public
    */
   ClusterName?: string | undefined;
 
   /**
-   * <p>A user-supplied name of the snapshot. If this parameter is specified, only this named snapshot is described.</p>
+   * A user-supplied name of the snapshot. If this parameter is specified, only this named snapshot is described.
+   *
    * @public
    */
   SnapshotName?: string | undefined;
 
   /**
-   * <p>If set to system, the output shows snapshots that were automatically created by MemoryDB. If set to user the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots.</p>
+   * If set to system, the output shows snapshots that were automatically created by MemoryDB. If set to user the output shows snapshots that were manually created. If omitted, the output shows both automatically and manually created snapshots.
+   *
    * @public
    */
   Source?: string | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A Boolean value which if true, the shard configuration is included in the snapshot description.</p>
+   * A Boolean value which if true, the shard configuration is included in the snapshot description.
+   *
    * @public
    */
   ShowDetail?: boolean | undefined;
@@ -2777,13 +3116,15 @@ export interface DescribeSnapshotsRequest {
  */
 export interface DescribeSnapshotsResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of snapshots. Each item in the list contains detailed information about one snapshot.</p>
+   * A list of snapshots. Each item in the list contains detailed information about one snapshot.
+   *
    * @public
    */
   Snapshots?: Snapshot[] | undefined;
@@ -2794,19 +3135,22 @@ export interface DescribeSnapshotsResponse {
  */
 export interface DescribeSubnetGroupsRequest {
   /**
-   * <p>The name of the subnet group to return details for.</p>
+   * The name of the subnet group to return details for.
+   *
    * @public
    */
   SubnetGroupName?: string | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2817,31 +3161,36 @@ export interface DescribeSubnetGroupsRequest {
  */
 export interface DescribeSubnetGroupsResponse {
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of subnet groups. Each element in the list contains detailed information about one group.</p>
+   * A list of subnet groups. Each element in the list contains detailed information about one group.
+   *
    * @public
    */
   SubnetGroups?: SubnetGroup[] | undefined;
 }
 
 /**
- * <p>Used to streamline results of a search based on the property being filtered.</p>
+ * Used to streamline results of a search based on the property being filtered.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The property being filtered. For example, UserName.</p>
+   * The property being filtered. For example, UserName.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The property values to filter on. For example, "user-123".</p>
+   * The property values to filter on. For example, "user-123".
+   *
    * @public
    */
   Values: string[] | undefined;
@@ -2852,25 +3201,29 @@ export interface Filter {
  */
 export interface DescribeUsersRequest {
   /**
-   * <p>The name of the user.</p>
+   * The name of the user.
+   *
    * @public
    */
   UserName?: string | undefined;
 
   /**
-   * <p>Filter to determine the list of users to return.</p>
+   * Filter to determine the list of users to return.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * The maximum number of records to include in the response. If more records exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2881,13 +3234,15 @@ export interface DescribeUsersRequest {
  */
 export interface DescribeUsersResponse {
   /**
-   * <p>A list of users.</p>
+   * A list of users.
+   *
    * @public
    */
   Users?: User[] | undefined;
 
   /**
-   * <p>An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. </p>
+   * An optional argument to pass in case the total number of records exceeds the value of MaxResults. If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2898,13 +3253,15 @@ export interface DescribeUsersResponse {
  */
 export interface FailoverShardRequest {
   /**
-   * <p>The cluster being failed over.</p>
+   * The cluster being failed over.
+   *
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The name of the shard.</p>
+   * The name of the shard.
+   *
    * @public
    */
   ShardName: string | undefined;
@@ -2915,7 +3272,8 @@ export interface FailoverShardRequest {
  */
 export interface FailoverShardResponse {
   /**
-   * <p>The cluster being failed over.</p>
+   * The cluster being failed over.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -2926,7 +3284,8 @@ export interface FailoverShardResponse {
  */
 export interface ListAllowedMultiRegionClusterUpdatesRequest {
   /**
-   * <p>The name of the multi-Region cluster.</p>
+   * The name of the multi-Region cluster.
+   *
    * @public
    */
   MultiRegionClusterName: string | undefined;
@@ -2937,13 +3296,15 @@ export interface ListAllowedMultiRegionClusterUpdatesRequest {
  */
 export interface ListAllowedMultiRegionClusterUpdatesResponse {
   /**
-   * <p>The node types that the cluster can be scaled up to.</p>
+   * The node types that the cluster can be scaled up to.
+   *
    * @public
    */
   ScaleUpNodeTypes?: string[] | undefined;
 
   /**
-   * <p>The node types that the cluster can be scaled down to.</p>
+   * The node types that the cluster can be scaled down to.
+   *
    * @public
    */
   ScaleDownNodeTypes?: string[] | undefined;
@@ -2954,8 +3315,8 @@ export interface ListAllowedMultiRegionClusterUpdatesResponse {
  */
 export interface ListAllowedNodeTypeUpdatesRequest {
   /**
-   * <p>The name of the cluster you want to scale. MemoryDB uses the cluster name to identify the current node type being used by this cluster, and from that to create a list of node types
-   *          you can scale up to.</p>
+   * The name of the cluster you want to scale. MemoryDB uses the cluster name to identify the current node type being used by this cluster, and from that to create a list of node types you can scale up to.
+   *
    * @public
    */
   ClusterName: string | undefined;
@@ -2966,13 +3327,15 @@ export interface ListAllowedNodeTypeUpdatesRequest {
  */
 export interface ListAllowedNodeTypeUpdatesResponse {
   /**
-   * <p>A list node types which you can use to scale up your cluster.</p>
+   * A list node types which you can use to scale up your cluster.
+   *
    * @public
    */
   ScaleUpNodeTypes?: string[] | undefined;
 
   /**
-   * <p>A list node types which you can use to scale down your cluster.</p>
+   * A list node types which you can use to scale down your cluster.
+   *
    * @public
    */
   ScaleDownNodeTypes?: string[] | undefined;
@@ -2983,7 +3346,8 @@ export interface ListAllowedNodeTypeUpdatesResponse {
  */
 export interface ListTagsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want the list of tags.</p>
+   * The Amazon Resource Name (ARN) of the resource for which you want the list of tags.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -2994,7 +3358,8 @@ export interface ListTagsRequest {
  */
 export interface ListTagsResponse {
   /**
-   * <p>A list of tags as key-value pairs.</p>
+   * A list of tags as key-value pairs.
+   *
    * @public
    */
   TagList?: Tag[] | undefined;
@@ -3005,25 +3370,29 @@ export interface ListTagsResponse {
  */
 export interface PurchaseReservedNodesOfferingRequest {
   /**
-   * <p>The ID of the reserved node offering to purchase.</p>
+   * The ID of the reserved node offering to purchase.
+   *
    * @public
    */
   ReservedNodesOfferingId: string | undefined;
 
   /**
-   * <p>A customer-specified identifier to track this reservation.</p>
+   * A customer-specified identifier to track this reservation.
+   *
    * @public
    */
   ReservationId?: string | undefined;
 
   /**
-   * <p>The number of node instances to reserve.</p>
+   * The number of node instances to reserve.
+   *
    * @public
    */
   NodeCount?: number | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -3034,7 +3403,8 @@ export interface PurchaseReservedNodesOfferingRequest {
  */
 export interface PurchaseReservedNodesOfferingResponse {
   /**
-   * <p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>
+   * Represents the output of a `PurchaseReservedNodesOffering` operation.
+   *
    * @public
    */
   ReservedNode?: ReservedNode | undefined;
@@ -3045,19 +3415,22 @@ export interface PurchaseReservedNodesOfferingResponse {
  */
 export interface ResetParameterGroupRequest {
   /**
-   * <p>The name of the parameter group to reset.</p>
+   * The name of the parameter group to reset.
+   *
    * @public
    */
   ParameterGroupName: string | undefined;
 
   /**
-   * <p>If true, all parameters in the parameter group are reset to their default values. If false, only the parameters listed by ParameterNames are reset to their default values.</p>
+   * If true, all parameters in the parameter group are reset to their default values. If false, only the parameters listed by ParameterNames are reset to their default values.
+   *
    * @public
    */
   AllParameters?: boolean | undefined;
 
   /**
-   * <p>An array of parameter names to reset to their default values. If AllParameters is true, do not use ParameterNames. If AllParameters is false, you must specify the name of at least one parameter to reset.</p>
+   * An array of parameter names to reset to their default values. If AllParameters is true, do not use ParameterNames. If AllParameters is false, you must specify the name of at least one parameter to reset.
+   *
    * @public
    */
   ParameterNames?: string[] | undefined;
@@ -3068,7 +3441,8 @@ export interface ResetParameterGroupRequest {
  */
 export interface ResetParameterGroupResponse {
   /**
-   * <p>The parameter group being reset.</p>
+   * The parameter group being reset.
+   *
    * @public
    */
   ParameterGroup?: ParameterGroup | undefined;
@@ -3079,13 +3453,15 @@ export interface ResetParameterGroupResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added.</p>
+   * The Amazon Resource Name (ARN) of the resource to which the tags are to be added.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
+   * A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3096,7 +3472,8 @@ export interface TagResourceRequest {
  */
 export interface TagResourceResponse {
   /**
-   * <p>A list of tags as key-value pairs.</p>
+   * A list of tags as key-value pairs.
+   *
    * @public
    */
   TagList?: Tag[] | undefined;
@@ -3107,13 +3484,15 @@ export interface TagResourceResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be removed.</p>
+   * The Amazon Resource Name (ARN) of the resource to which the tags are to be removed.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The list of keys of the tags that are to be removed.</p>
+   * The list of keys of the tags that are to be removed.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3124,7 +3503,8 @@ export interface UntagResourceRequest {
  */
 export interface UntagResourceResponse {
   /**
-   * <p>The list of tags removed.</p>
+   * The list of tags removed.
+   *
    * @public
    */
   TagList?: Tag[] | undefined;
@@ -3135,19 +3515,22 @@ export interface UntagResourceResponse {
  */
 export interface UpdateACLRequest {
   /**
-   * <p>The name of the Access Control List.</p>
+   * The name of the Access Control List.
+   *
    * @public
    */
   ACLName: string | undefined;
 
   /**
-   * <p>The list of users to add to the Access Control List.</p>
+   * The list of users to add to the Access Control List.
+   *
    * @public
    */
   UserNamesToAdd?: string[] | undefined;
 
   /**
-   * <p>The list of users to remove from the Access Control List.</p>
+   * The list of users to remove from the Access Control List.
+   *
    * @public
    */
   UserNamesToRemove?: string[] | undefined;
@@ -3158,31 +3541,36 @@ export interface UpdateACLRequest {
  */
 export interface UpdateACLResponse {
   /**
-   * <p>The updated Access Control List.</p>
+   * The updated Access Control List.
+   *
    * @public
    */
   ACL?: ACL | undefined;
 }
 
 /**
- * <p>A request to configure the number of replicas in a shard</p>
+ * A request to configure the number of replicas in a shard
+ *
  * @public
  */
 export interface ReplicaConfigurationRequest {
   /**
-   * <p>The number of replicas to scale up or down to</p>
+   * The number of replicas to scale up or down to
+   *
    * @public
    */
   ReplicaCount?: number | undefined;
 }
 
 /**
- * <p>A request to configure the sharding properties of a cluster</p>
+ * A request to configure the sharding properties of a cluster
+ *
  * @public
  */
 export interface ShardConfigurationRequest {
   /**
-   * <p>The number of shards in the cluster</p>
+   * The number of shards in the cluster
+   *
    * @public
    */
   ShardCount?: number | undefined;
@@ -3193,140 +3581,125 @@ export interface ShardConfigurationRequest {
  */
 export interface UpdateClusterRequest {
   /**
-   * <p>The name of the cluster to update.</p>
+   * The name of the cluster to update.
+   *
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The description of the cluster to update.</p>
+   * The description of the cluster to update.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The SecurityGroupIds to update.</p>
+   * The SecurityGroupIds to update.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Specifies the weekly time range during which maintenance
-   *          on the cluster is performed. It is specified as a range in
-   *          the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *          maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
+   * Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
+   *
+   * Valid values for `ddd` are:
+   *
+   * - `sun`
+   * - `mon`
+   * - `tue`
+   * - `wed`
+   * - `thu`
+   * - `fri`
+   * - `sat`
+   *
+   * Example: `sun:23:00-mon:01:30`
+   *
    * @public
    */
   MaintenanceWindow?: string | undefined;
 
   /**
-   * <p>The SNS topic ARN to update.</p>
+   * The SNS topic ARN to update.
+   *
    * @public
    */
   SnsTopicArn?: string | undefined;
 
   /**
-   * <p>The status of the Amazon SNS notification topic. Notifications are sent only if the status is active.</p>
+   * The status of the Amazon SNS notification topic. Notifications are sent only if the status is active.
+   *
    * @public
    */
   SnsTopicStatus?: string | undefined;
 
   /**
-   * <p>The name of the parameter group to update.</p>
+   * The name of the parameter group to update.
+   *
    * @public
    */
   ParameterGroupName?: string | undefined;
 
   /**
-   * <p>The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster.</p>
+   * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your cluster.
+   *
    * @public
    */
   SnapshotWindow?: string | undefined;
 
   /**
-   * <p>The number of days for which MemoryDB retains automatic cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.</p>
+   * The number of days for which MemoryDB retains automatic cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
+   *
    * @public
    */
   SnapshotRetentionLimit?: number | undefined;
 
   /**
-   * <p>A valid node type that you want to scale this cluster up or down to.</p>
+   * A valid node type that you want to scale this cluster up or down to.
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>The name of the engine to be used for the cluster.</p>
+   * The name of the engine to be used for the cluster.
+   *
    * @public
    */
   Engine?: string | undefined;
 
   /**
-   * <p>The upgraded version of the engine to be run on the nodes. You can upgrade to a newer engine version, but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster and create it anew with the earlier engine version.</p>
+   * The upgraded version of the engine to be run on the nodes. You can upgrade to a newer engine version, but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster and create it anew with the earlier engine version.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>The number of replicas that will reside in each shard.</p>
+   * The number of replicas that will reside in each shard.
+   *
    * @public
    */
   ReplicaConfiguration?: ReplicaConfigurationRequest | undefined;
 
   /**
-   * <p>The number of shards in the cluster.</p>
+   * The number of shards in the cluster.
+   *
    * @public
    */
   ShardConfiguration?: ShardConfigurationRequest | undefined;
 
   /**
-   * <p>The Access Control List that is associated with the cluster.</p>
+   * The Access Control List that is associated with the cluster.
+   *
    * @public
    */
   ACLName?: string | undefined;
 
   /**
-   * <p>The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes will return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.</p>
+   * The mechanism for discovering IP addresses for the cluster discovery protocol. Valid values are 'ipv4' or 'ipv6'. When set to 'ipv4', cluster discovery functions such as cluster slots, cluster shards, and cluster nodes will return IPv4 addresses for cluster nodes. When set to 'ipv6', the cluster discovery functions return IPv6 addresses for cluster nodes. The value must be compatible with the NetworkType parameter. If not specified, the default is 'ipv4'.
+   *
    * @public
    */
   IpDiscovery?: IpDiscovery | undefined;
@@ -3337,7 +3710,8 @@ export interface UpdateClusterRequest {
  */
 export interface UpdateClusterResponse {
   /**
-   * <p>The updated cluster.</p>
+   * The updated cluster.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -3348,43 +3722,50 @@ export interface UpdateClusterResponse {
  */
 export interface UpdateMultiRegionClusterRequest {
   /**
-   * <p>The name of the multi-Region cluster to be updated.</p>
+   * The name of the multi-Region cluster to be updated.
+   *
    * @public
    */
   MultiRegionClusterName: string | undefined;
 
   /**
-   * <p>The new node type to be used for the multi-Region cluster.</p>
+   * The new node type to be used for the multi-Region cluster.
+   *
    * @public
    */
   NodeType?: string | undefined;
 
   /**
-   * <p>A new description for the multi-Region cluster.</p>
+   * A new description for the multi-Region cluster.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The new engine version to be used for the multi-Region cluster.</p>
+   * The new engine version to be used for the multi-Region cluster.
+   *
    * @public
    */
   EngineVersion?: string | undefined;
 
   /**
-   * <p>A request to configure the sharding properties of a cluster</p>
+   * A request to configure the sharding properties of a cluster
+   *
    * @public
    */
   ShardConfiguration?: ShardConfigurationRequest | undefined;
 
   /**
-   * <p>The new multi-Region parameter group to be associated with the cluster.</p>
+   * The new multi-Region parameter group to be associated with the cluster.
+   *
    * @public
    */
   MultiRegionParameterGroupName?: string | undefined;
 
   /**
-   * <p>The strategy to use for the update operation. Supported values are "coordinated" or "uncoordinated".</p>
+   * The strategy to use for the update operation. Supported values are "coordinated" or "uncoordinated".
+   *
    * @public
    */
   UpdateStrategy?: UpdateStrategy | undefined;
@@ -3395,25 +3776,29 @@ export interface UpdateMultiRegionClusterRequest {
  */
 export interface UpdateMultiRegionClusterResponse {
   /**
-   * <p>The status of updating the multi-Region cluster.</p>
+   * The status of updating the multi-Region cluster.
+   *
    * @public
    */
   MultiRegionCluster?: MultiRegionCluster | undefined;
 }
 
 /**
- * <p>Describes a name-value pair that is used to update the value of a parameter.</p>
+ * Describes a name-value pair that is used to update the value of a parameter.
+ *
  * @public
  */
 export interface ParameterNameValue {
   /**
-   * <p>The name of the parameter</p>
+   * The name of the parameter
+   *
    * @public
    */
   ParameterName?: string | undefined;
 
   /**
-   * <p>The value of the parameter</p>
+   * The value of the parameter
+   *
    * @public
    */
   ParameterValue?: string | undefined;
@@ -3424,13 +3809,15 @@ export interface ParameterNameValue {
  */
 export interface UpdateParameterGroupRequest {
   /**
-   * <p>The name of the parameter group to update.</p>
+   * The name of the parameter group to update.
+   *
    * @public
    */
   ParameterGroupName: string | undefined;
 
   /**
-   * <p>An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be updated per request.</p>
+   * An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be updated per request.
+   *
    * @public
    */
   ParameterNameValues: ParameterNameValue[] | undefined;
@@ -3441,7 +3828,8 @@ export interface UpdateParameterGroupRequest {
  */
 export interface UpdateParameterGroupResponse {
   /**
-   * <p>The updated parameter group</p>
+   * The updated parameter group
+   *
    * @public
    */
   ParameterGroup?: ParameterGroup | undefined;
@@ -3452,19 +3840,22 @@ export interface UpdateParameterGroupResponse {
  */
 export interface UpdateSubnetGroupRequest {
   /**
-   * <p>The name of the subnet group</p>
+   * The name of the subnet group
+   *
    * @public
    */
   SubnetGroupName: string | undefined;
 
   /**
-   * <p>A description of the subnet group</p>
+   * A description of the subnet group
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The EC2 subnet IDs for the subnet group.</p>
+   * The EC2 subnet IDs for the subnet group.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
@@ -3475,7 +3866,8 @@ export interface UpdateSubnetGroupRequest {
  */
 export interface UpdateSubnetGroupResponse {
   /**
-   * <p>The updated subnet group</p>
+   * The updated subnet group
+   *
    * @public
    */
   SubnetGroup?: SubnetGroup | undefined;
@@ -3486,19 +3878,22 @@ export interface UpdateSubnetGroupResponse {
  */
 export interface UpdateUserRequest {
   /**
-   * <p>The name of the user</p>
+   * The name of the user
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>Denotes the user's authentication properties, such as whether it requires a password to authenticate.</p>
+   * Denotes the user's authentication properties, such as whether it requires a password to authenticate.
+   *
    * @public
    */
   AuthenticationMode?: AuthenticationMode | undefined;
 
   /**
-   * <p>Access permissions string used for this user.</p>
+   * Access permissions string used for this user.
+   *
    * @public
    */
   AccessString?: string | undefined;
@@ -3509,7 +3904,8 @@ export interface UpdateUserRequest {
  */
 export interface UpdateUserResponse {
   /**
-   * <p>The updated user</p>
+   * The updated user
+   *
    * @public
    */
   User?: User | undefined;

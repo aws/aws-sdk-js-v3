@@ -23,10 +23,8 @@ export interface DeleteResiliencyGroupCommandInput extends DeleteResiliencyGroup
 export interface DeleteResiliencyGroupCommandOutput extends DeleteResiliencyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified resiliency group. Deletion is asynchronous: the resiliency group
- *       transitions through the <code>deleting</code> state before it reaches the
- *       <code>deleted</code> state. The response returns the resiliency group so you can observe its
- *       current state without a subsequent <a>GetResiliencyGroup</a> call.</p>
+ * Deletes the specified resiliency group. Deletion is asynchronous: the resiliency group transitions through the `deleting` state before it reaches the `deleted` state. The response returns the resiliency group so you can observe its current state without a subsequent GetResiliencyGroup call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,14 +64,16 @@ export interface DeleteResiliencyGroupCommandOutput extends DeleteResiliencyGrou
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

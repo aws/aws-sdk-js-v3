@@ -342,9 +342,8 @@ export type Route53ProfilesClientResolvedConfigType = __SmithyResolvedConfigurat
 export interface Route53ProfilesClientResolvedConfig extends Route53ProfilesClientResolvedConfigType {}
 
 /**
- * <p>
- *  With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
- * </p>
+ * With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
+ *
  * @public
  */
 export class Route53ProfilesClient extends __Client<

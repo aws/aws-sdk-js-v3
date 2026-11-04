@@ -71,16 +71,15 @@ import type {
  */
 export interface ListInstanceTypeDetailsResponse {
   /**
-   * <p>Lists all supported instance types and features for the given OpenSearch or
-   *             Elasticsearch version.</p>
+   * Lists all supported instance types and features for the given OpenSearch or Elasticsearch version.
+   *
    * @public
    */
   InstanceTypeDetails?: InstanceTypeDetails[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -91,85 +90,99 @@ export interface ListInstanceTypeDetailsResponse {
  */
 export interface ListMigrationsRequest {
   /**
-   * <p>The unique identifier of the OpenSearch application to list migrations for.</p>
+   * The unique identifier of the OpenSearch application to list migrations for.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>Filters the results by migration status. Valid values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, and <code>FAILED</code>.</p>
+   * Filters the results by migration status. Valid values are `PENDING`, `IN_PROGRESS`, `SUCCEEDED`, and `FAILED`.
+   *
    * @public
    */
   status?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous call to retrieve the next set of results.</p>
+   * The pagination token from a previous call to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of a migration job, including its status and progress.</p>
+ * A summary of a migration job, including its status and progress.
+ *
  * @public
  */
 export interface MigrationSummary {
   /**
-   * <p>The unique identifier of the migration job.</p>
+   * The unique identifier of the migration job.
+   *
    * @public
    */
   migrationId?: string | undefined;
 
   /**
-   * <p>The current status of the migration job.</p>
+   * The current status of the migration job.
+   *
    * @public
    */
   status?: string | undefined;
 
   /**
-   * <p>The unique identifier of the OpenSearch application associated with the migration.</p>
+   * The unique identifier of the OpenSearch application associated with the migration.
+   *
    * @public
    */
   applicationId?: string | undefined;
 
   /**
-   * <p>The source configuration for the migration.</p>
+   * The source configuration for the migration.
+   *
    * @public
    */
   source?: MigrationSource | undefined;
 
   /**
-   * <p>The number of saved objects exported from the source data source.</p>
+   * The number of saved objects exported from the source data source.
+   *
    * @public
    */
   exportedCount?: number | undefined;
 
   /**
-   * <p>The number of saved objects successfully imported into the target workspace.</p>
+   * The number of saved objects successfully imported into the target workspace.
+   *
    * @public
    */
   importedCount?: number | undefined;
 
   /**
-   * <p>Error details if the migration failed or completed with errors.</p>
+   * Error details if the migration failed or completed with errors.
+   *
    * @public
    */
   error?: MigrationError | undefined;
 
   /**
-   * <p>The date and time when the migration job was created.</p>
+   * The date and time when the migration job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the migration job was last updated.</p>
+   * The date and time when the migration job was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -180,63 +193,64 @@ export interface MigrationSummary {
  */
 export interface ListMigrationsResponse {
   /**
-   * <p>A list of migration job summaries for the specified application.</p>
+   * A list of migration job summaries for the specified application.
+   *
    * @public
    */
   migrations?: MigrationSummary[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent call to retrieve the next set of results.</p>
+   * The pagination token to use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>ListPackagesForDomain</code>
- *             operation.</p>
+ * Container for the request parameters to the `ListPackagesForDomain` operation.
+ *
  * @public
  */
 export interface ListPackagesForDomainRequest {
   /**
-   * <p>The name of the domain for which you want to list associated packages.</p>
+   * The name of the domain for which you want to list associated packages.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListPackagesForDomain</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListPackagesForDomain</code> operations, which returns results in the
-   *             next page.</p>
+   * If your initial `ListPackagesForDomain` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListPackagesForDomain` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the response parameters to the <code>ListPackagesForDomain</code>
- *             operation.</p>
+ * Container for the response parameters to the `ListPackagesForDomain` operation.
+ *
  * @public
  */
 export interface ListPackagesForDomainResponse {
   /**
-   * <p>List of all packages associated with a domain.</p>
+   * List of all packages associated with a domain.
+   *
    * @public
    */
   DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -247,86 +261,92 @@ export interface ListPackagesForDomainResponse {
  */
 export interface ListScheduledActionsRequest {
   /**
-   * <p>The name of the domain.</p>
+   * The name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListScheduledActions</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListScheduledActions</code> operations, which returns results in the
-   *             next page.</p>
+   * If your initial `ListScheduledActions` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListScheduledActions` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a scheduled configuration change for an OpenSearch Service domain.
- *             This actions can be a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service
- *                 software update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green Auto-Tune enhancement</a>.</p>
+ * Information about a scheduled configuration change for an OpenSearch Service domain. This actions can be a [service software update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) or a [blue/green Auto-Tune enhancement](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types).
+ *
  * @public
  */
 export interface ScheduledAction {
   /**
-   * <p>The unique identifier of the scheduled action.</p>
+   * The unique identifier of the scheduled action.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The type of action that will be taken on the domain.</p>
+   * The type of action that will be taken on the domain.
+   *
    * @public
    */
   Type: ActionType | undefined;
 
   /**
-   * <p>The severity of the action.</p>
+   * The severity of the action.
+   *
    * @public
    */
   Severity: ActionSeverity | undefined;
 
   /**
-   * <p>The time when the change is scheduled to happen.</p>
+   * The time when the change is scheduled to happen.
+   *
    * @public
    */
   ScheduledTime: number | undefined;
 
   /**
-   * <p>A description of the action to be taken.</p>
+   * A description of the action to be taken.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch
-   *             Service automatically (<code>SYSTEM</code>).</p>
+   * Whether the action was scheduled manually (`CUSTOMER`, or by OpenSearch Service automatically (`SYSTEM`).
+   *
    * @public
    */
   ScheduledBy?: ScheduledBy | undefined;
 
   /**
-   * <p>The current status of the scheduled action.</p>
+   * The current status of the scheduled action.
+   *
    * @public
    */
   Status?: ActionStatus | undefined;
 
   /**
-   * <p>Whether the action is required or optional.</p>
+   * Whether the action is required or optional.
+   *
    * @public
    */
   Mandatory?: boolean | undefined;
 
   /**
-   * <p>Whether or not the scheduled action is cancellable.</p>
+   * Whether or not the scheduled action is cancellable.
+   *
    * @public
    */
   Cancellable?: boolean | undefined;
@@ -337,85 +357,85 @@ export interface ScheduledAction {
  */
 export interface ListScheduledActionsResponse {
   /**
-   * <p>A list of actions that are scheduled for the domain.</p>
+   * A list of actions that are scheduled for the domain.
+   *
    * @public
    */
   ScheduledActions?: ScheduledAction[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the parameters to the <code>ListTags</code> operation.</p>
+ * Container for the parameters to the `ListTags` operation.
+ *
  * @public
  */
 export interface ListTagsRequest {
   /**
-   * <p>Amazon Resource Name (ARN) for the domain, data source, or application to view tags
-   *             for.</p>
+   * Amazon Resource Name (ARN) for the domain, data source, or application to view tags for.
+   *
    * @public
    */
   ARN: string | undefined;
 }
 
 /**
- * <p>The results of a <code>ListTags</code> operation.</p>
+ * The results of a `ListTags` operation.
+ *
  * @public
  */
 export interface ListTagsResponse {
   /**
-   * <p>List of resource tags associated with the specified domain, data source, or
-   *             application.</p>
+   * List of resource tags associated with the specified domain, data source, or application.
+   *
    * @public
    */
   TagList?: Tag[] | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>ListVersions</code>
- *             operation.</p>
+ * Container for the request parameters to the `ListVersions` operation.
+ *
  * @public
  */
 export interface ListVersionsRequest {
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can
-   *             use <code>nextToken</code> to get the next page of results.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListVersions</code> operation returns a <code>nextToken</code>,
-   *             you can include the returned <code>nextToken</code> in subsequent
-   *                 <code>ListVersions</code> operations, which returns results in the next page.</p>
+   * If your initial `ListVersions` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListVersions` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Container for the parameters for response received from the <code>ListVersions</code>
- *             operation.</p>
+ * Container for the parameters for response received from the `ListVersions` operation.
+ *
  * @public
  */
 export interface ListVersionsResponse {
   /**
-   * <p>A list of all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
-   *             supports.</p>
+   * A list of all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service supports.
+   *
    * @public
    */
   Versions?: string[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -426,16 +446,15 @@ export interface ListVersionsResponse {
  */
 export interface ListVpcEndpointAccessRequest {
   /**
-   * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
+   * The name of the OpenSearch Service domain to retrieve access information for.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>If your initial <code>ListVpcEndpointAccess</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListVpcEndpointAccess</code> operations, which returns results in the
-   *             next page.</p>
+   * If your initial `ListVpcEndpointAccess` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListVpcEndpointAccess` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -446,16 +465,15 @@ export interface ListVpcEndpointAccessRequest {
  */
 export interface ListVpcEndpointAccessResponse {
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
-   *                 principals</a> that can currently access the domain.</p>
+   * A list of [IAM principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) that can currently access the domain.
+   *
    * @public
    */
   AuthorizedPrincipalList: AuthorizedPrincipal[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken: string | undefined;
@@ -466,10 +484,8 @@ export interface ListVpcEndpointAccessResponse {
  */
 export interface ListVpcEndpointsRequest {
   /**
-   * <p>If your initial <code>ListVpcEndpoints</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next
-   *             page.</p>
+   * If your initial `ListVpcEndpoints` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListVpcEndpoints` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -480,15 +496,15 @@ export interface ListVpcEndpointsRequest {
  */
 export interface ListVpcEndpointsResponse {
   /**
-   * <p>Information about each endpoint.</p>
+   * Information about each endpoint.
+   *
    * @public
    */
   VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken: string | undefined;
@@ -499,16 +515,15 @@ export interface ListVpcEndpointsResponse {
  */
 export interface ListVpcEndpointsForDomainRequest {
   /**
-   * <p>The name of the domain to list associated VPC endpoints for.</p>
+   * The name of the domain to list associated VPC endpoints for.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>If your initial <code>ListEndpointsForDomain</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListEndpointsForDomain</code> operations, which returns results in the
-   *             next page.</p>
+   * If your initial `ListEndpointsForDomain` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListEndpointsForDomain` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -519,59 +534,64 @@ export interface ListVpcEndpointsForDomainRequest {
  */
 export interface ListVpcEndpointsForDomainResponse {
   /**
-   * <p>Information about each endpoint associated with the domain.</p>
+   * Information about each endpoint associated with the domain.
+   *
    * @public
    */
   VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken: string | undefined;
 }
 
 /**
- * <p>Container for request parameters to the <code>PurchaseReservedInstanceOffering</code>
- *             operation.</p>
+ * Container for request parameters to the `PurchaseReservedInstanceOffering` operation.
+ *
  * @public
  */
 export interface PurchaseReservedInstanceOfferingRequest {
   /**
-   * <p>The ID of the Reserved Instance offering to purchase.</p>
+   * The ID of the Reserved Instance offering to purchase.
+   *
    * @public
    */
   ReservedInstanceOfferingId: string | undefined;
 
   /**
-   * <p>A customer-specified identifier to track this reservation.</p>
+   * A customer-specified identifier to track this reservation.
+   *
    * @public
    */
   ReservationName: string | undefined;
 
   /**
-   * <p>The number of OpenSearch instances to reserve.</p>
+   * The number of OpenSearch instances to reserve.
+   *
    * @public
    */
   InstanceCount?: number | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code>
- *             operation.</p>
+ * Represents the output of a `PurchaseReservedInstanceOffering` operation.
+ *
  * @public
  */
 export interface PurchaseReservedInstanceOfferingResponse {
   /**
-   * <p>The ID of the Reserved Instance offering that was purchased.</p>
+   * The ID of the Reserved Instance offering that was purchased.
+   *
    * @public
    */
   ReservedInstanceId?: string | undefined;
 
   /**
-   * <p>The customer-specified identifier used to track this reservation.</p>
+   * The customer-specified identifier used to track this reservation.
+   *
    * @public
    */
   ReservationName?: string | undefined;
@@ -582,16 +602,15 @@ export interface PurchaseReservedInstanceOfferingResponse {
  */
 export interface PutDefaultApplicationSettingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
-   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
-   *             more information. </p>
+   * The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using Amazon Web Services Identity and Access Management* for more information.
+   *
    * @public
    */
   applicationArn: string | undefined;
 
   /**
-   * <p>Set to true to set the specified ARN as the default application. Set to false to clear
-   *             the default application.</p>
+   * Set to true to set the specified ARN as the default application. Set to false to clear the default application.
+   *
    * @public
    */
   setAsDefault: boolean | undefined;
@@ -602,16 +621,16 @@ export interface PutDefaultApplicationSettingRequest {
  */
 export interface PutDefaultApplicationSettingResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
-   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
-   *             more information. </p>
+   * The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using Amazon Web Services Identity and Access Management* for more information.
+   *
    * @public
    */
   applicationArn?: string | undefined;
 }
 
 /**
- * <p>The base configuration for registering a capability. Contains capability-specific configuration such as AI settings.</p>
+ * The base configuration for registering a capability. Contains capability-specific configuration such as AI settings.
+ *
  * @public
  */
 export type CapabilityBaseRequestConfig =
@@ -623,7 +642,8 @@ export type CapabilityBaseRequestConfig =
  */
 export namespace CapabilityBaseRequestConfig {
   /**
-   * <p>Configuration settings for AI-powered capabilities.</p>
+   * Configuration settings for AI-powered capabilities.
+   *
    * @public
    */
   export interface AiConfigMember {
@@ -650,32 +670,36 @@ export namespace CapabilityBaseRequestConfig {
 }
 
 /**
- * <p>Container for the parameters to the <code>RegisterCapability</code> operation.</p>
+ * Container for the parameters to the `RegisterCapability` operation.
+ *
  * @public
  */
 export interface RegisterCapabilityRequest {
   /**
-   * <p>The unique identifier of the OpenSearch UI application to register the capability for.</p>
+   * The unique identifier of the OpenSearch UI application to register the capability for.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The name of the capability to register. Must be between 3 and 30 characters and contain only alphanumeric characters and hyphens. This identifies the type of capability being enabled for the application. For registering AI Assistant capability, use <code>ai-capability</code>
-   *          </p>
+   * The name of the capability to register. Must be between 3 and 30 characters and contain only alphanumeric characters and hyphens. This identifies the type of capability being enabled for the application. For registering AI Assistant capability, use `ai-capability`
+   *
    * @public
    */
   capabilityName: string | undefined;
 
   /**
-   * <p>The configuration settings for the capability being registered. This includes capability-specific settings such as AI configuration.</p>
+   * The configuration settings for the capability being registered. This includes capability-specific settings such as AI configuration.
+   *
    * @public
    */
   capabilityConfig: CapabilityBaseRequestConfig | undefined;
 }
 
 /**
- * <p>The base configuration returned for a registered capability.</p>
+ * The base configuration returned for a registered capability.
+ *
  * @public
  */
 export type CapabilityBaseResponseConfig =
@@ -687,7 +711,8 @@ export type CapabilityBaseResponseConfig =
  */
 export namespace CapabilityBaseResponseConfig {
   /**
-   * <p>Configuration settings for AI-powered capabilities.</p>
+   * Configuration settings for AI-powered capabilities.
+   *
    * @public
    */
   export interface AiConfigMember {
@@ -714,55 +739,63 @@ export namespace CapabilityBaseResponseConfig {
 }
 
 /**
- * <p>The result of a <code>RegisterCapability</code> request. Contains details about the registered capability.</p>
+ * The result of a `RegisterCapability` request. Contains details about the registered capability.
+ *
  * @public
  */
 export interface RegisterCapabilityResponse {
   /**
-   * <p>The name of the registered capability.</p>
+   * The name of the registered capability.
+   *
    * @public
    */
   capabilityName?: string | undefined;
 
   /**
-   * <p>The unique identifier of the OpenSearch UI application.</p>
+   * The unique identifier of the OpenSearch UI application.
+   *
    * @public
    */
   applicationId?: string | undefined;
 
   /**
-   * <p>The current status of the capability. Possible values: <code>creating</code>, <code>create_failed</code>, <code>active</code>, <code>updating</code>, <code>update_failed</code>, <code>deleting</code>, <code>delete_failed</code>.</p>
+   * The current status of the capability. Possible values: `creating`, `create_failed`, `active`, `updating`, `update_failed`, `deleting`, `delete_failed`.
+   *
    * @public
    */
   status?: CapabilityStatus | undefined;
 
   /**
-   * <p>The configuration settings for the registered capability.</p>
+   * The configuration settings for the registered capability.
+   *
    * @public
    */
   capabilityConfig?: CapabilityBaseResponseConfig | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>RejectInboundConnection</code>
- *             operation.</p>
+ * Container for the request parameters to the `RejectInboundConnection` operation.
+ *
  * @public
  */
 export interface RejectInboundConnectionRequest {
   /**
-   * <p>The unique identifier of the inbound connection to reject.</p>
+   * The unique identifier of the inbound connection to reject.
+   *
    * @public
    */
   ConnectionId: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>RejectInboundConnection</code> operation.</p>
+ * Represents the output of a `RejectInboundConnection` operation.
+ *
  * @public
  */
 export interface RejectInboundConnectionResponse {
   /**
-   * <p>Contains details about the rejected inbound connection.</p>
+   * Contains details about the rejected inbound connection.
+   *
    * @public
    */
   Connection?: InboundConnection | undefined;
@@ -773,15 +806,15 @@ export interface RejectInboundConnectionResponse {
  */
 export interface RemoveReplicationPeerRequest {
   /**
-   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
-   *             owned by an account within an Amazon Web Services Region.</p>
+   * The name of an OpenSearch Service domain. Domain names are unique across the domains owned by an account within an Amazon Web Services Region.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the peer to stop replicating with. Both domains are named
-   *   so that the request identifies exactly one replication relationship.</p>
+   * The Amazon Resource Name (ARN) of the peer to stop replicating with. Both domains are named so that the request identifies exactly one replication relationship.
+   *
    * @public
    */
   PeerDomainArn: string | undefined;
@@ -792,33 +825,36 @@ export interface RemoveReplicationPeerRequest {
  */
 export interface RemoveReplicationPeerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain that is no longer replicating.</p>
+   * The Amazon Resource Name (ARN) of the domain that is no longer replicating.
+   *
    * @public
    */
   DomainArn?: string | undefined;
 
   /**
-   * <p>The state of the replication relationship. This is <code>PENDING_REMOVAL</code> while
-   *   replication is being stopped.</p>
+   * The state of the replication relationship. This is `PENDING_REMOVAL` while replication is being stopped.
+   *
    * @public
    */
   Status?: ReplicationStatus | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>RemoveTags</code> operation.</p>
+ * Container for the request parameters to the `RemoveTags` operation.
+ *
  * @public
  */
 export interface RemoveTagsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain, data source, or application from which
-   *             you want to delete the specified tags.</p>
+   * The Amazon Resource Name (ARN) of the domain, data source, or application from which you want to delete the specified tags.
+   *
    * @public
    */
   ARN: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the domain, data source, or application.</p>
+   * The list of tag keys to remove from the domain, data source, or application.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -829,26 +865,29 @@ export interface RemoveTagsRequest {
  */
 export interface RevokeVpcEndpointAccessRequest {
   /**
-   * <p>The name of the OpenSearch Service domain.</p>
+   * The name of the OpenSearch Service domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The account ID to revoke access from.</p>
+   * The account ID to revoke access from.
+   *
    * @public
    */
   Account?: string | undefined;
 
   /**
-   * <p>The service SP to revoke access from.</p>
+   * The service SP to revoke access from.
+   *
    * @public
    */
   Service?: AWSServicePrincipal | undefined;
 
   /**
-   * <p>The options for the service, including the supported Regions for the endpoint
-   *             access.</p>
+   * The options for the service, including the supported Regions for the endpoint access.
+   *
    * @public
    */
   ServiceOptions?: ServiceOptions | undefined;
@@ -860,195 +899,224 @@ export interface RevokeVpcEndpointAccessRequest {
 export interface RevokeVpcEndpointAccessResponse {}
 
 /**
- * <p>Container for the request parameters to the
- *                 <code>RollbackServiceSoftwareUpdate</code> operation.</p>
+ * Container for the request parameters to the `RollbackServiceSoftwareUpdate` operation.
+ *
  * @public
  */
 export interface RollbackServiceSoftwareUpdateRequest {
   /**
-   * <p>The name of the domain to roll back the service software update on.</p>
+   * The name of the domain to roll back the service software update on.
+   *
    * @public
    */
   DomainName: string | undefined;
 }
 
 /**
- * <p>Details about the rollback options for a service software update.</p>
+ * Details about the rollback options for a service software update.
+ *
  * @public
  */
 export interface RollbackServiceSoftwareOptions {
   /**
-   * <p>The current service software version on the domain.</p>
+   * The current service software version on the domain.
+   *
    * @public
    */
   CurrentVersion?: string | undefined;
 
   /**
-   * <p>The service software version that the domain will roll back to.</p>
+   * The service software version that the domain will roll back to.
+   *
    * @public
    */
   NewVersion?: string | undefined;
 
   /**
-   * <p>Whether a service software rollback is available for the domain.</p>
+   * Whether a service software rollback is available for the domain.
+   *
    * @public
    */
   RollbackAvailable?: boolean | undefined;
 
   /**
-   * <p>A description of the rollback status.</p>
+   * A description of the rollback status.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Contains details about the rolled-back service software update.</p>
+ * Contains details about the rolled-back service software update.
+ *
  * @public
  */
 export interface RollbackServiceSoftwareUpdateResponse {
   /**
-   * <p>The rollback options for the service software update.</p>
+   * The rollback options for the service software update.
+   *
    * @public
    */
   RollbackServiceSoftwareOptions?: RollbackServiceSoftwareOptions | undefined;
 }
 
 /**
- * <p>Container for the parameters to the <code>StartDomainMaintenance</code>
- *             operation.</p>
+ * Container for the parameters to the `StartDomainMaintenance` operation.
+ *
  * @public
  */
 export interface StartDomainMaintenanceRequest {
   /**
-   * <p>The name of the domain.</p>
+   * The name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the action.</p>
+   * The name of the action.
+   *
    * @public
    */
   Action: MaintenanceType | undefined;
 
   /**
-   * <p>The ID of the data node.</p>
+   * The ID of the data node.
+   *
    * @public
    */
   NodeId?: string | undefined;
 }
 
 /**
- * <p>The result of a <code>StartDomainMaintenance</code> request that information about the
- *             requested action. </p>
+ * The result of a `StartDomainMaintenance` request that information about the requested action.
+ *
  * @public
  */
 export interface StartDomainMaintenanceResponse {
   /**
-   * <p>The request ID of requested action.</p>
+   * The request ID of requested action.
+   *
    * @public
    */
   MaintenanceId?: string | undefined;
 }
 
 /**
- * <p>Identifies a specific saved object by its type and unique identifier.</p>
+ * Identifies a specific saved object by its type and unique identifier.
+ *
  * @public
  */
 export interface SavedObjectIdentifier {
   /**
-   * <p>The type of the saved object, such as <code>dashboard</code>, <code>visualization</code>, <code>index-pattern</code>, <code>search</code>, or <code>query</code>.</p>
+   * The type of the saved object, such as `dashboard`, `visualization`, `index-pattern`, `search`, or `query`.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>The unique identifier of the saved object.</p>
+   * The unique identifier of the saved object.
+   *
    * @public
    */
   id: string | undefined;
 }
 
 /**
- * <p>Options to filter the scope of saved objects to export during a migration.</p>
+ * Options to filter the scope of saved objects to export during a migration.
+ *
  * @public
  */
 export interface ExportOptions {
   /**
-   * <p>A list of saved object types to include in the migration. Valid values include <code>dashboard</code>, <code>visualization</code>, <code>index-pattern</code>, <code>search</code>, and <code>query</code>.</p>
+   * A list of saved object types to include in the migration. Valid values include `dashboard`, `visualization`, `index-pattern`, `search`, and `query`.
+   *
    * @public
    */
   types?: string[] | undefined;
 
   /**
-   * <p>A list of specific saved objects to include in the migration, identified by type and ID.</p>
+   * A list of specific saved objects to include in the migration, identified by type and ID.
+   *
    * @public
    */
   objects?: SavedObjectIdentifier[] | undefined;
 
   /**
-   * <p>Specifies whether to include all objects referenced by the exported objects, recursively.</p>
+   * Specifies whether to include all objects referenced by the exported objects, recursively.
+   *
    * @public
    */
   includeReferencesDeep?: boolean | undefined;
 }
 
 /**
- * <p>The target workspace configuration for a migration. You can specify an existing workspace by ID or request creation of a new workspace.</p>
+ * The target workspace configuration for a migration. You can specify an existing workspace by ID or request creation of a new workspace.
+ *
  * @public
  */
 export interface MigrationWorkspace {
   /**
-   * <p>The unique identifier of an existing workspace to use as the migration target. Specify either this parameter or <code>createWorkspace</code>.</p>
+   * The unique identifier of an existing workspace to use as the migration target. Specify either this parameter or `createWorkspace`.
+   *
    * @public
    */
   workspaceId?: string | undefined;
 
   /**
-   * <p>Specifies whether to create a new workspace as the migration target. If <code>true</code>, you must also specify <code>name</code>.</p>
+   * Specifies whether to create a new workspace as the migration target. If `true`, you must also specify `name`.
+   *
    * @public
    */
   createWorkspace?: boolean | undefined;
 
   /**
-   * <p>The name of the new workspace to create. Required when <code>createWorkspace</code> is <code>true</code>.</p>
+   * The name of the new workspace to create. Required when `createWorkspace` is `true`.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The type of the new workspace to create.</p>
+   * The type of the new workspace to create.
+   *
    * @public
    */
   type?: string | undefined;
 }
 
 /**
- * <p>The configuration options for a saved objects migration job.</p>
+ * The configuration options for a saved objects migration job.
+ *
  * @public
  */
 export interface MigrationOptions {
   /**
-   * <p>The data source from which to export saved objects.</p>
+   * The data source from which to export saved objects.
+   *
    * @public
    */
   source: MigrationSource | undefined;
 
   /**
-   * <p>The target workspace configuration for importing saved objects. You can specify an existing workspace or request creation of a new workspace.</p>
+   * The target workspace configuration for importing saved objects. You can specify an existing workspace or request creation of a new workspace.
+   *
    * @public
    */
   workspace: MigrationWorkspace | undefined;
 
   /**
-   * <p>Options to filter the scope of saved objects to export from the source.</p>
+   * Options to filter the scope of saved objects to export from the source.
+   *
    * @public
    */
   exportOptions?: ExportOptions | undefined;
 
   /**
-   * <p>The strategy for resolving conflicts when saved objects already exist in the target workspace. Valid values are <code>CREATE_NEW_COPIES</code>, which creates new objects with unique IDs, and <code>overwrite</code>, which replaces existing objects.</p>
+   * The strategy for resolving conflicts when saved objects already exist in the target workspace. Valid values are `CREATE_NEW_COPIES`, which creates new objects with unique IDs, and `overwrite`, which replaces existing objects.
+   *
    * @public
    */
   conflictResolution?: string | undefined;
@@ -1059,19 +1127,22 @@ export interface MigrationOptions {
  */
 export interface StartMigrationRequest {
   /**
-   * <p>The unique identifier of the OpenSearch application to migrate saved objects into.</p>
+   * The unique identifier of the OpenSearch application to migrate saved objects into.
+   *
    * @public
    */
   applicationId: string | undefined;
 
   /**
-   * <p>The configuration options for the migration, including the source data source, target workspace, export filters, and conflict resolution strategy.</p>
+   * The configuration options for the migration, including the source data source, target workspace, export filters, and conflict resolution strategy.
+   *
    * @public
    */
   migrationOptions: MigrationOptions | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon OpenSearch Service ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon OpenSearch Service ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1082,75 +1153,63 @@ export interface StartMigrationRequest {
  */
 export interface StartMigrationResponse {
   /**
-   * <p>The unique identifier of the migration job.</p>
+   * The unique identifier of the migration job.
+   *
    * @public
    */
   migrationId?: string | undefined;
 
   /**
-   * <p>The initial status of the migration job. The status is <code>PENDING</code> when a migration is first created.</p>
+   * The initial status of the migration job. The status is `PENDING` when a migration is first created.
+   *
    * @public
    */
   status?: string | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>StartServiceSoftwareUpdate</code>
- *             operation.</p>
+ * Container for the request parameters to the `StartServiceSoftwareUpdate` operation.
+ *
  * @public
  */
 export interface StartServiceSoftwareUpdateRequest {
   /**
-   * <p>The name of the domain that you want to update to the latest service software.</p>
+   * The name of the domain that you want to update to the latest service software.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>When to start the service software update.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NOW</code> - Immediately schedules the update to happen in the current
-   *                     hour if there's capacity available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the
-   *                     update. If you specify this value, you must also provide a value for
-   *                         <code>DesiredStartTime</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an
-   *                     upcoming off-peak window. There's no guarantee that the update will happen
-   *                     during the next immediate window. Depending on capacity, it might happen in
-   *                     subsequent days.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>NOW</code> if you don't specify a value for
-   *                 <code>DesiredStartTime</code>, and <code>TIMESTAMP</code> if you do.</p>
+   * When to start the service software update.
+   *
+   * - `NOW` - Immediately schedules the update to happen in the current hour if there's capacity available.
+   * - `TIMESTAMP` - Lets you specify a custom date and time to apply the update. If you specify this value, you must also provide a value for `DesiredStartTime`.
+   * - `OFF_PEAK_WINDOW` - Marks the update to be picked up during an upcoming off-peak window. There's no guarantee that the update will happen during the next immediate window. Depending on capacity, it might happen in subsequent days.
+   *
+   * Default: `NOW` if you don't specify a value for `DesiredStartTime`, and `TIMESTAMP` if you do.
+   *
    * @public
    */
   ScheduleAt?: ScheduleAt | undefined;
 
   /**
-   * <p>The Epoch timestamp when you want the service software update to start. You only need
-   *             to specify this parameter if you set <code>ScheduleAt</code> to
-   *             <code>TIMESTAMP</code>.</p>
+   * The Epoch timestamp when you want the service software update to start. You only need to specify this parameter if you set `ScheduleAt` to `TIMESTAMP`.
+   *
    * @public
    */
   DesiredStartTime?: number | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>StartServiceSoftwareUpdate</code> operation. Contains
- *             the status of the update.</p>
+ * Represents the output of a `StartServiceSoftwareUpdate` operation. Contains the status of the update.
+ *
  * @public
  */
 export interface StartServiceSoftwareUpdateResponse {
   /**
-   * <p>The current status of the OpenSearch Service software update.</p>
+   * The current status of the OpenSearch Service software update.
+   *
    * @public
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions | undefined;
@@ -1161,15 +1220,15 @@ export interface StartServiceSoftwareUpdateResponse {
  */
 export interface SwitchoverReplicationRequest {
   /**
-   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
-   *             owned by an account within an Amazon Web Services Region.</p>
+   * The name of an OpenSearch Service domain. Domain names are unique across the domains owned by an account within an Amazon Web Services Region.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the relationship's current primary. The request is
-   *   rejected if this domain is no longer the peer of the domain you are calling.</p>
+   * The Amazon Resource Name (ARN) of the relationship's current primary. The request is rejected if this domain is no longer the peer of the domain you are calling.
+   *
    * @public
    */
   PeerDomainArn: string | undefined;
@@ -1180,14 +1239,15 @@ export interface SwitchoverReplicationRequest {
  */
 export interface SwitchoverReplicationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain being promoted.</p>
+   * The Amazon Resource Name (ARN) of the domain being promoted.
+   *
    * @public
    */
   DomainArn?: string | undefined;
 
   /**
-   * <p>The state of the replication relationship. This is <code>SWITCHING_OVER</code> while the
-   *   promotion is in progress.</p>
+   * The state of the replication relationship. This is `SWITCHING_OVER` while the promotion is in progress.
+   *
    * @public
    */
   Status?: ReplicationStatus | undefined;
@@ -1198,26 +1258,29 @@ export interface SwitchoverReplicationResponse {
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The unique identifier for the OpenSearch application to be updated.</p>
+   * The unique identifier for the OpenSearch application to be updated.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The data sources to associate with the OpenSearch application.</p>
+   * The data sources to associate with the OpenSearch application.
+   *
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>The configuration settings to modify for the OpenSearch application.</p>
+   * The configuration settings to modify for the OpenSearch application.
+   *
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
 
   /**
-   * <p>Configuration settings for integrating IAM Identity Center with the OpenSearch
-   *             application.</p>
+   * Configuration settings for integrating IAM Identity Center with the OpenSearch application.
+   *
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterOptionsInput | undefined;
@@ -1228,99 +1291,113 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResponse {
   /**
-   * <p>The unique identifier of the updated OpenSearch application.</p>
+   * The unique identifier of the updated OpenSearch application.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the updated OpenSearch application.</p>
+   * The name of the updated OpenSearch application.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
-   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
-   *             more information. </p>
+   * The Amazon Resource Name (ARN) of the domain. See [Identifiers for IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html) in *Using Amazon Web Services Identity and Access Management* for more information.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The data sources associated with the updated OpenSearch application.</p>
+   * The data sources associated with the updated OpenSearch application.
+   *
    * @public
    */
   dataSources?: DataSource[] | undefined;
 
   /**
-   * <p>The IAM Identity Center configuration for the updated OpenSearch application.</p>
+   * The IAM Identity Center configuration for the updated OpenSearch application.
+   *
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterOptions | undefined;
 
   /**
-   * <p>The configuration settings for the updated OpenSearch application.</p>
+   * The configuration settings for the updated OpenSearch application.
+   *
    * @public
    */
   appConfigs?: AppConfig[] | undefined;
 
   /**
-   * <p>The timestamp when the OpenSearch application was originally created.</p>
+   * The timestamp when the OpenSearch application was originally created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the OpenSearch application was last updated.</p>
+   * The timestamp when the OpenSearch application was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Container for the parameters to the <code>UpdateDataSource</code> operation.</p>
+ * Container for the parameters to the `UpdateDataSource` operation.
+ *
  * @public
  */
 export interface UpdateDataSourceRequest {
   /**
-   * <p>The name of the domain.</p>
+   * The name of the domain.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the data source to modify.</p>
+   * The name of the data source to modify.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of data source.</p>
+   * The type of data source.
+   *
    * @public
    */
   DataSourceType: DataSourceType | undefined;
 
   /**
-   * <p>A new description of the data source.</p>
+   * A new description of the data source.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The status of the data source update.</p>
+   * The status of the data source update.
+   *
    * @public
    */
   Status?: DataSourceStatus | undefined;
 }
 
 /**
- * <p>The result of an <code>UpdateDataSource</code> operation.</p>
+ * The result of an `UpdateDataSource` operation.
+ *
  * @public
  */
 export interface UpdateDataSourceResponse {
   /**
-   * <p>A message associated with the updated data source.</p>
+   * A message associated with the updated data source.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1331,37 +1408,36 @@ export interface UpdateDataSourceResponse {
  */
 export interface UpdateDirectQueryDataSourceRequest {
   /**
-   * <p> A unique, user-defined label to identify the data source within your OpenSearch
-   *             Service environment. </p>
+   * A unique, user-defined label to identify the data source within your OpenSearch Service environment.
+   *
    * @public
    */
   DataSourceName: string | undefined;
 
   /**
-   * <p> The supported Amazon Web Services service that you want to use as the source for
-   *             direct queries in OpenSearch Service. </p>
+   * The supported Amazon Web Services service that you want to use as the source for direct queries in OpenSearch Service.
+   *
    * @public
    */
   DataSourceType: DirectQueryDataSourceType | undefined;
 
   /**
-   * <p> An optional text field for providing additional context and details about the data
-   *             source. </p>
+   * An optional text field for providing additional context and details about the data source.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are
-   *             associated with the direct query data source. This field is required for CloudWatchLogs
-   *             and SecurityLake datasource types. </p>
+   * An optional list of Amazon Resource Names (ARNs) for the OpenSearch collections that are associated with the direct query data source. This field is required for CloudWatchLogs and SecurityLake datasource types.
+   *
    * @public
    */
   OpenSearchArns?: string[] | undefined;
 
   /**
-   * <p> An optional IAM access policy document that defines the updated permissions for accessing the direct query data source.
-   *             The policy document must be in valid JSON format and follow IAM policy syntax. If not specified, the existing access policy if present remains unchanged. </p>
+   * An optional IAM access policy document that defines the updated permissions for accessing the direct query data source. The policy document must be in valid JSON format and follow IAM policy syntax. If not specified, the existing access policy if present remains unchanged.
+   *
    * @public
    */
   DataSourceAccessPolicy?: string | undefined;
@@ -1372,249 +1448,238 @@ export interface UpdateDirectQueryDataSourceRequest {
  */
 export interface UpdateDirectQueryDataSourceResponse {
   /**
-   * <p> The unique, system-generated identifier that represents the data source. </p>
+   * The unique, system-generated identifier that represents the data source.
+   *
    * @public
    */
   DataSourceArn?: string | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>UpdateDomain</code>
- *             operation.</p>
+ * Container for the request parameters to the `UpdateDomain` operation.
+ *
  * @public
  */
 export interface UpdateDomainConfigRequest {
   /**
-   * <p>The name of the domain that you're updating.</p>
+   * The name of the domain that you're updating.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>Changes that you want to make to the cluster configuration, such as the instance type
-   *             and number of EC2 instances.</p>
+   * Changes that you want to make to the cluster configuration, such as the instance type and number of EC2 instances.
+   *
    * @public
    */
   ClusterConfig?: ClusterConfig | undefined;
 
   /**
-   * <p>The type and size of the EBS volume to attach to instances in the domain.</p>
+   * The type and size of the EBS volume to attach to instances in the domain.
+   *
    * @public
    */
   EBSOptions?: EBSOptions | undefined;
 
   /**
-   * <p>Option to set the time, in UTC format, for the daily automated snapshot. Default value
-   *             is <code>0</code> hours. </p>
+   * Option to set the time, in UTC format, for the daily automated snapshot. Default value is `0` hours.
+   *
    * @public
    */
   SnapshotOptions?: SnapshotOptions | undefined;
 
   /**
-   * <p>Options to specify the subnets and security groups for a VPC endpoint. For more
-   *             information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html">Launching your Amazon
-   *                 OpenSearch Service domains using a VPC</a>.</p>
+   * Options to specify the subnets and security groups for a VPC endpoint. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html).
+   *
    * @public
    */
   VPCOptions?: VPCOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure Amazon Cognito authentication for OpenSearch
-   *             Dashboards.</p>
+   * Key-value pairs to configure Amazon Cognito authentication for OpenSearch Dashboards.
+   *
    * @public
    */
   CognitoOptions?: CognitoOptions | undefined;
 
   /**
-   * <p>Key-value pairs to specify advanced configuration options. The following key-value
-   *             pairs are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note
-   *                     the use of a string rather than a boolean. Specifies whether explicit references
-   *                     to indexes are allowed inside the body of HTTP requests. If you want to
-   *                     configure access policies for domain sub-resources, such as specific indexes and
-   *                     domain APIs, you must disable this property. Default is true.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string
-   *                     rather than a boolean. Specifies the percentage of heap space allocated to field
-   *                     data. Default is unbounded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a
-   *                     string rather than a boolean. Specifies the maximum number of clauses allowed in
-   *                     a Lucene boolean query. Default is 1,024. Queries with more than the permitted
-   *                     number of clauses result in a <code>TooManyClauses</code> error.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced cluster parameters</a>.</p>
+   * Key-value pairs to specify advanced configuration options. The following key-value pairs are supported:
+   *
+   * - `"rest.action.multi.allow_explicit_index": "true" | "false"` - Note the use of a string rather than a boolean. Specifies whether explicit references to indexes are allowed inside the body of HTTP requests. If you want to configure access policies for domain sub-resources, such as specific indexes and domain APIs, you must disable this property. Default is true.
+   * - `"indices.fielddata.cache.size": "80"` - Note the use of a string rather than a boolean. Specifies the percentage of heap space allocated to field data. Default is unbounded.
+   * - `"indices.query.bool.max_clause_count": "1024"` - Note the use of a string rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene boolean query. Default is 1,024. Queries with more than the permitted number of clauses result in a `TooManyClauses` error.
+   *
+   * For more information, see [Advanced cluster parameters](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options).
+   *
    * @public
    */
   AdvancedOptions?: Record<string, string> | undefined;
 
   /**
-   * <p>Identity and Access Management (IAM) access policy as a JSON-formatted string.</p>
+   * Identity and Access Management (IAM) access policy as a JSON-formatted string.
+   *
    * @public
    */
   AccessPolicies?: string | undefined;
 
   /**
-   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to
-   *             share domain resources across IPv4 and IPv6 address types, and is the recommended
-   *             option. If your IP address type is currently set to dual stack, you can't change it.
-   *         </p>
+   * Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If your IP address type is currently set to dual stack, you can't change it.
+   *
    * @public
    */
   IPAddressType?: IPAddressType | undefined;
 
   /**
-   * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
+   * Options to publish OpenSearch logs to Amazon CloudWatch Logs.
+   *
    * @public
    */
   LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
 
   /**
-   * <p>Encryption at rest options for the domain.</p>
+   * Encryption at rest options for the domain.
+   *
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
-   * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
-   *             traffic.</p>
+   * Additional options for the domain endpoint, such as whether to require HTTPS for all traffic.
+   *
    * @public
    */
   DomainEndpointOptions?: DomainEndpointOptions | undefined;
 
   /**
-   * <p>Node-to-node encryption options for the domain.</p>
+   * Node-to-node encryption options for the domain.
+   *
    * @public
    */
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions | undefined;
 
   /**
-   * <p>Options for fine-grained access control.</p>
+   * Options for fine-grained access control.
+   *
    * @public
    */
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput | undefined;
 
   /**
-   * <p>Configuration settings for enabling and managing IAM Identity Center.</p>
+   * Configuration settings for enabling and managing IAM Identity Center.
+   *
    * @public
    */
   IdentityCenterOptions?: IdentityCenterOptionsInput | undefined;
 
   /**
-   * <p>Options for Auto-Tune.</p>
+   * Options for Auto-Tune.
+   *
    * @public
    */
   AutoTuneOptions?: AutoTuneOptions | undefined;
 
   /**
-   * <p>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request
-   *             should return the results of a dry run analysis without actually applying the change. A
-   *             dry run determines what type of deployment the update will cause.</p>
+   * This flag, when set to True, specifies whether the `UpdateDomain` request should return the results of a dry run analysis without actually applying the change. A dry run determines what type of deployment the update will cause.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 
   /**
-   * <p>The type of dry run to perform.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Basic</code> only returns the type of deployment (blue/green or dynamic)
-   *                     that the update will cause.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Verbose</code> runs an additional check to validate the changes you're
-   *                     making. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p>
-   *             </li>
-   *          </ul>
+   * The type of dry run to perform.
+   *
+   * - `Basic` only returns the type of deployment (blue/green or dynamic) that the update will cause.
+   * - `Verbose` runs an additional check to validate the changes you're making. For more information, see [Validating a domain update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check).
+   *
    * @public
    */
   DryRunMode?: DryRunMode | undefined;
 
   /**
-   * <p>Off-peak window options for the domain.</p>
+   * Off-peak window options for the domain.
+   *
    * @public
    */
   OffPeakWindowOptions?: OffPeakWindowOptions | undefined;
 
   /**
-   * <p>Service software update options for the domain.</p>
+   * Service software update options for the domain.
+   *
    * @public
    */
   SoftwareUpdateOptions?: SoftwareUpdateOptions | undefined;
 
   /**
-   * <p>Options for all machine learning features for the specified domain.</p>
+   * Options for all machine learning features for the specified domain.
+   *
    * @public
    */
   AIMLOptions?: AIMLOptionsInput | undefined;
 
   /**
-   * <p>Specifies the deployment strategy options for the domain.</p>
+   * Specifies the deployment strategy options for the domain.
+   *
    * @public
    */
   DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 
   /**
-   * <p>Specifies the automated snapshot pause options for the domain.</p>
-   *          <important>
-   *             <p>Suspending snapshots reduces data protection. You cannot restore your domain to
-   *                 points in time when snapshots are suspended. Use this feature only for short-term
-   *                 operational needs such as migrations or maintenance windows.</p>
-   *          </important>
-   *          <p>Maximum suspension duration: 3 days.</p>
+   * Specifies the automated snapshot pause options for the domain.
+   *
+   * > **Important:** Suspending snapshots reduces data protection. You cannot restore your domain to points in time when snapshots are suspended. Use this feature only for short-term operational needs such as migrations or maintenance windows.
+   *
+   * Maximum suspension duration: 3 days.
+   *
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
 
   /**
-   * <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+   * The primary use case for the domain. For valid values, see `DomainUseCase`.
+   *
    * @public
    */
   UseCase?: DomainUseCase | undefined;
 
   /**
-   * <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+   * The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see `EngineMode`.
+   *
    * @public
    */
   EngineMode?: EngineMode | undefined;
 
   /**
-   * <p>A list of advisory warning codes to accept for this configuration change. By default, any advisory warning blocks the change. Include the code of each warning you want to accept so the change can proceed. You can find warning codes in the <code>ValidationFailures</code> list returned by <code>DescribeDomainChangeProgress</code> and <code>DescribeDryRunProgress</code>. Critical validation failures cannot be accepted and always block the change. If you omit this parameter or pass an empty list, all warnings block the change. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating a domain update</a>.</p>
+   * A list of advisory warning codes to accept for this configuration change. By default, any advisory warning blocks the change. Include the code of each warning you want to accept so the change can proceed. You can find warning codes in the `ValidationFailures` list returned by `DescribeDomainChangeProgress` and `DescribeDryRunProgress`. Critical validation failures cannot be accepted and always block the change. If you omit this parameter or pass an empty list, all warnings block the change. For more information, see [Validating a domain update](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check).
+   *
    * @public
    */
   AcceptedWarnings?: string[] | undefined;
 }
 
 /**
- * <p>The results of an <code>UpdateDomain</code> request. Contains the status of the domain
- *             being updated.</p>
+ * The results of an `UpdateDomain` request. Contains the status of the domain being updated.
+ *
  * @public
  */
 export interface UpdateDomainConfigResponse {
   /**
-   * <p>The status of the updated domain.</p>
+   * The status of the updated domain.
+   *
    * @public
    */
   DomainConfig: DomainConfig | undefined;
 
   /**
-   * <p>Results of the dry run performed in the update domain request.</p>
+   * Results of the dry run performed in the update domain request.
+   *
    * @public
    */
   DryRunResults?: DryRunResults | undefined;
 
   /**
-   * <p>The status of the dry run being performed on the domain, if any.</p>
+   * The status of the dry run being performed on the domain, if any.
+   *
    * @public
    */
   DryRunProgressStatus?: DryRunProgressStatus | undefined;
@@ -1625,20 +1690,22 @@ export interface UpdateDomainConfigResponse {
  */
 export interface UpdateIndexRequest {
   /**
-   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains
-   *             owned by an account within an Amazon Web Services Region.</p>
+   * The name of an OpenSearch Service domain. Domain names are unique across the domains owned by an account within an Amazon Web Services Region.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The name of the index to update.</p>
+   * The name of the index to update.
+   *
    * @public
    */
   IndexName: string | undefined;
 
   /**
-   * <p>The updated JSON schema for the index including any changes to mappings, settings, and semantic enrichment configuration.</p>
+   * The updated JSON schema for the index including any changes to mappings, settings, and semantic enrichment configuration.
+   *
    * @public
    */
   IndexSchema: __DocumentType | undefined;
@@ -1649,63 +1716,71 @@ export interface UpdateIndexRequest {
  */
 export interface UpdateIndexResponse {
   /**
-   * <p>The status of the index update operation.</p>
+   * The status of the index update operation.
+   *
    * @public
    */
   Status: IndexStatus | undefined;
 }
 
 /**
- * <p>Container for request parameters to the <code>UpdatePackage</code> operation.</p>
+ * Container for request parameters to the `UpdatePackage` operation.
+ *
  * @public
  */
 export interface UpdatePackageRequest {
   /**
-   * <p>The unique identifier for the package.</p>
+   * The unique identifier for the package.
+   *
    * @public
    */
   PackageID: string | undefined;
 
   /**
-   * <p>Amazon S3 bucket and key for the package.</p>
+   * Amazon S3 bucket and key for the package.
+   *
    * @public
    */
   PackageSource: PackageSource | undefined;
 
   /**
-   * <p>A new description of the package.</p>
+   * A new description of the package.
+   *
    * @public
    */
   PackageDescription?: string | undefined;
 
   /**
-   * <p>Commit message for the updated file, which is shown as part of
-   *                 <code>GetPackageVersionHistoryResponse</code>.</p>
+   * Commit message for the updated file, which is shown as part of `GetPackageVersionHistoryResponse`.
+   *
    * @public
    */
   CommitMessage?: string | undefined;
 
   /**
-   * <p>The updated configuration details for a package.</p>
+   * The updated configuration details for a package.
+   *
    * @public
    */
   PackageConfiguration?: PackageConfiguration | undefined;
 
   /**
-   * <p>Encryption options for a package.</p>
+   * Encryption options for a package.
+   *
    * @public
    */
   PackageEncryptionOptions?: PackageEncryptionOptions | undefined;
 }
 
 /**
- * <p>Container for the response returned by the <code>UpdatePackage</code>
- *             operation.</p>
+ * Container for the response returned by the `UpdatePackage` operation.
+ *
  * @public
  */
 export interface UpdatePackageResponse {
   /**
-   * <p>Information about a package.</p>
+   * Information about a package.
+   *
    * @public
    */
   PackageDetails?: PackageDetails | undefined;
@@ -1716,20 +1791,22 @@ export interface UpdatePackageResponse {
  */
 export interface UpdatePackageScopeRequest {
   /**
-   * <p>ID of the package whose scope is being updated.</p>
+   * ID of the package whose scope is being updated.
+   *
    * @public
    */
   PackageID: string | undefined;
 
   /**
-   * <p> The operation to perform on the package scope (e.g., add/remove/override
-   *             users).</p>
+   * The operation to perform on the package scope (e.g., add/remove/override users).
+   *
    * @public
    */
   Operation: PackageScopeOperationEnum | undefined;
 
   /**
-   * <p> List of users to be added or removed from the package scope.</p>
+   * List of users to be added or removed from the package scope.
+   *
    * @public
    */
   PackageUserList: string[] | undefined;
@@ -1740,19 +1817,22 @@ export interface UpdatePackageScopeRequest {
  */
 export interface UpdatePackageScopeResponse {
   /**
-   * <p> ID of the package whose scope was updated.</p>
+   * ID of the package whose scope was updated.
+   *
    * @public
    */
   PackageID?: string | undefined;
 
   /**
-   * <p>The operation that was performed on the package scope.</p>
+   * The operation that was performed on the package scope.
+   *
    * @public
    */
   Operation?: PackageScopeOperationEnum | undefined;
 
   /**
-   * <p> List of users who have access to the package after the scope update.</p>
+   * List of users who have access to the package after the scope update.
+   *
    * @public
    */
   PackageUserList?: string[] | undefined;
@@ -1763,54 +1843,40 @@ export interface UpdatePackageScopeResponse {
  */
 export interface UpdateScheduledActionRequest {
   /**
-   * <p>The name of the domain to reschedule an action for.</p>
+   * The name of the domain to reschedule an action for.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The unique identifier of the action to reschedule. To retrieve this ID, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   * The unique identifier of the action to reschedule. To retrieve this ID, send a [ListScheduledActions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html) request.
+   *
    * @public
    */
   ActionID: string | undefined;
 
   /**
-   * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
-   *                 <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve
-   *             this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
+   * The type of action to reschedule. Can be one of `SERVICE_SOFTWARE_UPDATE`, `JVM_HEAP_SIZE_TUNING`, or `JVM_YOUNG_GEN_TUNING`. To retrieve this value, send a [ListScheduledActions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html) request.
+   *
    * @public
    */
   ActionType: ActionType | undefined;
 
   /**
-   * <p>When to schedule the action.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NOW</code> - Immediately schedules the update to happen in the current
-   *                     hour if there's capacity available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the
-   *                     update. If you specify this value, you must also provide a value for
-   *                         <code>DesiredStartTime</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OFF_PEAK_WINDOW</code> - Marks the action to be picked up during an
-   *                     upcoming off-peak window. There's no guarantee that the change will be
-   *                     implemented during the next immediate window. Depending on capacity, it might
-   *                     happen in subsequent days.</p>
-   *             </li>
-   *          </ul>
+   * When to schedule the action.
+   *
+   * - `NOW` - Immediately schedules the update to happen in the current hour if there's capacity available.
+   * - `TIMESTAMP` - Lets you specify a custom date and time to apply the update. If you specify this value, you must also provide a value for `DesiredStartTime`.
+   * - `OFF_PEAK_WINDOW` - Marks the action to be picked up during an upcoming off-peak window. There's no guarantee that the change will be implemented during the next immediate window. Depending on capacity, it might happen in subsequent days.
+   *
    * @public
    */
   ScheduleAt: ScheduleAt | undefined;
 
   /**
-   * <p>The time to implement the change, in Coordinated Universal Time (UTC). Only specify
-   *             this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</p>
+   * The time to implement the change, in Coordinated Universal Time (UTC). Only specify this parameter if you set `ScheduleAt` to `TIMESTAMP`.
+   *
    * @public
    */
   DesiredStartTime?: number | undefined;
@@ -1821,7 +1887,8 @@ export interface UpdateScheduledActionRequest {
  */
 export interface UpdateScheduledActionResponse {
   /**
-   * <p>Information about the rescheduled action.</p>
+   * Information about the rescheduled action.
+   *
    * @public
    */
   ScheduledAction?: ScheduledAction | undefined;
@@ -1832,13 +1899,15 @@ export interface UpdateScheduledActionResponse {
  */
 export interface UpdateVpcEndpointRequest {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   VpcEndpointId: string | undefined;
 
   /**
-   * <p>The security groups and/or subnets to add, remove, or modify.</p>
+   * The security groups and/or subnets to add, remove, or modify.
+   *
    * @public
    */
   VpcOptions: VPCOptions | undefined;
@@ -1849,85 +1918,92 @@ export interface UpdateVpcEndpointRequest {
  */
 export interface UpdateVpcEndpointResponse {
   /**
-   * <p>The endpoint to be updated.</p>
+   * The endpoint to be updated.
+   *
    * @public
    */
   VpcEndpoint: VpcEndpoint | undefined;
 }
 
 /**
- * <p>Container for the request parameters to the <code>UpgradeDomain</code>
- *             operation.</p>
+ * Container for the request parameters to the `UpgradeDomain` operation.
+ *
  * @public
  */
 export interface UpgradeDomainRequest {
   /**
-   * <p>Name of the OpenSearch Service domain that you want to upgrade.</p>
+   * Name of the OpenSearch Service domain that you want to upgrade.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>OpenSearch or Elasticsearch version to which you want to upgrade, in the format
-   *             Opensearch_X.Y or Elasticsearch_X.Y.</p>
+   * OpenSearch or Elasticsearch version to which you want to upgrade, in the format Opensearch_X.Y or Elasticsearch_X.Y.
+   *
    * @public
    */
   TargetVersion: string | undefined;
 
   /**
-   * <p>When true, indicates that an upgrade eligibility check needs to be performed. Does not
-   *             actually perform the upgrade.</p>
+   * When true, indicates that an upgrade eligibility check needs to be performed. Does not actually perform the upgrade.
+   *
    * @public
    */
   PerformCheckOnly?: boolean | undefined;
 
   /**
-   * <p>Only supports the <code>override_main_response_version</code> parameter and not other
-   *             advanced options. You can only include this option when upgrading to an OpenSearch
-   *             version. Specifies whether the domain reports its version as 7.10 so that it continues
-   *             to work with Elasticsearch OSS clients and plugins.</p>
+   * Only supports the `override_main_response_version` parameter and not other advanced options. You can only include this option when upgrading to an OpenSearch version. Specifies whether the domain reports its version as 7.10 so that it continues to work with Elasticsearch OSS clients and plugins.
+   *
    * @public
    */
   AdvancedOptions?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Container for the response returned by <code>UpgradeDomain</code> operation.</p>
+ * Container for the response returned by `UpgradeDomain` operation.
+ *
  * @public
  */
 export interface UpgradeDomainResponse {
   /**
-   * <p>The unique identifier of the domain upgrade.</p>
+   * The unique identifier of the domain upgrade.
+   *
    * @public
    */
   UpgradeId?: string | undefined;
 
   /**
-   * <p>The name of the domain that was upgraded.</p>
+   * The name of the domain that was upgraded.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>OpenSearch or Elasticsearch version that the domain was upgraded to.</p>
+   * OpenSearch or Elasticsearch version that the domain was upgraded to.
+   *
    * @public
    */
   TargetVersion?: string | undefined;
 
   /**
-   * <p>When true, indicates that an upgrade eligibility check was performed.</p>
+   * When true, indicates that an upgrade eligibility check was performed.
+   *
    * @public
    */
   PerformCheckOnly?: boolean | undefined;
 
   /**
-   * <p>The advanced options configuration for the domain.</p>
+   * The advanced options configuration for the domain.
+   *
    * @public
    */
   AdvancedOptions?: Record<string, string> | undefined;
 
   /**
-   * <p>Container for information about a configuration change happening on a domain.</p>
+   * Container for information about a configuration change happening on a domain.
+   *
    * @public
    */
   ChangeProgressDetails?: ChangeProgressDetails | undefined;

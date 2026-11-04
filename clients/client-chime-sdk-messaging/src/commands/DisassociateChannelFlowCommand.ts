@@ -23,14 +23,14 @@ export interface DisassociateChannelFlowCommandInput extends DisassociateChannel
 export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
- *          that channel stop going through the channel flow processor.</p>
- *          <note>
- *             <p>Only administrators or channel moderators can disassociate a channel flow.</p>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *              ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
- *              the header.</p>
- *          </note>
+ * Disassociates a channel flow from all its channels. Once disassociated, all messages to that channel stop going through the channel flow processor.
+ *
+ * > **Note:**
+ * >
+ * > Only administrators or channel moderators can disassociate a channel flow.
+ * >
+ * > The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in the header.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,33 +57,40 @@ export interface DisassociateChannelFlowCommandOutput extends __MetadataBearer {
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMessagingServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMessaging service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ControlTowerServiceException as __BaseException } from "./ControlTowerServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred during processing of a request.</p>
+ * An unexpected error occurred during processing of a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource that does not exist.</p>
+ * The request references a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +71,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -79,19 +83,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The ID of the service that is associated with the error.</p>
+   * The ID of the service that is associated with the error.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The ID of the service quota that was exceeded.</p>
+   * The ID of the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
+   * The number of seconds the caller should wait before retrying.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -113,7 +120,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -134,7 +142,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ * Updating or deleting the resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -155,7 +164,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded. See <a href="https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html">Service quotas</a>.</p>
+ * The request would cause a service quota to be exceeded. See [Service quotas](https://docs.aws.amazon.com/controltower/latest/userguide/request-an-increase.html).
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

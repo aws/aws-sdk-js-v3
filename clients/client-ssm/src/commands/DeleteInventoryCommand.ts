@@ -23,8 +23,8 @@ export interface DeleteInventoryCommandInput extends DeleteInventoryRequest {}
 export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __MetadataBearer {}
 
 /**
- * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
- *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
+ * Delete a custom inventory type or the data associated with a custom Inventory type. Deleting a custom inventory type is also referred to as deleting a custom inventory schema.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,24 +66,28 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDeleteInventoryParametersException} (client fault)
- *  <p>One or more of the parameters specified for the delete operation isn't valid. Verify all
- *    parameters and try again.</p>
+ *
+ * One or more of the parameters specified for the delete operation isn't valid. Verify all parameters and try again.
  *
  * @throws {@link InvalidInventoryRequestException} (client fault)
- *  <p>The request isn't valid.</p>
+ *
+ * The request isn't valid.
  *
  * @throws {@link InvalidOptionException} (client fault)
- *  <p>The delete inventory option specified isn't valid. Verify the option and try again.</p>
+ *
+ * The delete inventory option specified isn't valid. Verify the option and try again.
  *
  * @throws {@link InvalidTypeNameException} (client fault)
- *  <p>The parameter type name isn't valid.</p>
+ *
+ * The parameter type name isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

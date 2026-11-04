@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Untags a resource with a specified Amazon Resource Name (ARN).</p>
+ * Untags a resource with a specified Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * An internal error has occurred. Please retry your request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You don't have permission to perform this operation.</p>
+ *
+ * You don't have permission to perform this operation.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

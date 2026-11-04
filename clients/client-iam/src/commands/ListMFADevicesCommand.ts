@@ -23,12 +23,10 @@ export interface ListMFADevicesCommandInput extends ListMFADevicesRequest {}
 export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the MFA devices for an IAM user. If the request includes a IAM user name,
- *             then this operation lists all the MFA devices associated with the specified user. If you
- *             do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services
- *             access key ID signing the request for this operation.</p>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
+ * Lists the MFA devices for an IAM user. If the request includes a IAM user name, then this operation lists all the MFA devices associated with the specified user. If you do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services access key ID signing the request for this operation.
+ *
+ * You can paginate the results using the `MaxItems` and `Marker` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,16 +63,16 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

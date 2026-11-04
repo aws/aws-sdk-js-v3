@@ -23,9 +23,10 @@ export interface ListStreamConsumersCommandInput extends ListStreamConsumersInpu
 export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
- *             and provides information about each consumer.</p>
- *          <p>This operation has a limit of 5 transactions per second per stream.</p>
+ * Lists the consumers registered to receive data from a stream using enhanced fan-out, and provides information about each consumer.
+ *
+ * This operation has a limit of 5 transactions per second per stream.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,27 +65,28 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link ExpiredNextTokenException} (client fault)
- *  <p>The pagination token passed to the operation is expired.</p>
+ *
+ * The pagination token passed to the operation is expired.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

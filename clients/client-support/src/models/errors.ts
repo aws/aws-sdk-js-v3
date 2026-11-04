@@ -5,8 +5,8 @@ import type { ThrottlingReason } from "./models_0";
 import { SupportServiceException as __BaseException } from "./SupportServiceException";
 
 /**
- * <p>The limit for the number of attachment sets created in a short period of time has been
- *             exceeded.</p>
+ * The limit for the number of attachment sets created in a short period of time has been exceeded.
+ *
  * @public
  */
 export class AttachmentLimitExceeded extends __BaseException {
@@ -27,8 +27,8 @@ export class AttachmentLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
- *             is created.</p>
+ * The expiration time of the attachment set has passed. The set expires 1 hour after it is created.
+ *
  * @public
  */
 export class AttachmentSetExpired extends __BaseException {
@@ -49,7 +49,8 @@ export class AttachmentSetExpired extends __BaseException {
 }
 
 /**
- * <p>An attachment set with the specified ID could not be found.</p>
+ * An attachment set with the specified ID could not be found.
+ *
  * @public
  */
 export class AttachmentSetIdNotFound extends __BaseException {
@@ -70,8 +71,8 @@ export class AttachmentSetIdNotFound extends __BaseException {
 }
 
 /**
- * <p>A limit for the size of an attachment set has been exceeded. The limits are three
- *             attachments and 5 MB per attachment.</p>
+ * A limit for the size of an attachment set has been exceeded. The limits are three attachments and 5 MB per attachment.
+ *
  * @public
  */
 export class AttachmentSetSizeLimitExceeded extends __BaseException {
@@ -92,8 +93,8 @@ export class AttachmentSetSizeLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
+ *
  * @public
  */
 export class DryRunOperationException extends __BaseException {
@@ -114,7 +115,8 @@ export class DryRunOperationException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred.</p>
+ * An internal server error occurred.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -135,7 +137,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>The requested <code>caseId</code> couldn't be located.</p>
+ * The requested `caseId` couldn't be located.
+ *
  * @public
  */
 export class CaseIdNotFound extends __BaseException {
@@ -156,7 +159,8 @@ export class CaseIdNotFound extends __BaseException {
 }
 
 /**
- * <p>An attachment with the specified ID could not be found.</p>
+ * An attachment with the specified ID could not be found.
+ *
  * @public
  */
 export class AttachmentIdNotFound extends __BaseException {
@@ -177,7 +181,8 @@ export class AttachmentIdNotFound extends __BaseException {
 }
 
 /**
- * <p>The specified <code>uploadId</code> couldn't be located.</p>
+ * The specified `uploadId` couldn't be located.
+ *
  * @public
  */
 export class UploadIdNotFound extends __BaseException {
@@ -198,7 +203,8 @@ export class UploadIdNotFound extends __BaseException {
 }
 
 /**
- * <p>The case creation limit for the account has been exceeded.</p>
+ * The case creation limit for the account has been exceeded.
+ *
  * @public
  */
 export class CaseCreationLimitExceeded extends __BaseException {
@@ -219,8 +225,8 @@ export class CaseCreationLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The limit for the number of <a>DescribeAttachment</a> requests in a short
- *             period of time has been exceeded.</p>
+ * The limit for the number of DescribeAttachment requests in a short period of time has been exceeded.
+ *
  * @public
  */
 export class DescribeAttachmentLimitExceeded extends __BaseException {
@@ -241,9 +247,8 @@ export class DescribeAttachmentLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>
- *         You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
- *         </p>
+ * You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -251,7 +256,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of one or more reasons that the request was throttled.</p>
+   * A list of one or more reasons that the request was throttled.
+   *
    * @public
    */
   throttlingReasons?: ThrottlingReason[] | undefined;

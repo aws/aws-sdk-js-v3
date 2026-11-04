@@ -23,8 +23,8 @@ export interface DescribeTextTranslationJobCommandInput extends DescribeTextTran
 export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the properties associated with an asynchronous batch translation job including name,
- *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ * Gets the properties associated with an asynchronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,20 +90,20 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ *
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

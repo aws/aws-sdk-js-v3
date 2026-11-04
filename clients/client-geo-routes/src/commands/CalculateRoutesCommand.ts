@@ -23,7 +23,10 @@ export interface CalculateRoutesCommandInput extends CalculateRoutesRequest {}
 export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, __MetadataBearer {}
 
 /**
- * <p> <code>CalculateRoutes</code> computes routes given the following required parameters: <code>Origin</code> and <code>Destination</code>.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html">Calculate routes</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `CalculateRoutes` computes routes given the following required parameters: `Origin` and `Destination`.
+ *
+ * For more information, see [Calculate routes](https://docs.aws.amazon.com/location/latest/developerguide/calculate-routes.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1544,20 +1547,24 @@ export interface CalculateRoutesCommandOutput extends CalculateRoutesResponse, _
  * @see {@link GeoRoutesClientResolvedConfig | config} for GeoRoutesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoRoutesServiceException}
- * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ * Base exception class for all service exceptions from GeoRoutes service.
  *
  * @public
  */

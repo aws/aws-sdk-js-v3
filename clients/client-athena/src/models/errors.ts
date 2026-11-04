@@ -5,8 +5,8 @@ import { AthenaServiceException as __BaseException } from "./AthenaServiceExcept
 import type { ThrottleReason } from "./enums";
 
 /**
- * <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ * Indicates a platform issue, which may be due to a transient condition or outage.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -29,8 +29,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -38,8 +38,8 @@ export class InvalidRequestException extends __BaseException {
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code returned when the query execution failed to process, or when the
-   *             processing request for the named query failed.</p>
+   * The error code returned when the query execution failed to process, or when the processing request for the named query failed.
+   *
    * @public
    */
   AthenaErrorCode?: string | undefined;
@@ -61,7 +61,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the request was throttled.</p>
+ * Indicates that the request was throttled.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -70,8 +71,8 @@ export class TooManyRequestsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
-   *             limit.</p>
+   * The reason for the query throttling, for example, when it exceeds the concurrent query limit.
+   *
    * @public
    */
   Reason?: ThrottleReason | undefined;
@@ -91,7 +92,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>A resource, such as a workgroup, was not found.</p>
+ * A resource, such as a workgroup, was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -100,7 +102,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the Amazon resource.</p>
+   * The name of the Amazon resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
@@ -120,12 +123,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An exception that Athena received when it called a custom metastore.
- *             Occurs if the error is not caused by user input (<code>InvalidRequestException</code>)
- *             or from the Athena platform (<code>InternalServerException</code>). For
- *             example, if a user-created Lambda function is missing permissions, the
- *                 Lambda
- *             <code>4XX</code> exception is returned in a <code>MetadataException</code>.</p>
+ * An exception that Athena received when it called a custom metastore. Occurs if the error is not caused by user input (`InvalidRequestException`) or from the Athena platform (`InternalServerException`). For example, if a user-created Lambda function is missing permissions, the Lambda `4XX` exception is returned in a `MetadataException`.
+ *
  * @public
  */
 export class MetadataException extends __BaseException {
@@ -148,7 +147,8 @@ export class MetadataException extends __BaseException {
 }
 
 /**
- * <p>The specified session already exists.</p>
+ * The specified session already exists.
+ *
  * @public
  */
 export class SessionAlreadyExistsException extends __BaseException {

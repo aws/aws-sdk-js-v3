@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.</p>
+ * AWS Partner Central Channel service for managing partner relationships, handshakes, and program management accounts.
  *
  * @packageDocumentation
  */

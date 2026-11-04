@@ -24,40 +24,24 @@ export interface StartChatContactCommandInput extends StartChatContactRequest {}
 export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain
- *    credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Connect Customer Participant Service.</p>
- *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the
- *    created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
- *          <p>To receive connection information directly in the response, set <code>ConnectionTypes</code> on the request. To
- *    initiate real-time message streaming when the chat is created, set <code>ChatStreamingConfiguration</code> on the
- *    request. Both parameters are optional.</p>
- *          <p>A 429 error occurs in the following situations:</p>
- *          <ul>
- *             <li>
- *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code> exception.</p>
- *             </li>
- *             <li>
- *                <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for
- *       concurrent active chats</a> is exceeded. Active chat throttling returns a
- *      <code>LimitExceededException</code>.</p>
- *             </li>
- *          </ul>
- *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may not
- *    support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support. </p>
- *          <p>For more information about chat, see the following topics in the <i>Connect Customer
- *    Administrator Guide</i>: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html">Concepts: Web and mobile messaging capabilities in Connect Customer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Initiates a flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API in the Connect Customer Participant Service.
+ *
+ * When a new chat contact is successfully created, clients must subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) with WEBSOCKET and CONNECTION_CREDENTIALS.
+ *
+ * To receive connection information directly in the response, set `ConnectionTypes` on the request. To initiate real-time message streaming when the chat is created, set `ChatStreamingConfiguration` on the request. Both parameters are optional.
+ *
+ * A 429 error occurs in the following situations:
+ *
+ * - API rate limit is exceeded. API TPS throttling returns a `TooManyRequests` exception.
+ * - The [quota for concurrent active chats](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) is exceeded. Active chat throttling returns a `LimitExceededException`.
+ *
+ * If you use the `ChatDurationInMinutes` parameter and receive a 400 error, your account may not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.
+ *
+ * For more information about chat, see the following topics in the *Connect Customer Administrator Guide*:
+ *
+ * - [Concepts: Web and mobile messaging capabilities in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/web-and-mobile-chat.html)
+ * - [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,23 +137,28 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

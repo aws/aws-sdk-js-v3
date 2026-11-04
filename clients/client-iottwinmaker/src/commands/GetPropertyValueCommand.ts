@@ -23,9 +23,10 @@ export interface GetPropertyValueCommandInput extends GetPropertyValueRequest {}
 export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the property values for a component, component type, entity, or workspace.</p>
- *          <p>You must specify a value for either <code>componentName</code>,
- *             <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
+ * Gets the property values for a component, component type, entity, or workspace.
+ *
+ * You must specify a value for either `componentName`, `componentTypeId`, `entityId`, or `workspaceId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,29 +167,36 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link ConnectorFailureException} (client fault)
- *  <p>The connector failed.</p>
+ *
+ * The connector failed.
  *
  * @throws {@link ConnectorTimeoutException} (client fault)
- *  <p>The connector timed out.</p>
+ *
+ * The connector timed out.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Failed</p>
+ *
+ * Failed
  *
  * @throws {@link IoTTwinMakerServiceException}
- * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * Base exception class for all service exceptions from IoTTwinMaker service.
  *
  * @public
  */

@@ -23,12 +23,8 @@ export interface CreateDocumentClassifierCommandInput extends CreateDocumentClas
 export interface CreateDocumentClassifierCommandOutput extends CreateDocumentClassifierResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new document classifier that you can use to categorize documents. To create a
- *       classifier, you provide a set of training documents that are labeled with the categories that you
- *       want to use. For more information, see
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html">Training classifier models</a>
- *       in the Comprehend Developer Guide.
- *     </p>
+ * Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that are labeled with the categories that you want to use. For more information, see [Training classifier models](https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html) in the Comprehend Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,39 +108,40 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link KmsKeyValidationException} (client fault)
- *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
+ *
+ * The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
+ *
+ * The specified resource name is already in use. Use a different name and try your request again.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The maximum number of resources per account has been exceeded. Review the resources, and
- *       then try your request again.</p>
+ *
+ * The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
+ *
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
+ *
+ * Amazon Comprehend can't process the language of the input text. For a list of supported languages, [Supported languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html) in the Comprehend Developer Guide.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

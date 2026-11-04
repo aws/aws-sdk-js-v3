@@ -26,7 +26,8 @@ export interface DisassociateIpamResourceDiscoveryCommandInput extends Disassoci
 export interface DisassociateIpamResourceDiscoveryCommandOutput extends DisassociateIpamResourceDiscoveryResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.</p>
+ * Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is an IPAM component that enables IPAM to manage and monitor resources that belong to the owning account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface DisassociateIpamResourceDiscoveryCommandOutput extends Disassoc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

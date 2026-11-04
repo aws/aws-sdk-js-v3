@@ -23,18 +23,17 @@ export interface DeploySystemInstanceCommandInput extends DeploySystemInstanceRe
 export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>Greengrass and Cloud Deployments</b>
- *          </p>
- *          <p>Deploys the system instance to the target specified in <code>CreateSystemInstance</code>. </p>
- *          <p>
- *             <b>Greengrass Deployments</b>
- *          </p>
- *          <p>If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service
- *          resource file and then deploy it.</p>
- *          <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions
- *          to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p>
- *          <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>
+ * **Greengrass and Cloud Deployments**
+ *
+ * Deploys the system instance to the target specified in `CreateSystemInstance`.
+ *
+ * **Greengrass Deployments**
+ *
+ * If the system or any workflows and entities have been updated before this action is called, then the deployment will create a new Amazon Simple Storage Service resource file and then deploy it.
+ *
+ * Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions to the specified Greengrass group. Otherwise, the call will fail with an authorization error.
+ *
+ * For information about the artifacts that get added to your Greengrass core device when you use this API, see [AWS IoT Things Graph and AWS IoT Greengrass](https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html).
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -74,23 +73,18 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

@@ -23,8 +23,10 @@ export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
 export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an email template.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Deletes an email template.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +51,8 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

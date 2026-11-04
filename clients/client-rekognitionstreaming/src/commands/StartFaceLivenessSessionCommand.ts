@@ -23,15 +23,12 @@ export interface StartFaceLivenessSessionCommandInput extends StartFaceLivenessS
 export interface StartFaceLivenessSessionCommandOutput extends StartFaceLivenessSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a Face Liveness video stream and liveness detection process for a given
- *       session.</p>
- *          <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,
- *         <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream
- *       contains information about different events for the session, including the challenge
- *       information used for verification. </p>
- *          <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a
- *         <code>ValidationException</code> if the video does not match the necessary formatting and
- *       size parameters. </p>
+ * Starts a Face Liveness video stream and liveness detection process for a given session.
+ *
+ * Requires `sessionId`, `ChallengeVersions`, `VideoWidth`, `VideoHeight` and a `RequestEventStream` as input. The event stream contains information about different events for the session, including the challenge information used for verification.
+ *
+ * The maximum video size for Face Liveness is 10 MB. Face Liveness throws a `ValidationException` if the video does not match the necessary formatting and size parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -222,34 +219,36 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * @see {@link RekognitionStreamingClientResolvedConfig | config} for RekognitionStreamingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Occurs when the client isn't authorized to perform the action.</p>
+ *
+ * Occurs when the client isn't authorized to perform the action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when a request would cause a service quota to be exceeded.</p>
+ *
+ * Occurs when a request would cause a service quota to be exceeded.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Service-wide throttling to recover from an operational event or service is not able to scale.</p>
+ *
+ * Service-wide throttling to recover from an operational event or service is not able to scale.
  *
  * @throws {@link SessionNotFoundException} (client fault)
- *  <p>Occurs when the given <code>sessionId</code> is not found.</p>
+ *
+ * Occurs when the given `sessionId` is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>A request was denied due to request throttling. Occurs when too many requests were made by a user
- *        (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.</p>
+ *
+ * A request was denied due to request throttling. Occurs when too many requests were made by a user (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service. Potential reasons
- *       inlcude: video quality or size is invalid, video container format not supported, video does
- *       not have enough information - no person detected in video, request couldn't be parsed or is
- *       invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS
- *       Key is invalid.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service. Potential reasons inlcude: video quality or size is invalid, video container format not supported, video does not have enough information - no person detected in video, request couldn't be parsed or is invalid, session has expired or is invalid, S3 bucket is invalid/in another AWS region, KMS Key is invalid.
  *
  * @throws {@link RekognitionStreamingServiceException}
- * <p>Base exception class for all service exceptions from RekognitionStreaming service.</p>
  *
+ * Base exception class for all service exceptions from RekognitionStreaming service.
  *
  * @public
  */

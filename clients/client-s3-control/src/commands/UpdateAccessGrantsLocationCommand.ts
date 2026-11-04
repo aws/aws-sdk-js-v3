@@ -23,18 +23,16 @@ export interface UpdateAccessGrantsLocationCommandInput extends UpdateAccessGran
 export interface UpdateAccessGrantsLocationCommandOutput extends UpdateAccessGrantsLocationResult, __MetadataBearer {}
 
 /**
- * <p>Updates the IAM role of a registered location in your S3 Access Grants instance.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:UpdateAccessGrantsLocation</code> permission to use this operation. </p>
- *             </dd>
- *             <dt>Additional Permissions</dt>
- *             <dd>
- *                <p>You must also have the following permission: <code>iam:PassRole</code>
- *                </p>
- *             </dd>
- *          </dl>
+ * Updates the IAM role of a registered location in your S3 Access Grants instance.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:UpdateAccessGrantsLocation` permission to use this operation.
+ *
+ * - **Additional Permissions**
+ *
+ *   You must also have the following permission: `iam:PassRole`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +65,8 @@ export interface UpdateAccessGrantsLocationCommandOutput extends UpdateAccessGra
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

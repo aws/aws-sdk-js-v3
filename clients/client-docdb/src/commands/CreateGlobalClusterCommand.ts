@@ -23,14 +23,12 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions.
- *             The global cluster contains one primary cluster with read-write capability, and up-to 10 read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.</p>
- *          <p></p>
- *          <p>You can create a global cluster that is initially empty, and then add a primary and a secondary to it.
- *             Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster. </p>
- *          <note>
- *             <p>This action only applies to Amazon DocumentDB clusters.</p>
- *          </note>
+ * Creates an Amazon DocumentDB global cluster that can span multiple multiple Amazon Web Services Regions. The global cluster contains one primary cluster with read-write capability, and up-to 10 read-only secondary clusters. Global clusters uses storage-based fast replication across regions with latencies less than one second, using dedicated infrastructure with no impact to your workload’s performance.
+ *
+ * You can create a global cluster that is initially empty, and then add a primary and a secondary to it. Or you can specify an existing cluster during the create operation, and this cluster becomes the primary of the global cluster.
+ *
+ * > **Note:** This action only applies to Amazon DocumentDB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,21 +93,24 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global cluster identifier (unique name) to create a new global cluster. </p>
+ *
+ * The `GlobalClusterIdentifier` already exists. Choose a new global cluster identifier (unique name) to create a new global cluster.
  *
  * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
- *  <p>The number of global  clusters for this account is already at the maximum allowed.</p>
+ *
+ * The number of global clusters for this account is already at the maximum allowed.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

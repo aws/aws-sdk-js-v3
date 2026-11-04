@@ -23,10 +23,10 @@ export interface ExchangeCodeForTokenCommandInput extends ExchangeCodeForTokenRe
 export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is for internal use.</p>
- *          </note>
- *          <p>Amplify uses this action to exchange an access code for a token.</p>
+ * > **Note:** This is for internal use.
+ *
+ * Amplify uses this action to exchange an access code for a token.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,11 +60,12 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

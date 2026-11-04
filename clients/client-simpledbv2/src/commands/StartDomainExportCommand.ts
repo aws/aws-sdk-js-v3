@@ -73,8 +73,8 @@ export interface StartDomainExportCommandOutput extends StartDomainExportRespons
  *  Cannot start export as export quota limit was exceeded
  *
  * @throws {@link SimpleDBv2ServiceException}
- * <p>Base exception class for all service exceptions from SimpleDBv2 service.</p>
  *
+ * Base exception class for all service exceptions from SimpleDBv2 service.
  *
  * @example Start a domain export
  * ```javascript

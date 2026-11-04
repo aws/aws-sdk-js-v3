@@ -6,7 +6,6 @@ import type { ValidationExceptionField } from "./models_0";
 import { SecurityIRServiceException as __BaseException } from "./SecurityIRServiceException";
 
 /**
- * <p/>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +26,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +33,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the conflicting resource.</p>
+   * The ID of the conflicting resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the conflicting resource.</p>
+   * The type of the conflicting resource.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +62,6 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -71,7 +70,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds after which to retry the request.</p>
+   * The number of seconds after which to retry the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -91,7 +91,6 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class InvalidTokenException extends __BaseException {
@@ -113,7 +112,6 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -134,7 +132,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class SecurityIncidentResponseNotActiveException extends __BaseException {
@@ -155,7 +152,6 @@ export class SecurityIncidentResponseNotActiveException extends __BaseException 
 }
 
 /**
- * <p/>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -163,25 +159,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the requested resource which lead to the service quota exception.</p>
+   * The ID of the requested resource which lead to the service quota exception.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the requested resource which lead to the service quota exception.</p>
+   * The type of the requested resource which lead to the service quota exception.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service code of the quota.</p>
+   * The service code of the quota.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The code of the quota.</p>
+   * The code of the quota.
+   *
    * @public
    */
   quotaCode: string | undefined;
@@ -204,7 +204,6 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -215,19 +214,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The service code of the exception.</p>
+   * The service code of the exception.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code of the exception.</p>
+   * The quota code of the exception.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds after which to retry the request.</p>
+   * The number of seconds after which to retry the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -249,7 +251,6 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -257,13 +258,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields which lead to the exception.</p>
+   * The fields which lead to the exception.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

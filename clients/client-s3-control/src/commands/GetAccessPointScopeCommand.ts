@@ -23,11 +23,12 @@ export interface GetAccessPointScopeCommandInput extends GetAccessPointScopeRequ
 export interface GetAccessPointScopeCommandOutput extends GetAccessPointScopeResult, __MetadataBearer {}
 
 /**
- * <p>
- *          Returns the access point scope for a directory bucket.</p>
- *          <p>To use this operation, you must have the permission to perform the
- *          <code>s3express:GetAccessPointScope</code> action.</p>
- *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
+ * Returns the access point scope for a directory bucket.
+ *
+ * To use this operation, you must have the permission to perform the `s3express:GetAccessPointScope` action.
+ *
+ * For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface GetAccessPointScopeCommandOutput extends GetAccessPointScopeRes
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

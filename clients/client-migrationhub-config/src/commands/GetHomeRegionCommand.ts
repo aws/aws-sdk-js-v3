@@ -23,11 +23,8 @@ export interface GetHomeRegionCommandInput extends GetHomeRegionRequest {}
 export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __MetadataBearer {}
 
 /**
- * <p>Returns the calling account’s home region, if configured. This API is used by other AWS
- *       services to determine the regional endpoint for calling AWS Application Discovery Service and
- *       Migration Hub. You must call <code>GetHomeRegion</code> at least once before you call any
- *       other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's
- *       Migration Hub home region.</p>
+ * Returns the calling account’s home region, if configured. This API is used by other AWS services to determine the regional endpoint for calling AWS Application Discovery Service and Migration Hub. You must call `GetHomeRegion` at least once before you call any other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's Migration Hub home region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,26 +49,28 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Exception raised when an internal, configuration, or dependency error is
- *       encountered.</p>
+ *
+ * Exception raised when an internal, configuration, or dependency error is encountered.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Exception raised when the provided input violates a policy constraint or is entered in the
- *       wrong format or data type.</p>
+ *
+ * Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Exception raised when a request fails due to temporary unavailability of the
- *       service.</p>
+ *
+ * Exception raised when a request fails due to temporary unavailability of the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubConfigServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubConfig service.
  *
  * @public
  */

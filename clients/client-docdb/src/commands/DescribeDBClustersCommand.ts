@@ -23,12 +23,8 @@ export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessag
 export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about provisioned Amazon DocumentDB clusters. This API
- *             operation supports pagination. For certain management features
- *             such as cluster and instance lifecycle management, Amazon DocumentDB leverages
- *             operational technology that is shared with Amazon RDS and Amazon
- *             Neptune. Use the <code>filterName=engine,Values=docdb</code> filter
- *             parameter to return only Amazon DocumentDB clusters.</p>
+ * Returns information about provisioned Amazon DocumentDB clusters. This API operation supports pagination. For certain management features such as cluster and instance lifecycle management, Amazon DocumentDB leverages operational technology that is shared with Amazon RDS and Amazon Neptune. Use the `filterName=engine,Values=docdb` filter parameter to return only Amazon DocumentDB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,12 +134,12 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing cluster.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

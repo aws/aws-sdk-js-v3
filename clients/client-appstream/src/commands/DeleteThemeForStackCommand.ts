@@ -23,7 +23,8 @@ export interface DeleteThemeForStackCommandInput extends DeleteThemeForStackRequ
 export interface DeleteThemeForStackCommandOutput extends DeleteThemeForStackResult, __MetadataBearer {}
 
 /**
- * <p>Deletes custom branding that customizes the appearance of the streaming application catalog page.</p>
+ * Deletes custom branding that customizes the appearance of the streaming application catalog page.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface DeleteThemeForStackCommandOutput extends DeleteThemeForStackRes
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * An API error occurred. Wait a few minutes and try again.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

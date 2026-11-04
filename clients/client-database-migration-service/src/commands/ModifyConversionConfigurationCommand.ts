@@ -23,11 +23,10 @@ export interface ModifyConversionConfigurationCommandInput extends ModifyConvers
 export interface ModifyConversionConfigurationCommandOutput extends ModifyConversionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified schema conversion configuration using the provided parameters. </p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:UpdateConversionConfiguration</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Modifies the specified schema conversion configuration using the provided parameters.
+ *
+ * **Required permissions:** `dms:UpdateConversionConfiguration`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +54,16 @@ export interface ModifyConversionConfigurationCommandOutput extends ModifyConver
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Modifying conversion configuration for a migration project
  * ```javascript

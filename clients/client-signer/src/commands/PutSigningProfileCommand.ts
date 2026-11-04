@@ -23,9 +23,8 @@ export interface PutSigningProfileCommandInput extends PutSigningProfileRequest 
 export interface PutSigningProfileCommandOutput extends PutSigningProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a signing profile. A signing profile is a code-signing template that can be used to
- * 			carry out a pre-defined signing job.
- * 			</p>
+ * Creates a signing profile. A signing profile is a code-signing template that can be used to carry out a pre-defined signing job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,24 +74,30 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource could not be found.</p>
+ *
+ * A specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You signing certificate could not be validated.</p>
+ *
+ * You signing certificate could not be validated.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

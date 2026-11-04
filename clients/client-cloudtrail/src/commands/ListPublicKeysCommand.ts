@@ -23,15 +23,10 @@ export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
 export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all public keys whose private keys were used to sign the digest files within the
- *          specified time range. The public key is needed to validate digest files that were signed
- *          with its corresponding private key.</p>
- *          <note>
- *             <p>CloudTrail uses different private and public key pairs per Region. Each digest
- *             file is signed with a private key unique to its Region. When you validate a digest file
- *             from a specific Region, you must look in the same Region for its corresponding public
- *             key.</p>
- *          </note>
+ * Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.
+ *
+ * > **Note:** CloudTrail uses different private and public key pairs per Region. Each digest file is signed with a private key unique to its Region. When you validate a digest file from a specific Region, you must look in the same Region for its corresponding public key.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,21 +63,24 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link InvalidTimeRangeException} (client fault)
- *  <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end
- *          time, or the time range is outside the range of possible values.</p>
+ *
+ * Occurs if the timestamp values are not valid. Either the start time occurs after the end time, or the time range is outside the range of possible values.
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p>Reserved for future use.</p>
+ *
+ * Reserved for future use.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

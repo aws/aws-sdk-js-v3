@@ -23,7 +23,8 @@ export interface UpdateViewCommandInput extends UpdateViewInput {}
 export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies some of the details of a view. You can change the filter string and the list of included properties. You can't change the name of the view.</p>
+ * Modifies some of the details of a view. You can change the filter string and the list of included properties. You can't change the name of the view.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,26 +73,32 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+ *
+ * The credentials that you used to call this operation don't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again later.</p>
+ *
+ * The request failed because of internal service error. Try your request again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request failed because it exceeds a service quota.</p>
+ *
+ * The request failed because it exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
+ *
+ * The request failed because you exceeded a rate limit for this operation. For more information, see [Quotas for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html).
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The principal making the request isn't permitted to perform the operation.</p>
+ *
+ * The principal making the request isn't permitted to perform the operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+ *
+ * You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.
  *
  * @throws {@link ResourceExplorer2ServiceException}
- * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * Base exception class for all service exceptions from ResourceExplorer2 service.
  *
  * @public
  */

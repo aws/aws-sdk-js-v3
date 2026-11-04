@@ -23,7 +23,8 @@ export interface ListActionsCommandInput extends ListActionsRequest {}
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the available FIS actions.</p>
+ * Lists the available FIS actions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +67,12 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

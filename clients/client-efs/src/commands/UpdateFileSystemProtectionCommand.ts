@@ -23,9 +23,10 @@ export interface UpdateFileSystemProtectionCommandInput extends UpdateFileSystem
 export interface UpdateFileSystemProtectionCommandOutput extends FileSystemProtectionDescription, __MetadataBearer {}
 
 /**
- * <p>Updates protection on the file system.</p>
- *          <p>This operation requires permissions for the
- *         <code>elasticfilesystem:UpdateFileSystemProtection</code> action. </p>
+ * Updates protection on the file system.
+ *
+ * This operation requires permissions for the `elasticfilesystem:UpdateFileSystemProtection` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,40 +54,40 @@ export interface UpdateFileSystemProtectionCommandOutput extends FileSystemProte
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
- *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * Returned if the file system's lifecycle state is not "available".
  *
  * @throws {@link InsufficientThroughputCapacity} (server fault)
- *  <p>Returned if there's not enough capacity to provision additional throughput. This value
- *             might be returned when you try to create a file system in provisioned throughput mode,
- *             when you attempt to increase the provisioned throughput of an existing file system, or
- *             when you attempt to change an existing file system from Bursting Throughput to
- *             Provisioned Throughput mode. Try again later.</p>
+ *
+ * Returned if there's not enough capacity to provision additional throughput. This value might be returned when you try to create a file system in provisioned throughput mode, when you attempt to increase the provisioned throughput of an existing file system, or when you attempt to change an existing file system from Bursting Throughput to Provisioned Throughput mode. Try again later.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link ReplicationAlreadyExists} (client fault)
- *  <p>Returned if the file system is already included in a replication configuration.></p>
+ *
+ * Returned if the file system is already included in a replication configuration.>
  *
  * @throws {@link ThroughputLimitExceeded} (client fault)
- *  <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
- *             because the throughput limit of 1024 MiB/s has been reached.</p>
+ *
+ * Returned if the throughput mode or amount of provisioned throughput can't be changed because the throughput limit of 1024 MiB/s has been reached.
  *
  * @throws {@link TooManyRequests} (client fault)
- *  <p>Returned if you don’t wait at least 24 hours before either changing the throughput mode, or
- *             decreasing the Provisioned Throughput value.</p>
+ *
+ * Returned if you don’t wait at least 24 hours before either changing the throughput mode, or decreasing the Provisioned Throughput value.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

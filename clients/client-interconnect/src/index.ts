@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Provides managed connections between your AWS network resources and select partner network resources.</p>
+ * Provides managed connections between your AWS network resources and select partner network resources.
  *
  * @packageDocumentation
  */

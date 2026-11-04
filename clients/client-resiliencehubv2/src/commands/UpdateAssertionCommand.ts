@@ -23,7 +23,8 @@ export interface UpdateAssertionCommandInput extends UpdateAssertionRequest {}
 export interface UpdateAssertionCommandOutput extends UpdateAssertionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a resilience assertion.</p>
+ * Updates a resilience assertion.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +60,28 @@ export interface UpdateAssertionCommandOutput extends UpdateAssertionResponse, _
  * @see {@link Resiliencehubv2ClientResolvedConfig | config} for Resiliencehubv2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied — caller lacks required permissions.</p>
+ *
+ * Access denied — caller lacks required permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Conflict — resource already exists.</p>
+ *
+ * Conflict — resource already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service error.</p>
+ *
+ * Internal service error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation error — invalid input parameters.</p>
+ *
+ * Validation error — invalid input parameters.
  *
  * @throws {@link Resiliencehubv2ServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehubv2 service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehubv2 service.
  *
  * @public
  */

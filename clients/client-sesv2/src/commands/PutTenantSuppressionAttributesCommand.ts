@@ -23,11 +23,10 @@ export interface PutTenantSuppressionAttributesCommandInput extends PutTenantSup
 export interface PutTenantSuppressionAttributesCommandOutput extends PutTenantSuppressionAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Configure the suppression list preferences for a tenant. Use this operation to enable
- *             or disable tenant-level suppression, or to change the suppressed reasons for a tenant.</p>
- *          <p>When you set the suppression scope to <code>TENANT</code>, Amazon SES maintains a separate
- *             suppression list for the tenant. When you set the scope to <code>ACCOUNT</code>, the tenant
- *             uses the account-level suppression list.</p>
+ * Configure the suppression list preferences for a tenant. Use this operation to enable or disable tenant-level suppression, or to change the suppressed reasons for a tenant.
+ *
+ * When you set the suppression scope to `TENANT`, Amazon SES maintains a separate suppression list for the tenant. When you set the scope to `ACCOUNT`, the tenant uses the account-level suppression list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +55,20 @@ export interface PutTenantSuppressionAttributesCommandOutput extends PutTenantSu
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

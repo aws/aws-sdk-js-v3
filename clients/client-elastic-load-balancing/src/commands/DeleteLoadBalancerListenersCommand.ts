@@ -23,7 +23,8 @@ export interface DeleteLoadBalancerListenersCommandInput extends DeleteLoadBalan
 export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified listeners from the specified load balancer.</p>
+ * Deletes the specified listeners from the specified load balancer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,12 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To delete a listener from your load balancer
  * ```javascript

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AppflowServiceException as __BaseException } from "./AppflowServiceException";
 
 /**
- * <p>AppFlow/Requester has invalid or missing permissions.</p>
+ * AppFlow/Requester has invalid or missing permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,8 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ * An internal service error occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,8 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -69,8 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
- *     </p>
+ * API calls have exceeded the maximum allowed API request rate per account and per Region.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -91,7 +92,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The request has invalid or missing parameters. </p>
+ * The request has invalid or missing parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -112,8 +114,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> There was a conflict when processing the request (for example, a flow with the given name
- *       already exists within the account. Check for conflicting resource names and try again. </p>
+ * There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -134,7 +136,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> An error occurred when authenticating with the connector endpoint. </p>
+ * An error occurred when authenticating with the connector endpoint.
+ *
  * @public
  */
 export class ConnectorAuthenticationException extends __BaseException {
@@ -155,7 +158,8 @@ export class ConnectorAuthenticationException extends __BaseException {
 }
 
 /**
- * <p> An error occurred when retrieving data from the connector endpoint. </p>
+ * An error occurred when retrieving data from the connector endpoint.
+ *
  * @public
  */
 export class ConnectorServerException extends __BaseException {
@@ -176,8 +180,8 @@ export class ConnectorServerException extends __BaseException {
 }
 
 /**
- * <p> The request would cause a service quota (such as the number of flows) to be exceeded.
- *     </p>
+ * The request would cause a service quota (such as the number of flows) to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -198,7 +202,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p> The requested operation is not supported for the current flow. </p>
+ * The requested operation is not supported for the current flow.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {

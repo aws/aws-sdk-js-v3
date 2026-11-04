@@ -26,8 +26,8 @@ export interface RegisterOrganizationAdminAccountCommandInput extends RegisterOr
 export interface RegisterOrganizationAdminAccountCommandOutput extends RegisterOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
- * <p> Enables an Amazon Web Services account within the organization as the delegated
- *          administrator for Audit Manager. </p>
+ * Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,25 +55,28 @@ export interface RegisterOrganizationAdminAccountCommandOutput extends RegisterO
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * The resource that's specified in the request can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

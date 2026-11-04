@@ -23,16 +23,10 @@ export interface GetCallerIdentityCommandInput extends GetCallerIdentityRequest 
 export interface GetCallerIdentityCommandOutput extends GetCallerIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details about the IAM user or role whose credentials are used to
- *          call the operation.</p>
- *          <note>
- *             <p>No permissions are required to perform this operation. If an administrator attaches a
- *             policy to your identity that explicitly denies access to the
- *                <code>sts:GetCallerIdentity</code> action, you can still perform this operation.
- *             Permissions are not required because the same information is returned when access is
- *             denied. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
- *                <i>IAM User Guide</i>.</p>
- *          </note>
+ * Returns details about the IAM user or role whose credentials are used to call the operation.
+ *
+ * > **Note:** No permissions are required to perform this operation. If an administrator attaches a policy to your identity that explicitly denies access to the `sts:GetCallerIdentity` action, you can still perform this operation. Permissions are not required because the same information is returned when access is denied. To view an example response, see [I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +53,8 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
  * @throws {@link STSServiceException}
- * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * Base exception class for all service exceptions from STS service.
  *
  * @example To get details about a calling IAM user
  * ```javascript

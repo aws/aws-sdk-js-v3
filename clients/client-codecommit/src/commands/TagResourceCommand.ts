@@ -23,11 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or updates tags for a resource in CodeCommit. For a list of valid resources
- *             in CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a> in the <i>
- *                CodeCommit User
- *                 Guide</i>.</p>
+ * Adds or updates tags for a resource in CodeCommit. For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the *CodeCommit User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,46 +52,46 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link InvalidResourceArnException} (client fault)
- *  <p>The value for the resource ARN is not valid. For more information about resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a>
- *             in the CodeCommit User Guide.</p>
+ *
+ * The value for the resource ARN is not valid. For more information about resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the CodeCommit User Guide.
  *
  * @throws {@link InvalidSystemTagUsageException} (client fault)
- *  <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
+ *
+ * The specified tag is not valid. Key names cannot be prefixed with aws:.
  *
  * @throws {@link InvalidTagsMapException} (client fault)
- *  <p>The map of tags is not valid.</p>
+ *
+ * The map of tags is not valid.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link ResourceArnRequiredException} (client fault)
- *  <p>A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see
- *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">
- *                CodeCommit Resources and Operations</a>
- *             in the CodeCommit User Guide.</p>
+ *
+ * A valid Amazon Resource Name (ARN) for an CodeCommit resource is required. For a list of valid resources in CodeCommit, see [CodeCommit Resources and Operations](https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats) in the CodeCommit User Guide.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The tag policy is not valid.</p>
+ *
+ * The tag policy is not valid.
  *
  * @throws {@link TagsMapRequiredException} (client fault)
- *  <p>A map of tags is required.</p>
+ *
+ * A map of tags is required.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The maximum number of tags for an CodeCommit resource has been exceeded.</p>
+ *
+ * The maximum number of tags for an CodeCommit resource has been exceeded.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

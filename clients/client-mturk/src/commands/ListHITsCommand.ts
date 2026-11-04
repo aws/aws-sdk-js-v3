@@ -23,13 +23,8 @@ export interface ListHITsCommandInput extends ListHITsRequest {}
 export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>ListHITs</code>
- *             operation returns all of a Requester's HITs. The operation returns
- *             HITs of any status, except for HITs that have been deleted of with
- *             the DeleteHIT operation or that have been auto-deleted.
- *         </p>
+ * The `ListHITs` operation returns all of a Requester's HITs. The operation returns HITs of any status, except for HITs that have been deleted of with the DeleteHIT operation or that have been auto-deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,14 +94,16 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

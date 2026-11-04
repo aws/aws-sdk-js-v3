@@ -23,13 +23,12 @@ export interface DisableGatewayCommandInput extends DisableGatewayInput {}
 export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your
- *          gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.</p>
- *          <p>Use this operation for a tape gateway that is not reachable or not functioning. This
- *          operation is only supported in the tape gateway type.</p>
- *          <important>
- *             <p>After a gateway is disabled, it cannot be enabled.</p>
- *          </important>
+ * Disables a tape gateway when the gateway is no longer functioning. For example, if your gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
+ *
+ * Use this operation for a tape gateway that is not reachable or not functioning. This operation is only supported in the tape gateway type.
+ *
+ * > **Important:** After a gateway is disabled, it cannot be enabled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,16 +55,16 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To disable a gateway when it is no longer functioning
  * ```javascript

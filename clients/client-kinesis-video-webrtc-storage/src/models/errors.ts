@@ -6,7 +6,8 @@ import {
 } from "./KinesisVideoWebRTCStorageServiceException";
 
 /**
- * <p>You do not have required permissions to perform this operation.</p>
+ * You do not have required permissions to perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,9 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
- *       Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
- *     </p>
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
+ *
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
@@ -50,7 +50,8 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The value for this input parameter is invalid.</p>
+ * The value for this input parameter is invalid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -71,7 +72,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is not found.</p>
+ * The specified resource is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

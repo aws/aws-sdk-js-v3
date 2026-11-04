@@ -23,8 +23,8 @@ export interface DeleteStackSetCommandInput extends DeleteStackSetInput {}
 export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a StackSet. Before you can delete a StackSet, all its member stack instances must
- *       be deleted. For more information about how to complete this, see <a>DeleteStackInstances</a>.</p>
+ * Deletes a StackSet. Before you can delete a StackSet, all its member stack instances must be deleted. For more information about how to complete this, see DeleteStackInstances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,16 +50,16 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack
- *    set at a given time.</p>
+ *
+ * Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.
  *
  * @throws {@link StackSetNotEmptyException} (client fault)
- *  <p>You can't yet delete this StackSet, because it still contains one or more stack instances. Delete all stack
- *    instances from the StackSet before deleting the StackSet.</p>
+ *
+ * You can't yet delete this StackSet, because it still contains one or more stack instances. Delete all stack instances from the StackSet before deleting the StackSet.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import { EvsServiceException as __BaseException } from "./EvsServiceException";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a <code>state</code> of <code>DELETED</code>.</p>
+ * A service resource associated with the request could not be found. The resource might not be specified correctly, or it may have a `state` of `DELETED`.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -14,13 +15,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that could not be found.</p>
+   * The ID of the resource that could not be found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that is associated with the error.</p>
+   * The type of the resource that is associated with the error.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -41,7 +44,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.</p>
+ * The operation could not be performed because the service is throttling requests. This exception is thrown when the service endpoint receives too many concurrent requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -50,7 +54,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>The seconds to wait to retry.</p>
+   * The seconds to wait to retry.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -70,7 +75,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.</p>
+ * The input fails to satisfy the specified constraints. You will see this exception if invalid inputs are provided for any of the Amazon EVS environment operations, or if a list operation is performed on an environment resource that is still initializing.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -78,13 +84,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A list of fields that didn't validate.</p>
+   * A list of fields that didn't validate.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -105,7 +113,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -127,7 +136,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The number of one or more Amazon EVS resources exceeds the maximum allowed. For a list of Amazon EVS quotas, see <a href="https://docs.aws.amazon.com/evs/latest/userguide/service-quotas-evs.html">Amazon EVS endpoints and quotas</a> in the <i>Amazon EVS User Guide</i>. Delete some resources or request an increase in your service quota. To request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Web Services Service Quotas</a> in the <i>Amazon Web Services General Reference Guide</i>. </p>
+ * The number of one or more Amazon EVS resources exceeds the maximum allowed. For a list of Amazon EVS quotas, see [Amazon EVS endpoints and quotas](https://docs.aws.amazon.com/evs/latest/userguide/service-quotas-evs.html) in the *Amazon EVS User Guide*. Delete some resources or request an increase in your service quota. To request an increase, see [Amazon Web Services Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the *Amazon Web Services General Reference Guide*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -148,7 +158,10 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <note> <p> <code>TagPolicyException</code> is deprecated. See <a href="https://docs.aws.amazon.com/evs/latest/APIReference/API_ValidationException.html"> <code>ValidationException</code> </a> instead.</p> </note> <p>The request doesn't comply with IAM tag policy. Correct your request and then retry it.</p>
+ * > **Note:** `TagPolicyException` is deprecated. See [`ValidationException`](https://docs.aws.amazon.com/evs/latest/APIReference/API_ValidationException.html) instead.
+ *
+ * The request doesn't comply with IAM tag policy. Correct your request and then retry it.
+ *
  * @public
  */
 export class TagPolicyException extends __BaseException {
@@ -169,7 +182,10 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
- * <note> <p> <code>TooManyTagsException</code> is deprecated. See <a href="https://docs.aws.amazon.com/evs/latest/APIReference/API_ServiceQuotaExceededException.html"> <code>ServiceQuotaExceededException</code> </a> instead.</p> </note> <p>A service resource associated with the request has more than 200 tags.</p>
+ * > **Note:** `TooManyTagsException` is deprecated. See [`ServiceQuotaExceededException`](https://docs.aws.amazon.com/evs/latest/APIReference/API_ServiceQuotaExceededException.html) instead.
+ *
+ * A service resource associated with the request has more than 200 tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

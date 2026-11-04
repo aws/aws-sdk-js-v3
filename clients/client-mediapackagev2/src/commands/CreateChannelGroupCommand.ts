@@ -23,7 +23,8 @@ export interface CreateChannelGroupCommandInput extends CreateChannelGroupReques
 export interface CreateChannelGroupCommandOutput extends CreateChannelGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request. </p>
+ * Create a channel group to group your channels and origin endpoints. A channel group is the top-level resource that consists of channels and origin endpoints that are associated with it and that provides predictable URLs for stream delivery. All channels and origin endpoints within the channel group are guaranteed to share the DNS. You can create only one channel group with each request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,29 +65,36 @@ export interface CreateChannelGroupCommandOutput extends CreateChannelGroupRespo
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.</p>
+ *
+ * Access is denied because either you don't have permissions to perform the requested operation or MediaPackage is getting throttling errors with CDN authorization. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see Access Management in the IAM User Guide. Or, if you're using CDN authorization, you will receive this exception if MediaPackage receives a throttling error from Secrets Manager.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting this resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates that an error from the service occurred while trying to process a request.</p>
+ *
+ * Indicates that an error from the service occurred while trying to process a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request throughput limit was exceeded.</p>
+ *
+ * The request throughput limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service.</p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link MediaPackageV2ServiceException}
- * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackageV2 service.
  *
  * @example Creating a Channel Group
  * ```javascript

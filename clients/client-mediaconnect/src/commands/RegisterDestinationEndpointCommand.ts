@@ -23,7 +23,8 @@ export interface RegisterDestinationEndpointCommandInput extends RegisterDestina
 export interface RegisterDestinationEndpointCommandOutput extends RegisterDestinationEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a new destination endpoint in MediaConnect.</p>
+ * Registers a new destination endpoint in MediaConnect.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -246,29 +247,36 @@ export interface RegisterDestinationEndpointCommandOutput extends RegisterDestin
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
+ *
+ * This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link DestinationEndpointServiceQuotaExceededException} (client fault)
- *  <p>The request would cause you to exceed a service quota for destination endpoints. Delete unused destination endpoints or request a quota increase, then try your request again.</p>
+ *
+ * The request would cause you to exceed a service quota for destination endpoints. Delete unused destination endpoints or request a quota increase, then try your request again.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request. </p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable or busy. </p>
+ *
+ * The service is currently unavailable or busy.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MediaConnectServiceException}
- * <p>Base exception class for all service exceptions from MediaConnect service.</p>
  *
+ * Base exception class for all service exceptions from MediaConnect service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface AddPartnerCommandInput extends PartnerIntegrationInputMessage {
 export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Adds a partner integration to a cluster.
- *             This operation authorizes a partner to push status updates for the specified database.
- *             To complete the integration, you also set up the integration on the partner website.</p>
+ * Adds a partner integration to a cluster. This operation authorizes a partner to push status updates for the specified database. To complete the integration, you also set up the integration on the partner website.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,21 +55,24 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link PartnerNotFoundFault} (client fault)
- *  <p>The name of the partner was not found.</p>
+ *
+ * The name of the partner was not found.
  *
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
- *  <p>The partner integration is not authorized.</p>
+ *
+ * The partner integration is not authorized.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

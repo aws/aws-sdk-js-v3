@@ -23,15 +23,14 @@ export interface CreateAutoScalingConfigurationCommandInput extends CreateAutoSc
 export interface CreateAutoScalingConfigurationCommandOutput extends CreateAutoScalingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require
- *       non-default auto scaling settings. You can share an auto scaling configuration across multiple services.</p>
- *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call
- *       returns incremental <code>AutoScalingConfigurationRevision</code> values. When you create a service and configure an auto scaling configuration resource,
- *       the service uses the latest active revision of the auto scaling configuration by default. You can optionally configure the service to use a specific
- *       revision.</p>
- *          <p>Configure a higher <code>MinSize</code> to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The
- *       tradeoff is a higher minimal cost.</p>
- *          <p>Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower responsiveness during peak demand.</p>
+ * Create an App Runner automatic scaling configuration resource. App Runner requires this resource when you create or update App Runner services and you require non-default auto scaling settings. You can share an auto scaling configuration across multiple services.
+ *
+ * Create multiple revisions of a configuration by calling this action multiple times using the same `AutoScalingConfigurationName`. The call returns incremental `AutoScalingConfigurationRevision` values. When you create a service and configure an auto scaling configuration resource, the service uses the latest active revision of the auto scaling configuration by default. You can optionally configure the service to use a specific revision.
+ *
+ * Configure a higher `MinSize` to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is a higher minimal cost.
+ *
+ * Configure a lower `MaxSize` to control your cost. The tradeoff is lower responsiveness during peak demand.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,19 +79,22 @@ export interface CreateAutoScalingConfigurationCommandOutput extends CreateAutoS
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
- *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
- *         <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * App Runner can't create this resource. You've reached your account quota for this resource type.
+ *
+ * For App Runner per-resource quotas, see [App Runner endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/apprunner.html) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

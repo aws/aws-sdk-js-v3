@@ -23,7 +23,8 @@ export interface UpdateCodeRepositoryCommandInput extends UpdateCodeRepositoryIn
 export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified Git repository with the specified values.</p>
+ * Updates the specified Git repository with the specified values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +54,12 @@ export interface UpdateCodeRepositoryCommandOutput extends UpdateCodeRepositoryO
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
+ * There was a conflict when you attempted to modify a SageMaker entity such as an `Experiment` or `Artifact`.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

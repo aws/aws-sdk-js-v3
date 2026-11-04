@@ -23,8 +23,8 @@ export interface DeletePendingAggregationRequestCommandInput extends DeletePendi
 export interface DeletePendingAggregationRequestCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes pending authorization requests for a specified
- * 			aggregator account in a specified region.</p>
+ * Deletes pending authorization requests for a specified aggregator account in a specified region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,12 +50,12 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

@@ -23,9 +23,10 @@ export interface DeleteRestoreTestingPlanCommandInput extends DeleteRestoreTesti
 export interface DeleteRestoreTestingPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This request deletes the specified restore testing plan.</p>
- *          <p>Deletion can only successfully occur if all associated
- *          restore testing selections are deleted first.</p>
+ * This request deletes the specified restore testing plan.
+ *
+ * Deletion can only successfully occur if all associated restore testing selections are deleted first.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,15 +51,16 @@ export interface DeleteRestoreTestingPlanCommandOutput extends __MetadataBearer 
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

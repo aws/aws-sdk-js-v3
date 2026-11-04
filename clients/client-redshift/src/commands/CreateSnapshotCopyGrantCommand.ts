@@ -23,14 +23,10 @@ export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyG
 export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
- *             from Key Management Service (KMS) to encrypt copied snapshots in a
- *             destination region.</p>
- *          <p>
- * For more information about managing snapshot copy grants, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key from Key Management Service (KMS) to encrypt copied snapshots in a destination region.
+ *
+ * For more information about managing snapshot copy grants, go to [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +69,32 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link SnapshotCopyGrantAlreadyExistsFault} (client fault)
- *  <p>The snapshot copy grant can't be created because a grant with the same name already
- *             exists.</p>
+ *
+ * The snapshot copy grant can't be created because a grant with the same name already exists.
  *
  * @throws {@link SnapshotCopyGrantQuotaExceededFault} (client fault)
- *  <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
- *             region.</p>
+ *
+ * The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this region.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

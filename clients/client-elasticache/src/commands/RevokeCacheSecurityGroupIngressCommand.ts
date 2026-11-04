@@ -23,8 +23,8 @@ export interface RevokeCacheSecurityGroupIngressCommandInput extends RevokeCache
 export interface RevokeCacheSecurityGroupIngressCommandOutput extends RevokeCacheSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
- * <p>Revokes ingress from a cache security group. Use this operation to disallow access
- *             from an Amazon EC2 security group that had been previously authorized.</p>
+ * Revokes ingress from a cache security group. Use this operation to disallow access from an Amazon EC2 security group that had been previously authorized.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,25 +65,28 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput extends RevokeCach
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link AuthorizationNotFoundFault} (client fault)
- *  <p>The specified Amazon EC2 security group is not authorized for the specified cache
- *             security group.</p>
+ *
+ * The specified Amazon EC2 security group is not authorized for the specified cache security group.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
- *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * The current state of the cache security group does not allow deletion.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeCacheSecurityGroups
  * ```javascript

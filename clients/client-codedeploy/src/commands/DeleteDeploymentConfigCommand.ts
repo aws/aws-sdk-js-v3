@@ -23,11 +23,10 @@ export interface DeleteDeploymentConfigCommandInput extends DeleteDeploymentConf
 export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a deployment configuration.</p>
- *          <note>
- *             <p>A deployment configuration cannot be deleted if it is currently in use. Predefined
- *                 configurations cannot be deleted.</p>
- *          </note>
+ * Deletes a deployment configuration.
+ *
+ * > **Note:** A deployment configuration cannot be deleted if it is currently in use. Predefined configurations cannot be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +51,24 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentConfigInUseException} (client fault)
- *  <p>The deployment configuration is still in use.</p>
+ *
+ * The deployment configuration is still in use.
  *
  * @throws {@link DeploymentConfigNameRequiredException} (client fault)
- *  <p>The deployment configuration name was not specified.</p>
+ *
+ * The deployment configuration name was not specified.
  *
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
- *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * The deployment configuration name was specified in an invalid format.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>An invalid operation was detected.</p>
+ *
+ * An invalid operation was detected.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

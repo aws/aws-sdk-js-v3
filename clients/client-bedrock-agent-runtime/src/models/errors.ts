@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BedrockAgentRuntimeServiceException as __BaseException } from "./BedrockAgentRuntimeServiceException";
 
 /**
- * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+ * The request is denied because of missing access permissions. Check your permissions and retry your request.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+ * There was an issue with a dependency due to a server issue. Retry your request.
+ *
  * @public
  */
 export class BadGatewayException extends __BaseException {
@@ -33,7 +35,8 @@ export class BadGatewayException extends __BaseException {
   readonly name = "BadGatewayException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
+   * The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -53,7 +56,8 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
+ * There was a conflict performing an operation. Resolve the conflict and retry your request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -74,7 +78,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+ * There was an issue with a dependency. Check the resource configurations and retry the request.
+ *
  * @public
  */
 export class DependencyFailedException extends __BaseException {
@@ -82,7 +87,8 @@ export class DependencyFailedException extends __BaseException {
   readonly name = "DependencyFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
+   * The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -102,7 +108,8 @@ export class DependencyFailedException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -110,7 +117,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The reason for the exception. If the reason is <code>BEDROCK_MODEL_INVOCATION_SERVICE_UNAVAILABLE</code>, the model invocation service is unavailable. Retry your request.</p>
+   * The reason for the exception. If the reason is `BEDROCK_MODEL_INVOCATION_SERVICE_UNAVAILABLE`, the model invocation service is unavailable. Retry your request.
+   *
    * @public
    */
   reason?: string | undefined;
@@ -130,7 +138,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -151,7 +160,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * The number of requests exceeds the service quota. Resubmit your request later.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -172,7 +182,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * The number of requests exceeds the limit. Resubmit your request later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -193,7 +204,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * Input validation failed. Check your request parameters and retry the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -214,7 +226,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide. </p>
+ * The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see [Retry behavior](https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html) in the *AWS SDKs and Tools* reference guide.
+ *
  * @public
  */
 export class ModelNotReadyException extends __BaseException {

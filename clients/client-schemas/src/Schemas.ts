@@ -822,7 +822,8 @@ export interface Schemas {
 }
 
 /**
- * <p>Amazon EventBridge Schema Registry</p>
+ * Amazon EventBridge Schema Registry
+ *
  * @public
  */
 export class Schemas extends SchemasClient implements Schemas {}

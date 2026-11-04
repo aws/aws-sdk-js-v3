@@ -23,7 +23,8 @@ export interface CheckoutBorrowLicenseCommandInput extends CheckoutBorrowLicense
 export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicenseResponse, __MetadataBearer {}
 
 /**
- * <p>Checks out the specified license for offline use.</p>
+ * Checks out the specified license for offline use.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,42 +85,52 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to resource denied.</p>
+ *
+ * Access to resource denied.
  *
  * @throws {@link AuthorizationException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ *
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
  *
  * @throws {@link EntitlementNotAllowedException} (client fault)
- *  <p>The entitlement is not allowed.</p>
+ *
+ * The entitlement is not allowed.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link NoEntitlementsAllowedException} (client fault)
- *  <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
+ *
+ * There are no entitlements found for this license, or the entitlement maximum count is reached.
  *
  * @throws {@link RateLimitExceededException} (client fault)
- *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * Too many requests have been submitted. Try again after a brief wait.
  *
  * @throws {@link RedirectException} (client fault)
- *  <p>This is not the correct Region for the resource. Try again.</p>
+ *
+ * This is not the correct Region for the resource. Try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link UnsupportedDigitalSignatureMethodException} (client fault)
- *  <p>The digital signature method is unsupported. Try your request again.</p>
+ *
+ * The digital signature method is unsupported. Try your request again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerServiceException}
- * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManager service.
  *
  * @public
  */

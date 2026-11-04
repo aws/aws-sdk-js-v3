@@ -23,67 +23,26 @@ export interface GetDocumentAnalysisCommandInput extends GetDocumentAnalysisRequ
 export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes text in a
- *          document.</p>
- *          <p>You start asynchronous text analysis by calling <a>StartDocumentAnalysis</a>,
- *          which returns a job identifier (<code>JobId</code>). When the text analysis operation
- *          finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic
- *          that's registered in the initial call to <code>StartDocumentAnalysis</code>. To get the
- *          results of the text-detection operation, first check that the status value published to the
- *          Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetDocumentAnalysis</code>, and
- *          pass the job identifier (<code>JobId</code>) from the initial call to
- *             <code>StartDocumentAnalysis</code>.</p>
- *          <p>
- *             <code>GetDocumentAnalysis</code> returns an array of <a>Block</a> objects.
- *          The following types of information are returned: </p>
- *          <ul>
- *             <li>
- *                <p>Form data (key-value pairs). The related information is returned in two <a>Block</a> objects, each of type <code>KEY_VALUE_SET</code>: a KEY
- *                   <code>Block</code> object and a VALUE <code>Block</code> object. For example,
- *                   <i>Name: Ana Silva Carolina</i> contains a key and value.
- *                   <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is
- *                the value.</p>
- *             </li>
- *             <li>
- *                <p>Table and table cell data. A TABLE <code>Block</code> object contains information
- *                about a detected table. A CELL <code>Block</code> object is returned for each cell in
- *                a table.</p>
- *             </li>
- *             <li>
- *                <p>Lines and words of text. A LINE <code>Block</code> object contains one or more
- *                WORD <code>Block</code> objects. All lines and words that are detected in the
- *                document are returned (including text that doesn't have a relationship with the value
- *                of the <code>StartDocumentAnalysis</code>
- *                   <code>FeatureTypes</code> input parameter). </p>
- *             </li>
- *             <li>
- *                <p>Query. A QUERY Block object contains the query text, alias and link to the
- *                associated Query results block object.</p>
- *             </li>
- *             <li>
- *                <p>Query Results. A QUERY_RESULT Block object contains the answer to the query and an
- *                ID that connects it to the query asked. This Block also contains a confidence
- *                score.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>While processing a document with queries, look out for
- *                <code>INVALID_REQUEST_PARAMETERS</code> output. This indicates that either the per
- *             page query limit has been exceeded or that the operation is trying to query a page in
- *             the document which doesn’t exist. </p>
- *          </note>
- *          <p>Selection elements such as check boxes and option buttons (radio buttons) can be
- *          detected in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
- *          information about a selection element, including the selection status.</p>
- *          <p>Use the <code>MaxResults</code> parameter to limit the number of blocks that are
- *          returned. If there are more results than specified in <code>MaxResults</code>, the value of
- *             <code>NextToken</code> in the operation response contains a pagination token for getting
- *          the next set of results. To get the next page of results, call
- *             <code>GetDocumentAnalysis</code>, and populate the <code>NextToken</code> request
- *          parameter with the token value that's returned from the previous call to
- *             <code>GetDocumentAnalysis</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text
- *          Analysis</a>.</p>
+ * Gets the results for an Amazon Textract asynchronous operation that analyzes text in a document.
+ *
+ * You start asynchronous text analysis by calling StartDocumentAnalysis, which returns a job identifier (`JobId`). When the text analysis operation finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to `StartDocumentAnalysis`. To get the results of the text-detection operation, first check that the status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetDocumentAnalysis`, and pass the job identifier (`JobId`) from the initial call to `StartDocumentAnalysis`.
+ *
+ * `GetDocumentAnalysis` returns an array of Block objects. The following types of information are returned:
+ *
+ * - Form data (key-value pairs). The related information is returned in two Block objects, each of type `KEY_VALUE_SET`: a KEY `Block` object and a VALUE `Block` object. For example, *Name: Ana Silva Carolina* contains a key and value. *Name:* is the key. *Ana Silva Carolina* is the value.
+ * - Table and table cell data. A TABLE `Block` object contains information about a detected table. A CELL `Block` object is returned for each cell in a table.
+ * - Lines and words of text. A LINE `Block` object contains one or more WORD `Block` objects. All lines and words that are detected in the document are returned (including text that doesn't have a relationship with the value of the `StartDocumentAnalysis` `FeatureTypes` input parameter).
+ * - Query. A QUERY Block object contains the query text, alias and link to the associated Query results block object.
+ * - Query Results. A QUERY_RESULT Block object contains the answer to the query and an ID that connects it to the query asked. This Block also contains a confidence score.
+ *
+ * > **Note:** While processing a document with queries, look out for `INVALID_REQUEST_PARAMETERS` output. This indicates that either the per page query limit has been exceeded or that the operation is trying to query a page in the document which doesn’t exist.
+ *
+ * Selection elements such as check boxes and option buttons (radio buttons) can be detected in form data and in tables. A SELECTION_ELEMENT `Block` object contains information about a selection element, including the selection status.
+ *
+ * Use the `MaxResults` parameter to limit the number of blocks that are returned. If there are more results than specified in `MaxResults`, the value of `NextToken` in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call `GetDocumentAnalysis`, and populate the `NextToken` request parameter with the token value that's returned from the previous call to `GetDocumentAnalysis`.
+ *
+ * For more information, see [Document Text Analysis](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -174,42 +133,40 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Textract experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidJobIdException} (client fault)
- *  <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ *
+ * An invalid job identifier was passed to an asynchronous analysis operation.
  *
  * @throws {@link InvalidKMSKeyException} (client fault)
- *  <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
+ *
+ * Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ *
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
+ *
+ * Amazon Textract is unable to access the S3 object that's specified in the request. for more information, [Configure Access to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) For troubleshooting information, see [Troubleshooting Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html)
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link TextractServiceException}
- * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * Base exception class for all service exceptions from Textract service.
  *
  * @public
  */

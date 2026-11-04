@@ -26,7 +26,8 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandIn
 export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput extends BatchDisassociateServiceActionFromProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
+ * Disassociates a batch of self-service actions from the specified provisioning artifact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +69,12 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateCommentCommandInput extends CreateCommentRequest {}
 export interface CreateCommentCommandOutput extends CreateCommentResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a new comment to the specified document version.</p>
+ * Adds a new comment to the specified document version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,35 +90,40 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link DocumentLockedForCommentsException} (client fault)
- *  <p>This exception is thrown when the document is locked for comments and user tries to
- *             create or delete a comment on that document.</p>
+ *
+ * This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.
  *
  * @throws {@link EntityNotExistsException} (client fault)
- *  <p>The resource does not exist.</p>
+ *
+ * The resource does not exist.
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ *
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
  *
  * @throws {@link InvalidCommentOperationException} (client fault)
- *  <p>The requested operation is not allowed on the specified comment object.</p>
+ *
+ * The requested operation is not allowed on the specified comment object.
  *
  * @throws {@link ProhibitedStateException} (client fault)
- *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * The specified document version is not in the INITIALIZED state.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedOperationException} (client fault)
- *  <p>The operation is not permitted.</p>
+ *
+ * The operation is not permitted.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

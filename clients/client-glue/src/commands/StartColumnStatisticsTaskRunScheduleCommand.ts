@@ -26,7 +26,8 @@ export interface StartColumnStatisticsTaskRunScheduleCommandInput extends StartC
 export interface StartColumnStatisticsTaskRunScheduleCommandOutput extends StartColumnStatisticsTaskRunScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a column statistics task run schedule.</p>
+ * Starts a column statistics task run schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +54,24 @@ export interface StartColumnStatisticsTaskRunScheduleCommandOutput extends Start
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -23,46 +23,23 @@ export interface CreateConfigurationProfileCommandInput extends CreateConfigurat
 export interface CreateConfigurationProfileCommandOutput extends ConfigurationProfile, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration profile, which is information that enables AppConfig
- *          to access the configuration source. Valid configuration sources include the
- *          following:</p>
- *          <ul>
- *             <li>
- *                <p>Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store</p>
- *             </li>
- *             <li>
- *                <p>Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
- *                bucket</p>
- *             </li>
- *             <li>
- *                <p>Pipelines stored in CodePipeline</p>
- *             </li>
- *             <li>
- *                <p>Secrets stored in Secrets Manager</p>
- *             </li>
- *             <li>
- *                <p>Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store</p>
- *             </li>
- *             <li>
- *                <p>Configuration data in SSM documents stored in the Systems Manager document store</p>
- *             </li>
- *          </ul>
- *          <p>A configuration profile includes the following information:</p>
- *          <ul>
- *             <li>
- *                <p>The URI location of the configuration data.</p>
- *             </li>
- *             <li>
- *                <p>The Identity and Access Management (IAM) role that provides access to the configuration data.</p>
- *             </li>
- *             <li>
- *                <p>A validator for the configuration data. Available validators include either a JSON
- *                Schema or an Amazon Web Services Lambda function.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
- *             Configuration and a Configuration Profile</a> in the <i>AppConfig
- *             User Guide</i>.</p>
+ * Creates a configuration profile, which is information that enables AppConfig to access the configuration source. Valid configuration sources include the following:
+ *
+ * - Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted configuration store
+ * - Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3) bucket
+ * - Pipelines stored in CodePipeline
+ * - Secrets stored in Secrets Manager
+ * - Standard and secure string parameters stored in Amazon Web Services Systems Manager Parameter Store
+ * - Configuration data in SSM documents stored in the Systems Manager document store
+ *
+ * A configuration profile includes the following information:
+ *
+ * - The URI location of the configuration data.
+ * - The Identity and Access Management (IAM) role that provides access to the configuration data.
+ * - A validator for the configuration data. Available validators include either a JSON Schema or an Amazon Web Services Lambda function.
+ *
+ * For more information, see [Create a Configuration and a Configuration Profile](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html) in the *AppConfig User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,25 +95,28 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
- *          environment doesn't exceed the following service quotas:</p>
- *          <p>Applications: 100 max</p>
- *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
- *          request a quota increase. For more information about quotas and to request an increase, see
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ *
+ * The number of one more AppConfig resources exceeds the maximum allowed. Verify that your environment doesn't exceed the following service quotas:
+ *
+ * Applications: 100 max
+ *
+ * To resolve this issue, you can delete one or more resources and try again. Or, you can request a quota increase. For more information about quotas and to request an increase, see [Service quotas for AppConfig](https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig) in the Amazon Web Services General Reference.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @example To create a configuration profile
  * ```javascript

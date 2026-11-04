@@ -23,12 +23,10 @@ export interface CreateTapesCommandInput extends CreateTapesInput {}
 export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataBearer {}
 
 /**
- * <p>Creates one or more virtual tapes. You write data to the virtual tapes and then archive
- *          the tapes. This operation is only supported in the tape gateway type.</p>
- *          <note>
- *             <p>Cache storage must be allocated to the gateway before you can create virtual tapes.
- *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
- *          </note>
+ * Creates one or more virtual tapes. You write data to the virtual tapes and then archive the tapes. This operation is only supported in the tape gateway type.
+ *
+ * > **Note:** Cache storage must be allocated to the gateway before you can create virtual tapes. Use the AddCache operation to add cache storage to a gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,16 +69,16 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To create a virtual tape
  * ```javascript

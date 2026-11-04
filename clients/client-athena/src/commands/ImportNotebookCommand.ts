@@ -23,12 +23,8 @@ export interface ImportNotebookCommandInput extends ImportNotebookInput {}
 export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __MetadataBearer {}
 
 /**
- * <p>Imports a single <code>ipynb</code> file to a Spark enabled workgroup. To import the
- *             notebook, the request must specify a value for either <code>Payload</code> or
- *                 <code>NoteBookS3LocationUri</code>. If neither is specified or both are specified,
- *             an <code>InvalidRequestException</code> occurs. The maximum file size that can be
- *             imported is 10 megabytes. If an <code>ipynb</code> file with the same name already
- *             exists in the workgroup, throws an error.</p>
+ * Imports a single `ipynb` file to a Spark enabled workgroup. To import the notebook, the request must specify a value for either `Payload` or `NoteBookS3LocationUri`. If neither is specified or both are specified, an `InvalidRequestException` occurs. The maximum file size that can be imported is 10 megabytes. If an `ipynb` file with the same name already exists in the workgroup, throws an error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,19 +56,20 @@ export interface ImportNotebookCommandOutput extends ImportNotebookOutput, __Met
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Indicates that the request was throttled.</p>
+ *
+ * Indicates that the request was throttled.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

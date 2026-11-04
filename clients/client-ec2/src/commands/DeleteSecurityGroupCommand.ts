@@ -23,10 +23,10 @@ export interface DeleteSecurityGroupCommandInput extends DeleteSecurityGroupRequ
 export interface DeleteSecurityGroupCommandOutput extends DeleteSecurityGroupResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a security group.</p>
- *          <p>If you attempt to delete a security group that is associated with an instance or network interface, is
- * 			  referenced by another security group in the same VPC, or has a VPC association, the operation fails with
- * 				<code>DependencyViolation</code>.</p>
+ * Deletes a security group.
+ *
+ * If you attempt to delete a security group that is associated with an instance or network interface, is referenced by another security group in the same VPC, or has a VPC association, the operation fails with `DependencyViolation`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +56,8 @@ export interface DeleteSecurityGroupCommandOutput extends DeleteSecurityGroupRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a security group
  * ```javascript

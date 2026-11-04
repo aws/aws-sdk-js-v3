@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodePipelineServiceException as __BaseException } from "./CodePipelineServiceException";
 
 /**
- * <p>The nonce was specified in an invalid format.</p>
+ * The nonce was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidNonceException extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidNonceException extends __BaseException {
 }
 
 /**
- * <p>The job was specified in an invalid format or cannot be found.</p>
+ * The job was specified in an invalid format or cannot be found.
+ *
  * @public
  */
 export class JobNotFoundException extends __BaseException {
@@ -46,7 +48,8 @@ export class JobNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The validation was specified in an invalid format.</p>
+ * The validation was specified in an invalid format.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -67,7 +70,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The client token was specified in an invalid format</p>
+ * The client token was specified in an invalid format
+ *
  * @public
  */
 export class InvalidClientTokenException extends __BaseException {
@@ -88,7 +92,8 @@ export class InvalidClientTokenException extends __BaseException {
 }
 
 /**
- * <p>The action execution was not found.</p>
+ * The action execution was not found.
+ *
  * @public
  */
 export class ActionExecutionNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ActionExecutionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified action cannot be found.</p>
+ * The specified action cannot be found.
+ *
  * @public
  */
 export class ActionNotFoundException extends __BaseException {
@@ -130,7 +136,8 @@ export class ActionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified action type cannot be found.</p>
+ * The specified action type cannot be found.
+ *
  * @public
  */
 export class ActionTypeNotFoundException extends __BaseException {
@@ -151,7 +158,8 @@ export class ActionTypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The approval action has already been approved or rejected.</p>
+ * The approval action has already been approved or rejected.
+ *
  * @public
  */
 export class ApprovalAlreadyCompletedException extends __BaseException {
@@ -172,7 +180,8 @@ export class ApprovalAlreadyCompletedException extends __BaseException {
 }
 
 /**
- * <p>Unable to modify the tag due to a simultaneous update request.</p>
+ * Unable to modify the tag due to a simultaneous update request.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -193,7 +202,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource tags are invalid.</p>
+ * The specified resource tags are invalid.
+ *
  * @public
  */
 export class InvalidTagsException extends __BaseException {
@@ -214,8 +224,8 @@ export class InvalidTagsException extends __BaseException {
 }
 
 /**
- * <p>The number of pipelines associated with the Amazon Web Services account has exceeded
- *             the limit allowed for the account.</p>
+ * The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -236,7 +246,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The tags limit for a resource has been exceeded.</p>
+ * The tags limit for a resource has been exceeded.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -257,7 +268,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The action declaration was specified in an invalid format.</p>
+ * The action declaration was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidActionDeclarationException extends __BaseException {
@@ -278,7 +290,8 @@ export class InvalidActionDeclarationException extends __BaseException {
 }
 
 /**
- * <p>Reserved for future use.</p>
+ * Reserved for future use.
+ *
  * @public
  */
 export class InvalidBlockerDeclarationException extends __BaseException {
@@ -299,7 +312,8 @@ export class InvalidBlockerDeclarationException extends __BaseException {
 }
 
 /**
- * <p>The stage declaration was specified in an invalid format.</p>
+ * The stage declaration was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidStageDeclarationException extends __BaseException {
@@ -320,7 +334,8 @@ export class InvalidStageDeclarationException extends __BaseException {
 }
 
 /**
- * <p>The structure was specified in an invalid format.</p>
+ * The structure was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidStructureException extends __BaseException {
@@ -341,7 +356,8 @@ export class InvalidStructureException extends __BaseException {
 }
 
 /**
- * <p>The specified pipeline name is already in use.</p>
+ * The specified pipeline name is already in use.
+ *
  * @public
  */
 export class PipelineNameInUseException extends __BaseException {
@@ -362,8 +378,8 @@ export class PipelineNameInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified webhook was entered in an invalid format or cannot be
- *             found.</p>
+ * The specified webhook was entered in an invalid format or cannot be found.
+ *
  * @public
  */
 export class WebhookNotFoundException extends __BaseException {
@@ -384,7 +400,8 @@ export class WebhookNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ * The pipeline was specified in an invalid format or cannot be found.
+ *
  * @public
  */
 export class PipelineNotFoundException extends __BaseException {
@@ -405,7 +422,8 @@ export class PipelineNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The stage was specified in an invalid format or cannot be found.</p>
+ * The stage was specified in an invalid format or cannot be found.
+ *
  * @public
  */
 export class StageNotFoundException extends __BaseException {
@@ -426,8 +444,8 @@ export class StageNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The pipeline version was specified in an invalid format or cannot be
- *             found.</p>
+ * The pipeline version was specified in an invalid format or cannot be found.
+ *
  * @public
  */
 export class PipelineVersionNotFoundException extends __BaseException {
@@ -448,8 +466,8 @@ export class PipelineVersionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The pipeline execution was specified in an invalid format or cannot be found, or an
- *             execution ID does not belong to the specified pipeline. </p>
+ * The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
+ *
  * @public
  */
 export class PipelineExecutionNotFoundException extends __BaseException {
@@ -470,7 +488,8 @@ export class PipelineExecutionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The job was specified in an invalid format or cannot be found.</p>
+ * The job was specified in an invalid format or cannot be found.
+ *
  * @public
  */
 export class InvalidJobException extends __BaseException {
@@ -491,8 +510,8 @@ export class InvalidJobException extends __BaseException {
 }
 
 /**
- * <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
+ * The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -513,7 +532,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The specified resource ARN is invalid.</p>
+ * The specified resource ARN is invalid.
+ *
  * @public
  */
 export class InvalidArnException extends __BaseException {
@@ -534,7 +554,8 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
- * <p>The resource was specified in an invalid format.</p>
+ * The resource was specified in an invalid format.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -555,7 +576,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ * The pipeline has reached the limit for concurrent pipeline executions.
+ *
  * @public
  */
 export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseException {
@@ -576,7 +598,8 @@ export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseEx
 }
 
 /**
- * <p>Unable to override because the condition does not allow overrides.</p>
+ * Unable to override because the condition does not allow overrides.
+ *
  * @public
  */
 export class ConditionNotOverridableException extends __BaseException {
@@ -597,8 +620,8 @@ export class ConditionNotOverridableException extends __BaseException {
 }
 
 /**
- * <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
+ * Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -619,9 +642,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The stage has failed in a later run of the pipeline and the
- *                 <code>pipelineExecutionId</code> associated with the request is out of
- *             date.</p>
+ * The stage has failed in a later run of the pipeline and the `pipelineExecutionId` associated with the request is out of date.
+ *
  * @public
  */
 export class NotLatestPipelineExecutionException extends __BaseException {
@@ -642,7 +664,8 @@ export class NotLatestPipelineExecutionException extends __BaseException {
 }
 
 /**
- * <p>The approval request already received a response or has expired.</p>
+ * The approval request already received a response or has expired.
+ *
  * @public
  */
 export class InvalidApprovalTokenException extends __BaseException {
@@ -663,7 +686,8 @@ export class InvalidApprovalTokenException extends __BaseException {
 }
 
 /**
- * <p>The job state was specified in an invalid format.</p>
+ * The job state was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidJobStateException extends __BaseException {
@@ -684,7 +708,8 @@ export class InvalidJobStateException extends __BaseException {
 }
 
 /**
- * <p>Exceeded the total size limit for all variables in the pipeline.</p>
+ * Exceeded the total size limit for all variables in the pipeline.
+ *
  * @public
  */
 export class OutputVariablesSizeExceededException extends __BaseException {
@@ -705,7 +730,8 @@ export class OutputVariablesSizeExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified authentication type is in an invalid format.</p>
+ * The specified authentication type is in an invalid format.
+ *
  * @public
  */
 export class InvalidWebhookAuthenticationParametersException extends __BaseException {
@@ -726,7 +752,8 @@ export class InvalidWebhookAuthenticationParametersException extends __BaseExcep
 }
 
 /**
- * <p>The specified event filter rule is in an invalid format.</p>
+ * The specified event filter rule is in an invalid format.
+ *
  * @public
  */
 export class InvalidWebhookFilterPatternException extends __BaseException {
@@ -747,9 +774,8 @@ export class InvalidWebhookFilterPatternException extends __BaseException {
 }
 
 /**
- * <p>Unable to retry. The pipeline structure or stage state might have changed while
- *             actions awaited retry, or the stage contains no failed
- *             actions.</p>
+ * Unable to retry. The pipeline structure or stage state might have changed while actions awaited retry, or the stage contains no failed actions.
+ *
  * @public
  */
 export class StageNotRetryableException extends __BaseException {
@@ -770,8 +796,8 @@ export class StageNotRetryableException extends __BaseException {
 }
 
 /**
- * <p>The specified pipeline execution is outdated and cannot be used as a target pipeline
- *             execution for rollback.</p>
+ * The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.
+ *
  * @public
  */
 export class PipelineExecutionOutdatedException extends __BaseException {
@@ -792,9 +818,8 @@ export class PipelineExecutionOutdatedException extends __BaseException {
 }
 
 /**
- * <p>Unable to roll back the stage. The cause might be if the pipeline version has changed
- *             since the target pipeline execution was deployed, the stage is currently running, or an
- *             incorrect target pipeline execution ID was provided.</p>
+ * Unable to roll back the stage. The cause might be if the pipeline version has changed since the target pipeline execution was deployed, the stage is currently running, or an incorrect target pipeline execution ID was provided.
+ *
  * @public
  */
 export class UnableToRollbackStageException extends __BaseException {
@@ -815,11 +840,8 @@ export class UnableToRollbackStageException extends __BaseException {
 }
 
 /**
- * <p>The pipeline execution is already in a <code>Stopping</code> state. If you already
- *             chose to stop and wait, you cannot make that request again. You can choose to stop and
- *             abandon now, but be aware that this option can lead to failed tasks or out of sequence
- *             tasks. If you already chose to stop and abandon, you cannot make that request
- *             again.</p>
+ * The pipeline execution is already in a `Stopping` state. If you already chose to stop and wait, you cannot make that request again. You can choose to stop and abandon now, but be aware that this option can lead to failed tasks or out of sequence tasks. If you already chose to stop and abandon, you cannot make that request again.
+ *
  * @public
  */
 export class DuplicatedStopRequestException extends __BaseException {
@@ -840,8 +862,8 @@ export class DuplicatedStopRequestException extends __BaseException {
 }
 
 /**
- * <p>Unable to stop the pipeline execution. The execution might already be in a
- *                 <code>Stopped</code> state, or it might no longer be in progress.</p>
+ * Unable to stop the pipeline execution. The execution might already be in a `Stopped` state, or it might no longer be in progress.
+ *
  * @public
  */
 export class PipelineExecutionNotStoppableException extends __BaseException {
@@ -862,7 +884,8 @@ export class PipelineExecutionNotStoppableException extends __BaseException {
 }
 
 /**
- * <p>The request failed because of an unknown error, exception, or failure.</p>
+ * The request failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class RequestFailedException extends __BaseException {

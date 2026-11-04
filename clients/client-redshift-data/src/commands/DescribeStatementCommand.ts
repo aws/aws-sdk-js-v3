@@ -23,7 +23,10 @@ export interface DescribeStatementCommandInput extends DescribeStatementRequest 
 export interface DescribeStatementCommandOutput extends DescribeStatementResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information includes when the query started, when it finished, the query status, the number of rows returned, and the SQL statement. </p> <p>For more information about the Amazon Redshift Data API and CLI usage examples, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. </p>
+ * Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information includes when the query started, when it finished, the query status, the number of rows returned, and the SQL statement.
+ *
+ * For more information about the Amazon Redshift Data API and CLI usage examples, see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the *Amazon Redshift Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,20 +96,24 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  * @throws {@link ActiveWaitingRequestsExceededException} (client fault)
- *  <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
+ *
+ * The number of active requests with `WaitTimeSeconds` for the same SQL statement exceeds the limit.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to a missing resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link RedshiftDataServiceException}
- * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftData service.
  *
  * @public
  */

@@ -38,162 +38,189 @@ import type {
 } from "./enums";
 
 /**
- * <p>A summarized representation of a plan execution. This structure contains key information about an execution without all the detailed step data.</p>
+ * A summarized representation of a plan execution. This structure contains key information about an execution without all the detailed step data.
+ *
  * @public
  */
 export interface AbbreviatedExecution {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>The version for the plan.</p>
+   * The version for the plan.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The timestamp when the plan execution was last updated.</p>
+   * The timestamp when the plan execution was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>An optional comment about the plan execution.</p>
+   * An optional comment about the plan execution.
+   *
    * @public
    */
   comment?: string | undefined;
 
   /**
-   * <p>The timestamp when the plan execution was started.</p>
+   * The timestamp when the plan execution was started.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the plan execution was ended.</p>
+   * The timestamp when the plan execution was ended.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The plan execution mode. Valid values are <code>graceful</code>, for graceful executions, or <code>ungraceful</code>, for ungraceful executions.</p>
+   * The plan execution mode. Valid values are `graceful`, for graceful executions, or `ungraceful`, for ungraceful executions.
+   *
    * @public
    */
   mode: ExecutionMode | undefined;
 
   /**
-   * <p>The plan execution state. Provides the state of a plan execution, for example, In Progress or Paused by Operator.</p>
+   * The plan execution state. Provides the state of a plan execution, for example, In Progress or Paused by Operator.
+   *
    * @public
    */
   executionState: ExecutionState | undefined;
 
   /**
-   * <p>The plan execution action. Valid values are <code>activate</code>, to activate an Amazon Web Services Region, or <code>deactivate</code>, to deactivate a Region.</p>
+   * The plan execution action. Valid values are `activate`, to activate an Amazon Web Services Region, or `deactivate`, to deactivate a Region.
+   *
    * @public
    */
   executionAction: ExecutionAction | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for a plan execution.</p>
+   * The Amazon Web Services Region for a plan execution.
+   *
    * @public
    */
   executionRegion: string | undefined;
 
   /**
-   * <p>The unique identifier of the most recent recovery execution. Required when starting a post-recovery execution.</p>
+   * The unique identifier of the most recent recovery execution. Required when starting a post-recovery execution.
+   *
    * @public
    */
   recoveryExecutionId?: string | undefined;
 
   /**
-   * <p>The actual recovery time that Region switch calculates for a plan execution. Actual recovery time includes the time for the plan to run added to the time elapsed until the application health alarms that you've specified are healthy again.</p>
+   * The actual recovery time that Region switch calculates for a plan execution. Actual recovery time includes the time for the plan to run added to the time elapsed until the application health alarms that you've specified are healthy again.
+   *
    * @public
    */
   actualRecoveryTime?: string | undefined;
 }
 
 /**
- * <p>A summarized representation of a Region switch plan. This structure contains key information about a plan without all the detailed workflow and step data.</p>
+ * A summarized representation of a Region switch plan. This structure contains key information about a plan without all the detailed workflow and step data.
+ *
  * @public
  */
 export interface AbbreviatedPlan {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Region switch plan.</p>
+   * The Amazon Resource Name (ARN) of the Region switch plan.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The owner of a Region switch plan.</p>
+   * The owner of a Region switch plan.
+   *
    * @public
    */
   owner: string | undefined;
 
   /**
-   * <p>The name of a Region switch plan.</p>
+   * The name of a Region switch plan.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region specified for a Region switch plan.</p>
+   * The Amazon Web Services Region specified for a Region switch plan.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).</p>
+   * The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
+   *
    * @public
    */
   recoveryApproach: RecoveryApproach | undefined;
 
   /**
-   * <p>The primary Region for a plan.</p>
+   * The primary Region for a plan.
+   *
    * @public
    */
   primaryRegion?: string | undefined;
 
   /**
-   * <p>The version for the plan.</p>
+   * The version for the plan.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The timestamp when the plan execution was last updated.</p>
+   * The timestamp when the plan execution was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The description of a Region switch plan.</p>
+   * The description of a Region switch plan.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The execution role is a way to categorize a Region switch plan. </p>
+   * The execution role is a way to categorize a Region switch plan.
+   *
    * @public
    */
   executionRole?: string | undefined;
 
   /**
-   * <p>Specifies if this is the active plan execution at this time.</p>
+   * Specifies if this is the active plan execution at this time.
+   *
    * @public
    */
   activePlanExecution?: string | undefined;
 
   /**
-   * <p>The recovery time objective that you've specified.</p>
+   * The recovery time objective that you've specified.
+   *
    * @public
    */
   recoveryTimeObjectiveMinutes?: number | undefined;
@@ -204,31 +231,36 @@ export interface AbbreviatedPlan {
  */
 export interface ApprovePlanExecutionStepRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>The name of a step in a plan execution.</p>
+   * The name of a step in a plan execution.
+   *
    * @public
    */
   stepName: string | undefined;
 
   /**
-   * <p>The status of approval for a plan execution step. </p>
+   * The status of approval for a plan execution step.
+   *
    * @public
    */
   approval: Approval | undefined;
 
   /**
-   * <p>A comment that you can enter about a plan execution.</p>
+   * A comment that you can enter about a plan execution.
+   *
    * @public
    */
   comment?: string | undefined;
@@ -244,19 +276,22 @@ export interface ApprovePlanExecutionStepResponse {}
  */
 export interface CancelPlanExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>A comment that you can enter about canceling a plan execution step.</p>
+   * A comment that you can enter about canceling a plan execution step.
+   *
    * @public
    */
   comment?: string | undefined;
@@ -272,85 +307,99 @@ export interface CancelPlanExecutionResponse {}
  */
 export interface GetPlanEvaluationStatusRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Region switch plan to retrieve evaluation status for.</p>
+   * The Amazon Resource Name (ARN) of the Region switch plan to retrieve evaluation status for.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A simplified representation of a workflow in a Region switch plan.</p>
+ * A simplified representation of a workflow in a Region switch plan.
+ *
  * @public
  */
 export interface MinimalWorkflow {
   /**
-   * <p>The action for a minimal workflow, which can be Activate or Deactivate.</p>
+   * The action for a minimal workflow, which can be Activate or Deactivate.
+   *
    * @public
    */
   action?: ExecutionAction | undefined;
 
   /**
-   * <p>The name for a minimal workflow</p>
+   * The name for a minimal workflow
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>Represents a warning about a resource in a Region switch plan.</p>
+ * Represents a warning about a resource in a Region switch plan.
+ *
  * @public
  */
 export interface ResourceWarning {
   /**
-   * <p>The workflow for the resource warning.</p>
+   * The workflow for the resource warning.
+   *
    * @public
    */
   workflow?: MinimalWorkflow | undefined;
 
   /**
-   * <p>The version for the resource warning.</p>
+   * The version for the resource warning.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The name of the step for the resource warning.</p>
+   * The name of the step for the resource warning.
+   *
    * @public
    */
   stepName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The status of the resource warning.</p>
+   * The status of the resource warning.
+   *
    * @public
    */
   warningStatus: ResourceWarningStatus | undefined;
 
   /**
-   * <p>The timestamp when the warning was last updated.</p>
+   * The timestamp when the warning was last updated.
+   *
    * @public
    */
   warningUpdatedTime: Date | undefined;
 
   /**
-   * <p>The warning message about what needs to be corrected.</p>
+   * The warning message about what needs to be corrected.
+   *
    * @public
    */
   warningMessage: string | undefined;
@@ -361,43 +410,50 @@ export interface ResourceWarning {
  */
 export interface GetPlanEvaluationStatusResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The time of the last time that Region switch ran an evaluation of the plan.</p>
+   * The time of the last time that Region switch ran an evaluation of the plan.
+   *
    * @public
    */
   lastEvaluationTime?: Date | undefined;
 
   /**
-   * <p>The version of the last evaluation of the plan.</p>
+   * The version of the last evaluation of the plan.
+   *
    * @public
    */
   lastEvaluatedVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the plan.</p>
+   * The Amazon Web Services Region for the plan.
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>The evaluation state for the plan.</p>
+   * The evaluation state for the plan.
+   *
    * @public
    */
   evaluationState?: EvaluationStatus | undefined;
 
   /**
-   * <p>The current evaluation warnings for the plan. </p>
+   * The current evaluation warnings for the plan.
+   *
    * @public
    */
   warnings?: ResourceWarning[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -408,62 +464,72 @@ export interface GetPlanEvaluationStatusResponse {
  */
 export interface GetPlanExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan with the execution to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the plan with the execution to retrieve.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a report generation that failed.</p>
+ * Information about a report generation that failed.
+ *
  * @public
  */
 export interface FailedReportOutput {
   /**
-   * <p>The error code for the failed report generation.</p>
+   * The error code for the failed report generation.
+   *
    * @public
    */
   errorCode?: FailedReportErrorCode | undefined;
 
   /**
-   * <p>The error message for the failed report generation.</p>
+   * The error message for the failed report generation.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 }
 
 /**
- * <p>Information about a report delivered to Amazon S3.</p>
+ * Information about a report delivered to Amazon S3.
+ *
  * @public
  */
 export interface S3ReportOutput {
   /**
-   * <p>The S3 object key where the generated report is stored.</p>
+   * The S3 object key where the generated report is stored.
+   *
    * @public
    */
   s3ObjectKey?: string | undefined;
 }
 
 /**
- * <p>The output location or cause of a failure in report generation.</p>
+ * The output location or cause of a failure in report generation.
+ *
  * @public
  */
 export type ReportOutput =
@@ -476,7 +542,8 @@ export type ReportOutput =
  */
 export namespace ReportOutput {
   /**
-   * <p>Information about a report delivered to Amazon S3.</p>
+   * Information about a report delivered to Amazon S3.
+   *
    * @public
    */
   export interface S3ReportOutputMember {
@@ -486,7 +553,8 @@ export namespace ReportOutput {
   }
 
   /**
-   * <p>The details about a failed report generation.</p>
+   * The details about a failed report generation.
+   *
    * @public
    */
   export interface FailedReportOutputMember {
@@ -516,73 +584,85 @@ export namespace ReportOutput {
 }
 
 /**
- * <p>Information about a generated execution report.</p>
+ * Information about a generated execution report.
+ *
  * @public
  */
 export interface GeneratedReport {
   /**
-   * <p>The timestamp when the report was generated.</p>
+   * The timestamp when the report was generated.
+   *
    * @public
    */
   reportGenerationTime?: Date | undefined;
 
   /**
-   * <p>The output location or cause of a failure in report generation.</p>
+   * The output location or cause of a failure in report generation.
+   *
    * @public
    */
   reportOutput?: ReportOutput | undefined;
 }
 
 /**
- * <p>An Amazon CloudWatch alarm associated with a Region switch plan. These alarms can be used to trigger automatic execution of the plan.</p>
+ * An Amazon CloudWatch alarm associated with a Region switch plan. These alarms can be used to trigger automatic execution of the plan.
+ *
  * @public
  */
 export interface AssociatedAlarm {
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The resource identifier for alarms that you associate with a plan.</p>
+   * The resource identifier for alarms that you associate with a plan.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The alarm type for an associated alarm. An associated CloudWatch alarm can be an application health alarm or a trigger alarm.</p>
+   * The alarm type for an associated alarm. An associated CloudWatch alarm can be an application health alarm or a trigger alarm.
+   *
    * @public
    */
   alarmType: AlarmType | undefined;
 }
 
 /**
- * <p>Configuration for delivering generated reports to an Amazon S3 bucket.</p>
+ * Configuration for delivering generated reports to an Amazon S3 bucket.
+ *
  * @public
  */
 export interface S3ReportOutputConfiguration {
   /**
-   * <p>The S3 bucket name and optional prefix where reports are stored. Format: bucket-name or bucket-name/prefix.</p>
+   * The S3 bucket name and optional prefix where reports are stored. Format: bucket-name or bucket-name/prefix.
+   *
    * @public
    */
   bucketPath?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the S3 bucket. Required to ensure the bucket is still owned by the same expected owner at generation time.</p>
+   * The Amazon Web Services account ID that owns the S3 bucket. Required to ensure the bucket is still owned by the same expected owner at generation time.
+   *
    * @public
    */
   bucketOwner?: string | undefined;
 }
 
 /**
- * <p>Configuration for report output destinations used in a Region switch plan.</p>
+ * Configuration for report output destinations used in a Region switch plan.
+ *
  * @public
  */
 export type ReportOutputConfiguration =
@@ -594,7 +674,8 @@ export type ReportOutputConfiguration =
  */
 export namespace ReportOutputConfiguration {
   /**
-   * <p>Configuration for delivering reports to an Amazon S3 bucket.</p>
+   * Configuration for delivering reports to an Amazon S3 bucket.
+   *
    * @public
    */
   export interface S3ConfigurationMember {
@@ -621,1158 +702,1358 @@ export namespace ReportOutputConfiguration {
 }
 
 /**
- * <p>Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.</p>
+ * Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.
+ *
  * @public
  */
 export interface ReportConfiguration {
   /**
-   * <p>The output configuration for the report.</p>
+   * The output configuration for the report.
+   *
    * @public
    */
   reportOutput?: ReportOutputConfiguration[] | undefined;
 }
 
 /**
- * <p>Defines a condition that must be met for a trigger to fire.</p>
+ * Defines a condition that must be met for a trigger to fire.
+ *
  * @public
  */
 export interface TriggerCondition {
   /**
-   * <p>The name of the CloudWatch alarm associated with the condition.</p>
+   * The name of the CloudWatch alarm associated with the condition.
+   *
    * @public
    */
   associatedAlarmName: string | undefined;
 
   /**
-   * <p>The condition that must be met. Valid values include <code>green</code> and <code>red</code>.</p>
+   * The condition that must be met. Valid values include `green` and `red`.
+   *
    * @public
    */
   condition: AlarmCondition | undefined;
 }
 
 /**
- * <p>Defines a condition that can automatically trigger the execution of a Region switch plan.</p>
+ * Defines a condition that can automatically trigger the execution of a Region switch plan.
+ *
  * @public
  */
 export interface Trigger {
   /**
-   * <p>The description for a trigger.</p>
+   * The description for a trigger.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for a trigger.</p>
+   * The Amazon Web Services Region for a trigger.
+   *
    * @public
    */
   targetRegion: string | undefined;
 
   /**
-   * <p>The action to perform when the trigger fires. Valid values include <code>activate</code> and <code>deactivate</code>.</p>
+   * The action to perform when the trigger fires. Valid values include `activate` and `deactivate`.
+   *
    * @public
    */
   action: WorkflowTargetAction | undefined;
 
   /**
-   * <p>The conditions that must be met for the trigger to fire.</p>
+   * The conditions that must be met for the trigger to fire.
+   *
    * @public
    */
   conditions: TriggerCondition[] | undefined;
 
   /**
-   * <p>The minimum time, in minutes, that must elapse between automatic executions of the plan.</p>
+   * The minimum time, in minutes, that must elapse between automatic executions of the plan.
+   *
    * @public
    */
   minDelayMinutesBetweenExecutions: number | undefined;
 }
 
 /**
- * <p>Represents the state of an ARC routing control.</p>
+ * Represents the state of an ARC routing control.
+ *
  * @public
  */
 export interface ArcRoutingControlState {
   /**
-   * <p>The Amazon Resource Name (ARN) of a routing control.</p>
+   * The Amazon Resource Name (ARN) of a routing control.
+   *
    * @public
    */
   routingControlArn: string | undefined;
 
   /**
-   * <p>The state of an ARC routing control, On or Off.</p>
+   * The state of an ARC routing control, On or Off.
+   *
    * @public
    */
   state: RoutingControlStateChange | undefined;
 }
 
 /**
- * <p>Configuration for ARC routing controls used in a Region switch plan. Routing controls are simple on/off switches that you can use to shift traffic away from an impaired Region.</p>
+ * Configuration for ARC routing controls used in a Region switch plan. Routing controls are simple on/off switches that you can use to shift traffic away from an impaired Region.
+ *
  * @public
  */
 export interface ArcRoutingControlConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Region and ARC routing controls for the configuration.</p>
+   * The Region and ARC routing controls for the configuration.
+   *
    * @public
    */
   regionAndRoutingControls: Record<string, ArcRoutingControlState[]> | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Aurora provisioned cluster scaling used in a Region switch plan.</p>
+ * Configuration for Amazon Aurora provisioned cluster scaling used in a Region switch plan.
+ *
  * @public
  */
 export interface AuroraProvisionedScalingConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The global cluster identifier for a global database.</p>
+   * The global cluster identifier for a global database.
+   *
    * @public
    */
   globalClusterIdentifier: string | undefined;
 
   /**
-   * <p>Per-Region configuration that maps each Region to the Aurora database cluster ARN for scaling.</p>
+   * Per-Region configuration that maps each Region to the Aurora database cluster ARN for scaling.
+   *
    * @public
    */
   regionDatabaseClusterArns: Record<string, string> | undefined;
 
   /**
-   * <p>Per-Region configuration that maps each Region to the Aurora database instance ARN for scaling.</p>
+   * Per-Region configuration that maps each Region to the Aurora database instance ARN for scaling.
+   *
    * @public
    */
   instanceArns: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Aurora Serverless scaling used in a Region switch plan.</p>
+ * Configuration for Amazon Aurora Serverless scaling used in a Region switch plan.
+ *
  * @public
  */
 export interface AuroraServerlessScalingConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The global cluster identifier for a global database.</p>
+   * The global cluster identifier for a global database.
+   *
    * @public
    */
   globalClusterIdentifier: string | undefined;
 
   /**
-   * <p>Per-Region configuration that maps each Region to the Aurora database cluster ARN for scaling.</p>
+   * Per-Region configuration that maps each Region to the Aurora database cluster ARN for scaling.
+   *
    * @public
    */
   regionDatabaseClusterArns: Record<string, string> | undefined;
 
   /**
-   * <p>The target capacity percentage for Aurora Serverless scaling.</p>
+   * The target capacity percentage for Aurora Serverless scaling.
+   *
    * @public
    */
   targetPercent?: number | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Web Services Lambda functions used in a Region switch plan.</p>
+ * Configuration for Amazon Web Services Lambda functions used in a Region switch plan.
+ *
  * @public
  */
 export interface Lambdas {
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
+   * The Amazon Resource Name (ARN) of the Lambda function.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The JSON payload to send to the Lambda function invocation. If you don't specify a payload, Region switch invokes the function with only the execution metadata.</p> <p>If you provide a JSON object, Region switch merges execution metadata keys (<code>InvokedBy</code>, <code>PlanArn</code>, <code>ExecutionId</code>, <code>StepName</code>) into the top level. If one of your keys has the same name as a metadata key, your key takes precedence.</p> <p>If you provide any other JSON type (string, number, boolean, or array), Region switch forwards it to the Lambda function unchanged, without adding metadata.</p>
+   * The JSON payload to send to the Lambda function invocation. If you don't specify a payload, Region switch invokes the function with only the execution metadata.
+   *
+   * If you provide a JSON object, Region switch merges execution metadata keys (`InvokedBy`, `PlanArn`, `ExecutionId`, `StepName`) into the top level. If one of your keys has the same name as a metadata key, your key takes precedence.
+   *
+   * If you provide any other JSON type (string, number, boolean, or array), Region switch forwards it to the Lambda function unchanged, without adding metadata.
+   *
    * @public
    */
   payload?: string | undefined;
 }
 
 /**
- * <p>Configuration for handling failures when invoking Lambda functions.</p>
+ * Configuration for handling failures when invoking Lambda functions.
+ *
  * @public
  */
 export interface LambdaUngraceful {
   /**
-   * <p>The ungraceful behavior for a Lambda function, which must be set to <code>skip</code>.</p>
+   * The ungraceful behavior for a Lambda function, which must be set to `skip`.
+   *
    * @public
    */
   behavior?: LambdaUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Web Services Lambda functions that perform custom actions during a Region switch.</p>
+ * Configuration for Amazon Web Services Lambda functions that perform custom actions during a Region switch.
+ *
  * @public
  */
 export interface CustomActionLambdaConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services Lambda functions for the execution block.</p>
+   * The Amazon Web Services Lambda functions for the execution block.
+   *
    * @public
    */
   lambdas: Lambdas[] | undefined;
 
   /**
-   * <p>The retry interval specified.</p>
+   * The retry interval specified.
+   *
    * @public
    */
   retryIntervalMinutes: number | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the function to run in. For recovery workflows use <code>activatingRegion</code> or <code>deactivatingRegion</code>. For post-recovery workflows, use <code>activeRegion</code> (the Region with customer traffic) or <code>inactiveRegion</code> (the Region with no customer traffic).</p>
+   * The Amazon Web Services Region for the function to run in. For recovery workflows use `activatingRegion` or `deactivatingRegion`. For post-recovery workflows, use `activeRegion` (the Region with customer traffic) or `inactiveRegion` (the Region with no customer traffic).
+   *
    * @public
    */
   regionToRun: RegionToRunIn | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: LambdaUngraceful | undefined;
 }
 
 /**
- * <p>Configuration for handling failures when performing operations on DocumentDB global clusters.</p>
+ * Configuration for handling failures when performing operations on DocumentDB global clusters.
+ *
  * @public
  */
 export interface DocumentDbUngraceful {
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: DocumentDbUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for Amazon DocumentDB global clusters used in a Region switch plan.</p>
+ * Configuration for Amazon DocumentDB global clusters used in a Region switch plan.
+ *
  * @public
  */
 export interface DocumentDbConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The behavior for a global cluster, that is, only allow switchover or also allow failover.</p>
+   * The behavior for a global cluster, that is, only allow switchover or also allow failover.
+   *
    * @public
    */
   behavior: DocumentDbDefaultBehavior | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: DocumentDbUngraceful | undefined;
 
   /**
-   * <p>The global cluster identifier for a DocumentDB global cluster.</p>
+   * The global cluster identifier for a DocumentDB global cluster.
+   *
    * @public
    */
   globalClusterIdentifier: string | undefined;
 
   /**
-   * <p>The database cluster Amazon Resource Names (ARNs) for a DocumentDB global cluster.</p>
+   * The database cluster Amazon Resource Names (ARNs) for a DocumentDB global cluster.
+   *
    * @public
    */
   databaseClusterArns: string[] | undefined;
 }
 
 /**
- * <p>Configuration for an Amazon EC2 Auto Scaling group used in a Region switch plan.</p>
+ * Configuration for an Amazon EC2 Auto Scaling group used in a Region switch plan.
+ *
  * @public
  */
 export interface Asg {
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the EC2 Auto Scaling group.</p>
+   * The Amazon Resource Name (ARN) of the EC2 Auto Scaling group.
+   *
    * @public
    */
   arn?: string | undefined;
 }
 
 /**
- * <p>Configuration for handling failures when performing operations on EC2 resources.</p>
+ * Configuration for handling failures when performing operations on EC2 resources.
+ *
  * @public
  */
 export interface Ec2Ungraceful {
   /**
-   * <p>The minimum success percentage that you specify for EC2 Auto Scaling groups.</p>
+   * The minimum success percentage that you specify for EC2 Auto Scaling groups.
+   *
    * @public
    */
   minimumSuccessPercentage: number | undefined;
 }
 
 /**
- * <p>Configuration for increasing the capacity of Amazon EC2 Auto Scaling groups during a Region switch.</p>
+ * Configuration for increasing the capacity of Amazon EC2 Auto Scaling groups during a Region switch.
+ *
  * @public
  */
 export interface Ec2AsgCapacityIncreaseConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The EC2 Auto Scaling groups for the configuration.</p>
+   * The EC2 Auto Scaling groups for the configuration.
+   *
    * @public
    */
   asgs: Asg[] | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: Ec2Ungraceful | undefined;
 
   /**
-   * <p>The target percentage that you specify for EC2 Auto Scaling groups. The default is 100.</p>
+   * The target percentage that you specify for EC2 Auto Scaling groups. The default is 100.
+   *
    * @public
    */
   targetPercent?: number | undefined;
 
   /**
-   * <p>The monitoring approach that you specify EC2 Auto Scaling groups for the configuration.</p>
+   * The monitoring approach that you specify EC2 Auto Scaling groups for the configuration.
+   *
    * @public
    */
   capacityMonitoringApproach?: Ec2AsgCapacityMonitoringApproach | undefined;
 
   /**
-   * <p>If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the group's new desired capacity calculated in the step.</p>
+   * If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the group's new desired capacity calculated in the step.
+   *
    * @public
    */
   waitELBTargetGroupHealthy?: WaitELBTargetGroupHealthy | undefined;
 }
 
 /**
- * <p>The service for a cross account role.</p>
+ * The service for a cross account role.
+ *
  * @public
  */
 export interface Service {
   /**
-   * <p>The cross account role for a service.</p>
+   * The cross account role for a service.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the service.</p>
+   * The external ID (secret key) for the service.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The cluster Amazon Resource Name (ARN) for a service.</p>
+   * The cluster Amazon Resource Name (ARN) for a service.
+   *
    * @public
    */
   clusterArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for a service.</p>
+   * The Amazon Resource Name (ARN) for a service.
+   *
    * @public
    */
   serviceArn?: string | undefined;
 }
 
 /**
- * <p>The settings for ungraceful execution.</p>
+ * The settings for ungraceful execution.
+ *
  * @public
  */
 export interface EcsUngraceful {
   /**
-   * <p>The minimum success percentage specified for the configuration.</p>
+   * The minimum success percentage specified for the configuration.
+   *
    * @public
    */
   minimumSuccessPercentage: number | undefined;
 }
 
 /**
- * <p>The configuration for an Amazon Web Services ECS capacity increase.</p>
+ * The configuration for an Amazon Web Services ECS capacity increase.
+ *
  * @public
  */
 export interface EcsCapacityIncreaseConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The services specified for the configuration.</p>
+   * The services specified for the configuration.
+   *
    * @public
    */
   services: Service[] | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: EcsUngraceful | undefined;
 
   /**
-   * <p>The target percentage specified for the configuration. The default is 100.</p>
+   * The target percentage specified for the configuration. The default is 100.
+   *
    * @public
    */
   targetPercent?: number | undefined;
 
   /**
-   * <p>The monitoring approach specified for the configuration, for example, <code>Most_Recent</code>.</p>
+   * The monitoring approach specified for the configuration, for example, `Most_Recent`.
+   *
    * @public
    */
   capacityMonitoringApproach?: EcsCapacityMonitoringApproach | undefined;
 
   /**
-   * <p>If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the service's new desired task count calculated in the step.</p>
+   * If enabled, the step completes only after each attached ELB target group reports a healthy target count that matches the service's new desired task count calculated in the step.
+   *
    * @public
    */
   waitELBTargetGroupHealthy?: WaitELBTargetGroupHealthy | undefined;
 }
 
 /**
- * <p>The Amazon Web Services EKS cluster execution block configuration.</p>
+ * The Amazon Web Services EKS cluster execution block configuration.
+ *
  * @public
  */
 export interface EksCluster {
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services EKS cluster.</p>
+   * The Amazon Resource Name (ARN) of an Amazon Web Services EKS cluster.
+   *
    * @public
    */
   clusterArn: string | undefined;
 }
 
 /**
- * <p>Defines the type of Kubernetes resource to scale in an Amazon EKS cluster.</p>
+ * Defines the type of Kubernetes resource to scale in an Amazon EKS cluster.
+ *
  * @public
  */
 export interface KubernetesResourceType {
   /**
-   * <p>The API version type for the Kubernetes resource.</p>
+   * The API version type for the Kubernetes resource.
+   *
    * @public
    */
   apiVersion: string | undefined;
 
   /**
-   * <p>The kind for the Kubernetes resource.</p>
+   * The kind for the Kubernetes resource.
+   *
    * @public
    */
   kind: string | undefined;
 }
 
 /**
- * <p>Defines a Kubernetes resource to scale in an Amazon EKS cluster.</p>
+ * Defines a Kubernetes resource to scale in an Amazon EKS cluster.
+ *
  * @public
  */
 export interface KubernetesScalingResource {
   /**
-   * <p>The namespace for the Kubernetes resource.</p>
+   * The namespace for the Kubernetes resource.
+   *
    * @public
    */
   namespace: string | undefined;
 
   /**
-   * <p>The name for the Kubernetes resource.</p>
+   * The name for the Kubernetes resource.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The hpaname for the Kubernetes resource.</p>
+   * The hpaname for the Kubernetes resource.
+   *
    * @public
    */
   hpaName?: string | undefined;
 }
 
 /**
- * <p>The ungraceful settings for Amazon Web Services EKS resource scaling.</p>
+ * The ungraceful settings for Amazon Web Services EKS resource scaling.
+ *
  * @public
  */
 export interface EksResourceScalingUngraceful {
   /**
-   * <p>The minimum success percentage for the configuration.</p>
+   * The minimum success percentage for the configuration.
+   *
    * @public
    */
   minimumSuccessPercentage: number | undefined;
 }
 
 /**
- * <p>The Amazon Web Services EKS resource scaling configuration.</p>
+ * The Amazon Web Services EKS resource scaling configuration.
+ *
  * @public
  */
 export interface EksResourceScalingConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The Kubernetes resource type for the configuration.</p>
+   * The Kubernetes resource type for the configuration.
+   *
    * @public
    */
   kubernetesResourceType: KubernetesResourceType | undefined;
 
   /**
-   * <p>The scaling resources for the configuration.</p>
+   * The scaling resources for the configuration.
+   *
    * @public
    */
   scalingResources?: Record<string, Record<string, KubernetesScalingResource>>[] | undefined;
 
   /**
-   * <p>The clusters for the configuration.</p>
+   * The clusters for the configuration.
+   *
    * @public
    */
   eksClusters?: EksCluster[] | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: EksResourceScalingUngraceful | undefined;
 
   /**
-   * <p>The target percentage for the configuration. The default is 100.</p>
+   * The target percentage for the configuration. The default is 100.
+   *
    * @public
    */
   targetPercent?: number | undefined;
 
   /**
-   * <p>The monitoring approach for the configuration, that is, whether it was sampled in the last 24 hours or autoscaled in the last 24 hours.</p>
+   * The monitoring approach for the configuration, that is, whether it was sampled in the last 24 hours or autoscaled in the last 24 hours.
+   *
    * @public
    */
   capacityMonitoringApproach?: EksCapacityMonitoringApproach | undefined;
 }
 
 /**
- * <p>Configuration for approval steps in a Region switch plan execution. Approval steps require manual intervention before the execution can proceed.</p>
+ * Configuration for approval steps in a Region switch plan execution. Approval steps require manual intervention before the execution can proceed.
+ *
  * @public
  */
 export interface ExecutionApprovalConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The IAM approval role for the configuration.</p>
+   * The IAM approval role for the configuration.
+   *
    * @public
    */
   approvalRole: string | undefined;
 }
 
 /**
- * <p>Configuration for an Aurora global database execution block in ungraceful mode.</p>
+ * Configuration for an Aurora global database execution block in ungraceful mode.
+ *
  * @public
  */
 export interface GlobalAuroraUngraceful {
   /**
-   * <p>The ungraceful behavior. The only valid value is <code>failover</code>, which calls <code>FailoverGlobalCluster</code> with <code>AllowDataLoss</code> set to <code>true</code> and might cause data loss.</p>
+   * The ungraceful behavior. The only valid value is `failover`, which calls `FailoverGlobalCluster` with `AllowDataLoss` set to `true` and might cause data loss.
+   *
    * @public
    */
   ungraceful?: GlobalAuroraUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Aurora global databases used in a Region switch plan.</p>
+ * Configuration for Amazon Aurora global databases used in a Region switch plan.
+ *
  * @public
  */
 export interface GlobalAuroraConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The default behavior for the Aurora global database execution block. Valid values:</p> <ul> <li> <p> <code>switchoverOnly</code> - Calls <code>SwitchoverGlobalCluster</code> for a zero-data-loss switchover during graceful execution.</p> </li> <li> <p> <code>failover</code> - Calls <code>FailoverGlobalCluster</code> with <code>AllowDataLoss</code> set to <code>true</code>. This operation might cause data loss, including during graceful execution.</p> </li> </ul>
+   * The default behavior for the Aurora global database execution block. Valid values:
+   *
+   * - `switchoverOnly` - Calls `SwitchoverGlobalCluster` for a zero-data-loss switchover during graceful execution.
+   * - `failover` - Calls `FailoverGlobalCluster` with `AllowDataLoss` set to `true`. This operation might cause data loss, including during graceful execution.
+   *
    * @public
    */
   behavior: GlobalAuroraDefaultBehavior | undefined;
 
   /**
-   * <p>The behavior to use when the plan runs in ungraceful mode. If you omit this value, Region switch uses the value of <code>behavior</code>.</p>
+   * The behavior to use when the plan runs in ungraceful mode. If you omit this value, Region switch uses the value of `behavior`.
+   *
    * @public
    */
   ungraceful?: GlobalAuroraUngraceful | undefined;
 
   /**
-   * <p>The global cluster identifier for a global database.</p>
+   * The global cluster identifier for a global database.
+   *
    * @public
    */
   globalClusterIdentifier: string | undefined;
 
   /**
-   * <p>The database cluster Amazon Resource Names (ARNs) for a global database.</p>
+   * The database cluster Amazon Resource Names (ARNs) for a global database.
+   *
    * @public
    */
   databaseClusterArns: string[] | undefined;
 }
 
 /**
- * <p>The Amazon Web Services Lambda event source mapping configuration, containing the resource ARN and optional cross-account configuration.</p>
+ * The Amazon Web Services Lambda event source mapping configuration, containing the resource ARN and optional cross-account configuration.
+ *
  * @public
  */
 export interface EventSourceMapping {
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda event source mapping.</p>
+   * The Amazon Resource Name (ARN) of the Lambda event source mapping.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Specifies whether to skip enabling or disabling an event source mapping during an ungraceful execution.</p>
+ * Specifies whether to skip enabling or disabling an event source mapping during an ungraceful execution.
+ *
  * @public
  */
 export interface LambdaEventSourceMappingUngraceful {
   /**
-   * <p>Set to <code>skip</code> to skip executing this event source mapping step during an ungraceful execution.</p>
+   * Set to `skip` to skip executing this event source mapping step during an ungraceful execution.
+   *
    * @public
    */
   behavior?: LambdaEventSourceMappingUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Web Services Lambda event source mappings used in a Region switch plan.</p>
+ * Configuration for Amazon Web Services Lambda event source mappings used in a Region switch plan.
+ *
  * @public
  */
 export interface LambdaEventSourceMappingConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The action to take - whether to <code>enable</code> or <code>disable</code> an event source mapping.</p>
+   * The action to take - whether to `enable` or `disable` an event source mapping.
+   *
    * @public
    */
   action: EventSourceMappingAction | undefined;
 
   /**
-   * <p>Per-region configuration for which Lambda event source mapping to enable or disable when activating or deactivating a region.</p>
+   * Per-region configuration for which Lambda event source mapping to enable or disable when activating or deactivating a region.
+   *
    * @public
    */
   regionEventSourceMappings: Record<string, EventSourceMapping> | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: LambdaEventSourceMappingUngraceful | undefined;
 }
 
 /**
- * <p>Configuration for handling failures when performing operations on Neptune global databases.</p>
+ * Configuration for handling failures when performing operations on Neptune global databases.
+ *
  * @public
  */
 export interface NeptuneUngraceful {
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: NeptuneUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for Amazon Neptune global databases used in a Region switch plan.</p>
+ * Configuration for Amazon Neptune global databases used in a Region switch plan.
+ *
  * @public
  */
 export interface NeptuneGlobalDatabaseConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The behavior for a global database, that is, only allow switchover or also allow failover.</p>
+   * The behavior for a global database, that is, only allow switchover or also allow failover.
+   *
    * @public
    */
   behavior: NeptuneDefaultBehavior | undefined;
 
   /**
-   * <p>The settings for ungraceful execution.</p>
+   * The settings for ungraceful execution.
+   *
    * @public
    */
   ungraceful?: NeptuneUngraceful | undefined;
 
   /**
-   * <p>The global cluster identifier for a Neptune global database.</p>
+   * The global cluster identifier for a Neptune global database.
+   *
    * @public
    */
   globalClusterIdentifier: string | undefined;
 
   /**
-   * <p>The database cluster Amazon Resource Names (ARNs) for a Neptune global database.</p>
+   * The database cluster Amazon Resource Names (ARNs) for a Neptune global database.
+   *
    * @public
    */
   regionDatabaseClusterArns: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration for creating an Amazon RDS cross-Region read replica during post-recovery in a Region switch.</p>
+ * Configuration for creating an Amazon RDS cross-Region read replica during post-recovery in a Region switch.
+ *
  * @public
  */
 export interface RdsCreateCrossRegionReplicaConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross-account role for the configuration.</p>
+   * The cross-account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>A map of database instance ARNs for each Region in the plan.</p>
+   * A map of database instance ARNs for each Region in the plan.
+   *
    * @public
    */
   dbInstanceArnMap: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration for promoting an Amazon RDS read replica to a standalone database instance during a Region switch.</p>
+ * Configuration for promoting an Amazon RDS read replica to a standalone database instance during a Region switch.
+ *
  * @public
  */
 export interface RdsPromoteReadReplicaConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross-account role for the configuration.</p>
+   * The cross-account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>A map of database instance ARNs for each Region in the plan.</p>
+   * A map of database instance ARNs for each Region in the plan.
+   *
    * @public
    */
   dbInstanceArnMap: Record<string, string> | undefined;
 }
 
 /**
- * <p>The ungraceful execution settings for an Amazon RDS switchover read replica execution block.</p>
+ * The ungraceful execution settings for an Amazon RDS switchover read replica execution block.
+ *
  * @public
  */
 export interface RdsUngraceful {
   /**
-   * <p>The ungraceful behavior to perform if switching to ungraceful execution.</p>
+   * The ungraceful behavior to perform if switching to ungraceful execution.
+   *
    * @public
    */
   ungraceful?: RdsUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for switching over an Amazon RDS read replica to become the new primary database instance during a Region switch.</p>
+ * Configuration for switching over an Amazon RDS read replica to become the new primary database instance during a Region switch.
+ *
  * @public
  */
 export interface RdsSwitchoverReadReplicaConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross-account role for the configuration.</p>
+   * The cross-account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>A map of database instance ARNs for each Region in the plan.</p>
+   * A map of database instance ARNs for each Region in the plan.
+   *
    * @public
    */
   dbInstanceArnMap: Record<string, string> | undefined;
 
   /**
-   * <p>The ungraceful execution settings for the configuration.</p>
+   * The ungraceful execution settings for the configuration.
+   *
    * @public
    */
   ungraceful?: RdsUngraceful | undefined;
 }
 
 /**
- * <p>Configuration for nested Region switch plans. This allows one Region switch plan to trigger another plan as part of its execution.</p>
+ * Configuration for nested Region switch plans. This allows one Region switch plan to trigger another plan as part of its execution.
+ *
  * @public
  */
 export interface RegionSwitchPlanConfiguration {
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan configuration.</p>
+   * The Amazon Resource Name (ARN) of the plan configuration.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>The Amazon Route 53 record set.</p>
+ * The Amazon Route 53 record set.
+ *
  * @public
  */
 export interface Route53ResourceRecordSet {
   /**
-   * <p>The Amazon Route 53 record set identifier.</p>
+   * The Amazon Route 53 record set identifier.
+   *
    * @public
    */
   recordSetIdentifier?: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 record set Region.</p>
+   * The Amazon Route 53 record set Region.
+   *
    * @public
    */
   region?: string | undefined;
 }
 
 /**
- * <p>The Amazon Route 53 health check configuration.</p>
+ * The Amazon Route 53 health check configuration.
+ *
  * @public
  */
 export interface Route53HealthCheckConfiguration {
   /**
-   * <p>The Amazon Route 53 health check configuration time out (in minutes).</p>
+   * The Amazon Route 53 health check configuration time out (in minutes).
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The cross account role for the configuration.</p>
+   * The cross account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 health check configuration hosted zone ID.</p>
+   * The Amazon Route 53 health check configuration hosted zone ID.
+   *
    * @public
    */
   hostedZoneId: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 health check configuration record name.</p>
+   * The Amazon Route 53 health check configuration record name.
+   *
    * @public
    */
   recordName: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 health check configuration record sets.</p>
+   * The Amazon Route 53 health check configuration record sets.
+   *
    * @public
    */
   recordSets?: Route53ResourceRecordSet[] | undefined;
 }
 
 /**
- * <p>A single <code>SendCommand</code> target filter, consisting of a target key and the values matched by that key.</p>
+ * A single `SendCommand` target filter, consisting of a target key and the values matched by that key.
+ *
  * @public
  */
 export interface SsmTarget {
   /**
-   * <p>The target key, such as <code>tag:Environment</code> or <code>InstanceIds</code>.</p>
+   * The target key, such as `tag:Environment` or `InstanceIds`.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The values matched by this target key. Multiple values combine with a logical OR.</p>
+   * The values matched by this target key. Multiple values combine with a logical OR.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>The Systems Manager document to run and the managed nodes to target for a single Amazon Web Services Region.</p>
+ * The Systems Manager document to run and the managed nodes to target for a single Amazon Web Services Region.
+ *
  * @public
  */
 export interface SsmDocumentConfig {
   /**
-   * <p>The cross-account role for the configuration.</p>
+   * The cross-account role for the configuration.
+   *
    * @public
    */
   crossAccountRole?: string | undefined;
 
   /**
-   * <p>The external ID (secret key) for the configuration.</p>
+   * The external ID (secret key) for the configuration.
+   *
    * @public
    */
   externalId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Systems Manager document to run.</p>
+   * The Amazon Resource Name (ARN) of the Systems Manager document to run.
+   *
    * @public
    */
   documentArn: string | undefined;
 
   /**
-   * <p>The target filters that Systems Manager resolves to managed nodes when the command runs. To target specific managed nodes, use the <code>InstanceIds</code> key. You can specify up to five target filters.</p>
+   * The target filters that Systems Manager resolves to managed nodes when the command runs. To target specific managed nodes, use the `InstanceIds` key. You can specify up to five target filters.
+   *
    * @public
    */
   targets: SsmTarget[] | undefined;
 
   /**
-   * <p>The parameters that are passed to this Region's Systems Manager document. You set parameters for each document, so each Region can run its document with its own parameters.</p>
+   * The parameters that are passed to this Region's Systems Manager document. You set parameters for each document, so each Region can run its document with its own parameters.
+   *
    * @public
    */
   parameters?: Record<string, string[]> | undefined;
 
   /**
-   * <p>The version of the Systems Manager document to run for this Region. When you omit it, Systems Manager runs the document's default version.</p>
+   * The version of the Systems Manager document to run for this Region. When you omit it, Systems Manager runs the document's default version.
+   *
    * @public
    */
   documentVersion?: string | undefined;
 }
 
 /**
- * <p>The ungraceful execution settings for an AWS Systems Manager <code>SendCommand</code> execution block.</p>
+ * The ungraceful execution settings for an AWS Systems Manager `SendCommand` execution block.
+ *
  * @public
  */
 export interface SsmSendCommandUngraceful {
   /**
-   * <p>Specifies whether to skip running this command during an ungraceful execution. Set to <code>skip</code> to skip the command.</p>
+   * Specifies whether to skip running this command during an ungraceful execution. Set to `skip` to skip the command.
+   *
    * @public
    */
   behavior?: SsmSendCommandUngracefulBehavior | undefined;
 }
 
 /**
- * <p>Configuration for an AWS Systems Manager <code>SendCommand</code> execution block in a Region switch plan. This execution block runs a Systems Manager document on the managed nodes that you target in each Amazon Web Services Region of the plan.</p>
+ * Configuration for an AWS Systems Manager `SendCommand` execution block in a Region switch plan. This execution block runs a Systems Manager document on the managed nodes that you target in each Amazon Web Services Region of the plan.
+ *
  * @public
  */
 export interface SsmSendCommandConfiguration {
   /**
-   * <p>The timeout value specified for the configuration.</p>
+   * The timeout value specified for the configuration.
+   *
    * @public
    */
   timeoutMinutes?: number | undefined;
 
   /**
-   * <p>The Systems Manager document and target configuration for each Amazon Web Services Region in the plan. Provide an entry for each Amazon Web Services Region that you want the command to run in.</p>
+   * The Systems Manager document and target configuration for each Amazon Web Services Region in the plan. Provide an entry for each Amazon Web Services Region that you want the command to run in.
+   *
    * @public
    */
   regionDocuments: Record<string, SsmDocumentConfig> | undefined;
 
   /**
-   * <p>How often, in minutes, Region switch retries the command if it returns a failure.</p>
+   * How often, in minutes, Region switch retries the command if it returns a failure.
+   *
    * @public
    */
   retryIntervalMinutes: number | undefined;
 
   /**
-   * <p>Specifies the settings that determine how the execution block behaves when the plan runs ungracefully, such as whether to skip the command.</p>
+   * Specifies the settings that determine how the execution block behaves when the plan runs ungracefully, such as whether to skip the command.
+   *
    * @public
    */
   ungraceful?: SsmSendCommandUngraceful | undefined;
 }
 
 /**
- * <p>Represents the state of a step in a plan execution.</p>
+ * Represents the state of a step in a plan execution.
+ *
  * @public
  */
 export interface StepState {
   /**
-   * <p>The name of a step in a workflow.</p>
+   * The name of a step in a workflow.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The status of a step in a workflow. For example, a status might be Completed or Pending Approval.</p>
+   * The status of a step in a workflow. For example, a status might be Completed or Pending Approval.
+   *
    * @public
    */
   status?: StepStatus | undefined;
 
   /**
-   * <p>The timestamp when a step started execution.</p>
+   * The timestamp when a step started execution.
+   *
    * @public
    */
   startTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when a step endeded execution.</p>
+   * The timestamp when a step endeded execution.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The mode for a step execution. The mode can be Graceful or Ungraceful.</p>
+   * The mode for a step execution. The mode can be Graceful or Ungraceful.
+   *
    * @public
    */
   stepMode?: ExecutionMode | undefined;
@@ -1783,7 +2064,8 @@ export interface StepState {
  */
 export interface GetPlanInRegionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan in Region.</p>
+   * The Amazon Resource Name (ARN) of the plan in Region.
+   *
    * @public
    */
   arn: string | undefined;
@@ -1794,91 +2076,106 @@ export interface GetPlanInRegionRequest {
  */
 export interface ListPlanExecutionEventsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The name of the plan execution event.</p>
+   * The name of the plan execution event.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>Represents an event that occurred during a plan execution. These events provide a detailed timeline of the execution process.</p>
+ * Represents an event that occurred during a plan execution. These events provide a detailed timeline of the execution process.
+ *
  * @public
  */
 export interface ExecutionEvent {
   /**
-   * <p>The timestamp for an execution event.</p>
+   * The timestamp for an execution event.
+   *
    * @public
    */
   timestamp?: Date | undefined;
 
   /**
-   * <p>The type of an execution event.</p>
+   * The type of an execution event.
+   *
    * @public
    */
   type?: ExecutionEventType | undefined;
 
   /**
-   * <p>The step name for an execution event.</p>
+   * The step name for an execution event.
+   *
    * @public
    */
   stepName?: string | undefined;
 
   /**
-   * <p>The execution block type for an execution event.</p>
+   * The execution block type for an execution event.
+   *
    * @public
    */
   executionBlockType?: ExecutionBlockType | undefined;
 
   /**
-   * <p>The resources for an execution event.</p>
+   * The resources for an execution event.
+   *
    * @public
    */
   resources?: string[] | undefined;
 
   /**
-   * <p>Errors for an execution event.</p>
+   * Errors for an execution event.
+   *
    * @public
    */
   error?: string | undefined;
 
   /**
-   * <p>The description for an execution event.</p>
+   * The description for an execution event.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The event ID for an execution event.</p>
+   * The event ID for an execution event.
+   *
    * @public
    */
   eventId: string | undefined;
 
   /**
-   * <p>The event ID of the previous execution event.</p>
+   * The event ID of the previous execution event.
+   *
    * @public
    */
   previousEventId?: string | undefined;
@@ -1889,13 +2186,15 @@ export interface ExecutionEvent {
  */
 export interface ListPlanExecutionEventsResponse {
   /**
-   * <p>The items in the plan execution event.</p>
+   * The items in the plan execution event.
+   *
    * @public
    */
   items?: ExecutionEvent[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1906,25 +2205,29 @@ export interface ListPlanExecutionEventsResponse {
  */
 export interface ListPlanExecutionsRequest {
   /**
-   * <p>The ARN for the plan.</p>
+   * The ARN for the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The state of the plan execution. For example, the plan execution might be In Progress.</p>
+   * The state of the plan execution. For example, the plan execution might be In Progress.
+   *
    * @public
    */
   state?: ExecutionState | undefined;
@@ -1935,13 +2238,15 @@ export interface ListPlanExecutionsRequest {
  */
 export interface ListPlanExecutionsResponse {
   /**
-   * <p>The items in the plan execution to return.</p>
+   * The items in the plan execution to return.
+   *
    * @public
    */
   items?: AbbreviatedExecution[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1952,13 +2257,15 @@ export interface ListPlanExecutionsResponse {
  */
 export interface ListPlansInRegionRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1969,13 +2276,15 @@ export interface ListPlansInRegionRequest {
  */
 export interface ListPlansInRegionResponse {
   /**
-   * <p>The plans that were requested.</p>
+   * The plans that were requested.
+   *
    * @public
    */
   plans?: AbbreviatedPlan[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1986,67 +2295,78 @@ export interface ListPlansInRegionResponse {
  */
 export interface ListRoute53HealthChecksRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Route 53 health check request.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Route 53 health check request.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The hosted zone ID for the health checks.</p>
+   * The hosted zone ID for the health checks.
+   *
    * @public
    */
   hostedZoneId?: string | undefined;
 
   /**
-   * <p>The record name for the health checks.</p>
+   * The record name for the health checks.
+   *
    * @public
    */
   recordName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The Amazon Route 53 health check.</p>
+ * The Amazon Route 53 health check.
+ *
  * @public
  */
 export interface Route53HealthCheck {
   /**
-   * <p>The Amazon Route 53 health check hosted zone ID.</p>
+   * The Amazon Route 53 health check hosted zone ID.
+   *
    * @public
    */
   hostedZoneId: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 record name.</p>
+   * The Amazon Route 53 record name.
+   *
    * @public
    */
   recordName: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 health check ID.</p>
+   * The Amazon Route 53 health check ID.
+   *
    * @public
    */
   healthCheckId?: string | undefined;
 
   /**
-   * <p>The Amazon Route 53 health check status.</p>
+   * The Amazon Route 53 health check status.
+   *
    * @public
    */
   status?: Route53HealthCheckStatus | undefined;
 
   /**
-   * <p>The Amazon Route 53 Region.</p>
+   * The Amazon Route 53 Region.
+   *
    * @public
    */
   region: string | undefined;
@@ -2057,13 +2377,15 @@ export interface Route53HealthCheck {
  */
 export interface ListRoute53HealthChecksResponse {
   /**
-   * <p>List of the health checks requested.</p>
+   * List of the health checks requested.
+   *
    * @public
    */
   healthChecks?: Route53HealthCheck[] | undefined;
 
   /**
-   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
+   * A pagination token. A response may contain no results while still including a `nextToken`. Continue paginating until `nextToken` is null to retrieve all results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2074,31 +2396,36 @@ export interface ListRoute53HealthChecksResponse {
  */
 export interface ListRoute53HealthChecksInRegionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Arc Region Switch Plan.</p>
+   * The Amazon Resource Name (ARN) of the Arc Region Switch Plan.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The hosted zone ID for the health checks.</p>
+   * The hosted zone ID for the health checks.
+   *
    * @public
    */
   hostedZoneId?: string | undefined;
 
   /**
-   * <p>The record name for the health checks.</p>
+   * The record name for the health checks.
+   *
    * @public
    */
   recordName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2109,13 +2436,15 @@ export interface ListRoute53HealthChecksInRegionRequest {
  */
 export interface ListRoute53HealthChecksInRegionResponse {
   /**
-   * <p>List of the health checks requested.</p>
+   * List of the health checks requested.
+   *
    * @public
    */
   healthChecks?: Route53HealthCheck[] | undefined;
 
   /**
-   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
+   * A pagination token. A response may contain no results while still including a `nextToken`. Continue paginating until `nextToken` is null to retrieve all results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2126,97 +2455,113 @@ export interface ListRoute53HealthChecksInRegionResponse {
  */
 export interface ListServiceQuotaWarningsRequest {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the plans to return service quota warnings for. You can specify up to 100 plan ARNs. Region switch ignores any plan ARN that you can't access. If you omit this parameter, Region switch returns the warnings for all of your accessible plans.</p>
+   * The Amazon Resource Names (ARNs) of the plans to return service quota warnings for. You can specify up to 100 plan ARNs. Region switch ignores any plan ARN that you can't access. If you omit this parameter, Region switch returns the warnings for all of your accessible plans.
+   *
    * @public
    */
   planArns?: string[] | undefined;
 
   /**
-   * <p>The maximum number of results to return with this call. Valid values are <code>1</code> to <code>100</code>. If you don't specify a value, the operation returns up to the maximum number of results.</p>
+   * The maximum number of results to return with this call. Valid values are `1` to `100`. If you don't specify a value, the operation returns up to the maximum number of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A service quota warning for a plan. Region switch creates a warning when the applied quota value in one Region of a plan is lower than the value for the matching resource in another Region or account in the plan, or when it can't complete a service quota check.</p>
+ * A service quota warning for a plan. Region switch creates a warning when the applied quota value in one Region of a plan is lower than the value for the matching resource in another Region or account in the plan, or when it can't complete a service quota check.
+ *
  * @public
  */
 export interface ServiceQuotaWarningSummary {
   /**
-   * <p>The Amazon Web Services account ID that owns the plan that the warning applies to.</p>
+   * The Amazon Web Services account ID that owns the plan that the warning applies to.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region that the quota applies to.</p>
+   * The Amazon Web Services Region that the quota applies to.
+   *
    * @public
    */
   quotaRegion: string | undefined;
 
   /**
-   * <p>The service code of the service that the quota belongs to, as defined in Service Quotas. For example, <code>ec2</code>.</p>
+   * The service code of the service that the quota belongs to, as defined in Service Quotas. For example, `ec2`.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code of the quota that the warning applies to, as defined in Service Quotas.</p>
+   * The quota code of the quota that the warning applies to, as defined in Service Quotas.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The name of the quota that the warning applies to, as defined in Service Quotas.</p>
+   * The name of the quota that the warning applies to, as defined in Service Quotas.
+   *
    * @public
    */
   quotaName?: string | undefined;
 
   /**
-   * <p>The status of the service quota warning.</p>
+   * The status of the service quota warning.
+   *
    * @public
    */
   status: ServiceQuotaWarningStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan that the warning applies to.</p>
+   * The Amazon Resource Name (ARN) of the plan that the warning applies to.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The ID of the quota increase request that Region switch submitted, if it submitted one for this quota.</p>
+   * The ID of the quota increase request that Region switch submitted, if it submitted one for this quota.
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The ID of the support case associated with the quota increase request, if Region switch submitted one for this quota.</p>
+   * The ID of the support case associated with the quota increase request, if Region switch submitted one for this quota.
+   *
    * @public
    */
   caseId?: string | undefined;
 
   /**
-   * <p>A message that describes the service quota warning.</p>
+   * A message that describes the service quota warning.
+   *
    * @public
    */
   warningMessage?: string | undefined;
 
   /**
-   * <p>The time (UTC) when Region switch last checked this quota.</p>
+   * The time (UTC) when Region switch last checked this quota.
+   *
    * @public
    */
   lastCheckedAt?: Date | undefined;
 
   /**
-   * <p>The time (UTC) when Region switch created this warning.</p>
+   * The time (UTC) when Region switch created this warning.
+   *
    * @public
    */
   warningCreatedAt?: Date | undefined;
@@ -2227,13 +2572,15 @@ export interface ServiceQuotaWarningSummary {
  */
 export interface ListServiceQuotaWarningsResponse {
   /**
-   * <p>The service quota warnings for the plans that you can access.</p>
+   * The service quota warnings for the plans that you can access.
+   *
    * @public
    */
   serviceQuotaWarningSummaries: ServiceQuotaWarningSummary[] | undefined;
 
   /**
-   * <p>A pagination token. A response may contain no results while still including a <code>nextToken</code>. Continue paginating until <code>nextToken</code> is null to retrieve all results.</p>
+   * A pagination token. A response may contain no results while still including a `nextToken`. Continue paginating until `nextToken` is null to retrieve all results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2244,7 +2591,8 @@ export interface ListServiceQuotaWarningsResponse {
  */
 export interface DeletePlanRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2260,7 +2608,8 @@ export interface DeletePlanResponse {}
  */
 export interface GetPlanRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2271,13 +2620,15 @@ export interface GetPlanRequest {
  */
 export interface ListPlansRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2288,13 +2639,15 @@ export interface ListPlansRequest {
  */
 export interface ListPlansResponse {
   /**
-   * <p>The plans that were requested.</p>
+   * The plans that were requested.
+   *
    * @public
    */
   plans?: AbbreviatedPlan[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2305,7 +2658,8 @@ export interface ListPlansResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2316,7 +2670,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags for a resource.</p>
+   * The tags for a resource.
+   *
    * @public
    */
   resourceTags?: Record<string, string> | undefined;
@@ -2327,13 +2682,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for a tag that you add to a resource.</p>
+   * The Amazon Resource Name (ARN) for a tag that you add to a resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Tags that you add to a resource. You can add a maximum of 50 tags in Region switch.</p>
+   * Tags that you add to a resource. You can add a maximum of 50 tags in Region switch.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2349,13 +2706,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>
+   * The Amazon Resource Name (ARN) for a tag you remove a resource from.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Tag keys that you remove from a resource.</p>
+   * Tag keys that you remove from a resource.
+   *
    * @public
    */
   resourceTagKeys: string[] | undefined;
@@ -2371,49 +2730,57 @@ export interface UntagResourceResponse {}
  */
 export interface StartPlanExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan to execute.</p>
+   * The Amazon Resource Name (ARN) of the plan to execute.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region to target with this execution. This is the Region that traffic will be shifted to or from, depending on the action.</p>
+   * The Amazon Web Services Region to target with this execution. This is the Region that traffic will be shifted to or from, depending on the action.
+   *
    * @public
    */
   targetRegion: string | undefined;
 
   /**
-   * <p>The action to perform. Valid values are <code>activate</code> (to shift traffic to the target Region) or <code>deactivate</code> (to shift traffic away from the target Region).</p>
+   * The action to perform. Valid values are `activate` (to shift traffic to the target Region) or `deactivate` (to shift traffic away from the target Region).
+   *
    * @public
    */
   action: ExecutionAction | undefined;
 
   /**
-   * <p>The plan execution mode. Valid values are <code>graceful</code>, for starting the execution in graceful mode, or <code>ungraceful</code>, for starting the execution in ungraceful mode.</p>
+   * The plan execution mode. Valid values are `graceful`, for starting the execution in graceful mode, or `ungraceful`, for starting the execution in ungraceful mode.
+   *
    * @public
    */
   mode?: ExecutionMode | undefined;
 
   /**
-   * <p>An optional comment explaining why the plan execution is being started.</p>
+   * An optional comment explaining why the plan execution is being started.
+   *
    * @public
    */
   comment?: string | undefined;
 
   /**
-   * <p>A boolean value indicating whether to use the latest version of the plan. If set to false, you must specify a specific version.</p>
+   * A boolean value indicating whether to use the latest version of the plan. If set to false, you must specify a specific version.
+   *
    * @public
    */
   latestVersion?: string | undefined;
 
   /**
-   * <p>The execution identifier of the recovery execution that ran in the opposite region post-recovery is ran in. Required when starting a post-recovery execution.</p>
+   * The execution identifier of the recovery execution that ran in the opposite region post-recovery is ran in. Required when starting a post-recovery execution.
+   *
    * @public
    */
   recoveryExecutionId?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request and returns the result of the original successful request. If you don't provide a client token, the service automatically generates one. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2424,31 +2791,36 @@ export interface StartPlanExecutionRequest {
  */
 export interface StartPlanExecutionResponse {
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId?: string | undefined;
 
   /**
-   * <p>The details of the Region switch plan.</p>
+   * The details of the Region switch plan.
+   *
    * @public
    */
   plan?: string | undefined;
 
   /**
-   * <p>The version of the plan, a unique number generated by Region switch.</p>
+   * The version of the plan, a unique number generated by Region switch.
+   *
    * @public
    */
   planVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region to activate.</p>
+   * The Amazon Web Services Region to activate.
+   *
    * @public
    */
   activateRegion?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region to deactivate.</p>
+   * The Amazon Web Services Region to deactivate.
+   *
    * @public
    */
   deactivateRegion?: string | undefined;
@@ -2459,25 +2831,29 @@ export interface StartPlanExecutionResponse {
  */
 export interface UpdatePlanExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan with the execution to update.</p>
+   * The Amazon Resource Name (ARN) of the plan with the execution to update.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>The action specified for a plan execution, for example, Switch to Graceful or Pause.</p>
+   * The action specified for a plan execution, for example, Switch to Graceful or Pause.
+   *
    * @public
    */
   action: UpdatePlanExecutionAction | undefined;
 
   /**
-   * <p>An optional comment about the plan execution.</p>
+   * An optional comment about the plan execution.
+   *
    * @public
    */
   comment?: string | undefined;
@@ -2493,31 +2869,36 @@ export interface UpdatePlanExecutionResponse {}
  */
 export interface UpdatePlanExecutionStepRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan containing the execution step to update.</p>
+   * The Amazon Resource Name (ARN) of the plan containing the execution step to update.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the plan execution containing the step to update.</p>
+   * The unique identifier of the plan execution containing the step to update.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>An optional comment about the plan execution.</p>
+   * An optional comment about the plan execution.
+   *
    * @public
    */
   comment: string | undefined;
 
   /**
-   * <p>The name of the execution step to update.</p>
+   * The name of the execution step to update.
+   *
    * @public
    */
   stepName: string | undefined;
 
   /**
-   * <p>The updated action to take for the step. This can be used to skip or retry a step.</p>
+   * The updated action to take for the step. This can be used to skip or retry a step.
+   *
    * @public
    */
   actionToTake: UpdatePlanExecutionStepAction | undefined;
@@ -2529,7 +2910,8 @@ export interface UpdatePlanExecutionStepRequest {
 export interface UpdatePlanExecutionStepResponse {}
 
 /**
- * <p>Execution block configurations for a workflow in a Region switch plan. An execution block represents a specific type of action to perform during a Region switch.</p>
+ * Execution block configurations for a workflow in a Region switch plan. An execution block represents a specific type of action to perform during a Region switch.
+ *
  * @public
  */
 export type ExecutionBlockConfiguration =
@@ -2559,7 +2941,8 @@ export type ExecutionBlockConfiguration =
  */
 export namespace ExecutionBlockConfiguration {
   /**
-   * <p>An Amazon Web Services Lambda execution block.</p>
+   * An Amazon Web Services Lambda execution block.
+   *
    * @public
    */
   export interface CustomActionLambdaConfigMember {
@@ -2586,7 +2969,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An EC2 Auto Scaling group execution block.</p>
+   * An EC2 Auto Scaling group execution block.
+   *
    * @public
    */
   export interface Ec2AsgCapacityIncreaseConfigMember {
@@ -2613,7 +2997,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>A manual approval execution block.</p>
+   * A manual approval execution block.
+   *
    * @public
    */
   export interface ExecutionApprovalConfigMember {
@@ -2640,7 +3025,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An ARC routing control execution block.</p>
+   * An ARC routing control execution block.
+   *
    * @public
    */
   export interface ArcRoutingControlConfigMember {
@@ -2667,7 +3053,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Aurora Global Database execution block.</p>
+   * An Aurora Global Database execution block.
+   *
    * @public
    */
   export interface GlobalAuroraConfigMember {
@@ -2694,7 +3081,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>A parallel configuration execution block.</p>
+   * A parallel configuration execution block.
+   *
    * @public
    */
   export interface ParallelConfigMember {
@@ -2721,7 +3109,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>A Region switch plan execution block.</p>
+   * A Region switch plan execution block.
+   *
    * @public
    */
   export interface RegionSwitchPlanConfigMember {
@@ -2748,7 +3137,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>The capacity increase specified for the configuration.</p>
+   * The capacity increase specified for the configuration.
+   *
    * @public
    */
   export interface EcsCapacityIncreaseConfigMember {
@@ -2775,7 +3165,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Amazon Web Services EKS resource scaling execution block.</p>
+   * An Amazon Web Services EKS resource scaling execution block.
+   *
    * @public
    */
   export interface EksResourceScalingConfigMember {
@@ -2802,7 +3193,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>The Amazon Route 53 health check configuration.</p>
+   * The Amazon Route 53 health check configuration.
+   *
    * @public
    */
   export interface Route53HealthCheckConfigMember {
@@ -2829,7 +3221,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>Configuration for Amazon DocumentDB global clusters used in a Region switch plan.</p>
+   * Configuration for Amazon DocumentDB global clusters used in a Region switch plan.
+   *
    * @public
    */
   export interface DocumentDbConfigMember {
@@ -2856,7 +3249,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Amazon RDS promote read replica execution block.</p>
+   * An Amazon RDS promote read replica execution block.
+   *
    * @public
    */
   export interface RdsPromoteReadReplicaConfigMember {
@@ -2883,7 +3277,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Amazon RDS create cross-Region replica execution block.</p>
+   * An Amazon RDS create cross-Region replica execution block.
+   *
    * @public
    */
   export interface RdsCreateCrossRegionReadReplicaConfigMember {
@@ -2910,7 +3305,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>A Lambda event source mapping execution block.</p>
+   * A Lambda event source mapping execution block.
+   *
    * @public
    */
   export interface LambdaEventSourceMappingConfigMember {
@@ -2937,7 +3333,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Aurora Serverless scaling execution block.</p>
+   * An Aurora Serverless scaling execution block.
+   *
    * @public
    */
   export interface AuroraServerlessScalingConfigMember {
@@ -2964,7 +3361,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Aurora provisioned cluster scaling execution block.</p>
+   * An Aurora provisioned cluster scaling execution block.
+   *
    * @public
    */
   export interface AuroraProvisionedScalingConfigMember {
@@ -2991,7 +3389,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>A Neptune global database execution block.</p>
+   * A Neptune global database execution block.
+   *
    * @public
    */
   export interface NeptuneGlobalDatabaseConfigMember {
@@ -3018,7 +3417,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>An Amazon RDS switchover read replica execution block.</p>
+   * An Amazon RDS switchover read replica execution block.
+   *
    * @public
    */
   export interface RdsSwitchoverReadReplicaConfigMember {
@@ -3045,7 +3445,8 @@ export namespace ExecutionBlockConfiguration {
   }
 
   /**
-   * <p>Specifies an AWS Systems Manager <code>SendCommand</code> execution block.</p>
+   * Specifies an AWS Systems Manager `SendCommand` execution block.
+   *
    * @public
    */
   export interface SsmSendCommandConfigMember {
@@ -3126,72 +3527,84 @@ export namespace ExecutionBlockConfiguration {
 }
 
 /**
- * <p>Configuration for steps that should be executed in parallel during a Region switch.</p>
+ * Configuration for steps that should be executed in parallel during a Region switch.
+ *
  * @public
  */
 export interface ParallelExecutionBlockConfiguration {
   /**
-   * <p>The steps for a parallel execution block.</p>
+   * The steps for a parallel execution block.
+   *
    * @public
    */
   steps: Step[] | undefined;
 }
 
 /**
- * <p>Represents a step in a Region switch plan workflow. Each step performs a specific action during the Region switch process.</p>
+ * Represents a step in a Region switch plan workflow. Each step performs a specific action during the Region switch process.
+ *
  * @public
  */
 export interface Step {
   /**
-   * <p>The name of a step in a workflow.</p>
+   * The name of a step in a workflow.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of a step in a workflow.</p>
+   * The description of a step in a workflow.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration for an execution block in a workflow.</p>
+   * The configuration for an execution block in a workflow.
+   *
    * @public
    */
   executionBlockConfiguration: ExecutionBlockConfiguration | undefined;
 
   /**
-   * <p>The type of an execution block in a workflow.</p>
+   * The type of an execution block in a workflow.
+   *
    * @public
    */
   executionBlockType: ExecutionBlockType | undefined;
 }
 
 /**
- * <p>Represents a workflow in a Region switch plan. A workflow defines a sequence of steps to execute during a Region switch.</p>
+ * Represents a workflow in a Region switch plan. A workflow defines a sequence of steps to execute during a Region switch.
+ *
  * @public
  */
 export interface Workflow {
   /**
-   * <p>The steps that make up the workflow.</p>
+   * The steps that make up the workflow.
+   *
    * @public
    */
   steps?: Step[] | undefined;
 
   /**
-   * <p>The action that the workflow performs. Valid values include <code>activate</code> and <code>deactivate</code>.</p>
+   * The action that the workflow performs. Valid values include `activate` and `deactivate`.
+   *
    * @public
    */
   workflowTargetAction: WorkflowTargetAction | undefined;
 
   /**
-   * <p>The Amazon Web Services Region that the workflow targets.</p>
+   * The Amazon Web Services Region that the workflow targets.
+   *
    * @public
    */
   workflowTargetRegion?: string | undefined;
 
   /**
-   * <p>The description of the workflow.</p>
+   * The description of the workflow.
+   *
    * @public
    */
   workflowDescription?: string | undefined;
@@ -3202,181 +3615,211 @@ export interface Workflow {
  */
 export interface CreatePlanRequest {
   /**
-   * <p>The description of a Region switch plan.</p>
+   * The description of a Region switch plan.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>An array of workflows included in a Region switch plan.</p>
+   * An array of workflows included in a Region switch plan.
+   *
    * @public
    */
   workflows: Workflow[] | undefined;
 
   /**
-   * <p>An execution role is a way to categorize a Region switch plan.</p>
+   * An execution role is a way to categorize a Region switch plan.
+   *
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>Optionally, you can specify an recovery time objective for a Region switch plan, in minutes.</p>
+   * Optionally, you can specify an recovery time objective for a Region switch plan, in minutes.
+   *
    * @public
    */
   recoveryTimeObjectiveMinutes?: number | undefined;
 
   /**
-   * <p>The alarms associated with a Region switch plan.</p>
+   * The alarms associated with a Region switch plan.
+   *
    * @public
    */
   associatedAlarms?: Record<string, AssociatedAlarm> | undefined;
 
   /**
-   * <p>The triggers associated with a Region switch plan.</p>
+   * The triggers associated with a Region switch plan.
+   *
    * @public
    */
   triggers?: Trigger[] | undefined;
 
   /**
-   * <p>Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.</p>
+   * Configuration for automatic report generation for plan executions. When configured, Region switch automatically generates a report after each plan execution that includes execution events, plan configuration, and CloudWatch alarm states.
+   *
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to enable service quota checks for the Region switch plan.</p>
+   * Specifies whether to enable service quota checks for the Region switch plan.
+   *
    * @public
    */
   serviceQuotaChecksEnabled?: boolean | undefined;
 
   /**
-   * <p>The name of a Region switch plan.</p>
+   * The name of a Region switch plan.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An array that specifies the Amazon Web Services Regions for a Region switch plan. Specify two Regions.</p>
+   * An array that specifies the Amazon Web Services Regions for a Region switch plan. Specify two Regions.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).</p>
+   * The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
+   *
    * @public
    */
   recoveryApproach: RecoveryApproach | undefined;
 
   /**
-   * <p>The primary Amazon Web Services Region for the application. This is the Region where the application normally runs before any Region switch occurs.</p>
+   * The primary Amazon Web Services Region for the application. This is the Region where the application normally runs before any Region switch occurs.
+   *
    * @public
    */
   primaryRegion?: string | undefined;
 
   /**
-   * <p>The tags to apply to the Region switch plan.</p>
+   * The tags to apply to the Region switch plan.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Represents a Region switch plan. A plan defines the steps required to shift traffic from one Amazon Web Services Region to another.</p>
+ * Represents a Region switch plan. A plan defines the steps required to shift traffic from one Amazon Web Services Region to another.
+ *
  * @public
  */
 export interface Plan {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The description for a plan.</p>
+   * The description for a plan.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The workflows for a plan.</p>
+   * The workflows for a plan.
+   *
    * @public
    */
   workflows: Workflow[] | undefined;
 
   /**
-   * <p>The execution role for a plan.</p>
+   * The execution role for a plan.
+   *
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>The recovery time objective for a plan.</p>
+   * The recovery time objective for a plan.
+   *
    * @public
    */
   recoveryTimeObjectiveMinutes?: number | undefined;
 
   /**
-   * <p>The associated application health alarms for a plan.</p>
+   * The associated application health alarms for a plan.
+   *
    * @public
    */
   associatedAlarms?: Record<string, AssociatedAlarm> | undefined;
 
   /**
-   * <p>The triggers for a plan.</p>
+   * The triggers for a plan.
+   *
    * @public
    */
   triggers?: Trigger[] | undefined;
 
   /**
-   * <p>The report configuration for a plan.</p>
+   * The report configuration for a plan.
+   *
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
 
   /**
-   * <p>Indicates whether service quota checks are enabled for the Region switch plan. When enabled, Region switch compares the applied service quota values across the plan's Amazon Web Services Regions and creates a warning when a quota in one Region is lower than the value required for the matching resource in another Region. Service quota checks are advisory and don't prevent you from creating, evaluating, or executing a plan.</p>
+   * Indicates whether service quota checks are enabled for the Region switch plan. When enabled, Region switch compares the applied service quota values across the plan's Amazon Web Services Regions and creates a warning when a quota in one Region is lower than the value required for the matching resource in another Region. Service quota checks are advisory and don't prevent you from creating, evaluating, or executing a plan.
+   *
    * @public
    */
   serviceQuotaChecksEnabled?: boolean | undefined;
 
   /**
-   * <p>The name for a plan.</p>
+   * The name for a plan.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Regions for a plan.</p>
+   * The Amazon Web Services Regions for a plan.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).</p>
+   * The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
+   *
    * @public
    */
   recoveryApproach: RecoveryApproach | undefined;
 
   /**
-   * <p>The primary Region for a plan.</p>
+   * The primary Region for a plan.
+   *
    * @public
    */
   primaryRegion?: string | undefined;
 
   /**
-   * <p>The owner of a plan.</p>
+   * The owner of a plan.
+   *
    * @public
    */
   owner: string | undefined;
 
   /**
-   * <p>The version for the plan.</p>
+   * The version for the plan.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The timestamp when the plan was last updated.</p>
+   * The timestamp when the plan was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3387,55 +3830,64 @@ export interface Plan {
  */
 export interface UpdatePlanRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The updated description for the Region switch plan.</p>
+   * The updated description for the Region switch plan.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated workflows for the Region switch plan.</p>
+   * The updated workflows for the Region switch plan.
+   *
    * @public
    */
   workflows: Workflow[] | undefined;
 
   /**
-   * <p>The updated IAM role ARN that grants Region switch the permissions needed to execute the plan steps.</p>
+   * The updated IAM role ARN that grants Region switch the permissions needed to execute the plan steps.
+   *
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>The updated target recovery time objective (RTO) in minutes for the plan.</p>
+   * The updated target recovery time objective (RTO) in minutes for the plan.
+   *
    * @public
    */
   recoveryTimeObjectiveMinutes?: number | undefined;
 
   /**
-   * <p>The updated CloudWatch alarms associated with the plan.</p>
+   * The updated CloudWatch alarms associated with the plan.
+   *
    * @public
    */
   associatedAlarms?: Record<string, AssociatedAlarm> | undefined;
 
   /**
-   * <p>The updated conditions that can automatically trigger the execution of the plan.</p>
+   * The updated conditions that can automatically trigger the execution of the plan.
+   *
    * @public
    */
   triggers?: Trigger[] | undefined;
 
   /**
-   * <p>The updated report configuration for the plan.</p>
+   * The updated report configuration for the plan.
+   *
    * @public
    */
   reportConfiguration?: ReportConfiguration | undefined;
 
   /**
-   * <p>Specifies whether service quota checks are enabled for the Region switch plan.</p>
+   * Specifies whether service quota checks are enabled for the Region switch plan.
+   *
    * @public
    */
   serviceQuotaChecksEnabled?: boolean | undefined;
@@ -3446,7 +3898,8 @@ export interface UpdatePlanRequest {
  */
 export interface CreatePlanResponse {
   /**
-   * <p>The details of the created Region switch plan.</p>
+   * The details of the created Region switch plan.
+   *
    * @public
    */
   plan?: Plan | undefined;
@@ -3457,103 +3910,120 @@ export interface CreatePlanResponse {
  */
 export interface GetPlanExecutionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the plan.</p>
+   * The Amazon Resource Name (ARN) of the plan.
+   *
    * @public
    */
   planArn: string | undefined;
 
   /**
-   * <p>The execution identifier of a plan execution.</p>
+   * The execution identifier of a plan execution.
+   *
    * @public
    */
   executionId: string | undefined;
 
   /**
-   * <p>The version for the plan.</p>
+   * The version for the plan.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The timestamp when the plan execution was last updated.</p>
+   * The timestamp when the plan execution was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>A comment included on the plan execution.</p>
+   * A comment included on the plan execution.
+   *
    * @public
    */
   comment?: string | undefined;
 
   /**
-   * <p>The time (UTC) when the plan execution started.</p>
+   * The time (UTC) when the plan execution started.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The time (UTC) when the plan execution ended.</p>
+   * The time (UTC) when the plan execution ended.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The plan execution mode. Valid values are <code>graceful</code>, for graceful executions, or <code>ungraceful</code>, for ungraceful executions.</p>
+   * The plan execution mode. Valid values are `graceful`, for graceful executions, or `ungraceful`, for ungraceful executions.
+   *
    * @public
    */
   mode: ExecutionMode | undefined;
 
   /**
-   * <p>The plan execution state. Provides the state of a plan execution, for example, In Progress or Paused by Operator.</p>
+   * The plan execution state. Provides the state of a plan execution, for example, In Progress or Paused by Operator.
+   *
    * @public
    */
   executionState: ExecutionState | undefined;
 
   /**
-   * <p>The plan execution action. Valid values are <code>activate</code>, to activate an Amazon Web Services Region, or <code>deactivate</code>, to deactivate a Region.</p>
+   * The plan execution action. Valid values are `activate`, to activate an Amazon Web Services Region, or `deactivate`, to deactivate a Region.
+   *
    * @public
    */
   executionAction: ExecutionAction | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for a plan execution.</p>
+   * The Amazon Web Services Region for a plan execution.
+   *
    * @public
    */
   executionRegion: string | undefined;
 
   /**
-   * <p>The unique identifier of the most recent recovery execution. Required when starting a post-recovery execution.</p>
+   * The unique identifier of the most recent recovery execution. Required when starting a post-recovery execution.
+   *
    * @public
    */
   recoveryExecutionId?: string | undefined;
 
   /**
-   * <p>The states of the steps in the plan execution.</p>
+   * The states of the steps in the plan execution.
+   *
    * @public
    */
   stepStates?: StepState[] | undefined;
 
   /**
-   * <p>The details of the Region switch plan.</p>
+   * The details of the Region switch plan.
+   *
    * @public
    */
   plan?: Plan | undefined;
 
   /**
-   * <p>The actual recovery time that Region switch calculates for a plan execution. Actual recovery time includes the time for the plan to run added to the time elapsed until the application health alarms that you've specified are healthy again.</p>
+   * The actual recovery time that Region switch calculates for a plan execution. Actual recovery time includes the time for the plan to run added to the time elapsed until the application health alarms that you've specified are healthy again.
+   *
    * @public
    */
   actualRecoveryTime?: string | undefined;
 
   /**
-   * <p>Information about the location of a generated report, or the cause of its failure.</p>
+   * Information about the location of a generated report, or the cause of its failure.
+   *
    * @public
    */
   generatedReportDetails?: GeneratedReport[] | undefined;
 
   /**
-   * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>
+   * Specifies that you want to receive the next page of results. Valid only if you received a `nextToken` response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's `nextToken` response to request the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3564,7 +4034,8 @@ export interface GetPlanExecutionResponse {
  */
 export interface GetPlanInRegionResponse {
   /**
-   * <p>The details of the Region switch plan.</p>
+   * The details of the Region switch plan.
+   *
    * @public
    */
   plan?: Plan | undefined;
@@ -3575,7 +4046,8 @@ export interface GetPlanInRegionResponse {
  */
 export interface GetPlanResponse {
   /**
-   * <p>The detailed information about the requested Region switch plan.</p>
+   * The detailed information about the requested Region switch plan.
+   *
    * @public
    */
   plan?: Plan | undefined;
@@ -3586,7 +4058,8 @@ export interface GetPlanResponse {
  */
 export interface UpdatePlanResponse {
   /**
-   * <p>The details of the updated Region switch plan.</p>
+   * The details of the updated Region switch plan.
+   *
    * @public
    */
   plan?: Plan | undefined;

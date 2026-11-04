@@ -23,8 +23,8 @@ export interface DescribeAssessmentRunsCommandInput extends DescribeAssessmentRu
 export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentRunsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the assessment runs that are specified by the ARNs of the assessment
- *          runs.</p>
+ * Describes the assessment runs that are specified by the ARNs of the assessment runs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,15 +100,16 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @public
  */

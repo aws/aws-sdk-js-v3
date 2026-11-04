@@ -23,7 +23,8 @@ export interface GetDiscoveredSchemaCommandInput extends GetDiscoveredSchemaRequ
 export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaResponse, __MetadataBearer {}
 
 /**
- * <p>Get the discovered schema that was generated based on sampled events.</p>
+ * Get the discovered schema that was generated based on sampled events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
 
 /**
- * <p>User does not have permission to perform this action.</p>
+ * User does not have permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ * Adding, updating, or deleting the resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -36,13 +38,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>Id of the resource in the conflicting operation.</p>
+   * Id of the resource in the conflicting operation.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Type of the resource in the conflicting operation.</p>
+   * Type of the resource in the conflicting operation.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -63,7 +67,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred while processing a request.</p>
+ * An unexpected error occurred while processing a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -86,7 +91,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Resource does not exist.</p>
+ * Resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -95,13 +101,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>Id of the not found resource.</p>
+   * Id of the not found resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Type of the font found resource.</p>
+   * Type of the font found resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -122,7 +130,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because it exceeded the allowed API request rate.</p>
+ * The request was denied because it exceeded the allowed API request rate.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -145,7 +154,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input did not meet the specified constraints.</p>
+ * The input did not meet the specified constraints.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -168,7 +178,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because the resource can't have any more tags.</p>
+ * The request was denied because the resource can't have any more tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -177,7 +188,8 @@ export class TooManyTagsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>Name of the resource that exceeds maximum number of tags allowed.</p>
+   * Name of the resource that exceeds maximum number of tags allowed.
+   *
    * @public
    */
   ResourceName?: string | undefined;

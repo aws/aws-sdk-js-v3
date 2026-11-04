@@ -23,11 +23,8 @@ export interface DeleteTransitGatewayRouteTableCommandInput extends DeleteTransi
 export interface DeleteTransitGatewayRouteTableCommandOutput extends DeleteTransitGatewayRouteTableResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified transit gateway route table. Before you can delete a transit gateway route table, you
- *          must disassociate all attachments from it by using <a>DisassociateTransitGatewayRouteTable</a> and wait for the disassociations to
- *          complete. You can't delete a transit gateway route table that is the default association route table
- *          or default propagation route table for the transit gateway. To change the default route tables, use
- *          <a>ModifyTransitGateway</a>.</p>
+ * Deletes the specified transit gateway route table. Before you can delete a transit gateway route table, you must disassociate all attachments from it by using DisassociateTransitGatewayRouteTable and wait for the disassociations to complete. You can't delete a transit gateway route table that is the default association route table or default propagation route table for the transit gateway. To change the default route tables, use ModifyTransitGateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +65,8 @@ export interface DeleteTransitGatewayRouteTableCommandOutput extends DeleteTrans
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

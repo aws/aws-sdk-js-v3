@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>AWS Signer Data Plane service provides APIs for checking revocation status of signed artifacts.</p>
+ * AWS Signer Data Plane service provides APIs for checking revocation status of signed artifacts.
  *
  * @packageDocumentation
  */

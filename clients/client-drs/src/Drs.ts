@@ -1840,7 +1840,8 @@ export interface Drs {
 }
 
 /**
- * <p>AWS Elastic Disaster Recovery Service.</p>
+ * AWS Elastic Disaster Recovery Service.
+ *
  * @public
  */
 export class Drs extends DrsClient implements Drs {}

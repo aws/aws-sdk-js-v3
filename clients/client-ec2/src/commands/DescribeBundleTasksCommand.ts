@@ -23,17 +23,12 @@ export interface DescribeBundleTasksCommandInput extends DescribeBundleTasksRequ
 export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
- *          <note>
- *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no
- *         longer in the list, you can still register an AMI from it. Just use
- *           <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided
- *         to the bundle task.</p>
- *          </note>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes the specified bundle tasks or all of your bundle tasks.
+ *
+ * > **Note:** Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use `RegisterImage` with the Amazon S3 bucket name and image manifest name you provided to the bundle task.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +88,8 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

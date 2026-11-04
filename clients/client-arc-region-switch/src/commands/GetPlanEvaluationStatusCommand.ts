@@ -23,7 +23,8 @@ export interface GetPlanEvaluationStatusCommandInput extends GetPlanEvaluationSt
 export interface GetPlanEvaluationStatusCommandOutput extends GetPlanEvaluationStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the evaluation status of a Region switch plan. The evaluation status provides information about the last time the plan was evaluated and any warnings or issues detected.</p>
+ * Retrieves the evaluation status of a Region switch plan. The evaluation status provides information about the last time the plan was evaluated and any warnings or issues detected.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +72,20 @@ export interface GetPlanEvaluationStatusCommandOutput extends GetPlanEvaluationS
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * HTTP Status Code: 403
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface ListProfilesCommandInput extends ListProfilesRequest {}
 export interface ListProfilesCommandOutput extends ListProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Lists all the Route 53 Profiles associated with your Amazon Web Services account.
- * </p>
+ * Lists all the Route 53 Profiles associated with your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,33 +60,28 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @see {@link Route53ProfilesClientResolvedConfig | config} for Route53ProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified operation.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>
- * The <code>NextToken</code> you provided isn;t valid.
- * </p>
+ *
+ * The `NextToken` you provided isn;t valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>
- *   One or more parameters in this request are not valid.
- * </p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *   You have provided an invalid command.
- * </p>
+ *
+ * You have provided an invalid command.
  *
  * @throws {@link Route53ProfilesServiceException}
- * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ * Base exception class for all service exceptions from Route53Profiles service.
  *
  * @public
  */

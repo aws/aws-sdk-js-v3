@@ -23,7 +23,8 @@ export interface ListGlossaryTermsCommandInput extends ListGlossaryTermsRequest 
 export interface ListGlossaryTermsCommandOutput extends ListGlossaryTermsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists glossary terms within a business glossary in Glue Data Catalog.</p>
+ * Lists glossary terms within a business glossary in Glue Data Catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +60,24 @@ export interface ListGlossaryTermsCommandOutput extends ListGlossaryTermsRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * The throttling threshhold was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

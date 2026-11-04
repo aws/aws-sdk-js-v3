@@ -23,7 +23,8 @@ export interface ListAutoMLJobsCommandInput extends ListAutoMLJobsRequest {}
 export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Request a list of jobs.</p>
+ * Request a list of jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +77,8 @@ export interface ListAutoMLJobsCommandOutput extends ListAutoMLJobsResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

@@ -23,14 +23,14 @@ export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurity
 export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the SMB security strategy level for an Amazon S3 file gateway. This
- *          action is only supported for Amazon S3 file gateways.</p>
- *          <note>
- *             <p>For information about configuring this setting using the Amazon Web Services console,
- *             see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/security-strategy.html">Setting a security level for your gateway</a> in the <i>Amazon S3
- *                File Gateway User Guide</i>.</p>
- *             <p>A higher security strategy level can affect performance of the gateway.</p>
- *          </note>
+ * Updates the SMB security strategy level for an Amazon S3 file gateway. This action is only supported for Amazon S3 file gateways.
+ *
+ * > **Note:**
+ * >
+ * > For information about configuring this setting using the Amazon Web Services console, see [Setting a security level for your gateway](https://docs.aws.amazon.com/filegateway/latest/files3/security-strategy.html) in the *Amazon S3 File Gateway User Guide*.
+ * >
+ * > A higher security strategy level can affect performance of the gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,16 +58,16 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

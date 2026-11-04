@@ -23,7 +23,8 @@ export interface GetReadinessCheckCommandInput extends GetReadinessCheckRequest 
 export interface GetReadinessCheckCommandOutput extends GetReadinessCheckResponse, __MetadataBearer {}
 
 /**
- * <p>Gets details about a readiness check.</p>
+ * Gets details about a readiness check.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface GetReadinessCheckCommandOutput extends GetReadinessCheckRespons
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

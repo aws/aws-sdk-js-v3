@@ -23,7 +23,8 @@ export interface RegisterCertificateCommandInput extends RegisterCertificateRequ
 export interface RegisterCertificateCommandOutput extends RegisterCertificateResult, __MetadataBearer {}
 
 /**
- * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>
+ * Registers a certificate for a secure LDAP or client certificate authentication.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,35 +56,44 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link CertificateAlreadyExistsException} (client fault)
- *  <p>The certificate has already been registered into the system.</p>
+ *
+ * The certificate has already been registered into the system.
  *
  * @throws {@link CertificateLimitExceededException} (client fault)
- *  <p>The certificate could not be added because the certificate limit has been reached.</p>
+ *
+ * The certificate could not be added because the certificate limit has been reached.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable.</p>
+ *
+ * The specified directory is unavailable.
  *
  * @throws {@link InvalidCertificateException} (client fault)
- *  <p>The certificate PEM that was provided has incorrect encoding.</p>
+ *
+ * The certificate PEM that was provided has incorrect encoding.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

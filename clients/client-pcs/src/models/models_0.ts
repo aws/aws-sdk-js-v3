@@ -17,234 +17,301 @@ import type {
 } from "./enums";
 
 /**
- * <p>The accounting configuration includes configurable settings for Slurm accounting. It's a property of the <b>ClusterSlurmConfiguration</b> object.</p>
+ * The accounting configuration includes configurable settings for Slurm accounting. It's a property of the **ClusterSlurmConfiguration** object.
+ *
  * @public
  */
 export interface Accounting {
   /**
-   * <p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>
+   * The default value for all purge settings for `slurmdbd.conf`. For more information, see the [slurmdbd.conf documentation at SchedMD](https://slurm.schedmd.com/slurmdbd.conf.html).
+   *
+   * The default value for `defaultPurgeTimeInDays` is `-1`.
+   *
+   * A value of `-1` means there is no purge time and records persist as long as the cluster exists.
+   *
+   * > **Important:** `0` isn't a valid value.
+   *
    * @public
    */
   defaultPurgeTimeInDays?: number | undefined;
 
   /**
-   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * The default value for `mode` is `NONE`. A value of `STANDARD` means Slurm accounting is enabled.
+   *
    * @public
    */
   mode: AccountingMode | undefined;
 }
 
 /**
- * <p>The accounting configuration includes configurable settings for Slurm accounting. It's a property of the <b>ClusterSlurmConfiguration</b> object.</p>
+ * The accounting configuration includes configurable settings for Slurm accounting. It's a property of the **ClusterSlurmConfiguration** object.
+ *
  * @public
  */
 export interface AccountingRequest {
   /**
-   * <p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>
+   * The default value for all purge settings for `slurmdbd.conf`. For more information, see the [slurmdbd.conf documentation at SchedMD](https://slurm.schedmd.com/slurmdbd.conf.html).
+   *
+   * The default value for `defaultPurgeTimeInDays` is `-1`.
+   *
+   * A value of `-1` means there is no purge time and records persist as long as the cluster exists.
+   *
+   * > **Important:** `0` isn't a valid value.
+   *
    * @public
    */
   defaultPurgeTimeInDays?: number | undefined;
 
   /**
-   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * The default value for `mode` is `NONE`. A value of `STANDARD` means Slurm accounting is enabled.
+   *
    * @public
    */
   mode: AccountingMode | undefined;
 }
 
 /**
- * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+ * An Amazon EC2 launch template PCS uses to launch compute nodes.
+ *
  * @public
  */
 export interface CustomLaunchTemplate {
   /**
-   * <p>The ID of the EC2 launch template to use to provision instances.</p> <p> Example: <code>lt-xxxx</code> </p>
+   * The ID of the EC2 launch template to use to provision instances.
+   *
+   * Example: `lt-xxxx`
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The version of the EC2 launch template to use to provision instances.</p>
+   * The version of the EC2 launch template to use to provision instances.
+   *
    * @public
    */
   version: string | undefined;
 }
 
 /**
- * <p>An EC2 instance configuration PCS uses to launch compute nodes.</p>
+ * An EC2 instance configuration PCS uses to launch compute nodes.
+ *
  * @public
  */
 export interface InstanceConfig {
   /**
-   * <p>The EC2 instance type that PCS can provision in the compute node group.</p> <p> Example: <code>t2.xlarge</code> </p>
+   * The EC2 instance type that PCS can provision in the compute node group.
+   *
+   * Example: `t2.xlarge`
+   *
    * @public
    */
   instanceType?: string | undefined;
 }
 
 /**
- * <p>The source location and integrity information for a node lifecycle script.</p>
+ * The source location and integrity information for a node lifecycle script.
+ *
  * @public
  */
 export interface ScriptSource {
   /**
-   * <p>The location of the script. Specify either an Amazon S3 URI in the format <code>s3://bucket-name/key</code> or an HTTPS URL.</p>
+   * The location of the script. Specify either an Amazon S3 URI in the format `s3://bucket-name/key` or an HTTPS URL.
+   *
    * @public
    */
   scriptLocation: string | undefined;
 
   /**
-   * <p>The Amazon S3 version ID of the script. Use this value to pin the script to a specific version in a versioned Amazon S3 bucket. This value is only valid when <code>scriptLocation</code> is an Amazon S3 URI.</p>
+   * The Amazon S3 version ID of the script. Use this value to pin the script to a specific version in a versioned Amazon S3 bucket. This value is only valid when `scriptLocation` is an Amazon S3 URI.
+   *
    * @public
    */
   s3VersionId?: string | undefined;
 
   /**
-   * <p>The SHA-256 checksum of the script content, as a 64-character hexadecimal string. This value is optional. When specified, PCS uses this value to verify the integrity of the downloaded script.</p>
+   * The SHA-256 checksum of the script content, as a 64-character hexadecimal string. This value is optional. When specified, PCS uses this value to verify the integrity of the downloaded script.
+   *
    * @public
    */
   checksum?: string | undefined;
 }
 
 /**
- * <p>A script to run during a compute node lifecycle stage.</p>
+ * A script to run during a compute node lifecycle stage.
+ *
  * @public
  */
 export interface NodeLifecycleScript {
   /**
-   * <p>A unique name for the script. The name can be up to 64 characters long. Valid characters are letters, numbers, spaces, underscores (<code>_</code>), and hyphens (<code>-</code>). The first character must be a letter or a number.</p>
+   * A unique name for the script. The name can be up to 64 characters long. Valid characters are letters, numbers, spaces, underscores (`_`), and hyphens (`-`). The first character must be a letter or a number.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The source location and integrity information for the script.</p>
+   * The source location and integrity information for the script.
+   *
    * @public
    */
   scriptSource: ScriptSource | undefined;
 
   /**
-   * <p>The command-line arguments to pass to the script. You can specify up to 20 arguments, and each argument can be up to 256 characters long.</p>
+   * The command-line arguments to pass to the script. You can specify up to 20 arguments, and each argument can be up to 256 characters long.
+   *
    * @public
    */
   arguments?: string[] | undefined;
 
   /**
-   * <p>The behavior when the script fails. The default value is <code>TERMINATE</code>. Valid values:</p> <ul> <li> <p> <code>TERMINATE</code> – Terminates the compute node.</p> </li> <li> <p> <code>STOP_SEQUENCE</code> – Stops running subsequent scripts in the sequence but doesn't terminate the compute node.</p> </li> <li> <p> <code>CONTINUE</code> – Ignores the error and continues running the next script.</p> </li> </ul>
+   * The behavior when the script fails. The default value is `TERMINATE`. Valid values:
+   *
+   * - `TERMINATE` – Terminates the compute node.
+   * - `STOP_SEQUENCE` – Stops running subsequent scripts in the sequence but doesn't terminate the compute node.
+   * - `CONTINUE` – Ignores the error and continues running the next script.
+   *
    * @public
    */
   onError?: OnError | undefined;
 
   /**
-   * <p>The policy that determines when the script runs. The default value is <code>FIRST_BOOT_ONLY</code>. Valid values:</p> <ul> <li> <p> <code>FIRST_BOOT_ONLY</code> – Runs the script only the first time the compute node boots.</p> </li> <li> <p> <code>EVERY_BOOT</code> – Runs the script every time the compute node boots, including reboots.</p> </li> </ul>
+   * The policy that determines when the script runs. The default value is `FIRST_BOOT_ONLY`. Valid values:
+   *
+   * - `FIRST_BOOT_ONLY` – Runs the script only the first time the compute node boots.
+   * - `EVERY_BOOT` – Runs the script every time the compute node boots, including reboots.
+   *
    * @public
    */
   executionPolicy?: ExecutionPolicy | undefined;
 }
 
 /**
- * <p>The stages of a compute node's lifecycle where you can configure scripts to run.</p>
+ * The stages of a compute node's lifecycle where you can configure scripts to run.
+ *
  * @public
  */
 export interface NodeLifecycleStages {
   /**
-   * <p>The scripts to run after PCS finishes setting up the compute node and before the Slurm daemon (<code>slurmd</code>) starts. Use this stage for tasks that must complete before the node accepts jobs, such as mounting shared storage, configuring networking, or installing software packages.</p>
+   * The scripts to run after PCS finishes setting up the compute node and before the Slurm daemon (`slurmd`) starts. Use this stage for tasks that must complete before the node accepts jobs, such as mounting shared storage, configuring networking, or installing software packages.
+   *
    * @public
    */
   nodeBootstrapped?: NodeLifecycleScript[] | undefined;
 
   /**
-   * <p>The scripts to run after the Slurm daemon (<code>slurmd</code>) starts and the compute node registers with the Slurm controller. Use this stage for tasks that require Slurm to be running, such as running Slurm commands.</p>
+   * The scripts to run after the Slurm daemon (`slurmd`) starts and the compute node registers with the Slurm controller. Use this stage for tasks that require Slurm to be running, such as running Slurm commands.
+   *
    * @public
    */
   nodeReady?: NodeLifecycleScript[] | undefined;
 }
 
 /**
- * <p>The lifecycle actions to configure on a compute node group when you create it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
+ * The lifecycle actions to configure on a compute node group when you create it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.
+ *
  * @public
  */
 export interface NodeLifecycleActionsRequest {
   /**
-   * <p>The lifecycle stages where you configure scripts to run.</p>
+   * The lifecycle stages where you configure scripts to run.
+   *
    * @public
    */
   stages: NodeLifecycleStages | undefined;
 
   /**
-   * <p>The caching policy for node lifecycle scripts. The default value is <code>CACHE_ONCE</code>. Valid values:</p> <ul> <li> <p> <code>CACHE_ONCE</code> – Downloads each script once and reuses it on subsequent boots.</p> </li> <li> <p> <code>REFRESH_ON_REBOOT</code> – Downloads each script on every boot.</p> </li> </ul>
+   * The caching policy for node lifecycle scripts. The default value is `CACHE_ONCE`. Valid values:
+   *
+   * - `CACHE_ONCE` – Downloads each script once and reuses it on subsequent boots.
+   * - `REFRESH_ON_REBOOT` – Downloads each script on every boot.
+   *
    * @public
    */
   scriptCachingPolicy?: ScriptCachingPolicy | undefined;
 }
 
 /**
- * <p>Specifies the boundaries of the compute node group auto scaling.</p>
+ * Specifies the boundaries of the compute node group auto scaling.
+ *
  * @public
  */
 export interface ScalingConfigurationRequest {
   /**
-   * <p>The lower bound of the number of instances allowed in the compute fleet.</p>
+   * The lower bound of the number of instances allowed in the compute fleet.
+   *
    * @public
    */
   minInstanceCount: number | undefined;
 
   /**
-   * <p>The upper bound of the number of instances allowed in the compute fleet.</p>
+   * The upper bound of the number of instances allowed in the compute fleet.
+   *
    * @public
    */
   maxInstanceCount: number | undefined;
 }
 
 /**
- * <p>Additional settings that directly map to Slurm settings.</p> <important> <p>PCS supports a subset of Slurm settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html">Configuring custom Slurm settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+ * Additional settings that directly map to Slurm settings.
+ *
+ * > **Important:** PCS supports a subset of Slurm settings. For more information, see [Configuring custom Slurm settings in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html) in the *PCS User Guide*.
+ *
  * @public
  */
 export interface SlurmCustomSetting {
   /**
-   * <p>PCS supports custom Slurm settings for clusters, compute node groups, and queues. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html">Configuring custom Slurm settings in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * PCS supports custom Slurm settings for clusters, compute node groups, and queues. For more information, see [Configuring custom Slurm settings in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html) in the *PCS User Guide*.
+   *
    * @public
    */
   parameterName: string | undefined;
 
   /**
-   * <p>The values for the configured Slurm settings.</p>
+   * The values for the configured Slurm settings.
+   *
    * @public
    */
   parameterValue: string | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface ComputeNodeGroupSlurmConfigurationRequest {
   /**
-   * <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
+   * The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level `scaleDownIdleTimeInSeconds` setting. A value of `-1` removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.
+   *
    * @public
    */
   scaleDownIdleTimeInSeconds?: number | undefined;
 
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 
   /**
-   * <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+   * The additional Slurm `gres.conf` records for the compute node group. Each item is a map of `gres.conf` attribute names to values that describes one `gres.conf` record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the `NodeName=` prefix and merges these records with the GPU record it derives from the instance type.
+   *
    * @public
    */
   gresCustomSettings?: Record<string, string>[] | undefined;
 }
 
 /**
- * <p>Additional configuration when you specify <code>SPOT</code> as the <code>purchaseOption</code> for the <code>CreateComputeNodeGroup</code> API action.</p>
+ * Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
+ *
  * @public
  */
 export interface SpotOptions {
   /**
-   * <p>The Amazon EC2 allocation strategy PCS uses to provision EC2 instances. PCS supports <b>lowest price</b>, <b>capacity optimized</b>, and <b>price capacity optimized</b>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. If you don't provide this option, it defaults to <b>price capacity optimized</b>.</p>
+   * The Amazon EC2 allocation strategy PCS uses to provision EC2 instances. PCS supports **lowest price**, **capacity optimized**, and **price capacity optimized**. For more information, see [Use allocation strategies to determine how EC2 Fleet or Spot Fleet fulfills Spot and On-Demand capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html) in the *Amazon Elastic Compute Cloud User Guide*. If you don't provide this option, it defaults to **price capacity optimized**.
+   *
    * @public
    */
   allocationStrategy?: SpotAllocationStrategy | undefined;
@@ -255,277 +322,330 @@ export interface SpotOptions {
  */
 export interface CreateComputeNodeGroupRequest {
   /**
-   * <p>The name or ID of the cluster to create a compute node group in.</p>
+   * The name or ID of the cluster to create a compute node group in.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>A name to identify the cluster. Example: <code>MyCluster</code> </p>
+   * A name to identify the cluster. Example: `MyCluster`
+   *
    * @public
    */
   computeNodeGroupName: string | undefined;
 
   /**
-   * <p> The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in the custom launch template.</p>
+   * The ID of the Amazon Machine Image (AMI) that PCS uses to launch compute nodes (Amazon EC2 instances). If you don't provide this value, PCS uses the AMI ID specified in the custom launch template.
+   *
    * @public
    */
   amiId?: string | undefined;
 
   /**
-   * <p>The list of subnet IDs where the compute node group launches instances. Subnets must be in the same VPC as the cluster.</p>
+   * The list of subnet IDs where the compute node group launches instances. Subnets must be in the same VPC as the cluster.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. For more information about PCS support for interruptible capacity reservations, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-iodcr.html">Using I-ODCRs with PCS</a> in the <i>PCS User Guide</i>. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-odcr.html">Using ODCRs with PCS</a>. If you don't provide this option, it defaults to On-Demand.</p>
+   * Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon Elastic Compute Cloud User Guide*. For more information about PCS support for Capacity Blocks, see [Using Amazon EC2 Capacity Blocks for ML with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html) in the *PCS User Guide*. For more information about PCS support for interruptible capacity reservations, see [Using I-ODCRs with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-iodcr.html) in the *PCS User Guide*. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see [Using ODCRs with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-odcr.html). If you don't provide this option, it defaults to On-Demand.
+   *
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+   * An Amazon EC2 launch template PCS uses to launch compute nodes.
+   *
    * @public
    */
   customLaunchTemplate: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code> permission and the role name must start with <code>AWSPCS</code> or must have the path <code>/aws-pcs/</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html">IAM instance profiles for PCS</a> in the <i>PCS User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the `pcs:RegisterComputeNodeGroupInstance` permission and the role name must start with `AWSPCS` or must have the path `/aws-pcs/`. For more information, see [IAM instance profiles for PCS](https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html) in the *PCS User Guide*.
+   *
    * @public
    */
   iamInstanceProfileArn: string | undefined;
 
   /**
-   * <p>Specifies the boundaries of the compute node group auto scaling.</p>
+   * Specifies the boundaries of the compute node group auto scaling.
+   *
    * @public
    */
   scalingConfiguration: ScalingConfigurationRequest | undefined;
 
   /**
-   * <p>A list of EC2 instance configurations that PCS can provision in the compute node group.</p>
+   * A list of EC2 instance configurations that PCS can provision in the compute node group.
+   *
    * @public
    */
   instanceConfigs: InstanceConfig[] | undefined;
 
   /**
-   * <p>Additional configuration when you specify <code>SPOT</code> as the <code>purchaseOption</code> for the <code>CreateComputeNodeGroup</code> API action.</p>
+   * Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
+   *
    * @public
    */
   spotOptions?: SpotOptions | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: ComputeNodeGroupSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.
+   *
    * @public
    */
   nodeLifecycleActions?: NodeLifecycleActionsRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>
+   * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>An error that occurred during resource creation.</p>
+ * An error that occurred during resource creation.
+ *
  * @public
  */
 export interface ErrorInfo {
   /**
-   * <p>The short-form error code.</p>
+   * The short-form error code.
+   *
    * @public
    */
   code?: string | undefined;
 
   /**
-   * <p>The detailed error information.</p>
+   * The detailed error information.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>The lifecycle actions configured on a compute node group. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
+ * The lifecycle actions configured on a compute node group. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.
+ *
  * @public
  */
 export interface NodeLifecycleActions {
   /**
-   * <p>The lifecycle stages where you configure scripts to run.</p>
+   * The lifecycle stages where you configure scripts to run.
+   *
    * @public
    */
   stages: NodeLifecycleStages | undefined;
 
   /**
-   * <p>The caching policy for node lifecycle scripts. The default value is <code>CACHE_ONCE</code>. Valid values:</p> <ul> <li> <p> <code>CACHE_ONCE</code> – Downloads each script once and reuses it on subsequent boots.</p> </li> <li> <p> <code>REFRESH_ON_REBOOT</code> – Downloads each script on every boot.</p> </li> </ul>
+   * The caching policy for node lifecycle scripts. The default value is `CACHE_ONCE`. Valid values:
+   *
+   * - `CACHE_ONCE` – Downloads each script once and reuses it on subsequent boots.
+   * - `REFRESH_ON_REBOOT` – Downloads each script on every boot.
+   *
    * @public
    */
   scriptCachingPolicy?: ScriptCachingPolicy | undefined;
 }
 
 /**
- * <p>Specifies the boundaries of the compute node group auto scaling.</p>
+ * Specifies the boundaries of the compute node group auto scaling.
+ *
  * @public
  */
 export interface ScalingConfiguration {
   /**
-   * <p>The lower bound of the number of instances allowed in the compute fleet.</p>
+   * The lower bound of the number of instances allowed in the compute fleet.
+   *
    * @public
    */
   minInstanceCount: number | undefined;
 
   /**
-   * <p>The upper bound of the number of instances allowed in the compute fleet.</p>
+   * The upper bound of the number of instances allowed in the compute fleet.
+   *
    * @public
    */
   maxInstanceCount: number | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface ComputeNodeGroupSlurmConfiguration {
   /**
-   * <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
+   * The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level `scaleDownIdleTimeInSeconds` setting. A value of `-1` removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.
+   *
    * @public
    */
   scaleDownIdleTimeInSeconds?: number | undefined;
 
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 
   /**
-   * <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+   * The additional Slurm `gres.conf` records for the compute node group. Each item is a map of `gres.conf` attribute names to values that describes one `gres.conf` record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the `NodeName=` prefix and merges these records with the GPU record it derives from the instance type.
+   *
    * @public
    */
   gresCustomSettings?: Record<string, string>[] | undefined;
 }
 
 /**
- * <p>A compute node group associated with a cluster.</p>
+ * A compute node group associated with a cluster.
+ *
  * @public
  */
 export interface ComputeNodeGroup {
   /**
-   * <p>The name that identifies the compute node group.</p>
+   * The name that identifies the compute node group.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The generated unique ID of the compute node group.</p>
+   * The generated unique ID of the compute node group.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the compute node group.</p>
+   * The unique Amazon Resource Name (ARN) of the compute node group.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the cluster of the compute node group.</p>
+   * The ID of the cluster of the compute node group.
+   *
    * @public
    */
   clusterId: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the resource was modified.</p>
+   * The date and time the resource was modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the compute node group.</p> <note> <p>The provisioning status doesn't indicate the overall health of the compute node group.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+   * The provisioning status of the compute node group.
+   *
+   * > **Note:** The provisioning status doesn't indicate the overall health of the compute node group.
+   *
+   * > **Important:** The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED`. For more information, see [Frequently asked questions about Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html) in the *PCS User Guide*.
+   *
    * @public
    */
   status: ComputeNodeGroupStatus | undefined;
 
   /**
-   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.</p>
+   * The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.
+   *
    * @public
    */
   amiId?: string | undefined;
 
   /**
-   * <p>The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.</p>
+   * The list of subnet IDs where instances are provisioned by the compute node group. The subnets must be in the same VPC as the cluster.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. For more information about PCS support for interruptible capacity reservations, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-iodcr.html">Using I-ODCRs with PCS</a> in the <i>PCS User Guide</i>. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-odcr.html">Using ODCRs with PCS</a>. If you don't provide this option, it defaults to On-Demand.</p>
+   * Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon Elastic Compute Cloud User Guide*. For more information about PCS support for Capacity Blocks, see [Using Amazon EC2 Capacity Blocks for ML with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html) in the *PCS User Guide*. For more information about PCS support for interruptible capacity reservations, see [Using I-ODCRs with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-iodcr.html) in the *PCS User Guide*. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see [Using ODCRs with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-odcr.html). If you don't provide this option, it defaults to On-Demand.
+   *
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+   * An Amazon EC2 launch template PCS uses to launch compute nodes.
+   *
    * @public
    */
   customLaunchTemplate: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code> permission and the role name must start with <code>AWSPCS</code> or must have the path <code>/aws-pcs/</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html">IAM instance profiles for PCS</a> in the <i>PCS User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the `pcs:RegisterComputeNodeGroupInstance` permission and the role name must start with `AWSPCS` or must have the path `/aws-pcs/`. For more information, see [IAM instance profiles for PCS](https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html) in the *PCS User Guide*.
+   *
    * @public
    */
   iamInstanceProfileArn: string | undefined;
 
   /**
-   * <p>Specifies the boundaries of the compute node group auto scaling.</p>
+   * Specifies the boundaries of the compute node group auto scaling.
+   *
    * @public
    */
   scalingConfiguration: ScalingConfiguration | undefined;
 
   /**
-   * <p>A list of EC2 instance configurations that PCS can provision in the compute node group.</p>
+   * A list of EC2 instance configurations that PCS can provision in the compute node group.
+   *
    * @public
    */
   instanceConfigs: InstanceConfig[] | undefined;
 
   /**
-   * <p>Additional configuration when you specify <code>SPOT</code> as the <code>purchaseOption</code> for the <code>CreateComputeNodeGroup</code> API action.</p>
+   * Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
+   *
    * @public
    */
   spotOptions?: SpotOptions | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: ComputeNodeGroupSlurmConfiguration | undefined;
 
   /**
-   * <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.
+   *
    * @public
    */
   nodeLifecycleActions?: NodeLifecycleActions | undefined;
 
   /**
-   * <p>The list of errors that occurred during compute node group provisioning.</p>
+   * The list of errors that occurred during compute node group provisioning.
+   *
    * @public
    */
   errorInfo?: ErrorInfo[] | undefined;
@@ -536,25 +656,29 @@ export interface ComputeNodeGroup {
  */
 export interface CreateComputeNodeGroupResponse {
   /**
-   * <p>A compute node group associated with a cluster.</p>
+   * A compute node group associated with a cluster.
+   *
    * @public
    */
   computeNodeGroup?: ComputeNodeGroup | undefined;
 }
 
 /**
- * <p>Stores information about a field in a request that caused an exception.</p>
+ * Stores information about a field in a request that caused an exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The message body of the exception.</p>
+   * The message body of the exception.
+   *
    * @public
    */
   message: string | undefined;
@@ -565,19 +689,22 @@ export interface ValidationExceptionField {
  */
 export interface DeleteComputeNodeGroupRequest {
   /**
-   * <p>The name or ID of the cluster of the compute node group.</p>
+   * The name or ID of the cluster of the compute node group.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The name or ID of the compute node group to delete.</p>
+   * The name or ID of the compute node group to delete.
+   *
    * @public
    */
   computeNodeGroupIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -593,13 +720,15 @@ export interface DeleteComputeNodeGroupResponse {}
  */
 export interface GetComputeNodeGroupRequest {
   /**
-   * <p>The name or ID of the cluster.</p>
+   * The name or ID of the cluster.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The name or ID of the compute node group.</p>
+   * The name or ID of the compute node group.
+   *
    * @public
    */
   computeNodeGroupIdentifier: string | undefined;
@@ -610,7 +739,8 @@ export interface GetComputeNodeGroupRequest {
  */
 export interface GetComputeNodeGroupResponse {
   /**
-   * <p>A compute node group associated with a cluster.</p>
+   * A compute node group associated with a cluster.
+   *
    * @public
    */
   computeNodeGroup?: ComputeNodeGroup | undefined;
@@ -621,67 +751,82 @@ export interface GetComputeNodeGroupResponse {
  */
 export interface ListComputeNodeGroupsRequest {
   /**
-   * <p>The name or ID of the cluster to list compute node groups for.</p>
+   * The name or ID of the cluster to list compute node groups for.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>
+   * The value of `nextToken` is a unique pagination token for each page of results returned. If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an `HTTP 400 InvalidToken` error.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The object returned by the <code>ListComputeNodeGroups</code> API action.</p>
+ * The object returned by the `ListComputeNodeGroups` API action.
+ *
  * @public
  */
 export interface ComputeNodeGroupSummary {
   /**
-   * <p>The name that identifies the compute node group.</p>
+   * The name that identifies the compute node group.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The generated unique ID of the compute node group.</p>
+   * The generated unique ID of the compute node group.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the compute node group.</p>
+   * The unique Amazon Resource Name (ARN) of the compute node group.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the cluster of the compute node group.</p>
+   * The ID of the cluster of the compute node group.
+   *
    * @public
    */
   clusterId: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the resource was modified.</p>
+   * The date and time the resource was modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the compute node group.</p> <note> <p>The provisioning status doesn't indicate the overall health of the compute node group.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+   * The provisioning status of the compute node group.
+   *
+   * > **Note:** The provisioning status doesn't indicate the overall health of the compute node group.
+   *
+   * > **Important:** The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED`. For more information, see [Frequently asked questions about Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html) in the *PCS User Guide*.
+   *
    * @public
    */
   status: ComputeNodeGroupStatus | undefined;
@@ -692,55 +837,67 @@ export interface ComputeNodeGroupSummary {
  */
 export interface ListComputeNodeGroupsResponse {
   /**
-   * <p>The list of compute node groups for the cluster.</p>
+   * The list of compute node groups for the cluster.
+   *
    * @public
    */
   computeNodeGroups: ComputeNodeGroupSummary[] | undefined;
 
   /**
-   * <p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>
+   * The value of `nextToken` is a unique pagination token for each page of results returned. If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an `HTTP 400 InvalidToken` error.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The lifecycle actions to configure on a compute node group when you update it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
+ * The lifecycle actions to configure on a compute node group when you update it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.
+ *
  * @public
  */
 export interface UpdateNodeLifecycleActionsRequest {
   /**
-   * <p>The lifecycle stages where you configure scripts to run.</p>
+   * The lifecycle stages where you configure scripts to run.
+   *
    * @public
    */
   stages: NodeLifecycleStages | undefined;
 
   /**
-   * <p>The caching policy for node lifecycle scripts. The default value is <code>CACHE_ONCE</code>. Valid values:</p> <ul> <li> <p> <code>CACHE_ONCE</code> – Downloads each script once and reuses it on subsequent boots.</p> </li> <li> <p> <code>REFRESH_ON_REBOOT</code> – Downloads each script on every boot.</p> </li> </ul>
+   * The caching policy for node lifecycle scripts. The default value is `CACHE_ONCE`. Valid values:
+   *
+   * - `CACHE_ONCE` – Downloads each script once and reuses it on subsequent boots.
+   * - `REFRESH_ON_REBOOT` – Downloads each script on every boot.
+   *
    * @public
    */
   scriptCachingPolicy?: ScriptCachingPolicy | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface UpdateComputeNodeGroupSlurmConfigurationRequest {
   /**
-   * <p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>
+   * The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level `scaleDownIdleTimeInSeconds` setting. A value of `-1` removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.
+   *
    * @public
    */
   scaleDownIdleTimeInSeconds?: number | undefined;
 
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 
   /**
-   * <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+   * The additional Slurm `gres.conf` records for the compute node group. Each item is a map of `gres.conf` attribute names to values that describes one `gres.conf` record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the `NodeName=` prefix and merges these records with the GPU record it derives from the instance type.
+   *
    * @public
    */
   gresCustomSettings?: Record<string, string>[] | undefined;
@@ -751,73 +908,85 @@ export interface UpdateComputeNodeGroupSlurmConfigurationRequest {
  */
 export interface UpdateComputeNodeGroupRequest {
   /**
-   * <p>The name or ID of the cluster of the compute node group.</p>
+   * The name or ID of the cluster of the compute node group.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The name or ID of the compute node group.</p>
+   * The name or ID of the compute node group.
+   *
    * @public
    */
   computeNodeGroupIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.</p>
+   * The ID of the Amazon Machine Image (AMI) that PCS uses to launch instances. If not provided, PCS uses the AMI ID specified in the custom launch template.
+   *
    * @public
    */
   amiId?: string | undefined;
 
   /**
-   * <p>The list of subnet IDs where the compute node group provisions instances. The subnets must be in the same VPC as the cluster.</p>
+   * The list of subnet IDs where the compute node group provisions instances. The subnets must be in the same VPC as the cluster.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>An Amazon EC2 launch template PCS uses to launch compute nodes.</p>
+   * An Amazon EC2 launch template PCS uses to launch compute nodes.
+   *
    * @public
    */
   customLaunchTemplate?: CustomLaunchTemplate | undefined;
 
   /**
-   * <p>Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Amazon EC2 billing and purchasing options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about PCS support for Capacity Blocks, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html">Using Amazon EC2 Capacity Blocks for ML with PCS</a> in the <i>PCS User Guide</i>. For more information about PCS support for interruptible capacity reservations, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-iodcr.html">Using I-ODCRs with PCS</a> in the <i>PCS User Guide</i>. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-odcr.html">Using ODCRs with PCS</a>. If you don't provide this option, it defaults to On-Demand.</p>
+   * Specifies how EC2 instances are purchased on your behalf. PCS supports On-Demand Instances, Spot Instances, Interruptible Capacity Reservations, On-Demand Capacity Reservations, and Amazon EC2 Capacity Blocks for ML. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon Elastic Compute Cloud User Guide*. For more information about PCS support for Capacity Blocks, see [Using Amazon EC2 Capacity Blocks for ML with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-blocks.html) in the *PCS User Guide*. For more information about PCS support for interruptible capacity reservations, see [Using I-ODCRs with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-iodcr.html) in the *PCS User Guide*. Choose On-Demand if you plan to use an On-Demand Capacity Reservation (ODCR). For more information, see [Using ODCRs with PCS](https://docs.aws.amazon.com/pcs/latest/userguide/capacity-reservations-odcr.html). If you don't provide this option, it defaults to On-Demand.
+   *
    * @public
    */
   purchaseOption?: PurchaseOption | undefined;
 
   /**
-   * <p>Additional configuration when you specify <code>SPOT</code> as the <code>purchaseOption</code> for the <code>CreateComputeNodeGroup</code> API action.</p>
+   * Additional configuration when you specify `SPOT` as the `purchaseOption` for the `CreateComputeNodeGroup` API action.
+   *
    * @public
    */
   spotOptions?: SpotOptions | undefined;
 
   /**
-   * <p>Specifies the boundaries of the compute node group auto scaling.</p>
+   * Specifies the boundaries of the compute node group auto scaling.
+   *
    * @public
    */
   scalingConfiguration?: ScalingConfigurationRequest | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the <code>pcs:RegisterComputeNodeGroupInstance</code> permission and the role name must start with <code>AWSPCS</code> or must have the path <code>/aws-pcs/</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html">IAM instance profiles for PCS</a> in the <i>PCS User Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM instance profile used to pass an IAM role when launching EC2 instances. The role contained in your instance profile must have the `pcs:RegisterComputeNodeGroupInstance` permission and the role name must start with `AWSPCS` or must have the path `/aws-pcs/`. For more information, see [IAM instance profiles for PCS](https://docs.aws.amazon.com/pcs/latest/userguide/security-instance-profiles.html) in the *PCS User Guide*.
+   *
    * @public
    */
   iamInstanceProfileArn?: string | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: UpdateComputeNodeGroupSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.
+   *
    * @public
    */
   nodeLifecycleActions?: UpdateNodeLifecycleActionsRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -828,139 +997,174 @@ export interface UpdateComputeNodeGroupRequest {
  */
 export interface UpdateComputeNodeGroupResponse {
   /**
-   * <p>A compute node group associated with a cluster.</p>
+   * A compute node group associated with a cluster.
+   *
    * @public
    */
   computeNodeGroup?: ComputeNodeGroup | undefined;
 }
 
 /**
- * <p>The networking configuration for the cluster's control plane.</p>
+ * The networking configuration for the cluster's control plane.
+ *
  * @public
  */
 export interface NetworkingRequest {
   /**
-   * <p>The list of subnet IDs where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. Subnet IDs have the form <code>subnet-0123456789abcdef0</code>.</p> <p>Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.</p> <note> <p>PCS currently supports only 1 subnet in this list.</p> </note>
+   * The list of subnet IDs where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. Subnet IDs have the form `subnet-0123456789abcdef0`.
+   *
+   * Subnets can't be in Outposts, Wavelength or an Amazon Web Services Local Zone.
+   *
+   * > **Note:** PCS currently supports only 1 subnet in this list.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>A list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.</p>
+   * A list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The IP address version the cluster uses. The default is <code>IPV4</code>.</p>
+   * The IP address version the cluster uses. The default is `IPV4`.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 }
 
 /**
- * <p>The cluster management and job scheduling software associated with the cluster.</p>
+ * The cluster management and job scheduling software associated with the cluster.
+ *
  * @public
  */
 export interface SchedulerRequest {
   /**
-   * <p>The software PCS uses to manage cluster scaling and job scheduling.</p>
+   * The software PCS uses to manage cluster scaling and job scheduling.
+   *
    * @public
    */
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.11 | 25.05 | 25.11 | 26.05</code> </p>
+   * The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see [Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html) in the *PCS User Guide*.
+   *
+   * Valid Values: `24.11 | 25.05 | 25.11 | 26.05`
+   *
    * @public
    */
   version: string | undefined;
 }
 
 /**
- * <p>Additional settings that directly map to Cgroup settings.</p> <important> <p>PCS supports a subset of Cgroup settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/cgroup-custom-settings.html">Configuring custom Cgroup settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+ * Additional settings that directly map to Cgroup settings.
+ *
+ * > **Important:** PCS supports a subset of Cgroup settings. For more information, see [Configuring custom Cgroup settings in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/cgroup-custom-settings.html) in the *PCS User Guide*.
+ *
  * @public
  */
 export interface CgroupCustomSetting {
   /**
-   * <p>PCS supports custom Cgroup settings for clusters. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/cgroup-custom-settings.html">Configuring custom Cgroup settings in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * PCS supports custom Cgroup settings for clusters. For more information, see [Configuring custom Cgroup settings in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/cgroup-custom-settings.html) in the *PCS User Guide*.
+   *
    * @public
    */
   parameterName: string | undefined;
 
   /**
-   * <p>The values for the configured Cgroup settings.</p>
+   * The values for the configured Cgroup settings.
+   *
    * @public
    */
   parameterValue: string | undefined;
 }
 
 /**
- * <p>Additional settings that directly map to SlurmDBD settings.</p> <important> <p>PCS supports a subset of SlurmDBD settings. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html">Configuring custom SlurmDBD settings in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+ * Additional settings that directly map to SlurmDBD settings.
+ *
+ * > **Important:** PCS supports a subset of SlurmDBD settings. For more information, see [Configuring custom SlurmDBD settings in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html) in the *PCS User Guide*.
+ *
  * @public
  */
 export interface SlurmdbdCustomSetting {
   /**
-   * <p>PCS supports custom SlurmDBD settings for clusters. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html">Configuring custom SlurmDBD settings in PCS</a> in the <i>PCS User Guide</i>.</p>
+   * PCS supports custom SlurmDBD settings for clusters. For more information, see [Configuring custom SlurmDBD settings in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurmdbd-custom-settings.html) in the *PCS User Guide*.
+   *
    * @public
    */
   parameterName: string | undefined;
 
   /**
-   * <p>The values for the configured SlurmDBD settings.</p>
+   * The values for the configured SlurmDBD settings.
+   *
    * @public
    */
   parameterValue: string | undefined;
 }
 
 /**
- * <p>The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API. It's a property of the <b>ClusterSlurmConfiguration</b> object.</p>
+ * The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API. It's a property of the **ClusterSlurmConfiguration** object.
+ *
  * @public
  */
 export interface SlurmRestRequest {
   /**
-   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * The default value for `mode` is `NONE`. A value of `STANDARD` means the Slurm REST API is enabled.
+   *
    * @public
    */
   mode: SlurmRestMode | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface ClusterSlurmConfigurationRequest {
   /**
-   * <p>The time (in seconds) before an idle node is scaled down.</p> <p>Default: <code>600</code> </p>
+   * The time (in seconds) before an idle node is scaled down.
+   *
+   * Default: `600`
+   *
    * @public
    */
   scaleDownIdleTimeInSeconds?: number | undefined;
 
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 
   /**
-   * <p>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</p>
+   * Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.
+   *
    * @public
    */
   slurmdbdCustomSettings?: SlurmdbdCustomSetting[] | undefined;
 
   /**
-   * <p>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</p>
+   * Additional Cgroup-specific configuration that directly maps to Cgroup settings.
+   *
    * @public
    */
   cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
 
   /**
-   * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
+   * The accounting configuration includes configurable settings for Slurm accounting.
+   *
    * @public
    */
   accounting?: AccountingRequest | undefined;
 
   /**
-   * <p>The Slurm REST API configuration for the cluster.</p>
+   * The Slurm REST API configuration for the cluster.
+   *
    * @public
    */
   slurmRest?: SlurmRestRequest | undefined;
@@ -971,313 +1175,411 @@ export interface ClusterSlurmConfigurationRequest {
  */
 export interface CreateClusterRequest {
   /**
-   * <p>A name to identify the cluster. Example: <code>MyCluster</code> </p>
+   * A name to identify the cluster. Example: `MyCluster`
+   *
    * @public
    */
   clusterName: string | undefined;
 
   /**
-   * <p>The cluster management and job scheduling software associated with the cluster.</p>
+   * The cluster management and job scheduling software associated with the cluster.
+   *
    * @public
    */
   scheduler: SchedulerRequest | undefined;
 
   /**
-   * <p>A value that determines the maximum number of compute nodes in the cluster and the maximum number of jobs (active and queued).</p> <ul> <li> <p> <code>SMALL</code>: 32 compute nodes and 256 jobs</p> </li> <li> <p> <code>MEDIUM</code>: 512 compute nodes and 8192 jobs</p> </li> <li> <p> <code>LARGE</code>: 2048 compute nodes and 16,384 jobs</p> </li> </ul>
+   * A value that determines the maximum number of compute nodes in the cluster and the maximum number of jobs (active and queued).
+   *
+   * - `SMALL`: 32 compute nodes and 256 jobs
+   * - `MEDIUM`: 512 compute nodes and 8192 jobs
+   * - `LARGE`: 2048 compute nodes and 16,384 jobs
+   *
    * @public
    */
   size: Size | undefined;
 
   /**
-   * <p>The networking configuration used to set up the cluster's control plane.</p>
+   * The networking configuration used to set up the cluster's control plane.
+   *
    * @public
    */
   networking: NetworkingRequest | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: ClusterSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>
+   * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>An endpoint available for interaction with the scheduler.</p>
+ * An endpoint available for interaction with the scheduler.
+ *
  * @public
  */
 export interface Endpoint {
   /**
-   * <p>Indicates the type of endpoint running at the specific IP address.</p>
+   * Indicates the type of endpoint running at the specific IP address.
+   *
    * @public
    */
   type: EndpointType | undefined;
 
   /**
-   * <p>For clusters that use IPv4, this is the endpoint's private IP address.</p> <p>Example: <code>10.1.2.3</code> </p> <p>For clusters configured to use IPv6, this is an empty string.</p>
+   * For clusters that use IPv4, this is the endpoint's private IP address.
+   *
+   * Example: `10.1.2.3`
+   *
+   * For clusters configured to use IPv6, this is an empty string.
+   *
    * @public
    */
   privateIpAddress: string | undefined;
 
   /**
-   * <p>The endpoint's public IP address.</p> <p>Example: <code>192.0.2.1</code> </p>
+   * The endpoint's public IP address.
+   *
+   * Example: `192.0.2.1`
+   *
    * @public
    */
   publicIpAddress?: string | undefined;
 
   /**
-   * <p>The endpoint's IPv6 address.</p> <p>Example: <code>2001:db8::1</code> </p>
+   * The endpoint's IPv6 address.
+   *
+   * Example: `2001:db8::1`
+   *
    * @public
    */
   ipv6Address?: string | undefined;
 
   /**
-   * <p>The endpoint's connection port number.</p> <p> Example: <code>1234</code> </p>
+   * The endpoint's connection port number.
+   *
+   * Example: `1234`
+   *
    * @public
    */
   port: string | undefined;
 }
 
 /**
- * <p>The networking configuration for the cluster's control plane.</p>
+ * The networking configuration for the cluster's control plane.
+ *
  * @public
  */
 export interface Networking {
   /**
-   * <p>The ID of the subnet where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. The subnet must have an available IP address, cannot reside in Outposts, Wavelength, or an Amazon Web Services Local Zone.</p> <p> Example: <code>subnet-abcd1234</code> </p>
+   * The ID of the subnet where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. The subnet must have an available IP address, cannot reside in Outposts, Wavelength, or an Amazon Web Services Local Zone.
+   *
+   * Example: `subnet-abcd1234`
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.</p> <p>The following rules are required:</p> <ul> <li> <p>Inbound rule 1</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Source: Self</p> </li> </ul> </li> <li> <p>Outbound rule 1</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Destination: 0.0.0.0/0 (IPv4) or ::/0 (IPv6)</p> </li> </ul> </li> <li> <p>Outbound rule 2</p> <ul> <li> <p>Protocol: All</p> </li> <li> <p>Ports: All</p> </li> <li> <p>Destination: Self</p> </li> </ul> </li> </ul>
+   * The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
+   *
+   * The following rules are required:
+   *
+   * - Inbound rule 1
+   *
+   *   - Protocol: All
+   *   - Ports: All
+   *   - Source: Self
+   * - Outbound rule 1
+   *
+   *   - Protocol: All
+   *   - Ports: All
+   *   - Destination: 0.0.0.0/0 (IPv4) or ::/0 (IPv6)
+   * - Outbound rule 2
+   *
+   *   - Protocol: All
+   *   - Ports: All
+   *   - Destination: Self
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The IP address version the cluster uses. The default is <code>IPV4</code>.</p>
+   * The IP address version the cluster uses. The default is `IPV4`.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 }
 
 /**
- * <p>The cluster management and job scheduling software associated with the cluster.</p>
+ * The cluster management and job scheduling software associated with the cluster.
+ *
  * @public
  */
 export interface Scheduler {
   /**
-   * <p>The software PCS uses to manage cluster scaling and job scheduling.</p>
+   * The software PCS uses to manage cluster scaling and job scheduling.
+   *
    * @public
    */
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can update this version using the <code>UpdateCluster</code> API action. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> and <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11 | 26.05</code> </p>
+   * The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can update this version using the `UpdateCluster` API action. For more information, see [Updating the scheduler version on a cluster](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html) and [Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html) in the *PCS User Guide*.
+   *
+   * Valid Values: `23.11 | 24.05 | 24.11 | 25.05 | 25.11 | 26.05`
+   *
    * @public
    */
   version: string | undefined;
 }
 
 /**
- * <p>The shared Slurm key for authentication, also known as the <b>cluster secret</b>.</p>
+ * The shared Slurm key for authentication, also known as the **cluster secret**.
+ *
  * @public
  */
 export interface SlurmAuthKey {
   /**
-   * <p>The Amazon Resource Name (ARN) of the shared Slurm key.</p>
+   * The Amazon Resource Name (ARN) of the shared Slurm key.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The version of the shared Slurm key.</p>
+   * The version of the shared Slurm key.
+   *
    * @public
    */
   secretVersion: string | undefined;
 }
 
 /**
- * <p>The JWT key stored in Amazon Web Services Secrets Manager for Slurm REST API authentication.</p>
+ * The JWT key stored in Amazon Web Services Secrets Manager for Slurm REST API authentication.
+ *
  * @public
  */
 export interface JwtKey {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the JWT key.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the JWT key.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p>The version of the Amazon Web Services Secrets Manager secret containing the JWT key.</p>
+   * The version of the Amazon Web Services Secrets Manager secret containing the JWT key.
+   *
    * @public
    */
   secretVersion: string | undefined;
 }
 
 /**
- * <p>The JWT authentication configuration for Slurm REST API access.</p>
+ * The JWT authentication configuration for Slurm REST API access.
+ *
  * @public
  */
 export interface JwtAuth {
   /**
-   * <p>The JWT key for Slurm REST API authentication.</p>
+   * The JWT key for Slurm REST API authentication.
+   *
    * @public
    */
   jwtKey?: JwtKey | undefined;
 }
 
 /**
- * <p>The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API. It's a property of the <b>ClusterSlurmConfiguration</b> object.</p>
+ * The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API. It's a property of the **ClusterSlurmConfiguration** object.
+ *
  * @public
  */
 export interface SlurmRest {
   /**
-   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * The default value for `mode` is `NONE`. A value of `STANDARD` means the Slurm REST API is enabled.
+   *
    * @public
    */
   mode: SlurmRestMode | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface ClusterSlurmConfiguration {
   /**
-   * <p>The time (in seconds) before an idle node is scaled down.</p> <p>Default: <code>600</code> </p>
+   * The time (in seconds) before an idle node is scaled down.
+   *
+   * Default: `600`
+   *
    * @public
    */
   scaleDownIdleTimeInSeconds?: number | undefined;
 
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 
   /**
-   * <p>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</p>
+   * Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.
+   *
    * @public
    */
   slurmdbdCustomSettings?: SlurmdbdCustomSetting[] | undefined;
 
   /**
-   * <p>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</p>
+   * Additional Cgroup-specific configuration that directly maps to Cgroup settings.
+   *
    * @public
    */
   cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
 
   /**
-   * <p>The shared Slurm key for authentication, also known as the <b>cluster secret</b>.</p>
+   * The shared Slurm key for authentication, also known as the **cluster secret**.
+   *
    * @public
    */
   authKey?: SlurmAuthKey | undefined;
 
   /**
-   * <p>The JWT authentication configuration for Slurm REST API access.</p>
+   * The JWT authentication configuration for Slurm REST API access.
+   *
    * @public
    */
   jwtAuth?: JwtAuth | undefined;
 
   /**
-   * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
+   * The accounting configuration includes configurable settings for Slurm accounting.
+   *
    * @public
    */
   accounting?: Accounting | undefined;
 
   /**
-   * <p>The Slurm REST API configuration for the cluster.</p>
+   * The Slurm REST API configuration for the cluster.
+   *
    * @public
    */
   slurmRest?: SlurmRest | undefined;
 }
 
 /**
- * <p>The cluster resource and configuration.</p>
+ * The cluster resource and configuration.
+ *
  * @public
  */
 export interface Cluster {
   /**
-   * <p>The name that identifies the cluster.</p>
+   * The name that identifies the cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The generated unique ID of the cluster.</p>
+   * The generated unique ID of the cluster.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the cluster.</p>
+   * The unique Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The provisioning status of the cluster.</p> <note> <p>The provisioning status doesn't indicate the overall health of the cluster.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+   * The provisioning status of the cluster.
+   *
+   * > **Note:** The provisioning status doesn't indicate the overall health of the cluster.
+   *
+   * > **Important:** The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED`. For more information, see [Frequently asked questions about Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html) in the *PCS User Guide*.
+   *
    * @public
    */
   status: ClusterStatus | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the resource was modified.</p>
+   * The date and time the resource was modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The cluster management and job scheduling software associated with the cluster.</p>
+   * The cluster management and job scheduling software associated with the cluster.
+   *
    * @public
    */
   scheduler: Scheduler | undefined;
 
   /**
-   * <p>The size of the cluster.</p> <ul> <li> <p> <code>SMALL</code>: 32 compute nodes and 256 jobs</p> </li> <li> <p> <code>MEDIUM</code>: 512 compute nodes and 8192 jobs</p> </li> <li> <p> <code>LARGE</code>: 2048 compute nodes and 16,384 jobs</p> </li> </ul>
+   * The size of the cluster.
+   *
+   * - `SMALL`: 32 compute nodes and 256 jobs
+   * - `MEDIUM`: 512 compute nodes and 8192 jobs
+   * - `LARGE`: 2048 compute nodes and 16,384 jobs
+   *
    * @public
    */
   size: Size | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: ClusterSlurmConfiguration | undefined;
 
   /**
-   * <p>The networking configuration for the cluster's control plane.</p>
+   * The networking configuration for the cluster's control plane.
+   *
    * @public
    */
   networking: Networking | undefined;
 
   /**
-   * <p>The list of endpoints available for interaction with the scheduler.</p>
+   * The list of endpoints available for interaction with the scheduler.
+   *
    * @public
    */
   endpoints?: Endpoint[] | undefined;
 
   /**
-   * <p>The list of errors that occurred during cluster provisioning.</p>
+   * The list of errors that occurred during cluster provisioning.
+   *
    * @public
    */
   errorInfo?: ErrorInfo[] | undefined;
@@ -1288,7 +1590,8 @@ export interface Cluster {
  */
 export interface CreateClusterResponse {
   /**
-   * <p>The cluster resource.</p>
+   * The cluster resource.
+   *
    * @public
    */
   cluster?: Cluster | undefined;
@@ -1299,13 +1602,15 @@ export interface CreateClusterResponse {
  */
 export interface DeleteClusterRequest {
   /**
-   * <p>The name or ID of the cluster to delete.</p>
+   * The name or ID of the cluster to delete.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1321,7 +1626,8 @@ export interface DeleteClusterResponse {}
  */
 export interface GetClusterRequest {
   /**
-   * <p>The name or ID of the cluster.</p>
+   * The name or ID of the cluster.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
@@ -1332,7 +1638,8 @@ export interface GetClusterRequest {
  */
 export interface GetClusterResponse {
   /**
-   * <p>The cluster resource.</p>
+   * The cluster resource.
+   *
    * @public
    */
   cluster?: Cluster | undefined;
@@ -1343,55 +1650,68 @@ export interface GetClusterResponse {
  */
 export interface ListClustersRequest {
   /**
-   * <p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>
+   * The value of `nextToken` is a unique pagination token for each page of results returned. If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an `HTTP 400 InvalidToken` error.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The object returned by the <code>ListClusters</code> API action.</p>
+ * The object returned by the `ListClusters` API action.
+ *
  * @public
  */
 export interface ClusterSummary {
   /**
-   * <p>The name that identifies the cluster.</p>
+   * The name that identifies the cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The generated unique ID of the cluster.</p>
+   * The generated unique ID of the cluster.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the cluster.</p>
+   * The unique Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the resource was modified.</p>
+   * The date and time the resource was modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the cluster.</p> <note> <p>The provisioning status doesn't indicate the overall health of the cluster.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+   * The provisioning status of the cluster.
+   *
+   * > **Note:** The provisioning status doesn't indicate the overall health of the cluster.
+   *
+   * > **Important:** The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED`. For more information, see [Frequently asked questions about Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html) in the *PCS User Guide*.
+   *
    * @public
    */
   status: ClusterStatus | undefined;
@@ -1402,37 +1722,43 @@ export interface ClusterSummary {
  */
 export interface ListClustersResponse {
   /**
-   * <p>The list of clusters.</p>
+   * The list of clusters.
+   *
    * @public
    */
   clusters: ClusterSummary[] | undefined;
 
   /**
-   * <p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>
+   * The value of `nextToken` is a unique pagination token for each page of results returned. If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an `HTTP 400 InvalidToken` error.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The compute node group configuration for a queue.</p>
+ * The compute node group configuration for a queue.
+ *
  * @public
  */
 export interface ComputeNodeGroupConfiguration {
   /**
-   * <p>The compute node group ID for the compute node group configuration.</p>
+   * The compute node group ID for the compute node group configuration.
+   *
    * @public
    */
   computeNodeGroupId?: string | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface QueueSlurmConfigurationRequest {
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
@@ -1443,115 +1769,138 @@ export interface QueueSlurmConfigurationRequest {
  */
 export interface CreateQueueRequest {
   /**
-   * <p>The name or ID of the cluster for which to create a queue.</p>
+   * The name or ID of the cluster for which to create a queue.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>A name to identify the queue.</p>
+   * A name to identify the queue.
+   *
    * @public
    */
   queueName: string | undefined;
 
   /**
-   * <p>The list of compute node group configurations to associate with the queue. Queues assign jobs to associated compute node groups.</p>
+   * The list of compute node group configurations to associate with the queue. Queues assign jobs to associated compute node groups.
+   *
    * @public
    */
   computeNodeGroupConfigurations?: ComputeNodeGroupConfiguration[] | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: QueueSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>
+   * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface QueueSlurmConfiguration {
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 }
 
 /**
- * <p>A queue resource.</p>
+ * A queue resource.
+ *
  * @public
  */
 export interface Queue {
   /**
-   * <p>The name that identifies the queue.</p>
+   * The name that identifies the queue.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The generated unique ID of the queue.</p>
+   * The generated unique ID of the queue.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the queue.</p>
+   * The unique Amazon Resource Name (ARN) of the queue.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the cluster of the queue.</p>
+   * The ID of the cluster of the queue.
+   *
    * @public
    */
   clusterId: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the resource was modified.</p>
+   * The date and time the resource was modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the queue.</p> <note> <p>The provisioning status doesn't indicate the overall health of the queue.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+   * The provisioning status of the queue.
+   *
+   * > **Note:** The provisioning status doesn't indicate the overall health of the queue.
+   *
+   * > **Important:** The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED`. For more information, see [Frequently asked questions about Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html) in the *PCS User Guide*.
+   *
    * @public
    */
   status: QueueStatus | undefined;
 
   /**
-   * <p>The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.</p>
+   * The list of compute node group configurations associated with the queue. Queues assign jobs to associated compute node groups.
+   *
    * @public
    */
   computeNodeGroupConfigurations: ComputeNodeGroupConfiguration[] | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: QueueSlurmConfiguration | undefined;
 
   /**
-   * <p>The list of errors that occurred during queue provisioning.</p>
+   * The list of errors that occurred during queue provisioning.
+   *
    * @public
    */
   errorInfo?: ErrorInfo[] | undefined;
@@ -1562,7 +1911,8 @@ export interface Queue {
  */
 export interface CreateQueueResponse {
   /**
-   * <p>A queue resource.</p>
+   * A queue resource.
+   *
    * @public
    */
   queue?: Queue | undefined;
@@ -1573,19 +1923,22 @@ export interface CreateQueueResponse {
  */
 export interface DeleteQueueRequest {
   /**
-   * <p>The name or ID of the cluster of the queue.</p>
+   * The name or ID of the cluster of the queue.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The name or ID of the queue to delete.</p>
+   * The name or ID of the queue to delete.
+   *
    * @public
    */
   queueIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1601,13 +1954,15 @@ export interface DeleteQueueResponse {}
  */
 export interface GetQueueRequest {
   /**
-   * <p>The name or ID of the cluster of the queue.</p>
+   * The name or ID of the cluster of the queue.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The name or ID of the queue.</p>
+   * The name or ID of the queue.
+   *
    * @public
    */
   queueIdentifier: string | undefined;
@@ -1618,7 +1973,8 @@ export interface GetQueueRequest {
  */
 export interface GetQueueResponse {
   /**
-   * <p>A queue resource.</p>
+   * A queue resource.
+   *
    * @public
    */
   queue?: Queue | undefined;
@@ -1629,67 +1985,82 @@ export interface GetQueueResponse {
  */
 export interface ListQueuesRequest {
   /**
-   * <p>The name or ID of the cluster to list queues for.</p>
+   * The name or ID of the cluster to list queues for.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>
+   * The value of `nextToken` is a unique pagination token for each page of results returned. If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an `HTTP 400 InvalidToken` error.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results. The default is 10 results, and the maximum allowed page size is 100 results. A value of 0 uses the default.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The object returned by the <code>ListQueues</code> API action.</p>
+ * The object returned by the `ListQueues` API action.
+ *
  * @public
  */
 export interface QueueSummary {
   /**
-   * <p>The name that identifies the queue.</p>
+   * The name that identifies the queue.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The generated unique ID of the queue.</p>
+   * The generated unique ID of the queue.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) of the queue.</p>
+   * The unique Amazon Resource Name (ARN) of the queue.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the cluster of the queue.</p>
+   * The ID of the cluster of the queue.
+   *
    * @public
    */
   clusterId: string | undefined;
 
   /**
-   * <p>The date and time the resource was created.</p>
+   * The date and time the resource was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time the resource was modified.</p>
+   * The date and time the resource was modified.
+   *
    * @public
    */
   modifiedAt: Date | undefined;
 
   /**
-   * <p>The provisioning status of the queue.</p> <note> <p> The provisioning status doesn't indicate the overall health of the queue.</p> </note> <important> <p>The resource enters the <code>SUSPENDING</code> and <code>SUSPENDED</code> states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is <code>SUSPENDED</code>. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html">Frequently asked questions about Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> </important>
+   * The provisioning status of the queue.
+   *
+   * > **Note:** The provisioning status doesn't indicate the overall health of the queue.
+   *
+   * > **Important:** The resource enters the `SUSPENDING` and `SUSPENDED` states when the scheduler is beyond end of life and we have suspended the cluster. When in these states, you can't use the cluster. The cluster controller is down and all compute instances are terminated. The resources still count toward your service quotas. You can delete a resource if its status is `SUSPENDED`. For more information, see [Frequently asked questions about Slurm versions in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions_faq.html) in the *PCS User Guide*.
+   *
    * @public
    */
   status: QueueStatus | undefined;
@@ -1700,25 +2071,29 @@ export interface QueueSummary {
  */
 export interface ListQueuesResponse {
   /**
-   * <p>The list of queues associated with the cluster.</p>
+   * The list of queues associated with the cluster.
+   *
    * @public
    */
   queues: QueueSummary[] | undefined;
 
   /**
-   * <p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>
+   * The value of `nextToken` is a unique pagination token for each page of results returned. If `nextToken` is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an `HTTP 400 InvalidToken` error.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface UpdateQueueSlurmConfigurationRequest {
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
@@ -1729,31 +2104,36 @@ export interface UpdateQueueSlurmConfigurationRequest {
  */
 export interface UpdateQueueRequest {
   /**
-   * <p>The name or ID of the cluster of the queue.</p>
+   * The name or ID of the cluster of the queue.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The name or ID of the queue.</p>
+   * The name or ID of the queue.
+   *
    * @public
    */
   queueIdentifier: string | undefined;
 
   /**
-   * <p>The list of compute node group configurations to associate with the queue. Queues assign jobs to associated compute node groups.</p>
+   * The list of compute node group configurations to associate with the queue. Queues assign jobs to associated compute node groups.
+   *
    * @public
    */
   computeNodeGroupConfigurations?: ComputeNodeGroupConfiguration[] | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: UpdateQueueSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1764,7 +2144,8 @@ export interface UpdateQueueRequest {
  */
 export interface UpdateQueueResponse {
   /**
-   * <p>A queue resource.</p>
+   * A queue resource.
+   *
    * @public
    */
   queue?: Queue | undefined;
@@ -1775,13 +2156,15 @@ export interface UpdateQueueResponse {
  */
 export interface RegisterComputeNodeGroupInstanceRequest {
   /**
-   * <p>The name or ID of the cluster to register the compute node group instance in.</p>
+   * The name or ID of the cluster to register the compute node group instance in.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The client-generated token to allow for retries.</p>
+   * The client-generated token to allow for retries.
+   *
    * @public
    */
   bootstrapId: string | undefined;
@@ -1792,133 +2175,165 @@ export interface RegisterComputeNodeGroupInstanceRequest {
  */
 export interface RegisterComputeNodeGroupInstanceResponse {
   /**
-   * <p>The scheduler node ID for this instance.</p>
+   * The scheduler node ID for this instance.
+   *
    * @public
    */
   nodeID: string | undefined;
 
   /**
-   * <p>For the Slurm scheduler, this is the shared Munge key the scheduler uses to authenticate compute node group instances.</p>
+   * For the Slurm scheduler, this is the shared Munge key the scheduler uses to authenticate compute node group instances.
+   *
    * @public
    */
   sharedSecret: string | undefined;
 
   /**
-   * <p>The list of endpoints available for interaction with the scheduler.</p>
+   * The list of endpoints available for interaction with the scheduler.
+   *
    * @public
    */
   endpoints: Endpoint[] | undefined;
 
   /**
-   * <p>The name of the cluster that the compute node registered into.</p>
+   * The name of the cluster that the compute node registered into.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The ID of the compute node group that the compute node registered into.</p>
+   * The ID of the compute node group that the compute node registered into.
+   *
    * @public
    */
   computeNodeGroupId?: string | undefined;
 
   /**
-   * <p>The name of the compute node group that the compute node registered into.</p>
+   * The name of the compute node group that the compute node registered into.
+   *
    * @public
    */
   computeNodeGroupName?: string | undefined;
 
   /**
-   * <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.
+   *
    * @public
    */
   nodeLifecycleActions?: NodeLifecycleActions | undefined;
 
   /**
-   * <p>The scheduler version that the cluster is running. A compute node uses this value to run the matching scheduler version.</p>
+   * The scheduler version that the cluster is running. A compute node uses this value to run the matching scheduler version.
+   *
    * @public
    */
   schedulerVersion?: string | undefined;
 }
 
 /**
- * <p>The scheduler configuration for updating a cluster. Use this to specify the scheduler version to update to.</p>
+ * The scheduler configuration for updating a cluster. Use this to specify the scheduler version to update to.
+ *
  * @public
  */
 export interface UpdateSchedulerRequest {
   /**
-   * <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code> </p>
+   * The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see [Updating the scheduler version on a cluster](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html) in the *PCS User Guide*.
+   *
+   * Valid Values: `24.05 | 24.11 | 25.05 | 25.11 | 26.05`
+   *
    * @public
    */
   version: string | undefined;
 }
 
 /**
- * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
+ * The accounting configuration includes configurable settings for Slurm accounting.
+ *
  * @public
  */
 export interface UpdateAccountingRequest {
   /**
-   * <p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href="https://slurm.schedmd.com/slurmdbd.conf.html">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>
+   * The default value for all purge settings for `slurmdbd.conf`. For more information, see the [slurmdbd.conf documentation at SchedMD](https://slurm.schedmd.com/slurmdbd.conf.html).
+   *
+   * The default value for `defaultPurgeTimeInDays` is `-1`.
+   *
+   * A value of `-1` means there is no purge time and records persist as long as the cluster exists.
+   *
+   * > **Important:** `0` isn't a valid value.
+   *
    * @public
    */
   defaultPurgeTimeInDays?: number | undefined;
 
   /**
-   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means Slurm accounting is enabled.</p>
+   * The default value for `mode` is `NONE`. A value of `STANDARD` means Slurm accounting is enabled.
+   *
    * @public
    */
   mode?: AccountingMode | undefined;
 }
 
 /**
- * <p>The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API.</p>
+ * The Slurm REST API configuration includes settings for enabling and configuring the Slurm REST API.
+ *
  * @public
  */
 export interface UpdateSlurmRestRequest {
   /**
-   * <p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>
+   * The default value for `mode` is `NONE`. A value of `STANDARD` means the Slurm REST API is enabled.
+   *
    * @public
    */
   mode?: SlurmRestMode | undefined;
 }
 
 /**
- * <p>Additional options related to the Slurm scheduler.</p>
+ * Additional options related to the Slurm scheduler.
+ *
  * @public
  */
 export interface UpdateClusterSlurmConfigurationRequest {
   /**
-   * <p>The time (in seconds) before an idle node is scaled down.</p> <p>Default: <code>600</code> </p>
+   * The time (in seconds) before an idle node is scaled down.
+   *
+   * Default: `600`
+   *
    * @public
    */
   scaleDownIdleTimeInSeconds?: number | undefined;
 
   /**
-   * <p>Additional Slurm-specific configuration that directly maps to Slurm settings.</p>
+   * Additional Slurm-specific configuration that directly maps to Slurm settings.
+   *
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
 
   /**
-   * <p>Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.</p>
+   * Additional SlurmDBD-specific configuration that directly maps to SlurmDBD settings.
+   *
    * @public
    */
   slurmdbdCustomSettings?: SlurmdbdCustomSetting[] | undefined;
 
   /**
-   * <p>Additional Cgroup-specific configuration that directly maps to Cgroup settings.</p>
+   * Additional Cgroup-specific configuration that directly maps to Cgroup settings.
+   *
    * @public
    */
   cgroupCustomSettings?: CgroupCustomSetting[] | undefined;
 
   /**
-   * <p>The accounting configuration includes configurable settings for Slurm accounting.</p>
+   * The accounting configuration includes configurable settings for Slurm accounting.
+   *
    * @public
    */
   accounting?: UpdateAccountingRequest | undefined;
 
   /**
-   * <p>The Slurm REST API configuration for the cluster.</p>
+   * The Slurm REST API configuration for the cluster.
+   *
    * @public
    */
   slurmRest?: UpdateSlurmRestRequest | undefined;
@@ -1929,25 +2344,29 @@ export interface UpdateClusterSlurmConfigurationRequest {
  */
 export interface UpdateClusterRequest {
   /**
-   * <p>The name or ID of the cluster to update.</p>
+   * The name or ID of the cluster to update.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Additional options related to the Slurm scheduler.</p>
+   * Additional options related to the Slurm scheduler.
+   *
    * @public
    */
   slurmConfiguration?: UpdateClusterSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+   * The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see [Updating the scheduler version on a cluster](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html) in the *PCS User Guide*.
+   *
    * @public
    */
   scheduler?: UpdateSchedulerRequest | undefined;
@@ -1958,7 +2377,8 @@ export interface UpdateClusterRequest {
  */
 export interface UpdateClusterResponse {
   /**
-   * <p>The cluster resource and configuration.</p>
+   * The cluster resource and configuration.
+   *
    * @public
    */
   cluster?: Cluster | undefined;
@@ -1969,7 +2389,8 @@ export interface UpdateClusterResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to list tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1980,7 +2401,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>
+   * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1991,13 +2413,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.</p>
+   * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2013,13 +2437,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>1 or more tag keys to remove from the resource. Specify only tag keys and not tag values.</p>
+   * 1 or more tag keys to remove from the resource. Specify only tag keys and not tag values.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

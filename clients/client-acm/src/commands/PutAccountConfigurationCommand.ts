@@ -23,7 +23,10 @@ export interface PutAccountConfigurationCommandInput extends PutAccountConfigura
 export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or modifies account-level configurations in ACM. </p> <p>The supported configuration option is <code>DaysBeforeExpiry</code>. This option specifies the number of days prior to certificate expiration when ACM starts generating <code>EventBridge</code> events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.</p>
+ * Adds or modifies account-level configurations in ACM.
+ *
+ * The supported configuration option is `DaysBeforeExpiry`. This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,20 +54,24 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have access required to perform this action.</p>
+ *
+ * You do not have access required to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * The request was denied because it exceeded a quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

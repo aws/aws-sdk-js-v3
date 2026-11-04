@@ -26,7 +26,8 @@ export interface DeleteTransitGatewayClientVpnAttachmentCommandInput extends Del
 export interface DeleteTransitGatewayClientVpnAttachmentCommandOutput extends DeleteTransitGatewayClientVpnAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a Transit Gateway attachment for a Client VPN endpoint. The Transit Gateway owner can delete the attachment to remove the association between the Client VPN endpoint and the Transit Gateway.</p>
+ * Deletes a Transit Gateway attachment for a Client VPN endpoint. The Transit Gateway owner can delete the attachment to remove the association between the Client VPN endpoint and the Transit Gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DeleteTransitGatewayClientVpnAttachmentCommandOutput extends De
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

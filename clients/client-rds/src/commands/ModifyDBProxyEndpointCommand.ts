@@ -23,7 +23,8 @@ export interface ModifyDBProxyEndpointCommandInput extends ModifyDBProxyEndpoint
 export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the settings for an existing DB proxy endpoint.</p>
+ * Changes the settings for an existing DB proxy endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,20 +72,24 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyEndpointAlreadyExistsFault} (client fault)
- *  <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
- *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * The DB proxy endpoint doesn't exist.
  *
  * @throws {@link InvalidDBProxyEndpointStateFault} (client fault)
- *  <p>You can't perform this operation while the DB proxy endpoint is in a particular state.</p>
+ *
+ * You can't perform this operation while the DB proxy endpoint is in a particular state.
  *
  * @throws {@link InvalidDBProxyStateFault} (client fault)
- *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ * The requested operation can't be performed while the proxy is in this state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

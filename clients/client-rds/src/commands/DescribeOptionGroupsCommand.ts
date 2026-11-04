@@ -23,7 +23,8 @@ export interface DescribeOptionGroupsCommandInput extends DescribeOptionGroupsMe
 export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __MetadataBearer {}
 
 /**
- * <p>Describes the available option groups.</p>
+ * Describes the available option groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,11 +112,12 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The specified option group could not be found.</p>
+ *
+ * The specified option group could not be found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe the available option groups
  * ```javascript

@@ -23,9 +23,8 @@ export interface CreateProfileCommandInput extends CreateProfileRequest {}
 export interface CreateProfileCommandOutput extends CreateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Creates an empty Route 53 Profile.
- * </p>
+ * Creates an empty Route 53 Profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,33 +69,28 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * @see {@link Route53ProfilesClientResolvedConfig | config} for Route53ProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified operation.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>
- *   One or more parameters in this request are not valid.
- * </p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>
- *   The request caused one or more limits to be exceeded.
- * </p>
+ *
+ * The request caused one or more limits to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *   You have provided an invalid command.
- * </p>
+ *
+ * You have provided an invalid command.
  *
  * @throws {@link Route53ProfilesServiceException}
- * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ * Base exception class for all service exceptions from Route53Profiles service.
  *
  * @public
  */

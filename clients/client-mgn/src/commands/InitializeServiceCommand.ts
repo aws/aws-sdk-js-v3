@@ -23,7 +23,8 @@ export interface InitializeServiceCommandInput extends InitializeServiceRequest 
 export interface InitializeServiceCommandOutput extends InitializeServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Initialize Application Migration Service.</p>
+ * Initialize Application Migration Service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,14 +47,16 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

@@ -23,20 +23,10 @@ export interface CreateTrafficPolicyInstanceCommandInput extends CreateTrafficPo
 export interface CreateTrafficPolicyInstanceCommandOutput extends CreateTrafficPolicyInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates resource record sets in a specified hosted zone based on the settings in a
- * 			specified traffic policy version. In addition, <code>CreateTrafficPolicyInstance</code>
- * 			associates the resource record sets with a specified domain name (such as example.com)
- * 			or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for
- * 			the domain or subdomain name by using the resource record sets that
- * 				<code>CreateTrafficPolicyInstance</code> created.</p>
- *          <note>
- *             <p>After you submit an <code>CreateTrafficPolicyInstance</code> request, there's a
- * 				brief delay while Amazon Route 53 creates the resource record sets that are
- * 				specified in the traffic policy definition.
- * 				Use <code>GetTrafficPolicyInstance</code> with the <code>id</code> of new traffic policy instance to confirm that the <code>CreateTrafficPolicyInstance</code>
- * 				request completed successfully. For more information, see the
- * 				<code>State</code> response element.</p>
- *          </note>
+ * Creates resource record sets in a specified hosted zone based on the settings in a specified traffic policy version. In addition, `CreateTrafficPolicyInstance` associates the resource record sets with a specified domain name (such as example.com) or subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets that `CreateTrafficPolicyInstance` created.
+ *
+ * > **Note:** After you submit an `CreateTrafficPolicyInstance` request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. Use `GetTrafficPolicyInstance` with the `id` of new traffic policy instance to confirm that the `CreateTrafficPolicyInstance` request completed successfully. For more information, see the `State` response element.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,29 +68,34 @@ export interface CreateTrafficPolicyInstanceCommandOutput extends CreateTrafficP
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link NoSuchTrafficPolicy} (client fault)
- *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * No traffic policy exists with the specified ID.
  *
  * @throws {@link TooManyTrafficPolicyInstances} (client fault)
- *  <p>This traffic policy instance can't be created because the current account has reached
- * 			the limit on the number of traffic policy instances.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
- *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
- * 				case</a> with the Amazon Web Services Support Center.</p>
+ *
+ * This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * For information about how to get the current limit for an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html).
+ *
+ * To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
  *
  * @throws {@link TrafficPolicyInstanceAlreadyExists} (client fault)
- *  <p>There is already a traffic policy instance with the specified ID.</p>
+ *
+ * There is already a traffic policy instance with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

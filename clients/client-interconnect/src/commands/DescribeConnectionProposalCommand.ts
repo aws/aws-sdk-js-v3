@@ -23,7 +23,8 @@ export interface DescribeConnectionProposalCommandInput extends DescribeConnecti
 export interface DescribeConnectionProposalCommandOutput extends DescribeConnectionProposalResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the details of a connection proposal generated at a partner's portal.</p>
+ * Describes the details of a connection proposal generated at a partner's portal.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,29 +57,36 @@ export interface DescribeConnectionProposalCommandOutput extends DescribeConnect
  * @see {@link InterconnectClientResolvedConfig | config} for InterconnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+ *
+ * The calling principal is not allowed to access the specified resource, or the resource does not exist.
  *
  * @throws {@link InterconnectClientException} (client fault)
- *  <p>The request was denied due to incorrect client supplied parameters.</p>
+ *
+ * The request was denied due to incorrect client supplied parameters.
  *
  * @throws {@link InterconnectServerException} (server fault)
- *  <p>The request resulted in an exception internal to the service.</p>
+ *
+ * The request resulted in an exception internal to the service.
  *
  * @throws {@link InterconnectValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified.</p>
+ *
+ * The input fails to satisfy the constraints specified.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request specifies a resource that does not exist on the server.</p>
+ *
+ * The request specifies a resource that does not exist on the server.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+ *
+ * The requested operation would result in the calling principal exceeding their allotted quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link InterconnectServiceException}
- * <p>Base exception class for all service exceptions from Interconnect service.</p>
  *
+ * Base exception class for all service exceptions from Interconnect service.
  *
  * @example Describe Connection Proposal
  * ```javascript

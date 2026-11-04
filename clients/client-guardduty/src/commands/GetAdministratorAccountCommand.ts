@@ -23,7 +23,14 @@ export interface GetAdministratorAccountCommandInput extends GetAdministratorAcc
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the details of the GuardDuty administrator account associated with the current GuardDuty member account.</p> <p>Based on the type of account that runs this API, the following list shows how the API behavior varies:</p> <ul> <li> <p>When the GuardDuty administrator account runs this API, it will return success (<code>HTTP 200</code>) but no content.</p> </li> <li> <p>When a member account runs this API, it will return the details of the GuardDuty administrator account that is associated with this calling member account.</p> </li> <li> <p>When an individual account (not associated with an organization) runs this API, it will return success (<code>HTTP 200</code>) but no content.</p> </li> </ul>
+ * Provides the details of the GuardDuty administrator account associated with the current GuardDuty member account.
+ *
+ * Based on the type of account that runs this API, the following list shows how the API behavior varies:
+ *
+ * - When the GuardDuty administrator account runs this API, it will return success (`HTTP 200`) but no content.
+ * - When a member account runs this API, it will return the details of the GuardDuty administrator account that is associated with this calling member account.
+ * - When an individual account (not associated with an organization) runs this API, it will return success (`HTTP 200`) but no content.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +62,16 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

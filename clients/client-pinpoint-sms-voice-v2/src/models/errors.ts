@@ -12,7 +12,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { PinpointSMSVoiceV2ServiceException as __BaseException } from "./PinpointSMSVoiceV2ServiceException";
 
 /**
- * <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+ * The request was denied because you don't have sufficient permissions to access the resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -21,7 +22,8 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: AccessDeniedExceptionReason | undefined;
@@ -41,7 +43,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,19 +53,22 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ConflictExceptionReason | undefined;
 
   /**
-   * <p>The type of resource that caused the exception.</p>
+   * The type of resource that caused the exception.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>The unique identifier of the request.</p>
+   * The unique identifier of the request.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -84,7 +90,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+ * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -94,7 +101,8 @@ export class InternalServerException extends __BaseException {
   $retryable = {};
   Message?: string | undefined;
   /**
-   * <p>The unique identifier of the request.</p>
+   * The unique identifier of the request.
+   *
    * @public
    */
   RequestId?: string | undefined;
@@ -114,7 +122,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>A requested resource couldn't be found.</p>
+ * A requested resource couldn't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -123,13 +132,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of resource that caused the exception.</p>
+   * The type of resource that caused the exception.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>The unique identifier of the resource.</p>
+   * The unique identifier of the resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -150,7 +161,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
+ * The request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -159,7 +171,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ServiceQuotaExceededExceptionReason | undefined;
@@ -179,7 +192,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+ * An error that occurred because too many requests were sent during a certain amount of time.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -205,7 +219,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>A validation exception for a field.</p>
+ * A validation exception for a field.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -214,13 +229,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The field that failed validation.</p>
+   * The field that failed validation.
+   *
    * @public
    */
   Fields?: ValidationExceptionField[] | undefined;

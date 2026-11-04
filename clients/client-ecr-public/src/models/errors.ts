@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ECRPUBLICServiceException as __BaseException } from "./ECRPUBLICServiceException";
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ * The specified parameter is invalid. Review the available parameters for the API request.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -26,7 +26,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The registry doesn't exist.</p>
+ * The registry doesn't exist.
+ *
  * @public
  */
 export class RegistryNotFoundException extends __BaseException {
@@ -47,8 +48,8 @@ export class RegistryNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified repository can't be found. Check the spelling of the specified repository
- *          and ensure that you're performing operations on the correct registry.</p>
+ * The specified repository can't be found. Check the spelling of the specified repository and ensure that you're performing operations on the correct registry.
+ *
  * @public
  */
 export class RepositoryNotFoundException extends __BaseException {
@@ -69,7 +70,8 @@ export class RepositoryNotFoundException extends __BaseException {
 }
 
 /**
- * <p>These errors are usually caused by a server-side issue.</p>
+ * These errors are usually caused by a server-side issue.
+ *
  * @public
  */
 export class ServerException extends __BaseException {
@@ -90,7 +92,8 @@ export class ServerException extends __BaseException {
 }
 
 /**
- * <p>The action isn't supported in this Region.</p>
+ * The action isn't supported in this Region.
+ *
  * @public
  */
 export class UnsupportedCommandException extends __BaseException {
@@ -111,7 +114,8 @@ export class UnsupportedCommandException extends __BaseException {
 }
 
 /**
- * <p>The specified layer upload doesn't contain any layer parts.</p>
+ * The specified layer upload doesn't contain any layer parts.
+ *
  * @public
  */
 export class EmptyUploadException extends __BaseException {
@@ -132,8 +136,8 @@ export class EmptyUploadException extends __BaseException {
 }
 
 /**
- * <p>The layer digest calculation performed by Amazon ECR when the image layer doesn't match the
- *          digest specified.</p>
+ * The layer digest calculation performed by Amazon ECR when the image layer doesn't match the digest specified.
+ *
  * @public
  */
 export class InvalidLayerException extends __BaseException {
@@ -154,7 +158,8 @@ export class InvalidLayerException extends __BaseException {
 }
 
 /**
- * <p>The image layer already exists in the associated repository.</p>
+ * The image layer already exists in the associated repository.
+ *
  * @public
  */
 export class LayerAlreadyExistsException extends __BaseException {
@@ -175,7 +180,8 @@ export class LayerAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Layer parts must be at least 5 MiB in size.</p>
+ * Layer parts must be at least 5 MiB in size.
+ *
  * @public
  */
 export class LayerPartTooSmallException extends __BaseException {
@@ -196,8 +202,8 @@ export class LayerPartTooSmallException extends __BaseException {
 }
 
 /**
- * <p>The upload can't be found, or the specified upload ID isn't valid for this
- *          repository.</p>
+ * The upload can't be found, or the specified upload ID isn't valid for this repository.
+ *
  * @public
  */
 export class UploadNotFoundException extends __BaseException {
@@ -218,7 +224,8 @@ export class UploadNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ * An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+ *
  * @public
  */
 export class InvalidTagParameterException extends __BaseException {
@@ -239,9 +246,8 @@ export class InvalidTagParameterException extends __BaseException {
 }
 
 /**
- * <p>The operation didn't succeed because it would have exceeded a service limit for your
- *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
- *          Amazon Elastic Container Registry User Guide.</p>
+ * The operation didn't succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR Service Quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -262,7 +268,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified repository already exists in the specified registry.</p>
+ * The specified repository already exists in the specified registry.
+ *
  * @public
  */
 export class RepositoryAlreadyExistsException extends __BaseException {
@@ -283,8 +290,8 @@ export class RepositoryAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *          can be applied to a repository is 50.</p>
+ * The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -305,8 +312,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The specified repository contains images. To delete a repository that contains images,
- *          you must force the deletion with the <code>force</code> parameter.</p>
+ * The specified repository contains images. To delete a repository that contains images, you must force the deletion with the `force` parameter.
+ *
  * @public
  */
 export class RepositoryNotEmptyException extends __BaseException {
@@ -327,8 +334,8 @@ export class RepositoryNotEmptyException extends __BaseException {
 }
 
 /**
- * <p>The specified repository and registry combination doesn't have an associated repository
- *          policy.</p>
+ * The specified repository and registry combination doesn't have an associated repository policy.
+ *
  * @public
  */
 export class RepositoryPolicyNotFoundException extends __BaseException {
@@ -349,7 +356,8 @@ export class RepositoryPolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The image requested doesn't exist in the specified repository.</p>
+ * The image requested doesn't exist in the specified repository.
+ *
  * @public
  */
 export class ImageNotFoundException extends __BaseException {
@@ -370,7 +378,8 @@ export class ImageNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The repository catalog data doesn't exist.</p>
+ * The repository catalog data doesn't exist.
+ *
  * @public
  */
 export class RepositoryCatalogDataNotFoundException extends __BaseException {
@@ -391,8 +400,8 @@ export class RepositoryCatalogDataNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified image has already been pushed, and there were no changes to the manifest
- *          or image tag after the last push.</p>
+ * The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.
+ *
  * @public
  */
 export class ImageAlreadyExistsException extends __BaseException {
@@ -413,8 +422,8 @@ export class ImageAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified image digest doesn't match the digest that Amazon ECR calculated for the
- *          image.</p>
+ * The specified image digest doesn't match the digest that Amazon ECR calculated for the image.
+ *
  * @public
  */
 export class ImageDigestDoesNotMatchException extends __BaseException {
@@ -435,8 +444,8 @@ export class ImageDigestDoesNotMatchException extends __BaseException {
 }
 
 /**
- * <p>The specified image is tagged with a tag that already exists. The repository is
- *          configured for tag immutability.</p>
+ * The specified image is tagged with a tag that already exists. The repository is configured for tag immutability.
+ *
  * @public
  */
 export class ImageTagAlreadyExistsException extends __BaseException {
@@ -457,8 +466,8 @@ export class ImageTagAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The layer part size isn't valid, or the first byte specified isn't consecutive to the
- *          last byte of a previous layer part upload.</p>
+ * The layer part size isn't valid, or the first byte specified isn't consecutive to the last byte of a previous layer part upload.
+ *
  * @public
  */
 export class InvalidLayerPartException extends __BaseException {
@@ -466,25 +475,29 @@ export class InvalidLayerPartException extends __BaseException {
   readonly name = "InvalidLayerPartException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon Web Services account ID that's associated with the layer part.</p>
+   * The Amazon Web Services account ID that's associated with the layer part.
+   *
    * @public
    */
   registryId?: string | undefined;
 
   /**
-   * <p>The name of the repository.</p>
+   * The name of the repository.
+   *
    * @public
    */
   repositoryName?: string | undefined;
 
   /**
-   * <p>The upload ID that's associated with the layer part.</p>
+   * The upload ID that's associated with the layer part.
+   *
    * @public
    */
   uploadId?: string | undefined;
 
   /**
-   * <p>The position of the last byte of the layer part.</p>
+   * The position of the last byte of the layer part.
+   *
    * @public
    */
   lastValidByteReceived?: number | undefined;
@@ -507,8 +520,8 @@ export class InvalidLayerPartException extends __BaseException {
 }
 
 /**
- * <p>The specified layers can't be found, or the specified layer isn't valid for this
- *          repository.</p>
+ * The specified layers can't be found, or the specified layer isn't valid for this repository.
+ *
  * @public
  */
 export class LayersNotFoundException extends __BaseException {
@@ -529,7 +542,8 @@ export class LayersNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The manifest list is referencing an image that doesn't exist.</p>
+ * The manifest list is referencing an image that doesn't exist.
+ *
  * @public
  */
 export class ReferencedImagesNotFoundException extends __BaseException {

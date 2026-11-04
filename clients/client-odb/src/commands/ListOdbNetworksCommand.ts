@@ -23,7 +23,8 @@ export interface ListOdbNetworksCommandInput extends ListOdbNetworksInput {}
 export interface ListOdbNetworksCommandOutput extends ListOdbNetworksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the ODB networks owned by your Amazon Web Services account.</p>
+ * Returns information about the ODB networks owned by your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,20 +130,24 @@ export interface ListOdbNetworksCommandOutput extends ListOdbNetworksOutput, __M
  * @see {@link OdbClientResolvedConfig | config} for OdbClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+ *
+ * Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it is missing required fields or has invalid inputs.
  *
  * @throws {@link OdbServiceException}
- * <p>Base exception class for all service exceptions from Odb service.</p>
  *
+ * Base exception class for all service exceptions from Odb service.
  *
  * @public
  */

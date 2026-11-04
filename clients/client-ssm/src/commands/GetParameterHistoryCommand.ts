@@ -23,16 +23,12 @@ export interface GetParameterHistoryCommandInput extends GetParameterHistoryRequ
 export interface GetParameterHistoryCommandOutput extends GetParameterHistoryResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the history of all changes to a parameter.</p>
- *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
- *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
- *    between characters, the request fails with a <code>ValidationException</code> error.</p>
- *          <important>
- *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter,
- *     then you must also update the key alias the parameter uses to reference KMS. Otherwise,
- *      <code>GetParameterHistory</code> retrieves whatever the original key alias was
- *     referencing.</p>
- *          </important>
+ * Retrieves the history of all changes to a parameter.
+ *
+ * Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a `ValidationException` error.
+ *
+ * > **Important:** If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference KMS. Otherwise, `GetParameterHistory` retrieves whatever the original key alias was referencing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,25 +83,26 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidKeyId} (client fault)
- *  <p>The query key ID isn't valid.</p>
+ *
+ * The query key ID isn't valid.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link ParameterNotFound} (client fault)
- *  <p>The parameter couldn't be found. Verify the name and try again.</p>
- *          <note>
- *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
- *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
- *      <i>not</i> recorded in CloudTrail event logs.</p>
- *          </note>
+ *
+ * The parameter couldn't be found. Verify the name and try again.
+ *
+ * > **Note:** For the `DeleteParameter` and `GetParameter` actions, if the specified parameter doesn't exist, the `ParameterNotFound` exception is *not* recorded in CloudTrail event logs.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

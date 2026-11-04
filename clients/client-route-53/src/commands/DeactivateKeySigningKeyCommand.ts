@@ -23,8 +23,8 @@ export interface DeactivateKeySigningKeyCommandInput extends DeactivateKeySignin
 export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC.
- * 			This operation changes the KSK status to <code>INACTIVE</code>.</p>
+ * Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC. This operation changes the KSK status to `INACTIVE`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,34 +57,36 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidKeySigningKeyStatus} (client fault)
- *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
- * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * The key-signing key (KSK) status isn't valid or another KSK has the status `INTERNAL_FAILURE`.
  *
  * @throws {@link InvalidSigningStatus} (client fault)
- *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
- * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable `DNSSEC` or disable `DNSSEC`.
  *
  * @throws {@link KeySigningKeyInParentDSRecord} (client fault)
- *  <p>The key-signing key (KSK) is specified in a parent DS record.</p>
+ *
+ * The key-signing key (KSK) is specified in a parent DS record.
  *
  * @throws {@link KeySigningKeyInUse} (client fault)
- *  <p>The key-signing key (KSK) that you specified can't be deactivated because it's the
- * 			only KSK for a currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable
- * 			another KSK.</p>
+ *
+ * The key-signing key (KSK) that you specified can't be deactivated because it's the only KSK for a currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable another KSK.
  *
  * @throws {@link NoSuchKeySigningKey} (client fault)
- *  <p>The specified key-signing key (KSK) doesn't exist.</p>
+ *
+ * The specified key-signing key (KSK) doesn't exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ProtonServiceException as __BaseException } from "./ProtonServiceException";
 
 /**
- * <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ * There *isn't* sufficient access for performing this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ * The request *couldn't* be made due to a conflicting operation or resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request failed to register with the service.</p>
+ * The request failed to register with the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource <i>wasn't</i> found.</p>
+ * The requested resource *wasn't* found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -113,7 +118,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -134,8 +140,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
- *       the <i>Proton User Guide</i>.</p>
+ * A quota was exceeded. For more information, see [Proton Quotas](https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html) in the *Proton User Guide*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

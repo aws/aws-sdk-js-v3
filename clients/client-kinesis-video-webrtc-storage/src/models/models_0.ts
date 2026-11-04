@@ -4,9 +4,8 @@
  */
 export interface JoinStorageSessionInput {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the signaling channel.
-   *     </p>
+   * The Amazon Resource Name (ARN) of the signaling channel.
+   *
    * @public
    */
   channelArn: string | undefined;
@@ -17,17 +16,15 @@ export interface JoinStorageSessionInput {
  */
 export interface JoinStorageSessionAsViewerInput {
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the signaling channel.
-   *     </p>
+   * The Amazon Resource Name (ARN) of the signaling channel.
+   *
    * @public
    */
   channelArn: string | undefined;
 
   /**
-   * <p>
-   *       The unique identifier for the sender client.
-   *     </p>
+   * The unique identifier for the sender client.
+   *
    * @public
    */
   clientId: string | undefined;

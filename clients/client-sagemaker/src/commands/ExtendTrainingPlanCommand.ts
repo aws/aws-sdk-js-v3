@@ -23,7 +23,12 @@ export interface ExtendTrainingPlanCommandInput extends ExtendTrainingPlanReques
 export interface ExtendTrainingPlanCommandOutput extends ExtendTrainingPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Extends an existing training plan by purchasing an extension offering. This allows you to add additional compute capacity time to your training plan without creating a new plan or reconfiguring your workloads.</p> <p>To find available extension offerings, use the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchTrainingPlanOfferings.html">SearchTrainingPlanOfferings</a> </code> API with the <code>TrainingPlanArn</code> parameter.</p> <p>To view the history of extensions for a training plan, use the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingPlanExtensionHistory.html">DescribeTrainingPlanExtensionHistory</a> </code> API.</p>
+ * Extends an existing training plan by purchasing an extension offering. This allows you to add additional compute capacity time to your training plan without creating a new plan or reconfiguring your workloads.
+ *
+ * To find available extension offerings, use the `SearchTrainingPlanOfferings` API with the `TrainingPlanArn` parameter.
+ *
+ * To view the history of extensions for a training plan, use the `DescribeTrainingPlanExtensionHistory` API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +69,12 @@ export interface ExtendTrainingPlanCommandOutput extends ExtendTrainingPlanRespo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

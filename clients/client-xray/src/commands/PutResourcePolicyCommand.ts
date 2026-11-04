@@ -23,12 +23,8 @@ export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest 
 export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult, __MetadataBearer {}
 
 /**
- * <p>
- *             Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
- *             access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
- *             Each Amazon Web Services account can have a maximum of 5 resource policies, and each policy name must be
- *             unique within that account. The maximum size of each resource policy is 5KB.
- *         </p>
+ * Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account. Each Amazon Web Services account can have a maximum of 5 resource policies, and each policy name must be unique within that account. The maximum size of each resource policy is 5KB.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,27 +59,32 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResult,
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidPolicyRevisionIdException} (client fault)
- *  <p>A policy revision id was provided which does not match the latest policy revision. This exception is also
- *     if a policy revision id of 0 is provided via <code>PutResourcePolicy</code> and a policy with the same name already exists.</p>
+ *
+ * A policy revision id was provided which does not match the latest policy revision. This exception is also if a policy revision id of 0 is provided via `PutResourcePolicy` and a policy with the same name already exists.
  *
  * @throws {@link LockoutPreventionException} (client fault)
- *  <p>The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.</p>
+ *
+ * The provided resource policy would prevent the caller of this request from calling PutResourcePolicy in the future.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>Invalid policy document provided in request.</p>
+ *
+ * Invalid policy document provided in request.
  *
  * @throws {@link PolicyCountLimitExceededException} (client fault)
- *  <p>Exceeded the maximum number of resource policies for a target Amazon Web Services account.</p>
+ *
+ * Exceeded the maximum number of resource policies for a target Amazon Web Services account.
  *
  * @throws {@link PolicySizeLimitExceededException} (client fault)
- *  <p>Exceeded the maximum size for a resource policy.</p>
+ *
+ * Exceeded the maximum size for a resource policy.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

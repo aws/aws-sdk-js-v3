@@ -26,24 +26,14 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandInput extends Creat
 export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput extends CreateSnapshotFromVolumeRecoveryPointOutput, __MetadataBearer {}
 
 /**
- * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is only
- *          supported in the cached volume gateway type.</p>
- *          <p>A volume recovery point is a point in time at which all data of the volume is consistent
- *          and from which you can create a snapshot. To get a list of volume recovery point for cached
- *          volume gateway, use <a>ListVolumeRecoveryPoints</a>.</p>
- *          <p>In the <code>CreateSnapshotFromVolumeRecoveryPoint</code> request, you identify the
- *          volume by providing its Amazon Resource Name (ARN). You must also provide a description for
- *          the snapshot. When the gateway takes a snapshot of the specified volume, the snapshot and
- *          its description appear in the Storage Gateway console.
- *           In response, the gateway returns
- *          you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use
- *          it when you want to create a volume from a snapshot.</p>
- *          <note>
- *             <p>To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
- *             or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html">DeleteSnapshot</a> in the <i>Amazon Elastic Compute Cloud API
- *                Reference</i>.</p>
- *          </note>
+ * Initiates a snapshot of a gateway from a volume recovery point. This operation is only supported in the cached volume gateway type.
+ *
+ * A volume recovery point is a point in time at which all data of the volume is consistent and from which you can create a snapshot. To get a list of volume recovery point for cached volume gateway, use ListVolumeRecoveryPoints.
+ *
+ * In the `CreateSnapshotFromVolumeRecoveryPoint` request, you identify the volume by providing its Amazon Resource Name (ARN). You must also provide a description for the snapshot. When the gateway takes a snapshot of the specified volume, the snapshot and its description appear in the Storage Gateway console. In response, the gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot.
+ *
+ * > **Note:** To list or delete a snapshot, you must use the Amazon EC2 API. For more information, see [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html) or [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html) in the *Amazon Elastic Compute Cloud API Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,20 +69,20 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput extends Crea
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>An internal server error has occurred because the service is unavailable. For more
- *          information, see the error and message fields.</p>
+ *
+ * An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To create a snapshot of a gateway volume
  * ```javascript

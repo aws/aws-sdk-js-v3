@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MigrationHubServiceException as __BaseException } from "./MigrationHubServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Exception raised to indicate a successfully authorized action when the
- *             <code>DryRun</code> flag is set to "true".</p>
+ * Exception raised to indicate a successfully authorized action when the `DryRun` flag is set to "true".
+ *
  * @public
  */
 export class DryRunOperation extends __BaseException {
@@ -51,7 +52,8 @@ export class DryRunOperation extends __BaseException {
 }
 
 /**
- * <p>The home region is not set. Set the home region to continue.</p>
+ * The home region is not set. Set the home region to continue.
+ *
  * @public
  */
 export class HomeRegionNotSetException extends __BaseException {
@@ -74,8 +76,8 @@ export class HomeRegionNotSetException extends __BaseException {
 }
 
 /**
- * <p>Exception raised when an internal, configuration, or dependency error is
- *          encountered.</p>
+ * Exception raised when an internal, configuration, or dependency error is encountered.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -98,8 +100,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Exception raised when the provided input violates a policy constraint or is entered in
- *          the wrong format or data type.</p>
+ * Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -122,9 +124,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>Exception raised when the request references a resource (Application Discovery Service
- *          configuration, update stream, migration task, etc.) that does not exist in Application
- *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ * Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -147,8 +148,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Exception raised when there is an internal, configuration, or dependency error
- *          encountered.</p>
+ * Exception raised when there is an internal, configuration, or dependency error encountered.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -171,7 +172,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -179,13 +181,15 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message that provides information about the exception.</p>
+   * A message that provides information about the exception.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
+   * The number of seconds the caller should wait before retrying.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -205,8 +209,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Exception raised to indicate a request was not authorized when the <code>DryRun</code>
- *          flag is set to "true".</p>
+ * Exception raised to indicate a request was not authorized when the `DryRun` flag is set to "true".
+ *
  * @public
  */
 export class UnauthorizedOperation extends __BaseException {
@@ -229,9 +233,8 @@ export class UnauthorizedOperation extends __BaseException {
 }
 
 /**
- * <p>Exception raised when there are problems accessing Application Discovery Service
- *          (Application Discovery Service); most likely due to a misconfigured policy or the
- *             <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
+ * Exception raised when there are problems accessing Application Discovery Service (Application Discovery Service); most likely due to a misconfigured policy or the `migrationhub-discovery` role is missing or not configured correctly.
+ *
  * @public
  */
 export class PolicyErrorException extends __BaseException {

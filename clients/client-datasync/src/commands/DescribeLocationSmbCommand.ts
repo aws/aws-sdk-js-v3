@@ -23,8 +23,8 @@ export interface DescribeLocationSmbCommandInput extends DescribeLocationSmbRequ
 export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about how an DataSync transfer location for a Server
- *       Message Block (SMB) file server is configured.</p>
+ * Provides details about how an DataSync transfer location for a Server Message Block (SMB) file server is configured.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,15 +77,16 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListEndpointConfigsCommandInput extends ListEndpointConfigsInpu
 export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists endpoint configurations.</p>
+ * Lists endpoint configurations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface ListEndpointConfigsCommandOutput extends ListEndpointConfigsOut
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

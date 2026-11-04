@@ -23,11 +23,8 @@ export interface ListJobsCommandInput extends ListJobsRequest {}
 export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer {}
 
 /**
- * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
- *         <code>JobListEntry</code> object contains a job's state, a job's ID, and a value that
- *       indicates whether the job is a job part, in the case of export jobs. Calling this API action
- *       in one of the US regions will return jobs from the list of all jobs associated with this
- *       account in all US regions.</p>
+ * Returns an array of `JobListEntry` objects of the specified length. Each `JobListEntry` object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. Calling this API action in one of the US regions will return jobs from the list of all jobs associated with this account in all US regions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,13 +63,12 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
+ *
+ * The `NextToken` string was altered unexpectedly, and the operation has stopped. Run the operation without changing the `NextToken` string, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

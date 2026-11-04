@@ -23,10 +23,10 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 export interface DeleteConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified connection.</p>
- *          <p>Deleting a connection only stops the Direct Connect port hour and data transfer charges.
- *       If you are partnering with any third parties to connect with the Direct Connect location,
- *       you must cancel your service with them separately.</p>
+ * Deletes the specified connection.
+ *
+ * Deleting a connection only stops the Direct Connect port hour and data transfer charges. If you are partnering with any third parties to connect with the Direct Connect location, you must cancel your service with them separately.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,14 +98,16 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

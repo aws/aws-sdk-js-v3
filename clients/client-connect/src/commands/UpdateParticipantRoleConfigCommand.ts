@@ -23,24 +23,15 @@ export interface UpdateParticipantRoleConfigCommandInput extends UpdateParticipa
 export interface UpdateParticipantRoleConfigCommandOutput extends UpdateParticipantRoleConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically
- *    disconnected from a chat due to idleness. You can set four timers:</p>
- *          <ul>
- *             <li>
- *                <p>Customer idle timeout</p>
- *             </li>
- *             <li>
- *                <p>Customer auto-disconnect timeout</p>
- *             </li>
- *             <li>
- *                <p>Agent idle timeout</p>
- *             </li>
- *             <li>
- *                <p>Agent auto-disconnect timeout</p>
- *             </li>
- *          </ul>
- *          <p>For more information about how chat timeouts work, see
- *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set up chat timeouts for human participants</a>. </p>
+ * Updates timeouts for when human chat participants are to be considered idle, and when agents are automatically disconnected from a chat due to idleness. You can set four timers:
+ *
+ * - Customer idle timeout
+ * - Customer auto-disconnect timeout
+ * - Agent idle timeout
+ * - Agent auto-disconnect timeout
+ *
+ * For more information about how chat timeouts work, see [Set up chat timeouts for human participants](https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,26 +71,32 @@ export interface UpdateParticipantRoleConfigCommandOutput extends UpdateParticip
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

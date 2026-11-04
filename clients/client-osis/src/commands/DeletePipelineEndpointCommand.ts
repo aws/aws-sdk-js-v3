@@ -23,7 +23,8 @@ export interface DeletePipelineEndpointCommandInput extends DeletePipelineEndpoi
 export interface DeletePipelineEndpointCommandOutput extends DeletePipelineEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a VPC endpoint for an OpenSearch Ingestion pipeline.</p>
+ * Deletes a VPC endpoint for an OpenSearch Ingestion pipeline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,21 +49,24 @@ export interface DeletePipelineEndpointCommandOutput extends DeletePipelineEndpo
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to access the resource.</p>
+ *
+ * You don't have permissions to access the resource.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>Exception is thrown when an operation has been disabled.</p>
+ *
+ * Exception is thrown when an operation has been disabled.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request failed because of an unknown error, exception, or failure (the failure is
- *    internal to the service).</p>
+ *
+ * The request failed because of an unknown error, exception, or failure (the failure is internal to the service).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for missing or invalid input fields.</p>
+ *
+ * An exception for missing or invalid input fields.
  *
  * @throws {@link OSISServiceException}
- * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * Base exception class for all service exceptions from OSIS service.
  *
  * @public
  */

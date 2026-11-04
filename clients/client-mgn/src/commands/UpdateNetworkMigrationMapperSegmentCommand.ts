@@ -23,7 +23,8 @@ export interface UpdateNetworkMigrationMapperSegmentCommandInput extends UpdateN
 export interface UpdateNetworkMigrationMapperSegmentCommandOutput extends NetworkMigrationMapperSegment, __MetadataBearer {}
 
 /**
- * <p>Updates a mapper segment's configuration, such as changing its scope tags.</p>
+ * Updates a mapper segment's configuration, such as changing its scope tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +81,20 @@ export interface UpdateNetworkMigrationMapperSegmentCommandOutput extends Networ
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample UpdateNetworkMigrationMapperSegment call
  * ```javascript

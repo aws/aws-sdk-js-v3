@@ -23,11 +23,10 @@ export interface DescribeNetworkAclsCommandInput extends DescribeNetworkAclsRequ
 export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsResult, __MetadataBearer {}
 
 /**
- * <p>Describes your network ACLs. The default is to describe all your network ACLs.
- *            Alternatively, you can specify specific network ACL IDs or filter the results to
- *            include only the network ACLs that match specific criteria.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network ACLs</a> in the
- * 				<i>Amazon VPC User Guide</i>.</p>
+ * Describes your network ACLs. The default is to describe all your network ACLs. Alternatively, you can specify specific network ACL IDs or filter the results to include only the network ACLs that match specific criteria.
+ *
+ * For more information, see [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,8 +105,8 @@ export interface DescribeNetworkAclsCommandOutput extends DescribeNetworkAclsRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a network ACL
  * ```javascript

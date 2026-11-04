@@ -23,11 +23,10 @@ export interface ListSitesCommandInput extends ListSitesInput {}
 export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific
- *       results.</p>
- *          <p>Use filters to return specific results. If you specify multiple filters, the results include only the resources that match
- *  all of the specified filters. For a filter where you can specify multiple values, the results include
- *  items that match any of the values that you specify for the filter.</p>
+ * Lists the Outpost sites for your Amazon Web Services account. Use filters to return specific results.
+ *
+ * Use filters to return specific results. If you specify multiple filters, the results include only the resources that match all of the specified filters. For a filter where you can specify multiple values, the results include items that match any of the values that you specify for the filter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,17 +90,20 @@ export interface ListSitesCommandOutput extends ListSitesOutput, __MetadataBeare
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

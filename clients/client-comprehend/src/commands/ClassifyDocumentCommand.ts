@@ -23,30 +23,15 @@ export interface ClassifyDocumentCommandInput extends ClassifyDocumentRequest {}
 export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code>
- *       supports the following model types:</p>
- *          <ul>
- *             <li>
- *                <p>Custom classifier - a custom model that you have created and trained.
- *         For input, you can provide plain text, a single-page document (PDF, Word, or image), or
- *         Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying
- *         input prompts for generative AI applications.
- *         For input, you provide English plain text input.
- *         For prompt safety classification, the response includes only the <code>Classes</code> field.
- *         For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
- *             </li>
- *          </ul>
- *          <p>If the system detects errors while processing a page in the input document,
- *       the API response includes an <code>Errors</code> field that describes the errors.</p>
- *          <p>If the system detects a document-level error in your input document, the API returns an
- *       <code>InvalidRequestException</code> error response.
- *       For details about this exception, see
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
- *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
- *     </p>
+ * Creates a classification request to analyze a single document in real-time. `ClassifyDocument` supports the following model types:
+ *
+ * - Custom classifier - a custom model that you have created and trained. For input, you can provide plain text, a single-page document (PDF, Word, or image), or Amazon Textract API output. For more information, see [Custom classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html) in the *Amazon Comprehend Developer Guide*.
+ * - Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying input prompts for generative AI applications. For input, you provide English plain text input. For prompt safety classification, the response includes only the `Classes` field. For more information about prompt safety classifiers, see [Prompt safety classification](https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification) in the *Amazon Comprehend Developer Guide*.
+ *
+ * If the system detects errors while processing a page in the input document, the API response includes an `Errors` field that describes the errors.
+ *
+ * If the system detects a document-level error in your input document, the API returns an `InvalidRequestException` error response. For details about this exception, see [Errors in semi-structured documents](https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html) in the Comprehend Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,21 +109,24 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ *
+ * The specified resource is not available. Check the resource and try your request again.
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)
- *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * The size of the input text exceeds the limit. Use a smaller document.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

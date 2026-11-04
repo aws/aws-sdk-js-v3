@@ -23,7 +23,19 @@ export interface PutSinkPolicyCommandInput extends PutSinkPolicyInput {}
 export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the resource policy that grants permissions to source accounts to link to the monitoring account sink. When you create a sink policy, you can grant permissions to all accounts in an organization or to individual accounts.</p> <p>You can also use a sink policy to limit the types of data that is shared. The six types of services with their respective resource types that you can allow or deny are:</p> <ul> <li> <p> <b>Metrics</b> - Specify with <code>AWS::CloudWatch::Metric</code> </p> </li> <li> <p> <b>Log groups</b> - Specify with <code>AWS::Logs::LogGroup</code> </p> </li> <li> <p> <b>Traces</b> - Specify with <code>AWS::XRay::Trace</code> </p> </li> <li> <p> <b>Application Insights - Applications</b> - Specify with <code>AWS::ApplicationInsights::Application</code> </p> </li> <li> <p> <b>Internet Monitor</b> - Specify with <code>AWS::InternetMonitor::Monitor</code> </p> </li> <li> <p> <b>Application Signals</b> - Specify with <code>AWS::ApplicationSignals::Service</code> and <code>AWS::ApplicationSignals::ServiceLevelObjective</code> </p> </li> </ul> <p>See the examples in this section to see how to specify permitted source accounts and data types.</p>
+ * Creates or updates the resource policy that grants permissions to source accounts to link to the monitoring account sink. When you create a sink policy, you can grant permissions to all accounts in an organization or to individual accounts.
+ *
+ * You can also use a sink policy to limit the types of data that is shared. The six types of services with their respective resource types that you can allow or deny are:
+ *
+ * - **Metrics** - Specify with `AWS::CloudWatch::Metric`
+ * - **Log groups** - Specify with `AWS::Logs::LogGroup`
+ * - **Traces** - Specify with `AWS::XRay::Trace`
+ * - **Application Insights - Applications** - Specify with `AWS::ApplicationInsights::Application`
+ * - **Internet Monitor** - Specify with `AWS::InternetMonitor::Monitor`
+ * - **Application Signals** - Specify with `AWS::ApplicationSignals::Service` and `AWS::ApplicationSignals::ServiceLevelObjective`
+ *
+ * See the examples in this section to see how to specify permitted source accounts and data types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,20 +65,24 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>A required parameter is missing from the request.</p>
+ *
+ * A required parameter is missing from the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

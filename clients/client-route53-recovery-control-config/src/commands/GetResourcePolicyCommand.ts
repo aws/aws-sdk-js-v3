@@ -23,7 +23,8 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about the resource policy for a cluster.</p>
+ * Get information about the resource policy for a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * 500 response - InternalServiceError. Temporary service error. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>404 response - MalformedQueryString. The query string contains a syntax error or resource not found.</p>
+ *
+ * 404 response - MalformedQueryString. The query string contains a syntax error or resource not found.
  *
  * @throws {@link Route53RecoveryControlConfigServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryControlConfig service.
  *
  * @public
  */

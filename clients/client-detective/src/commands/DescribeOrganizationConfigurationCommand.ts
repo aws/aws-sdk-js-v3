@@ -26,10 +26,10 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
 export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the configuration for the organization behavior graph.
- *          Currently indicates whether to automatically enable new organization accounts as member
- *          accounts.</p>
- *          <p>Can only be called by the Detective administrator account for the organization. </p>
+ * Returns information about the configuration for the organization behavior graph. Currently indicates whether to automatically enable new organization accounts as member accounts.
+ *
+ * Can only be called by the Detective administrator account for the organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,22 +56,24 @@ export interface DescribeOrganizationConfigurationCommandOutput extends Describe
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request cannot be completed because too many other requests are occurring at the
- *          same time.</p>
+ *
+ * The request cannot be completed because too many other requests are occurring at the same time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

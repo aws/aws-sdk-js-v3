@@ -23,10 +23,8 @@ export interface CreateDedicatedIpPoolCommandInput extends CreateDedicatedIpPool
 export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
- *             IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
- *             a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
- *             sends it using only the IP addresses in the associated pool.</p>
+ * Create a new pool of dedicated IP addresses. A pool can include one or more dedicated IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint sends it using only the IP addresses in the associated pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,23 +55,28 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * The resource is being modified by another operation or thread.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

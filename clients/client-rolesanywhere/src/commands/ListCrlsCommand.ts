@@ -23,7 +23,10 @@ export interface ListCrlsCommandInput extends ListRequest {}
 export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.</p> <p> <b>Required permissions: </b> <code>rolesanywhere:ListCrls</code>. </p>
+ * Lists all certificate revocation lists (CRL) in the authenticated account and Amazon Web Services Region.
+ *
+ * **Required permissions:** `rolesanywhere:ListCrls`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +66,16 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link RolesAnywhereServiceException}
- * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ * Base exception class for all service exceptions from RolesAnywhere service.
  *
  * @public
  */

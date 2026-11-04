@@ -23,7 +23,10 @@ export interface DeleteDistributionCommandInput extends DeleteDistributionReques
 export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a distribution.</p> <important> <p>Before you can delete a distribution, you must disable it, which requires permission to update the distribution. Once deleted, a distribution cannot be recovered.</p> </important>
+ * Delete a distribution.
+ *
+ * > **Important:** Before you can delete a distribution, you must disable it, which requires permission to update the distribution. Once deleted, a distribution cannot be recovered.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +52,32 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link DistributionNotDisabled} (client fault)
- *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.</p>
+ *
+ * The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchDistribution} (client fault)
- *  <p>The specified distribution does not exist.</p>
+ *
+ * The specified distribution does not exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Cannot delete this resource because it is in use.</p>
+ *
+ * Cannot delete this resource because it is in use.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

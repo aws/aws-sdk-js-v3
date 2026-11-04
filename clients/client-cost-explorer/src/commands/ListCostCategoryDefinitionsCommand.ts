@@ -23,13 +23,8 @@ export interface ListCostCategoryDefinitionsCommandInput extends ListCostCategor
 export interface ListCostCategoryDefinitionsCommandOutput extends ListCostCategoryDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the name, Amazon Resource Name (ARN), <code>NumberOfRules</code> and effective
- *       dates of all cost categories defined in the account. You have the option to use
- *       <code>EffectiveOn</code> and <code>SupportedResourceTypes</code> to return a list of cost categories that were active on a specific
- *       date. If there is no <code>EffectiveOn</code> specified, you’ll see cost categories that are
- *       effective on the current date. If cost category is still effective, <code>EffectiveEnd</code>
- *       is omitted in the response. <code>ListCostCategoryDefinitions</code> supports pagination. The
- *       request can have a <code>MaxResults</code> range up to 100.</p>
+ * Returns the name, Amazon Resource Name (ARN), `NumberOfRules` and effective dates of all cost categories defined in the account. You have the option to use `EffectiveOn` and `SupportedResourceTypes` to return a list of cost categories that were active on a specific date. If there is no `EffectiveOn` specified, you’ll see cost categories that are effective on the current date. If cost category is still effective, `EffectiveEnd` is omitted in the response. `ListCostCategoryDefinitions` supports pagination. The request can have a `MaxResults` range up to 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +78,12 @@ export interface ListCostCategoryDefinitionsCommandOutput extends ListCostCatego
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

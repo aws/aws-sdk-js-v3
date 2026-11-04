@@ -23,7 +23,8 @@ export interface ModifyCustomDomainAssociationCommandInput extends ModifyCustomD
 export interface ModifyCustomDomainAssociationCommandOutput extends ModifyCustomDomainAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Contains information for changing a custom domain association.</p>
+ * Contains information for changing a custom domain association.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,21 +56,24 @@ export interface ModifyCustomDomainAssociationCommandOutput extends ModifyCustom
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link CustomCnameAssociationFault} (client fault)
- *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ *
+ * An error occurred when an attempt was made to change the custom domain association.
  *
  * @throws {@link CustomDomainAssociationNotFoundFault} (client fault)
- *  <p>An error occurred. The custom domain name couldn't be found.</p>
+ *
+ * An error occurred. The custom domain name couldn't be found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

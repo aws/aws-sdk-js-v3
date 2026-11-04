@@ -23,7 +23,8 @@ export interface SearchCertificatesCommandInput extends SearchCertificatesReques
 export interface SearchCertificatesCommandOutput extends SearchCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of certificates matching search criteria. You can filter certificates by X.509 attributes and ACM specific properties like certificate status, type and renewal eligibility. This operation provides more flexible filtering than <a>ListCertificates</a> by supporting complex filter statements.</p>
+ * Retrieves a list of certificates matching search criteria. You can filter certificates by X.509 attributes and ACM specific properties like certificate status, type and renewal eligibility. This operation provides more flexible filtering than ListCertificates by supporting complex filter statements.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -279,17 +280,20 @@ export interface SearchCertificatesCommandOutput extends SearchCertificatesRespo
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have access required to perform this action.</p>
+ *
+ * You do not have access required to perform this action.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * The request was denied because it exceeded a quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

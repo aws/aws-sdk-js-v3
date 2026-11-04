@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
 
 /**
- * <p>The requested cluster ID does not refer to an existing cluster.</p>
+ * The requested cluster ID does not refer to an existing cluster.
+ *
  * @public
  */
 export class CacheClusterNotFoundFault extends __BaseException {
@@ -25,8 +26,8 @@ export class CacheClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
+ * The requested cache parameter group name does not refer to an existing cache parameter group.
+ *
  * @public
  */
 export class CacheParameterGroupNotFoundFault extends __BaseException {
@@ -47,8 +48,8 @@ export class CacheParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ * The requested cache security group name does not refer to an existing cache security group.
+ *
  * @public
  */
 export class CacheSecurityGroupNotFoundFault extends __BaseException {
@@ -69,8 +70,8 @@ export class CacheSecurityGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
+ * The requested cache subnet group name does not refer to an existing cache subnet group.
+ *
  * @public
  */
 export class CacheSubnetGroupNotFoundFault extends __BaseException {
@@ -91,7 +92,8 @@ export class CacheSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The Global datastore does not exist</p>
+ * The Global datastore does not exist
+ *
  * @public
  */
 export class GlobalReplicationGroupNotFoundFault extends __BaseException {
@@ -112,8 +114,8 @@ export class GlobalReplicationGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- *             resource.</p>
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+ *
  * @public
  */
 export class InvalidARNFault extends __BaseException {
@@ -134,7 +136,8 @@ export class InvalidARNFault extends __BaseException {
 }
 
 /**
- * <p>The value for a parameter is invalid.</p>
+ * The value for a parameter is invalid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -155,7 +158,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The requested replication group is not in the <code>available</code> state.</p>
+ * The requested replication group is not in the `available` state.
+ *
  * @public
  */
 export class InvalidReplicationGroupStateFault extends __BaseException {
@@ -176,7 +180,8 @@ export class InvalidReplicationGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @public
  */
 export class InvalidServerlessCacheSnapshotStateFault extends __BaseException {
@@ -197,7 +202,8 @@ export class InvalidServerlessCacheSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p>The account for these credentials is not currently active.</p>
+ * The account for these credentials is not currently active.
+ *
  * @public
  */
 export class InvalidServerlessCacheStateFault extends __BaseException {
@@ -218,7 +224,8 @@ export class InvalidServerlessCacheStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified replication group does not exist.</p>
+ * The specified replication group does not exist.
+ *
  * @public
  */
 export class ReplicationGroupNotFoundFault extends __BaseException {
@@ -239,7 +246,8 @@ export class ReplicationGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested reserved cache node was not found.</p>
+ * The requested reserved cache node was not found.
+ *
  * @public
  */
 export class ReservedCacheNodeNotFoundFault extends __BaseException {
@@ -260,7 +268,8 @@ export class ReservedCacheNodeNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The serverless cache was not found or does not exist.</p>
+ * The serverless cache was not found or does not exist.
+ *
  * @public
  */
 export class ServerlessCacheNotFoundFault extends __BaseException {
@@ -281,7 +290,8 @@ export class ServerlessCacheNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @public
  */
 export class ServerlessCacheSnapshotNotFoundFault extends __BaseException {
@@ -302,7 +312,8 @@ export class ServerlessCacheSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ * The requested snapshot name does not refer to an existing snapshot.
+ *
  * @public
  */
 export class SnapshotNotFoundFault extends __BaseException {
@@ -323,9 +334,8 @@ export class SnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
+ *
  * @public
  */
 export class TagQuotaPerResourceExceeded extends __BaseException {
@@ -346,7 +356,8 @@ export class TagQuotaPerResourceExceeded extends __BaseException {
 }
 
 /**
- * <p>The user group was not found or does not exist</p>
+ * The user group was not found or does not exist
+ *
  * @public
  */
 export class UserGroupNotFoundFault extends __BaseException {
@@ -367,7 +378,8 @@ export class UserGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The user does not exist or could not be found.</p>
+ * The user does not exist or could not be found.
+ *
  * @public
  */
 export class UserNotFoundFault extends __BaseException {
@@ -388,8 +400,8 @@ export class UserNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon EC2 security group is already authorized for the specified cache
- *             security group.</p>
+ * The specified Amazon EC2 security group is already authorized for the specified cache security group.
+ *
  * @public
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
@@ -410,7 +422,8 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The current state of the cache security group does not allow deletion.</p>
+ * The current state of the cache security group does not allow deletion.
+ *
  * @public
  */
 export class InvalidCacheSecurityGroupStateFault extends __BaseException {
@@ -431,7 +444,8 @@ export class InvalidCacheSecurityGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>Two or more incompatible parameters were specified.</p>
+ * Two or more incompatible parameters were specified.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -452,7 +466,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>The service update doesn't exist</p>
+ * The service update doesn't exist
+ *
  * @public
  */
 export class ServiceUpdateNotFoundFault extends __BaseException {
@@ -473,7 +488,8 @@ export class ServiceUpdateNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested cluster is not in the <code>available</code> state.</p>
+ * The requested cluster is not in the `available` state.
+ *
  * @public
  */
 export class InvalidCacheClusterStateFault extends __BaseException {
@@ -494,8 +510,8 @@ export class InvalidCacheClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>The migration is not healthy. Check the events for this serverless cache for more details. For
- *             <code>CompleteMigration</code>, set <code>Force</code> to true to bypass this check.</p>
+ * The migration is not healthy. Check the events for this serverless cache for more details. For `CompleteMigration`, set `Force` to true to bypass this check.
+ *
  * @public
  */
 export class MigrationHealthFault extends __BaseException {
@@ -516,7 +532,8 @@ export class MigrationHealthFault extends __BaseException {
 }
 
 /**
- * <p>The designated replication group is not available for data migration.</p>
+ * The designated replication group is not available for data migration.
+ *
  * @public
  */
 export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
@@ -537,7 +554,8 @@ export class ReplicationGroupNotUnderMigrationFault extends __BaseException {
 }
 
 /**
- * <p>The serverless cache is not currently under migration.</p>
+ * The serverless cache is not currently under migration.
+ *
  * @public
  */
 export class ServerlessCacheNotUnderMigrationFault extends __BaseException {
@@ -558,7 +576,8 @@ export class ServerlessCacheNotUnderMigrationFault extends __BaseException {
 }
 
 /**
- * <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @public
  */
 export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
@@ -579,7 +598,8 @@ export class ServerlessCacheSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ * The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.
+ *
  * @public
  */
 export class ServerlessCacheSnapshotQuotaExceededFault extends __BaseException {
@@ -600,7 +620,8 @@ export class ServerlessCacheSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified service linked role (SLR) was not found.</p>
+ * The specified service linked role (SLR) was not found.
+ *
  * @public
  */
 export class ServiceLinkedRoleNotFoundFault extends __BaseException {
@@ -621,8 +642,8 @@ export class ServiceLinkedRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The current state of the snapshot does not allow the requested operation to
- *             occur.</p>
+ * The current state of the snapshot does not allow the requested operation to occur.
+ *
  * @public
  */
 export class InvalidSnapshotStateFault extends __BaseException {
@@ -643,7 +664,8 @@ export class InvalidSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p>You already have a snapshot with the given name.</p>
+ * You already have a snapshot with the given name.
+ *
  * @public
  */
 export class SnapshotAlreadyExistsFault extends __BaseException {
@@ -664,8 +686,8 @@ export class SnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of
- *             snapshots.</p>
+ * The request cannot be processed because it would exceed the maximum number of snapshots.
+ *
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -686,7 +708,8 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>You already have a cluster with the given identifier.</p>
+ * You already have a cluster with the given identifier.
+ *
  * @public
  */
 export class CacheClusterAlreadyExistsFault extends __BaseException {
@@ -707,8 +730,8 @@ export class CacheClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of clusters
- *             per customer.</p>
+ * The request cannot be processed because it would exceed the allowed number of clusters per customer.
+ *
  * @public
  */
 export class ClusterQuotaForCustomerExceededFault extends __BaseException {
@@ -729,8 +752,8 @@ export class ClusterQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ * The requested cache node type is not available in the specified Availability Zone. For more information, see [InsufficientCacheClusterCapacity](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY) in the ElastiCache User Guide.
+ *
  * @public
  */
 export class InsufficientCacheClusterCapacityFault extends __BaseException {
@@ -751,7 +774,8 @@ export class InsufficientCacheClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The VPC network is in an invalid state.</p>
+ * The VPC network is in an invalid state.
+ *
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -772,8 +796,8 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes in a single cluster.</p>
+ * The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.
+ *
  * @public
  */
 export class NodeQuotaForClusterExceededFault extends __BaseException {
@@ -794,8 +818,8 @@ export class NodeQuotaForClusterExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             nodes per customer.</p>
+ * The request cannot be processed because it would exceed the allowed number of cache nodes per customer.
+ *
  * @public
  */
 export class NodeQuotaForCustomerExceededFault extends __BaseException {
@@ -816,7 +840,8 @@ export class NodeQuotaForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>A cache parameter group with the requested name already exists.</p>
+ * A cache parameter group with the requested name already exists.
+ *
  * @public
  */
 export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
@@ -837,8 +862,8 @@ export class CacheParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum number of cache
- *             security groups.</p>
+ * The request cannot be processed because it would exceed the maximum number of cache security groups.
+ *
  * @public
  */
 export class CacheParameterGroupQuotaExceededFault extends __BaseException {
@@ -859,8 +884,8 @@ export class CacheParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The current state of the cache parameter group does not allow the requested operation
- *             to occur.</p>
+ * The current state of the cache parameter group does not allow the requested operation to occur.
+ *
  * @public
  */
 export class InvalidCacheParameterGroupStateFault extends __BaseException {
@@ -881,7 +906,8 @@ export class InvalidCacheParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>A cache security group with the specified name already exists.</p>
+ * A cache security group with the specified name already exists.
+ *
  * @public
  */
 export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
@@ -902,8 +928,8 @@ export class CacheSecurityGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             security groups.</p>
+ * The request cannot be processed because it would exceed the allowed number of cache security groups.
+ *
  * @public
  */
 export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
@@ -924,8 +950,8 @@ export class CacheSecurityGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache subnet group name is already in use by an existing cache subnet
- *             group.</p>
+ * The requested cache subnet group name is already in use by an existing cache subnet group.
+ *
  * @public
  */
 export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
@@ -946,8 +972,8 @@ export class CacheSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of cache
- *             subnet groups.</p>
+ * The request cannot be processed because it would exceed the allowed number of cache subnet groups.
+ *
  * @public
  */
 export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
@@ -968,8 +994,8 @@ export class CacheSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the allowed number of subnets
- *             in a cache subnet group.</p>
+ * The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.
+ *
  * @public
  */
 export class CacheSubnetQuotaExceededFault extends __BaseException {
@@ -990,7 +1016,8 @@ export class CacheSubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>An invalid subnet identifier was specified.</p>
+ * An invalid subnet identifier was specified.
+ *
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -1011,10 +1038,8 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically
- *             occurs when a user sets one subnet ID to a regional Availability Zone and a different
- *             one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed
- *             on this service.</p>
+ * At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.
+ *
  * @public
  */
 export class SubnetNotAllowedFault extends __BaseException {
@@ -1035,7 +1060,8 @@ export class SubnetNotAllowedFault extends __BaseException {
 }
 
 /**
- * <p>The Global datastore name already exists.</p>
+ * The Global datastore name already exists.
+ *
  * @public
  */
 export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
@@ -1056,7 +1082,8 @@ export class GlobalReplicationGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The Global datastore is not available or in primary-only state.</p>
+ * The Global datastore is not available or in primary-only state.
+ *
  * @public
  */
 export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
@@ -1077,7 +1104,8 @@ export class InvalidGlobalReplicationGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The user group is not in an active state.</p>
+ * The user group is not in an active state.
+ *
  * @public
  */
 export class InvalidUserGroupStateFault extends __BaseException {
@@ -1098,8 +1126,8 @@ export class InvalidUserGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the maximum allowed number of
- *             node groups (shards) in a single replication group. The default maximum is 90</p>
+ * The request cannot be processed because it would exceed the maximum allowed number of node groups (shards) in a single replication group. The default maximum is 90
+ *
  * @public
  */
 export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseException {
@@ -1120,7 +1148,8 @@ export class NodeGroupsPerReplicationGroupQuotaExceededFault extends __BaseExcep
 }
 
 /**
- * <p>The specified replication group already exists.</p>
+ * The specified replication group already exists.
+ *
  * @public
  */
 export class ReplicationGroupAlreadyExistsFault extends __BaseException {
@@ -1141,7 +1170,8 @@ export class ReplicationGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>You must enter valid credentials.</p>
+ * You must enter valid credentials.
+ *
  * @public
  */
 export class InvalidCredentialsException extends __BaseException {
@@ -1162,7 +1192,8 @@ export class InvalidCredentialsException extends __BaseException {
 }
 
 /**
- * <p>A serverless cache with this name already exists.</p>
+ * A serverless cache with this name already exists.
+ *
  * @public
  */
 export class ServerlessCacheAlreadyExistsFault extends __BaseException {
@@ -1183,7 +1214,8 @@ export class ServerlessCacheAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of serverless caches exceeds the customer quota.</p>
+ * The number of serverless caches exceeds the customer quota.
+ *
  * @public
  */
 export class ServerlessCacheQuotaForCustomerExceededFault extends __BaseException {
@@ -1204,18 +1236,13 @@ export class ServerlessCacheQuotaForCustomerExceededFault extends __BaseExceptio
 }
 
 /**
- * <p>You attempted one of the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
- *                         <code>cache.t1.micro</code> cache node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Valkey or Redis OSS.</p>
- *             </li>
- *          </ul>
- *          <p>Neither of these are supported by ElastiCache.</p>
+ * You attempted one of the following operations:
+ *
+ * - Creating a snapshot of a Valkey or Redis OSS cluster running on a `cache.t1.micro` cache node.
+ * - Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.
+ *
+ * Neither of these are supported by ElastiCache.
+ *
  * @public
  */
 export class SnapshotFeatureNotSupportedFault extends __BaseException {
@@ -1236,7 +1263,8 @@ export class SnapshotFeatureNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>A user with this username already exists.</p>
+ * A user with this username already exists.
+ *
  * @public
  */
 export class DuplicateUserNameFault extends __BaseException {
@@ -1257,7 +1285,8 @@ export class DuplicateUserNameFault extends __BaseException {
 }
 
 /**
- * <p>A user with this ID already exists.</p>
+ * A user with this ID already exists.
+ *
  * @public
  */
 export class UserAlreadyExistsFault extends __BaseException {
@@ -1278,7 +1307,8 @@ export class UserAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The quota of users has been exceeded.</p>
+ * The quota of users has been exceeded.
+ *
  * @public
  */
 export class UserQuotaExceededFault extends __BaseException {
@@ -1299,7 +1329,8 @@ export class UserQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>You must add default user to a user group.</p>
+ * You must add default user to a user group.
+ *
  * @public
  */
 export class DefaultUserRequired extends __BaseException {
@@ -1320,7 +1351,8 @@ export class DefaultUserRequired extends __BaseException {
 }
 
 /**
- * <p>The user group with this ID already exists.</p>
+ * The user group with this ID already exists.
+ *
  * @public
  */
 export class UserGroupAlreadyExistsFault extends __BaseException {
@@ -1341,7 +1373,8 @@ export class UserGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of users exceeds the user group limit.</p>
+ * The number of users exceeds the user group limit.
+ *
  * @public
  */
 export class UserGroupQuotaExceededFault extends __BaseException {
@@ -1362,7 +1395,8 @@ export class UserGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The operation was not performed because no changes were required.</p>
+ * The operation was not performed because no changes were required.
+ *
  * @public
  */
 export class NoOperationFault extends __BaseException {
@@ -1383,7 +1417,8 @@ export class NoOperationFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache subnet group is currently in use.</p>
+ * The requested cache subnet group is currently in use.
+ *
  * @public
  */
 export class CacheSubnetGroupInUse extends __BaseException {
@@ -1404,7 +1439,8 @@ export class CacheSubnetGroupInUse extends __BaseException {
 }
 
 /**
- * <p>The default user assigned to the user group.</p>
+ * The default user assigned to the user group.
+ *
  * @public
  */
 export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
@@ -1425,7 +1461,8 @@ export class DefaultUserAssociatedToUserGroupFault extends __BaseException {
 }
 
 /**
- * <p>The user is not in active state.</p>
+ * The user is not in active state.
+ *
  * @public
  */
 export class InvalidUserStateFault extends __BaseException {
@@ -1446,7 +1483,8 @@ export class InvalidUserStateFault extends __BaseException {
 }
 
 /**
- * <p>The requested cache node offering does not exist.</p>
+ * The requested cache node offering does not exist.
+ *
  * @public
  */
 export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
@@ -1467,7 +1505,8 @@ export class ReservedCacheNodesOfferingNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The KMS key supplied is not valid.</p>
+ * The KMS key supplied is not valid.
+ *
  * @public
  */
 export class InvalidKMSKeyFault extends __BaseException {
@@ -1488,7 +1527,8 @@ export class InvalidKMSKeyFault extends __BaseException {
 }
 
 /**
- * <p>The requested subnet is being used by another cache subnet group.</p>
+ * The requested subnet is being used by another cache subnet group.
+ *
  * @public
  */
 export class SubnetInUse extends __BaseException {
@@ -1509,7 +1549,8 @@ export class SubnetInUse extends __BaseException {
 }
 
 /**
- * <p>A migration is already in progress for this serverless cache. You cannot start another migration until the current one completes.</p>
+ * A migration is already in progress for this serverless cache. You cannot start another migration until the current one completes.
+ *
  * @public
  */
 export class ServerlessCacheAlreadyUnderMigrationFault extends __BaseException {
@@ -1530,7 +1571,8 @@ export class ServerlessCacheAlreadyUnderMigrationFault extends __BaseException {
 }
 
 /**
- * <p>You already have a reservation with the given identifier.</p>
+ * You already have a reservation with the given identifier.
+ *
  * @public
  */
 export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
@@ -1551,8 +1593,8 @@ export class ReservedCacheNodeAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be processed because it would exceed the user's cache node
- *             quota.</p>
+ * The request cannot be processed because it would exceed the user's cache node quota.
+ *
  * @public
  */
 export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
@@ -1573,7 +1615,8 @@ export class ReservedCacheNodeQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The requested tag was not found on this resource.</p>
+ * The requested tag was not found on this resource.
+ *
  * @public
  */
 export class TagNotFoundFault extends __BaseException {
@@ -1594,8 +1637,8 @@ export class TagNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon EC2 security group is not authorized for the specified cache
- *             security group.</p>
+ * The specified Amazon EC2 security group is not authorized for the specified cache security group.
+ *
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
@@ -1616,7 +1659,8 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The targeted replication group is not available. </p>
+ * The targeted replication group is not available.
+ *
  * @public
  */
 export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException {
@@ -1637,7 +1681,8 @@ export class ReplicationGroupAlreadyUnderMigrationFault extends __BaseException 
 }
 
 /**
- * <p>The customer has exceeded the allowed rate of API calls.</p>
+ * The customer has exceeded the allowed rate of API calls.
+ *
  * @public
  */
 export class APICallRateForCustomerExceededFault extends __BaseException {
@@ -1658,9 +1703,8 @@ export class APICallRateForCustomerExceededFault extends __BaseException {
 }
 
 /**
- * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
- *             Please verify that the node group exists and that you spelled the
- *                 <code>NodeGroupId</code> value correctly.</p>
+ * The node group specified by the `NodeGroupId` parameter could not be found. Please verify that the node group exists and that you spelled the `NodeGroupId` value correctly.
+ *
  * @public
  */
 export class NodeGroupNotFoundFault extends __BaseException {
@@ -1681,7 +1725,8 @@ export class NodeGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The <code>TestFailover</code> action is not available.</p>
+ * The `TestFailover` action is not available.
+ *
  * @public
  */
 export class TestFailoverNotAvailableFault extends __BaseException {

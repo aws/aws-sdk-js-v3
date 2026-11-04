@@ -26,7 +26,8 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandInput extends ListMicros
 export interface ListMicrosoftTeamsUserIdentitiesCommandOutput extends ListMicrosoftTeamsUserIdentitiesResult, __MetadataBearer {}
 
 /**
- * <p>A list all Microsoft Teams user identities with a mapped role.</p>
+ * A list all Microsoft Teams user identities with a mapped role.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +67,20 @@ export interface ListMicrosoftTeamsUserIdentitiesCommandOutput extends ListMicro
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ListMicrosoftTeamsUserIdentitiesException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

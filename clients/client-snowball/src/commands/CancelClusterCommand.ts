@@ -23,9 +23,8 @@ export interface CancelClusterCommandInput extends CancelClusterRequest {}
 export interface CancelClusterCommandOutput extends CancelClusterResult, __MetadataBearer {}
 
 /**
- * <p>Cancels a cluster job. You can only cancel a cluster job while it's in the
- *         <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster
- *       job to cancel it.</p>
+ * Cancels a cluster job. You can only cancel a cluster job while it's in the `AwaitingQuorum` status. You'll have at least an hour after creating a cluster job to cancel it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +49,20 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link KMSRequestFailedException} (client fault)
- *  <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ * The provided Key Management Service key lacks the permissions to perform the specified CreateJob or UpdateJob action.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To cancel a cluster job
  * ```javascript

@@ -23,11 +23,8 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
- * <p>Removes the tags identified by the <code>TagKeys</code> list from the named resource.
- *             A tag is a key-value pair where the key and value are case-sensitive. You can use tags
- *             to categorize and track all your ElastiCache resources.
- *             When you add or remove tags on replication groups, those actions will
- *             be replicated to all nodes in the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
+ * Removes the tags identified by the `TagKeys` list from the named resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your ElastiCache resources. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. For more information, see [Resource-level permissions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,66 +59,80 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
- *  <p>The requested cache parameter group name does not refer to an existing cache parameter
- *             group.</p>
+ *
+ * The requested cache parameter group name does not refer to an existing cache parameter group.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
+ *
+ * The requested cache subnet group name does not refer to an existing cache subnet group.
  *
  * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
- *  <p>The Global datastore does not exist</p>
+ *
+ * The Global datastore does not exist
  *
  * @throws {@link InvalidARNFault} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
- *             resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
- *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * The requested replication group is not in the `available` state.
  *
  * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
- *  <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
- *  <p>The requested reserved cache node was not found.</p>
+ *
+ * The requested reserved cache node was not found.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
- *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ * The requested snapshot name does not refer to an existing snapshot.
  *
  * @throws {@link TagNotFoundFault} (client fault)
- *  <p>The requested tag was not found on this resource.</p>
+ *
+ * The requested tag was not found on this resource.
  *
  * @throws {@link UserGroupNotFoundFault} (client fault)
- *  <p>The user group was not found or does not exist</p>
+ *
+ * The user group was not found or does not exist
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The user does not exist or could not be found.</p>
+ *
+ * The user does not exist or could not be found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example RemoveTagsFromResource
  * ```javascript

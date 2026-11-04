@@ -26,7 +26,8 @@ export interface DescribeNotificationConfigurationCommandInput extends DescribeN
 export interface DescribeNotificationConfigurationCommandOutput extends DescribeNotificationConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the <code>NotificationConfiguration</code> for a given Kinesis video stream.</p>
+ * Gets the `NotificationConfiguration` for a given Kinesis video stream.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,21 +60,24 @@ export interface DescribeNotificationConfigurationCommandOutput extends Describe
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * You do not have required permissions to perform this operation.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

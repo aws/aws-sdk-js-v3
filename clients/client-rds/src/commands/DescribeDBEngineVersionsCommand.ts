@@ -23,7 +23,8 @@ export interface DescribeDBEngineVersionsCommandInput extends DescribeDBEngineVe
 export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMessage, __MetadataBearer {}
 
 /**
- * <p>Describes the properties of specific versions of DB engines.</p>
+ * Describes the properties of specific versions of DB engines.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,8 +163,8 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe the DB engine versions for the MySQL DB engine
  * ```javascript

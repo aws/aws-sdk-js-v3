@@ -23,10 +23,12 @@ export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInpu
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Removes tags from the specified Firehose stream. Removed tags are deleted, and you
- *          can't recover them after this operation successfully completes.</p>
- *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
- *          <p>This operation has a limit of five transactions per second per account. </p>
+ * Removes tags from the specified Firehose stream. Removed tags are deleted, and you can't recover them after this operation successfully completes.
+ *
+ * If you specify a tag that doesn't exist, the operation ignores it.
+ *
+ * This operation has a limit of five transactions per second per account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +56,24 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * The specified input parameter has a value that is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * You have already reached the limit for a requested resource.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is already in use and not available for this operation.</p>
+ *
+ * The resource is already in use and not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link FirehoseServiceException}
- * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * Base exception class for all service exceptions from Firehose service.
  *
  * @public
  */

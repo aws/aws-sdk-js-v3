@@ -23,23 +23,16 @@ export interface StartMetadataModelAssessmentCommandInput extends StartMetadataM
 export interface StartMetadataModelAssessmentCommandOutput extends StartMetadataModelAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Queues an assessment of the selected source metadata models (database objects such as
- *          tables, views, and procedures) to evaluate conversion complexity to the target database
- *          format. If other requests created by <code>Start*</code> operations are already in the
- *          migration project's queue, the assessment begins after they complete.</p>
- *          <p>The assessment request loads metadata models that are not yet in the metadata tree, but
- *          does not reload metadata models that are already present. If your source database has
- *          changed since the metadata was loaded, refresh the affected metadata models with
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a> before calling this operation.</p>
- *          <p>To check the status of the assessment request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelAssessments.html">DescribeMetadataModelAssessments</a> using the returned
- *          <code>RequestIdentifier</code> as a filter.</p>
- *          <p>To export the conversion assessment report after the request completes successfully,
- *          call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html">ExportMetadataModelAssessment</a>.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:StartMetadataModelAssessment</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Queues an assessment of the selected source metadata models (database objects such as tables, views, and procedures) to evaluate conversion complexity to the target database format. If other requests created by `Start*` operations are already in the migration project's queue, the assessment begins after they complete.
+ *
+ * The assessment request loads metadata models that are not yet in the metadata tree, but does not reload metadata models that are already present. If your source database has changed since the metadata was loaded, refresh the affected metadata models with [StartMetadataModelImport](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html) before calling this operation.
+ *
+ * To check the status of the assessment request, call [DescribeMetadataModelAssessments](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelAssessments.html) using the returned `RequestIdentifier` as a filter.
+ *
+ * To export the conversion assessment report after the request completes successfully, call [ExportMetadataModelAssessment](https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html).
+ *
+ * **Required permissions:** `dms:StartMetadataModelAssessment`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,34 +60,40 @@ export interface StartMetadataModelAssessmentCommandOutput extends StartMetadata
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link S3ResourceNotFoundFault} (client fault)
- *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ *
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Assess all objects in a schema
  * ```javascript

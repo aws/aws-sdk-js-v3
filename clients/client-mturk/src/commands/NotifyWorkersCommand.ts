@@ -23,16 +23,8 @@ export interface NotifyWorkersCommandInput extends NotifyWorkersRequest {}
 export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>NotifyWorkers</code>
- *             operation sends an email to one or more Workers that you specify with
- *             the Worker ID. You can specify up to 100 Worker IDs to send the same
- *             message with a single call to the NotifyWorkers operation. The
- *             NotifyWorkers operation will send a notification email to a Worker
- *             only if you have previously approved or rejected work from the
- *             Worker.
- *         </p>
+ * The `NotifyWorkers` operation sends an email to one or more Workers that you specify with the Worker ID. You can specify up to 100 Worker IDs to send the same message with a single call to the NotifyWorkers operation. The NotifyWorkers operation will send a notification email to a Worker only if you have previously approved or rejected work from the Worker.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +61,16 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

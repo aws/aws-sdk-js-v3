@@ -23,13 +23,11 @@ export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeC
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
- *          </note>
- *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
- *          <note>
- *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>
+ * > **Note:** Deprecated. Use DescribeHostedConnections instead.
+ *
+ * Lists the connections that have been provisioned on the specified interconnect.
+ *
+ * > **Note:** Intended for use by Direct Connect Partners only.
  *
  * @deprecated deprecated.
  * @example
@@ -108,14 +106,16 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

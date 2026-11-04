@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { OAMServiceException as __BaseException } from "./OAMServiceException";
 
 /**
- * <p>A resource was in an inconsistent state during an update or a deletion.</p>
+ * A resource was in an inconsistent state during an update or a deletion.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -13,7 +14,8 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -33,7 +35,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error while processing the request. Retry the request.</p>
+ * Unexpected error while processing the request. Retry the request.
+ *
  * @public
  */
 export class InternalServiceFault extends __BaseException {
@@ -42,7 +45,8 @@ export class InternalServiceFault extends __BaseException {
   readonly $fault = "server" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -62,7 +66,8 @@ export class InternalServiceFault extends __BaseException {
 }
 
 /**
- * <p>A parameter is specified incorrectly.</p>
+ * A parameter is specified incorrectly.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -70,7 +75,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -90,7 +96,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>A required parameter is missing from the request.</p>
+ * A required parameter is missing from the request.
+ *
  * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -98,7 +105,8 @@ export class MissingRequiredParameterException extends __BaseException {
   readonly name = "MissingRequiredParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -118,7 +126,8 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
+ * The request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -127,7 +136,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -147,7 +157,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource that does not exist.</p>
+ * The request references a resource that does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -156,7 +167,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the exception.</p>
+   * The name of the exception.
+   *
    * @public
    */
   amznErrorType?: string | undefined;
@@ -176,7 +188,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The value of a parameter in the request caused an error.</p>
+ * The value of a parameter in the request caused an error.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -199,7 +212,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A resource can have no more than 50 tags.</p>
+ * A resource can have no more than 50 tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

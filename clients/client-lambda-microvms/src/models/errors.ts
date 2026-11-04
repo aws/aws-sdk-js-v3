@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LambdaMicrovmsServiceException as __BaseException } from "./LambdaMicrovmsServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ * The request could not be completed due to a conflict with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,13 +35,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that caused the conflict.</p>
+   * The identifier of the resource that caused the conflict.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that caused the conflict.</p>
+   * The type of the resource that caused the conflict.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -60,7 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry the request later.</p>
+ * An internal server error occurred. Retry the request later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +74,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -89,7 +95,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -97,13 +104,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The type of the resource that was not found.</p>
+   * The type of the resource that was not found.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId?: string | undefined;
@@ -124,7 +133,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Retry the request later.</p>
+ * The request was denied due to request throttling. Retry the request later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -135,19 +145,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The service code of the throttled service quota.</p>
+   * The service code of the throttled service quota.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code of the throttled service quota.</p>
+   * The quota code of the throttled service quota.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -169,7 +182,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by the service.</p>
+ * The input does not satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -190,7 +204,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded a service quota for Lambda MicroVMs.</p>
+ * You have exceeded a service quota for Lambda MicroVMs.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -198,25 +213,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that exceeded the quota.</p>
+   * The identifier of the resource that exceeded the quota.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that exceeded the quota.</p>
+   * The type of the resource that exceeded the quota.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The service code of the exceeded service quota.</p>
+   * The service code of the exceeded service quota.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code of the exceeded service quota.</p>
+   * The quota code of the exceeded service quota.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -239,7 +258,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>There is insufficient capacity to fulfill the request. Retry the request later.</p>
+ * There is insufficient capacity to fulfill the request. Retry the request later.
+ *
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -260,7 +280,8 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
- * <p>One of the parameters in the request is not valid.</p>
+ * One of the parameters in the request is not valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -268,7 +289,8 @@ export class InvalidParameterValueException extends __BaseException {
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -288,7 +310,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The AWS Lambda MicroVMs service encountered an internal error.</p>
+ * The AWS Lambda MicroVMs service encountered an internal error.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -296,7 +319,8 @@ export class ServiceException extends __BaseException {
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -316,7 +340,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The request throughput limit was exceeded. Retry the request later.</p>
+ * The request throughput limit was exceeded. Retry the request later.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -324,7 +349,8 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -344,7 +370,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The resource already exists, or another operation is in progress.</p>
+ * The resource already exists, or another operation is in progress.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -352,7 +379,8 @@ export class ResourceConflictException extends __BaseException {
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;

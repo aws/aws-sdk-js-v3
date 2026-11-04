@@ -5599,7 +5599,7 @@ export type PipelineStatus = (typeof PipelineStatus)[keyof typeof PipelineStatus
  */
 export const PipelineExecutionStatus = {
   /**
-   * <p>The pipeline completed all reachable work after one or more steps failed. Every failed step was handled by a scheduled downstream step whose trigger is <code>Failed</code> or <code>Any</code>.</p>
+   * The pipeline completed all reachable work after one or more steps failed. Every failed step was handled by a scheduled downstream step whose trigger is `Failed` or `Any`.
    */
   COMPLETED_WITH_FAILURES: "CompletedWithFailures",
   EXECUTING: "Executing",

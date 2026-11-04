@@ -23,7 +23,8 @@ export interface ListCodegenJobsCommandInput extends ListCodegenJobsRequest {}
 export interface ListCodegenJobsCommandOutput extends ListCodegenJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of code generation jobs for a specified Amplify app and backend environment.</p>
+ * Retrieves a list of code generation jobs for a specified Amplify app and backend environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +63,20 @@ export interface ListCodegenJobsCommandOutput extends ListCodegenJobsResponse, _
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * An internal error has occurred. Please retry your request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

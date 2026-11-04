@@ -26,7 +26,8 @@ export interface DeregisterPatchBaselineForPatchGroupCommandInput extends Deregi
 export interface DeregisterPatchBaselineForPatchGroupCommandOutput extends DeregisterPatchBaselineForPatchGroupResult, __MetadataBearer {}
 
 /**
- * <p>Removes a patch group from a patch baseline.</p>
+ * Removes a patch group from a patch baseline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +56,16 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput extends Dereg
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidResourceId} (client fault)
- *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

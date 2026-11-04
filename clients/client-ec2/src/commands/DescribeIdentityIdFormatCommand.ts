@@ -23,25 +23,12 @@ export interface DescribeIdentityIdFormatCommandInput extends DescribeIdentityId
 export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityIdFormatResult, __MetadataBearer {}
 
 /**
- * <p>Describes the ID format settings for resources for the specified IAM user, IAM role, or root
- *       user. For example, you can view the resource types that are enabled for longer IDs. This request only
- *       returns information about resource types whose ID formats can be modified; it does not return
- *       information about other resource types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
- *          <p>The following resource types support longer IDs: <code>bundle</code> |
- *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
- *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
- *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
- *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
- *           <code>network-acl</code> | <code>network-acl-association</code> |
- *           <code>network-interface</code> | <code>network-interface-attachment</code> |
- *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
- *           <code>route-table-association</code> | <code>security-group</code> |
- *           <code>snapshot</code> | <code>subnet</code> |
- *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
- *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
- *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
- *          <p>These settings apply to the principal specified in the request. They do not apply to the
- *       principal that makes the request.</p>
+ * Describes the ID format settings for resources for the specified IAM user, IAM role, or root user. For example, you can view the resource types that are enabled for longer IDs. This request only returns information about resource types whose ID formats can be modified; it does not return information about other resource types. For more information, see [Resource IDs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
+ * The following resource types support longer IDs: `bundle` | `conversion-task` | `customer-gateway` | `dhcp-options` | `elastic-ip-allocation` | `elastic-ip-association` | `export-task` | `flow-log` | `image` | `import-task` | `instance` | `internet-gateway` | `network-acl` | `network-acl-association` | `network-interface` | `network-interface-attachment` | `prefix-list` | `reservation` | `route-table` | `route-table-association` | `security-group` | `snapshot` | `subnet` | `subnet-cidr-block-association` | `volume` | `vpc` | `vpc-cidr-block-association` | `vpc-endpoint` | `vpc-peering-connection` | `vpn-connection` | `vpn-gateway`.
+ *
+ * These settings apply to the principal specified in the request. They do not apply to the principal that makes the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +62,8 @@ export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityI
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

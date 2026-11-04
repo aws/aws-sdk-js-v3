@@ -23,9 +23,12 @@ export interface GetRouteServerAssociationsCommandInput extends GetRouteServerAs
 export interface GetRouteServerAssociationsCommandOutput extends GetRouteServerAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about the associations for the specified route server.</p>
- *          <p>A route server association is the connection established between a route server and a VPC.</p>
- *          <p>For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Gets information about the associations for the specified route server.
+ *
+ * A route server association is the connection established between a route server and a VPC.
+ *
+ * For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +62,8 @@ export interface GetRouteServerAssociationsCommandOutput extends GetRouteServerA
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

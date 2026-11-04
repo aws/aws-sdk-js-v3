@@ -87,8 +87,8 @@ export interface UpdateAccessProfileCommandOutput extends UpdateAccessProfileOut
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Update an access profile description
  * ```javascript

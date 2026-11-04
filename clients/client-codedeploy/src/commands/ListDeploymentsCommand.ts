@@ -23,8 +23,8 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsInput {}
 export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the deployments in a deployment group for an application registered with the
- *             user or Amazon Web Services account.</p>
+ * Lists the deployments in a deployment group for an application registered with the user or Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,42 +64,52 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ *
+ * The named deployment group with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentGroupNameRequiredException} (client fault)
- *  <p>The deployment group name was not specified.</p>
+ *
+ * The deployment group name was not specified.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentGroupNameException} (client fault)
- *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * The deployment group name was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentStatusException} (client fault)
- *  <p>The specified deployment status doesn't exist or cannot be determined.</p>
+ *
+ * The specified deployment status doesn't exist or cannot be determined.
  *
  * @throws {@link InvalidExternalIdException} (client fault)
- *  <p>The external ID was specified in an invalid format.</p>
+ *
+ * The external ID was specified in an invalid format.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input was specified in an invalid format.</p>
+ *
+ * The input was specified in an invalid format.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link InvalidTimeRangeException} (client fault)
- *  <p>The specified time range was specified in an invalid format.</p>
+ *
+ * The specified time range was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

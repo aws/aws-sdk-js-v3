@@ -23,17 +23,16 @@ export interface DissociateAccessGrantsIdentityCenterCommandInput extends Dissoc
 export interface DissociateAccessGrantsIdentityCenterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Dissociates the Amazon Web Services IAM Identity Center instance from the S3 Access Grants instance. </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:DissociateAccessGrantsIdentityCenter</code> permission to use this operation. </p>
- *             </dd>
- *             <dt>Additional Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>sso:DeleteApplication</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * Dissociates the Amazon Web Services IAM Identity Center instance from the S3 Access Grants instance.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:DissociateAccessGrantsIdentityCenter` permission to use this operation.
+ *
+ * - **Additional Permissions**
+ *
+ *   You must have the `sso:DeleteApplication` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,8 @@ export interface DissociateAccessGrantsIdentityCenterCommandOutput extends __Met
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

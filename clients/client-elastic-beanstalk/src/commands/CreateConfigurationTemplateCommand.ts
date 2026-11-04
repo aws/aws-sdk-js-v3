@@ -23,30 +23,16 @@ export interface CreateConfigurationTemplateCommandInput extends CreateConfigura
 export interface CreateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
- * <p>Creates an Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
- *       application. You define application configuration settings in a configuration template. You
- *       can then use the configuration template to deploy different versions of the application with
- *       the same configuration settings.</p>
- *          <p>Templates aren't associated with any environment. The <code>EnvironmentName</code>
- *       response element is always <code>null</code>.</p>
- *          <p>Related Topics</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeConfigurationOptions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeConfigurationSettings</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListAvailableSolutionStacks</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates an Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk application. You define application configuration settings in a configuration template. You can then use the configuration template to deploy different versions of the application with the same configuration settings.
+ *
+ * Templates aren't associated with any environment. The `EnvironmentName` response element is always `null`.
+ *
+ * Related Topics
+ *
+ * - DescribeConfigurationOptions
+ * - DescribeConfigurationSettings
+ * - ListAvailableSolutionStacks
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,17 +98,20 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link TooManyBucketsException} (client fault)
- *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ * The specified account has reached its limit of Amazon S3 buckets.
  *
  * @throws {@link TooManyConfigurationTemplatesException} (client fault)
- *  <p>The specified account has reached its limit of configuration templates.</p>
+ *
+ * The specified account has reached its limit of configuration templates.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To create a configuration template
  * ```javascript

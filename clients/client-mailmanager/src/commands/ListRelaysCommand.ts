@@ -23,7 +23,8 @@ export interface ListRelaysCommandInput extends ListRelaysRequest {}
 export interface ListRelaysCommandOutput extends ListRelaysResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the existing relay resources.</p>
+ * Lists all the existing relay resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +59,12 @@ export interface ListRelaysCommandOutput extends ListRelaysResponse, __MetadataB
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

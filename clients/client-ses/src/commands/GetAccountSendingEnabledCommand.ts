@@ -23,8 +23,10 @@ export interface GetAccountSendingEnabledCommandInput {}
 export interface GetAccountSendingEnabledCommandOutput extends GetAccountSendingEnabledResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the email sending status of the Amazon SES account for the current Region.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Returns the email sending status of the Amazon SES account for the current Region.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +51,8 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example GetAccountSendingEnabled
  * ```javascript

@@ -23,12 +23,12 @@ export interface DescribeAssetBundleExportJobCommandInput extends DescribeAssetB
 export interface DescribeAssetBundleExportJobCommandOutput extends DescribeAssetBundleExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an existing export job.</p>
- *          <p>Poll job descriptions after a job starts to know the status of the job. When a job
- *          succeeds, a URL is provided to download the exported assets' data from. Download URLs
- *          are valid for five minutes after they are generated. You can call the
- *             <code>DescribeAssetBundleExportJob</code> API for a new download URL as needed.</p>
- *          <p>Job descriptions are available for 14 days after the job starts.</p>
+ * Describes an existing export job.
+ *
+ * Poll job descriptions after a job starts to know the status of the job. When a job succeeds, a URL is provided to download the exported assets' data from. Download URLs are valid for five minutes after they are generated. You can call the `DescribeAssetBundleExportJob` API for a new download URL as needed.
+ *
+ * Job descriptions are available for 14 days after the job starts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,20 +165,20 @@ export interface DescribeAssetBundleExportJobCommandOutput extends DescribeAsset
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
+ *
+ * This error indicates that you are calling an operation on an Amazon Quick Suite subscription where the edition doesn't include support for that operation. Amazon Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and capability is available in every edition.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

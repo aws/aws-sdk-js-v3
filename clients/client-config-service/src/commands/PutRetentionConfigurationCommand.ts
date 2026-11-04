@@ -23,17 +23,10 @@ export interface PutRetentionConfigurationCommandInput extends PutRetentionConfi
 export interface PutRetentionConfigurationCommandOutput extends PutRetentionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and updates the retention configuration with details
- * 			about retention period (number of days) that Config stores your
- * 			historical information. The API creates the
- * 				<code>RetentionConfiguration</code> object and names the object
- * 			as <b>default</b>. When you have a
- * 				<code>RetentionConfiguration</code> object named <b>default</b>, calling the API modifies the
- * 			default object. </p>
- *          <note>
- *             <p>Currently, Config supports only one retention
- * 				configuration per region in your account.</p>
- *          </note>
+ * Creates and updates the retention configuration with details about retention period (number of days) that Config stores your historical information. The API creates the `RetentionConfiguration` object and names the object as **default**. When you have a `RetentionConfiguration` object named **default**, calling the API modifies the default object.
+ *
+ * > **Note:** Currently, Config supports only one retention configuration per region in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,15 +56,16 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link MaxNumberOfRetentionConfigurationsExceededException} (client fault)
- *  <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
+ *
+ * Failed to add the retention configuration because a retention configuration with that name already exists.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

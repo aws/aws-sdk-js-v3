@@ -26,13 +26,12 @@ export interface PutAccessGrantsInstanceResourcePolicyCommandInput extends PutAc
 export interface PutAccessGrantsInstanceResourcePolicyCommandOutput extends PutAccessGrantsInstanceResourcePolicyResult, __MetadataBearer {}
 
 /**
- * <p>Updates the resource policy of the S3 Access Grants instance. </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:PutAccessGrantsInstanceResourcePolicy</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * Updates the resource policy of the S3 Access Grants instance.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:PutAccessGrantsInstanceResourcePolicy` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +62,8 @@ export interface PutAccessGrantsInstanceResourcePolicyCommandOutput extends PutA
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

@@ -26,26 +26,14 @@ export interface CreateContainerServiceRegistryLoginCommandInput extends CreateC
 export interface CreateContainerServiceRegistryLoginCommandOutput extends CreateContainerServiceRegistryLoginResult, __MetadataBearer {}
 
 /**
- * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker
- *       process on your local machine. After you're logged in, you can use the native Docker commands
- *       to push your local container images to the container image registry of your Amazon Lightsail
- *       account so that you can use them with your Lightsail container service. The log in
- *       credentials expire 12 hours after they are created, at which point you will need to create a
- *       new set of log in credentials.</p>
- *          <note>
- *             <p>You can only push container images to the container service registry of your Lightsail
- *         account. You cannot pull container images or perform any other container image management
- *         actions on the container service registry.</p>
- *          </note>
- *          <p>After you push your container images to the container image registry of your Lightsail
- *       account, use the <code>RegisterContainerImage</code> action to register the pushed images to a
- *       specific Lightsail container service.</p>
- *          <note>
- *             <p>This action is not required if you install and use the Lightsail Control
- *         (lightsailctl) plugin to push container images to your Lightsail container service. For
- *         more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
- *         in the <i>Amazon Lightsail Developer Guide</i>.</p>
- *          </note>
+ * Creates a temporary set of log in credentials that you can use to log in to the Docker process on your local machine. After you're logged in, you can use the native Docker commands to push your local container images to the container image registry of your Amazon Lightsail account so that you can use them with your Lightsail container service. The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials.
+ *
+ * > **Note:** You can only push container images to the container service registry of your Lightsail account. You cannot pull container images or perform any other container image management actions on the container service registry.
+ *
+ * After you push your container images to the container image registry of your Lightsail account, use the `RegisterContainerImage` action to register the pushed images to a specific Lightsail container service.
+ *
+ * > **Note:** This action is not required if you install and use the Lightsail Control (lightsailctl) plugin to push container images to your Lightsail container service. For more information, see [Pushing and managing container images on your Amazon Lightsail container services](https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images) in the *Amazon Lightsail Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,35 +63,34 @@ export interface CreateContainerServiceRegistryLoginCommandOutput extends Create
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

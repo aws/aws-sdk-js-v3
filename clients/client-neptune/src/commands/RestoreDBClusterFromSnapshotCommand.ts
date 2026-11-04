@@ -23,12 +23,12 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
 export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p>
- *          <p>If a DB snapshot is specified, the target DB cluster is created from the source DB
- *       snapshot with a default configuration and default security group.</p>
- *          <p>If a DB cluster snapshot is specified, the target DB cluster is created from the source DB
- *       cluster restore point with the same configuration as the original source DB cluster, except
- *       that the new DB cluster is created with the default security group.</p>
+ * Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+ *
+ * If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
+ *
+ * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -184,70 +184,76 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterAlreadyExistsFault} (client fault)
- *  <p>User already has a DB cluster with the given identifier.</p>
+ *
+ * User already has a DB cluster with the given identifier.
  *
  * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterParameterGroupName</i> does not refer to an
- *       existing DB Cluster parameter group.</p>
+ *
+ * *DBClusterParameterGroupName* does not refer to an existing DB Cluster parameter group.
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
- *  <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ * User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
+ *
+ * *DBClusterSnapshotIdentifier* does not refer to an existing DB cluster snapshot.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+ *
+ * *DBSnapshotIdentifier* does not refer to an existing DB snapshot.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
+ *
+ * *DBSubnetGroupName* does not refer to an existing DB subnet group.
  *
  * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
- *  <p>The DB cluster does not have enough capacity for the current operation.</p>
+ *
+ * The DB cluster does not have enough capacity for the current operation.
  *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
- *  <p>There is insufficient storage available for the current action. You may
- *        be able to resolve this error by updating your subnet group to use different
- *        Availability Zones that have more storage available.</p>
+ *
+ * There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ * The supplied value is not a valid DB cluster snapshot state.
  *
  * @throws {@link InvalidDBSnapshotStateFault} (client fault)
- *  <p>The state of the DB snapshot does not allow deletion.</p>
+ *
+ * The state of the DB snapshot does not allow deletion.
  *
  * @throws {@link InvalidRestoreFault} (client fault)
- *  <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+ *
+ * Cannot restore from vpc backup to non-vpc DB instance.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
+ *
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
+ *
+ * DB subnet group does not cover all Availability Zones after it is created because users' change.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>Error accessing KMS key.</p>
+ *
+ * Error accessing KMS key.
  *
  * @throws {@link NetworkTypeNotSupportedFault} (client fault)
- *  <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+ *
+ * The specified *NetworkType* is not supported for the DB cluster, DB subnet group, or orderable DB instance option.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The designated option group could not be found.</p>
+ *
+ * The designated option group could not be found.
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * Request would result in user exceeding the allowed amount of storage available across all DB instances.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

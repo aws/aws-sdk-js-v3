@@ -23,7 +23,10 @@ export interface ListNetworkConnectorsCommandInput extends ListNetworkConnectors
 export interface ListNetworkConnectorsCommandOutput extends ListNetworkConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of network connectors in your account for the current Region. You can optionally filter results by connector state. Use the <code>Marker</code> parameter from a previous response to retrieve the next page of results.</p> <p>Each item in the response includes the connector ARN, name, ID, type, current state, and last modified timestamp. To retrieve full configuration details for a specific connector, use <code>GetNetworkConnector</code>.</p>
+ * Returns a paginated list of network connectors in your account for the current Region. You can optionally filter results by connector state. Use the `Marker` parameter from a previous response to retrieve the next page of results.
+ *
+ * Each item in the response includes the connector ARN, name, ID, type, current state, and last modified timestamp. To retrieve full configuration details for a specific connector, use `GetNetworkConnector`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +67,20 @@ export interface ListNetworkConnectorsCommandOutput extends ListNetworkConnector
  * @see {@link LambdaCoreClientResolvedConfig | config} for LambdaCoreClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
+ *
+ * One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal service error occurred. Retry the request with exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request with exponential backoff.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link LambdaCoreServiceException}
- * <p>Base exception class for all service exceptions from LambdaCore service.</p>
  *
+ * Base exception class for all service exceptions from LambdaCore service.
  *
  * @public
  */

@@ -457,7 +457,8 @@ export interface Account {
 }
 
 /**
- * <p>Operations for Amazon Web Services Account Management</p>
+ * Operations for Amazon Web Services Account Management
+ *
  * @public
  */
 export class Account extends AccountClient implements Account {}

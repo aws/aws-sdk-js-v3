@@ -23,9 +23,8 @@ export interface DescribeFpgaImagesCommandInput extends DescribeFpgaImagesReques
 export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
- * 			private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load
- * 			permissions.</p>
+ * Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,8 +107,8 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

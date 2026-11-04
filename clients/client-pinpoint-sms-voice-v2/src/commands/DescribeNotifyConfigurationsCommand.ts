@@ -23,7 +23,12 @@ export interface DescribeNotifyConfigurationsCommandInput extends DescribeNotify
 export interface DescribeNotifyConfigurationsCommandOutput extends DescribeNotifyConfigurationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified notify configurations or all notify configurations in your account.</p> <p>If you specify notify configuration IDs, the output includes information for only the specified notify configurations. If you specify filters, the output includes information for only those notify configurations that meet the filter criteria. If you don't specify notify configuration IDs or filters, the output includes information for all notify configurations.</p> <p>If you specify a notify configuration ID that isn't valid, an error is returned.</p>
+ * Describes the specified notify configurations or all notify configurations in your account.
+ *
+ * If you specify notify configuration IDs, the output includes information for only the specified notify configurations. If you specify filters, the output includes information for only those notify configurations that meet the filter criteria. If you don't specify notify configuration IDs or filters, the output includes information for all notify configurations.
+ *
+ * If you specify a notify configuration ID that isn't valid, an error is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,23 +89,28 @@ export interface DescribeNotifyConfigurationsCommandOutput extends DescribeNotif
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+ *
+ * The request was denied because you don't have sufficient permissions to access the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+ *
+ * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource couldn't be found.</p>
+ *
+ * A requested resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * An error that occurred because too many requests were sent during a certain amount of time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation exception for a field.</p>
+ *
+ * A validation exception for a field.
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
- * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * Base exception class for all service exceptions from PinpointSMSVoiceV2 service.
  *
  * @example DescribeNotifyConfigurations
  * ```javascript

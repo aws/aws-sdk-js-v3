@@ -23,8 +23,10 @@ export interface ListReportDefinitionsCommandInput extends ListReportDefinitions
 export interface ListReportDefinitionsCommandOutput extends ListReportDefinitionsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of all reports and their configurations for your AWS account.</p>
- *          <p>The maximum number of reports is one.</p>
+ * Retrieves a list of all reports and their configurations for your AWS account.
+ *
+ * The maximum number of reports is one.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,20 +68,24 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this action.</p>
+ *
+ * You do not have permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The calls to AWS Application Cost Profiler API are throttled. The request was denied.</p>
+ *
+ * The calls to AWS Application Cost Profiler API are throttled. The request was denied.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints for the API.</p>
+ *
+ * The input fails to satisfy the constraints for the API.
  *
  * @throws {@link ApplicationCostProfilerServiceException}
- * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationCostProfiler service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetRegionOptStatusCommandInput extends GetRegionOptStatusReques
 export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the opt-in status of a particular Region.</p>
+ * Retrieves the opt-in status of a particular Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +53,24 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ *
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ *
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ *
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ * The operation failed because one of the input parameters was invalid.
  *
  * @throws {@link AccountServiceException}
- * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * Base exception class for all service exceptions from Account service.
  *
  * @public
  */

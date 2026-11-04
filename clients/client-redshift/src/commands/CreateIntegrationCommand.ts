@@ -23,7 +23,8 @@ export interface CreateIntegrationCommandInput extends CreateIntegrationMessage 
 export interface CreateIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Creates a zero-ETL integration or S3 event integration with Amazon Redshift.</p>
+ * Creates a zero-ETL integration or S3 event integration with Amazon Redshift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,37 +86,44 @@ export interface CreateIntegrationCommandOutput extends Integration, __MetadataB
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link IntegrationAlreadyExistsFault} (client fault)
- *  <p>The integration you are trying to create already exists.</p>
+ *
+ * The integration you are trying to create already exists.
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>A conflicting conditional operation is currently in progress against this resource.
- *             This typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
+ *
+ * A conflicting conditional operation is currently in progress against this resource. This typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.
  *
  * @throws {@link IntegrationQuotaExceededFault} (client fault)
- *  <p>You can't create any more zero-ETL or S3 event integrations because the quota has been reached.</p>
+ *
+ * You can't create any more zero-ETL or S3 event integrations because the quota has been reached.
  *
  * @throws {@link IntegrationSourceNotFoundFault} (client fault)
- *  <p>The specified integration source can't be found.</p>
+ *
+ * The specified integration source can't be found.
  *
  * @throws {@link IntegrationTargetNotFoundFault} (client fault)
- *  <p>The specified integration target can't be found.</p>
+ *
+ * The specified integration target can't be found.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

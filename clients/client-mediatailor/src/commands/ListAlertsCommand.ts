@@ -23,7 +23,8 @@ export interface ListAlertsCommandInput extends ListAlertsRequest {}
 export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the alerts that are associated with a MediaTailor channel assembly resource.</p>
+ * Lists the alerts that are associated with a MediaTailor channel assembly resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +65,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

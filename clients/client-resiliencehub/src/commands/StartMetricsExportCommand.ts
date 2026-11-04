@@ -23,7 +23,8 @@ export interface StartMetricsExportCommandInput extends StartMetricsExportReques
 export interface StartMetricsExportCommandOutput extends StartMetricsExportResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the export task of metrics.</p>
+ * Initiates the export task of metrics.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,33 +53,32 @@ export interface StartMetricsExportCommandOutput extends StartMetricsExportRespo
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The user or role that is
- *       making the request must have at least one IAM permissions policy attached that grants the
- *       required permissions.</p>
+ *
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
+ *
+ * This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Resilience Hub service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ *
+ * This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * This exception occurs when you have exceeded the limit on the number of requests per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception occurs when a request is not valid.</p>
+ *
+ * This exception occurs when a request is not valid.
  *
  * @throws {@link ResiliencehubServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehub service.
  *
  * @public
  */

@@ -23,23 +23,13 @@ export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
 export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes all versions of the intent, including the
- *         <code>$LATEST</code> version. To delete a specific version of the
- *       intent, use the <a>DeleteIntentVersion</a> operation.</p>
- *          <p> You can delete a version of an intent only if it is not
- *       referenced. To delete an intent that is referred to in one or more bots
- *       (see <a>how-it-works</a>), you must remove those references
- *       first. </p>
- *          <note>
- *             <p> If you get the <code>ResourceInUseException</code> exception, it
- *         provides an example reference that shows where the intent is referenced.
- *         To remove the reference to the intent, either update the bot or delete
- *         it. If you get the same exception when you attempt to delete the intent
- *         again, repeat until the intent has no references and the call to
- *           <code>DeleteIntent</code> is successful. </p>
- *          </note>
- *          <p> This operation requires permission for the
- *         <code>lex:DeleteIntent</code> action. </p>
+ * Deletes all versions of the intent, including the `$LATEST` version. To delete a specific version of the intent, use the DeleteIntentVersion operation.
+ *
+ * You can delete a version of an intent only if it is not referenced. To delete an intent that is referred to in one or more bots (see how-it-works), you must remove those references first.
+ *
+ * > **Note:** If you get the `ResourceInUseException` exception, it provides an example reference that shows where the intent is referenced. To remove the reference to the intent, either update the bot or delete it. If you get the same exception when you attempt to delete the intent again, repeat until the intent has no references and the call to `DeleteIntent` is successful.
+ *
+ * This operation requires permission for the `lex:DeleteIntent` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -66,45 +56,40 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict processing the request. Try your request
- *       again. </p>
+ *
+ * There was a conflict processing the request. Try your request again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource that you are attempting to delete is referred to by
- *       another resource. Use this information to remove references to the
- *       resource that you are trying to delete.</p>
- *          <p>The body of the exception contains a JSON object that describes the
- *       resource.</p>
- *          <p>
- *             <code>{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
- *         INTENT,</code>
- *          </p>
- *          <p>
- *             <code>"resourceReference": {</code>
- *          </p>
- *          <p>
- *             <code>"name": <i>string</i>, "version":
- *           <i>string</i> } }</code>
- *          </p>
+ *
+ * The resource that you are attempting to delete is referred to by another resource. Use this information to remove references to the resource that you are trying to delete.
+ *
+ * The body of the exception contains a JSON object that describes the resource.
+ *
+ * `{ "resourceType": BOT | BOTALIAS | BOTCHANNEL | INTENT,`
+ *
+ * `"resourceReference": {`
+ *
+ * `"name": string, "version": string } }`
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

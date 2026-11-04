@@ -23,25 +23,18 @@ export interface DetectFacesCommandInput extends DetectFacesRequest {}
 export interface DetectFacesCommandOutput extends DetectFacesResponse, __MetadataBearer {}
 
 /**
- * <p>Detects faces within an image that is provided as input.</p>
- *          <p>
- *             <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
- *       detected, the operation returns face details. These details include a bounding box of the
- *       face, a confidence value (that the bounding box contains a face), and a fixed set of
- *       attributes such as facial landmarks (for example, coordinates of eye and mouth), pose,
- *       presence of facial occlusion, and so on.</p>
- *          <p>The face-detection algorithm is most effective on frontal faces. For non-frontal or
- *       obscured faces, the algorithm might not detect the faces or might detect faces with lower
- *       confidence. </p>
- *          <p>You pass the input image either as base64-encoded image bytes or as a reference to an
- *       image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
- *       passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p>
- *          <note>
- *             <p>This is a stateless API operation. That is, the operation does not persist any
- *         data.</p>
- *          </note>
- *          <p>This operation requires permissions to perform the <code>rekognition:DetectFaces</code>
- *       action. </p>
+ * Detects faces within an image that is provided as input.
+ *
+ * `DetectFaces` detects the 100 largest faces in the image. For each face detected, the operation returns face details. These details include a bounding box of the face, a confidence value (that the bounding box contains a face), and a fixed set of attributes such as facial landmarks (for example, coordinates of eye and mouth), pose, presence of facial occlusion, and so on.
+ *
+ * The face-detection algorithm is most effective on frontal faces. For non-frontal or obscured faces, the algorithm might not detect the faces or might detect faces with lower confidence.
+ *
+ * You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+ *
+ * > **Note:** This is a stateless API operation. That is, the operation does not persist any data.
+ *
+ * This operation requires permissions to perform the `rekognition:DetectFaces` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,37 +149,40 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To detect faces in an image
  * ```javascript

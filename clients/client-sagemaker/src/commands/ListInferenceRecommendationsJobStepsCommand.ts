@@ -26,7 +26,10 @@ export interface ListInferenceRecommendationsJobStepsCommandInput extends ListIn
 export interface ListInferenceRecommendationsJobStepsCommandOutput extends ListInferenceRecommendationsJobStepsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the subtasks for an Inference Recommender job.</p> <p>The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.</p>
+ * Returns a list of the subtasks for an Inference Recommender job.
+ *
+ * The supported subtasks are benchmarks, which evaluate the performance of your model on different instance types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,11 +107,12 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput extends ListI
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

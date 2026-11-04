@@ -23,16 +23,15 @@ export interface GetResourcesSummaryCommandInput extends GetResourcesSummaryInpu
 export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOutput, __MetadataBearer {}
 
 /**
- * <p>Get counts of Proton resources.</p>
- *          <p>For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A
- *    resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.</p>
- *          <p>The action returns staleness counts (counts of resources that are up-to-date, behind a template major version, or behind a template minor
- *    version), the total number of resources, and the number of resources that are in a failed state, grouped by resource type. Components,
- *    environments, and service templates return less information - see the <code>components</code>, <code>environments</code>, and
- *     <code>serviceTemplates</code> field descriptions.</p>
- *          <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the
- *     <i>Proton User Guide</i>.</p>
+ * Get counts of Proton resources.
+ *
+ * For infrastructure-provisioning resources (environments, services, service instances, pipelines), the action returns staleness counts. A resource is stale when it's behind the recommended version of the Proton template that it uses and it needs an update to become current.
+ *
+ * The action returns staleness counts (counts of resources that are up-to-date, behind a template major version, or behind a template minor version), the total number of resources, and the number of resources that are in a failed state, grouped by resource type. Components, environments, and service templates return less information - see the `components`, `environments`, and `serviceTemplates` field descriptions.
+ *
+ * For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.
+ *
+ * For more information, see [Proton dashboard](https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html) in the *Proton User Guide*.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -97,20 +96,24 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

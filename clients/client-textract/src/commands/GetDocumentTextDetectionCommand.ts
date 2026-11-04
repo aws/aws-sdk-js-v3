@@ -23,30 +23,18 @@ export interface GetDocumentTextDetectionCommandInput extends GetDocumentTextDet
 export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the results for an Amazon Textract asynchronous operation that detects text in a document.
- *      Amazon Textract can detect lines of text and the words that make up a line of text.</p>
- *          <p>You start asynchronous text detection by calling <a>StartDocumentTextDetection</a>, which returns a job identifier
- *             (<code>JobId</code>). When the text detection operation finishes, Amazon Textract publishes a
- *          completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to
- *             <code>StartDocumentTextDetection</code>. To get the results of the text-detection
- *          operation, first check that the status value published to the Amazon SNS topic is
- *             <code>SUCCEEDED</code>. If so, call <code>GetDocumentTextDetection</code>, and pass the
- *          job identifier (<code>JobId</code>) from the initial call to
- *             <code>StartDocumentTextDetection</code>.</p>
- *          <p>
- *             <code>GetDocumentTextDetection</code> returns an array of <a>Block</a>
- *          objects. </p>
- *          <p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object
- *         is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is
- *         a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p>
- *          <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there
- *          are more results than specified in <code>MaxResults</code>, the value of
- *             <code>NextToken</code> in the operation response contains a pagination token for getting
- *          the next set of results. To get the next page of results, call
- *             <code>GetDocumentTextDetection</code>, and populate the <code>NextToken</code> request
- *          parameter with the token value that's returned from the previous call to
- *             <code>GetDocumentTextDetection</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
+ * Gets the results for an Amazon Textract asynchronous operation that detects text in a document. Amazon Textract can detect lines of text and the words that make up a line of text.
+ *
+ * You start asynchronous text detection by calling StartDocumentTextDetection, which returns a job identifier (`JobId`). When the text detection operation finishes, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS) topic that's registered in the initial call to `StartDocumentTextDetection`. To get the results of the text-detection operation, first check that the status value published to the Amazon SNS topic is `SUCCEEDED`. If so, call `GetDocumentTextDetection`, and pass the job identifier (`JobId`) from the initial call to `StartDocumentTextDetection`.
+ *
+ * `GetDocumentTextDetection` returns an array of Block objects.
+ *
+ * Each document page has as an associated `Block` of type PAGE. Each PAGE `Block` object is the parent of LINE `Block` objects that represent the lines of detected text on a page. A LINE `Block` object is a parent for each word that makes up the line. Words are represented by `Block` objects of type WORD.
+ *
+ * Use the MaxResults parameter to limit the number of blocks that are returned. If there are more results than specified in `MaxResults`, the value of `NextToken` in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call `GetDocumentTextDetection`, and populate the `NextToken` request parameter with the token value that's returned from the previous call to `GetDocumentTextDetection`.
+ *
+ * For more information, see [Document Text Detection](https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,42 +125,40 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Textract experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidJobIdException} (client fault)
- *  <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ *
+ * An invalid job identifier was passed to an asynchronous analysis operation.
  *
  * @throws {@link InvalidKMSKeyException} (client fault)
- *  <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
+ *
+ * Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ *
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
+ *
+ * Amazon Textract is unable to access the S3 object that's specified in the request. for more information, [Configure Access to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) For troubleshooting information, see [Troubleshooting Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html)
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link TextractServiceException}
- * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ * Base exception class for all service exceptions from Textract service.
  *
  * @public
  */

@@ -23,52 +23,21 @@ export interface StartMedicalScribeJobCommandInput extends StartMedicalScribeJob
 export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJobResponse, __MetadataBearer {}
 
 /**
- * <p>Transcribes patient-clinician conversations and generates clinical notes. </p>
- *          <p>Amazon Web Services HealthScribe automatically provides rich conversation transcripts, identifies speaker roles,
- *             classifies dialogues, extracts medical terms, and generates preliminary clinical notes.
- *             To learn more about these features, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe.html">Amazon Web Services HealthScribe</a>.</p>
- *          <p>To make a <code>StartMedicalScribeJob</code> request, you must first upload
- *             your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location
- *             of the file using the <code>Media</code> parameter.</p>
- *          <p>You must include the following parameters in your
- *                 <code>StartMedicalTranscriptionJob</code> request:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DataAccessRoleArn</code>: The ARN of an IAM role with the these minimum permissions: read permission on input file Amazon S3 bucket specified in <code>Media</code>,
- *                 write permission on the Amazon S3 bucket specified in <code>OutputBucketName</code>, and full permissions on the KMS key specified in <code>OutputEncryptionKMSKeyId</code> (if set).
- *                 The role should also allow <code>transcribe.amazonaws.com</code> to assume it.
- *                 </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location
- *                     of your media file.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MedicalScribeJobName</code>: A custom name you create for your
- *                     MedicalScribe job that is unique within your Amazon Web Services account.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>OutputBucketName</code>: The Amazon S3 bucket where you want
- *                     your output files stored.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Settings</code>: A <code>MedicalScribeSettings</code> object
- *                 that must set exactly one of <code>ShowSpeakerLabels</code> or <code>ChannelIdentification</code> to true.
- *                 If <code>ShowSpeakerLabels</code> is true, <code>MaxSpeakerLabels</code> must also be set.
- *                 </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ChannelDefinitions</code>: A <code>MedicalScribeChannelDefinitions</code> array should be set if and only if the <code>ChannelIdentification</code>
- *                 value of <code>Settings</code> is set to true.
- *                 </p>
- *             </li>
- *          </ul>
+ * Transcribes patient-clinician conversations and generates clinical notes.
+ *
+ * Amazon Web Services HealthScribe automatically provides rich conversation transcripts, identifies speaker roles, classifies dialogues, extracts medical terms, and generates preliminary clinical notes. To learn more about these features, refer to [Amazon Web Services HealthScribe](https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe.html).
+ *
+ * To make a `StartMedicalScribeJob` request, you must first upload your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the file using the `Media` parameter.
+ *
+ * You must include the following parameters in your `StartMedicalTranscriptionJob` request:
+ *
+ * - `DataAccessRoleArn`: The ARN of an IAM role with the these minimum permissions: read permission on input file Amazon S3 bucket specified in `Media`, write permission on the Amazon S3 bucket specified in `OutputBucketName`, and full permissions on the KMS key specified in `OutputEncryptionKMSKeyId` (if set). The role should also allow `transcribe.amazonaws.com` to assume it.
+ * - `Media` (`MediaFileUri`): The Amazon S3 location of your media file.
+ * - `MedicalScribeJobName`: A custom name you create for your MedicalScribe job that is unique within your Amazon Web Services account.
+ * - `OutputBucketName`: The Amazon S3 bucket where you want your output files stored.
+ * - `Settings`: A `MedicalScribeSettings` object that must set exactly one of `ShowSpeakerLabels` or `ChannelIdentification` to true. If `ShowSpeakerLabels` is true, `MaxSpeakerLabels` must also be set.
+ * - `ChannelDefinitions`: A `MedicalScribeChannelDefinitions` array should be set if and only if the `ChannelIdentification` value of `Settings` is set to true.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -174,26 +143,24 @@ export interface StartMedicalScribeJobCommandOutput extends StartMedicalScribeJo
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
+ *
+ * A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

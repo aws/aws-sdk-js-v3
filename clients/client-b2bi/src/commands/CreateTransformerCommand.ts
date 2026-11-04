@@ -23,7 +23,19 @@ export interface CreateTransformerCommandInput extends CreateTransformerRequest 
 export interface CreateTransformerCommandOutput extends CreateTransformerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:</p> <ul> <li> <p> <i>Inbound EDI</i>: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer, in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.</p> </li> <li> <p> <i>Outbound EDI</i>: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.</p> </li> </ul> <note> <p>The following fields are provided for backwards compatibility only: <code>fileFormat</code>, <code>mappingTemplate</code>, <code>ediType</code>, and <code>sampleDocument</code>.</p> <ul> <li> <p>Use the <code>mapping</code> data type in place of <code>mappingTemplate</code> and <code>fileFormat</code> </p> </li> <li> <p>Use the <code>sampleDocuments</code> data type in place of <code>sampleDocument</code> </p> </li> <li> <p>Use either the <code>inputConversion</code> or <code>outputConversion</code> in place of <code>ediType</code> </p> </li> </ul> </note>
+ * Creates a transformer. Amazon Web Services B2B Data Interchange currently supports two scenarios:
+ *
+ * - *Inbound EDI*: the Amazon Web Services customer receives an EDI file from their trading partner. Amazon Web Services B2B Data Interchange converts this EDI file into a JSON or XML file with a service-defined structure. A mapping template provided by the customer, in JSONata or XSLT format, is optionally applied to this file to produce a JSON or XML file with the structure the customer requires.
+ * - *Outbound EDI*: the Amazon Web Services customer has a JSON or XML file containing data that they wish to use in an EDI file. A mapping template, provided by the customer (in either JSONata or XSLT format) is applied to this file to generate a JSON or XML file in the service-defined structure. This file is then converted to an EDI file.
+ *
+ * > **Note:**
+ * >
+ * > The following fields are provided for backwards compatibility only: `fileFormat`, `mappingTemplate`, `ediType`, and `sampleDocument`.
+ * >
+ * > - Use the `mapping` data type in place of `mappingTemplate` and `fileFormat`
+ * > - Use the `sampleDocuments` data type in place of `sampleDocument`
+ * > - Use either the `inputConversion` or `outputConversion` in place of `ediType`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -265,29 +277,36 @@ export interface CreateTransformerCommandOutput extends CreateTransformerRespons
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.</p>
+ *
+ * A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.</p>
+ *
+ * Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when the calling command attempts to exceed one of the service quotas, for example trying to create a capability when you already have the maximum number of capabilities allowed.</p>
+ *
+ * Occurs when the calling command attempts to exceed one of the service quotas, for example trying to create a capability when you already have the maximum number of capabilities allowed.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ *
+ * The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
+ *
+ * Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.
  *
  * @throws {@link B2biServiceException}
- * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * Base exception class for all service exceptions from B2bi service.
  *
  * @example Sample CreateTransformer call
  * ```javascript

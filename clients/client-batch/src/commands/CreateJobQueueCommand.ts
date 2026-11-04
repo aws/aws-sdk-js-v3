@@ -23,13 +23,10 @@ export interface CreateJobQueueCommandInput extends CreateJobQueueRequest {}
 export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Batch job queue. When you create a job queue, you associate one or more
- *       compute environments to the queue and assign an order of preference for the compute
- *       environments.</p>
- *          <p>You also set a priority to the job queue that determines the order that the Batch
- *       scheduler places jobs onto its associated compute environments. For example, if a compute
- *       environment is associated with more than one job queue, the job queue with a higher priority
- *       is given preference for scheduling jobs to that compute environment.</p>
+ * Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the queue and assign an order of preference for the compute environments.
+ *
+ * You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto its associated compute environments. For example, if a compute environment is associated with more than one job queue, the job queue with a higher priority is given preference for scheduling jobs to that compute environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,16 +81,16 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To create a job queue with a single compute environment
  * ```javascript

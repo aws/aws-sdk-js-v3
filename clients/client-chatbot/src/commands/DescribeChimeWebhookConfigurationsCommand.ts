@@ -26,7 +26,8 @@ export interface DescribeChimeWebhookConfigurationsCommandInput extends Describe
 export interface DescribeChimeWebhookConfigurationsCommandOutput extends DescribeChimeWebhookConfigurationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon Chime webhook configurations optionally filtered by ChatConfigurationArn</p>
+ * Lists Amazon Chime webhook configurations optionally filtered by ChatConfigurationArn
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,17 +76,20 @@ export interface DescribeChimeWebhookConfigurationsCommandOutput extends Describ
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link DescribeChimeWebhookConfigurationsException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

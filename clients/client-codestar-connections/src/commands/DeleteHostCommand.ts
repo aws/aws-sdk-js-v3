@@ -23,10 +23,10 @@ export interface DeleteHostCommandInput extends DeleteHostInput {}
 export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBearer {}
 
 /**
- * <p>The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.</p>
- *          <note>
- *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
- *          </note>
+ * The host to be deleted. Before you delete a host, all connections associated to the host must be deleted.
+ *
+ * > **Note:** A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +51,16 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * Resource not found. Verify the ARN for the host resource and try again.
  *
  * @throws {@link CodeStarConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeStarConnections service.
  *
  * @public
  */

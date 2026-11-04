@@ -23,16 +23,12 @@ export interface CopyDBClusterSnapshotCommandInput extends CopyDBClusterSnapshot
 export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Copies a snapshot of a cluster.</p>
- *          <p>To copy a cluster snapshot from a shared manual cluster snapshot,
- *             <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon
- *             Resource Name (ARN) of the shared cluster snapshot. You can only
- *             copy a shared DB cluster snapshot, whether encrypted or not, in the
- *             same Amazon Web Services Region.</p>
- *          <p>To cancel the copy operation after it is in progress, delete the
- *             target cluster snapshot identified by
- *             <code>TargetDBClusterSnapshotIdentifier</code> while that cluster
- *             snapshot is in the <i>copying</i> status.</p>
+ * Copies a snapshot of a cluster.
+ *
+ * To copy a cluster snapshot from a shared manual cluster snapshot, `SourceDBClusterSnapshotIdentifier` must be the Amazon Resource Name (ARN) of the shared cluster snapshot. You can only copy a shared DB cluster snapshot, whether encrypted or not, in the same Amazon Web Services Region.
+ *
+ * To cancel the copy operation after it is in progress, delete the target cluster snapshot identified by `TargetDBClusterSnapshotIdentifier` while that cluster snapshot is in the *copying* status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,27 +86,32 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>You already have a cluster snapshot with the given identifier.</p>
+ *
+ * You already have a cluster snapshot with the given identifier.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p>
- *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * `DBClusterSnapshotIdentifier` doesn't refer to an existing cluster snapshot.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * The provided value isn't a valid cluster snapshot state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The cluster isn't in a valid state.</p>
+ *
+ * The cluster isn't in a valid state.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * An error occurred when accessing an KMS key.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would cause you to exceed the allowed number of snapshots.</p>
+ *
+ * The request would cause you to exceed the allowed number of snapshots.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

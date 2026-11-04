@@ -23,8 +23,10 @@ export interface UpdateBatchPredictionCommandInput extends UpdateBatchPrediction
 export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictionOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
- *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
+ * Updates the `BatchPredictionName` of a `BatchPrediction`.
+ *
+ * You can use the `GetBatchPrediction` operation to view the contents of the updated data element.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +54,20 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

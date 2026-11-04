@@ -1,7 +1,13 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>AWS Network Security Manager helps you centrally configure and deploy network security protections across your organization. Supported protections include AWS WAF and AWS Shield Advanced. This centralized approach reduces the overhead of managing protections individually across accounts and ensures consistent security at scale.</p> <p>You define reusable <i>rules</i> and <i>templates</i>, then combine them into <i>policies</i>. Next, you select the accounts and resources to protect with <i>scopes</i> and roll the protections out with <i>deployments</i>. For example, you can define a set of AWS WAF rules and group them into a policy. Then deploy that policy across all accounts in your organization with a single deployment.</p> <p>This API reference describes the operations and data types for AWS Network Security Manager.</p> <p>For conceptual information, tutorials, and guidance on writing rule configurations, see the <a href="https://docs.aws.amazon.com/network-security-manager/latest/devguide/what-is.html">AWS Network Security Manager Developer Guide</a>. For the default quotas that apply to your account, see <a href="https://docs.aws.amazon.com/network-security-manager/latest/devguide/quotas.html">Quotas</a>. For the service endpoints available in each Region, see <a href="https://docs.aws.amazon.com/general/latest/gr/network-security-manager.html">AWS Network Security Manager endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+ * AWS Network Security Manager helps you centrally configure and deploy network security protections across your organization. Supported protections include AWS WAF and AWS Shield Advanced. This centralized approach reduces the overhead of managing protections individually across accounts and ensures consistent security at scale.
+ *
+ * You define reusable *rules* and *templates*, then combine them into *policies*. Next, you select the accounts and resources to protect with *scopes* and roll the protections out with *deployments*. For example, you can define a set of AWS WAF rules and group them into a policy. Then deploy that policy across all accounts in your organization with a single deployment.
+ *
+ * This API reference describes the operations and data types for AWS Network Security Manager.
+ *
+ * For conceptual information, tutorials, and guidance on writing rule configurations, see the [AWS Network Security Manager Developer Guide](https://docs.aws.amazon.com/network-security-manager/latest/devguide/what-is.html). For the default quotas that apply to your account, see [Quotas](https://docs.aws.amazon.com/network-security-manager/latest/devguide/quotas.html). For the service endpoints available in each Region, see [AWS Network Security Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/network-security-manager.html) in the *AWS General Reference*.
  *
  * @packageDocumentation
  */

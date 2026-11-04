@@ -23,8 +23,8 @@ export interface ResetFpgaImageAttributeCommandInput extends ResetFpgaImageAttri
 export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
- * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.
- * 		    You can only reset the load permission attribute.</p>
+ * Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value. You can only reset the load permission attribute.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +53,8 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

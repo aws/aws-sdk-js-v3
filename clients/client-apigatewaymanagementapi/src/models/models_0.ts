@@ -18,13 +18,15 @@ export interface GetConnectionRequest {
  */
 export interface Identity {
   /**
-   * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
+   * The source IP address of the TCP connection making the request to API Gateway.
+   *
    * @public
    */
   SourceIp: string | undefined;
 
   /**
-   * <p>The User Agent of the API caller.</p>
+   * The User Agent of the API caller.
+   *
    * @public
    */
   UserAgent: string | undefined;
@@ -35,14 +37,16 @@ export interface Identity {
  */
 export interface GetConnectionResponse {
   /**
-   * <p>The time in ISO 8601 format for when the connection was established.</p>
+   * The time in ISO 8601 format for when the connection was established.
+   *
    * @public
    */
   ConnectedAt?: Date | undefined;
 
   Identity?: Identity | undefined;
   /**
-   * <p>The time in ISO 8601 format for when the connection was last active.</p>
+   * The time in ISO 8601 format for when the connection was last active.
+   *
    * @public
    */
   LastActiveAt?: Date | undefined;
@@ -53,13 +57,15 @@ export interface GetConnectionResponse {
  */
 export interface PostToConnectionRequest {
   /**
-   * <p>The data to be sent to the client specified by its connection id.</p>
+   * The data to be sent to the client specified by its connection id.
+   *
    * @public
    */
   Data: Uint8Array | undefined;
 
   /**
-   * <p>The identifier of the connection that a specific client is using.</p>
+   * The identifier of the connection that a specific client is using.
+   *
    * @public
    */
   ConnectionId: string | undefined;

@@ -23,7 +23,8 @@ export interface RemoveAutoScalingPolicyCommandInput extends RemoveAutoScalingPo
 export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Removes an automatic scaling policy from a specified instance group within an Amazon EMR cluster.</p>
+ * Removes an automatic scaling policy from a specified instance group within an Amazon EMR cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

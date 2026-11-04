@@ -23,7 +23,8 @@ export interface ListGatewaysCommandInput extends ListGatewaysInput {}
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**
- * <p>Lists backup gateways owned by an Amazon Web Services account in an Amazon Web Services Region. The returned list is ordered by gateway Amazon Resource Name (ARN).</p>
+ * Lists backup gateways owned by an Amazon Web Services account in an Amazon Web Services Region. The returned list is ordered by gateway Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +61,20 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @see {@link BackupGatewayClientResolvedConfig | config} for BackupGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
+ *
+ * The operation did not succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
+ *
+ * TPS has been limited to protect against intentional or unintentional high request volumes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation did not succeed because a validation error occurred.</p>
+ *
+ * The operation did not succeed because a validation error occurred.
  *
  * @throws {@link BackupGatewayServiceException}
- * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ * Base exception class for all service exceptions from BackupGateway service.
  *
  * @public
  */

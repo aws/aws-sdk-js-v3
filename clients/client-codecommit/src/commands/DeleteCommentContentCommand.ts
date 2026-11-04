@@ -23,7 +23,8 @@ export interface DeleteCommentContentCommandInput extends DeleteCommentContentIn
 export interface DeleteCommentContentCommandOutput extends DeleteCommentContentOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
+ * Deletes the content of a comment made on a change, file, or commit in a repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,21 +66,24 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommentDeletedException} (client fault)
- *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * This comment has already been deleted. You cannot edit or delete a deleted comment.
  *
  * @throws {@link CommentDoesNotExistException} (client fault)
- *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
- *             then try again.</p>
+ *
+ * No comment exists with the provided ID. Verify that you have used the correct ID, and then try again.
  *
  * @throws {@link CommentIdRequiredException} (client fault)
- *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * The comment ID is missing or null. A comment ID is required.
  *
  * @throws {@link InvalidCommentIdException} (client fault)
- *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * The comment ID is not in a valid format. Make sure that you have provided the full comment ID.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

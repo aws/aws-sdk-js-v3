@@ -23,14 +23,10 @@ export interface ResetDBClusterParameterGroupCommandInput extends ResetDBCluster
 export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p> Modifies the parameters of a cluster parameter group to the default value. To
- *             reset specific parameters, submit a list of the following: <code>ParameterName</code>
- *             and <code>ApplyMethod</code>. To reset the entire cluster parameter group, specify
- *             the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code>
- *             parameters. </p>
- *          <p> When you reset the entire group, dynamic parameters are updated immediately and
- *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
- *             instance reboot.</p>
+ * Modifies the parameters of a cluster parameter group to the default value. To reset specific parameters, submit a list of the following: `ParameterName` and `ApplyMethod`. To reset the entire cluster parameter group, specify the `DBClusterParameterGroupName` and `ResetAllParameters` parameters.
+ *
+ * When you reset the entire group, dynamic parameters are updated immediately and static parameters are set to `pending-reboot` to take effect on the next DB instance reboot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,15 +68,16 @@ export interface ResetDBClusterParameterGroupCommandOutput extends DBClusterPara
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
+ *
+ * `DBParameterGroupName` doesn't refer to an existing parameter group.
  *
  * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
- *  <p>The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.</p>
+ *
+ * The parameter group is in use, or it is in a state that is not valid. If you are trying to delete the parameter group, you can't delete it when the parameter group is in this state.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

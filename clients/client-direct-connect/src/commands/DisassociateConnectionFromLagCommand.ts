@@ -23,16 +23,10 @@ export interface DisassociateConnectionFromLagCommandInput extends DisassociateC
 export interface DisassociateConnectionFromLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Disassociates a connection from a link aggregation group (LAG). The connection is
- *       interrupted and re-established as a standalone connection (the connection is not
- *       deleted; to delete the connection, use the <a>DeleteConnection</a> request).
- *       If the LAG has associated virtual interfaces or hosted connections, they remain
- *       associated with the LAG. A disassociated connection owned by an Direct Connect Partner is
- *       automatically converted to an interconnect.</p>
- *          <p>If disassociating the connection would cause the LAG to fall below its setting for
- *       minimum number of operational connections, the request fails, except when it's the last
- *       member of the LAG. If all connections are disassociated, the LAG continues to exist as
- *       an empty LAG with no physical connections. </p>
+ * Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the DeleteConnection request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an Direct Connect Partner is automatically converted to an interconnect.
+ *
+ * If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,14 +99,16 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

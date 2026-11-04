@@ -26,7 +26,8 @@ export interface DescribeReservedElasticsearchInstancesCommandInput extends Desc
 export interface DescribeReservedElasticsearchInstancesCommandOutput extends DescribeReservedElasticsearchInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about reserved Elasticsearch instances for this account.</p>
+ * Returns information about reserved Elasticsearch instances for this account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +78,24 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput extends Des
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
+ *
+ * An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
+ *
+ * An exception for missing / invalid input fields. Gives http status code of 400.
  *
  * @throws {@link ElasticsearchServiceServiceException}
- * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ * Base exception class for all service exceptions from ElasticsearchService service.
  *
  * @public
  */

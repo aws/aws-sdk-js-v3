@@ -23,10 +23,10 @@ export interface UpdateMLTransformCommandInput extends UpdateMLTransformRequest 
 export interface UpdateMLTransformCommandOutput extends UpdateMLTransformResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
- *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
- *       operation to assess how well your new parameters achieved your goals (such as improving the
- *       quality of your machine learning transform, or making it more cost-effective).</p>
+ * Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.
+ *
+ * After calling this operation, you can call the `StartMLEvaluationTaskRun` operation to assess how well your new parameters achieved your goals (such as improving the quality of your machine learning transform, or making it more cost-effective).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +71,28 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -23,11 +23,12 @@ export interface DeleteScalingPlanCommandInput extends DeleteScalingPlanRequest 
 export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified scaling plan.</p>
- *          <p>Deleting a scaling plan deletes the underlying <a>ScalingInstruction</a> for
- *          all of the scalable resources that are covered by the plan.</p>
- *          <p>If the plan has launched resources or has scaling activities in progress, you must
- *          delete those resources separately.</p>
+ * Deletes the specified scaling plan.
+ *
+ * Deleting a scaling plan deletes the underlying ScalingInstruction for all of the scalable resources that are covered by the plan.
+ *
+ * If the plan has launched resources or has scaling activities in progress, you must delete those resources separately.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,21 +54,24 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to a
- *          scaling plan that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>The specified object could not be found.</p>
+ *
+ * The specified object could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ * An exception was thrown for a validation issue. Review the parameters provided.
  *
  * @throws {@link AutoScalingPlansServiceException}
- * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * Base exception class for all service exceptions from AutoScalingPlans service.
  *
  * @public
  */

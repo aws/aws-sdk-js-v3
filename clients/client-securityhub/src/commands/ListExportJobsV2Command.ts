@@ -23,9 +23,12 @@ export interface ListExportJobsV2CommandInput extends ListExportJobsV2Request {}
 export interface ListExportJobsV2CommandOutput extends ListExportJobsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns the findings export jobs in your account as a paginated list of <code>ExportSummary</code> objects. You can filter the results by job <code>Status</code> or <code>DataType</code>.</p>
- *          <p>To page through the results, use the <code>MaxResults</code> and <code>NextToken</code> parameters. If the response includes a <code>NextToken</code> value, pass it in a subsequent request to retrieve the next page of results.</p>
- *          <p>Each <code>ExportSummary</code> reports the output <code>Format</code> of the job but not its full <code>OutputConfiguration</code>. To retrieve the filters and selected fields that a job was started with, call <code>GetExportJobV2</code>.</p>
+ * Returns the findings export jobs in your account as a paginated list of `ExportSummary` objects. You can filter the results by job `Status` or `DataType`.
+ *
+ * To page through the results, use the `MaxResults` and `NextToken` parameters. If the response includes a `NextToken` value, pass it in a subsequent request to retrieve the next page of results.
+ *
+ * Each `ExportSummary` reports the output `Format` of the job but not its full `OutputConfiguration`. To retrieve the filters and selected fields that a job was started with, call `GetExportJobV2`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,24 +90,24 @@ export interface ListExportJobsV2CommandOutput extends ListExportJobsV2Response,
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example Example – Listing successful findings export jobs
  * ```javascript

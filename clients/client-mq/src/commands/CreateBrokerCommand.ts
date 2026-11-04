@@ -23,7 +23,29 @@ export interface CreateBrokerCommandInput extends CreateBrokerRequest {}
 export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a broker. Note: This API is asynchronous.</p> <p>To create a broker, you must either use the AmazonMQFullAccess IAM policy or include the following EC2 permissions in your IAM policy.</p> <ul><li><p>ec2:CreateNetworkInterface</p> <p>This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.</p></li> <li><p>ec2:CreateNetworkInterfacePermission</p> <p>This permission is required to attach the ENI to the broker instance.</p></li> <li><p>ec2:DeleteNetworkInterface</p></li> <li><p>ec2:DeleteNetworkInterfacePermission</p></li> <li><p>ec2:DetachNetworkInterface</p></li> <li><p>ec2:DescribeInternetGateways</p></li> <li><p>ec2:DescribeNetworkInterfaces</p></li> <li><p>ec2:DescribeNetworkInterfacePermissions</p></li> <li><p>ec2:DescribeRouteTables</p></li> <li><p>ec2:DescribeSecurityGroups</p></li> <li><p>ec2:DescribeSubnets</p></li> <li><p>ec2:DescribeVpcs</p></li></ul> <p>For more information, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user">Create an IAM User and Get Your Amazon Web Services Credentials</a> and <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface">Never Modify or Delete the Amazon MQ Elastic Network Interface</a> in the <i>Amazon MQ Developer Guide</i>.</p>
+ * Creates a broker. Note: This API is asynchronous.
+ *
+ * To create a broker, you must either use the AmazonMQFullAccess IAM policy or include the following EC2 permissions in your IAM policy.
+ *
+ * - ec2:CreateNetworkInterface
+ *
+ *   This permission is required to allow Amazon MQ to create an elastic network interface (ENI) on behalf of your account.
+ * - ec2:CreateNetworkInterfacePermission
+ *
+ *   This permission is required to attach the ENI to the broker instance.
+ * - ec2:DeleteNetworkInterface
+ * - ec2:DeleteNetworkInterfacePermission
+ * - ec2:DetachNetworkInterface
+ * - ec2:DescribeInternetGateways
+ * - ec2:DescribeNetworkInterfaces
+ * - ec2:DescribeNetworkInterfacePermissions
+ * - ec2:DescribeRouteTables
+ * - ec2:DescribeSecurityGroups
+ * - ec2:DescribeSubnets
+ * - ec2:DescribeVpcs
+ *
+ * For more information, see [Create an IAM User and Get Your Amazon Web Services Credentials](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user) and [Never Modify or Delete the Amazon MQ Elastic Network Interface](https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface) in the *Amazon MQ Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,23 +135,28 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link MqServiceException}
- * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * Base exception class for all service exceptions from Mq service.
  *
  * @public
  */

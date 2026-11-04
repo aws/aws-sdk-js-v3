@@ -23,7 +23,8 @@ export interface DeleteIngestionStreamCommandInput extends DeleteIngestionStream
 export interface DeleteIngestionStreamCommandOutput extends DeleteIngestionStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an ingestion stream. Documents that were already indexed by the stream remain in the index.</p>
+ * Deletes an ingestion stream. Documents that were already indexed by the stream remain in the index.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,20 +56,24 @@ export interface DeleteIngestionStreamCommandOutput extends DeleteIngestionStrea
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.</p>
+ *
+ * When creating a resource, thrown when a resource with the same name already exists or is being created. When deleting a resource, thrown when the resource is not in the ACTIVE, FAILED, or UPDATE_FAILED state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * Thrown when an error internal to the service occurs while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when accessing or deleting a resource that does not exist.</p>
+ *
+ * Thrown when accessing or deleting a resource that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+ *
+ * Thrown when the HTTP request contains invalid input or is missing required input.
  *
  * @throws {@link OpenSearchServerlessServiceException}
- * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearchServerless service.
  *
  * @public
  */

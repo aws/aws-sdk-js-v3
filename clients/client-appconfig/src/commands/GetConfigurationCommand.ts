@@ -31,21 +31,14 @@ export type GetConfigurationCommandOutputType = Omit<Configuration, "Content"> &
 export interface GetConfigurationCommandOutput extends GetConfigurationCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
- *          <important>
- *             <p>Note the following important information.</p>
- *             <ul>
- *                <li>
- *                   <p>This API action is deprecated. Calls to receive configuration data should use
- *                   the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> APIs instead. </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a>GetConfiguration</a> is a priced call. For more information, see
- *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
- *                </li>
- *             </ul>
- *          </important>
+ * (Deprecated) Retrieves the latest deployed configuration.
+ *
+ * > **Important:**
+ * >
+ * > Note the following important information.
+ * >
+ * > - This API action is deprecated. Calls to receive configuration data should use the [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html) and [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) APIs instead.
+ * > - GetConfiguration is a priced call. For more information, see [Pricing](https://aws.amazon.com/systems-manager/pricing/).
  *
  * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
  * @example
@@ -80,17 +73,20 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * There was an internal failure in the AppConfig service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link AppConfigServiceException}
- * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ * Base exception class for all service exceptions from AppConfig service.
  *
  * @example To retrieve configuration details
  * ```javascript

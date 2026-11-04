@@ -23,7 +23,12 @@ export interface StartTransformerJobCommandInput extends StartTransformerJobRequ
 export interface StartTransformerJobCommandOutput extends StartTransformerJobResponse, __MetadataBearer {}
 
 /**
- * <p>Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.</p> <p>If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the <code>StartTransformerJob</code> API to process your files.</p> <note> <p>The system stores transformer jobs for 30 days. During that period, you can run <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformerJob.html">GetTransformerJob</a> and supply its <code>transformerId</code> and <code>transformerJobId</code> to return details of the job.</p> </note>
+ * Runs a job, using a transformer, to parse input EDI (electronic data interchange) file into the output structures used by Amazon Web Services B2B Data Interchange.
+ *
+ * If you only want to transform EDI (electronic data interchange) documents, you don't need to create profiles, partnerships or capabilities. Just create and configure a transformer, and then run the `StartTransformerJob` API to process your files.
+ *
+ * > **Note:** The system stores transformer jobs for 30 days. During that period, you can run [GetTransformerJob](https://docs.aws.amazon.com/b2bi/latest/APIReference/API_GetTransformerJob.html) and supply its `transformerId` and `transformerJobId` to return details of the job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +64,32 @@ export interface StartTransformerJobCommandOutput extends StartTransformerJobRes
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.</p>
+ *
+ * A conflict exception is thrown when you attempt to delete a resource (such as a profile or a capability) that is being used by other resources.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.</p>
+ *
+ * Occurs when the requested resource does not exist, or cannot be found. In some cases, the resource exists in a region other than the region specified in the API call.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ *
+ * The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.</p>
+ *
+ * Occurs when a B2BI object cannot be validated against a request from another object. This exception can be thrown during standard EDI validation or when custom validation rules fail, such as when element length constraints are violated, invalid codes are used in code list validations, or required elements are missing based on configured element requirement rules.
  *
  * @throws {@link B2biServiceException}
- * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
+ * Base exception class for all service exceptions from B2bi service.
  *
  * @example Sample StartTransformerJob call
  * ```javascript

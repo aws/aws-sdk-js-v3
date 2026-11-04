@@ -23,14 +23,15 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
- *          <p>The Security Hub CSPM console continues to use <code>AcceptInvitation</code>. It will eventually change to use <code>AcceptAdministratorInvitation</code>. Any IAM policies that specifically control access to this function must continue to use <code>AcceptInvitation</code>. You should also add <code>AcceptAdministratorInvitation</code> to your policies to ensure that the correct permissions are in place after the console begins to use <code>AcceptAdministratorInvitation</code>.</p>
- *          <p>Accepts the invitation to be a member account and be monitored by the Security Hub CSPM administrator
- *          account that the invitation was sent from.</p>
- *          <p>This operation is only used by member accounts that are not added through
- *          Organizations.</p>
- *          <p>When the member account accepts the invitation, permission is granted to the administrator
- *          account to view findings generated in the member account.</p>
+ * This method is deprecated. Instead, use `AcceptAdministratorInvitation`.
+ *
+ * The Security Hub CSPM console continues to use `AcceptInvitation`. It will eventually change to use `AcceptAdministratorInvitation`. Any IAM policies that specifically control access to this function must continue to use `AcceptInvitation`. You should also add `AcceptAdministratorInvitation` to your policies to ensure that the correct permissions are in place after the console begins to use `AcceptAdministratorInvitation`.
+ *
+ * Accepts the invitation to be a member account and be monitored by the Security Hub CSPM administrator account that the invitation was sent from.
+ *
+ * This operation is only used by member accounts that are not added through Organizations.
+ *
+ * When the member account accepts the invitation, permission is granted to the administrator account to view findings generated in the member account.
  *
  * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
  * @example
@@ -58,25 +59,28 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was rejected because we can't find the specified resource.</p>
+ *
+ * The request was rejected because we can't find the specified resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

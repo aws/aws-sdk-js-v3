@@ -23,14 +23,10 @@ export interface StartChangeRequestExecutionCommandInput extends StartChangeRequ
 export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can
- *   continue to use the service as normal. For more information, see
- * <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html">Amazon Web Services Systems Manager Change Manager availability change</a>.</p>
- *          </important>
- *          <p>Creates a change request for Change Manager. The Automation runbooks specified in the
- *    change request run only after all required approvals for the change request have been
- *    received.</p>
+ * > **Important:** Amazon Web Services Systems Manager Change Manager is no longer open to new customers. Existing customers can continue to use the service as normal. For more information, see [Amazon Web Services Systems Manager Change Manager availability change](https://docs.aws.amazon.com/systems-manager/latest/userguide/change-manager-availability-change.html).
+ *
+ * Creates a change request for Change Manager. The Automation runbooks specified in the change request run only after all required approvals for the change request have been received.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,37 +135,40 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AutomationDefinitionNotApprovedException} (client fault)
- *  <p>Indicates that the Change Manager change template used in the change request was rejected or is
- *    still in a pending state.</p>
+ *
+ * Indicates that the Change Manager change template used in the change request was rejected or is still in a pending state.
  *
  * @throws {@link AutomationDefinitionNotFoundException} (client fault)
- *  <p>An Automation runbook with the specified name couldn't be found.</p>
+ *
+ * An Automation runbook with the specified name couldn't be found.
  *
  * @throws {@link AutomationDefinitionVersionNotFoundException} (client fault)
- *  <p>An Automation runbook with the specified name and version couldn't be found.</p>
+ *
+ * An Automation runbook with the specified name and version couldn't be found.
  *
  * @throws {@link AutomationExecutionLimitExceededException} (client fault)
- *  <p>The number of simultaneously running Automation executions exceeded the allowable
- *    limit.</p>
+ *
+ * The number of simultaneously running Automation executions exceeded the allowable limit.
  *
  * @throws {@link IdempotentParameterMismatch} (client fault)
- *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
- *    original call to the API with the same idempotency token. </p>
+ *
+ * Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAutomationExecutionParametersException} (client fault)
- *  <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
- *    example, they may not match the set of parameters permitted for the specified Automation
- *    document.</p>
+ *
+ * The supplied parameters for invoking the specified Automation runbook are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>The requested operation is no longer supported by Systems Manager.</p>
+ *
+ * The requested operation is no longer supported by Systems Manager.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

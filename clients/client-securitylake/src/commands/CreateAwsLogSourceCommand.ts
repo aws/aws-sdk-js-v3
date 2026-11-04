@@ -23,13 +23,10 @@ export interface CreateAwsLogSourceCommandInput extends CreateAwsLogSourceReques
 export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a natively supported Amazon Web Services service as an Amazon Security Lake source. Enables
- *          source types for member accounts in required Amazon Web Services Regions, based on the
- *          parameters you specify. You can choose any source type in any Region for either accounts
- *          that are part of a trusted organization or standalone accounts. Once you add an Amazon Web Services service as a source, Security Lake starts collecting logs and events from it.</p>
- *          <p>You can use this API only to enable natively supported Amazon Web Services services as a
- *          source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
- *          source.</p>
+ * Adds a natively supported Amazon Web Services service as an Amazon Security Lake source. Enables source types for member accounts in required Amazon Web Services Regions, based on the parameters you specify. You can choose any source type in any Region for either accounts that are part of a trusted organization or standalone accounts. Once you add an Amazon Web Services service as a source, Security Lake starts collecting logs and events from it.
+ *
+ * You can use this API only to enable natively supported Amazon Web Services services as a source. Use `CreateCustomLogSource` to enable data collection from a custom source.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,33 +66,32 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
- *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
- *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
- *          no applicable Allow statement.</p>
+ *
+ * You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization request. An explicit denial occurs when a policy contains a Deny statement for the specific Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also no applicable Allow statement.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
+ *
+ * The request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally
- *          occurs when the previous write did not have time to propagate to the host serving the
- *          current request. A retry (with appropriate backoff logic) is the recommended response to
- *          this exception.</p>
+ *
+ * Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
- *          troubleshooting, perform the operation again.</p>
+ *
+ * Internal service exceptions are sometimes caused by transient issues. Before you start troubleshooting, perform the operation again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link SecurityLakeServiceException}
- * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ * Base exception class for all service exceptions from SecurityLake service.
  *
  * @public
  */

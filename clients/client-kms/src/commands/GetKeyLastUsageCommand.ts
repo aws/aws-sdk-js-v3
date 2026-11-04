@@ -23,75 +23,32 @@ export interface GetKeyLastUsageCommandInput extends GetKeyLastUsageRequest {}
 export interface GetKeyLastUsageCommandOutput extends GetKeyLastUsageResponse, __MetadataBearer {}
 
 /**
- * <p>Returns usage information about the last successful cryptographic operation performed with a
- *       specified KMS key, including the operation type, timestamp, and associated CloudTrail event
- *       ID.</p>
- *          <p>The <code>TrackingStartDate</code> in the <code>GetKeyLastUsage</code> response indicates
- *       the date from which KMS began recording cryptographic activity for a given key. Use this
- *       value together with <code>KeyCreationDate</code> to understand the key's usage
- *       history:</p>
- *          <ul>
- *             <li>
- *                <p>If the <code>KeyLastUsage</code> response element is <i>present</i>,
- *           the key has been used for a successful cryptographic operation since the
- *           <code>TrackingStartDate</code>. The response includes the operation type, timestamp, and
- *           associated CloudTrail event ID.</p>
- *             </li>
- *             <li>
- *                <p>If the <code>KeyLastUsage</code> response element is <i>empty</i> and
- *           <code>KeyCreationDate</code> is on or after <code>TrackingStartDate</code>, the key has
- *           not been used for a successful cryptographic operation since it was created.</p>
- *             </li>
- *             <li>
- *                <p>If the <code>KeyLastUsage</code> response element is <i>empty</i> and
- *           <code>KeyCreationDate</code> is before <code>TrackingStartDate</code>, there is no record
- *           of the key being used for a successful cryptographic operation since the
- *           <code>TrackingStartDate</code>. However, the key may have been used before tracking
- *           began. To determine whether the key was used before the <code>TrackingStartDate</code>,
- *           examine your past CloudTrail logs.</p>
- *             </li>
- *          </ul>
- *          <p>For multi-Region KMS keys, primary and replica keys track last usage independently. Each
- *       key in a multi-Region key set maintains its own usage information.</p>
- *          <p>The <code>ReEncrypt</code> operation uses two keys: a source key for decryption and a
- *       destination key for encryption. Usage information is recorded for both keys independently,
- *       each with the CloudTrail event ID from the respective key owner's account.</p>
- *          <note>
- *             <p>Do not use <code>GetKeyLastUsage</code> as the sole indicator when scheduling a key for
- *         deletion. Instead, first <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">disable the key</a> and monitor CloudTrail for
- *         <code>DisabledException</code> entries, as there could be infrequent workflows that are
- *         dependent on the key. By looking for this exception, you can identify potential dependencies
- *         and workload failures before they occur. CloudTrail remains the authoritative source for all
- *         API calls made to your key.</p>
- *          </note>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation
- *       on a KMS key in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyLastUsage</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisableKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ScheduleKeyDeletion</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Returns usage information about the last successful cryptographic operation performed with a specified KMS key, including the operation type, timestamp, and associated CloudTrail event ID.
+ *
+ * The `TrackingStartDate` in the `GetKeyLastUsage` response indicates the date from which KMS began recording cryptographic activity for a given key. Use this value together with `KeyCreationDate` to understand the key's usage history:
+ *
+ * - If the `KeyLastUsage` response element is *present*, the key has been used for a successful cryptographic operation since the `TrackingStartDate`. The response includes the operation type, timestamp, and associated CloudTrail event ID.
+ * - If the `KeyLastUsage` response element is *empty* and `KeyCreationDate` is on or after `TrackingStartDate`, the key has not been used for a successful cryptographic operation since it was created.
+ * - If the `KeyLastUsage` response element is *empty* and `KeyCreationDate` is before `TrackingStartDate`, there is no record of the key being used for a successful cryptographic operation since the `TrackingStartDate`. However, the key may have been used before tracking began. To determine whether the key was used before the `TrackingStartDate`, examine your past CloudTrail logs.
+ *
+ * For multi-Region KMS keys, primary and replica keys track last usage independently. Each key in a multi-Region key set maintains its own usage information.
+ *
+ * The `ReEncrypt` operation uses two keys: a source key for decryption and a destination key for encryption. Usage information is recorded for both keys independently, each with the CloudTrail event ID from the respective key owner's account.
+ *
+ * > **Note:** Do not use `GetKeyLastUsage` as the sole indicator when scheduling a key for deletion. Instead, first [disable the key](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html) and monitor CloudTrail for `DisabledException` entries, as there could be infrequent workflows that are dependent on the key. By looking for this exception, you can identify potential dependencies and workload failures before they occur. CloudTrail remains the authoritative source for all API calls made to your key.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:GetKeyLastUsage](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - DescribeKey
+ * - DisableKey
+ * - ScheduleKeyDeletion
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,24 +83,24 @@ export interface GetKeyLastUsageCommandOutput extends GetKeyLastUsageResponse, _
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To retrieve the last usage for a KMS key
  * ```javascript

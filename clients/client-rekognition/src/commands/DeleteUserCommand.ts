@@ -23,11 +23,8 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified UserID within the collection. Faces that are associated with the
- *       UserID are disassociated from the UserID before deleting the specified UserID. If the
- *       specified <code>Collection</code> or <code>UserID</code> is already deleted or not found, a
- *         <code>ResourceNotFoundException</code> will be thrown. If the action is successful with a
- *       200 response, an empty HTTP body is returned. </p>
+ * Deletes the specified UserID within the collection. Faces that are associated with the UserID are disassociated from the UserID before deleting the specified UserID. If the specified `Collection` or `UserID` is already deleted or not found, a `ResourceNotFoundException` will be thrown. If the action is successful with a 200 response, an empty HTTP body is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,36 +51,40 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> A User with the same Id already exists within the collection, or the update or deletion
- *       of the User caused an inconsistent state. ** </p>
+ *
+ * A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. **
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
- *         parameters is different from the previous call to the operation.</p>
+ *
+ * A `ClientRequestToken` input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example DeleteUser
  * ```javascript

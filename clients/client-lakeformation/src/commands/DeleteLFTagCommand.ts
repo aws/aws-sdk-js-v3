@@ -23,18 +23,11 @@ export interface DeleteLFTagCommandInput extends DeleteLFTagRequest {}
 export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __MetadataBearer {}
 
 /**
- * <p> Deletes an LF-tag by its key name. The operation fails if the specified tag key doesn't
- *       exist. When you delete an LF-Tag: </p>
- *          <ul>
- *             <li>
- *                <p>The associated LF-Tag policy becomes invalid.</p>
- *             </li>
- *             <li>
- *                <p>
- *      Resources that had this tag assigned will no longer have the tag policy applied to
- *      them.</p>
- *             </li>
- *          </ul>
+ * Deletes an LF-tag by its key name. The operation fails if the specified tag key doesn't exist. When you delete an LF-Tag:
+ *
+ * - The associated LF-Tag policy becomes invalid.
+ * - Resources that had this tag assigned will no longer have the tag policy applied to them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +53,28 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

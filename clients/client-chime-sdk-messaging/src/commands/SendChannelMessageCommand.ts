@@ -23,16 +23,16 @@ export interface SendChannelMessageCommandInput extends SendChannelMessageReques
 export interface SendChannelMessageCommandOutput extends SendChannelMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Sends a message to a particular channel that the member is a part of.</p>
- *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
- *             the header.</p>
- *             <p>Also, <code>STANDARD</code> messages can be up to 4KB in size and contain metadata. Metadata is arbitrary,
- *             and you can use it in a variety of ways, such as containing a link to an attachment.</p>
- *             <p>
- *                <code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>
- *          </note>
+ * Sends a message to a particular channel that the member is a part of.
+ *
+ * > **Note:**
+ * >
+ * > The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in the header.
+ * >
+ * > Also, `STANDARD` messages can be up to 4KB in size and contain metadata. Metadata is arbitrary, and you can use it in a variety of ways, such as containing a link to an attachment.
+ * >
+ * > `CONTROL` messages are limited to 30 bytes and do not contain metadata.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,30 +90,36 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMessagingServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMessaging service.
  *
  * @public
  */

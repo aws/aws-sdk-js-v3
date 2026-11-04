@@ -23,7 +23,8 @@ export interface ListTaxExemptionsCommandInput extends ListTaxExemptionsRequest 
 export interface ListTaxExemptionsCommandOutput extends ListTaxExemptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the tax exemption of accounts listed in a consolidated billing family. The IAM action is <code>tax:GetExemptions</code>.</p>
+ * Retrieves the tax exemption of accounts listed in a consolidated billing family. The IAM action is `tax:GetExemptions`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +81,20 @@ export interface ListTaxExemptionsCommandOutput extends ListTaxExemptionsRespons
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ *
+ * The exception thrown when an unexpected error occurs when processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ *
+ * The exception thrown when the input doesn't have a resource associated to it.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ *
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
  *
  * @throws {@link TaxSettingsServiceException}
- * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ * Base exception class for all service exceptions from TaxSettings service.
  *
  * @public
  */

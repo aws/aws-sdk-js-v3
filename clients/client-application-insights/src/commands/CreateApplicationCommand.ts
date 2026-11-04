@@ -23,7 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an application that is created from a resource group.</p>
+ * Adds an application that is created from a resource group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,26 +77,32 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> User does not have permissions to perform this action. </p>
+ *
+ * User does not have permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is already created or in use.</p>
+ *
+ * The resource is already created or in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource does not exist in the customer account.</p>
+ *
+ * The resource does not exist in the customer account.
  *
  * @throws {@link TagsAlreadyExistException} (client fault)
- *  <p>Tags are already registered for the specified application ARN.</p>
+ *
+ * Tags are already registered for the specified application ARN.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link ApplicationInsightsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationInsights service.
  *
  * @public
  */

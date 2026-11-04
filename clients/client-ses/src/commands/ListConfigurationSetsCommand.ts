@@ -23,17 +23,10 @@ export interface ListConfigurationSetsCommandInput extends ListConfigurationSets
 export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of the configuration sets associated with your Amazon SES account in the
- *             current Amazon Web Services Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Monitoring
- *                 Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
- *                 Guide.</i>
- *          </p>
- *          <p>You can execute this operation no more than once per second. This operation returns up
- *             to 1,000 configuration sets each time it is run. If your Amazon SES account has more than
- *             1,000 configuration sets, this operation also returns <code>NextToken</code>. You can
- *             then execute the <code>ListConfigurationSets</code> operation again, passing the
- *                 <code>NextToken</code> parameter and the value of the NextToken element to retrieve
- *             additional results.</p>
+ * Provides a list of the configuration sets associated with your Amazon SES account in the current Amazon Web Services Region. For information about using configuration sets, see [Monitoring Your Amazon SES Sending Activity](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html) in the *Amazon SES Developer Guide.*
+ *
+ * You can execute this operation no more than once per second. This operation returns up to 1,000 configuration sets each time it is run. If your Amazon SES account has more than 1,000 configuration sets, this operation also returns `NextToken`. You can then execute the `ListConfigurationSets` operation again, passing the `NextToken` parameter and the value of the NextToken element to retrieve additional results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +59,8 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

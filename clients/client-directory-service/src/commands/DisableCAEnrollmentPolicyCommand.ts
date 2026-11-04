@@ -23,13 +23,10 @@ export interface DisableCAEnrollmentPolicyCommandInput extends DisableCAEnrollme
 export interface DisableCAEnrollmentPolicyCommandOutput extends DisableCAEnrollmentPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Disables the certificate authority (CA) enrollment policy for the specified directory. This stops
- *       automatic certificate enrollment and management for domain-joined clients, but does not affect
- *       existing certificates.</p>
- *          <important>
- *             <p>Disabling the CA enrollment policy prevents new certificates from being automatically
- *         enrolled, but existing certificates remain valid and functional until they expire.</p>
- *          </important>
+ * Disables the certificate authority (CA) enrollment policy for the specified directory. This stops automatic certificate enrollment and management for domain-joined clients, but does not affect existing certificates.
+ *
+ * > **Important:** Disabling the CA enrollment policy prevents new certificates from being automatically enrolled, but existing certificates remain valid and functional until they expire.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,32 +51,40 @@ export interface DisableCAEnrollmentPolicyCommandOutput extends DisableCAEnrollm
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable.</p>
+ *
+ * The specified directory is unavailable.
  *
  * @throws {@link DisableAlreadyInProgressException} (client fault)
- *  <p>A disable operation for CA enrollment policy is already in progress for this directory.</p>
+ *
+ * A disable operation for CA enrollment policy is already in progress for this directory.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

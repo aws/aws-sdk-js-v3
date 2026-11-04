@@ -23,7 +23,8 @@ export interface DeleteAgentSpaceCommandInput extends DeleteAgentSpaceInput {}
 export interface DeleteAgentSpaceCommandOutput extends DeleteAgentSpaceOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an agent space and all of its associated resources, including pentests, findings, and artifacts.</p>
+ * Deletes an agent space and all of its associated resources, including pentests, findings, and artifacts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +51,8 @@ export interface DeleteAgentSpaceCommandOutput extends DeleteAgentSpaceOutput, _
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

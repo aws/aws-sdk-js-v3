@@ -23,11 +23,10 @@ export interface ModifyReservedInstancesCommandInput extends ModifyReservedInsta
 export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
- *       instance count, or instance type. The Reserved Instances to be modified must be identical,
- *       except for Availability Zone, network platform, and instance type.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modify Reserved Instances</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ * Modifies the configuration of your Reserved Instances, such as the Availability Zone, instance count, or instance type. The Reserved Instances to be modified must be identical, except for Availability Zone, network platform, and instance type.
+ *
+ * For more information, see [Modify Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +66,8 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

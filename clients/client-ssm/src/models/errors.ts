@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 /**
- * <p>The requester doesn't have permissions to perform the requested operation.</p>
+ * The requester doesn't have permissions to perform the requested operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An error occurred on the server side.</p>
+ * An error occurred on the server side.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
+ *
  * @public
  */
 export class InvalidResourceId extends __BaseException {
@@ -71,8 +74,8 @@ export class InvalidResourceId extends __BaseException {
 }
 
 /**
- * <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
- *    the instance must be a registered managed node.</p>
+ * The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.
+ *
  * @public
  */
 export class InvalidResourceType extends __BaseException {
@@ -93,8 +96,8 @@ export class InvalidResourceType extends __BaseException {
 }
 
 /**
- * <p>The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try
- *    the command again.</p>
+ * The `Targets` parameter includes too many tags. Remove one or more tags and try the command again.
+ *
  * @public
  */
 export class TooManyTagsError extends __BaseException {
@@ -115,7 +118,8 @@ export class TooManyTagsError extends __BaseException {
 }
 
 /**
- * <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ * There are concurrent updates for a resource that supports one update at a time.
+ *
  * @public
  */
 export class TooManyUpdates extends __BaseException {
@@ -138,8 +142,8 @@ export class TooManyUpdates extends __BaseException {
 }
 
 /**
- * <p>Error returned if an attempt is made to register a patch group with a patch baseline that is
- *    already registered with a different patch baseline.</p>
+ * Error returned if an attempt is made to register a patch group with a patch baseline that is already registered with a different patch baseline.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -162,7 +166,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified OpsItem is in the process of being deleted.</p>
+ * The specified OpsItem is in the process of being deleted.
+ *
  * @public
  */
 export class OpsItemConflictException extends __BaseException {
@@ -185,8 +190,8 @@ export class OpsItemConflictException extends __BaseException {
 }
 
 /**
- * <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
+ * A specified parameter argument isn't valid. Verify the available arguments and try again.
+ *
  * @public
  */
 export class OpsItemInvalidParameterException extends __BaseException {
@@ -211,7 +216,8 @@ export class OpsItemInvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The request caused OpsItems to exceed one or more quotas.</p>
+ * The request caused OpsItems to exceed one or more quotas.
+ *
  * @public
  */
 export class OpsItemLimitExceededException extends __BaseException {
@@ -240,7 +246,8 @@ export class OpsItemLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ * The specified OpsItem ID doesn't exist. Verify the ID and try again.
+ *
  * @public
  */
 export class OpsItemNotFoundException extends __BaseException {
@@ -263,7 +270,8 @@ export class OpsItemNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Resource Name (ARN) is already associated with the OpsItem.</p>
+ * The Amazon Resource Name (ARN) is already associated with the OpsItem.
+ *
  * @public
  */
 export class OpsItemRelatedItemAlreadyExistsException extends __BaseException {
@@ -290,7 +298,8 @@ export class OpsItemRelatedItemAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>You can't specify a managed node ID in more than one association.</p>
+ * You can't specify a managed node ID in more than one association.
+ *
  * @public
  */
 export class DuplicateInstanceId extends __BaseException {
@@ -311,7 +320,8 @@ export class DuplicateInstanceId extends __BaseException {
 }
 
 /**
- * <p>The specified command ID isn't valid. Verify the ID and try again.</p>
+ * The specified command ID isn't valid. Verify the ID and try again.
+ *
  * @public
  */
 export class InvalidCommandId extends __BaseException {
@@ -332,24 +342,13 @@ export class InvalidCommandId extends __BaseException {
 }
 
 /**
- * <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
+ *
  * @public
  */
 export class InvalidInstanceId extends __BaseException {
@@ -372,10 +371,10 @@ export class InvalidInstanceId extends __BaseException {
 }
 
 /**
- * <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
- *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ * Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.
+ *
+ * For information about resource quotas in Amazon Web Services Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
+ *
  * @public
  */
 export class DoesNotExistException extends __BaseException {
@@ -398,8 +397,8 @@ export class DoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
- *    document). You can only supply values to parameters defined in the SSM document.</p>
+ * You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.
+ *
  * @public
  */
 export class InvalidParameters extends __BaseException {
@@ -422,7 +421,8 @@ export class InvalidParameters extends __BaseException {
 }
 
 /**
- * <p>The specified association already exists.</p>
+ * The specified association already exists.
+ *
  * @public
  */
 export class AssociationAlreadyExists extends __BaseException {
@@ -443,7 +443,8 @@ export class AssociationAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>You can have at most 2,000 active associations.</p>
+ * You can have at most 2,000 active associations.
+ *
  * @public
  */
 export class AssociationLimitExceeded extends __BaseException {
@@ -464,7 +465,8 @@ export class AssociationLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The specified SSM document doesn't exist.</p>
+ * The specified SSM document doesn't exist.
+ *
  * @public
  */
 export class InvalidDocument extends __BaseException {
@@ -472,8 +474,8 @@ export class InvalidDocument extends __BaseException {
   readonly name = "InvalidDocument" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The SSM document doesn't exist or the document isn't available to the user. This exception
-   *    can be issued by various API operations. </p>
+   * The SSM document doesn't exist or the document isn't available to the user. This exception can be issued by various API operations.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -492,7 +494,8 @@ export class InvalidDocument extends __BaseException {
 }
 
 /**
- * <p>The document version isn't valid or doesn't exist.</p>
+ * The document version isn't valid or doesn't exist.
+ *
  * @public
  */
 export class InvalidDocumentVersion extends __BaseException {
@@ -515,7 +518,8 @@ export class InvalidDocumentVersion extends __BaseException {
 }
 
 /**
- * <p>The output location isn't valid or doesn't exist.</p>
+ * The output location isn't valid or doesn't exist.
+ *
  * @public
  */
 export class InvalidOutputLocation extends __BaseException {
@@ -536,7 +540,8 @@ export class InvalidOutputLocation extends __BaseException {
 }
 
 /**
- * <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+ * The schedule is invalid. Verify your cron or rate expression and try again.
+ *
  * @public
  */
 export class InvalidSchedule extends __BaseException {
@@ -559,7 +564,8 @@ export class InvalidSchedule extends __BaseException {
 }
 
 /**
- * <p>The specified tag key or value isn't valid.</p>
+ * The specified tag key or value isn't valid.
+ *
  * @public
  */
 export class InvalidTag extends __BaseException {
@@ -582,8 +588,8 @@ export class InvalidTag extends __BaseException {
 }
 
 /**
- * <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
- *    not have permission to perform the operation.</p>
+ * The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.
+ *
  * @public
  */
 export class InvalidTarget extends __BaseException {
@@ -606,7 +612,8 @@ export class InvalidTarget extends __BaseException {
 }
 
 /**
- * <p>TargetMap parameter isn't valid.</p>
+ * TargetMap parameter isn't valid.
+ *
  * @public
  */
 export class InvalidTargetMaps extends __BaseException {
@@ -629,8 +636,8 @@ export class InvalidTargetMaps extends __BaseException {
 }
 
 /**
- * <p>The document doesn't support the platform type of the given managed node IDs. For example,
- *    you sent an document for a Windows managed node to a Linux node.</p>
+ * The document doesn't support the platform type of the given managed node IDs. For example, you sent an document for a Windows managed node to a Linux node.
+ *
  * @public
  */
 export class UnsupportedPlatformType extends __BaseException {
@@ -653,8 +660,8 @@ export class UnsupportedPlatformType extends __BaseException {
 }
 
 /**
- * <p>An error occurred because of a conflict with a concurrent request or the current state of
- *    the resource. Retry your request.</p>
+ * An error occurred because of a conflict with a concurrent request or the current state of the resource. Retry your request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -677,8 +684,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
- *    maximum number of service resources or operations for your Amazon Web Services account.</p>
+ * The request exceeds the service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -687,25 +694,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
+   * The unique ID of the resource referenced in the failed request.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
+   * The resource type of the resource referenced in the failed request.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * The quota code recognized by the Amazon Web Services Service Quotas service.
+   *
    * @public
    */
   QuotaCode: string | undefined;
 
   /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
+   * The code for the Amazon Web Services service that owns the quota.
+   *
    * @public
    */
   ServiceCode: string | undefined;
@@ -728,7 +739,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified document already exists.</p>
+ * The specified document already exists.
+ *
  * @public
  */
 export class DocumentAlreadyExists extends __BaseException {
@@ -751,7 +763,8 @@ export class DocumentAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>You can have at most 500 active SSM documents.</p>
+ * You can have at most 500 active SSM documents.
+ *
  * @public
  */
 export class DocumentLimitExceeded extends __BaseException {
@@ -774,7 +787,8 @@ export class DocumentLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The content for the document isn't valid.</p>
+ * The content for the document isn't valid.
+ *
  * @public
  */
 export class InvalidDocumentContent extends __BaseException {
@@ -782,7 +796,8 @@ export class InvalidDocumentContent extends __BaseException {
   readonly name = "InvalidDocumentContent" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A description of the validation error.</p>
+   * A description of the validation error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -801,7 +816,8 @@ export class InvalidDocumentContent extends __BaseException {
 }
 
 /**
- * <p>The version of the document schema isn't supported.</p>
+ * The version of the document schema isn't supported.
+ *
  * @public
  */
 export class InvalidDocumentSchemaVersion extends __BaseException {
@@ -824,7 +840,8 @@ export class InvalidDocumentSchemaVersion extends __BaseException {
 }
 
 /**
- * <p>The size limit of a document is 64 KB.</p>
+ * The size limit of a document is 64 KB.
+ *
  * @public
  */
 export class MaxDocumentSizeExceeded extends __BaseException {
@@ -847,7 +864,8 @@ export class MaxDocumentSizeExceeded extends __BaseException {
 }
 
 /**
- * <p>The requested operation is no longer supported by Systems Manager.</p>
+ * The requested operation is no longer supported by Systems Manager.
+ *
  * @public
  */
 export class NoLongerSupportedException extends __BaseException {
@@ -870,8 +888,8 @@ export class NoLongerSupportedException extends __BaseException {
 }
 
 /**
- * <p>Error returned when an idempotent operation is retried and the parameters don't match the
- *    original call to the API with the same idempotency token. </p>
+ * Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token.
+ *
  * @public
  */
 export class IdempotentParameterMismatch extends __BaseException {
@@ -894,10 +912,10 @@ export class IdempotentParameterMismatch extends __BaseException {
 }
 
 /**
- * <p>Error returned when the caller has exceeded the default resource quotas. For example, too
- *    many maintenance windows or patch baselines have been created.</p>
- *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ * Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.
+ *
+ * For information about resource quotas in Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -920,9 +938,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You don't have permission to view OpsItems in the specified account. Verify that your account
- *    is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations
- *    management account.</p>
+ * You don't have permission to view OpsItems in the specified account. Verify that your account is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations management account.
+ *
  * @public
  */
 export class OpsItemAccessDeniedException extends __BaseException {
@@ -945,7 +962,8 @@ export class OpsItemAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The OpsItem already exists.</p>
+ * The OpsItem already exists.
+ *
  * @public
  */
 export class OpsItemAlreadyExistsException extends __BaseException {
@@ -970,7 +988,8 @@ export class OpsItemAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>An OpsMetadata object already exists for the selected resource.</p>
+ * An OpsMetadata object already exists for the selected resource.
+ *
  * @public
  */
 export class OpsMetadataAlreadyExistsException extends __BaseException {
@@ -991,7 +1010,8 @@ export class OpsMetadataAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>One of the arguments passed is invalid. </p>
+ * One of the arguments passed is invalid.
+ *
  * @public
  */
 export class OpsMetadataInvalidArgumentException extends __BaseException {
@@ -1012,8 +1032,8 @@ export class OpsMetadataInvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>Your account reached the maximum number of OpsMetadata objects allowed by Application Manager. The
- *    maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>
+ * Your account reached the maximum number of OpsMetadata objects allowed by Application Manager. The maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.
+ *
  * @public
  */
 export class OpsMetadataLimitExceededException extends __BaseException {
@@ -1034,8 +1054,8 @@ export class OpsMetadataLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The system is processing too many concurrent updates. Wait a few moments and try
- *    again.</p>
+ * The system is processing too many concurrent updates. Wait a few moments and try again.
+ *
  * @public
  */
 export class OpsMetadataTooManyUpdatesException extends __BaseException {
@@ -1056,7 +1076,8 @@ export class OpsMetadataTooManyUpdatesException extends __BaseException {
 }
 
 /**
- * <p>A sync configuration with the same name already exists.</p>
+ * A sync configuration with the same name already exists.
+ *
  * @public
  */
 export class ResourceDataSyncAlreadyExistsException extends __BaseException {
@@ -1079,7 +1100,8 @@ export class ResourceDataSyncAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the allowed maximum sync configurations.</p>
+ * You have exceeded the allowed maximum sync configurations.
+ *
  * @public
  */
 export class ResourceDataSyncCountExceededException extends __BaseException {
@@ -1102,7 +1124,8 @@ export class ResourceDataSyncCountExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified sync configuration is invalid.</p>
+ * The specified sync configuration is invalid.
+ *
  * @public
  */
 export class ResourceDataSyncInvalidConfigurationException extends __BaseException {
@@ -1125,8 +1148,8 @@ export class ResourceDataSyncInvalidConfigurationException extends __BaseExcepti
 }
 
 /**
- * <p>The activation isn't valid. The activation might have been deleted, or the ActivationId and
- *    the ActivationCode don't match.</p>
+ * The activation isn't valid. The activation might have been deleted, or the ActivationId and the ActivationCode don't match.
+ *
  * @public
  */
 export class InvalidActivation extends __BaseException {
@@ -1149,8 +1172,8 @@ export class InvalidActivation extends __BaseException {
 }
 
 /**
- * <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
- *    ActivationCode and try again.</p>
+ * The activation ID isn't valid. Verify that you entered the correct ActivationId or ActivationCode and try again.
+ *
  * @public
  */
 export class InvalidActivationId extends __BaseException {
@@ -1173,7 +1196,8 @@ export class InvalidActivationId extends __BaseException {
 }
 
 /**
- * <p>The specified association doesn't exist.</p>
+ * The specified association doesn't exist.
+ *
  * @public
  */
 export class AssociationDoesNotExist extends __BaseException {
@@ -1196,7 +1220,8 @@ export class AssociationDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The specified parameter to be shared could not be found.</p>
+ * The specified parameter to be shared could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1219,7 +1244,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You must disassociate a document from all managed nodes before you can delete it.</p>
+ * You must disassociate a document from all managed nodes before you can delete it.
+ *
  * @public
  */
 export class AssociatedInstances extends __BaseException {
@@ -1240,8 +1266,8 @@ export class AssociatedInstances extends __BaseException {
 }
 
 /**
- * <p>You attempted to delete a document while it is still shared. You must stop sharing the
- *    document before you can delete it.</p>
+ * You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
+ *
  * @public
  */
 export class InvalidDocumentOperation extends __BaseException {
@@ -1264,8 +1290,8 @@ export class InvalidDocumentOperation extends __BaseException {
 }
 
 /**
- * <p>One or more of the parameters specified for the delete operation isn't valid. Verify all
- *    parameters and try again.</p>
+ * One or more of the parameters specified for the delete operation isn't valid. Verify all parameters and try again.
+ *
  * @public
  */
 export class InvalidDeleteInventoryParametersException extends __BaseException {
@@ -1288,7 +1314,8 @@ export class InvalidDeleteInventoryParametersException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid.</p>
+ * The request isn't valid.
+ *
  * @public
  */
 export class InvalidInventoryRequestException extends __BaseException {
@@ -1311,7 +1338,8 @@ export class InvalidInventoryRequestException extends __BaseException {
 }
 
 /**
- * <p>The delete inventory option specified isn't valid. Verify the option and try again.</p>
+ * The delete inventory option specified isn't valid. Verify the option and try again.
+ *
  * @public
  */
 export class InvalidOptionException extends __BaseException {
@@ -1334,7 +1362,8 @@ export class InvalidOptionException extends __BaseException {
 }
 
 /**
- * <p>The parameter type name isn't valid.</p>
+ * The parameter type name isn't valid.
+ *
  * @public
  */
 export class InvalidTypeNameException extends __BaseException {
@@ -1357,7 +1386,8 @@ export class InvalidTypeNameException extends __BaseException {
 }
 
 /**
- * <p>The OpsMetadata object doesn't exist. </p>
+ * The OpsMetadata object doesn't exist.
+ *
  * @public
  */
 export class OpsMetadataNotFoundException extends __BaseException {
@@ -1378,12 +1408,10 @@ export class OpsMetadataNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The parameter couldn't be found. Verify the name and try again.</p>
- *          <note>
- *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
- *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
- *      <i>not</i> recorded in CloudTrail event logs.</p>
- *          </note>
+ * The parameter couldn't be found. Verify the name and try again.
+ *
+ * > **Note:** For the `DeleteParameter` and `GetParameter` actions, if the specified parameter doesn't exist, the `ParameterNotFound` exception is *not* recorded in CloudTrail event logs.
+ *
  * @public
  */
 export class ParameterNotFound extends __BaseException {
@@ -1404,8 +1432,8 @@ export class ParameterNotFound extends __BaseException {
 }
 
 /**
- * <p>Error returned if an attempt is made to delete a patch baseline that is registered for a
- *    patch group.</p>
+ * Error returned if an attempt is made to delete a patch baseline that is registered for a patch group.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -1428,7 +1456,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified sync name wasn't found.</p>
+ * The specified sync name wasn't found.
+ *
  * @public
  */
 export class ResourceDataSyncNotFoundException extends __BaseException {
@@ -1455,8 +1484,8 @@ export class ResourceDataSyncNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified policy document is malformed or invalid, or excessive
- *     <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> calls have been made.</p>
+ * The specified policy document is malformed or invalid, or excessive `PutResourcePolicy` or `DeleteResourcePolicy` calls have been made.
+ *
  * @public
  */
 export class MalformedResourcePolicyDocumentException extends __BaseException {
@@ -1479,9 +1508,8 @@ export class MalformedResourcePolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
- *    trying to update an obsolete policy version or when multiple requests to update a policy are
- *    sent.</p>
+ * The hash provided in the call doesn't match the stored hash. This exception is thrown when trying to update an obsolete policy version or when multiple requests to update a policy are sent.
+ *
  * @public
  */
 export class ResourcePolicyConflictException extends __BaseException {
@@ -1504,8 +1532,8 @@ export class ResourcePolicyConflictException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
- *    values and try again.</p>
+ * One or more parameters specified for the call aren't valid. Verify the parameters and their values and try again.
+ *
  * @public
  */
 export class ResourcePolicyInvalidParameterException extends __BaseException {
@@ -1530,7 +1558,8 @@ export class ResourcePolicyInvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>No policies with the specified policy ID and hash could be found.</p>
+ * No policies with the specified policy ID and hash could be found.
+ *
  * @public
  */
 export class ResourcePolicyNotFoundException extends __BaseException {
@@ -1553,8 +1582,8 @@ export class ResourcePolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You specified the <code>Safe</code> option for the DeregisterTargetFromMaintenanceWindow
- *    operation, but the target is still referenced in a task.</p>
+ * You specified the `Safe` option for the DeregisterTargetFromMaintenanceWindow operation, but the target is still referenced in a task.
+ *
  * @public
  */
 export class TargetInUseException extends __BaseException {
@@ -1577,7 +1606,8 @@ export class TargetInUseException extends __BaseException {
 }
 
 /**
- * <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+ * The filter name isn't valid. Verify that you entered the correct name and try again.
+ *
  * @public
  */
 export class InvalidFilter extends __BaseException {
@@ -1600,7 +1630,8 @@ export class InvalidFilter extends __BaseException {
 }
 
 /**
- * <p>The specified token isn't valid.</p>
+ * The specified token isn't valid.
+ *
  * @public
  */
 export class InvalidNextToken extends __BaseException {
@@ -1623,9 +1654,8 @@ export class InvalidNextToken extends __BaseException {
 }
 
 /**
- * <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of
- *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
- *    view the latest version of the association.</p>
+ * The version you specified isn't valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the `$LATEST` parameter to view the latest version of the association.
+ *
  * @public
  */
 export class InvalidAssociationVersion extends __BaseException {
@@ -1648,7 +1678,8 @@ export class InvalidAssociationVersion extends __BaseException {
 }
 
 /**
- * <p>The specified execution ID doesn't exist. Verify the ID number and try again.</p>
+ * The specified execution ID doesn't exist. Verify the ID number and try again.
+ *
  * @public
  */
 export class AssociationExecutionDoesNotExist extends __BaseException {
@@ -1671,7 +1702,8 @@ export class AssociationExecutionDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The specified key isn't valid.</p>
+ * The specified key isn't valid.
+ *
  * @public
  */
 export class InvalidFilterKey extends __BaseException {
@@ -1692,7 +1724,8 @@ export class InvalidFilterKey extends __BaseException {
 }
 
 /**
- * <p>The filter value isn't valid. Verify the value and try again.</p>
+ * The filter value isn't valid. Verify the value and try again.
+ *
  * @public
  */
 export class InvalidFilterValue extends __BaseException {
@@ -1715,8 +1748,8 @@ export class InvalidFilterValue extends __BaseException {
 }
 
 /**
- * <p>There is no automation execution information for the requested automation execution
- *    ID.</p>
+ * There is no automation execution information for the requested automation execution ID.
+ *
  * @public
  */
 export class AutomationExecutionNotFoundException extends __BaseException {
@@ -1739,8 +1772,8 @@ export class AutomationExecutionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The permission type isn't supported. <i>Share</i> is the only supported
- *    permission type.</p>
+ * The permission type isn't supported. *Share* is the only supported permission type.
+ *
  * @public
  */
 export class InvalidPermissionType extends __BaseException {
@@ -1763,8 +1796,8 @@ export class InvalidPermissionType extends __BaseException {
 }
 
 /**
- * <p>The operating systems you specified isn't supported, or the operation isn't supported for
- *    the operating system.</p>
+ * The operating systems you specified isn't supported, or the operation isn't supported for the operating system.
+ *
  * @public
  */
 export class UnsupportedOperatingSystem extends __BaseException {
@@ -1787,7 +1820,8 @@ export class UnsupportedOperatingSystem extends __BaseException {
 }
 
 /**
- * <p>The specified filter value isn't valid.</p>
+ * The specified filter value isn't valid.
+ *
  * @public
  */
 export class InvalidInstanceInformationFilterValue extends __BaseException {
@@ -1808,7 +1842,8 @@ export class InvalidInstanceInformationFilterValue extends __BaseException {
 }
 
 /**
- * <p>The specified filter value isn't valid.</p>
+ * The specified filter value isn't valid.
+ *
  * @public
  */
 export class InvalidInstancePropertyFilterValue extends __BaseException {
@@ -1829,8 +1864,8 @@ export class InvalidInstancePropertyFilterValue extends __BaseException {
 }
 
 /**
- * <p>The ID specified for the delete operation doesn't exist or isn't valid. Verify the ID and
- *    try again.</p>
+ * The ID specified for the delete operation doesn't exist or isn't valid. Verify the ID and try again.
+ *
  * @public
  */
 export class InvalidDeletionIdException extends __BaseException {
@@ -1853,8 +1888,8 @@ export class InvalidDeletionIdException extends __BaseException {
 }
 
 /**
- * <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
- *    filter, valid options are Recursive and OneLevel.</p>
+ * The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
+ *
  * @public
  */
 export class InvalidFilterOption extends __BaseException {
@@ -1875,8 +1910,8 @@ export class InvalidFilterOption extends __BaseException {
 }
 
 /**
- * <p>The association wasn't found using the parameters you specified in the call. Verify the
- *    information and try again.</p>
+ * The association wasn't found using the parameters you specified in the call. Verify the information and try again.
+ *
  * @public
  */
 export class OpsItemRelatedItemAssociationNotFoundException extends __BaseException {
@@ -1899,8 +1934,8 @@ export class OpsItemRelatedItemAssociationNotFoundException extends __BaseExcept
 }
 
 /**
- * <p>The request or operation couldn't be performed because the service is throttling
- *    requests.</p>
+ * The request or operation couldn't be performed because the service is throttling requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -1909,13 +1944,15 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * The quota code recognized by the Amazon Web Services Service Quotas service.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
+   * The code for the Amazon Web Services service that owns the quota.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
@@ -1936,8 +1973,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid. Verify that you entered valid contents for the command and try
- *    again.</p>
+ * The request isn't valid. Verify that you entered valid contents for the command and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -1946,7 +1983,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason code for the invalid request.</p>
+   * The reason code for the invalid request.
+   *
    * @public
    */
   ReasonCode?: string | undefined;
@@ -1966,8 +2004,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The SSM document type isn't valid. Valid document types are described in the
- *     <code>DocumentType</code> property.</p>
+ * The SSM document type isn't valid. Valid document types are described in the `DocumentType` property.
+ *
  * @public
  */
 export class InvalidDocumentType extends __BaseException {
@@ -1990,7 +2028,8 @@ export class InvalidDocumentType extends __BaseException {
 }
 
 /**
- * <p>The calendar entry contained in the specified SSM document isn't supported.</p>
+ * The calendar entry contained in the specified SSM document isn't supported.
+ *
  * @public
  */
 export class UnsupportedCalendarException extends __BaseException {
@@ -2013,7 +2052,8 @@ export class UnsupportedCalendarException extends __BaseException {
 }
 
 /**
- * <p>The plugin name isn't valid.</p>
+ * The plugin name isn't valid.
+ *
  * @public
  */
 export class InvalidPluginName extends __BaseException {
@@ -2034,8 +2074,8 @@ export class InvalidPluginName extends __BaseException {
 }
 
 /**
- * <p>The command ID and managed node ID you specified didn't match any invocations. Verify the
- *    command ID and the managed node ID and try again. </p>
+ * The command ID and managed node ID you specified didn't match any invocations. Verify the command ID and the managed node ID and try again.
+ *
  * @public
  */
 export class InvocationDoesNotExist extends __BaseException {
@@ -2056,10 +2096,8 @@ export class InvocationDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>Patching for applications released by Microsoft is only available on EC2 instances and
- *    advanced instances. To patch applications released by Microsoft on on-premises servers and VMs,
- *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Turning on
- *     the advanced-instances tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ * Patching for applications released by Microsoft is only available on EC2 instances and advanced instances. To patch applications released by Microsoft on on-premises servers and VMs, you must enable advanced instances. For more information, see [Turning on the advanced-instances tier](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @public
  */
 export class UnsupportedFeatureRequiredException extends __BaseException {
@@ -2082,8 +2120,8 @@ export class UnsupportedFeatureRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you
- *    provided is supported.</p>
+ * The specified aggregator isn't valid for the group type. Verify that the aggregator you provided is supported.
+ *
  * @public
  */
 export class InvalidAggregatorException extends __BaseException {
@@ -2106,7 +2144,8 @@ export class InvalidAggregatorException extends __BaseException {
 }
 
 /**
- * <p>The specified inventory group isn't valid.</p>
+ * The specified inventory group isn't valid.
+ *
  * @public
  */
 export class InvalidInventoryGroupException extends __BaseException {
@@ -2129,7 +2168,8 @@ export class InvalidInventoryGroupException extends __BaseException {
 }
 
 /**
- * <p>The specified inventory item result attribute isn't valid.</p>
+ * The specified inventory item result attribute isn't valid.
+ *
  * @public
  */
 export class InvalidResultAttributeException extends __BaseException {
@@ -2152,7 +2192,8 @@ export class InvalidResultAttributeException extends __BaseException {
 }
 
 /**
- * <p>The query key ID isn't valid.</p>
+ * The query key ID isn't valid.
+ *
  * @public
  */
 export class InvalidKeyId extends __BaseException {
@@ -2173,8 +2214,8 @@ export class InvalidKeyId extends __BaseException {
 }
 
 /**
- * <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
- *    again.</p>
+ * The specified parameter version wasn't found. Verify the parameter name and version, and try again.
+ *
  * @public
  */
 export class ParameterVersionNotFound extends __BaseException {
@@ -2195,8 +2236,8 @@ export class ParameterVersionNotFound extends __BaseException {
 }
 
 /**
- * <p>The specified service setting wasn't found. Either the service name or the setting hasn't
- *    been provisioned by the Amazon Web Services service team.</p>
+ * The specified service setting wasn't found. Either the service name or the setting hasn't been provisioned by the Amazon Web Services service team.
+ *
  * @public
  */
 export class ServiceSettingNotFound extends __BaseException {
@@ -2219,7 +2260,8 @@ export class ServiceSettingNotFound extends __BaseException {
 }
 
 /**
- * <p>A parameter version can have a maximum of ten labels.</p>
+ * A parameter version can have a maximum of ten labels.
+ *
  * @public
  */
 export class ParameterVersionLabelLimitExceeded extends __BaseException {
@@ -2240,7 +2282,8 @@ export class ParameterVersionLabelLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.</p>
+ * This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -2263,12 +2306,12 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20
- *    accounts per API operation to share a private document.</p>
- *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
- *    share up to five documents.</p>
- *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
- *    Amazon Web Services Support.</p>
+ * The document can't be shared with more Amazon Web Services accounts. You can specify a maximum of 20 accounts per API operation to share a private document.
+ *
+ * By default, you can share a private document with a maximum of 1,000 accounts and publicly share up to five documents.
+ *
+ * If you need to increase the quota for privately or publicly shared Systems Manager documents, contact Amazon Web Services Support.
+ *
  * @public
  */
 export class DocumentPermissionLimit extends __BaseException {
@@ -2291,8 +2334,8 @@ export class DocumentPermissionLimit extends __BaseException {
 }
 
 /**
- * <p>You specified too many custom compliance types. You can specify a maximum of 10 different
- *    types. </p>
+ * You specified too many custom compliance types. You can specify a maximum of 10 different types.
+ *
  * @public
  */
 export class ComplianceTypeCountLimitExceededException extends __BaseException {
@@ -2315,7 +2358,8 @@ export class ComplianceTypeCountLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>One or more content items isn't valid.</p>
+ * One or more content items isn't valid.
+ *
  * @public
  */
 export class InvalidItemContentException extends __BaseException {
@@ -2340,7 +2384,8 @@ export class InvalidItemContentException extends __BaseException {
 }
 
 /**
- * <p>The inventory item size has exceeded the size limit.</p>
+ * The inventory item size has exceeded the size limit.
+ *
  * @public
  */
 export class ItemSizeLimitExceededException extends __BaseException {
@@ -2365,7 +2410,8 @@ export class ItemSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+ * The size of inventory data has exceeded the total size limit for the resource.
+ *
  * @public
  */
 export class TotalSizeLimitExceededException extends __BaseException {
@@ -2388,8 +2434,8 @@ export class TotalSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try
- *    again.</p>
+ * You have exceeded the limit for custom schemas. Delete one or more custom schemas and try again.
+ *
  * @public
  */
 export class CustomSchemaCountLimitExceededException extends __BaseException {
@@ -2412,8 +2458,8 @@ export class CustomSchemaCountLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You specified invalid keys or values in the <code>Context</code> attribute for
- *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
+ * You specified invalid keys or values in the `Context` attribute for `InventoryItem`. Verify the keys and values, and try again.
+ *
  * @public
  */
 export class InvalidInventoryItemContextException extends __BaseException {
@@ -2436,7 +2482,8 @@ export class InvalidInventoryItemContextException extends __BaseException {
 }
 
 /**
- * <p>The inventory item has invalid content. </p>
+ * The inventory item has invalid content.
+ *
  * @public
  */
 export class ItemContentMismatchException extends __BaseException {
@@ -2461,7 +2508,8 @@ export class ItemContentMismatchException extends __BaseException {
 }
 
 /**
- * <p>The sub-type count exceeded the limit for the inventory type.</p>
+ * The sub-type count exceeded the limit for the inventory type.
+ *
  * @public
  */
 export class SubTypeCountLimitExceededException extends __BaseException {
@@ -2484,9 +2532,8 @@ export class SubTypeCountLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The <code>Context</code> attribute that you specified for the <code>InventoryItem</code>
- *    isn't allowed for this inventory type. You can only use the <code>Context</code> attribute with
- *    inventory types like <code>AWS:ComplianceItem</code>.</p>
+ * The `Context` attribute that you specified for the `InventoryItem` isn't allowed for this inventory type. You can only use the `Context` attribute with inventory types like `AWS:ComplianceItem`.
+ *
  * @public
  */
 export class UnsupportedInventoryItemContextException extends __BaseException {
@@ -2511,8 +2558,8 @@ export class UnsupportedInventoryItemContextException extends __BaseException {
 }
 
 /**
- * <p>Inventory item type schema version has to match supported versions in the service. Check
- *    output of GetInventorySchema to see the available schema version for each type.</p>
+ * Inventory item type schema version has to match supported versions in the service. Check output of GetInventorySchema to see the available schema version for each type.
+ *
  * @public
  */
 export class UnsupportedInventorySchemaVersionException extends __BaseException {
@@ -2535,8 +2582,8 @@ export class UnsupportedInventorySchemaVersionException extends __BaseException 
 }
 
 /**
- * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
- *     constraints for parameter names</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ * A hierarchy can have a maximum of 15 levels. For more information, see [Requirements and constraints for parameter names](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @public
  */
 export class HierarchyLevelLimitExceededException extends __BaseException {
@@ -2557,9 +2604,8 @@ export class HierarchyLevelLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Parameter Store doesn't support changing a parameter type in a hierarchy. For example, you
- *    can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You
- *    must create a new, unique parameter.</p>
+ * Parameter Store doesn't support changing a parameter type in a hierarchy. For example, you can't change a parameter from a `String` type to a `SecureString` type. You must create a new, unique parameter.
+ *
  * @public
  */
 export class HierarchyTypeMismatchException extends __BaseException {
@@ -2580,8 +2626,8 @@ export class HierarchyTypeMismatchException extends __BaseException {
 }
 
 /**
- * <p>There is a conflict in the policies specified for this parameter. You can't, for example,
- *    specify two Expiration policies for a parameter. Review your policies, and try again.</p>
+ * There is a conflict in the policies specified for this parameter. You can't, for example, specify two Expiration policies for a parameter. Review your policies, and try again.
+ *
  * @public
  */
 export class IncompatiblePolicyException extends __BaseException {
@@ -2602,7 +2648,8 @@ export class IncompatiblePolicyException extends __BaseException {
 }
 
 /**
- * <p>The request doesn't meet the regular expression requirement.</p>
+ * The request doesn't meet the regular expression requirement.
+ *
  * @public
  */
 export class InvalidAllowedPatternException extends __BaseException {
@@ -2623,7 +2670,8 @@ export class InvalidAllowedPatternException extends __BaseException {
 }
 
 /**
- * <p>A policy attribute or its value is invalid. </p>
+ * A policy attribute or its value is invalid.
+ *
  * @public
  */
 export class InvalidPolicyAttributeException extends __BaseException {
@@ -2644,8 +2692,8 @@ export class InvalidPolicyAttributeException extends __BaseException {
 }
 
 /**
- * <p>The policy type isn't supported. Parameter Store supports the following policy types:
- *    Expiration, ExpirationNotification, and NoChangeNotification.</p>
+ * The policy type isn't supported. Parameter Store supports the following policy types: Expiration, ExpirationNotification, and NoChangeNotification.
+ *
  * @public
  */
 export class InvalidPolicyTypeException extends __BaseException {
@@ -2666,7 +2714,8 @@ export class InvalidPolicyTypeException extends __BaseException {
 }
 
 /**
- * <p>The parameter already exists. You can't create duplicate parameters.</p>
+ * The parameter already exists. You can't create duplicate parameters.
+ *
  * @public
  */
 export class ParameterAlreadyExists extends __BaseException {
@@ -2687,8 +2736,8 @@ export class ParameterAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the number of parameters for this Amazon Web Services account. Delete one or more
- *    parameters and try again.</p>
+ * You have exceeded the number of parameters for this Amazon Web Services account. Delete one or more parameters and try again.
+ *
  * @public
  */
 export class ParameterLimitExceeded extends __BaseException {
@@ -2709,22 +2758,12 @@ export class ParameterLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Parameter Store retains the 100 most recently created versions of a parameter. After this
- *    number of versions has been created, Parameter Store deletes the oldest version when a new one is
- *    created. However, if the oldest version has a <i>label</i> attached to it,
- *    Parameter Store won't delete the version and instead presents this error message:</p>
- *          <p>
- *             <code>An error occurred (ParameterMaxVersionLimitExceeded) when calling the PutParameter
- *     operation: You attempted to create a new version of <i>parameter-name</i> by
- *     calling the PutParameter API with the overwrite flag. Version
- *      <i>version-number</i>, the oldest version, can't be deleted because it has a
- *     label associated with it. Move the label to another version of the parameter, and try
- *     again.</code>
- *          </p>
- *          <p>This safeguard is to prevent parameter versions with mission critical labels assigned to
- *    them from being deleted. To continue creating new parameters, first move the label from the
- *    oldest version of the parameter to a newer one for use in your operations. For information about
- *    moving parameter labels, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move a parameter label (console)</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move a parameter label (CLI)</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ * Parameter Store retains the 100 most recently created versions of a parameter. After this number of versions has been created, Parameter Store deletes the oldest version when a new one is created. However, if the oldest version has a *label* attached to it, Parameter Store won't delete the version and instead presents this error message:
+ *
+ * `An error occurred (ParameterMaxVersionLimitExceeded) when calling the PutParameter operation: You attempted to create a new version of parameter-name by calling the PutParameter API with the overwrite flag. Version version-number, the oldest version, can't be deleted because it has a label associated with it. Move the label to another version of the parameter, and try again.`
+ *
+ * This safeguard is to prevent parameter versions with mission critical labels assigned to them from being deleted. To continue creating new parameters, first move the label from the oldest version of the parameter to a newer one for use in your operations. For information about moving parameter labels, see [Move a parameter label (console)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move) or [Move a parameter label (CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @public
  */
 export class ParameterMaxVersionLimitExceeded extends __BaseException {
@@ -2745,7 +2784,8 @@ export class ParameterMaxVersionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The parameter name isn't valid.</p>
+ * The parameter name isn't valid.
+ *
  * @public
  */
 export class ParameterPatternMismatchException extends __BaseException {
@@ -2766,8 +2806,8 @@ export class ParameterPatternMismatchException extends __BaseException {
 }
 
 /**
- * <p>You specified more than the maximum number of allowed policies for the parameter. The
- *    maximum is 10.</p>
+ * You specified more than the maximum number of allowed policies for the parameter. The maximum is 10.
+ *
  * @public
  */
 export class PoliciesLimitExceededException extends __BaseException {
@@ -2788,7 +2828,8 @@ export class PoliciesLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The parameter type isn't supported.</p>
+ * The parameter type isn't supported.
+ *
  * @public
  */
 export class UnsupportedParameterType extends __BaseException {
@@ -2809,9 +2850,8 @@ export class UnsupportedParameterType extends __BaseException {
 }
 
 /**
- * <p>The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be
- *    greater than 1024 bytes in size. And only one policy can be attached to
- *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
+ * The PutResourcePolicy API action enforces two limits. A policy can't be greater than 1024 bytes in size. And only one policy can be attached to `OpsItemGroup`. Verify these limits and try again.
+ *
  * @public
  */
 export class ResourcePolicyLimitExceededException extends __BaseException {
@@ -2838,8 +2878,8 @@ export class ResourcePolicyLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You attempted to register a <code>LAMBDA</code> or <code>STEP_FUNCTIONS</code> task in a
- *    region where the corresponding service isn't available. </p>
+ * You attempted to register a `LAMBDA` or `STEP_FUNCTIONS` task in a region where the corresponding service isn't available.
+ *
  * @public
  */
 export class FeatureNotAvailableException extends __BaseException {
@@ -2862,8 +2902,8 @@ export class FeatureNotAvailableException extends __BaseException {
 }
 
 /**
- * <p>The specified step name and execution ID don't exist. Verify the information and try
- *    again.</p>
+ * The specified step name and execution ID don't exist. Verify the information and try again.
+ *
  * @public
  */
 export class AutomationStepNotFoundException extends __BaseException {
@@ -2886,7 +2926,8 @@ export class AutomationStepNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The signal isn't valid for the current Automation execution.</p>
+ * The signal isn't valid for the current Automation execution.
+ *
  * @public
  */
 export class InvalidAutomationSignalException extends __BaseException {
@@ -2909,8 +2950,8 @@ export class InvalidAutomationSignalException extends __BaseException {
 }
 
 /**
- * <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN)
- *    was provided for an Amazon Simple Notification Service topic.</p>
+ * One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon Simple Notification Service topic.
+ *
  * @public
  */
 export class InvalidNotificationConfig extends __BaseException {
@@ -2933,7 +2974,8 @@ export class InvalidNotificationConfig extends __BaseException {
 }
 
 /**
- * <p>The S3 bucket doesn't exist.</p>
+ * The S3 bucket doesn't exist.
+ *
  * @public
  */
 export class InvalidOutputFolder extends __BaseException {
@@ -2954,9 +2996,8 @@ export class InvalidOutputFolder extends __BaseException {
 }
 
 /**
- * <p>The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about
- *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in
- *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ * The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @public
  */
 export class InvalidRole extends __BaseException {
@@ -2979,7 +3020,8 @@ export class InvalidRole extends __BaseException {
 }
 
 /**
- * <p>The association isn't valid or doesn't exist. </p>
+ * The association isn't valid or doesn't exist.
+ *
  * @public
  */
 export class InvalidAssociation extends __BaseException {
@@ -3002,7 +3044,8 @@ export class InvalidAssociation extends __BaseException {
 }
 
 /**
- * <p>An Automation runbook with the specified name couldn't be found.</p>
+ * An Automation runbook with the specified name couldn't be found.
+ *
  * @public
  */
 export class AutomationDefinitionNotFoundException extends __BaseException {
@@ -3025,7 +3068,8 @@ export class AutomationDefinitionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An Automation runbook with the specified name and version couldn't be found.</p>
+ * An Automation runbook with the specified name and version couldn't be found.
+ *
  * @public
  */
 export class AutomationDefinitionVersionNotFoundException extends __BaseException {
@@ -3048,8 +3092,8 @@ export class AutomationDefinitionVersionNotFoundException extends __BaseExceptio
 }
 
 /**
- * <p>The number of simultaneously running Automation executions exceeded the allowable
- *    limit.</p>
+ * The number of simultaneously running Automation executions exceeded the allowable limit.
+ *
  * @public
  */
 export class AutomationExecutionLimitExceededException extends __BaseException {
@@ -3072,9 +3116,8 @@ export class AutomationExecutionLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
- *    example, they may not match the set of parameters permitted for the specified Automation
- *    document.</p>
+ * The supplied parameters for invoking the specified Automation runbook are incorrect. For example, they may not match the set of parameters permitted for the specified Automation document.
+ *
  * @public
  */
 export class InvalidAutomationExecutionParametersException extends __BaseException {
@@ -3097,8 +3140,8 @@ export class InvalidAutomationExecutionParametersException extends __BaseExcepti
 }
 
 /**
- * <p>Indicates that the Change Manager change template used in the change request was rejected or is
- *    still in a pending state.</p>
+ * Indicates that the Change Manager change template used in the change request was rejected or is still in a pending state.
+ *
  * @public
  */
 export class AutomationDefinitionNotApprovedException extends __BaseException {
@@ -3121,11 +3164,8 @@ export class AutomationDefinitionNotApprovedException extends __BaseException {
 }
 
 /**
- * <p>The specified target managed node for the session isn't fully configured for use with Session Manager.
- *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Setting up
- *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
- *    attempt to start a session on a managed node that is located in a different account or
- *    Region</p>
+ * The specified target managed node for the session isn't fully configured for use with Session Manager. For more information, see [Setting up Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html) in the *Amazon Web Services Systems Manager User Guide*. This error is also returned if you attempt to start a session on a managed node that is located in a different account or Region
+ *
  * @public
  */
 export class TargetNotConnected extends __BaseException {
@@ -3148,7 +3188,8 @@ export class TargetNotConnected extends __BaseException {
 }
 
 /**
- * <p>The specified update status operation isn't valid.</p>
+ * The specified update status operation isn't valid.
+ *
  * @public
  */
 export class InvalidAutomationStatusUpdateException extends __BaseException {
@@ -3171,8 +3212,8 @@ export class InvalidAutomationStatusUpdateException extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number versions allowed for an association. Each association
- *    has a limit of 1,000 versions. </p>
+ * You have reached the maximum number versions allowed for an association. Each association has a limit of 1,000 versions.
+ *
  * @public
  */
 export class AssociationVersionLimitExceeded extends __BaseException {
@@ -3195,7 +3236,8 @@ export class AssociationVersionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The update isn't valid.</p>
+ * The update isn't valid.
+ *
  * @public
  */
 export class InvalidUpdate extends __BaseException {
@@ -3218,7 +3260,8 @@ export class InvalidUpdate extends __BaseException {
 }
 
 /**
- * <p>The updated status is the same as the current status.</p>
+ * The updated status is the same as the current status.
+ *
  * @public
  */
 export class StatusUnchanged extends __BaseException {
@@ -3239,8 +3282,8 @@ export class StatusUnchanged extends __BaseException {
 }
 
 /**
- * <p>The document has too many versions. Delete one or more document versions and try
- *    again.</p>
+ * The document has too many versions. Delete one or more document versions and try again.
+ *
  * @public
  */
 export class DocumentVersionLimitExceeded extends __BaseException {
@@ -3263,8 +3306,8 @@ export class DocumentVersionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The content of the association document matches another document. Change the content of the
- *    document and try again.</p>
+ * The content of the association document matches another document. Change the content of the document and try again.
+ *
  * @public
  */
 export class DuplicateDocumentContent extends __BaseException {
@@ -3287,8 +3330,8 @@ export class DuplicateDocumentContent extends __BaseException {
 }
 
 /**
- * <p>The version name has already been used in this document. Specify a different version name,
- *    and then try again.</p>
+ * The version name has already been used in this document. Specify a different version name, and then try again.
+ *
  * @public
  */
 export class DuplicateDocumentVersionName extends __BaseException {
@@ -3311,8 +3354,8 @@ export class DuplicateDocumentVersionName extends __BaseException {
 }
 
 /**
- * <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
- *    an application in Application Manager.</p>
+ * The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to an application in Application Manager.
+ *
  * @public
  */
 export class OpsMetadataKeyLimitExceededException extends __BaseException {
@@ -3333,8 +3376,8 @@ export class OpsMetadataKeyLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes
- *    and try again.</p>
+ * Another `UpdateResourceDataSync` request is being processed. Wait a few minutes and try again.
+ *
  * @public
  */
 export class ResourceDataSyncConflictException extends __BaseException {

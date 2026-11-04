@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./ElasticLoadBalancingV2ServiceException";
 
 /**
- * <p>The specified certificate does not exist.</p>
+ * The specified certificate does not exist.
+ *
  * @public
  */
 export class CertificateNotFoundException extends __BaseException {
@@ -27,7 +28,8 @@ export class CertificateNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified listener does not exist.</p>
+ * The specified listener does not exist.
+ *
  * @public
  */
 export class ListenerNotFoundException extends __BaseException {
@@ -50,7 +52,8 @@ export class ListenerNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of certificates per load balancer.</p>
+ * You've reached the limit on the number of certificates per load balancer.
+ *
  * @public
  */
 export class TooManyCertificatesException extends __BaseException {
@@ -73,7 +76,8 @@ export class TooManyCertificatesException extends __BaseException {
 }
 
 /**
- * <p>A tag key was specified more than once.</p>
+ * A tag key was specified more than once.
+ *
  * @public
  */
 export class DuplicateTagKeysException extends __BaseException {
@@ -96,7 +100,8 @@ export class DuplicateTagKeysException extends __BaseException {
 }
 
 /**
- * <p>The specified load balancer does not exist.</p>
+ * The specified load balancer does not exist.
+ *
  * @public
  */
 export class LoadBalancerNotFoundException extends __BaseException {
@@ -119,7 +124,8 @@ export class LoadBalancerNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified rule does not exist.</p>
+ * The specified rule does not exist.
+ *
  * @public
  */
 export class RuleNotFoundException extends __BaseException {
@@ -142,7 +148,8 @@ export class RuleNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified target group does not exist.</p>
+ * The specified target group does not exist.
+ *
  * @public
  */
 export class TargetGroupNotFoundException extends __BaseException {
@@ -165,7 +172,8 @@ export class TargetGroupNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of tags for this resource.</p>
+ * You've reached the limit on the number of tags for this resource.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -188,7 +196,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The specified trust store does not exist.</p>
+ * The specified trust store does not exist.
+ *
  * @public
  */
 export class TrustStoreNotFoundException extends __BaseException {
@@ -211,7 +220,8 @@ export class TrustStoreNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The provided revocation file is an invalid format, or uses an incorrect algorithm.</p>
+ * The provided revocation file is an invalid format, or uses an incorrect algorithm.
+ *
  * @public
  */
 export class InvalidRevocationContentException extends __BaseException {
@@ -234,7 +244,8 @@ export class InvalidRevocationContentException extends __BaseException {
 }
 
 /**
- * <p>The specified revocation file does not exist.</p>
+ * The specified revocation file does not exist.
+ *
  * @public
  */
 export class RevocationContentNotFoundException extends __BaseException {
@@ -257,7 +268,8 @@ export class RevocationContentNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified trust store has too many revocation entries.</p>
+ * The specified trust store has too many revocation entries.
+ *
  * @public
  */
 export class TooManyTrustStoreRevocationEntriesException extends __BaseException {
@@ -280,7 +292,8 @@ export class TooManyTrustStoreRevocationEntriesException extends __BaseException
 }
 
 /**
- * <p>The specified allocation ID does not exist.</p>
+ * The specified allocation ID does not exist.
+ *
  * @public
  */
 export class AllocationIdNotFoundException extends __BaseException {
@@ -303,7 +316,8 @@ export class AllocationIdNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified ALPN policy is not supported.</p>
+ * The specified ALPN policy is not supported.
+ *
  * @public
  */
 export class ALPNPolicyNotSupportedException extends __BaseException {
@@ -326,7 +340,8 @@ export class ALPNPolicyNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The specified Availability Zone is not supported.</p>
+ * The specified Availability Zone is not supported.
+ *
  * @public
  */
 export class AvailabilityZoneNotSupportedException extends __BaseException {
@@ -349,7 +364,8 @@ export class AvailabilityZoneNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The specified ca certificate bundle does not exist.</p>
+ * The specified ca certificate bundle does not exist.
+ *
  * @public
  */
 export class CaCertificatesBundleNotFoundException extends __BaseException {
@@ -372,7 +388,8 @@ export class CaCertificatesBundleNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the daily capacity decrease limit for this reservation.</p>
+ * You've exceeded the daily capacity decrease limit for this reservation.
+ *
  * @public
  */
 export class CapacityDecreaseRequestsLimitExceededException extends __BaseException {
@@ -395,7 +412,8 @@ export class CapacityDecreaseRequestsLimitExceededException extends __BaseExcept
 }
 
 /**
- * <p>There is a pending capacity reservation.</p>
+ * There is a pending capacity reservation.
+ *
  * @public
  */
 export class CapacityReservationPendingException extends __BaseException {
@@ -418,7 +436,8 @@ export class CapacityReservationPendingException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the capacity units limit.</p>
+ * You've exceeded the capacity units limit.
+ *
  * @public
  */
 export class CapacityUnitsLimitExceededException extends __BaseException {
@@ -441,7 +460,8 @@ export class CapacityUnitsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A listener with the specified port already exists.</p>
+ * A listener with the specified port already exists.
+ *
  * @public
  */
 export class DuplicateListenerException extends __BaseException {
@@ -464,7 +484,8 @@ export class DuplicateListenerException extends __BaseException {
 }
 
 /**
- * <p>The specified configuration is not valid with this protocol.</p>
+ * The specified configuration is not valid with this protocol.
+ *
  * @public
  */
 export class IncompatibleProtocolsException extends __BaseException {
@@ -487,7 +508,8 @@ export class IncompatibleProtocolsException extends __BaseException {
 }
 
 /**
- * <p>The requested configuration is not valid.</p>
+ * The requested configuration is not valid.
+ *
  * @public
  */
 export class InvalidConfigurationRequestException extends __BaseException {
@@ -510,7 +532,8 @@ export class InvalidConfigurationRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested action is not valid.</p>
+ * The requested action is not valid.
+ *
  * @public
  */
 export class InvalidLoadBalancerActionException extends __BaseException {
@@ -533,7 +556,8 @@ export class InvalidLoadBalancerActionException extends __BaseException {
 }
 
 /**
- * <p>The specified SSL policy does not exist.</p>
+ * The specified SSL policy does not exist.
+ *
  * @public
  */
 export class SSLPolicyNotFoundException extends __BaseException {
@@ -556,7 +580,8 @@ export class SSLPolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of load balancers per target group.</p>
+ * You've reached the limit on the number of load balancers per target group.
+ *
  * @public
  */
 export class TargetGroupAssociationLimitException extends __BaseException {
@@ -579,7 +604,8 @@ export class TargetGroupAssociationLimitException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of actions per rule.</p>
+ * You've reached the limit on the number of actions per rule.
+ *
  * @public
  */
 export class TooManyActionsException extends __BaseException {
@@ -602,7 +628,8 @@ export class TooManyActionsException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of listeners per load balancer.</p>
+ * You've reached the limit on the number of listeners per load balancer.
+ *
  * @public
  */
 export class TooManyListenersException extends __BaseException {
@@ -625,8 +652,8 @@ export class TooManyListenersException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of times a target can be registered with a load
- *       balancer.</p>
+ * You've reached the limit on the number of times a target can be registered with a load balancer.
+ *
  * @public
  */
 export class TooManyRegistrationsForTargetIdException extends __BaseException {
@@ -649,7 +676,8 @@ export class TooManyRegistrationsForTargetIdException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of targets.</p>
+ * You've reached the limit on the number of targets.
+ *
  * @public
  */
 export class TooManyTargetsException extends __BaseException {
@@ -672,9 +700,8 @@ export class TooManyTargetsException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of unique target groups per load balancer across
- *       all listeners. If a target group is used by multiple actions for a load balancer, it is
- *       counted as only one use.</p>
+ * You've reached the limit on the number of unique target groups per load balancer across all listeners. If a target group is used by multiple actions for a load balancer, it is counted as only one use.
+ *
  * @public
  */
 export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseException {
@@ -697,7 +724,8 @@ export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseExc
 }
 
 /**
- * <p>The specified trust store is not active.</p>
+ * The specified trust store is not active.
+ *
  * @public
  */
 export class TrustStoreNotReadyException extends __BaseException {
@@ -720,7 +748,8 @@ export class TrustStoreNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The specified protocol is not supported.</p>
+ * The specified protocol is not supported.
+ *
  * @public
  */
 export class UnsupportedProtocolException extends __BaseException {
@@ -743,7 +772,8 @@ export class UnsupportedProtocolException extends __BaseException {
 }
 
 /**
- * <p>A load balancer with the specified name already exists.</p>
+ * A load balancer with the specified name already exists.
+ *
  * @public
  */
 export class DuplicateLoadBalancerNameException extends __BaseException {
@@ -766,7 +796,8 @@ export class DuplicateLoadBalancerNameException extends __BaseException {
 }
 
 /**
- * <p>The requested scheme is not valid.</p>
+ * The requested scheme is not valid.
+ *
  * @public
  */
 export class InvalidSchemeException extends __BaseException {
@@ -789,7 +820,8 @@ export class InvalidSchemeException extends __BaseException {
 }
 
 /**
- * <p>The specified security group does not exist.</p>
+ * The specified security group does not exist.
+ *
  * @public
  */
 export class InvalidSecurityGroupException extends __BaseException {
@@ -812,7 +844,8 @@ export class InvalidSecurityGroupException extends __BaseException {
 }
 
 /**
- * <p>The specified subnet is out of available addresses.</p>
+ * The specified subnet is out of available addresses.
+ *
  * @public
  */
 export class InvalidSubnetException extends __BaseException {
@@ -835,7 +868,8 @@ export class InvalidSubnetException extends __BaseException {
 }
 
 /**
- * <p>This operation is not allowed.</p>
+ * This operation is not allowed.
+ *
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -858,7 +892,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>A specified resource is in use.</p>
+ * A specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -881,7 +916,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified subnet does not exist.</p>
+ * The specified subnet does not exist.
+ *
  * @public
  */
 export class SubnetNotFoundException extends __BaseException {
@@ -904,8 +940,8 @@ export class SubnetNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
- *       account.</p>
+ * You've reached the limit on the number of load balancers for your Amazon Web Services account.
+ *
  * @public
  */
 export class TooManyLoadBalancersException extends __BaseException {
@@ -928,7 +964,8 @@ export class TooManyLoadBalancersException extends __BaseException {
 }
 
 /**
- * <p>The specified priority is in use.</p>
+ * The specified priority is in use.
+ *
  * @public
  */
 export class PriorityInUseException extends __BaseException {
@@ -951,7 +988,8 @@ export class PriorityInUseException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of rules per load balancer.</p>
+ * You've reached the limit on the number of rules per load balancer.
+ *
  * @public
  */
 export class TooManyRulesException extends __BaseException {
@@ -974,8 +1012,8 @@ export class TooManyRulesException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of target groups for your Amazon Web Services
- *       account.</p>
+ * You've reached the limit on the number of target groups for your Amazon Web Services account.
+ *
  * @public
  */
 export class TooManyTargetGroupsException extends __BaseException {
@@ -998,7 +1036,8 @@ export class TooManyTargetGroupsException extends __BaseException {
 }
 
 /**
- * <p>A target group with the specified name already exists.</p>
+ * A target group with the specified name already exists.
+ *
  * @public
  */
 export class DuplicateTargetGroupNameException extends __BaseException {
@@ -1021,7 +1060,8 @@ export class DuplicateTargetGroupNameException extends __BaseException {
 }
 
 /**
- * <p>A trust store with the specified name already exists.</p>
+ * A trust store with the specified name already exists.
+ *
  * @public
  */
 export class DuplicateTrustStoreNameException extends __BaseException {
@@ -1044,7 +1084,8 @@ export class DuplicateTrustStoreNameException extends __BaseException {
 }
 
 /**
- * <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
+ * The specified ca certificate bundle is in an invalid format, or corrupt.
+ *
  * @public
  */
 export class InvalidCaCertificatesBundleException extends __BaseException {
@@ -1067,7 +1108,8 @@ export class InvalidCaCertificatesBundleException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of trust stores for your Amazon Web Services account.</p>
+ * You've reached the limit on the number of trust stores for your Amazon Web Services account.
+ *
  * @public
  */
 export class TooManyTrustStoresException extends __BaseException {
@@ -1090,7 +1132,8 @@ export class TooManyTrustStoresException extends __BaseException {
 }
 
 /**
- * <p>The specified association can't be within the same account.</p>
+ * The specified association can't be within the same account.
+ *
  * @public
  */
 export class DeleteAssociationSameAccountException extends __BaseException {
@@ -1113,7 +1156,8 @@ export class DeleteAssociationSameAccountException extends __BaseException {
 }
 
 /**
- * <p>The specified association does not exist.</p>
+ * The specified association does not exist.
+ *
  * @public
  */
 export class TrustStoreAssociationNotFoundException extends __BaseException {
@@ -1136,7 +1180,8 @@ export class TrustStoreAssociationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified trust store is currently in use.</p>
+ * The specified trust store is currently in use.
+ *
  * @public
  */
 export class TrustStoreInUseException extends __BaseException {
@@ -1159,8 +1204,8 @@ export class TrustStoreInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified target does not exist, is not in the same VPC as the target group, or has an
- *       unsupported instance type.</p>
+ * The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
+ *
  * @public
  */
 export class InvalidTargetException extends __BaseException {
@@ -1183,8 +1228,8 @@ export class InvalidTargetException extends __BaseException {
 }
 
 /**
- * <p>The health of the specified targets could not be retrieved due to an internal
- *       error.</p>
+ * The health of the specified targets could not be retrieved due to an internal error.
+ *
  * @public
  */
 export class HealthUnavailableException extends __BaseException {
@@ -1207,7 +1252,8 @@ export class HealthUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The specified revocation ID does not exist.</p>
+ * The specified revocation ID does not exist.
+ *
  * @public
  */
 export class RevocationIdNotFoundException extends __BaseException {
@@ -1230,7 +1276,8 @@ export class RevocationIdNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1253,7 +1300,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There is insufficient capacity to reserve.</p>
+ * There is insufficient capacity to reserve.
+ *
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -1276,7 +1324,8 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
- * <p>This operation is not allowed while a prior request has not been completed.</p>
+ * This operation is not allowed while a prior request has not been completed.
+ *
  * @public
  */
 export class PriorRequestNotCompleteException extends __BaseException {

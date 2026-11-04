@@ -23,7 +23,8 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an event notification subscription.</p>
+ * Deletes an event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link InvalidEventSubscriptionStateFault} (client fault)
- *  <p>The event subscription is in an invalid state.</p>
+ *
+ * The event subscription is in an invalid state.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The designated subscription could not be found.</p>
+ *
+ * The designated subscription could not be found.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

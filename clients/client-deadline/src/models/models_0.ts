@@ -82,31 +82,79 @@ export interface AcceleratorCountRange {
  */
 export interface AcceleratorSelection {
   /**
-   * <p>The name of the chip used by the GPU accelerator.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU (16 GiB memory)</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU (48 GiB memory)</p> </li> <li> <p> <code>rtx-pro-server-6000</code> - NVIDIA RTX PRO Server 6000 GPU (96 GiB memory)</p> </li> </ul>
+   * The name of the chip used by the GPU accelerator.
+   *
+   * The available GPU accelerators are:
+   *
+   * - `t4` - NVIDIA T4 Tensor Core GPU (16 GiB memory)
+   * - `a10g` - NVIDIA A10G Tensor Core GPU (24 GiB memory)
+   * - `l4` - NVIDIA L4 Tensor Core GPU (24 GiB memory)
+   * - `l40s` - NVIDIA L40S Tensor Core GPU (48 GiB memory)
+   * - `rtx-pro-server-6000` - NVIDIA RTX PRO Server 6000 GPU (96 GiB memory)
+   *
    * @public
    */
   name: AcceleratorName | undefined;
 
   /**
-   * <p>Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet. </p> <p>You can choose from the following runtimes:</p> <ul> <li> <p> <code>latest</code> - Use the latest runtime available for the chip. If you specify <code>latest</code> and a new version of the runtime is released, the new version of the runtime is used.</p> </li> <li> <p> <code>grid:r580</code> - <a href="https://docs.nvidia.com/vgpu/19.0/index.html">NVIDIA vGPU software 19</a> </p> </li> </ul> <p>If you don't specify a runtime, Amazon Web Services Deadline Cloud uses <code>latest</code> as the default. However, if you have multiple accelerators and specify <code>latest</code> for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.</p> <important> <p>All accelerator types support <code>grid:r580</code>.</p> <p>All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.</p> </important> <note> <p>When you specify <code>latest</code>, it resolves to <code>grid:r580</code> for all currently supported accelerators.</p> </note>
+   * Specifies the runtime driver to use for the GPU accelerator. You must use the same runtime for all GPUs in a fleet.
+   *
+   * You can choose from the following runtimes:
+   *
+   * - `latest` - Use the latest runtime available for the chip. If you specify `latest` and a new version of the runtime is released, the new version of the runtime is used.
+   * - `grid:r580` - [NVIDIA vGPU software 19](https://docs.nvidia.com/vgpu/19.0/index.html)
+   *
+   * If you don't specify a runtime, Amazon Web Services Deadline Cloud uses `latest` as the default. However, if you have multiple accelerators and specify `latest` for some and leave others blank, Amazon Web Services Deadline Cloud raises an exception.
+   *
+   * > **Important:**
+   * >
+   * > All accelerator types support `grid:r580`.
+   * >
+   * > All accelerators in a fleet must use the same runtime version. You cannot mix different runtime versions within a single fleet.
+   *
+   * > **Note:** When you specify `latest`, it resolves to `grid:r580` for all currently supported accelerators.
+   *
    * @public
    */
   runtime?: string | undefined;
 }
 
 /**
- * <p>Provides information about the GPU accelerators used for jobs processed by a fleet.</p> <important> <p>Accelerator capabilities cannot be used with wait-and-save fleets. If you specify accelerator capabilities, you must use either spot or on-demand instance market options.</p> </important> <note> <p>Each accelerator type maps to specific EC2 instance families:</p> <ul> <li> <p> <code>t4</code>: Uses G4dn instance family</p> </li> <li> <p> <code>a10g</code>: Uses G5 instance family</p> </li> <li> <p> <code>l4</code>: Uses G6 and Gr6 instance families</p> </li> <li> <p> <code>l40s</code>: Uses G6e instance family</p> </li> <li> <p> <code>rtx-pro-server-6000</code>: Uses G7e instance family</p> </li> </ul> </note>
+ * Provides information about the GPU accelerators used for jobs processed by a fleet.
+ *
+ * > **Important:** Accelerator capabilities cannot be used with wait-and-save fleets. If you specify accelerator capabilities, you must use either spot or on-demand instance market options.
+ *
+ * > **Note:**
+ * >
+ * > Each accelerator type maps to specific EC2 instance families:
+ * >
+ * > - `t4`: Uses G4dn instance family
+ * > - `a10g`: Uses G5 instance family
+ * > - `l4`: Uses G6 and Gr6 instance families
+ * > - `l40s`: Uses G6e instance family
+ * > - `rtx-pro-server-6000`: Uses G7e instance family
+ *
  * @public
  */
 export interface AcceleratorCapabilities {
   /**
-   * <p>A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute Cloud instances that provide these capabilities will be used. For example, if you specify both L4 and T4 chips, Amazon Web Services Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip installed.</p> <important> <ul> <li> <p>You must specify at least one accelerator selection.</p> </li> <li> <p>You cannot specify the same accelerator name multiple times in the selections list.</p> </li> <li> <p>All accelerators in the selections must use the same runtime version.</p> </li> </ul> </important>
+   * A list of accelerator capabilities requested for this fleet. Only Amazon Elastic Compute Cloud instances that provide these capabilities will be used. For example, if you specify both L4 and T4 chips, Amazon Web Services Deadline Cloud will use Amazon EC2 instances that have either the L4 or the T4 chip installed.
+   *
+   * > **Important:**
+   * >
+   * > - You must specify at least one accelerator selection.
+   * > - You cannot specify the same accelerator name multiple times in the selections list.
+   * > - All accelerators in the selections must use the same runtime version.
+   *
    * @public
    */
   selections: AcceleratorSelection[] | undefined;
 
   /**
-   * <p>The number of GPU accelerators specified for worker hosts in this fleet.</p> <important> <p>You must specify either <code>acceleratorCapabilities.count.max</code> or <code>allowedInstanceTypes</code> when using accelerator capabilities. If you don't specify a maximum count, Amazon Web Services Deadline Cloud uses the instance types you specify in <code>allowedInstanceTypes</code> to determine the maximum number of accelerators.</p> </important>
+   * The number of GPU accelerators specified for worker hosts in this fleet.
+   *
+   * > **Important:** You must specify either `acceleratorCapabilities.count.max` or `allowedInstanceTypes` when using accelerator capabilities. If you don't specify a maximum count, Amazon Web Services Deadline Cloud uses the instance types you specify in `allowedInstanceTypes` to determine the maximum number of accelerators.
+   *
    * @public
    */
   count?: AcceleratorCountRange | undefined;
@@ -1135,7 +1183,7 @@ export namespace JobParameter {
   }
 
   /**
-   * A boolean value represented as a string. Accepted values are <code>true</code>, <code>false</code>, <code>yes</code>, <code>no</code>, <code>on</code>, <code>off</code>, <code>1</code>, and <code>0</code>, case-insensitive.
+   * A boolean value represented as a string. Accepted values are `true`, `false`, `yes`, `no`, `on`, `off`, `1`, and `0`, case-insensitive.
    * @public
    */
   export interface BoolMember {
@@ -1155,7 +1203,7 @@ export namespace JobParameter {
   }
 
   /**
-   * An Open Job Description range expression represented as a string, such as <code>1-10:2</code>.
+   * An Open Job Description range expression represented as a string, such as `1-10:2`.
    * @public
    */
   export interface RangeExprMember {
@@ -1448,7 +1496,7 @@ export interface BatchGetJobItem {
   storageProfileId?: string | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -3661,7 +3709,7 @@ export interface BatchUpdateJobItem {
   priority?: number | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -3673,7 +3721,10 @@ export interface BatchUpdateJobItem {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * <p>The status of a job in its lifecycle. When you change the status of the job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>
+   * The status of a job in its lifecycle. When you change the status of the job to `ARCHIVED`, the job can't be scheduled or archived.
+   *
+   * > **Important:** An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.
+   *
    * @public
    */
   lifecycleStatus?: UpdateJobLifecycleStatus | undefined;
@@ -3897,7 +3948,10 @@ export interface BudgetActionToAdd {
   thresholdPercentage: number | undefined;
 
   /**
-   * <p>A description for the budget action to add.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * A description for the budget action to add.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4028,13 +4082,19 @@ export interface CreateBudgetRequest {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the budget.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the budget.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4144,7 +4204,10 @@ export interface ResponseBudgetAction {
   thresholdPercentage: number | undefined;
 
   /**
-   * <p>The budget action description.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The budget action description.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4179,13 +4242,20 @@ export interface GetBudgetResponse {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–Get a budget being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–Get an inactive budget. This can include expired, canceled, or deleted statuses.</p> </li> </ul>
+   * The status of the budget.
+   *
+   * - `ACTIVE`–Get a budget being evaluated.
+   * - `INACTIVE`–Get an inactive budget. This can include expired, canceled, or deleted statuses.
+   *
    * @public
    */
   status: BudgetStatus | undefined;
 
   /**
-   * <p>The display name of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the budget.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -4227,7 +4297,10 @@ export interface GetBudgetResponse {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The description of the budget.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the budget.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4262,13 +4335,13 @@ export interface ListBudgetsRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -4298,13 +4371,20 @@ export interface BudgetSummary {
   usageTrackingResource: UsageTrackingResource | undefined;
 
   /**
-   * <p>The status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
+   * The status of the budget.
+   *
+   * - `ACTIVE`–The budget is being evaluated.
+   * - `INACTIVE`–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.
+   *
    * @public
    */
   status: BudgetStatus | undefined;
 
   /**
-   * <p>The display name of the budget summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the budget summary to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -4346,7 +4426,9 @@ export interface BudgetSummary {
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The description of the budget summary.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the budget summary.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
    *
    * @deprecated ListBudgets no longer supports description. Use GetBudget if description is needed.
    * @public
@@ -4365,7 +4447,7 @@ export interface ListBudgetsResponse {
   budgets: BudgetSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -4394,19 +4476,29 @@ export interface UpdateBudgetRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the budget to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the budget to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the budget to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the budget to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Updates the status of the budget.</p> <ul> <li> <p> <code>ACTIVE</code>–The budget is being evaluated.</p> </li> <li> <p> <code>INACTIVE</code>–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.</p> </li> </ul>
+   * Updates the status of the budget.
+   *
+   * - `ACTIVE`–The budget is being evaluated.
+   * - `INACTIVE`–The budget is inactive. This can include Expired, Canceled, or deleted Deleted statuses.
+   *
    * @public
    */
   status?: BudgetStatus | undefined;
@@ -4493,7 +4585,7 @@ export interface CopyJobTemplateRequest {
  */
 export interface CopyJobTemplateResponse {
   /**
-   * The format of the job template, either <code>JSON</code> or <code>YAML</code>.
+   * The format of the job template, either `JSON` or `YAML`.
    * @public
    */
   templateType: JobTemplateType | undefined;
@@ -4510,13 +4602,19 @@ export interface CreateFarmRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the farm.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the farm.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4803,7 +4901,7 @@ export interface Ec2EbsVolume {
  */
 export interface FleetSoftwareAddOn {
   /**
-   * The name of the software add-on. The supported value is <code>docker</code>.
+   * The name of the software add-on. The supported value is `docker`.
    * @public
    */
   name: FleetSoftwareAddOnName | undefined;
@@ -4851,13 +4949,19 @@ export interface ServiceManagedEc2InstanceCapabilities {
   acceleratorCapabilities?: AcceleratorCapabilities | undefined;
 
   /**
-   * <p>The allowable Amazon EC2 instance types.</p> <note> <p>If you specify <code>allowedInstanceTypes</code>, you can't specify <code>excludedInstanceTypes</code>.</p> </note>
+   * The allowable Amazon EC2 instance types.
+   *
+   * > **Note:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
+   *
    * @public
    */
   allowedInstanceTypes?: string[] | undefined;
 
   /**
-   * <p>The instance types to exclude from the fleet.</p> <note> <p>If you specify <code>excludedInstanceTypes</code>, you can't specify <code>allowedInstanceTypes</code>.</p> </note>
+   * The instance types to exclude from the fleet.
+   *
+   * > **Note:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
+   *
    * @public
    */
   excludedInstanceTypes?: string[] | undefined;
@@ -5037,18 +5141,31 @@ export namespace FleetConfiguration {
 }
 
 /**
- * <p>Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. </p> <p>To remove a script from a fleet, use the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html">UpdateFleet</a> operation with the <code>hostConfiguration</code> <code>scriptBody</code> parameter set to an empty string ("").</p>
+ * Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+ *
+ * To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
+ *
  * @public
  */
 export interface HostConfiguration {
   /**
-   * <p>The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the <code>STARTING</code> state and before the worker processes tasks.</p> <p>For more information about using the script, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html">Run scripts as an administrator to configure workers</a> in the <i>Deadline Cloud Developer Guide</i>. </p> <important> <p>The script runs as an administrative user (<code>sudo root</code> on Linux, as an Administrator on Windows). </p> </important>
+   * The text of the script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet. The script runs after a worker enters the `STARTING` state and before the worker processes tasks.
+   *
+   * For more information about using the script, see [Run scripts as an administrator to configure workers](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/smf-admin.html) in the *Deadline Cloud Developer Guide*.
+   *
+   * > **Important:** The script runs as an administrative user (`sudo root` on Linux, as an Administrator on Windows).
+   *
    * @public
    */
   scriptBody: string | undefined;
 
   /**
-   * <p>The maximum time that the host configuration can run. If the timeout expires, the worker enters the <code>NOT RESPONDING</code> state and shuts down. You are charged for the time that the worker is running the host configuration script.</p> <note> <p>You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.</p> </note> <p>The default is 300 seconds (5 minutes).</p>
+   * The maximum time that the host configuration can run. If the timeout expires, the worker enters the `NOT RESPONDING` state and shuts down. You are charged for the time that the worker is running the host configuration script.
+   *
+   * > **Note:** You should configure your fleet for a maximum of one worker while testing your host configuration script to avoid starting additional workers.
+   *
+   * The default is 300 seconds (5 minutes).
+   *
    * @public
    */
   scriptTimeoutSeconds?: number | undefined;
@@ -5071,13 +5188,19 @@ export interface CreateFleetRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the fleet.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the fleet.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5097,7 +5220,7 @@ export interface CreateFleetRequest {
   /**
    * The maximum number of workers for the fleet.
    *
-   * Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.
+   * Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to `CreateWorker` before the field updates, you might exceed your fleet's maximum worker count. For example, if your `maxWorkerCount` is 10 and you currently have 9 workers, making two quick `CreateWorker` calls might successfully create 2 workers instead of 1, resulting in 11 total workers.
    *
    * @public
    */
@@ -5192,13 +5315,13 @@ export interface CreateJobRequest {
   storageProfileId?: string | undefined;
 
   /**
-   * The initial job status when it is created. Jobs that are created with a <code>SUSPENDED</code> status will not run until manually requeued.
+   * The initial job status when it is created. Jobs that are created with a `SUSPENDED` status will not run until manually requeued.
    * @public
    */
   targetTaskRunStatus?: CreateJobTargetTaskRunStatus | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -5210,11 +5333,11 @@ export interface CreateJobRequest {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   * The maximum number of worker hosts that can concurrently process a job. When the `maxWorkerCount` is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
    *
-   * You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.
+   * You can't set the `maxWorkerCount` to 0. If you set it to -1, there is no maximum number of workers.
    *
-   * If you don't specify the <code>maxWorkerCount</code>, Deadline Cloud won't throttle the number of workers used to process the job.
+   * If you don't specify the `maxWorkerCount`, Deadline Cloud won't throttle the number of workers used to process the job.
    *
    * @public
    */
@@ -5319,25 +5442,34 @@ export interface CreateLimitRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the limit.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.
+   * The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
    * @public
    */
   amountRequirementName: string | undefined;
 
   /**
-   * <p>The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.</p> <p>The <code>maxCount</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.</p>
+   * The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
+   *
+   * The `maxCount` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+   *
    * @public
    */
   maxCount: number | undefined;
 
   /**
-   * <p>A description of the limit. A description helps you identify the purpose of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * A description of the limit. A description helps you identify the purpose of the limit.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5348,7 +5480,7 @@ export interface CreateLimitRequest {
  */
 export interface CreateLimitResponse {
   /**
-   * A unique identifier for the limit. Use this identifier in other operations, such as <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.
+   * A unique identifier for the limit. Use this identifier in other operations, such as `CreateQueueLimitAssociation` and `DeleteLimit`.
    * @public
    */
   limitId: string | undefined;
@@ -5365,7 +5497,10 @@ export interface CreateMonitorRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The name that you give the monitor that is displayed in the Deadline Cloud console.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The name that you give the monitor that is displayed in the Deadline Cloud console.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -5442,7 +5577,7 @@ export interface JobAttachmentSettings {
  */
 export interface PriorityBalancedSchedulingConfiguration {
   /**
-   * The rendering task buffer controls worker stickiness. A worker only switches from its current job to another job at the same priority if the other job has fewer rendering tasks by more than this buffer value. Higher values make workers stickier to their current jobs. The default value is <code>1</code>.
+   * The rendering task buffer controls worker stickiness. A worker only switches from its current job to another job at the same priority if the other job has fewer rendering tasks by more than this buffer value. Higher values make workers stickier to their current jobs. The default value is `1`.
    * @public
    */
   renderingTaskBuffer?: number | undefined;
@@ -5545,36 +5680,41 @@ export namespace SchedulingMinPriorityOverride {
 }
 
 /**
- * <p>Configuration for weighted balanced scheduling. Workers are assigned to jobs based on a weighted formula:</p> <p> <code>weight = (priority * priorityWeight) + (errors * errorWeight) + ((currentTime - submissionTime) * submissionTimeWeight) + ((renderingTasks - renderingTaskBuffer) * renderingTaskWeight)</code> </p> <p>The job with the highest calculated weight is scheduled first. Workers are distributed evenly amongst jobs with the same weight.</p>
+ * Configuration for weighted balanced scheduling. Workers are assigned to jobs based on a weighted formula:
+ *
+ * `weight = (priority * priorityWeight) + (errors * errorWeight) + ((currentTime - submissionTime) * submissionTimeWeight) + ((renderingTasks - renderingTaskBuffer) * renderingTaskWeight)`
+ *
+ * The job with the highest calculated weight is scheduled first. Workers are distributed evenly amongst jobs with the same weight.
+ *
  * @public
  */
 export interface WeightedBalancedSchedulingConfiguration {
   /**
-   * The weight applied to job priority in the scheduling formula. Higher values give more influence to job priority. A value of <code>0</code> means priority is ignored. The default value is <code>100.0</code>.
+   * The weight applied to job priority in the scheduling formula. Higher values give more influence to job priority. A value of `0` means priority is ignored. The default value is `100.0`.
    * @public
    */
   priorityWeight?: number | undefined;
 
   /**
-   * The weight applied to the number of errors on a job. A negative value means jobs without errors are scheduled first. A value of <code>0</code> means errors are ignored. The default value is <code>-10.0</code>.
+   * The weight applied to the number of errors on a job. A negative value means jobs without errors are scheduled first. A value of `0` means errors are ignored. The default value is `-10.0`.
    * @public
    */
   errorWeight?: number | undefined;
 
   /**
-   * The weight applied to job submission time. A positive value means earlier jobs are scheduled first. A value of <code>0</code> means submission time is ignored. The default value is <code>3.0</code>.
+   * The weight applied to job submission time. A positive value means earlier jobs are scheduled first. A value of `0` means submission time is ignored. The default value is `3.0`.
    * @public
    */
   submissionTimeWeight?: number | undefined;
 
   /**
-   * The weight applied to the number of tasks currently rendering on a job. A negative value means jobs that are not already rendering are scheduled next. A value of <code>0</code> means the rendering state is ignored. The default value is <code>-100.0</code>.
+   * The weight applied to the number of tasks currently rendering on a job. A negative value means jobs that are not already rendering are scheduled next. A value of `0` means the rendering state is ignored. The default value is `-100.0`.
    * @public
    */
   renderingTaskWeight?: number | undefined;
 
   /**
-   * The rendering task buffer is subtracted from the number of rendering tasks before applying the rendering task weight. This creates a stickiness effect where workers prefer to stay with their current job. Higher values make workers stickier. The default value is <code>1</code>. The buffer is only applied in the weight calculation for a job if the worker is currently assigned to that job.
+   * The rendering task buffer is subtracted from the number of rendering tasks before applying the rendering task weight. This creates a stickiness effect where workers prefer to stay with their current job. Higher values make workers stickier. The default value is `1`. The buffer is only applied in the weight calculation for a job if the worker is currently assigned to that job.
    * @public
    */
   renderingTaskBuffer?: number | undefined;
@@ -5678,13 +5818,19 @@ export interface CreateQueueRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the queue.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The description of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the queue.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5734,7 +5880,7 @@ export interface CreateQueueRequest {
   /**
    * The scheduling configuration for the queue. This configuration determines how workers are assigned to jobs in the queue.
    *
-   * If not specified, the queue defaults to the <code>priorityFifo</code> scheduling configuration.
+   * If not specified, the queue defaults to the `priorityFifo` scheduling configuration.
    *
    * @public
    */
@@ -5781,7 +5927,7 @@ export interface CreateQueueEnvironmentRequest {
   priority: number | undefined;
 
   /**
-   * The template's file type, <code>JSON</code> or <code>YAML</code>.
+   * The template's file type, `JSON` or `YAML`.
    * @public
    */
   templateType: EnvironmentTemplateType | undefined;
@@ -5901,7 +6047,10 @@ export interface CreateStorageProfileRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the storage profile.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -6264,7 +6413,10 @@ export interface GetFleetResponse {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the fleet.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -6282,7 +6434,7 @@ export interface GetFleetResponse {
   statusMessage?: string | undefined;
 
   /**
-   * The Auto Scaling status of the fleet. Either <code>GROWING</code>, <code>STEADY</code>, or <code>SHRINKING</code>.
+   * The Auto Scaling status of the fleet. Either `GROWING`, `STEADY`, or `SHRINKING`.
    * @public
    */
   autoScalingStatus?: AutoScalingStatus | undefined;
@@ -6342,7 +6494,10 @@ export interface GetFleetResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The description of the fleet.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the fleet.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -6383,13 +6538,13 @@ export interface ListFleetMembersRequest {
   fleetId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -6448,7 +6603,7 @@ export interface ListFleetMembersResponse {
   members: FleetMember[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -6465,13 +6620,13 @@ export interface ListFleetsRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -6483,7 +6638,10 @@ export interface ListFleetsRequest {
   principalId?: string | undefined;
 
   /**
-   * <p>The display names of a list of fleets.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display names of a list of fleets.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
@@ -6513,7 +6671,10 @@ export interface FleetSummary {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the fleet summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the fleet summary to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -6602,7 +6763,7 @@ export interface ListFleetsResponse {
   fleets: FleetSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -6631,13 +6792,19 @@ export interface UpdateFleetRequest {
   clientToken?: string | undefined;
 
   /**
-   * <p>The display name of the fleet to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the fleet to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The description of the fleet to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the fleet to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -6657,7 +6824,7 @@ export interface UpdateFleetRequest {
   /**
    * The maximum number of workers in the fleet.
    *
-   * Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to <code>CreateWorker</code> before the field updates, you might exceed your fleet's maximum worker count. For example, if your <code>maxWorkerCount</code> is 10 and you currently have 9 workers, making two quick <code>CreateWorker</code> calls might successfully create 2 workers instead of 1, resulting in 11 total workers.
+   * Deadline Cloud limits the number of workers to less than or equal to the fleet's maximum worker count. The service maintains eventual consistency for the worker count. If you make multiple rapid calls to `CreateWorker` before the field updates, you might exceed your fleet's maximum worker count. For example, if your `maxWorkerCount` is 10 and you currently have 9 workers, making two quick `CreateWorker` calls might successfully create 2 workers instead of 1, resulting in 11 total workers.
    *
    * @public
    */
@@ -6838,13 +7005,13 @@ export interface ListVolumesRequest {
   fleetId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -6909,7 +7076,7 @@ export interface ListVolumesResponse {
   volumes: VolumeSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -7054,13 +7221,13 @@ export interface ListSessionsForWorkerRequest {
   workerId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -7108,7 +7275,8 @@ export interface WorkerSessionSummary {
   endedAt?: Date | undefined;
 
   /**
-   * <p>The life cycle status </p>
+   * The life cycle status
+   *
    * @public
    */
   targetLifecycleStatus?: SessionLifecycleTargetStatus | undefined;
@@ -7125,7 +7293,7 @@ export interface ListSessionsForWorkerResponse {
   sessions: WorkerSessionSummary[] | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
@@ -7148,13 +7316,13 @@ export interface ListWorkersRequest {
   fleetId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -7237,7 +7405,7 @@ export interface ListWorkersResponse {
   workers: WorkerSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -7507,7 +7675,10 @@ export interface GetFarmResponse {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the farm.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -7543,7 +7714,10 @@ export interface GetFarmResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The description of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the farm.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -7619,13 +7793,16 @@ export interface GetLimitResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The display name of the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the limit.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.
+   * The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
    * @public
    */
   amountRequirementName: string | undefined;
@@ -7633,14 +7810,17 @@ export interface GetLimitResponse {
   /**
    * The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
    *
-   * The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+   * The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
    *
    * @public
    */
   maxCount: number | undefined;
 
   /**
-   * <p>The description of the limit that helps identify what the limit is used for.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the limit that helps identify what the limit is used for.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -7674,7 +7854,10 @@ export interface GetStorageProfileResponse {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the storage profile.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -7727,13 +7910,13 @@ export interface ListFarmMembersRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -7786,7 +7969,7 @@ export interface ListFarmMembersResponse {
   members: FarmMember[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -7797,13 +7980,13 @@ export interface ListFarmMembersResponse {
  */
 export interface ListFarmsRequest {
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -7827,7 +8010,10 @@ export interface FarmSummary {
   farmId: string | undefined;
 
   /**
-   * <p>The display name of the farm.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the farm.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -7874,7 +8060,7 @@ export interface ListFarmsResponse {
   farms: FarmSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -7891,7 +8077,7 @@ export interface ListLimitsRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
@@ -7951,13 +8137,16 @@ export interface LimitSummary {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The name of the limit used in lists to identify the limit.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The name of the limit used in lists to identify the limit.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * The value that you specify as the <code>name</code> in the <code>amounts</code> field of the <code>hostRequirements</code> in a step of a job template to declare the limit requirement.
+   * The value that you specify as the `name` in the `amounts` field of the `hostRequirements` in a step of a job template to declare the limit requirement.
    * @public
    */
   amountRequirementName: string | undefined;
@@ -7965,7 +8154,7 @@ export interface LimitSummary {
   /**
    * The maximum number of resources constrained by this limit. When all of the resources are in use, steps that require the limit won't be scheduled until the resource is available.
    *
-   * The <code>maxValue</code> must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
+   * The `maxValue` must not be 0. If the value is -1, there is no restriction on the number of resources that can be acquired for this limit.
    *
    * @public
    */
@@ -7983,7 +8172,7 @@ export interface ListLimitsResponse {
   limits: LimitSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -8000,13 +8189,13 @@ export interface ListStorageProfilesRequest {
   farmId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -8024,7 +8213,10 @@ export interface StorageProfileSummary {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile summary to update.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the storage profile summary to update.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -8047,7 +8239,7 @@ export interface ListStorageProfilesResponse {
   storageProfiles: StorageProfileSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -8165,13 +8357,21 @@ export interface GetQueueResponse {
   queueId: string | undefined;
 
   /**
-   * <p>The display name of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the queue.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The status of the queue.</p> <ul> <li> <p> <code>ACTIVE</code>–The queue is active.</p> </li> <li> <p> <code>SCHEDULING</code>–The queue is scheduling.</p> </li> <li> <p> <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked. See the provided reason.</p> </li> </ul>
+   * The status of the queue.
+   *
+   * - `ACTIVE`–The queue is active.
+   * - `SCHEDULING`–The queue is scheduling.
+   * - `SCHEDULING_BLOCKED`–The queue scheduling is blocked. See the provided reason.
+   *
    * @public
    */
   status: QueueStatus | undefined;
@@ -8213,7 +8413,10 @@ export interface GetQueueResponse {
   updatedBy?: string | undefined;
 
   /**
-   * <p>The description of the queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the queue.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -8371,7 +8574,10 @@ export interface GetStorageProfileForQueueResponse {
   storageProfileId: string | undefined;
 
   /**
-   * <p>The display name of the storage profile connected to a queue.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The display name of the storage profile connected to a queue.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   displayName: string | undefined;
@@ -8463,7 +8669,8 @@ export interface GetJobResponse {
   name: string | undefined;
 
   /**
-   * <p>The life cycle status for the job. </p>
+   * The life cycle status for the job.
+   *
    * @public
    */
   lifecycleStatus: JobLifecycleStatus | undefined;
@@ -8547,7 +8754,7 @@ export interface GetJobResponse {
   storageProfileId?: string | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -8571,15 +8778,18 @@ export interface GetJobResponse {
   attachments?: Attachments | undefined;
 
   /**
-   * <p>The description of the job.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the job.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   * The maximum number of worker hosts that can concurrently process a job. When the `maxWorkerCount` is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
    *
-   * If you don't set the <code>maxWorkerCount</code> when you create a job, this value is not returned in the response.
+   * If you don't set the `maxWorkerCount` when you create a job, this value is not returned in the response.
    *
    * @public
    */
@@ -8940,7 +9150,10 @@ export interface GetStepResponse {
   parameterSpace?: ParameterSpace | undefined;
 
   /**
-   * <p>The description of the step.</p> <important> <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p> </important>
+   * The description of the step.
+   *
+   * > **Important:** This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
+   *
    * @public
    */
   description?: string | undefined;
@@ -9081,13 +9294,13 @@ export interface ListJobMembersRequest {
   jobId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -9152,7 +9365,7 @@ export interface ListJobMembersResponse {
   members: JobMember[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -9181,13 +9394,13 @@ export interface ListJobParameterDefinitionsRequest {
   jobId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -9204,7 +9417,7 @@ export interface ListJobParameterDefinitionsResponse {
   jobParameterDefinitions: __DocumentType[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -9227,13 +9440,13 @@ export interface ListJobsRequest {
   queueId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -9317,7 +9530,19 @@ export interface JobSummary {
   endedAt?: Date | undefined;
 
   /**
-   * <p>The task run status for the job.</p> <ul> <li> <p> <code>PENDING</code>–pending and waiting for resources.</p> </li> <li> <p> <code>READY</code>–ready to be processed.</p> </li> <li> <p> <code>ASSIGNED</code>–assigned and will run next on a worker.</p> </li> <li> <p> <code>SCHEDULED</code>–scheduled to be run on a worker.</p> </li> <li> <p> <code>INTERRUPTING</code>–being interrupted.</p> </li> <li> <p> <code>RUNNING</code>–running on a worker.</p> </li> <li> <p> <code>SUSPENDED</code>–the task is suspended.</p> </li> <li> <p> <code>CANCELED</code>–the task has been canceled.</p> </li> <li> <p> <code>FAILED</code>–the task has failed.</p> </li> <li> <p> <code>SUCCEEDED</code>–the task has succeeded.</p> </li> </ul>
+   * The task run status for the job.
+   *
+   * - `PENDING`–pending and waiting for resources.
+   * - `READY`–ready to be processed.
+   * - `ASSIGNED`–assigned and will run next on a worker.
+   * - `SCHEDULED`–scheduled to be run on a worker.
+   * - `INTERRUPTING`–being interrupted.
+   * - `RUNNING`–running on a worker.
+   * - `SUSPENDED`–the task is suspended.
+   * - `CANCELED`–the task has been canceled.
+   * - `FAILED`–the task has failed.
+   * - `SUCCEEDED`–the task has succeeded.
+   *
    * @public
    */
   taskRunStatus?: TaskRunStatus | undefined;
@@ -9341,7 +9566,7 @@ export interface JobSummary {
   taskFailureRetryCount?: number | undefined;
 
   /**
-   * The number of task failures before the job stops running and is marked as <code>FAILED</code>.
+   * The number of task failures before the job stops running and is marked as `FAILED`.
    * @public
    */
   maxFailedTasksCount?: number | undefined;
@@ -9353,11 +9578,11 @@ export interface JobSummary {
   maxRetriesPerTask?: number | undefined;
 
   /**
-   * The maximum number of worker hosts that can concurrently process a job. When the <code>maxWorkerCount</code> is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
+   * The maximum number of worker hosts that can concurrently process a job. When the `maxWorkerCount` is reached, no more workers will be assigned to process the job, even if the fleets assigned to the job's queue has available workers.
    *
-   * You can't set the <code>maxWorkerCount</code> to 0. If you set it to -1, there is no maximum number of workers.
+   * You can't set the `maxWorkerCount` to 0. If you set it to -1, there is no maximum number of workers.
    *
-   * If you don't specify the <code>maxWorkerCount</code>, the default is -1.
+   * If you don't specify the `maxWorkerCount`, the default is -1.
    *
    * @public
    */
@@ -9381,7 +9606,7 @@ export interface ListJobsResponse {
   jobs: JobSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -9410,13 +9635,13 @@ export interface ListSessionActionsRequest {
   jobId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -9646,7 +9871,7 @@ export interface ListSessionActionsResponse {
   sessionActions: SessionActionSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;
@@ -9675,13 +9900,13 @@ export interface ListSessionsRequest {
   jobId: string | undefined;
 
   /**
-   * The token for the next set of results, or <code>null</code> to start from the beginning.
+   * The token for the next set of results, or `null` to start from the beginning.
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.
+   * The maximum number of results to return. Use this parameter with `NextToken` to get results as a set of sequential pages.
    * @public
    */
   maxResults?: number | undefined;
@@ -9758,7 +9983,7 @@ export interface ListSessionsResponse {
   sessions: SessionSummary[] | undefined;
 
   /**
-   * If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.
+   * If Deadline Cloud returns `nextToken`, then there are more results available. The value of `nextToken` is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then `nextToken` is set to `null`. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 `ValidationException` error.
    * @public
    */
   nextToken?: string | undefined;

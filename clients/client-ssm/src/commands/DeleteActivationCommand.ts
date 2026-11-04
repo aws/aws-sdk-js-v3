@@ -23,9 +23,8 @@ export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
 export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an activation. You aren't required to delete an activation. If you delete an
- *    activation, you can no longer use it to register additional managed nodes. Deleting an activation
- *    doesn't de-register managed nodes. You must manually de-register managed nodes.</p>
+ * Deletes an activation. You aren't required to delete an activation. If you delete an activation, you can no longer use it to register additional managed nodes. Deleting an activation doesn't de-register managed nodes. You must manually de-register managed nodes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,22 +49,24 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidActivation} (client fault)
- *  <p>The activation isn't valid. The activation might have been deleted, or the ActivationId and
- *    the ActivationCode don't match.</p>
+ *
+ * The activation isn't valid. The activation might have been deleted, or the ActivationId and the ActivationCode don't match.
  *
  * @throws {@link InvalidActivationId} (client fault)
- *  <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
- *    ActivationCode and try again.</p>
+ *
+ * The activation ID isn't valid. Verify that you entered the correct ActivationId or ActivationCode and try again.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -26,8 +26,8 @@ export interface ModifyVpcEndpointConnectionNotificationCommandInput extends Mod
 export interface ModifyVpcEndpointConnectionNotificationCommandOutput extends ModifyVpcEndpointConnectionNotificationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
- *             can change the SNS topic for the notification, or the events for which to be notified. </p>
+ * Modifies a connection notification for VPC endpoint or VPC endpoint service. You can change the SNS topic for the notification, or the events for which to be notified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +59,8 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput extends Mo
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

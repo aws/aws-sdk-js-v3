@@ -23,8 +23,8 @@ export interface CreateTrailCommandInput extends CreateTrailRequest {}
 export interface CreateTrailCommandOutput extends CreateTrailResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
- *          </p>
+ * Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,156 +81,148 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link CloudTrailAccessNotEnabledException} (client fault)
- *  <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
+ *
+ * This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see [How to enable or disable trusted access](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access) in the *Organizations User Guide* and [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) in the *CloudTrail User Guide*.
  *
  * @throws {@link CloudTrailInvalidClientTokenIdException} (client fault)
- *  <p>This exception is thrown when a call results in the <code>InvalidClientTokenId</code>
- *          error code. This can occur when you are creating or updating a trail to send notifications
- *          to an Amazon SNS topic that is in a suspended Amazon Web Services account.</p>
+ *
+ * This exception is thrown when a call results in the `InvalidClientTokenId` error code. This can occur when you are creating or updating a trail to send notifications to an Amazon SNS topic that is in a suspended Amazon Web Services account.
  *
  * @throws {@link CloudWatchLogsDeliveryUnavailableException} (client fault)
- *  <p>Cannot set a CloudWatch Logs delivery for this Region.</p>
+ *
+ * Cannot set a CloudWatch Logs delivery for this Region.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception is thrown when the specified resource is not ready for an operation. This
- *          can occur when you try to run an operation on a resource before CloudTrail has time
- *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
- *          operation again.</p>
+ *
+ * This exception is thrown when the specified resource is not ready for an operation. This can occur when you try to run an operation on a resource before CloudTrail has time to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the operation again.
  *
  * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
- *  <p>This exception is thrown when the IAM identity that is used to create
- *          the organization resource lacks one or more required permissions for creating an
- *          organization resource in a required service.</p>
+ *
+ * This exception is thrown when the IAM identity that is used to create the organization resource lacks one or more required permissions for creating an organization resource in a required service.
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>For the <code>CreateTrail</code>
- *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
- *          when the policy on the S3 bucket or KMS key does
- *          not have sufficient permissions for the operation.</p>
- *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
- *          not have sufficient permissions for the operation.</p>
+ *
+ * For the `CreateTrail` `PutInsightSelectors`, `UpdateTrail`, `StartQuery`, and `StartImport` operations, this exception is thrown when the policy on the S3 bucket or KMS key does not have sufficient permissions for the operation.
+ *
+ * For all other operations, this exception is thrown when the policy for the KMS key does not have sufficient permissions for the operation.
  *
  * @throws {@link InsufficientS3BucketPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
+ *
+ * This exception is thrown when the policy on the S3 bucket is not sufficient.
  *
  * @throws {@link InsufficientSnsTopicPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the Amazon SNS topic is not
- *          sufficient.</p>
+ *
+ * This exception is thrown when the policy on the Amazon SNS topic is not sufficient.
  *
  * @throws {@link InvalidCloudWatchLogsLogGroupArnException} (client fault)
- *  <p>This exception is thrown when the provided CloudWatch Logs log group is not
- *          valid.</p>
+ *
+ * This exception is thrown when the provided CloudWatch Logs log group is not valid.
  *
  * @throws {@link InvalidCloudWatchLogsRoleArnException} (client fault)
- *  <p>This exception is thrown when the provided role is not valid.</p>
+ *
+ * This exception is thrown when the provided role is not valid.
  *
  * @throws {@link InvalidKmsKeyIdException} (client fault)
- *  <p>This exception is thrown when the KMS key ARN is not valid.</p>
+ *
+ * This exception is thrown when the KMS key ARN is not valid.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>This exception is thrown when the combination of parameters provided is not
- *          valid.</p>
+ *
+ * This exception is thrown when the combination of parameters provided is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link InvalidS3BucketNameException} (client fault)
- *  <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
+ *
+ * This exception is thrown when the provided S3 bucket name is not valid.
  *
  * @throws {@link InvalidS3PrefixException} (client fault)
- *  <p>This exception is thrown when the provided S3 prefix is not valid.</p>
+ *
+ * This exception is thrown when the provided S3 prefix is not valid.
  *
  * @throws {@link InvalidSnsTopicNameException} (client fault)
- *  <p>This exception is thrown when the provided SNS topic name is not valid.</p>
+ *
+ * This exception is thrown when the provided SNS topic name is not valid.
  *
  * @throws {@link InvalidTagParameterException} (client fault)
- *  <p>This exception is thrown when the specified tag key or values are not valid. It can also
- *          occur if there are duplicate tags or too many tags on the resource.</p>
+ *
+ * This exception is thrown when the specified tag key or values are not valid. It can also occur if there are duplicate tags or too many tags on the resource.
  *
  * @throws {@link InvalidTrailNameException} (client fault)
- *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
- *          meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
- *                (_), or dashes (-)</p>
- *             </li>
- *             <li>
- *                <p>Start with a letter or number, and end with a letter or number</p>
- *             </li>
- *             <li>
- *                <p>Be between 3 and 128 characters</p>
- *             </li>
- *             <li>
- *                <p>Have no adjacent periods, underscores or dashes. Names like
- *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
- *             </li>
- *             <li>
- *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
- *             </li>
- *          </ul>
+ *
+ * This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
+ *
+ * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+ * - Start with a letter or number, and end with a letter or number
+ * - Be between 3 and 128 characters
+ * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+ * - Not be in IP address format (for example, 192.168.5.4)
  *
  * @throws {@link KmsException} (client fault)
- *  <p>This exception is thrown when there is an issue with the specified KMS
- *          key and the trail or event data store can't be updated.</p>
+ *
+ * This exception is thrown when there is an issue with the specified KMS key and the trail or event data store can't be updated.
  *
  * @throws {@link KmsKeyDisabledException} (client fault)
- *  <p>This exception is no longer in use.</p>
+ *
+ * This exception is no longer in use.
  *
  * @throws {@link KmsKeyNotFoundException} (client fault)
- *  <p>This exception is thrown when the KMS key does not exist, when the S3
- *          bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is
- *          not in the same Region.</p>
+ *
+ * This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not in the same Region, or when the KMS key associated with the Amazon SNS topic either does not exist or is not in the same Region.
  *
  * @throws {@link MaximumNumberOfTrailsExceededException} (client fault)
- *  <p>This exception is thrown when the maximum number of trails is reached.</p>
+ *
+ * This exception is thrown when the maximum number of trails is reached.
  *
  * @throws {@link NoManagementAccountSLRExistsException} (client fault)
- *  <p> This exception is thrown when the management account does not have a service-linked
- *          role. </p>
+ *
+ * This exception is thrown when the management account does not have a service-linked role.
  *
  * @throws {@link NotOrganizationMasterAccountException} (client fault)
- *  <p>This exception is thrown when the Amazon Web Services account making the request to
- *          create or update an organization trail or event data store is not the management account
- *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html">Organization event data stores</a>.</p>
+ *
+ * This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail or event data store is not the management account for an organization in Organizations. For more information, see [Prepare For Creating a Trail For Your Organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html) or [Organization event data stores](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html).
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link OrganizationNotInAllFeaturesModeException} (client fault)
- *  <p>This exception is thrown when Organizations is not configured to support all
- *          features. All features must be enabled in Organizations to support creating an
- *          organization trail or event data store.</p>
+ *
+ * This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support creating an organization trail or event data store.
  *
  * @throws {@link OrganizationsNotInUseException} (client fault)
- *  <p>This exception is thrown when the request is made from an Amazon Web Services account
- *          that is not a member of an organization. To make this request, sign in using the
- *          credentials of an account that belongs to an organization.</p>
+ *
+ * This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization. To make this request, sign in using the credentials of an account that belongs to an organization.
  *
  * @throws {@link S3BucketDoesNotExistException} (client fault)
- *  <p>This exception is thrown when the specified S3 bucket does not exist.</p>
+ *
+ * This exception is thrown when the specified S3 bucket does not exist.
  *
  * @throws {@link TagsLimitExceededException} (client fault)
- *  <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
- *          50.</p>
+ *
+ * The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is 50.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          This exception is thrown when the request rate exceeds the limit.
- *       </p>
+ *
+ * This exception is thrown when the request rate exceeds the limit.
  *
  * @throws {@link TrailAlreadyExistsException} (client fault)
- *  <p>This exception is thrown when the specified trail already exists.</p>
+ *
+ * This exception is thrown when the specified trail already exists.
  *
  * @throws {@link TrailNotProvidedException} (client fault)
- *  <p>This exception is no longer in use.</p>
+ *
+ * This exception is no longer in use.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

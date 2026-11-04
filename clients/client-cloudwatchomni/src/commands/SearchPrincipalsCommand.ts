@@ -81,8 +81,8 @@ export interface SearchPrincipalsCommandOutput extends SearchPrincipalsOutput, _
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Search principals by name
  * ```javascript

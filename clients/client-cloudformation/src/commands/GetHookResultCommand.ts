@@ -23,13 +23,10 @@ export interface GetHookResultCommandInput extends GetHookResultInput {}
 export interface GetHookResultCommandOutput extends GetHookResultOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information and remediation guidance for a Hook invocation
- *       result.</p>
- *          <p>If the Hook uses a KMS key to encrypt annotations, callers of the
- *         <code>GetHookResult</code> operation must have <code>kms:Decrypt</code> permissions. For
- *       more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-kms-key-policy.html">KMS key policy
- *         and permissions for encrypting CloudFormation Hooks results at rest</a> in the
- *         <i>CloudFormation Hooks User Guide</i>.</p>
+ * Retrieves detailed information and remediation guidance for a Hook invocation result.
+ *
+ * If the Hook uses a KMS key to encrypt annotations, callers of the `GetHookResult` operation must have `kms:Decrypt` permissions. For more information, see [KMS key policy and permissions for encrypting CloudFormation Hooks results at rest](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-kms-key-policy.html) in the *CloudFormation Hooks User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +79,12 @@ export interface GetHookResultCommandOutput extends GetHookResultOutput, __Metad
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link HookResultNotFoundException} (client fault)
- *  <p>The specified target doesn't have any requested Hook invocations.</p>
+ *
+ * The specified target doesn't have any requested Hook invocations.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

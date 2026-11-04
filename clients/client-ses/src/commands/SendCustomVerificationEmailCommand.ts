@@ -23,15 +23,12 @@ export interface SendCustomVerificationEmailCommandInput extends SendCustomVerif
 export interface SendCustomVerificationEmailCommandOutput extends SendCustomVerificationEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an email address to the list of identities for your Amazon SES account in the current
- *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
- *             customized verification email is sent to the specified address.</p>
- *          <p>To use this operation, you must first create a custom verification email template. For
- *             more information about creating and using custom verification email templates, see
- *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
- *                 Custom Verification Email Templates</a> in the <i>Amazon SES Developer
- *                 Guide</i>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Adds an email address to the list of identities for your Amazon SES account in the current Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.
+ *
+ * To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see [Using Custom Verification Email Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom) in the *Amazon SES Developer Guide*.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,26 +57,28 @@ export interface SendCustomVerificationEmailCommandOutput extends SendCustomVeri
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link CustomVerificationEmailTemplateDoesNotExistException} (client fault)
- *  <p>Indicates that a custom verification email template with the name you specified does
- *             not exist.</p>
+ *
+ * Indicates that a custom verification email template with the name you specified does not exist.
  *
  * @throws {@link FromEmailAddressNotVerifiedException} (client fault)
- *  <p>Indicates that the sender address specified for a custom verification email is not
- *             verified, and is therefore not eligible to send the custom verification email. </p>
+ *
+ * Indicates that the sender address specified for a custom verification email is not verified, and is therefore not eligible to send the custom verification email.
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>Indicates that the action failed, and the message could not be sent. Check the error
- *             stack for more information about what caused the error.</p>
+ *
+ * Indicates that the action failed, and the message could not be sent. Check the error stack for more information about what caused the error.
  *
  * @throws {@link ProductionAccessNotGrantedException} (client fault)
- *  <p>Indicates that the account has not been granted production access.</p>
+ *
+ * Indicates that the account has not been granted production access.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

@@ -23,30 +23,18 @@ export interface UpdateNFSFileShareCommandInput extends UpdateNFSFileShareInput 
 export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3
- *          File Gateways.</p>
- *          <note>
- *             <p>To leave a file share field unchanged, set the corresponding input field to
- *             null.</p>
- *          </note>
- *          <p>Updates the following file share settings:</p>
- *          <ul>
- *             <li>
- *                <p>Default storage class for your S3 bucket</p>
- *             </li>
- *             <li>
- *                <p>Metadata defaults for your S3 bucket</p>
- *             </li>
- *             <li>
- *                <p>Allowed NFS clients for your file share</p>
- *             </li>
- *             <li>
- *                <p>Squash settings</p>
- *             </li>
- *             <li>
- *                <p>Write status of your file share</p>
- *             </li>
- *          </ul>
+ * Updates a Network File System (NFS) file share. This operation is only supported in S3 File Gateways.
+ *
+ * > **Note:** To leave a file share field unchanged, set the corresponding input field to null.
+ *
+ * Updates the following file share settings:
+ *
+ * - Default storage class for your S3 bucket
+ * - Metadata defaults for your S3 bucket
+ * - Allowed NFS clients for your file share
+ * - Squash settings
+ * - Write status of your file share
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,16 +85,16 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

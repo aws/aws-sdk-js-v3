@@ -23,7 +23,8 @@ export interface DisassociateMacSecKeyCommandInput extends DisassociateMacSecKey
 export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the association between a MAC Security (MACsec) security key and a Direct Connect connection.</p>
+ * Removes the association between a MAC Security (MACsec) security key and a Direct Connect connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +60,16 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

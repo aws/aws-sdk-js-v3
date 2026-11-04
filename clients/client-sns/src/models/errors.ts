@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SNSServiceException as __BaseException } from "./SNSServiceException";
 
 /**
- * <p>Indicates that the user has been denied access to the requested resource.</p>
+ * Indicates that the user has been denied access to the requested resource.
+ *
  * @public
  */
 export class AuthorizationErrorException extends __BaseException {
@@ -25,7 +26,8 @@ export class AuthorizationErrorException extends __BaseException {
 }
 
 /**
- * <p>Indicates an internal service error.</p>
+ * Indicates an internal service error.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -46,8 +48,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ * Indicates that a request parameter does not comply with the associated constraints.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -68,7 +70,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the requested resource does not exist.</p>
+ * Indicates that the requested resource does not exist.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -89,7 +92,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
+ *
  * @public
  */
 export class ThrottledException extends __BaseException {
@@ -110,9 +114,8 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To
- *             add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support
- *             Center.</p>
+ * Indicates that the number of filter polices in your Amazon Web Services account exceeds the limit. To add more filter polices, submit an Amazon SNS Limit Increase case in the Amazon Web Services Support Center.
+ *
  * @public
  */
 export class FilterPolicyLimitExceededException extends __BaseException {
@@ -133,7 +136,8 @@ export class FilterPolicyLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ * Indicates that the request parameter has exceeded the maximum number of concurrent message replays.
+ *
  * @public
  */
 export class ReplayLimitExceededException extends __BaseException {
@@ -154,8 +158,8 @@ export class ReplayLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the customer already owns the maximum allowed number of
- *             subscriptions.</p>
+ * Indicates that the customer already owns the maximum allowed number of subscriptions.
+ *
  * @public
  */
 export class SubscriptionLimitExceededException extends __BaseException {
@@ -176,8 +180,8 @@ export class SubscriptionLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the specified phone number opted out of receiving SMS messages from
- *             your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.</p>
+ * Indicates that the specified phone number opted out of receiving SMS messages from your Amazon Web Services account. You can't send SMS messages to phone numbers that opt out.
+ *
  * @public
  */
 export class OptedOutException extends __BaseException {
@@ -198,8 +202,8 @@ export class OptedOutException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ * Indicates that a request parameter does not comply with the associated constraints.
+ *
  * @public
  */
 export class UserErrorException extends __BaseException {
@@ -220,8 +224,8 @@ export class UserErrorException extends __BaseException {
 }
 
 /**
- * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
- *             sequentially.</p>
+ * Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.
+ *
  * @public
  */
 export class ConcurrentAccessException extends __BaseException {
@@ -242,8 +246,8 @@ export class ConcurrentAccessException extends __BaseException {
 }
 
 /**
- * <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
+ *
  * @public
  */
 export class InvalidSecurityException extends __BaseException {
@@ -264,8 +268,8 @@ export class InvalidSecurityException extends __BaseException {
 }
 
 /**
- * <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
- *             short while and then retry the operation.</p>
+ * A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.
+ *
  * @public
  */
 export class StaleTagException extends __BaseException {
@@ -286,7 +290,8 @@ export class StaleTagException extends __BaseException {
 }
 
 /**
- * <p>Can't add more than 50 tags to a topic.</p>
+ * Can't add more than 50 tags to a topic.
+ *
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
@@ -307,8 +312,8 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request doesn't comply with the IAM tag policy. Correct your request and then
- *             retry it.</p>
+ * The request doesn't comply with the IAM tag policy. Correct your request and then retry it.
+ *
  * @public
  */
 export class TagPolicyException extends __BaseException {
@@ -329,7 +334,8 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
+ * Indicates that the customer already owns the maximum allowed number of topics.
+ *
  * @public
  */
 export class TopicLimitExceededException extends __BaseException {
@@ -350,8 +356,8 @@ export class TopicLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Can’t perform the action on the specified resource. Make sure that the resource
- *             exists.</p>
+ * Can’t perform the action on the specified resource. Make sure that the resource exists.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -372,7 +378,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the specified state is not a valid state for an event source.</p>
+ * Indicates that the specified state is not a valid state for an event source.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -393,7 +400,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a parameter in the request is invalid.</p>
+ * Indicates that a parameter in the request is invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -416,7 +424,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Exception error indicating endpoint disabled.</p>
+ * Exception error indicating endpoint disabled.
+ *
  * @public
  */
 export class EndpointDisabledException extends __BaseException {
@@ -437,7 +446,8 @@ export class EndpointDisabledException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+ * Indicates that a request parameter does not comply with the associated constraints.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -458,8 +468,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The ciphertext references a key that doesn't exist or that you don't have access
- *             to.</p>
+ * The ciphertext references a key that doesn't exist or that you don't have access to.
+ *
  * @public
  */
 export class KMSAccessDeniedException extends __BaseException {
@@ -480,8 +490,8 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified Amazon Web Services KMS key isn't
- *             enabled.</p>
+ * The request was rejected because the specified Amazon Web Services KMS key isn't enabled.
+ *
  * @public
  */
 export class KMSDisabledException extends __BaseException {
@@ -502,9 +512,8 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer
- *                 Guide</i>.</p>
+ * The request was rejected because the state of the specified resource isn't valid for this request. For more information, see [Key states of Amazon Web Services KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -525,8 +534,8 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified entity or resource can't be
- *             found.</p>
+ * The request was rejected because the specified entity or resource can't be found.
+ *
  * @public
  */
 export class KMSNotFoundException extends __BaseException {
@@ -547,7 +556,8 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ * The Amazon Web Services access key ID needs a subscription for the service.
+ *
  * @public
  */
 export class KMSOptInRequired extends __BaseException {
@@ -568,10 +578,8 @@ export class KMSOptInRequired extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. For more information about
- *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
- *             the <i>Key Management Service Developer Guide.</i>
- *          </p>
+ * The request was denied due to request throttling. For more information about throttling, see [Limits](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second) in the *Key Management Service Developer Guide.*
+ *
  * @public
  */
 export class KMSThrottlingException extends __BaseException {
@@ -592,7 +600,8 @@ export class KMSThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Exception error indicating platform application disabled.</p>
+ * Exception error indicating platform application disabled.
+ *
  * @public
  */
 export class PlatformApplicationDisabledException extends __BaseException {
@@ -613,7 +622,8 @@ export class PlatformApplicationDisabledException extends __BaseException {
 }
 
 /**
- * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ * Two or more batch entries in the request have the same `Id`.
+ *
  * @public
  */
 export class BatchEntryIdsNotDistinctException extends __BaseException {
@@ -634,7 +644,8 @@ export class BatchEntryIdsNotDistinctException extends __BaseException {
 }
 
 /**
- * <p>The length of all the batch messages put together is more than the limit.</p>
+ * The length of all the batch messages put together is more than the limit.
+ *
  * @public
  */
 export class BatchRequestTooLongException extends __BaseException {
@@ -655,7 +666,8 @@ export class BatchRequestTooLongException extends __BaseException {
 }
 
 /**
- * <p>The batch request doesn't contain any entries.</p>
+ * The batch request doesn't contain any entries.
+ *
  * @public
  */
 export class EmptyBatchRequestException extends __BaseException {
@@ -676,7 +688,8 @@ export class EmptyBatchRequestException extends __BaseException {
 }
 
 /**
- * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification. </p>
+ * The `Id` of a batch entry in a batch request doesn't abide by the specification.
+ *
  * @public
  */
 export class InvalidBatchEntryIdException extends __BaseException {
@@ -697,7 +710,8 @@ export class InvalidBatchEntryIdException extends __BaseException {
 }
 
 /**
- * <p> The batch request contains more entries than permissible (more than 10).</p>
+ * The batch request contains more entries than permissible (more than 10).
+ *
  * @public
  */
 export class TooManyEntriesInBatchRequestException extends __BaseException {
@@ -718,7 +732,8 @@ export class TooManyEntriesInBatchRequestException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
+ * Indicates that the one-time password (OTP) used for verification is invalid.
+ *
  * @public
  */
 export class VerificationException extends __BaseException {
@@ -727,7 +742,8 @@ export class VerificationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The status of the verification error.</p>
+   * The status of the verification error.
+   *
    * @public
    */
   Status: string | undefined;

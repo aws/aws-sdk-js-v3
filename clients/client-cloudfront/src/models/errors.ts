@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 
 /**
- * <p>Access denied.</p>
+ * Access denied.
+ *
  * @public
  */
 export class AccessDenied extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDenied extends __BaseException {
 }
 
 /**
- * <p>The update contains modifications that are not allowed.</p>
+ * The update contains modifications that are not allowed.
+ *
  * @public
  */
 export class IllegalUpdate extends __BaseException {
@@ -50,7 +52,8 @@ export class IllegalUpdate extends __BaseException {
 }
 
 /**
- * <p>An argument is invalid.</p>
+ * An argument is invalid.
+ *
  * @public
  */
 export class InvalidArgument extends __BaseException {
@@ -73,7 +76,8 @@ export class InvalidArgument extends __BaseException {
 }
 
 /**
- * <p>The specified distribution does not exist.</p>
+ * The specified distribution does not exist.
+ *
  * @public
  */
 export class NoSuchDistribution extends __BaseException {
@@ -96,7 +100,8 @@ export class NoSuchDistribution extends __BaseException {
 }
 
 /**
- * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ * Your request contains more CNAMEs than are allowed per distribution.
+ *
  * @public
  */
 export class TooManyDistributionCNAMEs extends __BaseException {
@@ -119,7 +124,8 @@ export class TooManyDistributionCNAMEs extends __BaseException {
 }
 
 /**
- * <p>The entity limit has been exceeded.</p>
+ * The entity limit has been exceeded.
+ *
  * @public
  */
 export class EntityLimitExceeded extends __BaseException {
@@ -142,7 +148,8 @@ export class EntityLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The entity was not found.</p>
+ * The entity was not found.
+ *
  * @public
  */
 export class EntityNotFound extends __BaseException {
@@ -165,7 +172,8 @@ export class EntityNotFound extends __BaseException {
 }
 
 /**
- * <p>The <code>If-Match</code> version is missing or not valid.</p>
+ * The `If-Match` version is missing or not valid.
+ *
  * @public
  */
 export class InvalidIfMatchVersion extends __BaseException {
@@ -188,7 +196,8 @@ export class InvalidIfMatchVersion extends __BaseException {
 }
 
 /**
- * <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ * The precondition in one or more of the request fields evaluated to `false`.
+ *
  * @public
  */
 export class PreconditionFailed extends __BaseException {
@@ -211,7 +220,8 @@ export class PreconditionFailed extends __BaseException {
 }
 
 /**
- * <p>Invalidation batch specified is too large.</p>
+ * Invalidation batch specified is too large.
+ *
  * @public
  */
 export class BatchTooLarge extends __BaseException {
@@ -234,7 +244,8 @@ export class BatchTooLarge extends __BaseException {
 }
 
 /**
- * <p>A cache policy with this name already exists. You must provide a unique name. To modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
+ * A cache policy with this name already exists. You must provide a unique name. To modify an existing cache policy, use `UpdateCachePolicy`.
+ *
  * @public
  */
 export class CachePolicyAlreadyExists extends __BaseException {
@@ -257,7 +268,8 @@ export class CachePolicyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>Cannot delete the cache policy because it is attached to one or more cache behaviors.</p>
+ * Cannot delete the cache policy because it is attached to one or more cache behaviors.
+ *
  * @public
  */
 export class CachePolicyInUse extends __BaseException {
@@ -280,7 +292,8 @@ export class CachePolicyInUse extends __BaseException {
 }
 
 /**
- * <p>You can't change the value of a public key.</p>
+ * You can't change the value of a public key.
+ *
  * @public
  */
 export class CannotChangeImmutablePublicKeyFields extends __BaseException {
@@ -303,7 +316,8 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 }
 
 /**
- * <p>The entity cannot be deleted while it is in use.</p>
+ * The entity cannot be deleted while it is in use.
+ *
  * @public
  */
 export class CannotDeleteEntityWhileInUse extends __BaseException {
@@ -326,7 +340,8 @@ export class CannotDeleteEntityWhileInUse extends __BaseException {
 }
 
 /**
- * <p>The entity cannot be updated while it is in use.</p>
+ * The entity cannot be updated while it is in use.
+ *
  * @public
  */
 export class CannotUpdateEntityWhileInUse extends __BaseException {
@@ -349,7 +364,8 @@ export class CannotUpdateEntityWhileInUse extends __BaseException {
 }
 
 /**
- * <p>The CNAME specified is already defined for CloudFront.</p>
+ * The CNAME specified is already defined for CloudFront.
+ *
  * @public
  */
 export class CNAMEAlreadyExists extends __BaseException {
@@ -372,7 +388,8 @@ export class CNAMEAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
+ * The caller reference you attempted to create the distribution with is associated with another distribution.
+ *
  * @public
  */
 export class DistributionAlreadyExists extends __BaseException {
@@ -395,7 +412,8 @@ export class DistributionAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
+ * The specified configuration for field-level encryption can't be associated with the specified cache behavior.
+ *
  * @public
  */
 export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior extends __BaseException {
@@ -418,7 +436,8 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
 }
 
 /**
- * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ * The value of `Quantity` and the size of `Items` don't match.
+ *
  * @public
  */
 export class InconsistentQuantities extends __BaseException {
@@ -441,7 +460,8 @@ export class InconsistentQuantities extends __BaseException {
 }
 
 /**
- * <p>The default root object file name is too big or contains an invalid character.</p>
+ * The default root object file name is too big or contains an invalid character.
+ *
  * @public
  */
 export class InvalidDefaultRootObject extends __BaseException {
@@ -464,7 +484,8 @@ export class InvalidDefaultRootObject extends __BaseException {
 }
 
 /**
- * <p>An invalid error code was specified.</p>
+ * An invalid error code was specified.
+ *
  * @public
  */
 export class InvalidErrorCode extends __BaseException {
@@ -487,7 +508,8 @@ export class InvalidErrorCode extends __BaseException {
 }
 
 /**
- * <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
+ * Your request contains forward cookies option which doesn't match with the expectation for the `whitelisted` list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.
+ *
  * @public
  */
 export class InvalidForwardCookies extends __BaseException {
@@ -510,7 +532,8 @@ export class InvalidForwardCookies extends __BaseException {
 }
 
 /**
- * <p>A CloudFront function association is invalid.</p>
+ * A CloudFront function association is invalid.
+ *
  * @public
  */
 export class InvalidFunctionAssociation extends __BaseException {
@@ -533,7 +556,8 @@ export class InvalidFunctionAssociation extends __BaseException {
 }
 
 /**
- * <p>The specified geo restriction parameter is not valid.</p>
+ * The specified geo restriction parameter is not valid.
+ *
  * @public
  */
 export class InvalidGeoRestrictionParameter extends __BaseException {
@@ -556,7 +580,8 @@ export class InvalidGeoRestrictionParameter extends __BaseException {
 }
 
 /**
- * <p>The headers specified are not valid for an Amazon S3 origin.</p>
+ * The headers specified are not valid for an Amazon S3 origin.
+ *
  * @public
  */
 export class InvalidHeadersForS3Origin extends __BaseException {
@@ -579,7 +604,8 @@ export class InvalidHeadersForS3Origin extends __BaseException {
 }
 
 /**
- * <p>The specified Lambda@Edge function association is invalid.</p>
+ * The specified Lambda@Edge function association is invalid.
+ *
  * @public
  */
 export class InvalidLambdaFunctionAssociation extends __BaseException {
@@ -602,7 +628,8 @@ export class InvalidLambdaFunctionAssociation extends __BaseException {
 }
 
 /**
- * <p>The location code specified is not valid.</p>
+ * The location code specified is not valid.
+ *
  * @public
  */
 export class InvalidLocationCode extends __BaseException {
@@ -625,7 +652,8 @@ export class InvalidLocationCode extends __BaseException {
 }
 
 /**
- * <p>The minimum protocol version specified is not valid.</p>
+ * The minimum protocol version specified is not valid.
+ *
  * @public
  */
 export class InvalidMinimumProtocolVersion extends __BaseException {
@@ -648,7 +676,8 @@ export class InvalidMinimumProtocolVersion extends __BaseException {
 }
 
 /**
- * <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+ * The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
+ *
  * @public
  */
 export class InvalidOrigin extends __BaseException {
@@ -671,7 +700,8 @@ export class InvalidOrigin extends __BaseException {
 }
 
 /**
- * <p>The origin access control is not valid.</p>
+ * The origin access control is not valid.
+ *
  * @public
  */
 export class InvalidOriginAccessControl extends __BaseException {
@@ -694,7 +724,8 @@ export class InvalidOriginAccessControl extends __BaseException {
 }
 
 /**
- * <p>The origin access identity is not valid or doesn't exist.</p>
+ * The origin access identity is not valid or doesn't exist.
+ *
  * @public
  */
 export class InvalidOriginAccessIdentity extends __BaseException {
@@ -717,7 +748,8 @@ export class InvalidOriginAccessIdentity extends __BaseException {
 }
 
 /**
- * <p>The keep alive timeout specified for the origin is not valid.</p>
+ * The keep alive timeout specified for the origin is not valid.
+ *
  * @public
  */
 export class InvalidOriginKeepaliveTimeout extends __BaseException {
@@ -740,7 +772,8 @@ export class InvalidOriginKeepaliveTimeout extends __BaseException {
 }
 
 /**
- * <p>The read timeout specified for the origin is not valid.</p>
+ * The read timeout specified for the origin is not valid.
+ *
  * @public
  */
 export class InvalidOriginReadTimeout extends __BaseException {
@@ -763,7 +796,8 @@ export class InvalidOriginReadTimeout extends __BaseException {
 }
 
 /**
- * <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).</p>
+ * You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support Server Name Indication (SNI).
+ *
  * @public
  */
 export class InvalidProtocolSettings extends __BaseException {
@@ -786,7 +820,8 @@ export class InvalidProtocolSettings extends __BaseException {
 }
 
 /**
- * <p>The query string parameters specified are not valid.</p>
+ * The query string parameters specified are not valid.
+ *
  * @public
  */
 export class InvalidQueryStringParameters extends __BaseException {
@@ -809,7 +844,8 @@ export class InvalidQueryStringParameters extends __BaseException {
 }
 
 /**
- * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
+ * The relative path is too big, is not URL-encoded, or does not begin with a slash (/).
+ *
  * @public
  */
 export class InvalidRelativePath extends __BaseException {
@@ -832,7 +868,8 @@ export class InvalidRelativePath extends __BaseException {
 }
 
 /**
- * <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
+ * This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the `RequiredProtocols` element from your distribution configuration.
+ *
  * @public
  */
 export class InvalidRequiredProtocol extends __BaseException {
@@ -855,7 +892,8 @@ export class InvalidRequiredProtocol extends __BaseException {
 }
 
 /**
- * <p>A response code is not valid.</p>
+ * A response code is not valid.
+ *
  * @public
  */
 export class InvalidResponseCode extends __BaseException {
@@ -878,7 +916,8 @@ export class InvalidResponseCode extends __BaseException {
 }
 
 /**
- * <p>The TTL order specified is not valid.</p>
+ * The TTL order specified is not valid.
+ *
  * @public
  */
 export class InvalidTTLOrder extends __BaseException {
@@ -901,7 +940,8 @@ export class InvalidTTLOrder extends __BaseException {
 }
 
 /**
- * <p>A viewer certificate specified is not valid.</p>
+ * A viewer certificate specified is not valid.
+ *
  * @public
  */
 export class InvalidViewerCertificate extends __BaseException {
@@ -924,7 +964,8 @@ export class InvalidViewerCertificate extends __BaseException {
 }
 
 /**
- * <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ * A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example `arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a`. To specify a web ACL created using WAF Classic, use the ACL ID, for example `473e64fd-f30b-4765-81a0-62ad96dd167a`.
+ *
  * @public
  */
 export class InvalidWebACLId extends __BaseException {
@@ -947,7 +988,8 @@ export class InvalidWebACLId extends __BaseException {
 }
 
 /**
- * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ * This operation requires a body. Ensure that the body is present and the `Content-Type` header is set.
+ *
  * @public
  */
 export class MissingBody extends __BaseException {
@@ -970,7 +1012,8 @@ export class MissingBody extends __BaseException {
 }
 
 /**
- * <p>The cache policy does not exist.</p>
+ * The cache policy does not exist.
+ *
  * @public
  */
 export class NoSuchCachePolicy extends __BaseException {
@@ -993,7 +1036,8 @@ export class NoSuchCachePolicy extends __BaseException {
 }
 
 /**
- * <p>The specified configuration for field-level encryption doesn't exist.</p>
+ * The specified configuration for field-level encryption doesn't exist.
+ *
  * @public
  */
 export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
@@ -1016,7 +1060,8 @@ export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
 }
 
 /**
- * <p>No origin exists with the specified <code>Origin Id</code>.</p>
+ * No origin exists with the specified `Origin Id`.
+ *
  * @public
  */
 export class NoSuchOrigin extends __BaseException {
@@ -1039,7 +1084,8 @@ export class NoSuchOrigin extends __BaseException {
 }
 
 /**
- * <p>The origin request policy does not exist.</p>
+ * The origin request policy does not exist.
+ *
  * @public
  */
 export class NoSuchOriginRequestPolicy extends __BaseException {
@@ -1062,7 +1108,8 @@ export class NoSuchOriginRequestPolicy extends __BaseException {
 }
 
 /**
- * <p>The real-time log configuration does not exist.</p>
+ * The real-time log configuration does not exist.
+ *
  * @public
  */
 export class NoSuchRealtimeLogConfig extends __BaseException {
@@ -1085,7 +1132,8 @@ export class NoSuchRealtimeLogConfig extends __BaseException {
 }
 
 /**
- * <p>The response headers policy does not exist.</p>
+ * The response headers policy does not exist.
+ *
  * @public
  */
 export class NoSuchResponseHeadersPolicy extends __BaseException {
@@ -1108,7 +1156,8 @@ export class NoSuchResponseHeadersPolicy extends __BaseException {
 }
 
 /**
- * <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
+ * The specified real-time log configuration belongs to a different Amazon Web Services account.
+ *
  * @public
  */
 export class RealtimeLogConfigOwnerMismatch extends __BaseException {
@@ -1131,7 +1180,8 @@ export class RealtimeLogConfigOwnerMismatch extends __BaseException {
 }
 
 /**
- * <p>You cannot create more cache behaviors for the distribution.</p>
+ * You cannot create more cache behaviors for the distribution.
+ *
  * @public
  */
 export class TooManyCacheBehaviors extends __BaseException {
@@ -1154,7 +1204,8 @@ export class TooManyCacheBehaviors extends __BaseException {
 }
 
 /**
- * <p>You cannot create anymore custom SSL/TLS certificates.</p>
+ * You cannot create anymore custom SSL/TLS certificates.
+ *
  * @public
  */
 export class TooManyCertificates extends __BaseException {
@@ -1177,7 +1228,8 @@ export class TooManyCertificates extends __BaseException {
 }
 
 /**
- * <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
+ * Your request contains more cookie names in the whitelist than are allowed per cache behavior.
+ *
  * @public
  */
 export class TooManyCookieNamesInWhiteList extends __BaseException {
@@ -1200,7 +1252,8 @@ export class TooManyCookieNamesInWhiteList extends __BaseException {
 }
 
 /**
- * <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
+ * Processing your request would cause you to exceed the maximum number of distributions allowed.
+ *
  * @public
  */
 export class TooManyDistributions extends __BaseException {
@@ -1223,7 +1276,8 @@ export class TooManyDistributions extends __BaseException {
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The maximum number of distributions have been associated with the specified cache policy. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException {
@@ -1246,7 +1300,8 @@ export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
+ * The maximum number of distributions have been associated with the specified configuration for field-level encryption.
+ *
  * @public
  */
 export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends __BaseException {
@@ -1269,7 +1324,8 @@ export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends 
 }
 
 /**
- * <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of distributions that reference this key group is more than the maximum allowed. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
@@ -1292,7 +1348,10 @@ export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The maximum number of distributions have been associated with the specified origin access control.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseException {
@@ -1315,7 +1374,8 @@ export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseE
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The maximum number of distributions have been associated with the specified origin request policy. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseException {
@@ -1338,7 +1398,10 @@ export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseE
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The maximum number of distributions have been associated with the specified response headers policy.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __BaseException {
@@ -1361,7 +1424,8 @@ export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __Bas
 }
 
 /**
- * <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyDistributionsWithFunctionAssociations extends __BaseException {
@@ -1384,7 +1448,8 @@ export class TooManyDistributionsWithFunctionAssociations extends __BaseExceptio
 }
 
 /**
- * <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
+ * Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.
+ *
  * @public
  */
 export class TooManyDistributionsWithLambdaAssociations extends __BaseException {
@@ -1407,7 +1472,8 @@ export class TooManyDistributionsWithLambdaAssociations extends __BaseException 
 }
 
 /**
- * <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
+ * The maximum number of distributions have been associated with the specified Lambda@Edge function.
+ *
  * @public
  */
 export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
@@ -1430,7 +1496,8 @@ export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of CloudFront function associations for this distribution. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyFunctionAssociations extends __BaseException {
@@ -1453,7 +1520,8 @@ export class TooManyFunctionAssociations extends __BaseException {
 }
 
 /**
- * <p>Your request contains too many headers in forwarded values.</p>
+ * Your request contains too many headers in forwarded values.
+ *
  * @public
  */
 export class TooManyHeadersInForwardedValues extends __BaseException {
@@ -1476,7 +1544,8 @@ export class TooManyHeadersInForwardedValues extends __BaseException {
 }
 
 /**
- * <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
@@ -1499,7 +1568,8 @@ export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
 }
 
 /**
- * <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
+ * Your request contains more Lambda@Edge function associations than are allowed per distribution.
+ *
  * @public
  */
 export class TooManyLambdaFunctionAssociations extends __BaseException {
@@ -1522,7 +1592,8 @@ export class TooManyLambdaFunctionAssociations extends __BaseException {
 }
 
 /**
- * <p>Your request contains too many origin custom headers.</p>
+ * Your request contains too many origin custom headers.
+ *
  * @public
  */
 export class TooManyOriginCustomHeaders extends __BaseException {
@@ -1545,7 +1616,8 @@ export class TooManyOriginCustomHeaders extends __BaseException {
 }
 
 /**
- * <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
+ * Processing your request would cause you to exceed the maximum number of origin groups allowed.
+ *
  * @public
  */
 export class TooManyOriginGroupsPerDistribution extends __BaseException {
@@ -1568,7 +1640,8 @@ export class TooManyOriginGroupsPerDistribution extends __BaseException {
 }
 
 /**
- * <p>You cannot create more origins for the distribution.</p>
+ * You cannot create more origins for the distribution.
+ *
  * @public
  */
 export class TooManyOrigins extends __BaseException {
@@ -1591,7 +1664,8 @@ export class TooManyOrigins extends __BaseException {
 }
 
 /**
- * <p>Your request contains too many query string parameters.</p>
+ * Your request contains too many query string parameters.
+ *
  * @public
  */
 export class TooManyQueryStringParameters extends __BaseException {
@@ -1614,7 +1688,8 @@ export class TooManyQueryStringParameters extends __BaseException {
 }
 
 /**
- * <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ * Your request contains more trusted signers than are allowed per distribution.
+ *
  * @public
  */
 export class TooManyTrustedSigners extends __BaseException {
@@ -1637,7 +1712,8 @@ export class TooManyTrustedSigners extends __BaseException {
 }
 
 /**
- * <p>The specified key group does not exist.</p>
+ * The specified key group does not exist.
+ *
  * @public
  */
 export class TrustedKeyGroupDoesNotExist extends __BaseException {
@@ -1660,7 +1736,8 @@ export class TrustedKeyGroupDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>One or more of your trusted signers don't exist.</p>
+ * One or more of your trusted signers don't exist.
+ *
  * @public
  */
 export class TrustedSignerDoesNotExist extends __BaseException {
@@ -1683,7 +1760,8 @@ export class TrustedSignerDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The entity already exists. You must provide a unique entity.</p>
+ * The entity already exists. You must provide a unique entity.
+ *
  * @public
  */
 export class EntityAlreadyExists extends __BaseException {
@@ -1706,7 +1784,8 @@ export class EntityAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The tagging specified is not valid.</p>
+ * The tagging specified is not valid.
+ *
  * @public
  */
 export class InvalidTagging extends __BaseException {
@@ -1729,7 +1808,8 @@ export class InvalidTagging extends __BaseException {
 }
 
 /**
- * <p>This operation is not supported in this Amazon Web Services Region.</p>
+ * This operation is not supported in this Amazon Web Services Region.
+ *
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
@@ -1752,7 +1832,8 @@ export class UnsupportedOperation extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of cache policies for this Amazon Web Services account. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyCachePolicies extends __BaseException {
@@ -1775,7 +1856,8 @@ export class TooManyCachePolicies extends __BaseException {
 }
 
 /**
- * <p>The number of cookies in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of cookies in the cache policy exceeds the maximum. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyCookiesInCachePolicy extends __BaseException {
@@ -1798,7 +1880,8 @@ export class TooManyCookiesInCachePolicy extends __BaseException {
 }
 
 /**
- * <p>The number of headers in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of headers in the cache policy exceeds the maximum. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyHeadersInCachePolicy extends __BaseException {
@@ -1821,7 +1904,8 @@ export class TooManyHeadersInCachePolicy extends __BaseException {
 }
 
 /**
- * <p>The number of query strings in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of query strings in the cache policy exceeds the maximum. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyQueryStringsInCachePolicy extends __BaseException {
@@ -1844,7 +1928,8 @@ export class TooManyQueryStringsInCachePolicy extends __BaseException {
 }
 
 /**
- * <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+ * If the `CallerReference` is a value you already sent in a previous request to create an identity but the content of the `CloudFrontOriginAccessIdentityConfig` is different from the original request, CloudFront returns a `CloudFrontOriginAccessIdentityAlreadyExists` error.
+ *
  * @public
  */
 export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException {
@@ -1867,7 +1952,8 @@ export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException
 }
 
 /**
- * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
+ * Processing your request would cause you to exceed the maximum number of origin access identities allowed.
+ *
  * @public
  */
 export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
@@ -1890,7 +1976,8 @@ export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
 }
 
 /**
- * <p>The entity size limit was exceeded.</p>
+ * The entity size limit was exceeded.
+ *
  * @public
  */
 export class EntitySizeLimitExceeded extends __BaseException {
@@ -1913,7 +2000,8 @@ export class EntitySizeLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>A continuous deployment policy with this configuration already exists.</p>
+ * A continuous deployment policy with this configuration already exists.
+ *
  * @public
  */
 export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
@@ -1936,7 +2024,8 @@ export class ContinuousDeploymentPolicyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>A continuous deployment policy for this staging distribution already exists.</p>
+ * A continuous deployment policy for this staging distribution already exists.
+ *
  * @public
  */
 export class StagingDistributionInUse extends __BaseException {
@@ -1959,7 +2048,8 @@ export class StagingDistributionInUse extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of continuous deployment policies for this Amazon Web Services account.</p>
+ * You have reached the maximum number of continuous deployment policies for this Amazon Web Services account.
+ *
  * @public
  */
 export class TooManyContinuousDeploymentPolicies extends __BaseException {
@@ -1982,7 +2072,8 @@ export class TooManyContinuousDeploymentPolicies extends __BaseException {
 }
 
 /**
- * <p>You cannot delete a continuous deployment policy that is associated with a primary distribution.</p>
+ * You cannot delete a continuous deployment policy that is associated with a primary distribution.
+ *
  * @public
  */
 export class ContinuousDeploymentPolicyInUse extends __BaseException {
@@ -2005,7 +2096,8 @@ export class ContinuousDeploymentPolicyInUse extends __BaseException {
 }
 
 /**
- * <p>An origin cannot contain both an origin access control (OAC) and an origin access identity (OAI).</p>
+ * An origin cannot contain both an origin access control (OAC) and an origin access identity (OAI).
+ *
  * @public
  */
 export class IllegalOriginAccessConfiguration extends __BaseException {
@@ -2028,7 +2120,8 @@ export class IllegalOriginAccessConfiguration extends __BaseException {
 }
 
 /**
- * <p>An origin access control is associated with an origin whose domain name is not supported.</p>
+ * An origin access control is associated with an origin whose domain name is not supported.
+ *
  * @public
  */
 export class InvalidDomainNameForOriginAccessControl extends __BaseException {
@@ -2051,7 +2144,8 @@ export class InvalidDomainNameForOriginAccessControl extends __BaseException {
 }
 
 /**
- * <p>The continuous deployment policy doesn't exist.</p>
+ * The continuous deployment policy doesn't exist.
+ *
  * @public
  */
 export class NoSuchContinuousDeploymentPolicy extends __BaseException {
@@ -2074,7 +2168,8 @@ export class NoSuchContinuousDeploymentPolicy extends __BaseException {
 }
 
 /**
- * <p>The specified CloudFront resource can't be associated.</p>
+ * The specified CloudFront resource can't be associated.
+ *
  * @public
  */
 export class InvalidAssociation extends __BaseException {
@@ -2097,7 +2192,8 @@ export class InvalidAssociation extends __BaseException {
 }
 
 /**
- * <p>The specified configuration for field-level encryption already exists.</p>
+ * The specified configuration for field-level encryption already exists.
+ *
  * @public
  */
 export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
@@ -2120,7 +2216,8 @@ export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The specified profile for field-level encryption doesn't exist.</p>
+ * The specified profile for field-level encryption doesn't exist.
+ *
  * @public
  */
 export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
@@ -2143,7 +2240,8 @@ export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
 }
 
 /**
- * <p>No profile specified for the field-level encryption query argument.</p>
+ * No profile specified for the field-level encryption query argument.
+ *
  * @public
  */
 export class QueryArgProfileEmpty extends __BaseException {
@@ -2166,7 +2264,8 @@ export class QueryArgProfileEmpty extends __BaseException {
 }
 
 /**
- * <p>The maximum number of configurations for field-level encryption have been created.</p>
+ * The maximum number of configurations for field-level encryption have been created.
+ *
  * @public
  */
 export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
@@ -2189,7 +2288,8 @@ export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
 }
 
 /**
- * <p>The maximum number of content type profiles for field-level encryption have been created.</p>
+ * The maximum number of content type profiles for field-level encryption have been created.
+ *
  * @public
  */
 export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseException {
@@ -2212,7 +2312,8 @@ export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseExcept
 }
 
 /**
- * <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
+ * The maximum number of query arg profiles for field-level encryption have been created.
+ *
  * @public
  */
 export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException {
@@ -2235,7 +2336,8 @@ export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException
 }
 
 /**
- * <p>The specified profile for field-level encryption already exists.</p>
+ * The specified profile for field-level encryption already exists.
+ *
  * @public
  */
 export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
@@ -2258,7 +2360,8 @@ export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The maximum size of a profile for field-level encryption was exceeded.</p>
+ * The maximum size of a profile for field-level encryption was exceeded.
+ *
  * @public
  */
 export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
@@ -2281,7 +2384,8 @@ export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
 }
 
 /**
- * <p>The specified public key doesn't exist.</p>
+ * The specified public key doesn't exist.
+ *
  * @public
  */
 export class NoSuchPublicKey extends __BaseException {
@@ -2304,7 +2408,8 @@ export class NoSuchPublicKey extends __BaseException {
 }
 
 /**
- * <p>The maximum number of encryption entities for field-level encryption have been created.</p>
+ * The maximum number of encryption entities for field-level encryption have been created.
+ *
  * @public
  */
 export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseException {
@@ -2327,7 +2432,8 @@ export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseExcepti
 }
 
 /**
- * <p>The maximum number of field patterns for field-level encryption have been created.</p>
+ * The maximum number of field patterns for field-level encryption have been created.
+ *
  * @public
  */
 export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
@@ -2350,7 +2456,8 @@ export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
 }
 
 /**
- * <p>The maximum number of profiles for field-level encryption have been created.</p>
+ * The maximum number of profiles for field-level encryption have been created.
+ *
  * @public
  */
 export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
@@ -2373,7 +2480,8 @@ export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
 }
 
 /**
- * <p>A function with the same name already exists in this Amazon Web Services account. To create a function, you must provide a unique name. To update an existing function, use <code>UpdateFunction</code>.</p>
+ * A function with the same name already exists in this Amazon Web Services account. To create a function, you must provide a unique name. To update an existing function, use `UpdateFunction`.
+ *
  * @public
  */
 export class FunctionAlreadyExists extends __BaseException {
@@ -2396,7 +2504,8 @@ export class FunctionAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The function is too large. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class FunctionSizeLimitExceeded extends __BaseException {
@@ -2419,7 +2528,8 @@ export class FunctionSizeLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyFunctions extends __BaseException {
@@ -2442,7 +2552,8 @@ export class TooManyFunctions extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
+ * You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.
+ *
  * @public
  */
 export class TooManyInvalidationsInProgress extends __BaseException {
@@ -2465,7 +2576,8 @@ export class TooManyInvalidationsInProgress extends __BaseException {
 }
 
 /**
- * <p>A key group with this name already exists. You must provide a unique name. To modify an existing key group, use <code>UpdateKeyGroup</code>.</p>
+ * A key group with this name already exists. You must provide a unique name. To modify an existing key group, use `UpdateKeyGroup`.
+ *
  * @public
  */
 export class KeyGroupAlreadyExists extends __BaseException {
@@ -2488,7 +2600,8 @@ export class KeyGroupAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of key groups for this Amazon Web Services account. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyKeyGroups extends __BaseException {
@@ -2511,7 +2624,8 @@ export class TooManyKeyGroups extends __BaseException {
 }
 
 /**
- * <p>The number of public keys in this key group is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of public keys in this key group is more than the maximum allowed. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyPublicKeysInKeyGroup extends __BaseException {
@@ -2534,7 +2648,8 @@ export class TooManyPublicKeysInKeyGroup extends __BaseException {
 }
 
 /**
- * <p>A monitoring subscription already exists for the specified distribution.</p>
+ * A monitoring subscription already exists for the specified distribution.
+ *
  * @public
  */
 export class MonitoringSubscriptionAlreadyExists extends __BaseException {
@@ -2557,7 +2672,8 @@ export class MonitoringSubscriptionAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>An origin access control with the specified parameters already exists.</p>
+ * An origin access control with the specified parameters already exists.
+ *
  * @public
  */
 export class OriginAccessControlAlreadyExists extends __BaseException {
@@ -2580,7 +2696,10 @@ export class OriginAccessControlAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The number of origin access controls in your Amazon Web Services account exceeds the maximum allowed.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of origin access controls in your Amazon Web Services account exceeds the maximum allowed.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyOriginAccessControls extends __BaseException {
@@ -2603,7 +2722,8 @@ export class TooManyOriginAccessControls extends __BaseException {
 }
 
 /**
- * <p>An origin request policy with this name already exists. You must provide a unique name. To modify an existing origin request policy, use <code>UpdateOriginRequestPolicy</code>.</p>
+ * An origin request policy with this name already exists. You must provide a unique name. To modify an existing origin request policy, use `UpdateOriginRequestPolicy`.
+ *
  * @public
  */
 export class OriginRequestPolicyAlreadyExists extends __BaseException {
@@ -2626,7 +2746,8 @@ export class OriginRequestPolicyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The number of cookies in the origin request policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of cookies in the origin request policy exceeds the maximum. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
@@ -2649,7 +2770,8 @@ export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
 }
 
 /**
- * <p>The number of headers in the origin request policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of headers in the origin request policy exceeds the maximum. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
@@ -2672,7 +2794,8 @@ export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of origin request policies for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of origin request policies for this Amazon Web Services account. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyOriginRequestPolicies extends __BaseException {
@@ -2695,7 +2818,8 @@ export class TooManyOriginRequestPolicies extends __BaseException {
 }
 
 /**
- * <p>The number of query strings in the origin request policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of query strings in the origin request policy exceeds the maximum. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
@@ -2718,7 +2842,8 @@ export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
 }
 
 /**
- * <p>The specified public key already exists.</p>
+ * The specified public key already exists.
+ *
  * @public
  */
 export class PublicKeyAlreadyExists extends __BaseException {
@@ -2741,7 +2866,8 @@ export class PublicKeyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
+ * The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.
+ *
  * @public
  */
 export class TooManyPublicKeys extends __BaseException {
@@ -2764,7 +2890,8 @@ export class TooManyPublicKeys extends __BaseException {
 }
 
 /**
- * <p>A real-time log configuration with this name already exists. You must provide a unique name. To modify an existing real-time log configuration, use <code>UpdateRealtimeLogConfig</code>.</p>
+ * A real-time log configuration with this name already exists. You must provide a unique name. To modify an existing real-time log configuration, use `UpdateRealtimeLogConfig`.
+ *
  * @public
  */
 export class RealtimeLogConfigAlreadyExists extends __BaseException {
@@ -2787,7 +2914,8 @@ export class RealtimeLogConfigAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum number of real-time log configurations for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of real-time log configurations for this Amazon Web Services account. For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyRealtimeLogConfigs extends __BaseException {
@@ -2810,7 +2938,8 @@ export class TooManyRealtimeLogConfigs extends __BaseException {
 }
 
 /**
- * <p>A response headers policy with this name already exists. You must provide a unique name. To modify an existing response headers policy, use <code>UpdateResponseHeadersPolicy</code>.</p>
+ * A response headers policy with this name already exists. You must provide a unique name. To modify an existing response headers policy, use `UpdateResponseHeadersPolicy`.
+ *
  * @public
  */
 export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
@@ -2833,7 +2962,10 @@ export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The length of the <code>Content-Security-Policy</code> header value in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The length of the `Content-Security-Policy` header value in the response headers policy exceeds the maximum.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
@@ -2856,7 +2988,10 @@ export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
 }
 
 /**
- * <p>The number of custom headers in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of custom headers in the response headers policy exceeds the maximum.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException {
@@ -2879,7 +3014,10 @@ export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException
 }
 
 /**
- * <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * The number of headers in `RemoveHeadersConfig` in the response headers policy exceeds the maximum.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException {
@@ -2902,7 +3040,10 @@ export class TooManyRemoveHeadersInResponseHeadersPolicy extends __BaseException
 }
 
 /**
- * <p>You have reached the maximum number of response headers policies for this Amazon Web Services account.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * You have reached the maximum number of response headers policies for this Amazon Web Services account.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) (formerly known as limits) in the *Amazon CloudFront Developer Guide*.
+ *
  * @public
  */
 export class TooManyResponseHeadersPolicies extends __BaseException {
@@ -2925,7 +3066,8 @@ export class TooManyResponseHeadersPolicies extends __BaseException {
 }
 
 /**
- * <p>The caller reference you attempted to create the streaming distribution with is associated with another distribution</p>
+ * The caller reference you attempted to create the streaming distribution with is associated with another distribution
+ *
  * @public
  */
 export class StreamingDistributionAlreadyExists extends __BaseException {
@@ -2948,7 +3090,8 @@ export class StreamingDistributionAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ * Your request contains more CNAMEs than are allowed per distribution.
+ *
  * @public
  */
 export class TooManyStreamingDistributionCNAMEs extends __BaseException {
@@ -2971,7 +3114,8 @@ export class TooManyStreamingDistributionCNAMEs extends __BaseException {
 }
 
 /**
- * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+ * Processing your request would cause you to exceed the maximum number of streaming distributions allowed.
+ *
  * @public
  */
 export class TooManyStreamingDistributions extends __BaseException {
@@ -2994,7 +3138,8 @@ export class TooManyStreamingDistributions extends __BaseException {
 }
 
 /**
- * <p>Deletion is not allowed for this entity.</p>
+ * Deletion is not allowed for this entity.
+ *
  * @public
  */
 export class IllegalDelete extends __BaseException {
@@ -3017,7 +3162,8 @@ export class IllegalDelete extends __BaseException {
 }
 
 /**
- * <p>The Origin Access Identity specified is already in use.</p>
+ * The Origin Access Identity specified is already in use.
+ *
  * @public
  */
 export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
@@ -3040,7 +3186,8 @@ export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
 }
 
 /**
- * <p>The specified origin access identity does not exist.</p>
+ * The specified origin access identity does not exist.
+ *
  * @public
  */
 export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
@@ -3063,7 +3210,8 @@ export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
 }
 
 /**
- * <p>The specified CloudFront resource hasn't been disabled yet.</p>
+ * The specified CloudFront resource hasn't been disabled yet.
+ *
  * @public
  */
 export class ResourceNotDisabled extends __BaseException {
@@ -3086,7 +3234,8 @@ export class ResourceNotDisabled extends __BaseException {
 }
 
 /**
- * <p>The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.</p>
+ * The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.
+ *
  * @public
  */
 export class DistributionNotDisabled extends __BaseException {
@@ -3109,7 +3258,8 @@ export class DistributionNotDisabled extends __BaseException {
 }
 
 /**
- * <p>Cannot delete this resource because it is in use.</p>
+ * Cannot delete this resource because it is in use.
+ *
  * @public
  */
 export class ResourceInUse extends __BaseException {
@@ -3132,7 +3282,8 @@ export class ResourceInUse extends __BaseException {
 }
 
 /**
- * <p>The specified configuration for field-level encryption is in use.</p>
+ * The specified configuration for field-level encryption is in use.
+ *
  * @public
  */
 export class FieldLevelEncryptionConfigInUse extends __BaseException {
@@ -3155,7 +3306,8 @@ export class FieldLevelEncryptionConfigInUse extends __BaseException {
 }
 
 /**
- * <p>The specified profile for field-level encryption is in use.</p>
+ * The specified profile for field-level encryption is in use.
+ *
  * @public
  */
 export class FieldLevelEncryptionProfileInUse extends __BaseException {
@@ -3178,7 +3330,8 @@ export class FieldLevelEncryptionProfileInUse extends __BaseException {
 }
 
 /**
- * <p>Cannot delete the function because it's attached to one or more cache behaviors.</p>
+ * Cannot delete the function because it's attached to one or more cache behaviors.
+ *
  * @public
  */
 export class FunctionInUse extends __BaseException {
@@ -3201,7 +3354,8 @@ export class FunctionInUse extends __BaseException {
 }
 
 /**
- * <p>The function does not exist.</p>
+ * The function does not exist.
+ *
  * @public
  */
 export class NoSuchFunctionExists extends __BaseException {
@@ -3224,7 +3378,8 @@ export class NoSuchFunctionExists extends __BaseException {
 }
 
 /**
- * <p>A resource that was specified is not valid.</p>
+ * A resource that was specified is not valid.
+ *
  * @public
  */
 export class NoSuchResource extends __BaseException {
@@ -3247,7 +3402,8 @@ export class NoSuchResource extends __BaseException {
 }
 
 /**
- * <p>A monitoring subscription does not exist for the specified distribution.</p>
+ * A monitoring subscription does not exist for the specified distribution.
+ *
  * @public
  */
 export class NoSuchMonitoringSubscription extends __BaseException {
@@ -3270,7 +3426,8 @@ export class NoSuchMonitoringSubscription extends __BaseException {
 }
 
 /**
- * <p>The origin access control does not exist.</p>
+ * The origin access control does not exist.
+ *
  * @public
  */
 export class NoSuchOriginAccessControl extends __BaseException {
@@ -3293,7 +3450,8 @@ export class NoSuchOriginAccessControl extends __BaseException {
 }
 
 /**
- * <p>Cannot delete the origin access control because it's in use by one or more distributions.</p>
+ * Cannot delete the origin access control because it's in use by one or more distributions.
+ *
  * @public
  */
 export class OriginAccessControlInUse extends __BaseException {
@@ -3316,7 +3474,8 @@ export class OriginAccessControlInUse extends __BaseException {
 }
 
 /**
- * <p>Cannot delete the origin request policy because it is attached to one or more cache behaviors.</p>
+ * Cannot delete the origin request policy because it is attached to one or more cache behaviors.
+ *
  * @public
  */
 export class OriginRequestPolicyInUse extends __BaseException {
@@ -3339,7 +3498,8 @@ export class OriginRequestPolicyInUse extends __BaseException {
 }
 
 /**
- * <p>The specified public key is in use.</p>
+ * The specified public key is in use.
+ *
  * @public
  */
 export class PublicKeyInUse extends __BaseException {
@@ -3362,7 +3522,8 @@ export class PublicKeyInUse extends __BaseException {
 }
 
 /**
- * <p>Cannot delete the real-time log configuration because it is attached to one or more cache behaviors.</p>
+ * Cannot delete the real-time log configuration because it is attached to one or more cache behaviors.
+ *
  * @public
  */
 export class RealtimeLogConfigInUse extends __BaseException {
@@ -3385,7 +3546,8 @@ export class RealtimeLogConfigInUse extends __BaseException {
 }
 
 /**
- * <p>Cannot delete the response headers policy because it is attached to one or more cache behaviors in a CloudFront distribution.</p>
+ * Cannot delete the response headers policy because it is attached to one or more cache behaviors in a CloudFront distribution.
+ *
  * @public
  */
 export class ResponseHeadersPolicyInUse extends __BaseException {
@@ -3408,7 +3570,8 @@ export class ResponseHeadersPolicyInUse extends __BaseException {
 }
 
 /**
- * <p>The specified streaming distribution does not exist.</p>
+ * The specified streaming distribution does not exist.
+ *
  * @public
  */
 export class NoSuchStreamingDistribution extends __BaseException {
@@ -3431,7 +3594,8 @@ export class NoSuchStreamingDistribution extends __BaseException {
 }
 
 /**
- * <p>The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.</p>
+ * The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.
+ *
  * @public
  */
 export class StreamingDistributionNotDisabled extends __BaseException {
@@ -3454,7 +3618,8 @@ export class StreamingDistributionNotDisabled extends __BaseException {
 }
 
 /**
- * <p>The specified invalidation does not exist.</p>
+ * The specified invalidation does not exist.
+ *
  * @public
  */
 export class NoSuchInvalidation extends __BaseException {
@@ -3477,7 +3642,8 @@ export class NoSuchInvalidation extends __BaseException {
 }
 
 /**
- * <p>The CloudFront function failed.</p>
+ * The CloudFront function failed.
+ *
  * @public
  */
 export class TestFunctionFailed extends __BaseException {

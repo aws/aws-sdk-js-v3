@@ -23,33 +23,25 @@ export interface DeleteStateMachineCommandInput extends DeleteStateMachineInput 
 export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a state machine. This is an asynchronous operation. It sets the state machine's
- *       status to <code>DELETING</code> and begins the deletion process. A state machine is deleted only when all its executions are completed. On the next state transition, the state machine's executions are terminated.</p>
- *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
- *          <p>The following are some examples of qualified and unqualified state machine ARNs:</p>
- *          <ul>
- *             <li>
- *                <p>The following qualified state machine ARN refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in a state machine named <code>myStateMachine</code>.</p>
- *                <p>
- *                   <code>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</code>
- *                </p>
- *                <note>
- *                   <p>If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>, the request fails with <code>ValidationException</code>.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>The following unqualified state machine ARN refers to a state machine named <code>myStateMachine</code>.</p>
- *                <p>
- *                   <code>arn:partition:states:region:account-id:stateMachine:myStateMachine</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>This API action also deletes all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">versions</a> and <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">aliases</a> associated with a state machine.</p>
- *          <note>
- *             <p>For <code>EXPRESS</code> state machines, the deletion happens eventually (usually in
- *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
- *         API is called.</p>
- *          </note>
+ * Deletes a state machine. This is an asynchronous operation. It sets the state machine's status to `DELETING` and begins the deletion process. A state machine is deleted only when all its executions are completed. On the next state transition, the state machine's executions are terminated.
+ *
+ * A qualified state machine ARN can either refer to a *Distributed Map state* defined within a state machine, a version ARN, or an alias ARN.
+ *
+ * The following are some examples of qualified and unqualified state machine ARNs:
+ *
+ * - The following qualified state machine ARN refers to a *Distributed Map state* with a label `mapStateLabel` in a state machine named `myStateMachine`.
+ *
+ *   `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+ *
+ *   > **Note:** If you provide a qualified state machine ARN that refers to a *Distributed Map state*, the request fails with `ValidationException`.
+ * - The following unqualified state machine ARN refers to a state machine named `myStateMachine`.
+ *
+ *   `arn:partition:states:region:account-id:stateMachine:myStateMachine`
+ *
+ * This API action also deletes all [versions](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html) and [aliases](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html) associated with a state machine.
+ *
+ * > **Note:** For `EXPRESS` state machines, the deletion happens eventually (usually in less than a minute). Running executions may emit logs after `DeleteStateMachine` API is called.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +66,16 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

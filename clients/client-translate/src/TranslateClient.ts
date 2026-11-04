@@ -360,7 +360,8 @@ export type TranslateClientResolvedConfigType = __SmithyResolvedConfiguration<__
 export interface TranslateClientResolvedConfig extends TranslateClientResolvedConfigType {}
 
 /**
- * <p>Provides translation of the input content from the source language to the target language.</p>
+ * Provides translation of the input content from the source language to the target language.
+ *
  * @public
  */
 export class TranslateClient extends __Client<

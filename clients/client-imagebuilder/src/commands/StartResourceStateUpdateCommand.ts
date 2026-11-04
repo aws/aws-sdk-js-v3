@@ -23,15 +23,8 @@ export interface StartResourceStateUpdateCommandInput extends StartResourceState
 export interface StartResourceStateUpdateCommandOutput extends StartResourceStateUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Begins an ad-hoc state change for the specified image build version.
- * 			This is a one-time operation - if you schedule the update, it runs only
- * 			once. If the
- * 			request includes underlying resources, or schedules the update far enough in
- * 			the future, Image Builder runs the update as an asynchronous lifecycle execution and
- * 			returns its identifier. Otherwise, for target states other than
- * 			<code>DELETED</code>, the state change applies immediately. If a request
- * 			that starts a lifecycle execution arrives while the image already has one in
- * 			progress, Image Builder rejects it.</p>
+ * Begins an ad-hoc state change for the specified image build version. This is a one-time operation - if you schedule the update, it runs only once. If the request includes underlying resources, or schedules the update far enough in the future, Image Builder runs the update as an asynchronous lifecycle execution and returns its identifier. Otherwise, for target states other than `DELETED`, the state change applies immediately. If a request that starts a lifecycle execution arrives while the image already has one in progress, Image Builder rejects it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,43 +81,44 @@ export interface StartResourceStateUpdateCommandOutput extends StartResourceStat
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
- * 			calls on your behalf. Retry with an increasing or variable delay between
- * 			requests.</p>
+ *
+ * You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder calls on your behalf. Retry with an increasing or variable delay between requests.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * You are not authorized to perform the requested operation.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>You have specified a client token for an operation using parameter values that differ
- * 			from a previous request that used the same client token.</p>
+ *
+ * You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is malformed or otherwise invalid. Verify the request and try
- * 			again.</p>
+ *
+ * The request is malformed or otherwise invalid. Verify the request and try again.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource that you are trying to operate on is currently in use. Review the message
- * 			details and retry later.</p>
+ *
+ * The resource that you are trying to operate on is currently in use. Review the message details and retry later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>At least one of the resources referenced by your request does not exist.</p>
+ *
+ * At least one of the resources referenced by your request does not exist.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example Schedule an image build version for deprecation
  * ```javascript

@@ -12,7 +12,8 @@ import type {
 } from "./models_0";
 
 /**
- * <p>You don't have sufficient permission to perform this action.</p>
+ * You don't have sufficient permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -33,7 +34,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed because the server temporarily failed.</p>
+ * The request couldn't be completed because the server temporarily failed.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -41,7 +43,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The number of seconds to wait before retrying the command.</p>
+   * The number of seconds to wait before retrying the command.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -61,7 +64,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>A service quota was exceeded. </p>
+ * A service quota was exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -69,13 +73,15 @@ export class LimitExceededException extends __BaseException {
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that was exceeded.</p>
+   * The identifier of the resource that was exceeded.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that was exceeded.</p>
+   * The type of resource that was exceeded.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -96,7 +102,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource wasn't found.</p>
+ * The resource wasn't found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -104,13 +111,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that wasn't found.</p>
+   * The identifier of the resource that wasn't found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that wasn't found.</p>
+   * The type of resource that wasn't found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -131,7 +140,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed due to throttling.</p>
+ * The request couldn't be completed due to throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -139,19 +149,22 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The quota identifier of the applied throttling rules for this request.</p>
+   * The quota identifier of the applied throttling rules for this request.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The code for the service that couldn't be completed due to throttling.</p>
+   * The code for the service that couldn't be completed due to throttling.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the command.</p>
+   * The number of seconds to wait before retrying the command.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -173,7 +186,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -181,15 +195,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services
-   *             service.</p>
+   * The reason the input failed to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that fail to satisfy the constraints specified by an Amazon Web Services
-   *             service.</p>
+   * The list of fields that fail to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -210,8 +224,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time.</p>
+ * The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -219,13 +233,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource on which there are conflicting operations.</p>
+   * The resource on which there are conflicting operations.
+   *
    * @public
    */
   resource: string | undefined;
 
   /**
-   * <p>The type of resource on which there are conflicting operations..</p>
+   * The type of resource on which there are conflicting operations..
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -246,8 +262,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed because it contains signal decoders with one or more
- *             validation errors.</p>
+ * The request couldn't be completed because it contains signal decoders with one or more validation errors.
+ *
  * @public
  */
 export class DecoderManifestValidationException extends __BaseException {
@@ -255,14 +271,15 @@ export class DecoderManifestValidationException extends __BaseException {
   readonly name = "DecoderManifestValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The request couldn't be completed because of invalid signals in the request.</p>
+   * The request couldn't be completed because of invalid signals in the request.
+   *
    * @public
    */
   invalidSignals?: InvalidSignalDecoder[] | undefined;
 
   /**
-   * <p>The request couldn't be completed because of invalid network interfaces in the
-   *             request.</p>
+   * The request couldn't be completed because of invalid network interfaces in the request.
+   *
    * @public
    */
   invalidNetworkInterfaces?: InvalidNetworkInterface[] | undefined;
@@ -283,8 +300,8 @@ export class DecoderManifestValidationException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed because it contains signals that aren't
- *             valid.</p>
+ * The request couldn't be completed because it contains signals that aren't valid.
+ *
  * @public
  */
 export class InvalidSignalsException extends __BaseException {
@@ -292,7 +309,8 @@ export class InvalidSignalsException extends __BaseException {
   readonly name = "InvalidSignalsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The signals which caused the exception.</p>
+   * The signals which caused the exception.
+   *
    * @public
    */
   invalidSignals?: InvalidSignal[] | undefined;
@@ -312,8 +330,8 @@ export class InvalidSignalsException extends __BaseException {
 }
 
 /**
- * <p>The specified node type doesn't match the expected node type for a node. You can
- *             specify the node type as branch, sensor, actuator, or attribute.</p>
+ * The specified node type doesn't match the expected node type for a node. You can specify the node type as branch, sensor, actuator, or attribute.
+ *
  * @public
  */
 export class InvalidNodeException extends __BaseException {
@@ -321,13 +339,15 @@ export class InvalidNodeException extends __BaseException {
   readonly name = "InvalidNodeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The specified node type isn't valid.</p>
+   * The specified node type isn't valid.
+   *
    * @public
    */
   invalidNodes?: Node[] | undefined;
 
   /**
-   * <p>The reason the node validation failed.</p>
+   * The reason the node validation failed.
+   *
    * @public
    */
   reason?: string | undefined;

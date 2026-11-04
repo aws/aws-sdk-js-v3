@@ -5,7 +5,8 @@ import { BedrockAgentServiceException as __BaseException } from "./BedrockAgentS
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The request is denied because of missing access permissions.</p>
+ * The request is denied because of missing access permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict performing an operation.</p>
+ * There was a conflict performing an operation.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -47,7 +49,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -89,7 +93,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * The number of requests exceeds the service quota. Resubmit your request later.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -110,7 +115,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * The number of requests exceeds the limit. Resubmit your request later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -131,7 +137,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * Input validation failed. Check your request parameters and retry the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -139,7 +146,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of objects containing fields that caused validation errors and their corresponding validation error messages.</p>
+   * A list of objects containing fields that caused validation errors and their corresponding validation error messages.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

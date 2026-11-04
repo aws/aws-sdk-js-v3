@@ -23,17 +23,10 @@ export interface TranslateDocumentCommandInput extends TranslateDocumentRequest 
 export interface TranslateDocumentCommandOutput extends TranslateDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Translates the input document from the source language to the target language.
- *       This synchronous operation supports text, HTML, or Word documents as the input document.
+ * Translates the input document from the source language to the target language. This synchronous operation supports text, HTML, or Word documents as the input document. `TranslateDocument` supports translations from English to any supported language, and from any supported language to English. Therefore, specify either the source language code or the target language code as “en” (English).
  *
- *       <code>TranslateDocument</code> supports translations from English to any supported language,
- *       and from any supported language to English. Therefore, specify either the source language code
- *       or the target language code as “en” (English).
- *     </p>
- *          <p> If you set the <code>Formality</code> parameter, the request will fail if the target language does
- *        not support formality. For a list of target languages that support formality, see
- *        <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting formality</a>.
- *     </p>
+ * If you set the `Formality` parameter, the request will fail if the target language does not support formality. For a list of target languages that support formality, see [Setting formality](https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,36 +86,36 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p> The request that you made is not valid. Check your request to determine why it's not
- *       valid and then retry the request. </p>
+ *
+ * The request that you made is not valid. Check your request to determine why it's not valid and then retry the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The specified limit has been exceeded. Review your request and retry it with a quantity
- *       below the stated limit.</p>
+ *
+ * The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are looking for has not been found. Review the resource you're looking
- *       for and see if a different resource will accomplish your needs before retrying the revised
- *       request.</p>
+ *
+ * The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your
- *       request.</p>
+ *
+ * The Amazon Translate service is temporarily unavailable. Wait a bit and then retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link UnsupportedLanguagePairException} (client fault)
- *  <p>Amazon Translate does not support translation from the language of the source text into the requested
- *       target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>. </p>
+ *
+ * Amazon Translate does not support translation from the language of the source text into the requested target language. For more information, see [Supported languages](https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html).
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteHomeRegionControlCommandInput extends DeleteHomeRegionCon
 export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionControlResult, __MetadataBearer {}
 
 /**
- * <p>This operation deletes the home region configuration for the calling account. The operation does not delete discovery or migration tracking data in the home region.</p>
+ * This operation deletes the home region configuration for the calling account. The operation does not delete discovery or migration tracking data in the home region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,26 +49,28 @@ export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionCo
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Exception raised when an internal, configuration, or dependency error is
- *       encountered.</p>
+ *
+ * Exception raised when an internal, configuration, or dependency error is encountered.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Exception raised when the provided input violates a policy constraint or is entered in the
- *       wrong format or data type.</p>
+ *
+ * Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Exception raised when a request fails due to temporary unavailability of the
- *       service.</p>
+ *
+ * Exception raised when a request fails due to temporary unavailability of the service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubConfigServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubConfig service.
  *
  * @public
  */

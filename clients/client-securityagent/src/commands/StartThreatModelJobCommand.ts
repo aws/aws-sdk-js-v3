@@ -24,7 +24,8 @@ export interface StartThreatModelJobCommandInput extends StartThreatModelJobInpu
 export interface StartThreatModelJobCommandOutput extends StartThreatModelJobOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a new threat model job for a threat model configuration.</p>
+ * Starts a new threat model job for a threat model configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +59,8 @@ export interface StartThreatModelJobCommandOutput extends StartThreatModelJobOut
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

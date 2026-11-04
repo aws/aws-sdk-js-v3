@@ -23,10 +23,8 @@ export interface GetInstanceProfileCommandInput extends GetInstanceProfileReques
 export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves information about the specified instance profile, including the instance
- *             profile's path, GUID, ARN, and role. For more information about instance profiles, see
- *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
- *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
+ * Retrieves information about the specified instance profile, including the instance profile's path, GUID, ARN, and role. For more information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,16 +93,16 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To get information about an instance profile
  * ```javascript

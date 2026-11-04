@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IotDeviceAdvisorServiceException as __BaseException } from "./IotDeviceAdvisorServiceException";
 
 /**
- * <p>Sends a Conflict Exception.</p>
+ * Sends a Conflict Exception.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -25,7 +26,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Sends an Internal Failure exception.</p>
+ * Sends an Internal Failure exception.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Sends a validation exception.</p>
+ * Sends a validation exception.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -67,7 +70,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Sends a Resource Not Found exception.</p>
+ * Sends a Resource Not Found exception.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

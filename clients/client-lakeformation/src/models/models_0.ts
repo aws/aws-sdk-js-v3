@@ -22,366 +22,426 @@ import type {
 } from "./enums";
 
 /**
- * <p>A structure containing an LF-tag key-value pair.</p>
+ * A structure containing an LF-tag key-value pair.
+ *
  * @public
  */
 export interface LFTagPair {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag.</p>
+   * The key-name for the LF-tag.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>A list of possible values an attribute can take.</p>
+   * A list of possible values an attribute can take.
+   *
    * @public
    */
   TagValues: string[] | undefined;
 }
 
 /**
- * <p>A structure for the catalog object.</p>
+ * A structure for the catalog object.
+ *
  * @public
  */
 export interface CatalogResource {
   /**
-   * <p>An identifier for the catalog resource.</p>
+   * An identifier for the catalog resource.
+   *
    * @public
    */
   Id?: string | undefined;
 }
 
 /**
- * <p>A structure for the database object.</p>
+ * A structure for the database object.
+ *
  * @public
  */
 export interface DatabaseResource {
   /**
-   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
+   * The identifier for the Data Catalog. By default, it is the account ID of the caller.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the database resource. Unique to the Data Catalog.</p>
+   * The name of the database resource. Unique to the Data Catalog.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A structure for a data cells filter resource. </p>
+ * A structure for a data cells filter resource.
+ *
  * @public
  */
 export interface DataCellsFilterResource {
   /**
-   * <p>The ID of the catalog to which the table belongs.</p>
+   * The ID of the catalog to which the table belongs.
+   *
    * @public
    */
   TableCatalogId?: string | undefined;
 
   /**
-   * <p>A database in the Glue Data Catalog.</p>
+   * A database in the Glue Data Catalog.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The name of the data cells filter. </p>
+   * The name of the data cells filter.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>A structure for a data location object where permissions are granted or revoked. </p>
+ * A structure for a data location object where permissions are granted or revoked.
+ *
  * @public
  */
 export interface DataLocationResource {
   /**
-   * <p>The identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.</p>
+   * The identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the data location resource.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 }
 
 /**
- * <p>A structure containing an LF-tag key and values for a resource.</p>
+ * A structure containing an LF-tag key and values for a resource.
+ *
  * @public
  */
 export interface LFTagKeyResource {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag.</p>
+   * The key-name for the LF-tag.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>A list of possible values an attribute can take.</p>
+   * A list of possible values an attribute can take.
+   *
    * @public
    */
   TagValues: string[] | undefined;
 }
 
 /**
- * <p>A structure containing a LF-Tag expression (keys and values).</p>
+ * A structure containing a LF-Tag expression (keys and values).
+ *
  * @public
  */
 export interface LFTagExpressionResource {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * The identifier for the Data Catalog. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the LF-Tag expression to grant permissions on.</p>
+   * The name of the LF-Tag expression to grant permissions on.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.</p>
+ * A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.
+ *
  * @public
  */
 export interface LFTag {
   /**
-   * <p>The key-name for the LF-tag.</p>
+   * The key-name for the LF-tag.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>A list of possible values an attribute can take.</p>
-   *          <p>The maximum number of values that can be defined for a LF-Tag is 1000. A single API call
-   *       supports 50 values. You can use multiple API calls to add more values.</p>
+   * A list of possible values an attribute can take.
+   *
+   * The maximum number of values that can be defined for a LF-Tag is 1000. A single API call supports 50 values. You can use multiple API calls to add more values.
+   *
    * @public
    */
   TagValues: string[] | undefined;
 }
 
 /**
- * <p>A structure containing a list of LF-tag conditions or saved LF-Tag expressions that apply to a resource's LF-tag policy.</p>
+ * A structure containing a list of LF-tag conditions or saved LF-Tag expressions that apply to a resource's LF-tag policy.
+ *
  * @public
  */
 export interface LFTagPolicyResource {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The resource type for which the LF-tag policy applies.</p>
+   * The resource type for which the LF-tag policy applies.
+   *
    * @public
    */
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>A list of LF-tag conditions or a saved expression that apply to the resource's LF-tag policy.</p>
+   * A list of LF-tag conditions or a saved expression that apply to the resource's LF-tag policy.
+   *
    * @public
    */
   Expression?: LFTag[] | undefined;
 
   /**
-   * <p>If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags
-   *       match the expression body of the saved expression under the provided
-   *         <code>ExpressionName</code>.</p>
+   * If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided `ExpressionName`.
+   *
    * @public
    */
   ExpressionName?: string | undefined;
 }
 
 /**
- * <p>A structure that identifies a row-level security policy as a resource, used when granting permissions on the policy.</p>
+ * A structure that identifies a row-level security policy as a resource, used when granting permissions on the policy.
+ *
  * @public
  */
 export interface RLSPolicyResource {
   /**
-   * <p>The identifier for the Data Catalog that contains the policy. By default, the account ID.</p>
+   * The identifier for the Data Catalog that contains the policy. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the row-level security policy.</p>
+   * The name of the row-level security policy.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A wildcard object representing every table under a database.</p>
+ * A wildcard object representing every table under a database.
+ *
  * @public
  */
 export interface TableWildcard {}
 
 /**
- * <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
+ * A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+ *
  * @public
  */
 export interface TableResource {
   /**
-   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
+   * The identifier for the Data Catalog. By default, it is the account ID of the caller.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
+   * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the table.</p>
+   * The name of the table.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A wildcard object representing every table under a database.</p>
-   *          <p>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code> is required.</p>
+   * A wildcard object representing every table under a database.
+   *
+   * At least one of `TableResource$Name` or `TableResource$TableWildcard` is required.
+   *
    * @public
    */
   TableWildcard?: TableWildcard | undefined;
 }
 
 /**
- * <p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>
+ * A wildcard object, consisting of an optional list of excluded column names or indexes.
+ *
  * @public
  */
 export interface ColumnWildcard {
   /**
-   * <p>Excludes column names. Any column with this name will be excluded.</p>
+   * Excludes column names. Any column with this name will be excluded.
+   *
    * @public
    */
   ExcludedColumnNames?: string[] | undefined;
 }
 
 /**
- * <p>A structure for a table with columns object. This object is only used when granting a SELECT permission.</p>
- *          <p>This object must take a value for at least one of <code>ColumnsNames</code>, <code>ColumnsIndexes</code>, or <code>ColumnsWildcard</code>.</p>
+ * A structure for a table with columns object. This object is only used when granting a SELECT permission.
+ *
+ * This object must take a value for at least one of `ColumnsNames`, `ColumnsIndexes`, or `ColumnsWildcard`.
+ *
  * @public
  */
 export interface TableWithColumnsResource {
   /**
-   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
+   * The identifier for the Data Catalog. By default, it is the account ID of the caller.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
+   * The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
+   * The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The list of column names for the table. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
+   * The list of column names for the table. At least one of `ColumnNames` or `ColumnWildcard` is required.
+   *
    * @public
    */
   ColumnNames?: string[] | undefined;
 
   /**
-   * <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
+   * A wildcard specified by a `ColumnWildcard` object. At least one of `ColumnNames` or `ColumnWildcard` is required.
+   *
    * @public
    */
   ColumnWildcard?: ColumnWildcard | undefined;
 }
 
 /**
- * <p>A structure for the resource.</p>
+ * A structure for the resource.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   Catalog?: CatalogResource | undefined;
 
   /**
-   * <p>The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. </p>
+   * The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+   *
    * @public
    */
   Database?: DatabaseResource | undefined;
 
   /**
-   * <p>The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
+   * The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+   *
    * @public
    */
   Table?: TableResource | undefined;
 
   /**
-   * <p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>
+   * The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
+   *
    * @public
    */
   TableWithColumns?: TableWithColumnsResource | undefined;
 
   /**
-   * <p>The location of an Amazon S3 path where permissions are granted or revoked. </p>
+   * The location of an Amazon S3 path where permissions are granted or revoked.
+   *
    * @public
    */
   DataLocation?: DataLocationResource | undefined;
 
   /**
-   * <p>A data cell filter.</p>
+   * A data cell filter.
+   *
    * @public
    */
   DataCellsFilter?: DataCellsFilterResource | undefined;
 
   /**
-   * <p>The LF-Tag key and values attached to a resource.</p>
+   * The LF-Tag key and values attached to a resource.
+   *
    * @public
    */
   LFTag?: LFTagKeyResource | undefined;
 
   /**
-   * <p>A list of LF-tag conditions or saved LF-Tag expressions that define a resource's LF-tag policy.</p>
+   * A list of LF-tag conditions or saved LF-Tag expressions that define a resource's LF-tag policy.
+   *
    * @public
    */
   LFTagPolicy?: LFTagPolicyResource | undefined;
 
   /**
-   * <p>LF-Tag expression resource. A logical expression composed of one or more LF-Tag key:value pairs.</p>
+   * LF-Tag expression resource. A logical expression composed of one or more LF-Tag key:value pairs.
+   *
    * @public
    */
   LFTagExpression?: LFTagExpressionResource | undefined;
 
   /**
-   * <p>A row-level security policy resource. Specify this when granting or revoking permissions on a row-level security policy.</p>
+   * A row-level security policy resource. Specify this when granting or revoking permissions on a row-level security policy.
+   *
    * @public
    */
   RLSPolicy?: RLSPolicyResource | undefined;
@@ -392,55 +452,64 @@ export interface Resource {
  */
 export interface AddLFTagsToResourceRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database, table, or column resource to which to attach an LF-tag.</p>
+   * The database, table, or column resource to which to attach an LF-tag.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>The LF-tags to attach to the resource.</p>
+   * The LF-tags to attach to the resource.
+   *
    * @public
    */
   LFTags: LFTagPair[] | undefined;
 }
 
 /**
- * <p>Contains details about an error.</p>
+ * Contains details about an error.
+ *
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The code associated with this error.</p>
+   * The code associated with this error.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>A structure containing an error related to a <code>TagResource</code> or <code>UnTagResource</code> operation.</p>
+ * A structure containing an error related to a `TagResource` or `UnTagResource` operation.
+ *
  * @public
  */
 export interface LFTagError {
   /**
-   * <p>The key-name of the LF-tag.</p>
+   * The key-name of the LF-tag.
+   *
    * @public
    */
   LFTag?: LFTagPair | undefined;
 
   /**
-   * <p>An error that occurred with the attachment or detachment of the LF-tag.</p>
+   * An error that occurred with the attachment or detachment of the LF-tag.
+   *
    * @public
    */
   Error?: ErrorDetail | undefined;
@@ -451,45 +520,53 @@ export interface LFTagError {
  */
 export interface AddLFTagsToResourceResponse {
   /**
-   * <p>A list of failures to tag the resource.</p>
+   * A list of failures to tag the resource.
+   *
    * @public
    */
   Failures?: LFTagError[] | undefined;
 }
 
 /**
- * <p>A new object to add to the governed table.</p>
+ * A new object to add to the governed table.
+ *
  * @public
  */
 export interface AddObjectInput {
   /**
-   * <p>The Amazon S3 location of the object.</p>
+   * The Amazon S3 location of the object.
+   *
    * @public
    */
   Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 ETag of the object. Returned by <code>GetTableObjects</code> for validation and used to identify changes to the underlying data.</p>
+   * The Amazon S3 ETag of the object. Returned by `GetTableObjects` for validation and used to identify changes to the underlying data.
+   *
    * @public
    */
   ETag: string | undefined;
 
   /**
-   * <p>The size of the Amazon S3 object in bytes.</p>
+   * The size of the Amazon S3 object in bytes.
+   *
    * @public
    */
   Size: number | undefined;
 
   /**
-   * <p>A list of partition values for the object. A value must be specified for each partition key associated with the table.</p>
-   *          <p>The supported data types are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss"), string and decimal.</p>
+   * A list of partition values for the object. A value must be specified for each partition key associated with the table.
+   *
+   * The supported data types are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss"), string and decimal.
+   *
    * @public
    */
   PartitionValues?: string[] | undefined;
 }
 
 /**
- * <p>A structure that you pass to indicate you want all rows in a filter. </p>
+ * A structure that you pass to indicate you want all rows in a filter.
+ *
  * @public
  */
 export interface AllRowsWildcard {}
@@ -499,25 +576,29 @@ export interface AllRowsWildcard {}
  */
 export interface AssumeDecoratedRoleWithSAMLRequest {
   /**
-   * <p>A SAML assertion consisting of an assertion statement for the user who needs temporary credentials. This must match the SAML assertion that was issued to IAM. This must be Base64 encoded.</p>
+   * A SAML assertion consisting of an assertion statement for the user who needs temporary credentials. This must match the SAML assertion that was issued to IAM. This must be Base64 encoded.
+   *
    * @public
    */
   SAMLAssertion: string | undefined;
 
   /**
-   * <p>The role that represents an IAM principal whose scope down policy allows it to call credential vending APIs such as <code>GetTemporaryTableCredentials</code>. The caller must also have iam:PassRole permission on this role.  </p>
+   * The role that represents an IAM principal whose scope down policy allows it to call credential vending APIs such as `GetTemporaryTableCredentials`. The caller must also have iam:PassRole permission on this role.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.</p>
+   * The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.
+   *
    * @public
    */
   PrincipalArn: string | undefined;
 
   /**
-   * <p>The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.</p>
+   * The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.
+   *
    * @public
    */
   DurationSeconds?: number | undefined;
@@ -528,50 +609,57 @@ export interface AssumeDecoratedRoleWithSAMLRequest {
  */
 export interface AssumeDecoratedRoleWithSAMLResponse {
   /**
-   * <p>The access key ID for the temporary credentials. (The access key consists of an access key ID and a secret key).</p>
+   * The access key ID for the temporary credentials. (The access key consists of an access key ID and a secret key).
+   *
    * @public
    */
   AccessKeyId?: string | undefined;
 
   /**
-   * <p>The secret key for the temporary credentials. (The access key consists of an access key ID and a secret key).</p>
+   * The secret key for the temporary credentials. (The access key consists of an access key ID and a secret key).
+   *
    * @public
    */
   SecretAccessKey?: string | undefined;
 
   /**
-   * <p>The session token for the temporary credentials.</p>
+   * The session token for the temporary credentials.
+   *
    * @public
    */
   SessionToken?: string | undefined;
 
   /**
-   * <p>The date and time when the temporary credentials expire.</p>
+   * The date and time when the temporary credentials expire.
+   *
    * @public
    */
   Expiration?: Date | undefined;
 }
 
 /**
- * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+ * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+ *
  * @public
  */
 export interface Condition {
   /**
-   * <p>An expression written based on the Cedar Policy Language used to match the principal attributes.</p>
+   * An expression written based on the Cedar Policy Language used to match the principal attributes.
+   *
    * @public
    */
   Expression?: string | undefined;
 }
 
 /**
- * <p>The Lake Formation principal. Supported principals are IAM users
- *       or IAM roles.</p>
+ * The Lake Formation principal. Supported principals are IAM users or IAM roles.
+ *
  * @public
  */
 export interface DataLakePrincipal {
   /**
-   * <p>An identifier for the Lake Formation principal.</p>
+   * An identifier for the Lake Formation principal.
+   *
    * @public
    */
   DataLakePrincipalIdentifier?: string | undefined;
@@ -582,31 +670,36 @@ export interface DataLakePrincipal {
  */
 export interface AttachRLSPolicyRequest {
   /**
-   * <p>The name of the row-level security policy to attach.</p>
+   * The name of the row-level security policy to attach.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The resource to which the row-level security policy is attached.</p>
+   * The resource to which the row-level security policy is attached.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>The principal to which the row-level security policy applies.</p>
+   * The principal to which the row-level security policy applies.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.</p>
+   * A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>Indicates whether this policy becomes the default row-level security policy for the resource. The default policy applies to all principals by default.</p>
+   * Indicates whether this policy becomes the default row-level security policy for the resource. The default policy applies to all principals by default.
+   *
    * @public
    */
   SetDefault?: boolean | undefined;
@@ -618,54 +711,63 @@ export interface AttachRLSPolicyRequest {
 export interface AttachRLSPolicyResponse {}
 
 /**
- * <p>A structure used to include auditing information on the privileged API. </p>
+ * A structure used to include auditing information on the privileged API.
+ *
  * @public
  */
 export interface AuditContext {
   /**
-   * <p>The filter engine can populate the 'AdditionalAuditContext' information with the request ID for you to track. This information will be displayed in CloudTrail log in your account.</p>
+   * The filter engine can populate the 'AdditionalAuditContext' information with the request ID for you to track. This information will be displayed in CloudTrail log in your account.
+   *
    * @public
    */
   AdditionalAuditContext?: string | undefined;
 }
 
 /**
- * <p>A permission to a resource granted by batch operation to the principal.</p>
+ * A permission to a resource granted by batch operation to the principal.
+ *
  * @public
  */
 export interface BatchPermissionsRequestEntry {
   /**
-   * <p>A unique identifier for the batch permissions request entry.</p>
+   * A unique identifier for the batch permissions request entry.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The principal to be granted a permission.</p>
+   * The principal to be granted a permission.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>The resource to which the principal is to be granted a permission.</p>
+   * The resource to which the principal is to be granted a permission.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>The permissions to be granted.</p>
+   * The permissions to be granted.
+   *
    * @public
    */
   Permissions?: Permission[] | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>Indicates if the option to pass permissions is granted.</p>
+   * Indicates if the option to pass permissions is granted.
+   *
    * @public
    */
   PermissionsWithGrantOption?: Permission[] | undefined;
@@ -676,31 +778,36 @@ export interface BatchPermissionsRequestEntry {
  */
 export interface BatchGrantPermissionsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>
+   * A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.
+   *
    * @public
    */
   Entries: BatchPermissionsRequestEntry[] | undefined;
 }
 
 /**
- * <p>A list of failures when performing a batch grant or batch revoke operation.</p>
+ * A list of failures when performing a batch grant or batch revoke operation.
+ *
  * @public
  */
 export interface BatchPermissionsFailureEntry {
   /**
-   * <p>An identifier for an entry of the batch request.</p>
+   * An identifier for an entry of the batch request.
+   *
    * @public
    */
   RequestEntry?: BatchPermissionsRequestEntry | undefined;
 
   /**
-   * <p>An error message that applies to the failure of the entry.</p>
+   * An error message that applies to the failure of the entry.
+   *
    * @public
    */
   Error?: ErrorDetail | undefined;
@@ -711,7 +818,8 @@ export interface BatchPermissionsFailureEntry {
  */
 export interface BatchGrantPermissionsResponse {
   /**
-   * <p>A list of failures to grant permissions to the resources.</p>
+   * A list of failures to grant permissions to the resources.
+   *
    * @public
    */
   Failures?: BatchPermissionsFailureEntry[] | undefined;
@@ -722,13 +830,15 @@ export interface BatchGrantPermissionsResponse {
  */
 export interface BatchRevokePermissionsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.</p>
+   * A list of up to 20 entries for resource permissions to be revoked by batch operation to the principal.
+   *
    * @public
    */
   Entries: BatchPermissionsRequestEntry[] | undefined;
@@ -739,7 +849,8 @@ export interface BatchRevokePermissionsRequest {
  */
 export interface BatchRevokePermissionsResponse {
   /**
-   * <p>A list of failures to revoke permissions to the resources.</p>
+   * A list of failures to revoke permissions to the resources.
+   *
    * @public
    */
   Failures?: BatchPermissionsFailureEntry[] | undefined;
@@ -750,7 +861,8 @@ export interface BatchRevokePermissionsResponse {
  */
 export interface CancelTransactionRequest {
   /**
-   * <p>The transaction to cancel.</p>
+   * The transaction to cancel.
+   *
    * @public
    */
   TransactionId: string | undefined;
@@ -766,7 +878,8 @@ export interface CancelTransactionResponse {}
  */
 export interface CommitTransactionRequest {
   /**
-   * <p>The transaction to commit.</p>
+   * The transaction to commit.
+   *
    * @public
    */
   TransactionId: string | undefined;
@@ -777,81 +890,94 @@ export interface CommitTransactionRequest {
  */
 export interface CommitTransactionResponse {
   /**
-   * <p>The status of the transaction.</p>
+   * The status of the transaction.
+   *
    * @public
    */
   TransactionStatus?: TransactionStatus | undefined;
 }
 
 /**
- * <p>A PartiQL predicate.</p>
+ * A PartiQL predicate.
+ *
  * @public
  */
 export interface RowFilter {
   /**
-   * <p>A filter expression.</p>
+   * A filter expression.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
 
   /**
-   * <p>A wildcard for all rows.</p>
+   * A wildcard for all rows.
+   *
    * @public
    */
   AllRowsWildcard?: AllRowsWildcard | undefined;
 }
 
 /**
- * <p>A structure that describes certain columns on certain rows.</p>
+ * A structure that describes certain columns on certain rows.
+ *
  * @public
  */
 export interface DataCellsFilter {
   /**
-   * <p>The ID of the catalog to which the table belongs.</p>
+   * The ID of the catalog to which the table belongs.
+   *
    * @public
    */
   TableCatalogId: string | undefined;
 
   /**
-   * <p>A database in the Glue Data Catalog.</p>
+   * A database in the Glue Data Catalog.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>A table in the database.</p>
+   * A table in the database.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>The name given by the user to the data filter cell.</p>
+   * The name given by the user to the data filter cell.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A PartiQL predicate.</p>
+   * A PartiQL predicate.
+   *
    * @public
    */
   RowFilter?: RowFilter | undefined;
 
   /**
-   * <p>A list of column names and/or nested column attributes. When specifying nested attributes, use a qualified dot (.) delimited format such as "address"."zip". Nested attributes within this list may not exceed a depth of 5.</p>
+   * A list of column names and/or nested column attributes. When specifying nested attributes, use a qualified dot (.) delimited format such as "address"."zip". Nested attributes within this list may not exceed a depth of 5.
+   *
    * @public
    */
   ColumnNames?: string[] | undefined;
 
   /**
-   * <p>A wildcard with exclusions.</p>
-   *          <p>You must specify either a <code>ColumnNames</code> list or the
-   *       <code>ColumnWildCard</code>. </p>
+   * A wildcard with exclusions.
+   *
+   * You must specify either a `ColumnNames` list or the `ColumnWildCard`.
+   *
    * @public
    */
   ColumnWildcard?: ColumnWildcard | undefined;
 
   /**
-   * <p>The ID of the data cells filter version.</p>
+   * The ID of the data cells filter version.
+   *
    * @public
    */
   VersionId?: string | undefined;
@@ -862,7 +988,8 @@ export interface DataCellsFilter {
  */
 export interface CreateDataCellsFilterRequest {
   /**
-   * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
+   * A `DataCellsFilter` structure containing information about the data cells filter.
+   *
    * @public
    */
   TableData: DataCellsFilter | undefined;
@@ -874,39 +1001,43 @@ export interface CreateDataCellsFilterRequest {
 export interface CreateDataCellsFilterResponse {}
 
 /**
- * <p>Configuration for enabling external data filtering for third-party applications to
- *          access data managed by Lake Formation .</p>
+ * Configuration for enabling external data filtering for third-party applications to access data managed by Lake Formation .
+ *
  * @public
  */
 export interface ExternalFilteringConfiguration {
   /**
-   * <p>Allows to enable or disable the third-party applications that are allowed to access data
-   *          managed by Lake Formation.</p>
+   * Allows to enable or disable the third-party applications that are allowed to access data managed by Lake Formation.
+   *
    * @public
    */
   Status: EnableStatus | undefined;
 
   /**
-   * <p>List of third-party application <code>ARNs</code> integrated with Lake Formation.</p>
+   * List of third-party application `ARNs` integrated with Lake Formation.
+   *
    * @public
    */
   AuthorizedTargets: string[] | undefined;
 }
 
 /**
- * <p>Configuration for enabling trusted identity propagation with Redshift Connect.</p>
+ * Configuration for enabling trusted identity propagation with Redshift Connect.
+ *
  * @public
  */
 export interface RedshiftConnect {
   /**
-   * <p>The authorization status for Redshift Connect. Valid values are ENABLED or DISABLED.</p>
+   * The authorization status for Redshift Connect. Valid values are ENABLED or DISABLED.
+   *
    * @public
    */
   Authorization: ServiceAuthorization | undefined;
 }
 
 /**
- * <p>A union structure representing different Redshift integration scopes.</p>
+ * A union structure representing different Redshift integration scopes.
+ *
  * @public
  */
 export type RedshiftScopeUnion =
@@ -918,7 +1049,8 @@ export type RedshiftScopeUnion =
  */
 export namespace RedshiftScopeUnion {
   /**
-   * <p>Configuration for Redshift Connect integration.</p>
+   * Configuration for Redshift Connect integration.
+   *
    * @public
    */
   export interface RedshiftConnectMember {
@@ -945,7 +1077,8 @@ export namespace RedshiftScopeUnion {
 }
 
 /**
- * <p>A union structure representing different service integration types.</p>
+ * A union structure representing different service integration types.
+ *
  * @public
  */
 export type ServiceIntegrationUnion =
@@ -957,7 +1090,8 @@ export type ServiceIntegrationUnion =
  */
 export namespace ServiceIntegrationUnion {
   /**
-   * <p>Redshift service integration configuration.</p>
+   * Redshift service integration configuration.
+   *
    * @public
    */
   export interface RedshiftMember {
@@ -988,40 +1122,40 @@ export namespace ServiceIntegrationUnion {
  */
 export interface CreateLakeFormationIdentityCenterConfigurationRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the
-   *          persistent metadata store. It contains database definitions, table definitions, view
-   *          definitions, and other control information to manage your Lake Formation
-   *          environment.</p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center instance for which the operation will be executed.
-   *          For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service
-   *          Namespaces in the Amazon Web Services General Reference.</p>
+   * The ARN of the IAM Identity Center instance for which the operation will be executed. For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces in the Amazon Web Services General Reference.
+   *
    * @public
    */
   InstanceArn?: string | undefined;
 
   /**
-   * <p>A list of the account IDs of Amazon Web Services accounts of third-party applications
-   *          that are allowed to access data managed by Lake Formation.</p>
+   * A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation.
+   *
    * @public
    */
   ExternalFiltering?: ExternalFilteringConfiguration | undefined;
 
   /**
-   * <p>A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs
-   *          that are allowed to access data managed by Lake Formation. </p>
-   *          <p>If the <code>ShareRecipients</code> list includes valid values, a resource share is created with the principals you want to have access to the resources.</p>
-   *          <p>If the <code>ShareRecipients</code> value is null or the list is empty, no resource share is created.</p>
+   * A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational unit ARNs that are allowed to access data managed by Lake Formation.
+   *
+   * If the `ShareRecipients` list includes valid values, a resource share is created with the principals you want to have access to the resources.
+   *
+   * If the `ShareRecipients` value is null or the list is empty, no resource share is created.
+   *
    * @public
    */
   ShareRecipients?: DataLakePrincipal[] | undefined;
 
   /**
-   * <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+   * A list of service integrations for enabling trusted identity propagation with external services such as Redshift.
+   *
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationUnion[] | undefined;
@@ -1032,7 +1166,8 @@ export interface CreateLakeFormationIdentityCenterConfigurationRequest {
  */
 export interface CreateLakeFormationIdentityCenterConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lake Formation application integrated with IAM Identity Center.</p>
+   * The Amazon Resource Name (ARN) of the Lake Formation application integrated with IAM Identity Center.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
@@ -1043,20 +1178,22 @@ export interface CreateLakeFormationIdentityCenterConfigurationResponse {
  */
 export interface CreateLakeFormationOptInRequest {
   /**
-   * <p>The Lake Formation principal. Supported principals are IAM users
-   *       or IAM roles.</p>
+   * The Lake Formation principal. Supported principals are IAM users or IAM roles.
+   *
    * @public
    */
   Principal: DataLakePrincipal | undefined;
 
   /**
-   * <p>A structure for the resource.</p>
+   * A structure for the resource.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
@@ -1072,19 +1209,22 @@ export interface CreateLakeFormationOptInResponse {}
  */
 export interface CreateLFTagRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag.</p>
+   * The key-name for the LF-tag.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>A list of possible values an attribute can take.</p>
+   * A list of possible values an attribute can take.
+   *
    * @public
    */
   TagValues: string[] | undefined;
@@ -1100,25 +1240,29 @@ export interface CreateLFTagResponse {}
  */
 export interface CreateLFTagExpressionRequest {
   /**
-   * <p>A name for the expression.</p>
+   * A name for the expression.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A description with information about the LF-Tag expression.</p>
+   * A description with information about the LF-Tag expression.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A list of LF-Tag conditions (key-value pairs).</p>
+   * A list of LF-Tag conditions (key-value pairs).
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
@@ -1130,18 +1274,21 @@ export interface CreateLFTagExpressionRequest {
 export interface CreateLFTagExpressionResponse {}
 
 /**
- * <p>A column in a table that a row-level security policy's filter expression can reference.</p>
+ * A column in a table that a row-level security policy's filter expression can reference.
+ *
  * @public
  */
 export interface Column {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The data type of the column.</p>
+   * The data type of the column.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -1152,19 +1299,22 @@ export interface Column {
  */
 export interface CreateRLSPolicyRequest {
   /**
-   * <p>A unique name for the row-level security policy within the Data Catalog.</p>
+   * A unique name for the row-level security policy within the Data Catalog.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The list of columns that the filter expression references. These columns define the shape of the data that the policy can be attached to.</p>
+   * The list of columns that the filter expression references. These columns define the shape of the data that the policy can be attached to.
+   *
    * @public
    */
   AttachmentColumns: Column[] | undefined;
 
   /**
-   * <p>A filter predicate, written in a SQL-like syntax, that Lake Formation evaluates against each row. Only the rows for which the expression evaluates to true are returned to the principal.</p>
+   * A filter predicate, written in a SQL-like syntax, that Lake Formation evaluates against each row. Only the rows for which the expression evaluates to true are returned to the principal.
+   *
    * @public
    */
   FilterExpression: string | undefined;
@@ -1180,25 +1330,29 @@ export interface CreateRLSPolicyResponse {}
  */
 export interface DeleteDataCellsFilterRequest {
   /**
-   * <p>The ID of the catalog to which the table belongs.</p>
+   * The ID of the catalog to which the table belongs.
+   *
    * @public
    */
   TableCatalogId?: string | undefined;
 
   /**
-   * <p>A database in the Glue Data Catalog.</p>
+   * A database in the Glue Data Catalog.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p>A table in the database.</p>
+   * A table in the database.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The name given by the user to the data filter cell.</p>
+   * The name given by the user to the data filter cell.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -1214,9 +1368,8 @@ export interface DeleteDataCellsFilterResponse {}
  */
 export interface DeleteLakeFormationIdentityCenterConfigurationRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the
-   *          persistent metadata store. It contains database definitions, table definitions, view
-   *          definition, and other control information to manage your Lake Formation environment.</p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definition, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
@@ -1232,20 +1385,22 @@ export interface DeleteLakeFormationIdentityCenterConfigurationResponse {}
  */
 export interface DeleteLakeFormationOptInRequest {
   /**
-   * <p>The Lake Formation principal. Supported principals are IAM users
-   *       or IAM roles.</p>
+   * The Lake Formation principal. Supported principals are IAM users or IAM roles.
+   *
    * @public
    */
   Principal: DataLakePrincipal | undefined;
 
   /**
-   * <p>A structure for the resource.</p>
+   * A structure for the resource.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
@@ -1261,13 +1416,15 @@ export interface DeleteLakeFormationOptInResponse {}
  */
 export interface DeleteLFTagRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag to delete.</p>
+   * The key-name for the LF-tag to delete.
+   *
    * @public
    */
   TagKey: string | undefined;
@@ -1283,13 +1440,15 @@ export interface DeleteLFTagResponse {}
  */
 export interface DeleteLFTagExpressionRequest {
   /**
-   * <p>The name for the LF-Tag expression.</p>
+   * The name for the LF-Tag expression.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved. </p>
+   * The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved.
+   *
    * @public
    */
   CatalogId?: string | undefined;
@@ -1301,19 +1460,21 @@ export interface DeleteLFTagExpressionRequest {
 export interface DeleteLFTagExpressionResponse {}
 
 /**
- * <p>An object that defines an Amazon S3 object to be deleted if a transaction cancels, provided that
- *       <code>VirtualPut</code> was called before writing the object.</p>
+ * An object that defines an Amazon S3 object to be deleted if a transaction cancels, provided that `VirtualPut` was called before writing the object.
+ *
  * @public
  */
 export interface VirtualObject {
   /**
-   * <p>The path to the Amazon S3 object. Must start with s3://</p>
+   * The path to the Amazon S3 object. Must start with s3://
+   *
    * @public
    */
   Uri: string | undefined;
 
   /**
-   * <p>The ETag of the Amazon S3 object.</p>
+   * The ETag of the Amazon S3 object.
+   *
    * @public
    */
   ETag?: string | undefined;
@@ -1324,31 +1485,36 @@ export interface VirtualObject {
  */
 export interface DeleteObjectsOnCancelRequest {
   /**
-   * <p>The Glue data catalog that contains the governed table. Defaults to the current account ID.</p>
+   * The Glue data catalog that contains the governed table. Defaults to the current account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database that contains the governed table.</p>
+   * The database that contains the governed table.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the governed table.</p>
+   * The name of the governed table.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>ID of the transaction that the writes occur in.</p>
+   * ID of the transaction that the writes occur in.
+   *
    * @public
    */
   TransactionId: string | undefined;
 
   /**
-   * <p>A list of VirtualObject structures, which indicates the Amazon S3 objects to be deleted if the transaction cancels.</p>
+   * A list of VirtualObject structures, which indicates the Amazon S3 objects to be deleted if the transaction cancels.
+   *
    * @public
    */
   Objects: VirtualObject[] | undefined;
@@ -1364,7 +1530,8 @@ export interface DeleteObjectsOnCancelResponse {}
  */
 export interface DeleteRLSPolicyRequest {
   /**
-   * <p>The name of the row-level security policy to delete.</p>
+   * The name of the row-level security policy to delete.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1380,7 +1547,8 @@ export interface DeleteRLSPolicyResponse {}
  */
 export interface DeregisterResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to deregister.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -1396,7 +1564,8 @@ export interface DeregisterResourceResponse {}
  */
 export interface DescribeLakeFormationIdentityCenterConfigurationRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
@@ -1407,46 +1576,54 @@ export interface DescribeLakeFormationIdentityCenterConfigurationRequest {
  */
 export interface DescribeLakeFormationIdentityCenterConfigurationResponse {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection.</p>
+   * The Amazon Resource Name (ARN) of the connection.
+   *
    * @public
    */
   InstanceArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lake Formation application integrated with IAM Identity Center.</p>
+   * The Amazon Resource Name (ARN) of the Lake Formation application integrated with IAM Identity Center.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
 
   /**
-   * <p>Indicates if external filtering is enabled.</p>
+   * Indicates if external filtering is enabled.
+   *
    * @public
    */
   ExternalFiltering?: ExternalFilteringConfiguration | undefined;
 
   /**
-   * <p>A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that
-   *          are allowed to access data managed by Lake Formation. </p>
-   *          <p>If the <code>ShareRecipients</code> list includes valid values, a resource share is created with the principals you want to have access to the resources as the <code>ShareRecipients</code>.</p>
-   *          <p>If the <code>ShareRecipients</code> value is null or the list is empty, no resource share is created.</p>
+   * A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that are allowed to access data managed by Lake Formation.
+   *
+   * If the `ShareRecipients` list includes valid values, a resource share is created with the principals you want to have access to the resources as the `ShareRecipients`.
+   *
+   * If the `ShareRecipients` value is null or the list is empty, no resource share is created.
+   *
    * @public
    */
   ShareRecipients?: DataLakePrincipal[] | undefined;
 
   /**
-   * <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+   * A list of service integrations for enabling trusted identity propagation with external services such as Redshift.
+   *
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationUnion[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the RAM share.</p>
+   * The Amazon Resource Name (ARN) of the RAM share.
+   *
    * @public
    */
   ResourceShare?: string | undefined;
@@ -1457,74 +1634,75 @@ export interface DescribeLakeFormationIdentityCenterConfigurationResponse {
  */
 export interface DescribeResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 }
 
 /**
- * <p>A structure containing information about an Lake Formation resource.</p>
+ * A structure containing information about an Lake Formation resource.
+ *
  * @public
  */
 export interface ResourceInfo {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The IAM role that registered a resource.</p>
+   * The IAM role that registered a resource.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The date and time the resource was last modified.</p>
+   * The date and time the resource was last modified.
+   *
    * @public
    */
   LastModified?: Date | undefined;
 
   /**
-   * <p>Whether or not the resource is a federated resource.</p>
+   * Whether or not the resource is a federated resource.
+   *
    * @public
    */
   WithFederation?: boolean | undefined;
 
   /**
-   * <p>
-   *       Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
-   *     </p>
+   * Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
+   *
    * @public
    */
   HybridAccessEnabled?: boolean | undefined;
 
   /**
-   * <p>Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location. </p>
+   * Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+   *
    * @public
    */
   WithPrivilegedAccess?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the registered role has sufficient permissions to access registered Amazon S3 location. Verification Status can be one of the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p>VERIFIED - Registered role has sufficient permissions to access registered Amazon S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>NOT_VERIFIED - Registered role does not have sufficient permissions to access registered Amazon S3 location.</p>
-   *             </li>
-   *             <li>
-   *                <p>VERIFICATION_FAILED - Unable to verify if the registered role can access the registered Amazon S3 location.</p>
-   *             </li>
-   *          </ul>
+   * Indicates whether the registered role has sufficient permissions to access registered Amazon S3 location. Verification Status can be one of the following:
+   *
+   * - VERIFIED - Registered role has sufficient permissions to access registered Amazon S3 location.
+   * - NOT_VERIFIED - Registered role does not have sufficient permissions to access registered Amazon S3 location.
+   * - VERIFICATION_FAILED - Unable to verify if the registered role can access the registered Amazon S3 location.
+   *
    * @public
    */
   VerificationStatus?: VerificationStatus | undefined;
 
   /**
-   * <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations. </p>
+   * The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
+   *
    * @public
    */
   ExpectedResourceOwnerAccount?: string | undefined;
@@ -1535,7 +1713,8 @@ export interface ResourceInfo {
  */
 export interface DescribeResourceResponse {
   /**
-   * <p>A structure containing information about an Lake Formation resource.</p>
+   * A structure containing information about an Lake Formation resource.
+   *
    * @public
    */
   ResourceInfo?: ResourceInfo | undefined;
@@ -1546,37 +1725,43 @@ export interface DescribeResourceResponse {
  */
 export interface DescribeTransactionRequest {
   /**
-   * <p>The transaction for which to return status.</p>
+   * The transaction for which to return status.
+   *
    * @public
    */
   TransactionId: string | undefined;
 }
 
 /**
- * <p>A structure that contains information about a transaction.</p>
+ * A structure that contains information about a transaction.
+ *
  * @public
  */
 export interface TransactionDescription {
   /**
-   * <p>The ID of the transaction.</p>
+   * The ID of the transaction.
+   *
    * @public
    */
   TransactionId?: string | undefined;
 
   /**
-   * <p>A status of ACTIVE, COMMITTED, or ABORTED.</p>
+   * A status of ACTIVE, COMMITTED, or ABORTED.
+   *
    * @public
    */
   TransactionStatus?: TransactionStatus | undefined;
 
   /**
-   * <p>The time when the transaction started.</p>
+   * The time when the transaction started.
+   *
    * @public
    */
   TransactionStartTime?: Date | undefined;
 
   /**
-   * <p>The time when the transaction committed or aborted, if it is not currently active.</p>
+   * The time when the transaction committed or aborted, if it is not currently active.
+   *
    * @public
    */
   TransactionEndTime?: Date | undefined;
@@ -1587,7 +1772,8 @@ export interface TransactionDescription {
  */
 export interface DescribeTransactionResponse {
   /**
-   * <p>Returns a <code>TransactionDescription</code> object containing information about the transaction.</p>
+   * Returns a `TransactionDescription` object containing information about the transaction.
+   *
    * @public
    */
   TransactionDescription?: TransactionDescription | undefined;
@@ -1598,31 +1784,36 @@ export interface DescribeTransactionResponse {
  */
 export interface DetachRLSPolicyRequest {
   /**
-   * <p>The name of the row-level security policy to detach.</p>
+   * The name of the row-level security policy to detach.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The resource from which the row-level security policy is detached.</p>
+   * The resource from which the row-level security policy is detached.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>The principal for which the row-level security policy is detached.</p>
+   * The principal for which the row-level security policy is detached.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.</p>
+   * A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>Indicates whether to remove this policy as the default row-level security policy for the resource.</p>
+   * Indicates whether to remove this policy as the default row-level security policy for the resource.
+   *
    * @public
    */
   RemoveDefault?: boolean | undefined;
@@ -1638,7 +1829,8 @@ export interface DetachRLSPolicyResponse {}
  */
 export interface ExtendTransactionRequest {
   /**
-   * <p>The transaction to extend.</p>
+   * The transaction to extend.
+   *
    * @public
    */
   TransactionId?: string | undefined;
@@ -1654,25 +1846,29 @@ export interface ExtendTransactionResponse {}
  */
 export interface GetDataCellsFilterRequest {
   /**
-   * <p>The ID of the catalog to which the table belongs.</p>
+   * The ID of the catalog to which the table belongs.
+   *
    * @public
    */
   TableCatalogId: string | undefined;
 
   /**
-   * <p>A database in the Glue Data Catalog.</p>
+   * A database in the Glue Data Catalog.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>A table in the database.</p>
+   * A table in the database.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>The name given by the user to the data filter cell.</p>
+   * The name given by the user to the data filter cell.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1683,7 +1879,8 @@ export interface GetDataCellsFilterRequest {
  */
 export interface GetDataCellsFilterResponse {
   /**
-   * <p>A structure that describes certain columns on certain rows.</p>
+   * A structure that describes certain columns on certain rows.
+   *
    * @public
    */
   DataCellsFilter?: DataCellsFilter | undefined;
@@ -1699,7 +1896,8 @@ export interface GetDataLakePrincipalRequest {}
  */
 export interface GetDataLakePrincipalResponse {
   /**
-   * <p>A unique identifier of the invoking principal.</p>
+   * A unique identifier of the invoking principal.
+   *
    * @public
    */
   Identity?: string | undefined;
@@ -1710,111 +1908,129 @@ export interface GetDataLakePrincipalResponse {
  */
 export interface GetDataLakeSettingsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 }
 
 /**
- * <p>Permissions granted to a principal.</p>
+ * Permissions granted to a principal.
+ *
  * @public
  */
 export interface PrincipalPermissions {
   /**
-   * <p>The principal who is granted permissions.</p>
+   * The principal who is granted permissions.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>The permissions that are granted to the principal.</p>
+   * The permissions that are granted to the principal.
+   *
    * @public
    */
   Permissions?: Permission[] | undefined;
 }
 
 /**
- * <p>A structure representing a list of Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.</p>
+ * A structure representing a list of Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
+ *
  * @public
  */
 export interface DataLakeSettings {
   /**
-   * <p>A list of Lake Formation principals. Supported principals are IAM users or IAM roles.</p>
+   * A list of Lake Formation principals. Supported principals are IAM users or IAM roles.
+   *
    * @public
    */
   DataLakeAdmins?: DataLakePrincipal[] | undefined;
 
   /**
-   * <p>A list of Lake Formation principals with only view access to the resources, without the ability to make changes. Supported principals are IAM users or IAM roles.</p>
+   * A list of Lake Formation principals with only view access to the resources, without the ability to make changes. Supported principals are IAM users or IAM roles.
+   *
    * @public
    */
   ReadOnlyAdmins?: DataLakePrincipal[] | undefined;
 
   /**
-   * <p>Specifies whether access control on newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.</p>
-   *          <p>A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.</p>
-   *          <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing the Default Security Settings for Your Data Lake</a>.</p>
+   * Specifies whether access control on newly created database is managed by Lake Formation permissions or exclusively by IAM permissions.
+   *
+   * A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.
+   *
+   * The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.
+   *
+   * For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
+   *
    * @public
    */
   CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
 
   /**
-   * <p>Specifies whether access control on newly created table is managed by Lake Formation permissions or exclusively by IAM permissions.</p>
-   *          <p>A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.</p>
-   *          <p>The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html">Changing the Default Security Settings for Your Data Lake</a>.</p>
+   * Specifies whether access control on newly created table is managed by Lake Formation permissions or exclusively by IAM permissions.
+   *
+   * A null value indicates access control by Lake Formation permissions. A value that assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions. This is referred to as the setting "Use only IAM access control," and is for backward compatibility with the Glue permission model implemented by IAM permissions.
+   *
+   * The only permitted values are an empty array or an array that contains a single JSON object that grants ALL to IAM_ALLOWED_PRINCIPALS.
+   *
+   * For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html).
+   *
    * @public
    */
   CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
 
   /**
-   * <p>A key-value map that provides an additional configuration on your data lake. The following key-value pairs are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CROSS_ACCOUNT_VERSION</code> - Accepted values are 1, 2, 3, 4, and 5.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SET_SOURCE_IDENTITY</code> - Accepted values are <code>TRUE</code> and <code>FALSE</code>. When set to <code>TRUE</code>, Lake Formation includes the IAM role identifier that was used to query in the S3 data event CloudTrail logs for <code>s3:GetObject</code> calls. For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/cloudtrail-logging.html#source-identity-cloudtrail">Tracking query engine IAM roles in S3 data events</a>.</p>
-   *             </li>
-   *          </ul>
+   * A key-value map that provides an additional configuration on your data lake. The following key-value pairs are supported:
+   *
+   * - `CROSS_ACCOUNT_VERSION` - Accepted values are 1, 2, 3, 4, and 5.
+   * - `SET_SOURCE_IDENTITY` - Accepted values are `TRUE` and `FALSE`. When set to `TRUE`, Lake Formation includes the IAM role identifier that was used to query in the S3 data event CloudTrail logs for `s3:GetObject` calls. For more information, see [Tracking query engine IAM roles in S3 data events](https://docs.aws.amazon.com/lake-formation/latest/dg/cloudtrail-logging.html#source-identity-cloudtrail).
+   *
    * @public
    */
   Parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's CloudTrail log.</p>
-   *          <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>
+   * A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's CloudTrail log.
+   *
+   * You may want to specify this property when you are in a high-trust boundary, such as the same team or company.
+   *
    * @public
    */
   TrustedResourceOwners?: string[] | undefined;
 
   /**
-   * <p>Whether to allow Amazon EMR clusters to access data managed by Lake Formation. </p>
-   *          <p>If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that are registered with Lake Formation.</p>
-   *          <p>If false or null, no Amazon EMR clusters will be able to access data in Amazon S3 locations that are registered with Lake Formation.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/initial-LF-setup.html#external-data-filter">(Optional) Allow external data filtering</a>.</p>
+   * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+   *
+   * If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that are registered with Lake Formation.
+   *
+   * If false or null, no Amazon EMR clusters will be able to access data in Amazon S3 locations that are registered with Lake Formation.
+   *
+   * For more information, see [(Optional) Allow external data filtering](https://docs.aws.amazon.com/lake-formation/latest/dg/initial-LF-setup.html#external-data-filter).
+   *
    * @public
    */
   AllowExternalDataFiltering?: boolean | undefined;
 
   /**
-   * <p>Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.</p>
+   * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
+   *
    * @public
    */
   AllowFullTableExternalDataAccess?: boolean | undefined;
 
   /**
-   * <p>A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.></p>
+   * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.>
+   *
    * @public
    */
   ExternalDataFilteringAllowList?: DataLakePrincipal[] | undefined;
 
   /**
-   * <p>Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it. Lake Formation will publish the acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value = "TRUE" and the third party integrator must properly tag the temporary security credentials that will be used to call Lake Formation's administrative APIs.</p>
+   * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it. Lake Formation will publish the acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value = "TRUE" and the third party integrator must properly tag the temporary security credentials that will be used to call Lake Formation's administrative APIs.
+   *
    * @public
    */
   AuthorizedSessionTagValueList?: string[] | undefined;
@@ -1825,7 +2041,8 @@ export interface DataLakeSettings {
  */
 export interface GetDataLakeSettingsResponse {
   /**
-   * <p>A structure representing a list of Lake Formation principals designated as data lake administrators.</p>
+   * A structure representing a list of Lake Formation principals designated as data lake administrators.
+   *
    * @public
    */
   DataLakeSettings?: DataLakeSettings | undefined;
@@ -1836,92 +2053,108 @@ export interface GetDataLakeSettingsResponse {
  */
 export interface GetEffectivePermissionsForPathRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want to get permissions.</p>
+   * The Amazon Resource Name (ARN) of the resource for which you want to get permissions.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
- *          <p>If a catalog resource is shared through Resource Access Manager (RAM), then there will exist a corresponding RAM resource share ARN.</p>
+ * A structure containing the additional details to be returned in the `AdditionalDetails` attribute of `PrincipalResourcePermissions`.
+ *
+ * If a catalog resource is shared through Resource Access Manager (RAM), then there will exist a corresponding RAM resource share ARN.
+ *
  * @public
  */
 export interface DetailsMap {
   /**
-   * <p>A resource share ARN for a catalog resource shared through RAM.</p>
+   * A resource share ARN for a catalog resource shared through RAM.
+   *
    * @public
    */
   ResourceShare?: string[] | undefined;
 }
 
 /**
- * <p>The permissions granted or revoked on a resource.</p>
+ * The permissions granted or revoked on a resource.
+ *
  * @public
  */
 export interface PrincipalResourcePermissions {
   /**
-   * <p>The Data Lake principal to be granted or revoked permissions.</p>
+   * The Data Lake principal to be granted or revoked permissions.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>The resource where permissions are to be granted or revoked.</p>
+   * The resource where permissions are to be granted or revoked.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>The permissions to be granted or revoked on the resource.</p>
+   * The permissions to be granted or revoked on the resource.
+   *
    * @public
    */
   Permissions?: Permission[] | undefined;
 
   /**
-   * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
+   * Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).
+   *
    * @public
    */
   PermissionsWithGrantOption?: Permission[] | undefined;
 
   /**
-   * <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM resource share ARN.</p>
+   * This attribute can be used to return any additional details of `PrincipalResourcePermissions`. Currently returns only as a RAM resource share ARN.
+   *
    * @public
    */
   AdditionalDetails?: DetailsMap | undefined;
 
   /**
-   * <p>The date and time when the resource was last updated.</p>
+   * The date and time when the resource was last updated.
+   *
    * @public
    */
   LastUpdated?: Date | undefined;
 
   /**
-   * <p>The user who updated the record.</p>
+   * The user who updated the record.
+   *
    * @public
    */
   LastUpdatedBy?: string | undefined;
@@ -1932,13 +2165,15 @@ export interface PrincipalResourcePermissions {
  */
 export interface GetEffectivePermissionsForPathResponse {
   /**
-   * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
+   * A list of the permissions for the specified table or database resource located at the path in Amazon S3.
+   *
    * @public
    */
   Permissions?: PrincipalResourcePermissions[] | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1949,13 +2184,15 @@ export interface GetEffectivePermissionsForPathResponse {
  */
 export interface GetLFTagRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag.</p>
+   * The key-name for the LF-tag.
+   *
    * @public
    */
   TagKey: string | undefined;
@@ -1966,19 +2203,22 @@ export interface GetLFTagRequest {
  */
 export interface GetLFTagResponse {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag.</p>
+   * The key-name for the LF-tag.
+   *
    * @public
    */
   TagKey?: string | undefined;
 
   /**
-   * <p>A list of possible values an attribute can take.</p>
+   * A list of possible values an attribute can take.
+   *
    * @public
    */
   TagValues?: string[] | undefined;
@@ -1989,13 +2229,15 @@ export interface GetLFTagResponse {
  */
 export interface GetLFTagExpressionRequest {
   /**
-   * <p>The name for the LF-Tag expression</p>
+   * The name for the LF-Tag expression
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID.</p>
+   * The identifier for the Data Catalog. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
@@ -2006,25 +2248,29 @@ export interface GetLFTagExpressionRequest {
  */
 export interface GetLFTagExpressionResponse {
   /**
-   * <p>The name for the LF-Tag expression. </p>
+   * The name for the LF-Tag expression.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description with information about the LF-Tag expression.</p>
+   * The description with information about the LF-Tag expression.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved.</p>
+   * The identifier for the Data Catalog. By default, the account ID in which the LF-Tag expression is saved.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The body of the LF-Tag expression. It is composed of one or more LF-Tag key-value pairs.</p>
+   * The body of the LF-Tag expression. It is composed of one or more LF-Tag key-value pairs.
+   *
    * @public
    */
   Expression?: LFTag[] | undefined;
@@ -2035,39 +2281,34 @@ export interface GetLFTagExpressionResponse {
  */
 export interface GetQueryStateRequest {
   /**
-   * <p>The ID of the plan query operation.</p>
+   * The ID of the plan query operation.
+   *
    * @public
    */
   QueryId: string | undefined;
 }
 
 /**
- * <p>A structure for the output.</p>
+ * A structure for the output.
+ *
  * @public
  */
 export interface GetQueryStateResponse {
   /**
-   * <p>An error message when the operation fails.</p>
+   * An error message when the operation fails.
+   *
    * @public
    */
   Error?: string | undefined;
 
   /**
-   * <p>The state of a query previously submitted. The possible states are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING: the query is pending.</p>
-   *             </li>
-   *             <li>
-   *                <p>WORKUNITS_AVAILABLE: some work units are ready for retrieval and execution.</p>
-   *             </li>
-   *             <li>
-   *                <p>FINISHED: the query planning finished successfully, and all work units are ready for retrieval and execution.</p>
-   *             </li>
-   *             <li>
-   *                <p>ERROR: an error occurred with the query, such as an invalid query ID or a backend error.</p>
-   *             </li>
-   *          </ul>
+   * The state of a query previously submitted. The possible states are:
+   *
+   * - PENDING: the query is pending.
+   * - WORKUNITS_AVAILABLE: some work units are ready for retrieval and execution.
+   * - FINISHED: the query planning finished successfully, and all work units are ready for retrieval and execution.
+   * - ERROR: an error occurred with the query, such as an invalid query ID or a backend error.
+   *
    * @public
    */
   State: QueryStateString | undefined;
@@ -2078,61 +2319,71 @@ export interface GetQueryStateResponse {
  */
 export interface GetQueryStatisticsRequest {
   /**
-   * <p>The ID of the plan query operation.</p>
+   * The ID of the plan query operation.
+   *
    * @public
    */
   QueryId: string | undefined;
 }
 
 /**
- * <p>Statistics related to the processing of a query statement.</p>
+ * Statistics related to the processing of a query statement.
+ *
  * @public
  */
 export interface ExecutionStatistics {
   /**
-   * <p>The average time the request took to be executed.</p>
+   * The average time the request took to be executed.
+   *
    * @public
    */
   AverageExecutionTimeMillis?: number | undefined;
 
   /**
-   * <p>The amount of data that was scanned in bytes.</p>
+   * The amount of data that was scanned in bytes.
+   *
    * @public
    */
   DataScannedBytes?: number | undefined;
 
   /**
-   * <p>The number of work units executed.</p>
+   * The number of work units executed.
+   *
    * @public
    */
   WorkUnitsExecutedCount?: number | undefined;
 }
 
 /**
- * <p>Statistics related to the processing of a query statement.</p>
+ * Statistics related to the processing of a query statement.
+ *
  * @public
  */
 export interface PlanningStatistics {
   /**
-   * <p>An estimate of the data that was scanned in bytes.</p>
+   * An estimate of the data that was scanned in bytes.
+   *
    * @public
    */
   EstimatedDataToScanBytes?: number | undefined;
 
   /**
-   * <p>The time that it took to process the request.</p>
+   * The time that it took to process the request.
+   *
    * @public
    */
   PlanningTimeMillis?: number | undefined;
 
   /**
-   * <p>The time the request was in queue to be processed.</p>
+   * The time the request was in queue to be processed.
+   *
    * @public
    */
   QueueTimeMillis?: number | undefined;
 
   /**
-   * <p>The number of work units generated.</p>
+   * The number of work units generated.
+   *
    * @public
    */
   WorkUnitsGeneratedCount?: number | undefined;
@@ -2143,19 +2394,22 @@ export interface PlanningStatistics {
  */
 export interface GetQueryStatisticsResponse {
   /**
-   * <p>An <code>ExecutionStatistics</code> structure containing execution statistics.</p>
+   * An `ExecutionStatistics` structure containing execution statistics.
+   *
    * @public
    */
   ExecutionStatistics?: ExecutionStatistics | undefined;
 
   /**
-   * <p>A <code>PlanningStatistics</code> structure containing query planning statistics.</p>
+   * A `PlanningStatistics` structure containing query planning statistics.
+   *
    * @public
    */
   PlanningStatistics?: PlanningStatistics | undefined;
 
   /**
-   * <p>The time that the query was submitted.</p>
+   * The time that the query was submitted.
+   *
    * @public
    */
   QuerySubmissionTime?: Date | undefined;
@@ -2166,37 +2420,43 @@ export interface GetQueryStatisticsResponse {
  */
 export interface GetResourceLFTagsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database, table, or column resource for which you want to return LF-tags.</p>
+   * The database, table, or column resource for which you want to return LF-tags.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>Indicates whether to show the assigned LF-tags.</p>
+   * Indicates whether to show the assigned LF-tags.
+   *
    * @public
    */
   ShowAssignedLFTags?: boolean | undefined;
 }
 
 /**
- * <p>A structure containing the name of a column resource and the LF-tags attached to it.</p>
+ * A structure containing the name of a column resource and the LF-tags attached to it.
+ *
  * @public
  */
 export interface ColumnLFTag {
   /**
-   * <p>The name of a column resource.</p>
+   * The name of a column resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The LF-tags attached to a column resource.</p>
+   * The LF-tags attached to a column resource.
+   *
    * @public
    */
   LFTags?: LFTagPair[] | undefined;
@@ -2207,19 +2467,22 @@ export interface ColumnLFTag {
  */
 export interface GetResourceLFTagsResponse {
   /**
-   * <p>A list of LF-tags applied to a database resource.</p>
+   * A list of LF-tags applied to a database resource.
+   *
    * @public
    */
   LFTagOnDatabase?: LFTagPair[] | undefined;
 
   /**
-   * <p>A list of LF-tags applied to a table resource.</p>
+   * A list of LF-tags applied to a table resource.
+   *
    * @public
    */
   LFTagsOnTable?: LFTagPair[] | undefined;
 
   /**
-   * <p>A list of LF-tags applied to a column resource.</p>
+   * A list of LF-tags applied to a column resource.
+   *
    * @public
    */
   LFTagsOnColumns?: ColumnLFTag[] | undefined;
@@ -2230,37 +2493,43 @@ export interface GetResourceLFTagsResponse {
  */
 export interface GetRLSPolicyRequest {
   /**
-   * <p>The name of the row-level security policy to retrieve.</p>
+   * The name of the row-level security policy to retrieve.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A structure that describes a row-level security policy, including the columns its filter expression references and the filter expression itself.</p>
+ * A structure that describes a row-level security policy, including the columns its filter expression references and the filter expression itself.
+ *
  * @public
  */
 export interface RLSPolicy {
   /**
-   * <p>The identifier for the Data Catalog that contains the policy. By default, the account ID.</p>
+   * The identifier for the Data Catalog that contains the policy. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the row-level security policy.</p>
+   * The name of the row-level security policy.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The list of columns that the filter expression references.</p>
+   * The list of columns that the filter expression references.
+   *
    * @public
    */
   AttachmentColumns?: Column[] | undefined;
 
   /**
-   * <p>The filter predicate, written in a SQL-like syntax, that determines which rows are returned to the principal.</p>
+   * The filter predicate, written in a SQL-like syntax, that determines which rows are returned to the principal.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
@@ -2271,7 +2540,8 @@ export interface RLSPolicy {
  */
 export interface GetRLSPolicyResponse {
   /**
-   * <p>An <code>RLSPolicy</code> structure containing the definition of the requested row-level security policy.</p>
+   * An `RLSPolicy` structure containing the definition of the requested row-level security policy.
+   *
    * @public
    */
   RLSPolicy?: RLSPolicy | undefined;
@@ -2282,102 +2552,110 @@ export interface GetRLSPolicyResponse {
  */
 export interface GetTableObjectsRequest {
   /**
-   * <p>The catalog containing the governed table. Defaults to the caller’s account.</p>
+   * The catalog containing the governed table. Defaults to the caller’s account.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database containing the governed table.</p>
+   * The database containing the governed table.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The governed table for which to retrieve objects.</p>
+   * The governed table for which to retrieve objects.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>The transaction ID at which to read the governed table contents. If this transaction has aborted, an error is returned. If not set, defaults to the most recent committed transaction. Cannot be specified along with <code>QueryAsOfTime</code>.</p>
+   * The transaction ID at which to read the governed table contents. If this transaction has aborted, an error is returned. If not set, defaults to the most recent committed transaction. Cannot be specified along with `QueryAsOfTime`.
+   *
    * @public
    */
   TransactionId?: string | undefined;
 
   /**
-   * <p>The time as of when to read the governed table contents. If not set, the most recent transaction commit time is used. Cannot be specified along with <code>TransactionId</code>.</p>
+   * The time as of when to read the governed table contents. If not set, the most recent transaction commit time is used. Cannot be specified along with `TransactionId`.
+   *
    * @public
    */
   QueryAsOfTime?: Date | undefined;
 
   /**
-   * <p>A predicate to filter the objects returned based on the partition keys defined in the governed table.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The comparison operators supported are: =, >, <, >=, <=</p>
-   *             </li>
-   *             <li>
-   *                <p>The logical operators supported are: AND</p>
-   *             </li>
-   *             <li>
-   *                <p>The data types supported are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss"), string and decimal.</p>
-   *             </li>
-   *          </ul>
+   * A predicate to filter the objects returned based on the partition keys defined in the governed table.
+   *
+   * - The comparison operators supported are: =, >, <, >=, <=
+   * - The logical operators supported are: AND
+   * - The data types supported are integer, long, date(yyyy-MM-dd), timestamp(yyyy-MM-dd HH:mm:ssXXX or yyyy-MM-dd HH:mm:ss"), string and decimal.
+   *
    * @public
    */
   PartitionPredicate?: string | undefined;
 
   /**
-   * <p>Specifies how many values to return in a page.</p>
+   * Specifies how many values to return in a page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token if this is not the first call to retrieve these objects.</p>
+   * A continuation token if this is not the first call to retrieve these objects.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies the details of a governed table.</p>
+ * Specifies the details of a governed table.
+ *
  * @public
  */
 export interface TableObject {
   /**
-   * <p>The Amazon S3 location of the object.</p>
+   * The Amazon S3 location of the object.
+   *
    * @public
    */
   Uri?: string | undefined;
 
   /**
-   * <p>The Amazon S3 ETag of the object. Returned by <code>GetTableObjects</code> for validation and used to identify changes to the underlying data.</p>
+   * The Amazon S3 ETag of the object. Returned by `GetTableObjects` for validation and used to identify changes to the underlying data.
+   *
    * @public
    */
   ETag?: string | undefined;
 
   /**
-   * <p>The size of the Amazon S3 object in bytes.</p>
+   * The size of the Amazon S3 object in bytes.
+   *
    * @public
    */
   Size?: number | undefined;
 }
 
 /**
- * <p>A structure containing a list of partition values and table objects.</p>
+ * A structure containing a list of partition values and table objects.
+ *
  * @public
  */
 export interface PartitionObjects {
   /**
-   * <p>A list of partition values.</p>
+   * A list of partition values.
+   *
    * @public
    */
   PartitionValues?: string[] | undefined;
 
   /**
-   * <p>A list of table objects</p>
+   * A list of table objects
+   *
    * @public
    */
   Objects?: TableObject[] | undefined;
@@ -2388,13 +2666,15 @@ export interface PartitionObjects {
  */
 export interface GetTableObjectsResponse {
   /**
-   * <p>A list of objects organized by partition keys.</p>
+   * A list of objects organized by partition keys.
+   *
    * @public
    */
   Objects?: PartitionObjects[] | undefined;
 
   /**
-   * <p>A continuation token indicating whether additional data is available.</p>
+   * A continuation token indicating whether additional data is available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2405,64 +2685,69 @@ export interface GetTableObjectsResponse {
  */
 export interface GetTemporaryDataLocationCredentialsRequest {
   /**
-   * <p>The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.</p>
+   * The time period, between 900 and 43,200 seconds, for the timeout of the temporary credentials.
+   *
    * @public
    */
   DurationSeconds?: number | undefined;
 
   /**
-   * <p>A structure used to include auditing information on the privileged API. </p>
+   * A structure used to include auditing information on the privileged API.
+   *
    * @public
    */
   AuditContext?: AuditContext | undefined;
 
   /**
-   * <p>The Amazon S3 data location that you want to access.</p>
+   * The Amazon S3 data location that you want to access.
+   *
    * @public
    */
   DataLocations?: string[] | undefined;
 
   /**
-   * <p>The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:</p>
-   *          <ul>
-   *             <li>
-   *                <p>READ - Provides read-only access to the data location.</p>
-   *             </li>
-   *             <li>
-   *                <p>READ_WRITE - Provides both read and write access to the data location.</p>
-   *             </li>
-   *          </ul>
+   * The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:
+   *
+   * - READ - Provides read-only access to the data location.
+   * - READ_WRITE - Provides both read and write access to the data location.
+   *
    * @public
    */
   CredentialsScope?: CredentialsScope | undefined;
 }
 
 /**
- * <p>A temporary set of credentials for an Lake Formation user. These credentials are scoped down to only access the raw data sources that the user has access to. </p>
- *          <p>The temporary security credentials consist of an access key and a session token. The access key consists of an access key ID and a secret key. When the credentials are created, they are associated with an IAM access control policy that limits what the user can do when using the credentials.</p>
+ * A temporary set of credentials for an Lake Formation user. These credentials are scoped down to only access the raw data sources that the user has access to.
+ *
+ * The temporary security credentials consist of an access key and a session token. The access key consists of an access key ID and a secret key. When the credentials are created, they are associated with an IAM access control policy that limits what the user can do when using the credentials.
+ *
  * @public
  */
 export interface TemporaryCredentials {
   /**
-   * <p>The access key ID for the temporary credentials.</p>
+   * The access key ID for the temporary credentials.
+   *
    * @public
    */
   AccessKeyId?: string | undefined;
 
   /**
-   * <p>The secret key for the temporary credentials.</p>
+   * The secret key for the temporary credentials.
+   *
    * @public
    */
   SecretAccessKey?: string | undefined;
 
   /**
-   * <p>The session token for the temporary credentials.</p>
+   * The session token for the temporary credentials.
+   *
    * @public
    */
   SessionToken?: string | undefined;
 
   /**
-   * <p>The date and time when the temporary credentials expire.</p>
+   * The date and time when the temporary credentials expire.
+   *
    * @public
    */
   Expiration?: Date | undefined;
@@ -2473,41 +2758,41 @@ export interface TemporaryCredentials {
  */
 export interface GetTemporaryDataLocationCredentialsResponse {
   /**
-   * <p>A temporary set of credentials for an Lake Formation user. These credentials are scoped down to only access the raw data sources that the user has access to. </p>
-   *          <p>The temporary security credentials consist of an access key and a session token. The access key consists of an access key ID and a secret key. When the credentials are created, they are associated with an IAM access control policy that limits what the user can do when using the credentials.</p>
+   * A temporary set of credentials for an Lake Formation user. These credentials are scoped down to only access the raw data sources that the user has access to.
+   *
+   * The temporary security credentials consist of an access key and a session token. The access key consists of an access key ID and a secret key. When the credentials are created, they are associated with an IAM access control policy that limits what the user can do when using the credentials.
+   *
    * @public
    */
   Credentials?: TemporaryCredentials | undefined;
 
   /**
-   * <p>Refers to the Amazon S3 locations that can be
-   *       accessed through the <code>GetTemporaryCredentialsForLocation</code> API operation.</p>
+   * Refers to the Amazon S3 locations that can be accessed through the `GetTemporaryCredentialsForLocation` API operation.
+   *
    * @public
    */
   AccessibleDataLocations?: string[] | undefined;
 
   /**
-   * <p>The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:</p>
-   *          <ul>
-   *             <li>
-   *                <p>READ - Provides read-only access to the data location.</p>
-   *             </li>
-   *             <li>
-   *                <p>READ_WRITE - Provides both read and write access to the data location.</p>
-   *             </li>
-   *          </ul>
+   * The credential scope is determined by the caller's Lake Formation permission on the associated table. Credential scope can be either:
+   *
+   * - READ - Provides read-only access to the data location.
+   * - READ_WRITE - Provides both read and write access to the data location.
+   *
    * @public
    */
   CredentialsScope?: CredentialsScope | undefined;
 }
 
 /**
- * <p>Contains a list of values defining partitions.</p>
+ * Contains a list of values defining partitions.
+ *
  * @public
  */
 export interface PartitionValueList {
   /**
-   * <p>The list of partition values.</p>
+   * The list of partition values.
+   *
    * @public
    */
   Values: string[] | undefined;
@@ -2518,37 +2803,43 @@ export interface PartitionValueList {
  */
 export interface GetTemporaryGluePartitionCredentialsRequest {
   /**
-   * <p>The ARN of the partitions' table.</p>
+   * The ARN of the partitions' table.
+   *
    * @public
    */
   TableArn: string | undefined;
 
   /**
-   * <p>A list of partition values identifying a single partition.</p>
+   * A list of partition values identifying a single partition.
+   *
    * @public
    */
   Partition: PartitionValueList | undefined;
 
   /**
-   * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
+   * Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).
+   *
    * @public
    */
   Permissions?: Permission[] | undefined;
 
   /**
-   * <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
+   * The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.
+   *
    * @public
    */
   DurationSeconds?: number | undefined;
 
   /**
-   * <p>A structure representing context to access a resource (column names, query ID, etc).</p>
+   * A structure representing context to access a resource (column names, query ID, etc).
+   *
    * @public
    */
   AuditContext?: AuditContext | undefined;
 
   /**
-   * <p>A list of supported permission types for the partition. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
+   * A list of supported permission types for the partition. Valid values are `COLUMN_PERMISSION` and `CELL_FILTER_PERMISSION`.
+   *
    * @public
    */
   SupportedPermissionTypes?: PermissionType[] | undefined;
@@ -2559,63 +2850,73 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
  */
 export interface GetTemporaryGluePartitionCredentialsResponse {
   /**
-   * <p>The access key ID for the temporary credentials.</p>
+   * The access key ID for the temporary credentials.
+   *
    * @public
    */
   AccessKeyId?: string | undefined;
 
   /**
-   * <p>The secret key for the temporary credentials.</p>
+   * The secret key for the temporary credentials.
+   *
    * @public
    */
   SecretAccessKey?: string | undefined;
 
   /**
-   * <p>The session token for the temporary credentials.</p>
+   * The session token for the temporary credentials.
+   *
    * @public
    */
   SessionToken?: string | undefined;
 
   /**
-   * <p>The date and time when the temporary credentials expire.</p>
+   * The date and time when the temporary credentials expire.
+   *
    * @public
    */
   Expiration?: Date | undefined;
 }
 
 /**
- * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
- *          <p>For more information about how to utilize QuerySessionContext, see
- *         <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/api-overview.html">Lake Formation workflow for application integration API operations</a> in the developer guide.</p>
+ * A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.
+ *
+ * For more information about how to utilize QuerySessionContext, see [Lake Formation workflow for application integration API operations](https://docs.aws.amazon.com/lake-formation/latest/dg/api-overview.html) in the developer guide.
+ *
  * @public
  */
 export interface QuerySessionContext {
   /**
-   * <p>A unique identifier generated by the query engine for the query.</p>
+   * A unique identifier generated by the query engine for the query.
+   *
    * @public
    */
   QueryId?: string | undefined;
 
   /**
-   * <p>A timestamp provided by the query engine for when the query started.</p>
+   * A timestamp provided by the query engine for when the query started.
+   *
    * @public
    */
   QueryStartTime?: Date | undefined;
 
   /**
-   * <p>An identifier string for the consumer cluster.</p>
+   * An identifier string for the consumer cluster.
+   *
    * @public
    */
   ClusterId?: string | undefined;
 
   /**
-   * <p>A cryptographically generated query identifier generated by Glue or Lake Formation.</p>
+   * A cryptographically generated query identifier generated by Glue or Lake Formation.
+   *
    * @public
    */
   QueryAuthorizationId?: string | undefined;
 
   /**
-   * <p>An opaque string-string map passed by the query engine.</p>
+   * An opaque string-string map passed by the query engine.
+   *
    * @public
    */
   AdditionalContext?: Record<string, string> | undefined;
@@ -2626,43 +2927,50 @@ export interface QuerySessionContext {
  */
 export interface GetTemporaryGlueTableCredentialsRequest {
   /**
-   * <p>The ARN identifying a table in the Data Catalog for the temporary credentials request.</p>
+   * The ARN identifying a table in the Data Catalog for the temporary credentials request.
+   *
    * @public
    */
   TableArn: string | undefined;
 
   /**
-   * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
+   * Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).
+   *
    * @public
    */
   Permissions?: Permission[] | undefined;
 
   /**
-   * <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
+   * The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.
+   *
    * @public
    */
   DurationSeconds?: number | undefined;
 
   /**
-   * <p>A structure representing context to access a resource (column names, query ID, etc).</p>
+   * A structure representing context to access a resource (column names, query ID, etc).
+   *
    * @public
    */
   AuditContext?: AuditContext | undefined;
 
   /**
-   * <p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
+   * A list of supported permission types for the table. Valid values are `COLUMN_PERMISSION` and `CELL_FILTER_PERMISSION`.
+   *
    * @public
    */
   SupportedPermissionTypes?: PermissionType[] | undefined;
 
   /**
-   * <p>The Amazon S3 path for the table.</p>
+   * The Amazon S3 path for the table.
+   *
    * @public
    */
   S3Path?: string | undefined;
 
   /**
-   * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
+   * A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.
+   *
    * @public
    */
   QuerySessionContext?: QuerySessionContext | undefined;
@@ -2673,31 +2981,36 @@ export interface GetTemporaryGlueTableCredentialsRequest {
  */
 export interface GetTemporaryGlueTableCredentialsResponse {
   /**
-   * <p>The access key ID for the temporary credentials.</p>
+   * The access key ID for the temporary credentials.
+   *
    * @public
    */
   AccessKeyId?: string | undefined;
 
   /**
-   * <p>The secret key for the temporary credentials.</p>
+   * The secret key for the temporary credentials.
+   *
    * @public
    */
   SecretAccessKey?: string | undefined;
 
   /**
-   * <p>The session token for the temporary credentials.</p>
+   * The session token for the temporary credentials.
+   *
    * @public
    */
   SessionToken?: string | undefined;
 
   /**
-   * <p>The date and time when the temporary credentials expire.</p>
+   * The date and time when the temporary credentials expire.
+   *
    * @public
    */
   Expiration?: Date | undefined;
 
   /**
-   * <p>The Amazon S3 path for the temporary credentials.</p>
+   * The Amazon S3 path for the temporary credentials.
+   *
    * @public
    */
   VendedS3Path?: string[] | undefined;
@@ -2708,31 +3021,36 @@ export interface GetTemporaryGlueTableCredentialsResponse {
  */
 export interface GetWorkUnitResultsRequest {
   /**
-   * <p>The ID of the plan query operation for which to get results.</p>
+   * The ID of the plan query operation for which to get results.
+   *
    * @public
    */
   QueryId: string | undefined;
 
   /**
-   * <p>The work unit ID for which to get results. Value generated by enumerating <code>WorkUnitIdMin</code> to <code>WorkUnitIdMax</code> (inclusive) from the <code>WorkUnitRange</code> in the output of <code>GetWorkUnits</code>.</p>
+   * The work unit ID for which to get results. Value generated by enumerating `WorkUnitIdMin` to `WorkUnitIdMax` (inclusive) from the `WorkUnitRange` in the output of `GetWorkUnits`.
+   *
    * @public
    */
   WorkUnitId: number | undefined;
 
   /**
-   * <p>A work token used to query the execution service. Token output from <code>GetWorkUnits</code>.</p>
+   * A work token used to query the execution service. Token output from `GetWorkUnits`.
+   *
    * @public
    */
   WorkUnitToken: string | undefined;
 }
 
 /**
- * <p>A structure for the output.</p>
+ * A structure for the output.
+ *
  * @public
  */
 export interface GetWorkUnitResultsResponse {
   /**
-   * <p>Rows returned from the <code>GetWorkUnitResults</code> operation as a stream of Apache Arrow v1.0 messages.</p>
+   * Rows returned from the `GetWorkUnitResults` operation as a stream of Apache Arrow v1.0 messages.
+   *
    * @public
    */
   ResultStream?: StreamingBlobTypes | undefined;
@@ -2743,67 +3061,78 @@ export interface GetWorkUnitResultsResponse {
  */
 export interface GetWorkUnitsRequest {
   /**
-   * <p>A continuation token, if this is a continuation call.</p>
+   * A continuation token, if this is a continuation call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The size of each page to get in the Amazon Web Services service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the Amazon Web Services service, retrieving fewer items in each call. This can help prevent the Amazon Web Services service calls from timing out.</p>
+   * The size of each page to get in the Amazon Web Services service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the Amazon Web Services service, retrieving fewer items in each call. This can help prevent the Amazon Web Services service calls from timing out.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The ID of the plan query operation.</p>
+   * The ID of the plan query operation.
+   *
    * @public
    */
   QueryId: string | undefined;
 }
 
 /**
- * <p>Defines the valid range of work unit IDs for querying the execution service.</p>
+ * Defines the valid range of work unit IDs for querying the execution service.
+ *
  * @public
  */
 export interface WorkUnitRange {
   /**
-   * <p>Defines the maximum work unit ID in the range. The maximum value is inclusive.</p>
+   * Defines the maximum work unit ID in the range. The maximum value is inclusive.
+   *
    * @public
    */
   WorkUnitIdMax: number | undefined;
 
   /**
-   * <p>Defines the minimum work unit ID in the range.</p>
+   * Defines the minimum work unit ID in the range.
+   *
    * @public
    */
   WorkUnitIdMin: number | undefined;
 
   /**
-   * <p>A work token used to query the execution service.</p>
+   * A work token used to query the execution service.
+   *
    * @public
    */
   WorkUnitToken: string | undefined;
 }
 
 /**
- * <p>A structure for the output.</p>
+ * A structure for the output.
+ *
  * @public
  */
 export interface GetWorkUnitsResponse {
   /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   * A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ID of the plan query operation.</p>
+   * The ID of the plan query operation.
+   *
    * @public
    */
   QueryId: string | undefined;
 
   /**
-   * <p>A <code>WorkUnitRangeList</code> object that specifies the valid range of work unit IDs for querying the execution service.</p>
+   * A `WorkUnitRangeList` object that specifies the valid range of work unit IDs for querying the execution service.
+   *
    * @public
    */
   WorkUnitRanges: WorkUnitRange[] | undefined;
@@ -2814,38 +3143,45 @@ export interface GetWorkUnitsResponse {
  */
 export interface GrantPermissionsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>
-   *          <p>Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted. </p>
+   * The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.
+   *
+   * Note that if you define a resource with a particular ARN, then later delete, and recreate a resource with that same ARN, the resource maintains the permissions already granted.
+   *
    * @public
    */
   Principal: DataLakePrincipal | undefined;
 
   /**
-   * <p>The resource to which permissions are to be granted. Resources in Lake Formation are the Data Catalog, databases, and tables.</p>
+   * The resource to which permissions are to be granted. Resources in Lake Formation are the Data Catalog, databases, and tables.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>The permissions granted to the principal on the resource. Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Lake Formation requires that each principal be authorized to perform a specific task on Lake Formation resources. </p>
+   * The permissions granted to the principal on the resource. Lake Formation defines privileges to grant and revoke access to metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Lake Formation requires that each principal be authorized to perform a specific task on Lake Formation resources.
+   *
    * @public
    */
   Permissions: Permission[] | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
+   * Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the `Privileges`.
+   *
    * @public
    */
   PermissionsWithGrantOption?: Permission[] | undefined;
@@ -2861,19 +3197,22 @@ export interface GrantPermissionsResponse {}
  */
 export interface ListDataCellsFilterRequest {
   /**
-   * <p>A table in the Glue Data Catalog.</p>
+   * A table in the Glue Data Catalog.
+   *
    * @public
    */
   Table?: TableResource | undefined;
 
   /**
-   * <p>A continuation token, if this is a continuation call.</p>
+   * A continuation token, if this is a continuation call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the response.</p>
+   * The maximum size of the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -2884,13 +3223,15 @@ export interface ListDataCellsFilterRequest {
  */
 export interface ListDataCellsFilterResponse {
   /**
-   * <p>A list of <code>DataCellFilter</code> structures.</p>
+   * A list of `DataCellFilter` structures.
+   *
    * @public
    */
   DataCellsFilters?: DataCellsFilter[] | undefined;
 
   /**
-   * <p>A continuation token, if not all requested data cell filters have been returned.</p>
+   * A continuation token, if not all requested data cell filters have been returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2901,63 +3242,71 @@ export interface ListDataCellsFilterResponse {
  */
 export interface ListLakeFormationOptInsRequest {
   /**
-   * <p>The Lake Formation principal. Supported principals are IAM users
-   *       or IAM roles.</p>
+   * The Lake Formation principal. Supported principals are IAM users or IAM roles.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>A structure for the resource.</p>
+   * A structure for the resource.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A single principal-resource pair that has Lake Formation permissins enforced.</p>
+ * A single principal-resource pair that has Lake Formation permissins enforced.
+ *
  * @public
  */
 export interface LakeFormationOptInsInfo {
   /**
-   * <p>A structure for the resource.</p>
+   * A structure for the resource.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>The Lake Formation principal. Supported principals are IAM users
-   *       or IAM roles.</p>
+   * The Lake Formation principal. Supported principals are IAM users or IAM roles.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>The last modified date and time of the record.</p>
+   * The last modified date and time of the record.
+   *
    * @public
    */
   LastModified?: Date | undefined;
 
   /**
-   * <p>The user who updated the record.</p>
+   * The user who updated the record.
+   *
    * @public
    */
   LastUpdatedBy?: string | undefined;
@@ -2968,13 +3317,15 @@ export interface LakeFormationOptInsInfo {
  */
 export interface ListLakeFormationOptInsResponse {
   /**
-   * <p>A list of principal-resource pairs that have Lake Formation permissins enforced.</p>
+   * A list of principal-resource pairs that have Lake Formation permissins enforced.
+   *
    * @public
    */
   LakeFormationOptInsInfoList?: LakeFormationOptInsInfo[] | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2985,49 +3336,57 @@ export interface ListLakeFormationOptInsResponse {
  */
 export interface ListLFTagExpressionsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * The identifier for the Data Catalog. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure consists LF-Tag expression name and catalog ID.</p>
+ * A structure consists LF-Tag expression name and catalog ID.
+ *
  * @public
  */
 export interface LFTagExpression {
   /**
-   * <p>The name for saved the LF-Tag expression.</p>
+   * The name for saved the LF-Tag expression.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A structure that contains information about the LF-Tag expression.</p>
+   * A structure that contains information about the LF-Tag expression.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * The identifier for the Data Catalog. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A logical expression composed of one or more LF-Tags.</p>
+   * A logical expression composed of one or more LF-Tags.
+   *
    * @public
    */
   Expression?: LFTag[] | undefined;
@@ -3038,13 +3397,15 @@ export interface LFTagExpression {
  */
 export interface ListLFTagExpressionsResponse {
   /**
-   * <p>Logical expressions composed of one more LF-Tag key-value pairs.</p>
+   * Logical expressions composed of one more LF-Tag key-value pairs.
+   *
    * @public
    */
   LFTagExpressions?: LFTagExpression[] | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3055,25 +3416,29 @@ export interface ListLFTagExpressionsResponse {
  */
 export interface ListLFTagsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>If resource share type is <code>ALL</code>, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view.</p>
+   * If resource share type is `ALL`, returns both in-account LF-tags and shared LF-tags that the requester has permission to view. If resource share type is `FOREIGN`, returns all share LF-tags that the requester can view. If no resource share type is passed, lists LF-tags in the given catalog ID that the requester has permission to view.
+   *
    * @public
    */
   ResourceShareType?: ResourceShareType | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3084,13 +3449,15 @@ export interface ListLFTagsRequest {
  */
 export interface ListLFTagsResponse {
   /**
-   * <p>A list of LF-tags that the requested has permission to view.</p>
+   * A list of LF-tags that the requested has permission to view.
+   *
    * @public
    */
   LFTags?: LFTagPair[] | undefined;
 
   /**
-   * <p>A continuation token, present if the current list segment is not the last.</p>
+   * A continuation token, present if the current list segment is not the last.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3101,47 +3468,54 @@ export interface ListLFTagsResponse {
  */
 export interface ListPermissionsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>Specifies a principal to filter the permissions returned.</p>
+   * Specifies a principal to filter the permissions returned.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>Specifies a resource type to filter the permissions returned.</p>
+   * Specifies a resource type to filter the permissions returned.
+   *
    * @public
    */
   ResourceType?: DataLakeResourceType | undefined;
 
   /**
-   * <p>A resource where you will get a list of the principal permissions.</p>
-   *          <p>This operation does not support getting privileges on a table with columns. Instead, call this operation on the table, and the operation returns the table and the table w columns.</p>
+   * A resource where you will get a list of the principal permissions.
+   *
+   * This operation does not support getting privileges on a table with columns. Instead, call this operation on the table, and the operation returns the table and the table w columns.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Indicates that related permissions should be included in the results when listing permissions on a table resource.</p>
-   *          <p>Set the field to <code>TRUE</code> to show the cell filters on a table resource. Default
-   *       is <code>FALSE</code>. The Principal parameter must not be specified when requesting cell
-   *       filter information.</p>
+   * Indicates that related permissions should be included in the results when listing permissions on a table resource.
+   *
+   * Set the field to `TRUE` to show the cell filters on a table resource. Default is `FALSE`. The Principal parameter must not be specified when requesting cell filter information.
+   *
    * @public
    */
   IncludeRelated?: string | undefined;
@@ -3152,37 +3526,43 @@ export interface ListPermissionsRequest {
  */
 export interface ListPermissionsResponse {
   /**
-   * <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>
+   * A list of principals and their permissions on the resource for the specified principal and resource types.
+   *
    * @public
    */
   PrincipalResourcePermissions?: PrincipalResourcePermissions[] | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>This structure describes the filtering of columns in a table based on a filter condition.</p>
+ * This structure describes the filtering of columns in a table based on a filter condition.
+ *
  * @public
  */
 export interface FilterCondition {
   /**
-   * <p>The field to filter in the filter condition.</p>
+   * The field to filter in the filter condition.
+   *
    * @public
    */
   Field?: FieldNameString | undefined;
 
   /**
-   * <p>The comparison operator used in the filter condition.</p>
+   * The comparison operator used in the filter condition.
+   *
    * @public
    */
   ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
-   * <p>A string with values used in evaluating the filter condition.</p>
+   * A string with values used in evaluating the filter condition.
+   *
    * @public
    */
   StringValueList?: string[] | undefined;
@@ -3193,19 +3573,22 @@ export interface FilterCondition {
  */
 export interface ListResourcesRequest {
   /**
-   * <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
+   * Any applicable row-level and/or column-level filtering conditions for the resources.
+   *
    * @public
    */
   FilterConditionList?: FilterCondition[] | undefined;
 
   /**
-   * <p>The maximum number of resource results.</p>
+   * The maximum number of resource results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
+   * A continuation token, if this is not the first call to retrieve these resources.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3216,13 +3599,15 @@ export interface ListResourcesRequest {
  */
 export interface ListResourcesResponse {
   /**
-   * <p>A summary of the data lake resources.</p>
+   * A summary of the data lake resources.
+   *
    * @public
    */
   ResourceInfoList?: ResourceInfo[] | undefined;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
+   * A continuation token, if this is not the first call to retrieve these resources.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3233,13 +3618,15 @@ export interface ListResourcesResponse {
  */
 export interface ListRLSPoliciesRequest {
   /**
-   * <p>The maximum number of row-level security policies to return in a single response.</p>
+   * The maximum number of row-level security policies to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is a continuation call.</p>
+   * A continuation token, if this is a continuation call.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3250,13 +3637,15 @@ export interface ListRLSPoliciesRequest {
  */
 export interface ListRLSPoliciesResponse {
   /**
-   * <p>A list of <code>RLSPolicy</code> structures.</p>
+   * A list of `RLSPolicy` structures.
+   *
    * @public
    */
   RLSPolicies?: RLSPolicy[] | undefined;
 
   /**
-   * <p>A continuation token, if not all row-level security policies have been returned.</p>
+   * A continuation token, if not all row-level security policies have been returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3267,73 +3656,85 @@ export interface ListRLSPoliciesResponse {
  */
 export interface ListRLSPolicyAttachmentsRequest {
   /**
-   * <p>If specified, returns only the attachments for the given resource.</p>
+   * If specified, returns only the attachments for the given resource.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>If specified, returns only the attachments for the given principal.</p>
+   * If specified, returns only the attachments for the given principal.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>If specified, returns only the attachments for the row-level security policy with this name.</p>
+   * If specified, returns only the attachments for the row-level security policy with this name.
+   *
    * @public
    */
   PolicyName?: string | undefined;
 
   /**
-   * <p>The maximum number of attachments to return in a single response.</p>
+   * The maximum number of attachments to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is a continuation call.</p>
+   * A continuation token, if this is a continuation call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that describes the attachment of a row-level security policy to a resource for a principal.</p>
+ * A structure that describes the attachment of a row-level security policy to a resource for a principal.
+ *
  * @public
  */
 export interface RLSPolicyAttachment {
   /**
-   * <p>The identifier for the Data Catalog that contains the attachment. By default, the account ID.</p>
+   * The identifier for the Data Catalog that contains the attachment. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of the attached row-level security policy.</p>
+   * The name of the attached row-level security policy.
+   *
    * @public
    */
   PolicyName?: string | undefined;
 
   /**
-   * <p>The principal to which the attached policy applies.</p>
+   * The principal to which the attached policy applies.
+   *
    * @public
    */
   Principal?: DataLakePrincipal | undefined;
 
   /**
-   * <p>The resource to which the policy is attached.</p>
+   * The resource to which the policy is attached.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.</p>
+   * A Lake Formation condition, which applies to the row-level security policy attachment and contains an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>Indicates whether this attachment is the default row-level security policy for the resource.</p>
+   * Indicates whether this attachment is the default row-level security policy for the resource.
+   *
    * @public
    */
   DefaultRLSPolicy?: boolean | undefined;
@@ -3344,13 +3745,15 @@ export interface RLSPolicyAttachment {
  */
 export interface ListRLSPolicyAttachmentsResponse {
   /**
-   * <p>A list of <code>RLSPolicyAttachment</code> structures.</p>
+   * A list of `RLSPolicyAttachment` structures.
+   *
    * @public
    */
   RLSPolicyAttachments?: RLSPolicyAttachment[] | undefined;
 
   /**
-   * <p>A continuation token, if not all attachments have been returned.</p>
+   * A continuation token, if not all attachments have been returned.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3361,75 +3764,89 @@ export interface ListRLSPolicyAttachmentsResponse {
  */
 export interface ListTableStorageOptimizersRequest {
   /**
-   * <p>The Catalog ID of the table.</p>
+   * The Catalog ID of the table.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>Name of the database where the table is present.</p>
+   * Name of the database where the table is present.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>Name of the table.</p>
+   * Name of the table.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>The specific type of storage optimizers to list. The supported value is <code>compaction</code>.</p>
+   * The specific type of storage optimizers to list. The supported value is `compaction`.
+   *
    * @public
    */
   StorageOptimizerType?: OptimizerType | undefined;
 
   /**
-   * <p>The number of storage optimizers to return on each call.</p>
+   * The number of storage optimizers to return on each call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token, if this is a continuation call.</p>
+   * A continuation token, if this is a continuation call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure describing the configuration and details of a storage optimizer.</p>
+ * A structure describing the configuration and details of a storage optimizer.
+ *
  * @public
  */
 export interface StorageOptimizer {
   /**
-   * <p>The specific type of storage optimizer. The supported value is <code>compaction</code>.</p>
+   * The specific type of storage optimizer. The supported value is `compaction`.
+   *
    * @public
    */
   StorageOptimizerType?: OptimizerType | undefined;
 
   /**
-   * <p>A map of the storage optimizer configuration. Currently contains only one key-value pair: <code>is_enabled</code> indicates true or false for acceleration.</p>
+   * A map of the storage optimizer configuration. Currently contains only one key-value pair: `is_enabled` indicates true or false for acceleration.
+   *
    * @public
    */
   Config?: Record<string, string> | undefined;
 
   /**
-   * <p>A message that contains information about any error (if present).</p>
-   *          <p>When an acceleration result has an enabled status, the error message is empty.</p>
-   *          <p>When an acceleration result has a disabled status, the message describes an error or simply indicates "disabled by the user".</p>
+   * A message that contains information about any error (if present).
+   *
+   * When an acceleration result has an enabled status, the error message is empty.
+   *
+   * When an acceleration result has a disabled status, the message describes an error or simply indicates "disabled by the user".
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>A message that contains information about any warnings (if present).</p>
+   * A message that contains information about any warnings (if present).
+   *
    * @public
    */
   Warnings?: string | undefined;
 
   /**
-   * <p>When an acceleration result has an enabled status, contains the details of the last job run.</p>
+   * When an acceleration result has an enabled status, contains the details of the last job run.
+   *
    * @public
    */
   LastRunDetails?: string | undefined;
@@ -3440,13 +3857,15 @@ export interface StorageOptimizer {
  */
 export interface ListTableStorageOptimizersResponse {
   /**
-   * <p>A list of the storage optimizers associated with a table.</p>
+   * A list of the storage optimizers associated with a table.
+   *
    * @public
    */
   StorageOptimizerList?: StorageOptimizer[] | undefined;
 
   /**
-   * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
+   * A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3457,25 +3876,29 @@ export interface ListTableStorageOptimizersResponse {
  */
 export interface ListTransactionsRequest {
   /**
-   * <p>The catalog for which to list transactions. Defaults to the account ID of the caller.</p>
+   * The catalog for which to list transactions. Defaults to the account ID of the caller.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p> A filter indicating the status of transactions to return. Options are ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is <code>ALL</code>.</p>
+   * A filter indicating the status of transactions to return. Options are ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is `ALL`.
+   *
    * @public
    */
   StatusFilter?: TransactionStatusFilter | undefined;
 
   /**
-   * <p>The maximum number of transactions to return in a single call.</p>
+   * The maximum number of transactions to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A continuation token if this is not the first call to retrieve transactions.</p>
+   * A continuation token if this is not the first call to retrieve transactions.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3486,13 +3909,15 @@ export interface ListTransactionsRequest {
  */
 export interface ListTransactionsResponse {
   /**
-   * <p>A list of transactions. The record for each transaction is a <code>TransactionDescription</code> object.</p>
+   * A list of transactions. The record for each transaction is a `TransactionDescription` object.
+   *
    * @public
    */
   Transactions?: TransactionDescription[] | undefined;
 
   /**
-   * <p>A continuation token indicating whether additional data is available.</p>
+   * A continuation token indicating whether additional data is available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3503,13 +3928,15 @@ export interface ListTransactionsResponse {
  */
 export interface PutDataLakeSettingsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A structure representing a list of Lake Formation principals designated as data lake administrators.</p>
+   * A structure representing a list of Lake Formation principals designated as data lake administrators.
+   *
    * @public
    */
   DataLakeSettings: DataLakeSettings | undefined;
@@ -3525,47 +3952,52 @@ export interface PutDataLakeSettingsResponse {}
  */
 export interface RegisterResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to register.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to register.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Designates an Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html">Using Service-Linked Roles for Lake Formation</a>.</p>
+   * Designates an Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog. A service-linked role is a unique type of IAM role that is linked directly to Lake Formation.
+   *
+   * For more information, see [Using Service-Linked Roles for Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html).
+   *
    * @public
    */
   UseServiceLinkedRole?: boolean | undefined;
 
   /**
-   * <p>The identifier for the role that registers the resource.</p>
+   * The identifier for the role that registers the resource.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>Whether or not the resource is a federated resource.</p>
+   * Whether or not the resource is a federated resource.
+   *
    * @public
    */
   WithFederation?: boolean | undefined;
 
   /**
-   * <p>
-   *     Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
-   *   </p>
+   * Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
+   *
    * @public
    */
   HybridAccessEnabled?: boolean | undefined;
 
   /**
-   * <p>Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location. </p>
+   * Grants the calling principal the permissions to perform all supported Lake Formation operations on the registered data location.
+   *
    * @public
    */
   WithPrivilegedAccess?: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
-   *     </p>
+   * The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
+   *
    * @public
    */
   ExpectedResourceOwnerAccount?: string | undefined;
@@ -3581,19 +4013,22 @@ export interface RegisterResourceResponse {}
  */
 export interface RemoveLFTagsFromResourceRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database, table, or column resource where you want to remove an LF-tag.</p>
+   * The database, table, or column resource where you want to remove an LF-tag.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>The LF-tags to be removed from the resource.</p>
+   * The LF-tags to be removed from the resource.
+   *
    * @public
    */
   LFTags: LFTagPair[] | undefined;
@@ -3604,7 +4039,8 @@ export interface RemoveLFTagsFromResourceRequest {
  */
 export interface RemoveLFTagsFromResourceResponse {
   /**
-   * <p>A list of failures to untag a resource.</p>
+   * A list of failures to untag a resource.
+   *
    * @public
    */
   Failures?: LFTagError[] | undefined;
@@ -3615,38 +4051,43 @@ export interface RemoveLFTagsFromResourceResponse {
  */
 export interface RevokePermissionsRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The principal to be revoked permissions on the resource.</p>
+   * The principal to be revoked permissions on the resource.
+   *
    * @public
    */
   Principal: DataLakePrincipal | undefined;
 
   /**
-   * <p>The resource to which permissions are to be revoked.</p>
+   * The resource to which permissions are to be revoked.
+   *
    * @public
    */
   Resource: Resource | undefined;
 
   /**
-   * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
-   *       and Access Control to Metadata and Data</a>.</p>
+   * The permissions revoked to the principal on the resource. For information about permissions, see [Security and Access Control to Metadata and Data](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+   *
    * @public
    */
   Permissions: Permission[] | undefined;
 
   /**
-   * <p>A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.</p>
+   * A Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+   *
    * @public
    */
   Condition?: Condition | undefined;
 
   /**
-   * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
+   * Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.
+   *
    * @public
    */
   PermissionsWithGrantOption?: Permission[] | undefined;
@@ -3662,43 +4103,50 @@ export interface RevokePermissionsResponse {}
  */
 export interface SearchDatabasesByLFTagsRequest {
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A list of conditions (<code>LFTag</code> structures) to search for in database resources.</p>
+   * A list of conditions (`LFTag` structures) to search for in database resources.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
 }
 
 /**
- * <p>A structure describing a database resource with LF-tags.</p>
+ * A structure describing a database resource with LF-tags.
+ *
  * @public
  */
 export interface TaggedDatabase {
   /**
-   * <p>A database that has LF-tags attached to it.</p>
+   * A database that has LF-tags attached to it.
+   *
    * @public
    */
   Database?: DatabaseResource | undefined;
 
   /**
-   * <p>A list of LF-tags attached to the database.</p>
+   * A list of LF-tags attached to the database.
+   *
    * @public
    */
   LFTags?: LFTagPair[] | undefined;
@@ -3709,13 +4157,15 @@ export interface TaggedDatabase {
  */
 export interface SearchDatabasesByLFTagsResponse {
   /**
-   * <p>A continuation token, present if the current list segment is not the last.</p>
+   * A continuation token, present if the current list segment is not the last.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of databases that meet the LF-tag conditions.</p>
+   * A list of databases that meet the LF-tag conditions.
+   *
    * @public
    */
   DatabaseList?: TaggedDatabase[] | undefined;
@@ -3726,55 +4176,64 @@ export interface SearchDatabasesByLFTagsResponse {
  */
 export interface SearchTablesByLFTagsRequest {
   /**
-   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   * A continuation token, if this is not the first call to retrieve this list.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A list of conditions (<code>LFTag</code> structures) to search for in table resources.</p>
+   * A list of conditions (`LFTag` structures) to search for in table resources.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
 }
 
 /**
- * <p>A structure describing a table resource with LF-tags.</p>
+ * A structure describing a table resource with LF-tags.
+ *
  * @public
  */
 export interface TaggedTable {
   /**
-   * <p>A table that has LF-tags attached to it.</p>
+   * A table that has LF-tags attached to it.
+   *
    * @public
    */
   Table?: TableResource | undefined;
 
   /**
-   * <p>A list of LF-tags attached to the database where the table resides.</p>
+   * A list of LF-tags attached to the database where the table resides.
+   *
    * @public
    */
   LFTagOnDatabase?: LFTagPair[] | undefined;
 
   /**
-   * <p>A list of LF-tags attached to the table.</p>
+   * A list of LF-tags attached to the table.
+   *
    * @public
    */
   LFTagsOnTable?: LFTagPair[] | undefined;
 
   /**
-   * <p>A list of LF-tags attached to columns in the table.</p>
+   * A list of LF-tags attached to columns in the table.
+   *
    * @public
    */
   LFTagsOnColumns?: ColumnLFTag[] | undefined;
@@ -3785,49 +4244,57 @@ export interface TaggedTable {
  */
 export interface SearchTablesByLFTagsResponse {
   /**
-   * <p>A continuation token, present if the current list segment is not the last. On the first run, if you include a not null (a value) token you can get empty pages.</p>
+   * A continuation token, present if the current list segment is not the last. On the first run, if you include a not null (a value) token you can get empty pages.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of tables that meet the LF-tag conditions.</p>
+   * A list of tables that meet the LF-tag conditions.
+   *
    * @public
    */
   TableList?: TaggedTable[] | undefined;
 }
 
 /**
- * <p>A structure containing information about the query plan.</p>
+ * A structure containing information about the query plan.
+ *
  * @public
  */
 export interface QueryPlanningContext {
   /**
-   * <p>The ID of the Data Catalog where the partition in question resides. If none is provided, the Amazon Web Services account ID is used by default.</p>
+   * The ID of the Data Catalog where the partition in question resides. If none is provided, the Amazon Web Services account ID is used by default.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database containing the table.</p>
+   * The database containing the table.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
+   * The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `TransactionId`.
+   *
    * @public
    */
   QueryAsOfTime?: Date | undefined;
 
   /**
-   * <p>A map consisting of key-value pairs.</p>
+   * A map consisting of key-value pairs.
+   *
    * @public
    */
   QueryParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The transaction ID at which to read the table contents. If this transaction is not committed, the read will be treated as part of that transaction and will see its writes. If this transaction has aborted, an error will be returned. If not set, defaults to the most recent committed transaction. Cannot be specified along with <code>QueryAsOfTime</code>.</p>
+   * The transaction ID at which to read the table contents. If this transaction is not committed, the read will be treated as part of that transaction and will see its writes. If this transaction has aborted, an error will be returned. If not set, defaults to the most recent committed transaction. Cannot be specified along with `QueryAsOfTime`.
+   *
    * @public
    */
   TransactionId?: string | undefined;
@@ -3838,25 +4305,29 @@ export interface QueryPlanningContext {
  */
 export interface StartQueryPlanningRequest {
   /**
-   * <p>A structure containing information about the query plan.</p>
+   * A structure containing information about the query plan.
+   *
    * @public
    */
   QueryPlanningContext: QueryPlanningContext | undefined;
 
   /**
-   * <p>A PartiQL query statement used as an input to the planner service.</p>
+   * A PartiQL query statement used as an input to the planner service.
+   *
    * @public
    */
   QueryString: string | undefined;
 }
 
 /**
- * <p>A structure for the output.</p>
+ * A structure for the output.
+ *
  * @public
  */
 export interface StartQueryPlanningResponse {
   /**
-   * <p>The ID of the plan query operation can be used to fetch the actual work unit descriptors that are produced as the result of the operation. The ID is also used to get the query state and as an input to the <code>Execute</code> operation.</p>
+   * The ID of the plan query operation can be used to fetch the actual work unit descriptors that are produced as the result of the operation. The ID is also used to get the query state and as an input to the `Execute` operation.
+   *
    * @public
    */
   QueryId: string | undefined;
@@ -3867,7 +4338,8 @@ export interface StartQueryPlanningResponse {
  */
 export interface StartTransactionRequest {
   /**
-   * <p>Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. </p>
+   * Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed.
+   *
    * @public
    */
   TransactionType?: TransactionType | undefined;
@@ -3878,7 +4350,8 @@ export interface StartTransactionRequest {
  */
 export interface StartTransactionResponse {
   /**
-   * <p>An opaque identifier for the transaction.</p>
+   * An opaque identifier for the transaction.
+   *
    * @public
    */
   TransactionId?: string | undefined;
@@ -3889,7 +4362,8 @@ export interface StartTransactionResponse {
  */
 export interface UpdateDataCellsFilterRequest {
   /**
-   * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
+   * A `DataCellsFilter` structure containing information about the data cells filter.
+   *
    * @public
    */
   TableData: DataCellsFilter | undefined;
@@ -3905,41 +4379,42 @@ export interface UpdateDataCellsFilterResponse {}
  */
 export interface UpdateLakeFormationIdentityCenterConfigurationRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the
-   *          persistent metadata store. It contains database definitions, table definitions, view
-   *          definitions, and other control information to manage your Lake Formation
-   *          environment.</p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, view definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that
-   *          are allowed to access to access data managed by Lake Formation. </p>
-   *          <p>If the <code>ShareRecipients</code> list includes valid values, then the resource share is updated with the principals you want to have access to the resources.</p>
-   *          <p>If the <code>ShareRecipients</code> value is null, both the list of share recipients and
-   *          the resource share remain unchanged.</p>
-   *          <p>If the <code>ShareRecipients</code> value is an empty list, then the existing share
-   *          recipients list will be cleared, and the resource share will be deleted.</p>
+   * A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational unit ARNs that are allowed to access to access data managed by Lake Formation.
+   *
+   * If the `ShareRecipients` list includes valid values, then the resource share is updated with the principals you want to have access to the resources.
+   *
+   * If the `ShareRecipients` value is null, both the list of share recipients and the resource share remain unchanged.
+   *
+   * If the `ShareRecipients` value is an empty list, then the existing share recipients list will be cleared, and the resource share will be deleted.
+   *
    * @public
    */
   ShareRecipients?: DataLakePrincipal[] | undefined;
 
   /**
-   * <p>A list of service integrations for enabling trusted identity propagation with external services such as Redshift.</p>
+   * A list of service integrations for enabling trusted identity propagation with external services such as Redshift.
+   *
    * @public
    */
   ServiceIntegrations?: ServiceIntegrationUnion[] | undefined;
 
   /**
-   * <p>Allows to enable or disable the IAM Identity Center connection.</p>
+   * Allows to enable or disable the IAM Identity Center connection.
+   *
    * @public
    */
   ApplicationStatus?: ApplicationStatus | undefined;
 
   /**
-   * <p>A list of the account IDs of Amazon Web Services accounts of third-party applications
-   *          that are allowed to access data managed by Lake Formation.</p>
+   * A list of the account IDs of Amazon Web Services accounts of third-party applications that are allowed to access data managed by Lake Formation.
+   *
    * @public
    */
   ExternalFiltering?: ExternalFilteringConfiguration | undefined;
@@ -3955,25 +4430,29 @@ export interface UpdateLakeFormationIdentityCenterConfigurationResponse {}
  */
 export interface UpdateLFTagRequest {
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
+   * The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The key-name for the LF-tag for which to add or delete values.</p>
+   * The key-name for the LF-tag for which to add or delete values.
+   *
    * @public
    */
   TagKey: string | undefined;
 
   /**
-   * <p>A list of LF-tag values to delete from the LF-tag.</p>
+   * A list of LF-tag values to delete from the LF-tag.
+   *
    * @public
    */
   TagValuesToDelete?: string[] | undefined;
 
   /**
-   * <p>A list of LF-tag values to add from the LF-tag.</p>
+   * A list of LF-tag values to add from the LF-tag.
+   *
    * @public
    */
   TagValuesToAdd?: string[] | undefined;
@@ -3989,25 +4468,29 @@ export interface UpdateLFTagResponse {}
  */
 export interface UpdateLFTagExpressionRequest {
   /**
-   * <p>The name for the LF-Tag expression.</p>
+   * The name for the LF-Tag expression.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description with information about the saved LF-Tag expression.</p>
+   * The description with information about the saved LF-Tag expression.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. </p>
+   * The identifier for the Data Catalog. By default, the account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The LF-Tag expression body composed of one more LF-Tag key-value pairs.</p>
+   * The LF-Tag expression body composed of one more LF-Tag key-value pairs.
+   *
    * @public
    */
   Expression: LFTag[] | undefined;
@@ -4023,34 +4506,36 @@ export interface UpdateLFTagExpressionResponse {}
  */
 export interface UpdateResourceRequest {
   /**
-   * <p>The new role to use for the given resource registered in Lake Formation.</p>
+   * The new role to use for the given resource registered in Lake Formation.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Whether or not the resource is a federated resource.</p>
+   * Whether or not the resource is a federated resource.
+   *
    * @public
    */
   WithFederation?: boolean | undefined;
 
   /**
-   * <p>
-   *       Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
-   *     </p>
+   * Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.
+   *
    * @public
    */
   HybridAccessEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
-   *     </p>
+   * The Amazon Web Services account that owns the Glue tables associated with specific Amazon S3 locations.
+   *
    * @public
    */
   ExpectedResourceOwnerAccount?: string | undefined;
@@ -4066,13 +4551,15 @@ export interface UpdateResourceResponse {}
  */
 export interface UpdateRLSPolicyRequest {
   /**
-   * <p>The name of the row-level security policy to update.</p>
+   * The name of the row-level security policy to update.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The new filter predicate, written in a SQL-like syntax, that replaces the policy's current filter expression.</p>
+   * The new filter predicate, written in a SQL-like syntax, that replaces the policy's current filter expression.
+   *
    * @public
    */
   FilterExpression?: string | undefined;
@@ -4084,42 +4571,49 @@ export interface UpdateRLSPolicyRequest {
 export interface UpdateRLSPolicyResponse {}
 
 /**
- * <p>An object to delete from the governed table.</p>
+ * An object to delete from the governed table.
+ *
  * @public
  */
 export interface DeleteObjectInput {
   /**
-   * <p>The Amazon S3 location of the object to delete.</p>
+   * The Amazon S3 location of the object to delete.
+   *
    * @public
    */
   Uri: string | undefined;
 
   /**
-   * <p>The Amazon S3 ETag of the object. Returned by <code>GetTableObjects</code> for validation and used to identify changes to the underlying data.</p>
+   * The Amazon S3 ETag of the object. Returned by `GetTableObjects` for validation and used to identify changes to the underlying data.
+   *
    * @public
    */
   ETag?: string | undefined;
 
   /**
-   * <p>A list of partition values for the object. A value must be specified for each partition key associated with the governed table.</p>
+   * A list of partition values for the object. A value must be specified for each partition key associated with the governed table.
+   *
    * @public
    */
   PartitionValues?: string[] | undefined;
 }
 
 /**
- * <p>Defines an object to add to or delete from a governed table.</p>
+ * Defines an object to add to or delete from a governed table.
+ *
  * @public
  */
 export interface WriteOperation {
   /**
-   * <p>A new object to add to the governed table.</p>
+   * A new object to add to the governed table.
+   *
    * @public
    */
   AddObject?: AddObjectInput | undefined;
 
   /**
-   * <p>An object to delete from the governed table.</p>
+   * An object to delete from the governed table.
+   *
    * @public
    */
   DeleteObject?: DeleteObjectInput | undefined;
@@ -4130,31 +4624,36 @@ export interface WriteOperation {
  */
 export interface UpdateTableObjectsRequest {
   /**
-   * <p>The catalog containing the governed table to update. Defaults to the caller’s account ID.</p>
+   * The catalog containing the governed table to update. Defaults to the caller’s account ID.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The database containing the governed table to update.</p>
+   * The database containing the governed table to update.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The governed table to update.</p>
+   * The governed table to update.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>The transaction at which to do the write.</p>
+   * The transaction at which to do the write.
+   *
    * @public
    */
   TransactionId?: string | undefined;
 
   /**
-   * <p>A list of <code>WriteOperation</code> objects that define an object to add to or delete from the manifest for a governed table.</p>
+   * A list of `WriteOperation` objects that define an object to add to or delete from the manifest for a governed table.
+   *
    * @public
    */
   WriteOperations: WriteOperation[] | undefined;
@@ -4170,25 +4669,29 @@ export interface UpdateTableObjectsResponse {}
  */
 export interface UpdateTableStorageOptimizerRequest {
   /**
-   * <p>The Catalog ID of the table.</p>
+   * The Catalog ID of the table.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>Name of the database where the table is present.</p>
+   * Name of the database where the table is present.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>Name of the table for which to enable the storage optimizer.</p>
+   * Name of the table for which to enable the storage optimizer.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>Name of the configuration for the storage optimizer.</p>
+   * Name of the configuration for the storage optimizer.
+   *
    * @public
    */
   StorageOptimizerConfig: Partial<Record<OptimizerType, Record<string, string>>> | undefined;
@@ -4199,7 +4702,8 @@ export interface UpdateTableStorageOptimizerRequest {
  */
 export interface UpdateTableStorageOptimizerResponse {
   /**
-   * <p>A response indicating the success of failure of the operation.</p>
+   * A response indicating the success of failure of the operation.
+   *
    * @public
    */
   Result?: string | undefined;

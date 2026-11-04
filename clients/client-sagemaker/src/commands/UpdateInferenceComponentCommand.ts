@@ -23,7 +23,8 @@ export interface UpdateInferenceComponentCommandInput extends UpdateInferenceCom
 export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceComponentOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an inference component.</p>
+ * Updates an inference component.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -158,11 +159,12 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

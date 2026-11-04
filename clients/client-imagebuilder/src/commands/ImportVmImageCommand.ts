@@ -23,16 +23,10 @@ export interface ImportVmImageCommandInput extends ImportVmImageRequest {}
 export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Image Builder image resource from an Amazon EC2 VM import task. The response
- * 			returns as soon as Image Builder creates the image resource in the
- * 			<code>PENDING</code> state. Image Builder then monitors the import task
- * 			asynchronously. When the task completes, Image Builder records the AMI that it
- * 			produced as the new image's output resource and marks the image
- * 			<code>AVAILABLE</code>. You can then use the imported image as the base
- * 			image for your recipes.</p>
- *          <p>To create the VM import task, use the Amazon EC2 API <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">ImportImage</a>
- * 			operation, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html">import-image</a>
- * 			CLI command.</p>
+ * Creates an Image Builder image resource from an Amazon EC2 VM import task. The response returns as soon as Image Builder creates the image resource in the `PENDING` state. Image Builder then monitors the import task asynchronously. When the task completes, Image Builder records the AMI that it produced as the new image's output resource and marks the image `AVAILABLE`. You can then use the imported image as the base image for your recipes.
+ *
+ * To create the VM import task, use the Amazon EC2 API [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html) operation, or the [import-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/import-image.html) CLI command.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,20 +67,20 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example Import a virtual machine as an Image Builder image
  * ```javascript

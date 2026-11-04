@@ -23,30 +23,20 @@ export interface CreatePartnerEventSourceCommandInput extends CreatePartnerEvent
 export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Called by an SaaS partner to create a partner event source. This operation is not used by
- *       Amazon Web Services customers.</p>
- *          <p>Each partner event source can be used by one Amazon Web Services account to create a matching partner
- *       event bus in that Amazon Web Services account. A SaaS partner must create one partner event source for each
- *       Amazon Web Services account that wants to receive those event types. </p>
- *          <p>A partner event source creates events based on resources within the SaaS partner's service
- *       or application.</p>
- *          <p>An Amazon Web Services account that creates a partner event bus that matches the partner event source can
- *       use that event bus to receive events from the partner, and then process them using Amazon Web Services Events
- *       rules and targets.</p>
- *          <p>Partner event source names follow this format:</p>
- *          <p>
- *             <code>
- *                <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>
- *             </code>
- *          </p>
- *          <p>
- *             <i>partner_name</i> is determined during partner registration and identifies
- *       the partner to Amazon Web Services customers. <i>event_namespace</i> is determined by the
- *       partner and is a way for the partner to categorize their events.
- *         <i>event_name</i> is determined by the partner, and should uniquely identify
- *       an event-generating resource within the partner system. The combination of
- *         <i>event_namespace</i> and <i>event_name</i> should help Amazon Web Services
- *       customers decide whether to create an event bus to receive these events.</p>
+ * Called by an SaaS partner to create a partner event source. This operation is not used by Amazon Web Services customers.
+ *
+ * Each partner event source can be used by one Amazon Web Services account to create a matching partner event bus in that Amazon Web Services account. A SaaS partner must create one partner event source for each Amazon Web Services account that wants to receive those event types.
+ *
+ * A partner event source creates events based on resources within the SaaS partner's service or application.
+ *
+ * An Amazon Web Services account that creates a partner event bus that matches the partner event source can use that event bus to receive events from the partner, and then process them using Amazon Web Services Events rules and targets.
+ *
+ * Partner event source names follow this format:
+ *
+ * `partner_name/event_namespace/event_name`
+ *
+ * *partner_name* is determined during partner registration and identifies the partner to Amazon Web Services customers. *event_namespace* is determined by the partner and is a way for the partner to categorize their events. *event_name* is determined by the partner, and should uniquely identify an event-generating resource within the partner system. The combination of *event_namespace* and *event_name* should help Amazon Web Services customers decide whether to create an event bus to receive these events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,24 +64,28 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
+ *
+ * The request failed because it attempted to create resource beyond the allowed service quota.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource you are trying to create already exists.</p>
+ *
+ * The resource you are trying to create already exists.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

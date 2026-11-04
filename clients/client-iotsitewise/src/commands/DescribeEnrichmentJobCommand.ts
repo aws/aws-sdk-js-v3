@@ -23,32 +23,35 @@ export interface DescribeEnrichmentJobCommandInput extends DescribeEnrichmentJob
 export interface DescribeEnrichmentJobCommandOutput extends DescribeEnrichmentJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a specific enrichment job, including its current status,
- * configuration, and timestamps.</p>
- * <h2>Use Cases</h2>
- * <ul>
- * <li>Monitor job progress by checking status updates with DescribeEnrichmentJob</li>
- * <li>Retrieve the complete job configuration submitted during creation</li>
- * <li>Debug failed jobs by examining the failureMessage field</li>
- * <li>Track job lifecycle with creation, update, completion, and cancellation timestamps</li>
- * </ul>
- * <h2>Status Monitoring</h2>
- * <p>Jobs progress through statuses: PENDING → RUNNING → terminal state</p>
- * <p>Terminal states:</p>
- * <ul>
- * <li>COMPLETED: Job finished successfully; query IoT SiteWise for semantic search results</li>
- * <li>FAILED: Job encountered an error; check failureMessage for details</li>
- * <li>TIMED_OUT: Job exceeded maximum processing time</li>
- * <li>CANCELLED: Job was cancelled via CancelEnrichmentJob</li>
- * </ul>
- * <h2>Response Fields</h2>
- * <p>The response includes:</p>
- * <ul>
- * <li>Current job status and type</li>
- * <li>Full job configuration as originally submitted</li>
- * <li>Lifecycle timestamps (created, updated, completed, cancelled)</li>
- * <li>Failure details if status is FAILED</li>
- * </ul>
+ * Retrieves detailed information about a specific enrichment job, including its current status, configuration, and timestamps.
+ *
+ * ## Use Cases
+ *
+ * - Monitor job progress by checking status updates with DescribeEnrichmentJob
+ * - Retrieve the complete job configuration submitted during creation
+ * - Debug failed jobs by examining the failureMessage field
+ * - Track job lifecycle with creation, update, completion, and cancellation timestamps
+ *
+ * ## Status Monitoring
+ *
+ * Jobs progress through statuses: PENDING → RUNNING → terminal state
+ *
+ * Terminal states:
+ *
+ * - COMPLETED: Job finished successfully; query IoT SiteWise for semantic search results
+ * - FAILED: Job encountered an error; check failureMessage for details
+ * - TIMED_OUT: Job exceeded maximum processing time
+ * - CANCELLED: Job was cancelled via CancelEnrichmentJob
+ *
+ * ## Response Fields
+ *
+ * The response includes:
+ *
+ * - Current job status and type
+ * - Full job configuration as originally submitted
+ * - Lifecycle timestamps (created, updated, completed, cancelled)
+ * - Failure details if status is FAILED
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,37 +104,40 @@ export interface DescribeEnrichmentJobCommandOutput extends DescribeEnrichmentJo
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
+ *
+ * IoT SiteWise can't process your request right now. Try again later.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters. Check your request and try again.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters. Check your request and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the quota for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * You've reached the quota for a resource. For example, this can occur if you're trying to associate more than the allowed number of child assets or attempting to create more than the allowed number of properties for an asset model.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
- *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
- *       on.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * Your request exceeded a rate limit. For example, you might have exceeded the number of IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so on.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html) in the *IoT SiteWise User Guide*.
  *
  * @throws {@link IoTSiteWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTSiteWise service.
  *
  * @public
  */

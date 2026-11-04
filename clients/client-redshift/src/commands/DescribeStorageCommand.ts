@@ -23,7 +23,8 @@ export interface DescribeStorageCommandInput {}
 export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __MetadataBearer {}
 
 /**
- * <p>Returns account level backups storage size and provisional storage.</p>
+ * Returns account level backups storage size and provisional storage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

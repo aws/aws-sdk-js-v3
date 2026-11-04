@@ -23,54 +23,25 @@ export interface RetireGrantCommandInput extends RetireGrantRequest {}
 export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
- *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
- *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation
- *       returns both values.</p>
- *          <p>This operation can be called by the <i>retiring principal</i> for a grant,
- *       by the <i>grantee principal</i> if the grant allows the <code>RetireGrant</code>
- *       operation, and by the Amazon Web Services account in which the grant is created. It can also be called by
- *       principals to whom permission for retiring a grant is delegated.</p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
- *         <i>
- *                <i>Key Management Service Developer Guide</i>
- *             </i>. For examples of creating grants in several
- *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
- *          <p>
- *             <b>Cross-account use</b>: Yes. You can retire a grant on a KMS
- *       key in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: Permission to retire a grant is
- *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGrant</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGrants</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListRetirableGrants</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RevokeGrant</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To identify the grant to retire, use a [grant token](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token), or both the grant ID and a key identifier (key ID or key ARN) of the KMS key. The CreateGrant operation returns both values.
+ *
+ * This operation can be called by the *retiring principal* for a grant, by the *grantee principal* if the grant allows the `RetireGrant` operation, and by the Amazon Web Services account in which the grant is created. It can also be called by principals to whom permission for retiring a grant is delegated.
+ *
+ * For detailed information about grants, including grant terminology, see [Grants in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the **Key Management Service Developer Guide** . For examples of creating grants in several programming languages, see [Use CreateGrant with an Amazon Web Services SDK or CLI](https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html).
+ *
+ * **Cross-account use**: Yes. You can retire a grant on a KMS key in a different Amazon Web Services account.
+ *
+ * **Required permissions**: Permission to retire a grant is determined primarily by the grant. For details, see [Retiring and revoking grants](https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Related operations:**
+ *
+ * - CreateGrant
+ * - ListGrants
+ * - ListRetirableGrants
+ * - RevokeGrant
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,53 +69,47 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p> The request was rejected because the DryRun parameter was specified. </p>
+ *
+ * The request was rejected because the DryRun parameter was specified.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link InvalidGrantIdException} (client fault)
- *  <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
+ *
+ * The request was rejected because the specified `GrantId` is not valid.
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
- *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * The request was rejected because the specified grant token is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To retire a grant
  * ```javascript

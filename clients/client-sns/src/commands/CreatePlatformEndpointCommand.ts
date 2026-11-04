@@ -23,20 +23,10 @@ export interface CreatePlatformEndpointCommandInput extends CreatePlatformEndpoi
 export interface CreatePlatformEndpointCommandOutput extends CreateEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an endpoint for a device and mobile app on one of the supported push
- *             notification services, such as GCM (Firebase Cloud Messaging) and APNS.
- *                 <code>CreatePlatformEndpoint</code> requires the <code>PlatformApplicationArn</code>
- *             that is returned from <code>CreatePlatformApplication</code>. You can use the returned
- *                 <code>EndpointArn</code> to send a message to a mobile app or by the
- *                 <code>Subscribe</code> action for subscription to a topic. The
- *                 <code>CreatePlatformEndpoint</code> action is idempotent, so if the requester
- *             already owns an endpoint with the same device token and attributes, that endpoint's ARN
- *             is returned without creating a new endpoint. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push
- *                 Notifications</a>. </p>
- *          <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be
- *             provided: ChannelId and UserId. The token field must also contain the ChannelId. For
- *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint for
- *                 Baidu</a>. </p>
+ * Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM (Firebase Cloud Messaging) and APNS. `CreatePlatformEndpoint` requires the `PlatformApplicationArn` that is returned from `CreatePlatformApplication`. You can use the returned `EndpointArn` to send a message to a mobile app or by the `Subscribe` action for subscription to a topic. The `CreatePlatformEndpoint` action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see [Using Amazon SNS Mobile Push Notifications](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html).
+ *
+ * When using `CreatePlatformEndpoint` with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see [Creating an Amazon SNS Endpoint for Baidu](https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,21 +58,24 @@ export interface CreatePlatformEndpointCommandOutput extends CreateEndpointRespo
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * Indicates that the requested resource does not exist.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

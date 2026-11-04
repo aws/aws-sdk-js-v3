@@ -26,30 +26,22 @@ export interface ListRoutingProfileManualAssignmentQueuesCommandInput extends Li
 export interface ListRoutingProfileManualAssignmentQueuesCommandOutput extends ListRoutingProfileManualAssignmentQueuesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the manual assignment queues associated with a routing profile.</p>
- *          <p>
- *             <b>Use cases</b>
- *          </p>
- *          <p>Following are common uses cases for this API:</p>
- *          <ul>
- *             <li>
- *                <p>This API returns list of queues where contacts can be manually assigned or picked by an agent who has access
- *      to the Worklist app. The user can additionally filter on queues, if they have access to those queues (otherwise a
- *      invalid request exception will be thrown).</p>
- *                <p>For information about how manual contact assignment works in the agent workspace, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html">Access the Worklist app in the Connect Customer agent workspace</a> in the <i>Connect Customer Administrator Guide</i>. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>This API only returns the manual assignment queues associated with a routing profile. Use the
- *      ListRoutingProfileQueues API to list the auto assignment queues for the routing profile.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Endpoints</b>: See <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Connect Customer endpoints and quotas</a>.</p>
+ * Lists the manual assignment queues associated with a routing profile.
+ *
+ * **Use cases**
+ *
+ * Following are common uses cases for this API:
+ *
+ * - This API returns list of queues where contacts can be manually assigned or picked by an agent who has access to the Worklist app. The user can additionally filter on queues, if they have access to those queues (otherwise a invalid request exception will be thrown).
+ *
+ *   For information about how manual contact assignment works in the agent workspace, see the [Access the Worklist app in the Connect Customer agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html) in the *Connect Customer Administrator Guide*.
+ *
+ * **Important things to know**
+ *
+ * - This API only returns the manual assignment queues associated with a routing profile. Use the ListRoutingProfileQueues API to list the auto assignment queues for the routing profile.
+ *
+ * **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,23 +81,28 @@ export interface ListRoutingProfileManualAssignmentQueuesCommandOutput extends L
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

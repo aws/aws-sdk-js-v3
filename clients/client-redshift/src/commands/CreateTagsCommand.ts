@@ -23,11 +23,12 @@ export interface CreateTagsCommandInput extends CreateTagsMessage {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds tags to a cluster.</p>
- *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
- *             resource, you will receive an error and the attempt will fail.</p>
- *          <p>If you specify a key that already exists for the resource, the value for that key
- *             will be updated with the new value.</p>
+ * Adds tags to a cluster.
+ *
+ * A resource can have up to 50 tags. If you try to create more than 50 tags for a resource, you will receive an error and the attempt will fail.
+ *
+ * If you specify a key that already exists for the resource, the value for that key will be updated with the new value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

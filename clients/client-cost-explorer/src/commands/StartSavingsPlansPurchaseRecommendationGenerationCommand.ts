@@ -26,15 +26,10 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandInput e
 export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput extends StartSavingsPlansPurchaseRecommendationGenerationResponse, __MetadataBearer {}
 
 /**
- * <p>Requests a Savings Plans recommendation generation. This enables you to calculate a fresh
- *       set of Savings Plans recommendations that takes your latest usage data and current Savings
- *       Plans inventory into account. You can refresh Savings Plans recommendations up to three times
- *       daily for a consolidated billing family.</p>
- *          <note>
- *             <p>
- *                <code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax
- *         because no input parameters are needed to support this operation.</p>
- *          </note>
+ * Requests a Savings Plans recommendation generation. This enables you to calculate a fresh set of Savings Plans recommendations that takes your latest usage data and current Savings Plans inventory into account. You can refresh Savings Plans recommendations up to three times daily for a consolidated billing family.
+ *
+ * > **Note:** `StartSavingsPlansPurchaseRecommendationGeneration` has no request syntax because no input parameters are needed to support this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,21 +56,24 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput 
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link GenerationExistsException} (client fault)
- *  <p>A request to generate a recommendation or analysis is already in progress.</p>
+ *
+ * A request to generate a recommendation or analysis is already in progress.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> You've reached the limit on the number of resources you can create, or exceeded the
- *             size of an individual resource. </p>
+ *
+ * You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

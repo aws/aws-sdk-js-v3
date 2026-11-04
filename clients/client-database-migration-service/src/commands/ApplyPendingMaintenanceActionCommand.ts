@@ -23,8 +23,8 @@ export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingM
 export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPendingMaintenanceActionResponse, __MetadataBearer {}
 
 /**
- * <p>Applies a pending maintenance action to a resource (for example, to a replication
- *          instance).</p>
+ * Applies a pending maintenance action to a resource (for example, to a replication instance).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,11 +65,12 @@ export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPending
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

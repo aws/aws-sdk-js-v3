@@ -4,10 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EKSServiceException as __BaseException } from "./EKSServiceException";
 
 /**
- * <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached that grants
- *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>. </p>
+ * You don't have permissions to perform the requested operation. The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,8 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ * The specified parameter is invalid. Review the available parameters for the API request.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -37,32 +35,36 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The Fargate profile associated with the exception.</p>
+   * The Fargate profile associated with the exception.
+   *
    * @public
    */
   fargateProfileName?: string | undefined;
 
   /**
-   * <p>The specified parameter for the add-on name is invalid. Review the available
-   *             parameters for the API request</p>
+   * The specified parameter for the add-on name is invalid. Review the available parameters for the API request
+   *
    * @public
    */
   addonName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * The Amazon EKS subscription ID with the exception.
+   *
    * @public
    */
   subscriptionId?: string | undefined;
@@ -86,10 +88,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -97,31 +97,36 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The Fargate profile associated with the exception.</p>
+   * The Fargate profile associated with the exception.
+   *
    * @public
    */
   fargateProfileName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS add-on name associated with the exception.</p>
+   * The Amazon EKS add-on name associated with the exception.
+   *
    * @public
    */
   addonName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * The Amazon EKS subscription ID with the exception.
+   *
    * @public
    */
   subscriptionId?: string | undefined;
@@ -145,7 +150,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>These errors are usually caused by a server-side issue.</p>
+ * These errors are usually caused by a server-side issue.
+ *
  * @public
  */
 export class ServerException extends __BaseException {
@@ -153,25 +159,29 @@ export class ServerException extends __BaseException {
   readonly name = "ServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS add-on name associated with the exception.</p>
+   * The Amazon EKS add-on name associated with the exception.
+   *
    * @public
    */
   addonName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * The Amazon EKS subscription ID with the exception.
+   *
    * @public
    */
   subscriptionId?: string | undefined;
@@ -194,7 +204,8 @@ export class ServerException extends __BaseException {
 }
 
 /**
- * <p>The service is unavailable. Back off and retry the operation.</p>
+ * The service is unavailable. Back off and retry the operation.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -215,8 +226,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
+ * The request is invalid given the state of the cluster. Check the state of the cluster and the associated operations.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -224,26 +235,29 @@ export class InvalidRequestException extends __BaseException {
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The request is invalid given the state of the add-on name. Check the state of the
-   *             cluster and the associated operations.</p>
+   * The request is invalid given the state of the add-on name. Check the state of the cluster and the associated operations.
+   *
    * @public
    */
   addonName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * The Amazon EKS subscription ID with the exception.
+   *
    * @public
    */
   subscriptionId?: string | undefined;
@@ -266,9 +280,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ * These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.
+ *
  * @public
  */
 export class ClientException extends __BaseException {
@@ -276,25 +289,29 @@ export class ClientException extends __BaseException {
   readonly name = "ClientException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS add-on name associated with the exception.</p>
+   * The Amazon EKS add-on name associated with the exception.
+   *
    * @public
    */
   addonName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * The Amazon EKS subscription ID with the exception.
+   *
    * @public
    */
   subscriptionId?: string | undefined;
@@ -317,7 +334,8 @@ export class ClientException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use.</p>
+ * The specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -325,19 +343,22 @@ export class ResourceInUseException extends __BaseException {
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The specified add-on name is in use.</p>
+   * The specified add-on name is in use.
+   *
    * @public
    */
   addonName?: string | undefined;
@@ -359,8 +380,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The request or operation couldn't be performed because a service is throttling
- *             requests.</p>
+ * The request or operation couldn't be performed because a service is throttling requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -368,7 +389,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
@@ -388,13 +410,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
- *                <code>ListInsights</code>
- *             </a> API to view detected upgrade blocking issues.
- *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
- *                <code>force</code>
- *             </a> flag when updating to override upgrade readiness
- *             errors.</p>
+ * Amazon EKS detected upgrade readiness issues. Call the [`ListInsights`](https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html) API to view detected upgrade blocking issues. Pass the [`force`](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody) flag when updating to override upgrade readiness errors.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -402,7 +419,8 @@ export class InvalidStateException extends __BaseException {
   readonly name = "InvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
@@ -422,7 +440,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>You have encountered a service limit on the specified resource.</p>
+ * You have encountered a service limit on the specified resource.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -430,19 +449,22 @@ export class ResourceLimitExceededException extends __BaseException {
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * The Amazon EKS subscription ID with the exception.
+   *
    * @public
    */
   subscriptionId?: string | undefined;
@@ -464,9 +486,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>At least one of your specified cluster subnets is in an Availability Zone that does not support
- *             Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which
- *             you can choose subnets for your cluster.</p>
+ * At least one of your specified cluster subnets is in an Availability Zone that does not support Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which you can choose subnets for your cluster.
+ *
  * @public
  */
 export class UnsupportedAvailabilityZoneException extends __BaseException {
@@ -474,20 +495,22 @@ export class UnsupportedAvailabilityZoneException extends __BaseException {
   readonly name = "UnsupportedAvailabilityZoneException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * The Amazon EKS cluster associated with the exception.
+   *
    * @public
    */
   clusterName?: string | undefined;
 
   /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * The Amazon EKS managed node group associated with the exception.
+   *
    * @public
    */
   nodegroupName?: string | undefined;
 
   /**
-   * <p>The supported Availability Zones for your account. Choose subnets in these Availability Zones for your
-   *             cluster.</p>
+   * The supported Availability Zones for your account. Choose subnets in these Availability Zones for your cluster.
+   *
    * @public
    */
   validZones?: string[] | undefined;
@@ -509,8 +532,8 @@ export class UnsupportedAvailabilityZoneException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if the request contains a semantic error. The precise meaning
- *             will depend on the API, and will be documented in the error message.</p>
+ * This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -531,8 +554,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>A service resource associated with the request could not be found. Clients should not
- *             retry such requests.</p>
+ * A service resource associated with the request could not be found. Clients should not retry such requests.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -553,8 +576,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Required resources (such as service-linked roles) were created and are still
- *             propagating. Retry later.</p>
+ * Required resources (such as service-linked roles) were created and are still propagating. Retry later.
+ *
  * @public
  */
 export class ResourcePropagationDelayException extends __BaseException {

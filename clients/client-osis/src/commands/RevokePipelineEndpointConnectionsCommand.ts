@@ -26,7 +26,8 @@ export interface RevokePipelineEndpointConnectionsCommandInput extends RevokePip
 export interface RevokePipelineEndpointConnectionsCommandOutput extends RevokePipelineEndpointConnectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Revokes pipeline endpoints from specified endpoint IDs.</p>
+ * Revokes pipeline endpoints from specified endpoint IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,24 +57,28 @@ export interface RevokePipelineEndpointConnectionsCommandOutput extends RevokePi
  * @see {@link OSISClientResolvedConfig | config} for OSISClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to access the resource.</p>
+ *
+ * You don't have permissions to access the resource.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>Exception is thrown when an operation has been disabled.</p>
+ *
+ * Exception is thrown when an operation has been disabled.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>The request failed because of an unknown error, exception, or failure (the failure is
- *    internal to the service).</p>
+ *
+ * The request failed because of an unknown error, exception, or failure (the failure is internal to the service).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You attempted to create more than the allowed number of tags.</p>
+ *
+ * You attempted to create more than the allowed number of tags.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for missing or invalid input fields.</p>
+ *
+ * An exception for missing or invalid input fields.
  *
  * @throws {@link OSISServiceException}
- * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
+ * Base exception class for all service exceptions from OSIS service.
  *
  * @public
  */

@@ -23,16 +23,12 @@ export interface DescribeNetworkInterfacesCommandInput extends DescribeNetworkIn
 export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkInterfacesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified network interfaces or all your network interfaces.</p>
- *          <p>If you have a large number of network interfaces, the operation fails unless you use
- *             pagination or one of the following filters: <code>group-id</code>,
- *                 <code>mac-address</code>, <code>private-dns-name</code>,
- *                 <code>private-ip-address</code>, <code>subnet-id</code>, or
- *             <code>vpc-id</code>.</p>
- *          <important>
- *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
- *                 susceptible to throttling and timeouts.</p>
- *          </important>
+ * Describes the specified network interfaces or all your network interfaces.
+ *
+ * If you have a large number of network interfaces, the operation fails unless you use pagination or one of the following filters: `group-id`, `mac-address`, `private-dns-name`, `private-ip-address`, `subnet-id`, or `vpc-id`.
+ *
+ * > **Important:** We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -187,8 +183,8 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a network interface
  * ```javascript

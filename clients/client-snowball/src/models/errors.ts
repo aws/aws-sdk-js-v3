@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SnowballServiceException as __BaseException } from "./SnowballServiceException";
 
 /**
- * <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
+ *
  * @public
  */
 export class InvalidJobStateException extends __BaseException {
@@ -28,8 +28,8 @@ export class InvalidJobStateException extends __BaseException {
 }
 
 /**
- * <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
+ *
  * @public
  */
 export class InvalidResourceException extends __BaseException {
@@ -38,7 +38,8 @@ export class InvalidResourceException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The provided resource value is invalid.</p>
+   * The provided resource value is invalid.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -58,8 +59,8 @@ export class InvalidResourceException extends __BaseException {
 }
 
 /**
- * <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ * The provided Key Management Service key lacks the permissions to perform the specified CreateJob or UpdateJob action.
+ *
  * @public
  */
 export class KMSRequestFailedException extends __BaseException {
@@ -82,8 +83,8 @@ export class KMSRequestFailedException extends __BaseException {
 }
 
 /**
- * <p>The address provided was invalid. Check the address with your region's carrier, and try
- *       again.</p>
+ * The address provided was invalid. Check the address with your region's carrier, and try again.
+ *
  * @public
  */
 export class InvalidAddressException extends __BaseException {
@@ -106,9 +107,8 @@ export class InvalidAddressException extends __BaseException {
 }
 
 /**
- * <p>The address is either outside the serviceable area for your region, or an error
- *       occurred. Check the address with your region's carrier and try again. If the issue persists,
- *       contact Amazon Web Services Support.</p>
+ * The address is either outside the serviceable area for your region, or an error occurred. Check the address with your region's carrier and try again. If the issue persists, contact Amazon Web Services Support.
+ *
  * @public
  */
 export class UnsupportedAddressException extends __BaseException {
@@ -131,8 +131,8 @@ export class UnsupportedAddressException extends __BaseException {
 }
 
 /**
- * <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
- *       action.</p>
+ * Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
+ *
  * @public
  */
 export class Ec2RequestFailedException extends __BaseException {
@@ -155,7 +155,8 @@ export class Ec2RequestFailedException extends __BaseException {
 }
 
 /**
- * <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ * Job or cluster creation failed. One or more inputs were invalid. Confirm that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType, and try again.
+ *
  * @public
  */
 export class InvalidInputCombinationException extends __BaseException {
@@ -178,9 +179,8 @@ export class InvalidInputCombinationException extends __BaseException {
 }
 
 /**
- * <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
- *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
- *       create jobs until your cluster has exactly five nodes.</p>
+ * Job creation failed. Currently, clusters support five nodes. If you have fewer than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five nodes.
+ *
  * @public
  */
 export class ClusterLimitExceededException extends __BaseException {
@@ -203,8 +203,8 @@ export class ClusterLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
- *       when other requests are not completed.</p>
+ * You get this exception when you call `CreateReturnShippingLabel` more than once when other requests are not completed.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -212,7 +212,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>You get this resource when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed. .</p>
+   * You get this resource when you call `CreateReturnShippingLabel` more than once when other requests are not completed. .
+   *
    * @public
    */
   ConflictResource?: string | undefined;
@@ -234,9 +235,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>You get this exception if you call <code>CreateReturnShippingLabel</code> and a valid
- *       return shipping label already exists. In this case, use
- *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
+ * You get this exception if you call `CreateReturnShippingLabel` and a valid return shipping label already exists. In this case, use `DescribeReturnShippingLabel` to get the URL.
+ *
  * @public
  */
 export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
@@ -259,9 +259,8 @@ export class ReturnShippingLabelAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
+ * The `NextToken` string was altered unexpectedly, and the operation has stopped. Run the operation without changing the `NextToken` string, and try again.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

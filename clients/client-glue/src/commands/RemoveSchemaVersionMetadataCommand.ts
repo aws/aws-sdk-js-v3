@@ -23,7 +23,8 @@ export interface RemoveSchemaVersionMetadataCommandInput extends RemoveSchemaVer
 export interface RemoveSchemaVersionMetadataCommandOutput extends RemoveSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a key value pair from the schema version metadata for the specified schema version ID.</p>
+ * Removes a key value pair from the schema version metadata for the specified schema version ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,17 +71,20 @@ export interface RemoveSchemaVersionMetadataCommandOutput extends RemoveSchemaVe
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

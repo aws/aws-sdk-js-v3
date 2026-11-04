@@ -23,7 +23,8 @@ export interface GetContinuousDeploymentPolicyCommandInput extends GetContinuous
 export interface GetContinuousDeploymentPolicyCommandOutput extends GetContinuousDeploymentPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Gets a continuous deployment policy, including metadata (the policy's identifier and the date and time when the policy was last modified).</p>
+ * Gets a continuous deployment policy, including metadata (the policy's identifier and the date and time when the policy was last modified).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +78,16 @@ export interface GetContinuousDeploymentPolicyCommandOutput extends GetContinuou
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
- *  <p>The continuous deployment policy doesn't exist.</p>
+ *
+ * The continuous deployment policy doesn't exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

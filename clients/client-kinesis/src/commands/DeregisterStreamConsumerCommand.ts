@@ -23,14 +23,10 @@ export interface DeregisterStreamConsumerCommandInput extends DeregisterStreamCo
 export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
- *             the data stream and the name you gave the consumer when you registered it. You may also
- *             provide all three parameters, as long as they don't conflict with each other. If you
- *             don't know the name or ARN of the consumer that you want to deregister, you can use the
- *                 <a>ListStreamConsumers</a> operation to get a list of the descriptions of
- *             all the consumers that are currently registered with a given data stream. The
- *             description of a consumer contains its name and ARN.</p>
- *          <p>This operation has a limit of five transactions per second per stream.</p>
+ * To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as they don't conflict with each other. If you don't know the name or ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its name and ARN.
+ *
+ * This operation has a limit of five transactions per second per stream.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +54,20 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

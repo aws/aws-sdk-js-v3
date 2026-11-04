@@ -23,7 +23,10 @@ export interface ArchiveFindingsCommandInput extends ArchiveFindingsRequest {}
 export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Archives GuardDuty findings that are specified by the list of finding IDs.</p> <note> <p>Only the administrator account can archive findings. Member accounts don't have permission to archive findings from their accounts.</p> </note>
+ * Archives GuardDuty findings that are specified by the list of finding IDs.
+ *
+ * > **Note:** Only the administrator account can archive findings. Member accounts don't have permission to archive findings from their accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +54,16 @@ export interface ArchiveFindingsCommandOutput extends ArchiveFindingsResponse, _
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

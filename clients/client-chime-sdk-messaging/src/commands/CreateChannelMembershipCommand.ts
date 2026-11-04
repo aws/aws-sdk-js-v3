@@ -23,40 +23,21 @@ export interface CreateChannelMembershipCommandInput extends CreateChannelMember
 export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
- *          is derived from the request header. A channel member can:</p>
- *          <ul>
- *             <li>
- *                <p>List messages</p>
- *             </li>
- *             <li>
- *                <p>Send messages</p>
- *             </li>
- *             <li>
- *                <p>Receive messages</p>
- *             </li>
- *             <li>
- *                <p>Edit their own messages</p>
- *             </li>
- *             <li>
- *                <p>Leave the channel</p>
- *             </li>
- *          </ul>
- *          <p>Privacy settings impact this action as follows:</p>
- *          <ul>
- *             <li>
- *                <p>Public Channels: You do not need to be a member to list messages, but you must be
- *                a member to send messages.</p>
- *             </li>
- *             <li>
- *                <p>Private Channels: You must be a member to list or send messages.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *                ARN of the <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API call
- *             as the value in the header.</p>
- *          </note>
+ * Adds a member to a channel. The `InvitedBy` field in `ChannelMembership` is derived from the request header. A channel member can:
+ *
+ * - List messages
+ * - Send messages
+ * - Receive messages
+ * - Edit their own messages
+ * - Leave the channel
+ *
+ * Privacy settings impact this action as follows:
+ *
+ * - Public Channels: You do not need to be a member to list messages, but you must be a member to send messages.
+ * - Private Channels: You must be a member to list or send messages.
+ *
+ * > **Note:** The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the `AppInstanceUserArn` or `AppInstanceBot` that makes the API call as the value in the header.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,36 +73,44 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMessagingServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMessaging service.
  *
  * @public
  */

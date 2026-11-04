@@ -23,26 +23,15 @@ export interface ListChannelsCommandInput extends ListChannelsRequest {}
 export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
- *          filters to narrow results.</p>
- *          <p class="title">
- *             <b>Functionality & restrictions</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the
- *                account.</p>
- *             </li>
- *             <li>
- *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to
- *                list the private channels in an account.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
- *             ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call as the value in
- *             the header.</p>
- *          </note>
+ * Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.
+ *
+ * **Functionality & restrictions**
+ *
+ * - Use privacy = `PUBLIC` to retrieve all public channels in the account.
+ * - Only an `AppInstanceAdmin` can set privacy = `PRIVATE` to list the private channels in an account.
+ *
+ * > **Note:** The `x-amz-chime-bearer` request header is mandatory. Use the ARN of the `AppInstanceUser` or `AppInstanceBot` that makes the API call as the value in the header.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,26 +72,32 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMessagingServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMessaging service.
  *
  * @public
  */

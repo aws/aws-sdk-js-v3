@@ -23,7 +23,8 @@ export interface AssociateTagOptionWithResourceCommandInput extends AssociateTag
 export interface AssociateTagOptionWithResourceCommandOutput extends AssociateTagOptionWithResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Associate the specified TagOption with the specified portfolio or product.</p>
+ * Associate the specified TagOption with the specified portfolio or product.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,30 +50,32 @@ export interface AssociateTagOptionWithResourceCommandOutput extends AssociateTa
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>The specified resource is a duplicate.</p>
+ *
+ * The specified resource is a duplicate.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>An attempt was made to modify a resource that is in a state that is not valid.
- *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link TagOptionNotMigratedException} (client fault)
- *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
+ *
+ * An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

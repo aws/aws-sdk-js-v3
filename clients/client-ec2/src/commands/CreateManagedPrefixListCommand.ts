@@ -23,8 +23,8 @@ export interface CreateManagedPrefixListCommandInput extends CreateManagedPrefix
 export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefixListResult, __MetadataBearer {}
 
 /**
- * <p>Creates a managed prefix list. You can specify entries for the prefix list.
- *             Each entry consists of a CIDR block and an optional description.</p>
+ * Creates a managed prefix list. You can specify entries for the prefix list. Each entry consists of a CIDR block and an optional description.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +90,8 @@ export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

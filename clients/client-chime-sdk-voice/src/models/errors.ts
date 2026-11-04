@@ -5,7 +5,8 @@ import { ChimeSDKVoiceServiceException as __BaseException } from "./ChimeSDKVoic
 import type { ErrorCode } from "./enums";
 
 /**
- * <p>You don't have the permissions needed to run this action.</p>
+ * You don't have the permissions needed to run this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -30,7 +31,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The input parameters don't match the service's restrictions.</p>
+ * The input parameters don't match the service's restrictions.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -55,7 +57,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The client is permanently forbidden from making the request.</p>
+ * The client is permanently forbidden from making the request.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -80,7 +83,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>The requested resource couldn't be found.</p>
+ * The requested resource couldn't be found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -105,7 +109,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an unexpected error.</p>
+ * The service encountered an unexpected error.
+ *
  * @public
  */
 export class ServiceFailureException extends __BaseException {
@@ -130,7 +135,8 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
- * <p>The service is currently unavailable.</p>
+ * The service is currently unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -155,7 +161,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The number of customer requests exceeds the request rate limit.</p>
+ * The number of customer requests exceeds the request rate limit.
+ *
  * @public
  */
 export class ThrottledClientException extends __BaseException {
@@ -180,7 +187,8 @@ export class ThrottledClientException extends __BaseException {
 }
 
 /**
- * <p>The client isn't authorized to request a resource.</p>
+ * The client isn't authorized to request a resource.
+ *
  * @public
  */
 export class UnauthorizedClientException extends __BaseException {
@@ -205,7 +213,8 @@ export class UnauthorizedClientException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the resource limit.</p>
+ * The request exceeds the resource limit.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -230,7 +239,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Multiple instances of the same request were made simultaneously.</p>
+ * Multiple instances of the same request were made simultaneously.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -255,7 +265,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+ * Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.
+ *
  * @public
  */
 export class GoneException extends __BaseException {
@@ -280,7 +291,8 @@ export class GoneException extends __BaseException {
 }
 
 /**
- * <p>A well-formed request couldn't be followed due to semantic errors.</p>
+ * A well-formed request couldn't be followed due to semantic errors.
+ *
  * @public
  */
 export class UnprocessableEntityException extends __BaseException {

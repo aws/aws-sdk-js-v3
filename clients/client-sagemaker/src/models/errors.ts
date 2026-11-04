@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
 
 /**
- * <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
+ *
  * @public
  */
 export class ResourceLimitExceeded extends __BaseException {
@@ -27,7 +28,8 @@ export class ResourceLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Resource being access is not found.</p>
+ * Resource being access is not found.
+ *
  * @public
  */
 export class ResourceNotFound extends __BaseException {
@@ -50,7 +52,8 @@ export class ResourceNotFound extends __BaseException {
 }
 
 /**
- * <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
+ * There was a conflict when you attempted to modify a SageMaker entity such as an `Experiment` or `Artifact`.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -73,7 +76,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Resource being accessed is in use.</p>
+ * Resource being accessed is in use.
+ *
  * @public
  */
 export class ResourceInUse extends __BaseException {

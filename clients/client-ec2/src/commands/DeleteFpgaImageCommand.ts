@@ -23,7 +23,8 @@ export interface DeleteFpgaImageCommandInput extends DeleteFpgaImageRequest {}
 export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Amazon FPGA Image (AFI).</p>
+ * Deletes the specified Amazon FPGA Image (AFI).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

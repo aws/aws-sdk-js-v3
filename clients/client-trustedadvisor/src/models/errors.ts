@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { TrustedAdvisorServiceException as __BaseException } from "./TrustedAdvisorServiceException";
 
 /**
- * <p>Exception that access has been denied due to insufficient access</p>
+ * Exception that access has been denied due to insufficient access
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Exception that the request was denied due to conflictions in state</p>
+ * Exception that the request was denied due to conflictions in state
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+ * Exception to notify that an unexpected internal error occurred during processing of the request
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Exception to notify that requests are being throttled</p>
+ * Exception to notify that requests are being throttled
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -92,7 +96,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Exception that the request failed to satisfy service constraints</p>
+ * Exception that the request failed to satisfy service constraints
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -113,7 +118,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Exception that the requested resource has not been found</p>
+ * Exception that the requested resource has not been found
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

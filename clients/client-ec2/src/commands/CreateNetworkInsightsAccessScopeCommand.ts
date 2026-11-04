@@ -26,10 +26,10 @@ export interface CreateNetworkInsightsAccessScopeCommandInput extends CreateNetw
 export interface CreateNetworkInsightsAccessScopeCommandOutput extends CreateNetworkInsightsAccessScopeResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Network Access Scope.</p>
- *          <p>Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams
- *          to verify that their networks on Amazon Web Services conform to their network security and governance
- *          objectives. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/">Amazon Web Services Network Access Analyzer Guide</a>.</p>
+ * Creates a Network Access Scope.
+ *
+ * Amazon Web Services Network Access Analyzer enables cloud networking and cloud operations teams to verify that their networks on Amazon Web Services conform to their network security and governance objectives. For more information, see the [Amazon Web Services Network Access Analyzer Guide](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -280,8 +280,8 @@ export interface CreateNetworkInsightsAccessScopeCommandOutput extends CreateNet
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

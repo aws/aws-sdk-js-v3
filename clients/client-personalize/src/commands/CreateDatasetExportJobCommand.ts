@@ -23,25 +23,16 @@ export interface CreateDatasetExportJobCommandInput extends CreateDatasetExportJ
 export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExportJobResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a job that exports data from your dataset to an Amazon S3 bucket.
- *       To allow Amazon Personalize to export the training data, you must specify an
- *       service-linked IAM role that gives Amazon Personalize <code>PutObject</code>
- *       permissions for your Amazon S3 bucket. For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-data.html">Exporting a dataset</a> in the Amazon Personalize developer guide. </p>
- *          <p>
- *             <b>Status</b>
- *          </p>
- *          <p>A dataset export job can be in one of the following states:</p>
- *          <ul>
- *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE
- *           FAILED</p>
- *             </li>
- *          </ul>
- *          <p> To get the status of the export job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a>, and specify the Amazon Resource Name
- *       (ARN) of the dataset export job. The dataset export is complete when the
- *       status shows as ACTIVE. If the status shows as CREATE FAILED, the response
- *       includes a <code>failureReason</code> key, which describes why the job
- *       failed. </p>
+ * Creates a job that exports data from your dataset to an Amazon S3 bucket. To allow Amazon Personalize to export the training data, you must specify an service-linked IAM role that gives Amazon Personalize `PutObject` permissions for your Amazon S3 bucket. For information, see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in the Amazon Personalize developer guide.
+ *
+ * **Status**
+ *
+ * A dataset export job can be in one of the following states:
+ *
+ * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+ *
+ * To get the status of the export job, call [DescribeDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html), and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,26 +74,32 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

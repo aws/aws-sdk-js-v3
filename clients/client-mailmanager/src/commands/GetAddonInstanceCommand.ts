@@ -23,7 +23,8 @@ export interface GetAddonInstanceCommandInput extends GetAddonInstanceRequest {}
 export interface GetAddonInstanceCommandOutput extends GetAddonInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets detailed information about an Add On instance.</p>
+ * Gets detailed information about an Add On instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,14 +54,16 @@ export interface GetAddonInstanceCommandOutput extends GetAddonInstanceResponse,
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when a requested resource is not found.</p>
+ *
+ * Occurs when a requested resource is not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

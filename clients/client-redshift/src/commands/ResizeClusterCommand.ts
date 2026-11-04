@@ -24,52 +24,24 @@ export interface ResizeClusterCommandInput extends ResizeClusterMessage {}
 export interface ResizeClusterCommandOutput extends ResizeClusterResult, __MetadataBearer {}
 
 /**
- * <p>Changes the size of the cluster. You can change the cluster's type, or change the
- *             number or type of nodes. The default behavior is to use the elastic resize method. With
- *             an elastic resize, your cluster is available for read and write operations more quickly
- *             than with the classic resize method. </p>
- *          <p>Elastic resize operations have the following restrictions:</p>
- *          <ul>
- *             <li>
- *                <p>You can only resize clusters of the following types:</p>
- *                <ul>
- *                   <li>
- *                      <p>dc2.large</p>
- *                   </li>
- *                   <li>
- *                      <p>dc2.8xlarge</p>
- *                   </li>
- *                   <li>
- *                      <p>rg.large</p>
- *                   </li>
- *                   <li>
- *                      <p>rg.xlarge</p>
- *                   </li>
- *                   <li>
- *                      <p>rg.4xlarge</p>
- *                   </li>
- *                   <li>
- *                      <p>rg.12xlarge</p>
- *                   </li>
- *                   <li>
- *                      <p>ra3.large</p>
- *                   </li>
- *                   <li>
- *                      <p>ra3.xlplus</p>
- *                   </li>
- *                   <li>
- *                      <p>ra3.4xlarge</p>
- *                   </li>
- *                   <li>
- *                      <p>ra3.16xlarge</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>The type of nodes that you add must match the node type for the
- *                     cluster.</p>
- *             </li>
- *          </ul>
+ * Changes the size of the cluster. You can change the cluster's type, or change the number or type of nodes. The default behavior is to use the elastic resize method. With an elastic resize, your cluster is available for read and write operations more quickly than with the classic resize method.
+ *
+ * Elastic resize operations have the following restrictions:
+ *
+ * - You can only resize clusters of the following types:
+ *
+ *   - dc2.large
+ *   - dc2.8xlarge
+ *   - rg.large
+ *   - rg.xlarge
+ *   - rg.4xlarge
+ *   - rg.12xlarge
+ *   - ra3.large
+ *   - ra3.xlplus
+ *   - ra3.4xlarge
+ *   - ra3.16xlarge
+ * - The type of nodes that you add must match the node type for the cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -306,60 +278,68 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
+ *
+ * The number of nodes specified exceeds the allotted capacity of the cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidReservedNodeStateFault} (client fault)
- *  <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ * Indicates that the Reserved Node being exchanged is not in an active state.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * The operation would exceed the number of nodes allowed for a cluster.
  *
  * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allotted to the account.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
- *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * User already has a reservation with the given identifier.
  *
  * @throws {@link ReservedNodeAlreadyMigratedFault} (client fault)
- *  <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ * Indicates that the reserved node has already been exchanged.
  *
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
- *  <p>The specified reserved compute node not found.</p>
+ *
+ * The specified reserved compute node not found.
  *
  * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link UnsupportedOptionFault} (client fault)
- *  <p>A request option was specified that is not supported.</p>
+ *
+ * A request option was specified that is not supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

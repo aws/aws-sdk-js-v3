@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ApplicationInsightsServiceException as __BaseException } from "./ApplicationInsightsServiceException";
 
 /**
- * <p> User does not have permissions to perform this action. </p>
+ * User does not have permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
+ * The server encountered an internal error and is unable to complete the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource is already created or in use.</p>
+ * The resource is already created or in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -73,7 +76,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The resource does not exist in the customer account.</p>
+ * The resource does not exist in the customer account.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The parameter is not valid.</p>
+ * The parameter is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -119,7 +124,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request is not understood by the server.</p>
+ * The request is not understood by the server.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -142,7 +148,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>Tags are already registered for the specified application ARN.</p>
+ * Tags are already registered for the specified application ARN.
+ *
  * @public
  */
 export class TagsAlreadyExistException extends __BaseException {
@@ -165,8 +172,8 @@ export class TagsAlreadyExistException extends __BaseException {
 }
 
 /**
- * <p>The number of the provided tags is beyond the limit, or the number of total tags you are
- *          trying to attach to the specified resource exceeds the limit.</p>
+ * The number of the provided tags is beyond the limit, or the number of total tags you are trying to attach to the specified resource exceeds the limit.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -175,7 +182,8 @@ export class TooManyTagsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the resource with too many tags.</p>
+   * The name of the resource with too many tags.
+   *
    * @public
    */
   ResourceName?: string | undefined;

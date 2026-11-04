@@ -23,17 +23,12 @@ export interface DeleteVolumeCommandInput extends DeleteVolumeInput {}
 export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
- *          This operation is only supported in the cached volume and stored volume types. For stored
- *          volume gateways, the local disk that was configured as the storage volume is not deleted.
- *          You can reuse the local disk to create another storage volume.</p>
- *          <p>Before you delete a volume, make sure there are no iSCSI connections to the volume you
- *          are deleting. You should also make sure there is no snapshot in progress. You can use the
- *          Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are
- *          deleting and check the snapshot status. For more information, go to <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a> in the <i>Amazon Elastic Compute Cloud API
- *             Reference</i>.</p>
- *          <p>In the request, you must provide the Amazon Resource Name (ARN) of the storage volume
- *          you want to delete.</p>
+ * Deletes the specified storage volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API. This operation is only supported in the cached volume and stored volume types. For stored volume gateways, the local disk that was configured as the storage volume is not deleted. You can reuse the local disk to create another storage volume.
+ *
+ * Before you delete a volume, make sure there are no iSCSI connections to the volume you are deleting. You should also make sure there is no snapshot in progress. You can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the volume you are deleting and check the snapshot status. For more information, go to [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html) in the *Amazon Elastic Compute Cloud API Reference*.
+ *
+ * In the request, you must provide the Amazon Resource Name (ARN) of the storage volume you want to delete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,16 +55,16 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To delete a gateway volume
  * ```javascript

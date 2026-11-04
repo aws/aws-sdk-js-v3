@@ -23,7 +23,8 @@ export interface DeleteScheduledReportCommandInput extends DeleteScheduledReport
 export interface DeleteScheduledReportCommandOutput extends DeleteScheduledReportResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified scheduled report. This is an irreversible operation.</p>
+ * Deletes a specified scheduled report. This is an irreversible operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +51,28 @@ export interface DeleteScheduledReportCommandOutput extends DeleteScheduledRepor
  * @see {@link BCMDashboardsClientResolvedConfig | config} for BCMDashboardsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.</p>
+ *
+ * You do not have sufficient permissions to perform this action. Verify your IAM permissions and any resource policies.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>
+ *
+ * An internal error occurred while processing the request. Retry your request. If the problem persists, contact Amazon Web Services Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.</p>
+ *
+ * The specified resource (dashboard, policy, or widget) was not found. Verify the ARN and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.</p>
+ *
+ * The request was denied due to request throttling. Reduce the frequency of requests and use exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters do not satisfy the requirements. Check the error message for specific validation details.</p>
+ *
+ * The input parameters do not satisfy the requirements. Check the error message for specific validation details.
  *
  * @throws {@link BCMDashboardsServiceException}
- * <p>Base exception class for all service exceptions from BCMDashboards service.</p>
  *
+ * Base exception class for all service exceptions from BCMDashboards service.
  *
  * @public
  */

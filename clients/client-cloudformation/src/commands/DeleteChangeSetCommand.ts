@@ -23,13 +23,12 @@ export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
 export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the
- *       wrong change set.</p>
- *          <p>If the call successfully completes, CloudFormation successfully deleted the change set.</p>
- *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of the
- *       nested change set, then <code>DeleteChangeSet</code> will delete all change sets that belong
- *       to the stacks hierarchy and will also delete all change sets for nested stacks with the status
- *       of <code>REVIEW_IN_PROGRESS</code>.</p>
+ * Deletes the specified change set. Deleting change sets ensures that no one executes the wrong change set.
+ *
+ * If the call successfully completes, CloudFormation successfully deleted the change set.
+ *
+ * If `IncludeNestedStacks` specifies `True` during the creation of the nested change set, then `DeleteChangeSet` will delete all change sets that belong to the stacks hierarchy and will also delete all change sets for nested stacks with the status of `REVIEW_IN_PROGRESS`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,12 +54,12 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InvalidChangeSetStatusException} (client fault)
- *  <p>The specified change set can't be used to update the stack. For example, the change set status might be
- *    <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
+ *
+ * The specified change set can't be used to update the stack. For example, the change set status might be `CREATE_IN_PROGRESS`, or the stack status might be `UPDATE_IN_PROGRESS`.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns currently configured tags on a resource.</p>
+ * Returns currently configured tags on a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,38 +53,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link SecurityIRClientResolvedConfig | config} for SecurityIRClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIncidentResponseNotActiveException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIRServiceException}
- * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
+ * Base exception class for all service exceptions from SecurityIR service.
  *
- * @example Invoke ListTagsForResource
- * ```javascript
+ * @example Invoke ListTagsForResource```javascript
  * //
  * const input = {
  *   resourceArn: "arn:aws:security-ir:us-west-1:123456789012:membership/m-abcd1234efgh"

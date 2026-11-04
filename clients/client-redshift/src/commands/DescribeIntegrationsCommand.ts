@@ -23,7 +23,8 @@ export interface DescribeIntegrationsCommandInput extends DescribeIntegrationsMe
 export interface DescribeIntegrationsCommandOutput extends IntegrationsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes one or more zero-ETL or S3 event integrations with Amazon Redshift.</p>
+ * Describes one or more zero-ETL or S3 event integrations with Amazon Redshift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +88,16 @@ export interface DescribeIntegrationsCommandOutput extends IntegrationsMessage, 
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The integration can't be found.</p>
+ *
+ * The integration can't be found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

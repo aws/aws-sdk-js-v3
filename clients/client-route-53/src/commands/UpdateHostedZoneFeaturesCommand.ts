@@ -23,8 +23,10 @@ export interface UpdateHostedZoneFeaturesCommandInput extends UpdateHostedZoneFe
 export interface UpdateHostedZoneFeaturesCommandOutput extends UpdateHostedZoneFeaturesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the features configuration for a hosted zone. This operation allows you to enable or disable specific features for your hosted zone, such as accelerated recovery.</p>
- *          <p>Accelerated recovery enables you to update DNS records in your public hosted zone even when the us-east-1 region is unavailable.</p>
+ * Updates the features configuration for a hosted zone. This operation allows you to enable or disable specific features for your hosted zone, such as accelerated recovery.
+ *
+ * Accelerated recovery enables you to update DNS records in your public hosted zone even when the us-east-1 region is unavailable.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,26 +52,24 @@ export interface UpdateHostedZoneFeaturesCommandOutput extends UpdateHostedZoneF
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link LimitsExceeded} (client fault)
- *  <p>This operation can't be completed because the current account has reached the
- * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
+ *
+ * This operation can't be completed because the current account has reached the limit on the resource you are trying to create. To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link PriorRequestNotComplete} (client fault)
- *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
- * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
- * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
- * 			for the same request, we recommend that you wait, in intervals of increasing duration,
- * 			before you try the request again.</p>
+ *
+ * If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an `HTTP 400 error` (`Bad request`). If Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { WisdomServiceException as __BaseException } from "./WisdomServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,10 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the
- *       resource. For example, if you're using a <code>Create</code> API (such as
- *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
- *       same name) is being created or mutated.</p>
+ * The request could not be processed because of conflict in the current state of the resource. For example, if you're using a `Create` API (such as `CreateAssistant`) that accepts name, a conflicting resource (usually with the same name) is being created or mutated.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -49,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -57,7 +57,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The specified resource name.</p>
+   * The specified resource name.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -77,8 +78,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use service quotas to request a service quota increase.</p>
+ * You've exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use service quotas to request a service quota increase.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -99,7 +100,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by a service.</p>
+ * The input fails to satisfy the constraints specified by a service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -120,9 +122,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request reached the service more than 15 minutes after the date stamp on the request
- *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
- *       the date stamp on the request is more than 15 minutes in the future.</p>
+ * The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future.
+ *
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
@@ -144,8 +145,8 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The provided <code>revisionId</code> does not match, indicating the content has been
- *       modified since it was last read.</p>
+ * The provided `revisionId` does not match, indicating the content has been modified since it was last read.
+ *
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
@@ -166,7 +167,8 @@ export class PreconditionFailedException extends __BaseException {
 }
 
 /**
- * <p>Amazon Connect Wisdom throws this exception if you have too many tags in your tag set.</p>
+ * Amazon Connect Wisdom throws this exception if you have too many tags in your tag set.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -174,7 +176,8 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The specified resource name.</p>
+   * The specified resource name.
+   *
    * @public
    */
   resourceName?: string | undefined;

@@ -23,18 +23,14 @@ export interface GetGroupCommandInput extends GetGroupInput {}
 export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specified resource group.</p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:GetGroup</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Returns information about a specified resource group.
+ *
+ * **Minimum permissions**
+ *
+ * To run this command, you must have the following permissions:
+ *
+ * - `resource-groups:GetGroup`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,27 +68,32 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * The request includes one or more parameters that violate validation rules.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * The caller isn't authorized to make the request. Check permissions.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * An internal error occurred while processing the request. Try again later.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * The request uses an HTTP method that isn't allowed for the specified resource.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the specified resources don't exist.</p>
+ *
+ * One or more of the specified resources don't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
+ *
+ * You've exceeded throttling limits by making too many requests in a period of time.
  *
  * @throws {@link ResourceGroupsServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroups service.
  *
  * @public
  */

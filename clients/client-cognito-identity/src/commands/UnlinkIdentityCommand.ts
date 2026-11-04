@@ -23,10 +23,10 @@ export interface UnlinkIdentityCommandInput extends UnlinkIdentityInput {}
 export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Unlinks a federated identity from an existing account. Unlinked logins will be
- *          considered new identities next time they are seen. Removing the last linked login will make
- *          this identity inaccessible.</p>
- *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ * Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.
+ *
+ * This is a public API. You do not need any credentials to call this API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,32 +57,36 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link ExternalServiceException} (client fault)
- *  <p>An exception thrown when a dependent service such as Facebook or Twitter is not
- *          responding</p>
+ *
+ * An exception thrown when a dependent service such as Facebook or Twitter is not responding
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
+ *
+ * Thrown when a user tries to use a login which is already linked to another account.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

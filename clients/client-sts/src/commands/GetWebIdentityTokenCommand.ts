@@ -23,12 +23,10 @@ export interface GetWebIdentityTokenCommandInput extends GetWebIdentityTokenRequ
 export interface GetWebIdentityTokenCommandOutput extends GetWebIdentityTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web Services identity.
- *          The returned JWT can be used to authenticate with external services that support OIDC discovery.
- *          The token is signed by Amazon Web Services STS and can be publicly verified using the verification keys published at the issuer's JWKS endpoint.</p>
- *          <note>
- *             <p>The <code>GetWebIdentityToken</code> API is not available on the STS Global endpoint.</p>
- *          </note>
+ * Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web Services identity. The returned JWT can be used to authenticate with external services that support OIDC discovery. The token is signed by Amazon Web Services STS and can be publicly verified using the verification keys published at the issuer's JWKS endpoint.
+ *
+ * > **Note:** The `GetWebIdentityToken` API is not available on the STS Global endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,19 +64,20 @@ export interface GetWebIdentityTokenCommandOutput extends GetWebIdentityTokenRes
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
  * @throws {@link JWTPayloadSizeExceededException} (client fault)
- *  <p>The requested token payload size exceeds the maximum allowed size. Reduce the number of request tags included in the <code>GetWebIdentityToken</code> API call to reduce the token payload size.</p>
+ *
+ * The requested token payload size exceeds the maximum allowed size. Reduce the number of request tags included in the `GetWebIdentityToken` API call to reduce the token payload size.
  *
  * @throws {@link OutboundWebIdentityFederationDisabledException} (client fault)
- *  <p>The outbound web identity federation feature is not enabled for this account. To use
- *             this feature, you must first enable it through the Amazon Web Services Management Console or API.</p>
+ *
+ * The outbound web identity federation feature is not enabled for this account. To use this feature, you must first enable it through the Amazon Web Services Management Console or API.
  *
  * @throws {@link SessionDurationEscalationException} (client fault)
- *  <p>The requested token duration would extend the session beyond its original expiration time.
- *             You cannot use this operation to extend the lifetime of a session beyond what was granted when the session was originally created.</p>
+ *
+ * The requested token duration would extend the session beyond its original expiration time. You cannot use this operation to extend the lifetime of a session beyond what was granted when the session was originally created.
  *
  * @throws {@link STSServiceException}
- * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * Base exception class for all service exceptions from STS service.
  *
  * @public
  */

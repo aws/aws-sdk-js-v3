@@ -23,7 +23,8 @@ export interface BatchGetThreatModelJobTasksCommandInput extends BatchGetThreatM
 export interface BatchGetThreatModelJobTasksCommandOutput extends BatchGetThreatModelJobTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about one or more tasks within a threat model job.</p>
+ * Retrieves information about one or more tasks within a threat model job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface BatchGetThreatModelJobTasksCommandOutput extends BatchGetThreat
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

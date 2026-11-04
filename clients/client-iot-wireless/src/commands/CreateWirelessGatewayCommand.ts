@@ -23,22 +23,17 @@ export interface CreateWirelessGatewayCommandInput extends CreateWirelessGateway
 export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Provisions a wireless gateway.</p>
- *          <note>
- *             <p>When provisioning a wireless gateway, you might run into duplication errors for
- *                 the following reasons.</p>
- *             <ul>
- *                <li>
- *                   <p>If you specify a <code>GatewayEui</code> value that already exists.</p>
- *                </li>
- *                <li>
- *                   <p>If you used a <code>ClientRequestToken</code> with the same parameters
- *                         within the last 10 minutes.</p>
- *                </li>
- *             </ul>
- *             <p>To avoid this error, make sure that you use unique identifiers and parameters for
- *                 each request within the specified time period.</p>
- *          </note>
+ * Provisions a wireless gateway.
+ *
+ * > **Note:**
+ * >
+ * > When provisioning a wireless gateway, you might run into duplication errors for the following reasons.
+ * >
+ * > - If you specify a `GatewayEui` value that already exists.
+ * > - If you used a `ClientRequestToken` with the same parameters within the last 10 minutes.
+ * >
+ * > To avoid this error, make sure that you use unique identifiers and parameters for each request within the specified time period.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,23 +91,28 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have permission to perform this action.</p>
+ *
+ * User does not have permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Adding, updating, or deleting the resource can cause an inconsistent state.</p>
+ *
+ * Adding, updating, or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed API request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input did not meet the specified constraints.</p>
+ *
+ * The input did not meet the specified constraints.
  *
  * @throws {@link IoTWirelessServiceException}
- * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * Base exception class for all service exceptions from IoTWireless service.
  *
  * @public
  */

@@ -4,30 +4,39 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type { DataType, DistanceMetric, IndexMode, SseType } from "./enums";
 
 /**
- * <p>The encryption configuration for a vector bucket or index. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. You can optionally override bucket level encryption settings, and set a specific encryption configuration for a vector index at the time of index creation.</p>
+ * The encryption configuration for a vector bucket or index. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically `AES256`. You can optionally override bucket level encryption settings, and set a specific encryption configuration for a vector index at the time of index creation.
+ *
  * @public
  */
 export interface EncryptionConfiguration {
   /**
-   * <p>The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>.</p>
+   * The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically `AES256`.
+   *
    * @public
    */
   sseType?: SseType | undefined;
 
   /**
-   * <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if <code>sseType</code> is set to <code>aws:kms</code>.</p> <p>To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).</p> <p>For example, specify Key ARN in the following format: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p>
+   * Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`.
+   *
+   * To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+   *
+   * For example, specify Key ARN in the following format: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 }
 
 /**
- * <p>The metadata configuration for a vector index.</p>
+ * The metadata configuration for a vector index.
+ *
  * @public
  */
 export interface MetadataConfiguration {
   /**
-   * <p>Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys can’t be used as query filters. Non-filterable metadata keys can be retrieved but can’t be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors. For more information about non-filterable metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-vectors.html">Vectors</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html">Limitations and restrictions</a> in the <i>Amazon S3 User Guide</i>. </p>
+   * Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys can’t be used as query filters. Non-filterable metadata keys can be retrieved but can’t be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors. For more information about non-filterable metadata keys, see [Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-vectors.html) and [Limitations and restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html) in the *Amazon S3 User Guide*.
+   *
    * @public
    */
   nonFilterableMetadataKeys: string[] | undefined;
@@ -38,55 +47,66 @@ export interface MetadataConfiguration {
  */
 export interface CreateIndexInput {
   /**
-   * <p>The name of the vector bucket to create the vector index in. </p>
+   * The name of the vector bucket to create the vector index in.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector bucket to create the vector index in.</p>
+   * The Amazon Resource Name (ARN) of the vector bucket to create the vector index in.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
 
   /**
-   * <p>The name of the vector index to create. </p>
+   * The name of the vector index to create.
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The data type of the vectors to be inserted into the vector index. </p>
+   * The data type of the vectors to be inserted into the vector index.
+   *
    * @public
    */
   dataType: DataType | undefined;
 
   /**
-   * <p>The dimensions of the vectors to be inserted into the vector index. </p>
+   * The dimensions of the vectors to be inserted into the vector index.
+   *
    * @public
    */
   dimension: number | undefined;
 
   /**
-   * <p>The distance metric to be used for similarity search. </p>
+   * The distance metric to be used for similarity search.
+   *
    * @public
    */
   distanceMetric: DistanceMetric | undefined;
 
   /**
-   * <p>The metadata configuration for the vector index. </p>
+   * The metadata configuration for the vector index.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.</p>
+   * The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>An array of user-defined tags that you would like to apply to the vector index that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize, track costs, and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateIndex</code> permission to create a vector index with tags.</p> </note>
+   * An array of user-defined tags that you would like to apply to the vector index that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize, track costs, and control access to resources. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
+   * > **Note:** You must have the `s3vectors:TagResource` permission in addition to `s3vectors:CreateIndex` permission to create a vector index with tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -97,25 +117,29 @@ export interface CreateIndexInput {
  */
 export interface CreateIndexOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the newly created vector index.</p>
+   * The Amazon Resource Name (ARN) of the newly created vector index.
+   *
    * @public
    */
   indexArn: string | undefined;
 }
 
 /**
- * <p>Contains information about a validation exception.</p>
+ * Contains information about a validation exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>A path about the validation exception.</p>
+   * A path about the validation exception.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>A message about the validation exception.</p>
+   * A message about the validation exception.
+   *
    * @public
    */
   message: string | undefined;
@@ -126,19 +150,24 @@ export interface ValidationExceptionField {
  */
 export interface CreateVectorBucketInput {
   /**
-   * <p>The name of the vector bucket to create. </p>
+   * The name of the vector bucket to create.
+   *
    * @public
    */
   vectorBucketName: string | undefined;
 
   /**
-   * <p>The encryption configuration for the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>. </p>
+   * The encryption configuration for the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically `AES256`.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>An array of user-defined tags that you would like to apply to the vector bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p> <note> <p>You must have the <code>s3vectors:TagResource</code> permission in addition to <code>s3vectors:CreateVectorBucket</code> permission to create a vector bucket with tags.</p> </note>
+   * An array of user-defined tags that you would like to apply to the vector bucket that you are creating. A tag is a key-value pair that you apply to your resources. Tags can help you organize and control access to resources. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
+   * > **Note:** You must have the `s3vectors:TagResource` permission in addition to `s3vectors:CreateVectorBucket` permission to create a vector bucket with tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -149,7 +178,8 @@ export interface CreateVectorBucketInput {
  */
 export interface CreateVectorBucketOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the newly created vector bucket.</p>
+   * The Amazon Resource Name (ARN) of the newly created vector bucket.
+   *
    * @public
    */
   vectorBucketArn: string | undefined;
@@ -160,19 +190,22 @@ export interface CreateVectorBucketOutput {
  */
 export interface DeleteIndexInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index to delete. </p>
+   * The name of the vector index to delete.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector index to delete.</p>
+   * The ARN of the vector index to delete.
+   *
    * @public
    */
   indexArn?: string | undefined;
@@ -188,13 +221,15 @@ export interface DeleteIndexOutput {}
  */
 export interface DeleteVectorBucketInput {
   /**
-   * <p>The name of the vector bucket to delete.</p>
+   * The name of the vector bucket to delete.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector bucket to delete.</p>
+   * The ARN of the vector bucket to delete.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
@@ -210,13 +245,15 @@ export interface DeleteVectorBucketOutput {}
  */
 export interface DeleteVectorBucketPolicyInput {
   /**
-   * <p>The name of the vector bucket to delete the policy from.</p>
+   * The name of the vector bucket to delete the policy from.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector bucket to delete the policy from.</p>
+   * The ARN of the vector bucket to delete the policy from.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
@@ -232,25 +269,29 @@ export interface DeleteVectorBucketPolicyOutput {}
  */
 export interface DeleteVectorsInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index that contains a vector you want to delete.</p>
+   * The name of the vector index that contains a vector you want to delete.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector index that contains a vector you want to delete.</p>
+   * The ARN of the vector index that contains a vector you want to delete.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The keys of the vectors to delete. </p>
+   * The keys of the vectors to delete.
+   *
    * @public
    */
   keys: string[] | undefined;
@@ -266,85 +307,104 @@ export interface DeleteVectorsOutput {}
  */
 export interface GetIndexInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index.</p>
+   * The name of the vector index.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector index.</p>
+   * The ARN of the vector index.
+   *
    * @public
    */
   indexArn?: string | undefined;
 }
 
 /**
- * <p>The attributes of a vector index.</p>
+ * The attributes of a vector index.
+ *
  * @public
  */
 export interface Index {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName: string | undefined;
 
   /**
-   * <p>The name of the vector index.</p>
+   * The name of the vector index.
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector index.</p>
+   * The Amazon Resource Name (ARN) of the vector index.
+   *
    * @public
    */
   indexArn: string | undefined;
 
   /**
-   * <p>Date and time when the vector index was created. </p>
+   * Date and time when the vector index was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The data type of the vectors inserted into the vector index. </p>
+   * The data type of the vectors inserted into the vector index.
+   *
    * @public
    */
   dataType: DataType | undefined;
 
   /**
-   * <p>The number of values in the vectors that are inserted into the vector index. </p>
+   * The number of values in the vectors that are inserted into the vector index.
+   *
    * @public
    */
   dimension: number | undefined;
 
   /**
-   * <p>The distance metric to be used for similarity search. </p>
+   * The distance metric to be used for similarity search.
+   *
    * @public
    */
   distanceMetric: DistanceMetric | undefined;
 
   /**
-   * <p>The metadata configuration for the vector index. </p>
+   * The metadata configuration for the vector index.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.</p>
+   * The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>The mode that determines how the vector index processes queries.</p> <p>Valid values:</p> <ul> <li> <p> <code>CLASSIC</code> - Applies metadata filters during the vector search.</p> </li> <li> <p> <code>ENHANCED</code> - Applies metadata filters before the vector search.</p> </li> </ul>
+   * The mode that determines how the vector index processes queries.
+   *
+   * Valid values:
+   *
+   * - `CLASSIC` - Applies metadata filters during the vector search.
+   * - `ENHANCED` - Applies metadata filters before the vector search.
+   *
    * @public
    */
   indexMode?: IndexMode | undefined;
@@ -355,14 +415,16 @@ export interface Index {
  */
 export interface GetIndexOutput {
   /**
-   * <p>The attributes of the vector index.</p>
+   * The attributes of the vector index.
+   *
    * @public
    */
   index: Index | undefined;
 }
 
 /**
- * <p>The vector data in different formats.</p>
+ * The vector data in different formats.
+ *
  * @public
  */
 export type VectorData =
@@ -374,7 +436,8 @@ export type VectorData =
  */
 export namespace VectorData {
   /**
-   * <p>The vector data as 32-bit floating point numbers. The number of elements in this array must exactly match the dimension of the vector index where the operation is being performed.</p>
+   * The vector data as 32-bit floating point numbers. The number of elements in this array must exactly match the dimension of the vector index where the operation is being performed.
+   *
    * @public
    */
   export interface Float32Member {
@@ -401,24 +464,28 @@ export namespace VectorData {
 }
 
 /**
- * <p>The attributes of a vector returned by the <code>GetVectors</code> operation.</p>
+ * The attributes of a vector returned by the `GetVectors` operation.
+ *
  * @public
  */
 export interface GetOutputVector {
   /**
-   * <p>The name of the vector. </p>
+   * The name of the vector.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The vector data of the vector. </p>
+   * The vector data of the vector.
+   *
    * @public
    */
   data?: VectorData | undefined;
 
   /**
-   * <p>Metadata about the vector. </p>
+   * Metadata about the vector.
+   *
    * @public
    */
   metadata?: __DocumentType | undefined;
@@ -429,49 +496,57 @@ export interface GetOutputVector {
  */
 export interface GetVectorBucketInput {
   /**
-   * <p>The name of the vector bucket to retrieve information about.</p>
+   * The name of the vector bucket to retrieve information about.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector bucket to retrieve information about.</p>
+   * The ARN of the vector bucket to retrieve information about.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
 }
 
 /**
- * <p>The attributes of a vector bucket. </p>
+ * The attributes of a vector bucket.
+ *
  * @public
  */
 export interface VectorBucket {
   /**
-   * <p>The name of the vector bucket. </p>
+   * The name of the vector bucket.
+   *
    * @public
    */
   vectorBucketName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector bucket. </p>
+   * The Amazon Resource Name (ARN) of the vector bucket.
+   *
    * @public
    */
   vectorBucketArn: string | undefined;
 
   /**
-   * <p>Date and time when the vector bucket was created. </p>
+   * Date and time when the vector bucket was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The encryption configuration for the vector bucket.</p>
+   * The encryption configuration for the vector bucket.
+   *
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
-   * <p>The mode that is automatically assigned to new vector indexes in the vector bucket. Changing the default index mode doesn't affect existing vector indexes.</p>
+   * The mode that is automatically assigned to new vector indexes in the vector bucket. Changing the default index mode doesn't affect existing vector indexes.
+   *
    * @public
    */
   defaultIndexMode?: IndexMode | undefined;
@@ -482,7 +557,8 @@ export interface VectorBucket {
  */
 export interface GetVectorBucketOutput {
   /**
-   * <p>The attributes of the vector bucket.</p>
+   * The attributes of the vector bucket.
+   *
    * @public
    */
   vectorBucket: VectorBucket | undefined;
@@ -493,13 +569,15 @@ export interface GetVectorBucketOutput {
  */
 export interface GetVectorBucketPolicyInput {
   /**
-   * <p>The name of the vector bucket.</p>
+   * The name of the vector bucket.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector bucket.</p>
+   * The ARN of the vector bucket.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
@@ -510,7 +588,8 @@ export interface GetVectorBucketPolicyInput {
  */
 export interface GetVectorBucketPolicyOutput {
   /**
-   * <p>The <code>JSON</code> that defines the policy.</p>
+   * The `JSON` that defines the policy.
+   *
    * @public
    */
   policy?: string | undefined;
@@ -521,37 +600,43 @@ export interface GetVectorBucketPolicyOutput {
  */
 export interface GetVectorsInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index.</p>
+   * The name of the vector index.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector index.</p>
+   * The ARN of the vector index.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The names of the vectors you want to return attributes for. </p>
+   * The names of the vectors you want to return attributes for.
+   *
    * @public
    */
   keys: string[] | undefined;
 
   /**
-   * <p>Indicates whether to include the vector data in the response. The default value is <code>false</code>.</p>
+   * Indicates whether to include the vector data in the response. The default value is `false`.
+   *
    * @public
    */
   returnData?: boolean | undefined;
 
   /**
-   * <p>Indicates whether to include metadata in the response. The default value is <code>false</code>.</p>
+   * Indicates whether to include metadata in the response. The default value is `false`.
+   *
    * @public
    */
   returnMetadata?: boolean | undefined;
@@ -562,7 +647,8 @@ export interface GetVectorsInput {
  */
 export interface GetVectorsOutput {
   /**
-   * <p>The attributes of the vectors.</p>
+   * The attributes of the vectors.
+   *
    * @public
    */
   vectors: GetOutputVector[] | undefined;
@@ -573,61 +659,71 @@ export interface GetVectorsOutput {
  */
 export interface ListIndexesInput {
   /**
-   * <p>The name of the vector bucket that contains the vector indexes. </p>
+   * The name of the vector bucket that contains the vector indexes.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector bucket that contains the vector indexes.</p>
+   * The ARN of the vector bucket that contains the vector indexes.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
 
   /**
-   * <p>The maximum number of items to be returned in the response. </p>
+   * The maximum number of items to be returned in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The previous pagination token. </p>
+   * The previous pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Limits the response to vector indexes that begin with the specified prefix.</p>
+   * Limits the response to vector indexes that begin with the specified prefix.
+   *
    * @public
    */
   prefix?: string | undefined;
 }
 
 /**
- * <p>Summary information about a vector index.</p>
+ * Summary information about a vector index.
+ *
  * @public
  */
 export interface IndexSummary {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName: string | undefined;
 
   /**
-   * <p>The name of the vector index.</p>
+   * The name of the vector index.
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector index.</p>
+   * The Amazon Resource Name (ARN) of the vector index.
+   *
    * @public
    */
   indexArn: string | undefined;
 
   /**
-   * <p>Date and time when the vector index was created. </p>
+   * Date and time when the vector index was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -638,13 +734,15 @@ export interface IndexSummary {
  */
 export interface ListIndexesOutput {
   /**
-   * <p>The next pagination token.</p>
+   * The next pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The attributes of the vector indexes</p>
+   * The attributes of the vector indexes
+   *
    * @public
    */
   indexes: IndexSummary[] | undefined;
@@ -655,25 +753,34 @@ export interface ListIndexesOutput {
  */
 export interface UpdateIndexModeInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index.</p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index to update.</p>
+   * The name of the vector index to update.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector index to update.</p>
+   * The Amazon Resource Name (ARN) of the vector index to update.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The new mode for the vector index.</p> <p>Valid values:</p> <ul> <li> <p> <code>CLASSIC</code> - Applies metadata filters during the vector search. You can specify <code>CLASSIC</code> only for a vector index in a vector bucket created before September 30, 2026.</p> </li> <li> <p> <code>ENHANCED</code> - Applies metadata filters before the vector search.</p> </li> </ul>
+   * The new mode for the vector index.
+   *
+   * Valid values:
+   *
+   * - `CLASSIC` - Applies metadata filters during the vector search. You can specify `CLASSIC` only for a vector index in a vector bucket created before September 30, 2026.
+   * - `ENHANCED` - Applies metadata filters before the vector search.
+   *
    * @public
    */
   indexMode: IndexMode | undefined;
@@ -689,79 +796,106 @@ export interface UpdateIndexModeOutput {}
  */
 export interface ListVectorsInput {
   /**
-   * <p>The name of the vector bucket. </p>
+   * The name of the vector bucket.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index.</p>
+   * The name of the vector index.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The Amazon resource Name (ARN) of the vector index.</p>
+   * The Amazon resource Name (ARN) of the vector index.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The maximum number of vectors to return on a page.</p> <p>If you don't specify <code>maxResults</code>, the <code>ListVectors</code> operation uses a default value of 500.</p> <p>If the processed dataset size exceeds 1 MB before reaching the <code>maxResults</code> value, the operation stops and returns the vectors that are retrieved up to that point, along with a <code>nextToken</code> that you can use in a subsequent request to retrieve the next set of results.</p>
+   * The maximum number of vectors to return on a page.
+   *
+   * If you don't specify `maxResults`, the `ListVectors` operation uses a default value of 500.
+   *
+   * If the processed dataset size exceeds 1 MB before reaching the `maxResults` value, the operation stops and returns the vectors that are retrieved up to that point, along with a `nextToken` that you can use in a subsequent request to retrieve the next set of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Pagination token from a previous request. The value of this field is empty for an initial request.</p>
+   * Pagination token from a previous request. The value of this field is empty for an initial request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>For a parallel <code>ListVectors</code> request, <code>segmentCount</code> represents the total number of vector segments into which the <code>ListVectors</code> operation will be divided. The value of <code>segmentCount</code> corresponds to the number of application workers that will perform the parallel <code>ListVectors</code> operation. For example, if you want to use four application threads to list vectors in a vector index, specify a <code>segmentCount</code> value of 4. </p> <p>If you specify a <code>segmentCount</code> value of 1, the <code>ListVectors</code> operation will be sequential rather than parallel.</p> <p>If you specify <code>segmentCount</code>, you must also specify <code>segmentIndex</code>.</p>
+   * For a parallel `ListVectors` request, `segmentCount` represents the total number of vector segments into which the `ListVectors` operation will be divided. The value of `segmentCount` corresponds to the number of application workers that will perform the parallel `ListVectors` operation. For example, if you want to use four application threads to list vectors in a vector index, specify a `segmentCount` value of 4.
+   *
+   * If you specify a `segmentCount` value of 1, the `ListVectors` operation will be sequential rather than parallel.
+   *
+   * If you specify `segmentCount`, you must also specify `segmentIndex`.
+   *
    * @public
    */
   segmentCount?: number | undefined;
 
   /**
-   * <p>For a parallel <code>ListVectors</code> request, <code>segmentIndex</code> is the index of the segment from which to list vectors in the current request. It identifies an individual segment to be listed by an application worker. </p> <p>Segment IDs are zero-based, so the first segment is always 0. For example, if you want to use four application threads to list vectors in a vector index, then the first thread specifies a <code>segmentIndex</code> value of 0, the second thread specifies 1, and so on. </p> <p>The value of <code>segmentIndex</code> must be less than the value provided for <code>segmentCount</code>. </p> <p>If you provide <code>segmentIndex</code>, you must also provide <code>segmentCount</code>.</p>
+   * For a parallel `ListVectors` request, `segmentIndex` is the index of the segment from which to list vectors in the current request. It identifies an individual segment to be listed by an application worker.
+   *
+   * Segment IDs are zero-based, so the first segment is always 0. For example, if you want to use four application threads to list vectors in a vector index, then the first thread specifies a `segmentIndex` value of 0, the second thread specifies 1, and so on.
+   *
+   * The value of `segmentIndex` must be less than the value provided for `segmentCount`.
+   *
+   * If you provide `segmentIndex`, you must also provide `segmentCount`.
+   *
    * @public
    */
   segmentIndex?: number | undefined;
 
   /**
-   * <p>If true, the vector data of each vector will be included in the response. The default value is <code>false</code>.</p>
+   * If true, the vector data of each vector will be included in the response. The default value is `false`.
+   *
    * @public
    */
   returnData?: boolean | undefined;
 
   /**
-   * <p>If true, the metadata associated with each vector will be included in the response. The default value is <code>false</code>.</p>
+   * If true, the metadata associated with each vector will be included in the response. The default value is `false`.
+   *
    * @public
    */
   returnMetadata?: boolean | undefined;
 }
 
 /**
- * <p>The attributes of a vector returned by the <code>ListVectors</code> operation.</p>
+ * The attributes of a vector returned by the `ListVectors` operation.
+ *
  * @public
  */
 export interface ListOutputVector {
   /**
-   * <p>The name of the vector. </p>
+   * The name of the vector.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The vector data of the vector. </p>
+   * The vector data of the vector.
+   *
    * @public
    */
   data?: VectorData | undefined;
 
   /**
-   * <p>Metadata about the vector. </p>
+   * Metadata about the vector.
+   *
    * @public
    */
   metadata?: __DocumentType | undefined;
@@ -772,37 +906,48 @@ export interface ListOutputVector {
  */
 export interface ListVectorsOutput {
   /**
-   * <p>Pagination token to be used in the subsequent request. The field is empty if no further pagination is required.</p>
+   * Pagination token to be used in the subsequent request. The field is empty if no further pagination is required.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Vectors in the current segment.</p>
+   * Vectors in the current segment.
+   *
    * @public
    */
   vectors: ListOutputVector[] | undefined;
 }
 
 /**
- * <p>The attributes of a vector to add to a vector index.</p>
+ * The attributes of a vector to add to a vector index.
+ *
  * @public
  */
 export interface PutInputVector {
   /**
-   * <p>The name of the vector. The key uniquely identifies the vector in a vector index. </p>
+   * The name of the vector. The key uniquely identifies the vector in a vector index.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The vector data of the vector. </p> <p>Vector dimensions must match the dimension count that's configured for the vector index.</p> <ul> <li> <p>For the <code>cosine</code> distance metric, zero vectors (vectors containing all zeros) aren't allowed.</p> </li> <li> <p>For both <code>cosine</code> and <code>euclidean</code> distance metrics, vector data must contain only valid floating-point values. Invalid values such as NaN (Not a Number) or Infinity aren't allowed.</p> </li> </ul>
+   * The vector data of the vector.
+   *
+   * Vector dimensions must match the dimension count that's configured for the vector index.
+   *
+   * - For the `cosine` distance metric, zero vectors (vectors containing all zeros) aren't allowed.
+   * - For both `cosine` and `euclidean` distance metrics, vector data must contain only valid floating-point values. Invalid values such as NaN (Not a Number) or Infinity aren't allowed.
+   *
    * @public
    */
   data: VectorData | undefined;
 
   /**
-   * <p>Metadata about the vector. All metadata entries undergo validation to ensure they meet the format requirements for size and data types.</p>
+   * Metadata about the vector. All metadata entries undergo validation to ensure they meet the format requirements for size and data types.
+   *
    * @public
    */
   metadata?: __DocumentType | undefined;
@@ -813,25 +958,29 @@ export interface PutInputVector {
  */
 export interface PutVectorsInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index where you want to write vectors. </p>
+   * The name of the vector index where you want to write vectors.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector index where you want to write vectors.</p>
+   * The ARN of the vector index where you want to write vectors.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The vectors to add to a vector index. The number of vectors in a single request must not exceed the resource capacity, otherwise the request will be rejected with the error <code>ServiceUnavailableException</code> with the error message "Currently unable to handle the request".</p>
+   * The vectors to add to a vector index. The number of vectors in a single request must not exceed the resource capacity, otherwise the request will be rejected with the error `ServiceUnavailableException` with the error message "Currently unable to handle the request".
+   *
    * @public
    */
   vectors: PutInputVector[] | undefined;
@@ -847,85 +996,104 @@ export interface PutVectorsOutput {}
  */
 export interface QueryVectorsInput {
   /**
-   * <p>The name of the vector bucket that contains the vector index. </p>
+   * The name of the vector bucket that contains the vector index.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The name of the vector index that you want to query. </p>
+   * The name of the vector index that you want to query.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The ARN of the vector index that you want to query.</p>
+   * The ARN of the vector index that you want to query.
+   *
    * @public
    */
   indexArn?: string | undefined;
 
   /**
-   * <p>The number of results to return for each query.</p>
+   * The number of results to return for each query.
+   *
    * @public
    */
   topK: number | undefined;
 
   /**
-   * <p>The query vector. Ensure that the query vector has the same dimension as the dimension of the vector index that's being queried. For example, if your vector index contains vectors with 384 dimensions, your query vector must also have 384 dimensions. </p>
+   * The query vector. Ensure that the query vector has the same dimension as the dimension of the vector index that's being queried. For example, if your vector index contains vectors with 384 dimensions, your query vector must also have 384 dimensions.
+   *
    * @public
    */
   queryVector: VectorData | undefined;
 
   /**
-   * <p>Metadata filter to apply during the query. For more information about metadata keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-metadata-filtering.html">Metadata filtering</a> in the <i>Amazon S3 User Guide</i>. </p>
+   * Metadata filter to apply during the query. For more information about metadata keys, see [Metadata filtering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-metadata-filtering.html) in the *Amazon S3 User Guide*.
+   *
    * @public
    */
   filter?: __DocumentType | undefined;
 
   /**
-   * <p>The mode to use to process the query. If you don't specify a query mode, the operation uses the mode that's currently configured for the vector index.</p> <p>Valid values:</p> <ul> <li> <p> <code>CLASSIC</code> - Applies metadata filters during the vector search. You can't specify <code>CLASSIC</code> for an <code>ENHANCED</code> index.</p> </li> <li> <p> <code>ENHANCED</code> - Applies metadata filters before the vector search.</p> </li> </ul>
+   * The mode to use to process the query. If you don't specify a query mode, the operation uses the mode that's currently configured for the vector index.
+   *
+   * Valid values:
+   *
+   * - `CLASSIC` - Applies metadata filters during the vector search. You can't specify `CLASSIC` for an `ENHANCED` index.
+   * - `ENHANCED` - Applies metadata filters before the vector search.
+   *
    * @public
    */
   queryMode?: IndexMode | undefined;
 
   /**
-   * <p>Indicates whether to include metadata in the response. The default value is <code>false</code>.</p>
+   * Indicates whether to include metadata in the response. The default value is `false`.
+   *
    * @public
    */
   returnMetadata?: boolean | undefined;
 
   /**
-   * <p>Indicates whether to include the computed distance in the response. The default value is <code>false</code>.</p>
+   * Indicates whether to include the computed distance in the response. The default value is `false`.
+   *
    * @public
    */
   returnDistance?: boolean | undefined;
 
   /**
-   * <p>Pagination token from a previous request. The value of this field is empty for an initial request.</p>
+   * Pagination token from a previous request. The value of this field is empty for an initial request.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The attributes of a vector in the approximate nearest neighbor search.</p>
+ * The attributes of a vector in the approximate nearest neighbor search.
+ *
  * @public
  */
 export interface QueryOutputVector {
   /**
-   * <p>The measure of similarity between the vector in the response and the query vector.</p>
+   * The measure of similarity between the vector in the response and the query vector.
+   *
    * @public
    */
   distance?: number | undefined;
 
   /**
-   * <p>The key of the vector in the approximate nearest neighbor search.</p>
+   * The key of the vector in the approximate nearest neighbor search.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The metadata associated with the vector, if requested.</p>
+   * The metadata associated with the vector, if requested.
+   *
    * @public
    */
   metadata?: __DocumentType | undefined;
@@ -936,19 +1104,22 @@ export interface QueryOutputVector {
  */
 export interface QueryVectorsOutput {
   /**
-   * <p>The vectors in the approximate nearest neighbor search.</p>
+   * The vectors in the approximate nearest neighbor search.
+   *
    * @public
    */
   vectors: QueryOutputVector[] | undefined;
 
   /**
-   * <p>The distance metric that was used for the similarity search calculation. This is the same distance metric that was configured for the vector index when it was created.</p>
+   * The distance metric that was used for the similarity search calculation. This is the same distance metric that was configured for the vector index when it was created.
+   *
    * @public
    */
   distanceMetric: DistanceMetric | undefined;
 
   /**
-   * <p>Pagination token to be used in the subsequent page request. The field is empty if no further pagination is required.</p>
+   * Pagination token to be used in the subsequent page request. The field is empty if no further pagination is required.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -959,7 +1130,8 @@ export interface QueryVectorsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you want to list tags for. The tagged resource can be a vector bucket or a vector index. </p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you want to list tags for. The tagged resource can be a vector bucket or a vector index.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -970,7 +1142,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The user-defined tags that are applied to the S3 Vectors resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * The user-defined tags that are applied to the S3 Vectors resource. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -981,43 +1154,50 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListVectorBucketsInput {
   /**
-   * <p>The maximum number of vector buckets to be returned in the response. </p>
+   * The maximum number of vector buckets to be returned in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The previous pagination token. </p>
+   * The previous pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Limits the response to vector buckets that begin with the specified prefix.</p>
+   * Limits the response to vector buckets that begin with the specified prefix.
+   *
    * @public
    */
   prefix?: string | undefined;
 }
 
 /**
- * <p>Summary information about a vector bucket.</p>
+ * Summary information about a vector bucket.
+ *
  * @public
  */
 export interface VectorBucketSummary {
   /**
-   * <p>The name of the vector bucket. </p>
+   * The name of the vector bucket.
+   *
    * @public
    */
   vectorBucketName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector bucket. </p>
+   * The Amazon Resource Name (ARN) of the vector bucket.
+   *
    * @public
    */
   vectorBucketArn: string | undefined;
 
   /**
-   * <p>Date and time when the vector bucket was created. </p>
+   * Date and time when the vector bucket was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -1028,13 +1208,15 @@ export interface VectorBucketSummary {
  */
 export interface ListVectorBucketsOutput {
   /**
-   * <p>The element is included in the response when there are more buckets to be listed with pagination. </p>
+   * The element is included in the response when there are more buckets to be listed with pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of vector buckets owned by the requester. </p>
+   * The list of vector buckets owned by the requester.
+   *
    * @public
    */
   vectorBuckets: VectorBucketSummary[] | undefined;
@@ -1045,19 +1227,22 @@ export interface ListVectorBucketsOutput {
  */
 export interface PutVectorBucketDefaultIndexModeInput {
   /**
-   * <p>The name of the vector bucket to update.</p>
+   * The name of the vector bucket to update.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector bucket to update.</p>
+   * The Amazon Resource Name (ARN) of the vector bucket to update.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
 
   /**
-   * <p>The default mode to assign to new vector indexes in the vector bucket. This change doesn't affect existing vector indexes.</p>
+   * The default mode to assign to new vector indexes in the vector bucket. This change doesn't affect existing vector indexes.
+   *
    * @public
    */
   defaultIndexMode: IndexMode | undefined;
@@ -1073,19 +1258,22 @@ export interface PutVectorBucketDefaultIndexModeOutput {}
  */
 export interface PutVectorBucketPolicyInput {
   /**
-   * <p>The name of the vector bucket.</p>
+   * The name of the vector bucket.
+   *
    * @public
    */
   vectorBucketName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vector bucket.</p>
+   * The Amazon Resource Name (ARN) of the vector bucket.
+   *
    * @public
    */
   vectorBucketArn?: string | undefined;
 
   /**
-   * <p>The <code>JSON</code> that defines the policy. For more information about bucket policies for S3 Vectors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-bucket-policy.html">Managing vector bucket policies</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * The `JSON` that defines the policy. For more information about bucket policies for S3 Vectors, see [Managing vector bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-bucket-policy.html) in the *Amazon S3 User Guide*.
+   *
    * @public
    */
   policy: string | undefined;
@@ -1101,13 +1289,15 @@ export interface PutVectorBucketPolicyOutput {}
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're applying tags to. The tagged resource can be a vector bucket or a vector index. </p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're applying tags to. The tagged resource can be a vector bucket or a vector index.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The user-defined tag that you want to add to the specified S3 Vectors resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * The user-defined tag that you want to add to the specified S3 Vectors resource. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1123,13 +1313,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're removing tags from. The tagged resource can be a vector bucket or a vector index. </p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're removing tags from. The tagged resource can be a vector bucket or a vector index.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The array of tag keys that you're removing from the S3 Vectors resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>
+   * The array of tag keys that you're removing from the S3 Vectors resource. For more information, see [Tagging for cost allocation or attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html).
+   *
    * @public
    */
   tagKeys: string[] | undefined;

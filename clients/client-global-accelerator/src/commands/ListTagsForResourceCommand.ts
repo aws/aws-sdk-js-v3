@@ -23,9 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List all tags for an accelerator. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
- * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>. </p>
+ * List all tags for an accelerator.
+ *
+ * For more information, see [Tagging in Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *Global Accelerator Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,26 +58,32 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link AttachmentNotFoundException} (client fault)
- *  <p>No cross-account attachment was found.</p>
+ *
+ * No cross-account attachment was found.
  *
  * @throws {@link EndpointGroupNotFoundException} (client fault)
- *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * The endpoint group that you specified doesn't exist.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The listener that you specified doesn't exist.</p>
+ *
+ * The listener that you specified doesn't exist.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

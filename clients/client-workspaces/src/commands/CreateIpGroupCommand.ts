@@ -23,15 +23,12 @@ export interface CreateIpGroupCommandInput extends CreateIpGroupRequest {}
 export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates an IP access control group.</p>
- *          <p>An IP access control group provides you with the ability to control the IP addresses
- *          from which users are allowed to access their WorkSpaces. To specify the CIDR address
- *          ranges, add rules to your IP access control group and then associate the group with your
- *          directory. You can add rules when you create the group or at any time using <a>AuthorizeIpRules</a>.</p>
- *          <p>There is a default IP access control group associated with your directory. If you don't
- *          associate an IP access control group with your directory, the default group is used. The
- *          default group includes a default rule that allows users to access their WorkSpaces from
- *          anywhere. You cannot modify the default IP access control group for your directory.</p>
+ * Creates an IP access control group.
+ *
+ * An IP access control group provides you with the ability to control the IP addresses from which users are allowed to access their WorkSpaces. To specify the CIDR address ranges, add rules to your IP access control group and then associate the group with your directory. You can add rules when you create the group or at any time using AuthorizeIpRules.
+ *
+ * There is a default IP access control group associated with your directory. If you don't associate an IP access control group with your directory, the default group is used. The default group includes a default rule that allows users to access their WorkSpaces from anywhere. You cannot modify the default IP access control group for your directory.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +68,28 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceCreationFailedException} (client fault)
- *  <p>The resource could not be created.</p>
+ *
+ * The resource could not be created.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

@@ -23,13 +23,10 @@ export interface GetDeploymentCommandInput extends GetDeploymentInput {}
 export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about a deployment.</p>
- *          <note>
- *             <p> The <code>content</code> property of the <code>appSpecContent</code> object in
- *                 the returned revision is always null. Use <code>GetApplicationRevision</code> and
- *                 the <code>sha256</code> property of the returned <code>appSpecContent</code> object
- *                 to get the content of the deployment’s AppSpec file. </p>
- *          </note>
+ * Gets information about a deployment.
+ *
+ * > **Note:** The `content` property of the `appSpecContent` object in the returned revision is always null. Use `GetApplicationRevision` and the `sha256` property of the returned `appSpecContent` object to get the content of the deployment’s AppSpec file.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -236,17 +233,20 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface AcceptTransitGatewayClientVpnAttachmentCommandInput extends Acc
 export interface AcceptTransitGatewayClientVpnAttachmentCommandOutput extends AcceptTransitGatewayClientVpnAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Accepts a Transit Gateway attachment request for a Client VPN endpoint. The Transit Gateway owner must accept the attachment request before the Client VPN endpoint can route traffic through the Transit Gateway.</p>
+ * Accepts a Transit Gateway attachment request for a Client VPN endpoint. The Transit Gateway owner must accept the attachment request before the Client VPN endpoint can route traffic through the Transit Gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface AcceptTransitGatewayClientVpnAttachmentCommandOutput extends Ac
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

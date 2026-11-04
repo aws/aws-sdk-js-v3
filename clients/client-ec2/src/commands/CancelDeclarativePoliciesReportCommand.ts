@@ -23,12 +23,12 @@ export interface CancelDeclarativePoliciesReportCommandInput extends CancelDecla
 export interface CancelDeclarativePoliciesReportCommandOutput extends CancelDeclarativePoliciesReportResult, __MetadataBearer {}
 
 /**
- * <p>Cancels the generation of an account status report.</p>
- *          <p>You can only cancel a report while it has the <code>running</code> status. Reports
- *             with other statuses (<code>complete</code>, <code>cancelled</code>, or
- *                 <code>error</code>) can't be canceled.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html">Generating the account status report for declarative policies</a> in the
- *                 <i>Amazon Web Services Organizations User Guide</i>.</p>
+ * Cancels the generation of an account status report.
+ *
+ * You can only cancel a report while it has the `running` status. Reports with other statuses (`complete`, `cancelled`, or `error`) can't be canceled.
+ *
+ * For more information, see [Generating the account status report for declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative_status-report.html) in the *Amazon Web Services Organizations User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +56,8 @@ export interface CancelDeclarativePoliciesReportCommandOutput extends CancelDecl
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

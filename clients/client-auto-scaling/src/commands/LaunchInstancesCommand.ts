@@ -23,8 +23,8 @@ export interface LaunchInstancesCommandInput extends LaunchInstancesRequest {}
 export interface LaunchInstancesCommandOutput extends LaunchInstancesResult, __MetadataBearer {}
 
 /**
- * <p> Launches a specified number of instances in an Auto Scaling group. Returns instance IDs and
- *             other details if launch is successful or error details if launch is unsuccessful. </p>
+ * Launches a specified number of instances in an Auto Scaling group. Returns instance IDs and other details if launch is successful or error details if launch is unsuccessful.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,24 +87,20 @@ export interface LaunchInstancesCommandOutput extends LaunchInstancesResult, __M
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link IdempotentCallInProgressFault} (server fault)
- *  <p>
- *             The service is currently processing another request with the same client token. Retry
- *             the request with the same client token—the in-flight operation will complete and return
- *             its result.
- *         </p>
+ *
+ * The service is currently processing another request with the same client token. Retry the request with the same client token—the in-flight operation will complete and return its result.
  *
  * @throws {@link IdempotentParameterMismatchError} (client fault)
- *  <p>
- *             Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
- *         </p>
+ *
+ * Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @public
  */

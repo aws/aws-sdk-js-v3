@@ -481,7 +481,8 @@ export interface Artifact {
 }
 
 /**
- * <p>This reference provides descriptions of the low-level AWS Artifact Service API.</p>
+ * This reference provides descriptions of the low-level AWS Artifact Service API.
+ *
  * @public
  */
 export class Artifact extends ArtifactClient implements Artifact {}

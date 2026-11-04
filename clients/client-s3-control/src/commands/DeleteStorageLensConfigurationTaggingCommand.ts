@@ -26,19 +26,12 @@ export interface DeleteStorageLensConfigurationTaggingCommandInput extends Delet
 export interface DeleteStorageLensConfigurationTaggingCommandOutput extends DeleteStorageLensConfigurationTaggingResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
- *             storage activity and usage with Amazon S3 Storage Lens </a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
- *          <note>
- *             <p>To use this action, you must have permission to perform the
- *                <code>s3:DeleteStorageLensConfigurationTagging</code> action. For more information,
- *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
- *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          </note>
+ * > **Note:** This operation is not supported by directory buckets.
+ *
+ * Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see [Assessing your storage activity and usage with Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html) in the *Amazon S3 User Guide*.
+ *
+ * > **Note:** To use this action, you must have permission to perform the `s3:DeleteStorageLensConfigurationTagging` action. For more information, see [Setting permissions to use Amazon S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html) in the *Amazon S3 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +57,8 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput extends Dele
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

@@ -23,18 +23,18 @@ export interface PutManagedRuleSetVersionsCommandInput extends PutManagedRuleSet
 export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSetVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Defines the versions of your managed rule set that you are offering to the customers.
- *          Customers see your offerings as managed rule groups with versioning.</p>
- *          <note>
- *             <p>This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers. </p>
- *             <p>Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are <code>ListManagedRuleSets</code>, <code>GetManagedRuleSet</code>, <code>PutManagedRuleSetVersions</code>, and <code>UpdateManagedRuleSetVersionExpiryDate</code>.</p>
- *          </note>
- *          <p>Customers retrieve their managed rule group list by calling <a>ListAvailableManagedRuleGroups</a>. The name that you provide here for your
- *          managed rule set is the name the customer sees for the corresponding managed rule group.
- *          Customers can retrieve the available versions for a managed rule group by calling <a>ListAvailableManagedRuleGroupVersions</a>. You provide a rule group
- *          specification for each version. For each managed rule set, you must specify a version that
- *          you recommend using. </p>
- *          <p>To initiate the expiration of a managed rule group version, use <a>UpdateManagedRuleSetVersionExpiryDate</a>.</p>
+ * Defines the versions of your managed rule set that you are offering to the customers. Customers see your offerings as managed rule groups with versioning.
+ *
+ * > **Note:**
+ * >
+ * > This is intended for use only by vendors of managed rule sets. Vendors are Amazon Web Services and Amazon Web Services Marketplace sellers.
+ * >
+ * > Vendors, you can use the managed rule set APIs to provide controlled rollout of your versioned managed rule group offerings for your customers. The APIs are `ListManagedRuleSets`, `GetManagedRuleSet`, `PutManagedRuleSetVersions`, and `UpdateManagedRuleSetVersionExpiryDate`.
+ *
+ * Customers retrieve their managed rule group list by calling ListAvailableManagedRuleGroups. The name that you provide here for your managed rule set is the name the customer sees for the corresponding managed rule group. Customers can retrieve the available versions for a managed rule group by calling ListAvailableManagedRuleGroupVersions. You provide a rule group specification for each version. For each managed rule set, you must specify a version that you recommend using.
+ *
+ * To initiate the expiration of a managed rule group version, use UpdateManagedRuleSetVersionExpiryDate.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,47 +71,33 @@ export interface PutManagedRuleSetVersionsCommandOutput extends PutManagedRuleSe
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
- *          problem. Retry your request. </p>
+ *
+ * Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation isn't valid. </p>
+ *
+ * The operation isn't valid.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
- *          example: </p>
- *          <ul>
- *             <li>
- *                <p>You specified a parameter name or value that isn't valid.</p>
- *             </li>
- *             <li>
- *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
- *                can’t be nested. </p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
- *                isn't among the types available at <a>DefaultAction</a>.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                with which a web ACL can't be associated.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified a parameter name or value that isn't valid.
+ * - Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested.
+ * - You tried to update a `WebACL` with a `DefaultAction` that isn't among the types available at DefaultAction.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
- *        If you've just created a resource that you're using in this operation, you might
- *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
- *        for changes to propagate. </p>
+ *
+ * WAF couldn’t perform the operation because your resource doesn't exist. If you've just created a resource that you're using in this operation, you might just need to wait a few minutes. It can take from a few seconds to a number of minutes for changes to propagate.
  *
  * @throws {@link WAFOptimisticLockException} (client fault)
- *  <p>WAF couldn’t save your changes because you tried to update or delete a resource
- *          that has changed since you last retrieved it. Get the resource again, make any changes you
- *          need to make to the new copy, and retry your operation. </p>
+ *
+ * WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation.
  *
  * @throws {@link WAFV2ServiceException}
- * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * Base exception class for all service exceptions from WAFV2 service.
  *
  * @public
  */

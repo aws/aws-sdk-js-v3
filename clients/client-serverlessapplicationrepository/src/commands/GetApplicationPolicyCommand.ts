@@ -23,7 +23,8 @@ export interface GetApplicationPolicyCommandInput extends GetApplicationPolicyRe
 export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the policy for the application.</p>
+ * Retrieves the policy for the application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,23 +64,28 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
  * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>One of the parameters in the request is invalid.</p>
+ *
+ * One of the parameters in the request is invalid.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is not authenticated.</p>
+ *
+ * The client is not authenticated.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The AWS Serverless Application Repository service encountered an internal error.</p>
+ *
+ * The AWS Serverless Application Repository service encountered an internal error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
+ *
+ * The resource (for example, an access policy statement) specified in the request doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The client is sending more than the allowed number of requests per unit of time.</p>
+ *
+ * The client is sending more than the allowed number of requests per unit of time.
  *
  * @throws {@link ServerlessApplicationRepositoryServiceException}
- * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ * Base exception class for all service exceptions from ServerlessApplicationRepository service.
  *
  * @public
  */

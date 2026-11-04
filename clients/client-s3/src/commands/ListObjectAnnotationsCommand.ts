@@ -23,33 +23,18 @@ export interface ListObjectAnnotationsCommandInput extends ListObjectAnnotations
 export interface ListObjectAnnotationsCommandOutput extends ListObjectAnnotationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the annotations attached to an Amazon S3 object. Results are paginated, with a maximum of
- *       1,000 annotations per object. Use the <code>AnnotationPrefix</code> parameter to filter the
- *       results by name prefix.</p>
- *          <p>To use this operation, you must have the <code>s3:ListObjectAnnotations</code> permission.</p>
- *          <note>
- *             <p>Annotations are not supported by the following features: S3 Inventory Reports,
- *       API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and
- *       S3 Express One Zone (directory buckets).</p>
- *          </note>
- *          <p>The following operations are related to <code>ListObjectAnnotations</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html">PutObjectAnnotation</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html">GetObjectAnnotation</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html">DeleteObjectAnnotation</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Lists the annotations attached to an Amazon S3 object. Results are paginated, with a maximum of 1,000 annotations per object. Use the `AnnotationPrefix` parameter to filter the results by name prefix.
+ *
+ * To use this operation, you must have the `s3:ListObjectAnnotations` permission.
+ *
+ * > **Note:** Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).
+ *
+ * The following operations are related to `ListObjectAnnotations`:
+ *
+ * - [PutObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html)
+ * - [GetObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html)
+ * - [DeleteObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,17 +88,20 @@ export interface ListObjectAnnotationsCommandOutput extends ListObjectAnnotation
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link InvalidPrefix} (client fault)
- *  <p>The annotation prefix you provided is invalid.</p>
+ *
+ * The annotation prefix you provided is invalid.
  *
  * @throws {@link NoSuchBucket} (client fault)
- *  <p>The specified bucket does not exist.</p>
+ *
+ * The specified bucket does not exist.
  *
  * @throws {@link NoSuchKey} (client fault)
- *  <p>The specified key does not exist.</p>
+ *
+ * The specified key does not exist.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

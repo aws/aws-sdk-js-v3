@@ -23,50 +23,30 @@ export interface DescribeGameSessionsCommandInput extends DescribeGameSessionsIn
 export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves a set of one or more game sessions in a specific fleet location. You can
- *             optionally filter the results by current game session status.</p>
- *          <p>This operation can be used in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>To retrieve all game sessions that are currently running on all locations in a
- *                     fleet, provide a fleet or alias ID, with an optional status filter. This
- *                     approach returns all game sessions in the fleet's home Region and all remote
- *                     locations.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve all game sessions that are currently running on a specific fleet
- *                     location, provide a fleet or alias ID and a location name, with optional status
- *                     filter. The location can be the fleet's home Region or any remote
- *                     location.</p>
- *             </li>
- *             <li>
- *                <p>To retrieve a specific game session, provide the game session ID. This
- *                     approach looks for the game session ID in all fleets that reside in the Amazon Web Services
- *                     Region defined in the request.</p>
- *             </li>
- *          </ul>
- *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
- *          <p>If successful, a <code>GameSession</code> object is returned for each game session
- *             that matches the request.</p>
- *          <p>This operation is not designed to be continually called to track game session status.
- *             This practice can cause you to exceed your API limit, which results in errors. Instead,
- *             you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
- *             queues. Continuously polling with <code>DescribeGameSessions</code> should only be used
- *             for games in development with low game session usage. </p>
- *          <p>
- *             <i>Available in Amazon GameLift Servers Local.</i>
- *          </p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find">Find a game session</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves a set of one or more game sessions in a specific fleet location. You can optionally filter the results by current game session status.
+ *
+ * This operation can be used in the following ways:
+ *
+ * - To retrieve all game sessions that are currently running on all locations in a fleet, provide a fleet or alias ID, with an optional status filter. This approach returns all game sessions in the fleet's home Region and all remote locations.
+ * - To retrieve all game sessions that are currently running on a specific fleet location, provide a fleet or alias ID and a location name, with optional status filter. The location can be the fleet's home Region or any remote location.
+ * - To retrieve a specific game session, provide the game session ID. This approach looks for the game session ID in all fleets that reside in the Amazon Web Services Region defined in the request.
+ *
+ * Use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, a `GameSession` object is returned for each game session that matches the request.
+ *
+ * This operation is not designed to be continually called to track game session status. This practice can cause you to exceed your API limit, which results in errors. Instead, you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling with `DescribeGameSessions` should only be used for games in development with low game session usage.
+ *
+ * *Available in Amazon GameLift Servers Local.*
+ *
+ * **Learn more**
+ *
+ * [Find a game session](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-find)
+ *
+ * [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,31 +109,32 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
- *  <p>The service is unable to resolve the routing for a particular alias because it has a
- *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
- *             exception is the message defined in the routing strategy itself. Such requests should
- *             only be retried if the routing strategy for the specified alias is modified. </p>
+ *
+ * The service is unable to resolve the routing for a particular alias because it has a terminal `RoutingStrategy` associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

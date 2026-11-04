@@ -23,31 +23,18 @@ export interface SimulateCustomPolicyCommandInput extends SimulateCustomPolicyRe
 export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Simulate how a set of IAM policies and optionally a resource-based policy works with
- *             a list of API operations and Amazon Web Services resources to determine the policies' effective
- *             permissions. The policies are provided as strings.</p>
- *          <p>The simulation does not perform the API operations; it only checks the authorization
- *             to determine if the simulated policies allow or deny the operations. You can simulate
- *             resources that don't exist in your account.</p>
- *          <p>If you want to simulate existing policies that are attached to an IAM user, group,
- *             or role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a> instead.</p>
- *          <p>Context keys are variables that are maintained by Amazon Web Services and its services and which
- *             provide details about the context of an API query request. You can use the
- *                 <code>Condition</code> element of an IAM policy to evaluate context keys. To get
- *             the list of context keys that the policies require for correct simulation, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a>.</p>
- *          <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
- *             parameters to paginate the results.</p>
- *          <note>
- *             <p>The IAM policy simulator evaluates statements in identity-based policies,
- *                 service control policies (SCPs) including their condition keys and resource
- *                 scoping, and the inputs that you provide during simulation. The policy
- *                 simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies
- *                 against your live Amazon Web Services environment after testing using the policy simulator to
- *                 confirm that you have the desired results. For more information about using the
- *                 policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing IAM
- *                     policies with the IAM policy simulator </a>in the
- *                     <i>IAM User Guide</i>.</p>
- *          </note>
+ * Simulate how a set of IAM policies and optionally a resource-based policy works with a list of API operations and Amazon Web Services resources to determine the policies' effective permissions. The policies are provided as strings.
+ *
+ * The simulation does not perform the API operations; it only checks the authorization to determine if the simulated policies allow or deny the operations. You can simulate resources that don't exist in your account.
+ *
+ * If you want to simulate existing policies that are attached to an IAM user, group, or role, use [SimulatePrincipalPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html) instead.
+ *
+ * Context keys are variables that are maintained by Amazon Web Services and its services and which provide details about the context of an API query request. You can use the `Condition` element of an IAM policy to evaluate context keys. To get the list of context keys that the policies require for correct simulation, use [GetContextKeysForCustomPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html).
+ *
+ * If the output is long, you can use `MaxItems` and `Marker` parameters to paginate the results.
+ *
+ * > **Note:** The IAM policy simulator evaluates statements in identity-based policies, service control policies (SCPs) including their condition keys and resource scoping, and the inputs that you provide during simulation. The policy simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies against your live Amazon Web Services environment after testing using the policy simulator to confirm that you have the desired results. For more information about using the policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html)in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -170,16 +157,16 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link PolicyEvaluationException} (server fault)
- *  <p>The request failed because a provided policy could not be successfully evaluated. An
- *       additional detailed message indicates the source of the failure.</p>
+ *
+ * The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

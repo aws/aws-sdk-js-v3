@@ -23,28 +23,18 @@ export interface GetSegmentDetectionCommandInput extends GetSegmentDetectionRequ
 export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p>
- *          <p>Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by
- *       calling <a>StartSegmentDetection</a> which returns a job identifier (<code>JobId</code>).
- *       When the segment detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service
- *       topic registered in the initial call to <code>StartSegmentDetection</code>. To get the results
- *       of the segment detection operation, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.
- *       if so, call <code>GetSegmentDetection</code> and pass the job identifier (<code>JobId</code>) from the initial call
- *       of <code>StartSegmentDetection</code>.</p>
- *          <p>
- *             <code>GetSegmentDetection</code> returns detected segments in an array (<code>Segments</code>)
- *       of <a>SegmentDetection</a> objects. <code>Segments</code> is sorted by the segment types
- *       specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>.
- *     Each element of the array includes the detected segment, the precentage confidence in the acuracy
- *       of the detected segment, the type of the segment, and the frame in which the segment was detected.</p>
- *          <p>Use <code>SelectedSegmentTypes</code> to find out the type of segment detection requested in the
- *     call to <code>StartSegmentDetection</code>.</p>
- *          <p>Use the <code>MaxResults</code> parameter to limit the number of segment detections returned. If there are more results than
- *       specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains
- *       a pagination token for getting the next set of results. To get the next page of results, call <code>GetSegmentDetection</code>
- *       and populate the <code>NextToken</code> request parameter with the token value returned from the previous
- *       call to <code>GetSegmentDetection</code>.</p>
- *          <p>For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.</p>
+ * Gets the segment detection results of a Amazon Rekognition Video analysis started by StartSegmentDetection.
+ *
+ * Segment detection with Amazon Rekognition Video is an asynchronous operation. You start segment detection by calling StartSegmentDetection which returns a job identifier (`JobId`). When the segment detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to `StartSegmentDetection`. To get the results of the segment detection operation, first check that the status value published to the Amazon SNS topic is `SUCCEEDED`. if so, call `GetSegmentDetection` and pass the job identifier (`JobId`) from the initial call of `StartSegmentDetection`.
+ *
+ * `GetSegmentDetection` returns detected segments in an array (`Segments`) of SegmentDetection objects. `Segments` is sorted by the segment types specified in the `SegmentTypes` input parameter of `StartSegmentDetection`. Each element of the array includes the detected segment, the precentage confidence in the acuracy of the detected segment, the type of the segment, and the frame in which the segment was detected.
+ *
+ * Use `SelectedSegmentTypes` to find out the type of segment detection requested in the call to `StartSegmentDetection`.
+ *
+ * Use the `MaxResults` parameter to limit the number of segment detections returned. If there are more results than specified in `MaxResults`, the value of `NextToken` in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call `GetSegmentDetection` and populate the `NextToken` request parameter with the token value returned from the previous call to `GetSegmentDetection`.
+ *
+ * For more information, see Detecting video segments in stored video in the Amazon Rekognition Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,31 +121,36 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>Pagination token in the request is not valid.</p>
+ *
+ * Pagination token in the request is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

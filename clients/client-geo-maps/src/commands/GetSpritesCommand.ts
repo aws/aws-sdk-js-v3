@@ -31,7 +31,10 @@ export type GetSpritesCommandOutputType = Omit<GetSpritesResponse, "Blob"> & {
 export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetSprites</code> returns the map's sprites.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-iconography-with-sprites.html">Style iconography with sprites</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `GetSprites` returns the map's sprites.
+ *
+ * For more information, see [Style iconography with sprites](https://docs.aws.amazon.com/location/latest/developerguide/styling-iconography-with-sprites.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +67,8 @@ export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link GeoMapsServiceException}
- * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ * Base exception class for all service exceptions from GeoMaps service.
  *
  * @public
  */

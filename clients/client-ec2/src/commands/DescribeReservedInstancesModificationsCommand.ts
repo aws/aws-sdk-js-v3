@@ -24,16 +24,12 @@ export interface DescribeReservedInstancesModificationsCommandInput extends Desc
 export interface DescribeReservedInstancesModificationsCommandOutput extends DescribeReservedInstancesModificationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the modifications made to your Reserved Instances. If no parameter is specified,
- *       information about all your Reserved Instances modification requests is returned. If a
- *       modification ID is specified, only information about the specific modification is
- *       returned.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modify Reserved Instances</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.
+ *
+ * For more information, see [Modify Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html) in the *Amazon EC2 User Guide*.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +96,8 @@ export interface DescribeReservedInstancesModificationsCommandOutput extends Des
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

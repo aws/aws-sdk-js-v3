@@ -37,90 +37,105 @@ import type {
 } from "./enums";
 
 /**
- * <p>The detailed information for a specific budget period, including time boundaries and budget amounts.</p>
+ * The detailed information for a specific budget period, including time boundaries and budget amounts.
+ *
  * @public
  */
 export interface AccessBudgetDetails {
   /**
-   * <p>The start time of this budget period.</p>
+   * The start time of this budget period.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end time of this budget period. If not specified, the budget period continues indefinitely.</p>
+   * The end time of this budget period. If not specified, the budget period continues indefinitely.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The amount of budget remaining in this period.</p>
+   * The amount of budget remaining in this period.
+   *
    * @public
    */
   remainingBudget: number | undefined;
 
   /**
-   * <p>The total budget amount allocated for this period.</p>
+   * The total budget amount allocated for this period.
+   *
    * @public
    */
   budget: number | undefined;
 
   /**
-   * <p>The type of budget period. Calendar-based types reset automatically at regular intervals, while LIFETIME budgets never reset.</p>
+   * The type of budget period. Calendar-based types reset automatically at regular intervals, while LIFETIME budgets never reset.
+   *
    * @public
    */
   budgetType: AccessBudgetType | undefined;
 
   /**
-   * <p>Specifies whether this budget automatically refreshes when the current period ends.</p>
+   * Specifies whether this budget automatically refreshes when the current period ends.
+   *
    * @public
    */
   autoRefresh?: AutoRefreshMode | undefined;
 }
 
 /**
- * <p>An access budget that defines consumption limits for a specific resource within defined time periods.</p>
+ * An access budget that defines consumption limits for a specific resource within defined time periods.
+ *
  * @public
  */
 export interface AccessBudget {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that this access budget applies to.</p>
+   * The Amazon Resource Name (ARN) of the resource that this access budget applies to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of budget details for this resource. Contains active budget periods that apply to the resource.</p>
+   * A list of budget details for this resource. Contains active budget periods that apply to the resource.
+   *
    * @public
    */
   details: AccessBudgetDetails[] | undefined;
 
   /**
-   * <p>The total remaining budget across all active budget periods for this resource.</p>
+   * The total remaining budget across all active budget periods for this resource.
+   *
    * @public
    */
   aggregateRemainingBudget: number | undefined;
 }
 
 /**
- * <p>Provides information about an Amazon S3 bucket and path.</p>
+ * Provides information about an Amazon S3 bucket and path.
+ *
  * @public
  */
 export interface S3ConfigMap {
   /**
-   * <p>The Amazon S3 location URI.</p>
+   * The Amazon S3 location URI.
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p>Defines the Amazon S3 bucket where the configured audience is stored.</p>
+ * Defines the Amazon S3 bucket where the configured audience is stored.
+ *
  * @public
  */
 export interface AudienceDestination {
   /**
-   * <p>The Amazon S3 bucket and path for the configured audience.</p>
+   * The Amazon S3 bucket and path for the configured audience.
+   *
    * @public
    */
   s3Destination: S3ConfigMap | undefined;
@@ -131,115 +146,134 @@ export interface AudienceDestination {
  */
 export interface ListAudienceExportJobsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job that you are interested in.
+   *
    * @public
    */
   audienceGenerationJobArn?: string | undefined;
 }
 
 /**
- * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+ * The size of the generated audience. Must match one of the sizes in the configured audience model.
+ *
  * @public
  */
 export interface AudienceSize {
   /**
-   * <p>Whether the audience size is defined in absolute terms or as a percentage. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * Whether the audience size is defined in absolute terms or as a percentage. You can use the `ABSOLUTE` AudienceSize to configure out audience sizes using the count of identifiers in the output. You can use the `Percentage` AudienceSize to configure sizes in the range 1-100 percent.
+   *
    * @public
    */
   type: AudienceSizeType | undefined;
 
   /**
-   * <p>Specify an audience size value.</p>
+   * Specify an audience size value.
+   *
    * @public
    */
   value: number | undefined;
 }
 
 /**
- * <p>Details about the status of a resource.</p>
+ * Details about the status of a resource.
+ *
  * @public
  */
 export interface StatusDetails {
   /**
-   * <p>The status code that was returned. The status code is intended for programmatic error handling. Clean Rooms ML will not change the status code for existing error conditions.</p>
+   * The status code that was returned. The status code is intended for programmatic error handling. Clean Rooms ML will not change the status code for existing error conditions.
+   *
    * @public
    */
   statusCode?: string | undefined;
 
   /**
-   * <p>The error message that was returned. The message is intended for human consumption and can change at any time. Use the <code>statusCode</code> for programmatic error handling.</p>
+   * The error message that was returned. The message is intended for human consumption and can change at any time. Use the `statusCode` for programmatic error handling.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>Provides information about the audience export job.</p>
+ * Provides information about the audience export job.
+ *
  * @public
  */
 export interface AudienceExportJobSummary {
   /**
-   * <p>The time at which the audience export job was created.</p>
+   * The time at which the audience export job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the audience export job was updated.</p>
+   * The most recent time at which the audience export job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The name of the audience export job.</p>
+   * The name of the audience export job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job that was exported.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job that was exported.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+   * The size of the generated audience. Must match one of the sizes in the configured audience model.
+   *
    * @public
    */
   audienceSize: AudienceSize | undefined;
 
   /**
-   * <p>The description of the audience export job.</p>
+   * The description of the audience export job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the audience export job.</p>
+   * The status of the audience export job.
+   *
    * @public
    */
   status: AudienceExportJobStatus | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The Amazon S3 bucket where the audience export is stored.</p>
+   * The Amazon S3 bucket where the audience export is stored.
+   *
    * @public
    */
   outputLocation?: string | undefined;
@@ -250,13 +284,15 @@ export interface AudienceExportJobSummary {
  */
 export interface ListAudienceExportJobsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The audience export jobs that match the request.</p>
+   * The audience export jobs that match the request.
+   *
    * @public
    */
   audienceExportJobs: AudienceExportJobSummary[] | undefined;
@@ -267,25 +303,29 @@ export interface ListAudienceExportJobsResponse {
  */
 export interface StartAudienceExportJobRequest {
   /**
-   * <p>The name of the audience export job.</p>
+   * The name of the audience export job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job that you want to export.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job that you want to export.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+   * The size of the generated audience. Must match one of the sizes in the configured audience model.
+   *
    * @public
    */
   audienceSize: AudienceSize | undefined;
 
   /**
-   * <p>The description of the audience export job.</p>
+   * The description of the audience export job.
+   *
    * @public
    */
   description?: string | undefined;
@@ -296,7 +336,8 @@ export interface StartAudienceExportJobRequest {
  */
 export interface DeleteAudienceGenerationJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job that you want to delete.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
@@ -307,50 +348,58 @@ export interface DeleteAudienceGenerationJobRequest {
  */
 export interface GetAudienceGenerationJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job that you are interested in.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
 }
 
 /**
- * <p>The relevance score of a generated audience.</p>
+ * The relevance score of a generated audience.
+ *
  * @public
  */
 export interface RelevanceMetric {
   /**
-   * <p>The size of the generated audience. Must match one of the sizes in the configured audience model.</p>
+   * The size of the generated audience. Must match one of the sizes in the configured audience model.
+   *
    * @public
    */
   audienceSize: AudienceSize | undefined;
 
   /**
-   * <p>The relevance score of the generated audience.</p>
+   * The relevance score of the generated audience.
+   *
    * @public
    */
   score?: number | undefined;
 }
 
 /**
- * <p>Metrics that describe the quality of the generated audience.</p>
+ * Metrics that describe the quality of the generated audience.
+ *
  * @public
  */
 export interface AudienceQualityMetrics {
   /**
-   * <p>The relevance scores of the generated audience.</p>
+   * The relevance scores of the generated audience.
+   *
    * @public
    */
   relevanceMetrics: RelevanceMetric[] | undefined;
 
   /**
-   * <p>The recall score of the generated audience. Recall is the percentage of the most similar users (by default, the most similar 20%) from a sample of the training data that are included in the seed audience by the audience generation job. Values range from 0-1, larger values indicate a better audience. A recall value approximately equal to the maximum bin size indicates that the audience model is equivalent to random selection. </p>
+   * The recall score of the generated audience. Recall is the percentage of the most similar users (by default, the most similar 20%) from a sample of the training data that are included in the seed audience by the audience generation job. Values range from 0-1, larger values indicate a better audience. A recall value approximately equal to the maximum bin size indicates that the audience model is equivalent to random selection.
+   *
    * @public
    */
   recallMetric?: number | undefined;
 }
 
 /**
- * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+ * The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.
+ *
  * @public
  */
 export type WorkerComputeConfigurationProperties =
@@ -362,7 +411,8 @@ export type WorkerComputeConfigurationProperties =
  */
 export namespace WorkerComputeConfigurationProperties {
   /**
-   * <p>The Spark configuration properties for SQL workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
+   * The Spark configuration properties for SQL workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.
+   *
    * @public
    */
   export interface SparkMember {
@@ -389,31 +439,36 @@ export namespace WorkerComputeConfigurationProperties {
 }
 
 /**
- * <p>Configuration information about the compute workers that perform the transform job.</p>
+ * Configuration information about the compute workers that perform the transform job.
+ *
  * @public
  */
 export interface WorkerComputeConfiguration {
   /**
-   * <p>The instance type of the compute workers that are used.</p>
+   * The instance type of the compute workers that are used.
+   *
    * @public
    */
   type?: WorkerComputeType | undefined;
 
   /**
-   * <p>The number of compute workers that are used.</p>
+   * The number of compute workers that are used.
+   *
    * @public
    */
   number?: number | undefined;
 
   /**
-   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.
+   *
    * @public
    */
   properties?: WorkerComputeConfigurationProperties | undefined;
 }
 
 /**
- * <p>Provides configuration information for the instances that will perform the compute work.</p>
+ * Provides configuration information for the instances that will perform the compute work.
+ *
  * @public
  */
 export type ComputeConfiguration =
@@ -425,7 +480,8 @@ export type ComputeConfiguration =
  */
 export namespace ComputeConfiguration {
   /**
-   * <p>The worker instances that will perform the compute work.</p>
+   * The worker instances that will perform the compute work.
+   *
    * @public
    */
   export interface WorkerMember {
@@ -452,54 +508,69 @@ export namespace ComputeConfiguration {
 }
 
 /**
- * <p>The parameters for the SQL type Protected Query.</p>
+ * The parameters for the SQL type Protected Query.
+ *
  * @public
  */
 export interface ProtectedQuerySQLParameters {
   /**
-   * <p>The query string to be submitted.</p>
+   * The query string to be submitted.
+   *
    * @public
    */
   queryString?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   * The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.
+   *
    * @public
    */
   analysisTemplateArn?: string | undefined;
 
   /**
-   * <p>The protected query SQL parameters.</p>
+   * The protected query SQL parameters.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored.</p>
+ * Defines the Amazon S3 bucket where the seed audience for the generating audience is stored.
+ *
  * @public
  */
 export interface AudienceGenerationJobDataSource {
   /**
-   * <p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored. A valid data source is a JSON line file in the following format:</p> <p> <code>\{"user_id": "111111"\}</code> </p> <p> <code>\{"user_id": "222222"\}</code> </p> <p> <code>...</code> </p>
+   * Defines the Amazon S3 bucket where the seed audience for the generating audience is stored. A valid data source is a JSON line file in the following format:
+   *
+   * `\{"user_id": "111111"\}`
+   *
+   * `\{"user_id": "222222"\}`
+   *
+   * `...`
+   *
    * @public
    */
   dataSource?: S3ConfigMap | undefined;
 
   /**
-   * <p>The ARN of the IAM role that can read the Amazon S3 bucket where the seed audience is stored.</p>
+   * The ARN of the IAM role that can read the Amazon S3 bucket where the seed audience is stored.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The protected SQL query parameters.</p>
+   * The protected SQL query parameters.
+   *
    * @public
    */
   sqlParameters?: ProtectedQuerySQLParameters | undefined;
 
   /**
-   * <p>Provides configuration information for the instances that will perform the compute work.</p>
+   * Provides configuration information for the instances that will perform the compute work.
+   *
    * @public
    */
   sqlComputeConfiguration?: ComputeConfiguration | undefined;
@@ -510,91 +581,106 @@ export interface AudienceGenerationJobDataSource {
  */
 export interface GetAudienceGenerationJobResponse {
   /**
-   * <p>The time at which the audience generation job was created.</p>
+   * The time at which the audience generation job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the audience generation job was updated.</p>
+   * The most recent time at which the audience generation job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * <p>The name of the audience generation job.</p>
+   * The name of the audience generation job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the audience generation job.</p>
+   * The description of the audience generation job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the audience generation job.</p>
+   * The status of the audience generation job.
+   *
    * @public
    */
   status: AudienceGenerationJobStatus | undefined;
 
   /**
-   * <p>Details about the status of the audience generation job.</p>
+   * Details about the status of the audience generation job.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model used for this audience generation job.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model used for this audience generation job.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The seed audience that was used for this audience generation job. This field will be null if the account calling the API is the account that started this audience generation job. </p>
+   * The seed audience that was used for this audience generation job. This field will be null if the account calling the API is the account that started this audience generation job.
+   *
    * @public
    */
   seedAudience?: AudienceGenerationJobDataSource | undefined;
 
   /**
-   * <p>Configure whether the seed users are included in the output audience. By default, Clean Rooms ML removes seed users from the output audience. If you specify <code>TRUE</code>, the seed users will appear first in the output. Clean Rooms ML does not explicitly reveal whether a user was in the seed, but the recipient of the audience will know that the first <code>minimumSeedSize</code> count of users are from the seed.</p>
+   * Configure whether the seed users are included in the output audience. By default, Clean Rooms ML removes seed users from the output audience. If you specify `TRUE`, the seed users will appear first in the output. Clean Rooms ML does not explicitly reveal whether a user was in the seed, but the recipient of the audience will know that the first `minimumSeedSize` count of users are from the seed.
+   *
    * @public
    */
   includeSeedInOutput?: boolean | undefined;
 
   /**
-   * <p>The identifier of the collaboration that this audience generation job is associated with.</p>
+   * The identifier of the collaboration that this audience generation job is associated with.
+   *
    * @public
    */
   collaborationId?: string | undefined;
 
   /**
-   * <p>The relevance scores for different audience sizes and the recall score of the generated audience. </p>
+   * The relevance scores for different audience sizes and the recall score of the generated audience.
+   *
    * @public
    */
   metrics?: AudienceQualityMetrics | undefined;
 
   /**
-   * <p>The AWS account that started this audience generation job.</p>
+   * The AWS account that started this audience generation job.
+   *
    * @public
    */
   startedBy?: string | undefined;
 
   /**
-   * <p>The tags that are associated to this audience generation job.</p>
+   * The tags that are associated to this audience generation job.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The unique identifier of the protected query for this audience generation job.</p>
+   * The unique identifier of the protected query for this audience generation job.
+   *
    * @public
    */
   protectedQueryIdentifier?: string | undefined;
@@ -605,85 +691,99 @@ export interface GetAudienceGenerationJobResponse {
  */
 export interface ListAudienceGenerationJobsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for the audience generation jobs that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that was used for the audience generation jobs that you are interested in.
+   *
    * @public
    */
   configuredAudienceModelArn?: string | undefined;
 
   /**
-   * <p>The identifier of the collaboration that contains the audience generation jobs that you are interested in.</p>
+   * The identifier of the collaboration that contains the audience generation jobs that you are interested in.
+   *
    * @public
    */
   collaborationId?: string | undefined;
 }
 
 /**
- * <p>Provides information about the configured audience generation job.</p>
+ * Provides information about the configured audience generation job.
+ *
  * @public
  */
 export interface AudienceGenerationJobSummary {
   /**
-   * <p>The time at which the audience generation job was created.</p>
+   * The time at which the audience generation job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the audience generation job was updated.</p>
+   * The most recent time at which the audience generation job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
 
   /**
-   * <p>The name of the audience generation job.</p>
+   * The name of the audience generation job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the audience generation job.</p>
+   * The description of the audience generation job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the audience generation job.</p>
+   * The status of the audience generation job.
+   *
    * @public
    */
   status: AudienceGenerationJobStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for this audience generation job.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that was used for this audience generation job.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The identifier of the collaboration that contains this audience generation job.</p>
+   * The identifier of the collaboration that contains this audience generation job.
+   *
    * @public
    */
   collaborationId?: string | undefined;
 
   /**
-   * <p>The AWS Account that submitted the job.</p>
+   * The AWS Account that submitted the job.
+   *
    * @public
    */
   startedBy?: string | undefined;
@@ -694,13 +794,15 @@ export interface AudienceGenerationJobSummary {
  */
 export interface ListAudienceGenerationJobsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The audience generation jobs that match the request.</p>
+   * The audience generation jobs that match the request.
+   *
    * @public
    */
   audienceGenerationJobs: AudienceGenerationJobSummary[] | undefined;
@@ -711,43 +813,60 @@ export interface ListAudienceGenerationJobsResponse {
  */
 export interface StartAudienceGenerationJobRequest {
   /**
-   * <p>The name of the audience generation job.</p>
+   * The name of the audience generation job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that is used for this audience generation job.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that is used for this audience generation job.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The seed audience that is used to generate the audience.</p>
+   * The seed audience that is used to generate the audience.
+   *
    * @public
    */
   seedAudience: AudienceGenerationJobDataSource | undefined;
 
   /**
-   * <p>Whether the seed audience is included in the audience generation output.</p>
+   * Whether the seed audience is included in the audience generation output.
+   *
    * @public
    */
   includeSeedInOutput?: boolean | undefined;
 
   /**
-   * <p>The identifier of the collaboration that contains the audience generation job.</p>
+   * The identifier of the collaboration that contains the audience generation job.
+   *
    * @public
    */
   collaborationId?: string | undefined;
 
   /**
-   * <p>The description of the audience generation job.</p>
+   * The description of the audience generation job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -758,7 +877,8 @@ export interface StartAudienceGenerationJobRequest {
  */
 export interface StartAudienceGenerationJobResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience generation job.</p>
+   * The Amazon Resource Name (ARN) of the audience generation job.
+   *
    * @public
    */
   audienceGenerationJobArn: string | undefined;
@@ -769,43 +889,60 @@ export interface StartAudienceGenerationJobResponse {
  */
 export interface CreateAudienceModelRequest {
   /**
-   * <p>The start date and time of the training window.</p>
+   * The start date and time of the training window.
+   *
    * @public
    */
   trainingDataStartTime?: Date | undefined;
 
   /**
-   * <p>The end date and time of the training window.</p>
+   * The end date and time of the training window.
+   *
    * @public
    */
   trainingDataEndTime?: Date | undefined;
 
   /**
-   * <p>The name of the audience model resource.</p>
+   * The name of the audience model resource.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset for this audience model.</p>
+   * The Amazon Resource Name (ARN) of the training dataset for this audience model.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The description of the audience model.</p>
+   * The description of the audience model.
+   *
    * @public
    */
   description?: string | undefined;
@@ -816,7 +953,8 @@ export interface CreateAudienceModelRequest {
  */
 export interface CreateAudienceModelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model.</p>
+   * The Amazon Resource Name (ARN) of the audience model.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
@@ -827,7 +965,8 @@ export interface CreateAudienceModelResponse {
  */
 export interface DeleteAudienceModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the audience model that you want to delete.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
@@ -838,7 +977,8 @@ export interface DeleteAudienceModelRequest {
  */
 export interface GetAudienceModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the audience model that you are interested in.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
@@ -849,73 +989,85 @@ export interface GetAudienceModelRequest {
  */
 export interface GetAudienceModelResponse {
   /**
-   * <p>The time at which the audience model was created.</p>
+   * The time at which the audience model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the audience model was updated.</p>
+   * The most recent time at which the audience model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The start date specified for the training window.</p>
+   * The start date specified for the training window.
+   *
    * @public
    */
   trainingDataStartTime?: Date | undefined;
 
   /**
-   * <p>The end date specified for the training window.</p>
+   * The end date specified for the training window.
+   *
    * @public
    */
   trainingDataEndTime?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model.</p>
+   * The Amazon Resource Name (ARN) of the audience model.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * <p>The name of the audience model.</p>
+   * The name of the audience model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset that was used for this audience model.</p>
+   * The Amazon Resource Name (ARN) of the training dataset that was used for this audience model.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * <p>The status of the audience model.</p>
+   * The status of the audience model.
+   *
    * @public
    */
   status: AudienceModelStatus | undefined;
 
   /**
-   * <p>Details about the status of the audience model.</p>
+   * Details about the status of the audience model.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The KMS key ARN used for the audience model.</p>
+   * The KMS key ARN used for the audience model.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The tags that are assigned to the audience model.</p>
+   * The tags that are assigned to the audience model.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The description of the audience model.</p>
+   * The description of the audience model.
+   *
    * @public
    */
   description?: string | undefined;
@@ -926,61 +1078,71 @@ export interface GetAudienceModelResponse {
  */
 export interface ListAudienceModelsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Information about the audience model.</p>
+ * Information about the audience model.
+ *
  * @public
  */
 export interface AudienceModelSummary {
   /**
-   * <p>The time at which the audience model was created.</p>
+   * The time at which the audience model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the audience model was updated.</p>
+   * The most recent time at which the audience model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model.</p>
+   * The Amazon Resource Name (ARN) of the audience model.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * <p>The name of the audience model.</p>
+   * The name of the audience model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset that was used for the audience model.</p>
+   * The Amazon Resource Name (ARN) of the training dataset that was used for the audience model.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * <p>The status of the audience model.</p>
+   * The status of the audience model.
+   *
    * @public
    */
   status: AudienceModelStatus | undefined;
 
   /**
-   * <p>The description of the audience model.</p>
+   * The description of the audience model.
+   *
    * @public
    */
   description?: string | undefined;
@@ -991,49 +1153,59 @@ export interface AudienceModelSummary {
  */
 export interface ListAudienceModelsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The audience models that match the request.</p>
+   * The audience models that match the request.
+   *
    * @public
    */
   audienceModels: AudienceModelSummary[] | undefined;
 }
 
 /**
- * <p>Returns the relevance scores at these audience sizes when used in the <a>GetAudienceGenerationJob</a> for a specified audience generation job and configured audience model.</p> <p>Specifies the list of allowed <code>audienceSize</code> values when used in the <a>StartAudienceExportJob</a> for an audience generation job. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+ * Returns the relevance scores at these audience sizes when used in the GetAudienceGenerationJob for a specified audience generation job and configured audience model.
+ *
+ * Specifies the list of allowed `audienceSize` values when used in the StartAudienceExportJob for an audience generation job. You can use the `ABSOLUTE` AudienceSize to configure out audience sizes using the count of identifiers in the output. You can use the `Percentage` AudienceSize to configure sizes in the range 1-100 percent.
+ *
  * @public
  */
 export interface AudienceSizeConfig {
   /**
-   * <p>Whether the audience output sizes are defined as an absolute number or a percentage.</p>
+   * Whether the audience output sizes are defined as an absolute number or a percentage.
+   *
    * @public
    */
   audienceSizeType: AudienceSizeType | undefined;
 
   /**
-   * <p>An array of the different audience output sizes.</p>
+   * An array of the different audience output sizes.
+   *
    * @public
    */
   audienceSizeBins: number[] | undefined;
 }
 
 /**
- * <p>Configuration information necessary for the configure audience model output.</p>
+ * Configuration information necessary for the configure audience model output.
+ *
  * @public
  */
 export interface ConfiguredAudienceModelOutputConfig {
   /**
-   * <p>Defines the Amazon S3 bucket where the configured audience is stored.</p>
+   * Defines the Amazon S3 bucket where the configured audience is stored.
+   *
    * @public
    */
   destination: AudienceDestination | undefined;
 
   /**
-   * <p>The ARN of the IAM role that can write the Amazon S3 bucket.</p>
+   * The ARN of the IAM role that can write the Amazon S3 bucket.
+   *
    * @public
    */
   roleArn: string | undefined;
@@ -1044,55 +1216,76 @@ export interface ConfiguredAudienceModelOutputConfig {
  */
 export interface CreateConfiguredAudienceModelRequest {
   /**
-   * <p>The name of the configured audience model.</p>
+   * The name of the configured audience model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model to use for the configured audience model.</p>
+   * The Amazon Resource Name (ARN) of the audience model to use for the configured audience model.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * <p>Configure the Amazon S3 location and IAM Role for audiences created using this configured audience model. Each audience will have a unique location. The IAM Role must have <code>s3:PutObject</code> permission on the destination Amazon S3 location. If the destination is protected with Amazon S3 KMS-SSE, then the Role must also have the required KMS permissions.</p>
+   * Configure the Amazon S3 location and IAM Role for audiences created using this configured audience model. Each audience will have a unique location. The IAM Role must have `s3:PutObject` permission on the destination Amazon S3 location. If the destination is protected with Amazon S3 KMS-SSE, then the Role must also have the required KMS permissions.
+   *
    * @public
    */
   outputConfig: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * <p>The description of the configured audience model.</p>
+   * The description of the configured audience model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Whether audience metrics are shared.</p>
+   * Whether audience metrics are shared.
+   *
    * @public
    */
   sharedAudienceMetrics: SharedAudienceMetrics[] | undefined;
 
   /**
-   * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model. The default value is 500.</p>
+   * The minimum number of users from the seed audience that must match with users in the training data of the audience model. The default value is 500.
+   *
    * @public
    */
   minMatchingSeedSize?: number | undefined;
 
   /**
-   * <p>Configure the list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * Configure the list of output sizes of audiences that can be created using this configured audience model. A request to StartAudienceGenerationJob that uses this configured audience model must have an `audienceSize` selected from this list. You can use the `ABSOLUTE` AudienceSize to configure out audience sizes using the count of identifiers in the output. You can use the `Percentage` AudienceSize to configure sizes in the range 1-100 percent.
+   *
    * @public
    */
   audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Configure how the service tags audience generation jobs created using this configured audience model. If you specify <code>NONE</code>, the tags from the <a>StartAudienceGenerationJob</a> request determine the tags of the audience generation job. If you specify <code>FROM_PARENT_RESOURCE</code>, the audience generation job inherits the tags from the configured audience model, by default. Tags in the <a>StartAudienceGenerationJob</a> will override the default.</p> <p>When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.</p>
+   * Configure how the service tags audience generation jobs created using this configured audience model. If you specify `NONE`, the tags from the StartAudienceGenerationJob request determine the tags of the audience generation job. If you specify `FROM_PARENT_RESOURCE`, the audience generation job inherits the tags from the configured audience model, by default. Tags in the StartAudienceGenerationJob will override the default.
+   *
+   * When the client is in a different account than the configured audience model, the tags from the client are never applied to a resource in the caller's account.
+   *
    * @public
    */
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy | undefined;
@@ -1103,7 +1296,8 @@ export interface CreateConfiguredAudienceModelRequest {
  */
 export interface CreateConfiguredAudienceModelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
@@ -1114,7 +1308,8 @@ export interface CreateConfiguredAudienceModelResponse {
  */
 export interface DeleteConfiguredAudienceModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that you want to delete.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
@@ -1125,7 +1320,8 @@ export interface DeleteConfiguredAudienceModelRequest {
  */
 export interface GetConfiguredAudienceModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
@@ -1136,79 +1332,92 @@ export interface GetConfiguredAudienceModelRequest {
  */
 export interface GetConfiguredAudienceModelResponse {
   /**
-   * <p>The time at which the configured audience model was created.</p>
+   * The time at which the configured audience model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured audience model was updated.</p>
+   * The most recent time at which the configured audience model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The name of the configured audience model.</p>
+   * The name of the configured audience model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model used for this configured audience model.</p>
+   * The Amazon Resource Name (ARN) of the audience model used for this configured audience model.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * <p>The output configuration of the configured audience model</p>
+   * The output configuration of the configured audience model
+   *
    * @public
    */
   outputConfig: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * <p>The description of the configured audience model.</p>
+   * The description of the configured audience model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the configured audience model.</p>
+   * The status of the configured audience model.
+   *
    * @public
    */
   status: ConfiguredAudienceModelStatus | undefined;
 
   /**
-   * <p>Whether audience metrics are shared.</p>
+   * Whether audience metrics are shared.
+   *
    * @public
    */
   sharedAudienceMetrics: SharedAudienceMetrics[] | undefined;
 
   /**
-   * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+   * The minimum number of users from the seed audience that must match with users in the training data of the audience model.
+   *
    * @public
    */
   minMatchingSeedSize?: number | undefined;
 
   /**
-   * <p>The list of output sizes of audiences that can be created using this configured audience model. A request to <a>StartAudienceGenerationJob</a> that uses this configured audience model must have an <code>audienceSize</code> selected from this list. You can use the <code>ABSOLUTE</code> <a>AudienceSize</a> to configure out audience sizes using the count of identifiers in the output. You can use the <code>Percentage</code> <a>AudienceSize</a> to configure sizes in the range 1-100 percent.</p>
+   * The list of output sizes of audiences that can be created using this configured audience model. A request to StartAudienceGenerationJob that uses this configured audience model must have an `audienceSize` selected from this list. You can use the `ABSOLUTE` AudienceSize to configure out audience sizes using the count of identifiers in the output. You can use the `Percentage` AudienceSize to configure sizes in the range 1-100 percent.
+   *
    * @public
    */
   audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
-   * <p>The tags that are associated to this configured audience model.</p>
+   * The tags that are associated to this configured audience model.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Provides the <code>childResourceTagOnCreatePolicy</code> that was used for this configured audience model.</p>
+   * Provides the `childResourceTagOnCreatePolicy` that was used for this configured audience model.
+   *
    * @public
    */
   childResourceTagOnCreatePolicy?: TagOnCreatePolicy | undefined;
@@ -1219,67 +1428,78 @@ export interface GetConfiguredAudienceModelResponse {
  */
 export interface ListConfiguredAudienceModelsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Information about the configured audience model.</p>
+ * Information about the configured audience model.
+ *
  * @public
  */
 export interface ConfiguredAudienceModelSummary {
   /**
-   * <p>The time at which the configured audience model was created.</p>
+   * The time at which the configured audience model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured audience model was updated.</p>
+   * The most recent time at which the configured audience model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The name of the configured audience model.</p>
+   * The name of the configured audience model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the audience model that was used to create the configured audience model.</p>
+   * The Amazon Resource Name (ARN) of the audience model that was used to create the configured audience model.
+   *
    * @public
    */
   audienceModelArn: string | undefined;
 
   /**
-   * <p>The output configuration of the configured audience model.</p>
+   * The output configuration of the configured audience model.
+   *
    * @public
    */
   outputConfig: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * <p>The description of the configured audience model.</p>
+   * The description of the configured audience model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The status of the configured audience model.</p>
+   * The status of the configured audience model.
+   *
    * @public
    */
   status: ConfiguredAudienceModelStatus | undefined;
@@ -1290,13 +1510,15 @@ export interface ConfiguredAudienceModelSummary {
  */
 export interface ListConfiguredAudienceModelsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The configured audience models.</p>
+   * The configured audience models.
+   *
    * @public
    */
   configuredAudienceModels: ConfiguredAudienceModelSummary[] | undefined;
@@ -1307,43 +1529,50 @@ export interface ListConfiguredAudienceModelsResponse {
  */
 export interface UpdateConfiguredAudienceModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that you want to update.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that you want to update.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The new output configuration.</p>
+   * The new output configuration.
+   *
    * @public
    */
   outputConfig?: ConfiguredAudienceModelOutputConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the new audience model that you want to use.</p>
+   * The Amazon Resource Name (ARN) of the new audience model that you want to use.
+   *
    * @public
    */
   audienceModelArn?: string | undefined;
 
   /**
-   * <p>The new value for whether to share audience metrics.</p>
+   * The new value for whether to share audience metrics.
+   *
    * @public
    */
   sharedAudienceMetrics?: SharedAudienceMetrics[] | undefined;
 
   /**
-   * <p>The minimum number of users from the seed audience that must match with users in the training data of the audience model.</p>
+   * The minimum number of users from the seed audience that must match with users in the training data of the audience model.
+   *
    * @public
    */
   minMatchingSeedSize?: number | undefined;
 
   /**
-   * <p>The new audience size configuration.</p>
+   * The new audience size configuration.
+   *
    * @public
    */
   audienceSizeConfig?: AudienceSizeConfig | undefined;
 
   /**
-   * <p>The new description of the configured audience model.</p>
+   * The new description of the configured audience model.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1354,7 +1583,8 @@ export interface UpdateConfiguredAudienceModelRequest {
  */
 export interface UpdateConfiguredAudienceModelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that was updated.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that was updated.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
@@ -1365,7 +1595,8 @@ export interface UpdateConfiguredAudienceModelResponse {
  */
 export interface DeleteConfiguredAudienceModelPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model policy that you want to delete.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
@@ -1376,7 +1607,8 @@ export interface DeleteConfiguredAudienceModelPolicyRequest {
  */
 export interface GetConfiguredAudienceModelPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that you are interested in.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
@@ -1387,19 +1619,22 @@ export interface GetConfiguredAudienceModelPolicyRequest {
  */
 export interface GetConfiguredAudienceModelPolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The configured audience model policy. This is a JSON IAM resource policy.</p>
+   * The configured audience model policy. This is a JSON IAM resource policy.
+   *
    * @public
    */
   configuredAudienceModelPolicy: string | undefined;
 
   /**
-   * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
+   * A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.
+   *
    * @public
    */
   policyHash: string | undefined;
@@ -1410,25 +1645,29 @@ export interface GetConfiguredAudienceModelPolicyResponse {
  */
 export interface PutConfiguredAudienceModelPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that the resource policy will govern.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that the resource policy will govern.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The IAM resource policy.</p>
+   * The IAM resource policy.
+   *
    * @public
    */
   configuredAudienceModelPolicy: string | undefined;
 
   /**
-   * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
+   * A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.
+   *
    * @public
    */
   previousPolicyHash?: string | undefined;
 
   /**
-   * <p>Use this to prevent unexpected concurrent modification of the policy.</p>
+   * Use this to prevent unexpected concurrent modification of the policy.
+   *
    * @public
    */
   policyExistenceCondition?: PolicyExistenceCondition | undefined;
@@ -1439,73 +1678,85 @@ export interface PutConfiguredAudienceModelPolicyRequest {
  */
 export interface PutConfiguredAudienceModelPolicyResponse {
   /**
-   * <p>The IAM resource policy.</p>
+   * The IAM resource policy.
+   *
    * @public
    */
   configuredAudienceModelPolicy: string | undefined;
 
   /**
-   * <p>A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.</p>
+   * A cryptographic hash of the contents of the policy used to prevent unexpected concurrent modification of the policy.
+   *
    * @public
    */
   policyHash: string | undefined;
 }
 
 /**
- * <p>Provides configuration information for the inference container.</p>
+ * Provides configuration information for the inference container.
+ *
  * @public
  */
 export interface InferenceContainerConfig {
   /**
-   * <p>The registry path of the docker image that contains the inference algorithm. Clean Rooms ML currently only supports the <code>registry/repository[:tag]</code> image path format. For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker API reference</a>.</p>
+   * The registry path of the docker image that contains the inference algorithm. Clean Rooms ML currently only supports the `registry/repository[:tag]` image path format. For more information about using images in Clean Rooms ML, see the [Sagemaker API reference](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage).
+   *
    * @public
    */
   imageUri: string | undefined;
 }
 
 /**
- * <p>Information about the model metric that is reported for a trained model.</p>
+ * Information about the model metric that is reported for a trained model.
+ *
  * @public
  */
 export interface MetricDefinition {
   /**
-   * <p>The name of the model metric.</p>
+   * The name of the model metric.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The regular expression statement that defines how the model metric is reported.</p>
+   * The regular expression statement that defines how the model metric is reported.
+   *
    * @public
    */
   regex: string | undefined;
 }
 
 /**
- * <p>Provides configuration information for the dockerized container where the model algorithm is stored.</p>
+ * Provides configuration information for the dockerized container where the model algorithm is stored.
+ *
  * @public
  */
 export interface ContainerConfig {
   /**
-   * <p>The registry path of the docker image that contains the algorithm. Clean Rooms ML currently only supports the <code>registry/repository[:tag]</code> image path format. For more information about using images in Clean Rooms ML, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage">Sagemaker API reference</a>.</p>
+   * The registry path of the docker image that contains the algorithm. Clean Rooms ML currently only supports the `registry/repository[:tag]` image path format. For more information about using images in Clean Rooms ML, see the [Sagemaker API reference](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html#sagemaker-Type-AlgorithmSpecification-TrainingImage).
+   *
    * @public
    */
   imageUri: string | undefined;
 
   /**
-   * <p>The entrypoint script for a Docker container used to run a training job. This script takes precedence over the default train processing instructions. See How Amazon SageMaker Runs Your Training Image for additional information. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Sagemaker runs your training image</a>.</p>
+   * The entrypoint script for a Docker container used to run a training job. This script takes precedence over the default train processing instructions. See How Amazon SageMaker Runs Your Training Image for additional information. For more information, see [How Sagemaker runs your training image](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html).
+   *
    * @public
    */
   entrypoint?: string[] | undefined;
 
   /**
-   * <p>The arguments for a container used to run a training job. See How Amazon SageMaker Runs Your Training Image for additional information. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html">How Sagemaker runs your training image</a>.</p>
+   * The arguments for a container used to run a training job. See How Amazon SageMaker Runs Your Training Image for additional information. For more information, see [How Sagemaker runs your training image](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-training-algo-dockerfile.html).
+   *
    * @public
    */
   arguments?: string[] | undefined;
 
   /**
-   * <p>A list of metric definition objects. Each object specifies the metric name and regular expressions used to parse algorithm logs. Amazon Web Services Clean Rooms ML publishes each metric to all members' Amazon CloudWatch using IAM role configured in <a>PutMLConfiguration</a>.</p>
+   * A list of metric definition objects. Each object specifies the metric name and regular expressions used to parse algorithm logs. Amazon Web Services Clean Rooms ML publishes each metric to all members' Amazon CloudWatch using IAM role configured in PutMLConfiguration.
+   *
    * @public
    */
   metricDefinitions?: MetricDefinition[] | undefined;
@@ -1516,43 +1767,60 @@ export interface ContainerConfig {
  */
 export interface CreateConfiguredModelAlgorithmRequest {
   /**
-   * <p>The name of the configured model algorithm.</p>
+   * The name of the configured model algorithm.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm.</p>
+   * The description of the configured model algorithm.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that is used to access the repository.</p>
+   * The Amazon Resource Name (ARN) of the role that is used to access the repository.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Configuration information for the training container, including entrypoints and arguments.</p>
+   * Configuration information for the training container, including entrypoints and arguments.
+   *
    * @public
    */
   trainingContainerConfig?: ContainerConfig | undefined;
 
   /**
-   * <p>Configuration information for the inference container that is used when you run an inference job on a configured model algorithm.</p>
+   * Configuration information for the inference container that is used when you run an inference job on a configured model algorithm.
+   *
    * @public
    */
   inferenceContainerConfig?: InferenceContainerConfig | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the configured ML model algorithm and associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the configured ML model algorithm and associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1563,7 +1831,8 @@ export interface CreateConfiguredModelAlgorithmRequest {
  */
 export interface CreateConfiguredModelAlgorithmResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
@@ -1574,7 +1843,8 @@ export interface CreateConfiguredModelAlgorithmResponse {
  */
 export interface DeleteConfiguredModelAlgorithmRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm that you want to delete.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
@@ -1585,7 +1855,8 @@ export interface DeleteConfiguredModelAlgorithmRequest {
  */
 export interface GetConfiguredModelAlgorithmRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm that you want to return information about.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm that you want to return information about.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
@@ -1596,61 +1867,81 @@ export interface GetConfiguredModelAlgorithmRequest {
  */
 export interface GetConfiguredModelAlgorithmResponse {
   /**
-   * <p>The time at which the configured model algorithm was created.</p>
+   * The time at which the configured model algorithm was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured model algorithm was updated.</p>
+   * The most recent time at which the configured model algorithm was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm.</p>
+   * The name of the configured model algorithm.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The configuration information of the training container for the configured model algorithm.</p>
+   * The configuration information of the training container for the configured model algorithm.
+   *
    * @public
    */
   trainingContainerConfig?: ContainerConfig | undefined;
 
   /**
-   * <p>Configuration information for the inference container.</p>
+   * Configuration information for the inference container.
+   *
    * @public
    */
   inferenceContainerConfig?: InferenceContainerConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role that was used to create the configured model algorithm.</p>
+   * The Amazon Resource Name (ARN) of the service role that was used to create the configured model algorithm.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm.</p>
+   * The description of the configured model algorithm.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the configured ML model and associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the configured ML model and associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1661,49 +1952,57 @@ export interface GetConfiguredModelAlgorithmResponse {
  */
 export interface ListConfiguredModelAlgorithmsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Provides summary information about a configured model algorithm.</p>
+ * Provides summary information about a configured model algorithm.
+ *
  * @public
  */
 export interface ConfiguredModelAlgorithmSummary {
   /**
-   * <p>The time at which the configured model algorithm was created.</p>
+   * The time at which the configured model algorithm was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured model algorithm was updated.</p>
+   * The most recent time at which the configured model algorithm was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm.</p>
+   * The name of the configured model algorithm.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm.</p>
+   * The description of the configured model algorithm.
+   *
    * @public
    */
   description?: string | undefined;
@@ -1714,235 +2013,274 @@ export interface ConfiguredModelAlgorithmSummary {
  */
 export interface ListConfiguredModelAlgorithmsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of configured model algorithms.</p>
+   * The list of configured model algorithms.
+   *
    * @public
    */
   configuredModelAlgorithms: ConfiguredModelAlgorithmSummary[] | undefined;
 }
 
 /**
- * <p>The maximum size of the trained model metrics that can be exported. If the trained model metrics dataset is larger than this value, it will not be exported.</p>
+ * The maximum size of the trained model metrics that can be exported. If the trained model metrics dataset is larger than this value, it will not be exported.
+ *
  * @public
  */
 export interface TrainedModelExportsMaxSize {
   /**
-   * <p>The unit of measurement for the data size.</p>
+   * The unit of measurement for the data size.
+   *
    * @public
    */
   unit: TrainedModelExportsMaxSizeUnitType | undefined;
 
   /**
-   * <p>The maximum size of the dataset to export.</p>
+   * The maximum size of the dataset to export.
+   *
    * @public
    */
   value: number | undefined;
 }
 
 /**
- * <p>Information about how the trained model exports are configured.</p>
+ * Information about how the trained model exports are configured.
+ *
  * @public
  */
 export interface TrainedModelExportsConfigurationPolicy {
   /**
-   * <p>The maximum size of the data that can be exported.</p>
+   * The maximum size of the data that can be exported.
+   *
    * @public
    */
   maxSize: TrainedModelExportsMaxSize | undefined;
 
   /**
-   * <p>The files that are exported during the trained model export job.</p>
+   * The files that are exported during the trained model export job.
+   *
    * @public
    */
   filesToExport: TrainedModelExportFileType[] | undefined;
 }
 
 /**
- * <p>The configuration for defining custom patterns to be redacted from logs and error messages. This is for the CUSTOM config under entitiesToRedact. Both CustomEntityConfig and entitiesToRedact need to be present or not present.</p>
+ * The configuration for defining custom patterns to be redacted from logs and error messages. This is for the CUSTOM config under entitiesToRedact. Both CustomEntityConfig and entitiesToRedact need to be present or not present.
+ *
  * @public
  */
 export interface CustomEntityConfig {
   /**
-   * <p>Defines data identifiers for the custom entity configuration. Provide this only if CUSTOM redaction is configured. </p>
+   * Defines data identifiers for the custom entity configuration. Provide this only if CUSTOM redaction is configured.
+   *
    * @public
    */
   customDataIdentifiers: string[] | undefined;
 }
 
 /**
- * <p>The configuration for log redaction.</p>
+ * The configuration for log redaction.
+ *
  * @public
  */
 export interface LogRedactionConfiguration {
   /**
-   * <p>Specifies the entities to be redacted from logs. Entities to redact are "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION", "NUMBERS","CUSTOM". If CUSTOM is supplied or configured, custom patterns (customDataIdentifiers) should be provided, and the patterns will be redacted in logs or error messages.</p>
+   * Specifies the entities to be redacted from logs. Entities to redact are "ALL_PERSONALLY_IDENTIFIABLE_INFORMATION", "NUMBERS","CUSTOM". If CUSTOM is supplied or configured, custom patterns (customDataIdentifiers) should be provided, and the patterns will be redacted in logs or error messages.
+   *
    * @public
    */
   entitiesToRedact: EntityType[] | undefined;
 
   /**
-   * <p>Specifies the configuration for custom entities in the context of log redaction.</p>
+   * Specifies the configuration for custom entities in the context of log redaction.
+   *
    * @public
    */
   customEntityConfig?: CustomEntityConfig | undefined;
 }
 
 /**
- * <p>Provides the information necessary for a user to access the logs.</p>
+ * Provides the information necessary for a user to access the logs.
+ *
  * @public
  */
 export interface LogsConfigurationPolicy {
   /**
-   * <p>A list of account IDs that are allowed to access the logs.</p>
+   * A list of account IDs that are allowed to access the logs.
+   *
    * @public
    */
   allowedAccountIds: string[] | undefined;
 
   /**
-   * <p>A regular expression pattern that is used to parse the logs and return information that matches the pattern.</p>
+   * A regular expression pattern that is used to parse the logs and return information that matches the pattern.
+   *
    * @public
    */
   filterPattern?: string | undefined;
 
   /**
-   * <p>Specifies the type of log this policy applies to. The currently supported policies are ALL or ERROR_SUMMARY.</p>
+   * Specifies the type of log this policy applies to. The currently supported policies are ALL or ERROR_SUMMARY.
+   *
    * @public
    */
   logType?: LogType | undefined;
 
   /**
-   * <p>Specifies the log redaction configuration for this policy.</p>
+   * Specifies the log redaction configuration for this policy.
+   *
    * @public
    */
   logRedactionConfiguration?: LogRedactionConfiguration | undefined;
 }
 
 /**
- * <p>Information about the maximum output size for a trained model inference job.</p>
+ * Information about the maximum output size for a trained model inference job.
+ *
  * @public
  */
 export interface TrainedModelInferenceMaxOutputSize {
   /**
-   * <p>The measurement unit to use.</p>
+   * The measurement unit to use.
+   *
    * @public
    */
   unit: TrainedModelInferenceMaxOutputSizeUnitType | undefined;
 
   /**
-   * <p>The maximum output size value.</p>
+   * The maximum output size value.
+   *
    * @public
    */
   value: number | undefined;
 }
 
 /**
- * <p>Provides configuration information for the trained model inference job.</p>
+ * Provides configuration information for the trained model inference job.
+ *
  * @public
  */
 export interface TrainedModelInferenceJobsConfigurationPolicy {
   /**
-   * <p>The logs container for the trained model inference job.</p>
+   * The logs container for the trained model inference job.
+   *
    * @public
    */
   containerLogs?: LogsConfigurationPolicy[] | undefined;
 
   /**
-   * <p>The maximum allowed size of the output of the trained model inference job.</p>
+   * The maximum allowed size of the output of the trained model inference job.
+   *
    * @public
    */
   maxOutputSize?: TrainedModelInferenceMaxOutputSize | undefined;
 }
 
 /**
- * <p>Provides the configuration policy for metrics generation.</p>
+ * Provides the configuration policy for metrics generation.
+ *
  * @public
  */
 export interface MetricsConfigurationPolicy {
   /**
-   * <p>The noise level for the generated metrics.</p>
+   * The noise level for the generated metrics.
+   *
    * @public
    */
   noiseLevel: NoiseLevelType | undefined;
 }
 
 /**
- * <p>Specifies the maximum size limit for trained model artifacts. This configuration helps control storage costs and ensures that trained models don't exceed specified size constraints. The size limit applies to the total size of all artifacts produced by the training job.</p>
+ * Specifies the maximum size limit for trained model artifacts. This configuration helps control storage costs and ensures that trained models don't exceed specified size constraints. The size limit applies to the total size of all artifacts produced by the training job.
+ *
  * @public
  */
 export interface TrainedModelArtifactMaxSize {
   /**
-   * <p>The unit of measurement for the maximum artifact size. Valid values include common storage units such as bytes, kilobytes, megabytes, gigabytes, and terabytes.</p>
+   * The unit of measurement for the maximum artifact size. Valid values include common storage units such as bytes, kilobytes, megabytes, gigabytes, and terabytes.
+   *
    * @public
    */
   unit: TrainedModelArtifactMaxSizeUnitType | undefined;
 
   /**
-   * <p>The numerical value for the maximum artifact size limit. This value is interpreted according to the specified unit.</p>
+   * The numerical value for the maximum artifact size limit. This value is interpreted according to the specified unit.
+   *
    * @public
    */
   value: number | undefined;
 }
 
 /**
- * <p>The configuration policy for the trained models.</p>
+ * The configuration policy for the trained models.
+ *
  * @public
  */
 export interface TrainedModelsConfigurationPolicy {
   /**
-   * <p>The container for the logs of the trained model.</p>
+   * The container for the logs of the trained model.
+   *
    * @public
    */
   containerLogs?: LogsConfigurationPolicy[] | undefined;
 
   /**
-   * <p>The container for the metrics of the trained model.</p>
+   * The container for the metrics of the trained model.
+   *
    * @public
    */
   containerMetrics?: MetricsConfigurationPolicy | undefined;
 
   /**
-   * <p>The maximum size limit for trained model artifacts as defined in the configuration policy. This setting helps enforce consistent size limits across trained models in the collaboration.</p>
+   * The maximum size limit for trained model artifacts as defined in the configuration policy. This setting helps enforce consistent size limits across trained models in the collaboration.
+   *
    * @public
    */
   maxArtifactSize?: TrainedModelArtifactMaxSize | undefined;
 }
 
 /**
- * <p>Information about the privacy configuration policies for a configured model algorithm association.</p>
+ * Information about the privacy configuration policies for a configured model algorithm association.
+ *
  * @public
  */
 export interface PrivacyConfigurationPolicies {
   /**
-   * <p>Specifies who will receive the trained models.</p>
+   * Specifies who will receive the trained models.
+   *
    * @public
    */
   trainedModels?: TrainedModelsConfigurationPolicy | undefined;
 
   /**
-   * <p>Specifies who will receive the trained model export.</p>
+   * Specifies who will receive the trained model export.
+   *
    * @public
    */
   trainedModelExports?: TrainedModelExportsConfigurationPolicy | undefined;
 
   /**
-   * <p>Specifies who will receive the trained model inference jobs.</p>
+   * Specifies who will receive the trained model inference jobs.
+   *
    * @public
    */
   trainedModelInferenceJobs?: TrainedModelInferenceJobsConfigurationPolicy | undefined;
 }
 
 /**
- * <p>Information about the privacy configuration for a configured model algorithm association.</p>
+ * Information about the privacy configuration for a configured model algorithm association.
+ *
  * @public
  */
 export interface PrivacyConfiguration {
   /**
-   * <p>The privacy configuration policies for a configured model algorithm association.</p>
+   * The privacy configuration policies for a configured model algorithm association.
+   *
    * @public
    */
   policies: PrivacyConfigurationPolicies | undefined;
@@ -1953,37 +2291,53 @@ export interface PrivacyConfiguration {
  */
 export interface CreateConfiguredModelAlgorithmAssociationRequest {
   /**
-   * <p>The membership ID of the member who is associating this configured model algorithm.</p>
+   * The membership ID of the member who is associating this configured model algorithm.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm that you want to associate.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm that you want to associate.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm association.</p>
+   * The name of the configured model algorithm association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm association.</p>
+   * The description of the configured model algorithm association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Specifies the privacy configuration information for the configured model algorithm association. This information includes the maximum data size that can be exported.</p>
+   * Specifies the privacy configuration information for the configured model algorithm association. This information includes the maximum data size that can be exported.
+   *
    * @public
    */
   privacyConfiguration?: PrivacyConfiguration | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1994,7 +2348,8 @@ export interface CreateConfiguredModelAlgorithmAssociationRequest {
  */
 export interface CreateConfiguredModelAlgorithmAssociationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
@@ -2005,13 +2360,15 @@ export interface CreateConfiguredModelAlgorithmAssociationResponse {
  */
 export interface DeleteConfiguredModelAlgorithmAssociationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that you want to delete.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The membership ID of the member that is deleting the configured model algorithm association.</p>
+   * The membership ID of the member that is deleting the configured model algorithm association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -2022,13 +2379,15 @@ export interface DeleteConfiguredModelAlgorithmAssociationRequest {
  */
 export interface GetCollaborationConfiguredModelAlgorithmAssociationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that you want to return information about.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that you want to return information about.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The collaboration ID for the collaboration that contains the configured model algorithm association that you want to return information about.</p>
+   * The collaboration ID for the collaboration that contains the configured model algorithm association that you want to return information about.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
@@ -2039,61 +2398,71 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationRequest {
  */
 export interface GetCollaborationConfiguredModelAlgorithmAssociationResponse {
   /**
-   * <p>The time at which the configured model algorithm association was created.</p>
+   * The time at which the configured model algorithm association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured model algorithm association was updated.</p>
+   * The most recent time at which the configured model algorithm association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the configured model algorithm association.</p>
+   * The membership ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the configured model algorithm association.</p>
+   * The collaboration ID of the collaboration that contains the configured model algorithm association.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm association.</p>
+   * The name of the configured model algorithm association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm association.</p>
+   * The description of the configured model algorithm association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The account ID of the member that created the configured model algorithm association.</p>
+   * The account ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>Information about the privacy configuration for a configured model algorithm association.</p>
+   * Information about the privacy configuration for a configured model algorithm association.
+   *
    * @public
    */
   privacyConfiguration?: PrivacyConfiguration | undefined;
@@ -2104,13 +2473,15 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationResponse {
  */
 export interface GetConfiguredModelAlgorithmAssociationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that you want to return information about.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that you want to return information about.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the configured model algorithm association.</p>
+   * The membership ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -2121,61 +2492,81 @@ export interface GetConfiguredModelAlgorithmAssociationRequest {
  */
 export interface GetConfiguredModelAlgorithmAssociationResponse {
   /**
-   * <p>The time at which the configured model algorithm association was created.</p>
+   * The time at which the configured model algorithm association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured model algorithm association was updated.</p>
+   * The most recent time at which the configured model algorithm association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the configured model algorithm association.</p>
+   * The membership ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the configured model algorithm association.</p>
+   * The collaboration ID of the collaboration that contains the configured model algorithm association.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm that was associated to the collaboration.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm that was associated to the collaboration.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm association.</p>
+   * The name of the configured model algorithm association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The privacy configuration information for the configured model algorithm association.</p>
+   * The privacy configuration information for the configured model algorithm association.
+   *
    * @public
    */
   privacyConfiguration?: PrivacyConfiguration | undefined;
 
   /**
-   * <p>The description of the configured model algorithm association.</p>
+   * The description of the configured model algorithm association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2186,73 +2577,85 @@ export interface GetConfiguredModelAlgorithmAssociationResponse {
  */
 export interface ListConfiguredModelAlgorithmAssociationsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The membership ID of the member that created the configured model algorithm associations you are interested in.</p>
+   * The membership ID of the member that created the configured model algorithm associations you are interested in.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 }
 
 /**
- * <p>Provides summary information about the configured model algorithm association.</p>
+ * Provides summary information about the configured model algorithm association.
+ *
  * @public
  */
 export interface ConfiguredModelAlgorithmAssociationSummary {
   /**
-   * <p>The time at which the configured model algorithm association was created.</p>
+   * The time at which the configured model algorithm association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured model algorithm association was updated.</p>
+   * The most recent time at which the configured model algorithm association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm that is being associated.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm that is being associated.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm association.</p>
+   * The name of the configured model algorithm association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm association.</p>
+   * The description of the configured model algorithm association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the configured model algorithm association.</p>
+   * The membership ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the configured model algorithm association.</p>
+   * The collaboration ID of the collaboration that contains the configured model algorithm association.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
@@ -2263,13 +2666,15 @@ export interface ConfiguredModelAlgorithmAssociationSummary {
  */
 export interface ListConfiguredModelAlgorithmAssociationsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of configured model algorithm associations.</p>
+   * The list of configured model algorithm associations.
+   *
    * @public
    */
   configuredModelAlgorithmAssociations: ConfiguredModelAlgorithmAssociationSummary[] | undefined;
@@ -2280,79 +2685,92 @@ export interface ListConfiguredModelAlgorithmAssociationsResponse {
  */
 export interface ListCollaborationConfiguredModelAlgorithmAssociationsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the configured model algorithm associations that you are interested in.</p>
+   * The collaboration ID of the collaboration that contains the configured model algorithm associations that you are interested in.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 }
 
 /**
- * <p>Provides summary information about a configured model algorithm in a collaboration.</p>
+ * Provides summary information about a configured model algorithm in a collaboration.
+ *
  * @public
  */
 export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
   /**
-   * <p>The time at which the configured model algorithm association was created.</p>
+   * The time at which the configured model algorithm association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured model algorithm association was updated.</p>
+   * The most recent time at which the configured model algorithm association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The name of the configured model algorithm association.</p>
+   * The name of the configured model algorithm association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured model algorithm association.</p>
+   * The description of the configured model algorithm association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the configured model algorithm association.</p>
+   * The membership ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the configured model algorithm association.</p>
+   * The collaboration ID of the collaboration that contains the configured model algorithm association.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm that is associated to the collaboration.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm that is associated to the collaboration.
+   *
    * @public
    */
   configuredModelAlgorithmArn: string | undefined;
 
   /**
-   * <p>The account ID of the member that created the configured model algorithm association.</p>
+   * The account ID of the member that created the configured model algorithm association.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
@@ -2363,13 +2781,15 @@ export interface CollaborationConfiguredModelAlgorithmAssociationSummary {
  */
 export interface ListCollaborationConfiguredModelAlgorithmAssociationsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The configured model algorithm associations that belong to this collaboration.</p>
+   * The configured model algorithm associations that belong to this collaboration.
+   *
    * @public
    */
   collaborationConfiguredModelAlgorithmAssociations: CollaborationConfiguredModelAlgorithmAssociationSummary[] | undefined;
@@ -2380,109 +2800,127 @@ export interface ListCollaborationConfiguredModelAlgorithmAssociationsResponse {
  */
 export interface ListCollaborationMLInputChannelsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the ML input channels that you want to list.</p>
+   * The collaboration ID of the collaboration that contains the ML input channels that you want to list.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 }
 
 /**
- * <p>Specifies which member accounts are responsible for paying for compute and synthetic data generation costs in a Clean Rooms ML collaboration.</p>
+ * Specifies which member accounts are responsible for paying for compute and synthetic data generation costs in a Clean Rooms ML collaboration.
+ *
  * @public
  */
 export interface PayerConfiguration {
   /**
-   * <p>The account ID of the member that is responsible for paying compute costs.</p>
+   * The account ID of the member that is responsible for paying compute costs.
+   *
    * @public
    */
   computePayerAccountId?: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying synthetic data generation costs.</p>
+   * The account ID of the member that is responsible for paying synthetic data generation costs.
+   *
    * @public
    */
   syntheticDataPayerAccountId?: string | undefined;
 }
 
 /**
- * <p>Provides summary information about an ML input channel in a collaboration.</p>
+ * Provides summary information about an ML input channel in a collaboration.
+ *
  * @public
  */
 export interface CollaborationMLInputChannelSummary {
   /**
-   * <p>The time at which the ML input channel was created.</p>
+   * The time at which the ML input channel was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ML input channel was updated.</p>
+   * The most recent time at which the ML input channel was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the ML input channel.</p>
+   * The membership ID of the membership that contains the ML input channel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the ML input channel.</p>
+   * The collaboration ID of the collaboration that contains the ML input channel.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The name of the ML input channel.</p>
+   * The name of the ML input channel.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The associated configured model algorithms used to create the ML input channel.</p>
+   * The associated configured model algorithms used to create the ML input channel.
+   *
    * @public
    */
   configuredModelAlgorithmAssociations: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The status of the ML input channel.</p>
+   * The status of the ML input channel.
+   *
    * @public
    */
   status: MLInputChannelStatus | undefined;
 
   /**
-   * <p>The account ID of the member who created the ML input channel.</p>
+   * The account ID of the member who created the ML input channel.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The description of the ML input channel.</p>
+   * The description of the ML input channel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The payer configuration for the ML input channel.</p>
+   * The payer configuration for the ML input channel.
+   *
    * @public
    */
   payerConfiguration?: PayerConfiguration | undefined;
@@ -2493,13 +2931,15 @@ export interface CollaborationMLInputChannelSummary {
  */
 export interface ListCollaborationMLInputChannelsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of ML input channels that you wanted.</p>
+   * The list of ML input channels that you wanted.
+   *
    * @public
    */
   collaborationMLInputChannelsList: CollaborationMLInputChannelSummary[] | undefined;
@@ -2510,133 +2950,155 @@ export interface ListCollaborationMLInputChannelsResponse {
  */
 export interface ListCollaborationTrainedModelExportJobsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model export jobs that you are interested in.</p>
+   * The collaboration ID of the collaboration that contains the trained model export jobs that you are interested in.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that was used to create the export jobs that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the trained model that was used to create the export jobs that you are interested in.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to filter export jobs by. When specified, only export jobs for this specific version of the trained model are returned.</p>
+   * The version identifier of the trained model to filter export jobs by. When specified, only export jobs for this specific version of the trained model are returned.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 }
 
 /**
- * <p>Provides information about the member who will receive trained model exports.</p>
+ * Provides information about the member who will receive trained model exports.
+ *
  * @public
  */
 export interface TrainedModelExportReceiverMember {
   /**
-   * <p>The account ID of the member who will receive trained model exports.</p>
+   * The account ID of the member who will receive trained model exports.
+   *
    * @public
    */
   accountId: string | undefined;
 }
 
 /**
- * <p>Information about the output of the trained model export job.</p>
+ * Information about the output of the trained model export job.
+ *
  * @public
  */
 export interface TrainedModelExportOutputConfiguration {
   /**
-   * <p>The members that will received the exported trained model output.</p>
+   * The members that will received the exported trained model output.
+   *
    * @public
    */
   members: TrainedModelExportReceiverMember[] | undefined;
 }
 
 /**
- * <p>Provides summary information about a trained model export job in a collaboration.</p>
+ * Provides summary information about a trained model export job in a collaboration.
+ *
  * @public
  */
 export interface CollaborationTrainedModelExportJobSummary {
   /**
-   * <p>The time at which the trained model export job was created.</p>
+   * The time at which the trained model export job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model export job was updated.</p>
+   * The most recent time at which the trained model export job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The name of the trained model export job.</p>
+   * The name of the trained model export job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Information about the output of the trained model export job.</p>
+   * Information about the output of the trained model export job.
+   *
    * @public
    */
   outputConfiguration: TrainedModelExportOutputConfiguration | undefined;
 
   /**
-   * <p>The status of the trained model.</p>
+   * The status of the trained model.
+   *
    * @public
    */
   status: TrainedModelExportJobStatus | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The description of the trained model.</p>
+   * The description of the trained model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The account ID of the member that created the trained model.</p>
+   * The account ID of the member that created the trained model.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that is being exported.</p>
+   * The Amazon Resource Name (ARN) of the trained model that is being exported.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model that was exported in this job.</p>
+   * The version identifier of the trained model that was exported in this job.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the trained model export job.</p>
+   * The membership ID of the member that created the trained model export job.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model export job.</p>
+   * The collaboration ID of the collaboration that contains the trained model export job.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
@@ -2647,13 +3109,15 @@ export interface CollaborationTrainedModelExportJobSummary {
  */
 export interface ListCollaborationTrainedModelExportJobsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The exports jobs that exist for the requested trained model in the requested collaboration.</p>
+   * The exports jobs that exist for the requested trained model in the requested collaboration.
+   *
    * @public
    */
   collaborationTrainedModelExportJobs: CollaborationTrainedModelExportJobSummary[] | undefined;
@@ -2664,175 +3128,204 @@ export interface ListCollaborationTrainedModelExportJobsResponse {
  */
 export interface ListCollaborationTrainedModelInferenceJobsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model inference jobs that you are interested in.</p>
+   * The collaboration ID of the collaboration that contains the trained model inference jobs that you are interested in.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that was used to create the trained model inference jobs that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the trained model that was used to create the trained model inference jobs that you are interested in.
+   *
    * @public
    */
   trainedModelArn?: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.</p>
+   * The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 }
 
 /**
- * <p>Defines who will receive inference results.</p>
+ * Defines who will receive inference results.
+ *
  * @public
  */
 export interface InferenceReceiverMember {
   /**
-   * <p>The account ID of the member that can receive inference results.</p>
+   * The account ID of the member that can receive inference results.
+   *
    * @public
    */
   accountId: string | undefined;
 }
 
 /**
- * <p>Configuration information about how the inference output is stored.</p>
+ * Configuration information about how the inference output is stored.
+ *
  * @public
  */
 export interface InferenceOutputConfiguration {
   /**
-   * <p>The MIME type used to specify the output data.</p>
+   * The MIME type used to specify the output data.
+   *
    * @public
    */
   accept?: string | undefined;
 
   /**
-   * <p>Defines the members that can receive inference output.</p>
+   * Defines the members that can receive inference output.
+   *
    * @public
    */
   members: InferenceReceiverMember[] | undefined;
 }
 
 /**
- * <p>Provides summary information about a trained model inference job in a collaboration.</p>
+ * Provides summary information about a trained model inference job in a collaboration.
+ *
  * @public
  */
 export interface CollaborationTrainedModelInferenceJobSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model inference job.
+   *
    * @public
    */
   trainedModelInferenceJobArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that is used for the trained model inference job.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the trained model inference job.</p>
+   * The membership ID of the membership that contains the trained model inference job.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that is used for the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model that is used for the trained model inference job.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model that was used for inference in this job.</p>
+   * The version identifier of the trained model that was used for inference in this job.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model inference job.</p>
+   * The collaboration ID of the collaboration that contains the trained model inference job.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The status of the trained model inference job.</p>
+   * The status of the trained model inference job.
+   *
    * @public
    */
   status: TrainedModelInferenceJobStatus | undefined;
 
   /**
-   * <p>Returns output configuration information for the trained model inference job.</p>
+   * Returns output configuration information for the trained model inference job.
+   *
    * @public
    */
   outputConfiguration: InferenceOutputConfiguration | undefined;
 
   /**
-   * <p>The name of the trained model inference job.</p>
+   * The name of the trained model inference job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the trained model inference job.</p>
+   * The description of the trained model inference job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>the trained model inference job metrics status.</p>
+   * the trained model inference job metrics status.
+   *
    * @public
    */
   metricsStatus?: MetricsStatus | undefined;
 
   /**
-   * <p>Details about the metrics status for trained model inference job.</p>
+   * Details about the metrics status for trained model inference job.
+   *
    * @public
    */
   metricsStatusDetails?: string | undefined;
 
   /**
-   * <p>The trained model inference job logs status.</p>
+   * The trained model inference job logs status.
+   *
    * @public
    */
   logsStatus?: LogsStatus | undefined;
 
   /**
-   * <p>Details about the logs status for the trained model inference job.</p>
+   * Details about the logs status for the trained model inference job.
+   *
    * @public
    */
   logsStatusDetails?: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * The account ID of the member that is responsible for paying for model inference costs.
+   *
    * @public
    */
   mlModelInferencePayerAccountId?: string | undefined;
 
   /**
-   * <p>The time at which the trained model inference job was created.</p>
+   * The time at which the trained model inference job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model inference job was updated.</p>
+   * The most recent time at which the trained model inference job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The account ID that created the trained model inference job.</p>
+   * The account ID that created the trained model inference job.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
@@ -2843,13 +3336,15 @@ export interface CollaborationTrainedModelInferenceJobSummary {
  */
 export interface ListCollaborationTrainedModelInferenceJobsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The trained model inference jobs that you are interested in.</p>
+   * The trained model inference jobs that you are interested in.
+   *
    * @public
    */
   collaborationTrainedModelInferenceJobs: CollaborationTrainedModelInferenceJobSummary[] | undefined;
@@ -2860,127 +3355,148 @@ export interface ListCollaborationTrainedModelInferenceJobsResponse {
  */
 export interface ListCollaborationTrainedModelsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained models you are interested in.</p>
+   * The collaboration ID of the collaboration that contains the trained models you are interested in.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 }
 
 /**
- * <p>Contains information about an incremental training data channel that was used to create a trained model. This structure provides details about the base model and channel configuration used during incremental training.</p>
+ * Contains information about an incremental training data channel that was used to create a trained model. This structure provides details about the base model and channel configuration used during incremental training.
+ *
  * @public
  */
 export interface IncrementalTrainingDataChannelOutput {
   /**
-   * <p>The name of the incremental training data channel that was used.</p>
+   * The name of the incremental training data channel that was used.
+   *
    * @public
    */
   channelName: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model that was used for incremental training.</p>
+   * The version identifier of the trained model that was used for incremental training.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 
   /**
-   * <p>The name of the base trained model that was used for incremental training.</p>
+   * The name of the base trained model that was used for incremental training.
+   *
    * @public
    */
   modelName: string | undefined;
 }
 
 /**
- * <p>Provides summary information about a trained model in a collaboration.</p>
+ * Provides summary information about a trained model in a collaboration.
+ *
  * @public
  */
 export interface CollaborationTrainedModelSummary {
   /**
-   * <p>The time at which the trained model was created.</p>
+   * The time at which the trained model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model was updated.</p>
+   * The most recent time at which the trained model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model.</p>
+   * The Amazon Resource Name (ARN) of the trained model.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The name of the trained model.</p>
+   * The name of the trained model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version identifier of this trained model version.</p>
+   * The version identifier of this trained model version.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 
   /**
-   * <p>Information about the incremental training data channels used to create this version of the trained model.</p>
+   * Information about the incremental training data channels used to create this version of the trained model.
+   *
    * @public
    */
   incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
-   * <p>The description of the trained model.</p>
+   * The description of the trained model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the trained model.</p>
+   * The membership ID of the member that created the trained model.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model.</p>
+   * The collaboration ID of the collaboration that contains the trained model.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The status of the trained model.</p>
+   * The status of the trained model.
+   *
    * @public
    */
   status: TrainedModelStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The account ID of the member that created the trained model.</p>
+   * The account ID of the member that created the trained model.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * The account ID of the member that is responsible for paying for model training costs.
+   *
    * @public
    */
   mlModelTrainingPayerAccountId?: string | undefined;
@@ -2991,13 +3507,15 @@ export interface CollaborationTrainedModelSummary {
  */
 export interface ListCollaborationTrainedModelsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The trained models in the collaboration that you requested.</p>
+   * The trained models in the collaboration that you requested.
+   *
    * @public
    */
   collaborationTrainedModels: CollaborationTrainedModelSummary[] | undefined;
@@ -3008,7 +3526,8 @@ export interface ListCollaborationTrainedModelsResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the resource that you are interested in.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -3019,7 +3538,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags that are associated with the resource.</p>
+   * The tags that are associated with the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -3030,7 +3550,8 @@ export interface ListTagsForResourceResponse {
  */
 export interface DeleteMLConfigurationRequest {
   /**
-   * <p>The membership ID of the of the member that is deleting the ML modeling configuration.</p>
+   * The membership ID of the of the member that is deleting the ML modeling configuration.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -3041,37 +3562,43 @@ export interface DeleteMLConfigurationRequest {
  */
 export interface GetMLConfigurationRequest {
   /**
-   * <p>The membership ID of the member that owns the ML configuration you want to return information about.</p>
+   * The membership ID of the member that owns the ML configuration you want to return information about.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 }
 
 /**
- * <p>The Amazon S3 location where the exported model artifacts are stored.</p>
+ * The Amazon S3 location where the exported model artifacts are stored.
+ *
  * @public
  */
 export interface Destination {
   /**
-   * <p>Provides information about an Amazon S3 bucket and path.</p>
+   * Provides information about an Amazon S3 bucket and path.
+   *
    * @public
    */
   s3Destination: S3ConfigMap | undefined;
 }
 
 /**
- * <p>Configuration information about how the exported model artifacts are stored.</p>
+ * Configuration information about how the exported model artifacts are stored.
+ *
  * @public
  */
 export interface MLOutputConfiguration {
   /**
-   * <p>The Amazon S3 location where exported model artifacts are stored.</p>
+   * The Amazon S3 location where exported model artifacts are stored.
+   *
    * @public
    */
   destination?: Destination | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service access role that is used to store the model artifacts.</p>
+   * The Amazon Resource Name (ARN) of the service access role that is used to store the model artifacts.
+   *
    * @public
    */
   roleArn: string | undefined;
@@ -3082,25 +3609,29 @@ export interface MLOutputConfiguration {
  */
 export interface GetMLConfigurationResponse {
   /**
-   * <p>The membership ID of the member that owns the ML configuration you requested.</p>
+   * The membership ID of the member that owns the ML configuration you requested.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon S3 location where ML model output is stored.</p>
+   * The Amazon S3 location where ML model output is stored.
+   *
    * @public
    */
   defaultOutputLocation: MLOutputConfiguration | undefined;
 
   /**
-   * <p>The time at which the ML configuration was created.</p>
+   * The time at which the ML configuration was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ML configuration was updated.</p>
+   * The most recent time at which the ML configuration was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -3111,44 +3642,51 @@ export interface GetMLConfigurationResponse {
  */
 export interface PutMLConfigurationRequest {
   /**
-   * <p>The membership ID of the member that is being configured.</p>
+   * The membership ID of the member that is being configured.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The default Amazon S3 location where ML output is stored for the specified member.</p>
+   * The default Amazon S3 location where ML output is stored for the specified member.
+   *
    * @public
    */
   defaultOutputLocation: MLOutputConfiguration | undefined;
 }
 
 /**
- * <p>Provides information necessary to perform the protected query.</p>
+ * Provides information necessary to perform the protected query.
+ *
  * @public
  */
 export interface ProtectedQueryInputParameters {
   /**
-   * <p>The parameters for the SQL type Protected Query.</p>
+   * The parameters for the SQL type Protected Query.
+   *
    * @public
    */
   sqlParameters: ProtectedQuerySQLParameters | undefined;
 
   /**
-   * <p>Provides configuration information for the workers that will perform the protected query.</p>
+   * Provides configuration information for the workers that will perform the protected query.
+   *
    * @public
    */
   computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
-   * <p>The format in which the query results should be returned. If not specified, defaults to <code>CSV</code>. </p>
+   * The format in which the query results should be returned. If not specified, defaults to `CSV`.
+   *
    * @public
    */
   resultFormat?: ResultFormat | undefined;
 }
 
 /**
- * <p>Provides the data source that is used to define an input channel.</p>
+ * Provides the data source that is used to define an input channel.
+ *
  * @public
  */
 export type InputChannelDataSource =
@@ -3160,7 +3698,8 @@ export type InputChannelDataSource =
  */
 export namespace InputChannelDataSource {
   /**
-   * <p>Provides information necessary to perform the protected query.</p>
+   * Provides information necessary to perform the protected query.
+   *
    * @public
    */
   export interface ProtectedQueryInputParametersMember {
@@ -3187,18 +3726,23 @@ export namespace InputChannelDataSource {
 }
 
 /**
- * <p>Provides information about the data source that is used to create an ML input channel.</p>
+ * Provides information about the data source that is used to create an ML input channel.
+ *
  * @public
  */
 export interface InputChannel {
   /**
-   * <p>The data source that is used to create the ML input channel.</p>
+   * The data source that is used to create the ML input channel.
+   *
    * @public
    */
   dataSource: InputChannelDataSource | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role used to run the query specified in the <code>dataSource</code> field of the input channel.</p> <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
+   * The Amazon Resource Name (ARN) of the role used to run the query specified in the `dataSource` field of the input channel.
+   *
+   * Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+   *
    * @public
    */
   roleArn: string | undefined;
@@ -3209,55 +3753,74 @@ export interface InputChannel {
  */
 export interface CreateMLInputChannelRequest {
   /**
-   * <p>The membership ID of the member that is creating the ML input channel.</p>
+   * The membership ID of the member that is creating the ML input channel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The associated configured model algorithms that are necessary to create this ML input channel.</p>
+   * The associated configured model algorithms that are necessary to create this ML input channel.
+   *
    * @public
    */
   configuredModelAlgorithmAssociations: string[] | undefined;
 
   /**
-   * <p>The input data that is used to create this ML input channel.</p>
+   * The input data that is used to create this ML input channel.
+   *
    * @public
    */
   inputChannel: InputChannel | undefined;
 
   /**
-   * <p>The name of the ML input channel.</p>
+   * The name of the ML input channel.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The number of days that the data in the ML input channel is retained.</p>
+   * The number of days that the data in the ML input channel is retained.
+   *
    * @public
    */
   retentionInDays: number | undefined;
 
   /**
-   * <p>The description of the ML input channel.</p>
+   * The description of the ML input channel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that is used to access the input channel.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that is used to access the input channel.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The payer configuration for the ML input channel. Determines which member account pays for compute and synthetic data costs.</p>
+   * The payer configuration for the ML input channel. Determines which member account pays for compute and synthetic data costs.
+   *
    * @public
    */
   payerConfiguration?: PayerConfiguration | undefined;
@@ -3268,7 +3831,8 @@ export interface CreateMLInputChannelRequest {
  */
 export interface CreateMLInputChannelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
@@ -3279,13 +3843,15 @@ export interface CreateMLInputChannelResponse {
  */
 export interface DeleteMLInputChannelDataRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel that you want to delete.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the ML input channel you want to delete.</p>
+   * The membership ID of the membership that contains the ML input channel you want to delete.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -3296,20 +3862,23 @@ export interface DeleteMLInputChannelDataRequest {
  */
 export interface GetCollaborationMLInputChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel that you want to get.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel that you want to get.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the ML input channel that you want to get.</p>
+   * The collaboration ID of the collaboration that contains the ML input channel that you want to get.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 }
 
 /**
- * <p>The privacy budget information that controls access to Clean Rooms ML input channels.</p>
+ * The privacy budget information that controls access to Clean Rooms ML input channels.
+ *
  * @public
  */
 export type PrivacyBudgets =
@@ -3321,7 +3890,8 @@ export type PrivacyBudgets =
  */
 export namespace PrivacyBudgets {
   /**
-   * <p>A list of access budgets that apply to resources associated with this Clean Rooms ML input channel.</p>
+   * A list of access budgets that apply to resources associated with this Clean Rooms ML input channel.
+   *
    * @public
    */
   export interface AccessBudgetsMember {
@@ -3348,120 +3918,140 @@ export namespace PrivacyBudgets {
 }
 
 /**
- * <p>A score that measures the vulnerability of synthetic data to membership inference attacks and provides both the numerical score and the version of the attack methodology used for evaluation.</p>
+ * A score that measures the vulnerability of synthetic data to membership inference attacks and provides both the numerical score and the version of the attack methodology used for evaluation.
+ *
  * @public
  */
 export interface MembershipInferenceAttackScore {
   /**
-   * <p>The version of the membership inference attack, which consists of the attack type and its version number, used to generate this privacy score.</p>
+   * The version of the membership inference attack, which consists of the attack type and its version number, used to generate this privacy score.
+   *
    * @public
    */
   attackVersion: MembershipInferenceAttackVersion | undefined;
 
   /**
-   * <p>The numerical score representing the vulnerability to membership inference attacks.</p>
+   * The numerical score representing the vulnerability to membership inference attacks.
+   *
    * @public
    */
   score: number | undefined;
 }
 
 /**
- * <p>Privacy evaluation scores that measure the privacy characteristics of the generated synthetic data, including assessments of potential privacy risks such as membership inference attacks.</p>
+ * Privacy evaluation scores that measure the privacy characteristics of the generated synthetic data, including assessments of potential privacy risks such as membership inference attacks.
+ *
  * @public
  */
 export interface DataPrivacyScores {
   /**
-   * <p>Scores that evaluate the vulnerability of the synthetic data to membership inference attacks, which attempt to determine whether a specific individual was a member of the original dataset.</p>
+   * Scores that evaluate the vulnerability of the synthetic data to membership inference attacks, which attempt to determine whether a specific individual was a member of the original dataset.
+   *
    * @public
    */
   membershipInferenceAttackScores: MembershipInferenceAttackScore[] | undefined;
 }
 
 /**
- * <p>Comprehensive evaluation metrics for synthetic data that assess both the utility of the generated data for machine learning tasks and its privacy preservation characteristics.</p>
+ * Comprehensive evaluation metrics for synthetic data that assess both the utility of the generated data for machine learning tasks and its privacy preservation characteristics.
+ *
  * @public
  */
 export interface SyntheticDataEvaluationScores {
   /**
-   * <p>Privacy-specific evaluation scores that measure how well the synthetic data protects individual privacy, including assessments of potential privacy risks such as membership inference attacks.</p>
+   * Privacy-specific evaluation scores that measure how well the synthetic data protects individual privacy, including assessments of potential privacy risks such as membership inference attacks.
+   *
    * @public
    */
   dataPrivacyScores: DataPrivacyScores | undefined;
 }
 
 /**
- * <p>Properties that define how a specific data column should be handled during synthetic data generation, including its name, type, and role in predictive modeling.</p>
+ * Properties that define how a specific data column should be handled during synthetic data generation, including its name, type, and role in predictive modeling.
+ *
  * @public
  */
 export interface SyntheticDataColumnProperties {
   /**
-   * <p>The name of the data column as it appears in the dataset.</p>
+   * The name of the data column as it appears in the dataset.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The data type of the column, which determines how the synthetic data generation algorithm processes and synthesizes values for this column.</p>
+   * The data type of the column, which determines how the synthetic data generation algorithm processes and synthesizes values for this column.
+   *
    * @public
    */
   columnType: SyntheticDataColumnType | undefined;
 
   /**
-   * <p>Indicates if this column contains predictive values that should be treated as target variables in machine learning models. This affects how the synthetic data generation preserves statistical relationships.</p>
+   * Indicates if this column contains predictive values that should be treated as target variables in machine learning models. This affects how the synthetic data generation preserves statistical relationships.
+   *
    * @public
    */
   isPredictiveValue: boolean | undefined;
 }
 
 /**
- * <p>Contains classification information for data columns, including mappings that specify how columns should be handled during synthetic data generation and privacy analysis.</p>
+ * Contains classification information for data columns, including mappings that specify how columns should be handled during synthetic data generation and privacy analysis.
+ *
  * @public
  */
 export interface ColumnClassificationDetails {
   /**
-   * <p>A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.</p>
+   * A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.
+   *
    * @public
    */
   columnMapping: SyntheticDataColumnProperties[] | undefined;
 }
 
 /**
- * <p>Parameters that control the generation of synthetic data for custom model training, including privacy settings and column classification details.</p>
+ * Parameters that control the generation of synthetic data for custom model training, including privacy settings and column classification details.
+ *
  * @public
  */
 export interface MLSyntheticDataParameters {
   /**
-   * <p>The epsilon value for differential privacy, which controls the privacy-utility tradeoff in synthetic data generation. Lower values provide stronger privacy guarantees but may reduce data utility.</p>
+   * The epsilon value for differential privacy, which controls the privacy-utility tradeoff in synthetic data generation. Lower values provide stronger privacy guarantees but may reduce data utility.
+   *
    * @public
    */
   epsilon: number | undefined;
 
   /**
-   * <p>The maximum acceptable score for membership inference attack vulnerability. Synthetic data generation fails if the score for the resulting data exceeds this threshold.</p>
+   * The maximum acceptable score for membership inference attack vulnerability. Synthetic data generation fails if the score for the resulting data exceeds this threshold.
+   *
    * @public
    */
   maxMembershipInferenceAttackScore: number | undefined;
 
   /**
-   * <p>Classification details for data columns that specify how each column should be treated during synthetic data generation.</p>
+   * Classification details for data columns that specify how each column should be treated during synthetic data generation.
+   *
    * @public
    */
   columnClassification?: ColumnClassificationDetails | undefined;
 }
 
 /**
- * <p>Configuration settings for synthetic data generation, including the parameters that control data synthesis and the evaluation scores that measure the quality and privacy characteristics of the generated synthetic data.</p>
+ * Configuration settings for synthetic data generation, including the parameters that control data synthesis and the evaluation scores that measure the quality and privacy characteristics of the generated synthetic data.
+ *
  * @public
  */
 export interface SyntheticDataConfiguration {
   /**
-   * <p>The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.</p>
+   * The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.
+   *
    * @public
    */
   syntheticDataParameters: MLSyntheticDataParameters | undefined;
 
   /**
-   * <p>Evaluation scores that assess the quality and privacy characteristics of the generated synthetic data, providing metrics on data utility and privacy preservation.</p>
+   * Evaluation scores that assess the quality and privacy characteristics of the generated synthetic data, providing metrics on data utility and privacy preservation.
+   *
    * @public
    */
   syntheticDataEvaluationScores?: SyntheticDataEvaluationScores | undefined;
@@ -3472,97 +4062,113 @@ export interface SyntheticDataConfiguration {
  */
 export interface GetCollaborationMLInputChannelResponse {
   /**
-   * <p>The membership ID of the membership that contains the ML input channel.</p>
+   * The membership ID of the membership that contains the ML input channel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the ML input channel.</p>
+   * The collaboration ID of the collaboration that contains the ML input channel.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The name of the ML input channel.</p>
+   * The name of the ML input channel.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The configured model algorithm associations that were used to create the ML input channel.</p>
+   * The configured model algorithm associations that were used to create the ML input channel.
+   *
    * @public
    */
   configuredModelAlgorithmAssociations: string[] | undefined;
 
   /**
-   * <p>The status of the ML input channel.</p>
+   * The status of the ML input channel.
+   *
    * @public
    */
   status: MLInputChannelStatus | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The number of days to retain the data for the ML input channel.</p>
+   * The number of days to retain the data for the ML input channel.
+   *
    * @public
    */
   retentionInDays: number | undefined;
 
   /**
-   * <p>The number of records in the ML input channel.</p>
+   * The number of records in the ML input channel.
+   *
    * @public
    */
   numberOfRecords?: number | undefined;
 
   /**
-   * <p>Returns the privacy budgets that control access to this Clean Rooms ML input channel. Use these budgets to monitor and limit resource consumption over specified time periods.</p>
+   * Returns the privacy budgets that control access to this Clean Rooms ML input channel. Use these budgets to monitor and limit resource consumption over specified time periods.
+   *
    * @public
    */
   privacyBudgets?: PrivacyBudgets | undefined;
 
   /**
-   * <p>The description of the ML input channel.</p>
+   * The description of the ML input channel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The synthetic data configuration for this ML input channel, including parameters for generating privacy-preserving synthetic data and evaluation scores for measuring the privacy of the generated data.</p>
+   * The synthetic data configuration for this ML input channel, including parameters for generating privacy-preserving synthetic data and evaluation scores for measuring the privacy of the generated data.
+   *
    * @public
    */
   syntheticDataConfiguration?: SyntheticDataConfiguration | undefined;
 
   /**
-   * <p>The payer configuration for the ML input channel.</p>
+   * The payer configuration for the ML input channel.
+   *
    * @public
    */
   payerConfiguration?: PayerConfiguration | undefined;
 
   /**
-   * <p>The time at which the ML input channel was created.</p>
+   * The time at which the ML input channel was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ML input channel was updated.</p>
+   * The most recent time at which the ML input channel was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The account ID of the member who created the ML input channel.</p>
+   * The account ID of the member who created the ML input channel.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
@@ -3573,13 +4179,15 @@ export interface GetCollaborationMLInputChannelResponse {
  */
 export interface GetMLInputChannelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel that you want to get.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel that you want to get.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the ML input channel that you want to get.</p>
+   * The membership ID of the membership that contains the ML input channel that you want to get.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -3590,127 +4198,158 @@ export interface GetMLInputChannelRequest {
  */
 export interface GetMLInputChannelResponse {
   /**
-   * <p>The membership ID of the membership that contains the ML input channel.</p>
+   * The membership ID of the membership that contains the ML input channel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the ML input channel.</p>
+   * The collaboration ID of the collaboration that contains the ML input channel.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The name of the ML input channel.</p>
+   * The name of the ML input channel.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The configured model algorithm associations that were used to create the ML input channel.</p>
+   * The configured model algorithm associations that were used to create the ML input channel.
+   *
    * @public
    */
   configuredModelAlgorithmAssociations: string[] | undefined;
 
   /**
-   * <p>The status of the ML input channel.</p>
+   * The status of the ML input channel.
+   *
    * @public
    */
   status: MLInputChannelStatus | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The number of days to keep the data in the ML input channel.</p>
+   * The number of days to keep the data in the ML input channel.
+   *
    * @public
    */
   retentionInDays: number | undefined;
 
   /**
-   * <p>The number of records in the ML input channel.</p>
+   * The number of records in the ML input channel.
+   *
    * @public
    */
   numberOfRecords?: number | undefined;
 
   /**
-   * <p>Returns the privacy budgets that control access to this Clean Rooms ML input channel. Use these budgets to monitor and limit resource consumption over specified time periods.</p>
+   * Returns the privacy budgets that control access to this Clean Rooms ML input channel. Use these budgets to monitor and limit resource consumption over specified time periods.
+   *
    * @public
    */
   privacyBudgets?: PrivacyBudgets | undefined;
 
   /**
-   * <p>The description of the ML input channel.</p>
+   * The description of the ML input channel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The synthetic data configuration for this ML input channel, including parameters for generating privacy-preserving synthetic data and evaluation scores for measuring the privacy of the generated data.</p>
+   * The synthetic data configuration for this ML input channel, including parameters for generating privacy-preserving synthetic data and evaluation scores for measuring the privacy of the generated data.
+   *
    * @public
    */
   syntheticDataConfiguration?: SyntheticDataConfiguration | undefined;
 
   /**
-   * <p>The payer configuration for the ML input channel.</p>
+   * The payer configuration for the ML input channel.
+   *
    * @public
    */
   payerConfiguration?: PayerConfiguration | undefined;
 
   /**
-   * <p>The time at which the ML input channel was created.</p>
+   * The time at which the ML input channel was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ML input channel was updated.</p>
+   * The most recent time at which the ML input channel was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The input channel that was used to create the ML input channel.</p>
+   * The input channel that was used to create the ML input channel.
+   *
    * @public
    */
   inputChannel: InputChannel | undefined;
 
   /**
-   * <p>The ID of the protected query that was used to create the ML input channel.</p>
+   * The ID of the protected query that was used to create the ML input channel.
+   *
    * @public
    */
   protectedQueryIdentifier?: string | undefined;
 
   /**
-   * <p>The number of files in the ML input channel.</p>
+   * The number of files in the ML input channel.
+   *
    * @public
    */
   numberOfFiles?: number | undefined;
 
   /**
-   * <p>The size, in GB, of the ML input channel.</p>
+   * The size, in GB, of the ML input channel.
+   *
    * @public
    */
   sizeInGb?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key that was used to create the ML input channel.</p>
+   * The Amazon Resource Name (ARN) of the KMS key that was used to create the ML input channel.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3721,91 +4360,106 @@ export interface GetMLInputChannelResponse {
  */
 export interface ListMLInputChannelsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of ML input channels to return.</p>
+   * The maximum number of ML input channels to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the ML input channels that you want to list.</p>
+   * The membership ID of the membership that contains the ML input channels that you want to list.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 }
 
 /**
- * <p>Provides summary information about the ML input channel.</p>
+ * Provides summary information about the ML input channel.
+ *
  * @public
  */
 export interface MLInputChannelSummary {
   /**
-   * <p>The time at which the ML input channel was created.</p>
+   * The time at which the ML input channel was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ML input channel was updated.</p>
+   * The most recent time at which the ML input channel was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the ML input channel.</p>
+   * The membership ID of the membership that contains the ML input channel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the ML input channel.</p>
+   * The collaboration ID of the collaboration that contains the ML input channel.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The name of the ML input channel.</p>
+   * The name of the ML input channel.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The associated configured model algorithms used to create the ML input channel.</p>
+   * The associated configured model algorithms used to create the ML input channel.
+   *
    * @public
    */
   configuredModelAlgorithmAssociations: string[] | undefined;
 
   /**
-   * <p>The ID of the protected query that was used to create the ML input channel.</p>
+   * The ID of the protected query that was used to create the ML input channel.
+   *
    * @public
    */
   protectedQueryIdentifier?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The status of the ML input channel.</p>
+   * The status of the ML input channel.
+   *
    * @public
    */
   status: MLInputChannelStatus | undefined;
 
   /**
-   * <p>The description of the ML input channel.</p>
+   * The description of the ML input channel.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The payer configuration for the ML input channel.</p>
+   * The payer configuration for the ML input channel.
+   *
    * @public
    */
   payerConfiguration?: PayerConfiguration | undefined;
@@ -3816,13 +4470,15 @@ export interface MLInputChannelSummary {
  */
 export interface ListMLInputChannelsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of ML input channels that you wanted.</p>
+   * The list of ML input channels that you wanted.
+   *
    * @public
    */
   mlInputChannelsList: MLInputChannelSummary[] | undefined;
@@ -3833,13 +4489,25 @@ export interface ListMLInputChannelsResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to assign tags.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to assign tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -3855,103 +4523,125 @@ export interface TagResourceResponse {}
  */
 export interface CancelTrainedModelRequest {
   /**
-   * <p>The membership ID of the trained model job that you want to cancel.</p>
+   * The membership ID of the trained model job that you want to cancel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model job that you want to cancel.</p>
+   * The Amazon Resource Name (ARN) of the trained model job that you want to cancel.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to cancel. This parameter allows you to specify which version of the trained model you want to cancel when multiple versions exist.</p> <p>If <code>versionIdentifier</code> is not specified, the base model will be cancelled.</p>
+   * The version identifier of the trained model to cancel. This parameter allows you to specify which version of the trained model you want to cancel when multiple versions exist.
+   *
+   * If `versionIdentifier` is not specified, the base model will be cancelled.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 }
 
 /**
- * <p>Information about the model training data channel. A training data channel is a named data source that the training algorithms can consume. </p>
+ * Information about the model training data channel. A training data channel is a named data source that the training algorithms can consume.
+ *
  * @public
  */
 export interface ModelTrainingDataChannel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel for this model training data channel.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel for this model training data channel.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 
   /**
-   * <p>The name of the training data channel.</p>
+   * The name of the training data channel.
+   *
    * @public
    */
   channelName: string | undefined;
 
   /**
-   * <p>Specifies how the training data stored in Amazon S3 should be distributed to training instances. This parameter controls the data distribution strategy for the training job:</p> <ul> <li> <p> <code>FullyReplicated</code> - The entire dataset is replicated on each training instance. This is suitable for smaller datasets and algorithms that require access to the complete dataset.</p> </li> <li> <p> <code>ShardedByS3Key</code> - The dataset is distributed across training instances based on Amazon S3 key names. This is suitable for larger datasets and distributed training scenarios where each instance processes a subset of the data.</p> </li> </ul>
+   * Specifies how the training data stored in Amazon S3 should be distributed to training instances. This parameter controls the data distribution strategy for the training job:
+   *
+   * - `FullyReplicated` - The entire dataset is replicated on each training instance. This is suitable for smaller datasets and algorithms that require access to the complete dataset.
+   * - `ShardedByS3Key` - The dataset is distributed across training instances based on Amazon S3 key names. This is suitable for larger datasets and distributed training scenarios where each instance processes a subset of the data.
+   *
    * @public
    */
   s3DataDistributionType?: S3DataDistributionType | undefined;
 }
 
 /**
- * <p>Defines an incremental training data channel that references a previously trained model. Incremental training allows you to update an existing trained model with new data, building upon the knowledge from a base model rather than training from scratch. This can significantly reduce training time and computational costs while improving model performance with additional data.</p>
+ * Defines an incremental training data channel that references a previously trained model. Incremental training allows you to update an existing trained model with new data, building upon the knowledge from a base model rather than training from scratch. This can significantly reduce training time and computational costs while improving model performance with additional data.
+ *
  * @public
  */
 export interface IncrementalTrainingDataChannel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the base trained model to use for incremental training. This model serves as the starting point for the incremental training process.</p>
+   * The Amazon Resource Name (ARN) of the base trained model to use for incremental training. This model serves as the starting point for the incremental training process.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the base trained model to use for incremental training. If not specified, the latest version of the trained model is used.</p>
+   * The version identifier of the base trained model to use for incremental training. If not specified, the latest version of the trained model is used.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 
   /**
-   * <p>The name of the incremental training data channel. This name is used to identify the channel during the training process and must be unique within the training job.</p>
+   * The name of the incremental training data channel. This name is used to identify the channel during the training process and must be unique within the training job.
+   *
    * @public
    */
   channelName: string | undefined;
 }
 
 /**
- * <p>Information about the EC2 resources that are used to train the model.</p>
+ * Information about the EC2 resources that are used to train the model.
+ *
  * @public
  */
 export interface ResourceConfig {
   /**
-   * <p>The number of resources that are used to train the model.</p>
+   * The number of resources that are used to train the model.
+   *
    * @public
    */
   instanceCount?: number | undefined;
 
   /**
-   * <p>The instance type that is used to train the model.</p>
+   * The instance type that is used to train the model.
+   *
    * @public
    */
   instanceType: _InstanceType | undefined;
 
   /**
-   * <p>The volume size of the instance that is used to train the model. Please see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html">EC2 volume limit</a> for volume size limitations on different instance types.</p>
+   * The volume size of the instance that is used to train the model. Please see [EC2 volume limit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-volumes.html) for volume size limitations on different instance types.
+   *
    * @public
    */
   volumeSizeInGB: number | undefined;
 }
 
 /**
- * <p>The criteria used to stop model training.</p>
+ * The criteria used to stop model training.
+ *
  * @public
  */
 export interface StoppingCondition {
   /**
-   * <p>The maximum amount of time, in seconds, that model training can run before it is terminated.</p>
+   * The maximum amount of time, in seconds, that model training can run before it is terminated.
+   *
    * @public
    */
   maxRuntimeInSeconds?: number | undefined;
@@ -3962,85 +4652,119 @@ export interface StoppingCondition {
  */
 export interface CreateTrainedModelRequest {
   /**
-   * <p>The membership ID of the member that is creating the trained model.</p>
+   * The membership ID of the member that is creating the trained model.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The name of the trained model.</p>
+   * The name of the trained model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The associated configured model algorithm used to train this model.</p>
+   * The associated configured model algorithm used to train this model.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process.</p>
+   * Algorithm-specific parameters that influence the quality of the model. You set hyperparameters before you start the learning process.
+   *
    * @public
    */
   hyperparameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment variables to set in the Docker container.</p>
+   * The environment variables to set in the Docker container.
+   *
    * @public
    */
   environment?: Record<string, string> | undefined;
 
   /**
-   * <p>Information about the EC2 resources that are used to train this model.</p>
+   * Information about the EC2 resources that are used to train this model.
+   *
    * @public
    */
   resourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>The criteria that is used to stop model training.</p>
+   * The criteria that is used to stop model training.
+   *
    * @public
    */
   stoppingCondition?: StoppingCondition | undefined;
 
   /**
-   * <p>Specifies the incremental training data channels for the trained model. </p> <p>Incremental training allows you to create a new trained model with updates without retraining from scratch. You can specify up to one incremental training data channel that references a previously trained model and its version.</p> <p>Limit: Maximum of 20 channels total (including both <code>incrementalTrainingDataChannels</code> and <code>dataChannels</code>).</p>
+   * Specifies the incremental training data channels for the trained model.
+   *
+   * Incremental training allows you to create a new trained model with updates without retraining from scratch. You can specify up to one incremental training data channel that references a previously trained model and its version.
+   *
+   * Limit: Maximum of 20 channels total (including both `incrementalTrainingDataChannels` and `dataChannels`).
+   *
    * @public
    */
   incrementalTrainingDataChannels?: IncrementalTrainingDataChannel[] | undefined;
 
   /**
-   * <p>Defines the data channels that are used as input for the trained model request.</p> <p>Limit: Maximum of 20 channels total (including both <code>dataChannels</code> and <code>incrementalTrainingDataChannels</code>).</p>
+   * Defines the data channels that are used as input for the trained model request.
+   *
+   * Limit: Maximum of 20 channels total (including both `dataChannels` and `incrementalTrainingDataChannels`).
+   *
    * @public
    */
   dataChannels: ModelTrainingDataChannel[] | undefined;
 
   /**
-   * <p>The input mode for accessing the training data. This parameter determines how the training data is made available to the training algorithm. Valid values are:</p> <ul> <li> <p> <code>File</code> - The training data is downloaded to the training instance and made available as files.</p> </li> <li> <p> <code>FastFile</code> - The training data is streamed directly from Amazon S3 to the training algorithm, providing faster access for large datasets.</p> </li> <li> <p> <code>Pipe</code> - The training data is streamed to the training algorithm using named pipes, which can improve performance for certain algorithms.</p> </li> </ul>
+   * The input mode for accessing the training data. This parameter determines how the training data is made available to the training algorithm. Valid values are:
+   *
+   * - `File` - The training data is downloaded to the training instance and made available as files.
+   * - `FastFile` - The training data is streamed directly from Amazon S3 to the training algorithm, providing faster access for large datasets.
+   * - `Pipe` - The training data is streamed to the training algorithm using named pipes, which can improve performance for certain algorithms.
+   *
    * @public
    */
   trainingInputMode?: TrainingInputMode | undefined;
 
   /**
-   * <p>The description of the trained model.</p>
+   * The description of the trained model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and the associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * The account ID of the member that is responsible for paying for model training costs.
+   *
    * @public
    */
   mlModelTrainingPayerAccountId?: string | undefined;
@@ -4051,13 +4775,17 @@ export interface CreateTrainedModelRequest {
  */
 export interface CreateTrainedModelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model.</p>
+   * The Amazon Resource Name (ARN) of the trained model.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The unique version identifier assigned to the newly created trained model. This identifier can be used to reference this specific version of the trained model in subsequent operations such as inference jobs or incremental training.</p> <p>The initial version identifier for the base version of the trained model is "NULL".</p>
+   * The unique version identifier assigned to the newly created trained model. This identifier can be used to reference this specific version of the trained model in subsequent operations such as inference jobs or incremental training.
+   *
+   * The initial version identifier for the base version of the trained model is "NULL".
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
@@ -4068,19 +4796,22 @@ export interface CreateTrainedModelResponse {
  */
 export interface DeleteTrainedModelOutputRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model whose output you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the trained model whose output you want to delete.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The membership ID of the member that is deleting the trained model output.</p>
+   * The membership ID of the member that is deleting the trained model output.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to delete. If not specified, the operation will delete the base version of the trained model. When specified, only the particular version will be deleted.</p>
+   * The version identifier of the trained model to delete. If not specified, the operation will delete the base version of the trained model. When specified, only the particular version will be deleted.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
@@ -4091,19 +4822,22 @@ export interface DeleteTrainedModelOutputRequest {
  */
 export interface GetCollaborationTrainedModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that you want to return information about.</p>
+   * The Amazon Resource Name (ARN) of the trained model that you want to return information about.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The collaboration ID that contains the trained model that you want to return information about.</p>
+   * The collaboration ID that contains the trained model that you want to return information about.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model.</p>
+   * The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
@@ -4114,133 +4848,155 @@ export interface GetCollaborationTrainedModelRequest {
  */
 export interface GetCollaborationTrainedModelResponse {
   /**
-   * <p>The membership ID of the member that created the trained model.</p>
+   * The membership ID of the member that created the trained model.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model.</p>
+   * The collaboration ID of the collaboration that contains the trained model.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model.</p>
+   * The Amazon Resource Name (ARN) of the trained model.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model. This unique identifier distinguishes this version from other versions of the same trained model.</p>
+   * The version identifier of the trained model. This unique identifier distinguishes this version from other versions of the same trained model.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 
   /**
-   * <p>Information about the incremental training data channels used to create this version of the trained model. This includes details about the base model that was used for incremental training and the channel configuration.</p>
+   * Information about the incremental training data channels used to create this version of the trained model. This includes details about the base model that was used for incremental training and the channel configuration.
+   *
    * @public
    */
   incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
-   * <p>The name of the trained model.</p>
+   * The name of the trained model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the trained model.</p>
+   * The description of the trained model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the trained model.</p>
+   * The status of the trained model.
+   *
    * @public
    */
   status: TrainedModelStatus | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create this trained model.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create this trained model.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The EC2 resource configuration that was used to train this model.</p>
+   * The EC2 resource configuration that was used to train this model.
+   *
    * @public
    */
   resourceConfig?: ResourceConfig | undefined;
 
   /**
-   * <p>The input mode that was used for accessing the training data when this trained model was created. This indicates how the training data was made available to the training algorithm.</p>
+   * The input mode that was used for accessing the training data when this trained model was created. This indicates how the training data was made available to the training algorithm.
+   *
    * @public
    */
   trainingInputMode?: TrainingInputMode | undefined;
 
   /**
-   * <p>The stopping condition that determined when model training ended.</p>
+   * The stopping condition that determined when model training ended.
+   *
    * @public
    */
   stoppingCondition?: StoppingCondition | undefined;
 
   /**
-   * <p>The status of the model metrics.</p>
+   * The status of the model metrics.
+   *
    * @public
    */
   metricsStatus?: MetricsStatus | undefined;
 
   /**
-   * <p>Details about the status information for the model metrics.</p>
+   * Details about the status information for the model metrics.
+   *
    * @public
    */
   metricsStatusDetails?: string | undefined;
 
   /**
-   * <p>Status information for the logs.</p>
+   * Status information for the logs.
+   *
    * @public
    */
   logsStatus?: LogsStatus | undefined;
 
   /**
-   * <p>Details about the status information for the logs.</p>
+   * Details about the status information for the logs.
+   *
    * @public
    */
   logsStatusDetails?: string | undefined;
 
   /**
-   * <p>Information about the training container image.</p>
+   * Information about the training container image.
+   *
    * @public
    */
   trainingContainerImageDigest?: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * The account ID of the member that is responsible for paying for model training costs.
+   *
    * @public
    */
   mlModelTrainingPayerAccountId?: string | undefined;
 
   /**
-   * <p>The time at which the trained model was created.</p>
+   * The time at which the trained model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model was updated.</p>
+   * The most recent time at which the trained model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The account ID of the member that created the trained model.</p>
+   * The account ID of the member that created the trained model.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
@@ -4251,19 +5007,22 @@ export interface GetCollaborationTrainedModelResponse {
  */
 export interface GetTrainedModelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the trained model that you are interested in.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the trained model that you are interested in.</p>
+   * The membership ID of the member that created the trained model that you are interested in.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model.</p>
+   * The version identifier of the trained model to retrieve. If not specified, the operation returns information about the latest version of the trained model.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
@@ -4274,157 +5033,193 @@ export interface GetTrainedModelRequest {
  */
 export interface GetTrainedModelResponse {
   /**
-   * <p>The membership ID of the member that created the trained model.</p>
+   * The membership ID of the member that created the trained model.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model.</p>
+   * The collaboration ID of the collaboration that contains the trained model.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model.</p>
+   * The Amazon Resource Name (ARN) of the trained model.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model. This unique identifier distinguishes this version from other versions of the same trained model.</p>
+   * The version identifier of the trained model. This unique identifier distinguishes this version from other versions of the same trained model.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 
   /**
-   * <p>Information about the incremental training data channels used to create this version of the trained model. This includes details about the base model that was used for incremental training and the channel configuration.</p>
+   * Information about the incremental training data channels used to create this version of the trained model. This includes details about the base model that was used for incremental training and the channel configuration.
+   *
    * @public
    */
   incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
-   * <p>The name of the trained model.</p>
+   * The name of the trained model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the trained model.</p>
+   * The description of the trained model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The status of the trained model.</p>
+   * The status of the trained model.
+   *
    * @public
    */
   status: TrainedModelStatus | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create the trained model.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create the trained model.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The EC2 resource configuration that was used to create the trained model.</p>
+   * The EC2 resource configuration that was used to create the trained model.
+   *
    * @public
    */
   resourceConfig?: ResourceConfig | undefined;
 
   /**
-   * <p>The input mode that was used for accessing the training data when this trained model was created. This indicates how the training data was made available to the training algorithm.</p>
+   * The input mode that was used for accessing the training data when this trained model was created. This indicates how the training data was made available to the training algorithm.
+   *
    * @public
    */
   trainingInputMode?: TrainingInputMode | undefined;
 
   /**
-   * <p>The stopping condition that was used to terminate model training.</p>
+   * The stopping condition that was used to terminate model training.
+   *
    * @public
    */
   stoppingCondition?: StoppingCondition | undefined;
 
   /**
-   * <p>The status of the model metrics.</p>
+   * The status of the model metrics.
+   *
    * @public
    */
   metricsStatus?: MetricsStatus | undefined;
 
   /**
-   * <p>Details about the metrics status for the trained model.</p>
+   * Details about the metrics status for the trained model.
+   *
    * @public
    */
   metricsStatusDetails?: string | undefined;
 
   /**
-   * <p>The logs status for the trained model.</p>
+   * The logs status for the trained model.
+   *
    * @public
    */
   logsStatus?: LogsStatus | undefined;
 
   /**
-   * <p>Details about the logs status for the trained model.</p>
+   * Details about the logs status for the trained model.
+   *
    * @public
    */
   logsStatusDetails?: string | undefined;
 
   /**
-   * <p>Information about the training image container.</p>
+   * Information about the training image container.
+   *
    * @public
    */
   trainingContainerImageDigest?: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * The account ID of the member that is responsible for paying for model training costs.
+   *
    * @public
    */
   mlModelTrainingPayerAccountId?: string | undefined;
 
   /**
-   * <p>The time at which the trained model was created.</p>
+   * The time at which the trained model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model was updated.</p>
+   * The most recent time at which the trained model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The hyperparameters that were used to create the trained model.</p>
+   * The hyperparameters that were used to create the trained model.
+   *
    * @public
    */
   hyperparameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The EC2 environment that was used to create the trained model.</p>
+   * The EC2 environment that was used to create the trained model.
+   *
    * @public
    */
   environment?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the trained ML model and associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The data channels that were used for the trained model.</p>
+   * The data channels that were used for the trained model.
+   *
    * @public
    */
   dataChannels: ModelTrainingDataChannel[] | undefined;
@@ -4435,97 +5230,113 @@ export interface GetTrainedModelResponse {
  */
 export interface ListTrainedModelsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The membership ID of the member that created the trained models you are interested in.</p>
+   * The membership ID of the member that created the trained models you are interested in.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 }
 
 /**
- * <p>Summary information about the trained model.</p>
+ * Summary information about the trained model.
+ *
  * @public
  */
 export interface TrainedModelSummary {
   /**
-   * <p>The time at which the trained model was created.</p>
+   * The time at which the trained model was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model was updated.</p>
+   * The most recent time at which the trained model was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model.</p>
+   * The Amazon Resource Name (ARN) of the trained model.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of this trained model version.</p>
+   * The version identifier of this trained model version.
+   *
    * @public
    */
   versionIdentifier?: string | undefined;
 
   /**
-   * <p>Information about the incremental training data channels used to create this version of the trained model.</p>
+   * Information about the incremental training data channels used to create this version of the trained model.
+   *
    * @public
    */
   incrementalTrainingDataChannels?: IncrementalTrainingDataChannelOutput[] | undefined;
 
   /**
-   * <p>The name of the trained model.</p>
+   * The name of the trained model.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the trained model.</p>
+   * The description of the trained model.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The membership ID of the member that created the trained model.</p>
+   * The membership ID of the member that created the trained model.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model.</p>
+   * The collaboration ID of the collaboration that contains the trained model.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The status of the trained model.</p>
+   * The status of the trained model.
+   *
    * @public
    */
   status: TrainedModelStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create this trained model.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that was used to create this trained model.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model training costs.</p>
+   * The account ID of the member that is responsible for paying for model training costs.
+   *
    * @public
    */
   mlModelTrainingPayerAccountId?: string | undefined;
@@ -4536,13 +5347,15 @@ export interface TrainedModelSummary {
  */
 export interface ListTrainedModelsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of trained models.</p>
+   * The list of trained models.
+   *
    * @public
    */
   trainedModels: TrainedModelSummary[] | undefined;
@@ -4553,31 +5366,36 @@ export interface ListTrainedModelsResponse {
  */
 export interface ListTrainedModelVersionsRequest {
   /**
-   * <p>The pagination token from a previous <code>ListTrainedModelVersions</code> request. Use this token to retrieve the next page of results.</p>
+   * The pagination token from a previous `ListTrainedModelVersions` request. Use this token to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of trained model versions to return in a single page. The default value is 10, and the maximum value is 100.</p>
+   * The maximum number of trained model versions to return in a single page. The default value is 10, and the maximum value is 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The membership identifier for the collaboration that contains the trained model.</p>
+   * The membership identifier for the collaboration that contains the trained model.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model for which to list versions.</p>
+   * The Amazon Resource Name (ARN) of the trained model for which to list versions.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>Filter the results to only include trained model versions with the specified status. Valid values include <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>, <code>ACTIVE</code>, <code>CREATE_FAILED</code>, and others.</p>
+   * Filter the results to only include trained model versions with the specified status. Valid values include `CREATE_PENDING`, `CREATE_IN_PROGRESS`, `ACTIVE`, `CREATE_FAILED`, and others.
+   *
    * @public
    */
   status?: TrainedModelStatus | undefined;
@@ -4588,13 +5406,15 @@ export interface ListTrainedModelVersionsRequest {
  */
 export interface ListTrainedModelVersionsResponse {
   /**
-   * <p>The pagination token to use in a subsequent <code>ListTrainedModelVersions</code> request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The pagination token to use in a subsequent `ListTrainedModelVersions` request to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of trained model versions that match the specified criteria. Each entry contains summary information about a trained model version, including its version identifier, status, and creation details.</p>
+   * A list of trained model versions that match the specified criteria. Each entry contains summary information about a trained model version, including its version identifier, status, and creation details.
+   *
    * @public
    */
   trainedModels: TrainedModelSummary[] | undefined;
@@ -4605,37 +5425,43 @@ export interface ListTrainedModelVersionsResponse {
  */
 export interface StartTrainedModelExportJobRequest {
   /**
-   * <p>The name of the trained model export job.</p>
+   * The name of the trained model export job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that you want to export.</p>
+   * The Amazon Resource Name (ARN) of the trained model that you want to export.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to export. This specifies which version of the trained model should be exported to the specified destination.</p>
+   * The version identifier of the trained model to export. This specifies which version of the trained model should be exported to the specified destination.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 
   /**
-   * <p>The membership ID of the member that is receiving the exported trained model artifacts.</p>
+   * The membership ID of the member that is receiving the exported trained model artifacts.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The output configuration information for the trained model export job.</p>
+   * The output configuration information for the trained model export job.
+   *
    * @public
    */
   outputConfiguration: TrainedModelExportOutputConfiguration | undefined;
 
   /**
-   * <p>The description of the trained model export job.</p>
+   * The description of the trained model export job.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4646,13 +5472,15 @@ export interface StartTrainedModelExportJobRequest {
  */
 export interface CancelTrainedModelInferenceJobRequest {
   /**
-   * <p>The membership ID of the trained model inference job that you want to cancel.</p>
+   * The membership ID of the trained model inference job that you want to cancel.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model inference job that you want to cancel.</p>
+   * The Amazon Resource Name (ARN) of the trained model inference job that you want to cancel.
+   *
    * @public
    */
   trainedModelInferenceJobArn: string | undefined;
@@ -4663,55 +5491,64 @@ export interface CancelTrainedModelInferenceJobRequest {
  */
 export interface GetTrainedModelInferenceJobRequest {
   /**
-   * <p>Provides the membership ID of the membership that contains the trained model inference job that you are interested in.</p>
+   * Provides the membership ID of the membership that contains the trained model inference job that you are interested in.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>Provides the Amazon Resource Name (ARN) of the trained model inference job that you are interested in.</p>
+   * Provides the Amazon Resource Name (ARN) of the trained model inference job that you are interested in.
+   *
    * @public
    */
   trainedModelInferenceJobArn: string | undefined;
 }
 
 /**
- * <p>Provides execution parameters for the inference container.</p>
+ * Provides execution parameters for the inference container.
+ *
  * @public
  */
 export interface InferenceContainerExecutionParameters {
   /**
-   * <p>The maximum size of the inference container payload, specified in MB. </p>
+   * The maximum size of the inference container payload, specified in MB.
+   *
    * @public
    */
   maxPayloadInMB?: number | undefined;
 }
 
 /**
- * <p>Defines information about the data source used for model inference.</p>
+ * Defines information about the data source used for model inference.
+ *
  * @public
  */
 export interface ModelInferenceDataSource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ML input channel for this model inference data source.</p>
+   * The Amazon Resource Name (ARN) of the ML input channel for this model inference data source.
+   *
    * @public
    */
   mlInputChannelArn: string | undefined;
 }
 
 /**
- * <p>Defines the resources used to perform model inference.</p>
+ * Defines the resources used to perform model inference.
+ *
  * @public
  */
 export interface InferenceResourceConfig {
   /**
-   * <p>The type of instance that is used to perform model inference.</p>
+   * The type of instance that is used to perform model inference.
+   *
    * @public
    */
   instanceType: InferenceInstanceType | undefined;
 
   /**
-   * <p>The number of instances to use.</p>
+   * The number of instances to use.
+   *
    * @public
    */
   instanceCount?: number | undefined;
@@ -4722,145 +5559,179 @@ export interface InferenceResourceConfig {
  */
 export interface GetTrainedModelInferenceJobResponse {
   /**
-   * <p>The time at which the trained model inference job was created.</p>
+   * The time at which the trained model inference job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model inference job was updated.</p>
+   * The most recent time at which the trained model inference job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model inference job.
+   *
    * @public
    */
   trainedModelInferenceJobArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that was used for the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that was used for the trained model inference job.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
-   * <p>The name of the trained model inference job.</p>
+   * The name of the trained model inference job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The status of the trained model inference job.</p>
+   * The status of the trained model inference job.
+   *
    * @public
    */
   status: TrainedModelInferenceJobStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the trained model that was used for the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) for the trained model that was used for the trained model inference job.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model used for this inference job. This identifies the specific version of the trained model that was used to generate the inference results.</p>
+   * The version identifier of the trained model used for this inference job. This identifies the specific version of the trained model that was used to generate the inference results.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 
   /**
-   * <p>The resource configuration information for the trained model inference job.</p>
+   * The resource configuration information for the trained model inference job.
+   *
    * @public
    */
   resourceConfig: InferenceResourceConfig | undefined;
 
   /**
-   * <p>The output configuration information for the trained model inference job.</p>
+   * The output configuration information for the trained model inference job.
+   *
    * @public
    */
   outputConfiguration: InferenceOutputConfiguration | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the trained model inference job.</p>
+   * The membership ID of the membership that contains the trained model inference job.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The data source that was used for the trained model inference job.</p>
+   * The data source that was used for the trained model inference job.
+   *
    * @public
    */
   dataSource: ModelInferenceDataSource | undefined;
 
   /**
-   * <p>The execution parameters for the model inference job container.</p>
+   * The execution parameters for the model inference job container.
+   *
    * @public
    */
   containerExecutionParameters?: InferenceContainerExecutionParameters | undefined;
 
   /**
-   * <p>Details about the status of a resource.</p>
+   * Details about the status of a resource.
+   *
    * @public
    */
   statusDetails?: StatusDetails | undefined;
 
   /**
-   * <p>The description of the trained model inference job.</p>
+   * The description of the trained model inference job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Information about the training container image.</p>
+   * Information about the training container image.
+   *
    * @public
    */
   inferenceContainerImageDigest?: string | undefined;
 
   /**
-   * <p>The environment variables to set in the Docker container.</p>
+   * The environment variables to set in the Docker container.
+   *
    * @public
    */
   environment?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the ML inference job and associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the ML inference job and associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The metrics status for the trained model inference job.</p>
+   * The metrics status for the trained model inference job.
+   *
    * @public
    */
   metricsStatus?: MetricsStatus | undefined;
 
   /**
-   * <p>Details about the metrics status for the trained model inference job.</p>
+   * Details about the metrics status for the trained model inference job.
+   *
    * @public
    */
   metricsStatusDetails?: string | undefined;
 
   /**
-   * <p>The logs status for the trained model inference job.</p>
+   * The logs status for the trained model inference job.
+   *
    * @public
    */
   logsStatus?: LogsStatus | undefined;
 
   /**
-   * <p>Details about the logs status for the trained model inference job.</p>
+   * Details about the logs status for the trained model inference job.
+   *
    * @public
    */
   logsStatusDetails?: string | undefined;
 
   /**
-   * <p>The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you applied to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * The account ID of the member that is responsible for paying for model inference costs.
+   *
    * @public
    */
   mlModelInferencePayerAccountId?: string | undefined;
@@ -4871,139 +5742,162 @@ export interface GetTrainedModelInferenceJobResponse {
  */
 export interface ListTrainedModelInferenceJobsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The membership </p>
+   * The membership
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a trained model that was used to create the trained model inference jobs that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of a trained model that was used to create the trained model inference jobs that you are interested in.
+   *
    * @public
    */
   trainedModelArn?: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.</p>
+   * The version identifier of the trained model to filter inference jobs by. When specified, only inference jobs that used this specific version of the trained model are returned.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 }
 
 /**
- * <p>Provides information about the trained model inference job.</p>
+ * Provides information about the trained model inference job.
+ *
  * @public
  */
 export interface TrainedModelInferenceJobSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model inference job.
+   *
    * @public
    */
   trainedModelInferenceJobArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that is used for the trained model inference job.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
-   * <p>The membership ID of the membership that contains the trained model inference job.</p>
+   * The membership ID of the membership that contains the trained model inference job.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that is used for the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model that is used for the trained model inference job.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model that was used for inference in this job.</p>
+   * The version identifier of the trained model that was used for inference in this job.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 
   /**
-   * <p>The collaboration ID of the collaboration that contains the trained model inference job.</p>
+   * The collaboration ID of the collaboration that contains the trained model inference job.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The status of the trained model inference job.</p>
+   * The status of the trained model inference job.
+   *
    * @public
    */
   status: TrainedModelInferenceJobStatus | undefined;
 
   /**
-   * <p>The output configuration information of the trained model job.</p>
+   * The output configuration information of the trained model job.
+   *
    * @public
    */
   outputConfiguration: InferenceOutputConfiguration | undefined;
 
   /**
-   * <p>The name of the trained model inference job.</p>
+   * The name of the trained model inference job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the trained model inference job.</p>
+   * The description of the trained model inference job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The metric status of the trained model inference job.</p>
+   * The metric status of the trained model inference job.
+   *
    * @public
    */
   metricsStatus?: MetricsStatus | undefined;
 
   /**
-   * <p>Details about the metrics status for the trained model inference job.</p>
+   * Details about the metrics status for the trained model inference job.
+   *
    * @public
    */
   metricsStatusDetails?: string | undefined;
 
   /**
-   * <p>The log status of the trained model inference job.</p>
+   * The log status of the trained model inference job.
+   *
    * @public
    */
   logsStatus?: LogsStatus | undefined;
 
   /**
-   * <p>Details about the log status for the trained model inference job.</p>
+   * Details about the log status for the trained model inference job.
+   *
    * @public
    */
   logsStatusDetails?: string | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * The account ID of the member that is responsible for paying for model inference costs.
+   *
    * @public
    */
   mlModelInferencePayerAccountId?: string | undefined;
 
   /**
-   * <p>The time at which the trained model inference job was created.</p>
+   * The time at which the trained model inference job was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the trained model inference job was updated.</p>
+   * The most recent time at which the trained model inference job was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -5014,13 +5908,15 @@ export interface TrainedModelInferenceJobSummary {
  */
 export interface ListTrainedModelInferenceJobsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Returns the requested trained model inference jobs.</p>
+   * Returns the requested trained model inference jobs.
+   *
    * @public
    */
   trainedModelInferenceJobs: TrainedModelInferenceJobSummary[] | undefined;
@@ -5031,85 +5927,109 @@ export interface ListTrainedModelInferenceJobsResponse {
  */
 export interface StartTrainedModelInferenceJobRequest {
   /**
-   * <p>The membership ID of the membership that contains the trained model inference job.</p>
+   * The membership ID of the membership that contains the trained model inference job.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The name of the trained model inference job.</p>
+   * The name of the trained model inference job.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model that is used for this trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model that is used for this trained model inference job.
+   *
    * @public
    */
   trainedModelArn: string | undefined;
 
   /**
-   * <p>The version identifier of the trained model to use for inference. This specifies which version of the trained model should be used to generate predictions on the input data.</p>
+   * The version identifier of the trained model to use for inference. This specifies which version of the trained model should be used to generate predictions on the input data.
+   *
    * @public
    */
   trainedModelVersionIdentifier?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the configured model algorithm association that is used for this trained model inference job.
+   *
    * @public
    */
   configuredModelAlgorithmAssociationArn?: string | undefined;
 
   /**
-   * <p>Defines the resource configuration for the trained model inference job.</p>
+   * Defines the resource configuration for the trained model inference job.
+   *
    * @public
    */
   resourceConfig: InferenceResourceConfig | undefined;
 
   /**
-   * <p>Defines the output configuration information for the trained model inference job.</p>
+   * Defines the output configuration information for the trained model inference job.
+   *
    * @public
    */
   outputConfiguration: InferenceOutputConfiguration | undefined;
 
   /**
-   * <p>Defines the data source that is used for the trained model inference job.</p>
+   * Defines the data source that is used for the trained model inference job.
+   *
    * @public
    */
   dataSource: ModelInferenceDataSource | undefined;
 
   /**
-   * <p>The description of the trained model inference job.</p>
+   * The description of the trained model inference job.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The execution parameters for the container.</p>
+   * The execution parameters for the container.
+   *
    * @public
    */
   containerExecutionParameters?: InferenceContainerExecutionParameters | undefined;
 
   /**
-   * <p>The environment variables to set in the Docker container.</p>
+   * The environment variables to set in the Docker container.
+   *
    * @public
    */
   environment?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the ML inference job and associated data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key. This key is used to encrypt and decrypt customer-owned data in the ML inference job and associated data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The account ID of the member that is responsible for paying for model inference costs.</p>
+   * The account ID of the member that is responsible for paying for model inference costs.
+   *
    * @public
    */
   mlModelInferencePayerAccountId?: string | undefined;
@@ -5120,97 +6040,113 @@ export interface StartTrainedModelInferenceJobRequest {
  */
 export interface StartTrainedModelInferenceJobResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the trained model inference job.</p>
+   * The Amazon Resource Name (ARN) of the trained model inference job.
+   *
    * @public
    */
   trainedModelInferenceJobArn: string | undefined;
 }
 
 /**
- * <p>Defines the Glue data source that contains the training data.</p>
+ * Defines the Glue data source that contains the training data.
+ *
  * @public
  */
 export interface GlueDataSource {
   /**
-   * <p>The Glue table that contains the training data.</p>
+   * The Glue table that contains the training data.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The Glue database that contains the training data.</p>
+   * The Glue database that contains the training data.
+   *
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p>The Glue catalog that contains the training data.</p>
+   * The Glue catalog that contains the training data.
+   *
    * @public
    */
   catalogId?: string | undefined;
 }
 
 /**
- * <p>Defines information about the Glue data source that contains the training data.</p>
+ * Defines information about the Glue data source that contains the training data.
+ *
  * @public
  */
 export interface DataSource {
   /**
-   * <p>A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.</p>
+   * A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
+   *
    * @public
    */
   glueDataSource: GlueDataSource | undefined;
 }
 
 /**
- * <p>Metadata for a column.</p>
+ * Metadata for a column.
+ *
  * @public
  */
 export interface ColumnSchema {
   /**
-   * <p>The name of a column.</p>
+   * The name of a column.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The data type of column.</p>
+   * The data type of column.
+   *
    * @public
    */
   columnTypes: ColumnType[] | undefined;
 }
 
 /**
- * <p>Defines the Glue data source and schema mapping information.</p>
+ * Defines the Glue data source and schema mapping information.
+ *
  * @public
  */
 export interface DatasetInputConfig {
   /**
-   * <p>The schema information for the training data.</p>
+   * The schema information for the training data.
+   *
    * @public
    */
   schema: ColumnSchema[] | undefined;
 
   /**
-   * <p>A DataSource object that specifies the Glue data source for the training data.</p>
+   * A DataSource object that specifies the Glue data source for the training data.
+   *
    * @public
    */
   dataSource: DataSource | undefined;
 }
 
 /**
- * <p>Defines where the training dataset is located, what type of data it contains, and how to access the data.</p>
+ * Defines where the training dataset is located, what type of data it contains, and how to access the data.
+ *
  * @public
  */
 export interface Dataset {
   /**
-   * <p>What type of information is found in the dataset.</p>
+   * What type of information is found in the dataset.
+   *
    * @public
    */
   type: DatasetType | undefined;
 
   /**
-   * <p>A DatasetInputConfig object that defines the data source and schema mapping.</p>
+   * A DatasetInputConfig object that defines the data source and schema mapping.
+   *
    * @public
    */
   inputConfig: DatasetInputConfig | undefined;
@@ -5221,31 +6157,48 @@ export interface Dataset {
  */
 export interface CreateTrainingDatasetRequest {
   /**
-   * <p>The name of the training dataset. This name must be unique in your account and region.</p>
+   * The name of the training dataset. This name must be unique in your account and region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the <code>dataSource</code> field of each dataset.</p> <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an <code>AccessDeniedException</code> error.</p>
+   * The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
+   *
+   * Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.</p>
+   * An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
+   *
    * @public
    */
   trainingData: Dataset[] | undefined;
 
   /**
-   * <p>The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of tags per resource - 50.</p> </li> <li> <p>For each resource, each tag key must be unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key length - 128 Unicode characters in UTF-8.</p> </li> <li> <p>Maximum value length - 256 Unicode characters in UTF-8.</p> </li> <li> <p>If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are case sensitive.</p> </li> <li> <p>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.</p> </li> </ul>
+   * The optional metadata that you apply to the resource to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+   *
+   * The following basic restrictions apply to tags:
+   *
+   * - Maximum number of tags per resource - 50.
+   * - For each resource, each tag key must be unique, and each tag key can have only one value.
+   * - Maximum key length - 128 Unicode characters in UTF-8.
+   * - Maximum value length - 256 Unicode characters in UTF-8.
+   * - If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * - Tag keys and values are case sensitive.
+   * - Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix. Values can have this prefix. If a tag value has aws as its prefix but the key does not, then Clean Rooms ML considers it to be a user tag and will count against the limit of 50 tags. Tags with only the key prefix of aws do not count against your tags per resource limit.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The description of the training dataset.</p>
+   * The description of the training dataset.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5256,7 +6209,8 @@ export interface CreateTrainingDatasetRequest {
  */
 export interface CreateTrainingDatasetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset resource.</p>
+   * The Amazon Resource Name (ARN) of the training dataset resource.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
@@ -5267,7 +6221,8 @@ export interface CreateTrainingDatasetResponse {
  */
 export interface DeleteTrainingDatasetRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset that you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the training dataset that you want to delete.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
@@ -5278,7 +6233,8 @@ export interface DeleteTrainingDatasetRequest {
  */
 export interface GetTrainingDatasetRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset that you are interested in.</p>
+   * The Amazon Resource Name (ARN) of the training dataset that you are interested in.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
@@ -5289,55 +6245,64 @@ export interface GetTrainingDatasetRequest {
  */
 export interface GetTrainingDatasetResponse {
   /**
-   * <p>The time at which the training dataset was created.</p>
+   * The time at which the training dataset was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the training dataset was updated.</p>
+   * The most recent time at which the training dataset was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset.</p>
+   * The Amazon Resource Name (ARN) of the training dataset.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * <p>The name of the training dataset.</p>
+   * The name of the training dataset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Metadata about the requested training data. </p>
+   * Metadata about the requested training data.
+   *
    * @public
    */
   trainingData: Dataset[] | undefined;
 
   /**
-   * <p>The status of the training dataset.</p>
+   * The status of the training dataset.
+   *
    * @public
    */
   status: TrainingDatasetStatus | undefined;
 
   /**
-   * <p>The IAM role used to read the training data.</p>
+   * The IAM role used to read the training data.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The tags that are assigned to this training dataset.</p>
+   * The tags that are assigned to this training dataset.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The description of the training dataset.</p>
+   * The description of the training dataset.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5348,55 +6313,64 @@ export interface GetTrainingDatasetResponse {
  */
 export interface ListTrainingDatasetsRequest {
   /**
-   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   * The token value retrieved from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call.</p>
+   * The maximum size of the results that is returned per call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Provides information about the training dataset.</p>
+ * Provides information about the training dataset.
+ *
  * @public
  */
 export interface TrainingDatasetSummary {
   /**
-   * <p>The time at which the training dataset was created.</p>
+   * The time at which the training dataset was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the training dataset was updated.</p>
+   * The most recent time at which the training dataset was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the training dataset.</p>
+   * The Amazon Resource Name (ARN) of the training dataset.
+   *
    * @public
    */
   trainingDatasetArn: string | undefined;
 
   /**
-   * <p>The name of the training dataset.</p>
+   * The name of the training dataset.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The status of the training dataset.</p>
+   * The status of the training dataset.
+   *
    * @public
    */
   status: TrainingDatasetStatus | undefined;
 
   /**
-   * <p>The description of the training dataset.</p>
+   * The description of the training dataset.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5407,13 +6381,15 @@ export interface TrainingDatasetSummary {
  */
 export interface ListTrainingDatasetsResponse {
   /**
-   * <p>The token value used to access the next page of results.</p>
+   * The token value used to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The training datasets that match the request.</p>
+   * The training datasets that match the request.
+   *
    * @public
    */
   trainingDatasets: TrainingDatasetSummary[] | undefined;
@@ -5424,13 +6400,15 @@ export interface ListTrainingDatasetsResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to remove tags from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The key values of tags that you want to remove.</p>
+   * The key values of tags that you want to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

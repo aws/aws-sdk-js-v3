@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTDataPlaneServiceException as __BaseException } from "./IoTDataPlaneServiceException";
 
 /**
- * <p>The specified version does not match the version of the document.</p>
+ * The specified version does not match the version of the document.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -25,7 +26,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The caller isn't authorized to make the request.</p>
+ * The caller isn't authorized to make the request.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -46,7 +48,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error has occurred.</p>
+ * An unexpected error has occurred.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid.</p>
+ * The request is not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -88,7 +92,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The rate exceeds the limit.</p>
+ * The rate exceeds the limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -130,7 +136,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The specified combination of HTTP verb and URI is not supported.</p>
+ * The specified combination of HTTP verb and URI is not supported.
+ *
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -151,7 +158,8 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -172,7 +180,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>You are not authorized to perform this operation.</p>
+ * You are not authorized to perform this operation.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -193,7 +202,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The document encoding is not supported.</p>
+ * The document encoding is not supported.
+ *
  * @public
  */
 export class UnsupportedDocumentEncodingException extends __BaseException {
@@ -214,7 +224,8 @@ export class UnsupportedDocumentEncodingException extends __BaseException {
 }
 
 /**
- * <p>The delivery confirmation was not received from the client within the specified timeout period.</p>
+ * The delivery confirmation was not received from the client within the specified timeout period.
+ *
  * @public
  */
 export class GatewayTimeoutException extends __BaseException {
@@ -235,7 +246,8 @@ export class GatewayTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The payload exceeds the maximum size allowed.</p>
+ * The payload exceeds the maximum size allowed.
+ *
  * @public
  */
 export class RequestEntityTooLargeException extends __BaseException {

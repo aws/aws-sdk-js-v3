@@ -23,7 +23,8 @@ export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotSchedu
 export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a snapshot schedule.</p>
+ * Deletes a snapshot schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidClusterSnapshotScheduleStateFault} (client fault)
- *  <p>The cluster snapshot schedule state is not valid.</p>
+ *
+ * The cluster snapshot schedule state is not valid.
  *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
- *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * We could not find the specified snapshot schedule.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

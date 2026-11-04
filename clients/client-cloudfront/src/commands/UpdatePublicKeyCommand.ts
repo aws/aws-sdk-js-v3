@@ -23,7 +23,8 @@ export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
- * <p>Update public key information. Note that the only value you can change is the comment.</p>
+ * Update public key information. Note that the only value you can change is the comment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,29 +68,36 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link CannotChangeImmutablePublicKeyFields} (client fault)
- *  <p>You can't change the value of a public key.</p>
+ *
+ * You can't change the value of a public key.
  *
  * @throws {@link IllegalUpdate} (client fault)
- *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * The update contains modifications that are not allowed.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchPublicKey} (client fault)
- *  <p>The specified public key doesn't exist.</p>
+ *
+ * The specified public key doesn't exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

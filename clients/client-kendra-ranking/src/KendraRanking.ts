@@ -241,9 +241,8 @@ export interface KendraRanking {
 }
 
 /**
- * <p>Amazon Kendra Intelligent Ranking uses Amazon Kendra
- *             semantic search capabilities to intelligently re-rank a search
- *             service's results.</p>
+ * Amazon Kendra Intelligent Ranking uses Amazon Kendra semantic search capabilities to intelligently re-rank a search service's results.
+ *
  * @public
  */
 export class KendraRanking extends KendraRankingClient implements KendraRanking {}

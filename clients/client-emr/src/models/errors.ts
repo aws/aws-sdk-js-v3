@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EMRServiceException as __BaseException } from "./EMRServiceException";
 
 /**
- * <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -13,7 +13,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The message associated with the exception.</p>
+   * The message associated with the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -32,7 +33,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when there is something wrong with user input.</p>
+ * This exception occurs when there is something wrong with user input.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -40,13 +42,15 @@ export class InvalidRequestException extends __BaseException {
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The message associated with the exception.</p>
+   * The message associated with the exception.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -66,8 +70,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ * Indicates that an error occurred while processing the request and that the request was not completed.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {

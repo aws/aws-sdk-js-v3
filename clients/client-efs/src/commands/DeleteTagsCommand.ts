@@ -23,16 +23,11 @@ export interface DeleteTagsCommandInput extends DeleteTagsRequest {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags from EFS
- *         resources, use the  API action.</p>
- *          </note>
- *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
- *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
- *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag restrictions</a> in the
- *         <i>Billing and Cost Management User Guide</i>.</p>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
- *       action.</p>
+ * > **Note:** DEPRECATED - `DeleteTags` is deprecated and not maintained. To remove tags from EFS resources, use the API action.
+ *
+ * Deletes the specified tags from a file system. If the `DeleteTags` request includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an error. For more information about tags and related restrictions, see [Tag restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide*.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DeleteTags` action.
  *
  * @deprecated Use UntagResource.
  * @example
@@ -62,19 +57,20 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To delete tags for an EFS file system
  * ```javascript

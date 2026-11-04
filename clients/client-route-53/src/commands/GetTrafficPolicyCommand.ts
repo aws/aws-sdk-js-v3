@@ -23,9 +23,10 @@ export interface GetTrafficPolicyCommandInput extends GetTrafficPolicyRequest {}
 export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specific traffic policy version.</p>
- *          <p>For information about how of deleting a traffic policy affects the response from
- * 				<code>GetTrafficPolicy</code>, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>. </p>
+ * Gets information about a specific traffic policy version.
+ *
+ * For information about how of deleting a traffic policy affects the response from `GetTrafficPolicy`, see [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +61,16 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchTrafficPolicy} (client fault)
- *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * No traffic policy exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

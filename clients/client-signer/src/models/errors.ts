@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SignerServiceException as __BaseException } from "./SignerServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The resource encountered a conflicting state.</p>
+ * The resource encountered a conflicting state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred.</p>
+ * An internal error occurred.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>A specified resource could not be found.</p>
+ * A specified resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The client is making a request that exceeds service limits.</p>
+ * The client is making a request that exceeds service limits.
+ *
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -119,8 +124,10 @@ export class ServiceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -143,7 +150,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>You signing certificate could not be validated.</p>
+ * You signing certificate could not be validated.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -166,8 +174,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request contains invalid parameters for the ARN or tags. This exception also
- * 			occurs when you call a tagging API on a cancelled signing profile.</p>
+ * The request contains invalid parameters for the ARN or tags. This exception also occurs when you call a tagging API on a cancelled signing profile.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -190,7 +198,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The signing profile was not found.</p>
+ * The signing profile was not found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -213,8 +222,9 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
- *          <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ * The request was denied due to request throttling.
+ *
+ * Instead of this error, `TooManyRequestsException` should be used.
  *
  * @deprecated Instead of this error, TooManyRequestsException should be used.
  * @public

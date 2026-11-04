@@ -26,9 +26,8 @@ export interface ListCostAllocationTagBackfillHistoryCommandInput extends ListCo
 export interface ListCostAllocationTagBackfillHistoryCommandOutput extends ListCostAllocationTagBackfillHistoryResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Retrieves a list of your historical cost allocation tag backfill requests.
- *     </p>
+ * Retrieves a list of your historical cost allocation tag backfill requests.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +64,16 @@ export interface ListCostAllocationTagBackfillHistoryCommandOutput extends ListC
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

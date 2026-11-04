@@ -23,21 +23,12 @@ export interface CreateEnvironmentTemplateCommandInput extends CreateEnvironment
 export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment Templates</a> in the <i>Proton User Guide</i>.</p>
- *          <p>You can create an environment template in one of the two following ways:</p>
- *          <ul>
- *             <li>
- *                <p>Register and publish a <i>standard</i> environment template that instructs Proton to deploy and manage environment
- *           infrastructure.</p>
- *             </li>
- *             <li>
- *                <p>Register and publish a <i>customer managed</i> environment template that connects Proton to your existing provisioned
- *           infrastructure that you manage. Proton <i>doesn't</i> manage your existing provisioned infrastructure. To create an environment
- *           template for customer provisioned and managed infrastructure, include the <code>provisioning</code> parameter and set the value to
- *             <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
- *             and publish an environment template</a> in the <i>Proton User Guide</i>.</p>
- *             </li>
- *          </ul>
+ * Create an environment template for Proton. For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *Proton User Guide*.
+ *
+ * You can create an environment template in one of the two following ways:
+ *
+ * - Register and publish a *standard* environment template that instructs Proton to deploy and manage environment infrastructure.
+ * - Register and publish a *customer managed* environment template that connects Proton to your existing provisioned infrastructure that you manage. Proton *doesn't* manage your existing provisioned infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the `provisioning` parameter and set the value to `CUSTOMER_MANAGED`. For more information, see [Register and publish an environment template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html) in the *Proton User Guide*.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -86,27 +77,32 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html">Proton Quotas</a> in
- *       the <i>Proton User Guide</i>.</p>
+ *
+ * A quota was exceeded. For more information, see [Proton Quotas](https://docs.aws.amazon.com/proton/latest/userguide/ag-limits.html) in the *Proton User Guide*.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

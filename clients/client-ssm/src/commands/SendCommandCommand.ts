@@ -23,7 +23,8 @@ export interface SendCommandCommandInput extends SendCommandRequest {}
 export interface SendCommandCommandOutput extends SendCommandResult, __MetadataBearer {}
 
 /**
- * <p>Runs commands on one or more managed nodes.</p>
+ * Runs commands on one or more managed nodes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -157,63 +158,57 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DuplicateInstanceId} (client fault)
- *  <p>You can't specify a managed node ID in more than one association.</p>
+ *
+ * You can't specify a managed node ID in more than one association.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link InvalidInstanceId} (client fault)
- *  <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
  *
  * @throws {@link InvalidNotificationConfig} (client fault)
- *  <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN)
- *    was provided for an Amazon Simple Notification Service topic.</p>
+ *
+ * One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN) was provided for an Amazon Simple Notification Service topic.
  *
  * @throws {@link InvalidOutputFolder} (client fault)
- *  <p>The S3 bucket doesn't exist.</p>
+ *
+ * The S3 bucket doesn't exist.
  *
  * @throws {@link InvalidParameters} (client fault)
- *  <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
- *    document). You can only supply values to parameters defined in the SSM document.</p>
+ *
+ * You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.
  *
  * @throws {@link InvalidRole} (client fault)
- *  <p>The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about
- *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in
- *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *
+ * The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about configuring the IAM role for Run Command notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *Amazon Web Services Systems Manager User Guide*.
  *
  * @throws {@link MaxDocumentSizeExceeded} (client fault)
- *  <p>The size limit of a document is 64 KB.</p>
+ *
+ * The size limit of a document is 64 KB.
  *
  * @throws {@link UnsupportedPlatformType} (client fault)
- *  <p>The document doesn't support the platform type of the given managed node IDs. For example,
- *    you sent an document for a Windows managed node to a Linux node.</p>
+ *
+ * The document doesn't support the platform type of the given managed node IDs. For example, you sent an document for a Windows managed node to a Linux node.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

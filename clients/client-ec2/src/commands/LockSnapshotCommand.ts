@@ -23,25 +23,14 @@ export interface LockSnapshotCommandInput extends LockSnapshotRequest {}
 export interface LockSnapshotCommandOutput extends LockSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Locks an Amazon EBS snapshot in either <i>governance</i> or <i>compliance</i>
- *       mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot
- *       can't be deleted.</p>
- *          <p>You can also use this action to modify the lock settings for a snapshot that is already locked. The
- *       allowed modifications depend on the lock mode and lock state:</p>
- *          <ul>
- *             <li>
- *                <p>If the snapshot is locked in governance mode, you can modify the lock mode and the lock duration
- *             or lock expiration date.</p>
- *             </li>
- *             <li>
- *                <p>If the snapshot is locked in compliance mode and it is in the cooling-off period, you can modify
- *             the lock mode and the lock duration or lock expiration date.</p>
- *             </li>
- *             <li>
- *                <p>If the snapshot is locked in compliance mode and the cooling-off period has lapsed, you can
- *             only increase the lock duration or extend the lock expiration date.</p>
- *             </li>
- *          </ul>
+ * Locks an Amazon EBS snapshot in either *governance* or *compliance* mode to protect it against accidental or malicious deletions for a specific duration. A locked snapshot can't be deleted.
+ *
+ * You can also use this action to modify the lock settings for a snapshot that is already locked. The allowed modifications depend on the lock mode and lock state:
+ *
+ * - If the snapshot is locked in governance mode, you can modify the lock mode and the lock duration or lock expiration date.
+ * - If the snapshot is locked in compliance mode and it is in the cooling-off period, you can modify the lock mode and the lock duration or lock expiration date.
+ * - If the snapshot is locked in compliance mode and the cooling-off period has lapsed, you can only increase the lock duration or extend the lock expiration date.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +69,8 @@ export interface LockSnapshotCommandOutput extends LockSnapshotResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

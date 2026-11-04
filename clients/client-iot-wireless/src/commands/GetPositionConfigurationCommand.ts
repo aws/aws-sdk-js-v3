@@ -23,11 +23,9 @@ export interface GetPositionConfigurationCommandInput extends GetPositionConfigu
 export interface GetPositionConfigurationCommandOutput extends GetPositionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Get position configuration for a given resource.</p>
- *          <important>
- *             <p>This action is no longer supported. Calls to retrieve the position configuration
- *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html">GetResourcePosition</a> API operation instead.</p>
- *          </important>
+ * Get position configuration for a given resource.
+ *
+ * > **Important:** This action is no longer supported. Calls to retrieve the position configuration should use the [GetResourcePosition](https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html) API operation instead.
  *
  * @deprecated This operation is no longer supported.
  * @example
@@ -65,23 +63,28 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have permission to perform this action.</p>
+ *
+ * User does not have permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request.</p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource does not exist.</p>
+ *
+ * Resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed API request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed API request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input did not meet the specified constraints.</p>
+ *
+ * The input did not meet the specified constraints.
  *
  * @throws {@link IoTWirelessServiceException}
- * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ * Base exception class for all service exceptions from IoTWireless service.
  *
  * @public
  */

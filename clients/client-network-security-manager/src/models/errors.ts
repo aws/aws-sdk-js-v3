@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { NetworkSecurityManagerServiceException as __BaseException } from "./NetworkSecurityManagerServiceException";
 
 /**
- * <p>You do not have sufficient permissions to perform this action.</p>
+ * You do not have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. For example, the resource was modified concurrently, or it is in a state that does not allow the requested operation.</p>
+ * The request conflicts with the current state of the resource. For example, the resource was modified concurrently, or it is in a state that does not allow the requested operation.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that is in conflict with the request.</p>
+   * The ID of the resource that is in conflict with the request.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that is in conflict with the request.</p>
+   * The type of the resource that is in conflict with the request.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing failed because of an internal error in the service. This is a retryable error.</p>
+ * The request processing failed because of an internal error in the service. This is a retryable error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -84,7 +89,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota.</p>
+ * The request would exceed a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -92,25 +98,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The code that identifies the service quota that was exceeded.</p>
+   * The code that identifies the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The code for the AWS service that owns the quota that was exceeded.</p>
+   * The code for the AWS service that owns the quota that was exceeded.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The ID of the resource associated with the quota that was exceeded.</p>
+   * The ID of the resource associated with the quota that was exceeded.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource associated with the quota that was exceeded.</p>
+   * The type of the resource associated with the quota that was exceeded.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -133,7 +143,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable. This is a retryable error.</p>
+ * The service is temporarily unavailable. This is a retryable error.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -142,7 +153,8 @@ export class ServiceUnavailableException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -162,7 +174,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request violates a tag policy that is in effect for the account or organization.</p>
+ * The request violates a tag policy that is in effect for the account or organization.
+ *
  * @public
  */
 export class TagPolicyViolationException extends __BaseException {
@@ -183,7 +196,8 @@ export class TagPolicyViolationException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>
+ * The request was denied because of request throttling. Reduce your request rate and try again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -194,7 +208,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -214,7 +229,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request failed validation. For details, see the <code>reason</code> and <code>fieldList</code> members of the response.</p>
+ * The request failed validation. For details, see the `reason` and `fieldList` members of the response.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -222,13 +238,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason that the request failed validation.</p>
+   * The reason that the request failed validation.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of request fields that failed validation, if any.</p>
+   * The list of request fields that failed validation, if any.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -249,7 +267,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists, then try your request again.</p>
+ * The specified resource was not found. Verify that the resource identifier is correct and that the resource exists, then try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -257,13 +276,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that could not be found.</p>
+   * The ID of the resource that could not be found.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that could not be found.</p>
+   * The type of the resource that could not be found.
+   *
    * @public
    */
   resourceType?: string | undefined;

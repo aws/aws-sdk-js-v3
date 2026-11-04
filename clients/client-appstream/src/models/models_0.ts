@@ -53,722 +53,820 @@ import type {
 } from "./enums";
 
 /**
- * <p>Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and WorkSpaces Applications. When you specify an interface endpoint for a stack, users of the stack can connect to WorkSpaces Applications only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.</p>
+ * Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and WorkSpaces Applications. When you specify an interface endpoint for a stack, users of the stack can connect to WorkSpaces Applications only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+ *
  * @public
  */
 export interface AccessEndpoint {
   /**
-   * <p>The type of interface endpoint.</p>
+   * The type of interface endpoint.
+   *
    * @public
    */
   EndpointType: AccessEndpointType | undefined;
 
   /**
-   * <p>The identifier (ID) of the VPC in which the interface endpoint is used.</p>
+   * The identifier (ID) of the VPC in which the interface endpoint is used.
+   *
    * @public
    */
   VpceId?: string | undefined;
 }
 
 /**
- * <p>The collection of license usage records.</p>
+ * The collection of license usage records.
+ *
  * @public
  */
 export interface AdminAppLicenseUsageRecord {
   /**
-   * <p>The ARN of the user who used the license-included application.</p>
+   * The ARN of the user who used the license-included application.
+   *
    * @public
    */
   UserArn: string | undefined;
 
   /**
-   * <p>The billing period for the license usage record.</p>
+   * The billing period for the license usage record.
+   *
    * @public
    */
   BillingPeriod: string | undefined;
 
   /**
-   * <p>The account ID of the owner of the license.</p>
+   * The account ID of the owner of the license.
+   *
    * @public
    */
   OwnerAWSAccountId: string | undefined;
 
   /**
-   * <p>The date and time when the license was first used.</p>
+   * The date and time when the license was first used.
+   *
    * @public
    */
   SubscriptionFirstUsedDate: Date | undefined;
 
   /**
-   * <p>The date and time when the license was last used.</p>
+   * The date and time when the license was last used.
+   *
    * @public
    */
   SubscriptionLastUsedDate: Date | undefined;
 
   /**
-   * <p>The type of license (for example, Microsoft Office).</p>
+   * The type of license (for example, Microsoft Office).
+   *
    * @public
    */
   LicenseType: string | undefined;
 
   /**
-   * <p>The ID of the user who used the license-included application.</p>
+   * The ID of the user who used the license-included application.
+   *
    * @public
    */
   UserId: string | undefined;
 }
 
 /**
- * <p>A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.</p>
+ * A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+ *
  * @public
  */
 export interface AgentAccessSetting {
   /**
-   * <p>The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>
+   * The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.
+   *
    * @public
    */
   AgentAction: AgentAction | undefined;
 
   /**
-   * <p>Whether the agent action is enabled or disabled.</p>
+   * Whether the agent action is enabled or disabled.
+   *
    * @public
    */
   Permission: Permission | undefined;
 }
 
 /**
- * <p>The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.</p>
+ * The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+ *
  * @public
  */
 export interface AgentAccessConfig {
   /**
-   * <p>The list of agent access settings that define permissions for each agent action. You must specify at least one setting.</p>
+   * The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+   *
    * @public
    */
   Settings: AgentAccessSetting[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.</p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+   *
    * @public
    */
   S3BucketArn?: string | undefined;
 
   /**
-   * <p>Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.</p>
+   * Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+   *
    * @public
    */
   ScreenshotsUploadEnabled?: boolean | undefined;
 
   /**
-   * <p>The screen resolution for the agent streaming environment.</p>
+   * The screen resolution for the agent streaming environment.
+   *
    * @public
    */
   ScreenResolution: ScreenResolution | undefined;
 
   /**
-   * <p>The image format for agent screen captures.</p>
+   * The image format for agent screen captures.
+   *
    * @public
    */
   ScreenImageFormat: ScreenImageFormat | undefined;
 
   /**
-   * <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+   * The user control mode for agent sessions. This setting determines how users can interact with agent sessions.
+   *
    * @public
    */
   UserControlMode?: UserControlMode | undefined;
 }
 
 /**
- * <p>The configuration for updating agent access on a stack. This type supports partial updates, so you only need to specify the fields you want to change.</p>
+ * The configuration for updating agent access on a stack. This type supports partial updates, so you only need to specify the fields you want to change.
+ *
  * @public
  */
 export interface AgentAccessConfigForUpdate {
   /**
-   * <p>The list of agent access settings that define permissions for each agent action.</p>
+   * The list of agent access settings that define permissions for each agent action.
+   *
    * @public
    */
   Settings?: AgentAccessSetting[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored.</p>
+   * The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored.
+   *
    * @public
    */
   S3BucketArn?: string | undefined;
 
   /**
-   * <p>Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.</p>
+   * Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+   *
    * @public
    */
   ScreenshotsUploadEnabled?: boolean | undefined;
 
   /**
-   * <p>The screen resolution for the agent streaming environment.</p>
+   * The screen resolution for the agent streaming environment.
+   *
    * @public
    */
   ScreenResolution?: ScreenResolution | undefined;
 
   /**
-   * <p>The image format for agent screen captures.</p>
+   * The image format for agent screen captures.
+   *
    * @public
    */
   ScreenImageFormat?: ScreenImageFormat | undefined;
 
   /**
-   * <p>The user control mode for agent sessions. This setting determines how users can interact with agent sessions.</p>
+   * The user control mode for agent sessions. This setting determines how users can interact with agent sessions.
+   *
    * @public
    */
   UserControlMode?: UserControlMode | undefined;
 }
 
 /**
- * <p>The error details.</p>
+ * The error details.
+ *
  * @public
  */
 export interface ErrorDetails {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Describes the S3 location.</p>
+ * Describes the S3 location.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p>The S3 bucket of the S3 object.</p>
+   * The S3 bucket of the S3 object.
+   *
    * @public
    */
   S3Bucket: string | undefined;
 
   /**
-   * <p>The S3 key of the S3 object.</p>
-   *          <p>This is required when used for the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>IconS3Location (Actions: CreateApplication and UpdateApplication)</p>
-   *             </li>
-   *             <li>
-   *                <p>SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)</p>
-   *             </li>
-   *             <li>
-   *                <p>ScriptDetails (Actions: CreateAppBlock)</p>
-   *             </li>
-   *             <li>
-   *                <p>SourceS3Location when creating an app block with <code>CUSTOM</code> PackagingType (Actions:
-   *                     CreateAppBlock)</p>
-   *             </li>
-   *             <li>
-   *                <p>SourceS3Location when creating an app block with <code>APPSTREAM2</code> PackagingType, and
-   *                     using an existing application package (VHD file). In this case,
-   *                         <code>S3Key</code> refers to the VHD file. If a new application package is
-   *                     required, then <code>S3Key</code> is not required. (Actions:
-   *                     CreateAppBlock)</p>
-   *             </li>
-   *          </ul>
+   * The S3 key of the S3 object.
+   *
+   * This is required when used for the following:
+   *
+   * - IconS3Location (Actions: CreateApplication and UpdateApplication)
+   * - SessionScriptS3Location (Actions: CreateFleet and UpdateFleet)
+   * - ScriptDetails (Actions: CreateAppBlock)
+   * - SourceS3Location when creating an app block with `CUSTOM` PackagingType (Actions: CreateAppBlock)
+   * - SourceS3Location when creating an app block with `APPSTREAM2` PackagingType, and using an existing application package (VHD file). In this case, `S3Key` refers to the VHD file. If a new application package is required, then `S3Key` is not required. (Actions: CreateAppBlock)
+   *
    * @public
    */
   S3Key?: string | undefined;
 }
 
 /**
- * <p>Describes the details of the script.</p>
+ * Describes the details of the script.
+ *
  * @public
  */
 export interface ScriptDetails {
   /**
-   * <p>The S3 object location for the script.</p>
+   * The S3 object location for the script.
+   *
    * @public
    */
   ScriptS3Location: S3Location | undefined;
 
   /**
-   * <p>The run path for the script.</p>
+   * The run path for the script.
+   *
    * @public
    */
   ExecutablePath: string | undefined;
 
   /**
-   * <p>The runtime parameters passed to the run path for the script.</p>
+   * The runtime parameters passed to the run path for the script.
+   *
    * @public
    */
   ExecutableParameters?: string | undefined;
 
   /**
-   * <p>The run timeout, in seconds, for the script.</p>
+   * The run timeout, in seconds, for the script.
+   *
    * @public
    */
   TimeoutInSeconds: number | undefined;
 }
 
 /**
- * <p>Describes an app block.</p>
- *          <p>App blocks are a WorkSpaces Applications resource that stores the details about the
- *            virtual hard disk in an S3 bucket. It also stores the setup script with details about
- *            how to mount the virtual hard disk. The virtual hard disk includes the application
- *            binaries and other files necessary to launch your applications. Multiple applications
- *            can be assigned to a single app block.</p>
- *          <p>This is only supported for Elastic fleets.</p>
+ * Describes an app block.
+ *
+ * App blocks are a WorkSpaces Applications resource that stores the details about the virtual hard disk in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. The virtual hard disk includes the application binaries and other files necessary to launch your applications. Multiple applications can be assigned to a single app block.
+ *
+ * This is only supported for Elastic fleets.
+ *
  * @public
  */
 export interface AppBlock {
   /**
-   * <p>The name of the app block.</p>
+   * The name of the app block.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The ARN of the app block.</p>
+   * The ARN of the app block.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The description of the app block.</p>
+   * The description of the app block.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The display name of the app block.</p>
+   * The display name of the app block.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The source S3 location of the app block.</p>
+   * The source S3 location of the app block.
+   *
    * @public
    */
   SourceS3Location?: S3Location | undefined;
 
   /**
-   * <p>The setup script details of the app block.</p>
-   *          <p>This only applies to app blocks with PackagingType <code>CUSTOM</code>.</p>
+   * The setup script details of the app block.
+   *
+   * This only applies to app blocks with PackagingType `CUSTOM`.
+   *
    * @public
    */
   SetupScriptDetails?: ScriptDetails | undefined;
 
   /**
-   * <p>The created time of the app block.</p>
+   * The created time of the app block.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The post setup script details of the app block.</p>
-   *          <p>This only applies to app blocks with PackagingType <code>APPSTREAM2</code>.</p>
+   * The post setup script details of the app block.
+   *
+   * This only applies to app blocks with PackagingType `APPSTREAM2`.
+   *
    * @public
    */
   PostSetupScriptDetails?: ScriptDetails | undefined;
 
   /**
-   * <p>The packaging type of the app block.</p>
+   * The packaging type of the app block.
+   *
    * @public
    */
   PackagingType?: PackagingType | undefined;
 
   /**
-   * <p>The state of the app block.</p>
-   *          <p>An app block with WorkSpaces Applications packaging will be in the <code>INACTIVE</code> state
-   *             if no application package (VHD) is assigned to it. After an application package (VHD) is
-   *             created by an app block builder for an app block, it becomes <code>ACTIVE</code>. </p>
-   *          <p>Custom app blocks are always in the <code>ACTIVE</code> state and no action is required to use them.</p>
+   * The state of the app block.
+   *
+   * An app block with WorkSpaces Applications packaging will be in the `INACTIVE` state if no application package (VHD) is assigned to it. After an application package (VHD) is created by an app block builder for an app block, it becomes `ACTIVE`.
+   *
+   * Custom app blocks are always in the `ACTIVE` state and no action is required to use them.
+   *
    * @public
    */
   State?: AppBlockState | undefined;
 
   /**
-   * <p>The errors of the app block.</p>
+   * The errors of the app block.
+   *
    * @public
    */
   AppBlockErrors?: ErrorDetails[] | undefined;
 }
 
 /**
- * <p>Describes a resource error.</p>
+ * Describes a resource error.
+ *
  * @public
  */
 export interface ResourceError {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: FleetErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The time the error occurred.</p>
+   * The time the error occurred.
+   *
    * @public
    */
   ErrorTimestamp?: Date | undefined;
 }
 
 /**
- * <p>Describes the reason why the last app block builder state change occurred.</p>
+ * Describes the reason why the last app block builder state change occurred.
+ *
  * @public
  */
 export interface AppBlockBuilderStateChangeReason {
   /**
-   * <p>The state change reason code.</p>
+   * The state change reason code.
+   *
    * @public
    */
   Code?: AppBlockBuilderStateChangeReasonCode | undefined;
 
   /**
-   * <p>The state change reason message.</p>
+   * The state change reason message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Describes VPC configuration information for fleets and image builders.</p>
+ * Describes VPC configuration information for fleets and image builders.
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
+   * The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>The identifiers of the security groups for the fleet or image builder.</p>
+   * The identifiers of the security groups for the fleet or image builder.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 }
 
 /**
- * <p>Describes an app block builder.</p>
+ * Describes an app block builder.
+ *
  * @public
  */
 export interface AppBlockBuilder {
   /**
-   * <p>The ARN of the app block builder.</p>
+   * The ARN of the app block builder.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The display name of the app block builder.</p>
+   * The display name of the app block builder.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the app block builder.</p>
+   * The description of the app block builder.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The platform of the app block builder.</p>
-   *          <p>
-   *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
+   * The platform of the app block builder.
+   *
+   * `WINDOWS_SERVER_2019` is the only valid value.
+   *
    * @public
    */
   Platform: AppBlockBuilderPlatformType | undefined;
 
   /**
-   * <p>The instance type of the app block builder.</p>
+   * The instance type of the app block builder.
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>Indicates whether default internet access is enabled for the app block builder.</p>
+   * Indicates whether default internet access is enabled for the app block builder.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the app block builder.</p>
+   * The ARN of the IAM role that is applied to the app block builder.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The VPC configuration for the app block builder.</p>
+   * The VPC configuration for the app block builder.
+   *
    * @public
    */
   VpcConfig: VpcConfig | undefined;
 
   /**
-   * <p>The state of the app block builder.</p>
+   * The state of the app block builder.
+   *
    * @public
    */
   State: AppBlockBuilderState | undefined;
 
   /**
-   * <p>The creation time of the app block builder.</p>
+   * The creation time of the app block builder.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The app block builder errors.</p>
+   * The app block builder errors.
+   *
    * @public
    */
   AppBlockBuilderErrors?: ResourceError[] | undefined;
 
   /**
-   * <p>The state change reason.</p>
+   * The state change reason.
+   *
    * @public
    */
   StateChangeReason?: AppBlockBuilderStateChangeReason | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
+   * The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>Indicates whether Instance Metadata Service Version 1 (IMDSv1) is disabled for the app block builder.</p>
+   * Indicates whether Instance Metadata Service Version 1 (IMDSv1) is disabled for the app block builder.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
 }
 
 /**
- * <p>Describes an association between an app block builder and app block.</p>
+ * Describes an association between an app block builder and app block.
+ *
  * @public
  */
 export interface AppBlockBuilderAppBlockAssociation {
   /**
-   * <p>The ARN of the app block.</p>
+   * The ARN of the app block.
+   *
    * @public
    */
   AppBlockArn: string | undefined;
 
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   AppBlockBuilderName: string | undefined;
 }
 
 /**
- * <p>Configuration for an application in the imported image's application catalog. This structure defines how applications appear and launch for users.</p>
+ * Configuration for an application in the imported image's application catalog. This structure defines how applications appear and launch for users.
+ *
  * @public
  */
 export interface ApplicationConfig {
   /**
-   * <p>The name of the application. This is a required field that must be unique within the application catalog and between 1-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_.-]\{0,99\}$.</p>
+   * The name of the application. This is a required field that must be unique within the application catalog and between 1-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_.-]\{0,99\}$.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The display name shown to users for this application. This field is optional and can be 0-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_. -]\{0,99\}$.</p>
+   * The display name shown to users for this application. This field is optional and can be 0-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_. -]\{0,99\}$.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The absolute path to the executable file that launches the application. This is a required field that can be 1-32767 characters to support Windows extended file paths. Use escaped file path strings like "C:\\\\Windows\\\\System32\\\\notepad.exe".</p>
+   * The absolute path to the executable file that launches the application. This is a required field that can be 1-32767 characters to support Windows extended file paths. Use escaped file path strings like "C:\\\\Windows\\\\System32\\\\notepad.exe".
+   *
    * @public
    */
   AbsoluteAppPath: string | undefined;
 
   /**
-   * <p>The absolute path to the icon file for the application. This field is optional and can be 1-32767 characters. If not provided, the icon is derived from the executable. Use PNG images with proper transparency for the best user experience.</p>
+   * The absolute path to the icon file for the application. This field is optional and can be 1-32767 characters. If not provided, the icon is derived from the executable. Use PNG images with proper transparency for the best user experience.
+   *
    * @public
    */
   AbsoluteIconPath?: string | undefined;
 
   /**
-   * <p>The absolute path to the prewarm manifest file for this application. This field is optional and only applicable when using application-specific manifests. The path can be 1-32767 characters and should point to a text file containing file paths to prewarm.</p>
+   * The absolute path to the prewarm manifest file for this application. This field is optional and only applicable when using application-specific manifests. The path can be 1-32767 characters and should point to a text file containing file paths to prewarm.
+   *
    * @public
    */
   AbsoluteManifestPath?: string | undefined;
 
   /**
-   * <p>The working directory to use when launching the application. This field is optional and can be 0-32767 characters. Use escaped file path strings like "C:\\\\Path\\\\To\\\\Working\\\\Directory".</p>
+   * The working directory to use when launching the application. This field is optional and can be 0-32767 characters. Use escaped file path strings like "C:\\\\Path\\\\To\\\\Working\\\\Directory".
+   *
    * @public
    */
   WorkingDirectory?: string | undefined;
 
   /**
-   * <p>The launch parameters to pass to the application executable. This field is optional and can be 0-1024 characters. Use escaped strings with the full list of required parameters, such as PowerShell script paths or command-line arguments.</p>
+   * The launch parameters to pass to the application executable. This field is optional and can be 0-1024 characters. Use escaped strings with the full list of required parameters, such as PowerShell script paths or command-line arguments.
+   *
    * @public
    */
   LaunchParameters?: string | undefined;
 }
 
 /**
- * <p>Describes an application in the application catalog.</p>
+ * Describes an application in the application catalog.
+ *
  * @public
  */
 export interface Application {
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The application name to display.</p>
+   * The application name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The URL for the application icon. This URL might be time-limited.</p>
+   * The URL for the application icon. This URL might be time-limited.
+   *
    * @public
    */
   IconURL?: string | undefined;
 
   /**
-   * <p>The path to the application executable in the instance.</p>
+   * The path to the application executable in the instance.
+   *
    * @public
    */
   LaunchPath?: string | undefined;
 
   /**
-   * <p>The arguments that are passed to the application at launch.</p>
+   * The arguments that are passed to the application at launch.
+   *
    * @public
    */
   LaunchParameters?: string | undefined;
 
   /**
-   * <p>If there is a problem, the application can be disabled after image creation.</p>
+   * If there is a problem, the application can be disabled after image creation.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>Additional attributes that describe the application.</p>
+   * Additional attributes that describe the application.
+   *
    * @public
    */
   Metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The working directory for the application.</p>
+   * The working directory for the application.
+   *
    * @public
    */
   WorkingDirectory?: string | undefined;
 
   /**
-   * <p>The description of the application.</p>
+   * The description of the application.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The ARN of the application.</p>
+   * The ARN of the application.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The app block ARN of the application.</p>
+   * The app block ARN of the application.
+   *
    * @public
    */
   AppBlockArn?: string | undefined;
 
   /**
-   * <p>The S3 location of the application icon.</p>
+   * The S3 location of the application icon.
+   *
    * @public
    */
   IconS3Location?: S3Location | undefined;
 
   /**
-   * <p>The platforms on which the application can run.</p>
+   * The platforms on which the application can run.
+   *
    * @public
    */
   Platforms?: PlatformType[] | undefined;
 
   /**
-   * <p>The instance families for the application.</p>
+   * The instance families for the application.
+   *
    * @public
    */
   InstanceFamilies?: string[] | undefined;
 
   /**
-   * <p>The time at which the application was created within the app block.</p>
+   * The time at which the application was created within the app block.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 }
 
 /**
- * <p>Describes the application fleet association.</p>
+ * Describes the application fleet association.
+ *
  * @public
  */
 export interface ApplicationFleetAssociation {
   /**
-   * <p>The name of the fleet associated with the application.</p>
+   * The name of the fleet associated with the application.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The ARN of the application associated with the fleet.</p>
+   * The ARN of the application associated with the fleet.
+   *
    * @public
    */
   ApplicationArn: string | undefined;
 }
 
 /**
- * <p>The persistent application settings for users of a stack.</p>
+ * The persistent application settings for users of a stack.
+ *
  * @public
  */
 export interface ApplicationSettings {
   /**
-   * <p>Enables or disables persistent application settings for users during their streaming sessions. </p>
+   * Enables or disables persistent application settings for users during their streaming sessions.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack. </p>
+   * The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+   *
    * @public
    */
   SettingsGroup?: string | undefined;
 }
 
 /**
- * <p>Describes the persistent application settings for users of a stack.</p>
+ * Describes the persistent application settings for users of a stack.
+ *
  * @public
  */
 export interface ApplicationSettingsResponse {
   /**
-   * <p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>
+   * Specifies whether persistent application settings are enabled for users during their streaming sessions.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
+   * The path prefix for the S3 bucket where users’ persistent application settings are stored.
+   *
    * @public
    */
   SettingsGroup?: string | undefined;
 
   /**
-   * <p>The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
-   *         </p>
+   * The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
@@ -779,13 +877,15 @@ export interface ApplicationSettingsResponse {
  */
 export interface AssociateAppBlockBuilderAppBlockRequest {
   /**
-   * <p>The ARN of the app block.</p>
+   * The ARN of the app block.
+   *
    * @public
    */
   AppBlockArn: string | undefined;
 
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   AppBlockBuilderName: string | undefined;
@@ -796,7 +896,8 @@ export interface AssociateAppBlockBuilderAppBlockRequest {
  */
 export interface AssociateAppBlockBuilderAppBlockResult {
   /**
-   * <p>The list of app block builders associated with app blocks.</p>
+   * The list of app block builders associated with app blocks.
+   *
    * @public
    */
   AppBlockBuilderAppBlockAssociation?: AppBlockBuilderAppBlockAssociation | undefined;
@@ -807,13 +908,15 @@ export interface AssociateAppBlockBuilderAppBlockResult {
  */
 export interface AssociateApplicationFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The ARN of the application.</p>
+   * The ARN of the application.
+   *
    * @public
    */
   ApplicationArn: string | undefined;
@@ -824,9 +927,8 @@ export interface AssociateApplicationFleetRequest {
  */
 export interface AssociateApplicationFleetResult {
   /**
-   * <p>If fleet name is specified, this returns the list of applications that are associated
-   *             to it. If application ARN is specified, this returns the list of fleets to which it is
-   *             associated.</p>
+   * If fleet name is specified, this returns the list of applications that are associated to it. If application ARN is specified, this returns the list of fleets to which it is associated.
+   *
    * @public
    */
   ApplicationFleetAssociation?: ApplicationFleetAssociation | undefined;
@@ -837,19 +939,22 @@ export interface AssociateApplicationFleetResult {
  */
 export interface AssociateApplicationToEntitlementRequest {
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   EntitlementName: string | undefined;
 
   /**
-   * <p>The identifier of the application.</p>
+   * The identifier of the application.
+   *
    * @public
    */
   ApplicationIdentifier: string | undefined;
@@ -865,13 +970,15 @@ export interface AssociateApplicationToEntitlementResult {}
  */
 export interface AssociateFleetRequest {
   /**
-   * <p>The name of the fleet. </p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   StackName: string | undefined;
@@ -887,88 +994,42 @@ export interface AssociateFleetResult {}
  */
 export interface AssociateSoftwareToImageBuilderRequest {
   /**
-   * <p>The name of the target image builder instance.</p>
+   * The name of the target image builder instance.
+   *
    * @public
    */
   ImageBuilderName: string | undefined;
 
   /**
-   * <p>The list of license included applications to associate with the image builder.</p>
-   *          <p>Possible values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
-   *             </li>
-   *          </ul>
+   * The list of license included applications to associate with the image builder.
+   *
+   * Possible values include the following:
+   *
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_64Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_64Bit
+   * - Microsoft_Project_2021_Professional_32Bit
+   * - Microsoft_Project_2021_Professional_64Bit
+   * - Microsoft_Project_2024_Professional_32Bit
+   * - Microsoft_Project_2024_Professional_64Bit
+   * - Microsoft_Office_2021_LTSC_Standard_32Bit
+   * - Microsoft_Office_2021_LTSC_Standard_64Bit
+   * - Microsoft_Office_2024_LTSC_Standard_32Bit
+   * - Microsoft_Office_2024_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_64Bit
+   * - Microsoft_Project_2021_Standard_32Bit
+   * - Microsoft_Project_2021_Standard_64Bit
+   * - Microsoft_Project_2024_Standard_32Bit
+   * - Microsoft_Project_2024_Standard_64Bit
+   *
    * @public
    */
   SoftwareNames: string[] | undefined;
@@ -980,33 +1041,37 @@ export interface AssociateSoftwareToImageBuilderRequest {
 export interface AssociateSoftwareToImageBuilderResult {}
 
 /**
- * <p>Describes a user in the user pool and the associated stack.</p>
+ * Describes a user in the user pool and the associated stack.
+ *
  * @public
  */
 export interface UserStackAssociation {
   /**
-   * <p>The name of the stack that is associated with the user.</p>
+   * The name of the stack that is associated with the user.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The email address of the user who is associated with the stack.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive.</p>
-   *          </note>
+   * The email address of the user who is associated with the stack.
+   *
+   * > **Note:** Users' email addresses are case-sensitive.
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>The authentication type for the user.</p>
+   * The authentication type for the user.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
 
   /**
-   * <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
+   * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+   *
    * @public
    */
   SendEmailNotification?: boolean | undefined;
@@ -1017,31 +1082,36 @@ export interface UserStackAssociation {
  */
 export interface BatchAssociateUserStackRequest {
   /**
-   * <p>The list of UserStackAssociation objects.</p>
+   * The list of UserStackAssociation objects.
+   *
    * @public
    */
   UserStackAssociations: UserStackAssociation[] | undefined;
 }
 
 /**
- * <p>Describes the error that is returned when a user can’t be associated with or disassociated from a stack. </p>
+ * Describes the error that is returned when a user can’t be associated with or disassociated from a stack.
+ *
  * @public
  */
 export interface UserStackAssociationError {
   /**
-   * <p>Information about the user and associated stack.</p>
+   * Information about the user and associated stack.
+   *
    * @public
    */
   UserStackAssociation?: UserStackAssociation | undefined;
 
   /**
-   * <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
+   * The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.
+   *
    * @public
    */
   ErrorCode?: UserStackAssociationErrorCode | undefined;
 
   /**
-   * <p>The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
+   * The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -1052,7 +1122,8 @@ export interface UserStackAssociationError {
  */
 export interface BatchAssociateUserStackResult {
   /**
-   * <p>The list of UserStackAssociationError objects.</p>
+   * The list of UserStackAssociationError objects.
+   *
    * @public
    */
   errors?: UserStackAssociationError[] | undefined;
@@ -1063,7 +1134,8 @@ export interface BatchAssociateUserStackResult {
  */
 export interface BatchDisassociateUserStackRequest {
   /**
-   * <p>The list of UserStackAssociation objects.</p>
+   * The list of UserStackAssociation objects.
+   *
    * @public
    */
   UserStackAssociations: UserStackAssociation[] | undefined;
@@ -1074,165 +1146,190 @@ export interface BatchDisassociateUserStackRequest {
  */
 export interface BatchDisassociateUserStackResult {
   /**
-   * <p>The list of UserStackAssociationError objects.</p>
+   * The list of UserStackAssociationError objects.
+   *
    * @public
    */
   errors?: UserStackAssociationError[] | undefined;
 }
 
 /**
- * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
- *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
- *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
- *             domain password if certificate-based authentication is unsuccessful, or to unlock a
- *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
- *             authentication, but does not allow users to log in using their AD domain password. Users
- *             will be disconnected to re-authenticate using certificates.</p>
+ * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. Fallback is turned on by default when certificate-based authentication is **Enabled** . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. **Enabled_no_directory_login_fallback** enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+ *
  * @public
  */
 export interface CertificateBasedAuthProperties {
   /**
-   * <p>The status of the certificate-based authentication properties.</p>
+   * The status of the certificate-based authentication properties.
+   *
    * @public
    */
   Status?: CertificateBasedAuthStatus | undefined;
 
   /**
-   * <p>The ARN of the AWS Certificate Manager Private CA resource.</p>
+   * The ARN of the AWS Certificate Manager Private CA resource.
+   *
    * @public
    */
   CertificateAuthorityArn?: string | undefined;
 }
 
 /**
- * <p>Describes the capacity for a fleet.</p>
+ * Describes the capacity for a fleet.
+ *
  * @public
  */
 export interface ComputeCapacity {
   /**
-   * <p>The desired number of streaming instances.</p>
+   * The desired number of streaming instances.
+   *
    * @public
    */
   DesiredInstances?: number | undefined;
 
   /**
-   * <p>The desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.</p>
-   *          <p>When you create a fleet, you must set either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.</p>
+   * The desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+   *
+   * When you create a fleet, you must set either the DesiredSessions or DesiredInstances attribute, based on the type of fleet you create. You can’t define both attributes or leave both attributes blank.
+   *
    * @public
    */
   DesiredSessions?: number | undefined;
 }
 
 /**
- * <p>Describes the capacity status for a fleet.</p>
+ * Describes the capacity status for a fleet.
+ *
  * @public
  */
 export interface ComputeCapacityStatus {
   /**
-   * <p>The desired number of streaming instances.</p>
+   * The desired number of streaming instances.
+   *
    * @public
    */
   Desired: number | undefined;
 
   /**
-   * <p>The total number of simultaneous streaming instances that are running.</p>
+   * The total number of simultaneous streaming instances that are running.
+   *
    * @public
    */
   Running?: number | undefined;
 
   /**
-   * <p>The number of instances in use for streaming.</p>
+   * The number of instances in use for streaming.
+   *
    * @public
    */
   InUse?: number | undefined;
 
   /**
-   * <p>The number of currently available instances that can be used to stream
-   *             sessions.</p>
+   * The number of currently available instances that can be used to stream sessions.
+   *
    * @public
    */
   Available?: number | undefined;
 
   /**
-   * <p>The total number of sessions slots that are either running or pending. This represents the total number of concurrent streaming sessions your fleet can support in a steady state.</p>
-   *          <p>DesiredUserSessionCapacity = ActualUserSessionCapacity + PendingUserSessionCapacity</p>
-   *          <p>This only applies to multi-session fleets.</p>
+   * The total number of sessions slots that are either running or pending. This represents the total number of concurrent streaming sessions your fleet can support in a steady state.
+   *
+   * DesiredUserSessionCapacity = ActualUserSessionCapacity + PendingUserSessionCapacity
+   *
+   * This only applies to multi-session fleets.
+   *
    * @public
    */
   DesiredUserSessions?: number | undefined;
 
   /**
-   * <p>The number of idle session slots currently available for user sessions.</p>
-   *          <p>AvailableUserSessionCapacity = ActualUserSessionCapacity - ActiveUserSessions</p>
-   *          <p>This only applies to multi-session fleets.</p>
+   * The number of idle session slots currently available for user sessions.
+   *
+   * AvailableUserSessionCapacity = ActualUserSessionCapacity - ActiveUserSessions
+   *
+   * This only applies to multi-session fleets.
+   *
    * @public
    */
   AvailableUserSessions?: number | undefined;
 
   /**
-   * <p>The number of user sessions currently being used for streaming sessions. This only applies to multi-session fleets.</p>
+   * The number of user sessions currently being used for streaming sessions. This only applies to multi-session fleets.
+   *
    * @public
    */
   ActiveUserSessions?: number | undefined;
 
   /**
-   * <p>The total number of session slots that are available for streaming or are currently streaming.</p>
-   *          <p>ActualUserSessionCapacity = AvailableUserSessionCapacity + ActiveUserSessions</p>
-   *          <p>This only applies to multi-session fleets.</p>
+   * The total number of session slots that are available for streaming or are currently streaming.
+   *
+   * ActualUserSessionCapacity = AvailableUserSessionCapacity + ActiveUserSessions
+   *
+   * This only applies to multi-session fleets.
+   *
    * @public
    */
   ActualUserSessions?: number | undefined;
 
   /**
-   * <p>The number of instances in drain mode. This only applies to multi-session fleets.</p>
+   * The number of instances in drain mode. This only applies to multi-session fleets.
+   *
    * @public
    */
   Draining?: number | undefined;
 
   /**
-   * <p>The number of active user sessions on instances in drain mode. This only applies to multi-session fleets.</p>
+   * The number of active user sessions on instances in drain mode. This only applies to multi-session fleets.
+   *
    * @public
    */
   DrainModeActiveUserSessions?: number | undefined;
 
   /**
-   * <p>The number of unused session slots on instances in drain mode that cannot be used for user session provisioning. This only applies to multi-session fleets.</p>
+   * The number of unused session slots on instances in drain mode that cannot be used for user session provisioning. This only applies to multi-session fleets.
+   *
    * @public
    */
   DrainModeUnusedUserSessions?: number | undefined;
 }
 
 /**
- * <p>Configuration for URL redirection in a specific direction (host-to-client or client-to-host). When enabled, URLs matching the allowed or denied patterns are redirected accordingly. The denied list takes precedence over the allowed list.</p>
+ * Configuration for URL redirection in a specific direction (host-to-client or client-to-host). When enabled, URLs matching the allowed or denied patterns are redirected accordingly. The denied list takes precedence over the allowed list.
+ *
  * @public
  */
 export interface UrlRedirectionConfig {
   /**
-   * <p>Whether URL redirection is enabled for this direction.</p>
+   * Whether URL redirection is enabled for this direction.
+   *
    * @public
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>List of URL patterns that are allowed to be redirected. URLs matching these patterns will be redirected unless they also match a pattern in the denied list.</p>
+   * List of URL patterns that are allowed to be redirected. URLs matching these patterns will be redirected unless they also match a pattern in the denied list.
+   *
    * @public
    */
   AllowedUrls?: string[] | undefined;
 
   /**
-   * <p>List of URL patterns that are denied from redirection. This list takes precedence over the allowed list.</p>
+   * List of URL patterns that are denied from redirection. This list takes precedence over the allowed list.
+   *
    * @public
    */
   DeniedUrls?: string[] | undefined;
 }
 
 /**
- * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+ * Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.
+ *
  * @public
  */
 export interface ContentRedirection {
   /**
-   * <p>Configuration for redirecting URLs from the remote desktop to the local client browser.</p>
+   * Configuration for redirecting URLs from the remote desktop to the local client browser.
+   *
    * @public
    */
   HostToClient?: UrlRedirectionConfig | undefined;
@@ -1243,25 +1340,29 @@ export interface ContentRedirection {
  */
 export interface CopyImageRequest {
   /**
-   * <p>The name of the image to copy.</p>
+   * The name of the image to copy.
+   *
    * @public
    */
   SourceImageName: string | undefined;
 
   /**
-   * <p>The name that the image will have when it is copied to the destination.</p>
+   * The name that the image will have when it is copied to the destination.
+   *
    * @public
    */
   DestinationImageName: string | undefined;
 
   /**
-   * <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
+   * The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.
+   *
    * @public
    */
   DestinationRegion: string | undefined;
 
   /**
-   * <p>The description that the image will have when it is copied to the destination.</p>
+   * The description that the image will have when it is copied to the destination.
+   *
    * @public
    */
   DestinationImageDescription?: string | undefined;
@@ -1272,7 +1373,8 @@ export interface CopyImageRequest {
  */
 export interface CopyImageResponse {
   /**
-   * <p>The name of the destination image.</p>
+   * The name of the destination image.
+   *
    * @public
    */
   DestinationImageName?: string | undefined;
@@ -1283,51 +1385,57 @@ export interface CopyImageResponse {
  */
 export interface CreateAppBlockRequest {
   /**
-   * <p>The name of the app block.</p>
+   * The name of the app block.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the app block.</p>
+   * The description of the app block.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The display name of the app block. This is not displayed to the user.</p>
+   * The display name of the app block. This is not displayed to the user.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The source S3 location of the app block.</p>
+   * The source S3 location of the app block.
+   *
    * @public
    */
   SourceS3Location: S3Location | undefined;
 
   /**
-   * <p>The setup script details of the app block. This must be provided for the
-   *                 <code>CUSTOM</code> PackagingType.</p>
+   * The setup script details of the app block. This must be provided for the `CUSTOM` PackagingType.
+   *
    * @public
    */
   SetupScriptDetails?: ScriptDetails | undefined;
 
   /**
-   * <p>The tags assigned to the app block.</p>
+   * The tags assigned to the app block.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The post setup script details of the app block. This can only be provided for the
-   *                 <code>APPSTREAM2</code> PackagingType.</p>
+   * The post setup script details of the app block. This can only be provided for the `APPSTREAM2` PackagingType.
+   *
    * @public
    */
   PostSetupScriptDetails?: ScriptDetails | undefined;
 
   /**
-   * <p>The packaging type of the app block.</p>
+   * The packaging type of the app block.
+   *
    * @public
    */
   PackagingType?: PackagingType | undefined;
@@ -1338,7 +1446,8 @@ export interface CreateAppBlockRequest {
  */
 export interface CreateAppBlockResult {
   /**
-   * <p>The app block.</p>
+   * The app block.
+   *
    * @public
    */
   AppBlock?: AppBlock | undefined;
@@ -1349,100 +1458,98 @@ export interface CreateAppBlockResult {
  */
 export interface CreateAppBlockBuilderRequest {
   /**
-   * <p>The unique name for the app block builder.</p>
+   * The unique name for the app block builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the app block builder.</p>
+   * The description of the app block builder.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The display name of the app block builder.</p>
+   * The display name of the app block builder.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The tags to associate with the app block builder. A tag is a key-value pair, and the
-   *             value is optional. For example, Environment=Test. If you do not specify a value,
-   *             Environment=. </p>
-   *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *          <p>_ . : / = + \ - @</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The tags to associate with the app block builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+   *
+   * If you do not specify a value, the value is set to an empty string.
+   *
+   * Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+   *
+   * _ . : / = + \ - @
+   *
+   * For more information, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The platform of the app block builder.</p>
-   *          <p>
-   *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
+   * The platform of the app block builder.
+   *
+   * `WINDOWS_SERVER_2019` is the only valid value.
+   *
    * @public
    */
   Platform: AppBlockBuilderPlatformType | undefined;
 
   /**
-   * <p>The instance type to use when launching the app block builder. The following instance
-   *             types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.2xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type to use when launching the app block builder. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.standard.xlarge
+   * - stream.standard.2xlarge
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The VPC configuration for the app block builder.</p>
-   *          <p>App block builders require that you specify at least two subnets in different availability
-   *             zones.</p>
+   * The VPC configuration for the app block builder.
+   *
+   * App block builders require that you specify at least two subnets in different availability zones.
+   *
    * @public
    */
   VpcConfig: VpcConfig | undefined;
 
   /**
-   * <p>Enables or disables default internet access for the app block builder.</p>
+   * Enables or disables default internet access for the app block builder.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
-   *             assume a role, the app block builder calls the AWS Security Token Service (STS)
-   *                 <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
-   *             operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the
-   *             temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
+   * The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
+   * Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
@@ -1453,7 +1560,8 @@ export interface CreateAppBlockBuilderRequest {
  */
 export interface CreateAppBlockBuilderResult {
   /**
-   * <p>Describes an app block builder.</p>
+   * Describes an app block builder.
+   *
    * @public
    */
   AppBlockBuilder?: AppBlockBuilder | undefined;
@@ -1464,14 +1572,15 @@ export interface CreateAppBlockBuilderResult {
  */
 export interface CreateAppBlockBuilderStreamingURLRequest {
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   AppBlockBuilderName: string | undefined;
 
   /**
-   * <p>The time that the streaming URL will be valid, in seconds.
-   *             Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
+   * The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
+   *
    * @public
    */
   Validity?: number | undefined;
@@ -1482,13 +1591,15 @@ export interface CreateAppBlockBuilderStreamingURLRequest {
  */
 export interface CreateAppBlockBuilderStreamingURLResult {
   /**
-   * <p>The URL to start the streaming session.</p>
+   * The URL to start the streaming session.
+   *
    * @public
    */
   StreamingURL?: string | undefined;
 
   /**
-   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
+   * The elapsed time, in seconds after the Unix epoch, when this URL expires.
+   *
    * @public
    */
   Expires?: Date | undefined;
@@ -1499,67 +1610,78 @@ export interface CreateAppBlockBuilderStreamingURLResult {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The name of the application. This name is visible to users when display name is not specified.</p>
+   * The name of the application. This name is visible to users when display name is not specified.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The display name of the application. This name is visible to users in the application catalog.</p>
+   * The display name of the application. This name is visible to users in the application catalog.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the application.</p>
+   * The description of the application.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The location in S3 of the application icon.</p>
+   * The location in S3 of the application icon.
+   *
    * @public
    */
   IconS3Location: S3Location | undefined;
 
   /**
-   * <p>The launch path of the application.</p>
+   * The launch path of the application.
+   *
    * @public
    */
   LaunchPath: string | undefined;
 
   /**
-   * <p>The working directory of the application.</p>
+   * The working directory of the application.
+   *
    * @public
    */
   WorkingDirectory?: string | undefined;
 
   /**
-   * <p>The launch parameters of the application.</p>
+   * The launch parameters of the application.
+   *
    * @public
    */
   LaunchParameters?: string | undefined;
 
   /**
-   * <p>The platforms the application supports. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets.</p>
+   * The platforms the application supports. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets.
+   *
    * @public
    */
   Platforms: PlatformType[] | undefined;
 
   /**
-   * <p>The instance families the application supports. Valid values are GENERAL_PURPOSE and GRAPHICS_G4.</p>
+   * The instance families the application supports. Valid values are GENERAL_PURPOSE and GRAPHICS_G4.
+   *
    * @public
    */
   InstanceFamilies: string[] | undefined;
 
   /**
-   * <p>The app block ARN to which the application should be associated</p>
+   * The app block ARN to which the application should be associated
+   *
    * @public
    */
   AppBlockArn: string | undefined;
 
   /**
-   * <p>The tags assigned to the application.</p>
+   * The tags assigned to the application.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1570,27 +1692,29 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResult {
   /**
-   * <p>Describes an application in the application catalog.</p>
+   * Describes an application in the application catalog.
+   *
    * @public
    */
   Application?: Application | undefined;
 }
 
 /**
- * <p>Describes the credentials for the service account used by the fleet or image builder to connect to the directory.</p>
+ * Describes the credentials for the service account used by the fleet or image builder to connect to the directory.
+ *
  * @public
  */
 export interface ServiceAccountCredentials {
   /**
-   * <p>The user name of the account. This account must have the following privileges: create computer objects,
-   *             join computers to the domain, and change/reset the password on descendant computer objects for the
-   *             organizational units specified.</p>
+   * The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+   *
    * @public
    */
   AccountName: string | undefined;
 
   /**
-   * <p>The password for the account.</p>
+   * The password for the account.
+   *
    * @public
    */
   AccountPassword: string | undefined;
@@ -1601,73 +1725,71 @@ export interface ServiceAccountCredentials {
  */
 export interface CreateDirectoryConfigRequest {
   /**
-   * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
+   * The fully qualified name of the directory (for example, corp.example.com).
+   *
    * @public
    */
   DirectoryName: string | undefined;
 
   /**
-   * <p>The distinguished names of the organizational units for computer accounts.</p>
+   * The distinguished names of the organizational units for computer accounts.
+   *
    * @public
    */
   OrganizationalUnitDistinguishedNames: string[] | undefined;
 
   /**
-   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
+   * The credentials for the service account used by the fleet or image builder to connect to the directory.
+   *
    * @public
    */
   ServiceAccountCredentials?: ServiceAccountCredentials | undefined;
 
   /**
-   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
-   *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
-   *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
-   *             domain password if certificate-based authentication is unsuccessful, or to unlock a
-   *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
-   *             authentication, but does not allow users to log in using their AD domain password. Users
-   *             will be disconnected to re-authenticate using certificates.</p>
+   * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. Fallback is turned on by default when certificate-based authentication is **Enabled** . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. **Enabled_no_directory_login_fallback** enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+   *
    * @public
    */
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties | undefined;
 }
 
 /**
- * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
+ * Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
+ *
  * @public
  */
 export interface DirectoryConfig {
   /**
-   * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
+   * The fully qualified name of the directory (for example, corp.example.com).
+   *
    * @public
    */
   DirectoryName: string | undefined;
 
   /**
-   * <p>The distinguished names of the organizational units for computer accounts.</p>
+   * The distinguished names of the organizational units for computer accounts.
+   *
    * @public
    */
   OrganizationalUnitDistinguishedNames?: string[] | undefined;
 
   /**
-   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
+   * The credentials for the service account used by the fleet or image builder to connect to the directory.
+   *
    * @public
    */
   ServiceAccountCredentials?: ServiceAccountCredentials | undefined;
 
   /**
-   * <p>The time the directory configuration was created.</p>
+   * The time the directory configuration was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
-   *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
-   *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
-   *             domain password if certificate-based authentication is unsuccessful, or to unlock a
-   *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
-   *             authentication, but does not allow users to log in using their AD domain password. Users
-   *             will be disconnected to re-authenticate using certificates.</p>
+   * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. Fallback is turned on by default when certificate-based authentication is **Enabled** . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. **Enabled_no_directory_login_fallback** enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+   *
    * @public
    */
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties | undefined;
@@ -1678,54 +1800,39 @@ export interface DirectoryConfig {
  */
 export interface CreateDirectoryConfigResult {
   /**
-   * <p>Information about the directory configuration.</p>
+   * Information about the directory configuration.
+   *
    * @public
    */
   DirectoryConfig?: DirectoryConfig | undefined;
 }
 
 /**
- * <p>An attribute associated with an entitlement. Application entitlements work by matching
- *             a supported SAML 2.0 attribute name to a value when a user identity federates to a WorkSpaces Applications SAML application.</p>
+ * An attribute associated with an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to a WorkSpaces Applications SAML application.
+ *
  * @public
  */
 export interface EntitlementAttribute {
   /**
-   * <p>A supported AWS IAM SAML <code>PrincipalTag</code> attribute that is matched to the
-   *             associated value when a user identity federates into a WorkSpaces Applications SAML
-   *             application.</p>
-   *          <p>The following are valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>roles</p>
-   *             </li>
-   *             <li>
-   *                <p>department </p>
-   *             </li>
-   *             <li>
-   *                <p>organization </p>
-   *             </li>
-   *             <li>
-   *                <p>groups </p>
-   *             </li>
-   *             <li>
-   *                <p>title </p>
-   *             </li>
-   *             <li>
-   *                <p>costCenter </p>
-   *             </li>
-   *             <li>
-   *                <p>userType</p>
-   *             </li>
-   *          </ul>
-   *          <p> </p>
+   * A supported AWS IAM SAML `PrincipalTag` attribute that is matched to the associated value when a user identity federates into a WorkSpaces Applications SAML application.
+   *
+   * The following are valid values:
+   *
+   * - roles
+   * - department
+   * - organization
+   * - groups
+   * - title
+   * - costCenter
+   * - userType
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A value that is matched to a supported SAML attribute name when a user identity
-   *             federates into a WorkSpaces Applications SAML application. </p>
+   * A value that is matched to a supported SAML attribute name when a user identity federates into a WorkSpaces Applications SAML application.
+   *
    * @public
    */
   Value: string | undefined;
@@ -1736,84 +1843,92 @@ export interface EntitlementAttribute {
  */
 export interface CreateEntitlementRequest {
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The description of the entitlement.</p>
+   * The description of the entitlement.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether all or selected apps are entitled.</p>
+   * Specifies whether all or selected apps are entitled.
+   *
    * @public
    */
   AppVisibility: AppVisibility | undefined;
 
   /**
-   * <p>The attributes of the entitlement.</p>
+   * The attributes of the entitlement.
+   *
    * @public
    */
   Attributes: EntitlementAttribute[] | undefined;
 }
 
 /**
- * <p>Specifies an entitlement. Entitlements control access to specific applications within
- *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
- *             identities. WorkSpaces Applications user pool and streaming URL users are entitled to all
- *             applications in a stack. Entitlements don't apply to the desktop stream view
- *             application, or to applications managed by a dynamic app provider using the Dynamic
- *             Application Framework.</p>
+ * Specifies an entitlement. Entitlements control access to specific applications within a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user identities. WorkSpaces Applications user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application, or to applications managed by a dynamic app provider using the Dynamic Application Framework.
+ *
  * @public
  */
 export interface Entitlement {
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The description of the entitlement.</p>
+   * The description of the entitlement.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether all or selected apps are entitled.</p>
+   * Specifies whether all or selected apps are entitled.
+   *
    * @public
    */
   AppVisibility: AppVisibility | undefined;
 
   /**
-   * <p>The attributes of the entitlement.</p>
+   * The attributes of the entitlement.
+   *
    * @public
    */
   Attributes: EntitlementAttribute[] | undefined;
 
   /**
-   * <p>The time when the entitlement was created.</p>
+   * The time when the entitlement was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The time when the entitlement was last modified.</p>
+   * The time when the entitlement was last modified.
+   *
    * @public
    */
   LastModifiedTime?: Date | undefined;
@@ -1824,7 +1939,8 @@ export interface Entitlement {
  */
 export interface CreateEntitlementResult {
   /**
-   * <p>The entitlement.</p>
+   * The entitlement.
+   *
    * @public
    */
   Entitlement?: Entitlement | undefined;
@@ -1835,91 +1951,106 @@ export interface CreateEntitlementResult {
  */
 export interface CreateExportImageTaskRequest {
   /**
-   * <p>The name of the WorkSpaces Applications image to export. The image must be in an available state and owned by your account.</p>
+   * The name of the WorkSpaces Applications image to export. The image must be in an available state and owned by your account.
+   *
    * @public
    */
   ImageName: string | undefined;
 
   /**
-   * <p>The name for the exported EC2 AMI. This is a required field that must be unique within your account and region.</p>
+   * The name for the exported EC2 AMI. This is a required field that must be unique within your account and region.
+   *
    * @public
    */
   AmiName: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that allows WorkSpaces Applications to create the AMI. The role must have permissions to copy images, describe images, and create tags, with a trust relationship allowing appstream.amazonaws.com to assume the role.</p>
+   * The ARN of the IAM role that allows WorkSpaces Applications to create the AMI. The role must have permissions to copy images, describe images, and create tags, with a trust relationship allowing appstream.amazonaws.com to assume the role.
+   *
    * @public
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The tags to apply to the exported AMI. These tags help you organize and manage your EC2 AMIs.</p>
+   * The tags to apply to the exported AMI. These tags help you organize and manage your EC2 AMIs.
+   *
    * @public
    */
   TagSpecifications?: Record<string, string> | undefined;
 
   /**
-   * <p>An optional description for the exported AMI. This description will be applied to the resulting EC2 AMI.</p>
+   * An optional description for the exported AMI. This description will be applied to the resulting EC2 AMI.
+   *
    * @public
    */
   AmiDescription?: string | undefined;
 }
 
 /**
- * <p>Information about an export image task, including its current state, timestamps, and any error details.</p>
+ * Information about an export image task, including its current state, timestamps, and any error details.
+ *
  * @public
  */
 export interface ExportImageTask {
   /**
-   * <p>The unique identifier for the export image task. Use this ID to track the task's progress and retrieve its details.</p>
+   * The unique identifier for the export image task. Use this ID to track the task's progress and retrieve its details.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The ARN of the WorkSpaces Applications image being exported.</p>
+   * The ARN of the WorkSpaces Applications image being exported.
+   *
    * @public
    */
   ImageArn: string | undefined;
 
   /**
-   * <p>The name of the EC2 AMI that will be created by this export task.</p>
+   * The name of the EC2 AMI that will be created by this export task.
+   *
    * @public
    */
   AmiName: string | undefined;
 
   /**
-   * <p>The date and time when the export image task was created.</p>
+   * The date and time when the export image task was created.
+   *
    * @public
    */
   CreatedDate: Date | undefined;
 
   /**
-   * <p>The description that will be applied to the exported EC2 AMI.</p>
+   * The description that will be applied to the exported EC2 AMI.
+   *
    * @public
    */
   AmiDescription?: string | undefined;
 
   /**
-   * <p>The current state of the export image task, such as PENDING, RUNNING, COMPLETED, or FAILED.</p>
+   * The current state of the export image task, such as PENDING, RUNNING, COMPLETED, or FAILED.
+   *
    * @public
    */
   State?: ExportImageTaskState | undefined;
 
   /**
-   * <p>The ID of the EC2 AMI that was created by this export task. This field is only populated when the task completes successfully.</p>
+   * The ID of the EC2 AMI that was created by this export task. This field is only populated when the task completes successfully.
+   *
    * @public
    */
   AmiId?: string | undefined;
 
   /**
-   * <p>The tags that will be applied to the exported EC2 AMI.</p>
+   * The tags that will be applied to the exported EC2 AMI.
+   *
    * @public
    */
   TagSpecifications?: Record<string, string> | undefined;
 
   /**
-   * <p>Details about any errors that occurred during the export process. This field is only populated when the task fails.</p>
+   * Details about any errors that occurred during the export process. This field is only populated when the task fails.
+   *
    * @public
    */
   ErrorDetails?: ErrorDetails[] | undefined;
@@ -1930,37 +2061,43 @@ export interface ExportImageTask {
  */
 export interface CreateExportImageTaskResult {
   /**
-   * <p>Information about the export image task that was created, including the task ID and initial state.</p>
+   * Information about the export image task that was created, including the task ID and initial state.
+   *
    * @public
    */
   ExportImageTask?: ExportImageTask | undefined;
 }
 
 /**
- * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
+ * Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
+ *
  * @public
  */
 export interface DomainJoinInfo {
   /**
-   * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
+   * The fully qualified name of the directory (for example, corp.example.com).
+   *
    * @public
    */
   DirectoryName?: string | undefined;
 
   /**
-   * <p>The distinguished name of the organizational unit for computer accounts.</p>
+   * The distinguished name of the organizational unit for computer accounts.
+   *
    * @public
    */
   OrganizationalUnitDistinguishedName?: string | undefined;
 }
 
 /**
- * <p>Configuration for the root volume of fleet instances and image builders. This allows you to customize the storage capacity beyond the default 200 GB.</p>
+ * Configuration for the root volume of fleet instances and image builders. This allows you to customize the storage capacity beyond the default 200 GB.
+ *
  * @public
  */
 export interface VolumeConfig {
   /**
-   * <p>The size of the root volume in GB. Valid range is 200-500 GB. The default is 200 GB, which is included in the hourly instance rate. Additional storage beyond 200 GB incurs extra charges and applies to instances regardless of their running state.</p>
+   * The size of the root volume in GB. Valid range is 200-500 GB. The default is 200 GB, which is included in the hourly instance rate. Additional storage beyond 200 GB incurs extra charges and applies to instances regardless of their running state.
+   *
    * @public
    */
   VolumeSizeInGb?: number | undefined;
@@ -1971,704 +2108,540 @@ export interface VolumeConfig {
  */
 export interface CreateFleetRequest {
   /**
-   * <p>A unique name for the fleet.</p>
+   * A unique name for the fleet.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the image used to create the fleet.</p>
+   * The name of the image used to create the fleet.
+   *
    * @public
    */
   ImageName?: string | undefined;
 
   /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
+   * The ARN of the public, private, or shared image to use.
+   *
    * @public
    */
   ImageArn?: string | undefined;
 
   /**
-   * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.3xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.6xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6f.4xlarge</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following instance types are available for Elastic fleets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.2xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type to use when launching fleet instances. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.standard.xlarge
+   * - stream.standard.2xlarge
+   * - stream.compute.large
+   * - stream.compute.xlarge
+   * - stream.compute.2xlarge
+   * - stream.compute.4xlarge
+   * - stream.compute.8xlarge
+   * - stream.memory.large
+   * - stream.memory.xlarge
+   * - stream.memory.2xlarge
+   * - stream.memory.4xlarge
+   * - stream.memory.8xlarge
+   * - stream.memory.z1d.large
+   * - stream.memory.z1d.xlarge
+   * - stream.memory.z1d.2xlarge
+   * - stream.memory.z1d.3xlarge
+   * - stream.memory.z1d.6xlarge
+   * - stream.memory.z1d.12xlarge
+   * - stream.graphics.g4dn.xlarge
+   * - stream.graphics.g4dn.2xlarge
+   * - stream.graphics.g4dn.4xlarge
+   * - stream.graphics.g4dn.8xlarge
+   * - stream.graphics.g4dn.12xlarge
+   * - stream.graphics.g4dn.16xlarge
+   * - stream.graphics.g5.xlarge
+   * - stream.graphics.g5.2xlarge
+   * - stream.graphics.g5.4xlarge
+   * - stream.graphics.g5.8xlarge
+   * - stream.graphics.g5.12xlarge
+   * - stream.graphics.g5.16xlarge
+   * - stream.graphics.g5.24xlarge
+   * - stream.graphics.g6.xlarge
+   * - stream.graphics.g6.2xlarge
+   * - stream.graphics.g6.4xlarge
+   * - stream.graphics.g6.8xlarge
+   * - stream.graphics.g6.16xlarge
+   * - stream.graphics.g6.12xlarge
+   * - stream.graphics.g6.24xlarge
+   * - stream.graphics.gr6.4xlarge
+   * - stream.graphics.gr6.8xlarge
+   * - stream.graphics.g6f.large
+   * - stream.graphics.g6f.xlarge
+   * - stream.graphics.g6f.2xlarge
+   * - stream.graphics.g6f.4xlarge
+   * - stream.graphics.gr6f.4xlarge
+   *
+   * The following instance types are available for Elastic fleets:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.standard.xlarge
+   * - stream.standard.2xlarge
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The fleet type.</p>
-   *          <dl>
-   *             <dt>ALWAYS_ON</dt>
-   *             <dd>
-   *                <p>Provides users with instant-on access to their apps.
-   *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
-   *             </dd>
-   *             <dt>ON_DEMAND</dt>
-   *             <dd>
-   *                <p>Provide users with access to applications after they connect, which takes one to two minutes.
-   *                         You are charged for instance streaming when users are connected and a
-   *                         small hourly fee for instances that are not streaming apps.</p>
-   *             </dd>
-   *          </dl>
+   * The fleet type.
+   *
+   * - **ALWAYS_ON**
+   *
+   *   Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.
+   *
+   * - **ON_DEMAND**
+   *
+   *   Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.
+   *
    * @public
    */
   FleetType?: FleetType | undefined;
 
   /**
-   * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets. For Elastic fleets, specify MaxConcurrentSessions instead.</p>
+   * The desired capacity for the fleet. This is not allowed for Elastic fleets. For Elastic fleets, specify MaxConcurrentSessions instead.
+   *
    * @public
    */
   ComputeCapacity?: ComputeCapacity | undefined;
 
   /**
-   * <p>The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones.</p>
+   * The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones.
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *          <p>Specify a value between 600 and 432000.</p>
+   * The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+   *
+   * Specify a value between 600 and 432000.
+   *
    * @public
    */
   MaxUserDurationInSeconds?: number | undefined;
 
   /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *          <p>Specify a value between 60 and 36000.</p>
+   * The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+   *
+   * Specify a value between 60 and 36000.
+   *
    * @public
    */
   DisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The fleet name to display.</p>
+   * The fleet name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>Enables or disables default internet access for the fleet.</p>
+   * Enables or disables default internet access for the fleet.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets. </p>
+   * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. This is not allowed for Elastic fleets.
+   *
    * @public
    */
   DomainJoinInfo?: DomainJoinInfo | undefined;
 
   /**
-   * <p>The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *          <p>_ . : / = + \ - @</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+   *
+   * If you do not specify a value, the value is set to an empty string.
+   *
+   * Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+   *
+   * _ . : / = + \ - @
+   *
+   * For more information, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The amount of time that users can be idle (inactive) before they are disconnected
-   *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
-   *             interval begins. Users are notified before they are disconnected due to inactivity. If
-   *             they try to reconnect to the streaming session before the time interval specified in
-   *             <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
-   *             previous session. Users are considered idle when they stop providing keyboard or mouse
-   *             input during their streaming session. File uploads and downloads, audio in, audio out,
-   *             and pixels changing do not qualify as user activity. If users continue to be idle after
-   *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
-   *             disconnected.</p>
-   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.</p>
-   *          <note>
-   *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
-   *          </note>
+   * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `DisconnectTimeoutInSeconds` time interval begins. Users are notified before they are disconnected due to inactivity. If they try to reconnect to the streaming session before the time interval specified in `DisconnectTimeoutInSeconds` elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in `IdleDisconnectTimeoutInSeconds` elapses, they are disconnected.
+   *
+   * To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.
+   *
+   * > **Note:** If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity.
+   *
    * @public
    */
   IdleDisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
-   *          <p>The default value is <code>APP</code>.</p>
+   * The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+   *
+   * The default value is `APP`.
+   *
    * @public
    */
   StreamView?: StreamView | undefined;
 
   /**
-   * <p>The fleet platform. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic
-   *             fleets. </p>
+   * The fleet platform. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets.
+   *
    * @public
    */
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The maximum concurrent sessions of the Elastic fleet. This is required for Elastic
-   *             fleets, and not allowed for other fleet types.</p>
+   * The maximum concurrent sessions of the Elastic fleet. This is required for Elastic fleets, and not allowed for other fleet types.
+   *
    * @public
    */
   MaxConcurrentSessions?: number | undefined;
 
   /**
-   * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
+   * The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.
+   *
    * @public
    */
   UsbDeviceFilterStrings?: string[] | undefined;
 
   /**
-   * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
+   * The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.
+   *
    * @public
    */
   SessionScriptS3Location?: S3Location | undefined;
 
   /**
-   * <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
+   * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+   *
    * @public
    */
   MaxSessionsPerInstance?: number | undefined;
 
   /**
-   * <p>The configuration for the root volume of fleet instances. Use this to customize storage capacity from 200 GB up to 500 GB based on your application requirements.</p>
+   * The configuration for the root volume of fleet instances. Use this to customize storage capacity from 200 GB up to 500 GB based on your application requirements.
+   *
    * @public
    */
   RootVolumeConfig?: VolumeConfig | undefined;
 
   /**
-   * <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
-   *          <note>
-   *             <p>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.</p>
-   *          </note>
+   * Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.
+   *
+   * > **Note:** Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
 }
 
 /**
- * <p>Describes a fleet error.</p>
+ * Describes a fleet error.
+ *
  * @public
  */
 export interface FleetError {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: FleetErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Describes a fleet.</p>
+ * Describes a fleet.
+ *
  * @public
  */
 export interface Fleet {
   /**
-   * <p>The Amazon Resource Name (ARN) for the fleet.</p>
+   * The Amazon Resource Name (ARN) for the fleet.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The fleet name to display.</p>
+   * The fleet name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the image used to create the fleet.</p>
+   * The name of the image used to create the fleet.
+   *
    * @public
    */
   ImageName?: string | undefined;
 
   /**
-   * <p>The ARN for the public, private, or shared image.</p>
+   * The ARN for the public, private, or shared image.
+   *
    * @public
    */
   ImageArn?: string | undefined;
 
   /**
-   * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.3xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.6xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6f.4xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type to use when launching fleet instances. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.compute.large
+   * - stream.compute.xlarge
+   * - stream.compute.2xlarge
+   * - stream.compute.4xlarge
+   * - stream.compute.8xlarge
+   * - stream.memory.large
+   * - stream.memory.xlarge
+   * - stream.memory.2xlarge
+   * - stream.memory.4xlarge
+   * - stream.memory.8xlarge
+   * - stream.memory.z1d.large
+   * - stream.memory.z1d.xlarge
+   * - stream.memory.z1d.2xlarge
+   * - stream.memory.z1d.3xlarge
+   * - stream.memory.z1d.6xlarge
+   * - stream.memory.z1d.12xlarge
+   * - stream.graphics.g4dn.xlarge
+   * - stream.graphics.g4dn.2xlarge
+   * - stream.graphics.g4dn.4xlarge
+   * - stream.graphics.g4dn.8xlarge
+   * - stream.graphics.g4dn.12xlarge
+   * - stream.graphics.g4dn.16xlarge
+   * - stream.graphics.g5.xlarge
+   * - stream.graphics.g5.2xlarge
+   * - stream.graphics.g5.4xlarge
+   * - stream.graphics.g5.8xlarge
+   * - stream.graphics.g5.16xlarge
+   * - stream.graphics.g5.12xlarge
+   * - stream.graphics.g5.24xlarge
+   * - stream.graphics.g6.xlarge
+   * - stream.graphics.g6.2xlarge
+   * - stream.graphics.g6.4xlarge
+   * - stream.graphics.g6.8xlarge
+   * - stream.graphics.g6.16xlarge
+   * - stream.graphics.g6.12xlarge
+   * - stream.graphics.g6.24xlarge
+   * - stream.graphics.gr6.4xlarge
+   * - stream.graphics.gr6.8xlarge
+   * - stream.graphics.g6f.large
+   * - stream.graphics.g6f.xlarge
+   * - stream.graphics.g6f.2xlarge
+   * - stream.graphics.g6f.4xlarge
+   * - stream.graphics.gr6f.4xlarge
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The fleet type.</p>
-   *          <dl>
-   *             <dt>ALWAYS_ON</dt>
-   *             <dd>
-   *                <p>Provides users with instant-on access to their apps.
-   *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
-   *             </dd>
-   *             <dt>ON_DEMAND</dt>
-   *             <dd>
-   *                <p>Provide users with access to applications after they connect, which takes one to two minutes.
-   *                         You are charged for instance streaming when users are connected and a
-   *                         small hourly fee for instances that are not streaming apps.</p>
-   *             </dd>
-   *          </dl>
+   * The fleet type.
+   *
+   * - **ALWAYS_ON**
+   *
+   *   Provides users with instant-on access to their apps. You are charged for all running instances in your fleet, even if no users are streaming apps.
+   *
+   * - **ON_DEMAND**
+   *
+   *   Provide users with access to applications after they connect, which takes one to two minutes. You are charged for instance streaming when users are connected and a small hourly fee for instances that are not streaming apps.
+   *
    * @public
    */
   FleetType?: FleetType | undefined;
 
   /**
-   * <p>The capacity status for the fleet.</p>
+   * The capacity status for the fleet.
+   *
    * @public
    */
   ComputeCapacityStatus: ComputeCapacityStatus | undefined;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
-   *          <p>Specify a value between 600 and 360000.</p>
+   * The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+   *
+   * Specify a value between 600 and 360000.
+   *
    * @public
    */
   MaxUserDurationInSeconds?: number | undefined;
 
   /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
-   *          <p>Specify a value between 60 and 36000.</p>
+   * The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+   *
+   * Specify a value between 60 and 36000.
+   *
    * @public
    */
   DisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The current state for the fleet.</p>
+   * The current state for the fleet.
+   *
    * @public
    */
   State: FleetState | undefined;
 
   /**
-   * <p>The VPC configuration for the fleet.</p>
+   * The VPC configuration for the fleet.
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The time the fleet was created.</p>
+   * The time the fleet was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The fleet errors.</p>
+   * The fleet errors.
+   *
    * @public
    */
   FleetErrors?: FleetError[] | undefined;
 
   /**
-   * <p>Indicates whether default internet access is enabled for the fleet.</p>
+   * Indicates whether default internet access is enabled for the fleet.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain.
+   *
    * @public
    */
   DomainJoinInfo?: DomainJoinInfo | undefined;
 
   /**
-   * <p>The amount of time that users can be idle (inactive) before they are disconnected
-   *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
-   *             interval begins. Users are notified before they are disconnected due to inactivity. If
-   *             users try to reconnect to the streaming session before the time interval specified in
-   *             <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
-   *             previous session. Users are considered idle when they stop providing keyboard or mouse
-   *             input during their streaming session. File uploads and downloads, audio in, audio out,
-   *             and pixels changing do not qualify as user activity. If users continue to be idle after
-   *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
-   *             disconnected.</p>
-   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.</p>
-   *          <note>
-   *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
-   *          </note>
+   * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `DisconnectTimeoutInSeconds` time interval begins. Users are notified before they are disconnected due to inactivity. If users try to reconnect to the streaming session before the time interval specified in `DisconnectTimeoutInSeconds` elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in `IdleDisconnectTimeoutInSeconds` elapses, they are disconnected.
+   *
+   * To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.
+   *
+   * > **Note:** If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity.
+   *
    * @public
    */
   IdleDisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
-   *          <p>The default value is <code>APP</code>.</p>
+   * The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+   *
+   * The default value is `APP`.
+   *
    * @public
    */
   StreamView?: StreamView | undefined;
 
   /**
-   * <p>The platform of the fleet.</p>
+   * The platform of the fleet.
+   *
    * @public
    */
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The maximum number of concurrent sessions for the fleet.</p>
+   * The maximum number of concurrent sessions for the fleet.
+   *
    * @public
    */
   MaxConcurrentSessions?: number | undefined;
 
   /**
-   * <p>The USB device filter strings associated with the fleet.</p>
+   * The USB device filter strings associated with the fleet.
+   *
    * @public
    */
   UsbDeviceFilterStrings?: string[] | undefined;
 
   /**
-   * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.</p>
+   * The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.
+   *
    * @public
    */
   SessionScriptS3Location?: S3Location | undefined;
 
   /**
-   * <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
+   * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+   *
    * @public
    */
   MaxSessionsPerInstance?: number | undefined;
 
   /**
-   * <p>The current configuration of the root volume for fleet instances, including the storage size in GB.</p>
+   * The current configuration of the root volume for fleet instances, including the storage size in GB.
+   *
    * @public
    */
   RootVolumeConfig?: VolumeConfig | undefined;
 
   /**
-   * <p>Indicates whether Instance Metadata Service Version 1 (IMDSv1) is disabled for the fleet.</p>
+   * Indicates whether Instance Metadata Service Version 1 (IMDSv1) is disabled for the fleet.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
@@ -2679,7 +2652,8 @@ export interface Fleet {
  */
 export interface CreateFleetResult {
   /**
-   * <p>Information about the fleet.</p>
+   * Information about the fleet.
+   *
    * @public
    */
   Fleet?: Fleet | undefined;
@@ -2690,716 +2664,485 @@ export interface CreateFleetResult {
  */
 export interface CreateImageBuilderRequest {
   /**
-   * <p>A unique name for the image builder.</p>
+   * A unique name for the image builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the image used to create the image builder.</p>
+   * The name of the image used to create the image builder.
+   *
    * @public
    */
   ImageName?: string | undefined;
 
   /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
+   * The ARN of the public, private, or shared image to use.
+   *
    * @public
    */
   ImageArn?: string | undefined;
 
   /**
-   * <p>The instance type to use when launching the image builder. The following instance types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.3xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.6xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6f.4xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type to use when launching the image builder. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.compute.large
+   * - stream.compute.xlarge
+   * - stream.compute.2xlarge
+   * - stream.compute.4xlarge
+   * - stream.compute.8xlarge
+   * - stream.memory.large
+   * - stream.memory.xlarge
+   * - stream.memory.2xlarge
+   * - stream.memory.4xlarge
+   * - stream.memory.8xlarge
+   * - stream.memory.z1d.large
+   * - stream.memory.z1d.xlarge
+   * - stream.memory.z1d.2xlarge
+   * - stream.memory.z1d.3xlarge
+   * - stream.memory.z1d.6xlarge
+   * - stream.memory.z1d.12xlarge
+   * - stream.graphics.g4dn.xlarge
+   * - stream.graphics.g4dn.2xlarge
+   * - stream.graphics.g4dn.4xlarge
+   * - stream.graphics.g4dn.8xlarge
+   * - stream.graphics.g4dn.12xlarge
+   * - stream.graphics.g4dn.16xlarge
+   * - stream.graphics.g5.xlarge
+   * - stream.graphics.g5.2xlarge
+   * - stream.graphics.g5.4xlarge
+   * - stream.graphics.g5.8xlarge
+   * - stream.graphics.g5.16xlarge
+   * - stream.graphics.g5.12xlarge
+   * - stream.graphics.g5.24xlarge
+   * - stream.graphics.g6.xlarge
+   * - stream.graphics.g6.2xlarge
+   * - stream.graphics.g6.4xlarge
+   * - stream.graphics.g6.8xlarge
+   * - stream.graphics.g6.16xlarge
+   * - stream.graphics.g6.12xlarge
+   * - stream.graphics.g6.24xlarge
+   * - stream.graphics.gr6.4xlarge
+   * - stream.graphics.gr6.8xlarge
+   * - stream.graphics.g6f.large
+   * - stream.graphics.g6f.xlarge
+   * - stream.graphics.g6f.2xlarge
+   * - stream.graphics.g6f.4xlarge
+   * - stream.graphics.gr6f.4xlarge
+   *
    * @public
    */
   InstanceType: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The image builder name to display.</p>
+   * The image builder name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
+   * The VPC configuration for the image builder. You can specify only one subnet.
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>Enables or disables default internet access for the image builder.</p>
+   * Enables or disables default internet access for the image builder.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
+   * The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+   *
    * @public
    */
   DomainJoinInfo?: DomainJoinInfo | undefined;
 
   /**
-   * <p>The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </p>
+   * The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
+   *
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
 
   /**
-   * <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *          <p>_ . : / = + \ - @</p>
-   *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+   *
+   * Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+   *
+   * _ . : / = + \ - @
+   *
+   * If you do not specify a value, the value is set to an empty string.
+   *
+   * For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
+   * The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The configuration for the root volume of the image builder. Use this to customize storage capacity from 200 GB up to 500 GB based on your application installation requirements.</p>
+   * The configuration for the root volume of the image builder. Use this to customize storage capacity from 200 GB up to 500 GB based on your application installation requirements.
+   *
    * @public
    */
   RootVolumeConfig?: VolumeConfig | undefined;
 
   /**
-   * <p>The list of license included applications to install on the image builder during creation.</p>
-   *          <p>Possible values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
-   *             </li>
-   *          </ul>
+   * The list of license included applications to install on the image builder during creation.
+   *
+   * Possible values include the following:
+   *
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_64Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_64Bit
+   * - Microsoft_Project_2021_Professional_32Bit
+   * - Microsoft_Project_2021_Professional_64Bit
+   * - Microsoft_Project_2024_Professional_32Bit
+   * - Microsoft_Project_2024_Professional_64Bit
+   * - Microsoft_Office_2021_LTSC_Standard_32Bit
+   * - Microsoft_Office_2021_LTSC_Standard_64Bit
+   * - Microsoft_Office_2024_LTSC_Standard_32Bit
+   * - Microsoft_Office_2024_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_64Bit
+   * - Microsoft_Project_2021_Standard_32Bit
+   * - Microsoft_Project_2021_Standard_64Bit
+   * - Microsoft_Project_2024_Standard_32Bit
+   * - Microsoft_Project_2024_Standard_64Bit
+   *
    * @public
    */
   SoftwaresToInstall?: string[] | undefined;
 
   /**
-   * <p>The list of license included applications to uninstall from the image builder during creation.</p>
-   *          <p>Possible values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
-   *             </li>
-   *          </ul>
+   * The list of license included applications to uninstall from the image builder during creation.
+   *
+   * Possible values include the following:
+   *
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_64Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_64Bit
+   * - Microsoft_Project_2021_Professional_32Bit
+   * - Microsoft_Project_2021_Professional_64Bit
+   * - Microsoft_Project_2024_Professional_32Bit
+   * - Microsoft_Project_2024_Professional_64Bit
+   * - Microsoft_Office_2021_LTSC_Standard_32Bit
+   * - Microsoft_Office_2021_LTSC_Standard_64Bit
+   * - Microsoft_Office_2024_LTSC_Standard_32Bit
+   * - Microsoft_Office_2024_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_64Bit
+   * - Microsoft_Project_2021_Standard_32Bit
+   * - Microsoft_Project_2021_Standard_64Bit
+   * - Microsoft_Project_2024_Standard_32Bit
+   * - Microsoft_Project_2024_Standard_64Bit
+   *
    * @public
    */
   SoftwaresToUninstall?: string[] | undefined;
 
   /**
-   * <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
-   *          <note>
-   *             <p>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.</p>
-   *          </note>
+   * Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.
+   *
+   * > **Note:** Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
 }
 
 /**
- * <p>Describes the network details of the fleet or image builder instance.</p>
+ * Describes the network details of the fleet or image builder instance.
+ *
  * @public
  */
 export interface NetworkAccessConfiguration {
   /**
-   * <p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>
+   * The private IP address of the elastic network interface that is attached to instances in your VPC.
+   *
    * @public
    */
   EniPrivateIpAddress?: string | undefined;
 
   /**
-   * <p>The IPv6 addresses assigned to the elastic network interface. This field supports IPv6 connectivity for WorkSpaces Applications instances.</p>
+   * The IPv6 addresses assigned to the elastic network interface. This field supports IPv6 connectivity for WorkSpaces Applications instances.
+   *
    * @public
    */
   EniIpv6Addresses?: string[] | undefined;
 
   /**
-   * <p>The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>
+   * The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
+   *
    * @public
    */
   EniId?: string | undefined;
 }
 
 /**
- * <p>Describes the reason why the last image builder state change occurred.</p>
+ * Describes the reason why the last image builder state change occurred.
+ *
  * @public
  */
 export interface ImageBuilderStateChangeReason {
   /**
-   * <p>The state change reason code.</p>
+   * The state change reason code.
+   *
    * @public
    */
   Code?: ImageBuilderStateChangeReasonCode | undefined;
 
   /**
-   * <p>The state change reason message.</p>
+   * The state change reason message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Describes a virtual machine that is used to create an image. </p>
+ * Describes a virtual machine that is used to create an image.
+ *
  * @public
  */
 export interface ImageBuilder {
   /**
-   * <p>The name of the image builder.</p>
+   * The name of the image builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The ARN for the image builder.</p>
+   * The ARN for the image builder.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The ARN of the image from which this builder was created.</p>
+   * The ARN of the image from which this builder was created.
+   *
    * @public
    */
   ImageArn?: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The image builder name to display.</p>
+   * The image builder name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The VPC configuration of the image builder.</p>
+   * The VPC configuration of the image builder.
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The instance type for the image builder. The following instance types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.3xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.6xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6f.4xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type for the image builder. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.compute.large
+   * - stream.compute.xlarge
+   * - stream.compute.2xlarge
+   * - stream.compute.4xlarge
+   * - stream.compute.8xlarge
+   * - stream.memory.large
+   * - stream.memory.xlarge
+   * - stream.memory.2xlarge
+   * - stream.memory.4xlarge
+   * - stream.memory.8xlarge
+   * - stream.memory.z1d.large
+   * - stream.memory.z1d.xlarge
+   * - stream.memory.z1d.2xlarge
+   * - stream.memory.z1d.3xlarge
+   * - stream.memory.z1d.6xlarge
+   * - stream.memory.z1d.12xlarge
+   * - stream.graphics.g4dn.xlarge
+   * - stream.graphics.g4dn.2xlarge
+   * - stream.graphics.g4dn.4xlarge
+   * - stream.graphics.g4dn.8xlarge
+   * - stream.graphics.g4dn.12xlarge
+   * - stream.graphics.g4dn.16xlarge
+   * - stream.graphics.g5.xlarge
+   * - stream.graphics.g5.2xlarge
+   * - stream.graphics.g5.4xlarge
+   * - stream.graphics.g5.8xlarge
+   * - stream.graphics.g5.16xlarge
+   * - stream.graphics.g5.12xlarge
+   * - stream.graphics.g5.24xlarge
+   * - stream.graphics.g6.xlarge
+   * - stream.graphics.g6.2xlarge
+   * - stream.graphics.g6.4xlarge
+   * - stream.graphics.g6.8xlarge
+   * - stream.graphics.g6.16xlarge
+   * - stream.graphics.g6.12xlarge
+   * - stream.graphics.g6.24xlarge
+   * - stream.graphics.gr6.4xlarge
+   * - stream.graphics.gr6.8xlarge
+   * - stream.graphics.g6f.large
+   * - stream.graphics.g6f.xlarge
+   * - stream.graphics.g6f.2xlarge
+   * - stream.graphics.g6f.4xlarge
+   * - stream.graphics.gr6f.4xlarge
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The operating system platform of the image builder.</p>
+   * The operating system platform of the image builder.
+   *
    * @public
    */
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The state of the image builder.</p>
+   * The state of the image builder.
+   *
    * @public
    */
   State?: ImageBuilderState | undefined;
 
   /**
-   * <p>The reason why the last state change occurred.</p>
+   * The reason why the last state change occurred.
+   *
    * @public
    */
   StateChangeReason?: ImageBuilderStateChangeReason | undefined;
 
   /**
-   * <p>The time stamp when the image builder was created.</p>
+   * The time stamp when the image builder was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>Enables or disables default internet access for the image builder.</p>
+   * Enables or disables default internet access for the image builder.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
+   * The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+   *
    * @public
    */
   DomainJoinInfo?: DomainJoinInfo | undefined;
 
   /**
-   * <p>Describes the network details of the fleet or image builder instance.</p>
+   * Describes the network details of the fleet or image builder instance.
+   *
    * @public
    */
   NetworkAccessConfiguration?: NetworkAccessConfiguration | undefined;
 
   /**
-   * <p>The image builder errors.</p>
+   * The image builder errors.
+   *
    * @public
    */
   ImageBuilderErrors?: ResourceError[] | undefined;
 
   /**
-   * <p>The version of the WorkSpaces Applications agent that is currently being used by the image builder. </p>
+   * The version of the WorkSpaces Applications agent that is currently being used by the image builder.
+   *
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
 
   /**
-   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
+   * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The current configuration of the root volume for the image builder, including the storage size in GB.</p>
+   * The current configuration of the root volume for the image builder, including the storage size in GB.
+   *
    * @public
    */
   RootVolumeConfig?: VolumeConfig | undefined;
 
   /**
-   * <p>Indicates whether the image builder is using the latest WorkSpaces Applications agent version or not.</p>
+   * Indicates whether the image builder is using the latest WorkSpaces Applications agent version or not.
+   *
    * @public
    */
   LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion | undefined;
 
   /**
-   * <p>Indicates whether Instance Metadata Service Version 1 (IMDSv1) is disabled for the image builder.</p>
+   * Indicates whether Instance Metadata Service Version 1 (IMDSv1) is disabled for the image builder.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
@@ -3410,7 +3153,8 @@ export interface ImageBuilder {
  */
 export interface CreateImageBuilderResult {
   /**
-   * <p>Information about the image builder.</p>
+   * Information about the image builder.
+   *
    * @public
    */
   ImageBuilder?: ImageBuilder | undefined;
@@ -3421,14 +3165,15 @@ export interface CreateImageBuilderResult {
  */
 export interface CreateImageBuilderStreamingURLRequest {
   /**
-   * <p>The name of the image builder.</p>
+   * The name of the image builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The time that the streaming URL will be valid, in seconds.
-   *             Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
+   * The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
+   *
    * @public
    */
   Validity?: number | undefined;
@@ -3439,25 +3184,29 @@ export interface CreateImageBuilderStreamingURLRequest {
  */
 export interface CreateImageBuilderStreamingURLResult {
   /**
-   * <p>The URL to start the WorkSpaces Applications streaming session.</p>
+   * The URL to start the WorkSpaces Applications streaming session.
+   *
    * @public
    */
   StreamingURL?: string | undefined;
 
   /**
-   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
+   * The elapsed time, in seconds after the Unix epoch, when this URL expires.
+   *
    * @public
    */
   Expires?: Date | undefined;
 }
 
 /**
- * <p>Configuration for runtime validation of imported images. This structure specifies the instance type to use for testing the imported image's streaming capabilities.</p>
+ * Configuration for runtime validation of imported images. This structure specifies the instance type to use for testing the imported image's streaming capabilities.
+ *
  * @public
  */
 export interface RuntimeValidationConfig {
   /**
-   * <p>The instance type to use for runtime validation testing. It's recommended to use the same instance type you plan to use for your fleet to ensure accurate validation results.</p>
+   * The instance type to use for runtime validation testing. It's recommended to use the same instance type you plan to use for your fleet to ensure accurate validation results.
+   *
    * @public
    */
   IntendedInstanceType?: string | undefined;
@@ -3468,287 +3217,316 @@ export interface RuntimeValidationConfig {
  */
 export interface CreateImportedImageRequest {
   /**
-   * <p>A unique name for the imported image. The name must be between 1 and 100 characters and can contain letters, numbers, underscores, periods, and hyphens.</p>
+   * A unique name for the imported image. The name must be between 1 and 100 characters and can contain letters, numbers, underscores, periods, and hyphens.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The ID of the EC2 AMI to import.</p>
+   * The ID of the EC2 AMI to import.
+   *
    * @public
    */
   SourceAmiId?: string | undefined;
 
   /**
-   * <p>The ID of the Workspaces Image to import.</p>
+   * The ID of the Workspaces Image to import.
+   *
    * @public
    */
   WorkspaceImageId?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that allows WorkSpaces Applications to access your AMI. The role must have permissions to modify image attributes and describe images, with a trust relationship allowing appstream.amazonaws.com to assume the role.</p>
+   * The ARN of the IAM role that allows WorkSpaces Applications to access your AMI. The role must have permissions to modify image attributes and describe images, with a trust relationship allowing appstream.amazonaws.com to assume the role.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>An optional description for the imported image. The description must match approved regex patterns and can be up to 256 characters.</p>
+   * An optional description for the imported image. The description must match approved regex patterns and can be up to 256 characters.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>An optional display name for the imported image. The display name must match approved regex patterns and can be up to 100 characters.</p>
+   * An optional display name for the imported image. The display name must match approved regex patterns and can be up to 100 characters.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The tags to apply to the imported image. Tags help you organize and manage your WorkSpaces Applications resources.</p>
+   * The tags to apply to the imported image. Tags help you organize and manage your WorkSpaces Applications resources.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Configuration for runtime validation of the imported image. When specified, WorkSpaces Applications provisions an instance to test streaming functionality, which helps ensure the image is suitable for use.</p>
+   * Configuration for runtime validation of the imported image. When specified, WorkSpaces Applications provisions an instance to test streaming functionality, which helps ensure the image is suitable for use.
+   *
    * @public
    */
   RuntimeValidationConfig?: RuntimeValidationConfig | undefined;
 
   /**
-   * <p>The version of the WorkSpaces Applications agent to use for the imported image. Choose CURRENT_LATEST to use the agent version available at the time of import, or ALWAYS_LATEST to automatically update to the latest agent version when new versions are released.</p>
+   * The version of the WorkSpaces Applications agent to use for the imported image. Choose CURRENT_LATEST to use the agent version available at the time of import, or ALWAYS_LATEST to automatically update to the latest agent version when new versions are released.
+   *
    * @public
    */
   AgentSoftwareVersion?: AgentSoftwareVersion | undefined;
 
   /**
-   * <p>Configuration for the application catalog of the imported image. This allows you to specify applications available for streaming, including their paths, icons, and launch parameters. This field contains sensitive data.</p>
+   * Configuration for the application catalog of the imported image. This allows you to specify applications available for streaming, including their paths, icons, and launch parameters. This field contains sensitive data.
+   *
    * @public
    */
   AppCatalogConfig?: ApplicationConfig[] | undefined;
 
   /**
-   * <p>When set to true, performs validation checks without actually creating the imported image. Use this to verify your configuration before executing the actual import operation.</p>
+   * When set to true, performs validation checks without actually creating the imported image. Use this to verify your configuration before executing the actual import operation.
+   *
    * @public
    */
   DryRun?: boolean | undefined;
 }
 
 /**
- * <p>Describes the permissions for an image. </p>
+ * Describes the permissions for an image.
+ *
  * @public
  */
 export interface ImagePermissions {
   /**
-   * <p>Indicates whether the image can be used for a fleet.</p>
+   * Indicates whether the image can be used for a fleet.
+   *
    * @public
    */
   allowFleet?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the image can be used for an image builder.</p>
+   * Indicates whether the image can be used for an image builder.
+   *
    * @public
    */
   allowImageBuilder?: boolean | undefined;
 }
 
 /**
- * <p>Describes the software metadata for an image, such as the installed NVIDIA GRID driver version.</p>
+ * Describes the software metadata for an image, such as the installed NVIDIA GRID driver version.
+ *
  * @public
  */
 export interface ImageSoftwareMetadata {
   /**
-   * <p>The version of the NVIDIA GRID driver installed on the image. This field is empty if no NVIDIA GRID driver is installed.</p>
+   * The version of the NVIDIA GRID driver installed on the image. This field is empty if no NVIDIA GRID driver is installed.
+   *
    * @public
    */
   nvidiaGridDriverVersion?: string | undefined;
 }
 
 /**
- * <p>Describes the reason why the last image state change occurred.</p>
+ * Describes the reason why the last image state change occurred.
+ *
  * @public
  */
 export interface ImageStateChangeReason {
   /**
-   * <p>The state change reason code.</p>
+   * The state change reason code.
+   *
    * @public
    */
   Code?: ImageStateChangeReasonCode | undefined;
 
   /**
-   * <p>The state change reason message.</p>
+   * The state change reason message.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Describes an image.</p>
+ * Describes an image.
+ *
  * @public
  */
 export interface Image {
   /**
-   * <p>The name of the image.</p>
+   * The name of the image.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The ARN of the image.</p>
+   * The ARN of the image.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The ARN of the image from which this image was created.</p>
+   * The ARN of the image from which this image was created.
+   *
    * @public
    */
   BaseImageArn?: string | undefined;
 
   /**
-   * <p>The image name to display.</p>
+   * The image name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The image starts in the <code>PENDING</code> state. If image creation succeeds, the
-   *             state is <code>AVAILABLE</code>. If image creation fails, the state is <code>FAILED</code>.</p>
+   * The image starts in the `PENDING` state. If image creation succeeds, the state is `AVAILABLE`. If image creation fails, the state is `FAILED`.
+   *
    * @public
    */
   State?: ImageState | undefined;
 
   /**
-   * <p>Indicates whether the image is public or private.</p>
+   * Indicates whether the image is public or private.
+   *
    * @public
    */
   Visibility?: VisibilityType | undefined;
 
   /**
-   * <p>Indicates whether an image builder can be launched from this image.</p>
+   * Indicates whether an image builder can be launched from this image.
+   *
    * @public
    */
   ImageBuilderSupported?: boolean | undefined;
 
   /**
-   * <p>The name of the image builder that was used to create the private image. If the image is shared, copied, or updated by using Managed Image Updates, this value is null.</p>
+   * The name of the image builder that was used to create the private image. If the image is shared, copied, or updated by using Managed Image Updates, this value is null.
+   *
    * @public
    */
   ImageBuilderName?: string | undefined;
 
   /**
-   * <p>The operating system platform of the image.</p>
+   * The operating system platform of the image.
+   *
    * @public
    */
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The reason why the last state change occurred.</p>
+   * The reason why the last state change occurred.
+   *
    * @public
    */
   StateChangeReason?: ImageStateChangeReason | undefined;
 
   /**
-   * <p>The applications associated with the image.</p>
+   * The applications associated with the image.
+   *
    * @public
    */
   Applications?: Application[] | undefined;
 
   /**
-   * <p>The time the image was created.</p>
+   * The time the image was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The release date of the public base image.
-   *             For private images, this date is the release date of the base image from which the image was created.</p>
+   * The release date of the public base image. For private images, this date is the release date of the base image from which the image was created.
+   *
    * @public
    */
   PublicBaseImageReleasedDate?: Date | undefined;
 
   /**
-   * <p>The version of the WorkSpaces Applications agent to use for instances that are launched from this image. </p>
+   * The version of the WorkSpaces Applications agent to use for instances that are launched from this image.
+   *
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
 
   /**
-   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
+   * The permissions to provide to the destination AWS account for the specified image.
+   *
    * @public
    */
   ImagePermissions?: ImagePermissions | undefined;
 
   /**
-   * <p>Describes the errors that are returned when a new image can't be created.</p>
+   * Describes the errors that are returned when a new image can't be created.
+   *
    * @public
    */
   ImageErrors?: ResourceError[] | undefined;
 
   /**
-   * <p>Indicates whether the image is using the latest WorkSpaces Applications agent version or not.</p>
+   * Indicates whether the image is using the latest WorkSpaces Applications agent version or not.
+   *
    * @public
    */
   LatestAppstreamAgentVersion?: LatestAppstreamAgentVersion | undefined;
 
   /**
-   * <p>The supported instances families that determine which image a customer can use when the customer launches a fleet or image builder. The following instances families are supported:</p>
-   *          <ul>
-   *             <li>
-   *                <p>General Purpose</p>
-   *             </li>
-   *             <li>
-   *                <p>Compute Optimized</p>
-   *             </li>
-   *             <li>
-   *                <p>Memory Optimized</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics G4</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics G5</p>
-   *             </li>
-   *             <li>
-   *                <p>Graphics G6</p>
-   *             </li>
-   *          </ul>
+   * The supported instances families that determine which image a customer can use when the customer launches a fleet or image builder. The following instances families are supported:
+   *
+   * - General Purpose
+   * - Compute Optimized
+   * - Memory Optimized
+   * - Graphics G4
+   * - Graphics G5
+   * - Graphics G6
+   *
    * @public
    */
   SupportedInstanceFamilies?: string[] | undefined;
 
   /**
-   * <p>Indicates whether dynamic app providers are enabled within an WorkSpaces Applications image or not.</p>
+   * Indicates whether dynamic app providers are enabled within an WorkSpaces Applications image or not.
+   *
    * @public
    */
   DynamicAppProvidersEnabled?: DynamicAppProvidersEnabled | undefined;
 
   /**
-   * <p>Indicates whether the image is shared with another account ID.</p>
+   * Indicates whether the image is shared with another account ID.
+   *
    * @public
    */
   ImageSharedWithOthers?: ImageSharedWithOthers | undefined;
 
   /**
-   * <p>Indicates whether the image includes license-included applications.</p>
+   * Indicates whether the image includes license-included applications.
+   *
    * @public
    */
   ManagedSoftwareIncluded?: boolean | undefined;
 
   /**
-   * <p>The type of the image. Images created through AMI import have type "custom", while WorkSpaces Applications provided images have type "native". Custom images support additional instance types including GeneralPurpose, MemoryOptimized, ComputeOptimized, and Accelerated instance families.</p>
+   * The type of the image. Images created through AMI import have type "custom", while WorkSpaces Applications provided images have type "native". Custom images support additional instance types including GeneralPurpose, MemoryOptimized, ComputeOptimized, and Accelerated instance families.
+   *
    * @public
    */
   ImageType?: ImageType | undefined;
 
   /**
-   * <p>The software metadata associated with the image.</p>
+   * The software metadata associated with the image.
+   *
    * @public
    */
   ImageSoftwareMetadata?: ImageSoftwareMetadata | undefined;
@@ -3759,76 +3537,91 @@ export interface Image {
  */
 export interface CreateImportedImageResult {
   /**
-   * <p>Describes an image.</p>
+   * Describes an image.
+   *
    * @public
    */
   Image?: Image | undefined;
 }
 
 /**
- * <p>Describes a connector that enables persistent storage for users.</p>
+ * Describes a connector that enables persistent storage for users.
+ *
  * @public
  */
 export interface StorageConnector {
   /**
-   * <p>The type of storage connector.</p>
+   * The type of storage connector.
+   *
    * @public
    */
   ConnectorType: StorageConnectorType | undefined;
 
   /**
-   * <p>The ARN of the storage connector.</p>
+   * The ARN of the storage connector.
+   *
    * @public
    */
   ResourceIdentifier?: string | undefined;
 
   /**
-   * <p>The names of the domains for the account.</p>
+   * The names of the domains for the account.
+   *
    * @public
    */
   Domains?: string[] | undefined;
 
   /**
-   * <p>The OneDrive for Business domains where you require admin consent when users try to link their OneDrive account to WorkSpaces Applications. The attribute can only be specified when ConnectorType=ONE_DRIVE.</p>
+   * The OneDrive for Business domains where you require admin consent when users try to link their OneDrive account to WorkSpaces Applications. The attribute can only be specified when ConnectorType=ONE_DRIVE.
+   *
    * @public
    */
   DomainsRequireAdminConsent?: string[] | undefined;
 }
 
 /**
- * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+ * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+ *
  * @public
  */
 export interface StreamingExperienceSettings {
   /**
-   * <p>The preferred protocol that you want to use while streaming your application.</p>
+   * The preferred protocol that you want to use while streaming your application.
+   *
    * @public
    */
   PreferredProtocol?: PreferredProtocol | undefined;
 }
 
 /**
- * <p>Describes an action and whether the action is enabled or disabled for users during their streaming sessions.</p>
+ * Describes an action and whether the action is enabled or disabled for users during their streaming sessions.
+ *
  * @public
  */
 export interface UserSetting {
   /**
-   * <p>The action that is enabled or disabled.</p>
+   * The action that is enabled or disabled.
+   *
    * @public
    */
   Action: Action | undefined;
 
   /**
-   * <p>Indicates whether the action is enabled or disabled.</p>
+   * Indicates whether the action is enabled or disabled.
+   *
    * @public
    */
   Permission: Permission | undefined;
 
   /**
-   * <p>Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session.</p>
-   *          <p>This can be specified only for the <code>CLIPBOARD_COPY_FROM_LOCAL_DEVICE</code> and <code>CLIPBOARD_COPY_TO_LOCAL_DEVICE</code> actions.</p>
-   *          <p>This defaults to 20,971,520 (20 MB) when unspecified and the permission is <code>ENABLED</code>. This can't be specified when the permission is <code>DISABLED</code>. </p>
-   *          <p>The value can be between 1 and 20,971,520 (20 MB).</p>
+   * Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session.
+   *
+   * This can be specified only for the `CLIPBOARD_COPY_FROM_LOCAL_DEVICE` and `CLIPBOARD_COPY_TO_LOCAL_DEVICE` actions.
+   *
+   * This defaults to 20,971,520 (20 MB) when unspecified and the permission is `ENABLED`. This can't be specified when the permission is `DISABLED`.
+   *
+   * The value can be between 1 and 20,971,520 (20 MB).
+   *
    * @public
    */
   MaximumLength?: number | undefined;
@@ -3839,221 +3632,261 @@ export interface UserSetting {
  */
 export interface CreateStackRequest {
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The stack name to display.</p>
+   * The stack name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The storage connectors to enable.</p>
+   * The storage connectors to enable.
+   *
    * @public
    */
   StorageConnectors?: StorageConnector[] | undefined;
 
   /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   * The URL that users are redirected to after their streaming session ends.
+   *
    * @public
    */
   RedirectURL?: string | undefined;
 
   /**
-   * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
+   * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+   *
    * @public
    */
   FeedbackURL?: string | undefined;
 
   /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
+   * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+   *
    * @public
    */
   UserSettings?: UserSetting[] | undefined;
 
   /**
-   * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
+   * The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+   *
    * @public
    */
   ApplicationSettings?: ApplicationSettings | undefined;
 
   /**
-   * <p>The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *          <p>_ . : / = + \ - @</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The tags to associate with the stack. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+   *
+   * If you do not specify a value, the value is set to an empty string.
+   *
+   * Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+   *
+   * _ . : / = + \ - @
+   *
+   * For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.</p>
+   * The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions. </p>
+   * The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions.
+   *
    * @public
    */
   EmbedHostDomains?: string[] | undefined;
 
   /**
-   * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+   * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+   *
    * @public
    */
   StreamingExperienceSettings?: StreamingExperienceSettings | undefined;
 
   /**
-   * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+   * Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.
+   *
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
 
   /**
-   * <p>The configuration for agent access on the stack. If specified, agent access is enabled for the stack.</p>
+   * The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+   *
    * @public
    */
   AgentAccessConfig?: AgentAccessConfig | undefined;
 
   /**
-   * <p>Specifies whether users' cloud storage authentication persists across streaming sessions. When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. The default is REUSE_CREDENTIALS.</p>
+   * Specifies whether users' cloud storage authentication persists across streaming sessions. When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. The default is REUSE_CREDENTIALS.
+   *
    * @public
    */
   StorageConnectorAuthentication?: StorageConnectorAuthentication | undefined;
 }
 
 /**
- * <p>Describes a stack error.</p>
+ * Describes a stack error.
+ *
  * @public
  */
 export interface StackError {
   /**
-   * <p>The error code.</p>
+   * The error code.
+   *
    * @public
    */
   ErrorCode?: StackErrorCode | undefined;
 
   /**
-   * <p>The error message.</p>
+   * The error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Describes a stack.</p>
+ * Describes a stack.
+ *
  * @public
  */
 export interface Stack {
   /**
-   * <p>The ARN of the stack.</p>
+   * The ARN of the stack.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The stack name to display.</p>
+   * The stack name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The time the stack was created.</p>
+   * The time the stack was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The storage connectors to enable.</p>
+   * The storage connectors to enable.
+   *
    * @public
    */
   StorageConnectors?: StorageConnector[] | undefined;
 
   /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   * The URL that users are redirected to after their streaming session ends.
+   *
    * @public
    */
   RedirectURL?: string | undefined;
 
   /**
-   * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
+   * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+   *
    * @public
    */
   FeedbackURL?: string | undefined;
 
   /**
-   * <p>The errors for the stack.</p>
+   * The errors for the stack.
+   *
    * @public
    */
   StackErrors?: StackError[] | undefined;
 
   /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
+   * The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.
+   *
    * @public
    */
   UserSettings?: UserSetting[] | undefined;
 
   /**
-   * <p>The persistent application settings for users of the stack.</p>
+   * The persistent application settings for users of the stack.
+   *
    * @public
    */
   ApplicationSettings?: ApplicationSettingsResponse | undefined;
 
   /**
-   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints. </p>
+   * The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions.</p>
+   * The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions.
+   *
    * @public
    */
   EmbedHostDomains?: string[] | undefined;
 
   /**
-   * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+   * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+   *
    * @public
    */
   StreamingExperienceSettings?: StreamingExperienceSettings | undefined;
 
   /**
-   * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+   * Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.
+   *
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
 
   /**
-   * <p>The agent access configuration of the stack, if agent access is enabled.</p>
+   * The agent access configuration of the stack, if agent access is enabled.
+   *
    * @public
    */
   AgentAccessConfig?: AgentAccessConfig | undefined;
 
   /**
-   * <p>Indicates whether users' cloud storage authentication persists across streaming sessions. When this attribute is FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. The default is REUSE_CREDENTIALS.</p>
+   * Indicates whether users' cloud storage authentication persists across streaming sessions. When this attribute is FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. The default is REUSE_CREDENTIALS.
+   *
    * @public
    */
   StorageConnectorAuthentication?: StorageConnectorAuthentication | undefined;
@@ -4064,7 +3897,8 @@ export interface Stack {
  */
 export interface CreateStackResult {
   /**
-   * <p>Information about the stack.</p>
+   * Information about the stack.
+   *
    * @public
    */
   Stack?: Stack | undefined;
@@ -4075,39 +3909,43 @@ export interface CreateStackResult {
  */
 export interface CreateStreamingURLRequest {
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The identifier of the user.</p>
+   * The identifier of the user.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The name of the application to launch after the session starts. This is the name that you specified
-   *             as <b>Name</b> in the Image Assistant. If your fleet is enabled for the <b>Desktop</b> stream view, you can also choose to launch directly to the operating system desktop. To do so, specify <b>Desktop</b>.</p>
+   * The name of the application to launch after the session starts. This is the name that you specified as **Name** in the Image Assistant. If your fleet is enabled for the **Desktop** stream view, you can also choose to launch directly to the operating system desktop. To do so, specify **Desktop**.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The time that the streaming URL will be valid, in seconds.
-   *             Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
+   * The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
+   *
    * @public
    */
   Validity?: number | undefined;
 
   /**
-   * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The session context. For more information, see [Session Context](https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   SessionContext?: string | undefined;
@@ -4118,31 +3956,36 @@ export interface CreateStreamingURLRequest {
  */
 export interface CreateStreamingURLResult {
   /**
-   * <p>The URL to start the WorkSpaces Applications streaming session.</p>
+   * The URL to start the WorkSpaces Applications streaming session.
+   *
    * @public
    */
   StreamingURL?: string | undefined;
 
   /**
-   * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
+   * The elapsed time, in seconds after the Unix epoch, when this URL expires.
+   *
    * @public
    */
   Expires?: Date | undefined;
 }
 
 /**
- * <p>The website links that display in the catalog page footer.</p>
+ * The website links that display in the catalog page footer.
+ *
  * @public
  */
 export interface ThemeFooterLink {
   /**
-   * <p>The name of the websites that display in the catalog page footer.</p>
+   * The name of the websites that display in the catalog page footer.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The URL of the websites that display in the catalog page footer.</p>
+   * The URL of the websites that display in the catalog page footer.
+   *
    * @public
    */
   FooterLinkURL?: string | undefined;
@@ -4153,91 +3996,106 @@ export interface ThemeFooterLink {
  */
 export interface CreateThemeForStackRequest {
   /**
-   * <p>The name of the stack for the theme.</p>
+   * The name of the stack for the theme.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The links that are displayed in the footer of the streaming application catalog page. These links are helpful resources for users, such as the organization's IT support and product marketing sites.</p>
+   * The links that are displayed in the footer of the streaming application catalog page. These links are helpful resources for users, such as the organization's IT support and product marketing sites.
+   *
    * @public
    */
   FooterLinks?: ThemeFooterLink[] | undefined;
 
   /**
-   * <p>The title that is displayed at the top of the browser tab during users' application streaming sessions.</p>
+   * The title that is displayed at the top of the browser tab during users' application streaming sessions.
+   *
    * @public
    */
   TitleText: string | undefined;
 
   /**
-   * <p>The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.</p>
+   * The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.
+   *
    * @public
    */
   ThemeStyling: ThemeStyling | undefined;
 
   /**
-   * <p>The organization logo that appears on the streaming application catalog page.</p>
+   * The organization logo that appears on the streaming application catalog page.
+   *
    * @public
    */
   OrganizationLogoS3Location: S3Location | undefined;
 
   /**
-   * <p>The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.</p>
+   * The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.
+   *
    * @public
    */
   FaviconS3Location: S3Location | undefined;
 }
 
 /**
- * <p>The custom branding theme, which might include a custom logo, website links, and other branding to display to users.</p>
+ * The custom branding theme, which might include a custom logo, website links, and other branding to display to users.
+ *
  * @public
  */
 export interface Theme {
   /**
-   * <p>The stack that has the custom branding theme.</p>
+   * The stack that has the custom branding theme.
+   *
    * @public
    */
   StackName?: string | undefined;
 
   /**
-   * <p>The state of the theme.</p>
+   * The state of the theme.
+   *
    * @public
    */
   State?: ThemeState | undefined;
 
   /**
-   * <p>The browser tab page title.</p>
+   * The browser tab page title.
+   *
    * @public
    */
   ThemeTitleText?: string | undefined;
 
   /**
-   * <p>The color that is used for the website links, text, buttons, and catalog page background.</p>
+   * The color that is used for the website links, text, buttons, and catalog page background.
+   *
    * @public
    */
   ThemeStyling?: ThemeStyling | undefined;
 
   /**
-   * <p>The website links that display in the catalog page footer.</p>
+   * The website links that display in the catalog page footer.
+   *
    * @public
    */
   ThemeFooterLinks?: ThemeFooterLink[] | undefined;
 
   /**
-   * <p>The URL of the logo that displays in the catalog page header.</p>
+   * The URL of the logo that displays in the catalog page header.
+   *
    * @public
    */
   ThemeOrganizationLogoURL?: string | undefined;
 
   /**
-   * <p>The URL of the icon that displays at the top of a user's browser tab during streaming sessions.</p>
+   * The URL of the icon that displays at the top of a user's browser tab during streaming sessions.
+   *
    * @public
    */
   ThemeFaviconURL?: string | undefined;
 
   /**
-   * <p>The time the theme was created.</p>
+   * The time the theme was created.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
@@ -4248,7 +4106,8 @@ export interface Theme {
  */
 export interface CreateThemeForStackResult {
   /**
-   * <p> The theme object that contains the metadata of the custom branding.</p>
+   * The theme object that contains the metadata of the custom branding.
+   *
    * @public
    */
   Theme?: Theme | undefined;
@@ -4259,41 +4118,51 @@ export interface CreateThemeForStackResult {
  */
 export interface CreateUpdatedImageRequest {
   /**
-   * <p>The name of the image to update.</p>
+   * The name of the image to update.
+   *
    * @public
    */
   existingImageName: string | undefined;
 
   /**
-   * <p>The name of the new image. The name must be unique within the AWS account and Region.</p>
+   * The name of the new image. The name must be unique within the AWS account and Region.
+   *
    * @public
    */
   newImageName: string | undefined;
 
   /**
-   * <p>The description to display for the new image.</p>
+   * The description to display for the new image.
+   *
    * @public
    */
   newImageDescription?: string | undefined;
 
   /**
-   * <p>The name to display for the new image.</p>
+   * The name to display for the new image.
+   *
    * @public
    */
   newImageDisplayName?: string | undefined;
 
   /**
-   * <p>The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *          <p>_ . : / = + \ - @</p>
-   *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The tags to associate with the new image. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+   *
+   * Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+   *
+   * _ . : / = + \ - @
+   *
+   * If you do not specify a value, the value is set to an empty string.
+   *
+   * For more information about tags, see [Tagging Your Resources](https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   newImageTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether to display the status of image update availability before WorkSpaces Applications initiates the process of creating a new updated image. If this value is set to <code>true</code>, WorkSpaces Applications displays whether image updates are available. If this value is set to <code>false</code>, WorkSpaces Applications initiates the process of creating a new updated image without displaying whether image updates are available.</p>
+   * Indicates whether to display the status of image update availability before WorkSpaces Applications initiates the process of creating a new updated image. If this value is set to `true`, WorkSpaces Applications displays whether image updates are available. If this value is set to `false`, WorkSpaces Applications initiates the process of creating a new updated image without displaying whether image updates are available.
+   *
    * @public
    */
   dryRun?: boolean | undefined;
@@ -4304,13 +4173,15 @@ export interface CreateUpdatedImageRequest {
  */
 export interface CreateUpdatedImageResult {
   /**
-   * <p>Describes an image.</p>
+   * Describes an image.
+   *
    * @public
    */
   image?: Image | undefined;
 
   /**
-   * <p>Indicates whether a new image can be created.</p>
+   * Indicates whether a new image can be created.
+   *
    * @public
    */
   canUpdateImage?: boolean | undefined;
@@ -4326,18 +4197,17 @@ export interface CreateUsageReportSubscriptionRequest {}
  */
 export interface CreateUsageReportSubscriptionResult {
   /**
-   * <p>The Amazon S3 bucket where generated reports are stored.</p>
-   *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
-   *             configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is
-   *             unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications
-   *             uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts,
-   *             when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.</p>
+   * The Amazon S3 bucket where generated reports are stored.
+   *
+   * If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
 
   /**
-   * <p>The schedule for generating usage reports.</p>
+   * The schedule for generating usage reports.
+   *
    * @public
    */
   Schedule?: UsageReportSchedule | undefined;
@@ -4348,37 +4218,40 @@ export interface CreateUsageReportSubscriptionResult {
  */
 export interface CreateUserRequest {
   /**
-   * <p>The email address of the user.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.</p>
-   *          </note>
+   * The email address of the user.
+   *
+   * > **Note:** Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent. </p>
-   *          <note>
-   *             <p>The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.</p>
-   *          </note>
+   * The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
+   *
+   * > **Note:** The temporary password in the welcome email is valid for only 7 days. If users don’t set their passwords within 7 days, you must send them a new welcome email.
+   *
    * @public
    */
   MessageAction?: MessageAction | undefined;
 
   /**
-   * <p>The first name, or given name, of the user.</p>
+   * The first name, or given name, of the user.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>The last name, or surname, of the user.</p>
+   * The last name, or surname, of the user.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL. </p>
+   * The authentication type for the user. You must specify USERPOOL.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
@@ -4394,7 +4267,8 @@ export interface CreateUserResult {}
  */
 export interface DeleteAppBlockRequest {
   /**
-   * <p>The name of the app block.</p>
+   * The name of the app block.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4410,7 +4284,8 @@ export interface DeleteAppBlockResult {}
  */
 export interface DeleteAppBlockBuilderRequest {
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4426,7 +4301,8 @@ export interface DeleteAppBlockBuilderResult {}
  */
 export interface DeleteApplicationRequest {
   /**
-   * <p>The name of the application.</p>
+   * The name of the application.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4442,7 +4318,8 @@ export interface DeleteApplicationResult {}
  */
 export interface DeleteDirectoryConfigRequest {
   /**
-   * <p>The name of the directory configuration.</p>
+   * The name of the directory configuration.
+   *
    * @public
    */
   DirectoryName: string | undefined;
@@ -4458,13 +4335,15 @@ export interface DeleteDirectoryConfigResult {}
  */
 export interface DeleteEntitlementRequest {
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
@@ -4480,7 +4359,8 @@ export interface DeleteEntitlementResult {}
  */
 export interface DeleteFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4496,7 +4376,8 @@ export interface DeleteFleetResult {}
  */
 export interface DeleteImageRequest {
   /**
-   * <p>The name of the image.</p>
+   * The name of the image.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4507,7 +4388,8 @@ export interface DeleteImageRequest {
  */
 export interface DeleteImageResult {
   /**
-   * <p>Information about the image.</p>
+   * Information about the image.
+   *
    * @public
    */
   Image?: Image | undefined;
@@ -4518,7 +4400,8 @@ export interface DeleteImageResult {
  */
 export interface DeleteImageBuilderRequest {
   /**
-   * <p>The name of the image builder.</p>
+   * The name of the image builder.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4529,7 +4412,8 @@ export interface DeleteImageBuilderRequest {
  */
 export interface DeleteImageBuilderResult {
   /**
-   * <p>Information about the image builder.</p>
+   * Information about the image builder.
+   *
    * @public
    */
   ImageBuilder?: ImageBuilder | undefined;
@@ -4540,13 +4424,15 @@ export interface DeleteImageBuilderResult {
  */
 export interface DeleteImagePermissionsRequest {
   /**
-   * <p>The name of the private image.</p>
+   * The name of the private image.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
+   * The 12-digit identifier of the AWS account for which to delete image permissions.
+   *
    * @public
    */
   SharedAccountId: string | undefined;
@@ -4562,7 +4448,8 @@ export interface DeleteImagePermissionsResult {}
  */
 export interface DeleteStackRequest {
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4578,7 +4465,8 @@ export interface DeleteStackResult {}
  */
 export interface DeleteThemeForStackRequest {
   /**
-   * <p>The name of the stack for the theme.</p>
+   * The name of the stack for the theme.
+   *
    * @public
    */
   StackName: string | undefined;
@@ -4604,16 +4492,17 @@ export interface DeleteUsageReportSubscriptionResult {}
  */
 export interface DeleteUserRequest {
   /**
-   * <p>The email address of the user.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive.</p>
-   *          </note>
+   * The email address of the user.
+   *
+   * > **Note:** Users' email addresses are case-sensitive.
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL.</p>
+   * The authentication type for the user. You must specify USERPOOL.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
@@ -4629,26 +4518,29 @@ export interface DeleteUserResult {}
  */
 export interface DescribeAppBlockBuilderAppBlockAssociationsRequest {
   /**
-   * <p>The ARN of the app block.</p>
+   * The ARN of the app block.
+   *
    * @public
    */
   AppBlockArn?: string | undefined;
 
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   AppBlockBuilderName?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4659,14 +4551,15 @@ export interface DescribeAppBlockBuilderAppBlockAssociationsRequest {
  */
 export interface DescribeAppBlockBuilderAppBlockAssociationsResult {
   /**
-   * <p>This list of app block builders associated with app blocks.</p>
+   * This list of app block builders associated with app blocks.
+   *
    * @public
    */
   AppBlockBuilderAppBlockAssociations?: AppBlockBuilderAppBlockAssociation[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4677,20 +4570,22 @@ export interface DescribeAppBlockBuilderAppBlockAssociationsResult {
  */
 export interface DescribeAppBlockBuildersRequest {
   /**
-   * <p>The names of the app block builders.</p>
+   * The names of the app block builders.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results. The maximum value is 25.</p>
+   * The maximum size of each page of results. The maximum value is 25.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -4701,14 +4596,15 @@ export interface DescribeAppBlockBuildersRequest {
  */
 export interface DescribeAppBlockBuildersResult {
   /**
-   * <p>The list that describes one or more app block builders.</p>
+   * The list that describes one or more app block builders.
+   *
    * @public
    */
   AppBlockBuilders?: AppBlockBuilder[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4719,20 +4615,22 @@ export interface DescribeAppBlockBuildersResult {
  */
 export interface DescribeAppBlocksRequest {
   /**
-   * <p>The ARNs of the app blocks.</p>
+   * The ARNs of the app blocks.
+   *
    * @public
    */
   Arns?: string[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -4743,14 +4641,15 @@ export interface DescribeAppBlocksRequest {
  */
 export interface DescribeAppBlocksResult {
   /**
-   * <p>The app blocks in the list.</p>
+   * The app blocks in the list.
+   *
    * @public
    */
   AppBlocks?: AppBlock[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4761,26 +4660,29 @@ export interface DescribeAppBlocksResult {
  */
 export interface DescribeApplicationFleetAssociationsRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName?: string | undefined;
 
   /**
-   * <p>The ARN of the application.</p>
+   * The ARN of the application.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4791,14 +4693,15 @@ export interface DescribeApplicationFleetAssociationsRequest {
  */
 export interface DescribeApplicationFleetAssociationsResult {
   /**
-   * <p>The application fleet associations in the list.</p>
+   * The application fleet associations in the list.
+   *
    * @public
    */
   ApplicationFleetAssociations?: ApplicationFleetAssociation[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4809,20 +4712,22 @@ export interface DescribeApplicationFleetAssociationsResult {
  */
 export interface DescribeApplicationsRequest {
   /**
-   * <p>The ARNs for the applications.</p>
+   * The ARNs for the applications.
+   *
    * @public
    */
   Arns?: string[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -4833,14 +4738,15 @@ export interface DescribeApplicationsRequest {
  */
 export interface DescribeApplicationsResult {
   /**
-   * <p>The applications in the list.</p>
+   * The applications in the list.
+   *
    * @public
    */
   Applications?: Application[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4851,21 +4757,24 @@ export interface DescribeApplicationsResult {
  */
 export interface DescribeAppLicenseUsageRequest {
   /**
-   * <p>Billing period for the usage record.</p>
-   *          <p>Specify the value in <i>yyyy-mm</i> format. For example, for August
-   *             2025, use <i>2025-08</i>.</p>
+   * Billing period for the usage record.
+   *
+   * Specify the value in *yyyy-mm* format. For example, for August 2025, use *2025-08*.
+   *
    * @public
    */
   BillingPeriod: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination of results.</p>
+   * Token for pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4876,13 +4785,15 @@ export interface DescribeAppLicenseUsageRequest {
  */
 export interface DescribeAppLicenseUsageResult {
   /**
-   * <p>Collection of license usage records.</p>
+   * Collection of license usage records.
+   *
    * @public
    */
   AppLicenseUsages?: AdminAppLicenseUsageRecord[] | undefined;
 
   /**
-   * <p>Token for pagination of results.</p>
+   * Token for pagination of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4893,19 +4804,22 @@ export interface DescribeAppLicenseUsageResult {
  */
 export interface DescribeDirectoryConfigsRequest {
   /**
-   * <p>The directory names.</p>
+   * The directory names.
+   *
    * @public
    */
   DirectoryNames?: string[] | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4916,13 +4830,15 @@ export interface DescribeDirectoryConfigsRequest {
  */
 export interface DescribeDirectoryConfigsResult {
   /**
-   * <p>Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response. </p>
+   * Information about the directory configurations. Note that although the response syntax in this topic includes the account password, this password is not returned in the actual response.
+   *
    * @public
    */
   DirectoryConfigs?: DirectoryConfig[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4933,25 +4849,29 @@ export interface DescribeDirectoryConfigsResult {
  */
 export interface DescribeEntitlementsRequest {
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -4962,14 +4882,15 @@ export interface DescribeEntitlementsRequest {
  */
 export interface DescribeEntitlementsResult {
   /**
-   * <p>The entitlements.</p>
+   * The entitlements.
+   *
    * @public
    */
   Entitlements?: Entitlement[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this
-   *             operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4980,13 +4901,15 @@ export interface DescribeEntitlementsResult {
  */
 export interface DescribeFleetsRequest {
   /**
-   * <p>The names of the fleets to describe.</p>
+   * The names of the fleets to describe.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4997,13 +4920,15 @@ export interface DescribeFleetsRequest {
  */
 export interface DescribeFleetsResult {
   /**
-   * <p>Information about the fleets.</p>
+   * Information about the fleets.
+   *
    * @public
    */
   Fleets?: Fleet[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5014,19 +4939,22 @@ export interface DescribeFleetsResult {
  */
 export interface DescribeImageBuildersRequest {
   /**
-   * <p>The names of the image builders to describe.</p>
+   * The names of the image builders to describe.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5037,13 +4965,15 @@ export interface DescribeImageBuildersRequest {
  */
 export interface DescribeImageBuildersResult {
   /**
-   * <p>Information about the image builders.</p>
+   * Information about the image builders.
+   *
    * @public
    */
   ImageBuilders?: ImageBuilder[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5054,43 +4984,50 @@ export interface DescribeImageBuildersResult {
  */
 export interface DescribeImagePermissionsRequest {
   /**
-   * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
+   * The name of the private image for which to describe permissions. The image must be one that you own.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
+   * The 12-digit identifier of one or more AWS accounts with which the image is shared.
+   *
    * @public
    */
   SharedAwsAccountIds?: string[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Describes the permissions that are available to the specified AWS account for a shared image.</p>
+ * Describes the permissions that are available to the specified AWS account for a shared image.
+ *
  * @public
  */
 export interface SharedImagePermissions {
   /**
-   * <p>The 12-digit identifier of the AWS account with which the image is shared.</p>
+   * The 12-digit identifier of the AWS account with which the image is shared.
+   *
    * @public
    */
   sharedAccountId: string | undefined;
 
   /**
-   * <p>Describes the permissions for a shared image.</p>
+   * Describes the permissions for a shared image.
+   *
    * @public
    */
   imagePermissions: ImagePermissions | undefined;
@@ -5101,19 +5038,22 @@ export interface SharedImagePermissions {
  */
 export interface DescribeImagePermissionsResult {
   /**
-   * <p>The name of the private image.</p>
+   * The name of the private image.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The permissions for a private image that you own. </p>
+   * The permissions for a private image that you own.
+   *
    * @public
    */
   SharedImagePermissionsList?: SharedImagePermissions[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5124,31 +5064,36 @@ export interface DescribeImagePermissionsResult {
  */
 export interface DescribeImagesRequest {
   /**
-   * <p>The names of the public or private images to describe.</p>
+   * The names of the public or private images to describe.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The ARNs of the public, private, and shared images to describe.</p>
+   * The ARNs of the public, private, and shared images to describe.
+   *
    * @public
    */
   Arns?: string[] | undefined;
 
   /**
-   * <p>The type of image (public, private, or shared) to describe. </p>
+   * The type of image (public, private, or shared) to describe.
+   *
    * @public
    */
   Type?: VisibilityType | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -5159,13 +5104,15 @@ export interface DescribeImagesRequest {
  */
 export interface DescribeImagesResult {
   /**
-   * <p>Information about the images.</p>
+   * Information about the images.
+   *
    * @public
    */
   Images?: Image[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5176,124 +5123,141 @@ export interface DescribeImagesResult {
  */
 export interface DescribeSessionsRequest {
   /**
-   * <p>The name of the stack. This value is case-sensitive.</p>
+   * The name of the stack. This value is case-sensitive.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The name of the fleet. This value is case-sensitive.</p>
+   * The name of the fleet. This value is case-sensitive.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The user identifier (ID). If you specify a user ID, you must also specify the authentication type.</p>
+   * The user identifier (ID). If you specify a user ID, you must also specify the authentication type.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The size of each page of results. The default value is 20 and the maximum value is 50.</p>
+   * The size of each page of results. The default value is 20 and the maximum value is 50.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The authentication method. Specify <code>API</code> for a user
-   *             authenticated using a streaming URL or <code>SAML</code> for a SAML federated user.
-   *             The default is to authenticate users using a streaming URL.</p>
+   * The authentication method. Specify `API` for a user authenticated using a streaming URL or `SAML` for a SAML federated user. The default is to authenticate users using a streaming URL.
+   *
    * @public
    */
   AuthenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The identifier for the instance hosting the session.</p>
+   * The identifier for the instance hosting the session.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 }
 
 /**
- * <p>Describes a streaming session.</p>
+ * Describes a streaming session.
+ *
  * @public
  */
 export interface Session {
   /**
-   * <p>The identifier of the streaming session.</p>
+   * The identifier of the streaming session.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The identifier of the user for whom the session was created.</p>
+   * The identifier of the user for whom the session was created.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The name of the stack for the streaming session.</p>
+   * The name of the stack for the streaming session.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The name of the fleet for the streaming session.</p>
+   * The name of the fleet for the streaming session.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The current state of the streaming session.</p>
+   * The current state of the streaming session.
+   *
    * @public
    */
   State: SessionState | undefined;
 
   /**
-   * <p>Specifies whether a user is connected to the streaming session.</p>
+   * Specifies whether a user is connected to the streaming session.
+   *
    * @public
    */
   ConnectionState?: SessionConnectionState | undefined;
 
   /**
-   * <p>The time when a streaming instance is dedicated for the user.</p>
+   * The time when a streaming instance is dedicated for the user.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time when the streaming session is set to expire. This time is based on the <code>MaxUserDurationinSeconds</code> value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in <code>SessionMaxExpirationTime</code>, when the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.</p>
+   * The time when the streaming session is set to expire. This time is based on the `MaxUserDurationinSeconds` value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in `SessionMaxExpirationTime`, when the `DisconnectTimeOutInSeconds` elapses or the user chooses to end his or her session. If the `DisconnectTimeOutInSeconds` elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.
+   *
    * @public
    */
   MaxExpirationTime?: Date | undefined;
 
   /**
-   * <p>The authentication method. The user is authenticated using a streaming URL
-   *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
+   * The authentication method. The user is authenticated using a streaming URL (`API`) or SAML 2.0 federation (`SAML`).
+   *
    * @public
    */
   AuthenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The network details for the streaming session.</p>
+   * The network details for the streaming session.
+   *
    * @public
    */
   NetworkAccessConfiguration?: NetworkAccessConfiguration | undefined;
 
   /**
-   * <p>The identifier for the instance hosting the session.</p>
+   * The identifier for the instance hosting the session.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The drain status of the instance hosting the streaming session. This only applies to multi-session fleets.</p>
+   * The drain status of the instance hosting the streaming session. This only applies to multi-session fleets.
+   *
    * @public
    */
   InstanceDrainStatus?: InstanceDrainStatus | undefined;
@@ -5304,13 +5268,15 @@ export interface Session {
  */
 export interface DescribeSessionsResult {
   /**
-   * <p>Information about the streaming sessions.</p>
+   * Information about the streaming sessions.
+   *
    * @public
    */
   Sessions?: Session[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5321,118 +5287,77 @@ export interface DescribeSessionsResult {
  */
 export interface DescribeSoftwareAssociationsRequest {
   /**
-   * <p>The ARN of the resource to describe software associations. Possible resources are Image and ImageBuilder.</p>
+   * The ARN of the resource to describe software associations. Possible resources are Image and ImageBuilder.
+   *
    * @public
    */
   AssociatedResource: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation.</p>
+   * The pagination token to use to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The association between a license-included application and a resource.</p>
+ * The association between a license-included application and a resource.
+ *
  * @public
  */
 export interface SoftwareAssociations {
   /**
-   * <p>The name of the license-included application.</p>
-   *          <p>Possible values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
-   *             </li>
-   *          </ul>
+   * The name of the license-included application.
+   *
+   * Possible values include the following:
+   *
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_64Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_64Bit
+   * - Microsoft_Project_2021_Professional_32Bit
+   * - Microsoft_Project_2021_Professional_64Bit
+   * - Microsoft_Project_2024_Professional_32Bit
+   * - Microsoft_Project_2024_Professional_64Bit
+   * - Microsoft_Office_2021_LTSC_Standard_32Bit
+   * - Microsoft_Office_2021_LTSC_Standard_64Bit
+   * - Microsoft_Office_2024_LTSC_Standard_32Bit
+   * - Microsoft_Office_2024_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_64Bit
+   * - Microsoft_Project_2021_Standard_32Bit
+   * - Microsoft_Project_2021_Standard_64Bit
+   * - Microsoft_Project_2024_Standard_32Bit
+   * - Microsoft_Project_2024_Standard_64Bit
+   *
    * @public
    */
   SoftwareName?: string | undefined;
 
   /**
-   * <p>The deployment status of the license-included application.</p>
+   * The deployment status of the license-included application.
+   *
    * @public
    */
   Status?: SoftwareDeploymentStatus | undefined;
 
   /**
-   * <p>The error details for failed deployments of the license-included application.</p>
+   * The error details for failed deployments of the license-included application.
+   *
    * @public
    */
   DeploymentError?: ErrorDetails[] | undefined;
@@ -5443,33 +5368,27 @@ export interface SoftwareAssociations {
  */
 export interface DescribeSoftwareAssociationsResult {
   /**
-   * <p>The ARN of the resource to describe software associations.</p>
+   * The ARN of the resource to describe software associations.
+   *
    * @public
    */
   AssociatedResource?: string | undefined;
 
   /**
-   * <p>Collection of license included applications association details including:</p>
-   *          <ul>
-   *             <li>
-   *                <p>License included application name and version information</p>
-   *             </li>
-   *             <li>
-   *                <p>Deployment status (SoftwareDeploymentStatus enum)</p>
-   *             </li>
-   *             <li>
-   *                <p>Error details for failed deployments</p>
-   *             </li>
-   *             <li>
-   *                <p>Association timestamps</p>
-   *             </li>
-   *          </ul>
+   * Collection of license included applications association details including:
+   *
+   * - License included application name and version information
+   * - Deployment status (SoftwareDeploymentStatus enum)
+   * - Error details for failed deployments
+   * - Association timestamps
+   *
    * @public
    */
   SoftwareAssociations?: SoftwareAssociations[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation.</p>
+   * The pagination token to use to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5480,13 +5399,15 @@ export interface DescribeSoftwareAssociationsResult {
  */
 export interface DescribeStacksRequest {
   /**
-   * <p>The names of the stacks to describe.</p>
+   * The names of the stacks to describe.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5497,13 +5418,15 @@ export interface DescribeStacksRequest {
  */
 export interface DescribeStacksResult {
   /**
-   * <p>Information about the stacks.</p>
+   * Information about the stacks.
+   *
    * @public
    */
   Stacks?: Stack[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5514,7 +5437,8 @@ export interface DescribeStacksResult {
  */
 export interface DescribeThemeForStackRequest {
   /**
-   * <p>The name of the stack for the theme.</p>
+   * The name of the stack for the theme.
+   *
    * @public
    */
   StackName: string | undefined;
@@ -5525,7 +5449,8 @@ export interface DescribeThemeForStackRequest {
  */
 export interface DescribeThemeForStackResult {
   /**
-   * <p> The theme object that contains the metadata of the custom branding.</p>
+   * The theme object that contains the metadata of the custom branding.
+   *
    * @public
    */
   Theme?: Theme | undefined;
@@ -5536,66 +5461,73 @@ export interface DescribeThemeForStackResult {
  */
 export interface DescribeUsageReportSubscriptionsRequest {
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Describes the error that is returned when a usage report can't be generated.</p>
+ * Describes the error that is returned when a usage report can't be generated.
+ *
  * @public
  */
 export interface LastReportGenerationExecutionError {
   /**
-   * <p>The error code for the error that is returned when a usage report can't be generated.</p>
+   * The error code for the error that is returned when a usage report can't be generated.
+   *
    * @public
    */
   ErrorCode?: UsageReportExecutionErrorCode | undefined;
 
   /**
-   * <p>The error message for the error that is returned when a usage report can't be generated.</p>
+   * The error message for the error that is returned when a usage report can't be generated.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Describes information about the usage report subscription.</p>
+ * Describes information about the usage report subscription.
+ *
  * @public
  */
 export interface UsageReportSubscription {
   /**
-   * <p>The Amazon S3 bucket where generated reports are stored.</p>
-   *          <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
-   *             configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is
-   *             unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications
-   *             uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts,
-   *             when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.</p>
+   * The Amazon S3 bucket where generated reports are stored.
+   *
+   * If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
 
   /**
-   * <p>The schedule for generating usage reports.</p>
+   * The schedule for generating usage reports.
+   *
    * @public
    */
   Schedule?: UsageReportSchedule | undefined;
 
   /**
-   * <p>The time when the last usage report was generated.</p>
+   * The time when the last usage report was generated.
+   *
    * @public
    */
   LastGeneratedReportDate?: Date | undefined;
 
   /**
-   * <p>The errors that were returned if usage reports couldn't be generated.</p>
+   * The errors that were returned if usage reports couldn't be generated.
+   *
    * @public
    */
   SubscriptionErrors?: LastReportGenerationExecutionError[] | undefined;
@@ -5606,13 +5538,15 @@ export interface UsageReportSubscription {
  */
 export interface DescribeUsageReportSubscriptionsResult {
   /**
-   * <p>Information about the usage report subscription.</p>
+   * Information about the usage report subscription.
+   *
    * @public
    */
   UsageReportSubscriptions?: UsageReportSubscription[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5623,93 +5557,93 @@ export interface DescribeUsageReportSubscriptionsResult {
  */
 export interface DescribeUsersRequest {
   /**
-   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
+   * The authentication type for the users in the user pool to describe. You must specify USERPOOL.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Describes a user in the user pool.</p>
+ * Describes a user in the user pool.
+ *
  * @public
  */
 export interface User {
   /**
-   * <p>The ARN of the user.</p>
+   * The ARN of the user.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The email address of the user.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive.</p>
-   *          </note>
+   * The email address of the user.
+   *
+   * > **Note:** Users' email addresses are case-sensitive.
+   *
    * @public
    */
   UserName?: string | undefined;
 
   /**
-   * <p>Specifies whether the user in the user pool is enabled.</p>
+   * Specifies whether the user in the user pool is enabled.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 
   /**
-   * <p>The status of the user in the user pool. The status can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>UNCONFIRMED – The user is created but not confirmed.</p>
-   *             </li>
-   *             <li>
-   *                <p>CONFIRMED – The user is confirmed.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARCHIVED – The user is no longer active.</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPROMISED – The user is disabled because of a potential security threat.</p>
-   *             </li>
-   *             <li>
-   *                <p>UNKNOWN – The user status is not known.</p>
-   *             </li>
-   *          </ul>
+   * The status of the user in the user pool. The status can be one of the following:
+   *
+   * - UNCONFIRMED – The user is created but not confirmed.
+   * - CONFIRMED – The user is confirmed.
+   * - ARCHIVED – The user is no longer active.
+   * - COMPROMISED – The user is disabled because of a potential security threat.
+   * - UNKNOWN – The user status is not known.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The first name, or given name, of the user.</p>
+   * The first name, or given name, of the user.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>The last name, or surname, of the user.</p>
+   * The last name, or surname, of the user.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>The date and time the user was created in the user pool.</p>
+   * The date and time the user was created in the user pool.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The authentication type for the user.</p>
+   * The authentication type for the user.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
@@ -5720,13 +5654,15 @@ export interface User {
  */
 export interface DescribeUsersResult {
   /**
-   * <p>Information about users in the user pool.</p>
+   * Information about users in the user pool.
+   *
    * @public
    */
   Users?: User[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5737,34 +5673,38 @@ export interface DescribeUsersResult {
  */
 export interface DescribeUserStackAssociationsRequest {
   /**
-   * <p>The name of the stack that is associated with the user.</p>
+   * The name of the stack that is associated with the user.
+   *
    * @public
    */
   StackName?: string | undefined;
 
   /**
-   * <p>The email address of the user who is associated with the stack.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive.</p>
-   *          </note>
+   * The email address of the user who is associated with the stack.
+   *
+   * > **Note:** Users' email addresses are case-sensitive.
+   *
    * @public
    */
   UserName?: string | undefined;
 
   /**
-   * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
+   * The authentication type for the user who is associated with the stack. You must specify USERPOOL.
+   *
    * @public
    */
   AuthenticationType?: AuthenticationType | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5775,13 +5715,15 @@ export interface DescribeUserStackAssociationsRequest {
  */
 export interface DescribeUserStackAssociationsResult {
   /**
-   * <p>The UserStackAssociation objects.</p>
+   * The UserStackAssociation objects.
+   *
    * @public
    */
   UserStackAssociations?: UserStackAssociation[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5792,16 +5734,17 @@ export interface DescribeUserStackAssociationsResult {
  */
 export interface DisableUserRequest {
   /**
-   * <p>The email address of the user.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive.</p>
-   *          </note>
+   * The email address of the user.
+   *
+   * > **Note:** Users' email addresses are case-sensitive.
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL.</p>
+   * The authentication type for the user. You must specify USERPOOL.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
@@ -5817,13 +5760,15 @@ export interface DisableUserResult {}
  */
 export interface DisassociateAppBlockBuilderAppBlockRequest {
   /**
-   * <p>The ARN of the app block.</p>
+   * The ARN of the app block.
+   *
    * @public
    */
   AppBlockArn: string | undefined;
 
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   AppBlockBuilderName: string | undefined;
@@ -5839,13 +5784,15 @@ export interface DisassociateAppBlockBuilderAppBlockResult {}
  */
 export interface DisassociateApplicationFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The ARN of the application.</p>
+   * The ARN of the application.
+   *
    * @public
    */
   ApplicationArn: string | undefined;
@@ -5861,19 +5808,22 @@ export interface DisassociateApplicationFleetResult {}
  */
 export interface DisassociateApplicationFromEntitlementRequest {
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   EntitlementName: string | undefined;
 
   /**
-   * <p>The identifier of the application to remove from the entitlement.</p>
+   * The identifier of the application to remove from the entitlement.
+   *
    * @public
    */
   ApplicationIdentifier: string | undefined;
@@ -5889,13 +5839,15 @@ export interface DisassociateApplicationFromEntitlementResult {}
  */
 export interface DisassociateFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   StackName: string | undefined;
@@ -5911,88 +5863,42 @@ export interface DisassociateFleetResult {}
  */
 export interface DisassociateSoftwareFromImageBuilderRequest {
   /**
-   * <p>The name of the target image builder instance.</p>
+   * The name of the target image builder instance.
+   *
    * @public
    */
   ImageBuilderName: string | undefined;
 
   /**
-   * <p>The list of license included applications to disassociate from the image builder.</p>
-   *          <p>Possible values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Professional_Plus_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Professional_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Office_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2021_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Visio_2024_LTSC_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2021_Standard_64Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_32Bit</p>
-   *             </li>
-   *             <li>
-   *                <p>Microsoft_Project_2024_Standard_64Bit</p>
-   *             </li>
-   *          </ul>
+   * The list of license included applications to disassociate from the image builder.
+   *
+   * Possible values include the following:
+   *
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2021_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_32Bit
+   * - Microsoft_Office_2024_LTSC_Professional_Plus_64Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2021_LTSC_Professional_64Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_32Bit
+   * - Microsoft_Visio_2024_LTSC_Professional_64Bit
+   * - Microsoft_Project_2021_Professional_32Bit
+   * - Microsoft_Project_2021_Professional_64Bit
+   * - Microsoft_Project_2024_Professional_32Bit
+   * - Microsoft_Project_2024_Professional_64Bit
+   * - Microsoft_Office_2021_LTSC_Standard_32Bit
+   * - Microsoft_Office_2021_LTSC_Standard_64Bit
+   * - Microsoft_Office_2024_LTSC_Standard_32Bit
+   * - Microsoft_Office_2024_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2021_LTSC_Standard_64Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_32Bit
+   * - Microsoft_Visio_2024_LTSC_Standard_64Bit
+   * - Microsoft_Project_2021_Standard_32Bit
+   * - Microsoft_Project_2021_Standard_64Bit
+   * - Microsoft_Project_2024_Standard_32Bit
+   * - Microsoft_Project_2024_Standard_64Bit
+   *
    * @public
    */
   SoftwareNames: string[] | undefined;
@@ -6008,7 +5914,8 @@ export interface DisassociateSoftwareFromImageBuilderResult {}
  */
 export interface DrainSessionInstanceRequest {
   /**
-   * <p>The identifier of the streaming session.</p>
+   * The identifier of the streaming session.
+   *
    * @public
    */
   SessionId: string | undefined;
@@ -6024,16 +5931,17 @@ export interface DrainSessionInstanceResult {}
  */
 export interface EnableUserRequest {
   /**
-   * <p>The email address of the user.</p>
-   *          <note>
-   *             <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays. </p>
-   *          </note>
+   * The email address of the user.
+   *
+   * > **Note:** Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a "user does not exist" error message displays.
+   *
    * @public
    */
   UserName: string | undefined;
 
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL.</p>
+   * The authentication type for the user. You must specify USERPOOL.
+   *
    * @public
    */
   AuthenticationType: AuthenticationType | undefined;
@@ -6045,12 +5953,14 @@ export interface EnableUserRequest {
 export interface EnableUserResult {}
 
 /**
- * <p>The application associated to an entitlement. Access is controlled based on user attributes.</p>
+ * The application associated to an entitlement. Access is controlled based on user attributes.
+ *
  * @public
  */
 export interface EntitledApplication {
   /**
-   * <p>The identifier of the application.</p>
+   * The identifier of the application.
+   *
    * @public
    */
   ApplicationIdentifier: string | undefined;
@@ -6061,7 +5971,8 @@ export interface EntitledApplication {
  */
 export interface ExpireSessionRequest {
   /**
-   * <p>The identifier of the streaming session.</p>
+   * The identifier of the streaming session.
+   *
    * @public
    */
   SessionId: string | undefined;
@@ -6073,18 +5984,21 @@ export interface ExpireSessionRequest {
 export interface ExpireSessionResult {}
 
 /**
- * <p>A filter for narrowing down the results when listing export image tasks. Filters allow you to specify criteria such as task state or creation date.</p>
+ * A filter for narrowing down the results when listing export image tasks. Filters allow you to specify criteria such as task state or creation date.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The name of the filter. Valid filter names depend on the operation being performed.</p>
+   * The name of the filter. Valid filter names depend on the operation being performed.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The values for the filter. Multiple values can be specified for a single filter name.</p>
+   * The values for the filter. Multiple values can be specified for a single filter name.
+   *
    * @public
    */
   Values: string[] | undefined;
@@ -6095,7 +6009,8 @@ export interface Filter {
  */
 export interface GetExportImageTaskRequest {
   /**
-   * <p>The unique identifier of the export image task to retrieve information about.</p>
+   * The unique identifier of the export image task to retrieve information about.
+   *
    * @public
    */
   TaskId?: string | undefined;
@@ -6106,7 +6021,8 @@ export interface GetExportImageTaskRequest {
  */
 export interface GetExportImageTaskResult {
   /**
-   * <p>Information about the export image task, including its current state, created date, and any error details.</p>
+   * Information about the export image task, including its current state, created date, and any error details.
+   *
    * @public
    */
   ExportImageTask?: ExportImageTask | undefined;
@@ -6117,13 +6033,15 @@ export interface GetExportImageTaskResult {
  */
 export interface ListAssociatedFleetsRequest {
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6134,13 +6052,15 @@ export interface ListAssociatedFleetsRequest {
  */
 export interface ListAssociatedFleetsResult {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6151,13 +6071,15 @@ export interface ListAssociatedFleetsResult {
  */
 export interface ListAssociatedStacksRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   FleetName: string | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6168,13 +6090,15 @@ export interface ListAssociatedStacksRequest {
  */
 export interface ListAssociatedStacksResult {
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   * The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6185,25 +6109,29 @@ export interface ListAssociatedStacksResult {
  */
 export interface ListEntitledApplicationsRequest {
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   EntitlementName: string | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of each page of results.</p>
+   * The maximum size of each page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -6214,13 +6142,15 @@ export interface ListEntitledApplicationsRequest {
  */
 export interface ListEntitledApplicationsResult {
   /**
-   * <p>The entitled applications.</p>
+   * The entitled applications.
+   *
    * @public
    */
   EntitledApplications?: EntitledApplication[] | undefined;
 
   /**
-   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   * The pagination token used to retrieve the next page of results for this operation.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6231,19 +6161,22 @@ export interface ListEntitledApplicationsResult {
  */
 export interface ListExportImageTasksRequest {
   /**
-   * <p>Optional filters to apply when listing export image tasks. Filters help you narrow down the results based on specific criteria.</p>
+   * Optional filters to apply when listing export image tasks. Filters help you narrow down the results based on specific criteria.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of export image tasks to return in a single request. The valid range is 1-500, with a default of 50.</p>
+   * The maximum number of export image tasks to return in a single request. The valid range is 1-500, with a default of 50.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token from a previous request. Use this to retrieve the next page of results when there are more tasks than the MaxResults limit.</p>
+   * The pagination token from a previous request. Use this to retrieve the next page of results when there are more tasks than the MaxResults limit.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6254,13 +6187,15 @@ export interface ListExportImageTasksRequest {
  */
 export interface ListExportImageTasksResult {
   /**
-   * <p>The list of export image tasks that match the specified criteria.</p>
+   * The list of export image tasks that match the specified criteria.
+   *
    * @public
    */
   ExportImageTasks?: ExportImageTask[] | undefined;
 
   /**
-   * <p>The pagination token to use for retrieving the next page of results. This field is only present when there are more results available.</p>
+   * The pagination token to use for retrieving the next page of results. This field is only present when there are more results available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6271,7 +6206,8 @@ export interface ListExportImageTasksResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -6282,7 +6218,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The information about the tags.</p>
+   * The information about the tags.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -6293,7 +6230,8 @@ export interface ListTagsForResourceResponse {
  */
 export interface StartAppBlockBuilderRequest {
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   Name: string | undefined;
@@ -6304,7 +6242,8 @@ export interface StartAppBlockBuilderRequest {
  */
 export interface StartAppBlockBuilderResult {
   /**
-   * <p>Describes an app block builder.</p>
+   * Describes an app block builder.
+   *
    * @public
    */
   AppBlockBuilder?: AppBlockBuilder | undefined;
@@ -6315,7 +6254,8 @@ export interface StartAppBlockBuilderResult {
  */
 export interface StartFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   Name: string | undefined;
@@ -6331,13 +6271,15 @@ export interface StartFleetResult {}
  */
 export interface StartImageBuilderRequest {
   /**
-   * <p>The name of the image builder.</p>
+   * The name of the image builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST]. </p>
+   * The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
+   *
    * @public
    */
   AppstreamAgentVersion?: string | undefined;
@@ -6348,7 +6290,8 @@ export interface StartImageBuilderRequest {
  */
 export interface StartImageBuilderResult {
   /**
-   * <p>Information about the image builder.</p>
+   * Information about the image builder.
+   *
    * @public
    */
   ImageBuilder?: ImageBuilder | undefined;
@@ -6359,13 +6302,15 @@ export interface StartImageBuilderResult {
  */
 export interface StartSoftwareDeploymentToImageBuilderRequest {
   /**
-   * <p>The name of the target image builder instance.</p>
+   * The name of the target image builder instance.
+   *
    * @public
    */
   ImageBuilderName: string | undefined;
 
   /**
-   * <p>Whether to retry previously failed license included application deployments.</p>
+   * Whether to retry previously failed license included application deployments.
+   *
    * @public
    */
   RetryFailedDeployments?: boolean | undefined;
@@ -6381,7 +6326,8 @@ export interface StartSoftwareDeploymentToImageBuilderResult {}
  */
 export interface StopAppBlockBuilderRequest {
   /**
-   * <p>The name of the app block builder.</p>
+   * The name of the app block builder.
+   *
    * @public
    */
   Name: string | undefined;
@@ -6392,7 +6338,8 @@ export interface StopAppBlockBuilderRequest {
  */
 export interface StopAppBlockBuilderResult {
   /**
-   * <p>Describes an app block builder.</p>
+   * Describes an app block builder.
+   *
    * @public
    */
   AppBlockBuilder?: AppBlockBuilder | undefined;
@@ -6403,7 +6350,8 @@ export interface StopAppBlockBuilderResult {
  */
 export interface StopFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * The name of the fleet.
+   *
    * @public
    */
   Name: string | undefined;
@@ -6419,7 +6367,8 @@ export interface StopFleetResult {}
  */
 export interface StopImageBuilderRequest {
   /**
-   * <p>The name of the image builder.</p>
+   * The name of the image builder.
+   *
    * @public
    */
   Name: string | undefined;
@@ -6430,7 +6379,8 @@ export interface StopImageBuilderRequest {
  */
 export interface StopImageBuilderResult {
   /**
-   * <p>Information about the image builder.</p>
+   * Information about the image builder.
+   *
    * @public
    */
   ImageBuilder?: ImageBuilder | undefined;
@@ -6441,16 +6391,21 @@ export interface StopImageBuilderResult {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *          <p>If you do not specify a value, the value is set to an empty string.</p>
-   *          <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *          <p>_ . : / = + \ - @</p>
+   * The tags to associate. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=.
+   *
+   * If you do not specify a value, the value is set to an empty string.
+   *
+   * Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters:
+   *
+   * _ . : / = + \ - @
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -6466,13 +6421,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys for the tags to disassociate.</p>
+   * The tag keys for the tags to disassociate.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -6488,94 +6445,90 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAppBlockBuilderRequest {
   /**
-   * <p>The unique name for the app block builder.</p>
+   * The unique name for the app block builder.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the app block builder.</p>
+   * The description of the app block builder.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The display name of the app block builder.</p>
+   * The display name of the app block builder.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The platform of the app block builder.</p>
-   *          <p>
-   *             <code>WINDOWS_SERVER_2019</code> is the only valid value.</p>
+   * The platform of the app block builder.
+   *
+   * `WINDOWS_SERVER_2019` is the only valid value.
+   *
    * @public
    */
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The instance type to use when launching the app block builder. The following instance
-   *                 types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.2xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type to use when launching the app block builder. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.standard.xlarge
+   * - stream.standard.2xlarge
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The VPC configuration for the app block builder.</p>
-   *          <p>App block builders require that you specify at least two subnets in different availability
-   *             zones.</p>
+   * The VPC configuration for the app block builder.
+   *
+   * App block builders require that you specify at least two subnets in different availability zones.
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>Enables or disables default internet access for the app block builder.</p>
+   * Enables or disables default internet access for the app block builder.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To
-   *             assume a role, the app block builder calls the AWS Security Token Service (STS)
-   *             <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
-   *             operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the
-   *             temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to apply to the app block builder. To assume a role, the app block builder calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.</p>
+   * The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the app block builder only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The attributes to delete from the app block builder.</p>
+   * The attributes to delete from the app block builder.
+   *
    * @public
    */
   AttributesToDelete?: AppBlockBuilderAttribute[] | undefined;
 
   /**
-   * <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
+   * Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
@@ -6586,7 +6539,8 @@ export interface UpdateAppBlockBuilderRequest {
  */
 export interface UpdateAppBlockBuilderResult {
   /**
-   * <p>Describes an app block builder.</p>
+   * Describes an app block builder.
+   *
    * @public
    */
   AppBlockBuilder?: AppBlockBuilder | undefined;
@@ -6597,55 +6551,64 @@ export interface UpdateAppBlockBuilderResult {
  */
 export interface UpdateApplicationRequest {
   /**
-   * <p>The name of the application. This name is visible to users when display name is not specified.</p>
+   * The name of the application. This name is visible to users when display name is not specified.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The display name of the application. This name is visible to users in the application catalog.</p>
+   * The display name of the application. This name is visible to users in the application catalog.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the application.</p>
+   * The description of the application.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The icon S3 location of the application.</p>
+   * The icon S3 location of the application.
+   *
    * @public
    */
   IconS3Location?: S3Location | undefined;
 
   /**
-   * <p>The launch path of the application.</p>
+   * The launch path of the application.
+   *
    * @public
    */
   LaunchPath?: string | undefined;
 
   /**
-   * <p>The working directory of the application.</p>
+   * The working directory of the application.
+   *
    * @public
    */
   WorkingDirectory?: string | undefined;
 
   /**
-   * <p>The launch parameters of the application.</p>
+   * The launch parameters of the application.
+   *
    * @public
    */
   LaunchParameters?: string | undefined;
 
   /**
-   * <p>The ARN of the app block.</p>
+   * The ARN of the app block.
+   *
    * @public
    */
   AppBlockArn?: string | undefined;
 
   /**
-   * <p>The attributes to delete for an application.</p>
+   * The attributes to delete for an application.
+   *
    * @public
    */
   AttributesToDelete?: ApplicationAttribute[] | undefined;
@@ -6656,7 +6619,8 @@ export interface UpdateApplicationRequest {
  */
 export interface UpdateApplicationResult {
   /**
-   * <p>Describes an application in the application catalog.</p>
+   * Describes an application in the application catalog.
+   *
    * @public
    */
   Application?: Application | undefined;
@@ -6667,31 +6631,29 @@ export interface UpdateApplicationResult {
  */
 export interface UpdateDirectoryConfigRequest {
   /**
-   * <p>The name of the Directory Config object.</p>
+   * The name of the Directory Config object.
+   *
    * @public
    */
   DirectoryName: string | undefined;
 
   /**
-   * <p>The distinguished names of the organizational units for computer accounts.</p>
+   * The distinguished names of the organizational units for computer accounts.
+   *
    * @public
    */
   OrganizationalUnitDistinguishedNames?: string[] | undefined;
 
   /**
-   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
+   * The credentials for the service account used by the fleet or image builder to connect to the directory.
+   *
    * @public
    */
   ServiceAccountCredentials?: ServiceAccountCredentials | undefined;
 
   /**
-   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity
-   *             Provider (IdP) user identities to Active Directory domain-joined streaming instances.
-   *             Fallback is turned on by default when certificate-based authentication is <b>Enabled</b> . Fallback allows users to log in using their AD
-   *             domain password if certificate-based authentication is unsuccessful, or to unlock a
-   *             desktop lock screen. <b>Enabled_no_directory_login_fallback</b> enables certificate-based
-   *             authentication, but does not allow users to log in using their AD domain password. Users
-   *             will be disconnected to re-authenticate using certificates.</p>
+   * The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances. Fallback is turned on by default when certificate-based authentication is **Enabled** . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. **Enabled_no_directory_login_fallback** enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
+   *
    * @public
    */
   CertificateBasedAuthProperties?: CertificateBasedAuthProperties | undefined;
@@ -6702,7 +6664,8 @@ export interface UpdateDirectoryConfigRequest {
  */
 export interface UpdateDirectoryConfigResult {
   /**
-   * <p>Information about the Directory Config object.</p>
+   * Information about the Directory Config object.
+   *
    * @public
    */
   DirectoryConfig?: DirectoryConfig | undefined;
@@ -6713,31 +6676,36 @@ export interface UpdateDirectoryConfigResult {
  */
 export interface UpdateEntitlementRequest {
   /**
-   * <p>The name of the entitlement.</p>
+   * The name of the entitlement.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the stack with which the entitlement is associated.</p>
+   * The name of the stack with which the entitlement is associated.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The description of the entitlement.</p>
+   * The description of the entitlement.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specifies whether all or only selected apps are entitled.</p>
+   * Specifies whether all or only selected apps are entitled.
+   *
    * @public
    */
   AppVisibility?: AppVisibility | undefined;
 
   /**
-   * <p>The attributes of the entitlement.</p>
+   * The attributes of the entitlement.
+   *
    * @public
    */
   Attributes?: EntitlementAttribute[] | undefined;
@@ -6748,7 +6716,8 @@ export interface UpdateEntitlementRequest {
  */
 export interface UpdateEntitlementResult {
   /**
-   * <p>The entitlement.</p>
+   * The entitlement.
+   *
    * @public
    */
   Entitlement?: Entitlement | undefined;
@@ -6759,221 +6728,124 @@ export interface UpdateEntitlementResult {
  */
 export interface UpdateFleetRequest {
   /**
-   * <p>The name of the image used to create the fleet.</p>
+   * The name of the image used to create the fleet.
+   *
    * @public
    */
   ImageName?: string | undefined;
 
   /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
+   * The ARN of the public, private, or shared image to use.
+   *
    * @public
    */
   ImageArn?: string | undefined;
 
   /**
-   * <p>A unique name for the fleet.</p>
+   * A unique name for the fleet.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.compute.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.3xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.6xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.memory.z1d.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g4dn.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g5.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.16xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.12xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6.24xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6.8xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.2xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.g6f.4xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.graphics.gr6f.4xlarge</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following instance types are available for Elastic fleets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>stream.standard.small</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.medium</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.large</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.xlarge</p>
-   *             </li>
-   *             <li>
-   *                <p>stream.standard.2xlarge</p>
-   *             </li>
-   *          </ul>
+   * The instance type to use when launching fleet instances. The following instance types are available:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.standard.xlarge
+   * - stream.standard.2xlarge
+   * - stream.compute.large
+   * - stream.compute.xlarge
+   * - stream.compute.2xlarge
+   * - stream.compute.4xlarge
+   * - stream.compute.8xlarge
+   * - stream.memory.large
+   * - stream.memory.xlarge
+   * - stream.memory.2xlarge
+   * - stream.memory.4xlarge
+   * - stream.memory.8xlarge
+   * - stream.memory.z1d.large
+   * - stream.memory.z1d.xlarge
+   * - stream.memory.z1d.2xlarge
+   * - stream.memory.z1d.3xlarge
+   * - stream.memory.z1d.6xlarge
+   * - stream.memory.z1d.12xlarge
+   * - stream.graphics.g4dn.xlarge
+   * - stream.graphics.g4dn.2xlarge
+   * - stream.graphics.g4dn.4xlarge
+   * - stream.graphics.g4dn.8xlarge
+   * - stream.graphics.g4dn.12xlarge
+   * - stream.graphics.g4dn.16xlarge
+   * - stream.graphics.g5.xlarge
+   * - stream.graphics.g5.2xlarge
+   * - stream.graphics.g5.4xlarge
+   * - stream.graphics.g5.8xlarge
+   * - stream.graphics.g5.16xlarge
+   * - stream.graphics.g5.12xlarge
+   * - stream.graphics.g5.24xlarge
+   * - stream.graphics.g6.xlarge
+   * - stream.graphics.g6.2xlarge
+   * - stream.graphics.g6.4xlarge
+   * - stream.graphics.g6.8xlarge
+   * - stream.graphics.g6.16xlarge
+   * - stream.graphics.g6.12xlarge
+   * - stream.graphics.g6.24xlarge
+   * - stream.graphics.gr6.4xlarge
+   * - stream.graphics.gr6.8xlarge
+   * - stream.graphics.g6f.large
+   * - stream.graphics.g6f.xlarge
+   * - stream.graphics.g6f.2xlarge
+   * - stream.graphics.g6f.4xlarge
+   * - stream.graphics.gr6f.4xlarge
+   *
+   * The following instance types are available for Elastic fleets:
+   *
+   * - stream.standard.small
+   * - stream.standard.medium
+   * - stream.standard.large
+   * - stream.standard.xlarge
+   * - stream.standard.2xlarge
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>The desired capacity for the fleet. This is not allowed for Elastic fleets.</p>
+   * The desired capacity for the fleet. This is not allowed for Elastic fleets.
+   *
    * @public
    */
   ComputeCapacity?: ComputeCapacity | undefined;
 
   /**
-   * <p>The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones. </p>
+   * The VPC configuration for the fleet. This is required for Elastic fleets, but not required for other fleet types. Elastic fleets require that you specify at least two subnets in different availability zones.
+   *
    * @public
    */
   VpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *          <p>Specify a value between 600 and 432000.</p>
+   * The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.
+   *
+   * Specify a value between 600 and 432000.
+   *
    * @public
    */
   MaxUserDurationInSeconds?: number | undefined;
 
   /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *          <p>Specify a value between 60 and 36000.</p>
+   * The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.
+   *
+   * Specify a value between 60 and 36000.
+   *
    * @public
    */
   DisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>Deletes the VPC association for the specified fleet.</p>
+   * Deletes the VPC association for the specified fleet.
    *
    * @deprecated deprecated.
    * @public
@@ -6981,109 +6853,116 @@ export interface UpdateFleetRequest {
   DeleteVpcConfig?: boolean | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The fleet name to display.</p>
+   * The fleet name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>Enables or disables default internet access for the fleet.</p>
+   * Enables or disables default internet access for the fleet.
+   *
    * @public
    */
   EnableDefaultInternetAccess?: boolean | undefined;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   * The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain.
+   *
    * @public
    */
   DomainJoinInfo?: DomainJoinInfo | undefined;
 
   /**
-   * <p>The amount of time that users can be idle (inactive) before they are disconnected
-   *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
-   *             interval begins. Users are notified before they are disconnected due to inactivity. If
-   *             users try to reconnect to the streaming session before the time interval specified in
-   *             <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
-   *             previous session. Users are considered idle when they stop providing keyboard or mouse
-   *             input during their streaming session. File uploads and downloads, audio in, audio out,
-   *             and pixels changing do not qualify as user activity. If users continue to be idle after
-   *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
-   *             disconnected. </p>
-   *          <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.</p>
-   *          <note>
-   *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
-   *          </note>
+   * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `DisconnectTimeoutInSeconds` time interval begins. Users are notified before they are disconnected due to inactivity. If users try to reconnect to the streaming session before the time interval specified in `DisconnectTimeoutInSeconds` elapses, they are connected to their previous session. Users are considered idle when they stop providing keyboard or mouse input during their streaming session. File uploads and downloads, audio in, audio out, and pixels changing do not qualify as user activity. If users continue to be idle after the time interval in `IdleDisconnectTimeoutInSeconds` elapses, they are disconnected.
+   *
+   * To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 36000. The default value is 0.
+   *
+   * > **Note:** If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity.
+   *
    * @public
    */
   IdleDisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>The fleet attributes to delete.</p>
+   * The fleet attributes to delete.
+   *
    * @public
    */
   AttributesToDelete?: FleetAttribute[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances</a> in the <i>Amazon WorkSpaces Applications Administration Guide</i>.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. WorkSpaces Applications retrieves the temporary credentials and creates the **appstream_machine_role** credential profile on the instance.
+   *
+   * For more information, see [Using an IAM Role to Grant Permissions to Applications and Scripts Running on WorkSpaces Applications Streaming Instances](https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html) in the *Amazon WorkSpaces Applications Administration Guide*.
+   *
    * @public
    */
   IamRoleArn?: string | undefined;
 
   /**
-   * <p>The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
-   *          <p>The default value is <code>APP</code>.</p>
+   * The WorkSpaces Applications view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays.
+   *
+   * The default value is `APP`.
+   *
    * @public
    */
   StreamView?: StreamView | undefined;
 
   /**
-   * <p>The platform of the fleet. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets. </p>
+   * The platform of the fleet. WINDOWS_SERVER_2019, AMAZON_LINUX2 and UBUNTU_PRO_2404 are supported for Elastic fleets.
+   *
    * @public
    */
   Platform?: PlatformType | undefined;
 
   /**
-   * <p>The maximum number of concurrent sessions for a fleet.</p>
+   * The maximum number of concurrent sessions for a fleet.
+   *
    * @public
    */
   MaxConcurrentSessions?: number | undefined;
 
   /**
-   * <p>The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.</p>
+   * The USB device filter strings that specify which USB devices a user can redirect to the fleet streaming session, when using the Windows native client. This is allowed but not required for Elastic fleets.
+   *
    * @public
    */
   UsbDeviceFilterStrings?: string[] | undefined;
 
   /**
-   * <p>The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets. </p>
+   * The S3 location of the session scripts configuration zip file. This only applies to Elastic fleets.
+   *
    * @public
    */
   SessionScriptS3Location?: S3Location | undefined;
 
   /**
-   * <p>The maximum number of user sessions on an instance. This only applies to multi-session fleets.</p>
+   * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+   *
    * @public
    */
   MaxSessionsPerInstance?: number | undefined;
 
   /**
-   * <p>The updated configuration for the root volume of fleet instances. Note that volume size cannot be decreased below the image volume size.</p>
+   * The updated configuration for the root volume of fleet instances. Note that volume size cannot be decreased below the image volume size.
+   *
    * @public
    */
   RootVolumeConfig?: VolumeConfig | undefined;
 
   /**
-   * <p>Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.</p>
-   *          <note>
-   *             <p>Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.</p>
-   *          </note>
+   * Set to true to disable Instance Metadata Service Version 1 (IMDSv1) and enforce IMDSv2. Set to false to enable both IMDSv1 and IMDSv2.
+   *
+   * > **Note:** Before disabling IMDSv1, ensure your WorkSpaces Applications images are running the agent version or managed image update released on or after January 16, 2024 to support IMDSv2 enforcement.
+   *
    * @public
    */
   DisableIMDSV1?: boolean | undefined;
@@ -7094,7 +6973,8 @@ export interface UpdateFleetRequest {
  */
 export interface UpdateFleetResult {
   /**
-   * <p>Information about the fleet.</p>
+   * Information about the fleet.
+   *
    * @public
    */
   Fleet?: Fleet | undefined;
@@ -7105,19 +6985,22 @@ export interface UpdateFleetResult {
  */
 export interface UpdateImagePermissionsRequest {
   /**
-   * <p>The name of the private image.</p>
+   * The name of the private image.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The 12-digit identifier of the AWS account for which you want add or update image permissions.</p>
+   * The 12-digit identifier of the AWS account for which you want add or update image permissions.
+   *
    * @public
    */
   SharedAccountId: string | undefined;
 
   /**
-   * <p>The permissions for the image.</p>
+   * The permissions for the image.
+   *
    * @public
    */
   ImagePermissions: ImagePermissions | undefined;
@@ -7133,31 +7016,35 @@ export interface UpdateImagePermissionsResult {}
  */
 export interface UpdateStackRequest {
   /**
-   * <p>The stack name to display.</p>
+   * The stack name to display.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * The description to display.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the stack.</p>
+   * The name of the stack.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The storage connectors to enable.</p>
+   * The storage connectors to enable.
+   *
    * @public
    */
   StorageConnectors?: StorageConnector[] | undefined;
 
   /**
-   * <p>Deletes the storage connectors currently enabled for the stack.</p>
+   * Deletes the storage connectors currently enabled for the stack.
    *
    * @deprecated deprecated.
    * @public
@@ -7165,67 +7052,78 @@ export interface UpdateStackRequest {
   DeleteStorageConnectors?: boolean | undefined;
 
   /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   * The URL that users are redirected to after their streaming session ends.
+   *
    * @public
    */
   RedirectURL?: string | undefined;
 
   /**
-   * <p>The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
+   * The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+   *
    * @public
    */
   FeedbackURL?: string | undefined;
 
   /**
-   * <p>The stack attributes to delete.</p>
+   * The stack attributes to delete.
+   *
    * @public
    */
   AttributesToDelete?: StackAttribute[] | undefined;
 
   /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
+   * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+   *
    * @public
    */
   UserSettings?: UserSetting[] | undefined;
 
   /**
-   * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
+   * The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+   *
    * @public
    */
   ApplicationSettings?: ApplicationSettings | undefined;
 
   /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.</p>
+   * The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to WorkSpaces Applications only through the specified endpoints.
+   *
    * @public
    */
   AccessEndpoints?: AccessEndpoint[] | undefined;
 
   /**
-   * <p>The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions. </p>
+   * The domains where WorkSpaces Applications streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded WorkSpaces Applications streaming sessions.
+   *
    * @public
    */
   EmbedHostDomains?: string[] | undefined;
 
   /**
-   * <p>The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.</p>
+   * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+   *
    * @public
    */
   StreamingExperienceSettings?: StreamingExperienceSettings | undefined;
 
   /**
-   * <p>Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.</p>
+   * Configuration for bidirectional URL redirection between the streaming session and the local client. Use HostToClient to redirect URLs from the remote desktop to the local browser.
+   *
    * @public
    */
   ContentRedirection?: ContentRedirection | undefined;
 
   /**
-   * <p>The configuration for agent access on the stack. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value.</p>
+   * The configuration for agent access on the stack. Specify this to update agent access settings. To remove agent access, use AttributesToDelete with the AGENT_ACCESS_CONFIG value.
+   *
    * @public
    */
   AgentAccessConfig?: AgentAccessConfigForUpdate | undefined;
 
   /**
-   * <p>Specifies whether users' cloud storage authentication persists across streaming sessions. When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. To clear this attribute, add STORAGE_CONNECTOR_AUTHENTICATION to AttributesToDelete.</p>
+   * Specifies whether users' cloud storage authentication persists across streaming sessions. When you specify FORCE_REAUTHENTICATION, WorkSpaces Applications removes the stored authentication for the stack's OneDrive and Google Drive connectors when a user's session ends. The user links their cloud storage again on their next session. To clear this attribute, add STORAGE_CONNECTOR_AUTHENTICATION to AttributesToDelete.
+   *
    * @public
    */
   StorageConnectorAuthentication?: StorageConnectorAuthentication | undefined;
@@ -7236,7 +7134,8 @@ export interface UpdateStackRequest {
  */
 export interface UpdateStackResult {
   /**
-   * <p>Information about the stack.</p>
+   * Information about the stack.
+   *
    * @public
    */
   Stack?: Stack | undefined;
@@ -7247,49 +7146,57 @@ export interface UpdateStackResult {
  */
 export interface UpdateThemeForStackRequest {
   /**
-   * <p>The name of the stack for the theme.</p>
+   * The name of the stack for the theme.
+   *
    * @public
    */
   StackName: string | undefined;
 
   /**
-   * <p>The links that are displayed in the footer of the streaming application catalog page. These links are helpful resources for users, such as the organization's IT support and product marketing sites.</p>
+   * The links that are displayed in the footer of the streaming application catalog page. These links are helpful resources for users, such as the organization's IT support and product marketing sites.
+   *
    * @public
    */
   FooterLinks?: ThemeFooterLink[] | undefined;
 
   /**
-   * <p>The title that is displayed at the top of the browser tab during users' application streaming sessions.</p>
+   * The title that is displayed at the top of the browser tab during users' application streaming sessions.
+   *
    * @public
    */
   TitleText?: string | undefined;
 
   /**
-   * <p>The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.</p>
+   * The color theme that is applied to website links, text, and buttons. These colors are also applied as accents in the background for the streaming application catalog page.
+   *
    * @public
    */
   ThemeStyling?: ThemeStyling | undefined;
 
   /**
-   * <p>The organization logo that appears on the streaming application catalog page.</p>
+   * The organization logo that appears on the streaming application catalog page.
+   *
    * @public
    */
   OrganizationLogoS3Location?: S3Location | undefined;
 
   /**
-   * <p>The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.</p>
+   * The S3 location of the favicon. The favicon enables users to recognize their application streaming site in a browser full of tabs or bookmarks. It is displayed at the top of the browser tab for the application streaming site during users' streaming sessions.
+   *
    * @public
    */
   FaviconS3Location?: S3Location | undefined;
 
   /**
-   * <p>Specifies whether custom branding should be applied to catalog page or not.</p>
+   * Specifies whether custom branding should be applied to catalog page or not.
+   *
    * @public
    */
   State?: ThemeState | undefined;
 
   /**
-   * <p>The attributes to delete.</p>
+   * The attributes to delete.
+   *
    * @public
    */
   AttributesToDelete?: ThemeAttribute[] | undefined;
@@ -7300,7 +7207,8 @@ export interface UpdateThemeForStackRequest {
  */
 export interface UpdateThemeForStackResult {
   /**
-   * <p> The theme object that contains the metadata of the custom branding.</p>
+   * The theme object that contains the metadata of the custom branding.
+   *
    * @public
    */
   Theme?: Theme | undefined;

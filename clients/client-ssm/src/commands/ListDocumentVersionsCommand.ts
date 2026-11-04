@@ -23,7 +23,8 @@ export interface ListDocumentVersionsCommandInput extends ListDocumentVersionsRe
 export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsResult, __MetadataBearer {}
 
 /**
- * <p>List all versions for a document.</p>
+ * List all versions for a document.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +67,20 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

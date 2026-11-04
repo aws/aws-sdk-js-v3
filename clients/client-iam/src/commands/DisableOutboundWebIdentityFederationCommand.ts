@@ -22,9 +22,8 @@ export interface DisableOutboundWebIdentityFederationCommandInput {}
 export interface DisableOutboundWebIdentityFederationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables the outbound identity federation feature for your Amazon Web Services account. When disabled, IAM principals in the account cannot
- *             use the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services. This operation
- *             does not affect tokens that were issued before the feature was disabled.</p>
+ * Disables the outbound identity federation feature for your Amazon Web Services account. When disabled, IAM principals in the account cannot use the `GetWebIdentityToken` API to obtain JSON Web Tokens (JWTs) for authentication with external services. This operation does not affect tokens that were issued before the feature was disabled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,11 +46,12 @@ export interface DisableOutboundWebIdentityFederationCommandOutput extends __Met
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link FeatureDisabledException} (client fault)
- *  <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+ *
+ * The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

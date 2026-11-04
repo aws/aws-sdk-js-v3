@@ -23,12 +23,10 @@ export interface UpdateContactCommandInput extends UpdateContactRequest {}
 export interface UpdateContactCommandOutput extends UpdateContactResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a contact's preferences for a list.</p>
- *          <note>
- *             <p>You must specify all existing topic preferences in the
- *                     <code>TopicPreferences</code> object, not just the ones that need updating;
- *                 otherwise, all your existing preferences will be removed.</p>
- *          </note>
+ * Updates a contact's preferences for a list.
+ *
+ * > **Note:** You must specify all existing topic preferences in the `TopicPreferences` object, not just the ones that need updating; otherwise, all your existing preferences will be removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +60,24 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>The resource is being modified by another operation or thread.</p>
+ *
+ * The resource is being modified by another operation or thread.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

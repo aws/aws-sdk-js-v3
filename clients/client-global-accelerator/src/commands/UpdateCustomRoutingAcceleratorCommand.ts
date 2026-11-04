@@ -23,7 +23,8 @@ export interface UpdateCustomRoutingAcceleratorCommandInput extends UpdateCustom
 export interface UpdateCustomRoutingAcceleratorCommandOutput extends UpdateCustomRoutingAcceleratorResponse, __MetadataBearer {}
 
 /**
- * <p>Update a custom routing accelerator. </p>
+ * Update a custom routing accelerator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,23 +81,28 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput extends UpdateCusto
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can't use both of those options.</p>
+ *
+ * You can't use both of those options.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link TransactionInProgressException} (client fault)
- *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
+ * There's already a transaction in progress. Another transaction can't be processed.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

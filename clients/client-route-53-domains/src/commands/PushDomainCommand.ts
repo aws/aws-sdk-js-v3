@@ -23,14 +23,12 @@ export interface PushDomainCommandInput extends PushDomainRequest {}
 export interface PushDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * <p> Moves a domain from Amazon Web Services to another registrar. </p>
- *          <p>Supported actions:</p>
- *          <ul>
- *             <li>
- *                <p>Changes the IPS tags of a .uk domain, and pushes it to transit. Transit means
- * 					that the domain is ready to be transferred to another registrar.</p>
- *             </li>
- *          </ul>
+ * Moves a domain from Amazon Web Services to another registrar.
+ *
+ * Supported actions:
+ *
+ * - Changes the IPS tags of a .uk domain, and pushes it to transit. Transit means that the domain is ready to be transferred to another registrar.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,24 +54,24 @@ export interface PushDomainCommandOutput extends __MetadataBearer {}
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link TLDInMaintenance} (client fault)
- *  <p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>
+ *
+ * The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

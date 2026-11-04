@@ -23,7 +23,8 @@ export interface GetOriginAccessControlCommandInput extends GetOriginAccessContr
 export interface GetOriginAccessControlCommandOutput extends GetOriginAccessControlResult, __MetadataBearer {}
 
 /**
- * <p>Gets a CloudFront origin access control, including its unique identifier.</p>
+ * Gets a CloudFront origin access control, including its unique identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +61,16 @@ export interface GetOriginAccessControlCommandOutput extends GetOriginAccessCont
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchOriginAccessControl} (client fault)
- *  <p>The origin access control does not exist.</p>
+ *
+ * The origin access control does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteLoadBalancerPolicyCommandInput extends DeleteLoadBalancer
 export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
+ * Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,14 +50,16 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To delete a policy from your load balancer
  * ```javascript

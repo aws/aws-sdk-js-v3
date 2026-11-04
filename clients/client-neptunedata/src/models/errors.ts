@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { NeptunedataServiceException as __BaseException } from "./NeptunedataServiceException";
 
 /**
- * <p>Raised in case of an authentication or authorization failure.</p>
+ * Raised in case of an authentication or authorization failure.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,19 +13,22 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -45,7 +49,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request is submitted that cannot be processed.</p>
+ * Raised when a request is submitted that cannot be processed.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -53,19 +58,22 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the bad request.</p>
+   * The ID of the bad request.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -86,7 +94,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request timed out in the client.</p>
+ * Raised when a request timed out in the client.
+ *
  * @public
  */
 export class ClientTimeoutException extends __BaseException {
@@ -95,19 +104,22 @@ export class ClientTimeoutException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -128,7 +140,8 @@ export class ClientTimeoutException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+ * Raised when a request attempts to modify data that is concurrently being modified by another process.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -137,19 +150,22 @@ export class ConcurrentModificationException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -170,7 +186,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ * Raised when a value in a request field did not satisfy required constraints.
+ *
  * @public
  */
 export class ConstraintViolationException extends __BaseException {
@@ -179,19 +196,22 @@ export class ConstraintViolationException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -212,7 +232,8 @@ export class ConstraintViolationException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request fails.</p>
+ * Raised when a request fails.
+ *
  * @public
  */
 export class FailureByQueryException extends __BaseException {
@@ -221,19 +242,22 @@ export class FailureByQueryException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -254,7 +278,8 @@ export class FailureByQueryException extends __BaseException {
 }
 
 /**
- * <p>Raised when an argument in a request is not supported.</p>
+ * Raised when an argument in a request is not supported.
+ *
  * @public
  */
 export class IllegalArgumentException extends __BaseException {
@@ -262,19 +287,22 @@ export class IllegalArgumentException extends __BaseException {
   readonly name = "IllegalArgumentException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -295,7 +323,8 @@ export class IllegalArgumentException extends __BaseException {
 }
 
 /**
- * <p>Raised when an argument in a request has an invalid value.</p>
+ * Raised when an argument in a request has an invalid value.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -303,19 +332,22 @@ export class InvalidArgumentException extends __BaseException {
   readonly name = "InvalidArgumentException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -336,7 +368,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>Raised when a parameter value is not valid.</p>
+ * Raised when a parameter value is not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -344,19 +377,22 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that includes an invalid parameter.</p>
+   * The ID of the request that includes an invalid parameter.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -377,7 +413,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Raised when a required parameter is missing.</p>
+ * Raised when a required parameter is missing.
+ *
  * @public
  */
 export class MissingParameterException extends __BaseException {
@@ -385,19 +422,22 @@ export class MissingParameterException extends __BaseException {
   readonly name = "MissingParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in which the parameter is missing.</p>
+   * The ID of the request in which the parameter is missing.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -418,7 +458,8 @@ export class MissingParameterException extends __BaseException {
 }
 
 /**
- * <p>Raised when a parsing issue is encountered.</p>
+ * Raised when a parsing issue is encountered.
+ *
  * @public
  */
 export class ParsingException extends __BaseException {
@@ -426,19 +467,22 @@ export class ParsingException extends __BaseException {
   readonly name = "ParsingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -459,7 +503,8 @@ export class ParsingException extends __BaseException {
 }
 
 /**
- * <p>Raised when a precondition for processing a request is not satisfied.</p>
+ * Raised when a precondition for processing a request is not satisfied.
+ *
  * @public
  */
 export class PreconditionsFailedException extends __BaseException {
@@ -467,19 +512,22 @@ export class PreconditionsFailedException extends __BaseException {
   readonly name = "PreconditionsFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -500,7 +548,8 @@ export class PreconditionsFailedException extends __BaseException {
 }
 
 /**
- * <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+ * Raised when the an operation exceeds the time limit allowed for it.
+ *
  * @public
  */
 export class TimeLimitExceededException extends __BaseException {
@@ -509,19 +558,22 @@ export class TimeLimitExceededException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that could not be processed for this reason.</p>
+   * The ID of the request that could not be processed for this reason.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -542,7 +594,8 @@ export class TimeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Raised when the number of requests being processed exceeds the limit.</p>
+ * Raised when the number of requests being processed exceeds the limit.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -551,19 +604,22 @@ export class TooManyRequestsException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that could not be processed for this reason.</p>
+   * The ID of the request that could not be processed for this reason.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -584,7 +640,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ * Raised when a request attempts to initiate an operation that is not supported.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -592,19 +649,22 @@ export class UnsupportedOperationException extends __BaseException {
   readonly name = "UnsupportedOperationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -625,7 +685,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request is cancelled because the storage layer entered maintenance mode. This typically happens during a customer-initiated operation such as an index rebuild. It should be treated like <code>ConcurrentModificationException</code>.</p>
+ * Raised when a request is cancelled because the storage layer entered maintenance mode. This typically happens during a customer-initiated operation such as an index rebuild. It should be treated like `ConcurrentModificationException`.
+ *
  * @public
  */
 export class CancelledByMaintenanceException extends __BaseException {
@@ -634,19 +695,22 @@ export class CancelledByMaintenanceException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -667,7 +731,8 @@ export class CancelledByMaintenanceException extends __BaseException {
 }
 
 /**
- * <p>Raised when a user cancelled a request.</p>
+ * Raised when a user cancelled a request.
+ *
  * @public
  */
 export class CancelledByUserException extends __BaseException {
@@ -675,19 +740,22 @@ export class CancelledByUserException extends __BaseException {
   readonly name = "CancelledByUserException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -708,7 +776,8 @@ export class CancelledByUserException extends __BaseException {
 }
 
 /**
- * <p>Raised when the processing of the request failed unexpectedly.</p>
+ * Raised when the processing of the request failed unexpectedly.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -716,19 +785,22 @@ export class InternalFailureException extends __BaseException {
   readonly name = "InternalFailureException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -749,7 +821,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>Raised when the HTTP method used by a request is not supported by the endpoint being used.</p>
+ * Raised when the HTTP method used by a request is not supported by the endpoint being used.
+ *
  * @public
  */
 export class MethodNotAllowedException extends __BaseException {
@@ -757,19 +830,22 @@ export class MethodNotAllowedException extends __BaseException {
   readonly name = "MethodNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -790,7 +866,8 @@ export class MethodNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request attempts to write to a read-only resource.</p>
+ * Raised when a request attempts to write to a read-only resource.
+ *
  * @public
  */
 export class ReadOnlyViolationException extends __BaseException {
@@ -798,19 +875,22 @@ export class ReadOnlyViolationException extends __BaseException {
   readonly name = "ReadOnlyViolationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in which the parameter is missing.</p>
+   * The ID of the request in which the parameter is missing.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -831,7 +911,8 @@ export class ReadOnlyViolationException extends __BaseException {
 }
 
 /**
- * <p>Raised when the server shuts down while processing a request.</p>
+ * Raised when the server shuts down while processing a request.
+ *
  * @public
  */
 export class ServerShutdownException extends __BaseException {
@@ -839,19 +920,22 @@ export class ServerShutdownException extends __BaseException {
   readonly name = "ServerShutdownException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -872,7 +956,8 @@ export class ServerShutdownException extends __BaseException {
 }
 
 /**
- * <p>Raised when a parameter value is not valid or is malformed.</p>
+ * Raised when a parameter value is not valid or is malformed.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -880,19 +965,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -913,7 +1001,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Raised when a specified bulk-load job ID cannot be found.</p>
+ * Raised when a specified bulk-load job ID cannot be found.
+ *
  * @public
  */
 export class BulkLoadIdNotFoundException extends __BaseException {
@@ -922,19 +1011,22 @@ export class BulkLoadIdNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The bulk-load job ID that could not be found.</p>
+   * The bulk-load job ID that could not be found.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -955,7 +1047,8 @@ export class BulkLoadIdNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Raised when access is denied to a specified load URL.</p>
+ * Raised when access is denied to a specified load URL.
+ *
  * @public
  */
 export class LoadUrlAccessDeniedException extends __BaseException {
@@ -963,19 +1056,22 @@ export class LoadUrlAccessDeniedException extends __BaseException {
   readonly name = "LoadUrlAccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -996,7 +1092,8 @@ export class LoadUrlAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Raised when a specified machine-learning resource could not be found.</p>
+ * Raised when a specified machine-learning resource could not be found.
+ *
  * @public
  */
 export class MLResourceNotFoundException extends __BaseException {
@@ -1004,19 +1101,22 @@ export class MLResourceNotFoundException extends __BaseException {
   readonly name = "MLResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1037,7 +1137,8 @@ export class MLResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+ * Raised when invalid numerical data is encountered when servicing a request.
+ *
  * @public
  */
 export class InvalidNumericDataException extends __BaseException {
@@ -1045,19 +1146,22 @@ export class InvalidNumericDataException extends __BaseException {
   readonly name = "InvalidNumericDataException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1078,7 +1182,8 @@ export class InvalidNumericDataException extends __BaseException {
 }
 
 /**
- * <p>Raised when statistics needed to satisfy a request are not available.</p>
+ * Raised when statistics needed to satisfy a request are not available.
+ *
  * @public
  */
 export class StatisticsNotAvailableException extends __BaseException {
@@ -1086,19 +1191,22 @@ export class StatisticsNotAvailableException extends __BaseException {
   readonly name = "StatisticsNotAvailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1119,7 +1227,8 @@ export class StatisticsNotAvailableException extends __BaseException {
 }
 
 /**
- * <p>Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.</p>
+ * Raised when a query is submitted that is syntactically incorrect or does not pass additional validation.
+ *
  * @public
  */
 export class MalformedQueryException extends __BaseException {
@@ -1127,19 +1236,22 @@ export class MalformedQueryException extends __BaseException {
   readonly name = "MalformedQueryException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the malformed query request.</p>
+   * The ID of the malformed query request.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1160,7 +1272,8 @@ export class MalformedQueryException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+ * Raised when a request fails because of insufficient memory resources. The request can be retried.
+ *
  * @public
  */
 export class MemoryLimitExceededException extends __BaseException {
@@ -1169,19 +1282,22 @@ export class MemoryLimitExceededException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that failed.</p>
+   * The ID of the request that failed.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1202,7 +1318,8 @@ export class MemoryLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.</p>
+ * Raised when the number of active queries exceeds what the server can process. The query in question can be retried when the system is less busy.
+ *
  * @public
  */
 export class QueryLimitExceededException extends __BaseException {
@@ -1211,19 +1328,22 @@ export class QueryLimitExceededException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request which exceeded the limit.</p>
+   * The ID of the request which exceeded the limit.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1244,7 +1364,8 @@ export class QueryLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Raised when the size of a query exceeds the system limit.</p>
+ * Raised when the size of a query exceeds the system limit.
+ *
  * @public
  */
 export class QueryLimitException extends __BaseException {
@@ -1252,19 +1373,22 @@ export class QueryLimitException extends __BaseException {
   readonly name = "QueryLimitException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that exceeded the limit.</p>
+   * The ID of the request that exceeded the limit.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1285,7 +1409,8 @@ export class QueryLimitException extends __BaseException {
 }
 
 /**
- * <p>Raised when the body of a query is too large.</p>
+ * Raised when the body of a query is too large.
+ *
  * @public
  */
 export class QueryTooLargeException extends __BaseException {
@@ -1293,19 +1418,22 @@ export class QueryTooLargeException extends __BaseException {
   readonly name = "QueryTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that is too large.</p>
+   * The ID of the request that is too large.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1326,7 +1454,8 @@ export class QueryTooLargeException extends __BaseException {
 }
 
 /**
- * <p>Raised when a request attempts to access an stream that has expired.</p>
+ * Raised when a request attempts to access an stream that has expired.
+ *
  * @public
  */
 export class ExpiredStreamException extends __BaseException {
@@ -1334,19 +1463,22 @@ export class ExpiredStreamException extends __BaseException {
   readonly name = "ExpiredStreamException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1367,7 +1499,8 @@ export class ExpiredStreamException extends __BaseException {
 }
 
 /**
- * <p>Raised when stream records requested by a query cannot be found.</p>
+ * Raised when stream records requested by a query cannot be found.
+ *
  * @public
  */
 export class StreamRecordsNotFoundException extends __BaseException {
@@ -1375,19 +1508,22 @@ export class StreamRecordsNotFoundException extends __BaseException {
   readonly name = "StreamRecordsNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1408,7 +1544,8 @@ export class StreamRecordsNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Raised when the rate of requests exceeds the maximum throughput. Requests can be retried after encountering this exception.</p>
+ * Raised when the rate of requests exceeds the maximum throughput. Requests can be retried after encountering this exception.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -1417,19 +1554,22 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request that could not be processed for this reason.</p>
+   * The ID of the request that could not be processed for this reason.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1450,7 +1590,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Raised when the specified resource could not be found. The resource might have been deleted or the identifier might be incorrect.</p>
+ * Raised when the specified resource could not be found. The resource might have been deleted or the identifier might be incorrect.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -1458,19 +1599,22 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;
@@ -1491,7 +1635,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Raised when there is a problem accessing Amazon S3.</p>
+ * Raised when there is a problem accessing Amazon S3.
+ *
  * @public
  */
 export class S3Exception extends __BaseException {
@@ -1500,19 +1645,22 @@ export class S3Exception extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p>A detailed message describing the problem.</p>
+   * A detailed message describing the problem.
+   *
    * @public
    */
   detailedMessage: string | undefined;
 
   /**
-   * <p>The ID of the request in question.</p>
+   * The ID of the request in question.
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The HTTP status code returned with the exception.</p>
+   * The HTTP status code returned with the exception.
+   *
    * @public
    */
   code: string | undefined;

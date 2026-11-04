@@ -23,7 +23,8 @@ export interface ListPlansInRegionCommandInput extends ListPlansInRegionRequest 
 export interface ListPlansInRegionCommandOutput extends ListPlansInRegionResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Region switch plans in your Amazon Web Services account that are available in the current Amazon Web Services Region.</p>
+ * Lists all Region switch plans in your Amazon Web Services account that are available in the current Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,11 +70,14 @@ export interface ListPlansInRegionCommandOutput extends ListPlansInRegionRespons
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * HTTP Status Code: 403
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

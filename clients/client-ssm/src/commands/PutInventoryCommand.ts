@@ -23,9 +23,8 @@ export interface PutInventoryCommandInput extends PutInventoryRequest {}
 export interface PutInventoryCommandOutput extends PutInventoryResult, __MetadataBearer {}
 
 /**
- * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
- *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
- *    exist.</p>
+ * Bulk update custom inventory items on one or more managed nodes. The request adds an inventory item, if it doesn't already exist, or updates an inventory item, if it does exist.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,66 +67,61 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link CustomSchemaCountLimitExceededException} (client fault)
- *  <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try
- *    again.</p>
+ *
+ * You have exceeded the limit for custom schemas. Delete one or more custom schemas and try again.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidInstanceId} (client fault)
- *  <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
  *
  * @throws {@link InvalidInventoryItemContextException} (client fault)
- *  <p>You specified invalid keys or values in the <code>Context</code> attribute for
- *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
+ *
+ * You specified invalid keys or values in the `Context` attribute for `InventoryItem`. Verify the keys and values, and try again.
  *
  * @throws {@link InvalidItemContentException} (client fault)
- *  <p>One or more content items isn't valid.</p>
+ *
+ * One or more content items isn't valid.
  *
  * @throws {@link InvalidTypeNameException} (client fault)
- *  <p>The parameter type name isn't valid.</p>
+ *
+ * The parameter type name isn't valid.
  *
  * @throws {@link ItemContentMismatchException} (client fault)
- *  <p>The inventory item has invalid content. </p>
+ *
+ * The inventory item has invalid content.
  *
  * @throws {@link ItemSizeLimitExceededException} (client fault)
- *  <p>The inventory item size has exceeded the size limit.</p>
+ *
+ * The inventory item size has exceeded the size limit.
  *
  * @throws {@link SubTypeCountLimitExceededException} (client fault)
- *  <p>The sub-type count exceeded the limit for the inventory type.</p>
+ *
+ * The sub-type count exceeded the limit for the inventory type.
  *
  * @throws {@link TotalSizeLimitExceededException} (client fault)
- *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+ *
+ * The size of inventory data has exceeded the total size limit for the resource.
  *
  * @throws {@link UnsupportedInventoryItemContextException} (client fault)
- *  <p>The <code>Context</code> attribute that you specified for the <code>InventoryItem</code>
- *    isn't allowed for this inventory type. You can only use the <code>Context</code> attribute with
- *    inventory types like <code>AWS:ComplianceItem</code>.</p>
+ *
+ * The `Context` attribute that you specified for the `InventoryItem` isn't allowed for this inventory type. You can only use the `Context` attribute with inventory types like `AWS:ComplianceItem`.
  *
  * @throws {@link UnsupportedInventorySchemaVersionException} (client fault)
- *  <p>Inventory item type schema version has to match supported versions in the service. Check
- *    output of GetInventorySchema to see the available schema version for each type.</p>
+ *
+ * Inventory item type schema version has to match supported versions in the service. Check output of GetInventorySchema to see the available schema version for each type.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

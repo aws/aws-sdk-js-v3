@@ -23,7 +23,8 @@ export interface DescribeClusterOperationV2CommandInput extends DescribeClusterO
 export interface DescribeClusterOperationV2CommandOutput extends DescribeClusterOperationV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns a description of the cluster operation specified by the ARN.</p>
+ * Returns a description of the cluster operation specified by the ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -350,29 +351,36 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link KafkaServiceException}
- * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * Base exception class for all service exceptions from Kafka service.
  *
  * @public
  */

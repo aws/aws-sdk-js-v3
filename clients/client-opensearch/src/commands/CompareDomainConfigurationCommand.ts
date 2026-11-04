@@ -23,12 +23,10 @@ export interface CompareDomainConfigurationCommandInput extends CompareDomainCon
 export interface CompareDomainConfigurationCommandOutput extends CompareDomainConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Compares the metadata of two domains and reports where they differ. Use this operation to
- *   check that a secondary domain is configured consistently with its primary before you rely on
- *   it, because replication copies index data but does not copy domain metadata such as index
- *   templates, ingest pipelines, or security roles.</p>
- *          <p>You choose which categories to compare. The response reports, for each category, how many
- *   items match, how many exist on only one domain, and which fields diverge.</p>
+ * Compares the metadata of two domains and reports where they differ. Use this operation to check that a secondary domain is configured consistently with its primary before you rely on it, because replication copies index data but does not copy domain metadata such as index templates, ingest pipelines, or security roles.
+ *
+ * You choose which categories to compare. The response reports, for each category, how many items match, how many exist on only one domain, and which fields diverge.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,20 +89,24 @@ export interface CompareDomainConfigurationCommandOutput extends CompareDomainCo
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

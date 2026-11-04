@@ -23,7 +23,8 @@ export interface ModifyIpamPrefixListResolverCommandInput extends ModifyIpamPref
 export interface ModifyIpamPrefixListResolverCommandOutput extends ModifyIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an IPAM prefix list resolver. You can update the description and CIDR selection rules. Changes to rules will trigger re-evaluation and potential updates to associated prefix lists.</p>
+ * Modifies an IPAM prefix list resolver. You can update the description and CIDR selection rules. Changes to rules will trigger re-evaluation and potential updates to associated prefix lists.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +92,8 @@ export interface ModifyIpamPrefixListResolverCommandOutput extends ModifyIpamPre
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

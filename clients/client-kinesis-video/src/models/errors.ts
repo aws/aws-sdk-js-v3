@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoServiceException";
 
 /**
- * <p>You do not have required permissions to perform this operation.</p>
+ * You do not have required permissions to perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You have reached the maximum limit of active signaling channels for this Amazon Web Services account
- *             in this region.</p>
+ * You have reached the maximum limit of active signaling channels for this Amazon Web Services account in this region.
+ *
  * @public
  */
 export class AccountChannelLimitExceededException extends __BaseException {
@@ -51,7 +52,8 @@ export class AccountChannelLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The number of streams created for the account is too high.</p>
+ * The number of streams created for the account is too high.
+ *
  * @public
  */
 export class AccountStreamLimitExceededException extends __BaseException {
@@ -74,8 +76,8 @@ export class AccountStreamLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
+ *
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
@@ -98,7 +100,8 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The value for this input parameter is invalid.</p>
+ * The value for this input parameter is invalid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -121,24 +124,12 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
- *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
- *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
- *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
- *          <ol>
- *             <li>
- *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
- *             </p>
- *             </li>
- *          </ol>
+ * When the input `StreamARN` or `ChannelARN` in `CLOUD_STORAGE_MODE` is already mapped to a different Kinesis Video Stream resource, or if the provided input `StreamARN` or `ChannelARN` is not in Active status, try one of the following :
+ *
+ * 1. The `DescribeMediaStorageConfiguration` API to determine what the stream given channel is mapped to.
+ * 2. The `DescribeMappedResourceConfiguration` API to determine the channel that the given stream is mapped to.
+ * 3. The `DescribeStream` or `DescribeSignalingChannel` API to determine the status of the resource.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -161,8 +152,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the limit of tags that you can associate with the resource.
- *             A Kinesis video stream can support up to 50 tags. </p>
+ * You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags.
+ *
  * @public
  */
 export class TagsPerResourceExceededLimitException extends __BaseException {
@@ -185,8 +176,8 @@ export class TagsPerResourceExceededLimitException extends __BaseException {
 }
 
 /**
- * <p>Not implemented.
- *             </p>
+ * Not implemented.
+ *
  * @public
  */
 export class DeviceStreamLimitExceededException extends __BaseException {
@@ -209,7 +200,8 @@ export class DeviceStreamLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Not implemented.</p>
+ * Not implemented.
+ *
  * @public
  */
 export class InvalidDeviceException extends __BaseException {
@@ -232,7 +224,8 @@ export class InvalidDeviceException extends __BaseException {
 }
 
 /**
- * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -255,8 +248,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration
- *          that you specified. </p>
+ * The Exception rendered when the Amazon Kinesis Video Stream can't find a stream's edge configuration that you specified.
+ *
  * @public
  */
 export class StreamEdgeConfigurationNotFoundException extends __BaseException {
@@ -279,9 +272,8 @@ export class StreamEdgeConfigurationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The stream version that you specified is not the latest version. To get the latest
- *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
- *             API.</p>
+ * The stream version that you specified is not the latest version. To get the latest version, use the [DescribeStream](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html) API.
+ *
  * @public
  */
 export class VersionMismatchException extends __BaseException {
@@ -304,7 +296,8 @@ export class VersionMismatchException extends __BaseException {
 }
 
 /**
- * <p>The caller is not authorized to perform this operation.</p>
+ * The caller is not authorized to perform this operation.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
@@ -327,7 +320,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * <p>The format of the <code>StreamARN</code> is invalid.</p>
+ * The format of the `StreamARN` is invalid.
+ *
  * @public
  */
 export class InvalidResourceFormatException extends __BaseException {
@@ -350,7 +344,8 @@ export class InvalidResourceFormatException extends __BaseException {
 }
 
 /**
- * <p>The Stream data retention in hours is equal to zero.</p>
+ * The Stream data retention in hours is equal to zero.
+ *
  * @public
  */
 export class NoDataRetentionException extends __BaseException {

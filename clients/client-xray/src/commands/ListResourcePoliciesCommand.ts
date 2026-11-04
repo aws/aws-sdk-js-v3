@@ -23,7 +23,8 @@ export interface ListResourcePoliciesCommandInput extends ListResourcePoliciesRe
 export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesResult, __MetadataBearer {}
 
 /**
- * <p>Returns the list of resource policies in the target Amazon Web Services account.</p>
+ * Returns the list of resource policies in the target Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +59,16 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListApplicationComponentsCommandInput extends ListApplicationCo
 export interface ListApplicationComponentsCommandOutput extends ListApplicationComponentsResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves a list of all the application components (processes). </p>
+ * Retrieves a list of all the application components (processes).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,21 +139,24 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> The user does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the AWS Identity and Access Management (IAM) policy associated with this user.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ServiceLinkedRoleLockClientException} (client fault)
- *  <p> Exception to indicate that the service-linked role (SLR) is locked. </p>
+ *
+ * Exception to indicate that the service-linked role (SLR) is locked.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request body isn't valid. </p>
+ *
+ * The request body isn't valid.
  *
  * @throws {@link MigrationHubStrategyServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubStrategy service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListModelsCommandInput extends ListModelsRequest {}
 export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all available AI models that can be used for workflow execution, including their status and compatibility information.</p>
+ * Lists all available AI models that can be used for workflow execution, including their status and compatibility information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +73,20 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * @see {@link NovaActClientResolvedConfig | config} for NovaActClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Please try again later.</p>
+ *
+ * An internal server error occurred. Please try again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please try again later.</p>
+ *
+ * The request was throttled due to too many requests. Please try again later.
  *
  * @throws {@link NovaActServiceException}
- * <p>Base exception class for all service exceptions from NovaAct service.</p>
  *
+ * Base exception class for all service exceptions from NovaAct service.
  *
  * @public
  */

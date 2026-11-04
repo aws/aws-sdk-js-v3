@@ -66,8 +66,8 @@ export interface DeleteViewCommandOutput extends DeleteViewResponse, __MetadataB
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Delete a view
  * ```javascript

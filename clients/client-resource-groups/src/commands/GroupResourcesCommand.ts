@@ -23,40 +23,24 @@ export interface GroupResourcesCommandInput extends GroupResourcesInput {}
 export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified resources to the specified group.</p>
- *          <important>
- *             <p>You can only use this operation with the following groups:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>AWS::EC2::HostManagement</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>AWS::EC2::CapacityReservationPool</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>AWS::ResourceGroups::ApplicationGroup</code>
- *                   </p>
- *                </li>
- *             </ul>
- *             <p>Other resource group types and resource types are not currently supported by this
- *                 operation.</p>
- *          </important>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:GroupResources</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Adds the specified resources to the specified group.
+ *
+ * > **Important:**
+ * >
+ * > You can only use this operation with the following groups:
+ * >
+ * > - `AWS::EC2::HostManagement`
+ * > - `AWS::EC2::CapacityReservationPool`
+ * > - `AWS::ResourceGroups::ApplicationGroup`
+ * >
+ * > Other resource group types and resource types are not currently supported by this operation.
+ *
+ * **Minimum permissions**
+ *
+ * To run this command, you must have the following permissions:
+ *
+ * - `resource-groups:GroupResources`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,27 +84,32 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * The request includes one or more parameters that violate validation rules.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * The caller isn't authorized to make the request. Check permissions.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * An internal error occurred while processing the request. Try again later.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * The request uses an HTTP method that isn't allowed for the specified resource.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the specified resources don't exist.</p>
+ *
+ * One or more of the specified resources don't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
+ *
+ * You've exceeded throttling limits by making too many requests in a period of time.
  *
  * @throws {@link ResourceGroupsServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroups service.
  *
  * @public
  */

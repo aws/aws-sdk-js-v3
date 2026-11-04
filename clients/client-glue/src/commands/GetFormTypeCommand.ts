@@ -23,7 +23,8 @@ export interface GetFormTypeCommandInput extends GetFormTypeRequest {}
 export interface GetFormTypeCommandOutput extends GetFormTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a form type in Glue Data Catalog by its identifier.</p>
+ * Retrieves a form type in Glue Data Catalog by its identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface GetFormTypeCommandOutput extends GetFormTypeResponse, __Metadat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * The throttling threshhold was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

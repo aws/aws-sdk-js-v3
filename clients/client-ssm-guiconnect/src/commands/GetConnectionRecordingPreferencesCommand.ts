@@ -23,7 +23,8 @@ export interface GetConnectionRecordingPreferencesCommandInput {}
 export interface GetConnectionRecordingPreferencesCommandOutput extends GetConnectionRecordingPreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the preferences specified for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region.</p>
+ * Returns the preferences specified for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,29 +60,36 @@ export interface GetConnectionRecordingPreferencesCommandOutput extends GetConne
  * @see {@link SSMGuiConnectClientResolvedConfig | config} for SSMGuiConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An error occurred due to a conflict.</p>
+ *
+ * An error occurred due to a conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your request exceeds a service quota.</p>
+ *
+ * Your request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link SSMGuiConnectServiceException}
- * <p>Base exception class for all service exceptions from SSMGuiConnect service.</p>
  *
+ * Base exception class for all service exceptions from SSMGuiConnect service.
  *
  * @example Retrieves the connection recording preferences for the account
  * ```javascript

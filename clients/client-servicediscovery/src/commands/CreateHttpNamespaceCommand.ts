@@ -23,11 +23,10 @@ export interface CreateHttpNamespaceCommandInput extends CreateHttpNamespaceRequ
 export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be
- *    discovered using a <code>DiscoverInstances</code> request but can't be discovered using
- *    DNS.</p>
- *          <p>For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
+ * Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a `DiscoverInstances` request but can't be discovered using DNS.
+ *
+ * For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *Cloud Map Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +61,28 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The operation is already in progress.</p>
+ *
+ * The operation is already in progress.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link NamespaceAlreadyExists} (client fault)
- *  <p>The namespace that you're trying to create already exists.</p>
+ *
+ * The namespace that you're trying to create already exists.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of
- *    resources.</p>
+ *
+ * The resource can't be created because you've reached the quota on the number of resources.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
- *    applied to a resource is 50.</p>
+ *
+ * The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example CreateHttpNamespace example
  * ```javascript

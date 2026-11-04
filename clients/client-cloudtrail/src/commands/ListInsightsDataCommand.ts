@@ -23,30 +23,20 @@ export interface ListInsightsDataCommandInput extends ListInsightsDataRequest {}
 export interface ListInsightsDataCommandOutput extends ListInsightsDataResponse, __MetadataBearer {}
 
 /**
- * <p>Returns Insights events generated on a trail that logs data events. You can list Insights events that occurred in a Region within the last 90 days.</p>
- *          <p>ListInsightsData supports the following Dimensions for Insights events:</p>
- *          <ul>
- *             <li>
- *                <p>Event ID</p>
- *             </li>
- *             <li>
- *                <p>Event name</p>
- *             </li>
- *             <li>
- *                <p>Event source</p>
- *             </li>
- *          </ul>
- *          <p>All dimensions are optional. The default number of results returned is 50, with a
- *          maximum of 50 possible. The response includes a token that you can use to get the next page
- *          of results.</p>
- *          <p>The rate of ListInsightsData requests is limited to two per second, per account, per Region. If
- *             this limit is exceeded, a throttling error occurs.</p>
- *          <note>
- *             <p>For data event Insights on organization trails, only the management account and delegated
- *             administrator accounts can call <code>ListInsightsData</code>. For these callers, the API returns
- *             Insights events only for the caller's own account. Member accounts cannot call this API on
- *             organization trails.</p>
- *          </note>
+ * Returns Insights events generated on a trail that logs data events. You can list Insights events that occurred in a Region within the last 90 days.
+ *
+ * ListInsightsData supports the following Dimensions for Insights events:
+ *
+ * - Event ID
+ * - Event name
+ * - Event source
+ *
+ * All dimensions are optional. The default number of results returned is 50, with a maximum of 50 possible. The response includes a token that you can use to get the next page of results.
+ *
+ * The rate of ListInsightsData requests is limited to two per second, per account, per Region. If this limit is exceeded, a throttling error occurs.
+ *
+ * > **Note:** For data event Insights on organization trails, only the management account and delegated administrator accounts can call `ListInsightsData`. For these callers, the API returns Insights events only for the caller's own account. Member accounts cannot call this API on organization trails.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,17 +89,20 @@ export interface ListInsightsDataCommandOutput extends ListInsightsDataResponse,
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

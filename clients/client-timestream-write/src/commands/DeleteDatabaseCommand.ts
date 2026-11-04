@@ -23,18 +23,16 @@ export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
 export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a given Timestream database. <i>This is an irreversible
- *             operation. After a database is deleted, the time-series data from its tables cannot be
- *             recovered.</i>
- *          </p>
- *          <note>
- *             <p>All tables in the database must be deleted first, or a ValidationException error will
- *             be thrown. </p>
- *             <p>Due to the nature of distributed retries, the operation can return either success or
- *             a ResourceNotFoundException. Clients should consider them equivalent.</p>
- *          </note>
- *          <p>See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-db.html">code sample</a>
- *          for details.</p>
+ * Deletes a given Timestream database. *This is an irreversible operation. After a database is deleted, the time-series data from its tables cannot be recovered.*
+ *
+ * > **Note:**
+ * >
+ * > All tables in the database must be deleted first, or a ValidationException error will be thrown.
+ * >
+ * > Due to the nature of distributed retries, the operation can return either success or a ResourceNotFoundException. Clients should consider them equivalent.
+ *
+ * See [code sample](https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-db.html) for details.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,30 +57,32 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform this action.</p>
+ *
+ * You are not authorized to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          Timestream was unable to fully process this request because of an internal server
- *          error.</p>
+ *
+ * Timestream was unable to fully process this request because of an internal server error.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *
+ * The requested endpoint was not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
+ *
+ * The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> Too many requests were made by a user and they exceeded the service quotas. The request
- *          was throttled.</p>
+ *
+ * Too many requests were made by a user and they exceeded the service quotas. The request was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> An invalid or malformed request.</p>
+ *
+ * An invalid or malformed request.
  *
  * @throws {@link TimestreamWriteServiceException}
- * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamWrite service.
  *
  * @public
  */

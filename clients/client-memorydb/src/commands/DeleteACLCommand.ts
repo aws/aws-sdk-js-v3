@@ -23,7 +23,8 @@ export interface DeleteACLCommandInput extends DeleteACLRequest {}
 export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+ * Deletes an Access Control List. The ACL must first be disassociated from the cluster before it can be deleted. For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,17 +70,20 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p>The specified ACL does not exist.</p>
+ *
+ * The specified ACL does not exist.
  *
  * @throws {@link InvalidACLStateFault} (client fault)
- *  <p>The ACL is not in a valid state for the requested operation.</p>
+ *
+ * The ACL is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

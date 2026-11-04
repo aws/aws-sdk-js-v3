@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { HealthLakeServiceException as __BaseException } from "./HealthLakeServiceException";
 
 /**
- * <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ * Access is denied. Your account is not authorized to perform this operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -31,7 +32,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unknown internal error occurred in the service.</p>
+ * An unknown internal error occurred in the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -58,7 +60,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested data store was not found.</p>
+ * The requested data store was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -85,7 +88,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
+ * The user has exceeded their maximum number of allowed calls to the given API.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -112,7 +116,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The user input parameter was invalid.</p>
+ * The user input parameter was invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -139,7 +144,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The data store is in a transition state and the user requested action cannot be performed.</p>
+ * The data store is in a transition state and the user requested action cannot be performed.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -166,7 +172,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the service quota.</p>
+ * The request exceeds the service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -193,7 +200,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>A dependent service failed to fulfill the request.</p>
+ * A dependent service failed to fulfill the request.
+ *
  * @public
  */
 export class FailedDependencyException extends __BaseException {

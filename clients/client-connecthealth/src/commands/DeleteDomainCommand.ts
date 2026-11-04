@@ -23,7 +23,8 @@ export interface DeleteDomainCommandInput extends DeleteDomainInput {}
 export interface DeleteDomainCommandOutput extends DeleteDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a Domain and all associated resources.</p>
+ * Deletes a Domain and all associated resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +53,12 @@ export interface DeleteDomainCommandOutput extends DeleteDomainOutput, __Metadat
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error is thrown when the requested resource is not found.</p>
+ *
+ * This error is thrown when the requested resource is not found.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

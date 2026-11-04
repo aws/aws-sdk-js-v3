@@ -23,8 +23,10 @@ export interface DescribeWorkspaceBundlesCommandInput extends DescribeWorkspaceB
 export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspaceBundlesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
- *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
+ * Retrieves a list that describes the available WorkSpace bundles.
+ *
+ * You can filter the results using either bundle ID or owner, but not both.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,11 +79,12 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

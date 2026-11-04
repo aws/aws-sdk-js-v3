@@ -4,7 +4,10 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ARCRegionSwitchServiceException as __BaseException } from "./ARCRegionSwitchServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ * You do not have sufficient access to perform this action.
+ *
+ * HTTP Status Code: 403
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +28,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -46,7 +52,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request processing has an invalid argument.</p>
+ * The request processing has an invalid argument.
+ *
  * @public
  */
 export class IllegalArgumentException extends __BaseException {
@@ -67,7 +74,10 @@ export class IllegalArgumentException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p> <p>HTTP Status Code: 500</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
+ * HTTP Status Code: 500
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -88,7 +98,10 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because the current state of the resource doesn't allow the operation to proceed.</p> <p>HTTP Status Code: 400</p>
+ * The operation failed because the current state of the resource doesn't allow the operation to proceed.
+ *
+ * HTTP Status Code: 400
+ *
  * @public
  */
 export class IllegalStateException extends __BaseException {
@@ -109,7 +122,8 @@ export class IllegalStateException extends __BaseException {
 }
 
 /**
- * <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
+ * The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -117,13 +131,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource involved in the client token conflict.</p>
+   * The identifier of the resource involved in the client token conflict.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource involved in the client token conflict.</p>
+   * The type of the resource involved in the client token conflict.
+   *
    * @public
    */
   resourceType?: string | undefined;

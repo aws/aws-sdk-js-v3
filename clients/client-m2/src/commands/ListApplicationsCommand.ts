@@ -23,9 +23,8 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the applications associated with a specific Amazon Web Services account. You can provide the
- *          unique identifier of a specific runtime environment in a query parameter to see all
- *          applications associated with that environment.</p>
+ * Lists the applications associated with a specific Amazon Web Services account. You can provide the unique identifier of a specific runtime environment in a query parameter to see all applications associated with that environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,20 +73,24 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameters provided in the request is not valid.</p>
+ *
+ * One or more parameters provided in the request is not valid.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

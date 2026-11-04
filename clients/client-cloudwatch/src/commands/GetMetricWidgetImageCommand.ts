@@ -23,31 +23,17 @@ export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageIn
 export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**
- * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph
- *             of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this
- *             image into your services and products, such as wiki pages, reports, and documents. You
- *             could also retrieve images regularly, such as every minute, and create your own custom
- *             live dashboard.</p>
- *          <note>
- *             <p>
- *                <code>GetMetricWidgetImage</code> is not available in the Amazon Web Services
- *                 GovCloud (US) Regions. In those Regions, calls to this operation fail. For the list
- *                 of Amazon CloudWatch features that are not available in Amazon Web Services
- *                 GovCloud (US), see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-cw.html">Amazon CloudWatch in
- *                     Amazon Web Services GovCloud (US)</a>.</p>
- *          </note>
- *          <p>The graph you retrieve can include all CloudWatch metric graph features, including
- *             metric math and horizontal and vertical annotations.</p>
- *          <p>There is a limit of 20 transactions per second for this API. Each
- *                 <code>GetMetricWidgetImage</code> action has the following limits:</p>
- *          <ul>
- *             <li>
- *                <p>As many as 100 metrics in the graph.</p>
- *             </li>
- *             <li>
- *                <p>Up to 100 KB uncompressed payload.</p>
- *             </li>
- *          </ul>
+ * You can use the `GetMetricWidgetImage` API to retrieve a snapshot graph of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this image into your services and products, such as wiki pages, reports, and documents. You could also retrieve images regularly, such as every minute, and create your own custom live dashboard.
+ *
+ * > **Note:** `GetMetricWidgetImage` is not available in the Amazon Web Services GovCloud (US) Regions. In those Regions, calls to this operation fail. For the list of Amazon CloudWatch features that are not available in Amazon Web Services GovCloud (US), see [Amazon CloudWatch in Amazon Web Services GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-cw.html).
+ *
+ * The graph you retrieve can include all CloudWatch metric graph features, including metric math and horizontal and vertical annotations.
+ *
+ * There is a limit of 20 transactions per second for this API. Each `GetMetricWidgetImage` action has the following limits:
+ *
+ * - As many as 100 metrics in the graph.
+ * - Up to 100 KB uncompressed payload.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +61,8 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

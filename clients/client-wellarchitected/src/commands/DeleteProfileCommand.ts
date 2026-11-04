@@ -23,7 +23,14 @@ export interface DeleteProfileCommandInput extends DeleteProfileInput {}
 export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a profile.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your profile with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your profile available to those other accounts. Those other accounts may continue to access and use your shared profile even if you delete the profile from your own Amazon Web Services account or terminate your Amazon Web Services account.</p> </note>
+ * Delete a profile.
+ *
+ * > **Note:**
+ * >
+ * > **Disclaimer**
+ * >
+ * > By sharing your profile with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your profile available to those other accounts. Those other accounts may continue to access and use your shared profile even if you delete the profile from your own Amazon Web Services account or terminate your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,26 +56,32 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The resource has already been processed, was deleted, or is too large.</p>
+ *
+ * The resource has already been processed, was deleted, or is too large.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is a problem with the Well-Architected Tool API service.</p>
+ *
+ * There is a problem with the Well-Architected Tool API service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The user input is not valid.</p>
+ *
+ * The user input is not valid.
  *
  * @throws {@link WellArchitectedServiceException}
- * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ * Base exception class for all service exceptions from WellArchitected service.
  *
  * @public
  */

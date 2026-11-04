@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { OpenSearchServiceException as __BaseException } from "./OpenSearchServiceException";
 
 /**
- * <p>An error occured because the client wanted to access an unsupported operation.</p>
+ * An error occured because the client wanted to access an unsupported operation.
+ *
  * @public
  */
 export class DisabledOperationException extends __BaseException {
@@ -25,7 +26,8 @@ export class DisabledOperationException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+ * An exception for trying to create more than the allowed number of resources or sub-resources.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -46,7 +48,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ * An exception for accessing or deleting a resource that doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because you don't have permissions to access the resource.</p>
+ * An error occurred because you don't have permissions to access the resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -88,7 +92,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An error occurred while processing the request.</p>
+ * An error occurred while processing the request.
+ *
  * @public
  */
 export class BaseException extends __BaseException {
@@ -109,7 +114,8 @@ export class BaseException extends __BaseException {
 }
 
 /**
- * <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+ * An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.
+ *
  * @public
  */
 export class DependencyFailureException extends __BaseException {
@@ -130,7 +136,8 @@ export class DependencyFailureException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ * Request processing failed because of an unknown error, exception, or internal failure.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -151,7 +158,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ * An exception for accessing or deleting a resource that doesn't exist.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -172,7 +180,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An exception for creating a resource that already exists.</p>
+ * An exception for creating a resource that already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -193,7 +202,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>An error occurred because the client attempts to remove a resource that is currently in use.</p>
+ * An error occurred because the client attempts to remove a resource that is currently in use.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -214,7 +224,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
+ * An exception for trying to create or access a sub-resource that's either invalid or not supported.
+ *
  * @public
  */
 export class InvalidTypeException extends __BaseException {
@@ -235,7 +246,8 @@ export class InvalidTypeException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Reduce the frequency of your requests and try again.</p>
+ * The request was denied due to request throttling. Reduce the frequency of your requests and try again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -256,7 +268,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed because you provided an invalid pagination token.</p>
+ * Request processing failed because you provided an invalid pagination token.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -277,7 +290,8 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
- * <p>An exception for when a request would cause a service quota to be exceeded.</p>
+ * An exception for when a request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -298,7 +312,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception for attempting to schedule a domain action during an unavailable time slot.</p>
+ * An exception for attempting to schedule a domain action during an unavailable time slot.
+ *
  * @public
  */
 export class SlotNotAvailableException extends __BaseException {
@@ -306,7 +321,8 @@ export class SlotNotAvailableException extends __BaseException {
   readonly name = "SlotNotAvailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Alternate time slots during which OpenSearch Service has available capacity to schedule a domain action.</p>
+   * Alternate time slots during which OpenSearch Service has available capacity to schedule a domain action.
+   *
    * @public
    */
   SlotSuggestions?: number[] | undefined;

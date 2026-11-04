@@ -23,10 +23,10 @@ export interface StartBuildCommandInput extends StartBuildInput {}
 export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Starts running a build with the settings defined in the project. These setting include: how to run a build,
- *             where to get the source code, which build environment to use, which build commands to run, and where to store the build output.</p>
- *          <p>You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that
- *             specific start build request. The settings in the project are unaltered.</p>
+ * Starts running a build with the settings defined in the project. These setting include: how to run a build, where to get the source code, which build environment to use, which build commands to run, and where to store the build output.
+ *
+ * You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that specific start build request. The settings in the project are unaltered.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -383,17 +383,20 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link AccountLimitExceededException} (client fault)
- *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * The specified Amazon Web Services resource cannot be found.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

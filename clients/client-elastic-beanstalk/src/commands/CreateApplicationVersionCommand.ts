@@ -23,17 +23,18 @@ export interface CreateApplicationVersionCommandInput extends CreateApplicationV
 export interface CreateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
- * <p>Creates an application version for the specified application. You can create an application version from a source bundle in Amazon S3, a commit in
- *       CodeCommit, or the output of an CodeBuild build as follows:</p>
- *          <p>Specify a commit in an CodeCommit repository with <code>SourceBuildInformation</code>.</p>
- *          <p>Specify a build in an CodeBuild with <code>SourceBuildInformation</code> and <code>BuildConfiguration</code>.</p>
- *          <p>Specify a source bundle in Amazon S3 with <code>SourceBundle</code>
- *          </p>
- *          <p>Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use the default sample application.</p>
- *          <note>
- *             <p>After you create an application version with a specified Amazon S3 bucket and key location, you can't change that Amazon S3 location. If you change the Amazon S3
- *         location, you receive an exception when you attempt to launch an environment from the application version.</p>
- *          </note>
+ * Creates an application version for the specified application. You can create an application version from a source bundle in Amazon S3, a commit in CodeCommit, or the output of an CodeBuild build as follows:
+ *
+ * Specify a commit in an CodeCommit repository with `SourceBuildInformation`.
+ *
+ * Specify a build in an CodeBuild with `SourceBuildInformation` and `BuildConfiguration`.
+ *
+ * Specify a source bundle in Amazon S3 with `SourceBundle`
+ *
+ * Omit both `SourceBuildInformation` and `SourceBundle` to use the default sample application.
+ *
+ * > **Note:** After you create an application version with a specified Amazon S3 bucket and key location, you can't change that Amazon S3 location. If you change the Amazon S3 location, you receive an exception when you attempt to launch an environment from the application version.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,35 +132,32 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link CodeBuildNotInServiceRegionException} (client fault)
- *  <p>CodeBuild is not available in the specified region.</p>
+ *
+ * CodeBuild is not available in the specified region.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link S3LocationNotInServiceRegionException} (client fault)
- *  <p>The specified S3 bucket does not belong to the S3 region in which the service is
- *       running. The following regions are supported:</p>
- *          <ul>
- *             <li>
- *                <p>IAD/us-east-1</p>
- *             </li>
- *             <li>
- *                <p>PDX/us-west-2</p>
- *             </li>
- *             <li>
- *                <p>DUB/eu-west-1</p>
- *             </li>
- *          </ul>
+ *
+ * The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:
+ *
+ * - IAD/us-east-1
+ * - PDX/us-west-2
+ * - DUB/eu-west-1
  *
  * @throws {@link TooManyApplicationsException} (client fault)
- *  <p>The specified account has reached its limit of applications.</p>
+ *
+ * The specified account has reached its limit of applications.
  *
  * @throws {@link TooManyApplicationVersionsException} (client fault)
- *  <p>The specified account has reached its limit of application versions.</p>
+ *
+ * The specified account has reached its limit of application versions.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To create a new application
  * ```javascript

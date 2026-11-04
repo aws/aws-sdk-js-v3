@@ -23,11 +23,10 @@ export interface ListExplainabilitiesCommandInput extends ListExplainabilitiesRe
 export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of Explainability resources created using the <a>CreateExplainability</a> operation. This operation returns a summary for
- *             each Explainability. You can filter the list using an array of <a>Filter</a>
- *             objects.</p>
- *          <p>To retrieve the complete set of properties for a particular Explainability resource,
- *             use the ARN with the <a>DescribeExplainability</a> operation.</p>
+ * Returns a list of Explainability resources created using the CreateExplainability operation. This operation returns a summary for each Explainability. You can filter the list using an array of Filter objects.
+ *
+ * To retrieve the complete set of properties for a particular Explainability resource, use the ARN with the DescribeExplainability operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,15 +76,16 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * The token is not valid. Tokens expire after 24 hours.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteLibraryItemCommandInput extends DeleteLibraryItemInput {}
 export interface DeleteLibraryItemCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a library item for an Amazon Q App, removing it from the library so it can no longer be discovered or used by other users.</p>
+ * Deletes a library item for an Amazon Q App, removing it from the library so it can no longer be discovered or used by other users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,29 +50,36 @@ export interface DeleteLibraryItemCommandOutput extends __MetadataBearer {}
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * The client is not authorized to perform the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred while processing the request.</p>
+ *
+ * An internal service error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The requested operation could not be completed because it would exceed the service's quota or limit.</p>
+ *
+ * The requested operation could not be completed because it would exceed the service's quota or limit.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+ *
+ * The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ *
+ * The client is not authenticated or authorized to perform the requested operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by the service.</p>
+ *
+ * The input failed to satisfy the constraints specified by the service.
  *
  * @throws {@link QAppsServiceException}
- * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ * Base exception class for all service exceptions from QApps service.
  *
  * @example Delete a library item
  * ```javascript

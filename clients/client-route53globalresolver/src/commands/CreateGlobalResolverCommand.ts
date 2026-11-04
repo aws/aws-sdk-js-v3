@@ -23,7 +23,10 @@ export interface CreateGlobalResolverCommandInput extends CreateGlobalResolverIn
 export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Route 53 Global Resolver instance. A Route 53 Global Resolver is a global, internet-accessible DNS resolver that provides secure DNS resolution for both public and private domains through global anycast IP addresses.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
+ * Creates a new Route 53 Global Resolver instance. A Route 53 Global Resolver is a global, internet-accessible DNS resolver that provides secure DNS resolution for both public and private domains through global anycast IP addresses.
+ *
+ * > **Important:** Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify `--region us-east-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +82,32 @@ export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverO
  * @see {@link Route53GlobalResolverClientResolvedConfig | config} for Route53GlobalResolverClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform this operation. Check your IAM permissions and try again.</p>
+ *
+ * You don't have permission to perform this operation. Check your IAM permissions and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.</p>
+ *
+ * The request conflicts with the current state of the resource. This can occur when trying to modify a resource that is not in a valid state for the requested operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Try again later.</p>
+ *
+ * An internal server error occurred. Try again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
+ *
+ * The request would exceed one or more service quotas. Check your current usage and quotas, then try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Wait a moment and try again.</p>
+ *
+ * The request was throttled due to too many requests. Wait a moment and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters are invalid. Check the parameter values and try again.</p>
+ *
+ * The input parameters are invalid. Check the parameter values and try again.
  *
  * @throws {@link Route53GlobalResolverServiceException}
- * <p>Base exception class for all service exceptions from Route53GlobalResolver service.</p>
  *
+ * Base exception class for all service exceptions from Route53GlobalResolver service.
  *
  * @public
  */

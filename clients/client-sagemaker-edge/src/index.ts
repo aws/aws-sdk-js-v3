@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
+ * SageMaker Edge Manager dataplane service for communicating with active agents.
  *
  * @packageDocumentation
  */

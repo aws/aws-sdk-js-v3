@@ -23,168 +23,62 @@ export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUp
 export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartUploadOutput, __MetadataBearer {}
 
 /**
- * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
- *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> operation or the
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>
- *       operation. After successfully uploading all relevant parts of an upload, you call this
- *         <code>CompleteMultipartUpload</code> operation to complete the upload. Upon receiving this request,
- *       Amazon S3 concatenates all the parts in ascending order by part number to create a new object. In the
- *       CompleteMultipartUpload request, you must provide the parts list and ensure that the parts list is
- *       complete. The CompleteMultipartUpload API operation concatenates the parts that you provide in the list.
- *       For each part in the list, you must provide the <code>PartNumber</code> value and the <code>ETag</code>
- *       value that are returned after that part was uploaded.</p>
- *          <p>The processing of a CompleteMultipartUpload request could take several minutes to finalize. After
- *       Amazon S3 begins processing the request, it sends an HTTP response header that specifies a <code>200
- *         OK</code> response. While processing is in progress, Amazon S3 periodically sends white space characters to
- *       keep the connection from timing out. A request could fail after the initial <code>200 OK</code> response
- *       has been sent. This means that a <code>200 OK</code> response can contain either a success or an error.
- *       The error response might be embedded in the <code>200 OK</code> response. If you call this API operation
- *       directly, make sure to design your application to parse the contents of the response and handle it
- *       appropriately. If you use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the embedded error and
- *       apply error handling per your configuration settings (including automatically retrying the request as
- *       appropriate). If the condition persists, the SDKs throw an exception (or, for the SDKs that don't use
- *       exceptions, they return an error). </p>
- *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared to retry
- *       any failed requests (including 500 error responses). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
- *         Practices</a>.</p>
- *          <important>
- *             <p>You can't use <code>Content-Type: application/x-www-form-urlencoded</code> for the
- *         CompleteMultipartUpload requests. Also, if you don't provide a <code>Content-Type</code> header,
- *           <code>CompleteMultipartUpload</code> can still return a <code>200 OK</code> response.</p>
- *          </important>
- *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart Upload</a> in
- *       the <i>Amazon S3 User Guide</i>.</p>
- *          <note>
- *             <p>
- *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
- *     <i>Amazon S3 User Guide</i>.</p>
- *          </note>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information
- *                 about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and Permissions</a> in
- *                 the <i>Amazon S3 User Guide</i>.</p>
- *                      <p>If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum value</a> in your <code>MultipartUpload</code> requests and the
- *                 object is encrypted with Key Management Service, you must have permission to use the
- *                   <code>kms:Decrypt</code> action for the <code>CompleteMultipartUpload</code> request to
- *                 succeed.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Directory bucket permissions</b> - To grant access to this API operation on a directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
- *                            <code>CreateSession</code>
- *                         </a> API operation for session-based authorization. Specifically, you grant the <code>s3express:CreateSession</code> permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code> API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another <code>CreateSession</code> API call to generate a new session token for use.
- * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
- *                            <code>CreateSession</code>
- *                         </a>.</p>
- *                      <p>If the object is encrypted with SSE-KMS, you must also have the
- *                   <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM
- *                 identity-based policies and KMS key policies for the KMS key.</p>
- *                   </li>
- *                </ul>
- *             </dd>
- *             <dt>Special errors</dt>
- *             <dd>
- *                <ul>
- *                   <li>
- *                      <p>Error Code: <code>EntityTooSmall</code>
- *                      </p>
- *                      <ul>
- *                         <li>
- *                            <p>Description: Your proposed upload is smaller than the minimum allowed object size.
- *                     Each part must be at least 5 MB in size, except the last part.</p>
- *                         </li>
- *                         <li>
- *                            <p>HTTP Status Code: 400 Bad Request</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                   <li>
- *                      <p>Error Code: <code>InvalidPart</code>
- *                      </p>
- *                      <ul>
- *                         <li>
- *                            <p>Description: One or more of the specified parts could not be found. The part might not
- *                     have been uploaded, or the specified ETag might not have matched the uploaded part's
- *                     ETag.</p>
- *                         </li>
- *                         <li>
- *                            <p>HTTP Status Code: 400 Bad Request</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                   <li>
- *                      <p>Error Code: <code>InvalidPartOrder</code>
- *                      </p>
- *                      <ul>
- *                         <li>
- *                            <p>Description: The list of parts was not in ascending order. The parts list must be
- *                     specified in order by part number.</p>
- *                         </li>
- *                         <li>
- *                            <p>HTTP Status Code: 400 Bad Request</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                   <li>
- *                      <p>Error Code: <code>NoSuchUpload</code>
- *                      </p>
- *                      <ul>
- *                         <li>
- *                            <p>Description: The specified multipart upload does not exist. The upload ID might be
- *                     invalid, or the multipart upload might have been aborted or completed.</p>
- *                         </li>
- *                         <li>
- *                            <p>HTTP Status Code: 404 Not Found</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </dd>
- *             <dt>HTTP Host header syntax</dt>
- *             <dd>
- *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
- *             </dd>
- *          </dl>
- *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html">AbortMultipartUpload</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html">ListMultipartUploads</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * Completes a multipart upload by assembling previously uploaded parts.
+ *
+ * You first initiate the multipart upload and then upload all parts using the [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html) operation or the [UploadPartCopy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html) operation. After successfully uploading all relevant parts of an upload, you call this `CompleteMultipartUpload` operation to complete the upload. Upon receiving this request, Amazon S3 concatenates all the parts in ascending order by part number to create a new object. In the CompleteMultipartUpload request, you must provide the parts list and ensure that the parts list is complete. The CompleteMultipartUpload API operation concatenates the parts that you provide in the list. For each part in the list, you must provide the `PartNumber` value and the `ETag` value that are returned after that part was uploaded.
+ *
+ * The processing of a CompleteMultipartUpload request could take several minutes to finalize. After Amazon S3 begins processing the request, it sends an HTTP response header that specifies a `200 OK` response. While processing is in progress, Amazon S3 periodically sends white space characters to keep the connection from timing out. A request could fail after the initial `200 OK` response has been sent. This means that a `200 OK` response can contain either a success or an error. The error response might be embedded in the `200 OK` response. If you call this API operation directly, make sure to design your application to parse the contents of the response and handle it appropriately. If you use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the embedded error and apply error handling per your configuration settings (including automatically retrying the request as appropriate). If the condition persists, the SDKs throw an exception (or, for the SDKs that don't use exceptions, they return an error).
+ *
+ * Note that if `CompleteMultipartUpload` fails, applications should be prepared to retry any failed requests (including 500 error responses). For more information, see [Amazon S3 Error Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html).
+ *
+ * > **Important:** You can't use `Content-Type: application/x-www-form-urlencoded` for the CompleteMultipartUpload requests. Also, if you don't provide a `Content-Type` header, `CompleteMultipartUpload` can still return a `200 OK` response.
+ *
+ * For more information about multipart uploads, see [Uploading Objects Using Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html) in the *Amazon S3 User Guide*.
+ *
+ * > **Note:** **Directory buckets** - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format `https://amzn-s3-demo-bucket.s3express-zone-id.region-code.amazonaws.com/key-name`. Path-style requests are not supported. For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html) in the *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html) in the *Amazon S3 User Guide*.
+ *
+ * - **Permissions**
+ *
+ *   - **General purpose bucket permissions** - For information about permissions required to use the multipart upload API, see [Multipart Upload and Permissions](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html) in the *Amazon S3 User Guide*.
+ *
+ *     If you provide an [additional checksum value](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html) in your `MultipartUpload` requests and the object is encrypted with Key Management Service, you must have permission to use the `kms:Decrypt` action for the `CompleteMultipartUpload` request to succeed.
+ *   - **Directory bucket permissions** - To grant access to this API operation on a directory bucket, we recommend that you use the [`CreateSession`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html) API operation for session-based authorization. Specifically, you grant the `s3express:CreateSession` permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the `CreateSession` API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another `CreateSession` API call to generate a new session token for use. Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see [`CreateSession`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html).
+ *
+ *     If the object is encrypted with SSE-KMS, you must also have the `kms:GenerateDataKey` and `kms:Decrypt` permissions in IAM identity-based policies and KMS key policies for the KMS key.
+ *
+ * - **Special errors**
+ *
+ *   - Error Code: `EntityTooSmall`
+ *
+ *     - Description: Your proposed upload is smaller than the minimum allowed object size. Each part must be at least 5 MB in size, except the last part.
+ *     - HTTP Status Code: 400 Bad Request
+ *   - Error Code: `InvalidPart`
+ *
+ *     - Description: One or more of the specified parts could not be found. The part might not have been uploaded, or the specified ETag might not have matched the uploaded part's ETag.
+ *     - HTTP Status Code: 400 Bad Request
+ *   - Error Code: `InvalidPartOrder`
+ *
+ *     - Description: The list of parts was not in ascending order. The parts list must be specified in order by part number.
+ *     - HTTP Status Code: 400 Bad Request
+ *   - Error Code: `NoSuchUpload`
+ *
+ *     - Description: The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.
+ *     - HTTP Status Code: 404 Not Found
+ *
+ * - **HTTP Host header syntax**
+ *
+ *   **Directory buckets** - The HTTP Host header syntax is `Bucket-name.s3express-zone-id.region-code.amazonaws.com`.
+ *
+ * The following operations are related to `CompleteMultipartUpload`:
+ *
+ * - [CreateMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html)
+ * - [UploadPart](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html)
+ * - [AbortMultipartUpload](https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html)
+ * - [ListParts](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html)
+ * - [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -270,8 +164,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To complete multipart upload
  * ```javascript

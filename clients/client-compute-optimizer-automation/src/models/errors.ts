@@ -6,7 +6,8 @@ import {
 } from "./ComputeOptimizerAutomationServiceException";
 
 /**
- * <p> You do not have sufficient permissions to perform this action. </p>
+ * You do not have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> You are not authorized to perform this action. </p>
+ * You are not authorized to perform this action.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -48,7 +50,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p> The specified client token is already in use. </p>
+ * The specified client token is already in use.
+ *
  * @public
  */
 export class IdempotencyTokenInUseException extends __BaseException {
@@ -69,7 +72,8 @@ export class IdempotencyTokenInUseException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.</p>
+ * Exception thrown when the same client token is used with different parameters, indicating a mismatch in idempotent request parameters.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -90,7 +94,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p> An internal error occurred while processing the request. </p>
+ * An internal error occurred while processing the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -111,7 +116,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> One or more parameter values are not valid. </p>
+ * One or more parameter values are not valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -132,7 +138,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p> The operation can only be performed by a management account. </p>
+ * The operation can only be performed by a management account.
+ *
  * @public
  */
 export class NotManagementAccountException extends __BaseException {
@@ -153,7 +160,8 @@ export class NotManagementAccountException extends __BaseException {
 }
 
 /**
- * <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+ * The account must be opted in to Compute Optimizer Automation before performing this action.
+ *
  * @public
  */
 export class OptInRequiredException extends __BaseException {
@@ -174,7 +182,8 @@ export class OptInRequiredException extends __BaseException {
 }
 
 /**
- * <p> The service is temporarily unavailable. </p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -195,7 +204,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p> The request was denied due to request throttling. </p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -216,7 +226,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The specified resource was not found. </p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -237,7 +248,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The request would exceed service quotas. </p>
+ * The request would exceed service quotas.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

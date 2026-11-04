@@ -23,17 +23,14 @@ export interface StopApplicationCommandInput extends StopApplicationRequest {}
 export interface StopApplicationCommandOutput extends StopApplicationResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
- *          </note>
- *         <p>Stops the application from processing input data. You can stop
- *             an application only if it is in the running state.
- *             You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation to find the application state.
- *             After the application is stopped,
- *             Amazon Kinesis Analytics stops reading data from the input, the
- *             application stops processing data, and there is no output written to the destination. </p>
- *         <p>This operation requires permissions to perform the
- *             <code>kinesisanalytics:StopApplication</code> action.</p>
+ * > **Note:** This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+ *
+ *
+ *
+ * Stops the application from processing input data. You can stop an application only if it is in the running state. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to find the application state. After the application is stopped, Amazon Kinesis Analytics stops reading data from the input, the application stops processing data, and there is no output written to the destination.
+ *
+ * This operation requires permissions to perform the `kinesisanalytics:StopApplication` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +55,20 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>Application is not available for this operation.</p>
+ *
+ * Application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalytics service.
  *
  * @public
  */

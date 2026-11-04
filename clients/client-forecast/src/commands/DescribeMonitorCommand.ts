@@ -23,44 +23,16 @@ export interface DescribeMonitorCommandInput extends DescribeMonitorRequest {}
 export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a monitor resource. In addition to listing the properties provided in the <a>CreateMonitor</a> request, this operation lists the following properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Baseline</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CreationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastEvaluationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastEvaluationState</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastModificationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Message</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Status</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes a monitor resource. In addition to listing the properties provided in the CreateMonitor request, this operation lists the following properties:
+ *
+ * - `Baseline`
+ * - `CreationTime`
+ * - `LastEvaluationTime`
+ * - `LastEvaluationState`
+ * - `LastModificationTime`
+ * - `Message`
+ * - `Status`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,16 +78,16 @@ export interface DescribeMonitorCommandOutput extends DescribeMonitorResponse, _
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

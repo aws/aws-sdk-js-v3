@@ -23,19 +23,14 @@ export interface BatchSuspendUserCommandInput extends BatchSuspendUserRequest {}
 export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse, __MetadataBearer {}
 
 /**
- * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime
- *             account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration
- *                 Guide</i>.</p>
- *          <p>Users suspended from a <code>Team</code> account are disassociated from the account,but they
- *             can continue to use Amazon Chime as free users. To remove the suspension from suspended
- *                 <code>Team</code> account users, invite them to the <code>Team</code> account again.
- *             You can use the <a>InviteUsers</a> action to do so.</p>
- *          <p>Users suspended from an <code>EnterpriseLWA</code> account are immediately signed out of
- *             Amazon Chime and can no longer sign in. To remove the suspension from suspended <code>EnterpriseLWA</code> account users, use the
- *     <a>BatchUnsuspendUser</a> action.</p>
- *          <p>
- * To sign out users without suspending them, use the
- * <a>LogoutUser</a> action.</p>
+ * Suspends up to 50 users from a `Team` or `EnterpriseLWA` Amazon Chime account. For more information about different account types, see [Managing Your Amazon Chime Accounts](https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html) in the *Amazon Chime Administration Guide*.
+ *
+ * Users suspended from a `Team` account are disassociated from the account,but they can continue to use Amazon Chime as free users. To remove the suspension from suspended `Team` account users, invite them to the `Team` account again. You can use the InviteUsers action to do so.
+ *
+ * Users suspended from an `EnterpriseLWA` account are immediately signed out of Amazon Chime and can no longer sign in. To remove the suspension from suspended `EnterpriseLWA` account users, use the BatchUnsuspendUser action.
+ *
+ * To sign out users without suspending them, use the LogoutUser action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,29 +66,36 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>One or more of the resources in the request does not exist in the system.</p>
+ *
+ * One or more of the resources in the request does not exist in the system.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeServiceException}
- * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ * Base exception class for all service exceptions from Chime service.
  *
  * @public
  */

@@ -23,19 +23,12 @@ export interface CreateCertificateCommandInput extends CreateCertificateRequest 
 export interface CreateCertificateCommandOutput extends CreateCertificateResult, __MetadataBearer {}
 
 /**
- * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)
- *       distribution and a container service.</p>
- *          <p>After the certificate is valid, use the <code>AttachCertificateToDistribution</code>
- *       action to use the certificate and its domains with your distribution. Or use the
- *         <code>UpdateContainerService</code> action to use the certificate and its domains with your
- *       container service.</p>
- *          <important>
- *             <p>Only certificates created in the <code>us-east-1</code>
- *         Amazon Web Services Region can be attached to Lightsail distributions. Lightsail
- *         distributions are global resources that can reference an origin in any Amazon Web Services
- *         Region, and distribute its content globally. However, all distributions are located in the
- *           <code>us-east-1</code> Region.</p>
- *          </important>
+ * Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN) distribution and a container service.
+ *
+ * After the certificate is valid, use the `AttachCertificateToDistribution` action to use the certificate and its domains with your distribution. Or use the `UpdateContainerService` action to use the certificate and its domains with your container service.
+ *
+ * > **Important:** Only certificates created in the `us-east-1` Amazon Web Services Region can be attached to Lightsail distributions. Lightsail distributions are global resources that can reference an origin in any Amazon Web Services Region, and distribute its content globally. However, all distributions are located in the `us-east-1` Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -164,35 +157,34 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

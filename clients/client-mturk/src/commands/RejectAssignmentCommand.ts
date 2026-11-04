@@ -23,19 +23,12 @@ export interface RejectAssignmentCommandInput extends RejectAssignmentRequest {}
 export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>RejectAssignment</code> operation rejects the results of a completed assignment.
- *         </p>
- *         <p>
- *             You can include an optional feedback message with the rejection,
- *             which the Worker can see in the Status section of the web site.
- *             When you include a feedback message with the rejection,
- *             it helps the Worker understand why the assignment was rejected,
- *             and can improve the quality of the results the Worker submits in the future.
- *         </p>
- *         <p>
- *             Only the Requester who created the HIT can reject an assignment for the HIT.
- *         </p>
+ * The `RejectAssignment` operation rejects the results of a completed assignment.
+ *
+ * You can include an optional feedback message with the rejection, which the Worker can see in the Status section of the web site. When you include a feedback message with the rejection, it helps the Worker understand why the assignment was rejected, and can improve the quality of the results the Worker submits in the future.
+ *
+ * Only the Requester who created the HIT can reject an assignment for the HIT.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +54,16 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

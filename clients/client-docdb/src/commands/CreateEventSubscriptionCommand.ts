@@ -23,9 +23,12 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.</p>
- *          <p>You can specify the type of source (<code>SourceType</code>) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (<code>SourceIds</code>) that trigger the events, and you can provide a list of event categories (<code>EventCategories</code>) for events that you want to be notified of. For example, you can specify <code>SourceType = db-instance</code>, <code>SourceIds = mydbinstance1, mydbinstance2</code> and <code>EventCategories = Availability, Backup</code>.</p>
- *          <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code> (such as <code>SourceType = db-instance</code> and <code>SourceIdentifier = myDBInstance1</code>), you are notified of all the <code>db-instance</code> events for the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the <code>SourceType</code> or the <code>SourceIdentifier</code>, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.</p>
+ * Creates an Amazon DocumentDB event notification subscription. This action requires a topic Amazon Resource Name (ARN) created by using the Amazon DocumentDB console, the Amazon SNS console, or the Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the Amazon SNS console.
+ *
+ * You can specify the type of source (`SourceType`) that you want to be notified of. You can also provide a list of Amazon DocumentDB sources (`SourceIds`) that trigger the events, and you can provide a list of event categories (`EventCategories`) for events that you want to be notified of. For example, you can specify `SourceType = db-instance`, `SourceIds = mydbinstance1, mydbinstance2` and `EventCategories = Availability, Backup`.
+ *
+ * If you specify both the `SourceType` and `SourceIds` (such as `SourceType = db-instance` and `SourceIdentifier = myDBInstance1`), you are notified of all the `db-instance` events for the specified source. If you specify a `SourceType` but do not specify a `SourceIdentifier`, you receive notice of the events for that source type for all your Amazon DocumentDB sources. If you do not specify either the `SourceType` or the `SourceIdentifier`, you are notified of events generated from all Amazon DocumentDB sources belonging to your customer account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,29 +85,36 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
- *  <p>You have reached the maximum number of event subscriptions. </p>
+ *
+ * You have reached the maximum number of event subscriptions.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
+ *
+ * Amazon SNS has responded that there is a problem with the specified topic.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>You do not have permission to publish to the SNS topic Amazon Resource Name (ARN). </p>
+ *
+ * You do not have permission to publish to the SNS topic Amazon Resource Name (ARN).
  *
  * @throws {@link SNSTopicArnNotFoundFault} (client fault)
- *  <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
+ *
+ * The SNS topic Amazon Resource Name (ARN) does not exist.
  *
  * @throws {@link SourceNotFoundFault} (client fault)
- *  <p>The requested source could not be found. </p>
+ *
+ * The requested source could not be found.
  *
  * @throws {@link SubscriptionAlreadyExistFault} (client fault)
- *  <p>The provided subscription name already exists. </p>
+ *
+ * The provided subscription name already exists.
  *
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
- *  <p>The provided category does not exist. </p>
+ *
+ * The provided category does not exist.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

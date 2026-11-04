@@ -23,40 +23,30 @@ export interface DescribeStateMachineCommandInput extends DescribeStateMachineIn
 export interface DescribeStateMachineCommandOutput extends DescribeStateMachineOutput, __MetadataBearer {}
 
 /**
- * <p>Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration.</p>
- *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
- *          <p>The following are some examples of qualified and unqualified state machine ARNs:</p>
- *          <ul>
- *             <li>
- *                <p>The following qualified state machine ARN refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in a state machine named <code>myStateMachine</code>.</p>
- *                <p>
- *                   <code>arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel</code>
- *                </p>
- *                <note>
- *                   <p>If you provide a qualified state machine ARN that refers to a <i>Distributed Map state</i>, the request fails with <code>ValidationException</code>.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>The following qualified state machine ARN refers to an alias named <code>PROD</code>.</p>
- *                <p>
- *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD></code>
- *                </p>
- *                <note>
- *                   <p>If you provide a qualified state machine ARN that refers to a version ARN or an alias ARN, the request starts execution for that version or alias.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>The following unqualified state machine ARN refers to a state machine named <code>myStateMachine</code>.</p>
- *                <p>
- *                   <code>arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine></code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>This API action returns the details for a state machine version if the
- *         <code>stateMachineArn</code> you specify is a state machine version ARN.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
+ * Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration.
+ *
+ * A qualified state machine ARN can either refer to a *Distributed Map state* defined within a state machine, a version ARN, or an alias ARN.
+ *
+ * The following are some examples of qualified and unqualified state machine ARNs:
+ *
+ * - The following qualified state machine ARN refers to a *Distributed Map state* with a label `mapStateLabel` in a state machine named `myStateMachine`.
+ *
+ *   `arn:partition:states:region:account-id:stateMachine:myStateMachine/mapStateLabel`
+ *
+ *   > **Note:** If you provide a qualified state machine ARN that refers to a *Distributed Map state*, the request fails with `ValidationException`.
+ * - The following qualified state machine ARN refers to an alias named `PROD`.
+ *
+ *   `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine:PROD>`
+ *
+ *   > **Note:** If you provide a qualified state machine ARN that refers to a version ARN or an alias ARN, the request starts execution for that version or alias.
+ * - The following unqualified state machine ARN refers to a state machine named `myStateMachine`.
+ *
+ *   `arn:<partition>:states:<region>:<account-id>:stateMachine:<myStateMachine>`
+ *
+ * This API action returns the details for a state machine version if the `stateMachineArn` you specify is a state machine version ARN.
+ *
+ * > **Note:** This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,23 +107,28 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsInvalidStateException} (client fault)
- *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link StateMachineDoesNotExist} (client fault)
- *  <p>The specified state machine does not exist.</p>
+ *
+ * The specified state machine does not exist.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

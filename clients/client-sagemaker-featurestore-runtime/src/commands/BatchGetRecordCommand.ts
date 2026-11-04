@@ -23,7 +23,8 @@ export interface BatchGetRecordCommandInput extends BatchGetRecordRequest {}
 export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
+ * Retrieves a batch of `Records` from a `FeatureGroup`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,21 +96,24 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  * @throws {@link AccessForbidden} (client fault)
- *  <p>You do not have permission to perform an action.</p>
+ *
+ * You do not have permission to perform an action.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p>There was an error validating your request.</p>
+ *
+ * There was an error validating your request.
  *
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.
  *
  * @public
  */

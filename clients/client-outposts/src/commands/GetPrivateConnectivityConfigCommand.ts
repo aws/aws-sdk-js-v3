@@ -23,7 +23,8 @@ export interface GetPrivateConnectivityConfigCommandInput extends GetPrivateConn
 export interface GetPrivateConnectivityConfigCommandOutput extends GetPrivateConnectivityConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the private connectivity configuration for the specified Outpost.</p>
+ * Gets the private connectivity configuration for the specified Outpost.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +64,24 @@ export interface GetPrivateConnectivityConfigCommandOutput extends GetPrivateCon
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

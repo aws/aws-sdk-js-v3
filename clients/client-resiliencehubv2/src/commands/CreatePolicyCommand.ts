@@ -23,7 +23,8 @@ export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
 export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a resilience policy that defines availability and disaster recovery requirements.</p>
+ * Creates a resilience policy that defines availability and disaster recovery requirements.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,26 +103,32 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * @see {@link Resiliencehubv2ClientResolvedConfig | config} for Resiliencehubv2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied — caller lacks required permissions.</p>
+ *
+ * Access denied — caller lacks required permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Conflict — resource already exists.</p>
+ *
+ * Conflict — resource already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service error.</p>
+ *
+ * Internal service error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Service quota exceeded.</p>
+ *
+ * Service quota exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation error — invalid input parameters.</p>
+ *
+ * Validation error — invalid input parameters.
  *
  * @throws {@link Resiliencehubv2ServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehubv2 service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehubv2 service.
  *
  * @public
  */

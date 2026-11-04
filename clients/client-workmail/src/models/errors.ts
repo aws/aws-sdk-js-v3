@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { WorkMailServiceException as __BaseException } from "./WorkMailServiceException";
 
 /**
- * <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
+ *
  * @public
  */
 export class EntityNotFoundException extends __BaseException {
@@ -28,8 +28,8 @@ export class EntityNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
+ * You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.
+ *
  * @public
  */
 export class EntityStateException extends __BaseException {
@@ -52,7 +52,8 @@ export class EntityStateException extends __BaseException {
 }
 
 /**
- * <p>One or more of the input parameters don't match the service's restrictions.</p>
+ * One or more of the input parameters don't match the service's restrictions.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -75,8 +76,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
+ *
  * @public
  */
 export class OrganizationNotFoundException extends __BaseException {
@@ -99,8 +100,8 @@ export class OrganizationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ * The organization must have a valid state to perform certain operations on the organization or its members.
+ *
  * @public
  */
 export class OrganizationStateException extends __BaseException {
@@ -123,7 +124,8 @@ export class OrganizationStateException extends __BaseException {
 }
 
 /**
- * <p>You can't perform a write operation against a read-only directory.</p>
+ * You can't perform a write operation against a read-only directory.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -146,7 +148,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+ * The directory service doesn't recognize the credentials supplied by WorkMail.
+ *
  * @public
  */
 export class DirectoryServiceAuthenticationFailedException extends __BaseException {
@@ -169,7 +172,8 @@ export class DirectoryServiceAuthenticationFailedException extends __BaseExcepti
 }
 
 /**
- * <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+ * The directory is unavailable. It might be located in another Region or deleted.
+ *
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -192,7 +196,8 @@ export class DirectoryUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The resource cannot be found.</p>
+ * The resource cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -215,8 +220,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The email address that you're trying to assign is already created for a different
- *          user, group, or resource.</p>
+ * The email address that you're trying to assign is already created for a different user, group, or resource.
+ *
  * @public
  */
 export class EmailAddressInUseException extends __BaseException {
@@ -239,7 +244,8 @@ export class EmailAddressInUseException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the limit of the resource.</p>
+ * The request exceeds the limit of the resource.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -262,7 +268,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The domain specified is not found in your organization.</p>
+ * The domain specified is not found in your organization.
+ *
  * @public
  */
 export class MailDomainNotFoundException extends __BaseException {
@@ -285,8 +292,8 @@ export class MailDomainNotFoundException extends __BaseException {
 }
 
 /**
- * <p>After a domain has been added to the organization, it must be verified. The domain is
- *          not yet verified.</p>
+ * After a domain has been added to the organization, it must be verified. The domain is not yet verified.
+ *
  * @public
  */
 export class MailDomainStateException extends __BaseException {
@@ -309,7 +316,8 @@ export class MailDomainStateException extends __BaseException {
 }
 
 /**
- * <p>The user, group, or resource name isn't unique in WorkMail.</p>
+ * The user, group, or resource name isn't unique in WorkMail.
+ *
  * @public
  */
 export class NameAvailabilityException extends __BaseException {
@@ -332,7 +340,8 @@ export class NameAvailabilityException extends __BaseException {
 }
 
 /**
- * <p>This user, group, or resource name is not allowed in WorkMail.</p>
+ * This user, group, or resource name is not allowed in WorkMail.
+ *
  * @public
  */
 export class ReservedNameException extends __BaseException {
@@ -355,7 +364,8 @@ export class ReservedNameException extends __BaseException {
 }
 
 /**
- * <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
+ * The directory is already in use by another WorkMail organization in the same account and Region.
+ *
  * @public
  */
 export class DirectoryInUseException extends __BaseException {
@@ -378,8 +388,8 @@ export class DirectoryInUseException extends __BaseException {
 }
 
 /**
- * <p>The supplied password doesn't match the minimum security constraints, such as length
- *          or use of special characters.</p>
+ * The supplied password doesn't match the minimum security constraints, such as length or use of special characters.
+ *
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
@@ -402,8 +412,8 @@ export class InvalidPasswordException extends __BaseException {
 }
 
 /**
- * <p>You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
- *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
+ * You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to [CreateReceiptRule](https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html).
+ *
  * @public
  */
 export class InvalidCustomSesConfigurationException extends __BaseException {
@@ -426,7 +436,8 @@ export class InvalidCustomSesConfigurationException extends __BaseException {
 }
 
 /**
- * <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+ * The domain you're trying to change is in use by another user or organization in your account. See the error message for details.
+ *
  * @public
  */
 export class MailDomainInUseException extends __BaseException {
@@ -449,8 +460,8 @@ export class MailDomainInUseException extends __BaseException {
 }
 
 /**
- * <p>The user, group, or resource that you're trying to register is already
- *          registered.</p>
+ * The user, group, or resource that you're trying to register is already registered.
+ *
  * @public
  */
 export class EntityAlreadyRegisteredException extends __BaseException {
@@ -473,9 +484,8 @@ export class EntityAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * <p>The configuration for a resource isn't valid. A resource must either be able to
- *          auto-respond to requests or have at least one delegate associated that can do so on its
- *          behalf.</p>
+ * The configuration for a resource isn't valid. A resource must either be able to auto-respond to requests or have at least one delegate associated that can do so on its behalf.
+ *
  * @public
  */
 export class InvalidConfigurationException extends __BaseException {
@@ -498,7 +508,8 @@ export class InvalidConfigurationException extends __BaseException {
 }
 
 /**
- * <p>The resource can have up to 50 user-applied tags.</p>
+ * The resource can have up to 50 user-applied tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

@@ -23,12 +23,8 @@ export interface CreateEntitlementCommandInput extends CreateEntitlementRequest 
 export interface CreateEntitlementCommandOutput extends CreateEntitlementResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new entitlement. Entitlements control access to specific applications within
- *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
- *             identities. WorkSpaces Applications user pool and streaming URL users are entitled to all
- *             applications in a stack. Entitlements don't apply to the desktop stream view
- *             application, or to applications managed by a dynamic app provider using the Dynamic
- *             Application Framework.</p>
+ * Creates a new entitlement. Entitlements control access to specific applications within a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user identities. WorkSpaces Applications user pool and streaming URL users are entitled to all applications in a stack. Entitlements don't apply to the desktop stream view application, or to applications managed by a dynamic app provider using the Dynamic Application Framework.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +73,24 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link EntitlementAlreadyExistsException} (client fault)
- *  <p>The entitlement already exists.</p>
+ *
+ * The entitlement already exists.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * The requested limit exceeds the permitted limit for an account.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

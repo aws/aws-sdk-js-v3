@@ -6,11 +6,10 @@ import type { ThrottlingReason, ValidationExceptionField } from "./models_0";
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
 /**
- * <p>Amazon Polly can't find the specified lexicon. This could be caused by a
- *       lexicon that is missing, its name is misspelled or specifying a lexicon
- *       that is in a different region.</p>
- *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled
- *       correctly. Then try again.</p>
+ * Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.
+ *
+ * Verify that the lexicon exists, is in the region (see ListLexicons) and that you spelled its name is spelled correctly. Then try again.
+ *
  * @public
  */
 export class LexiconNotFoundException extends __BaseException {
@@ -31,7 +30,8 @@ export class LexiconNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An unknown condition has caused a service failure.</p>
+ * An unknown condition has caused a service failure.
+ *
  * @public
  */
 export class ServiceFailureException extends __BaseException {
@@ -52,8 +52,8 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
- * <p>The NextToken is invalid. Verify that it's spelled correctly, and
- *       then try again.</p>
+ * The NextToken is invalid. Verify that it's spelled correctly, and then try again.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -74,9 +74,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>This engine is not compatible with the voice that you have designated.
- *       Choose a new voice that is compatible with the engine or change the engine
- *       and restart the operation.</p>
+ * This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine and restart the operation.
+ *
  * @public
  */
 export class EngineNotSupportedException extends __BaseException {
@@ -97,8 +96,8 @@ export class EngineNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The provided Task ID is not valid. Please provide a valid Task ID and
- *       try again.</p>
+ * The provided Task ID is not valid. Please provide a valid Task ID and try again.
+ *
  * @public
  */
 export class InvalidTaskIdException extends __BaseException {
@@ -119,8 +118,8 @@ export class InvalidTaskIdException extends __BaseException {
 }
 
 /**
- * <p>The Speech Synthesis task with requested Task ID cannot be
- *       found.</p>
+ * The Speech Synthesis task with requested Task ID cannot be found.
+ *
  * @public
  */
 export class SynthesisTaskNotFoundException extends __BaseException {
@@ -141,8 +140,8 @@ export class SynthesisTaskNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
- *       name is spelled correctly, and then try again.</p>
+ * Amazon Polly can't find the specified lexicon. Verify that the lexicon's name is spelled correctly, and then try again.
+ *
  * @public
  */
 export class InvalidLexiconException extends __BaseException {
@@ -163,8 +162,8 @@ export class InvalidLexiconException extends __BaseException {
 }
 
 /**
- * <p>The provided Amazon S3 bucket name is invalid. Please check your input
- *       with S3 bucket naming requirements and try again.</p>
+ * The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket naming requirements and try again.
+ *
  * @public
  */
 export class InvalidS3BucketException extends __BaseException {
@@ -185,8 +184,8 @@ export class InvalidS3BucketException extends __BaseException {
 }
 
 /**
- * <p>The provided Amazon S3 key prefix is invalid. Please provide a valid
- *       S3 object key name.</p>
+ * The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.
+ *
  * @public
  */
 export class InvalidS3KeyException extends __BaseException {
@@ -207,7 +206,8 @@ export class InvalidS3KeyException extends __BaseException {
 }
 
 /**
- * <p>The specified sample rate is not valid.</p>
+ * The specified sample rate is not valid.
+ *
  * @public
  */
 export class InvalidSampleRateException extends __BaseException {
@@ -228,8 +228,8 @@ export class InvalidSampleRateException extends __BaseException {
 }
 
 /**
- * <p>The provided SNS topic ARN is invalid. Please provide a valid SNS
- *       topic ARN and try again.</p>
+ * The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.
+ *
  * @public
  */
 export class InvalidSnsTopicArnException extends __BaseException {
@@ -250,8 +250,8 @@ export class InvalidSnsTopicArnException extends __BaseException {
 }
 
 /**
- * <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
- *       of tags and values, and then try again.</p>
+ * The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.
+ *
  * @public
  */
 export class InvalidSsmlException extends __BaseException {
@@ -272,8 +272,8 @@ export class InvalidSsmlException extends __BaseException {
 }
 
 /**
- * <p>The language specified is not currently supported by Amazon Polly in this
- *       capacity.</p>
+ * The language specified is not currently supported by Amazon Polly in this capacity.
+ *
  * @public
  */
 export class LanguageNotSupportedException extends __BaseException {
@@ -294,8 +294,8 @@ export class LanguageNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The maximum size of the specified lexicon would be exceeded by this
- *       operation.</p>
+ * The maximum size of the specified lexicon would be exceeded by this operation.
+ *
  * @public
  */
 export class LexiconSizeExceededException extends __BaseException {
@@ -316,9 +316,8 @@ export class LexiconSizeExceededException extends __BaseException {
 }
 
 /**
- * <p>Speech marks are not supported for the <code>OutputFormat</code>
- *       selected. Speech marks are only available for content in <code>json</code>
- *       format.</p>
+ * Speech marks are not supported for the `OutputFormat` selected. Speech marks are only available for content in `json` format.
+ *
  * @public
  */
 export class MarksNotSupportedForFormatException extends __BaseException {
@@ -339,8 +338,8 @@ export class MarksNotSupportedForFormatException extends __BaseException {
 }
 
 /**
- * <p>The maximum size of the lexeme would be exceeded by this
- *       operation.</p>
+ * The maximum size of the lexeme would be exceeded by this operation.
+ *
  * @public
  */
 export class MaxLexemeLengthExceededException extends __BaseException {
@@ -361,8 +360,8 @@ export class MaxLexemeLengthExceededException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of lexicons would be exceeded by this
- *       operation.</p>
+ * The maximum number of lexicons would be exceeded by this operation.
+ *
  * @public
  */
 export class MaxLexiconsNumberExceededException extends __BaseException {
@@ -383,12 +382,8 @@ export class MaxLexiconsNumberExceededException extends __BaseException {
 }
 
 /**
- * <p>The alphabet specified by the lexicon is not a supported alphabet.
- *       Valid values are <code>ipa</code>, <code>x-sampa</code>,
- *       <code>x-amazon-pinyin</code>, <code>x-amazon-jyutping</code>,
- *       <code>x-amazon-pron-kana</code>, and
- *       <code>x-amazon-yomigana</code>. Replace the unsupported alphabet
- *       with one of the valid values and resubmit your request.</p>
+ * The alphabet specified by the lexicon is not a supported alphabet. Valid values are `ipa`, `x-sampa`, `x-amazon-pinyin`, `x-amazon-jyutping`, `x-amazon-pron-kana`, and `x-amazon-yomigana`. Replace the unsupported alphabet with one of the valid values and resubmit your request.
+ *
  * @public
  */
 export class UnsupportedPlsAlphabetException extends __BaseException {
@@ -409,8 +404,8 @@ export class UnsupportedPlsAlphabetException extends __BaseException {
 }
 
 /**
- * <p>The language specified in the lexicon is unsupported. For a list of
- *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
+ * The language specified in the lexicon is unsupported. For a list of supported languages, see [Lexicon Attributes](https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html).
+ *
  * @public
  */
 export class UnsupportedPlsLanguageException extends __BaseException {
@@ -431,7 +426,8 @@ export class UnsupportedPlsLanguageException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
+ * The request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -439,13 +435,15 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The quota code identifying the specific quota.</p>
+   * The quota code identifying the specific quota.
+   *
    * @public
    */
   quotaCode: QuotaCode | undefined;
 
   /**
-   * <p>The service code identifying the originating service.</p>
+   * The service code identifying the originating service.
+   *
    * @public
    */
   serviceCode: ServiceCode | undefined;
@@ -466,7 +464,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because of request throttling.</p>
+ * The request was denied because of request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -474,7 +473,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of reasons explaining why the request was throttled.</p>
+   * A list of reasons explaining why the request was throttled.
+   *
    * @public
    */
   throttlingReasons?: ThrottlingReason[] | undefined;
@@ -494,7 +494,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -502,13 +503,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason the request failed validation.</p>
+   * The reason the request failed validation.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that caused the validation error.</p>
+   * The fields that caused the validation error.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -529,8 +532,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>SSML speech marks are not supported for plain text-type
- *       input.</p>
+ * SSML speech marks are not supported for plain text-type input.
+ *
  * @public
  */
 export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
@@ -551,13 +554,8 @@ export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
 }
 
 /**
- * <p>The value of the "Text" parameter is longer than the accepted
- *       limits. For the <code>SynthesizeSpeech</code> API, the limit for input
- *       text is a maximum of 6000 characters total, of which no more than 3000 can
- *       be billed characters. For the <code>StartSpeechSynthesisTask</code> API,
- *       the maximum is 200,000 characters, of which no more than 100,000 can be
- *       billed characters. SSML tags are not counted as billed
- *       characters.</p>
+ * The value of the "Text" parameter is longer than the accepted limits. For the `SynthesizeSpeech` API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the `StartSpeechSynthesisTask` API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.
+ *
  * @public
  */
 export class TextLengthExceededException extends __BaseException {

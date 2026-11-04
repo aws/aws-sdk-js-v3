@@ -23,16 +23,8 @@ export interface StartSpeechSynthesisTaskCommandInput extends StartSpeechSynthes
 export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Allows the creation of an asynchronous synthesis task, by starting a
- *       new <code>SpeechSynthesisTask</code>. This operation requires all the
- *       standard information needed for speech synthesis, plus the name of an
- *       Amazon S3 bucket for the service to store the output of the synthesis task
- *       and two optional parameters (<code>OutputS3KeyPrefix</code> and
- *         <code>SnsTopicArn</code>). Once the synthesis task is created, this
- *       operation will return a <code>SpeechSynthesisTask</code> object, which
- *       will include an identifier of this task as well as the current status. The
- *         <code>SpeechSynthesisTask</code> object is available for 72 hours after
- *       starting the asynchronous synthesis task.</p>
+ * Allows the creation of an asynchronous synthesis task, by starting a new `SpeechSynthesisTask`. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (`OutputS3KeyPrefix` and `SnsTopicArn`). Once the synthesis task is created, this operation will return a `SpeechSynthesisTask` object, which will include an identifier of this task as well as the current status. The `SpeechSynthesisTask` object is available for 72 hours after starting the asynchronous synthesis task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,64 +86,58 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link EngineNotSupportedException} (client fault)
- *  <p>This engine is not compatible with the voice that you have designated.
- *       Choose a new voice that is compatible with the engine or change the engine
- *       and restart the operation.</p>
+ *
+ * This engine is not compatible with the voice that you have designated. Choose a new voice that is compatible with the engine or change the engine and restart the operation.
  *
  * @throws {@link InvalidS3BucketException} (client fault)
- *  <p>The provided Amazon S3 bucket name is invalid. Please check your input
- *       with S3 bucket naming requirements and try again.</p>
+ *
+ * The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket naming requirements and try again.
  *
  * @throws {@link InvalidS3KeyException} (client fault)
- *  <p>The provided Amazon S3 key prefix is invalid. Please provide a valid
- *       S3 object key name.</p>
+ *
+ * The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.
  *
  * @throws {@link InvalidSampleRateException} (client fault)
- *  <p>The specified sample rate is not valid.</p>
+ *
+ * The specified sample rate is not valid.
  *
  * @throws {@link InvalidSnsTopicArnException} (client fault)
- *  <p>The provided SNS topic ARN is invalid. Please provide a valid SNS
- *       topic ARN and try again.</p>
+ *
+ * The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.
  *
  * @throws {@link InvalidSsmlException} (client fault)
- *  <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
- *       of tags and values, and then try again.</p>
+ *
+ * The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.
  *
  * @throws {@link LanguageNotSupportedException} (client fault)
- *  <p>The language specified is not currently supported by Amazon Polly in this
- *       capacity.</p>
+ *
+ * The language specified is not currently supported by Amazon Polly in this capacity.
  *
  * @throws {@link LexiconNotFoundException} (client fault)
- *  <p>Amazon Polly can't find the specified lexicon. This could be caused by a
- *       lexicon that is missing, its name is misspelled or specifying a lexicon
- *       that is in a different region.</p>
- *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled
- *       correctly. Then try again.</p>
+ *
+ * Amazon Polly can't find the specified lexicon. This could be caused by a lexicon that is missing, its name is misspelled or specifying a lexicon that is in a different region.
+ *
+ * Verify that the lexicon exists, is in the region (see ListLexicons) and that you spelled its name is spelled correctly. Then try again.
  *
  * @throws {@link MarksNotSupportedForFormatException} (client fault)
- *  <p>Speech marks are not supported for the <code>OutputFormat</code>
- *       selected. Speech marks are only available for content in <code>json</code>
- *       format.</p>
+ *
+ * Speech marks are not supported for the `OutputFormat` selected. Speech marks are only available for content in `json` format.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link SsmlMarksNotSupportedForTextTypeException} (client fault)
- *  <p>SSML speech marks are not supported for plain text-type
- *       input.</p>
+ *
+ * SSML speech marks are not supported for plain text-type input.
  *
  * @throws {@link TextLengthExceededException} (client fault)
- *  <p>The value of the "Text" parameter is longer than the accepted
- *       limits. For the <code>SynthesizeSpeech</code> API, the limit for input
- *       text is a maximum of 6000 characters total, of which no more than 3000 can
- *       be billed characters. For the <code>StartSpeechSynthesisTask</code> API,
- *       the maximum is 200,000 characters, of which no more than 100,000 can be
- *       billed characters. SSML tags are not counted as billed
- *       characters.</p>
+ *
+ * The value of the "Text" parameter is longer than the accepted limits. For the `SynthesizeSpeech` API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the `StartSpeechSynthesisTask` API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @public
  */

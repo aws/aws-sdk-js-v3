@@ -23,25 +23,13 @@ export interface CancelServicePipelineDeploymentCommandInput extends CancelServi
 export interface CancelServicePipelineDeploymentCommandOutput extends CancelServicePipelineDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a service pipeline deployment on an <a>UpdateServicePipeline</a> action, if the deployment is <code>IN_PROGRESS</code>. For
- *       more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html">Update a service pipeline</a>
- *       in the <i>Proton User guide</i>.</p>
- *          <p>The following list includes potential cancellation scenarios.</p>
- *          <ul>
- *             <li>
- *                <p>If the cancellation attempt succeeds, the resulting deployment state is
- *             <code>CANCELLED</code>.</p>
- *             </li>
- *             <li>
- *                <p>If the cancellation attempt fails, the resulting deployment state is
- *             <code>FAILED</code>.</p>
- *             </li>
- *             <li>
- *                <p>If the current <a>UpdateServicePipeline</a> action succeeds before the
- *           cancellation attempt starts, the resulting deployment state is <code>SUCCEEDED</code> and
- *           the cancellation attempt has no effect.</p>
- *             </li>
- *          </ul>
+ * Attempts to cancel a service pipeline deployment on an UpdateServicePipeline action, if the deployment is `IN_PROGRESS`. For more information, see [Update a service pipeline](https://docs.aws.amazon.com/proton/latest/userguide/ag-svc-pipeline-update.html) in the *Proton User guide*.
+ *
+ * The following list includes potential cancellation scenarios.
+ *
+ * - If the cancellation attempt succeeds, the resulting deployment state is `CANCELLED`.
+ * - If the cancellation attempt fails, the resulting deployment state is `FAILED`.
+ * - If the current UpdateServicePipeline action succeeds before the cancellation attempt starts, the resulting deployment state is `SUCCEEDED` and the cancellation attempt has no effect.
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
@@ -83,26 +71,32 @@ export interface CancelServicePipelineDeploymentCommandOutput extends CancelServ
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

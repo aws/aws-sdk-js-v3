@@ -23,15 +23,12 @@ export interface SetIdentityMailFromDomainCommandInput extends SetIdentityMailFr
 export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailFromDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an
- *             email address or a domain).</p>
- *          <important>
- *             <p>To send emails using the specified MAIL FROM domain, you must add an MX record to
- *                 your MAIL FROM domain's DNS settings. To ensure that your emails pass Sender Policy
- *                 Framework (SPF) checks, you must also add or update an SPF record. For more
- *                 information, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/mail-from.html">Amazon SES Developer Guide</a>.</p>
- *          </important>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).
+ *
+ * > **Important:** To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain's DNS settings. To ensure that your emails pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +55,8 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example SetIdentityMailFromDomain
  * ```javascript

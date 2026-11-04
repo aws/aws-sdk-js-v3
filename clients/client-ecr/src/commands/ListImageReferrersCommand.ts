@@ -23,10 +23,10 @@ export interface ListImageReferrersCommandInput extends ListImageReferrersReques
 export interface ListImageReferrersCommandOutput extends ListImageReferrersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the artifacts associated with a specified subject image.</p>
- *          <note>
- *             <p>The IAM principal invoking this operation must have the <code>ecr:BatchGetImage</code> permission.</p>
- *          </note>
+ * Lists the artifacts associated with a specified subject image.
+ *
+ * > **Note:** The IAM principal invoking this operation must have the `ecr:BatchGetImage` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,27 +77,28 @@ export interface ListImageReferrersCommandOutput extends ListImageReferrersRespo
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnableToListUpstreamImageReferrersException} (client fault)
- *  <p>The referrer or referrers were unable to be listed using the pull through cache rule. This
- *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
- *             for the upstream registry.</p>
+ *
+ * The referrer or referrers were unable to be listed using the pull through cache rule. This is usually caused because of an issue with the Secrets Manager secret containing the credentials for the upstream registry.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @example To list both active and archived artifacts
  * ```javascript

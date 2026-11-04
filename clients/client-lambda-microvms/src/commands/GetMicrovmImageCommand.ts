@@ -23,7 +23,8 @@ export interface GetMicrovmImageCommandInput extends GetMicrovmImageInput {}
 export interface GetMicrovmImageCommandOutput extends GetMicrovmImageOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a MicroVM image, including its state, versions, and configuration.</p>
+ * Retrieves the details of a MicroVM image, including its state, versions, and configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +60,28 @@ export interface GetMicrovmImageCommandOutput extends GetMicrovmImageOutput, __M
  * @see {@link LambdaMicrovmsClientResolvedConfig | config} for LambdaMicrovmsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry the request later.</p>
+ *
+ * An internal server error occurred. Retry the request later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request later.</p>
+ *
+ * The request was denied due to request throttling. Retry the request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by the service.</p>
+ *
+ * The input does not satisfy the constraints specified by the service.
  *
  * @throws {@link LambdaMicrovmsServiceException}
- * <p>Base exception class for all service exceptions from LambdaMicrovms service.</p>
  *
+ * Base exception class for all service exceptions from LambdaMicrovms service.
  *
  * @public
  */

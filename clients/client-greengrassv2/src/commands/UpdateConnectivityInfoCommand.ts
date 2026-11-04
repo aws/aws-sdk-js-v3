@@ -23,13 +23,10 @@ export interface UpdateConnectivityInfoCommandInput extends UpdateConnectivityIn
 export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityInfoResponse, __MetadataBearer {}
 
 /**
- * <p>Updates connectivity information for a Greengrass core device.</p>
- *          <p>Connectivity information includes endpoints and ports where client devices
- *       can connect to an MQTT broker on the core device. When a client device
- *       calls the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html">IoT Greengrass discovery API</a>,
- *       IoT Greengrass returns connectivity information for all of the core devices where the client device can
- *       connect. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html">Connect client devices to
- *         core devices</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+ * Updates connectivity information for a Greengrass core device.
+ *
+ * Connectivity information includes endpoints and ports where client devices can connect to an MQTT broker on the core device. When a client device calls the [IoT Greengrass discovery API](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html), IoT Greengrass returns connectivity information for all of the core devices where the client device can connect. For more information, see [Connect client devices to core devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html) in the *IoT Greengrass Version 2 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,15 +62,16 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

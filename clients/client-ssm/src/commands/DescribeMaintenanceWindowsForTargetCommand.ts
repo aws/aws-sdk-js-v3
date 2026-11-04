@@ -26,8 +26,8 @@ export interface DescribeMaintenanceWindowsForTargetCommandInput extends Describ
 export interface DescribeMaintenanceWindowsForTargetCommandOutput extends DescribeMaintenanceWindowsForTargetResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the maintenance window targets or tasks that a managed node is
- *    associated with.</p>
+ * Retrieves information about the maintenance window targets or tasks that a managed node is associated with.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,11 +70,12 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput extends Descri
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

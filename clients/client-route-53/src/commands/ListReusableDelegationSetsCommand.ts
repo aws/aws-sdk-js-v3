@@ -23,8 +23,8 @@ export interface ListReusableDelegationSetsCommandInput extends ListReusableDele
 export interface ListReusableDelegationSetsCommandOutput extends ListReusableDelegationSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the reusable delegation sets that are associated with the current
- * 				Amazon Web Services account.</p>
+ * Retrieves a list of the reusable delegation sets that are associated with the current Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,11 +64,12 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

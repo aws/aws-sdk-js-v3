@@ -398,7 +398,8 @@ export interface TrustedAdvisor {
 }
 
 /**
- * <p>TrustedAdvisor Public API</p>
+ * TrustedAdvisor Public API
+ *
  * @public
  */
 export class TrustedAdvisor extends TrustedAdvisorClient implements TrustedAdvisor {}

@@ -23,25 +23,16 @@ export interface DescribeRecipeCommandInput extends DescribeRecipeRequest {}
 export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a recipe.</p>
- *          <p>A recipe contains three items:</p>
- *          <ul>
- *             <li>
- *                <p>An algorithm that trains a model.</p>
- *             </li>
- *             <li>
- *                <p>Hyperparameters that govern the training.</p>
- *             </li>
- *             <li>
- *                <p>Feature transformation information for modifying the input data before training.</p>
- *             </li>
- *          </ul>
- *          <p>Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a
- *       solution with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a> API.
- *       <code>CreateSolution</code> trains a model by using the algorithm
- *       in the specified recipe and a training dataset. The solution, when deployed as a campaign,
- *       can provide recommendations using the
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> API.</p>
+ * Describes a recipe.
+ *
+ * A recipe contains three items:
+ *
+ * - An algorithm that trains a model.
+ * - Hyperparameters that govern the training.
+ * - Feature transformation information for modifying the input data before training.
+ *
+ * Amazon Personalize provides a set of predefined recipes. You specify a recipe when you create a solution with the [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) API. `CreateSolution` trains a model by using the algorithm in the specified recipe and a training dataset. The solution, when deployed as a campaign, can provide recommendations using the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,14 +69,16 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

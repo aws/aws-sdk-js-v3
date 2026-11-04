@@ -23,13 +23,10 @@ export interface BatchWriteRecordCommandInput extends BatchWriteRecordRequest {}
 export interface BatchWriteRecordCommandOutput extends BatchWriteRecordResponse, __MetadataBearer {}
 
 /**
- * <p>Writes a batch of <code>Records</code> to one or more <code>FeatureGroup</code>s. Use
- *          this API for bulk ingestion of records into the <code>OnlineStore</code> and
- *             <code>OfflineStore</code>.</p>
- *          <p>You can set the ingested records to expire at a given time to live (TTL) duration after
- *          the record's event time by specifying the <code>TtlDuration</code> parameter. A request
- *          level <code>TtlDuration</code> applies to all entries that do not specify their own
- *             <code>TtlDuration</code>.</p>
+ * Writes a batch of `Records` to one or more `FeatureGroup`s. Use this API for bulk ingestion of records into the `OnlineStore` and `OfflineStore`.
+ *
+ * You can set the ingested records to expire at a given time to live (TTL) duration after the record's event time by specifying the `TtlDuration` parameter. A request level `TtlDuration` applies to all entries that do not specify their own `TtlDuration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,24 +122,28 @@ export interface BatchWriteRecordCommandOutput extends BatchWriteRecordResponse,
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  * @throws {@link AccessForbidden} (client fault)
- *  <p>You do not have permission to perform an action.</p>
+ *
+ * You do not have permission to perform an action.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>A resource that is required to perform an action was not found.</p>
+ *
+ * A resource that is required to perform an action was not found.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p>There was an error validating your request.</p>
+ *
+ * There was an error validating your request.
  *
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.
  *
  * @example Write records to multiple feature groups
  * ```javascript

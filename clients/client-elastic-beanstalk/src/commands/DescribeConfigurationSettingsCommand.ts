@@ -23,33 +23,18 @@ export interface DescribeConfigurationSettingsCommandInput extends DescribeConfi
 export interface DescribeConfigurationSettingsCommandOutput extends ConfigurationSettingsDescriptions, __MetadataBearer {}
 
 /**
- * <p>Returns a description of the settings for the specified configuration set, that is,
- *       either a configuration template or the configuration set associated with a running
- *       environment.</p>
- *          <p>When describing the settings for the configuration set associated with a running
- *       environment, it is possible to receive two sets of setting descriptions. One is the deployed
- *       configuration set, and the other is a draft configuration of an environment that is either in
- *       the process of deployment or that failed to deploy.</p>
- *          <p>This action only returns information about resources that the calling principle has IAM permissions to
- *       access. For example, consider a case where a user only has permission to access one of three
- *       resources. When the user calls the this action, the
- *       response will only include the one resource that the user has permission to access instead
- *       of all three resources. If the user doesn’t have access to any of the resources an empty
- *       result is returned.</p>
- *          <note>
- *             <p>The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
- *         managed policy allows operators to view information about resources related to Elastic Beanstalk. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
- *             Guide</i>. For detailed instructions to attach a policy to a user or group, see the section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access with managed policies</a> in the
- *         same topic.</p>
- *          </note>
- *          <p>Related Topics</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DeleteEnvironmentConfiguration</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Returns a description of the settings for the specified configuration set, that is, either a configuration template or the configuration set associated with a running environment.
+ *
+ * When describing the settings for the configuration set associated with a running environment, it is possible to receive two sets of setting descriptions. One is the deployed configuration set, and the other is a draft configuration of an environment that is either in the process of deployment or that failed to deploy.
+ *
+ * This action only returns information about resources that the calling principle has IAM permissions to access. For example, consider a case where a user only has permission to access one of three resources. When the user calls the this action, the response will only include the one resource that the user has permission to access instead of all three resources. If the user doesn’t have access to any of the resources an empty result is returned.
+ *
+ * > **Note:** The [AWSElasticBeanstalkReadOnly](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html) managed policy allows operators to view information about resources related to Elastic Beanstalk. For more information, see [Managing Elastic Beanstalk user policies](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html) in the *Elastic Beanstalk Developer Guide*. For detailed instructions to attach a policy to a user or group, see the section [Controlling access with managed policies](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed) in the same topic.
+ *
+ * Related Topics
+ *
+ * - DeleteEnvironmentConfiguration
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,11 +83,12 @@ export interface DescribeConfigurationSettingsCommandOutput extends Configuratio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link TooManyBucketsException} (client fault)
- *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ * The specified account has reached its limit of Amazon S3 buckets.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To view configurations settings for an environment
  * ```javascript

@@ -23,98 +23,55 @@ export interface PutBucketLoggingCommandInput extends PutBucketLoggingRequest {}
 export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
- * <important>
- *             <p>End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025,
- *  the request will receive an <code>HTTP 405</code> (Method Not Allowed) error.</p>
- *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).</p>
- *          </important>
- *          <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Set the logging parameters for a bucket and to specify permissions for who can view and modify the
- *       logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the source bucket. To set
- *       the logging status of a bucket, you must be the bucket owner.</p>
- *          <p>The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code>
- *       request element to grant access to other people. The <code>Permissions</code> request element specifies
- *       the kind of access the grantee has to the logs.</p>
- *          <important>
- *             <p>If the target bucket for log delivery uses the bucket owner enforced setting for S3 Object
- *         Ownership, you can't use the <code>Grantee</code> request element to grant access to others.
- *         Permissions can only be granted using policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions for server access log delivery</a> in the
- *         <i>Amazon S3 User Guide</i>.</p>
- *          </important>
- *          <dl>
- *             <dt>Grantee Values</dt>
- *             <dd>
- *                <p>You can specify the person (grantee) to whom you're assigning access rights (by using request
- *             elements) in the following ways. For examples of how to specify these grantee values in JSON
- *             format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html"> Enabling Amazon S3 server
- *               access logging</a> in the <i>Amazon S3 User Guide</i>.</p>
- *                <ul>
- *                   <li>
- *                      <p>By the person's ID:</p>
- *                      <p>
- *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                   xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
- *                   </Grantee></code>
- *                      </p>
- *                      <p>
- *                         <code>DisplayName</code> is optional and ignored in the request.</p>
- *                   </li>
- *                   <li>
- *                      <p>By Email address:</p>
- *                      <p>
- *                         <code> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                   xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress></Grantee></code>
- *                      </p>
- *                      <p>The grantee is resolved to the <code>CanonicalUser</code> and, in a response to a
- *                   <code>GETObjectAcl</code> request, appears as the CanonicalUser.</p>
- *                   </li>
- *                   <li>
- *                      <p>By URI:</p>
- *                      <p>
- *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                   xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </dd>
- *          </dl>
- *          <p>To enable logging, you use <code>LoggingEnabled</code> and its children request elements. To disable
- *       logging, you use an empty <code>BucketLoggingStatus</code> request element:</p>
- *          <p>
- *             <code><BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" /></code>
- *          </p>
- *          <p>For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html">Server Access Logging</a> in the
- *         <i>Amazon S3 User Guide</i>. </p>
- *          <p>For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>. For more information about
- *       returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.</p>
- *          <p>The following operations are related to <code>PutBucketLogging</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Important:**
+ * >
+ * > End of support notice: As of October 1, 2025, Amazon S3 has discontinued support for Email Grantee Access Control Lists (ACLs). If you attempt to use an Email Grantee ACL in a request after October 1, 2025, the request will receive an `HTTP 405` (Method Not Allowed) error.
+ * >
+ * > This change affects the following Amazon Web Services Regions: US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Europe (Ireland), and South America (São Paulo).
+ *
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as the source bucket. To set the logging status of a bucket, you must be the bucket owner.
+ *
+ * The bucket owner is automatically granted FULL_CONTROL to all logs. You use the `Grantee` request element to grant access to other people. The `Permissions` request element specifies the kind of access the grantee has to the logs.
+ *
+ * > **Important:** If the target bucket for log delivery uses the bucket owner enforced setting for S3 Object Ownership, you can't use the `Grantee` request element to grant access to others. Permissions can only be granted using policies. For more information, see [Permissions for server access log delivery](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general) in the *Amazon S3 User Guide*.
+ *
+ * - **Grantee Values**
+ *
+ *   You can specify the person (grantee) to whom you're assigning access rights (by using request elements) in the following ways. For examples of how to specify these grantee values in JSON format, see the Amazon Web Services CLI example in [Enabling Amazon S3 server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html) in the *Amazon S3 User Guide*.
+ *
+ *   - By the person's ID:
+ *
+ *     `<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName> </Grantee>`
+ *
+ *     `DisplayName` is optional and ignored in the request.
+ *   - By Email address:
+ *
+ *     `<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress></Grantee>`
+ *
+ *     The grantee is resolved to the `CanonicalUser` and, in a response to a `GETObjectAcl` request, appears as the CanonicalUser.
+ *   - By URI:
+ *
+ *     `<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee>`
+ *
+ * To enable logging, you use `LoggingEnabled` and its children request elements. To disable logging, you use an empty `BucketLoggingStatus` request element:
+ *
+ * `<BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />`
+ *
+ * For more information about server access logging, see [Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html) in the *Amazon S3 User Guide*.
+ *
+ * For more information about creating a bucket, see [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html). For more information about returning the logging status of a bucket, see [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html).
+ *
+ * The following operations are related to `PutBucketLogging`:
+ *
+ * - [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+ * - [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
+ * - [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
+ * - [GetBucketLogging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,8 +123,8 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example Set logging configuration for a bucket
  * ```javascript

@@ -26,7 +26,8 @@ export interface DescribePipelineDefinitionForExecutionCommandInput extends Desc
 export interface DescribePipelineDefinitionForExecutionCommandOutput extends DescribePipelineDefinitionForExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the details of an execution's pipeline definition.</p>
+ * Describes the details of an execution's pipeline definition.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +55,12 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput extends Des
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

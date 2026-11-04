@@ -16,13 +16,15 @@ import type { DestinationConfiguration, Processor, S3DeliveryConfiguration } fro
  */
 export interface TagLogGroupRequest {
   /**
-   * <p>The name of the log group.</p>
+   * The name of the log group.
+   *
    * @public
    */
   logGroupName: string | undefined;
 
   /**
-   * <p>The key-value pairs to use for the tags.</p>
+   * The key-value pairs to use for the tags.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -33,23 +35,21 @@ export interface TagLogGroupRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource that you're adding tags to.</p>
-   *          <p>The ARN format of a log group is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
-   *             </code>
-   *          </p>
-   *          <p>The ARN format of a destination is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *         resources and operations</a>.</p>
+   * The ARN of the resource that you're adding tags to.
+   *
+   * The ARN format of a log group is `arn:aws:logs:Region:account-id:log-group:log-group-name`
+   *
+   * The ARN format of a destination is `arn:aws:logs:Region:account-id:destination:destination-name`
+   *
+   * For more information about ARN format, see [CloudWatch Logs resources and operations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of key-value pairs to associate with the resource.</p>
+   * The list of key-value pairs to associate with the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -60,39 +60,43 @@ export interface TagResourceRequest {
  */
 export interface TestMetricFilterRequest {
   /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
+   * A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.
+   *
    * @public
    */
   filterPattern: string | undefined;
 
   /**
-   * <p>The log event messages to test.</p>
+   * The log event messages to test.
+   *
    * @public
    */
   logEventMessages: string[] | undefined;
 }
 
 /**
- * <p>Represents a matched event.</p>
+ * Represents a matched event.
+ *
  * @public
  */
 export interface MetricFilterMatchRecord {
   /**
-   * <p>The event number.</p>
+   * The event number.
+   *
    * @public
    */
   eventNumber?: number | undefined;
 
   /**
-   * <p>The raw event data.</p>
+   * The raw event data.
+   *
    * @public
    */
   eventMessage?: string | undefined;
 
   /**
-   * <p>The values extracted from the event data by the filter.</p>
+   * The values extracted from the event data by the filter.
+   *
    * @public
    */
   extractedValues?: Record<string, string> | undefined;
@@ -103,7 +107,8 @@ export interface MetricFilterMatchRecord {
  */
 export interface TestMetricFilterResponse {
   /**
-   * <p>The matched events.</p>
+   * The matched events.
+   *
    * @public
    */
   matches?: MetricFilterMatchRecord[] | undefined;
@@ -114,40 +119,43 @@ export interface TestMetricFilterResponse {
  */
 export interface TestTransformerRequest {
   /**
-   * <p>This structure contains the configuration of this log transformer that you want to test. A
-   *       log transformer is an array of processors, where each processor applies one type of
-   *       transformation to the log events that are ingested.</p>
+   * This structure contains the configuration of this log transformer that you want to test. A log transformer is an array of processors, where each processor applies one type of transformation to the log events that are ingested.
+   *
    * @public
    */
   transformerConfig: Processor[] | undefined;
 
   /**
-   * <p>An array of the raw log events that you want to use to test this transformer.</p>
+   * An array of the raw log events that you want to use to test this transformer.
+   *
    * @public
    */
   logEventMessages: string[] | undefined;
 }
 
 /**
- * <p>This structure contains information for one log event that has been processed by a log
- *       transformer.</p>
+ * This structure contains information for one log event that has been processed by a log transformer.
+ *
  * @public
  */
 export interface TransformedLogRecord {
   /**
-   * <p>The event number.</p>
+   * The event number.
+   *
    * @public
    */
   eventNumber?: number | undefined;
 
   /**
-   * <p>The original log event message before it was transformed.</p>
+   * The original log event message before it was transformed.
+   *
    * @public
    */
   eventMessage?: string | undefined;
 
   /**
-   * <p>The log event message after being transformed.</p>
+   * The log event message after being transformed.
+   *
    * @public
    */
   transformedEventMessage?: string | undefined;
@@ -158,8 +166,8 @@ export interface TransformedLogRecord {
  */
 export interface TestTransformerResponse {
   /**
-   * <p>An array where each member of the array includes both the original version and the
-   *       transformed version of one of the log events that you input.</p>
+   * An array where each member of the array includes both the original version and the transformed version of one of the log events that you input.
+   *
    * @public
    */
   transformedLogs?: TransformedLogRecord[] | undefined;
@@ -171,13 +179,15 @@ export interface TestTransformerResponse {
  */
 export interface UntagLogGroupRequest {
   /**
-   * <p>The name of the log group.</p>
+   * The name of the log group.
+   *
    * @public
    */
   logGroupName: string | undefined;
 
   /**
-   * <p>The tag keys. The corresponding tags are removed from the log group.</p>
+   * The tag keys. The corresponding tags are removed from the log group.
+   *
    * @public
    */
   tags: string[] | undefined;
@@ -188,43 +198,42 @@ export interface UntagLogGroupRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the CloudWatch Logs resource that you're removing tags from.</p>
-   *          <p>The ARN format of a log group is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i>
-   *             </code>
-   *          </p>
-   *          <p>The ARN format of a destination is
-   *           <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i>
-   *             </code>
-   *          </p>
-   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
-   *         resources and operations</a>.</p>
+   * The ARN of the CloudWatch Logs resource that you're removing tags from.
+   *
+   * The ARN format of a log group is `arn:aws:logs:Region:account-id:log-group:log-group-name`
+   *
+   * The ARN format of a destination is `arn:aws:logs:Region:account-id:destination:destination-name`
+   *
+   * For more information about ARN format, see [CloudWatch Logs resources and operations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html).
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
 }
 
 /**
- * <p>If you are suppressing an anomaly temporariliy, this structure defines how long the
- *       suppression period is to be.</p>
+ * If you are suppressing an anomaly temporariliy, this structure defines how long the suppression period is to be.
+ *
  * @public
  */
 export interface SuppressionPeriod {
   /**
-   * <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no
-   *       maximum.</p>
+   * Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.
+   *
    * @public
    */
   value?: number | undefined;
 
   /**
-   * <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+   * Specifies whether the value of `value` is in seconds, minutes, or hours.
+   *
    * @public
    */
   suppressionUnit?: SuppressionUnit | undefined;
@@ -235,49 +244,45 @@ export interface SuppressionPeriod {
  */
 export interface UpdateAnomalyRequest {
   /**
-   * <p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can
-   *       find anomaly IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
-   *       operation.</p>
+   * If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can find anomaly IDs by using the [ListAnomalies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html) operation.
+   *
    * @public
    */
   anomalyId?: string | undefined;
 
   /**
-   * <p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can
-   *       find pattern IDs by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a>
-   *       operation.</p>
+   * If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can find pattern IDs by using the [ListAnomalies](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html) operation.
+   *
    * @public
    */
   patternId?: string | undefined;
 
   /**
-   * <p>The ARN of the anomaly detector that this operation is to act on.</p>
+   * The ARN of the anomaly detector that this operation is to act on.
+   *
    * @public
    */
   anomalyDetectorArn: string | undefined;
 
   /**
-   * <p>Use this to specify whether the suppression to be temporary or infinite. If you specify
-   *         <code>LIMITED</code>, you must also specify a <code>suppressionPeriod</code>. If you specify
-   *         <code>INFINITE</code>, any value for <code>suppressionPeriod</code> is ignored. </p>
+   * Use this to specify whether the suppression to be temporary or infinite. If you specify `LIMITED`, you must also specify a `suppressionPeriod`. If you specify `INFINITE`, any value for `suppressionPeriod` is ignored.
+   *
    * @public
    */
   suppressionType?: SuppressionType | undefined;
 
   /**
-   * <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify
-   *       how long the suppression is to last.</p>
+   * If you are temporarily suppressing an anomaly or pattern, use this structure to specify how long the suppression is to last.
+   *
    * @public
    */
   suppressionPeriod?: SuppressionPeriod | undefined;
 
   /**
-   * <p>Set this to <code>true</code> to prevent CloudWatch Logs from displaying this behavior
-   *       as an anomaly in the future. The behavior is then treated as baseline behavior. However, if
-   *       similar but more severe occurrences of this behavior occur in the future, those will still be
-   *       reported as anomalies. </p>
-   *          <p>The default is <code>false</code>
-   *          </p>
+   * Set this to `true` to prevent CloudWatch Logs from displaying this behavior as an anomaly in the future. The behavior is then treated as baseline behavior. However, if similar but more severe occurrences of this behavior occur in the future, those will still be reported as anomalies.
+   *
+   * The default is `false`
+   *
    * @public
    */
   baseline?: boolean | undefined;
@@ -288,28 +293,29 @@ export interface UpdateAnomalyRequest {
  */
 export interface UpdateDeliveryConfigurationRequest {
   /**
-   * <p>The ID of the delivery to be updated by this request.</p>
+   * The ID of the delivery to be updated by this request.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The list of record fields to be delivered to the destination, in order. If the delivery's
-   *       log source has mandatory fields, they must be included in this list.</p>
+   * The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+   *
    * @public
    */
   recordFields?: string[] | undefined;
 
   /**
-   * <p>The field delimiter to use between record fields when the final output format of a
-   *       delivery is in <code>Plain</code>, <code>W3C</code>, or <code>Raw</code> format.</p>
+   * The field delimiter to use between record fields when the final output format of a delivery is in `Plain`, `W3C`, or `Raw` format.
+   *
    * @public
    */
   fieldDelimiter?: string | undefined;
 
   /**
-   * <p>This structure contains parameters that are valid only when the delivery's delivery
-   *       destination is an S3 bucket.</p>
+   * This structure contains parameters that are valid only when the delivery's delivery destination is an S3 bucket.
+   *
    * @public
    */
   s3DeliveryConfiguration?: S3DeliveryConfiguration | undefined;
@@ -325,39 +331,36 @@ export interface UpdateDeliveryConfigurationResponse {}
  */
 export interface UpdateLogAnomalyDetectorRequest {
   /**
-   * <p>The ARN of the anomaly detector that you want to update.</p>
+   * The ARN of the anomaly detector that you want to update.
+   *
    * @public
    */
   anomalyDetectorArn: string | undefined;
 
   /**
-   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
-   *       according to the frequency that the log group receives new logs. For example, if the log group
-   *       receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
-   *         <code>FIFTEEN_MIN</code> might be appropriate.</p>
+   * Specifies how often the anomaly detector runs and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then setting `evaluationFrequency` to `FIFTEEN_MIN` might be appropriate.
+   *
    * @public
    */
   evaluationFrequency?: EvaluationFrequency | undefined;
 
   /**
-   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
-   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
-   *       use the filter pattern to specify what to look for in the log event message.</p>
+   * A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.
+   *
    * @public
    */
   filterPattern?: string | undefined;
 
   /**
-   * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are
-   *       automatically baselined and the anomaly detector model will treat new occurrences of similar
-   *       event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it
-   *       will be considered normal going forward and will not be detected.</p>
+   * The number of days to use as the life cycle of anomalies. After this time, anomalies are automatically baselined and the anomaly detector model will treat new occurrences of similar event as normal. Therefore, if you do not correct the cause of an anomaly during this time, it will be considered normal going forward and will not be detected.
+   *
    * @public
    */
   anomalyVisibilityTime?: number | undefined;
 
   /**
-   * <p>Use this parameter to pause or restart the anomaly detector. </p>
+   * Use this parameter to pause or restart the anomaly detector.
+   *
    * @public
    */
   enabled: boolean | undefined;
@@ -368,40 +371,40 @@ export interface UpdateLogAnomalyDetectorRequest {
  */
 export interface UpdateLookupTableRequest {
   /**
-   * <p>The ARN of the lookup table to update.</p>
+   * The ARN of the lookup table to update.
+   *
    * @public
    */
   lookupTableArn: string | undefined;
 
   /**
-   * <p>An updated description of the lookup table.</p>
+   * An updated description of the lookup table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The new CSV content to replace the existing data. The first row must be a header row
-   *       with column names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
-   *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
-   *       both.</p>
+   * The new CSV content to replace the existing data. The first row must be a header row with column names. The content must use UTF-8 encoding and not exceed 10 MB.
+   *
+   * You must specify either `tableBody` or `queryId`, but not both.
+   *
    * @public
    */
   tableBody?: string | undefined;
 
   /**
-   * <p>The ID of a completed or cancelled CloudWatch Logs query whose results replace
-   *       the lookup table content. A cancelled query replaces the content with the partial results
-   *       that were available when the query was stopped.</p>
-   *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
-   *       both.</p>
+   * The ID of a completed or cancelled CloudWatch Logs query whose results replace the lookup table content. A cancelled query replaces the content with the partial results that were available when the query was stopped.
+   *
+   * You must specify either `tableBody` or `queryId`, but not both.
+   *
    * @public
    */
   queryId?: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key to use to encrypt the lookup table data. You can
-   *       use this parameter to add, update, or remove the KMS key. To remove the KMS key and use an
-   *       Amazon Web Services-owned key instead, specify an empty string.</p>
+   * The ARN of the KMS key to use to encrypt the lookup table data. You can use this parameter to add, update, or remove the KMS key. To remove the KMS key and use an Amazon Web Services-owned key instead, specify an empty string.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -412,14 +415,15 @@ export interface UpdateLookupTableRequest {
  */
 export interface UpdateLookupTableResponse {
   /**
-   * <p>The ARN of the lookup table that was updated.</p>
+   * The ARN of the lookup table that was updated.
+   *
    * @public
    */
   lookupTableArn?: string | undefined;
 
   /**
-   * <p>The time when the lookup table was last updated, expressed as the number of
-   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   * The time when the lookup table was last updated, expressed as the number of milliseconds after `Jan 1, 1970 00:00:00 UTC`.
+   *
    * @public
    */
   lastUpdatedTime?: number | undefined;
@@ -430,87 +434,99 @@ export interface UpdateLookupTableResponse {
  */
 export interface UpdateScheduledQueryRequest {
   /**
-   * <p>The ARN or name of the scheduled query to update.</p>
+   * The ARN or name of the scheduled query to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>An updated description for the scheduled query.</p>
+   * An updated description for the scheduled query.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated query language for the scheduled query.</p>
+   * The updated query language for the scheduled query.
+   *
    * @public
    */
   queryLanguage: QueryLanguage | undefined;
 
   /**
-   * <p>The updated query string to execute.</p>
+   * The updated query string to execute.
+   *
    * @public
    */
   queryString: string | undefined;
 
   /**
-   * <p>The updated array of log group names or ARNs to query.</p>
+   * The updated array of log group names or ARNs to query.
+   *
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The updated cron expression that defines when the scheduled query runs.</p>
+   * The updated cron expression that defines when the scheduled query runs.
+   *
    * @public
    */
   scheduleExpression: string | undefined;
 
   /**
-   * <p>The updated timezone for evaluating the schedule expression.</p>
+   * The updated timezone for evaluating the schedule expression.
+   *
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>The updated time offset in seconds that defines the lookback period for the query.</p>
+   * The updated time offset in seconds that defines the lookback period for the query.
+   *
    * @public
    */
   startTimeOffset?: number | undefined;
 
   /**
-   * <p>The updated time offset in seconds that defines the end of the lookback period for
-   *       the query.</p>
+   * The updated time offset in seconds that defines the end of the lookback period for the query.
+   *
    * @public
    */
   endTimeOffset?: number | undefined;
 
   /**
-   * <p>The updated configuration for where to deliver query results.</p>
+   * The updated configuration for where to deliver query results.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The updated start time for the scheduled query in Unix epoch format.</p>
+   * The updated start time for the scheduled query in Unix epoch format.
+   *
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>The updated end time for the scheduled query in Unix epoch format.</p>
+   * The updated end time for the scheduled query in Unix epoch format.
+   *
    * @public
    */
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>The updated ARN of the IAM role that grants permissions to execute the query and deliver
-   *       results.</p>
+   * The updated ARN of the IAM role that grants permissions to execute the query and deliver results.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The updated state of the scheduled query.</p>
+   * The updated state of the scheduled query.
+   *
    * @public
    */
   state?: ScheduledQueryState | undefined;
@@ -521,165 +537,190 @@ export interface UpdateScheduledQueryRequest {
  */
 export interface UpdateScheduledQueryResponse {
   /**
-   * <p>The ARN of the updated scheduled query.</p>
+   * The ARN of the updated scheduled query.
+   *
    * @public
    */
   scheduledQueryArn?: string | undefined;
 
   /**
-   * <p>The name of the updated scheduled query.</p>
+   * The name of the updated scheduled query.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the updated scheduled query.</p>
+   * The description of the updated scheduled query.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The query language of the updated scheduled query.</p>
+   * The query language of the updated scheduled query.
+   *
    * @public
    */
   queryLanguage?: QueryLanguage | undefined;
 
   /**
-   * <p>The query string of the updated scheduled query.</p>
+   * The query string of the updated scheduled query.
+   *
    * @public
    */
   queryString?: string | undefined;
 
   /**
-   * <p>The log groups queried by the updated scheduled query.</p>
+   * The log groups queried by the updated scheduled query.
+   *
    * @public
    */
   logGroupIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The cron expression of the updated scheduled query.</p>
+   * The cron expression of the updated scheduled query.
+   *
    * @public
    */
   scheduleExpression?: string | undefined;
 
   /**
-   * <p>The timezone of the updated scheduled query.</p>
+   * The timezone of the updated scheduled query.
+   *
    * @public
    */
   timezone?: string | undefined;
 
   /**
-   * <p>The time offset of the updated scheduled query.</p>
+   * The time offset of the updated scheduled query.
+   *
    * @public
    */
   startTimeOffset?: number | undefined;
 
   /**
-   * <p>The end time offset in seconds of the updated scheduled query.</p>
+   * The end time offset in seconds of the updated scheduled query.
+   *
    * @public
    */
   endTimeOffset?: number | undefined;
 
   /**
-   * <p>The destination configuration of the updated scheduled query.</p>
+   * The destination configuration of the updated scheduled query.
+   *
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
 
   /**
-   * <p>The state of the updated scheduled query.</p>
+   * The state of the updated scheduled query.
+   *
    * @public
    */
   state?: ScheduledQueryState | undefined;
 
   /**
-   * <p>The schedule type of the updated scheduled query.</p>
+   * The schedule type of the updated scheduled query.
+   *
    * @public
    */
   scheduleType?: ScheduleType | undefined;
 
   /**
-   * <p>The timestamp when the updated scheduled query was last executed.</p>
+   * The timestamp when the updated scheduled query was last executed.
+   *
    * @public
    */
   lastTriggeredTime?: number | undefined;
 
   /**
-   * <p>The status of the most recent execution of the updated scheduled query.</p>
+   * The status of the most recent execution of the updated scheduled query.
+   *
    * @public
    */
   lastExecutionStatus?: ExecutionStatus | undefined;
 
   /**
-   * <p>The start time of the updated scheduled query.</p>
+   * The start time of the updated scheduled query.
+   *
    * @public
    */
   scheduleStartTime?: number | undefined;
 
   /**
-   * <p>The end time of the updated scheduled query.</p>
+   * The end time of the updated scheduled query.
+   *
    * @public
    */
   scheduleEndTime?: number | undefined;
 
   /**
-   * <p>The execution role ARN of the updated scheduled query.</p>
+   * The execution role ARN of the updated scheduled query.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the scheduled query was originally created.</p>
+   * The timestamp when the scheduled query was originally created.
+   *
    * @public
    */
   creationTime?: number | undefined;
 
   /**
-   * <p>The timestamp when the scheduled query was last updated.</p>
+   * The timestamp when the scheduled query was last updated.
+   *
    * @public
    */
   lastUpdatedTime?: number | undefined;
 }
 
 /**
- * <p>Defines the data type structure for a log field, including the type, element information,
- *       and nested fields for complex types.</p>
+ * Defines the data type structure for a log field, including the type, element information, and nested fields for complex types.
+ *
  * @public
  */
 export interface LogFieldType {
   /**
-   * <p>The data type of the log field.</p>
+   * The data type of the log field.
+   *
    * @public
    */
   type?: string | undefined;
 
   /**
-   * <p>For array or collection types, specifies the element type information.</p>
+   * For array or collection types, specifies the element type information.
+   *
    * @public
    */
   element?: LogFieldType | undefined;
 
   /**
-   * <p>For complex types, contains the nested field definitions.</p>
+   * For complex types, contains the nested field definitions.
+   *
    * @public
    */
   fields?: LogFieldsListItem[] | undefined;
 }
 
 /**
- * <p>Represents a log field with its name and data type information for a specific data
- *       source.</p>
+ * Represents a log field with its name and data type information for a specific data source.
+ *
  * @public
  */
 export interface LogFieldsListItem {
   /**
-   * <p>The name of the log field.</p>
+   * The name of the log field.
+   *
    * @public
    */
   logFieldName?: string | undefined;
 
   /**
-   * <p>The data type information for the log field.</p>
+   * The data type information for the log field.
+   *
    * @public
    */
   logFieldType?: LogFieldType | undefined;
@@ -690,8 +731,8 @@ export interface LogFieldsListItem {
  */
 export interface GetLogFieldsResponse {
   /**
-   * <p>The list of log fields for the specified data source, including field names and their data
-   *       types.</p>
+   * The list of log fields for the specified data source, including field names and their data types.
+   *
    * @public
    */
   logFields?: LogFieldsListItem[] | undefined;

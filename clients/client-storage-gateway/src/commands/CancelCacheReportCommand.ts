@@ -23,11 +23,8 @@ export interface CancelCacheReportCommandInput extends CancelCacheReportInput {}
 export interface CancelCacheReportCommandOutput extends CancelCacheReportOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels generation of a specified cache report. You can use this operation to manually
- *          cancel an IN-PROGRESS report for any reason. This action changes the report status from
- *          IN-PROGRESS to CANCELLED. You can only cancel in-progress reports. If the the report you
- *          attempt to cancel is in FAILED, ERROR, or COMPLETED state, the cancel operation returns an
- *          error.</p>
+ * Cancels generation of a specified cache report. You can use this operation to manually cancel an IN-PROGRESS report for any reason. This action changes the report status from IN-PROGRESS to CANCELLED. You can only cancel in-progress reports. If the the report you attempt to cancel is in FAILED, ERROR, or COMPLETED state, the cancel operation returns an error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,16 +51,16 @@ export interface CancelCacheReportCommandOutput extends CancelCacheReportOutput,
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

@@ -23,32 +23,29 @@ export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigura
 export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- *          <p>Associates a <a>LoggingConfiguration</a> with a specified web ACL.</p>
- * 	        <p>You can access information about all traffic that AWS WAF inspects using the following
- *          steps:</p>
- * 	        <ol>
- *             <li>
- *                <p>Create an Amazon Kinesis Data
- *                Firehose. </p>
- * 	              <p>Create the data firehose with a PUT source and in the region that you are operating. However, if you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia). </p>
- * 	              <note>
- *                   <p>Do not create the data firehose using a <code>Kinesis stream</code> as your source.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.</p>
- *             </li>
- *          </ol>
- * 	
- *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Associates a LoggingConfiguration with a specified web ACL.
+ *
+ * You can access information about all traffic that AWS WAF inspects using the following steps:
+ *
+ * 1. Create an Amazon Kinesis Data Firehose.
+ *
+ *    Create the data firehose with a PUT source and in the region that you are operating. However, if you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia).
+ *
+ *    > **Note:** Do not create the data firehose using a `Kinesis stream` as your source.
+ * 2. Associate that firehose to your web ACL using a `PutLoggingConfiguration` request.
+ *
+ *
+ *
+ * When you successfully enable logging using a `PutLoggingConfiguration` request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose. For more information, see [Logging Web ACL Traffic Information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the *AWS WAF Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,20 +94,24 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * The operation failed because the referenced object doesn't exist.
  *
  * @throws {@link WAFServiceLinkedRoleErrorException} (client fault)
- *  <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
+ *
+ * AWS WAF is not able to access the service linked role. This can be caused by a previous `PutLoggingConfiguration` request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous `DeleteServiceLinkedRole` request, which can lock the role for 15 minutes or more. If you recently made a `DeleteServiceLinkedRole`, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.
  *
  * @throws {@link WAFStaleDataException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
  *
  * @throws {@link WAFServiceException}
- * <p>Base exception class for all service exceptions from WAF service.</p>
  *
+ * Base exception class for all service exceptions from WAF service.
  *
  * @public
  */

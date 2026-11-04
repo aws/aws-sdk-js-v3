@@ -23,25 +23,18 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a user account from the specified Connect Customer instance.</p>
- *          <p>For information about what happens to a user's data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Connect Customer
- *     Instance</a> in the <i>Connect Customer Administrator Guide</i>.</p>
- *          <important>
- *             <p>After calling DeleteUser, call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">DeleteQuickConnect</a> to delete any records
- *     related to the deleted users. This will help you:</p>
- *             <ul>
- *                <li>
- *                   <p>Avoid dangling resources that impact your service quotas.</p>
- *                </li>
- *                <li>
- *                   <p>Remove deleted users so they don't appear to agents as transfer options.</p>
- *                </li>
- *                <li>
- *                   <p>Avoid the disruption of other Connect Customer processes, such as instance replication and syncing if
- *       you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Connect Customer Global Resiliency</a>. </p>
- *                </li>
- *             </ul>
- *          </important>
+ * Deletes a user account from the specified Connect Customer instance.
+ *
+ * For information about what happens to a user's data when their account is deleted, see [Delete Users from Your Connect Customer Instance](https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html) in the *Connect Customer Administrator Guide*.
+ *
+ * > **Important:**
+ * >
+ * > After calling DeleteUser, call [DeleteQuickConnect](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html) to delete any records related to the deleted users. This will help you:
+ * >
+ * > - Avoid dangling resources that impact your service quotas.
+ * > - Remove deleted users so they don't appear to agents as transfer options.
+ * > - Avoid the disruption of other Connect Customer processes, such as instance replication and syncing if you're using [Connect Customer Global Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,23 +60,28 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

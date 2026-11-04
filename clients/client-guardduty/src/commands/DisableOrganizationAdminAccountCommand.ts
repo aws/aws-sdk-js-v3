@@ -26,7 +26,8 @@ export interface DisableOrganizationAdminAccountCommandInput extends DisableOrga
 export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the existing GuardDuty delegated administrator of the organization. Only the organization's management account can run this API operation.</p>
+ * Removes the existing GuardDuty delegated administrator of the organization. Only the organization's management account can run this API operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrg
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

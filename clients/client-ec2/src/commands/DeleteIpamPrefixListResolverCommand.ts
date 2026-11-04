@@ -23,7 +23,8 @@ export interface DeleteIpamPrefixListResolverCommandInput extends DeleteIpamPref
 export interface DeleteIpamPrefixListResolverCommandOutput extends DeleteIpamPrefixListResolverResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an IPAM prefix list resolver. Before deleting a resolver, you must first delete all resolver targets associated with it.</p>
+ * Deletes an IPAM prefix list resolver. Before deleting a resolver, you must first delete all resolver targets associated with it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface DeleteIpamPrefixListResolverCommandOutput extends DeleteIpamPre
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

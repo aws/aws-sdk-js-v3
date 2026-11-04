@@ -23,13 +23,10 @@ export interface DeleteClusterSnapshotCommandInput extends DeleteClusterSnapshot
 export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified manual snapshot. The snapshot must be in the
- *                 <code>available</code> state, with no other users authorized to access the snapshot. </p>
- *          <p>Unlike automated snapshots, manual snapshots are retained even after you delete
- *             your cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual
- *             snapshot explicitly to avoid getting charged. If other accounts are authorized to access
- *             the snapshot, you must revoke all of the authorizations before you can delete the
- *             snapshot.</p>
+ * Deletes the specified manual snapshot. The snapshot must be in the `available` state, with no other users authorized to access the snapshot.
+ *
+ * Unlike automated snapshots, manual snapshots are retained even after you delete your cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual snapshot explicitly to avoid getting charged. If other accounts are authorized to access the snapshot, you must revoke all of the authorizations before you can delete the snapshot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,15 +104,16 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
- *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ *
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

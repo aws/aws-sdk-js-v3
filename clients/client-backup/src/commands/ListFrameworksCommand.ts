@@ -23,7 +23,8 @@ export interface ListFrameworksCommandInput extends ListFrameworksInput {}
 export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.</p>
+ * Returns a list of all frameworks for an Amazon Web Services account and Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,15 +62,16 @@ export interface ListFrameworksCommandOutput extends ListFrameworksOutput, __Met
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

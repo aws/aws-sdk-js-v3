@@ -23,10 +23,8 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing Recycle Bin retention rule. You can update a retention rule's description,
- *       resource tags, and retention period at any time after creation. You can't update a retention rule's
- *       resource type after creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
- *       Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * Updates an existing Recycle Bin retention rule. You can update a retention rule's description, resource tags, and retention period at any time after creation. You can't update a retention rule's resource type after creation. For more information, see [Update Recycle Bin retention rules](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule) in the *Amazon Elastic Compute Cloud User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,23 +91,28 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The specified retention rule lock request can't be completed.</p>
+ *
+ * The specified retention rule lock request can't be completed.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * The service could not respond to the request due to an internal problem.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+ *
+ * The request would cause a service quota for the number of tags per resource to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more of the parameters in the request is not valid.</p>
+ *
+ * One or more of the parameters in the request is not valid.
  *
  * @throws {@link RbinServiceException}
- * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * Base exception class for all service exceptions from Rbin service.
  *
  * @public
  */

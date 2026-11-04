@@ -23,9 +23,8 @@ export interface DescribeAssociationCommandInput extends DescribeAssociationRequ
 export interface DescribeAssociationCommandOutput extends DescribeAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Describes the association for the specified target or managed node. If you created the
- *    association by using the <code>Targets</code> parameter, then you must retrieve the association
- *    by using the association ID.</p>
+ * Describes the association for the specified target or managed node. If you created the association by using the `Targets` parameter, then you must retrieve the association by using the association ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,42 +167,33 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AssociationDoesNotExist} (client fault)
- *  <p>The specified association doesn't exist.</p>
+ *
+ * The specified association doesn't exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAssociationVersion} (client fault)
- *  <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of
- *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
- *    view the latest version of the association.</p>
+ *
+ * The version you specified isn't valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the `$LATEST` parameter to view the latest version of the association.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidInstanceId} (client fault)
- *  <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

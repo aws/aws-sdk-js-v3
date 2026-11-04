@@ -23,19 +23,14 @@ export interface DescribeContinuousBackupsCommandInput extends DescribeContinuou
 export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuousBackupsOutput, __MetadataBearer {}
 
 /**
- * <p>Checks the status of continuous backups and point in time recovery on the specified
- *             table. Continuous backups are <code>ENABLED</code> on all tables at table creation. If
- *             point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will be set to
- *             ENABLED.</p>
- *          <p> After continuous backups and point in time recovery are enabled, you can restore to
- *             any point in time within <code>EarliestRestorableDateTime</code> and
- *                 <code>LatestRestorableDateTime</code>. </p>
- *          <p>
- *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
- *             You can restore your table to any point in time in the last 35 days. You can set the
- *             recovery period to any value between 1 and 35 days. </p>
- *          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per
- *             second.</p>
+ * Checks the status of continuous backups and point in time recovery on the specified table. Continuous backups are `ENABLED` on all tables at table creation. If point in time recovery is enabled, `PointInTimeRecoveryStatus` will be set to ENABLED.
+ *
+ * After continuous backups and point in time recovery are enabled, you can restore to any point in time within `EarliestRestorableDateTime` and `LatestRestorableDateTime`.
+ *
+ * `LatestRestorableDateTime` is typically 5 minutes before the current time. You can restore your table to any point in time in the last 35 days. You can set the recovery period to any value between 1 and 35 days.
+ *
+ * You can call `DescribeContinuousBackups` at a maximum rate of 10 times per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,18 +65,18 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link TableNotFoundException} (client fault)
- *  <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
- *             Region.</p>
+ *
+ * A source table with the name `TableName` does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of tags associated with a resource. Only bots, bot
- *          aliases, and bot channels can have tags associated with them.</p>
+ * Gets a list of tags associated with a resource. Only bots, bot aliases, and bot channels can have tags associated with them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,24 +53,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You asked to describe a resource that doesn't exist. Check the
- *          resource that you are requesting and try again.</p>
+ *
+ * You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

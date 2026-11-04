@@ -23,7 +23,8 @@ export interface ExportComponentsCommandInput extends ExportComponentsRequest {}
 export interface ExportComponentsCommandOutput extends ExportComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Exports component configurations to code that is ready to integrate into an Amplify app.</p>
+ * Exports component configurations to code that is ready to integrate into an Amplify app.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -273,14 +274,16 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * An internal error has occurred. Please retry your request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

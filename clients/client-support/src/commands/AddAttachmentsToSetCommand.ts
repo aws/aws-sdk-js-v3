@@ -23,24 +23,15 @@ export interface AddAttachmentsToSetCommandInput extends AddAttachmentsToSetRequ
 export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more attachments to an attachment set. </p>
- *          <p>An attachment set is a temporary container for attachments that you add to a case or
- *             case communication. The set is available for 1 hour after it's created. The
- *                 <code>expiryTime</code> returned in the response is when the set expires. </p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Adds one or more attachments to an attachment set.
+ *
+ * An attachment set is a temporary container for attachments that you add to a case or case communication. The set is available for 1 hour after it's created. The `expiryTime` returned in the response is when the set expires.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,30 +66,32 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link AttachmentLimitExceeded} (client fault)
- *  <p>The limit for the number of attachment sets created in a short period of time has been
- *             exceeded.</p>
+ *
+ * The limit for the number of attachment sets created in a short period of time has been exceeded.
  *
  * @throws {@link AttachmentSetExpired} (client fault)
- *  <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
- *             is created.</p>
+ *
+ * The expiration time of the attachment set has passed. The set expires 1 hour after it is created.
  *
  * @throws {@link AttachmentSetIdNotFound} (client fault)
- *  <p>An attachment set with the specified ID could not be found.</p>
+ *
+ * An attachment set with the specified ID could not be found.
  *
  * @throws {@link AttachmentSetSizeLimitExceeded} (client fault)
- *  <p>A limit for the size of an attachment set has been exceeded. The limits are three
- *             attachments and 5 MB per attachment.</p>
+ *
+ * A limit for the size of an attachment set has been exceeded. The limits are three attachments and 5 MB per attachment.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ *
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

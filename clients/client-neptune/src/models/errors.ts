@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { NeptuneServiceException as __BaseException } from "./NeptuneServiceException";
 
 /**
- * <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
+ *
  * @public
  */
 export class DBClusterNotFoundFault extends __BaseException {
@@ -26,7 +26,8 @@ export class DBClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+ * The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.
+ *
  * @public
  */
 export class DBClusterRoleAlreadyExistsFault extends __BaseException {
@@ -47,7 +48,8 @@ export class DBClusterRoleAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ * You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.
+ *
  * @public
  */
 export class DBClusterRoleQuotaExceededFault extends __BaseException {
@@ -68,7 +70,8 @@ export class DBClusterRoleQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The DB cluster is not in a valid state.</p>
+ * The DB cluster is not in a valid state.
+ *
  * @public
  */
 export class InvalidDBClusterStateFault extends __BaseException {
@@ -89,7 +92,8 @@ export class InvalidDBClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>The source could not be found.</p>
+ * The source could not be found.
+ *
  * @public
  */
 export class SourceNotFoundFault extends __BaseException {
@@ -110,7 +114,8 @@ export class SourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The designated subscription could not be found.</p>
+ * The designated subscription could not be found.
+ *
  * @public
  */
 export class SubscriptionNotFoundFault extends __BaseException {
@@ -131,8 +136,8 @@ export class SubscriptionNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
+ *
  * @public
  */
 export class DBInstanceNotFoundFault extends __BaseException {
@@ -153,8 +158,8 @@ export class DBInstanceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
+ * *DBSnapshotIdentifier* does not refer to an existing DB snapshot.
+ *
  * @public
  */
 export class DBSnapshotNotFoundFault extends __BaseException {
@@ -175,7 +180,8 @@ export class DBSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified resource ID was not found.</p>
+ * The specified resource ID was not found.
+ *
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
@@ -196,7 +202,8 @@ export class ResourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>A DB parameter group with the same name exists.</p>
+ * A DB parameter group with the same name exists.
+ *
  * @public
  */
 export class DBParameterGroupAlreadyExistsFault extends __BaseException {
@@ -217,9 +224,8 @@ export class DBParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
+ *
  * @public
  */
 export class DBParameterGroupNotFoundFault extends __BaseException {
@@ -240,7 +246,8 @@ export class DBParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ * Request would result in user exceeding the allowed number of DB parameter groups.
+ *
  * @public
  */
 export class DBParameterGroupQuotaExceededFault extends __BaseException {
@@ -261,7 +268,8 @@ export class DBParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>User already has a DB cluster snapshot with the given identifier.</p>
+ * User already has a DB cluster snapshot with the given identifier.
+ *
  * @public
  */
 export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
@@ -282,9 +290,8 @@ export class DBClusterSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
- *       DB cluster snapshot.</p>
+ * *DBClusterSnapshotIdentifier* does not refer to an existing DB cluster snapshot.
+ *
  * @public
  */
 export class DBClusterSnapshotNotFoundFault extends __BaseException {
@@ -305,7 +312,8 @@ export class DBClusterSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ * The supplied value is not a valid DB cluster snapshot state.
+ *
  * @public
  */
 export class InvalidDBClusterSnapshotStateFault extends __BaseException {
@@ -326,7 +334,8 @@ export class InvalidDBClusterSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p>Error accessing KMS key.</p>
+ * Error accessing KMS key.
+ *
  * @public
  */
 export class KMSKeyNotAccessibleFault extends __BaseException {
@@ -347,7 +356,8 @@ export class KMSKeyNotAccessibleFault extends __BaseException {
 }
 
 /**
- * <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+ * Request would result in user exceeding the allowed number of DB snapshots.
+ *
  * @public
  */
 export class SnapshotQuotaExceededFault extends __BaseException {
@@ -368,7 +378,8 @@ export class SnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>User already has a DB cluster with the given identifier.</p>
+ * User already has a DB cluster with the given identifier.
+ *
  * @public
  */
 export class DBClusterAlreadyExistsFault extends __BaseException {
@@ -389,9 +400,8 @@ export class DBClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBClusterParameterGroupName</i> does not refer to an
- *       existing DB Cluster parameter group.</p>
+ * *DBClusterParameterGroupName* does not refer to an existing DB Cluster parameter group.
+ *
  * @public
  */
 export class DBClusterParameterGroupNotFoundFault extends __BaseException {
@@ -412,7 +422,8 @@ export class DBClusterParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ * User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.
+ *
  * @public
  */
 export class DBClusterQuotaExceededFault extends __BaseException {
@@ -433,8 +444,8 @@ export class DBClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>Subnets in the DB subnet group should cover at least two Availability
- *       Zones unless there is only one Availability Zone.</p>
+ * Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.
+ *
  * @public
  */
 export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
@@ -455,9 +466,8 @@ export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
+ * *DBSubnetGroupName* does not refer to an existing DB subnet group.
+ *
  * @public
  */
 export class DBSubnetGroupNotFoundFault extends __BaseException {
@@ -478,7 +488,8 @@ export class DBSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
+ *
  * @public
  */
 export class GlobalClusterNotFoundFault extends __BaseException {
@@ -499,9 +510,8 @@ export class GlobalClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>There is insufficient storage available for the current action. You may
- *        be able to resolve this error by updating your subnet group to use different
- *        Availability Zones that have more storage available.</p>
+ * There is insufficient storage available for the current action. You may be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available.
+ *
  * @public
  */
 export class InsufficientStorageClusterCapacityFault extends __BaseException {
@@ -522,7 +532,8 @@ export class InsufficientStorageClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The specified DB instance is not in the <i>available</i> state.</p>
+ * The specified DB instance is not in the *available* state.
+ *
  * @public
  */
 export class InvalidDBInstanceStateFault extends __BaseException {
@@ -543,7 +554,8 @@ export class InvalidDBInstanceStateFault extends __BaseException {
 }
 
 /**
- * <p>The DB subnet group cannot be deleted because it is in use.</p>
+ * The DB subnet group cannot be deleted because it is in use.
+ *
  * @public
  */
 export class InvalidDBSubnetGroupStateFault extends __BaseException {
@@ -564,7 +576,8 @@ export class InvalidDBSubnetGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+ * The global cluster is in an invalid state and can't perform the requested operation.
+ *
  * @public
  */
 export class InvalidGlobalClusterStateFault extends __BaseException {
@@ -585,8 +598,8 @@ export class InvalidGlobalClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>The requested subnet is invalid, or multiple subnets were requested that are
- *       not all in a common VPC.</p>
+ * The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.
+ *
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -607,8 +620,8 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>DB subnet group does not cover all Availability Zones after it is created
- *       because users' change.</p>
+ * DB subnet group does not cover all Availability Zones after it is created because users' change.
+ *
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -629,7 +642,8 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified <i>NetworkType</i> is not supported for the DB cluster, DB subnet group, or orderable DB instance option.</p>
+ * The specified *NetworkType* is not supported for the DB cluster, DB subnet group, or orderable DB instance option.
+ *
  * @public
  */
 export class NetworkTypeNotSupportedFault extends __BaseException {
@@ -650,7 +664,8 @@ export class NetworkTypeNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ * Request would result in user exceeding the allowed amount of storage available across all DB instances.
+ *
  * @public
  */
 export class StorageQuotaExceededFault extends __BaseException {
@@ -671,7 +686,8 @@ export class StorageQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified custom endpoint cannot be created because it already exists.</p>
+ * The specified custom endpoint cannot be created because it already exists.
+ *
  * @public
  */
 export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
@@ -692,7 +708,8 @@ export class DBClusterEndpointAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The cluster already has the maximum number of custom endpoints.</p>
+ * The cluster already has the maximum number of custom endpoints.
+ *
  * @public
  */
 export class DBClusterEndpointQuotaExceededFault extends __BaseException {
@@ -713,8 +730,10 @@ export class DBClusterEndpointQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
- *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+ * Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.
+ *
+ * Neptune may not also be authorized via IAM to perform necessary actions on your behalf.
+ *
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
@@ -735,7 +754,8 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>User already has a DB instance with the given identifier.</p>
+ * User already has a DB instance with the given identifier.
+ *
  * @public
  */
 export class DBInstanceAlreadyExistsFault extends __BaseException {
@@ -756,9 +776,8 @@ export class DBInstanceAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBSecurityGroupName</i> does not refer
- *       to an existing DB security group.</p>
+ * *DBSecurityGroupName* does not refer to an existing DB security group.
+ *
  * @public
  */
 export class DBSecurityGroupNotFoundFault extends __BaseException {
@@ -779,8 +798,8 @@ export class DBSecurityGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+ * *Domain* does not refer to an existing Active Directory Domain.
+ *
  * @public
  */
 export class DomainNotFoundFault extends __BaseException {
@@ -801,7 +820,8 @@ export class DomainNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>Request would result in user exceeding the allowed number of DB instances.</p>
+ * Request would result in user exceeding the allowed number of DB instances.
+ *
  * @public
  */
 export class InstanceQuotaExceededFault extends __BaseException {
@@ -822,7 +842,8 @@ export class InstanceQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+ * Specified DB instance class is not available in the specified Availability Zone.
+ *
  * @public
  */
 export class InsufficientDBInstanceCapacityFault extends __BaseException {
@@ -843,7 +864,8 @@ export class InsufficientDBInstanceCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The designated option group could not be found.</p>
+ * The designated option group could not be found.
+ *
  * @public
  */
 export class OptionGroupNotFoundFault extends __BaseException {
@@ -864,7 +886,8 @@ export class OptionGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ * Provisioned IOPS not available in the specified Availability Zone.
+ *
  * @public
  */
 export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
@@ -885,8 +908,8 @@ export class ProvisionedIopsNotAvailableInAZFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ * *StorageType* specified cannot be associated with the DB Instance.
+ *
  * @public
  */
 export class StorageTypeNotSupportedFault extends __BaseException {
@@ -907,8 +930,8 @@ export class StorageTypeNotSupportedFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
+ * *DBSubnetGroupName* is already used by an existing DB subnet group.
+ *
  * @public
  */
 export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
@@ -929,7 +952,8 @@ export class DBSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
+ * Request would result in user exceeding the allowed number of DB subnet groups.
+ *
  * @public
  */
 export class DBSubnetGroupQuotaExceededFault extends __BaseException {
@@ -950,7 +974,8 @@ export class DBSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
+ * Request would result in user exceeding the allowed number of subnets in a DB subnet groups.
+ *
  * @public
  */
 export class DBSubnetQuotaExceededFault extends __BaseException {
@@ -971,7 +996,8 @@ export class DBSubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the number of events you can subscribe to.</p>
+ * You have exceeded the number of events you can subscribe to.
+ *
  * @public
  */
 export class EventSubscriptionQuotaExceededFault extends __BaseException {
@@ -992,7 +1018,8 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The SNS topic is invalid.</p>
+ * The SNS topic is invalid.
+ *
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
@@ -1013,7 +1040,8 @@ export class SNSInvalidTopicFault extends __BaseException {
 }
 
 /**
- * <p>There is no SNS authorization.</p>
+ * There is no SNS authorization.
+ *
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
@@ -1034,7 +1062,8 @@ export class SNSNoAuthorizationFault extends __BaseException {
 }
 
 /**
- * <p>The ARN of the SNS topic could not be found.</p>
+ * The ARN of the SNS topic could not be found.
+ *
  * @public
  */
 export class SNSTopicArnNotFoundFault extends __BaseException {
@@ -1055,7 +1084,8 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>This subscription already exists.</p>
+ * This subscription already exists.
+ *
  * @public
  */
 export class SubscriptionAlreadyExistFault extends __BaseException {
@@ -1076,7 +1106,8 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
 }
 
 /**
- * <p>The designated subscription category could not be found.</p>
+ * The designated subscription category could not be found.
+ *
  * @public
  */
 export class SubscriptionCategoryNotFoundFault extends __BaseException {
@@ -1097,7 +1128,8 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ * The `GlobalClusterIdentifier` already exists. Choose a new global database identifier (unique name) to create a new global database cluster.
+ *
  * @public
  */
 export class GlobalClusterAlreadyExistsFault extends __BaseException {
@@ -1118,7 +1150,8 @@ export class GlobalClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+ * The number of global database clusters for this account is already at the maximum allowed.
+ *
  * @public
  */
 export class GlobalClusterQuotaExceededFault extends __BaseException {
@@ -1139,7 +1172,8 @@ export class GlobalClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified custom endpoint doesn't exist.</p>
+ * The specified custom endpoint doesn't exist.
+ *
  * @public
  */
 export class DBClusterEndpointNotFoundFault extends __BaseException {
@@ -1160,7 +1194,8 @@ export class DBClusterEndpointNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+ * The requested operation cannot be performed on the endpoint while the endpoint is in this state.
+ *
  * @public
  */
 export class InvalidDBClusterEndpointStateFault extends __BaseException {
@@ -1181,8 +1216,8 @@ export class InvalidDBClusterEndpointStateFault extends __BaseException {
 }
 
 /**
- * <p>The DB parameter group is in use or is in an invalid state. If you are attempting to
- *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
+ * The DB parameter group is in use or is in an invalid state. If you are attempting to delete the parameter group, you cannot delete it when the parameter group is in this state.
+ *
  * @public
  */
 export class InvalidDBParameterGroupStateFault extends __BaseException {
@@ -1203,8 +1238,8 @@ export class InvalidDBParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
+ * *DBSnapshotIdentifier* is already used by an existing snapshot.
+ *
  * @public
  */
 export class DBSnapshotAlreadyExistsFault extends __BaseException {
@@ -1225,7 +1260,8 @@ export class DBSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The DB subnet is not in the <i>available</i> state.</p>
+ * The DB subnet is not in the *available* state.
+ *
  * @public
  */
 export class InvalidDBSubnetStateFault extends __BaseException {
@@ -1246,7 +1282,8 @@ export class InvalidDBSubnetStateFault extends __BaseException {
 }
 
 /**
- * <p>The event subscription is in an invalid state.</p>
+ * The event subscription is in an invalid state.
+ *
  * @public
  */
 export class InvalidEventSubscriptionStateFault extends __BaseException {
@@ -1267,7 +1304,8 @@ export class InvalidEventSubscriptionStateFault extends __BaseException {
 }
 
 /**
- * <p>The state of the DB security group does not allow deletion.</p>
+ * The state of the DB security group does not allow deletion.
+ *
  * @public
  */
 export class InvalidDBSecurityGroupStateFault extends __BaseException {
@@ -1288,7 +1326,8 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ * You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.
+ *
  * @public
  */
 export class SharedSnapshotQuotaExceededFault extends __BaseException {
@@ -1309,8 +1348,8 @@ export class SharedSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
+ * *CertificateIdentifier* does not refer to an existing certificate.
+ *
  * @public
  */
 export class CertificateNotFoundFault extends __BaseException {
@@ -1331,7 +1370,8 @@ export class CertificateNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
+ * The DB upgrade failed because a resource the DB depends on could not be modified.
+ *
  * @public
  */
 export class DBUpgradeDependencyFailureFault extends __BaseException {
@@ -1352,7 +1392,8 @@ export class DBUpgradeDependencyFailureFault extends __BaseException {
 }
 
 /**
- * <p>The DB subnet is already in use in the Availability Zone.</p>
+ * The DB subnet is already in use in the Availability Zone.
+ *
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -1373,7 +1414,8 @@ export class SubnetAlreadyInUse extends __BaseException {
 }
 
 /**
- * <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
+ * The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.
+ *
  * @public
  */
 export class DBClusterRoleNotFoundFault extends __BaseException {
@@ -1394,7 +1436,8 @@ export class DBClusterRoleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The DB cluster does not have enough capacity for the current operation.</p>
+ * The DB cluster does not have enough capacity for the current operation.
+ *
  * @public
  */
 export class InsufficientDBClusterCapacityFault extends __BaseException {
@@ -1415,7 +1458,8 @@ export class InsufficientDBClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The state of the DB snapshot does not allow deletion.</p>
+ * The state of the DB snapshot does not allow deletion.
+ *
  * @public
  */
 export class InvalidDBSnapshotStateFault extends __BaseException {
@@ -1436,7 +1480,8 @@ export class InvalidDBSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+ * Cannot restore from vpc backup to non-vpc DB instance.
+ *
  * @public
  */
 export class InvalidRestoreFault extends __BaseException {

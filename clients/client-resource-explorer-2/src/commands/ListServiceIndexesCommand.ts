@@ -23,7 +23,8 @@ export interface ListServiceIndexesCommandInput extends ListServiceIndexesInput 
 export interface ListServiceIndexesCommandOutput extends ListServiceIndexesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all Resource Explorer indexes across the specified Amazon Web Services Regions. This operation returns information about indexes including their ARNs, types, and Regions.</p>
+ * Lists all Resource Explorer indexes across the specified Amazon Web Services Regions. This operation returns information about indexes including their ARNs, types, and Regions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +62,24 @@ export interface ListServiceIndexesCommandOutput extends ListServiceIndexesOutpu
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The credentials that you used to call this operation don't have the minimum required permissions.</p>
+ *
+ * The credentials that you used to call this operation don't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of internal service error. Try your request again later.</p>
+ *
+ * The request failed because of internal service error. Try your request again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request failed because you exceeded a rate limit for this operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for Resource Explorer</a>.</p>
+ *
+ * The request failed because you exceeded a rate limit for this operation. For more information, see [Quotas for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html).
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.</p>
+ *
+ * You provided an invalid value for one of the operation's parameters. Check the syntax for the operation, and try again.
  *
  * @throws {@link ResourceExplorer2ServiceException}
- * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ * Base exception class for all service exceptions from ResourceExplorer2 service.
  *
  * @public
  */

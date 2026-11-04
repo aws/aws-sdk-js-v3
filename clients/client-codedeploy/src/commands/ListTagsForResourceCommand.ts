@@ -23,8 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p> Returns a list of tags for the resource identified by a specified Amazon Resource
- *             Name (ARN). Tags are used to organize and categorize your CodeDeploy resources. </p>
+ * Returns a list of tags for the resource identified by a specified Amazon Resource Name (ARN). Tags are used to organize and categorize your CodeDeploy resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,18 +58,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ArnNotSupportedException} (client fault)
- *  <p> The specified ARN is not supported. For example, it might be an ARN for a resource
- *             that is not expected. </p>
+ *
+ * The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p> The specified ARN is not in a valid format. </p>
+ *
+ * The specified ARN is not in a valid format.
  *
  * @throws {@link ResourceArnRequiredException} (client fault)
- *  <p> The ARN of a resource is required, but was not found. </p>
+ *
+ * The ARN of a resource is required, but was not found.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

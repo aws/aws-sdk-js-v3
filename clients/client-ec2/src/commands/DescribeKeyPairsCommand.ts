@@ -23,9 +23,10 @@ export interface DescribeKeyPairsCommandInput extends DescribeKeyPairsRequest {}
 export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified key pairs or all of your key pairs.</p>
- *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
- * 				in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the specified key pairs or all of your key pairs.
+ *
+ * For more information about key pairs, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +83,8 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To display a key pair
  * ```javascript

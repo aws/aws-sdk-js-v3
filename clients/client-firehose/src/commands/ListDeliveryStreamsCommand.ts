@@ -23,14 +23,10 @@ export interface ListDeliveryStreamsCommandInput extends ListDeliveryStreamsInpu
 export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists your Firehose streams in alphabetical order of their names.</p>
- *          <p>The number of Firehose streams might be too large to return using a single call to
- *             <code>ListDeliveryStreams</code>. You can limit the number of Firehose streams returned,
- *          using the <code>Limit</code> parameter. To determine whether there are more delivery
- *          streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
- *          there are more Firehose streams to list, you can request them by calling this operation
- *          again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name
- *          of the last Firehose stream returned in the last call.</p>
+ * Lists your Firehose streams in alphabetical order of their names.
+ *
+ * The number of Firehose streams might be too large to return using a single call to `ListDeliveryStreams`. You can limit the number of Firehose streams returned, using the `Limit` parameter. To determine whether there are more delivery streams to list, check the value of `HasMoreDeliveryStreams` in the output. If there are more Firehose streams to list, you can request them by calling this operation again and setting the `ExclusiveStartDeliveryStreamName` parameter to the name of the last Firehose stream returned in the last call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +58,8 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  * @throws {@link FirehoseServiceException}
- * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * Base exception class for all service exceptions from Firehose service.
  *
  * @public
  */

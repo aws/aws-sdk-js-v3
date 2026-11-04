@@ -23,7 +23,8 @@ export interface GetJobCommandInput extends GetJobInput {}
 export interface GetJobCommandOutput extends Job, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current state of an asynchronous job, including its status and any resources that it created or updated.</p>
+ * Retrieves the current state of an asynchronous job, including its status and any resources that it created or updated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,16 +65,20 @@ export interface GetJobCommandOutput extends Job, __MetadataBearer {}
  * @see {@link EndUserMessagingClientResolvedConfig | config} for EndUserMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist. Verify that the resource identifier is correct and try your request again.</p>
+ *
+ * The request references a resource that does not exist. Verify that the resource identifier is correct and try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed request rate.
  *
  * @throws {@link ValidationException} (client fault)
  *  A standard error for input validation failures.
@@ -81,8 +86,8 @@ export interface GetJobCommandOutput extends Job, __MetadataBearer {}
  * falls outside of the modeled or documented constraints.
  *
  * @throws {@link EndUserMessagingServiceException}
- * <p>Base exception class for all service exceptions from EndUserMessaging service.</p>
  *
+ * Base exception class for all service exceptions from EndUserMessaging service.
  *
  * @example Get an async job
  * ```javascript

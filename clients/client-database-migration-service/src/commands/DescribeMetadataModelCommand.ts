@@ -23,11 +23,10 @@ export interface DescribeMetadataModelCommandInput extends DescribeMetadataModel
 export interface DescribeMetadataModelCommandOutput extends DescribeMetadataModelResponse, __MetadataBearer {}
 
 /**
- * <p>Gets detailed information about the specified metadata model, including its definition and corresponding converted objects in the target database if applicable.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:DescribeMetadataModel</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Gets detailed information about the specified metadata model, including its definition and corresponding converted objects in the target database if applicable.
+ *
+ * **Required permissions:** `dms:DescribeMetadataModel`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,15 +63,16 @@ export interface DescribeMetadataModelCommandOutput extends DescribeMetadataMode
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Retrieve a source table metadata model
  * ```javascript

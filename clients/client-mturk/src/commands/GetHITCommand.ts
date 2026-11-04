@@ -23,9 +23,8 @@ export interface GetHITCommandInput extends GetHITRequest {}
 export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>GetHIT</code> operation retrieves the details of the specified HIT.
- *         </p>
+ * The `GetHIT` operation retrieves the details of the specified HIT.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,14 +89,16 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

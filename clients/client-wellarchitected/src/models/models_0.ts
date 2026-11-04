@@ -61,936 +61,1120 @@ import type {
 } from "./enums";
 
 /**
- * <p>Account-level: Input for the Jira configuration.</p>
+ * Account-level: Input for the Jira configuration.
+ *
  * @public
  */
 export interface AccountJiraConfigurationInput {
   /**
-   * <p>Account-level: Jira issue management status.</p>
+   * Account-level: Jira issue management status.
+   *
    * @public
    */
   IssueManagementStatus?: AccountJiraIssueManagementStatus | undefined;
 
   /**
-   * <p>Account-level: Jira issue management type.</p>
+   * Account-level: Jira issue management type.
+   *
    * @public
    */
   IssueManagementType?: IssueManagementType | undefined;
 
   /**
-   * <p>Account-level: Jira project key to sync workloads to.</p>
+   * Account-level: Jira project key to sync workloads to.
+   *
    * @public
    */
   JiraProjectKey?: string | undefined;
 
   /**
-   * <p>Account-level: Configuration status of the Jira integration.</p>
+   * Account-level: Configuration status of the Jira integration.
+   *
    * @public
    */
   IntegrationStatus?: IntegrationStatusInput | undefined;
 }
 
 /**
- * <p>Account-level: Output configuration of the Jira integration.</p>
+ * Account-level: Output configuration of the Jira integration.
+ *
  * @public
  */
 export interface AccountJiraConfigurationOutput {
   /**
-   * <p>Account-level: Configuration status of the Jira integration.</p>
+   * Account-level: Configuration status of the Jira integration.
+   *
    * @public
    */
   IntegrationStatus?: IntegrationStatus | undefined;
 
   /**
-   * <p>Account-level: Jira issue management status.</p>
+   * Account-level: Jira issue management status.
+   *
    * @public
    */
   IssueManagementStatus?: AccountJiraIssueManagementStatus | undefined;
 
   /**
-   * <p>Account-level: Jira issue management type.</p>
+   * Account-level: Jira issue management type.
+   *
    * @public
    */
   IssueManagementType?: IssueManagementType | undefined;
 
   /**
-   * <p>Account-level: Jira subdomain URL.</p>
+   * Account-level: Jira subdomain URL.
+   *
    * @public
    */
   Subdomain?: string | undefined;
 
   /**
-   * <p>Account-level: Jira project key to sync workloads to.</p>
+   * Account-level: Jira project key to sync workloads to.
+   *
    * @public
    */
   JiraProjectKey?: string | undefined;
 
   /**
-   * <p>Account-level: Status message on configuration of the Jira integration.</p>
+   * Account-level: Status message on configuration of the Jira integration.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>The choice content.</p>
+ * The choice content.
+ *
  * @public
  */
 export interface ChoiceContent {
   /**
-   * <p>The display text for the choice content.</p>
+   * The display text for the choice content.
+   *
    * @public
    */
   DisplayText?: string | undefined;
 
   /**
-   * <p>The URL for the choice content.</p>
+   * The URL for the choice content.
+   *
    * @public
    */
   Url?: string | undefined;
 }
 
 /**
- * <p>The choice level additional resources for a custom lens.</p> <p>This field does not apply to Amazon Web Services official lenses.</p>
+ * The choice level additional resources for a custom lens.
+ *
+ * This field does not apply to Amazon Web Services official lenses.
+ *
  * @public
  */
 export interface AdditionalResources {
   /**
-   * <p>Type of additional resource for a custom lens.</p>
+   * Type of additional resource for a custom lens.
+   *
    * @public
    */
   Type?: AdditionalResourceType | undefined;
 
   /**
-   * <p>The URLs for additional resources, either helpful resources or improvement plans, for a custom lens. Up to five additional URLs can be specified.</p>
+   * The URLs for additional resources, either helpful resources or improvement plans, for a custom lens. Up to five additional URLs can be specified.
+   *
    * @public
    */
   Content?: ChoiceContent[] | undefined;
 }
 
 /**
- * <p>Configuration settings that define the scope of Amazon Web Services resources to analyze for optimization recommendations.</p>
+ * Configuration settings that define the scope of Amazon Web Services resources to analyze for optimization recommendations.
+ *
  * @public
  */
 export interface AggregationConfiguration {
   /**
-   * <p>The Amazon Web Services account ID to analyze.</p>
+   * The Amazon Web Services account ID to analyze.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>A list of Amazon Web Services Regions to include in the analysis.</p>
+   * A list of Amazon Web Services Regions to include in the analysis.
+   *
    * @public
    */
   regions: string[] | undefined;
 
   /**
-   * <p>The ARN of an IAM role to assume for resource analysis in this account.</p>
+   * The ARN of an IAM role to assume for resource analysis in this account.
+   *
    * @public
    */
   accessRoleArn: string | undefined;
 }
 
 /**
- * <p>A key-value pair associated with a resource for cost allocation and access control.</p>
+ * A key-value pair associated with a resource for cost allocation and access control.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Summary of an optimization profile, including its configuration, metadata, and audit information.</p>
+ * Summary of an optimization profile, including its configuration, metadata, and audit information.
+ *
  * @public
  */
 export interface AgentProfileSummary {
   /**
-   * <p>The system name of the profile.</p>
+   * The system name of the profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The display name of the profile shown to users.</p>
+   * The display name of the profile shown to users.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the profile.</p>
+   * A description of the profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The business overview for this profile.</p>
+   * The business overview for this profile.
+   *
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with this profile.</p>
+   * The Well-Architected Tool Framework pillars associated with this profile.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled for the profile.</p>
+   * Indicates whether deletion protection is enabled for the profile.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role used for recommendation actions.</p>
+   * The ARN of the IAM execution role used for recommendation actions.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The aggregation configuration that defines which Amazon Web Services accounts and Regions to analyze.</p>
+   * The aggregation configuration that defines which Amazon Web Services accounts and Regions to analyze.
+   *
    * @public
    */
   aggregationConfiguration: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the optimization profile.</p>
+   * The Amazon Resource Name (ARN) of the optimization profile.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for scheduled recommendation generation.</p>
+   * Indicates whether the profile is valid for scheduled recommendation generation.
+   *
    * @public
    */
   eligibleForScheduledGeneration?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for manual architecture generation.</p>
+   * Indicates whether the profile is valid for manual architecture generation.
+   *
    * @public
    */
   eligibleForArchitectureGeneration?: boolean | undefined;
 
   /**
-   * <p>A map of field paths to error messages for invalid or missing input fields.</p>
+   * A map of field paths to error messages for invalid or missing input fields.
+   *
    * @public
    */
   fieldErrors?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags associated with the profile.</p>
+   * The tags associated with the profile.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this profile.</p>
+   * The identifier of the user or system that created this profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was created.</p>
+   * The timestamp when the profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this profile.</p>
+   * The identifier of the user or system that last modified this profile.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was last modified.</p>
+   * The timestamp when the profile was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>Summary of a recommendation generation process initiated through the agent API.</p>
+ * Summary of a recommendation generation process initiated through the agent API.
+ *
  * @public
  */
 export interface AgentRecommendationGenerationSummary {
   /**
-   * <p>The unique identifier of the recommendation generation.</p>
+   * The unique identifier of the recommendation generation.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile used for this generation.</p>
+   * The Amazon Resource Name (ARN) of the profile used for this generation.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The name of the recommendation generation.</p>
+   * The name of the recommendation generation.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the recommendation generation.</p>
+   * The current status of the recommendation generation.
+   *
    * @public
    */
   status: GenerationStatus | undefined;
 
   /**
-   * <p>The estimated time for the generation to complete.</p>
+   * The estimated time for the generation to complete.
+   *
    * @public
    */
   estimatedCompletionTime?: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that started this generation.</p>
+   * The identifier of the user or system that started this generation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the generation was started.</p>
+   * The timestamp when the generation was started.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this generation.</p>
+   * The identifier of the user or system that last modified this generation.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the generation was last modified.</p>
+   * The timestamp when the generation was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>Summary of an agent recommendation item, representing an Amazon Web Services resource or recommendation affected by the optimization recommendation.</p>
+ * Summary of an agent recommendation item, representing an Amazon Web Services resource or recommendation affected by the optimization recommendation.
+ *
  * @public
  */
 export interface AgentRecommendationItemSummary {
   /**
-   * <p>The unique identifier of the recommendation item.</p>
+   * The unique identifier of the recommendation item.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated recommendation.</p>
+   * The Amazon Resource Name (ARN) of the associated recommendation.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The type of the recommendation item.</p>
+   * The type of the recommendation item.
+   *
    * @public
    */
   type: RecommendationItemType | undefined;
 
   /**
-   * <p>Metadata containing a snapshot of the resource or recommendation at the time of generation.</p>
+   * Metadata containing a snapshot of the resource or recommendation at the time of generation.
+   *
    * @public
    */
   metadata: __DocumentType | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this recommendation item.</p>
+   * The identifier of the user or system that created this recommendation item.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the recommendation item was created.</p>
+   * The timestamp when the recommendation item was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this recommendation item.</p>
+   * The identifier of the user or system that last modified this recommendation item.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the recommendation item was last modified.</p>
+   * The timestamp when the recommendation item was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>An external reference associated with remediation steps.</p>
+ * An external reference associated with remediation steps.
+ *
  * @public
  */
 export interface ResourceLink {
   /**
-   * <p>The URL of the external reference.</p>
+   * The URL of the external reference.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>An optional human-readable title for the link.</p>
+   * An optional human-readable title for the link.
+   *
    * @public
    */
   title?: string | undefined;
 }
 
 /**
- * <p>One step within a remediation procedure.</p>
+ * One step within a remediation procedure.
+ *
  * @public
  */
 export interface RemediationStep {
   /**
-   * <p>An optional short label for the step.</p>
+   * An optional short label for the step.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The content describing the step, which can include code examples and verification checklists.</p>
+   * The content describing the step, which can include code examples and verification checklists.
+   *
    * @public
    */
   content: string | undefined;
 }
 
 /**
- * <p>The core fields for a remediation.</p>
+ * The core fields for a remediation.
+ *
  * @public
  */
 export interface AgentRecommendationRemediation {
   /**
-   * <p>The ARN of the recommendation that this remediation belongs to.</p>
+   * The ARN of the recommendation that this remediation belongs to.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The remediation method.</p>
+   * The remediation method.
+   *
    * @public
    */
   type: RemediationType | undefined;
 
   /**
-   * <p>The procedural steps to perform the remediation.</p>
+   * The procedural steps to perform the remediation.
+   *
    * @public
    */
   steps: RemediationStep[] | undefined;
 
   /**
-   * <p>External references associated with the steps.</p>
+   * External references associated with the steps.
+   *
    * @public
    */
   resourceLinks?: ResourceLink[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this remediation.</p>
+   * The identifier of the user or system that created this remediation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the remediation was created.</p>
+   * The timestamp when the remediation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this remediation.</p>
+   * The identifier of the user or system that last modified this remediation.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the remediation was last modified.</p>
+   * The timestamp when the remediation was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>A return-on-investment estimate with context.</p>
+ * A return-on-investment estimate with context.
+ *
  * @public
  */
 export interface Roi {
   /**
-   * <p>A short statistic or key metric. Optional when there is no quantifiable figure.</p>
+   * A short statistic or key metric. Optional when there is no quantifiable figure.
+   *
    * @public
    */
   estimate?: string | undefined;
 
   /**
-   * <p>A sentence providing context for the estimate.</p>
+   * A sentence providing context for the estimate.
+   *
    * @public
    */
   detail: string | undefined;
 }
 
 /**
- * <p>Summary of an agent optimization recommendation returned by list operations.</p>
+ * Summary of an agent optimization recommendation returned by list operations.
+ *
  * @public
  */
 export interface AgentRecommendationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation.</p>
+   * The Amazon Resource Name (ARN) of the recommendation.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated profile.</p>
+   * The Amazon Resource Name (ARN) of the associated profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The identifier of the generation process that produced this recommendation.</p>
+   * The identifier of the generation process that produced this recommendation.
+   *
    * @public
    */
   generationId?: string | undefined;
 
   /**
-   * <p>The title of the recommendation.</p>
+   * The title of the recommendation.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the recommendation.</p>
+   * A description of the recommendation.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The type of the recommendation.</p>
+   * The type of the recommendation.
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillar that the recommendation addresses.</p>
+   * The Well-Architected Tool Framework pillar that the recommendation addresses.
+   *
    * @public
    */
   pillar: Pillar | undefined;
 
   /**
-   * <p>The priority of the recommendation.</p>
+   * The priority of the recommendation.
+   *
    * @public
    */
   priority: Priority | undefined;
 
   /**
-   * <p>The effort required to implement the recommendation.</p>
+   * The effort required to implement the recommendation.
+   *
    * @public
    */
   effort: Effort | undefined;
 
   /**
-   * <p>The current status of the recommendation.</p>
+   * The current status of the recommendation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The current state of the recommendation.</p>
+   * The current state of the recommendation.
+   *
    * @public
    */
   state: RecommendationState | undefined;
 
   /**
-   * <p>The free-text reason associated with the recommendation's most recent status update.</p>
+   * The free-text reason associated with the recommendation's most recent status update.
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>The severity of the recommendation's impact.</p>
+   * The severity of the recommendation's impact.
+   *
    * @public
    */
   impact: ImpactCategory | undefined;
 
   /**
-   * <p>The return on investment estimate for the recommendation.</p>
+   * The return on investment estimate for the recommendation.
+   *
    * @public
    */
   roi: Roi | undefined;
 
   /**
-   * <p>The number of Amazon Web Services resources this recommendation affects.</p>
+   * The number of Amazon Web Services resources this recommendation affects.
+   *
    * @public
    */
   numberOfResources?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services services that the recommendation applies to.</p>
+   * The Amazon Web Services services that the recommendation applies to.
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The business units that own the affected resources.</p>
+   * The business units that own the affected resources.
+   *
    * @public
    */
   businessUnits?: string[] | undefined;
 
   /**
-   * <p>The applications that the recommendation targets.</p>
+   * The applications that the recommendation targets.
+   *
    * @public
    */
   applications?: string[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this recommendation.</p>
+   * The identifier of the user or system that created this recommendation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was created.</p>
+   * The timestamp when the recommendation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this recommendation.</p>
+   * The identifier of the user or system that last modified this recommendation.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was last modified.</p>
+   * The timestamp when the recommendation was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 }
 
 /**
- * <p>A choice that has been answered on a question in your workload.</p>
+ * A choice that has been answered on a question in your workload.
+ *
  * @public
  */
 export interface ChoiceAnswer {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The status of a choice.</p>
+   * The status of a choice.
+   *
    * @public
    */
   Status?: ChoiceStatus | undefined;
 
   /**
-   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   * The reason why a choice is non-applicable to a question in your workload.
+   *
    * @public
    */
   Reason?: ChoiceReason | undefined;
 
   /**
-   * <p>The notes associated with a choice.</p>
+   * The notes associated with a choice.
+   *
    * @public
    */
   Notes?: string | undefined;
 }
 
 /**
- * <p>A choice available to answer question.</p>
+ * A choice available to answer question.
+ *
  * @public
  */
 export interface Choice {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The title of a choice.</p>
+   * The title of a choice.
+   *
    * @public
    */
   Title?: string | undefined;
 
   /**
-   * <p>The description of a choice.</p>
+   * The description of a choice.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The helpful resource (both text and URL) for a particular choice.</p> <p>This field only applies to custom lenses. Each choice can have only one helpful resource.</p>
+   * The helpful resource (both text and URL) for a particular choice.
+   *
+   * This field only applies to custom lenses. Each choice can have only one helpful resource.
+   *
    * @public
    */
   HelpfulResource?: ChoiceContent | undefined;
 
   /**
-   * <p>The improvement plan (both text and URL) for a particular choice.</p> <p>This field only applies to custom lenses. Each choice can have only one improvement plan.</p>
+   * The improvement plan (both text and URL) for a particular choice.
+   *
+   * This field only applies to custom lenses. Each choice can have only one improvement plan.
+   *
    * @public
    */
   ImprovementPlan?: ChoiceContent | undefined;
 
   /**
-   * <p>The additional resources for a choice in a custom lens.</p> <p>A choice can have up to two additional resources: one of type <code>HELPFUL_RESOURCE</code>, one of type <code>IMPROVEMENT_PLAN</code>, or both.</p>
+   * The additional resources for a choice in a custom lens.
+   *
+   * A choice can have up to two additional resources: one of type `HELPFUL_RESOURCE`, one of type `IMPROVEMENT_PLAN`, or both.
+   *
    * @public
    */
   AdditionalResources?: AdditionalResources[] | undefined;
 }
 
 /**
- * <p>Configuration of the Jira integration.</p>
+ * Configuration of the Jira integration.
+ *
  * @public
  */
 export interface JiraConfiguration {
   /**
-   * <p>The URL of the associated Jira issue.</p>
+   * The URL of the associated Jira issue.
+   *
    * @public
    */
   JiraIssueUrl?: string | undefined;
 
   /**
-   * <p>The date and time when the Jira configuration was last synced.</p>
+   * The date and time when the Jira configuration was last synced.
+   *
    * @public
    */
   LastSyncedTime?: Date | undefined;
 }
 
 /**
- * <p>An answer of the question.</p>
+ * An answer of the question.
+ *
  * @public
  */
 export interface Answer {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>The description of the question.</p>
+   * The description of the question.
+   *
    * @public
    */
   QuestionDescription?: string | undefined;
 
   /**
-   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p> <p>This value is only available if the question has been answered.</p>
+   * The improvement plan URL for a question in an Amazon Web Services official lenses.
+   *
+   * This value is only available if the question has been answered.
+   *
    * @public
    */
   ImprovementPlanUrl?: string | undefined;
 
   /**
-   * <p>The helpful resource URL.</p> <p>For Amazon Web Services official lenses, this is the helpful resource URL for a question or choice.</p> <p>For custom lenses, this is the helpful resource URL for a question and is only provided if <code>HelpfulResourceDisplayText</code> was specified for the question.</p>
+   * The helpful resource URL.
+   *
+   * For Amazon Web Services official lenses, this is the helpful resource URL for a question or choice.
+   *
+   * For custom lenses, this is the helpful resource URL for a question and is only provided if `HelpfulResourceDisplayText` was specified for the question.
+   *
    * @public
    */
   HelpfulResourceUrl?: string | undefined;
 
   /**
-   * <p>The helpful resource text to be displayed for a custom lens.</p> <p>This field does not apply to Amazon Web Services official lenses.</p>
+   * The helpful resource text to be displayed for a custom lens.
+   *
+   * This field does not apply to Amazon Web Services official lenses.
+   *
    * @public
    */
   HelpfulResourceDisplayText?: string | undefined;
 
   /**
-   * <p>List of choices available for a question.</p>
+   * List of choices available for a question.
+   *
    * @public
    */
   Choices?: Choice[] | undefined;
 
   /**
-   * <p>List of selected choice IDs in a question answer.</p> <p>The values entered replace the previously selected choices.</p>
+   * List of selected choice IDs in a question answer.
+   *
+   * The values entered replace the previously selected choices.
+   *
    * @public
    */
   SelectedChoices?: string[] | undefined;
 
   /**
-   * <p>A list of selected choices to a question in your workload.</p>
+   * A list of selected choices to a question in your workload.
+   *
    * @public
    */
   ChoiceAnswers?: ChoiceAnswer[] | undefined;
 
   /**
-   * <p>Defines whether this question is applicable to a lens review.</p>
+   * Defines whether this question is applicable to a lens review.
+   *
    * @public
    */
   IsApplicable?: boolean | undefined;
 
   /**
-   * <p>The risk for a given workload, lens review, pillar, or question.</p>
+   * The risk for a given workload, lens review, pillar, or question.
+   *
    * @public
    */
   Risk?: Risk | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>The reason why the question is not applicable to your workload.</p>
+   * The reason why the question is not applicable to your workload.
+   *
    * @public
    */
   Reason?: AnswerReason | undefined;
 
   /**
-   * <p>Configuration of the Jira integration.</p>
+   * Configuration of the Jira integration.
+   *
    * @public
    */
   JiraConfiguration?: JiraConfiguration | undefined;
 }
 
 /**
- * <p>A choice summary that has been answered on a question in your workload.</p>
+ * A choice summary that has been answered on a question in your workload.
+ *
  * @public
  */
 export interface ChoiceAnswerSummary {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The status of a choice.</p>
+   * The status of a choice.
+   *
    * @public
    */
   Status?: ChoiceStatus | undefined;
 
   /**
-   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   * The reason why a choice is non-applicable to a question in your workload.
+   *
    * @public
    */
   Reason?: ChoiceReason | undefined;
 }
 
 /**
- * <p>An answer summary of a lens review in a workload.</p>
+ * An answer summary of a lens review in a workload.
+ *
  * @public
  */
 export interface AnswerSummary {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>List of choices available for a question.</p>
+   * List of choices available for a question.
+   *
    * @public
    */
   Choices?: Choice[] | undefined;
 
   /**
-   * <p>List of selected choice IDs in a question answer.</p> <p>The values entered replace the previously selected choices.</p>
+   * List of selected choice IDs in a question answer.
+   *
+   * The values entered replace the previously selected choices.
+   *
    * @public
    */
   SelectedChoices?: string[] | undefined;
 
   /**
-   * <p>A list of selected choices to a question in your workload.</p>
+   * A list of selected choices to a question in your workload.
+   *
    * @public
    */
   ChoiceAnswerSummaries?: ChoiceAnswerSummary[] | undefined;
 
   /**
-   * <p>Defines whether this question is applicable to a lens review.</p>
+   * Defines whether this question is applicable to a lens review.
+   *
    * @public
    */
   IsApplicable?: boolean | undefined;
 
   /**
-   * <p>The risk for a given workload, lens review, pillar, or question.</p>
+   * The risk for a given workload, lens review, pillar, or question.
+   *
    * @public
    */
   Risk?: Risk | undefined;
 
   /**
-   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   * The reason why a choice is non-applicable to a question in your workload.
+   *
    * @public
    */
   Reason?: AnswerReason | undefined;
 
   /**
-   * <p>The type of the question.</p>
+   * The type of the question.
+   *
    * @public
    */
   QuestionType?: QuestionType | undefined;
 
   /**
-   * <p>Configuration of the Jira integration.</p>
+   * Configuration of the Jira integration.
+   *
    * @public
    */
   JiraConfiguration?: JiraConfiguration | undefined;
 }
 
 /**
- * <p>Input to associate lens reviews.</p>
+ * Input to associate lens reviews.
+ *
  * @public
  */
 export interface AssociateLensesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.</p> <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
+   * List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.
+   *
+   * Identify a lens using its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAliases: string[] | undefined;
 }
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an exception.</p>
+ * Stores information about a field passed inside a request that resulted in an exception.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The field name for which validation failed.</p>
+   * The field name for which validation failed.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -1001,523 +1185,622 @@ export interface ValidationExceptionField {
  */
 export interface AssociateProfilesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The list of profile ARNs to associate with the workload.</p>
+   * The list of profile ARNs to associate with the workload.
+   *
    * @public
    */
   ProfileArns: string[] | undefined;
 }
 
 /**
- * <p>A best practice, or question choice, that has been identified as a risk in this question.</p>
+ * A best practice, or question choice, that has been identified as a risk in this question.
+ *
  * @public
  */
 export interface BestPractice {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The title of a choice.</p>
+   * The title of a choice.
+   *
    * @public
    */
   ChoiceTitle?: string | undefined;
 }
 
 /**
- * <p>Account details for a Well-Architected best practice in relation to Trusted Advisor checks.</p>
+ * Account details for a Well-Architected best practice in relation to Trusted Advisor checks.
+ *
  * @public
  */
 export interface CheckDetail {
   /**
-   * <p>Trusted Advisor check ID.</p>
+   * Trusted Advisor check ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>Trusted Advisor check name.</p>
+   * Trusted Advisor check name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Trusted Advisor check description.</p>
+   * Trusted Advisor check description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Provider of the check related to the best practice.</p>
+   * Provider of the check related to the best practice.
+   *
    * @public
    */
   Provider?: CheckProvider | undefined;
 
   /**
-   * <p>Well-Architected Lens ARN associated to the check.</p>
+   * Well-Architected Lens ARN associated to the check.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>Status associated to the check.</p>
+   * Status associated to the check.
+   *
    * @public
    */
   Status?: CheckStatus | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Count of flagged resources associated to the check.</p>
+   * Count of flagged resources associated to the check.
+   *
    * @public
    */
   FlaggedResources?: number | undefined;
 
   /**
-   * <p>Reason associated to the check.</p>
+   * Reason associated to the check.
+   *
    * @public
    */
   Reason?: CheckFailureReason | undefined;
 
   /**
-   * <p>The date and time when the check was last updated.</p>
+   * The date and time when the check was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Trusted Advisor check summary.</p>
+ * Trusted Advisor check summary.
+ *
  * @public
  */
 export interface CheckSummary {
   /**
-   * <p>Trusted Advisor check ID.</p>
+   * Trusted Advisor check ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>Trusted Advisor check name.</p>
+   * Trusted Advisor check name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Provider of the check related to the best practice.</p>
+   * Provider of the check related to the best practice.
+   *
    * @public
    */
   Provider?: CheckProvider | undefined;
 
   /**
-   * <p>Trusted Advisor check description.</p>
+   * Trusted Advisor check description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date and time when the check summary was last updated.</p>
+   * The date and time when the check summary was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>Well-Architected Lens ARN associated to the check.</p>
+   * Well-Architected Lens ARN associated to the check.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>Status associated to the check.</p>
+   * Status associated to the check.
+   *
    * @public
    */
   Status?: CheckStatus | undefined;
 
   /**
-   * <p>Account summary associated to the check.</p>
+   * Account summary associated to the check.
+   *
    * @public
    */
   AccountSummary?: Partial<Record<CheckStatus, number>> | undefined;
 }
 
 /**
- * <p>The choice level improvement plan.</p> <p>This value is only applicable to custom lenses.</p>
+ * The choice level improvement plan.
+ *
+ * This value is only applicable to custom lenses.
+ *
  * @public
  */
 export interface ChoiceImprovementPlan {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The display text for the improvement plan.</p>
+   * The display text for the improvement plan.
+   *
    * @public
    */
   DisplayText?: string | undefined;
 
   /**
-   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p> <p>This value is only available if the question has been answered.</p>
+   * The improvement plan URL for a question in an Amazon Web Services official lenses.
+   *
+   * This value is only available if the question has been answered.
+   *
    * @public
    */
   ImprovementPlanUrl?: string | undefined;
 }
 
 /**
- * <p>A list of choices to be updated.</p>
+ * A list of choices to be updated.
+ *
  * @public
  */
 export interface ChoiceUpdate {
   /**
-   * <p>The status of a choice.</p>
+   * The status of a choice.
+   *
    * @public
    */
   Status: ChoiceStatus | undefined;
 
   /**
-   * <p>The reason why a choice is non-applicable to a question in your workload.</p>
+   * The reason why a choice is non-applicable to a question in your workload.
+   *
    * @public
    */
   Reason?: ChoiceReason | undefined;
 
   /**
-   * <p>The notes associated with a choice.</p>
+   * The notes associated with a choice.
+   *
    * @public
    */
   Notes?: string | undefined;
 }
 
 /**
- * <p>A metric for a particular question in the pillar. </p>
+ * A metric for a particular question in the pillar.
+ *
  * @public
  */
 export interface QuestionMetric {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The risk for a given workload, lens review, pillar, or question.</p>
+   * The risk for a given workload, lens review, pillar, or question.
+   *
    * @public
    */
   Risk?: Risk | undefined;
 
   /**
-   * <p>The best practices, or choices, that have been identified as contributing to risk in a question.</p>
+   * The best practices, or choices, that have been identified as contributing to risk in a question.
+   *
    * @public
    */
   BestPractices?: BestPractice[] | undefined;
 }
 
 /**
- * <p>A metric for a particular pillar in a lens.</p>
+ * A metric for a particular pillar in a lens.
+ *
  * @public
  */
 export interface PillarMetric {
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>The questions that have been identified as risks in the pillar.</p>
+   * The questions that have been identified as risks in the pillar.
+   *
    * @public
    */
   Questions?: QuestionMetric[] | undefined;
 }
 
 /**
- * <p>A metric for a particular lens in a workload.</p>
+ * A metric for a particular lens in a workload.
+ *
  * @public
  */
 export interface LensMetric {
   /**
-   * <p>The lens ARN.</p>
+   * The lens ARN.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The metrics for the pillars in a lens.</p>
+   * The metrics for the pillars in a lens.
+   *
    * @public
    */
   Pillars?: PillarMetric[] | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 }
 
 /**
- * <p>A metric that contributes to the consolidated report.</p>
+ * A metric that contributes to the consolidated report.
+ *
  * @public
  */
 export interface ConsolidatedReportMetric {
   /**
-   * <p>The metric type of a metric in the consolidated report. Currently only WORKLOAD metric types are supported.</p>
+   * The metric type of a metric in the consolidated report. Currently only WORKLOAD metric types are supported.
+   *
    * @public
    */
   MetricType?: MetricType | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn?: string | undefined;
 
   /**
-   * <p>The date and time when the consolidated report metric was last updated.</p>
+   * The date and time when the consolidated report metric was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The metrics for the lenses in the workload.</p>
+   * The metrics for the lenses in the workload.
+   *
    * @public
    */
   Lenses?: LensMetric[] | undefined;
 
   /**
-   * <p>The total number of lenses applied to the workload.</p>
+   * The total number of lenses applied to the workload.
+   *
    * @public
    */
   LensesAppliedCount?: number | undefined;
 }
 
 /**
- * <p>A key-value pair representing a resource tag used to scope context content.</p>
+ * A key-value pair representing a resource tag used to scope context content.
+ *
  * @public
  */
 export interface ContextResourceTag {
   /**
-   * <p>The tag key.</p>
+   * The tag key.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The tag value.</p>
+   * The tag value.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Typed content structure for a context. Contains application-specific fields that describe the environment used during recommendation generation.</p>
+ * Typed content structure for a context. Contains application-specific fields that describe the environment used during recommendation generation.
+ *
  * @public
  */
 export interface ContextContent {
   /**
-   * <p>The Amazon Web Services account IDs associated with this application context.</p>
+   * The Amazon Web Services account IDs associated with this application context.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Regions where this application operates.</p>
+   * The Amazon Web Services Regions where this application operates.
+   *
    * @public
    */
   regions?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services services used by this application.</p>
+   * The Amazon Web Services services used by this application.
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services resource types relevant to this application.</p>
+   * The Amazon Web Services resource types relevant to this application.
+   *
    * @public
    */
   resourceTypes?: string[] | undefined;
 
   /**
-   * <p>Resource tags used to scope this application context.</p>
+   * Resource tags used to scope this application context.
+   *
    * @public
    */
   resourceTags?: ContextResourceTag[] | undefined;
 
   /**
-   * <p>A free-form overview of the application.</p>
+   * A free-form overview of the application.
+   *
    * @public
    */
   applicationOverview?: string | undefined;
 
   /**
-   * <p>The industry vertical for this application.</p>
+   * The industry vertical for this application.
+   *
    * @public
    */
   industry?: string | undefined;
 
   /**
-   * <p>The type of the application.</p>
+   * The type of the application.
+   *
    * @public
    */
   applicationType?: ApplicationType | undefined;
 
   /**
-   * <p>The business criticality of the application.</p>
+   * The business criticality of the application.
+   *
    * @public
    */
   criticality?: Criticality | undefined;
 
   /**
-   * <p>A free-form description of the application architecture.</p>
+   * A free-form description of the application architecture.
+   *
    * @public
    */
   architectureOverview?: string | undefined;
 
   /**
-   * <p>Additional context not captured by other fields.</p>
+   * Additional context not captured by other fields.
+   *
    * @public
    */
   additionalContext?: string | undefined;
 }
 
 /**
- * <p>Summary of a context associated with a profile, representing application or environment information used during recommendation generation.</p>
+ * Summary of a context associated with a profile, representing application or environment information used during recommendation generation.
+ *
  * @public
  */
 export interface ContextSummary {
   /**
-   * <p>The unique identifier of the context.</p>
+   * The unique identifier of the context.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated profile.</p>
+   * The Amazon Resource Name (ARN) of the associated profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The title of the context.</p>
+   * The title of the context.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The type of the context.</p>
+   * The type of the context.
+   *
    * @public
    */
   contextType: ContextType | undefined;
 
   /**
-   * <p>The typed content of the context, containing application-specific fields such as account IDs, Regions, services, and resource types.</p>
+   * The typed content of the context, containing application-specific fields such as account IDs, Regions, services, and resource types.
+   *
    * @public
    */
   content: ContextContent | undefined;
 
   /**
-   * <p>The type of application described by this context.</p>
+   * The type of application described by this context.
+   *
    * @public
    */
   applicationType?: ApplicationType | undefined;
 
   /**
-   * <p>The business criticality of the application described by this context.</p>
+   * The business criticality of the application described by this context.
+   *
    * @public
    */
   criticality?: Criticality | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this context.</p>
+   * The identifier of the user or system that created this context.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the context was created.</p>
+   * The timestamp when the context was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this context.</p>
+   * The identifier of the user or system that last modified this context.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the context was last modified.</p>
+   * The timestamp when the context was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -1528,31 +1811,36 @@ export interface ContextSummary {
  */
 export interface CreateAgentContextRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile to associate the context with.</p>
+   * The Amazon Resource Name (ARN) of the profile to associate the context with.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The title of the context.</p>
+   * The title of the context.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>The type of the context.</p>
+   * The type of the context.
+   *
    * @public
    */
   contextType: ContextType | undefined;
 
   /**
-   * <p>The typed content of the context. The structure contains application-specific fields such as account IDs, Regions, services, and resource types.</p>
+   * The typed content of the context. The structure contains application-specific fields such as account IDs, Regions, services, and resource types.
+   *
    * @public
    */
   content: ContextContent | undefined;
@@ -1563,7 +1851,8 @@ export interface CreateAgentContextRequest {
  */
 export interface CreateAgentContextResponse {
   /**
-   * <p>The created context summary.</p>
+   * The created context summary.
+   *
    * @public
    */
   context: ContextSummary | undefined;
@@ -1574,91 +1863,106 @@ export interface CreateAgentContextResponse {
  */
 export interface CreateAgentGoalRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile to associate the goal with.</p>
+   * The Amazon Resource Name (ARN) of the profile to associate the goal with.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars to associate with this goal.</p>
+   * The Well-Architected Tool Framework pillars to associate with this goal.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>The title of the goal.</p>
+   * The title of the goal.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the goal.</p>
+   * A description of the goal.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Summary of an optimization goal associated with a profile.</p>
+ * Summary of an optimization goal associated with a profile.
+ *
  * @public
  */
 export interface GoalSummary {
   /**
-   * <p>The unique identifier of the goal.</p>
+   * The unique identifier of the goal.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated profile.</p>
+   * The Amazon Resource Name (ARN) of the associated profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with this goal.</p>
+   * The Well-Architected Tool Framework pillars associated with this goal.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>The title of the goal.</p>
+   * The title of the goal.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the goal.</p>
+   * A description of the goal.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this goal.</p>
+   * The identifier of the user or system that created this goal.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the goal was created.</p>
+   * The timestamp when the goal was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this goal.</p>
+   * The identifier of the user or system that last modified this goal.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the goal was last modified.</p>
+   * The timestamp when the goal was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -1669,7 +1973,8 @@ export interface GoalSummary {
  */
 export interface CreateAgentGoalResponse {
   /**
-   * <p>The created goal summary.</p>
+   * The created goal summary.
+   *
    * @public
    */
   goal: GoalSummary | undefined;
@@ -1680,61 +1985,71 @@ export interface CreateAgentGoalResponse {
  */
 export interface CreateAgentProfileRequest {
   /**
-   * <p>The system name of the profile.</p>
+   * The system name of the profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The display name of the profile shown to users.</p>
+   * The display name of the profile shown to users.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the profile.</p>
+   * A description of the profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The business overview for this profile.</p>
+   * The business overview for this profile.
+   *
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars to associate with this profile.</p>
+   * The Well-Architected Tool Framework pillars to associate with this profile.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled for the profile.</p>
+   * Indicates whether deletion protection is enabled for the profile.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role used for recommendation actions.</p>
+   * The ARN of the IAM execution role used for recommendation actions.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The aggregation configuration that defines which Amazon Web Services accounts and Regions to analyze.</p>
+   * The aggregation configuration that defines which Amazon Web Services accounts and Regions to analyze.
+   *
    * @public
    */
   aggregationConfiguration: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to associate with the profile.</p>
+   * The tags to associate with the profile.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1745,103 +2060,120 @@ export interface CreateAgentProfileRequest {
  */
 export interface CreateAgentProfileResponse {
   /**
-   * <p>The system name of the created profile.</p>
+   * The system name of the created profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The display name of the created profile.</p>
+   * The display name of the created profile.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the created profile.</p>
+   * A description of the created profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The business overview of the created profile.</p>
+   * The business overview of the created profile.
+   *
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with the created profile.</p>
+   * The Well-Architected Tool Framework pillars associated with the created profile.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled.</p>
+   * Indicates whether deletion protection is enabled.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role.</p>
+   * The ARN of the IAM execution role.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The aggregation configuration.</p>
+   * The aggregation configuration.
+   *
    * @public
    */
   aggregationConfiguration: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created profile.</p>
+   * The Amazon Resource Name (ARN) of the created profile.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for scheduled recommendation generation.</p>
+   * Indicates whether the profile is valid for scheduled recommendation generation.
+   *
    * @public
    */
   eligibleForScheduledGeneration?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for manual architecture generation.</p>
+   * Indicates whether the profile is valid for manual architecture generation.
+   *
    * @public
    */
   eligibleForArchitectureGeneration?: boolean | undefined;
 
   /**
-   * <p>A map of field paths to error messages for invalid or missing input fields.</p>
+   * A map of field paths to error messages for invalid or missing input fields.
+   *
    * @public
    */
   fieldErrors?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags associated with the created profile.</p>
+   * The tags associated with the created profile.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this profile.</p>
+   * The identifier of the user or system that created this profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was created.</p>
+   * The timestamp when the profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this profile.</p>
+   * The identifier of the user or system that last modified this profile.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was last modified.</p>
+   * The timestamp when the profile was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -1852,19 +2184,32 @@ export interface CreateAgentProfileResponse {
  */
 export interface CreateLensShareInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -1875,7 +2220,8 @@ export interface CreateLensShareInput {
  */
 export interface CreateLensShareOutput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
@@ -1886,25 +2232,39 @@ export interface CreateLensShareOutput {
  */
 export interface CreateLensVersionInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The version of the lens being created.</p>
+   * The version of the lens being created.
+   *
    * @public
    */
   LensVersion: string | undefined;
 
   /**
-   * <p>Set to true if this new major lens version.</p>
+   * Set to true if this new major lens version.
+   *
    * @public
    */
   IsMajorVersion?: boolean | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -1915,73 +2275,93 @@ export interface CreateLensVersionInput {
  */
 export interface CreateLensVersionOutput {
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The version of the lens.</p>
+   * The version of the lens.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 }
 
 /**
- * <p>Input for milestone creation.</p>
+ * Input for milestone creation.
+ *
  * @public
  */
 export interface CreateMilestoneInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
+   * The name of the milestone in a workload.
+   *
+   * Milestone names must be unique within a workload.
+   *
    * @public
    */
   MilestoneName: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>Output of a create milestone call.</p>
+ * Output of a create milestone call.
+ *
  * @public
  */
 export interface CreateMilestoneOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 }
 
 /**
- * <p>An update to a profile question.</p>
+ * An update to a profile question.
+ *
  * @public
  */
 export interface ProfileQuestionUpdate {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The selected choices.</p>
+   * The selected choices.
+   *
    * @public
    */
   SelectedChoiceIds?: string[] | undefined;
@@ -1992,31 +2372,40 @@ export interface ProfileQuestionUpdate {
  */
 export interface CreateProfileInput {
   /**
-   * <p>Name of the profile.</p>
+   * Name of the profile.
+   *
    * @public
    */
   ProfileName: string | undefined;
 
   /**
-   * <p>The profile description.</p>
+   * The profile description.
+   *
    * @public
    */
   ProfileDescription: string | undefined;
 
   /**
-   * <p>The profile questions.</p>
+   * The profile questions.
+   *
    * @public
    */
   ProfileQuestions: ProfileQuestionUpdate[] | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags assigned to the profile.</p>
+   * The tags assigned to the profile.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2027,13 +2416,15 @@ export interface CreateProfileInput {
  */
 export interface CreateProfileOutput {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>Version of the profile.</p>
+   * Version of the profile.
+   *
    * @public
    */
   ProfileVersion?: string | undefined;
@@ -2044,19 +2435,26 @@ export interface CreateProfileOutput {
  */
 export interface CreateProfileShareInput {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2067,13 +2465,15 @@ export interface CreateProfileShareInput {
  */
 export interface CreateProfileShareOutput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
@@ -2084,37 +2484,49 @@ export interface CreateProfileShareOutput {
  */
 export interface CreateReviewTemplateInput {
   /**
-   * <p>Name of the review template.</p>
+   * Name of the review template.
+   *
    * @public
    */
   TemplateName: string | undefined;
 
   /**
-   * <p>The review template description.</p>
+   * The review template description.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>Lenses applied to the review template.</p>
+   * Lenses applied to the review template.
+   *
    * @public
    */
   Lenses: string[] | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>The tags assigned to the review template.</p>
+   * The tags assigned to the review template.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2125,7 +2537,8 @@ export interface CreateReviewTemplateInput {
  */
 export interface CreateReviewTemplateOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
@@ -2136,19 +2549,26 @@ export interface CreateReviewTemplateOutput {
  */
 export interface CreateTemplateShareInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2159,277 +2579,369 @@ export interface CreateTemplateShareInput {
  */
 export interface CreateTemplateShareOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 }
 
 /**
- * <p>Discovery configuration associated to the workload.</p>
+ * Discovery configuration associated to the workload.
+ *
  * @public
  */
 export interface WorkloadDiscoveryConfig {
   /**
-   * <p>Discovery integration status in respect to Trusted Advisor for the workload.</p>
+   * Discovery integration status in respect to Trusted Advisor for the workload.
+   *
    * @public
    */
   TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | undefined;
 
   /**
-   * <p>The mode to use for identifying resources associated with the workload.</p> <p>You can specify <code>WORKLOAD_METADATA</code>, <code>APP_REGISTRY</code>, or both.</p>
+   * The mode to use for identifying resources associated with the workload.
+   *
+   * You can specify `WORKLOAD_METADATA`, `APP_REGISTRY`, or both.
+   *
    * @public
    */
   WorkloadResourceDefinition?: DefinitionType[] | undefined;
 }
 
 /**
- * <p>Workload-level: Input for the Jira configuration.</p>
+ * Workload-level: Input for the Jira configuration.
+ *
  * @public
  */
 export interface WorkloadJiraConfigurationInput {
   /**
-   * <p>Workload-level: Jira issue management status.</p>
+   * Workload-level: Jira issue management status.
+   *
    * @public
    */
   IssueManagementStatus?: WorkloadIssueManagementStatus | undefined;
 
   /**
-   * <p>Workload-level: Jira issue management type.</p>
+   * Workload-level: Jira issue management type.
+   *
    * @public
    */
   IssueManagementType?: IssueManagementType | undefined;
 
   /**
-   * <p>Workload-level: Jira project key to sync workloads to.</p>
+   * Workload-level: Jira project key to sync workloads to.
+   *
    * @public
    */
   JiraProjectKey?: string | undefined;
 }
 
 /**
- * <p>Input for workload creation.</p>
+ * Input for workload creation.
+ *
  * @public
  */
 export interface CreateWorkloadInput {
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName: string | undefined;
 
   /**
-   * <p>The description for the workload.</p>
+   * The description for the workload.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The environment for the workload.</p>
+   * The environment for the workload.
+   *
    * @public
    */
   Environment: WorkloadEnvironment | undefined;
 
   /**
-   * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
+   * The list of Amazon Web Services account IDs associated with the workload.
+   *
    * @public
    */
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services Regions associated with the workload, for example, <code>us-east-2</code>, or <code>ca-central-1</code>.</p>
+   * The list of Amazon Web Services Regions associated with the workload, for example, `us-east-2`, or `ca-central-1`.
+   *
    * @public
    */
   AwsRegions?: string[] | undefined;
 
   /**
-   * <p> The list of non-Amazon Web Services Regions associated with the workload.</p>
+   * The list of non-Amazon Web Services Regions associated with the workload.
+   *
    * @public
    */
   NonAwsRegions?: string[] | undefined;
 
   /**
-   * <p>The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarPriorities?: string[] | undefined;
 
   /**
-   * <p>The URL of the architectural design for the workload.</p>
+   * The URL of the architectural design for the workload.
+   *
    * @public
    */
   ArchitecturalDesign?: string | undefined;
 
   /**
-   * <p>The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.</p>
+   * The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.
+   *
    * @public
    */
   ReviewOwner?: string | undefined;
 
   /**
-   * <p>The industry type for the workload.</p> <p>If specified, must be one of the following:</p> <ul> <li> <p> <code>Agriculture</code> </p> </li> <li> <p> <code>Automobile</code> </p> </li> <li> <p> <code>Defense</code> </p> </li> <li> <p> <code>Design and Engineering</code> </p> </li> <li> <p> <code>Digital Advertising</code> </p> </li> <li> <p> <code>Education</code> </p> </li> <li> <p> <code>Environmental Protection</code> </p> </li> <li> <p> <code>Financial Services</code> </p> </li> <li> <p> <code>Gaming</code> </p> </li> <li> <p> <code>General Public Services</code> </p> </li> <li> <p> <code>Healthcare</code> </p> </li> <li> <p> <code>Hospitality</code> </p> </li> <li> <p> <code>InfoTech</code> </p> </li> <li> <p> <code>Justice and Public Safety</code> </p> </li> <li> <p> <code>Life Sciences</code> </p> </li> <li> <p> <code>Manufacturing</code> </p> </li> <li> <p> <code>Media &amp; Entertainment</code> </p> </li> <li> <p> <code>Mining &amp; Resources</code> </p> </li> <li> <p> <code>Oil &amp; Gas</code> </p> </li> <li> <p> <code>Power &amp; Utilities</code> </p> </li> <li> <p> <code>Professional Services</code> </p> </li> <li> <p> <code>Real Estate &amp; Construction</code> </p> </li> <li> <p> <code>Retail &amp; Wholesale</code> </p> </li> <li> <p> <code>Social Protection</code> </p> </li> <li> <p> <code>Telecommunications</code> </p> </li> <li> <p> <code>Travel, Transportation &amp; Logistics</code> </p> </li> <li> <p> <code>Other</code> </p> </li> </ul>
+   * The industry type for the workload.
+   *
+   * If specified, must be one of the following:
+   *
+   * - `Agriculture`
+   * - `Automobile`
+   * - `Defense`
+   * - `Design and Engineering`
+   * - `Digital Advertising`
+   * - `Education`
+   * - `Environmental Protection`
+   * - `Financial Services`
+   * - `Gaming`
+   * - `General Public Services`
+   * - `Healthcare`
+   * - `Hospitality`
+   * - `InfoTech`
+   * - `Justice and Public Safety`
+   * - `Life Sciences`
+   * - `Manufacturing`
+   * - `Media & Entertainment`
+   * - `Mining & Resources`
+   * - `Oil & Gas`
+   * - `Power & Utilities`
+   * - `Professional Services`
+   * - `Real Estate & Construction`
+   * - `Retail & Wholesale`
+   * - `Social Protection`
+   * - `Telecommunications`
+   * - `Travel, Transportation & Logistics`
+   * - `Other`
+   *
    * @public
    */
   IndustryType?: string | undefined;
 
   /**
-   * <p>The industry for the workload.</p>
+   * The industry for the workload.
+   *
    * @public
    */
   Industry?: string | undefined;
 
   /**
-   * <p>The list of lenses associated with the workload. Each lens is identified by its <a>LensSummary$LensAlias</a>.</p> <p>If a review template that specifies lenses is applied to the workload, those lenses are applied to the workload in addition to these lenses.</p>
+   * The list of lenses associated with the workload. Each lens is identified by its LensSummary$LensAlias.
+   *
+   * If a review template that specifies lenses is applied to the workload, those lenses are applied to the workload in addition to these lenses.
+   *
    * @public
    */
   Lenses: string[] | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The tags to be associated with the workload.</p>
+   * The tags to be associated with the workload.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Well-Architected discovery configuration settings associated to the workload.</p>
+   * Well-Architected discovery configuration settings associated to the workload.
+   *
    * @public
    */
   DiscoveryConfig?: WorkloadDiscoveryConfig | undefined;
 
   /**
-   * <p>List of AppRegistry application ARNs associated to the workload.</p>
+   * List of AppRegistry application ARNs associated to the workload.
+   *
    * @public
    */
   Applications?: string[] | undefined;
 
   /**
-   * <p>The list of profile ARNs associated with the workload.</p>
+   * The list of profile ARNs associated with the workload.
+   *
    * @public
    */
   ProfileArns?: string[] | undefined;
 
   /**
-   * <p>The list of review template ARNs to associate with the workload.</p>
+   * The list of review template ARNs to associate with the workload.
+   *
    * @public
    */
   ReviewTemplateArns?: string[] | undefined;
 
   /**
-   * <p>Jira configuration settings when creating a workload.</p>
+   * Jira configuration settings when creating a workload.
+   *
    * @public
    */
   JiraConfiguration?: WorkloadJiraConfigurationInput | undefined;
 }
 
 /**
- * <p>Output of a create workload call.</p>
+ * Output of a create workload call.
+ *
  * @public
  */
 export interface CreateWorkloadOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn?: string | undefined;
 }
 
 /**
- * <p>Input for Create Workload Share</p>
+ * Input for Create Workload Share
+ *
  * @public
  */
 export interface CreateWorkloadShareInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith: string | undefined;
 
   /**
-   * <p>Permission granted on a share request.</p>
+   * Permission granted on a share request.
+   *
    * @public
    */
   PermissionType: PermissionType | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>Input for Create Workload Share</p>
+ * Input for Create Workload Share
+ *
  * @public
  */
 export interface CreateWorkloadShareOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 }
 
 /**
- * <p>A benefit on a different pillar from acting on the recommendation.</p>
+ * A benefit on a different pillar from acting on the recommendation.
+ *
  * @public
  */
 export interface CrossPillarBenefit {
   /**
-   * <p>The pillar that would be positively impacted.</p>
+   * The pillar that would be positively impacted.
+   *
    * @public
    */
   pillar: Pillar | undefined;
 
   /**
-   * <p>A short phrase describing the outcome.</p>
+   * A short phrase describing the outcome.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of what changes and why it matters.</p>
+   * A description of what changes and why it matters.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The severity of the benefit.</p>
+   * The severity of the benefit.
+   *
    * @public
    */
   impact: ImpactCategory | undefined;
@@ -2440,13 +2952,15 @@ export interface CrossPillarBenefit {
  */
 export interface DeleteAgentContextRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile containing the context.</p>
+   * The Amazon Resource Name (ARN) of the profile containing the context.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the context to delete.</p>
+   * The unique identifier of the context to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -2462,13 +2976,15 @@ export interface DeleteAgentContextResponse {}
  */
 export interface DeleteAgentGoalRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile containing the goal.</p>
+   * The Amazon Resource Name (ARN) of the profile containing the goal.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the goal to delete.</p>
+   * The unique identifier of the goal to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -2484,7 +3000,8 @@ export interface DeleteAgentGoalResponse {}
  */
 export interface DeleteAgentProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile to delete.</p>
+   * The Amazon Resource Name (ARN) of the profile to delete.
+   *
    * @public
    */
   profileArn: string | undefined;
@@ -2500,19 +3017,32 @@ export interface DeleteAgentProfileResponse {}
  */
 export interface DeleteLensInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>The status of the lens to be deleted.</p>
+   * The status of the lens to be deleted.
+   *
    * @public
    */
   LensStatus: LensStatusType | undefined;
@@ -2523,19 +3053,32 @@ export interface DeleteLensInput {
  */
 export interface DeleteLensShareInput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2546,13 +3089,19 @@ export interface DeleteLensShareInput {
  */
 export interface DeleteProfileInput {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2563,19 +3112,26 @@ export interface DeleteProfileInput {
  */
 export interface DeleteProfileShareInput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId: string | undefined;
 
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2586,13 +3142,19 @@ export interface DeleteProfileShareInput {
  */
 export interface DeleteReviewTemplateInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -2603,79 +3165,106 @@ export interface DeleteReviewTemplateInput {
  */
 export interface DeleteTemplateShareInput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId: string | undefined;
 
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>Input for workload deletion.</p>
+ * Input for workload deletion.
+ *
  * @public
  */
 export interface DeleteWorkloadInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>Input for Delete Workload Share</p>
+ * Input for Delete Workload Share
+ *
  * @public
  */
 export interface DeleteWorkloadShareInput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 }
 
 /**
- * <p>Input to disassociate lens reviews.</p>
+ * Input to disassociate lens reviews.
+ *
  * @public
  */
 export interface DisassociateLensesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.</p> <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
+   * List of lens aliases to associate or disassociate with a workload. Up to 10 lenses can be specified.
+   *
+   * Identify a lens using its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAliases: string[] | undefined;
@@ -2686,31 +3275,36 @@ export interface DisassociateLensesInput {
  */
 export interface DisassociateProfilesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The list of profile ARNs to disassociate from the workload.</p>
+   * The list of profile ARNs to disassociate from the workload.
+   *
    * @public
    */
   ProfileArns: string[] | undefined;
 }
 
 /**
- * <p>Details about an error that occurred during recommendation generation.</p>
+ * Details about an error that occurred during recommendation generation.
+ *
  * @public
  */
 export interface ErrorDetails {
   /**
-   * <p>The status code identifying the type of error.</p>
+   * The status code identifying the type of error.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * A human-readable description of the error.
+   *
    * @public
    */
   message: string | undefined;
@@ -2721,13 +3315,21 @@ export interface ErrorDetails {
  */
 export interface ExportLensInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The lens version to be exported.</p>
+   * The lens version to be exported.
+   *
    * @public
    */
   LensVersion?: string | undefined;
@@ -2738,7 +3340,8 @@ export interface ExportLensInput {
  */
 export interface ExportLensOutput {
   /**
-   * <p>The JSON representation of a lens.</p>
+   * The JSON representation of a lens.
+   *
    * @public
    */
   LensJSON?: string | undefined;
@@ -2749,13 +3352,15 @@ export interface ExportLensOutput {
  */
 export interface GetAgentContextRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile containing the context.</p>
+   * The Amazon Resource Name (ARN) of the profile containing the context.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the context to retrieve.</p>
+   * The unique identifier of the context to retrieve.
+   *
    * @public
    */
   id: string | undefined;
@@ -2766,7 +3371,8 @@ export interface GetAgentContextRequest {
  */
 export interface GetAgentContextResponse {
   /**
-   * <p>The retrieved context summary.</p>
+   * The retrieved context summary.
+   *
    * @public
    */
   context: ContextSummary | undefined;
@@ -2777,13 +3383,15 @@ export interface GetAgentContextResponse {
  */
 export interface GetAgentGoalRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile containing the goal.</p>
+   * The Amazon Resource Name (ARN) of the profile containing the goal.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the goal to retrieve.</p>
+   * The unique identifier of the goal to retrieve.
+   *
    * @public
    */
   id: string | undefined;
@@ -2794,7 +3402,8 @@ export interface GetAgentGoalRequest {
  */
 export interface GetAgentGoalResponse {
   /**
-   * <p>The retrieved goal summary.</p>
+   * The retrieved goal summary.
+   *
    * @public
    */
   goal: GoalSummary | undefined;
@@ -2805,7 +3414,8 @@ export interface GetAgentGoalResponse {
  */
 export interface GetAgentProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the optimization profile to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the optimization profile to retrieve.
+   *
    * @public
    */
   profileArn: string | undefined;
@@ -2816,103 +3426,120 @@ export interface GetAgentProfileRequest {
  */
 export interface GetAgentProfileResponse {
   /**
-   * <p>The system name of the profile.</p>
+   * The system name of the profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The display name of the profile.</p>
+   * The display name of the profile.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the profile.</p>
+   * A description of the profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The business overview of the profile.</p>
+   * The business overview of the profile.
+   *
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with the profile.</p>
+   * The Well-Architected Tool Framework pillars associated with the profile.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled.</p>
+   * Indicates whether deletion protection is enabled.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role.</p>
+   * The ARN of the IAM execution role.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The aggregation configuration.</p>
+   * The aggregation configuration.
+   *
    * @public
    */
   aggregationConfiguration: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile.</p>
+   * The Amazon Resource Name (ARN) of the profile.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for scheduled recommendation generation.</p>
+   * Indicates whether the profile is valid for scheduled recommendation generation.
+   *
    * @public
    */
   eligibleForScheduledGeneration?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for manual architecture generation.</p>
+   * Indicates whether the profile is valid for manual architecture generation.
+   *
    * @public
    */
   eligibleForArchitectureGeneration?: boolean | undefined;
 
   /**
-   * <p>A map of field paths to error messages for invalid or missing input fields.</p>
+   * A map of field paths to error messages for invalid or missing input fields.
+   *
    * @public
    */
   fieldErrors?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags associated with the profile.</p>
+   * The tags associated with the profile.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this profile.</p>
+   * The identifier of the user or system that created this profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was created.</p>
+   * The timestamp when the profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this profile.</p>
+   * The identifier of the user or system that last modified this profile.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was last modified.</p>
+   * The timestamp when the profile was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -2923,103 +3550,120 @@ export interface GetAgentProfileResponse {
  */
 export interface GetAgentRecommendationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the recommendation to retrieve.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>Optional filter on remediation type.</p>
+   * Optional filter on remediation type.
+   *
    * @public
    */
   remediationType?: RemediationType | undefined;
 }
 
 /**
- * <p>Contains information about a goal associated with a recommendation.</p>
+ * Contains information about a goal associated with a recommendation.
+ *
  * @public
  */
 export interface RecommendationGoal {
   /**
-   * <p>The title of the goal associated with the recommendation.</p>
+   * The title of the goal associated with the recommendation.
+   *
    * @public
    */
   title: string | undefined;
 }
 
 /**
- * <p>An insight describing a usage pattern and the signals detected.</p>
+ * An insight describing a usage pattern and the signals detected.
+ *
  * @public
  */
 export interface Insight {
   /**
-   * <p>A description of the usage pattern.</p>
+   * A description of the usage pattern.
+   *
    * @public
    */
   usagePattern: string | undefined;
 
   /**
-   * <p>A description of the signals detected.</p>
+   * A description of the signals detected.
+   *
    * @public
    */
   signalsDetected?: string | undefined;
 }
 
 /**
- * <p>A high-level remediation summary returned in the detail response.</p>
+ * A high-level remediation summary returned in the detail response.
+ *
  * @public
  */
 export interface RemediationSummary {
   /**
-   * <p>A short imperative statement of the recommended action.</p>
+   * A short imperative statement of the recommended action.
+   *
    * @public
    */
   recommendation: string | undefined;
 
   /**
-   * <p>High-level steps to implement the fix.</p>
+   * High-level steps to implement the fix.
+   *
    * @public
    */
   steps: string[] | undefined;
 }
 
 /**
- * <p>A negative trade-off from acting on the recommendation.</p>
+ * A negative trade-off from acting on the recommendation.
+ *
  * @public
  */
 export interface TradeOff {
   /**
-   * <p>The pillar that could be negatively impacted.</p>
+   * The pillar that could be negatively impacted.
+   *
    * @public
    */
   pillar: Pillar | undefined;
 
   /**
-   * <p>A short phrase describing what is lost or degraded.</p>
+   * A short phrase describing what is lost or degraded.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the specific risk and the condition that triggers it.</p>
+   * A description of the specific risk and the condition that triggers it.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The risk rating for the trade-off.</p>
+   * The risk rating for the trade-off.
+   *
    * @public
    */
   risk: RiskRating | undefined;
 
   /**
-   * <p>A specific action to mitigate the trade-off and when to take it.</p>
+   * A specific action to mitigate the trade-off and when to take it.
+   *
    * @public
    */
   mitigation: string | undefined;
 
   /**
-   * <p>An optional explanation providing additional context for the risk rating.</p>
+   * An optional explanation providing additional context for the risk rating.
+   *
    * @public
    */
   riskExplanation?: string | undefined;
@@ -3030,193 +3674,225 @@ export interface TradeOff {
  */
 export interface GetAgentRecommendationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation.</p>
+   * The Amazon Resource Name (ARN) of the recommendation.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the associated profile.</p>
+   * The Amazon Resource Name (ARN) of the associated profile.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The identifier of the generation process that produced this recommendation.</p>
+   * The identifier of the generation process that produced this recommendation.
+   *
    * @public
    */
   generationId?: string | undefined;
 
   /**
-   * <p>The title of the recommendation.</p>
+   * The title of the recommendation.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>A description of the recommendation.</p>
+   * A description of the recommendation.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The type of the recommendation.</p>
+   * The type of the recommendation.
+   *
    * @public
    */
   type: RecommendationType | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillar that the recommendation addresses.</p>
+   * The Well-Architected Tool Framework pillar that the recommendation addresses.
+   *
    * @public
    */
   pillar: Pillar | undefined;
 
   /**
-   * <p>The priority of the recommendation.</p>
+   * The priority of the recommendation.
+   *
    * @public
    */
   priority: Priority | undefined;
 
   /**
-   * <p>The effort required to implement the recommendation.</p>
+   * The effort required to implement the recommendation.
+   *
    * @public
    */
   effort: Effort | undefined;
 
   /**
-   * <p>The current status of the recommendation.</p>
+   * The current status of the recommendation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>The current state of the recommendation.</p>
+   * The current state of the recommendation.
+   *
    * @public
    */
   state: RecommendationState | undefined;
 
   /**
-   * <p>The free-text reason associated with the recommendation's most recent status update.</p>
+   * The free-text reason associated with the recommendation's most recent status update.
+   *
    * @public
    */
   updateReason?: string | undefined;
 
   /**
-   * <p>The severity of the recommendation's impact.</p>
+   * The severity of the recommendation's impact.
+   *
    * @public
    */
   impact: ImpactCategory | undefined;
 
   /**
-   * <p>The return on investment estimate for the recommendation.</p>
+   * The return on investment estimate for the recommendation.
+   *
    * @public
    */
   roi: Roi | undefined;
 
   /**
-   * <p>The number of Amazon Web Services resources this recommendation affects.</p>
+   * The number of Amazon Web Services resources this recommendation affects.
+   *
    * @public
    */
   numberOfResources?: number | undefined;
 
   /**
-   * <p>The Amazon Web Services services that the recommendation applies to.</p>
+   * The Amazon Web Services services that the recommendation applies to.
+   *
    * @public
    */
   awsServices?: string[] | undefined;
 
   /**
-   * <p>The business units that own the affected resources.</p>
+   * The business units that own the affected resources.
+   *
    * @public
    */
   businessUnits?: string[] | undefined;
 
   /**
-   * <p>The applications that the recommendation targets.</p>
+   * The applications that the recommendation targets.
+   *
    * @public
    */
   applications?: string[] | undefined;
 
   /**
-   * <p>Detailed impact information for the recommendation.</p>
+   * Detailed impact information for the recommendation.
+   *
    * @public
    */
   impactDetails: string[] | undefined;
 
   /**
-   * <p>A list of insights about the recommendation.</p>
+   * A list of insights about the recommendation.
+   *
    * @public
    */
   insights: Insight[] | undefined;
 
   /**
-   * <p>Highlights describing what was detected.</p>
+   * Highlights describing what was detected.
+   *
    * @public
    */
   highlights: string[] | undefined;
 
   /**
-   * <p>A high-level summary of the recommended remediation.</p>
+   * A high-level summary of the recommended remediation.
+   *
    * @public
    */
   remediationSummary: RemediationSummary | undefined;
 
   /**
-   * <p>Cross-pillar benefits of acting on the recommendation.</p>
+   * Cross-pillar benefits of acting on the recommendation.
+   *
    * @public
    */
   crossPillarBenefits?: CrossPillarBenefit[] | undefined;
 
   /**
-   * <p>Trade-offs of acting on the recommendation.</p>
+   * Trade-offs of acting on the recommendation.
+   *
    * @public
    */
   tradeOffs?: TradeOff[] | undefined;
 
   /**
-   * <p>Sources that generated this recommendation.</p>
+   * Sources that generated this recommendation.
+   *
    * @public
    */
   sources?: RecommendationSource[] | undefined;
 
   /**
-   * <p>Goals that this recommendation targets.</p>
+   * Goals that this recommendation targets.
+   *
    * @public
    */
   goals?: RecommendationGoal[] | undefined;
 
   /**
-   * <p>A set of key-value pairs associated with the recommendation, used for cost allocation and access control.</p>
+   * A set of key-value pairs associated with the recommendation, used for cost allocation and access control.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this recommendation.</p>
+   * The identifier of the user or system that created this recommendation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was created.</p>
+   * The timestamp when the recommendation was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this recommendation.</p>
+   * The identifier of the user or system that last modified this recommendation.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the recommendation was last modified.</p>
+   * The timestamp when the recommendation was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 
   /**
-   * <p>A list of remediations for the recommendation.</p>
+   * A list of remediations for the recommendation.
+   *
    * @public
    */
   remediations?: AgentRecommendationRemediation[] | undefined;
@@ -3227,79 +3903,92 @@ export interface GetAgentRecommendationResponse {
  */
 export interface GetAgentRecommendationGenerationRequest {
   /**
-   * <p>The ARN of the optimization profile associated with this generation.</p>
+   * The ARN of the optimization profile associated with this generation.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the recommendation generation to retrieve.</p>
+   * The unique identifier of the recommendation generation to retrieve.
+   *
    * @public
    */
   generationId: string | undefined;
 }
 
 /**
- * <p>Progress information for a recommendation generation process.</p>
+ * Progress information for a recommendation generation process.
+ *
  * @public
  */
 export interface Progress {
   /**
-   * <p>The number of generation steps that have been completed.</p>
+   * The number of generation steps that have been completed.
+   *
    * @public
    */
   stepsCompleted: number | undefined;
 
   /**
-   * <p>The total number of steps in the generation process.</p>
+   * The total number of steps in the generation process.
+   *
    * @public
    */
   totalSteps: number | undefined;
 
   /**
-   * <p>The completion percentage of the generation process (0-100).</p>
+   * The completion percentage of the generation process (0-100).
+   *
    * @public
    */
   completionPercentage: number | undefined;
 }
 
 /**
- * <p>Item configuration for a specific Well-Architected Tool Framework pillar.</p>
+ * Item configuration for a specific Well-Architected Tool Framework pillar.
+ *
  * @public
  */
 export interface PillarItem {
   /**
-   * <p>The pillar this item configuration applies to.</p>
+   * The pillar this item configuration applies to.
+   *
    * @public
    */
   pillar: Pillar | undefined;
 
   /**
-   * <p>A list of item IDs to process for this pillar, such as best practice IDs, Amazon Web Services service names, or resource ARNs.</p>
+   * A list of item IDs to process for this pillar, such as best practice IDs, Amazon Web Services service names, or resource ARNs.
+   *
    * @public
    */
   ids: string[] | undefined;
 }
 
 /**
- * <p>Defines the scope for recommendation generation, specifying which pillars and goals to focus on.</p>
+ * Defines the scope for recommendation generation, specifying which pillars and goals to focus on.
+ *
  * @public
  */
 export interface Scope {
   /**
-   * <p>The Well-Architected Tool Framework pillars to include in the generation scope.</p>
+   * The Well-Architected Tool Framework pillars to include in the generation scope.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Specific goal IDs to focus on during recommendation generation.</p>
+   * Specific goal IDs to focus on during recommendation generation.
+   *
    * @public
    */
   goalIds?: string[] | undefined;
 
   /**
-   * <p>Optional per-pillar item filtering configuration.</p>
+   * Optional per-pillar item filtering configuration.
+   *
    * @public
    */
   items?: PillarItem[] | undefined;
@@ -3310,157 +3999,199 @@ export interface Scope {
  */
 export interface GetAgentRecommendationGenerationResponse {
   /**
-   * <p>The unique identifier of the recommendation generation.</p>
+   * The unique identifier of the recommendation generation.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile used for this generation.</p>
+   * The Amazon Resource Name (ARN) of the profile used for this generation.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The name of the recommendation generation.</p>
+   * The name of the recommendation generation.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the recommendation generation.</p>
+   * The current status of the recommendation generation.
+   *
    * @public
    */
   status: GenerationStatus | undefined;
 
   /**
-   * <p>The estimated time for the generation to complete.</p>
+   * The estimated time for the generation to complete.
+   *
    * @public
    */
   estimatedCompletionTime?: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that started this generation.</p>
+   * The identifier of the user or system that started this generation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the generation was started.</p>
+   * The timestamp when the generation was started.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this generation.</p>
+   * The identifier of the user or system that last modified this generation.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the generation was last modified.</p>
+   * The timestamp when the generation was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
 
   /**
-   * <p>Additional context information provided to guide the recommendation generation process.</p>
+   * Additional context information provided to guide the recommendation generation process.
+   *
    * @public
    */
   additionalContext?: __DocumentType | undefined;
 
   /**
-   * <p>The scope configuration that defines which pillars and goals to focus on during generation.</p>
+   * The scope configuration that defines which pillars and goals to focus on during generation.
+   *
    * @public
    */
   scope?: Scope | undefined;
 
   /**
-   * <p>The timestamp when the recommendation generation process started.</p>
+   * The timestamp when the recommendation generation process started.
+   *
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the recommendation generation process completed.</p>
+   * The timestamp when the recommendation generation process completed.
+   *
    * @public
    */
   endedAt?: Date | undefined;
 
   /**
-   * <p>Current progress information including steps completed and completion percentage.</p>
+   * Current progress information including steps completed and completion percentage.
+   *
    * @public
    */
   progress?: Progress | undefined;
 
   /**
-   * <p>Details about the error if the generation status is ERROR.</p>
+   * Details about the error if the generation status is ERROR.
+   *
    * @public
    */
   errorDetails?: ErrorDetails | undefined;
 }
 
 /**
- * <p>Input to get answer.</p>
+ * Input to get answer.
+ *
  * @public
  */
 export interface GetAnswerInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 }
 
 /**
- * <p>Output of a get answer call.</p>
+ * Output of a get answer call.
+ *
  * @public
  */
 export interface GetAnswerOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>An answer of the question.</p>
+   * An answer of the question.
+   *
    * @public
    */
   Answer?: Answer | undefined;
@@ -3471,25 +4202,31 @@ export interface GetAnswerOutput {
  */
 export interface GetConsolidatedReportInput {
   /**
-   * <p>The format of the consolidated report.</p> <p>For <code>PDF</code>, <code>Base64String</code> is returned. For <code>JSON</code>, <code>Metrics</code> is returned.</p>
+   * The format of the consolidated report.
+   *
+   * For `PDF`, `Base64String` is returned. For `JSON`, `Metrics` is returned.
+   *
    * @public
    */
   Format: ReportFormat | undefined;
 
   /**
-   * <p>Set to <code>true</code> to have shared resources included in the report.</p>
+   * Set to `true` to have shared resources included in the report.
+   *
    * @public
    */
   IncludeSharedResources?: boolean | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3500,19 +4237,28 @@ export interface GetConsolidatedReportInput {
  */
 export interface GetConsolidatedReportOutput {
   /**
-   * <p>The metrics that make up the consolidated report.</p> <p>Only returned when <code>JSON</code> format is requested.</p>
+   * The metrics that make up the consolidated report.
+   *
+   * Only returned when `JSON` format is requested.
+   *
    * @public
    */
   Metrics?: ConsolidatedReportMetric[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Base64-encoded string representation of a lens review report.</p> <p>This data can be used to create a PDF file.</p> <p>Only returned by <a>GetConsolidatedReport</a> when <code>PDF</code> format is requested.</p>
+   * The Base64-encoded string representation of a lens review report.
+   *
+   * This data can be used to create a PDF file.
+   *
+   * Only returned by GetConsolidatedReport when `PDF` format is requested.
+   *
    * @public
    */
   Base64String?: string | undefined;
@@ -3523,19 +4269,22 @@ export interface GetConsolidatedReportOutput {
  */
 export interface GetGlobalSettingsOutput {
   /**
-   * <p>Amazon Web Services Organizations sharing status.</p>
+   * Amazon Web Services Organizations sharing status.
+   *
    * @public
    */
   OrganizationSharingStatus?: OrganizationSharingStatus | undefined;
 
   /**
-   * <p>Discovery integration status.</p>
+   * Discovery integration status.
+   *
    * @public
    */
   DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus | undefined;
 
   /**
-   * <p>Jira configuration status.</p>
+   * Jira configuration status.
+   *
    * @public
    */
   JiraConfiguration?: AccountJiraConfigurationOutput | undefined;
@@ -3546,61 +4295,77 @@ export interface GetGlobalSettingsOutput {
  */
 export interface GetLensInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The lens version to be retrieved.</p>
+   * The lens version to be retrieved.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 }
 
 /**
- * <p>A lens return object.</p>
+ * A lens return object.
+ *
  * @public
  */
 export interface Lens {
   /**
-   * <p>The ARN of a lens.</p>
+   * The ARN of a lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The version of a lens.</p>
+   * The version of a lens.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the lens.</p>
+   * The description of the lens.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the lens.</p>
+   * The Amazon Web Services account ID that owns the lens.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The ID assigned to the share invitation.</p>
+   * The ID assigned to the share invitation.
+   *
    * @public
    */
   ShareInvitationId?: string | undefined;
 
   /**
-   * <p>The tags assigned to the lens.</p>
+   * The tags assigned to the lens.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3611,295 +4376,388 @@ export interface Lens {
  */
 export interface GetLensOutput {
   /**
-   * <p>A lens return object.</p>
+   * A lens return object.
+   *
    * @public
    */
   Lens?: Lens | undefined;
 }
 
 /**
- * <p>Input to get lens review.</p>
+ * Input to get lens review.
+ *
  * @public
  */
 export interface GetLensReviewInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 }
 
 /**
- * <p>The selected pillar.</p>
+ * The selected pillar.
+ *
  * @public
  */
 export interface SelectedPillar {
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>Selected question IDs in the selected pillar.</p>
+   * Selected question IDs in the selected pillar.
+   *
    * @public
    */
   SelectedQuestionIds?: string[] | undefined;
 }
 
 /**
- * <p>Selected questions in the workload.</p>
+ * Selected questions in the workload.
+ *
  * @public
  */
 export interface JiraSelectedQuestionConfiguration {
   /**
-   * <p>Selected pillars in the workload.</p>
+   * Selected pillars in the workload.
+   *
    * @public
    */
   SelectedPillars?: SelectedPillar[] | undefined;
 }
 
 /**
- * <p>A pillar review summary of a lens review.</p>
+ * A pillar review summary of a lens review.
+ *
  * @public
  */
 export interface PillarReviewSummary {
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The name of the pillar.</p>
+   * The name of the pillar.
+   *
    * @public
    */
   PillarName?: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   PrioritizedRiskCounts?: Partial<Record<Risk, number>> | undefined;
 }
 
 /**
- * <p>The profile associated with a workload.</p>
+ * The profile associated with a workload.
+ *
  * @public
  */
 export interface WorkloadProfile {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>The profile version.</p>
+   * The profile version.
+   *
    * @public
    */
   ProfileVersion?: string | undefined;
 }
 
 /**
- * <p>A lens review of a question.</p>
+ * A lens review of a question.
+ *
  * @public
  */
 export interface LensReview {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The version of the lens.</p>
+   * The version of the lens.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   LensName?: string | undefined;
 
   /**
-   * <p>The status of the lens.</p>
+   * The status of the lens.
+   *
    * @public
    */
   LensStatus?: LensStatus | undefined;
 
   /**
-   * <p>List of pillar review summaries of lens review in a workload.</p>
+   * List of pillar review summaries of lens review in a workload.
+   *
    * @public
    */
   PillarReviewSummaries?: PillarReviewSummary[] | undefined;
 
   /**
-   * <p>Jira configuration status of the Lens review.</p>
+   * Jira configuration status of the Lens review.
+   *
    * @public
    */
   JiraConfiguration?: JiraSelectedQuestionConfiguration | undefined;
 
   /**
-   * <p>The date and time when the lens review was last updated.</p>
+   * The date and time when the lens review was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The profiles associated with the workload.</p>
+   * The profiles associated with the workload.
+   *
    * @public
    */
   Profiles?: WorkloadProfile[] | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   PrioritizedRiskCounts?: Partial<Record<Risk, number>> | undefined;
 }
 
 /**
- * <p>Output of a get lens review call.</p>
+ * Output of a get lens review call.
+ *
  * @public
  */
 export interface GetLensReviewOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>A lens review of a question.</p>
+   * A lens review of a question.
+   *
    * @public
    */
   LensReview?: LensReview | undefined;
 }
 
 /**
- * <p>Input to get lens review report.</p>
+ * Input to get lens review report.
+ *
  * @public
  */
 export interface GetLensReviewReportInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 }
 
 /**
- * <p>A report of a lens review.</p>
+ * A report of a lens review.
+ *
  * @public
  */
 export interface LensReviewReport {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The Base64-encoded string representation of a lens review report.</p> <p>This data can be used to create a PDF file.</p> <p>Only returned by <a>GetConsolidatedReport</a> when <code>PDF</code> format is requested.</p>
+   * The Base64-encoded string representation of a lens review report.
+   *
+   * This data can be used to create a PDF file.
+   *
+   * Only returned by GetConsolidatedReport when `PDF` format is requested.
+   *
    * @public
    */
   Base64String?: string | undefined;
 }
 
 /**
- * <p>Output of a get lens review report call.</p>
+ * Output of a get lens review report call.
+ *
  * @public
  */
 export interface GetLensReviewReportOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>A report of a lens review.</p>
+   * A report of a lens review.
+   *
    * @public
    */
   LensReviewReport?: LensReviewReport | undefined;
@@ -3910,85 +4768,107 @@ export interface GetLensReviewReportOutput {
  */
 export interface GetLensVersionDifferenceInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The base version of the lens.</p>
+   * The base version of the lens.
+   *
    * @public
    */
   BaseLensVersion?: string | undefined;
 
   /**
-   * <p>The lens version to target a difference for.</p>
+   * The lens version to target a difference for.
+   *
    * @public
    */
   TargetLensVersion?: string | undefined;
 }
 
 /**
- * <p>A question difference return object.</p>
+ * A question difference return object.
+ *
  * @public
  */
 export interface QuestionDifference {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>Indicates the type of change to the question.</p>
+   * Indicates the type of change to the question.
+   *
    * @public
    */
   DifferenceStatus?: DifferenceStatus | undefined;
 }
 
 /**
- * <p>A pillar difference return object.</p>
+ * A pillar difference return object.
+ *
  * @public
  */
 export interface PillarDifference {
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The name of the pillar.</p>
+   * The name of the pillar.
+   *
    * @public
    */
   PillarName?: string | undefined;
 
   /**
-   * <p>Indicates the type of change to the pillar.</p>
+   * Indicates the type of change to the pillar.
+   *
    * @public
    */
   DifferenceStatus?: DifferenceStatus | undefined;
 
   /**
-   * <p>List of question differences.</p>
+   * List of question differences.
+   *
    * @public
    */
   QuestionDifferences?: QuestionDifference[] | undefined;
 }
 
 /**
- * <p>The differences between the base and latest versions of the lens.</p>
+ * The differences between the base and latest versions of the lens.
+ *
  * @public
  */
 export interface VersionDifferences {
   /**
-   * <p>The differences between the base and latest versions of the lens.</p>
+   * The differences between the base and latest versions of the lens.
+   *
    * @public
    */
   PillarDifferences?: PillarDifference[] | undefined;
@@ -3999,307 +4879,408 @@ export interface VersionDifferences {
  */
 export interface GetLensVersionDifferenceOutput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The base version of the lens.</p>
+   * The base version of the lens.
+   *
    * @public
    */
   BaseLensVersion?: string | undefined;
 
   /**
-   * <p>The target lens version for the lens.</p>
+   * The target lens version for the lens.
+   *
    * @public
    */
   TargetLensVersion?: string | undefined;
 
   /**
-   * <p>The latest version of the lens.</p>
+   * The latest version of the lens.
+   *
    * @public
    */
   LatestLensVersion?: string | undefined;
 
   /**
-   * <p>The differences between the base and latest versions of the lens.</p>
+   * The differences between the base and latest versions of the lens.
+   *
    * @public
    */
   VersionDifferences?: VersionDifferences | undefined;
 }
 
 /**
- * <p>Input to get a milestone.</p>
+ * Input to get a milestone.
+ *
  * @public
  */
 export interface GetMilestoneInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber: number | undefined;
 }
 
 /**
- * <p>Workload-level: Output configuration of the Jira integration.</p>
+ * Workload-level: Output configuration of the Jira integration.
+ *
  * @public
  */
 export interface WorkloadJiraConfigurationOutput {
   /**
-   * <p>Workload-level: Jira issue management status.</p>
+   * Workload-level: Jira issue management status.
+   *
    * @public
    */
   IssueManagementStatus?: WorkloadIssueManagementStatus | undefined;
 
   /**
-   * <p>Workload-level: Jira issue management type.</p>
+   * Workload-level: Jira issue management type.
+   *
    * @public
    */
   IssueManagementType?: IssueManagementType | undefined;
 
   /**
-   * <p>Workload-level: Jira project key to sync workloads to.</p>
+   * Workload-level: Jira project key to sync workloads to.
+   *
    * @public
    */
   JiraProjectKey?: string | undefined;
 
   /**
-   * <p>Workload-level: Status message on configuration of the Jira integration.</p>
+   * Workload-level: Status message on configuration of the Jira integration.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>A workload return object.</p>
+ * A workload return object.
+ *
  * @public
  */
 export interface Workload {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The description for the workload.</p>
+   * The description for the workload.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The environment for the workload.</p>
+   * The environment for the workload.
+   *
    * @public
    */
   Environment?: WorkloadEnvironment | undefined;
 
   /**
-   * <p>The date and time when the workload was last updated.</p>
+   * The date and time when the workload was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
+   * The list of Amazon Web Services account IDs associated with the workload.
+   *
    * @public
    */
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services Regions associated with the workload, for example, <code>us-east-2</code>, or <code>ca-central-1</code>.</p>
+   * The list of Amazon Web Services Regions associated with the workload, for example, `us-east-2`, or `ca-central-1`.
+   *
    * @public
    */
   AwsRegions?: string[] | undefined;
 
   /**
-   * <p> The list of non-Amazon Web Services Regions associated with the workload.</p>
+   * The list of non-Amazon Web Services Regions associated with the workload.
+   *
    * @public
    */
   NonAwsRegions?: string[] | undefined;
 
   /**
-   * <p>The URL of the architectural design for the workload.</p>
+   * The URL of the architectural design for the workload.
+   *
    * @public
    */
   ArchitecturalDesign?: string | undefined;
 
   /**
-   * <p>The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.</p>
+   * The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.
+   *
    * @public
    */
   ReviewOwner?: string | undefined;
 
   /**
-   * <p>The review restriction date for the workload.</p>
+   * The review restriction date for the workload.
+   *
    * @public
    */
   ReviewRestrictionDate?: Date | undefined;
 
   /**
-   * <p>Flag indicating whether the workload owner has acknowledged that the <i>Review owner</i> field is required.</p> <p>If a <b>Review owner</b> is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.</p>
+   * Flag indicating whether the workload owner has acknowledged that the *Review owner* field is required.
+   *
+   * If a **Review owner** is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.
+   *
    * @public
    */
   IsReviewOwnerUpdateAcknowledged?: boolean | undefined;
 
   /**
-   * <p>The industry type for the workload.</p> <p>If specified, must be one of the following:</p> <ul> <li> <p> <code>Agriculture</code> </p> </li> <li> <p> <code>Automobile</code> </p> </li> <li> <p> <code>Defense</code> </p> </li> <li> <p> <code>Design and Engineering</code> </p> </li> <li> <p> <code>Digital Advertising</code> </p> </li> <li> <p> <code>Education</code> </p> </li> <li> <p> <code>Environmental Protection</code> </p> </li> <li> <p> <code>Financial Services</code> </p> </li> <li> <p> <code>Gaming</code> </p> </li> <li> <p> <code>General Public Services</code> </p> </li> <li> <p> <code>Healthcare</code> </p> </li> <li> <p> <code>Hospitality</code> </p> </li> <li> <p> <code>InfoTech</code> </p> </li> <li> <p> <code>Justice and Public Safety</code> </p> </li> <li> <p> <code>Life Sciences</code> </p> </li> <li> <p> <code>Manufacturing</code> </p> </li> <li> <p> <code>Media &amp; Entertainment</code> </p> </li> <li> <p> <code>Mining &amp; Resources</code> </p> </li> <li> <p> <code>Oil &amp; Gas</code> </p> </li> <li> <p> <code>Power &amp; Utilities</code> </p> </li> <li> <p> <code>Professional Services</code> </p> </li> <li> <p> <code>Real Estate &amp; Construction</code> </p> </li> <li> <p> <code>Retail &amp; Wholesale</code> </p> </li> <li> <p> <code>Social Protection</code> </p> </li> <li> <p> <code>Telecommunications</code> </p> </li> <li> <p> <code>Travel, Transportation &amp; Logistics</code> </p> </li> <li> <p> <code>Other</code> </p> </li> </ul>
+   * The industry type for the workload.
+   *
+   * If specified, must be one of the following:
+   *
+   * - `Agriculture`
+   * - `Automobile`
+   * - `Defense`
+   * - `Design and Engineering`
+   * - `Digital Advertising`
+   * - `Education`
+   * - `Environmental Protection`
+   * - `Financial Services`
+   * - `Gaming`
+   * - `General Public Services`
+   * - `Healthcare`
+   * - `Hospitality`
+   * - `InfoTech`
+   * - `Justice and Public Safety`
+   * - `Life Sciences`
+   * - `Manufacturing`
+   * - `Media & Entertainment`
+   * - `Mining & Resources`
+   * - `Oil & Gas`
+   * - `Power & Utilities`
+   * - `Professional Services`
+   * - `Real Estate & Construction`
+   * - `Retail & Wholesale`
+   * - `Social Protection`
+   * - `Telecommunications`
+   * - `Travel, Transportation & Logistics`
+   * - `Other`
+   *
    * @public
    */
   IndustryType?: string | undefined;
 
   /**
-   * <p>The industry for the workload.</p>
+   * The industry for the workload.
+   *
    * @public
    */
   Industry?: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>The improvement status for a workload.</p>
+   * The improvement status for a workload.
+   *
    * @public
    */
   ImprovementStatus?: WorkloadImprovementStatus | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarPriorities?: string[] | undefined;
 
   /**
-   * <p>The list of lenses associated with the workload. Each lens is identified by its <a>LensSummary$LensAlias</a>.</p> <p>If a review template that specifies lenses is applied to the workload, those lenses are applied to the workload in addition to these lenses.</p>
+   * The list of lenses associated with the workload. Each lens is identified by its LensSummary$LensAlias.
+   *
+   * If a review template that specifies lenses is applied to the workload, those lenses are applied to the workload in addition to these lenses.
+   *
    * @public
    */
   Lenses?: string[] | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The ID assigned to the share invitation.</p>
+   * The ID assigned to the share invitation.
+   *
    * @public
    */
   ShareInvitationId?: string | undefined;
 
   /**
-   * <p>The tags associated with the workload.</p>
+   * The tags associated with the workload.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Discovery configuration associated to the workload.</p>
+   * Discovery configuration associated to the workload.
+   *
    * @public
    */
   DiscoveryConfig?: WorkloadDiscoveryConfig | undefined;
 
   /**
-   * <p>List of AppRegistry application ARNs associated to the workload.</p>
+   * List of AppRegistry application ARNs associated to the workload.
+   *
    * @public
    */
   Applications?: string[] | undefined;
 
   /**
-   * <p>Profile associated with a workload.</p>
+   * Profile associated with a workload.
+   *
    * @public
    */
   Profiles?: WorkloadProfile[] | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   PrioritizedRiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>Jira configuration for a specific workload.</p>
+   * Jira configuration for a specific workload.
+   *
    * @public
    */
   JiraConfiguration?: WorkloadJiraConfigurationOutput | undefined;
 }
 
 /**
- * <p>A milestone return object.</p>
+ * A milestone return object.
+ *
  * @public
  */
 export interface Milestone {
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
+   * The name of the milestone in a workload.
+   *
+   * Milestone names must be unique within a workload.
+   *
    * @public
    */
   MilestoneName?: string | undefined;
 
   /**
-   * <p>The date and time when the milestone was recorded.</p>
+   * The date and time when the milestone was recorded.
+   *
    * @public
    */
   RecordedAt?: Date | undefined;
 
   /**
-   * <p>A workload return object.</p>
+   * A workload return object.
+   *
    * @public
    */
   Workload?: Workload | undefined;
 }
 
 /**
- * <p>Output of a get milestone call.</p>
+ * Output of a get milestone call.
+ *
  * @public
  */
 export interface GetMilestoneOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>A milestone return object.</p>
+   * A milestone return object.
+   *
    * @public
    */
   Milestone?: Milestone | undefined;
@@ -4310,151 +5291,176 @@ export interface GetMilestoneOutput {
  */
 export interface GetProfileInput {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>The profile version.</p>
+   * The profile version.
+   *
    * @public
    */
   ProfileVersion?: string | undefined;
 }
 
 /**
- * <p>The profile choice.</p>
+ * The profile choice.
+ *
  * @public
  */
 export interface ProfileChoice {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The title of a choice.</p>
+   * The title of a choice.
+   *
    * @public
    */
   ChoiceTitle?: string | undefined;
 
   /**
-   * <p>The description of a choice.</p>
+   * The description of a choice.
+   *
    * @public
    */
   ChoiceDescription?: string | undefined;
 }
 
 /**
- * <p>A profile question.</p>
+ * A profile question.
+ *
  * @public
  */
 export interface ProfileQuestion {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>The description of the question.</p>
+   * The description of the question.
+   *
    * @public
    */
   QuestionDescription?: string | undefined;
 
   /**
-   * <p>The question choices.</p>
+   * The question choices.
+   *
    * @public
    */
   QuestionChoices?: ProfileChoice[] | undefined;
 
   /**
-   * <p>The selected choices.</p>
+   * The selected choices.
+   *
    * @public
    */
   SelectedChoiceIds?: string[] | undefined;
 
   /**
-   * <p>The minimum number of selected choices.</p>
+   * The minimum number of selected choices.
+   *
    * @public
    */
   MinSelectedChoices?: number | undefined;
 
   /**
-   * <p>The maximum number of selected choices.</p>
+   * The maximum number of selected choices.
+   *
    * @public
    */
   MaxSelectedChoices?: number | undefined;
 }
 
 /**
- * <p>A profile.</p>
+ * A profile.
+ *
  * @public
  */
 export interface Profile {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>The profile version.</p>
+   * The profile version.
+   *
    * @public
    */
   ProfileVersion?: string | undefined;
 
   /**
-   * <p>The profile name.</p>
+   * The profile name.
+   *
    * @public
    */
   ProfileName?: string | undefined;
 
   /**
-   * <p>The profile description.</p>
+   * The profile description.
+   *
    * @public
    */
   ProfileDescription?: string | undefined;
 
   /**
-   * <p>Profile questions.</p>
+   * Profile questions.
+   *
    * @public
    */
   ProfileQuestions?: ProfileQuestion[] | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The date and time when the profile was created.</p>
+   * The date and time when the profile was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the profile was last updated.</p>
+   * The date and time when the profile was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ID assigned to the share invitation.</p>
+   * The ID assigned to the share invitation.
+   *
    * @public
    */
   ShareInvitationId?: string | undefined;
 
   /**
-   * <p>The tags assigned to the profile.</p>
+   * The tags assigned to the profile.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -4465,7 +5471,8 @@ export interface Profile {
  */
 export interface GetProfileOutput {
   /**
-   * <p>The profile.</p>
+   * The profile.
+   *
    * @public
    */
   Profile?: Profile | undefined;
@@ -4477,96 +5484,112 @@ export interface GetProfileOutput {
 export interface GetProfileTemplateInput {}
 
 /**
- * <p>A profile template choice.</p>
+ * A profile template choice.
+ *
  * @public
  */
 export interface ProfileTemplateChoice {
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId?: string | undefined;
 
   /**
-   * <p>The title of a choice.</p>
+   * The title of a choice.
+   *
    * @public
    */
   ChoiceTitle?: string | undefined;
 
   /**
-   * <p>The description of a choice.</p>
+   * The description of a choice.
+   *
    * @public
    */
   ChoiceDescription?: string | undefined;
 }
 
 /**
- * <p>A profile template question.</p>
+ * A profile template question.
+ *
  * @public
  */
 export interface ProfileTemplateQuestion {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>The description of the question.</p>
+   * The description of the question.
+   *
    * @public
    */
   QuestionDescription?: string | undefined;
 
   /**
-   * <p>The question choices.</p>
+   * The question choices.
+   *
    * @public
    */
   QuestionChoices?: ProfileTemplateChoice[] | undefined;
 
   /**
-   * <p>The minimum number of choices selected.</p>
+   * The minimum number of choices selected.
+   *
    * @public
    */
   MinSelectedChoices?: number | undefined;
 
   /**
-   * <p>The maximum number of choices selected.</p>
+   * The maximum number of choices selected.
+   *
    * @public
    */
   MaxSelectedChoices?: number | undefined;
 }
 
 /**
- * <p>The profile template.</p>
+ * The profile template.
+ *
  * @public
  */
 export interface ProfileTemplate {
   /**
-   * <p>The name of the profile template.</p>
+   * The name of the profile template.
+   *
    * @public
    */
   TemplateName?: string | undefined;
 
   /**
-   * <p>Profile template questions.</p>
+   * Profile template questions.
+   *
    * @public
    */
   TemplateQuestions?: ProfileTemplateQuestion[] | undefined;
 
   /**
-   * <p>The date and time when the profile template was created.</p>
+   * The date and time when the profile template was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the profile template was last updated.</p>
+   * The date and time when the profile template was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -4577,7 +5600,8 @@ export interface ProfileTemplate {
  */
 export interface GetProfileTemplateOutput {
   /**
-   * <p>The profile template.</p>
+   * The profile template.
+   *
    * @public
    */
   ProfileTemplate?: ProfileTemplate | undefined;
@@ -4588,79 +5612,94 @@ export interface GetProfileTemplateOutput {
  */
 export interface GetReviewTemplateInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 }
 
 /**
- * <p>A review template.</p>
+ * A review template.
+ *
  * @public
  */
 export interface ReviewTemplate {
   /**
-   * <p>The review template description.</p>
+   * The review template description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The lenses applied to the review template.</p>
+   * The lenses applied to the review template.
+   *
    * @public
    */
   Lenses?: string[] | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A count of how many total questions are answered and unanswered in the review template.</p>
+   * A count of how many total questions are answered and unanswered in the review template.
+   *
    * @public
    */
   QuestionCounts?: Partial<Record<Question, number>> | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The date and time when the review template was last updated.</p>
+   * The date and time when the review template was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>The name of the review template.</p>
+   * The name of the review template.
+   *
    * @public
    */
   TemplateName?: string | undefined;
 
   /**
-   * <p>The tags assigned to the review template.</p>
+   * The tags assigned to the review template.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The latest status of a review template.</p>
+   * The latest status of a review template.
+   *
    * @public
    */
   UpdateStatus?: ReviewTemplateUpdateStatus | undefined;
 
   /**
-   * <p>The ID assigned to the template share invitation.</p>
+   * The ID assigned to the template share invitation.
+   *
    * @public
    */
   ShareInvitationId?: string | undefined;
@@ -4671,7 +5710,8 @@ export interface ReviewTemplate {
  */
 export interface GetReviewTemplateOutput {
   /**
-   * <p>The review template.</p>
+   * The review template.
+   *
    * @public
    */
   ReviewTemplate?: ReviewTemplate | undefined;
@@ -4682,109 +5722,147 @@ export interface GetReviewTemplateOutput {
  */
 export interface GetReviewTemplateAnswerInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId: string | undefined;
 }
 
 /**
- * <p>An answer of the question.</p>
+ * An answer of the question.
+ *
  * @public
  */
 export interface ReviewTemplateAnswer {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>The description of the question.</p>
+   * The description of the question.
+   *
    * @public
    */
   QuestionDescription?: string | undefined;
 
   /**
-   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p> <p>This value is only available if the question has been answered.</p>
+   * The improvement plan URL for a question in an Amazon Web Services official lenses.
+   *
+   * This value is only available if the question has been answered.
+   *
    * @public
    */
   ImprovementPlanUrl?: string | undefined;
 
   /**
-   * <p>The helpful resource URL.</p> <p>For Amazon Web Services official lenses, this is the helpful resource URL for a question or choice.</p> <p>For custom lenses, this is the helpful resource URL for a question and is only provided if <code>HelpfulResourceDisplayText</code> was specified for the question.</p>
+   * The helpful resource URL.
+   *
+   * For Amazon Web Services official lenses, this is the helpful resource URL for a question or choice.
+   *
+   * For custom lenses, this is the helpful resource URL for a question and is only provided if `HelpfulResourceDisplayText` was specified for the question.
+   *
    * @public
    */
   HelpfulResourceUrl?: string | undefined;
 
   /**
-   * <p>The helpful resource text to be displayed for a custom lens.</p> <note> <p>This field does not apply to Amazon Web Services official lenses.</p> </note>
+   * The helpful resource text to be displayed for a custom lens.
+   *
+   * > **Note:** This field does not apply to Amazon Web Services official lenses.
+   *
    * @public
    */
   HelpfulResourceDisplayText?: string | undefined;
 
   /**
-   * <p>List of choices available for a question.</p>
+   * List of choices available for a question.
+   *
    * @public
    */
   Choices?: Choice[] | undefined;
 
   /**
-   * <p>List of selected choice IDs in a question answer.</p> <p>The values entered replace the previously selected choices.</p>
+   * List of selected choice IDs in a question answer.
+   *
+   * The values entered replace the previously selected choices.
+   *
    * @public
    */
   SelectedChoices?: string[] | undefined;
 
   /**
-   * <p>A list of selected choices to a question in your review template.</p>
+   * A list of selected choices to a question in your review template.
+   *
    * @public
    */
   ChoiceAnswers?: ChoiceAnswer[] | undefined;
 
   /**
-   * <p>Defines whether this question is applicable to a lens review.</p>
+   * Defines whether this question is applicable to a lens review.
+   *
    * @public
    */
   IsApplicable?: boolean | undefined;
 
   /**
-   * <p>The status of whether or not this question has been answered.</p>
+   * The status of whether or not this question has been answered.
+   *
    * @public
    */
   AnswerStatus?: ReviewTemplateAnswerStatus | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>The reason why the question is not applicable to your review template.</p>
+   * The reason why the question is not applicable to your review template.
+   *
    * @public
    */
   Reason?: AnswerReason | undefined;
@@ -4795,19 +5873,28 @@ export interface ReviewTemplateAnswer {
  */
 export interface GetReviewTemplateAnswerOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>An answer of the question.</p>
+   * An answer of the question.
+   *
    * @public
    */
   Answer?: ReviewTemplateAnswer | undefined;
@@ -4818,109 +5905,145 @@ export interface GetReviewTemplateAnswerOutput {
  */
 export interface GetReviewTemplateLensReviewInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 }
 
 /**
- * <p>Summary of a review template.</p>
+ * Summary of a review template.
+ *
  * @public
  */
 export interface ReviewTemplatePillarReviewSummary {
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The name of the pillar.</p>
+   * The name of the pillar.
+   *
    * @public
    */
   PillarName?: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A count of how many questions are answered and unanswered in the requested pillar of the lens review.</p>
+   * A count of how many questions are answered and unanswered in the requested pillar of the lens review.
+   *
    * @public
    */
   QuestionCounts?: Partial<Record<Question, number>> | undefined;
 }
 
 /**
- * <p>The lens review of a review template.</p>
+ * The lens review of a review template.
+ *
  * @public
  */
 export interface ReviewTemplateLensReview {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The lens ARN.</p>
+   * The lens ARN.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The version of the lens.</p>
+   * The version of the lens.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   LensName?: string | undefined;
 
   /**
-   * <p>The status of the lens.</p>
+   * The status of the lens.
+   *
    * @public
    */
   LensStatus?: LensStatus | undefined;
 
   /**
-   * <p>Pillar review summaries of a lens review.</p>
+   * Pillar review summaries of a lens review.
+   *
    * @public
    */
   PillarReviewSummaries?: ReviewTemplatePillarReviewSummary[] | undefined;
 
   /**
-   * <p>The date and time when the review template lens review was last updated.</p>
+   * The date and time when the review template lens review was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A count of how many questions are answered and unanswered in the lens review.</p>
+   * A count of how many questions are answered and unanswered in the lens review.
+   *
    * @public
    */
   QuestionCounts?: Partial<Record<Question, number>> | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4931,37 +6054,43 @@ export interface ReviewTemplateLensReview {
  */
 export interface GetReviewTemplateLensReviewOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>A lens review of a question.</p>
+   * A lens review of a question.
+   *
    * @public
    */
   LensReview?: ReviewTemplateLensReview | undefined;
 }
 
 /**
- * <p>Input to get a workload.</p>
+ * Input to get a workload.
+ *
  * @public
  */
 export interface GetWorkloadInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 }
 
 /**
- * <p>Output of a get workload call.</p>
+ * Output of a get workload call.
+ *
  * @public
  */
 export interface GetWorkloadOutput {
   /**
-   * <p>A workload return object.</p>
+   * A workload return object.
+   *
    * @public
    */
   Workload?: Workload | undefined;
@@ -4972,25 +6101,39 @@ export interface GetWorkloadOutput {
  */
 export interface ImportLensInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The JSON representation of a lens.</p>
+   * The JSON representation of a lens.
+   *
    * @public
    */
   JSONString: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>Tags to associate to a lens.</p>
+   * Tags to associate to a lens.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -5001,271 +6144,344 @@ export interface ImportLensInput {
  */
 export interface ImportLensOutput {
   /**
-   * <p>The ARN for the lens that was created or updated.</p>
+   * The ARN for the lens that was created or updated.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The status of the imported lens.</p>
+   * The status of the imported lens.
+   *
    * @public
    */
   Status?: ImportLensStatus | undefined;
 }
 
 /**
- * <p>An improvement summary of a lens review in a workload.</p>
+ * An improvement summary of a lens review in a workload.
+ *
  * @public
  */
 export interface ImprovementSummary {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>The risk for a given workload, lens review, pillar, or question.</p>
+   * The risk for a given workload, lens review, pillar, or question.
+   *
    * @public
    */
   Risk?: Risk | undefined;
 
   /**
-   * <p>The improvement plan URL for a question in an Amazon Web Services official lenses.</p> <p>This value is only available if the question has been answered.</p>
+   * The improvement plan URL for a question in an Amazon Web Services official lenses.
+   *
+   * This value is only available if the question has been answered.
+   *
    * @public
    */
   ImprovementPlanUrl?: string | undefined;
 
   /**
-   * <p>The improvement plan details.</p> <p>This value is only applicable to custom lenses.</p>
+   * The improvement plan details.
+   *
+   * This value is only applicable to custom lenses.
+   *
    * @public
    */
   ImprovementPlans?: ChoiceImprovementPlan[] | undefined;
 
   /**
-   * <p>Configuration of the Jira integration.</p>
+   * Configuration of the Jira integration.
+   *
    * @public
    */
   JiraConfiguration?: JiraConfiguration | undefined;
 }
 
 /**
- * <p>A lens review summary of a workload.</p>
+ * A lens review summary of a workload.
+ *
  * @public
  */
 export interface LensReviewSummary {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The version of the lens.</p>
+   * The version of the lens.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   LensName?: string | undefined;
 
   /**
-   * <p>The status of the lens.</p>
+   * The status of the lens.
+   *
    * @public
    */
   LensStatus?: LensStatus | undefined;
 
   /**
-   * <p>The date and time when the lens review was last updated.</p>
+   * The date and time when the lens review was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>The profiles associated with the workload.</p>
+   * The profiles associated with the workload.
+   *
    * @public
    */
   Profiles?: WorkloadProfile[] | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   PrioritizedRiskCounts?: Partial<Record<Risk, number>> | undefined;
 }
 
 /**
- * <p>A lens share summary return object.</p>
+ * A lens share summary return object.
+ *
  * @public
  */
 export interface LensShareSummary {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith?: string | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 
   /**
-   * <p>Optional message to compliment the Status field.</p>
+   * Optional message to compliment the Status field.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>A lens summary of a lens.</p>
+ * A lens summary of a lens.
+ *
  * @public
  */
 export interface LensSummary {
   /**
-   * <p>The ARN of the lens.</p>
+   * The ARN of the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   LensName?: string | undefined;
 
   /**
-   * <p>The type of the lens.</p>
+   * The type of the lens.
+   *
    * @public
    */
   LensType?: LensType | undefined;
 
   /**
-   * <p>The description of the lens.</p>
+   * The description of the lens.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date and time when the lens was created.</p>
+   * The date and time when the lens was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the lens was last updated.</p>
+   * The date and time when the lens was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The version of the lens.</p>
+   * The version of the lens.
+   *
    * @public
    */
   LensVersion?: string | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The status of the lens.</p>
+   * The status of the lens.
+   *
    * @public
    */
   LensStatus?: LensStatus | undefined;
 }
 
 /**
- * <p>Lens upgrade summary return object.</p>
+ * Lens upgrade summary return object.
+ *
  * @public
  */
 export interface LensUpgradeSummary {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The current version of the lens.</p>
+   * The current version of the lens.
+   *
    * @public
    */
   CurrentLensVersion?: string | undefined;
 
   /**
-   * <p>The latest version of the lens.</p>
+   * The latest version of the lens.
+   *
    * @public
    */
   LatestLensVersion?: string | undefined;
 
   /**
-   * <p> <code>ResourceArn</code> of the lens being upgraded</p>
+   * `ResourceArn` of the lens being upgraded
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   ResourceName?: string | undefined;
@@ -5276,19 +6492,22 @@ export interface LensUpgradeSummary {
  */
 export interface ListAgentContextsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile to list contexts for.</p>
+   * The Amazon Resource Name (ARN) of the profile to list contexts for.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5299,13 +6518,15 @@ export interface ListAgentContextsRequest {
  */
 export interface ListAgentContextsResponse {
   /**
-   * <p>A list of context summaries associated with the profile.</p>
+   * A list of context summaries associated with the profile.
+   *
    * @public
    */
   items: ContextSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5316,19 +6537,22 @@ export interface ListAgentContextsResponse {
  */
 export interface ListAgentGoalsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the optimization profile to list goals for.</p>
+   * The Amazon Resource Name (ARN) of the optimization profile to list goals for.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The maximum number of goals to return in a single response.</p>
+   * The maximum number of goals to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a previous call to continue retrieving results.</p>
+   * A pagination token returned from a previous call to continue retrieving results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5339,13 +6563,15 @@ export interface ListAgentGoalsRequest {
  */
 export interface ListAgentGoalsResponse {
   /**
-   * <p>A list of goal summaries associated with the profile.</p>
+   * A list of goal summaries associated with the profile.
+   *
    * @public
    */
   items: GoalSummary[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next set of results, if available.</p>
+   * A pagination token to retrieve the next set of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5356,13 +6582,15 @@ export interface ListAgentGoalsResponse {
  */
 export interface ListAgentProfilesRequest {
   /**
-   * <p>The maximum number of profiles to return in a single call. Default is 100.</p>
+   * The maximum number of profiles to return in a single call. Default is 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a previous call to continue retrieving results.</p>
+   * A pagination token returned from a previous call to continue retrieving results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5373,13 +6601,15 @@ export interface ListAgentProfilesRequest {
  */
 export interface ListAgentProfilesResponse {
   /**
-   * <p>A list of profile summaries.</p>
+   * A list of profile summaries.
+   *
    * @public
    */
   items: AgentProfileSummary[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next set of results, if available.</p>
+   * A pagination token to retrieve the next set of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5390,25 +6620,29 @@ export interface ListAgentProfilesResponse {
  */
 export interface ListAgentRecommendationGenerationsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the optimization profile to list generation processes for.</p>
+   * The Amazon Resource Name (ARN) of the optimization profile to list generation processes for.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>Optional filter by recommendation type.</p>
+   * Optional filter by recommendation type.
+   *
    * @public
    */
   recommendationType?: RecommendationType | undefined;
 
   /**
-   * <p>The maximum number of generation processes to return in a single response.</p>
+   * The maximum number of generation processes to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a previous call to continue retrieving results.</p>
+   * A pagination token returned from a previous call to continue retrieving results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5419,13 +6653,15 @@ export interface ListAgentRecommendationGenerationsRequest {
  */
 export interface ListAgentRecommendationGenerationsResponse {
   /**
-   * <p>A list of recommendation generation summaries.</p>
+   * A list of recommendation generation summaries.
+   *
    * @public
    */
   items: AgentRecommendationGenerationSummary[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next set of results, if available.</p>
+   * A pagination token to retrieve the next set of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5436,25 +6672,29 @@ export interface ListAgentRecommendationGenerationsResponse {
  */
 export interface ListAgentRecommendationItemsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation to list items for.</p>
+   * The Amazon Resource Name (ARN) of the recommendation to list items for.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>Optional filter to return only recommendation items of the specified type.</p>
+   * Optional filter to return only recommendation items of the specified type.
+   *
    * @public
    */
   type?: RecommendationItemType | undefined;
 
   /**
-   * <p>The maximum number of recommendation items to return in a single response.</p>
+   * The maximum number of recommendation items to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a previous call to continue retrieving results.</p>
+   * A pagination token returned from a previous call to continue retrieving results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5465,13 +6705,15 @@ export interface ListAgentRecommendationItemsRequest {
  */
 export interface ListAgentRecommendationItemsResponse {
   /**
-   * <p>A list of recommendation items with their detailed metadata and configuration information.</p>
+   * A list of recommendation items with their detailed metadata and configuration information.
+   *
    * @public
    */
   items: AgentRecommendationItemSummary[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next set of results, if available.</p>
+   * A pagination token to retrieve the next set of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5482,31 +6724,36 @@ export interface ListAgentRecommendationItemsResponse {
  */
 export interface ListAgentRecommendationsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the optimization profile to list recommendations for.</p>
+   * The Amazon Resource Name (ARN) of the optimization profile to list recommendations for.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The maximum number of recommendations to return in a single response.</p>
+   * The maximum number of recommendations to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A pagination token returned from a previous call to continue retrieving results.</p>
+   * A pagination token returned from a previous call to continue retrieving results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Optional filter to return only recommendations with the specified state (OPEN or CLOSED).</p>
+   * Optional filter to return only recommendations with the specified state (OPEN or CLOSED).
+   *
    * @public
    */
   state?: RecommendationState | undefined;
 
   /**
-   * <p>Optional filter to return only recommendations for the specified pillar.</p>
+   * Optional filter to return only recommendations for the specified pillar.
+   *
    * @public
    */
   pillar?: Pillar | undefined;
@@ -5517,103 +6764,138 @@ export interface ListAgentRecommendationsRequest {
  */
 export interface ListAgentRecommendationsResponse {
   /**
-   * <p>A list of recommendation summaries.</p>
+   * A list of recommendation summaries.
+   *
    * @public
    */
   items: AgentRecommendationSummary[] | undefined;
 
   /**
-   * <p>A pagination token to retrieve the next set of results, if available.</p>
+   * A pagination token to retrieve the next set of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Input to list answers.</p>
+ * Input to list answers.
+ *
  * @public
  */
 export interface ListAnswersInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The priority of the question.</p>
+   * The priority of the question.
+   *
    * @public
    */
   QuestionPriority?: QuestionPriority | undefined;
 }
 
 /**
- * <p>Output of a list answers call.</p>
+ * Output of a list answers call.
+ *
  * @public
  */
 export interface ListAnswersOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>List of answer summaries of lens review in a workload.</p>
+   * List of answer summaries of lens review in a workload.
+   *
    * @public
    */
   AnswerSummaries?: AnswerSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5624,43 +6906,52 @@ export interface ListAnswersOutput {
  */
 export interface ListCheckDetailsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Well-Architected Lens ARN.</p>
+   * Well-Architected Lens ARN.
+   *
    * @public
    */
   LensArn: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId: string | undefined;
 
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId: string | undefined;
@@ -5671,13 +6962,15 @@ export interface ListCheckDetailsInput {
  */
 export interface ListCheckDetailsOutput {
   /**
-   * <p>The details about the Trusted Advisor checks related to the Well-Architected best practice.</p>
+   * The details about the Trusted Advisor checks related to the Well-Architected best practice.
+   *
    * @public
    */
   CheckDetails?: CheckDetail[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5688,43 +6981,52 @@ export interface ListCheckDetailsOutput {
  */
 export interface ListCheckSummariesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Well-Architected Lens ARN.</p>
+   * Well-Architected Lens ARN.
+   *
    * @public
    */
   LensArn: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId: string | undefined;
 
   /**
-   * <p>The ID of a choice.</p>
+   * The ID of a choice.
+   *
    * @public
    */
   ChoiceId: string | undefined;
@@ -5735,217 +7037,275 @@ export interface ListCheckSummariesInput {
  */
 export interface ListCheckSummariesOutput {
   /**
-   * <p>List of Trusted Advisor summaries related to the Well-Architected best practice.</p>
+   * List of Trusted Advisor summaries related to the Well-Architected best practice.
+   *
    * @public
    */
   CheckSummaries?: CheckSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input to list lenses.</p>
+ * Input to list lenses.
+ *
  * @public
  */
 export interface ListLensesInput {
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The type of lenses to be returned.</p>
+   * The type of lenses to be returned.
+   *
    * @public
    */
   LensType?: LensType | undefined;
 
   /**
-   * <p>The status of lenses to be returned.</p>
+   * The status of lenses to be returned.
+   *
    * @public
    */
   LensStatus?: LensStatusType | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   LensName?: string | undefined;
 }
 
 /**
- * <p>Output of a list lenses call.</p>
+ * Output of a list lenses call.
+ *
  * @public
  */
 export interface ListLensesOutput {
   /**
-   * <p>List of lens summaries of available lenses.</p>
+   * List of lens summaries of available lenses.
+   *
    * @public
    */
   LensSummaries?: LensSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input to list lens review improvements.</p>
+ * Input to list lens review improvements.
+ *
  * @public
  */
 export interface ListLensReviewImprovementsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The priority of the question.</p>
+   * The priority of the question.
+   *
    * @public
    */
   QuestionPriority?: QuestionPriority | undefined;
 }
 
 /**
- * <p>Output of a list lens review improvements call.</p>
+ * Output of a list lens review improvements call.
+ *
  * @public
  */
 export interface ListLensReviewImprovementsOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>List of improvement summaries of lens review in a workload.</p>
+   * List of improvement summaries of lens review in a workload.
+   *
    * @public
    */
   ImprovementSummaries?: ImprovementSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input to list lens reviews.</p>
+ * Input to list lens reviews.
+ *
  * @public
  */
 export interface ListLensReviewsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Output of a list lens reviews call.</p>
+ * Output of a list lens reviews call.
+ *
  * @public
  */
 export interface ListLensReviewsOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>List of lens summaries of lens reviews of a workload.</p>
+   * List of lens summaries of lens reviews of a workload.
+   *
    * @public
    */
   LensReviewSummaries?: LensReviewSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -5956,31 +7316,42 @@ export interface ListLensReviewsOutput {
  */
 export interface ListLensSharesInput {
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the lens is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the lens is shared.
+   *
    * @public
    */
   SharedWithPrefix?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
@@ -5991,157 +7362,191 @@ export interface ListLensSharesInput {
  */
 export interface ListLensSharesOutput {
   /**
-   * <p>A list of lens share summaries.</p>
+   * A list of lens share summaries.
+   *
    * @public
    */
   LensShareSummaries?: LensShareSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input to list all milestones for a workload.</p>
+ * Input to list all milestones for a workload.
+ *
  * @public
  */
 export interface ListMilestonesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A workload summary return object.</p>
+ * A workload summary return object.
+ *
  * @public
  */
 export interface WorkloadSummary {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The date and time when the workload was last updated.</p>
+   * The date and time when the workload was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The list of lenses associated with the workload. Each lens is identified by its <a>LensSummary$LensAlias</a>.</p> <p>If a review template that specifies lenses is applied to the workload, those lenses are applied to the workload in addition to these lenses.</p>
+   * The list of lenses associated with the workload. Each lens is identified by its LensSummary$LensAlias.
+   *
+   * If a review template that specifies lenses is applied to the workload, those lenses are applied to the workload in addition to these lenses.
+   *
    * @public
    */
   Lenses?: string[] | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   RiskCounts?: Partial<Record<Risk, number>> | undefined;
 
   /**
-   * <p>The improvement status for a workload.</p>
+   * The improvement status for a workload.
+   *
    * @public
    */
   ImprovementStatus?: WorkloadImprovementStatus | undefined;
 
   /**
-   * <p>Profile associated with a workload.</p>
+   * Profile associated with a workload.
+   *
    * @public
    */
   Profiles?: WorkloadProfile[] | undefined;
 
   /**
-   * <p>A map from risk names to the count of how many questions have that rating.</p>
+   * A map from risk names to the count of how many questions have that rating.
+   *
    * @public
    */
   PrioritizedRiskCounts?: Partial<Record<Risk, number>> | undefined;
 }
 
 /**
- * <p>A milestone summary return object.</p>
+ * A milestone summary return object.
+ *
  * @public
  */
 export interface MilestoneSummary {
   /**
-   * <p>The milestone number.</p> <p>A workload can have a maximum of 100 milestones.</p>
+   * The milestone number.
+   *
+   * A workload can have a maximum of 100 milestones.
+   *
    * @public
    */
   MilestoneNumber?: number | undefined;
 
   /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
+   * The name of the milestone in a workload.
+   *
+   * Milestone names must be unique within a workload.
+   *
    * @public
    */
   MilestoneName?: string | undefined;
 
   /**
-   * <p>The date and time when the milestone was recorded.</p>
+   * The date and time when the milestone was recorded.
+   *
    * @public
    */
   RecordedAt?: Date | undefined;
 
   /**
-   * <p>A workload summary return object.</p>
+   * A workload summary return object.
+   *
    * @public
    */
   WorkloadSummary?: WorkloadSummary | undefined;
 }
 
 /**
- * <p>Output of a list milestones call.</p>
+ * Output of a list milestones call.
+ *
  * @public
  */
 export interface ListMilestonesOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>A list of milestone summaries.</p>
+   * A list of milestone summaries.
+   *
    * @public
    */
   MilestoneSummaries?: MilestoneSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6152,43 +7557,52 @@ export interface ListMilestonesOutput {
  */
 export interface ListNotificationsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The ARN for the related resource for the notification.</p> <note> <p>Only one of <code>WorkloadID</code> or <code>ResourceARN</code> should be specified.</p> </note>
+   * The ARN for the related resource for the notification.
+   *
+   * > **Note:** Only one of `WorkloadID` or `ResourceARN` should be specified.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 }
 
 /**
- * <p>A notification summary return object.</p>
+ * A notification summary return object.
+ *
  * @public
  */
 export interface NotificationSummary {
   /**
-   * <p>The type of notification.</p>
+   * The type of notification.
+   *
    * @public
    */
   Type?: NotificationType | undefined;
 
   /**
-   * <p>Summary of lens upgrade.</p>
+   * Summary of lens upgrade.
+   *
    * @public
    */
   LensUpgradeSummary?: LensUpgradeSummary | undefined;
@@ -6199,13 +7613,15 @@ export interface NotificationSummary {
  */
 export interface ListNotificationsOutput {
   /**
-   * <p>List of lens notification summaries in a workload.</p>
+   * List of lens notification summaries in a workload.
+   *
    * @public
    */
   NotificationSummaries?: NotificationSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6216,67 +7632,80 @@ export interface ListNotificationsOutput {
  */
 export interface ListProfileNotificationsInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The profile notification summary.</p>
+ * The profile notification summary.
+ *
  * @public
  */
 export interface ProfileNotificationSummary {
   /**
-   * <p>The current profile version.</p>
+   * The current profile version.
+   *
    * @public
    */
   CurrentProfileVersion?: string | undefined;
 
   /**
-   * <p>The latest profile version.</p>
+   * The latest profile version.
+   *
    * @public
    */
   LatestProfileVersion?: string | undefined;
 
   /**
-   * <p>Type of notification.</p>
+   * Type of notification.
+   *
    * @public
    */
   Type?: ProfileNotificationType | undefined;
 
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>The profile name.</p>
+   * The profile name.
+   *
    * @public
    */
   ProfileName?: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
@@ -6287,13 +7716,15 @@ export interface ProfileNotificationSummary {
  */
 export interface ListProfileNotificationsOutput {
   /**
-   * <p>Notification summaries.</p>
+   * Notification summaries.
+   *
    * @public
    */
   NotificationSummaries?: ProfileNotificationSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6304,73 +7735,85 @@ export interface ListProfileNotificationsOutput {
  */
 export interface ListProfilesInput {
   /**
-   * <p>An optional string added to the beginning of each profile name returned in the results.</p>
+   * An optional string added to the beginning of each profile name returned in the results.
+   *
    * @public
    */
   ProfileNamePrefix?: string | undefined;
 
   /**
-   * <p>Profile owner type.</p>
+   * Profile owner type.
+   *
    * @public
    */
   ProfileOwnerType?: ProfileOwnerType | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Summary of a profile.</p>
+ * Summary of a profile.
+ *
  * @public
  */
 export interface ProfileSummary {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>The profile version.</p>
+   * The profile version.
+   *
    * @public
    */
   ProfileVersion?: string | undefined;
 
   /**
-   * <p>The profile name.</p>
+   * The profile name.
+   *
    * @public
    */
   ProfileName?: string | undefined;
 
   /**
-   * <p>The profile description.</p>
+   * The profile description.
+   *
    * @public
    */
   ProfileDescription?: string | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The date and time when the profile was created.</p>
+   * The date and time when the profile was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the profile was last updated.</p>
+   * The date and time when the profile was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -6381,13 +7824,15 @@ export interface ProfileSummary {
  */
 export interface ListProfilesOutput {
   /**
-   * <p>Profile summaries.</p>
+   * Profile summaries.
+   *
    * @public
    */
   ProfileSummaries?: ProfileSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6398,61 +7843,71 @@ export interface ListProfilesOutput {
  */
 export interface ListProfileSharesInput {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the profile is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the profile is shared.
+   *
    * @public
    */
   SharedWithPrefix?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 }
 
 /**
- * <p>Summary of a profile share.</p>
+ * Summary of a profile share.
+ *
  * @public
  */
 export interface ProfileShareSummary {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith?: string | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 
   /**
-   * <p>Profile share invitation status message.</p>
+   * Profile share invitation status message.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -6463,13 +7918,15 @@ export interface ProfileShareSummary {
  */
 export interface ListProfileSharesOutput {
   /**
-   * <p>Profile share summaries.</p>
+   * Profile share summaries.
+   *
    * @public
    */
   ProfileShareSummaries?: ProfileShareSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6480,97 +7937,125 @@ export interface ListProfileSharesOutput {
  */
 export interface ListReviewTemplateAnswersInput {
   /**
-   * <p>The ARN of the review template.</p>
+   * The ARN of the review template.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of review template answers.</p>
+ * The summary of review template answers.
+ *
  * @public
  */
 export interface ReviewTemplateAnswerSummary {
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId?: string | undefined;
 
   /**
-   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p> <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The ID used to identify a pillar, for example, `security`.
+   *
+   * A pillar is identified by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarId?: string | undefined;
 
   /**
-   * <p>The title of the question.</p>
+   * The title of the question.
+   *
    * @public
    */
   QuestionTitle?: string | undefined;
 
   /**
-   * <p>List of choices available for a question.</p>
+   * List of choices available for a question.
+   *
    * @public
    */
   Choices?: Choice[] | undefined;
 
   /**
-   * <p>List of selected choice IDs in a question answer.</p> <p>The values entered replace the previously selected choices.</p>
+   * List of selected choice IDs in a question answer.
+   *
+   * The values entered replace the previously selected choices.
+   *
    * @public
    */
   SelectedChoices?: string[] | undefined;
 
   /**
-   * <p>A list of selected choices to a question in the review template.</p>
+   * A list of selected choices to a question in the review template.
+   *
    * @public
    */
   ChoiceAnswerSummaries?: ChoiceAnswerSummary[] | undefined;
 
   /**
-   * <p>Defines whether this question is applicable to a lens review.</p>
+   * Defines whether this question is applicable to a lens review.
+   *
    * @public
    */
   IsApplicable?: boolean | undefined;
 
   /**
-   * <p>The status of whether or not this question has been answered.</p>
+   * The status of whether or not this question has been answered.
+   *
    * @public
    */
   AnswerStatus?: ReviewTemplateAnswerStatus | undefined;
 
   /**
-   * <p>The reason why a choice is not-applicable to a question in the review template.</p>
+   * The reason why a choice is not-applicable to a question in the review template.
+   *
    * @public
    */
   Reason?: AnswerReason | undefined;
 
   /**
-   * <p>The type of question.</p>
+   * The type of question.
+   *
    * @public
    */
   QuestionType?: QuestionType | undefined;
@@ -6581,25 +8066,35 @@ export interface ReviewTemplateAnswerSummary {
  */
 export interface ListReviewTemplateAnswersOutput {
   /**
-   * <p>The ARN of the review template.</p>
+   * The ARN of the review template.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>List of answer summaries of a lens review in a review template.</p>
+   * List of answer summaries of a lens review in a review template.
+   *
    * @public
    */
   AnswerSummaries?: ReviewTemplateAnswerSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6610,61 +8105,71 @@ export interface ListReviewTemplateAnswersOutput {
  */
 export interface ListReviewTemplatesInput {
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Summary of a review template.</p>
+ * Summary of a review template.
+ *
  * @public
  */
 export interface ReviewTemplateSummary {
   /**
-   * <p>Description of the review template.</p>
+   * Description of the review template.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Lenses associated with the review template.</p>
+   * Lenses associated with the review template.
+   *
    * @public
    */
   Lenses?: string[] | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The date and time when the review template was last updated.</p>
+   * The date and time when the review template was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>The name of the review template.</p>
+   * The name of the review template.
+   *
    * @public
    */
   TemplateName?: string | undefined;
 
   /**
-   * <p>The latest status of a review template.</p>
+   * The latest status of a review template.
+   *
    * @public
    */
   UpdateStatus?: ReviewTemplateUpdateStatus | undefined;
@@ -6675,163 +8180,192 @@ export interface ReviewTemplateSummary {
  */
 export interface ListReviewTemplatesOutput {
   /**
-   * <p>List of review templates.</p>
+   * List of review templates.
+   *
    * @public
    */
   ReviewTemplates?: ReviewTemplateSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input for List Share Invitations</p>
+ * Input for List Share Invitations
+ *
  * @public
  */
 export interface ListShareInvitationsInput {
   /**
-   * <p>An optional string added to the beginning of each workload name returned in the results.</p>
+   * An optional string added to the beginning of each workload name returned in the results.
+   *
    * @public
    */
   WorkloadNamePrefix?: string | undefined;
 
   /**
-   * <p>An optional string added to the beginning of each lens name returned in the results.</p>
+   * An optional string added to the beginning of each lens name returned in the results.
+   *
    * @public
    */
   LensNamePrefix?: string | undefined;
 
   /**
-   * <p>The type of share invitations to be returned.</p>
+   * The type of share invitations to be returned.
+   *
    * @public
    */
   ShareResourceType?: ShareResourceType | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>An optional string added to the beginning of each profile name returned in the results.</p>
+   * An optional string added to the beginning of each profile name returned in the results.
+   *
    * @public
    */
   ProfileNamePrefix?: string | undefined;
 
   /**
-   * <p>An optional string added to the beginning of each review template name returned in the results.</p>
+   * An optional string added to the beginning of each review template name returned in the results.
+   *
    * @public
    */
   TemplateNamePrefix?: string | undefined;
 }
 
 /**
- * <p>A share invitation summary return object.</p>
+ * A share invitation summary return object.
+ *
  * @public
  */
 export interface ShareInvitationSummary {
   /**
-   * <p>The ID assigned to the share invitation.</p>
+   * The ID assigned to the share invitation.
+   *
    * @public
    */
   ShareInvitationId?: string | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   SharedBy?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith?: string | undefined;
 
   /**
-   * <p>Permission granted on a share request.</p>
+   * Permission granted on a share request.
+   *
    * @public
    */
   PermissionType?: PermissionType | undefined;
 
   /**
-   * <p>The resource type of the share invitation.</p>
+   * The resource type of the share invitation.
+   *
    * @public
    */
   ShareResourceType?: ShareResourceType | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The full name of the lens.</p>
+   * The full name of the lens.
+   *
    * @public
    */
   LensName?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The profile name.</p>
+   * The profile name.
+   *
    * @public
    */
   ProfileName?: string | undefined;
 
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>The name of the review template.</p>
+   * The name of the review template.
+   *
    * @public
    */
   TemplateName?: string | undefined;
 
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 }
 
 /**
- * <p>Input for List Share Invitations</p>
+ * Input for List Share Invitations
+ *
  * @public
  */
 export interface ListShareInvitationsOutput {
   /**
-   * <p>List of share invitation summaries in a workload.</p>
+   * List of share invitation summaries in a workload.
+   *
    * @public
    */
   ShareInvitationSummaries?: ShareInvitationSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -6842,7 +8376,8 @@ export interface ListShareInvitationsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn: string | undefined;
@@ -6853,7 +8388,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags for the resource.</p>
+   * The tags for the resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -6864,61 +8400,71 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTemplateSharesInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the profile is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the profile is shared.
+   *
    * @public
    */
   SharedWithPrefix?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 }
 
 /**
- * <p>Summary of a review template share.</p>
+ * Summary of a review template share.
+ *
  * @public
  */
 export interface TemplateShareSummary {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith?: string | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 
   /**
-   * <p>Review template share invitation status message. </p>
+   * Review template share invitation status message.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -6929,157 +8475,183 @@ export interface TemplateShareSummary {
  */
 export interface ListTemplateSharesOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>A review template share summary return object.</p>
+   * A review template share summary return object.
+   *
    * @public
    */
   TemplateShareSummaries?: TemplateShareSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input to list all workloads.</p>
+ * Input to list all workloads.
+ *
  * @public
  */
 export interface ListWorkloadsInput {
   /**
-   * <p>An optional string added to the beginning of each workload name returned in the results.</p>
+   * An optional string added to the beginning of each workload name returned in the results.
+   *
    * @public
    */
   WorkloadNamePrefix?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Output of a list workloads call.</p>
+ * Output of a list workloads call.
+ *
  * @public
  */
 export interface ListWorkloadsOutput {
   /**
-   * <p>A list of workload summaries.</p>
+   * A list of workload summaries.
+   *
    * @public
    */
   WorkloadSummaries?: WorkloadSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Input for List Workload Share</p>
+ * Input for List Workload Share
+ *
  * @public
  */
 export interface ListWorkloadSharesInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload is shared.
+   *
    * @public
    */
   SharedWithPrefix?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for this request.</p>
+   * The maximum number of results to return for this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 }
 
 /**
- * <p>A workload share summary return object.</p>
+ * A workload share summary return object.
+ *
  * @public
  */
 export interface WorkloadShareSummary {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith?: string | undefined;
 
   /**
-   * <p>Permission granted on a share request.</p>
+   * Permission granted on a share request.
+   *
    * @public
    */
   PermissionType?: PermissionType | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 
   /**
-   * <p>Optional message to compliment the Status field.</p>
+   * Optional message to compliment the Status field.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>Input for List Workload Share</p>
+ * Input for List Workload Share
+ *
  * @public
  */
 export interface ListWorkloadSharesOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>A list of workload share summaries.</p>
+   * A list of workload share summaries.
+   *
    * @public
    */
   WorkloadShareSummaries?: WorkloadShareSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results.</p>
+   * The token to use to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -7090,25 +8662,29 @@ export interface ListWorkloadSharesOutput {
  */
 export interface PutAgentRecommendationFeedbackRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation to provide feedback for.</p>
+   * The Amazon Resource Name (ARN) of the recommendation to provide feedback for.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The type of feedback being provided.</p>
+   * The type of feedback being provided.
+   *
    * @public
    */
   type: RecommendationFeedbackType | undefined;
 
   /**
-   * <p>Optional category classifying the nature of the feedback.</p>
+   * Optional category classifying the nature of the feedback.
+   *
    * @public
    */
   feedbackCategory?: FeedbackCategory | undefined;
 
   /**
-   * <p>Optional comments providing additional context about the feedback.</p>
+   * Optional comments providing additional context about the feedback.
+   *
    * @public
    */
   comments?: string | undefined;
@@ -7120,48 +8696,62 @@ export interface PutAgentRecommendationFeedbackRequest {
 export interface PutAgentRecommendationFeedbackResponse {}
 
 /**
- * <p>The share invitation.</p>
+ * The share invitation.
+ *
  * @public
  */
 export interface ShareInvitation {
   /**
-   * <p>The ID assigned to the share invitation.</p>
+   * The ID assigned to the share invitation.
+   *
    * @public
    */
   ShareInvitationId?: string | undefined;
 
   /**
-   * <p>The resource type of the share invitation.</p>
+   * The resource type of the share invitation.
+   *
    * @public
    */
   ShareResourceType?: ShareResourceType | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn?: string | undefined;
 
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
@@ -7172,31 +8762,36 @@ export interface ShareInvitation {
  */
 export interface StartAgentRecommendationGenerationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the optimization profile to use for generating recommendations.</p>
+   * The Amazon Resource Name (ARN) of the optimization profile to use for generating recommendations.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The types of recommendations to generate.</p>
+   * The types of recommendations to generate.
+   *
    * @public
    */
   types: RecommendationType[] | undefined;
 
   /**
-   * <p>An optional name for this generation process to help identify it in lists and logs.</p>
+   * An optional name for this generation process to help identify it in lists and logs.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Optional additional context to guide the recommendation generation, such as specific business requirements or constraints.</p>
+   * Optional additional context to guide the recommendation generation, such as specific business requirements or constraints.
+   *
    * @public
    */
   additionalContext?: __DocumentType | undefined;
 
   /**
-   * <p>Scope configuration to focus the generation on specific pillars or goals.</p>
+   * Scope configuration to focus the generation on specific pillars or goals.
+   *
    * @public
    */
   scope: Scope | undefined;
@@ -7207,55 +8802,64 @@ export interface StartAgentRecommendationGenerationRequest {
  */
 export interface StartAgentRecommendationGenerationResponse {
   /**
-   * <p>The unique identifier of the recommendation generation.</p>
+   * The unique identifier of the recommendation generation.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile used for this generation.</p>
+   * The Amazon Resource Name (ARN) of the profile used for this generation.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The name of the recommendation generation.</p>
+   * The name of the recommendation generation.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the recommendation generation.</p>
+   * The current status of the recommendation generation.
+   *
    * @public
    */
   status: GenerationStatus | undefined;
 
   /**
-   * <p>The estimated time for the generation to complete.</p>
+   * The estimated time for the generation to complete.
+   *
    * @public
    */
   estimatedCompletionTime?: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that started this generation.</p>
+   * The identifier of the user or system that started this generation.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the generation was started.</p>
+   * The timestamp when the generation was started.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this generation.</p>
+   * The identifier of the user or system that last modified this generation.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the generation was last modified.</p>
+   * The timestamp when the generation was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -7266,13 +8870,15 @@ export interface StartAgentRecommendationGenerationResponse {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn: string | undefined;
 
   /**
-   * <p>The tags for the resource.</p>
+   * The tags for the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -7288,13 +8894,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN for the workload.</p>
+   * The ARN for the workload.
+   *
    * @public
    */
   WorkloadArn: string | undefined;
 
   /**
-   * <p>A list of tag keys. Existing tags of the resource whose keys are members of this list are removed from the resource.</p>
+   * A list of tag keys. Existing tags of the resource whose keys are members of this list are removed from the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -7310,31 +8918,36 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateAgentContextRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile containing the context.</p>
+   * The Amazon Resource Name (ARN) of the profile containing the context.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the context to update.</p>
+   * The unique identifier of the context to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The updated title of the context.</p>
+   * The updated title of the context.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>The updated typed content of the context. The structure contains application-specific fields such as account IDs, Regions, services, and resource types.</p>
+   * The updated typed content of the context. The structure contains application-specific fields such as account IDs, Regions, services, and resource types.
+   *
    * @public
    */
   content?: ContextContent | undefined;
@@ -7345,7 +8958,8 @@ export interface UpdateAgentContextRequest {
  */
 export interface UpdateAgentContextResponse {
   /**
-   * <p>The updated context summary.</p>
+   * The updated context summary.
+   *
    * @public
    */
   context: ContextSummary | undefined;
@@ -7356,37 +8970,43 @@ export interface UpdateAgentContextResponse {
  */
 export interface UpdateAgentGoalRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile containing the goal to update.</p>
+   * The Amazon Resource Name (ARN) of the profile containing the goal to update.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the goal to update.</p>
+   * The unique identifier of the goal to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The updated pillars for the goal. Pillars define the optimization focus areas such as cost, performance, resilience, and operational excellence.</p>
+   * The updated pillars for the goal. Pillars define the optimization focus areas such as cost, performance, resilience, and operational excellence.
+   *
    * @public
    */
   pillars?: Pillar[] | undefined;
 
   /**
-   * <p>The updated title for the goal. Maximum length of 1000 characters.</p>
+   * The updated title for the goal. Maximum length of 1000 characters.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>A description of the goal.</p>
+   * A description of the goal.
+   *
    * @public
    */
   description?: string | undefined;
@@ -7397,7 +9017,8 @@ export interface UpdateAgentGoalRequest {
  */
 export interface UpdateAgentGoalResponse {
   /**
-   * <p>The updated goal summary.</p>
+   * The updated goal summary.
+   *
    * @public
    */
   goal: GoalSummary | undefined;
@@ -7408,55 +9029,64 @@ export interface UpdateAgentGoalResponse {
  */
 export interface UpdateAgentProfileRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile to update.</p>
+   * The Amazon Resource Name (ARN) of the profile to update.
+   *
    * @public
    */
   profileArn: string | undefined;
 
   /**
-   * <p>The updated display name of the profile.</p>
+   * The updated display name of the profile.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>The updated description of the profile.</p>
+   * The updated description of the profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated ARN of the IAM execution role.</p>
+   * The updated ARN of the IAM execution role.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The updated aggregation configuration.</p>
+   * The updated aggregation configuration.
+   *
    * @public
    */
   aggregationConfiguration?: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>The updated business overview for the profile.</p>
+   * The updated business overview for the profile.
+   *
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The updated Well-Architected Tool Framework pillars for the profile.</p>
+   * The updated Well-Architected Tool Framework pillars for the profile.
+   *
    * @public
    */
   pillars?: Pillar[] | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled for the profile.</p>
+   * Indicates whether deletion protection is enabled for the profile.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
@@ -7467,103 +9097,120 @@ export interface UpdateAgentProfileRequest {
  */
 export interface UpdateAgentProfileResponse {
   /**
-   * <p>The system name of the updated profile.</p>
+   * The system name of the updated profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The display name of the updated profile.</p>
+   * The display name of the updated profile.
+   *
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>A description of the updated profile.</p>
+   * A description of the updated profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The business overview of the updated profile.</p>
+   * The business overview of the updated profile.
+   *
    * @public
    */
   businessOverview?: string | undefined;
 
   /**
-   * <p>The Well-Architected Tool Framework pillars associated with the updated profile.</p>
+   * The Well-Architected Tool Framework pillars associated with the updated profile.
+   *
    * @public
    */
   pillars: Pillar[] | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled.</p>
+   * Indicates whether deletion protection is enabled.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The ARN of the IAM execution role.</p>
+   * The ARN of the IAM execution role.
+   *
    * @public
    */
   executionRoleArn: string | undefined;
 
   /**
-   * <p>The aggregation configuration.</p>
+   * The aggregation configuration.
+   *
    * @public
    */
   aggregationConfiguration: AggregationConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated profile.</p>
+   * The Amazon Resource Name (ARN) of the updated profile.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for scheduled recommendation generation.</p>
+   * Indicates whether the profile is valid for scheduled recommendation generation.
+   *
    * @public
    */
   eligibleForScheduledGeneration?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the profile is valid for manual architecture generation.</p>
+   * Indicates whether the profile is valid for manual architecture generation.
+   *
    * @public
    */
   eligibleForArchitectureGeneration?: boolean | undefined;
 
   /**
-   * <p>A map of field paths to error messages for invalid or missing input fields.</p>
+   * A map of field paths to error messages for invalid or missing input fields.
+   *
    * @public
    */
   fieldErrors?: Record<string, string> | undefined;
 
   /**
-   * <p>The tags associated with the updated profile.</p>
+   * The tags associated with the updated profile.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The identifier of the user or system that created this profile.</p>
+   * The identifier of the user or system that created this profile.
+   *
    * @public
    */
   createdBy: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was created.</p>
+   * The timestamp when the profile was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The identifier of the user or system that last modified this profile.</p>
+   * The identifier of the user or system that last modified this profile.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the profile was last modified.</p>
+   * The timestamp when the profile was last modified.
+   *
    * @public
    */
   lastModifiedAt?: Date | undefined;
@@ -7574,19 +9221,22 @@ export interface UpdateAgentProfileResponse {
  */
 export interface UpdateAgentRecommendationStatusRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommendation to update.</p>
+   * The Amazon Resource Name (ARN) of the recommendation to update.
+   *
    * @public
    */
   recommendationArn: string | undefined;
 
   /**
-   * <p>The new status to assign to the recommendation.</p>
+   * The new status to assign to the recommendation.
+   *
    * @public
    */
   status: RecommendationStatus | undefined;
 
   /**
-   * <p>A free-text reason explaining this status update.</p>
+   * A free-text reason explaining this status update.
+   *
    * @public
    */
   updateReason?: string | undefined;
@@ -7598,84 +9248,114 @@ export interface UpdateAgentRecommendationStatusRequest {
 export interface UpdateAgentRecommendationStatusResponse {}
 
 /**
- * <p>Input to update answer.</p>
+ * Input to update answer.
+ *
  * @public
  */
 export interface UpdateAnswerInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId: string | undefined;
 
   /**
-   * <p>List of selected choice IDs in a question answer.</p> <p>The values entered replace the previously selected choices.</p>
+   * List of selected choice IDs in a question answer.
+   *
+   * The values entered replace the previously selected choices.
+   *
    * @public
    */
   SelectedChoices?: string[] | undefined;
 
   /**
-   * <p>A list of choices to update on a question in your workload. The String key corresponds to the choice ID to be updated.</p>
+   * A list of choices to update on a question in your workload. The String key corresponds to the choice ID to be updated.
+   *
    * @public
    */
   ChoiceUpdates?: Record<string, ChoiceUpdate> | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>Defines whether this question is applicable to a lens review.</p>
+   * Defines whether this question is applicable to a lens review.
+   *
    * @public
    */
   IsApplicable?: boolean | undefined;
 
   /**
-   * <p>The reason why a question is not applicable to your workload.</p>
+   * The reason why a question is not applicable to your workload.
+   *
    * @public
    */
   Reason?: AnswerReason | undefined;
 }
 
 /**
- * <p>Output of a update answer call.</p>
+ * Output of a update answer call.
+ *
  * @public
  */
 export interface UpdateAnswerOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>The ARN for the lens.</p>
+   * The ARN for the lens.
+   *
    * @public
    */
   LensArn?: string | undefined;
 
   /**
-   * <p>An answer of the question.</p>
+   * An answer of the question.
+   *
    * @public
    */
   Answer?: Answer | undefined;
@@ -7686,19 +9366,22 @@ export interface UpdateAnswerOutput {
  */
 export interface UpdateGlobalSettingsInput {
   /**
-   * <p>The status of organization sharing settings.</p>
+   * The status of organization sharing settings.
+   *
    * @public
    */
   OrganizationSharingStatus?: OrganizationSharingStatus | undefined;
 
   /**
-   * <p>The status of discovery support settings.</p>
+   * The status of discovery support settings.
+   *
    * @public
    */
   DiscoveryIntegrationStatus?: DiscoveryIntegrationStatus | undefined;
 
   /**
-   * <p>The status of Jira integration settings.</p>
+   * The status of Jira integration settings.
+   *
    * @public
    */
   JiraConfiguration?: AccountJiraConfigurationInput | undefined;
@@ -7709,73 +9392,99 @@ export interface UpdateGlobalSettingsInput {
  */
 export interface UpdateIntegrationInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
 
   /**
-   * <p>Which integrated service to update.</p>
+   * Which integrated service to update.
+   *
    * @public
    */
   IntegratingService: IntegratingService | undefined;
 }
 
 /**
- * <p>Input for update lens review.</p>
+ * Input for update lens review.
+ *
  * @public
  */
 export interface UpdateLensReviewInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   LensNotes?: string | undefined;
 
   /**
-   * <p>List of pillar notes of a lens review in a workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * List of pillar notes of a lens review in a workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   PillarNotes?: Record<string, string> | undefined;
 
   /**
-   * <p>Configuration of the Jira integration.</p>
+   * Configuration of the Jira integration.
+   *
    * @public
    */
   JiraConfiguration?: JiraSelectedQuestionConfiguration | undefined;
 }
 
 /**
- * <p>Output of a update lens review call.</p>
+ * Output of a update lens review call.
+ *
  * @public
  */
 export interface UpdateLensReviewOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>A lens review of a question.</p>
+   * A lens review of a question.
+   *
    * @public
    */
   LensReview?: LensReview | undefined;
@@ -7786,19 +9495,22 @@ export interface UpdateLensReviewOutput {
  */
 export interface UpdateProfileInput {
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>The profile description.</p>
+   * The profile description.
+   *
    * @public
    */
   ProfileDescription?: string | undefined;
 
   /**
-   * <p>Profile questions.</p>
+   * Profile questions.
+   *
    * @public
    */
   ProfileQuestions?: ProfileQuestionUpdate[] | undefined;
@@ -7809,7 +9521,8 @@ export interface UpdateProfileInput {
  */
 export interface UpdateProfileOutput {
   /**
-   * <p>The profile.</p>
+   * The profile.
+   *
    * @public
    */
   Profile?: Profile | undefined;
@@ -7820,37 +9533,45 @@ export interface UpdateProfileOutput {
  */
 export interface UpdateReviewTemplateInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The review template name.</p>
+   * The review template name.
+   *
    * @public
    */
   TemplateName?: string | undefined;
 
   /**
-   * <p>The review template description.</p>
+   * The review template description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>A list of lens aliases or ARNs to apply to the review template.</p>
+   * A list of lens aliases or ARNs to apply to the review template.
+   *
    * @public
    */
   LensesToAssociate?: string[] | undefined;
 
   /**
-   * <p>A list of lens aliases or ARNs to unapply to the review template. The <code>wellarchitected</code> lens cannot be unapplied.</p>
+   * A list of lens aliases or ARNs to unapply to the review template. The `wellarchitected` lens cannot be unapplied.
+   *
    * @public
    */
   LensesToDisassociate?: string[] | undefined;
@@ -7861,7 +9582,8 @@ export interface UpdateReviewTemplateInput {
  */
 export interface UpdateReviewTemplateOutput {
   /**
-   * <p>A review template.</p>
+   * A review template.
+   *
    * @public
    */
   ReviewTemplate?: ReviewTemplate | undefined;
@@ -7872,49 +9594,67 @@ export interface UpdateReviewTemplateOutput {
  */
 export interface UpdateReviewTemplateAnswerInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The ID of the question.</p>
+   * The ID of the question.
+   *
    * @public
    */
   QuestionId: string | undefined;
 
   /**
-   * <p>List of selected choice IDs in a question answer.</p> <p>The values entered replace the previously selected choices.</p>
+   * List of selected choice IDs in a question answer.
+   *
+   * The values entered replace the previously selected choices.
+   *
    * @public
    */
   SelectedChoices?: string[] | undefined;
 
   /**
-   * <p>A list of choices to be updated.</p>
+   * A list of choices to be updated.
+   *
    * @public
    */
   ChoiceUpdates?: Record<string, ChoiceUpdate> | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>Defines whether this question is applicable to a lens review.</p>
+   * Defines whether this question is applicable to a lens review.
+   *
    * @public
    */
   IsApplicable?: boolean | undefined;
 
   /**
-   * <p>The update reason.</p>
+   * The update reason.
+   *
    * @public
    */
   Reason?: AnswerReason | undefined;
@@ -7925,19 +9665,28 @@ export interface UpdateReviewTemplateAnswerInput {
  */
 export interface UpdateReviewTemplateAnswerOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias?: string | undefined;
 
   /**
-   * <p>An answer of the question.</p>
+   * An answer of the question.
+   *
    * @public
    */
   Answer?: ReviewTemplateAnswer | undefined;
@@ -7948,25 +9697,39 @@ export interface UpdateReviewTemplateAnswerOutput {
  */
 export interface UpdateReviewTemplateLensReviewInput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   LensNotes?: string | undefined;
 
   /**
-   * <p>List of pillar notes of a lens review in a workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * List of pillar notes of a lens review in a workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   PillarNotes?: Record<string, string> | undefined;
@@ -7977,31 +9740,36 @@ export interface UpdateReviewTemplateLensReviewInput {
  */
 export interface UpdateReviewTemplateLensReviewOutput {
   /**
-   * <p>The review template ARN.</p>
+   * The review template ARN.
+   *
    * @public
    */
   TemplateArn?: string | undefined;
 
   /**
-   * <p>A lens review of a question.</p>
+   * A lens review of a question.
+   *
    * @public
    */
   LensReview?: ReviewTemplateLensReview | undefined;
 }
 
 /**
- * <p>Input for Update Share Invitation</p>
+ * Input for Update Share Invitation
+ *
  * @public
  */
 export interface UpdateShareInvitationInput {
   /**
-   * <p>The ID assigned to the share invitation.</p>
+   * The ID assigned to the share invitation.
+   *
    * @public
    */
   ShareInvitationId: string | undefined;
 
   /**
-   * <p>Share invitation action taken by contributor.</p>
+   * Share invitation action taken by contributor.
+   *
    * @public
    */
   ShareInvitationAction: ShareInvitationAction | undefined;
@@ -8012,223 +9780,298 @@ export interface UpdateShareInvitationInput {
  */
 export interface UpdateShareInvitationOutput {
   /**
-   * <p>The updated workload or custom lens share invitation.</p>
+   * The updated workload or custom lens share invitation.
+   *
    * @public
    */
   ShareInvitation?: ShareInvitation | undefined;
 }
 
 /**
- * <p>Input to update a workload.</p>
+ * Input to update a workload.
+ *
  * @public
  */
 export interface UpdateWorkloadInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The description for the workload.</p>
+   * The description for the workload.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The environment for the workload.</p>
+   * The environment for the workload.
+   *
    * @public
    */
   Environment?: WorkloadEnvironment | undefined;
 
   /**
-   * <p>The list of Amazon Web Services account IDs associated with the workload.</p>
+   * The list of Amazon Web Services account IDs associated with the workload.
+   *
    * @public
    */
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services Regions associated with the workload, for example, <code>us-east-2</code>, or <code>ca-central-1</code>.</p>
+   * The list of Amazon Web Services Regions associated with the workload, for example, `us-east-2`, or `ca-central-1`.
+   *
    * @public
    */
   AwsRegions?: string[] | undefined;
 
   /**
-   * <p> The list of non-Amazon Web Services Regions associated with the workload.</p>
+   * The list of non-Amazon Web Services Regions associated with the workload.
+   *
    * @public
    */
   NonAwsRegions?: string[] | undefined;
 
   /**
-   * <p>The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its <a>PillarReviewSummary$PillarId</a>.</p>
+   * The priorities of the pillars, which are used to order items in the improvement plan. Each pillar is represented by its PillarReviewSummary$PillarId.
+   *
    * @public
    */
   PillarPriorities?: string[] | undefined;
 
   /**
-   * <p>The URL of the architectural design for the workload.</p>
+   * The URL of the architectural design for the workload.
+   *
    * @public
    */
   ArchitecturalDesign?: string | undefined;
 
   /**
-   * <p>The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.</p>
+   * The review owner of the workload. The name, email address, or identifier for the primary group or individual that owns the workload review process.
+   *
    * @public
    */
   ReviewOwner?: string | undefined;
 
   /**
-   * <p>Flag indicating whether the workload owner has acknowledged that the <i>Review owner</i> field is required.</p> <p>If a <b>Review owner</b> is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.</p>
+   * Flag indicating whether the workload owner has acknowledged that the *Review owner* field is required.
+   *
+   * If a **Review owner** is not added to the workload within 60 days of acknowledgement, access to the workload is restricted until an owner is added.
+   *
    * @public
    */
   IsReviewOwnerUpdateAcknowledged?: boolean | undefined;
 
   /**
-   * <p>The industry type for the workload.</p> <p>If specified, must be one of the following:</p> <ul> <li> <p> <code>Agriculture</code> </p> </li> <li> <p> <code>Automobile</code> </p> </li> <li> <p> <code>Defense</code> </p> </li> <li> <p> <code>Design and Engineering</code> </p> </li> <li> <p> <code>Digital Advertising</code> </p> </li> <li> <p> <code>Education</code> </p> </li> <li> <p> <code>Environmental Protection</code> </p> </li> <li> <p> <code>Financial Services</code> </p> </li> <li> <p> <code>Gaming</code> </p> </li> <li> <p> <code>General Public Services</code> </p> </li> <li> <p> <code>Healthcare</code> </p> </li> <li> <p> <code>Hospitality</code> </p> </li> <li> <p> <code>InfoTech</code> </p> </li> <li> <p> <code>Justice and Public Safety</code> </p> </li> <li> <p> <code>Life Sciences</code> </p> </li> <li> <p> <code>Manufacturing</code> </p> </li> <li> <p> <code>Media &amp; Entertainment</code> </p> </li> <li> <p> <code>Mining &amp; Resources</code> </p> </li> <li> <p> <code>Oil &amp; Gas</code> </p> </li> <li> <p> <code>Power &amp; Utilities</code> </p> </li> <li> <p> <code>Professional Services</code> </p> </li> <li> <p> <code>Real Estate &amp; Construction</code> </p> </li> <li> <p> <code>Retail &amp; Wholesale</code> </p> </li> <li> <p> <code>Social Protection</code> </p> </li> <li> <p> <code>Telecommunications</code> </p> </li> <li> <p> <code>Travel, Transportation &amp; Logistics</code> </p> </li> <li> <p> <code>Other</code> </p> </li> </ul>
+   * The industry type for the workload.
+   *
+   * If specified, must be one of the following:
+   *
+   * - `Agriculture`
+   * - `Automobile`
+   * - `Defense`
+   * - `Design and Engineering`
+   * - `Digital Advertising`
+   * - `Education`
+   * - `Environmental Protection`
+   * - `Financial Services`
+   * - `Gaming`
+   * - `General Public Services`
+   * - `Healthcare`
+   * - `Hospitality`
+   * - `InfoTech`
+   * - `Justice and Public Safety`
+   * - `Life Sciences`
+   * - `Manufacturing`
+   * - `Media & Entertainment`
+   * - `Mining & Resources`
+   * - `Oil & Gas`
+   * - `Power & Utilities`
+   * - `Professional Services`
+   * - `Real Estate & Construction`
+   * - `Retail & Wholesale`
+   * - `Social Protection`
+   * - `Telecommunications`
+   * - `Travel, Transportation & Logistics`
+   * - `Other`
+   *
    * @public
    */
   IndustryType?: string | undefined;
 
   /**
-   * <p>The industry for the workload.</p>
+   * The industry for the workload.
+   *
    * @public
    */
   Industry?: string | undefined;
 
   /**
-   * <p>The notes associated with the workload.</p> <p>For a review template, these are the notes that will be associated with the workload when the template is applied.</p>
+   * The notes associated with the workload.
+   *
+   * For a review template, these are the notes that will be associated with the workload when the template is applied.
+   *
    * @public
    */
   Notes?: string | undefined;
 
   /**
-   * <p>The improvement status for a workload.</p>
+   * The improvement status for a workload.
+   *
    * @public
    */
   ImprovementStatus?: WorkloadImprovementStatus | undefined;
 
   /**
-   * <p>Well-Architected discovery configuration settings to associate to the workload.</p>
+   * Well-Architected discovery configuration settings to associate to the workload.
+   *
    * @public
    */
   DiscoveryConfig?: WorkloadDiscoveryConfig | undefined;
 
   /**
-   * <p>List of AppRegistry application ARNs to associate to the workload.</p>
+   * List of AppRegistry application ARNs to associate to the workload.
+   *
    * @public
    */
   Applications?: string[] | undefined;
 
   /**
-   * <p>Configuration of the Jira integration.</p>
+   * Configuration of the Jira integration.
+   *
    * @public
    */
   JiraConfiguration?: WorkloadJiraConfigurationInput | undefined;
 }
 
 /**
- * <p>Output of an update workload call.</p>
+ * Output of an update workload call.
+ *
  * @public
  */
 export interface UpdateWorkloadOutput {
   /**
-   * <p>A workload return object.</p>
+   * A workload return object.
+   *
    * @public
    */
   Workload?: Workload | undefined;
 }
 
 /**
- * <p>Input for Update Workload Share</p>
+ * Input for Update Workload Share
+ *
  * @public
  */
 export interface UpdateWorkloadShareInput {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>Permission granted on a share request.</p>
+   * Permission granted on a share request.
+   *
    * @public
    */
   PermissionType: PermissionType | undefined;
 }
 
 /**
- * <p>A workload share return object.</p>
+ * A workload share return object.
+ *
  * @public
  */
 export interface WorkloadShare {
   /**
-   * <p>The ID associated with the share.</p>
+   * The ID associated with the share.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>An Amazon Web Services account ID.</p>
+   * An Amazon Web Services account ID.
+   *
    * @public
    */
   SharedBy?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.</p>
+   * The Amazon Web Services account ID, organization ID, or organizational unit (OU) ID with which the workload, lens, profile, or review template is shared.
+   *
    * @public
    */
   SharedWith?: string | undefined;
 
   /**
-   * <p>Permission granted on a share request.</p>
+   * Permission granted on a share request.
+   *
    * @public
    */
   PermissionType?: PermissionType | undefined;
 
   /**
-   * <p>The status of the share request.</p>
+   * The status of the share request.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 
   /**
-   * <p>The name of the workload.</p> <p>The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.</p>
+   * The name of the workload.
+   *
+   * The name must be unique within an account within an Amazon Web Services Region. Spaces and capitalization are ignored when checking for uniqueness.
+   *
    * @public
    */
   WorkloadName?: string | undefined;
 
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 }
 
 /**
- * <p>Input for Update Workload Share</p>
+ * Input for Update Workload Share
+ *
  * @public
  */
 export interface UpdateWorkloadShareOutput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId?: string | undefined;
 
   /**
-   * <p>A workload share return object.</p>
+   * A workload share return object.
+   *
    * @public
    */
   WorkloadShare?: WorkloadShare | undefined;
@@ -8239,25 +10082,41 @@ export interface UpdateWorkloadShareOutput {
  */
 export interface UpgradeLensReviewInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
+   * The name of the milestone in a workload.
+   *
+   * Milestone names must be unique within a workload.
+   *
    * @public
    */
   MilestoneName: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -8268,25 +10127,35 @@ export interface UpgradeLensReviewInput {
  */
 export interface UpgradeProfileVersionInput {
   /**
-   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   * The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.
+   *
    * @public
    */
   WorkloadId: string | undefined;
 
   /**
-   * <p>The profile ARN.</p>
+   * The profile ARN.
+   *
    * @public
    */
   ProfileArn: string | undefined;
 
   /**
-   * <p>The name of the milestone in a workload.</p> <p>Milestone names must be unique within a workload.</p>
+   * The name of the milestone in a workload.
+   *
+   * Milestone names must be unique within a workload.
+   *
    * @public
    */
   MilestoneName?: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;
@@ -8297,19 +10166,32 @@ export interface UpgradeProfileVersionInput {
  */
 export interface UpgradeReviewTemplateLensReviewInput {
   /**
-   * <p>The ARN of the review template.</p>
+   * The ARN of the review template.
+   *
    * @public
    */
   TemplateArn: string | undefined;
 
   /**
-   * <p>The alias of the lens.</p> <p>For Amazon Web Services official lenses, this is either the lens alias, such as <code>serverless</code>, or the lens ARN, such as <code>arn:aws:wellarchitected:us-east-1::lens/serverless</code>. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.</p> <p>For custom lenses, this is the lens ARN, such as <code>arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef</code>. </p> <p>Each lens is identified by its <a>LensSummary$LensAlias</a>.</p>
+   * The alias of the lens.
+   *
+   * For Amazon Web Services official lenses, this is either the lens alias, such as `serverless`, or the lens ARN, such as `arn:aws:wellarchitected:us-east-1::lens/serverless`. Note that some operations (such as ExportLens and CreateLensShare) are not permitted on Amazon Web Services official lenses.
+   *
+   * For custom lenses, this is the lens ARN, such as `arn:aws:wellarchitected:us-west-2:123456789012:lens/0123456789abcdef01234567890abcdef`.
+   *
+   * Each lens is identified by its LensSummary$LensAlias.
+   *
    * @public
    */
   LensAlias: string | undefined;
 
   /**
-   * <p>A unique case-sensitive string used to ensure that this request is idempotent (executes only once).</p> <p>You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.</p> <important> <p>This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.</p> </important>
+   * A unique case-sensitive string used to ensure that this request is idempotent (executes only once).
+   *
+   * You should not reuse the same token for other requests. If you retry a request with the same client request token and the same parameters after the original request has completed successfully, the result of the original request is returned.
+   *
+   * > **Important:** This token is listed as required, however, if you do not specify it, the Amazon Web Services SDKs automatically generate one for you. If you are not using the Amazon Web Services SDK or the CLI, you must provide this token or the request will fail.
+   *
    * @public
    */
   ClientRequestToken?: string | undefined;

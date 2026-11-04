@@ -23,54 +23,34 @@ export interface UpdateRegexPatternSetCommandInput extends UpdateRegexPatternSet
 export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- *          <p>Inserts or deletes <code>RegexPatternString</code> objects in a <a>RegexPatternSet</a>. For each <code>RegexPatternString</code> object,
- * 			you specify the following values: </p>
- * 		       <ul>
- *             <li>
- * 			            <p>Whether to insert or delete the <code>RegexPatternString</code>.</p>
- *             </li>
- *             <li>
- *                <p>The regular expression pattern that you want to insert or delete. For more information, see <a>RegexPatternSet</a>. </p>
- *             </li>
- *          </ul>
- * 		       <p> For example, you can create a <code>RegexPatternString</code> such as <code>B[a@]dB[o0]t</code>. AWS WAF will match this <code>RegexPatternString</code> to:</p>
- *                 <ul>
- *             <li>
- * 				           <p>BadBot</p>
- * 				        </li>
- *             <li>
- * 				           <p>BadB0t</p>
- * 				        </li>
- *             <li>
- * 				           <p>B@dBot</p>
- * 				        </li>
- *             <li>
- * 				           <p>B@dB0t</p>
- * 				        </li>
- *          </ul>
- * 		       <p>To create and configure a <code>RegexPatternSet</code>, perform the following steps:</p>
- * 		       <ol>
- *             <li>
- *                <p>Create a <code>RegexPatternSet.</code> For more information, see <a>CreateRegexPatternSet</a>.</p>
- *             </li>
- *             <li>
- *                <p>Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code> parameter of an
- * 				<code>UpdateRegexPatternSet</code> request.</p>
- *             </li>
- *             <li>
- *                <p>Submit an <code>UpdateRegexPatternSet</code> request to specify the regular expression pattern that you want AWS WAF to watch for.</p>
- *             </li>
- *          </ol>
- * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
+ *
+ *
+ *
+ * Inserts or deletes `RegexPatternString` objects in a RegexPatternSet. For each `RegexPatternString` object, you specify the following values:
+ *
+ * - Whether to insert or delete the `RegexPatternString`.
+ * - The regular expression pattern that you want to insert or delete. For more information, see RegexPatternSet.
+ *
+ * For example, you can create a `RegexPatternString` such as `B[a@]dB[o0]t`. AWS WAF will match this `RegexPatternString` to:
+ *
+ * - BadBot
+ * - BadB0t
+ * - B@dBot
+ * - B@dB0t
+ *
+ * To create and configure a `RegexPatternSet`, perform the following steps:
+ *
+ * 1. Create a `RegexPatternSet.` For more information, see CreateRegexPatternSet.
+ * 2. Use GetChangeToken to get the change token that you provide in the `ChangeToken` parameter of an `UpdateRegexPatternSet` request.
+ * 3. Submit an `UpdateRegexPatternSet` request to specify the regular expression pattern that you want AWS WAF to watch for.
+ *
+ * For more information about how to use the AWS WAF API to allow or block HTTP requests, see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,69 +84,51 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFInvalidAccountException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation failed because there was nothing to do. For example:</p>
- * 			      <ul>
- *             <li>
- *                <p>You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code> isn't in the specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't in the specified <code>IPSet</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code>
- * 					isn't in the specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code> already exists in the
- * 					specified <code>WebACL</code>.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but the <code>ByteMatchTuple</code>
- *                already exists in the specified <code>WebACL</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because there was nothing to do. For example:
+ *
+ * - You tried to remove a `Rule` from a `WebACL`, but the `Rule` isn't in the specified `WebACL`.
+ * - You tried to remove an IP address from an `IPSet`, but the IP address isn't in the specified `IPSet`.
+ * - You tried to remove a `ByteMatchTuple` from a `ByteMatchSet`, but the `ByteMatchTuple` isn't in the specified `WebACL`.
+ * - You tried to add a `Rule` to a `WebACL`, but the `Rule` already exists in the specified `WebACL`.
+ * - You tried to add a `ByteMatchTuple` to a `ByteMatchSet`, but the `ByteMatchTuple` already exists in the specified `WebACL`.
  *
  * @throws {@link WAFInvalidRegexPatternException} (client fault)
- *  <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
+ *
+ * The regular expression (regex) you specified in `RegexPatternString` is invalid.
  *
  * @throws {@link WAFLimitsExceededException} (client fault)
- *  <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
- * 			for an AWS account. For more information, see
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
+ *
+ * The operation exceeds a resource limit, for example, the maximum number of `WebACL` objects that you can create for an AWS account. For more information, see [Limits](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide*.
  *
  * @throws {@link WAFNonexistentContainerException} (client fault)
- *  <p>The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:</p>
- * 		       <ul>
- *             <li>
- *                <p>You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code> from a <code>Rule</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add an IP address to or delete an IP address from an <code>IPSet</code> that doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>
- * 				that doesn't exist.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because you tried to add an object to or delete an object from another object that doesn't exist. For example:
+ *
+ * - You tried to add a `Rule` to or delete a `Rule` from a `WebACL` that doesn't exist.
+ * - You tried to add a `ByteMatchSet` to or delete a `ByteMatchSet` from a `Rule` that doesn't exist.
+ * - You tried to add an IP address to or delete an IP address from an `IPSet` that doesn't exist.
+ * - You tried to add a `ByteMatchTuple` to or delete a `ByteMatchTuple` from a `ByteMatchSet` that doesn't exist.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * The operation failed because the referenced object doesn't exist.
  *
  * @throws {@link WAFStaleDataException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
  *
  * @throws {@link WAFRegionalServiceException}
- * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * Base exception class for all service exceptions from WAFRegional service.
  *
  * @public
  */

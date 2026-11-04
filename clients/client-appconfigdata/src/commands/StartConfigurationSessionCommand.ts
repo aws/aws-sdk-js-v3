@@ -23,10 +23,8 @@ export interface StartConfigurationSessionCommandInput extends StartConfiguratio
 export interface StartConfigurationSessionCommandOutput extends StartConfigurationSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a configuration session used to retrieve a deployed configuration. For more
- *          information about this API action and to view example CLI commands that show how to use
- *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving the
- *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
+ * Starts a configuration session used to retrieve a deployed configuration. For more information about this API action and to view example CLI commands that show how to use it with the GetLatestConfiguration API action, see [Retrieving the configuration](http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration) in the *AppConfig User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,20 +54,24 @@ export interface StartConfigurationSessionCommandOutput extends StartConfigurati
  * @see {@link AppConfigDataClientResolvedConfig | config} for AppConfigDataClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal failure in the service.</p>
+ *
+ * There was an internal failure in the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link AppConfigDataServiceException}
- * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
+ * Base exception class for all service exceptions from AppConfigData service.
  *
  * @public
  */

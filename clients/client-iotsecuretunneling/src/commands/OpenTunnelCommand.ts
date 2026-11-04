@@ -23,9 +23,10 @@ export interface OpenTunnelCommandInput extends OpenTunnelRequest {}
 export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
- * 			connect to the IoT Secure Tunneling proxy server.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">OpenTunnel</a> action.</p>
+ * Creates a new tunnel, and returns two client access tokens for clients to use to connect to the IoT Secure Tunneling proxy server.
+ *
+ * Requires permission to access the [OpenTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,11 +71,12 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Thrown when a tunnel limit is exceeded.</p>
+ *
+ * Thrown when a tunnel limit is exceeded.
  *
  * @throws {@link IoTSecureTunnelingServiceException}
- * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * Base exception class for all service exceptions from IoTSecureTunneling service.
  *
  * @public
  */

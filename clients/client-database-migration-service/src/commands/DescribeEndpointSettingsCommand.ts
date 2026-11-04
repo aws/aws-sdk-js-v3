@@ -23,8 +23,8 @@ export interface DescribeEndpointSettingsCommandInput extends DescribeEndpointSe
 export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the possible endpoint settings available when you create an
- *          endpoint for a specific database engine.</p>
+ * Returns information about the possible endpoint settings available when you create an endpoint for a specific database engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +68,8 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

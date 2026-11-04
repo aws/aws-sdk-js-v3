@@ -23,9 +23,8 @@ export interface ListReportsCommandInput extends ListReportsInput {}
 export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       Returns a list of ARNs for the reports in the current Amazon Web Services account.
- *     </p>
+ * Returns a list of ARNs for the reports in the current Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,11 +59,12 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

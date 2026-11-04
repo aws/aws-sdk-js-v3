@@ -23,7 +23,8 @@ export interface DescribeFastLaunchImagesCommandInput extends DescribeFastLaunch
 export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunchImagesResult, __MetadataBearer {}
 
 /**
- * <p>Describe details for Windows AMIs that are configured for Windows fast launch.</p>
+ * Describe details for Windows AMIs that are configured for Windows fast launch.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +83,8 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

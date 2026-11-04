@@ -23,7 +23,8 @@ export interface ListCoverageStatisticsCommandInput extends ListCoverageStatisti
 export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon Inspector coverage statistics for your environment.</p>
+ * Lists Amazon Inspector coverage statistics for your environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,17 +169,20 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * The request has failed due to an internal failure of the Amazon Inspector service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ *
+ * The request has failed validation due to missing required fields or having invalid inputs.
  *
  * @throws {@link Inspector2ServiceException}
- * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * Base exception class for all service exceptions from Inspector2 service.
  *
  * @public
  */

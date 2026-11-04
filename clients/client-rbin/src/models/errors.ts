@@ -10,7 +10,8 @@ import type {
 import { RbinServiceException as __BaseException } from "./RbinServiceException";
 
 /**
- * <p>The service could not respond to the request due to an internal problem.</p>
+ * The service could not respond to the request due to an internal problem.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -33,7 +34,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+ * The request would cause a service quota for the number of tags per resource to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -42,7 +44,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ServiceQuotaExceededExceptionReason | undefined;
@@ -62,7 +65,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>One or more of the parameters in the request is not valid.</p>
+ * One or more of the parameters in the request is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -71,7 +75,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
@@ -91,7 +96,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified retention rule lock request can't be completed.</p>
+ * The specified retention rule lock request can't be completed.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -100,7 +106,8 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ConflictExceptionReason | undefined;
@@ -120,7 +127,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -129,7 +137,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ResourceNotFoundExceptionReason | undefined;

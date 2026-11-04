@@ -23,7 +23,8 @@ export interface ListPortalProductsCommandInput extends ListPortalProductsReques
 export interface ListPortalProductsCommandOutput extends ListPortalProductsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists portal products.</p>
+ * Lists portal products.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,14 +67,16 @@ export interface ListPortalProductsCommandOutput extends ListPortalProductsRespo
  * @throws {@link AccessDeniedException} (client fault)
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ * A limit has been exceeded. See the accompanying error message for details.
  *
  * @throws {@link ApiGatewayV2ServiceException}
- * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * Base exception class for all service exceptions from ApiGatewayV2 service.
  *
  * @public
  */

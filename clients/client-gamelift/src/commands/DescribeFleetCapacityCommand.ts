@@ -23,45 +23,29 @@ export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacity
 export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
- *          <p>Retrieves the resource capacity settings for one or more fleets.  For a container
- *             fleet, this operation also returns counts for game server container groups.</p>
- *          <p>With multi-location fleets, this operation retrieves data for the fleet's home Region
- *             only. To retrieve capacity for remote locations, see
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html">https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html</a>.</p>
- *          <p>This operation can be used in the following ways: </p>
- *          <ul>
- *             <li>
- *                <p>To get capacity data for one or more specific fleets, provide a list of fleet
- *                     IDs or fleet ARNs. </p>
- *             </li>
- *             <li>
- *                <p>To get capacity data for all fleets, do not provide a fleet identifier.
- *                 </p>
- *             </li>
- *          </ul>
- *          <p>When requesting multiple fleets, use the pagination parameters to retrieve results as
- *             a set of sequential pages. </p>
- *          <p>If successful, a <code>FleetCapacity</code> object is returned for each requested
- *             fleet ID. Each <code>FleetCapacity</code> object includes a <code>Location</code>
- *             property, which is set to the fleet's home Region. Capacity values are returned only for
- *             fleets that currently exist.</p>
- *          <note>
- *             <p>Some API operations may limit the number of fleet IDs that are allowed in one
- *                 request. If a request exceeds this limit, the request fails and the error message
- *                 includes the maximum allowed.</p>
- *          </note>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
- *             fleets</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift metrics for fleets</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Container
+ *
+ * Retrieves the resource capacity settings for one or more fleets. For a container fleet, this operation also returns counts for game server container groups.
+ *
+ * With multi-location fleets, this operation retrieves data for the fleet's home Region only. To retrieve capacity for remote locations, see [https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html).
+ *
+ * This operation can be used in the following ways:
+ *
+ * - To get capacity data for one or more specific fleets, provide a list of fleet IDs or fleet ARNs.
+ * - To get capacity data for all fleets, do not provide a fleet identifier.
+ *
+ * When requesting multiple fleets, use the pagination parameters to retrieve results as a set of sequential pages.
+ *
+ * If successful, a `FleetCapacity` object is returned for each requested fleet ID. Each `FleetCapacity` object includes a `Location` property, which is set to the fleet's home Region. Capacity values are returned only for fleets that currently exist.
+ *
+ * > **Note:** Some API operations may limit the number of fleet IDs that are allowed in one request. If a request exceeds this limit, the request fails and the error message includes the maximum allowed.
+ *
+ * **Learn more**
+ *
+ * [Setting up Amazon GameLift Servers fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
+ * [GameLift metrics for fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,25 +103,28 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

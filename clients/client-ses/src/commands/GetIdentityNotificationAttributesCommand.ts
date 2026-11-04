@@ -26,12 +26,12 @@ export interface GetIdentityNotificationAttributesCommandInput extends GetIdenti
 export interface GetIdentityNotificationAttributesCommandOutput extends GetIdentityNotificationAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Given a list of verified identities (email addresses and/or domains), returns a
- *             structure describing identity notification attributes.</p>
- *          <p>This operation is throttled at one request per second and can only get notification
- *             attributes for up to 100 identities at a time.</p>
- *          <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html">Amazon SES
- *                 Developer Guide</a>.</p>
+ * Given a list of verified identities (email addresses and/or domains), returns a structure describing identity notification attributes.
+ *
+ * This operation is throttled at one request per second and can only get notification attributes for up to 100 identities at a time.
+ *
+ * For more information about using notifications with Amazon SES, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity-using-notifications.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,8 @@ export interface GetIdentityNotificationAttributesCommandOutput extends GetIdent
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example GetIdentityNotificationAttributes
  * ```javascript

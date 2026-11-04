@@ -23,11 +23,8 @@ export interface DeleteCapacityReservationCommandInput extends DeleteCapacityRes
 export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a cancelled capacity reservation. A reservation must be cancelled before it
- *             can be deleted. A deleted reservation is immediately removed from your account and can
- *             no longer be referenced, including by its ARN. A deleted reservation cannot be called by
- *                 <code>GetCapacityReservation</code>, and deleted reservations do not appear in the
- *             output of <code>ListCapacityReservations</code>.</p>
+ * Deletes a cancelled capacity reservation. A reservation must be cancelled before it can be deleted. A deleted reservation is immediately removed from your account and can no longer be referenced, including by its ARN. A deleted reservation cannot be called by `GetCapacityReservation`, and deleted reservations do not appear in the output of `ListCapacityReservations`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +49,16 @@ export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityRe
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

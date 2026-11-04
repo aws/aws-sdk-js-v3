@@ -23,7 +23,10 @@ export interface DescribeDBClusterAutomatedBackupsCommandInput extends DescribeD
 export interface DescribeDBClusterAutomatedBackupsCommandOutput extends DBClusterAutomatedBackupMessage, __MetadataBearer {}
 
 /**
- * <p>Displays backups for both current and deleted DB clusters. For example, use this operation to find details about automated backups for previously deleted clusters. Current clusters are returned for both the <code>DescribeDBClusterAutomatedBackups</code> and <code>DescribeDBClusters</code> operations.</p> <p>All parameters are optional.</p>
+ * Displays backups for both current and deleted DB clusters. For example, use this operation to find details about automated backups for previously deleted clusters. Current clusters are returned for both the `DescribeDBClusterAutomatedBackups` and `DescribeDBClusters` operations.
+ *
+ * All parameters are optional.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,11 +106,12 @@ export interface DescribeDBClusterAutomatedBackupsCommandOutput extends DBCluste
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterAutomatedBackupNotFoundFault} (client fault)
- *  <p>No automated backup for this DB cluster was found.</p>
+ *
+ * No automated backup for this DB cluster was found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

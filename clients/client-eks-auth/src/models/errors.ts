@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EKSAuthServiceException as __BaseException } from "./EKSAuthServiceException";
 
 /**
- * <p>You don't have permissions to perform the requested operation. The IAM principal making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>. </p>
+ * You don't have permissions to perform the requested operation. The IAM principal making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The specified Kubernetes service account token is expired.</p>
+ * The specified Kubernetes service account token is expired.
+ *
  * @public
  */
 export class ExpiredTokenException extends __BaseException {
@@ -46,7 +48,8 @@ export class ExpiredTokenException extends __BaseException {
 }
 
 /**
- * <p>These errors are usually caused by a server-side issue.</p>
+ * These errors are usually caused by a server-side issue.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
+ * The specified parameter is invalid. Review the available parameters for the API request.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -88,7 +92,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
+ * This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -109,7 +114,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified Kubernetes service account token is invalid.</p>
+ * The specified Kubernetes service account token is invalid.
+ *
  * @public
  */
 export class InvalidTokenException extends __BaseException {
@@ -130,7 +136,8 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be found.</p>
+ * The specified resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -151,7 +158,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is unavailable. Back off and retry the operation.</p>
+ * The service is unavailable. Back off and retry the operation.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -172,7 +180,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because your request rate is too high. Reduce the frequency of requests.</p>
+ * The request was denied because your request rate is too high. Reduce the frequency of requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

@@ -23,7 +23,8 @@ export interface GetDistributionConfigCommandInput extends GetDistributionConfig
 export interface GetDistributionConfigCommandOutput extends GetDistributionConfigResult, __MetadataBearer {}
 
 /**
- * <p>Get the configuration information about a distribution.</p>
+ * Get the configuration information about a distribution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -386,14 +387,16 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchDistribution} (client fault)
- *  <p>The specified distribution does not exist.</p>
+ *
+ * The specified distribution does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

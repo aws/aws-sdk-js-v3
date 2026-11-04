@@ -23,10 +23,10 @@ export interface EnableImportFindingsForProductCommandInput extends EnableImport
 export interface EnableImportFindingsForProductCommandOutput extends EnableImportFindingsForProductResponse, __MetadataBearer {}
 
 /**
- * <p>Enables the integration of a partner product with Security Hub CSPM. Integrated products send
- *          findings to Security Hub CSPM.</p>
- *          <p>When you enable a product integration, a permissions policy that grants permission for
- *          the product to send findings to Security Hub CSPM is applied.</p>
+ * Enables the integration of a partner product with Security Hub CSPM. Integrated products send findings to Security Hub CSPM.
+ *
+ * When you enable a product integration, a permissions policy that grants permission for the product to send findings to Security Hub CSPM is applied.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,25 +53,28 @@ export interface EnableImportFindingsForProductCommandOutput extends EnableImpor
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * The resource specified in the request conflicts with an existing resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To activate an integration
  * ```javascript

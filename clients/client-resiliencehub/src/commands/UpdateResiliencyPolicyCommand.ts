@@ -23,16 +23,10 @@ export interface UpdateResiliencyPolicyCommandInput extends UpdateResiliencyPoli
 export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a resiliency policy.</p>
- *          <note>
- *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code>
- *         and <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
- *         the lowest possible assessment result is near zero. Hence, if you provide value zero for
- *           <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and
- *         estimated workload RPO result will be near zero and the <b>Compliance
- *           status</b> for your application will be set to <b>Policy
- *           breached</b>.</p>
- *          </note>
+ * Updates a resiliency policy.
+ *
+ * > **Note:** Resilience Hub allows you to provide a value of zero for `rtoInSecs` and `rpoInSecs` of your resiliency policy. But, while assessing your application, the lowest possible assessment result is near zero. Hence, if you provide value zero for `rtoInSecs` and `rpoInSecs`, the estimated workload RTO and estimated workload RPO result will be near zero and the **Compliance status** for your application will be set to **Policy breached**.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,32 +80,32 @@ export interface UpdateResiliencyPolicyCommandOutput extends UpdateResiliencyPol
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The user or role that is
- *       making the request must have at least one IAM permissions policy attached that grants the
- *       required permissions.</p>
+ *
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
+ *
+ * This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Resilience Hub service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * This exception occurs when the specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * This exception occurs when you have exceeded the limit on the number of requests per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception occurs when a request is not valid.</p>
+ *
+ * This exception occurs when a request is not valid.
  *
  * @throws {@link ResiliencehubServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehub service.
  *
  * @public
  */

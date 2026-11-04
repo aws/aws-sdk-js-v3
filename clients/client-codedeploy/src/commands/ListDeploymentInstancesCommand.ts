@@ -23,13 +23,9 @@ export interface ListDeploymentInstancesCommandInput extends ListDeploymentInsta
 export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
- *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
- *                 exception if it is used with a compute platform other than EC2/On-premises or
- *                     Lambda. </p>
- *          </note>
- *          <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>
+ * > **Note:** The newer `BatchGetDeploymentTargets` should be used instead because it works with all compute types. `ListDeploymentInstances` throws an exception if it is used with a compute platform other than EC2/On-premises or Lambda.
+ *
+ * Lists the instance for a deployment associated with the user or Amazon Web Services account.
  *
  * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
  * @example
@@ -68,48 +64,56 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ *
+ * The named deployment group with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link DeploymentNotStartedException} (client fault)
- *  <p>The specified deployment has not started.</p>
+ *
+ * The specified deployment has not started.
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
- *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentInstanceTypeException} (client fault)
- *  <p>An instance type was specified for an in-place deployment. Instance types are
- *             supported for blue/green deployments only.</p>
+ *
+ * An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.
  *
  * @throws {@link InvalidInstanceStatusException} (client fault)
- *  <p>The specified instance status does not exist.</p>
+ *
+ * The specified instance status does not exist.
  *
  * @throws {@link InvalidInstanceTypeException} (client fault)
- *  <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
- *             values include "Blue" for an original environment and "Green" for a replacement
- *             environment.</p>
+ *
+ * An invalid instance type was specified for instances in a blue/green deployment. Valid values include "Blue" for an original environment and "Green" for a replacement environment.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link InvalidTargetFilterNameException} (client fault)
- *  <p> The target filter name is invalid. </p>
+ *
+ * The target filter name is invalid.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

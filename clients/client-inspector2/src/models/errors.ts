@@ -6,7 +6,10 @@ import { Inspector2ServiceException as __BaseException } from "./Inspector2Servi
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+ * You do not have sufficient access to perform this action.
+ *
+ * For `Enable`, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ * The request has failed due to an internal failure of the Amazon Inspector service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -36,7 +40,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -56,7 +61,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -64,7 +70,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that exceeds a service quota.</p>
+   * The ID of the resource that exceeds a service quota.
+   *
    * @public
    */
   resourceId: string | undefined;
@@ -84,7 +91,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second was exceeded.</p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -95,7 +103,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -115,7 +124,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ * The request has failed validation due to missing required fields or having invalid inputs.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -123,13 +133,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation failure.</p>
+   * The reason for the validation failure.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that failed validation.</p>
+   * The fields that failed validation.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -150,7 +162,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>One or more tags submitted as part of the request is not valid.</p>
+ * One or more tags submitted as part of the request is not valid.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -171,7 +184,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.</p>
+ * A conflict occurred. This exception occurs when the same resource is being modified by concurrent requests.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -206,7 +220,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ * The operation tried to access an invalid resource. Make sure the resource is specified correctly.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

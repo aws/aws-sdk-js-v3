@@ -23,7 +23,8 @@ export interface ListModelPackageGroupsCommandInput extends ListModelPackageGrou
 export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the model groups in your Amazon Web Services account.</p>
+ * Gets a list of the model groups in your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +70,8 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

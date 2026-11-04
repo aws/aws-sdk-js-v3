@@ -23,7 +23,8 @@ export interface GetSignedBluinsightsUrlCommandInput {}
 export interface GetSignedBluinsightsUrlCommandOutput extends GetSignedBluinsightsUrlResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a single sign-on URL that can be used to connect to AWS Blu Insights.</p>
+ * Gets a single sign-on URL that can be used to connect to AWS Blu Insights.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface GetSignedBluinsightsUrlCommandOutput extends GetSignedBluinsigh
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

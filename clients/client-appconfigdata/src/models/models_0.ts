@@ -2,20 +2,22 @@
 import type { InvalidParameterProblem } from "./enums";
 
 /**
- * <p>Information about an invalid parameter.</p>
+ * Information about an invalid parameter.
+ *
  * @public
  */
 export interface InvalidParameterDetail {
   /**
-   * <p>The reason the parameter is invalid.</p>
+   * The reason the parameter is invalid.
+   *
    * @public
    */
   Problem?: InvalidParameterProblem | undefined;
 }
 
 /**
- * <p>Detailed information about the input that failed to satisfy the constraints specified by
- *          a call.</p>
+ * Detailed information about the input that failed to satisfy the constraints specified by a call.
+ *
  * @public
  */
 export type BadRequestDetails =
@@ -27,7 +29,8 @@ export type BadRequestDetails =
  */
 export namespace BadRequestDetails {
   /**
-   * <p>One or more specified parameters are not valid for the call.</p>
+   * One or more specified parameters are not valid for the call.
+   *
    * @public
    */
   export interface InvalidParametersMember {
@@ -58,27 +61,29 @@ export namespace BadRequestDetails {
  */
 export interface StartConfigurationSessionRequest {
   /**
-   * <p>The application ID or the application name.</p>
+   * The application ID or the application name.
+   *
    * @public
    */
   ApplicationIdentifier: string | undefined;
 
   /**
-   * <p>The environment ID or the environment name.</p>
+   * The environment ID or the environment name.
+   *
    * @public
    */
   EnvironmentIdentifier: string | undefined;
 
   /**
-   * <p>The configuration profile ID or the configuration profile name.</p>
+   * The configuration profile ID or the configuration profile name.
+   *
    * @public
    */
   ConfigurationProfileIdentifier: string | undefined;
 
   /**
-   * <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then
-   *          the client that established the session can't call <a>GetLatestConfiguration</a>
-   *          more frequently than every 60 seconds.</p>
+   * Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then the client that established the session can't call GetLatestConfiguration more frequently than every 60 seconds.
+   *
    * @public
    */
   RequiredMinimumPollIntervalInSeconds?: number | undefined;
@@ -89,20 +94,14 @@ export interface StartConfigurationSessionRequest {
  */
 export interface StartConfigurationSessionResponse {
   /**
-   * <p>Token encapsulating state about the configuration session. Provide this token to the
-   *             <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>
-   *          <important>
-   *             <p>This token should only be used once in your first call to
-   *                <code>GetLatestConfiguration</code>. You <i>must</i> use the new token
-   *             in the <code>GetLatestConfiguration</code> response
-   *                (<code>NextPollConfigurationToken</code>) in each subsequent call to
-   *                <code>GetLatestConfiguration</code>.</p>
-   *             <p>The <code>InitialConfigurationToken</code> and
-   *             <code>NextPollConfigurationToken</code> should only be used once. To support long poll
-   *             use cases, the tokens are valid for up to 24 hours. If a
-   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
-   *             <code>BadRequestException</code>.</p>
-   *          </important>
+   * Token encapsulating state about the configuration session. Provide this token to the `GetLatestConfiguration` API to retrieve configuration data.
+   *
+   * > **Important:**
+   * >
+   * > This token should only be used once in your first call to `GetLatestConfiguration`. You *must* use the new token in the `GetLatestConfiguration` response (`NextPollConfigurationToken`) in each subsequent call to `GetLatestConfiguration`.
+   * >
+   * > The `InitialConfigurationToken` and `NextPollConfigurationToken` should only be used once. To support long poll use cases, the tokens are valid for up to 24 hours. If a `GetLatestConfiguration` call uses an expired token, the system returns `BadRequestException`.
+   *
    * @public
    */
   InitialConfigurationToken?: string | undefined;
@@ -113,17 +112,10 @@ export interface StartConfigurationSessionResponse {
  */
 export interface GetLatestConfigurationRequest {
   /**
-   * <p>Token describing the current state of the configuration session. To obtain a token,
-   *          first call the <a>StartConfigurationSession</a> API. Note that every call to
-   *             <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>
-   *             (<code>NextPollConfigurationToken</code> in the response) and <i>must</i>
-   *          be provided to subsequent <code>GetLatestConfiguration</code> API calls.</p>
-   *          <important>
-   *             <p>This token should only be used once. To support long poll
-   *             use cases, the token is valid for up to 24 hours. If a
-   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
-   *             <code>BadRequestException</code>.</p>
-   *          </important>
+   * Token describing the current state of the configuration session. To obtain a token, first call the StartConfigurationSession API. Note that every call to `GetLatestConfiguration` will return a new `ConfigurationToken` (`NextPollConfigurationToken` in the response) and *must* be provided to subsequent `GetLatestConfiguration` API calls.
+   *
+   * > **Important:** This token should only be used once. To support long poll use cases, the token is valid for up to 24 hours. If a `GetLatestConfiguration` call uses an expired token, the system returns `BadRequestException`.
+   *
    * @public
    */
   ConfigurationToken: string | undefined;
@@ -134,43 +126,38 @@ export interface GetLatestConfigurationRequest {
  */
 export interface GetLatestConfigurationResponse {
   /**
-   * <p>The latest token describing the current state of the configuration session. This
-   *             <i>must</i> be provided to the next call to
-   *             <code>GetLatestConfiguration.</code>
-   *          </p>
-   *          <important>
-   *             <p>This token should only be used once. To support long poll
-   *             use cases, the token is valid for up to 24 hours. If a
-   *             <code>GetLatestConfiguration</code> call uses an expired token, the system returns
-   *             <code>BadRequestException</code>.</p>
-   *          </important>
+   * The latest token describing the current state of the configuration session. This *must* be provided to the next call to `GetLatestConfiguration.`
+   *
+   * > **Important:** This token should only be used once. To support long poll use cases, the token is valid for up to 24 hours. If a `GetLatestConfiguration` call uses an expired token, the system returns `BadRequestException`.
+   *
    * @public
    */
   NextPollConfigurationToken?: string | undefined;
 
   /**
-   * <p>The amount of time the client should wait before polling for configuration updates
-   *          again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll
-   *          interval.</p>
+   * The amount of time the client should wait before polling for configuration updates again. Use `RequiredMinimumPollIntervalInSeconds` to set the desired poll interval.
+   *
    * @public
    */
   NextPollIntervalInSeconds?: number | undefined;
 
   /**
-   * <p>A standard MIME type describing the format of the configuration content.</p>
+   * A standard MIME type describing the format of the configuration content.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The data of the configuration. This may be empty if the client already has the latest
-   *          version of configuration.</p>
+   * The data of the configuration. This may be empty if the client already has the latest version of configuration.
+   *
    * @public
    */
   Configuration?: Uint8Array | undefined;
 
   /**
-   * <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p>
+   * The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.
+   *
    * @public
    */
   VersionLabel?: string | undefined;

@@ -23,7 +23,8 @@ export interface BatchCreateCategoryCommandInput extends BatchCreateCategoryInpu
 export interface BatchCreateCategoryCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html">Custom labels for Amazon Q Apps</a>.</p>
+ * Creates Categories for the Amazon Q Business application environment instance. Web experience users use Categories to tag and filter library items. For more information, see [Custom labels for Amazon Q Apps](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qapps-custom-labels.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,29 +56,36 @@ export interface BatchCreateCategoryCommandOutput extends __MetadataBearer {}
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * The client is not authorized to perform the requested operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The requested operation could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred while processing the request.</p>
+ *
+ * An internal service error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.</p>
+ *
+ * The requested operation could not be completed because too many requests were sent at once. Wait a bit and try again later.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client is not authenticated or authorized to perform the requested operation.</p>
+ *
+ * The client is not authenticated or authorized to perform the requested operation.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by the service.</p>
+ *
+ * The input failed to satisfy the constraints specified by the service.
  *
  * @throws {@link QAppsServiceException}
- * <p>Base exception class for all service exceptions from QApps service.</p>
  *
+ * Base exception class for all service exceptions from QApps service.
  *
  * @example Creates the categories for the library
  * ```javascript

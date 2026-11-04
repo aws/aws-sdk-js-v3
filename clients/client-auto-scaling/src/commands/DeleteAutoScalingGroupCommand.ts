@@ -23,23 +23,18 @@ export interface DeleteAutoScalingGroupCommandInput extends DeleteAutoScalingGro
 export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Auto Scaling group.</p>
- *          <p>If the group has instances or scaling activities in progress, you must specify the
- *             option to force the deletion in order for it to succeed. The force delete operation will
- *             also terminate the EC2 instances. If the group has a warm pool, the force delete option
- *             also deletes the warm pool.</p>
- *          <p>To remove instances from the Auto Scaling group before deleting it, call the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachInstances.html">DetachInstances</a> API with the list of instances and the option to
- *             decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement
- *             instances.</p>
- *          <p>To terminate all instances before deleting the Auto Scaling group, call the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html">UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity
- *             of the Auto Scaling group to
- *             zero.</p>
- *          <p>If the group has scaling policies, deleting the group deletes the policies, the
- *             underlying alarm actions, and any alarm that no longer has an associated action.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete your Auto Scaling
- *                 infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Deletes the specified Auto Scaling group.
+ *
+ * If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed. The force delete operation will also terminate the EC2 instances. If the group has a warm pool, the force delete option also deletes the warm pool.
+ *
+ * To remove instances from the Auto Scaling group before deleting it, call the [DetachInstances](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachInstances.html) API with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.
+ *
+ * To terminate all instances before deleting the Auto Scaling group, call the [UpdateAutoScalingGroup](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html) API and set the minimum size and desired capacity of the Auto Scaling group to zero.
+ *
+ * If the group has scaling policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.
+ *
+ * For more information, see [Delete your Auto Scaling infrastructure](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,19 +60,20 @@ export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ResourceInUseFault} (client fault)
- *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ * The operation can't be performed because the resource is in use.
  *
  * @throws {@link ScalingActivityInProgressFault} (client fault)
- *  <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
+ *
+ * The operation can't be performed because there are scaling activities in progress.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To delete an Auto Scaling group
  * ```javascript

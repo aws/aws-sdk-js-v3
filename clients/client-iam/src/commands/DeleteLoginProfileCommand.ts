@@ -23,20 +23,12 @@ export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileReques
 export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the password for the specified IAM user or root user, For more information, see
- *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
- *                 passwords for IAM users</a>.</p>
- *          <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
- *             page in the IAM console to delete a password for any IAM user. You can use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html">ChangePassword</a> to update, but not delete, your own password in the
- *                 <b>My Security Credentials</b> page in the
- *             Amazon Web Services Management Console.</p>
- *          <important>
- *             <p>Deleting a user's password does not prevent a user from accessing Amazon Web Services through
- *                 the command line interface or the API. To prevent all user access, you must also
- *                 either make any access keys inactive or delete them. For more information about
- *                 making keys inactive or deleting them, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html">UpdateAccessKey</a>
- *                 and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html">DeleteAccessKey</a>.</p>
- *          </important>
+ * Deletes the password for the specified IAM user or root user, For more information, see [Managing passwords for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html).
+ *
+ * You can use the CLI, the Amazon Web Services API, or the **Users** page in the IAM console to delete a password for any IAM user. You can use [ChangePassword](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html) to update, but not delete, your own password in the **My Security Credentials** page in the Amazon Web Services Management Console.
+ *
+ * > **Important:** Deleting a user's password does not prevent a user from accessing Amazon Web Services through the command line interface or the API. To prevent all user access, you must also either make any access keys inactive or delete them. For more information about making keys inactive or deleting them, see [UpdateAccessKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccessKey.html) and [DeleteAccessKey](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccessKey.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,26 +53,24 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link EntityTemporarilyUnmodifiableException} (client fault)
- *  <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
- *       such as a user name that was deleted and then recreated. The error indicates that the request
- *       is likely to succeed if you try again after waiting several minutes. The error message
- *       describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To delete a password for an IAM user
  * ```javascript

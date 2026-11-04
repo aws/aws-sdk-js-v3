@@ -110,11 +110,10 @@ export interface DynamoDBStreams {
 }
 
 /**
- * <fullname>Amazon DynamoDB</fullname>
- *          <p>Amazon DynamoDB Streams provides API actions for accessing streams and processing
- *          stream records. To learn more about application development with Streams, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html">Capturing
- *             Table Activity with DynamoDB Streams</a> in the Amazon DynamoDB Developer
- *          Guide.</p>
+ * Amazon DynamoDB
+ *
+ * Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To learn more about application development with Streams, see [Capturing Table Activity with DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html) in the Amazon DynamoDB Developer Guide.
+ *
  * @public
  */
 export class DynamoDBStreams extends DynamoDBStreamsClient implements DynamoDBStreams {}

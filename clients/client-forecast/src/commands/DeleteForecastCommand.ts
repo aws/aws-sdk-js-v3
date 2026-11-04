@@ -23,11 +23,10 @@ export interface DeleteForecastCommandInput extends DeleteForecastRequest {}
 export interface DeleteForecastCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can
- *       delete only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
- *       To get the status, use the <a>DescribeForecast</a> operation.</p>
- *          <p>You can't delete a forecast while it is being exported. After a forecast is deleted, you
- *       can no longer query the forecast.</p>
+ * Deletes a forecast created using the CreateForecast operation. You can delete only forecasts that have a status of `ACTIVE` or `CREATE_FAILED`. To get the status, use the DescribeForecast operation.
+ *
+ * You can't delete a forecast while it is being exported. After a forecast is deleted, you can no longer query the forecast.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,19 +51,20 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

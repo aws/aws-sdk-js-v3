@@ -23,22 +23,12 @@ export interface GetSignalingChannelEndpointCommandInput extends GetSignalingCha
 export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingChannelEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Provides an endpoint for the specified signaling channel to send and receive messages.
- *             This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter,
- *             which consists of the <code>Protocols</code> and <code>Role</code> properties.</p>
- *          <p>
- *             <code>Protocols</code> is used to determine the communication mechanism. For example,
- *             if you specify <code>WSS</code> as the protocol, this API produces a secure websocket
- *             endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS
- *             endpoint. If you specify <code>WEBRTC</code> as the protocol, but the signaling channel isn't
- *             configured for ingestion, you will receive the error
- *                 <code>InvalidArgumentException</code>.</p>
- *          <p>
- *             <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
- *             results in this API generating an endpoint that a client can use to communicate with any
- *             of the viewers on the channel. A <code>VIEWER</code> role results in this API generating
- *             an endpoint that a client can use to communicate only with a <code>MASTER</code>.
- *         </p>
+ * Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the `SingleMasterChannelEndpointConfiguration` input parameter, which consists of the `Protocols` and `Role` properties.
+ *
+ * `Protocols` is used to determine the communication mechanism. For example, if you specify `WSS` as the protocol, this API produces a secure websocket endpoint. If you specify `HTTPS` as the protocol, this API generates an HTTPS endpoint. If you specify `WEBRTC` as the protocol, but the signaling channel isn't configured for ingestion, you will receive the error `InvalidArgumentException`.
+ *
+ * `Role` determines the messaging permissions. A `MASTER` role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A `VIEWER` role results in this API generating an endpoint that a client can use to communicate only with a `MASTER`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,41 +66,32 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * You do not have required permissions to perform this operation.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
- *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
- *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
- *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
- *          <ol>
- *             <li>
- *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
- *             </p>
- *             </li>
- *          </ol>
+ *
+ * When the input `StreamARN` or `ChannelARN` in `CLOUD_STORAGE_MODE` is already mapped to a different Kinesis Video Stream resource, or if the provided input `StreamARN` or `ChannelARN` is not in Active status, try one of the following :
+ *
+ * 1. The `DescribeMediaStorageConfiguration` API to determine what the stream given channel is mapped to.
+ * 2. The `DescribeMappedResourceConfiguration` API to determine the channel that the given stream is mapped to.
+ * 3. The `DescribeStream` or `DescribeSignalingChannel` API to determine the status of the resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

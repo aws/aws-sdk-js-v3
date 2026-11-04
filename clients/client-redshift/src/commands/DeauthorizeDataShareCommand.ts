@@ -23,7 +23,8 @@ export interface DeauthorizeDataShareCommandInput extends DeauthorizeDataShareMe
 export interface DeauthorizeDataShareCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * <p>From a datashare producer account, removes authorization from the specified datashare. </p>
+ * From a datashare producer account, removes authorization from the specified datashare.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +67,12 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidDataShareFault} (client fault)
- *  <p>There is an error with the datashare.</p>
+ *
+ * There is an error with the datashare.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

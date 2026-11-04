@@ -23,19 +23,18 @@ export interface PurgeQueueCommandInput extends PurgeQueueRequest {}
 export interface PurgeQueueCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes available messages in a queue (including in-flight messages) specified by the
- *                 <code>QueueURL</code> parameter.</p>
- *          <important>
- *             <p>When you use the <code>PurgeQueue</code> action, you can't retrieve any messages
- *                 deleted from a queue.</p>
- *             <p>The message deletion process takes up to 60 seconds. We recommend waiting for 60
- *                 seconds regardless of your queue's size. </p>
- *          </important>
- *          <p>Messages sent to the queue <i>before</i> you call
- *                 <code>PurgeQueue</code> might be received but are deleted within the next
- *             minute.</p>
- *          <p>Messages sent to the queue <i>after</i> you call <code>PurgeQueue</code>
- *             might be deleted while the queue is being purged.</p>
+ * Deletes available messages in a queue (including in-flight messages) specified by the `QueueURL` parameter.
+ *
+ * > **Important:**
+ * >
+ * > When you use the `PurgeQueue` action, you can't retrieve any messages deleted from a queue.
+ * >
+ * > The message deletion process takes up to 60 seconds. We recommend waiting for 60 seconds regardless of your queue's size.
+ *
+ * Messages sent to the queue *before* you call `PurgeQueue` might be received but are deleted within the next minute.
+ *
+ * Messages sent to the queue *after* you call `PurgeQueue` might be deleted while the queue is being purged.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,40 +59,35 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link PurgeQueueInProgress} (client fault)
- *  <p>Indicates that the specified queue previously received a <code>PurgeQueue</code>
- *             request within the last 60 seconds (the time it can take to delete the messages in the
- *             queue).</p>
+ *
+ * Indicates that the specified queue previously received a `PurgeQueue` request within the last 60 seconds (the time it can take to delete the messages in the queue).
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

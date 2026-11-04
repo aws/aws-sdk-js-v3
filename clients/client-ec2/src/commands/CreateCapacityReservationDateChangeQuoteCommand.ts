@@ -26,13 +26,10 @@ export interface CreateCapacityReservationDateChangeQuoteCommandInput extends Cr
 export interface CreateCapacityReservationDateChangeQuoteCommandOutput extends CreateCapacityReservationDateChangeQuoteResult, __MetadataBearer {}
 
 /**
- * <p>Generates a quote for changing the start date of a future-dated Capacity Reservation
- * 			that has not yet been delivered. The quote includes the new start date, the resulting
- * 			commitment end date, and a quote ID. Pass the quote ID to
- * 			<code>ModifyCapacityReservation</code> to apply the change.</p>
- *          <p>The cumulative pushout across all changes is limited to 30 days from the Capacity
- * 			Reservation's original start date. Quotes are valid for 24 hours, and always expire at
- * 			least one hour before the start date.</p>
+ * Generates a quote for changing the start date of a future-dated Capacity Reservation that has not yet been delivered. The quote includes the new start date, the resulting commitment end date, and a quote ID. Pass the quote ID to `ModifyCapacityReservation` to apply the change.
+ *
+ * The cumulative pushout across all changes is limited to 30 days from the Capacity Reservation's original start date. Quotes are valid for 24 hours, and always expire at least one hour before the start date.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,8 +95,8 @@ export interface CreateCapacityReservationDateChangeQuoteCommandOutput extends C
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

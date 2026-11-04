@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>The operations for managing an Amazon MSK cluster.</p>
+ * The operations for managing an Amazon MSK cluster.
  *
  * @packageDocumentation
  */

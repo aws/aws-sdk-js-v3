@@ -23,9 +23,10 @@ export interface DescribeWorkspacesCommandInput extends DescribeWorkspacesReques
 export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified WorkSpaces.</p>
- *          <p>You can filter the results by using the bundle identifier, directory identifier, or
- *          owner, but you can specify only one filter at a time.</p>
+ * Describes the specified WorkSpaces.
+ *
+ * You can filter the results by using the bundle identifier, directory identifier, or owner, but you can specify only one filter at a time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,14 +121,16 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available.</p>
+ *
+ * The specified resource is not available.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

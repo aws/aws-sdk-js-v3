@@ -26,23 +26,13 @@ export interface DisassociateClientVpnTargetNetworkCommandInput extends Disassoc
 export interface DisassociateClientVpnTargetNetworkCommandOutput extends DisassociateClientVpnTargetNetworkResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates a target network from the specified Client VPN endpoint. When you disassociate the
- * 			last target network from a Client VPN, the following happens:</p>
- *          <ul>
- *             <li>
- *                <p>The route that was automatically added for the VPC is deleted</p>
- *             </li>
- *             <li>
- *                <p>All active client connections are terminated</p>
- *             </li>
- *             <li>
- *                <p>New client connections are disallowed</p>
- *             </li>
- *             <li>
- *                <p>The Client VPN endpoint's status changes to <code>pending-associate</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Disassociates a target network from the specified Client VPN endpoint. When you disassociate the last target network from a Client VPN, the following happens:
+ *
+ * - The route that was automatically added for the VPC is deleted
+ * - All active client connections are terminated
+ * - New client connections are disallowed
+ * - The Client VPN endpoint's status changes to `pending-associate`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +65,8 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput extends Disasso
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

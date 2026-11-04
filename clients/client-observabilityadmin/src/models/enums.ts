@@ -63,11 +63,11 @@ export type EncryptionConflictResolutionStrategy =
  */
 export const EncryptionScope = {
   /**
-   * <p>Only destination log groups whose source log group is encrypted with a customer managed KMS key use the configured <code>KmsKeyArn</code>. This is the default behavior.</p>
+   * Only destination log groups whose source log group is encrypted with a customer managed KMS key use the configured `KmsKeyArn`. This is the default behavior.
    */
   ENCRYPTED_SOURCE_ONLY: "ENCRYPTED_SOURCE_ONLY",
   /**
-   * <p>Every new destination log group created by this rule uses the configured <code>KmsKeyArn</code>, regardless of whether the source log group is encrypted with a customer managed key or Amazon Web Services owned encryption.</p>
+   * Every new destination log group created by this rule uses the configured `KmsKeyArn`, regardless of whether the source log group is encrypted with a customer managed key or Amazon Web Services owned encryption.
    */
   NEW_DESTINATION_LOG_GROUPS: "NEW_DESTINATION_LOG_GROUPS",
 } as const;
@@ -445,11 +445,11 @@ export type RecordFormat = (typeof RecordFormat)[keyof typeof RecordFormat];
  */
 export const SignalType = {
   /**
-   * <p>Log signal type. The pipeline processes log records.</p>
+   * Log signal type. The pipeline processes log records.
    */
   LOG: "LOG",
   /**
-   * <p>Metric signal type. The pipeline processes metric records.</p>
+   * Metric signal type. The pipeline processes metric records.
    */
   METRIC: "METRIC",
 } as const;

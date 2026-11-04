@@ -23,7 +23,8 @@ export interface ListProjectsCommandInput extends ListProjectsInput {}
 export interface ListProjectsCommandOutput extends ListProjectsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the projects in an Amazon Web Services account.</p>
+ * Gets a list of the projects in an Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

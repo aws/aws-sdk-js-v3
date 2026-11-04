@@ -23,7 +23,8 @@ export interface CreateVpcConnectionCommandInput extends CreateVpcConnectionRequ
 export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new MSK VPC connection.</p>
+ * Creates a new MSK VPC connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +75,32 @@ export interface CreateVpcConnectionCommandOutput extends CreateVpcConnectionRes
  * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link KafkaServiceException}
- * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ * Base exception class for all service exceptions from Kafka service.
  *
  * @public
  */

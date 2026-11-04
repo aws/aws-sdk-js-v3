@@ -23,8 +23,8 @@ export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
- *    sessions from the past 30 days.</p>
+ * Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,17 +78,20 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilterKey} (client fault)
- *  <p>The specified key isn't valid.</p>
+ *
+ * The specified key isn't valid.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to a resource.</p>
+ * Adds tags to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link IoTTwinMakerClientResolvedConfig | config} for IoTTwinMakerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The number of tags exceeds the limit.</p>
+ *
+ * The number of tags exceeds the limit.
  *
  * @throws {@link IoTTwinMakerServiceException}
- * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ * Base exception class for all service exceptions from IoTTwinMaker service.
  *
  * @public
  */

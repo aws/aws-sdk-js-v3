@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies tags to the specified resource.</p>
+ * Applies tags to the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +52,16 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link OdbClientResolvedConfig | config} for OdbClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+ *
+ * The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the service quota.</p>
+ *
+ * You have exceeded the service quota.
  *
  * @throws {@link OdbServiceException}
- * <p>Base exception class for all service exceptions from Odb service.</p>
  *
+ * Base exception class for all service exceptions from Odb service.
  *
  * @public
  */

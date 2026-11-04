@@ -23,9 +23,8 @@ export interface ListTablesCommandInput extends ListTablesInput {}
 export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of table names associated with the current account and endpoint. The
- *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
- *             100 table names.</p>
+ * Returns an array of table names associated with the current account and endpoint. The output from `ListTables` is paginated, with each page returning a maximum of 100 table names.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,13 +55,14 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @example To list tables
  * ```javascript

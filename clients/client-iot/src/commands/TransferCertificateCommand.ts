@@ -23,30 +23,27 @@ export interface TransferCertificateCommandInput extends TransferCertificateRequ
 export interface TransferCertificateCommandOutput extends TransferCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Transfers the specified certificate to the specified Amazon Web Services account.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">TransferCertificate</a> action.</p>
- *          <p>You can cancel the transfer until it is accepted by the recipient.</p>
- *          <p>No notification is sent to the transfer destination's account. The caller is responsible for notifying the transfer target.</p>
- *          <p>The certificate being transferred must not be in the <code>ACTIVE</code> state. You can use the
- *          <a>UpdateCertificate</a> action to deactivate it.</p>
- *          <p>The certificate must not have any policies attached to it. You can use the
- *          <a>DetachPolicy</a> action to detach them.</p>
- *          <p>
- *             <b>Customer managed key behavior:</b> When you use a customer managed key to encrypt your data and then transfer
- *          the certificate to a customer in a different account using the <code>TransferCertificate</code> operation, the certificates will no longer be encrypted by their
- *          customer managed key configuration. During the transfer process, certificates are encrypted using Amazon Web Services IoT Core owned keys.</p>
- *          <p>While a certificate is in the <b>PENDING_TRANSFER</b> state, it's always protected by Amazon Web Services IoT Core owned keys, regardless of the customer managed key configuration of either the source or destination account. </p>
- *          <p>Once the transfer is completed through <a>AcceptCertificateTransfer</a>, <a>RejectCertificateTransfer</a>, or
- *          <a>CancelCertificateTransfer</a>, the certificate will be protected by the customer managed key configuration of the account that owns
- *          the certificate after the transfer operation:</p>
- *          <ul>
- *             <li>
- *                <p>If the transfer is accepted: The certificate is encrypted by the target account's customer managed key configuration.</p>
- *             </li>
- *             <li>
- *                <p>If the transfer is rejected or cancelled: The certificate is protected by the source account's customer managed key configuration.</p>
- *             </li>
- *          </ul>
+ * Transfers the specified certificate to the specified Amazon Web Services account.
+ *
+ * Requires permission to access the [TransferCertificate](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
+ * You can cancel the transfer until it is accepted by the recipient.
+ *
+ * No notification is sent to the transfer destination's account. The caller is responsible for notifying the transfer target.
+ *
+ * The certificate being transferred must not be in the `ACTIVE` state. You can use the UpdateCertificate action to deactivate it.
+ *
+ * The certificate must not have any policies attached to it. You can use the DetachPolicy action to detach them.
+ *
+ * **Customer managed key behavior:** When you use a customer managed key to encrypt your data and then transfer the certificate to a customer in a different account using the `TransferCertificate` operation, the certificates will no longer be encrypted by their customer managed key configuration. During the transfer process, certificates are encrypted using Amazon Web Services IoT Core owned keys.
+ *
+ * While a certificate is in the **PENDING_TRANSFER** state, it's always protected by Amazon Web Services IoT Core owned keys, regardless of the customer managed key configuration of either the source or destination account.
+ *
+ * Once the transfer is completed through AcceptCertificateTransfer, RejectCertificateTransfer, or CancelCertificateTransfer, the certificate will be protected by the customer managed key configuration of the account that owns the certificate after the transfer operation:
+ *
+ * - If the transfer is accepted: The certificate is encrypted by the target account's customer managed key configuration.
+ * - If the transfer is rejected or cancelled: The certificate is protected by the source account's customer managed key configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,33 +72,40 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link CertificateStateException} (client fault)
- *  <p>The certificate operation is not allowed.</p>
+ *
+ * The certificate operation is not allowed.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link TransferConflictException} (client fault)
- *  <p>You can't transfer the certificate because authorization policies are still
- *          attached.</p>
+ *
+ * You can't transfer the certificate because authorization policies are still attached.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

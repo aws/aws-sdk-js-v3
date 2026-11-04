@@ -23,7 +23,8 @@ export interface ListMessagesCommandInput extends ListMessagesRequest {}
 export interface ListMessagesCommandOutput extends ListMessagesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists messages on an Amazon Q in Connect session.</p>
+ * Lists messages on an Amazon Q in Connect session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,17 +90,20 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * @see {@link QConnectClientResolvedConfig | config} for QConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by a service.</p>
+ *
+ * The input fails to satisfy the constraints specified by a service.
  *
  * @throws {@link QConnectServiceException}
- * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ * Base exception class for all service exceptions from QConnect service.
  *
  * @public
  */

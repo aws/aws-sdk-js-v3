@@ -23,10 +23,10 @@ export interface CloseTunnelCommandInput extends CloseTunnelRequest {}
 export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __MetadataBearer {}
 
 /**
- * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
- * 			request is received, we close the WebSocket connections between the client and proxy
- * 			server so no data can be transmitted.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CloseTunnel</a> action.</p>
+ * Closes a tunnel identified by the unique tunnel id. When a `CloseTunnel` request is received, we close the WebSocket connections between the client and proxy server so no data can be transmitted.
+ *
+ * Requires permission to access the [CloseTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +52,12 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
+ * Thrown when an operation is attempted on a resource that does not exist.
  *
  * @throws {@link IoTSecureTunnelingServiceException}
- * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * Base exception class for all service exceptions from IoTSecureTunneling service.
  *
  * @public
  */

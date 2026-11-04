@@ -23,8 +23,8 @@ export interface GetStackPolicyCommandInput extends GetStackPolicyInput {}
 export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null
- *       value is returned.</p>
+ * Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null value is returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +51,8 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

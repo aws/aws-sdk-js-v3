@@ -5,7 +5,8 @@ import type { RejectedRecord } from "./models_0";
 import { TimestreamWriteServiceException as __BaseException } from "./TimestreamWriteServiceException";
 
 /**
- * <p>You are not authorized to perform this action.</p>
+ * You are not authorized to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,8 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Timestream was unable to process this request because it contains resource that
- *          already exists.</p>
+ * Timestream was unable to process this request because it contains resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -52,9 +53,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>
- *          Timestream was unable to fully process this request because of an internal server
- *          error.</p>
+ * Timestream was unable to fully process this request because of an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -77,7 +77,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested endpoint was not valid.</p>
+ * The requested endpoint was not valid.
+ *
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
@@ -100,8 +101,8 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a nonexistent resource. The resource might not be
- *          specified correctly, or its status might not be ACTIVE.</p>
+ * The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -124,7 +125,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The instance quota of resource exceeded for this account.</p>
+ * The instance quota of resource exceeded for this account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -147,8 +149,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p> Too many requests were made by a user and they exceeded the service quotas. The request
- *          was throttled.</p>
+ * Too many requests were made by a user and they exceeded the service quotas. The request was throttled.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -171,7 +173,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> An invalid or malformed request.</p>
+ * An invalid or malformed request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -194,36 +197,19 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> WriteRecords would throw this exception in the following cases: </p>
- *          <ul>
- *             <li>
- *                <p>Records with duplicate data where there are multiple records with the same
- *                dimensions, timestamps, and measure names but: </p>
- *                <ul>
- *                   <li>
- *                      <p>Measure values are different</p>
- *                   </li>
- *                   <li>
- *                      <p>Version is not present in the request <i>or</i> the value of
- *                      version in the new record is equal to or lower than the existing value</p>
- *                   </li>
- *                </ul>
- *                <p> In this case, if Timestream rejects data, the
- *                   <code>ExistingVersion</code> field in the <code>RejectedRecords</code> response
- *                will indicate the current record’s version. To force an update, you can resend the
- *                request with a version for the record set to a value greater than the
- *                   <code>ExistingVersion</code>.</p>
- *             </li>
- *             <li>
- *                <p> Records with timestamps that lie outside the retention duration of the memory
- *                store. </p>
- *             </li>
- *             <li>
- *                <p> Records with dimensions or measures that exceed the Timestream defined
- *                limits. </p>
- *             </li>
- *          </ul>
- *          <p> For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Quotas</a> in the Amazon Timestream Developer Guide. </p>
+ * WriteRecords would throw this exception in the following cases:
+ *
+ * - Records with duplicate data where there are multiple records with the same dimensions, timestamps, and measure names but:
+ *
+ *   - Measure values are different
+ *   - Version is not present in the request *or* the value of version in the new record is equal to or lower than the existing value
+ *
+ *   In this case, if Timestream rejects data, the `ExistingVersion` field in the `RejectedRecords` response will indicate the current record’s version. To force an update, you can resend the request with a version for the record set to a value greater than the `ExistingVersion`.
+ * - Records with timestamps that lie outside the retention duration of the memory store.
+ * - Records with dimensions or measures that exceed the Timestream defined limits.
+ *
+ * For more information, see [Quotas](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html) in the Amazon Timestream Developer Guide.
+ *
  * @public
  */
 export class RejectedRecordsException extends __BaseException {
@@ -232,8 +218,6 @@ export class RejectedRecordsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       </p>
    * @public
    */
   RejectedRecords?: RejectedRecord[] | undefined;

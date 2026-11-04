@@ -23,12 +23,10 @@ export interface GetDevEndpointsCommandInput extends GetDevEndpointsRequest {}
 export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
- *          <note>
- *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
- *       and the public IP address field is not populated. When you create a non-VPC development
- *       endpoint, Glue returns only a public IP address.</p>
- *          </note>
+ * Retrieves all the development endpoints in this Amazon Web Services account.
+ *
+ * > **Note:** When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address and the public IP address field is not populated. When you create a non-VPC development endpoint, Glue returns only a public IP address.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,20 +89,24 @@ export interface GetDevEndpointsCommandOutput extends GetDevEndpointsResponse, _
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

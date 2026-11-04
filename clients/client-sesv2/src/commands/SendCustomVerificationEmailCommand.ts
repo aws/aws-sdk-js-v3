@@ -23,15 +23,12 @@ export interface SendCustomVerificationEmailCommandInput extends SendCustomVerif
 export interface SendCustomVerificationEmailCommandOutput extends SendCustomVerificationEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an email address to the list of identities for your Amazon SES account in the current
- *                 Amazon Web Services Region and attempts to verify it. As a result of executing this
- *             operation, a customized verification email is sent to the specified address.</p>
- *          <p>To use this operation, you must first create a custom verification email template. For
- *             more information about creating and using custom verification email templates, see
- *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
- *                 custom verification email templates</a> in the <i>Amazon SES Developer
- *                 Guide</i>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Adds an email address to the list of identities for your Amazon SES account in the current Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.
+ *
+ * To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see [Using custom verification email templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom) in the *Amazon SES Developer Guide*.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,30 +57,36 @@ export interface SendCustomVerificationEmailCommandOutput extends SendCustomVeri
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link MailFromDomainNotVerifiedException} (client fault)
- *  <p>The message can't be sent because the sending domain isn't verified.</p>
+ *
+ * The message can't be sent because the sending domain isn't verified.
  *
  * @throws {@link MessageRejected} (client fault)
- *  <p>The message can't be sent because it contains invalid content.</p>
+ *
+ * The message can't be sent because it contains invalid content.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link SendingPausedException} (client fault)
- *  <p>The message can't be sent because the account's ability to send email is currently
- *             paused.</p>
+ *
+ * The message can't be sent because the account's ability to send email is currently paused.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

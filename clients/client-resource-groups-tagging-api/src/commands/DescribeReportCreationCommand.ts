@@ -23,9 +23,10 @@ export interface DescribeReportCreationCommandInput extends DescribeReportCreati
 export interface DescribeReportCreationCommandOutput extends DescribeReportCreationOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
- *          <p>You can call this operation only from the organization's
- *     management account and from the us-east-1 Region.</p>
+ * Describes the status of the `StartReportCreation` operation.
+ *
+ * You can call this operation only from the organization's management account and from the us-east-1 Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,62 +54,37 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
  * @throws {@link ConstraintViolationException} (client fault)
- *  <p>The request failed because performing the operation would violate a constraint.</p>
- *          <p>Some of the reasons in the following list might not apply to this specific
- *             operation.</p>
- *          <ul>
- *             <li>
- *                <p>You must meet the prerequisites for using tag policies. For information, see
- *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs">Prerequisites and permissions</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
- *             </li>
- *             <li>
- *                <p>You must enable the tag policies service principal
- *                         (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with Organizations For
- *                     information, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html">EnableAWSServiceAccess</a>.</p>
- *             </li>
- *             <li>
- *                <p>You must have a tag policy attached to the organization root, an OU, or an
- *                     account.</p>
- *             </li>
- *          </ul>
+ *
+ * The request failed because performing the operation would violate a constraint.
+ *
+ * Some of the reasons in the following list might not apply to this specific operation.
+ *
+ * - You must meet the prerequisites for using tag policies. For information, see [Prerequisites and permissions](https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#tag-policies-prereqs) in the *Tagging Amazon Web Services resources and Tag Editor* user guide.
+ * - You must enable the tag policies service principal (`tagpolicies.tag.amazonaws.com`) to integrate with Organizations For information, see [EnableAWSServiceAccess](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
+ * - You must have a tag policy attached to the organization root, an OU, or an account.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. You
- *             can retry the request.</p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure. You can retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request failed because of one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>A required parameter is missing.</p>
- *             </li>
- *             <li>
- *                <p>A provided string parameter is malformed.</p>
- *             </li>
- *             <li>
- *                <p>An provided parameter value is out of range.</p>
- *             </li>
- *             <li>
- *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
- *             </li>
- *             <li>
- *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy">Amazon S3 bucket policy for report storage</a> in the <i>Tagging Amazon Web Services resources and Tag Editor</i> user guide. </p>
- *             </li>
- *             <li>
- *                <p>The partition specified in an ARN parameter in the request doesn't match the
- *                     partition where you invoked the operation. The partition is specified by the
- *                     second field of the ARN.</p>
- *             </li>
- *          </ul>
+ *
+ * The request failed because of one of the following reasons:
+ *
+ * - A required parameter is missing.
+ * - A provided string parameter is malformed.
+ * - An provided parameter value is out of range.
+ * - The target ID is invalid, unsupported, or doesn't exist.
+ * - You can't access the Amazon S3 bucket for report storage. For more information, see [Amazon S3 bucket policy for report storage](https://docs.aws.amazon.com/tag-editor/latest/userguide/tag-policies-orgs.html#bucket-policy) in the *Tagging Amazon Web Services resources and Tag Editor* user guide.
+ * - The partition specified in an ARN parameter in the request doesn't match the partition where you invoked the operation. The partition is specified by the second field of the ARN.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request failed because it exceeded the allowed frequency of submitted
- *             requests.</p>
+ *
+ * The request failed because it exceeded the allowed frequency of submitted requests.
  *
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.
  *
  * @public
  */

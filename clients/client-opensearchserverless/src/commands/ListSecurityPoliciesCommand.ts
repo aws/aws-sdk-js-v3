@@ -23,7 +23,8 @@ export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRe
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about configured OpenSearch Serverless security policies.</p>
+ * Returns information about configured OpenSearch Serverless security policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @see {@link OpenSearchServerlessClientResolvedConfig | config} for OpenSearchServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Thrown when an error internal to the service occurs while processing a request.</p>
+ *
+ * Thrown when an error internal to the service occurs while processing a request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Thrown when the HTTP request contains invalid input or is missing required input.</p>
+ *
+ * Thrown when the HTTP request contains invalid input or is missing required input.
  *
  * @throws {@link OpenSearchServerlessServiceException}
- * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearchServerless service.
  *
  * @public
  */

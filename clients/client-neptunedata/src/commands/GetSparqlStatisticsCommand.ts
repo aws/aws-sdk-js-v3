@@ -23,7 +23,8 @@ export interface GetSparqlStatisticsCommandInput {}
 export interface GetSparqlStatisticsCommandOutput extends GetSparqlStatisticsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets RDF statistics (SPARQL).</p>
+ * Gets RDF statistics (SPARQL).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,47 +61,60 @@ export interface GetSparqlStatisticsCommandOutput extends GetSparqlStatisticsOut
  * @see {@link NeptunedataClientResolvedConfig | config} for NeptunedataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Raised in case of an authentication or authorization failure.</p>
+ *
+ * Raised in case of an authentication or authorization failure.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Raised when a request is submitted that cannot be processed.</p>
+ *
+ * Raised when a request is submitted that cannot be processed.
  *
  * @throws {@link ClientTimeoutException} (client fault)
- *  <p>Raised when a request timed out in the client.</p>
+ *
+ * Raised when a request timed out in the client.
  *
  * @throws {@link ConstraintViolationException} (client fault)
- *  <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ *
+ * Raised when a value in a request field did not satisfy required constraints.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Raised when an argument in a request is not supported.</p>
+ *
+ * Raised when an argument in a request is not supported.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Raised when an argument in a request has an invalid value.</p>
+ *
+ * Raised when an argument in a request has an invalid value.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Raised when a parameter value is not valid.</p>
+ *
+ * Raised when a parameter value is not valid.
  *
  * @throws {@link MissingParameterException} (client fault)
- *  <p>Raised when a required parameter is missing.</p>
+ *
+ * Raised when a required parameter is missing.
  *
  * @throws {@link PreconditionsFailedException} (client fault)
- *  <p>Raised when a precondition for processing a request is not satisfied.</p>
+ *
+ * Raised when a precondition for processing a request is not satisfied.
  *
  * @throws {@link ReadOnlyViolationException} (client fault)
- *  <p>Raised when a request attempts to write to a read-only resource.</p>
+ *
+ * Raised when a request attempts to write to a read-only resource.
  *
  * @throws {@link StatisticsNotAvailableException} (client fault)
- *  <p>Raised when statistics needed to satisfy a request are not available.</p>
+ *
+ * Raised when statistics needed to satisfy a request are not available.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Raised when the number of requests being processed exceeds the limit.</p>
+ *
+ * Raised when the number of requests being processed exceeds the limit.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ *
+ * Raised when a request attempts to initiate an operation that is not supported.
  *
  * @throws {@link NeptunedataServiceException}
- * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * Base exception class for all service exceptions from Neptunedata service.
  *
  * @public
  */

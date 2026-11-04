@@ -1009,11 +1009,8 @@ export interface M2 {
 }
 
 /**
- * <p>Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and
- *          modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for
- *          analyzing existing mainframe applications, developing or updating mainframe applications
- *          using COBOL or PL/I, and implementing an automated pipeline for continuous integration and
- *          continuous delivery (CI/CD) of the applications.</p>
+ * Amazon Web Services Mainframe Modernization provides tools and resources to help you plan and implement migration and modernization from mainframes to Amazon Web Services managed runtime environments. It provides tools for analyzing existing mainframe applications, developing or updating mainframe applications using COBOL or PL/I, and implementing an automated pipeline for continuous integration and continuous delivery (CI/CD) of the applications.
+ *
  * @public
  */
 export class M2 extends M2Client implements M2 {}

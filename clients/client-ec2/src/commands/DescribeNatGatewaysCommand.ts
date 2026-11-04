@@ -23,9 +23,8 @@ export interface DescribeNatGatewaysCommandInput extends DescribeNatGatewaysRequ
 export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysResult, __MetadataBearer {}
 
 /**
- * <p>Describes your NAT gateways. The default is to describe all your NAT gateways.
- *           Alternatively, you can specify specific NAT gateway IDs or filter the results to
- *           include only the NAT gateways that match specific criteria.</p>
+ * Describes your NAT gateways. The default is to describe all your NAT gateways. Alternatively, you can specify specific NAT gateway IDs or filter the results to include only the NAT gateways that match specific criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,8 +119,8 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe a NAT gateway
  * ```javascript

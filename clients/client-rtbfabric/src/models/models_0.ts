@@ -16,90 +16,105 @@ import type {
 } from "./enums";
 
 /**
- * <p>Describes the masking for HTTP error codes.</p>
+ * Describes the masking for HTTP error codes.
+ *
  * @public
  */
 export interface ResponderErrorMaskingForHttpCode {
   /**
-   * <p>The HTTP error code.</p>
+   * The HTTP error code.
+   *
    * @public
    */
   httpCode: string | undefined;
 
   /**
-   * <p>The action for the error..</p>
+   * The action for the error..
+   *
    * @public
    */
   action: ResponderErrorMaskingAction | undefined;
 
   /**
-   * <p>The error log type.</p>
+   * The error log type.
+   *
    * @public
    */
   loggingTypes: ResponderErrorMaskingLoggingType[] | undefined;
 
   /**
-   * <p>The percentage of response logging.</p>
+   * The percentage of response logging.
+   *
    * @public
    */
   responseLoggingPercentage?: number | undefined;
 }
 
 /**
- * <p>Describes the attributes of a link.</p>
+ * Describes the attributes of a link.
+ *
  * @public
  */
 export interface LinkAttributes {
   /**
-   * <p>Describes the masking for HTTP error codes.</p>
+   * Describes the masking for HTTP error codes.
+   *
    * @public
    */
   responderErrorMasking?: ResponderErrorMaskingForHttpCode[] | undefined;
 
   /**
-   * <p>The customer-provided unique identifier of the link.</p>
+   * The customer-provided unique identifier of the link.
+   *
    * @public
    */
   customerProvidedId?: string | undefined;
 }
 
 /**
- * <p>Describes a link application log sample.</p>
+ * Describes a link application log sample.
+ *
  * @public
  */
 export interface LinkApplicationLogSampling {
   /**
-   * <p>An error log entry.</p>
+   * An error log entry.
+   *
    * @public
    */
   errorLog: number | undefined;
 
   /**
-   * <p>A filter log entry.</p>
+   * A filter log entry.
+   *
    * @public
    */
   filterLog: number | undefined;
 }
 
 /**
- * <p>Describes the configuration of a link application log.</p>
+ * Describes the configuration of a link application log.
+ *
  * @public
  */
 export interface LinkApplicationLogConfiguration {
   /**
-   * <p>Describes a link application log sample.</p>
+   * Describes a link application log sample.
+   *
    * @public
    */
   sampling: LinkApplicationLogSampling | undefined;
 }
 
 /**
- * <p>Describes the settings for a link log.</p>
+ * Describes the settings for a link log.
+ *
  * @public
  */
 export interface LinkLogSettings {
   /**
-   * <p>Describes the configuration of a link application log.</p>
+   * Describes the configuration of a link application log.
+   *
    * @public
    */
   applicationLogs: LinkApplicationLogConfiguration | undefined;
@@ -110,92 +125,107 @@ export interface LinkLogSettings {
  */
 export interface AcceptLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings: LinkLogSettings | undefined;
 
   /**
-   * <p>The timeout value in milliseconds.</p>
+   * The timeout value in milliseconds.
+   *
    * @public
    */
   timeoutInMillis?: number | undefined;
 }
 
 /**
- * <p>Describes the parameters of a no bid module.</p>
+ * Describes the parameters of a no bid module.
+ *
  * @public
  */
 export interface NoBidModuleParameters {
   /**
-   * <p>The reason description.</p>
+   * The reason description.
+   *
    * @public
    */
   reason?: string | undefined;
 
   /**
-   * <p>The reason code.</p>
+   * The reason code.
+   *
    * @public
    */
   reasonCode?: number | undefined;
 
   /**
-   * <p>The pass through percentage.</p>
+   * The pass through percentage.
+   *
    * @public
    */
   passThroughPercentage?: number | undefined;
 }
 
 /**
- * <p>Describes the header tag for a bid action.</p>
+ * Describes the header tag for a bid action.
+ *
  * @public
  */
 export interface HeaderTagAction {
   /**
-   * <p>The name of the bid action.</p>
+   * The name of the bid action.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The value of the bid action.</p>
+   * The value of the bid action.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Describes a no bid action.</p>
+ * Describes a no bid action.
+ *
  * @public
  */
 export interface NoBidAction {
   /**
-   * <p>The reason code for the no bid action.</p>
+   * The reason code for the no bid action.
+   *
    * @public
    */
   noBidReasonCode?: number | undefined;
 }
 
 /**
- * <p>Describes a bid action.</p>
+ * Describes a bid action.
+ *
  * @public
  */
 export type Action =
@@ -208,7 +238,8 @@ export type Action =
  */
 export namespace Action {
   /**
-   * <p>Describes a no bid action.</p>
+   * Describes a no bid action.
+   *
    * @public
    */
   export interface NoBidMember {
@@ -218,7 +249,8 @@ export namespace Action {
   }
 
   /**
-   * <p>Describes the header tag for a bid action.</p>
+   * Describes the header tag for a bid action.
+   *
    * @public
    */
   export interface HeaderTagMember {
@@ -248,79 +280,92 @@ export namespace Action {
 }
 
 /**
- * <p>Describes the criteria for a filter.</p>
+ * Describes the criteria for a filter.
+ *
  * @public
  */
 export interface FilterCriterion {
   /**
-   * <p>The path to filter.</p>
+   * The path to filter.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>The value to filter.</p>
+   * The value to filter.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Describes the configuration of a filter.</p>
+ * Describes the configuration of a filter.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>Describes the criteria for a filter.</p>
+   * Describes the criteria for a filter.
+   *
    * @public
    */
   criteria: FilterCriterion[] | undefined;
 }
 
 /**
- * <p>Describes the parameters of an open RTB attribute module.</p>
+ * Describes the parameters of an open RTB attribute module.
+ *
  * @public
  */
 export interface OpenRtbAttributeModuleParameters {
   /**
-   * <p>The filter type.</p>
+   * The filter type.
+   *
    * @public
    */
   filterType: FilterType | undefined;
 
   /**
-   * <p>Describes the configuration of a filter.</p>
+   * Describes the configuration of a filter.
+   *
    * @public
    */
   filterConfiguration: Filter[] | undefined;
 
   /**
-   * <p>Describes a bid action.</p>
+   * Describes a bid action.
+   *
    * @public
    */
   action: Action | undefined;
 
   /**
-   * <p>The hold back percentage.</p>
+   * The hold back percentage.
+   *
    * @public
    */
   holdbackPercentage: number | undefined;
 }
 
 /**
- * <p>Describes the parameters of a rate limit.</p>
+ * Describes the parameters of a rate limit.
+ *
  * @public
  */
 export interface RateLimiterModuleParameters {
   /**
-   * <p>The transactions per second rate limit.</p>
+   * The transactions per second rate limit.
+   *
    * @public
    */
   tps?: number | undefined;
 }
 
 /**
- * <p>Describes the parameters of a module.</p>
+ * Describes the parameters of a module.
+ *
  * @public
  */
 export type ModuleParameters =
@@ -334,7 +379,8 @@ export type ModuleParameters =
  */
 export namespace ModuleParameters {
   /**
-   * <p>Describes the parameters of a no bid module.</p>
+   * Describes the parameters of a no bid module.
+   *
    * @public
    */
   export interface NoBidMember {
@@ -345,7 +391,8 @@ export namespace ModuleParameters {
   }
 
   /**
-   * <p>Describes the parameters of an open RTB attribute module.</p>
+   * Describes the parameters of an open RTB attribute module.
+   *
    * @public
    */
   export interface OpenRtbAttributeMember {
@@ -356,7 +403,8 @@ export namespace ModuleParameters {
   }
 
   /**
-   * <p>Describes the parameters of a rate limit.</p>
+   * Describes the parameters of a rate limit.
+   *
    * @public
    */
   export interface RateLimiterMember {
@@ -389,30 +437,35 @@ export namespace ModuleParameters {
 }
 
 /**
- * <p>Describes the configuration of a module.</p>
+ * Describes the configuration of a module.
+ *
  * @public
  */
 export interface ModuleConfiguration {
   /**
-   * <p>The version of the module.</p>
+   * The version of the module.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The name of the module.</p>
+   * The name of the module.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The dependencies of the module.</p>
+   * The dependencies of the module.
+   *
    * @public
    */
   dependsOn?: string[] | undefined;
 
   /**
-   * <p>Describes the parameters of a module.</p>
+   * Describes the parameters of a module.
+   *
    * @public
    */
   moduleParameters?: ModuleParameters | undefined;
@@ -423,73 +476,85 @@ export interface ModuleConfiguration {
  */
 export interface AcceptLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the peer gateway.</p>
+   * The unique identifier of the peer gateway.
+   *
    * @public
    */
   peerGatewayId: string | undefined;
 
   /**
-   * <p>The status of the link.</p>
+   * The status of the link.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The timestamp of when the link was created.</p>
+   * The timestamp of when the link was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the link was updated.</p>
+   * The timestamp of when the link was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The direction of the link.</p>
+   * The direction of the link.
+   *
    * @public
    */
   direction?: LinkDirection | undefined;
 
   /**
-   * <p>The configuration of flow modules.</p>
+   * The configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>The configuration of pending flow modules.</p>
+   * The configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * Describes the settings for a link log.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -500,19 +565,26 @@ export interface AcceptLinkResponse {
  */
 export interface AssociateCertificateRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate to associate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate to associate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -523,127 +595,148 @@ export interface AssociateCertificateRequest {
  */
 export interface AssociateCertificateResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
 
   /**
-   * <p>The status of the certificate association.</p>
+   * The status of the certificate association.
+   *
    * @public
    */
   status: CertificateAssociationStatus | undefined;
 }
 
 /**
- * <p>The health check configuration for a managed endpoint. Defines how the service probes instances in the Auto Scaling group to determine their health status.</p>
+ * The health check configuration for a managed endpoint. Defines how the service probes instances in the Auto Scaling group to determine their health status.
+ *
  * @public
  */
 export interface HealthCheckConfig {
   /**
-   * <p>The port to use for health check probes. Valid range is 80 to 65535.</p>
+   * The port to use for health check probes. Valid range is 80 to 65535.
+   *
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>The destination path for the health check request. Must start with <code>/</code>.</p>
+   * The destination path for the health check request. Must start with `/`.
+   *
    * @public
    */
   path: string | undefined;
 
   /**
-   * <p>The protocol to use for health check probes.</p>
+   * The protocol to use for health check probes.
+   *
    * @public
    */
   protocol?: Protocol | undefined;
 
   /**
-   * <p>The timeout for each health check probe, in milliseconds. Valid range is 100 to 5000.</p>
+   * The timeout for each health check probe, in milliseconds. Valid range is 100 to 5000.
+   *
    * @public
    */
   timeoutMs?: number | undefined;
 
   /**
-   * <p>The interval between health check probes, in seconds. Valid range is 5 to 60.</p>
+   * The interval between health check probes, in seconds. Valid range is 5 to 60.
+   *
    * @public
    */
   intervalSeconds?: number | undefined;
 
   /**
-   * <p>The expected HTTP status code or status code pattern from healthy instances. Supports a single code (for example, <code>200</code>), a range (for example, <code>200-299</code>), or a comma-separated list (for example, <code>200,204</code>).</p>
+   * The expected HTTP status code or status code pattern from healthy instances. Supports a single code (for example, `200`), a range (for example, `200-299`), or a comma-separated list (for example, `200,204`).
+   *
    * @public
    */
   statusCodeMatcher?: string | undefined;
 
   /**
-   * <p>The number of consecutive successful health checks required before an instance is considered healthy. Valid range is 2 to 10.</p>
+   * The number of consecutive successful health checks required before an instance is considered healthy. Valid range is 2 to 10.
+   *
    * @public
    */
   healthyThresholdCount?: number | undefined;
 
   /**
-   * <p>The number of consecutive failed health checks required before an instance is considered unhealthy. Valid range is 2 to 10.</p>
+   * The number of consecutive failed health checks required before an instance is considered unhealthy. Valid range is 2 to 10.
+   *
    * @public
    */
   unhealthyThresholdCount?: number | undefined;
 }
 
 /**
- * <p>Describes the configuration of an auto scaling group.</p>
+ * Describes the configuration of an auto scaling group.
+ *
  * @public
  */
 export interface AutoScalingGroupsConfiguration {
   /**
-   * <p>The names of the auto scaling group.</p>
+   * The names of the auto scaling group.
+   *
    * @public
    */
   autoScalingGroupNames: string[] | undefined;
 
   /**
-   * <p>The role ARN of the auto scaling group.</p>
+   * The role ARN of the auto scaling group.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The health check configuration for the Auto Scaling group managed endpoint.</p>
+   * The health check configuration for the Auto Scaling group managed endpoint.
+   *
    * @public
    */
   healthCheckConfig?: HealthCheckConfig | undefined;
 }
 
 /**
- * <p>Describes a summary of a certificate association.</p>
+ * Describes a summary of a certificate association.
+ *
  * @public
  */
 export interface CertificateAssociationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
 
   /**
-   * <p>The status of the certificate association.</p>
+   * The status of the certificate association.
+   *
    * @public
    */
   status: CertificateAssociationStatus | undefined;
 
   /**
-   * <p>The timestamp of when the certificate was associated.</p>
+   * The timestamp of when the certificate was associated.
+   *
    * @public
    */
   associatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the certificate association was last updated.</p>
+   * The timestamp of when the certificate association was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -654,31 +747,40 @@ export interface CertificateAssociationSummary {
  */
 export interface CreateInboundExternalLinkRequest {
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings: LinkLogSettings | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -689,25 +791,29 @@ export interface CreateInboundExternalLinkRequest {
  */
 export interface CreateInboundExternalLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
@@ -718,43 +824,50 @@ export interface CreateInboundExternalLinkResponse {
  */
 export interface CreateLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the peer gateway.</p>
+   * The unique identifier of the peer gateway.
+   *
    * @public
    */
   peerGatewayId: string | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Boolean to specify if an HTTP responder is allowed.</p>
+   * Boolean to specify if an HTTP responder is allowed.
+   *
    * @public
    */
   httpResponderAllowed?: boolean | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>\{"applicationLogs":\{"sampling":\{"errorLog":0,"filterLog":0\}\}\}</code>.</p>
+   * Application log settings for the link. This value is required. Under `applicationLogs.sampling`, the `errorLog` and `filterLog` fields set the percentage of eligible events to log. Valid values range from `0` through `100`. To turn off application logs, set both fields to `0`, as in `\{"applicationLogs":\{"sampling":\{"errorLog":0,"filterLog":0\}\}\}`.
+   *
    * @public
    */
   logSettings: LinkLogSettings | undefined;
 
   /**
-   * <p>The timeout value in milliseconds.</p>
+   * The timeout value in milliseconds.
+   *
    * @public
    */
   timeoutInMillis?: number | undefined;
@@ -765,139 +878,162 @@ export interface CreateLinkRequest {
  */
 export interface CreateLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the peer gateway.</p>
+   * The unique identifier of the peer gateway.
+   *
    * @public
    */
   peerGatewayId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The timestamp of when the link was created.</p>
+   * The timestamp of when the link was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the link was updated.</p>
+   * The timestamp of when the link was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The direction of the link.</p>
+   * The direction of the link.
+   *
    * @public
    */
   direction?: LinkDirection | undefined;
 
   /**
-   * <p>The configuration of flow modules.</p>
+   * The configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>The configuration of pending flow modules.</p>
+   * The configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * Describes the settings for a link log.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The customer-provided unique identifier of the link.</p>
+   * The customer-provided unique identifier of the link.
+   *
    * @public
    */
   customerProvidedId?: string | undefined;
 }
 
 /**
- * <p>A key-value pair for query string matching in a routing rule condition.</p>
+ * A key-value pair for query string matching in a routing rule condition.
+ *
  * @public
  */
 export interface QueryStringKeyValuePair {
   /**
-   * <p>The key of the query string parameter to match. Must contain only RFC 3986 unreserved characters.</p>
+   * The key of the query string parameter to match. Must contain only RFC 3986 unreserved characters.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the query string parameter to match. Must contain only RFC 3986 unreserved characters.</p>
+   * The value of the query string parameter to match. Must contain only RFC 3986 unreserved characters.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>The conditions for a routing rule. All specified fields must match for the rule to apply (AND logic). At least one condition field must be set.</p>
+ * The conditions for a routing rule. All specified fields must match for the rule to apply (AND logic). At least one condition field must be set.
+ *
  * @public
  */
 export interface RuleCondition {
   /**
-   * <p>The exact host header value to match.</p>
+   * The exact host header value to match.
+   *
    * @public
    */
   hostHeader?: string | undefined;
 
   /**
-   * <p>A wildcard pattern for host header matching (for example, <code>*.example.com</code>).</p>
+   * A wildcard pattern for host header matching (for example, `*.example.com`).
+   *
    * @public
    */
   hostHeaderWildcard?: string | undefined;
 
   /**
-   * <p>The path prefix to match. The request path must start with this value. Must start with <code>/</code>.</p>
+   * The path prefix to match. The request path must start with this value. Must start with `/`.
+   *
    * @public
    */
   pathPrefix?: string | undefined;
 
   /**
-   * <p>The exact path to match. Must start with <code>/</code>.</p>
+   * The exact path to match. Must start with `/`.
+   *
    * @public
    */
   pathExact?: string | undefined;
 
   /**
-   * <p>A query string key-value pair that must be present and match exactly.</p>
+   * A query string key-value pair that must be present and match exactly.
+   *
    * @public
    */
   queryStringEquals?: QueryStringKeyValuePair | undefined;
 
   /**
-   * <p>A query string key that must be present in the request (any value is accepted).</p>
+   * A query string key that must be present in the request (any value is accepted).
+   *
    * @public
    */
   queryStringExists?: string | undefined;
@@ -908,37 +1044,47 @@ export interface RuleCondition {
  */
 export interface CreateLinkRoutingRuleRequest {
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The priority of the routing rule. Lower numbers are evaluated first. Valid values are 1 to 1000. Priority must be unique among non-deleted rules within a link.</p>
+   * The priority of the routing rule. Lower numbers are evaluated first. Valid values are 1 to 1000. Priority must be unique among non-deleted rules within a link.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions for the routing rule. All specified fields must match for the rule to apply. At least one condition field must be set.</p>
+   * The conditions for the routing rule. All specified fields must match for the rule to apply. At least one condition field must be set.
+   *
    * @public
    */
   conditions: RuleCondition | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -949,19 +1095,22 @@ export interface CreateLinkRoutingRuleRequest {
  */
 export interface CreateLinkRoutingRuleResponse {
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The status of the routing rule.</p>
+   * The status of the routing rule.
+   *
    * @public
    */
   status: RuleStatus | undefined;
 
   /**
-   * <p>The timestamp of when the routing rule was created.</p>
+   * The timestamp of when the routing rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -972,37 +1121,47 @@ export interface CreateLinkRoutingRuleResponse {
  */
 export interface CreateOutboundExternalLinkRequest {
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>The public endpoint of the link.</p>
+   * The public endpoint of the link.
+   *
    * @public
    */
   publicEndpoint: string | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings: LinkLogSettings | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1013,19 +1172,22 @@ export interface CreateOutboundExternalLinkRequest {
  */
 export interface CreateOutboundExternalLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
@@ -1036,37 +1198,47 @@ export interface CreateOutboundExternalLinkResponse {
  */
 export interface CreateRequesterGatewayRequest {
   /**
-   * <p>The unique identifier of the Virtual Private Cloud (VPC).</p>
+   * The unique identifier of the Virtual Private Cloud (VPC).
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The unique identifiers of the subnets.</p>
+   * The unique identifiers of the subnets.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups.</p>
+   * The unique identifiers of the security groups.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An optional description for the requester gateway.</p>
+   * An optional description for the requester gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1077,80 +1249,93 @@ export interface CreateRequesterGatewayRequest {
  */
 export interface CreateRequesterGatewayResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The domain name of the requester gateway.</p>
+   * The domain name of the requester gateway.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: RequesterGatewayStatus | undefined;
 }
 
 /**
- * <p>Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.</p>
+ * Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.
+ *
  * @public
  */
 export interface ListenerConfig {
   /**
-   * <p>The protocol for connections from clients to the gateway</p>
+   * The protocol for connections from clients to the gateway
+   *
    * @public
    */
   protocols: Protocol[] | undefined;
 }
 
 /**
- * <p>Describes the configuration of an Amazon Elastic Kubernetes Service endpoint.</p>
+ * Describes the configuration of an Amazon Elastic Kubernetes Service endpoint.
+ *
  * @public
  */
 export interface EksEndpointsConfiguration {
   /**
-   * <p>The name of the endpoint resource.</p>
+   * The name of the endpoint resource.
+   *
    * @public
    */
   endpointsResourceName: string | undefined;
 
   /**
-   * <p>The namespace of the endpoint resource.</p>
+   * The namespace of the endpoint resource.
+   *
    * @public
    */
   endpointsResourceNamespace: string | undefined;
 
   /**
-   * <p>The URI of the cluster API server endpoint.</p>
+   * The URI of the cluster API server endpoint.
+   *
    * @public
    */
   clusterApiServerEndpointUri: string | undefined;
 
   /**
-   * <p>The CA certificate chain of the cluster API server.</p>
+   * The CA certificate chain of the cluster API server.
+   *
    * @public
    */
   clusterApiServerCaCertificateChain: string | undefined;
 
   /**
-   * <p>The name of the cluster.</p>
+   * The name of the cluster.
+   *
    * @public
    */
   clusterName: string | undefined;
 
   /**
-   * <p>The role ARN for the cluster.</p>
+   * The role ARN for the cluster.
+   *
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>Describes the configuration of a managed endpoint.</p>
+ * Describes the configuration of a managed endpoint.
+ *
  * @public
  */
 export type ManagedEndpointConfiguration =
@@ -1163,7 +1348,8 @@ export type ManagedEndpointConfiguration =
  */
 export namespace ManagedEndpointConfiguration {
   /**
-   * <p>Describes the configuration of an auto scaling group.</p>
+   * Describes the configuration of an auto scaling group.
+   *
    * @public
    */
   export interface AutoScalingGroupsMember {
@@ -1173,7 +1359,8 @@ export namespace ManagedEndpointConfiguration {
   }
 
   /**
-   * <p>Describes the configuration of an Amazon Elastic Kubernetes Service endpoint.</p>
+   * Describes the configuration of an Amazon Elastic Kubernetes Service endpoint.
+   *
    * @public
    */
   export interface EksEndpointsMember {
@@ -1203,12 +1390,14 @@ export namespace ManagedEndpointConfiguration {
 }
 
 /**
- * <p>Describes the configuration of a trust store.</p>
+ * Describes the configuration of a trust store.
+ *
  * @public
  */
 export interface TrustStoreConfiguration {
   /**
-   * <p>The certificate authority certificate.</p>
+   * The certificate authority certificate.
+   *
    * @public
    */
   certificateAuthorityCertificates: string[] | undefined;
@@ -1219,85 +1408,108 @@ export interface TrustStoreConfiguration {
  */
 export interface CreateResponderGatewayRequest {
   /**
-   * <p>The unique identifier of the Virtual Private Cloud (VPC).</p>
+   * The unique identifier of the Virtual Private Cloud (VPC).
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>Unique identifiers of the subnets. A service quota for your account sets the number of Availability Zones that your subnets can span. By default, this quota is one Availability Zone. To span more Availability Zones, request a quota increase.</p>
+   * Unique identifiers of the subnets. A service quota for your account sets the number of Availability Zones that your subnets can span. By default, this quota is one Availability Zone. To span more Availability Zones, request a quota increase.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups.</p>
+   * The unique identifiers of the security groups.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>The domain name for the responder gateway.</p>
+   * The domain name for the responder gateway.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The networking port to use.</p>
+   * The networking port to use.
+   *
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>The networking protocol to use.</p>
+   * The networking protocol to use.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.</p>
+   * Listener configuration for the protocols (HTTP, HTTPS, or both) accepted by the gateway.
+   *
    * @public
    */
   listenerConfig?: ListenerConfig | undefined;
 
   /**
-   * <p>The configuration of the trust store.</p>
+   * The configuration of the trust store.
+   *
    * @public
    */
   trustStoreConfiguration?: TrustStoreConfiguration | undefined;
 
   /**
-   * <p>The configuration for the managed endpoint.</p>
+   * The configuration for the managed endpoint.
+   *
    * @public
    */
   managedEndpointConfiguration?: ManagedEndpointConfiguration | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An optional description for the responder gateway.</p>
+   * An optional description for the responder gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The type of gateway. Valid values are <code>EXTERNAL</code> or <code>INTERNAL</code>.</p>
+   * The type of gateway. Valid values are `EXTERNAL` or `INTERNAL`.
+   *
    * @public
    */
   gatewayType?: GatewayType | undefined;
 
   /**
-   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. Valid values are the following:</p> <ul> <li> <p> <code>AVAILABILITY_ZONE_AFFINITY</code>: RTB Fabric routes each requester's traffic to gateway capacity in the requester's own Availability Zone when the gateway has capacity available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the other Availability Zones of the gateway.</p> </li> <li> <p> <code>ANY_AVAILABILITY_ZONE</code>: RTB Fabric routes each requester's traffic to gateway capacity in every Availability Zone that the subnets of the gateway span. The Availability Zone that the requester is in does not change this.</p> </li> </ul> <p>If you don't specify a value, RTB Fabric uses <code>AVAILABILITY_ZONE_AFFINITY</code>. To get the behavior of <code>ANY_AVAILABILITY_ZONE</code>, create the gateway with subnets in more than one Availability Zone. RTB Fabric does not support partial Availability Zone affinity, so <code>PARTIAL_AVAILABILITY_ZONE_AFFINITY</code> is not a valid value. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. Valid values are the following:
+   *
+   * - `AVAILABILITY_ZONE_AFFINITY`: RTB Fabric routes each requester's traffic to gateway capacity in the requester's own Availability Zone when the gateway has capacity available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the other Availability Zones of the gateway.
+   * - `ANY_AVAILABILITY_ZONE`: RTB Fabric routes each requester's traffic to gateway capacity in every Availability Zone that the subnets of the gateway span. The Availability Zone that the requester is in does not change this.
+   *
+   * If you don't specify a value, RTB Fabric uses `AVAILABILITY_ZONE_AFFINITY`. To get the behavior of `ANY_AVAILABILITY_ZONE`, create the gateway with subnets in more than one Availability Zone. RTB Fabric does not support partial Availability Zone affinity, so `PARTIAL_AVAILABILITY_ZONE_AFFINITY` is not a valid value. For more information, see [Configuring Availability Zone affinity](https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity) in the *Amazon Web Services RTB Fabric User Guide*.
+   *
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
@@ -1308,31 +1520,36 @@ export interface CreateResponderGatewayRequest {
  */
 export interface CreateResponderGatewayResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: ResponderGatewayStatus | undefined;
 
   /**
-   * <p>The listener configuration for the responder gateway.</p>
+   * The listener configuration for the responder gateway.
+   *
    * @public
    */
   listenerConfig?: ListenerConfig | undefined;
 
   /**
-   * <p>The external inbound endpoint for the responder gateway.</p>
+   * The external inbound endpoint for the responder gateway.
+   *
    * @public
    */
   externalInboundEndpoint?: string | undefined;
 
   /**
-   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. For more information, see [Configuring Availability Zone affinity](https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity) in the *Amazon Web Services RTB Fabric User Guide*.
+   *
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
@@ -1343,13 +1560,15 @@ export interface CreateResponderGatewayResponse {
  */
 export interface DeleteInboundExternalLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -1360,13 +1579,15 @@ export interface DeleteInboundExternalLinkRequest {
  */
 export interface DeleteInboundExternalLinkResponse {
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
@@ -1377,13 +1598,15 @@ export interface DeleteInboundExternalLinkResponse {
  */
 export interface DeleteLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -1394,13 +1617,15 @@ export interface DeleteLinkRequest {
  */
 export interface DeleteLinkResponse {
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the link.</p>
+   * The status of the link.
+   *
    * @public
    */
   status: LinkStatus | undefined;
@@ -1411,19 +1636,22 @@ export interface DeleteLinkResponse {
  */
 export interface DeleteLinkRoutingRuleRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
@@ -1434,13 +1662,15 @@ export interface DeleteLinkRoutingRuleRequest {
  */
 export interface DeleteLinkRoutingRuleResponse {
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The status of the routing rule.</p>
+   * The status of the routing rule.
+   *
    * @public
    */
   status: RuleStatus | undefined;
@@ -1451,13 +1681,15 @@ export interface DeleteLinkRoutingRuleResponse {
  */
 export interface DeleteOutboundExternalLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -1468,13 +1700,15 @@ export interface DeleteOutboundExternalLinkRequest {
  */
 export interface DeleteOutboundExternalLinkResponse {
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
@@ -1485,7 +1719,8 @@ export interface DeleteOutboundExternalLinkResponse {
  */
 export interface DeleteRequesterGatewayRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
@@ -1496,13 +1731,15 @@ export interface DeleteRequesterGatewayRequest {
  */
 export interface DeleteRequesterGatewayResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: RequesterGatewayStatus | undefined;
@@ -1513,7 +1750,8 @@ export interface DeleteRequesterGatewayResponse {
  */
 export interface DeleteResponderGatewayRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
@@ -1524,13 +1762,15 @@ export interface DeleteResponderGatewayRequest {
  */
 export interface DeleteResponderGatewayResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: ResponderGatewayStatus | undefined;
@@ -1541,13 +1781,15 @@ export interface DeleteResponderGatewayResponse {
  */
 export interface DisassociateCertificateRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate to disassociate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate to disassociate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
@@ -1558,19 +1800,22 @@ export interface DisassociateCertificateRequest {
  */
 export interface DisassociateCertificateResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
 
   /**
-   * <p>The status of the certificate association.</p>
+   * The status of the certificate association.
+   *
    * @public
    */
   status: CertificateAssociationStatus | undefined;
@@ -1581,13 +1826,15 @@ export interface DisassociateCertificateResponse {
  */
 export interface GetLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -1598,91 +1845,106 @@ export interface GetLinkRequest {
  */
 export interface GetLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the peer gateway.</p>
+   * The unique identifier of the peer gateway.
+   *
    * @public
    */
   peerGatewayId: string | undefined;
 
   /**
-   * <p>The status of the link.</p>
+   * The status of the link.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The timestamp of when the link was created.</p>
+   * The timestamp of when the link was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the link was updated.</p>
+   * The timestamp of when the link was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The direction of the link.</p>
+   * The direction of the link.
+   *
    * @public
    */
   direction?: LinkDirection | undefined;
 
   /**
-   * <p>The configuration of flow modules.</p>
+   * The configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>The configuration of pending flow modules.</p>
+   * The configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Boolean to specify if an HTTP responder is allowed.</p>
+   * Boolean to specify if an HTTP responder is allowed.
+   *
    * @public
    */
   httpResponderAllowed?: boolean | undefined;
 
   /**
-   * <p>The timeout value in milliseconds.</p>
+   * The timeout value in milliseconds.
+   *
    * @public
    */
   timeoutInMillis?: number | undefined;
@@ -1693,19 +1955,22 @@ export interface GetLinkResponse {
  */
 export interface GetLinkRoutingRuleRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
@@ -1716,55 +1981,64 @@ export interface GetLinkRoutingRuleRequest {
  */
 export interface GetLinkRoutingRuleResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The priority of the routing rule.</p>
+   * The priority of the routing rule.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions for the routing rule.</p>
+   * The conditions for the routing rule.
+   *
    * @public
    */
   conditions: RuleCondition | undefined;
 
   /**
-   * <p>The status of the routing rule.</p>
+   * The status of the routing rule.
+   *
    * @public
    */
   status: RuleStatus | undefined;
 
   /**
-   * <p>The timestamp of when the routing rule was created.</p>
+   * The timestamp of when the routing rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the routing rule was last updated.</p>
+   * The timestamp of when the routing rule was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1775,67 +2049,80 @@ export interface GetLinkRoutingRuleResponse {
  */
 export interface ListLinkRoutingRulesRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results.
+   *
+   * This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of a link routing rule.</p>
+ * A summary of a link routing rule.
+ *
  * @public
  */
 export interface LinkRoutingRuleSummary {
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The priority of the routing rule.</p>
+   * The priority of the routing rule.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The conditions for the routing rule.</p>
+   * The conditions for the routing rule.
+   *
    * @public
    */
   conditions: RuleCondition | undefined;
 
   /**
-   * <p>The status of the routing rule.</p>
+   * The status of the routing rule.
+   *
    * @public
    */
   status: RuleStatus | undefined;
 
   /**
-   * <p>The timestamp of when the routing rule was created.</p>
+   * The timestamp of when the routing rule was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the routing rule was last updated.</p>
+   * The timestamp of when the routing rule was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1846,13 +2133,15 @@ export interface LinkRoutingRuleSummary {
  */
 export interface ListLinkRoutingRulesResponse {
   /**
-   * <p>The list of routing rules for the link.</p>
+   * The list of routing rules for the link.
+   *
    * @public
    */
   rules?: LinkRoutingRuleSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1863,31 +2152,36 @@ export interface ListLinkRoutingRulesResponse {
  */
 export interface UpdateLinkRoutingRuleRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The updated priority of the routing rule. Lower numbers are evaluated first. Valid values are 1 to 1000. Priority must be unique among non-deleted rules within a link.</p>
+   * The updated priority of the routing rule. Lower numbers are evaluated first. Valid values are 1 to 1000. Priority must be unique among non-deleted rules within a link.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The updated conditions for the routing rule. All specified fields must match for the rule to apply. At least one condition field must be set.</p>
+   * The updated conditions for the routing rule. All specified fields must match for the rule to apply. At least one condition field must be set.
+   *
    * @public
    */
   conditions: RuleCondition | undefined;
@@ -1898,19 +2192,22 @@ export interface UpdateLinkRoutingRuleRequest {
  */
 export interface UpdateLinkRoutingRuleResponse {
   /**
-   * <p>The unique identifier of the routing rule.</p>
+   * The unique identifier of the routing rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The status of the routing rule.</p>
+   * The status of the routing rule.
+   *
    * @public
    */
   status: RuleStatus | undefined;
 
   /**
-   * <p>The timestamp of when the routing rule was last updated.</p>
+   * The timestamp of when the routing rule was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1921,109 +2218,129 @@ export interface UpdateLinkRoutingRuleResponse {
  */
 export interface ListLinksRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results.
+   *
+   * This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Describes a link.</p>
+ * Describes a link.
+ *
  * @public
  */
 export interface ListLinksResponseStructure {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the peer gateway.</p>
+   * The unique identifier of the peer gateway.
+   *
    * @public
    */
   peerGatewayId: string | undefined;
 
   /**
-   * <p>The status of the link.</p>
+   * The status of the link.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The timestamp of when the link was created.</p>
+   * The timestamp of when the link was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the link was updated.</p>
+   * The timestamp of when the link was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The direction of the link.</p>
+   * The direction of the link.
+   *
    * @public
    */
   direction?: LinkDirection | undefined;
 
   /**
-   * <p>Describes the configuration of flow modules.</p>
+   * Describes the configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Describes the configuration of pending flow modules.</p>
+   * Describes the configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Describes attributes of a link.</p>
+   * Describes attributes of a link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * Describes the settings for a link log.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The public endpoint of the outbound link.</p>
+   * The public endpoint of the outbound link.
+   *
    * @public
    */
   publicEndpoint?: string | undefined;
@@ -2034,13 +2351,15 @@ export interface ListLinksResponseStructure {
  */
 export interface ListLinksResponse {
   /**
-   * <p>Information about created links.</p>
+   * Information about created links.
+   *
    * @public
    */
   links?: ListLinksResponseStructure[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2051,13 +2370,15 @@ export interface ListLinksResponse {
  */
 export interface RejectLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -2068,73 +2389,85 @@ export interface RejectLinkRequest {
  */
 export interface RejectLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the peer gateway.</p>
+   * The unique identifier of the peer gateway.
+   *
    * @public
    */
   peerGatewayId: string | undefined;
 
   /**
-   * <p>The status of the link.</p>
+   * The status of the link.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The timestamp of when the link was created.</p>
+   * The timestamp of when the link was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp of when the link was updated.</p>
+   * The timestamp of when the link was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The direction of the link.</p>
+   * The direction of the link.
+   *
    * @public
    */
   direction?: LinkDirection | undefined;
 
   /**
-   * <p>The configuration of flow modules.</p>
+   * The configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>The configuration of pending flow modules.</p>
+   * The configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>Describes the settings for a link log.</p>
+   * Describes the settings for a link log.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -2145,25 +2478,29 @@ export interface RejectLinkResponse {
  */
 export interface UpdateLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The timeout value in milliseconds.</p>
+   * The timeout value in milliseconds.
+   *
    * @public
    */
   timeoutInMillis?: number | undefined;
@@ -2174,13 +2511,15 @@ export interface UpdateLinkRequest {
  */
 export interface UpdateLinkResponse {
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
@@ -2191,25 +2530,33 @@ export interface UpdateLinkResponse {
  */
 export interface UpdateLinkModuleFlowRequest {
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The configuration of a module.</p>
+   * The configuration of a module.
+   *
    * @public
    */
   modules: ModuleConfiguration[] | undefined;
@@ -2220,19 +2567,22 @@ export interface UpdateLinkModuleFlowRequest {
  */
 export interface UpdateLinkModuleFlowResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
@@ -2243,13 +2593,15 @@ export interface UpdateLinkModuleFlowResponse {
  */
 export interface GetCertificateAssociationRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
@@ -2260,31 +2612,36 @@ export interface GetCertificateAssociationRequest {
  */
 export interface GetCertificateAssociationResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate.
+   *
    * @public
    */
   acmCertificateArn: string | undefined;
 
   /**
-   * <p>The status of the certificate association.</p>
+   * The status of the certificate association.
+   *
    * @public
    */
   status: CertificateAssociationStatus | undefined;
 
   /**
-   * <p>The timestamp of when the certificate was associated.</p>
+   * The timestamp of when the certificate was associated.
+   *
    * @public
    */
   associatedAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the certificate association was last updated.</p>
+   * The timestamp of when the certificate association was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2295,13 +2652,15 @@ export interface GetCertificateAssociationResponse {
  */
 export interface GetInboundExternalLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -2312,73 +2671,85 @@ export interface GetInboundExternalLinkRequest {
  */
 export interface GetInboundExternalLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The configuration of flow modules.</p>
+   * The configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>The configuration of pending flow modules.</p>
+   * The configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Attributes of the link.</p>
+   * Attributes of the link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>The timestamp of when the inbound external link was created.</p>
+   * The timestamp of when the inbound external link was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the inbound external link was updated.</p>
+   * The timestamp of when the inbound external link was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
@@ -2389,13 +2760,15 @@ export interface GetInboundExternalLinkResponse {
  */
 export interface GetOutboundExternalLinkRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
@@ -2406,73 +2779,85 @@ export interface GetOutboundExternalLinkRequest {
  */
 export interface GetOutboundExternalLinkResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The unique identifier of the link.</p>
+   * The unique identifier of the link.
+   *
    * @public
    */
   linkId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: LinkStatus | undefined;
 
   /**
-   * <p>The public endpoint for the link.</p>
+   * The public endpoint for the link.
+   *
    * @public
    */
   publicEndpoint: string | undefined;
 
   /**
-   * <p>The configuration of flow modules.</p>
+   * The configuration of flow modules.
+   *
    * @public
    */
   flowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>The configuration of pending flow modules.</p>
+   * The configuration of pending flow modules.
+   *
    * @public
    */
   pendingFlowModules?: ModuleConfiguration[] | undefined;
 
   /**
-   * <p>Describes the attributes of a link.</p>
+   * Describes the attributes of a link.
+   *
    * @public
    */
   attributes?: LinkAttributes | undefined;
 
   /**
-   * <p>The timestamp of when the outbound external link was created.</p>
+   * The timestamp of when the outbound external link was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the outbound external link was updated.</p>
+   * The timestamp of when the outbound external link was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * Settings for the application logs.
+   *
    * @public
    */
   logSettings?: LinkLogSettings | undefined;
 
   /**
-   * <p>The connectivity type of the link.</p>
+   * The connectivity type of the link.
+   *
    * @public
    */
   connectivityType?: ConnectivityType | undefined;
@@ -2483,7 +2868,8 @@ export interface GetOutboundExternalLinkResponse {
  */
 export interface GetRequesterGatewayRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
@@ -2494,73 +2880,85 @@ export interface GetRequesterGatewayRequest {
  */
 export interface GetRequesterGatewayResponse {
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: RequesterGatewayStatus | undefined;
 
   /**
-   * <p>The domain name of the requester gateway.</p>
+   * The domain name of the requester gateway.
+   *
    * @public
    */
   domainName: string | undefined;
 
   /**
-   * <p>The description of the requester gateway.</p>
+   * The description of the requester gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the requester gateway was created.</p>
+   * The timestamp of when the requester gateway was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the requester gateway was updated.</p>
+   * The timestamp of when the requester gateway was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The unique identifier of the Virtual Private Cloud (VPC).</p>
+   * The unique identifier of the Virtual Private Cloud (VPC).
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The unique identifiers of the subnets.</p>
+   * The unique identifiers of the subnets.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups.</p>
+   * The unique identifiers of the security groups.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The count of active links for the requester gateway.</p>
+   * The count of active links for the requester gateway.
+   *
    * @public
    */
   activeLinksCount?: number | undefined;
 
   /**
-   * <p>The total count of links for the requester gateway.</p>
+   * The total count of links for the requester gateway.
+   *
    * @public
    */
   totalLinksCount?: number | undefined;
@@ -2571,7 +2969,8 @@ export interface GetRequesterGatewayResponse {
  */
 export interface GetResponderGatewayRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
@@ -2582,127 +2981,148 @@ export interface GetResponderGatewayRequest {
  */
 export interface GetResponderGatewayResponse {
   /**
-   * <p>The unique identifier of the Virtual Private Cloud (VPC).</p>
+   * The unique identifier of the Virtual Private Cloud (VPC).
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The unique identifiers of the subnets.</p>
+   * The unique identifiers of the subnets.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups.</p>
+   * The unique identifiers of the security groups.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: ResponderGatewayStatus | undefined;
 
   /**
-   * <p>The description of the responder gateway.</p>
+   * The description of the responder gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The timestamp of when the responder gateway was created.</p>
+   * The timestamp of when the responder gateway was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp of when the responder gateway was updated.</p>
+   * The timestamp of when the responder gateway was updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The domain name of the responder gateway.</p>
+   * The domain name of the responder gateway.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The networking port.</p>
+   * The networking port.
+   *
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>The networking protocol.</p>
+   * The networking protocol.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The listener configuration for the responder gateway.</p>
+   * The listener configuration for the responder gateway.
+   *
    * @public
    */
   listenerConfig?: ListenerConfig | undefined;
 
   /**
-   * <p>The configuration of the trust store.</p>
+   * The configuration of the trust store.
+   *
    * @public
    */
   trustStoreConfiguration?: TrustStoreConfiguration | undefined;
 
   /**
-   * <p>The configuration of the managed endpoint.</p>
+   * The configuration of the managed endpoint.
+   *
    * @public
    */
   managedEndpointConfiguration?: ManagedEndpointConfiguration | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The count of active links for the responder gateway.</p>
+   * The count of active links for the responder gateway.
+   *
    * @public
    */
   activeLinksCount?: number | undefined;
 
   /**
-   * <p>The total count of links for the responder gateway.</p>
+   * The total count of links for the responder gateway.
+   *
    * @public
    */
   totalLinksCount?: number | undefined;
 
   /**
-   * <p>The count of requested links waiting for the responder gateway to accept or reject.</p>
+   * The count of requested links waiting for the responder gateway to accept or reject.
+   *
    * @public
    */
   linksRequestedCount?: number | undefined;
 
   /**
-   * <p>The type of gateway. Valid values are <code>EXTERNAL</code> or <code>INTERNAL</code>.</p>
+   * The type of gateway. Valid values are `EXTERNAL` or `INTERNAL`.
+   *
    * @public
    */
   gatewayType?: GatewayType | undefined;
 
   /**
-   * <p>The external inbound endpoint for the responder gateway.</p>
+   * The external inbound endpoint for the responder gateway.
+   *
    * @public
    */
   externalInboundEndpoint?: string | undefined;
 
   /**
-   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses `AVAILABILITY_ZONE_AFFINITY`. For more information, see [Configuring Availability Zone affinity](https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity) in the *Amazon Web Services RTB Fabric User Guide*.
+   *
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
@@ -2713,19 +3133,24 @@ export interface GetResponderGatewayResponse {
  */
 export interface ListCertificateAssociationsRequest {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results.
+   *
+   * This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -2736,13 +3161,15 @@ export interface ListCertificateAssociationsRequest {
  */
 export interface ListCertificateAssociationsResponse {
   /**
-   * <p>The list of certificate associations for the gateway.</p>
+   * The list of certificate associations for the gateway.
+   *
    * @public
    */
   certificateAssociations: CertificateAssociationSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2753,13 +3180,17 @@ export interface ListCertificateAssociationsResponse {
  */
 export interface ListRequesterGatewaysRequest {
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results.
+   *
+   * This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2770,13 +3201,15 @@ export interface ListRequesterGatewaysRequest {
  */
 export interface ListRequesterGatewaysResponse {
   /**
-   * <p>The unique identifier of the gateways.</p>
+   * The unique identifier of the gateways.
+   *
    * @public
    */
   gatewayIds?: string[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2787,13 +3220,17 @@ export interface ListRequesterGatewaysResponse {
  */
 export interface ListResponderGatewaysRequest {
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   * The maximum number of results that are returned per call. You can use `nextToken` to obtain further pages of results.
+   *
+   * This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2804,13 +3241,15 @@ export interface ListResponderGatewaysRequest {
  */
 export interface ListResponderGatewaysResponse {
   /**
-   * <p>The unique identifier of the gateways.</p>
+   * The unique identifier of the gateways.
+   *
    * @public
    */
   gatewayIds?: string[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken error</i>.</p>
+   * If `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an *HTTP 400 InvalidToken error*.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2821,7 +3260,8 @@ export interface ListResponderGatewaysResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.</p>
+   * The Amazon Resource Name (ARN) of the resource for which you want to retrieve tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -2832,7 +3272,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
+   * A map of the key-value pairs for the tag or tags assigned to the specified resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2843,19 +3284,26 @@ export interface ListTagsForResourceResponse {
  */
 export interface UpdateRequesterGatewayRequest {
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>An optional description for the requester gateway.</p>
+   * An optional description for the requester gateway.
+   *
    * @public
    */
   description?: string | undefined;
@@ -2866,13 +3314,15 @@ export interface UpdateRequesterGatewayRequest {
  */
 export interface UpdateRequesterGatewayResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: RequesterGatewayStatus | undefined;
@@ -2883,61 +3333,80 @@ export interface UpdateRequesterGatewayResponse {
  */
 export interface UpdateResponderGatewayRequest {
   /**
-   * <p>Domain name for the responder gateway. This operation does not change the domain name of an existing gateway. To use a different domain name, delete the gateway and create a new one.</p>
+   * Domain name for the responder gateway. This operation does not change the domain name of an existing gateway. To use a different domain name, delete the gateway and create a new one.
+   *
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>Networking port to use. This operation does not change the port of an existing gateway. To use a different port, delete the gateway and create a new one.</p>
+   * Networking port to use. This operation does not change the port of an existing gateway. To use a different port, delete the gateway and create a new one.
+   *
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>Networking protocol to use. This operation does not change the protocol of an existing gateway. To use a different protocol, delete the gateway and create a new one.</p>
+   * Networking protocol to use. This operation does not change the protocol of an existing gateway. To use a different protocol, delete the gateway and create a new one.
+   *
    * @public
    */
   protocol: Protocol | undefined;
 
   /**
-   * <p>The listener configuration for the responder gateway.</p>
+   * The listener configuration for the responder gateway.
+   *
    * @public
    */
   listenerConfig?: ListenerConfig | undefined;
 
   /**
-   * <p>The configuration of the trust store.</p>
+   * The configuration of the trust store.
+   *
    * @public
    */
   trustStoreConfiguration?: TrustStoreConfiguration | undefined;
 
   /**
-   * <p>The configuration for the managed endpoint.</p>
+   * The configuration for the managed endpoint.
+   *
    * @public
    */
   managedEndpointConfiguration?: ManagedEndpointConfiguration | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a [UUID type of value](https://wikipedia.org/wiki/Universally_unique_identifier).
+   *
+   * If you don't provide this value, then Amazon Web Services generates a random one for you.
+   *
+   * If you retry the operation with the same `clientToken`, but with different parameters, the retry fails with an `IdempotentParameterMismatch` error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>An optional description for the responder gateway.</p>
+   * An optional description for the responder gateway.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. Valid values are the following:</p> <ul> <li> <p> <code>AVAILABILITY_ZONE_AFFINITY</code>: RTB Fabric routes each requester's traffic to gateway capacity in the requester's own Availability Zone when the gateway has capacity available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the other Availability Zones of the gateway.</p> </li> <li> <p> <code>ANY_AVAILABILITY_ZONE</code>: RTB Fabric routes each requester's traffic to gateway capacity in every Availability Zone that the subnets of the gateway span. The Availability Zone that the requester is in does not change this.</p> </li> </ul> <p>If you don't specify a value, the gateway keeps its current client routing policy. Changing the policy sets the gateway status to <code>PENDING_UPDATE</code> until the change is complete. RTB Fabric does not support partial Availability Zone affinity, so <code>PARTIAL_AVAILABILITY_ZONE_AFFINITY</code> is not a valid value. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. Valid values are the following:
+   *
+   * - `AVAILABILITY_ZONE_AFFINITY`: RTB Fabric routes each requester's traffic to gateway capacity in the requester's own Availability Zone when the gateway has capacity available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the other Availability Zones of the gateway.
+   * - `ANY_AVAILABILITY_ZONE`: RTB Fabric routes each requester's traffic to gateway capacity in every Availability Zone that the subnets of the gateway span. The Availability Zone that the requester is in does not change this.
+   *
+   * If you don't specify a value, the gateway keeps its current client routing policy. Changing the policy sets the gateway status to `PENDING_UPDATE` until the change is complete. RTB Fabric does not support partial Availability Zone affinity, so `PARTIAL_AVAILABILITY_ZONE_AFFINITY` is not a valid value. For more information, see [Configuring Availability Zone affinity](https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity) in the *Amazon Web Services RTB Fabric User Guide*.
+   *
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
@@ -2948,19 +3417,22 @@ export interface UpdateResponderGatewayRequest {
  */
 export interface UpdateResponderGatewayResponse {
   /**
-   * <p>The unique identifier of the gateway.</p>
+   * The unique identifier of the gateway.
+   *
    * @public
    */
   gatewayId: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   status: ResponderGatewayStatus | undefined;
 
   /**
-   * <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to `ACTIVE`. For more information, see [Configuring Availability Zone affinity](https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity) in the *Amazon Web Services RTB Fabric User Guide*.
+   *
    * @public
    */
   clientRoutingPolicy?: ClientRoutingPolicy | undefined;
@@ -2971,13 +3443,15 @@ export interface UpdateResponderGatewayResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
+   * A map of the key-value pairs of the tag or tags to assign to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2993,13 +3467,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to untag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the key-value pairs for the tag or tags you want to remove from the specified resource.</p>
+   * The keys of the key-value pairs for the tag or tags you want to remove from the specified resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

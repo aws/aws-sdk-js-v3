@@ -23,7 +23,8 @@ export interface GetArchiveSearchCommandInput extends GetArchiveSearchRequest {}
 export interface GetArchiveSearchCommandOutput extends GetArchiveSearchResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details and current status of a specific email archive search job.</p>
+ * Retrieves the details and current status of a specific email archive search job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,17 +100,20 @@ export interface GetArchiveSearchCommandOutput extends GetArchiveSearchResponse,
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Occurs when a user is denied access to a specific resource or action.</p>
+ *
+ * Occurs when a user is denied access to a specific resource or action.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.</p>
+ *
+ * Occurs when a service's request rate limit is exceeded, resulting in throttling of further requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

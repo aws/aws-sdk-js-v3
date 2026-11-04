@@ -23,7 +23,14 @@ export interface CreateSubscriptionCommandInput extends CreateSubscriptionInput 
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a flat-rate pricing subscription for the specified resources.</p> <note> <p>When <code>approvalMode</code> is set to <code>MANUAL</code>, paid-tier subscriptions are created in <code>PENDING_APPROVAL</code> status and require a separate <code>ApprovePaidSubscription</code> call before billing starts. Free-tier subscriptions are always activated immediately regardless of approval mode.</p> <p>When <code>approvalMode</code> is set to <code>IMMEDIATE</code> or is not specified, the subscription is activated immediately.</p> </note>
+ * Creates a flat-rate pricing subscription for the specified resources.
+ *
+ * > **Note:**
+ * >
+ * > When `approvalMode` is set to `MANUAL`, paid-tier subscriptions are created in `PENDING_APPROVAL` status and require a separate `ApprovePaidSubscription` call before billing starts. Free-tier subscriptions are always activated immediately regardless of approval mode.
+ * >
+ * > When `approvalMode` is set to `IMMEDIATE` or is not specified, the subscription is activated immediately.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,29 +83,36 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionOutpu
  * @see {@link PricingPlanManagerClientResolvedConfig | config} for PricingPlanManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.</p>
+ *
+ * You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. This typically occurs when the <code>ETag</code> value in the <code>If-Match</code> header does not match the current version of the subscription. Retrieve the latest version and retry.</p>
+ *
+ * The request conflicts with the current state of the resource. This typically occurs when the `ETag` value in the `If-Match` header does not match the current version of the subscription. Retrieve the latest version and retry.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred on the server. Retry the request.</p>
+ *
+ * An unexpected error occurred on the server. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.</p>
+ *
+ * The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service limit. You have reached the maximum number of subscriptions allowed for your account.</p>
+ *
+ * The request would exceed a service limit. You have reached the maximum number of subscriptions allowed for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeds the allowed limit. Wait briefly and retry the request.</p>
+ *
+ * The request rate exceeds the allowed limit. Wait briefly and retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.</p>
+ *
+ * The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.
  *
  * @throws {@link PricingPlanManagerServiceException}
- * <p>Base exception class for all service exceptions from PricingPlanManager service.</p>
  *
+ * Base exception class for all service exceptions from PricingPlanManager service.
  *
  * @example Create a flat-rate pricing subscription (deferred approval)
  * ```javascript

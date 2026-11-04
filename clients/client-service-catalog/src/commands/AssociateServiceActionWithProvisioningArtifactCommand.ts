@@ -26,7 +26,8 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandInput exte
 export interface AssociateServiceActionWithProvisioningArtifactCommandOutput extends AssociateServiceActionWithProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * <p>Associates a self-service action with a provisioning artifact.</p>
+ * Associates a self-service action with a provisioning artifact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,21 +56,24 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput ext
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>The specified resource is a duplicate.</p>
+ *
+ * The specified resource is a duplicate.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

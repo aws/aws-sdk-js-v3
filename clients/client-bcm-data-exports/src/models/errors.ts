@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ * An error on the server occurred during the processing of your request. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -52,7 +54,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.</p>
+ * You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -61,25 +64,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The identifier of the resource that exceeded quota.</p>
+   * The identifier of the resource that exceeded quota.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that exceeded quota.</p>
+   * The type of the resource that exceeded quota.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The quota code that was exceeded.</p>
+   * The quota code that was exceeded.
+   *
    * @public
    */
   QuotaCode: string | undefined;
 
   /**
-   * <p>The service code that exceeded quota. It will always be “AWSBillingAndCostManagementDataExports”.</p>
+   * The service code that exceeded quota. It will always be “AWSBillingAndCostManagementDataExports”.
+   *
    * @public
    */
   ServiceCode: string | undefined;
@@ -102,7 +109,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -111,13 +119,15 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The quota code that exceeded the throttling limit.</p>
+   * The quota code that exceeded the throttling limit.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>The service code that exceeded the throttling limit. It will always be “AWSBillingAndCostManagementDataExports”.</p>
+   * The service code that exceeded the throttling limit. It will always be “AWSBillingAndCostManagementDataExports”.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
@@ -138,7 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -147,13 +158,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The reason for the validation exception.</p>
+   * The reason for the validation exception.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that are invalid.</p>
+   * The list of fields that are invalid.
+   *
    * @public
    */
   Fields?: ValidationExceptionField[] | undefined;
@@ -174,7 +187,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+ * The specified Amazon Resource Name (ARN) in the request doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -183,13 +197,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The type of the resource that was not found.</p>
+   * The type of the resource that was not found.
+   *
    * @public
    */
   ResourceType: string | undefined;

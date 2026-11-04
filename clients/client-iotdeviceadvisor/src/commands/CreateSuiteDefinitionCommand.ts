@@ -23,8 +23,10 @@ export interface CreateSuiteDefinitionCommandInput extends CreateSuiteDefinition
 export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Device Advisor test suite.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateSuiteDefinition</a> action.</p>
+ * Creates a Device Advisor test suite.
+ *
+ * Requires permission to access the [CreateSuiteDefinition](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,14 +74,16 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Sends an Internal Failure exception.</p>
+ *
+ * Sends an Internal Failure exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Sends a validation exception.</p>
+ *
+ * Sends a validation exception.
  *
  * @throws {@link IotDeviceAdvisorServiceException}
- * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * Base exception class for all service exceptions from IotDeviceAdvisor service.
  *
  * @public
  */

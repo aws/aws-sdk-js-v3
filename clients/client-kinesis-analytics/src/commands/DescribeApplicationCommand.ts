@@ -23,16 +23,16 @@ export interface DescribeApplicationCommandInput extends DescribeApplicationRequ
 export interface DescribeApplicationCommandOutput extends DescribeApplicationResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
- *          </note>
- *         <p>Returns information about a specific Amazon Kinesis Analytics application.</p>
- *         <p>If you want to retrieve a list of all applications in your account,
- *             use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListApplications.html">ListApplications</a> operation.</p>
- *         <p>This operation requires permissions to perform the <code>kinesisanalytics:DescribeApplication</code>
- *             action. You can use <code>DescribeApplication</code> to get the current application versionId, which you need to call other
- *             operations such as <code>Update</code>.
- *         </p>
+ * > **Note:** This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+ *
+ *
+ *
+ * Returns information about a specific Amazon Kinesis Analytics application.
+ *
+ * If you want to retrieve a list of all applications in your account, use the [ListApplications](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_ListApplications.html) operation.
+ *
+ * This operation requires permissions to perform the `kinesisanalytics:DescribeApplication` action. You can use `DescribeApplication` to get the current application versionId, which you need to call other operations such as `Update`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -180,14 +180,16 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalytics service.
  *
  * @public
  */

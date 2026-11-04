@@ -23,35 +23,18 @@ export interface DeleteJobTaggingCommandInput extends DeleteJobTaggingRequest {}
 export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, __MetadataBearer {}
 
 /**
- * <p>Removes the entire tag set from the specified S3 Batch Operations job.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>To use the
- *                   <code>DeleteJobTagging</code> operation, you must have permission to
- *                   perform the <code>s3:DeleteJobTagging</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
- *                      access and labeling jobs using tags</a> in the
- *                   <i>Amazon S3 User Guide</i>.</p>
- *             </dd>
- *          </dl>
- *          <p>Related actions include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html">PutJobTagging</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Removes the entire tag set from the specified S3 Batch Operations job.
+ *
+ * - **Permissions**
+ *
+ *   To use the `DeleteJobTagging` operation, you must have permission to perform the `s3:DeleteJobTagging` action. For more information, see [Controlling access and labeling jobs using tags](https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags) in the *Amazon S3 User Guide*.
+ *
+ * Related actions include:
+ *
+ * - [CreateJob](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html)
+ * - [GetJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html)
+ * - [PutJobTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +60,14 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p></p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p></p>
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

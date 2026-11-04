@@ -23,11 +23,10 @@ export interface PutActionInteractionsCommandInput extends PutActionInteractions
 export interface PutActionInteractionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Records action interaction event data. An <i>action interaction</i> event is an interaction between a user and an <i>action</i>.
- *       For example, a user taking an action, such a enrolling in a membership program or downloading your app.</p>
- *          <p>
- *       For more information about recording action interactions, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-action-interaction-events.html">Recording action interaction events</a>.
- *       For more information about actions in an Actions dataset, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/actions-datasets.html">Actions dataset</a>.</p>
+ * Records action interaction event data. An *action interaction* event is an interaction between a user and an *action*. For example, a user taking an action, such a enrolling in a membership program or downloading your app.
+ *
+ * For more information about recording action interactions, see [Recording action interaction events](https://docs.aws.amazon.com/personalize/latest/dg/recording-action-interaction-events.html). For more information about actions in an Actions dataset, see [Actions dataset](https://docs.aws.amazon.com/personalize/latest/dg/actions-datasets.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +66,20 @@ export interface PutActionInteractionsCommandOutput extends __MetadataBearer {}
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeEventsServiceException}
- * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * Base exception class for all service exceptions from PersonalizeEvents service.
  *
  * @public
  */

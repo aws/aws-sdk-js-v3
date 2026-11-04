@@ -273,7 +273,8 @@ export type IAMToolboxClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface IAMToolboxClientResolvedConfig extends IAMToolboxClientResolvedConfigType {}
 
 /**
- * <p>Contains APIs to work with AWS Identity and Access Management (IAM).</p>
+ * Contains APIs to work with AWS Identity and Access Management (IAM).
+ *
  * @public
  */
 export class IAMToolboxClient extends __Client<

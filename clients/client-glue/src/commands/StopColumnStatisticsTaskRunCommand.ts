@@ -23,7 +23,8 @@ export interface StopColumnStatisticsTaskRunCommandInput extends StopColumnStati
 export interface StopColumnStatisticsTaskRunCommandOutput extends StopColumnStatisticsTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a task run for the specified table.</p>
+ * Stops a task run for the specified table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +51,24 @@ export interface StopColumnStatisticsTaskRunCommandOutput extends StopColumnStat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ColumnStatisticsTaskNotRunningException} (client fault)
- *  <p>An exception thrown when you try to stop a task run when there is no task running.</p>
+ *
+ * An exception thrown when you try to stop a task run when there is no task running.
  *
  * @throws {@link ColumnStatisticsTaskStoppingException} (client fault)
- *  <p>An exception thrown when you try to stop a task run.</p>
+ *
+ * An exception thrown when you try to stop a task run.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

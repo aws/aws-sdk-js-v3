@@ -23,28 +23,17 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more tags (key-value pairs) to the specified Amazon Quick Sight
- * 			resource. </p>
- *          <p>Tags can help you organize and categorize your resources. You can also use them to
- * 			scope user permissions, by granting a user permission to access or change only resources
- * 			with certain tag values. You can use the <code>TagResource</code> operation with a
- * 			resource that already has tags. If you specify a new tag key for the resource, this tag
- * 			is appended to the list of tags associated with the resource. If you specify a tag key
- * 			that is already associated with the resource, the new tag value that you specify
- * 			replaces the previous value for that tag.</p>
- *          <p>You can associate as many as 50 tags with a resource. Amazon Quick Sight supports
- * 			tagging on data set, data source, dashboard, template, topic, and user. </p>
- *          <p>Tagging for Amazon Quick Sight works in a similar way to tagging for other Amazon Web Services services, except for the following:</p>
- *          <ul>
- *             <li>
- *                <p>Tags are used to track costs for users in Amazon Quick Sight. You can't
- * 					tag other resources that Amazon Quick Sight costs are based on, such as storage
- * 					capacoty (SPICE), session usage, alert consumption, or reporting units.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Quick Sight doesn't currently support the tag editor for Resource Groups.</p>
- *             </li>
- *          </ul>
+ * Assigns one or more tags (key-value pairs) to the specified Amazon Quick Sight resource.
+ *
+ * Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values. You can use the `TagResource` operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag.
+ *
+ * You can associate as many as 50 tags with a resource. Amazon Quick Sight supports tagging on data set, data source, dashboard, template, topic, and user.
+ *
+ * Tagging for Amazon Quick Sight works in a similar way to tagging for other Amazon Web Services services, except for the following:
+ *
+ * - Tags are used to track costs for users in Amazon Quick Sight. You can't tag other resources that Amazon Quick Sight costs are based on, such as storage capacoty (SPICE), session usage, alert consumption, or reporting units.
+ * - Amazon Quick Sight doesn't currently support the tag editor for Resource Groups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,29 +67,32 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit is exceeded.</p>
+ *
+ * A limit is exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

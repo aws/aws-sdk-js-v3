@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodeDeployServiceException as __BaseException } from "./CodeDeployServiceException";
 
 /**
- * <p>The maximum number of allowed on-premises instances in a single call was
- *             exceeded.</p>
+ * The maximum number of allowed on-premises instances in a single call was exceeded.
+ *
  * @public
  */
 export class InstanceLimitExceededException extends __BaseException {
@@ -26,7 +26,8 @@ export class InstanceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An on-premises instance name was not specified.</p>
+ * An on-premises instance name was not specified.
+ *
  * @public
  */
 export class InstanceNameRequiredException extends __BaseException {
@@ -47,7 +48,8 @@ export class InstanceNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified on-premises instance is not registered.</p>
+ * The specified on-premises instance is not registered.
+ *
  * @public
  */
 export class InstanceNotRegisteredException extends __BaseException {
@@ -68,7 +70,8 @@ export class InstanceNotRegisteredException extends __BaseException {
 }
 
 /**
- * <p>The on-premises instance name was specified in an invalid format.</p>
+ * The on-premises instance name was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidInstanceNameException extends __BaseException {
@@ -89,7 +92,8 @@ export class InvalidInstanceNameException extends __BaseException {
 }
 
 /**
- * <p>The tag was specified in an invalid format.</p>
+ * The tag was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidTagException extends __BaseException {
@@ -110,7 +114,8 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>The maximum allowed number of tags was exceeded.</p>
+ * The maximum allowed number of tags was exceeded.
+ *
  * @public
  */
 export class TagLimitExceededException extends __BaseException {
@@ -131,7 +136,8 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A tag was not specified.</p>
+ * A tag was not specified.
+ *
  * @public
  */
 export class TagRequiredException extends __BaseException {
@@ -152,7 +158,8 @@ export class TagRequiredException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
+ * The maximum number of alarms for a deployment group (10) was exceeded.
+ *
  * @public
  */
 export class AlarmsLimitExceededException extends __BaseException {
@@ -173,8 +180,8 @@ export class AlarmsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An application with the specified name with the user or Amazon Web Services account
- *             already exists.</p>
+ * An application with the specified name with the user or Amazon Web Services account already exists.
+ *
  * @public
  */
 export class ApplicationAlreadyExistsException extends __BaseException {
@@ -195,7 +202,8 @@ export class ApplicationAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The application does not exist with the user or Amazon Web Services account.</p>
+ * The application does not exist with the user or Amazon Web Services account.
+ *
  * @public
  */
 export class ApplicationDoesNotExistException extends __BaseException {
@@ -216,7 +224,8 @@ export class ApplicationDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>More applications were attempted to be created than are allowed.</p>
+ * More applications were attempted to be created than are allowed.
+ *
  * @public
  */
 export class ApplicationLimitExceededException extends __BaseException {
@@ -237,7 +246,8 @@ export class ApplicationLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The minimum number of required application names was not specified.</p>
+ * The minimum number of required application names was not specified.
+ *
  * @public
  */
 export class ApplicationNameRequiredException extends __BaseException {
@@ -258,8 +268,8 @@ export class ApplicationNameRequiredException extends __BaseException {
 }
 
 /**
- * <p> The specified ARN is not supported. For example, it might be an ARN for a resource
- *             that is not expected. </p>
+ * The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected.
+ *
  * @public
  */
 export class ArnNotSupportedException extends __BaseException {
@@ -280,7 +290,8 @@ export class ArnNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ * The maximum number of names or IDs allowed for this request (100) was exceeded.
+ *
  * @public
  */
 export class BatchLimitExceededException extends __BaseException {
@@ -301,7 +312,8 @@ export class BatchLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The application name was specified in an invalid format.</p>
+ * The application name was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidApplicationNameException extends __BaseException {
@@ -322,7 +334,8 @@ export class InvalidApplicationNameException extends __BaseException {
 }
 
 /**
- * <p>The revision was specified in an invalid format.</p>
+ * The revision was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidRevisionException extends __BaseException {
@@ -343,7 +356,8 @@ export class InvalidRevisionException extends __BaseException {
 }
 
 /**
- * <p>The revision ID was not specified.</p>
+ * The revision ID was not specified.
+ *
  * @public
  */
 export class RevisionRequiredException extends __BaseException {
@@ -364,7 +378,8 @@ export class RevisionRequiredException extends __BaseException {
 }
 
 /**
- * <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+ * The deployment configuration does not exist with the user or Amazon Web Services account.
+ *
  * @public
  */
 export class DeploymentConfigDoesNotExistException extends __BaseException {
@@ -385,7 +400,8 @@ export class DeploymentConfigDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The deployment group name was not specified.</p>
+ * The deployment group name was not specified.
+ *
  * @public
  */
 export class DeploymentGroupNameRequiredException extends __BaseException {
@@ -406,7 +422,8 @@ export class DeploymentGroupNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The deployment group name was specified in an invalid format.</p>
+ * The deployment group name was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidDeploymentGroupNameException extends __BaseException {
@@ -427,7 +444,8 @@ export class InvalidDeploymentGroupNameException extends __BaseException {
 }
 
 /**
- * <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ * The deployment with the user or Amazon Web Services account does not exist.
+ *
  * @public
  */
 export class DeploymentDoesNotExistException extends __BaseException {
@@ -448,7 +466,8 @@ export class DeploymentDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>At least one deployment ID must be specified.</p>
+ * At least one deployment ID must be specified.
+ *
  * @public
  */
 export class DeploymentIdRequiredException extends __BaseException {
@@ -469,7 +488,7 @@ export class DeploymentIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The instance ID was not specified.</p>
+ * The instance ID was not specified.
  *
  * @deprecated This exception is deprecated, use DeploymentTargetIdRequiredException instead.
  * @public
@@ -492,7 +511,8 @@ export class InstanceIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
+ *
  * @public
  */
 export class InvalidComputePlatformException extends __BaseException {
@@ -513,7 +533,8 @@ export class InvalidComputePlatformException extends __BaseException {
 }
 
 /**
- * <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ * At least one of the deployment IDs was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidDeploymentIdException extends __BaseException {
@@ -534,7 +555,8 @@ export class InvalidDeploymentIdException extends __BaseException {
 }
 
 /**
- * <p>The specified deployment has not started.</p>
+ * The specified deployment has not started.
+ *
  * @public
  */
 export class DeploymentNotStartedException extends __BaseException {
@@ -555,7 +577,8 @@ export class DeploymentNotStartedException extends __BaseException {
 }
 
 /**
- * <p> The provided target ID does not belong to the attempted deployment. </p>
+ * The provided target ID does not belong to the attempted deployment.
+ *
  * @public
  */
 export class DeploymentTargetDoesNotExistException extends __BaseException {
@@ -576,7 +599,8 @@ export class DeploymentTargetDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p> A deployment target ID was not provided. </p>
+ * A deployment target ID was not provided.
+ *
  * @public
  */
 export class DeploymentTargetIdRequiredException extends __BaseException {
@@ -597,10 +621,8 @@ export class DeploymentTargetIdRequiredException extends __BaseException {
 }
 
 /**
- * <p> The maximum number of targets that can be associated with an Amazon ECS or
- *                 Lambda deployment was exceeded. The target list of both types of
- *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
- *             deployments. </p>
+ * The maximum number of targets that can be associated with an Amazon ECS or Lambda deployment was exceeded. The target list of both types of deployments must have exactly one item. This exception does not apply to EC2/On-premises deployments.
+ *
  * @public
  */
 export class DeploymentTargetListSizeExceededException extends __BaseException {
@@ -621,7 +643,7 @@ export class DeploymentTargetListSizeExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified instance does not exist in the deployment group.</p>
+ * The specified instance does not exist in the deployment group.
  *
  * @deprecated This exception is deprecated, use DeploymentTargetDoesNotExistException instead.
  * @public
@@ -644,7 +666,8 @@ export class InstanceDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p> The target ID provided was not valid. </p>
+ * The target ID provided was not valid.
+ *
  * @public
  */
 export class InvalidDeploymentTargetIdException extends __BaseException {
@@ -665,7 +688,8 @@ export class InvalidDeploymentTargetIdException extends __BaseException {
 }
 
 /**
- * <p>A bucket name is required, but was not provided.</p>
+ * A bucket name is required, but was not provided.
+ *
  * @public
  */
 export class BucketNameFilterRequiredException extends __BaseException {
@@ -686,7 +710,8 @@ export class BucketNameFilterRequiredException extends __BaseException {
 }
 
 /**
- * <p>The deployment is already complete.</p>
+ * The deployment is already complete.
+ *
  * @public
  */
 export class DeploymentAlreadyCompletedException extends __BaseException {
@@ -707,7 +732,8 @@ export class DeploymentAlreadyCompletedException extends __BaseException {
 }
 
 /**
- * <p>The deployment does not have a status of Ready and can't continue yet.</p>
+ * The deployment does not have a status of Ready and can't continue yet.
+ *
  * @public
  */
 export class DeploymentIsNotInReadyStateException extends __BaseException {
@@ -728,7 +754,8 @@ export class DeploymentIsNotInReadyStateException extends __BaseException {
 }
 
 /**
- * <p>The specified deployment status doesn't exist or cannot be determined.</p>
+ * The specified deployment status doesn't exist or cannot be determined.
+ *
  * @public
  */
 export class InvalidDeploymentStatusException extends __BaseException {
@@ -749,7 +776,8 @@ export class InvalidDeploymentStatusException extends __BaseException {
 }
 
 /**
- * <p> The wait type is invalid. </p>
+ * The wait type is invalid.
+ *
  * @public
  */
 export class InvalidDeploymentWaitTypeException extends __BaseException {
@@ -770,7 +798,8 @@ export class InvalidDeploymentWaitTypeException extends __BaseException {
 }
 
 /**
- * <p>A call was submitted that is not supported for the specified deployment type.</p>
+ * A call was submitted that is not supported for the specified deployment type.
+ *
  * @public
  */
 export class UnsupportedActionForDeploymentTypeException extends __BaseException {
@@ -791,7 +820,8 @@ export class UnsupportedActionForDeploymentTypeException extends __BaseException
 }
 
 /**
- * <p> The specified tags are not valid. </p>
+ * The specified tags are not valid.
+ *
  * @public
  */
 export class InvalidTagsToAddException extends __BaseException {
@@ -812,7 +842,8 @@ export class InvalidTagsToAddException extends __BaseException {
 }
 
 /**
- * <p>An API function was called too frequently.</p>
+ * An API function was called too frequently.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -833,8 +864,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The named deployment group with the user or Amazon Web Services account does not
- *             exist.</p>
+ * The named deployment group with the user or Amazon Web Services account does not exist.
+ *
  * @public
  */
 export class DeploymentGroupDoesNotExistException extends __BaseException {
@@ -855,7 +886,8 @@ export class DeploymentGroupDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The number of allowed deployments was exceeded.</p>
+ * The number of allowed deployments was exceeded.
+ *
  * @public
  */
 export class DeploymentLimitExceededException extends __BaseException {
@@ -876,7 +908,8 @@ export class DeploymentLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The description is too long.</p>
+ * The description is too long.
+ *
  * @public
  */
 export class DescriptionTooLongException extends __BaseException {
@@ -897,24 +930,14 @@ export class DescriptionTooLongException extends __BaseException {
 }
 
 /**
- * <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>The alarm list is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm object is null.</p>
- *             </li>
- *             <li>
- *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
- *             </li>
- *             <li>
- *                <p>Two alarms with the same name have been specified.</p>
- *             </li>
- *             <li>
- *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
- *             </li>
- *          </ul>
+ * The format of the alarm configuration is invalid. Possible causes include:
+ *
+ * - The alarm list is null.
+ * - The alarm object is null.
+ * - The alarm name is empty or null or exceeds the limit of 255 characters.
+ * - Two alarms with the same name have been specified.
+ * - The alarm configuration is enabled, but the alarm list is empty.
+ *
  * @public
  */
 export class InvalidAlarmConfigException extends __BaseException {
@@ -935,9 +958,8 @@ export class InvalidAlarmConfigException extends __BaseException {
 }
 
 /**
- * <p>The automatic rollback configuration was specified in an invalid format. For example,
- *             automatic rollback is enabled, but an invalid triggering event type or no event types
- *             were listed.</p>
+ * The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled, but an invalid triggering event type or no event types were listed.
+ *
  * @public
  */
 export class InvalidAutoRollbackConfigException extends __BaseException {
@@ -958,8 +980,8 @@ export class InvalidAutoRollbackConfigException extends __BaseException {
 }
 
 /**
- * <p>The Auto Scaling group was specified in an invalid format or does not
- *             exist.</p>
+ * The Auto Scaling group was specified in an invalid format or does not exist.
+ *
  * @public
  */
 export class InvalidAutoScalingGroupException extends __BaseException {
@@ -980,10 +1002,8 @@ export class InvalidAutoScalingGroupException extends __BaseException {
 }
 
 /**
- * <p>The <code>autoScalingGroupProcessesToSuspend</code> list in
- *             <code>ec2DeploymentOptions</code> contains a process that is not valid. Valid values
- *             are <code>Terminate</code>, <code>AZRebalance</code>, <code>InstanceRefresh</code>,
- *             and <code>ScheduledActions</code>. Process names are case sensitive.</p>
+ * The `autoScalingGroupProcessesToSuspend` list in `ec2DeploymentOptions` contains a process that is not valid. Valid values are `Terminate`, `AZRebalance`, `InstanceRefresh`, and `ScheduledActions`. Process names are case sensitive.
+ *
  * @public
  */
 export class InvalidAutoScalingGroupProcessToSuspendException extends __BaseException {
@@ -1004,7 +1024,8 @@ export class InvalidAutoScalingGroupProcessToSuspendException extends __BaseExce
 }
 
 /**
- * <p>The deployment configuration name was specified in an invalid format.</p>
+ * The deployment configuration name was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidDeploymentConfigNameException extends __BaseException {
@@ -1025,7 +1046,8 @@ export class InvalidDeploymentConfigNameException extends __BaseException {
 }
 
 /**
- * <p> The Amazon ECS service identifier is not valid. </p>
+ * The Amazon ECS service identifier is not valid.
+ *
  * @public
  */
 export class InvalidECSServiceException extends __BaseException {
@@ -1046,9 +1068,8 @@ export class InvalidECSServiceException extends __BaseException {
 }
 
 /**
- * <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
- *             target location, but weren't part of the previous successful deployment. Valid values
- *             include "DISALLOW," "OVERWRITE," and "RETAIN."</p>
+ * An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment target location, but weren't part of the previous successful deployment. Valid values include "DISALLOW," "OVERWRITE," and "RETAIN."
+ *
  * @public
  */
 export class InvalidFileExistsBehaviorException extends __BaseException {
@@ -1069,7 +1090,8 @@ export class InvalidFileExistsBehaviorException extends __BaseException {
 }
 
 /**
- * <p>The GitHub token is not valid.</p>
+ * The GitHub token is not valid.
+ *
  * @public
  */
 export class InvalidGitHubAccountTokenException extends __BaseException {
@@ -1090,9 +1112,8 @@ export class InvalidGitHubAccountTokenException extends __BaseException {
 }
 
 /**
- * <p>The IgnoreApplicationStopFailures value is invalid. For Lambda
- *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
- *                 <code>true</code> or <code>false</code> is expected.</p>
+ * The IgnoreApplicationStopFailures value is invalid. For Lambda deployments, `false` is expected. For EC2/On-premises deployments, `true` or `false` is expected.
+ *
  * @public
  */
 export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseException {
@@ -1113,7 +1134,8 @@ export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseEx
 }
 
 /**
- * <p>The input was specified in an invalid format.</p>
+ * The input was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -1134,7 +1156,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>An invalid load balancer name, or no load balancer name, was specified.</p>
+ * An invalid load balancer name, or no load balancer name, was specified.
+ *
  * @public
  */
 export class InvalidLoadBalancerInfoException extends __BaseException {
@@ -1155,9 +1178,8 @@ export class InvalidLoadBalancerInfoException extends __BaseException {
 }
 
 /**
- * <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
- *             group was specified, the specified service role does not grant the appropriate
- *             permissions to Amazon EC2 Auto Scaling.</p>
+ * The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
+ *
  * @public
  */
 export class InvalidRoleException extends __BaseException {
@@ -1178,22 +1200,13 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
- * <p>The target instance configuration is invalid. Possible causes include:</p>
- *          <ul>
- *             <li>
- *                <p>Configuration data for target instances was entered for an in-place
- *                     deployment.</p>
- *             </li>
- *             <li>
- *                <p>The limit of 10 tags for a tag type was exceeded.</p>
- *             </li>
- *             <li>
- *                <p>The combined length of the tag names exceeded the limit. </p>
- *             </li>
- *             <li>
- *                <p>A specified tag is not currently applied to any instances.</p>
- *             </li>
- *          </ul>
+ * The target instance configuration is invalid. Possible causes include:
+ *
+ * - Configuration data for target instances was entered for an in-place deployment.
+ * - The limit of 10 tags for a tag type was exceeded.
+ * - The combined length of the tag names exceeded the limit.
+ * - A specified tag is not currently applied to any instances.
+ *
  * @public
  */
 export class InvalidTargetInstancesException extends __BaseException {
@@ -1214,8 +1227,8 @@ export class InvalidTargetInstancesException extends __BaseException {
 }
 
 /**
- * <p> The configuration that specifies how traffic is routed during a deployment is
- *             invalid.</p>
+ * The configuration that specifies how traffic is routed during a deployment is invalid.
+ *
  * @public
  */
 export class InvalidTrafficRoutingConfigurationException extends __BaseException {
@@ -1236,9 +1249,8 @@ export class InvalidTrafficRoutingConfigurationException extends __BaseException
 }
 
 /**
- * <p>The UpdateOutdatedInstancesOnly value is invalid. For Lambda
- *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
- *                 <code>true</code> or <code>false</code> is expected.</p>
+ * The UpdateOutdatedInstancesOnly value is invalid. For Lambda deployments, `false` is expected. For EC2/On-premises deployments, `true` or `false` is expected.
+ *
  * @public
  */
 export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseException {
@@ -1259,7 +1271,8 @@ export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseExce
 }
 
 /**
- * <p>The named revision does not exist with the user or Amazon Web Services account.</p>
+ * The named revision does not exist with the user or Amazon Web Services account.
+ *
  * @public
  */
 export class RevisionDoesNotExistException extends __BaseException {
@@ -1280,7 +1293,8 @@ export class RevisionDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
+ * A deployment configuration with the specified name with the user or Amazon Web Services account already exists.
+ *
  * @public
  */
 export class DeploymentConfigAlreadyExistsException extends __BaseException {
@@ -1301,7 +1315,8 @@ export class DeploymentConfigAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The deployment configurations limit was exceeded.</p>
+ * The deployment configurations limit was exceeded.
+ *
  * @public
  */
 export class DeploymentConfigLimitExceededException extends __BaseException {
@@ -1322,7 +1337,8 @@ export class DeploymentConfigLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The deployment configuration name was not specified.</p>
+ * The deployment configuration name was not specified.
+ *
  * @public
  */
 export class DeploymentConfigNameRequiredException extends __BaseException {
@@ -1343,7 +1359,8 @@ export class DeploymentConfigNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The minimum healthy instance value was specified in an invalid format.</p>
+ * The minimum healthy instance value was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidMinimumHealthyHostValueException extends __BaseException {
@@ -1364,7 +1381,8 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
 }
 
 /**
- * <p>The <code>ZonalConfig</code> object is not valid.</p>
+ * The `ZonalConfig` object is not valid.
+ *
  * @public
  */
 export class InvalidZonalDeploymentConfigurationException extends __BaseException {
@@ -1385,8 +1403,8 @@ export class InvalidZonalDeploymentConfigurationException extends __BaseExceptio
 }
 
 /**
- * <p>A deployment group with the specified name with the user or Amazon Web Services account
- *             already exists.</p>
+ * A deployment group with the specified name with the user or Amazon Web Services account already exists.
+ *
  * @public
  */
 export class DeploymentGroupAlreadyExistsException extends __BaseException {
@@ -1407,7 +1425,8 @@ export class DeploymentGroupAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p> The deployment groups limit was exceeded.</p>
+ * The deployment groups limit was exceeded.
+ *
  * @public
  */
 export class DeploymentGroupLimitExceededException extends __BaseException {
@@ -1428,8 +1447,8 @@ export class DeploymentGroupLimitExceededException extends __BaseException {
 }
 
 /**
- * <p> The Amazon ECS service is associated with more than one deployment groups. An
- *             Amazon ECS service can be associated with only one deployment group. </p>
+ * The Amazon ECS service is associated with more than one deployment groups. An Amazon ECS service can be associated with only one deployment group.
+ *
  * @public
  */
 export class ECSServiceMappingLimitExceededException extends __BaseException {
@@ -1450,8 +1469,8 @@ export class ECSServiceMappingLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The configuration for the blue/green deployment group was provided in an invalid
- *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
+ * The configuration for the blue/green deployment group was provided in an invalid format. For information about deployment configuration format, see CreateDeploymentConfig.
+ *
  * @public
  */
 export class InvalidBlueGreenDeploymentConfigurationException extends __BaseException {
@@ -1472,9 +1491,8 @@ export class InvalidBlueGreenDeploymentConfigurationException extends __BaseExce
 }
 
 /**
- * <p>An invalid deployment style was specified. Valid deployment types include "IN_PLACE"
- *             and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and
- *             "WITHOUT_TRAFFIC_CONTROL."</p>
+ * An invalid deployment style was specified. Valid deployment types include "IN_PLACE" and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and "WITHOUT_TRAFFIC_CONTROL."
+ *
  * @public
  */
 export class InvalidDeploymentStyleException extends __BaseException {
@@ -1495,8 +1513,8 @@ export class InvalidDeploymentStyleException extends __BaseException {
 }
 
 /**
- * <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of
- *             these data types can be used in a single call.</p>
+ * A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of these data types can be used in a single call.
+ *
  * @public
  */
 export class InvalidEC2TagCombinationException extends __BaseException {
@@ -1517,7 +1535,8 @@ export class InvalidEC2TagCombinationException extends __BaseException {
 }
 
 /**
- * <p>The tag was specified in an invalid format.</p>
+ * The tag was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidEC2TagException extends __BaseException {
@@ -1538,8 +1557,8 @@ export class InvalidEC2TagException extends __BaseException {
 }
 
 /**
- * <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet,
- *             but only one of these data types can be used in a single call.</p>
+ * A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet, but only one of these data types can be used in a single call.
+ *
  * @public
  */
 export class InvalidOnPremisesTagCombinationException extends __BaseException {
@@ -1560,7 +1579,8 @@ export class InvalidOnPremisesTagCombinationException extends __BaseException {
 }
 
 /**
- * <p> A target group pair associated with this deployment is not valid. </p>
+ * A target group pair associated with this deployment is not valid.
+ *
  * @public
  */
 export class InvalidTargetGroupPairException extends __BaseException {
@@ -1581,7 +1601,8 @@ export class InvalidTargetGroupPairException extends __BaseException {
 }
 
 /**
- * <p>The trigger was specified in an invalid format.</p>
+ * The trigger was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidTriggerConfigException extends __BaseException {
@@ -1602,7 +1623,8 @@ export class InvalidTriggerConfigException extends __BaseException {
 }
 
 /**
- * <p>The limit for lifecycle hooks was exceeded.</p>
+ * The limit for lifecycle hooks was exceeded.
+ *
  * @public
  */
 export class LifecycleHookLimitExceededException extends __BaseException {
@@ -1623,7 +1645,8 @@ export class LifecycleHookLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The role ID was not specified.</p>
+ * The role ID was not specified.
+ *
  * @public
  */
 export class RoleRequiredException extends __BaseException {
@@ -1644,8 +1667,8 @@ export class RoleRequiredException extends __BaseException {
 }
 
 /**
- * <p>The number of tag groups included in the tag set list exceeded the maximum allowed
- *             limit of 3.</p>
+ * The number of tag groups included in the tag set list exceeded the maximum allowed limit of 3.
+ *
  * @public
  */
 export class TagSetListLimitExceededException extends __BaseException {
@@ -1666,7 +1689,8 @@ export class TagSetListLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The maximum allowed number of triggers was exceeded.</p>
+ * The maximum allowed number of triggers was exceeded.
+ *
  * @public
  */
 export class TriggerTargetsLimitExceededException extends __BaseException {
@@ -1687,7 +1711,8 @@ export class TriggerTargetsLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The deployment configuration is still in use.</p>
+ * The deployment configuration is still in use.
+ *
  * @public
  */
 export class DeploymentConfigInUseException extends __BaseException {
@@ -1708,7 +1733,8 @@ export class DeploymentConfigInUseException extends __BaseException {
 }
 
 /**
- * <p>An invalid operation was detected.</p>
+ * An invalid operation was detected.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -1729,7 +1755,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>No GitHub account connection exists with the named specified in the call.</p>
+ * No GitHub account connection exists with the named specified in the call.
+ *
  * @public
  */
 export class GitHubAccountTokenDoesNotExistException extends __BaseException {
@@ -1750,7 +1777,8 @@ export class GitHubAccountTokenDoesNotExistException extends __BaseException {
 }
 
 /**
- * <p>The call is missing a required GitHub account connection name.</p>
+ * The call is missing a required GitHub account connection name.
+ *
  * @public
  */
 export class GitHubAccountTokenNameRequiredException extends __BaseException {
@@ -1771,7 +1799,8 @@ export class GitHubAccountTokenNameRequiredException extends __BaseException {
 }
 
 /**
- * <p>The format of the specified GitHub account connection name is invalid.</p>
+ * The format of the specified GitHub account connection name is invalid.
+ *
  * @public
  */
 export class InvalidGitHubAccountTokenNameException extends __BaseException {
@@ -1792,7 +1821,8 @@ export class InvalidGitHubAccountTokenNameException extends __BaseException {
 }
 
 /**
- * <p>The API used does not support the deployment.</p>
+ * The API used does not support the deployment.
+ *
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -1813,7 +1843,8 @@ export class OperationNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be validated.</p>
+ * The specified resource could not be validated.
+ *
  * @public
  */
 export class ResourceValidationException extends __BaseException {
@@ -1834,7 +1865,8 @@ export class ResourceValidationException extends __BaseException {
 }
 
 /**
- * <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
+ * The bucket name either doesn't exist or was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidBucketNameFilterException extends __BaseException {
@@ -1855,7 +1887,8 @@ export class InvalidBucketNameFilterException extends __BaseException {
 }
 
 /**
- * <p>The deployed state filter was specified in an invalid format.</p>
+ * The deployed state filter was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidDeployedStateFilterException extends __BaseException {
@@ -1876,7 +1909,8 @@ export class InvalidDeployedStateFilterException extends __BaseException {
 }
 
 /**
- * <p>The specified key prefix filter was specified in an invalid format.</p>
+ * The specified key prefix filter was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidKeyPrefixFilterException extends __BaseException {
@@ -1897,7 +1931,8 @@ export class InvalidKeyPrefixFilterException extends __BaseException {
 }
 
 /**
- * <p>The next token was specified in an invalid format.</p>
+ * The next token was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -1918,8 +1953,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The column name to sort by is either not present or was specified in an invalid
- *             format.</p>
+ * The column name to sort by is either not present or was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidSortByException extends __BaseException {
@@ -1940,7 +1975,8 @@ export class InvalidSortByException extends __BaseException {
 }
 
 /**
- * <p>The sort order was specified in an invalid format.</p>
+ * The sort order was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidSortOrderException extends __BaseException {
@@ -1961,8 +1997,8 @@ export class InvalidSortOrderException extends __BaseException {
 }
 
 /**
- * <p>An instance type was specified for an in-place deployment. Instance types are
- *             supported for blue/green deployments only.</p>
+ * An instance type was specified for an in-place deployment. Instance types are supported for blue/green deployments only.
+ *
  * @public
  */
 export class InvalidDeploymentInstanceTypeException extends __BaseException {
@@ -1983,7 +2019,8 @@ export class InvalidDeploymentInstanceTypeException extends __BaseException {
 }
 
 /**
- * <p>The specified instance status does not exist.</p>
+ * The specified instance status does not exist.
+ *
  * @public
  */
 export class InvalidInstanceStatusException extends __BaseException {
@@ -2004,9 +2041,8 @@ export class InvalidInstanceStatusException extends __BaseException {
 }
 
 /**
- * <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
- *             values include "Blue" for an original environment and "Green" for a replacement
- *             environment.</p>
+ * An invalid instance type was specified for instances in a blue/green deployment. Valid values include "Blue" for an original environment and "Green" for a replacement environment.
+ *
  * @public
  */
 export class InvalidInstanceTypeException extends __BaseException {
@@ -2027,7 +2063,8 @@ export class InvalidInstanceTypeException extends __BaseException {
 }
 
 /**
- * <p> The target filter name is invalid. </p>
+ * The target filter name is invalid.
+ *
  * @public
  */
 export class InvalidTargetFilterNameException extends __BaseException {
@@ -2048,7 +2085,8 @@ export class InvalidTargetFilterNameException extends __BaseException {
 }
 
 /**
- * <p>The external ID was specified in an invalid format.</p>
+ * The external ID was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidExternalIdException extends __BaseException {
@@ -2069,7 +2107,8 @@ export class InvalidExternalIdException extends __BaseException {
 }
 
 /**
- * <p>The specified time range was specified in an invalid format.</p>
+ * The specified time range was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidTimeRangeException extends __BaseException {
@@ -2090,7 +2129,8 @@ export class InvalidTimeRangeException extends __BaseException {
 }
 
 /**
- * <p>The registration status was specified in an invalid format.</p>
+ * The registration status was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidRegistrationStatusException extends __BaseException {
@@ -2111,7 +2151,8 @@ export class InvalidRegistrationStatusException extends __BaseException {
 }
 
 /**
- * <p>The tag filter was specified in an invalid format.</p>
+ * The tag filter was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidTagFilterException extends __BaseException {
@@ -2132,7 +2173,8 @@ export class InvalidTagFilterException extends __BaseException {
 }
 
 /**
- * <p> The specified ARN is not in a valid format. </p>
+ * The specified ARN is not in a valid format.
+ *
  * @public
  */
 export class InvalidArnException extends __BaseException {
@@ -2153,7 +2195,8 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
- * <p> The ARN of a resource is required, but was not found. </p>
+ * The ARN of a resource is required, but was not found.
+ *
  * @public
  */
 export class ResourceArnRequiredException extends __BaseException {
@@ -2174,9 +2217,8 @@ export class ResourceArnRequiredException extends __BaseException {
 }
 
 /**
- * <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your
- *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
- *             valid.</p>
+ * A lifecycle event hook is invalid. Review the `hooks` section in your AppSpec file to ensure the lifecycle events and `hooks` functions are valid.
+ *
  * @public
  */
 export class InvalidLifecycleEventHookExecutionIdException extends __BaseException {
@@ -2197,8 +2239,8 @@ export class InvalidLifecycleEventHookExecutionIdException extends __BaseExcepti
 }
 
 /**
- * <p>The result of a Lambda validation function that verifies a lifecycle event
- *             is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
+ * The result of a Lambda validation function that verifies a lifecycle event is invalid. It should return `Succeeded` or `Failed`.
+ *
  * @public
  */
 export class InvalidLifecycleEventHookExecutionStatusException extends __BaseException {
@@ -2219,8 +2261,8 @@ export class InvalidLifecycleEventHookExecutionStatusException extends __BaseExc
 }
 
 /**
- * <p>An attempt to return the status of an already completed lifecycle event
- *             occurred.</p>
+ * An attempt to return the status of an already completed lifecycle event occurred.
+ *
  * @public
  */
 export class LifecycleEventAlreadyCompletedException extends __BaseException {
@@ -2241,7 +2283,8 @@ export class LifecycleEventAlreadyCompletedException extends __BaseException {
 }
 
 /**
- * <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
+ * No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.
+ *
  * @public
  */
 export class IamArnRequiredException extends __BaseException {
@@ -2262,8 +2305,8 @@ export class IamArnRequiredException extends __BaseException {
 }
 
 /**
- * <p>The request included an IAM session ARN that has already been used to
- *             register a different instance.</p>
+ * The request included an IAM session ARN that has already been used to register a different instance.
+ *
  * @public
  */
 export class IamSessionArnAlreadyRegisteredException extends __BaseException {
@@ -2284,7 +2327,8 @@ export class IamSessionArnAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * <p>The specified user ARN is already registered with an on-premises instance.</p>
+ * The specified user ARN is already registered with an on-premises instance.
+ *
  * @public
  */
 export class IamUserArnAlreadyRegisteredException extends __BaseException {
@@ -2305,7 +2349,8 @@ export class IamUserArnAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * <p>An user ARN was not specified.</p>
+ * An user ARN was not specified.
+ *
  * @public
  */
 export class IamUserArnRequiredException extends __BaseException {
@@ -2326,7 +2371,8 @@ export class IamUserArnRequiredException extends __BaseException {
 }
 
 /**
- * <p>The specified on-premises instance name is already registered.</p>
+ * The specified on-premises instance name is already registered.
+ *
  * @public
  */
 export class InstanceNameAlreadyRegisteredException extends __BaseException {
@@ -2347,7 +2393,8 @@ export class InstanceNameAlreadyRegisteredException extends __BaseException {
 }
 
 /**
- * <p>The IAM session ARN was specified in an invalid format.</p>
+ * The IAM session ARN was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidIamSessionArnException extends __BaseException {
@@ -2368,7 +2415,8 @@ export class InvalidIamSessionArnException extends __BaseException {
 }
 
 /**
- * <p>The user ARN was specified in an invalid format.</p>
+ * The user ARN was specified in an invalid format.
+ *
  * @public
  */
 export class InvalidIamUserArnException extends __BaseException {
@@ -2389,8 +2437,8 @@ export class InvalidIamUserArnException extends __BaseException {
 }
 
 /**
- * <p>Both an user ARN and an IAM session ARN were included in the request.
- *             Use only one ARN type.</p>
+ * Both an user ARN and an IAM session ARN were included in the request. Use only one ARN type.
+ *
  * @public
  */
 export class MultipleIamArnsProvidedException extends __BaseException {

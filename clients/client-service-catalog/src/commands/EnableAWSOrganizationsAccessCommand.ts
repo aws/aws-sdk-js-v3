@@ -23,19 +23,14 @@ export interface EnableAWSOrganizationsAccessCommandInput extends EnableAWSOrgan
 export interface EnableAWSOrganizationsAccessCommandOutput extends EnableAWSOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the
- *          current structure. This API can only be called by the management account in the organization.</p>
- *          <p>When you call this API, Service Catalog calls <code>organizations:EnableAWSServiceAccess</code> on your behalf so that your shares stay in sync with any changes in your Organizations structure.</p>
- *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
- *          <important>
- *             <p>If you have previously disabled Organizations access for Service Catalog, and then
- *          enable access again, the portfolio access permissions might not sync with the latest changes to
- *          the organization structure. Specifically, accounts that you removed from the organization after
- *          disabling Service Catalog access, and before you enabled access again, can retain access to the
- *          previously shared portfolio. As a result, an account that has been removed from the organization
- *          might still be able to create or manage Amazon Web Services resources when it is no longer
- *          authorized to do so. Amazon Web Services is working to resolve this issue.</p>
- *          </important>
+ * Enable portfolio sharing feature through Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the management account in the organization.
+ *
+ * When you call this API, Service Catalog calls `organizations:EnableAWSServiceAccess` on your behalf so that your shares stay in sync with any changes in your Organizations structure.
+ *
+ * Note that a delegated administrator is not authorized to invoke `EnableAWSOrganizationsAccess`.
+ *
+ * > **Important:** If you have previously disabled Organizations access for Service Catalog, and then enable access again, the portfolio access permissions might not sync with the latest changes to the organization structure. Specifically, accounts that you removed from the organization after disabling Service Catalog access, and before you enabled access again, can retain access to the previously shared portfolio. As a result, an account that has been removed from the organization might still be able to create or manage Amazon Web Services resources when it is no longer authorized to do so. Amazon Web Services is working to resolve this issue.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,18 +53,20 @@ export interface EnableAWSOrganizationsAccessCommandOutput extends EnableAWSOrga
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>An attempt was made to modify a resource that is in a state that is not valid.
- *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

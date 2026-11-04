@@ -23,7 +23,8 @@ export interface DescribeCodeCoveragesCommandInput extends DescribeCodeCoverages
 export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoveragesOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves one or more code coverage reports.</p>
+ * Retrieves one or more code coverage reports.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,11 +71,12 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

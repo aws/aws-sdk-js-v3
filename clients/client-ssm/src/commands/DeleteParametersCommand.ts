@@ -23,8 +23,8 @@ export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
 export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**
- * <p>Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to
- *    create a parameter with the same name.</p>
+ * Delete a list of parameters. After deleting a parameter, wait for at least 30 seconds to create a parameter with the same name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +58,12 @@ export interface DeleteParametersCommandOutput extends DeleteParametersResult, _
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

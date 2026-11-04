@@ -26,8 +26,8 @@ export interface DisassociateDelegationSignerFromDomainCommandInput extends Disa
 export interface DisassociateDelegationSignerFromDomainCommandOutput extends DisassociateDelegationSignerFromDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a delegation signer (DS) record in the registry zone for this domain
- * 			name.</p>
+ * Deletes a delegation signer (DS) record in the registry zone for this domain name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,27 +55,28 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput extends Dis
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The request is already in progress for the domain.</p>
+ *
+ * The request is already in progress for the domain.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link TLDRulesViolation} (client fault)
- *  <p>The top-level domain does not support this operation.</p>
+ *
+ * The top-level domain does not support this operation.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

@@ -23,66 +23,29 @@ export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequ
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
- * <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
- *       days, but you can specify a waiting period of 7-30 days. When this operation is successful,
- *       the key state of the KMS key changes to <code>PendingDeletion</code> and the key can't be used
- *       in any cryptographic operations. It remains in this state for the duration of the waiting
- *       period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to
- *       cancel the deletion of the KMS key. After the waiting period ends, KMS deletes the KMS key,
- *       its key material, and all KMS data associated with it, including all aliases that refer to
- *       it.</p>
- *          <important>
- *             <p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key
- *         is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only
- *         exception is a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#import-delete-key">asymmetric or HMAC KMS key with
- *           imported key material</a>.) To prevent the use of a KMS key without deleting it, use
- *           <a>DisableKey</a>. </p>
- *          </important>
- *          <p>You can schedule the deletion of a multi-Region primary key and its replica keys at any
- *       time. However, KMS will not delete a multi-Region primary key with existing replica keys. If
- *       you schedule the deletion of a primary key with replicas, its key state changes to
- *         <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic
- *       operations. This status can continue indefinitely. When the last of its replicas keys is
- *       deleted (not just scheduled), the key state of the primary key changes to
- *         <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>)
- *       begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-mrks">Deleting multi-Region keys</a> in
- *       the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>When KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#delete-cmk-keystore">deletes a KMS key from an CloudHSM
- *         key store</a>, it makes a best effort to delete the associated key material from the
- *       associated CloudHSM cluster. However, you might need to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key
- *         material</a> from the cluster and its backups. <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#delete-xks-key">Deleting a KMS key from an external key
- *         store</a> has no effect on the associated external key. However, for both types of
- *       custom key stores, deleting a KMS key is destructive and irreversible. You cannot decrypt
- *       ciphertext encrypted under the KMS key by using only its associated external key or CloudHSM key.
- *       Also, you cannot recreate a KMS key in an external key store by creating a new KMS key with
- *       the same key material.</p>
- *          <p>For more information about scheduling a KMS key for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting KMS keys</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: kms:ScheduleKeyDeletion (key
- *       policy)</p>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CancelKeyDeletion</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisableKey</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30 days, but you can specify a waiting period of 7-30 days. When this operation is successful, the key state of the KMS key changes to `PendingDeletion` and the key can't be used in any cryptographic operations. It remains in this state for the duration of the waiting period. Before the waiting period ends, you can use CancelKeyDeletion to cancel the deletion of the KMS key. After the waiting period ends, KMS deletes the KMS key, its key material, and all KMS data associated with it, including all aliases that refer to it.
+ *
+ * > **Important:** Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only exception is a [multi-Region replica key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html), or an [asymmetric or HMAC KMS key with imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#import-delete-key).) To prevent the use of a KMS key without deleting it, use DisableKey.
+ *
+ * You can schedule the deletion of a multi-Region primary key and its replica keys at any time. However, KMS will not delete a multi-Region primary key with existing replica keys. If you schedule the deletion of a primary key with replicas, its key state changes to `PendingReplicaDeletion` and it cannot be replicated or used in cryptographic operations. This status can continue indefinitely. When the last of its replicas keys is deleted (not just scheduled), the key state of the primary key changes to `PendingDeletion` and its waiting period (`PendingWindowInDays`) begins. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#deleting-mrks) in the *Key Management Service Developer Guide*.
+ *
+ * When KMS [deletes a KMS key from an CloudHSM key store](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#delete-cmk-keystore), it makes a best effort to delete the associated key material from the associated CloudHSM cluster. However, you might need to manually [delete the orphaned key material](https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key) from the cluster and its backups. [Deleting a KMS key from an external key store](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html#delete-xks-key) has no effect on the associated external key. However, for both types of custom key stores, deleting a KMS key is destructive and irreversible. You cannot decrypt ciphertext encrypted under the KMS key by using only its associated external key or CloudHSM key. Also, you cannot recreate a KMS key in an external key store by creating a new KMS key with the same key material.
+ *
+ * For more information about scheduling a KMS key for deletion, see [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the *Key Management Service Developer Guide*.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.
+ *
+ * **Required permissions**: kms:ScheduleKeyDeletion (key policy)
+ *
+ * **Related operations**
+ *
+ * - CancelKeyDeletion
+ * - DisableKey
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,44 +76,35 @@ export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionRes
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @public
  */

@@ -23,16 +23,10 @@ export interface GetPercentilesCommandInput extends GetPercentilesRequest {}
 export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __MetadataBearer {}
 
 /**
- * <p>Groups the aggregated values that match the query into percentile groupings. The default
- *         percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own
- *         when you call <code>GetPercentiles</code>. This function returns a value for each
- *         percentile group specified (or the default percentile groupings). The percentile group
- *         "1" contains the aggregated field value that occurs in approximately one percent of the
- *         values that match the query. The percentile group "5" contains the aggregated field value
- *         that occurs in approximately five percent of the values that match the query, and so on.
- *         The result is an approximation, the more values that match the query, the more accurate
- *         the percentile values.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetPercentiles</a> action.</p>
+ * Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call `GetPercentiles`. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group "1" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group "5" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.
+ *
+ * Requires permission to access the [GetPercentiles](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,35 +64,44 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link IndexNotReadyException} (client fault)
- *  <p>The index is not ready.</p>
+ *
+ * The index is not ready.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidAggregationException} (client fault)
- *  <p>The aggregation is invalid.</p>
+ *
+ * The aggregation is invalid.
  *
  * @throws {@link InvalidQueryException} (client fault)
- *  <p>The query is invalid.</p>
+ *
+ * The query is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

@@ -23,21 +23,13 @@ export interface CreateComponentCommandInput extends CreateComponentRequest {}
 export interface CreateComponentCommandOutput extends CreateComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new component that can be used to build, validate, test, and assess your
- * 			image. The component is based on a YAML document that you specify using exactly one of
- * 			the following methods:</p>
- *          <ul>
- *             <li>
- *                <p>Inline, using the <code>data</code> property in the request body.</p>
- *             </li>
- *             <li>
- *                <p>A URL that points to a YAML document file stored in Amazon S3, using the
- * 						<code>uri</code> property in the request body.</p>
- *             </li>
- *          </ul>
- *          <p>Image Builder determines the component type from the document. If the document
- * 			contains a single phase named <code>test</code>, the component type is
- * 			<code>TEST</code>. Otherwise, the component type is <code>BUILD</code>.</p>
+ * Creates a new component that can be used to build, validate, test, and assess your image. The component is based on a YAML document that you specify using exactly one of the following methods:
+ *
+ * - Inline, using the `data` property in the request body.
+ * - A URL that points to a YAML document file stored in Amazon S3, using the `uri` property in the request body.
+ *
+ * Image Builder determines the component type from the document. If the document contains a single phase named `test`, the component type is `TEST`. Otherwise, the component type is `BUILD`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,56 +79,56 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
- * 			calls on your behalf. Retry with an increasing or variable delay between
- * 			requests.</p>
+ *
+ * You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder calls on your behalf. Retry with an increasing or variable delay between requests.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
+ *
+ * The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * You are not authorized to perform the requested operation.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>You have specified a client token for an operation using parameter values that differ
- * 			from a previous request that used the same client token.</p>
+ *
+ * You have specified a client token for an operation using parameter values that differ from a previous request that used the same client token.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>You have specified a combination of parameters that isn't valid. For
- * 			example, two mutually exclusive parameters, or a parameter without its
- * 			required companion parameter. Review the error message for details.</p>
+ *
+ * You have specified a combination of parameters that isn't valid. For example, two mutually exclusive parameters, or a parameter without its required companion parameter. Review the error message for details.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is malformed or otherwise invalid. Verify the request and try
- * 			again.</p>
+ *
+ * The request is malformed or otherwise invalid. Verify the request and try again.
  *
  * @throws {@link InvalidVersionNumberException} (client fault)
- *  <p>Your version number is out of bounds or does not follow the required syntax.</p>
+ *
+ * Your version number is out of bounds or does not follow the required syntax.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource that you are trying to operate on is currently in use. Review the message
- * 			details and retry later.</p>
+ *
+ * The resource that you are trying to operate on is currently in use. Review the message details and retry later.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the number of permitted resources or operations for this service.
- * 			For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and
- * 				quotas</a>.</p>
+ *
+ * You have exceeded the number of permitted resources or operations for this service. For service quotas, see [EC2 Image Builder endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder).
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example Create a component from a document stored in Amazon S3
  * ```javascript

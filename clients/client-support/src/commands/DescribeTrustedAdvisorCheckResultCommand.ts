@@ -26,65 +26,27 @@ export interface DescribeTrustedAdvisorCheckResultCommandInput extends DescribeT
 export interface DescribeTrustedAdvisorCheckResultCommandOutput extends DescribeTrustedAdvisorCheckResultResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the results of the Trusted Advisor check that has the specified check ID. You
- *             can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
- *             operation.</p>
- *          <p>The response contains a <a>TrustedAdvisorCheckResult</a> object, which
- *             contains these three objects:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>TrustedAdvisorCategorySpecificSummary</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>TrustedAdvisorResourceDetail</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>TrustedAdvisorResourcesSummary</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>In addition, the response contains these fields:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>status</b> - The alert status of the check
- *                     can be <code>ok</code> (green), <code>warning</code> (yellow),
- *                         <code>error</code> (red), or <code>not_available</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>timestamp</b> - The time of the last refresh
- *                     of the check.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>checkId</b> - The unique identifier for the
- *                     check.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <p>To call the Trusted Advisor operations in
- * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
- * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
- * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+ * Returns the results of the Trusted Advisor check that has the specified check ID. You can get the check IDs by calling the DescribeTrustedAdvisorChecks operation.
+ *
+ * The response contains a TrustedAdvisorCheckResult object, which contains these three objects:
+ *
+ * - TrustedAdvisorCategorySpecificSummary
+ * - TrustedAdvisorResourceDetail
+ * - TrustedAdvisorResourcesSummary
+ *
+ * In addition, the response contains these fields:
+ *
+ * - **status** - The alert status of the check can be `ok` (green), `warning` (yellow), `error` (red), or `not_available`.
+ * - **timestamp** - The time of the last refresh of the check.
+ * - **checkId** - The unique identifier for the check.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
+ * To call the Trusted Advisor operations in the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland) endpoints don't support the Trusted Advisor operations. For more information, see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint) in the *Amazon Web Services Support User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,16 +101,16 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput extends Describe
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *         You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
- *         </p>
+ *
+ * You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

@@ -2806,7 +2806,8 @@ export interface Pinpoint {
 }
 
 /**
- * <p>Doc Engage API - Amazon Pinpoint API</p>
+ * Doc Engage API - Amazon Pinpoint API
+ *
  * @public
  */
 export class Pinpoint extends PinpointClient implements Pinpoint {}

@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CognitoIdentityServiceException as __BaseException } from "./CognitoIdentityServiceException";
 
 /**
- * <p>An exception thrown when a dependent service such as Facebook or Twitter is not
- *          responding</p>
+ * An exception thrown when a dependent service such as Facebook or Twitter is not responding
+ *
  * @public
  */
 export class ExternalServiceException extends __BaseException {
@@ -26,7 +26,8 @@ export class ExternalServiceException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the service encounters an error during processing the request.</p>
+ * Thrown when the service encounters an error during processing the request.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -47,13 +48,10 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>If you provided authentication information in the request, the identity pool has no
- *          authenticated role configured, or STS returned an error response to the
- *          request to assume the authenticated role from the identity pool. If you provided no
- *          authentication information in the request, the identity pool has no unauthenticated role
- *          configured, or STS returned an error response to the request to assume the
- *          unauthenticated role from the identity pool.</p>
- *          <p>Your role trust policy must grant <code>AssumeRoleWithWebIdentity</code> permissions to <code>cognito-identity.amazonaws.com</code>.</p>
+ * If you provided authentication information in the request, the identity pool has no authenticated role configured, or STS returned an error response to the request to assume the authenticated role from the identity pool. If you provided no authentication information in the request, the identity pool has no unauthenticated role configured, or STS returned an error response to the request to assume the unauthenticated role from the identity pool.
+ *
+ * Your role trust policy must grant `AssumeRoleWithWebIdentity` permissions to `cognito-identity.amazonaws.com`.
+ *
  * @public
  */
 export class InvalidIdentityPoolConfigurationException extends __BaseException {
@@ -74,7 +72,8 @@ export class InvalidIdentityPoolConfigurationException extends __BaseException {
 }
 
 /**
- * <p>Thrown for missing or bad input parameter(s).</p>
+ * Thrown for missing or bad input parameter(s).
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -95,7 +94,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Thrown when a user is not authorized to access the requested resource.</p>
+ * Thrown when a user is not authorized to access the requested resource.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
@@ -116,8 +116,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
+ * Thrown when a user tries to use a login which is already linked to another account.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -138,8 +138,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -160,7 +160,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Thrown when a request is throttled.</p>
+ * Thrown when a request is throttled.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -181,7 +182,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
+ * Thrown when the total number of user pools has exceeded a preset limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {

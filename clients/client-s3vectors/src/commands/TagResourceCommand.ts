@@ -23,7 +23,14 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Applies one or more user-defined tags to an Amazon S3 Vectors resource or updates existing tags. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 tags for each resource.</p> <note> <p>For a list of S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p> </note> <dl> <dt>Permissions</dt> <dd> <p>For vector buckets and vector indexes, you must have the <code>s3vectors:TagResource</code> permission to use this operation.</p> </dd> </dl>
+ * Applies one or more user-defined tags to an Amazon S3 Vectors resource or updates existing tags. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to your resources. You can add up to 50 tags for each resource.
+ *
+ * > **Note:** For a list of S3 resources that support tagging, see [Managing tags for Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+ *
+ * - **Permissions**
+ *
+ *   For vector buckets and vector indexes, you must have the `s3vectors:TagResource` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,32 +58,40 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link S3VectorsClientResolvedConfig | config} for S3VectorsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.</p>
+ *
+ * The request failed because a vector bucket name or a vector index name already exists. Vector bucket names must be unique within your Amazon Web Services account for each Amazon Web Services Region. Vector index names must be unique within your vector bucket. Choose a different vector bucket name or vector index name, and try again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource can't be found.</p>
+ *
+ * The request was rejected because the specified resource can't be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+ *
+ * The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out. Retry your request.</p>
+ *
+ * The request timed out. Retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action isn't valid.</p>
+ *
+ * The requested action isn't valid.
  *
  * @throws {@link S3VectorsServiceException}
- * <p>Base exception class for all service exceptions from S3Vectors service.</p>
  *
+ * Base exception class for all service exceptions from S3Vectors service.
  *
  * @public
  */

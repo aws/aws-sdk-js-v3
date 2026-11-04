@@ -22,156 +22,182 @@ import type {
 } from "./enums";
 
 /**
- * <p> The discounted amount. </p>
+ * The discounted amount.
+ *
  * @public
  */
 export interface DiscountsBreakdownAmount {
   /**
-   * <p> The list of discounts information. </p>
+   * The list of discounts information.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The discounted amount. </p>
+   * The discounted amount.
+   *
    * @public
    */
   Amount?: string | undefined;
 
   /**
-   * <p> The details for the discount rate.. </p>
+   * The details for the discount rate..
+   *
    * @public
    */
   Rate?: string | undefined;
 }
 
 /**
- * <p>The discounts details. </p>
+ * The discounts details.
+ *
  * @public
  */
 export interface DiscountsBreakdown {
   /**
-   * <p>The list of discounts information. </p>
+   * The list of discounts information.
+   *
    * @public
    */
   Breakdown?: DiscountsBreakdownAmount[] | undefined;
 
   /**
-   * <p> The discount's total amount. </p>
+   * The discount's total amount.
+   *
    * @public
    */
   TotalAmount?: string | undefined;
 }
 
 /**
- * <p> The fee amount. </p>
+ * The fee amount.
+ *
  * @public
  */
 export interface FeesBreakdownAmount {
   /**
-   * <p> The list of fees information. </p>
+   * The list of fees information.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The fee amount. </p>
+   * The fee amount.
+   *
    * @public
    */
   Amount?: string | undefined;
 
   /**
-   * <p> Details about the rate amount. </p>
+   * Details about the rate amount.
+   *
    * @public
    */
   Rate?: string | undefined;
 }
 
 /**
- * <p> The details of fees. </p>
+ * The details of fees.
+ *
  * @public
  */
 export interface FeesBreakdown {
   /**
-   * <p>The list of fees information. </p>
+   * The list of fees information.
+   *
    * @public
    */
   Breakdown?: FeesBreakdownAmount[] | undefined;
 
   /**
-   * <p> The total amount of fees. </p>
+   * The total amount of fees.
+   *
    * @public
    */
   TotalAmount?: string | undefined;
 }
 
 /**
- * <p> The tax amount. </p>
+ * The tax amount.
+ *
  * @public
  */
 export interface TaxesBreakdownAmount {
   /**
-   * <p> The details of the taxes. </p>
+   * The details of the taxes.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> The tax amount. </p>
+   * The tax amount.
+   *
    * @public
    */
   Amount?: string | undefined;
 
   /**
-   * <p> The details of the tax rate. </p>
+   * The details of the tax rate.
+   *
    * @public
    */
   Rate?: string | undefined;
 }
 
 /**
- * <p> The details of the taxes. </p>
+ * The details of the taxes.
+ *
  * @public
  */
 export interface TaxesBreakdown {
   /**
-   * <p> A list of tax information. </p>
+   * A list of tax information.
+   *
    * @public
    */
   Breakdown?: TaxesBreakdownAmount[] | undefined;
 
   /**
-   * <p> The total amount for your taxes. </p>
+   * The total amount for your taxes.
+   *
    * @public
    */
   TotalAmount?: string | undefined;
 }
 
 /**
- * <p>Details about how the total amount was calculated and categorized. </p>
+ * Details about how the total amount was calculated and categorized.
+ *
  * @public
  */
 export interface AmountBreakdown {
   /**
-   * <p> The total of a set of the breakdown. </p>
+   * The total of a set of the breakdown.
+   *
    * @public
    */
   SubTotalAmount?: string | undefined;
 
   /**
-   * <p> The discounted amount. </p>
+   * The discounted amount.
+   *
    * @public
    */
   Discounts?: DiscountsBreakdown | undefined;
 
   /**
-   * <p> The tax amount. </p>
+   * The tax amount.
+   *
    * @public
    */
   Taxes?: TaxesBreakdown | undefined;
 
   /**
-   * <p> The fee amount. </p>
+   * The fee amount.
+   *
    * @public
    */
   Fees?: FeesBreakdown | undefined;
@@ -182,109 +208,127 @@ export interface AmountBreakdown {
  */
 export interface BatchGetInvoiceProfileRequest {
   /**
-   * <p>Retrieves the corresponding invoice profile data for these account IDs. </p>
+   * Retrieves the corresponding invoice profile data for these account IDs.
+   *
    * @public
    */
   AccountIds: string[] | undefined;
 }
 
 /**
- * <p> The details of the address associated with the receiver. </p>
+ * The details of the address associated with the receiver.
+ *
  * @public
  */
 export interface ReceiverAddress {
   /**
-   * <p> The first line of the address. </p>
+   * The first line of the address.
+   *
    * @public
    */
   AddressLine1?: string | undefined;
 
   /**
-   * <p> The second line of the address, if applicable. </p>
+   * The second line of the address, if applicable.
+   *
    * @public
    */
   AddressLine2?: string | undefined;
 
   /**
-   * <p> The third line of the address, if applicable. </p>
+   * The third line of the address, if applicable.
+   *
    * @public
    */
   AddressLine3?: string | undefined;
 
   /**
-   * <p> The district or country the address is located in. </p>
+   * The district or country the address is located in.
+   *
    * @public
    */
   DistrictOrCounty?: string | undefined;
 
   /**
-   * <p> The city that the address is in. </p>
+   * The city that the address is in.
+   *
    * @public
    */
   City?: string | undefined;
 
   /**
-   * <p> The state, region, or province the address is located. </p>
+   * The state, region, or province the address is located.
+   *
    * @public
    */
   StateOrRegion?: string | undefined;
 
   /**
-   * <p> The country code for the country the address is in. </p>
+   * The country code for the country the address is in.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p> A unique company name. </p>
+   * A unique company name.
+   *
    * @public
    */
   CompanyName?: string | undefined;
 
   /**
-   * <p> The postal code associated with the address. </p>
+   * The postal code associated with the address.
+   *
    * @public
    */
   PostalCode?: string | undefined;
 }
 
 /**
- * <p> Contains high-level information about the invoice receiver. </p>
+ * Contains high-level information about the invoice receiver.
+ *
  * @public
  */
 export interface InvoiceProfile {
   /**
-   * <p> The account ID the invoice profile is generated for. </p>
+   * The account ID the invoice profile is generated for.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p> The name of the person receiving the invoice profile. </p>
+   * The name of the person receiving the invoice profile.
+   *
    * @public
    */
   ReceiverName?: string | undefined;
 
   /**
-   * <p>The address of the receiver that will be printed on the invoice. </p>
+   * The address of the receiver that will be printed on the invoice.
+   *
    * @public
    */
   ReceiverAddress?: ReceiverAddress | undefined;
 
   /**
-   * <p>The email address for the invoice profile receiver. </p>
+   * The email address for the invoice profile receiver.
+   *
    * @public
    */
   ReceiverEmail?: string | undefined;
 
   /**
-   * <p> This specifies the issuing entity of the invoice. </p>
+   * This specifies the issuing entity of the invoice.
+   *
    * @public
    */
   Issuer?: string | undefined;
 
   /**
-   * <p> Your Tax Registration Number (TRN) information. </p>
+   * Your Tax Registration Number (TRN) information.
+   *
    * @public
    */
   TaxRegistrationNumber?: string | undefined;
@@ -295,97 +339,113 @@ export interface InvoiceProfile {
  */
 export interface BatchGetInvoiceProfileResponse {
   /**
-   * <p> A list of invoice profiles corresponding to the requested accounts. </p>
+   * A list of invoice profiles corresponding to the requested accounts.
+   *
    * @public
    */
   Profiles?: InvoiceProfile[] | undefined;
 }
 
 /**
- * <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+   * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+   * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p> The billing period for which you want to retrieve invoice-related documents. </p>
+ * The billing period for which you want to retrieve invoice-related documents.
+ *
  * @public
  */
 export interface BillingPeriod {
   /**
-   * <p> The billing period month. </p>
+   * The billing period month.
+   *
    * @public
    */
   Month: number | undefined;
 
   /**
-   * <p> The billing period year. </p>
+   * The billing period year.
+   *
    * @public
    */
   Year: number | undefined;
 }
 
 /**
- * <p>Represents contact information for a person or role associated with the procurement portal preference.</p>
+ * Represents contact information for a person or role associated with the procurement portal preference.
+ *
  * @public
  */
 export interface Contact {
   /**
-   * <p>The name of the contact person or role.</p>
+   * The name of the contact person or role.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The email address of the contact person or role.</p>
+   * The email address of the contact person or role.
+   *
    * @public
    */
   Email?: string | undefined;
 }
 
 /**
- * <p>The tag structure that contains a tag key and value. </p>
+ * The tag structure that contains a tag key and value.
+ *
  * @public
  */
 export interface ResourceTag {
   /**
-   * <p>The object key of your of your resource tag. </p>
+   * The object key of your of your resource tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p> The specific value of the resource tag. </p>
+   * The specific value of the resource tag.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p> This is used to categorize the invoice unit. Values are Amazon Web Services account IDs. Currently, the only supported rule is <code>LINKED_ACCOUNT</code>. </p>
+ * This is used to categorize the invoice unit. Values are Amazon Web Services account IDs. Currently, the only supported rule is `LINKED_ACCOUNT`.
+ *
  * @public
  */
 export interface InvoiceUnitRule {
   /**
-   * <p>The list of <code>LINKED_ACCOUNT</code> IDs where charges are included within the invoice unit. </p>
+   * The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+   *
    * @public
    */
   LinkedAccounts?: string[] | undefined;
 
   /**
-   * <p> A list of Amazon Web Services account IDs that have delegated their billing responsibility to the receiver account through transfer billing. Unlike linked accounts, these bill source accounts can be payer accounts from other organizations that have authorized billing transfer to this account. </p>
+   * A list of Amazon Web Services account IDs that have delegated their billing responsibility to the receiver account through transfer billing. Unlike linked accounts, these bill source accounts can be payer accounts from other organizations that have authorized billing transfer to this account.
+   *
    * @public
    */
   BillSourceAccounts?: string[] | undefined;
@@ -396,43 +456,50 @@ export interface InvoiceUnitRule {
  */
 export interface CreateInvoiceUnitRequest {
   /**
-   * <p> The unique name of the invoice unit that is shown on the generated invoice. This can't be changed once it is set. To change this name, you must delete the invoice unit recreate. </p>
+   * The unique name of the invoice unit that is shown on the generated invoice. This can't be changed once it is set. To change this name, you must delete the invoice unit recreate.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p> The Amazon Web Services account ID chosen to be the receiver of an invoice unit. All invoices generated for that invoice unit will be sent to this account ID. </p>
+   * The Amazon Web Services account ID chosen to be the receiver of an invoice unit. All invoices generated for that invoice unit will be sent to this account ID.
+   *
    * @public
    */
   InvoiceReceiver: string | undefined;
 
   /**
-   * <p> The invoice unit's description. This can be changed at a later time. </p>
+   * The invoice unit's description. This can be changed at a later time.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Whether the invoice unit based tax inheritance is/ should be enabled or disabled. </p>
+   * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+   *
    * @public
    */
   TaxInheritanceDisabled?: boolean | undefined;
 
   /**
-   * <p>The <code>InvoiceUnitRule</code> object used to create invoice units. </p>
+   * The `InvoiceUnitRule` object used to create invoice units.
+   *
    * @public
    */
   Rule: InvoiceUnitRule | undefined;
 
   /**
-   * <p> The tag structure that contains a tag key and value. </p>
+   * The tag structure that contains a tag key and value.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -443,139 +510,162 @@ export interface CreateInvoiceUnitRequest {
  */
 export interface CreateInvoiceUnitResponse {
   /**
-   * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn?: string | undefined;
 }
 
 /**
- * <p>Specifies the source configuration for retrieving purchase order data.</p>
+ * Specifies the source configuration for retrieving purchase order data.
+ *
  * @public
  */
 export interface PurchaseOrderDataSource {
   /**
-   * <p>The type of e-invoice document that requires purchase order data.</p>
+   * The type of e-invoice document that requires purchase order data.
+   *
    * @public
    */
   EinvoiceDeliveryDocumentType?: EinvoiceDeliveryDocumentType | undefined;
 
   /**
-   * <p>The type of source for purchase order data.</p>
+   * The type of source for purchase order data.
+   *
    * @public
    */
   PurchaseOrderDataSourceType?: PurchaseOrderDataSourceType | undefined;
 }
 
 /**
- * <p>Specifies the preferences for e-invoice delivery, including document types, attachment types, and customization settings.</p>
+ * Specifies the preferences for e-invoice delivery, including document types, attachment types, and customization settings.
+ *
  * @public
  */
 export interface EinvoiceDeliveryPreference {
   /**
-   * <p>The types of e-invoice documents to be delivered.</p>
+   * The types of e-invoice documents to be delivered.
+   *
    * @public
    */
   EinvoiceDeliveryDocumentTypes: EinvoiceDeliveryDocumentType[] | undefined;
 
   /**
-   * <p>The types of attachments to include with the e-invoice delivery.</p>
+   * The types of attachments to include with the e-invoice delivery.
+   *
    * @public
    */
   EinvoiceDeliveryAttachmentTypes?: EinvoiceDeliveryAttachmentType[] | undefined;
 
   /**
-   * <p>The communication protocol to use for e-invoice delivery.</p>
+   * The communication protocol to use for e-invoice delivery.
+   *
    * @public
    */
   Protocol: Protocol | undefined;
 
   /**
-   * <p>The sources of purchase order data to use for e-invoice generation and delivery.</p>
+   * The sources of purchase order data to use for e-invoice generation and delivery.
+   *
    * @public
    */
   PurchaseOrderDataSources: PurchaseOrderDataSource[] | undefined;
 
   /**
-   * <p>The method to use for testing the connection to the procurement portal.</p>
+   * The method to use for testing the connection to the procurement portal.
+   *
    * @public
    */
   ConnectionTestingMethod: ConnectionTestingMethod | undefined;
 
   /**
-   * <p>The date when e-invoice delivery should be activated for this preference.</p>
+   * The date when e-invoice delivery should be activated for this preference.
+   *
    * @public
    */
   EinvoiceDeliveryActivationDate: Date | undefined;
 }
 
 /**
- * <p>Represents the Marketplace PunchOut configuration for a procurement portal preference.</p>
+ * Represents the Marketplace PunchOut configuration for a procurement portal preference.
+ *
  * @public
  */
 export interface MarketplacePunchOutPreference {
   /**
-   * <p>The URL that buyers are redirected to for approval requests in the procurement portal. This is only supported for Coupa. When provided together with the procurement portal instance endpoint, its host must match the host of that endpoint.</p>
+   * The URL that buyers are redirected to for approval requests in the procurement portal. This is only supported for Coupa. When provided together with the procurement portal instance endpoint, its host must match the host of that endpoint.
+   *
    * @public
    */
   ApprovalRequestRedirectUrl?: string | undefined;
 }
 
 /**
- * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+ * Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.
+ *
  * @public
  */
 export interface ProcurementPortalPreferenceSelector {
   /**
-   * <p> The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies. </p>
+   * The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+   *
    * @public
    */
   InvoiceUnitArns?: string[] | undefined;
 
   /**
-   * <p> The list of seller of record IDs to which this preference applies. </p>
+   * The list of seller of record IDs to which this preference applies.
+   *
    * @public
    */
   SellerOfRecords?: string[] | undefined;
 }
 
 /**
- * <p>Input parameters for configuring test environment preferences for a procurement portal.</p>
+ * Input parameters for configuring test environment preferences for a procurement portal.
+ *
  * @public
  */
 export interface TestEnvPreferenceInput {
   /**
-   * <p>The domain identifier to use for the buyer in the test environment.</p>
+   * The domain identifier to use for the buyer in the test environment.
+   *
    * @public
    */
   BuyerDomain: BuyerDomain | undefined;
 
   /**
-   * <p>The unique identifier to use for the buyer in the test environment.</p>
+   * The unique identifier to use for the buyer in the test environment.
+   *
    * @public
    */
   BuyerIdentifier: string | undefined;
 
   /**
-   * <p>The domain identifier to use for the supplier in the test environment.</p>
+   * The domain identifier to use for the supplier in the test environment.
+   *
    * @public
    */
   SupplierDomain: SupplierDomain | undefined;
 
   /**
-   * <p>The unique identifier to use for the supplier in the test environment.</p>
+   * The unique identifier to use for the supplier in the test environment.
+   *
    * @public
    */
   SupplierIdentifier: string | undefined;
 
   /**
-   * <p>The shared secret or authentication credential to use for secure communication in the test environment.</p>
+   * The shared secret or authentication credential to use for secure communication in the test environment.
+   *
    * @public
    */
   ProcurementPortalSharedSecret?: string | undefined;
 
   /**
-   * <p>The endpoint URL where e-invoices will be delivered in the test environment.</p>
+   * The endpoint URL where e-invoices will be delivered in the test environment.
+   *
    * @public
    */
   ProcurementPortalInstanceEndpoint?: string | undefined;
@@ -586,73 +676,85 @@ export interface TestEnvPreferenceInput {
  */
 export interface CreateProcurementPortalPreferenceRequest {
   /**
-   * <p>The name of the procurement portal.</p>
+   * The name of the procurement portal.
+   *
    * @public
    */
   ProcurementPortalName: ProcurementPortalName | undefined;
 
   /**
-   * <p>The domain identifier for the buyer in the procurement portal.</p>
+   * The domain identifier for the buyer in the procurement portal.
+   *
    * @public
    */
   BuyerDomain: BuyerDomain | undefined;
 
   /**
-   * <p>The unique identifier for the buyer in the procurement portal. </p>
+   * The unique identifier for the buyer in the procurement portal.
+   *
    * @public
    */
   BuyerIdentifier: string | undefined;
 
   /**
-   * <p>The domain identifier for the supplier in the procurement portal.</p>
+   * The domain identifier for the supplier in the procurement portal.
+   *
    * @public
    */
   SupplierDomain: SupplierDomain | undefined;
 
   /**
-   * <p>The unique identifier for the supplier in the procurement portal.</p>
+   * The unique identifier for the supplier in the procurement portal.
+   *
    * @public
    */
   SupplierIdentifier: string | undefined;
 
   /**
-   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.
+   *
    * @public
    */
   Selector?: ProcurementPortalPreferenceSelector | undefined;
 
   /**
-   * <p>The shared secret or authentication credential used to establish secure communication with the procurement portal. This value must be encrypted at rest.</p>
+   * The shared secret or authentication credential used to establish secure communication with the procurement portal. This value must be encrypted at rest.
+   *
    * @public
    */
   ProcurementPortalSharedSecret?: string | undefined;
 
   /**
-   * <p>The endpoint URL where e-invoices will be delivered to the procurement portal. Must be a valid HTTPS URL.</p>
+   * The endpoint URL where e-invoices will be delivered to the procurement portal. Must be a valid HTTPS URL.
+   *
    * @public
    */
   ProcurementPortalInstanceEndpoint?: string | undefined;
 
   /**
-   * <p>Configuration settings for the test environment of the procurement portal. Includes test credentials and endpoints that are used for validation before production deployment.</p>
+   * Configuration settings for the test environment of the procurement portal. Includes test credentials and endpoints that are used for validation before production deployment.
+   *
    * @public
    */
   TestEnvPreference?: TestEnvPreferenceInput | undefined;
 
   /**
-   * <p>Indicates whether e-invoice delivery is enabled for this procurement portal preference. Set to true to enable e-invoice delivery, false to disable.</p>
+   * Indicates whether e-invoice delivery is enabled for this procurement portal preference. Set to true to enable e-invoice delivery, false to disable.
+   *
    * @public
    */
   EinvoiceDeliveryEnabled: boolean | undefined;
 
   /**
-   * <p>Specifies the e-invoice delivery configuration including document types, attachment types, and customization settings for the portal.</p>
+   * Specifies the e-invoice delivery configuration including document types, attachment types, and customization settings for the portal.
+   *
    * @public
    */
   EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
 
   /**
-   * <p>Indicates whether purchase order retrieval is enabled for this procurement portal preference. Set to true to enable PO retrieval, false to disable.</p>
+   * Indicates whether purchase order retrieval is enabled for this procurement portal preference. Set to true to enable PO retrieval, false to disable.
+   *
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
@@ -670,19 +772,22 @@ export interface CreateProcurementPortalPreferenceRequest {
   MarketplacePunchOutPreference?: MarketplacePunchOutPreference | undefined;
 
   /**
-   * <p>List of contact information for portal administrators and technical contacts responsible for the e-invoice integration.</p>
+   * List of contact information for portal administrators and technical contacts responsible for the e-invoice integration.
+   *
    * @public
    */
   Contacts: Contact[] | undefined;
 
   /**
-   * <p>The tags to apply to this procurement portal preference resource. Each tag consists of a key and an optional value.</p>
+   * The tags to apply to this procurement portal preference resource. Each tag consists of a key and an optional value.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -693,49 +798,57 @@ export interface CreateProcurementPortalPreferenceRequest {
  */
 export interface CreateProcurementPortalPreferenceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created procurement portal preference.</p>
+   * The Amazon Resource Name (ARN) of the created procurement portal preference.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 }
 
 /**
- * <p>The details of currency exchange. </p>
+ * The details of currency exchange.
+ *
  * @public
  */
 export interface CurrencyExchangeDetails {
   /**
-   * <p>The exchange source currency. </p>
+   * The exchange source currency.
+   *
    * @public
    */
   SourceCurrencyCode?: string | undefined;
 
   /**
-   * <p>The exchange target currency. </p>
+   * The exchange target currency.
+   *
    * @public
    */
   TargetCurrencyCode?: string | undefined;
 
   /**
-   * <p>The currency exchange rate. </p>
+   * The currency exchange rate.
+   *
    * @public
    */
   Rate?: string | undefined;
 }
 
 /**
- * <p> The time period that you want invoice-related documents for. </p>
+ * The time period that you want invoice-related documents for.
+ *
  * @public
  */
 export interface DateInterval {
   /**
-   * <p> The beginning of the time period that you want invoice-related documents for. The start date is inclusive. For example, if <code>start</code> is <code>2019-01-01</code>, AWS retrieves invoices starting at <code>2019-01-01</code> up to the end date. </p>
+   * The beginning of the time period that you want invoice-related documents for. The start date is inclusive. For example, if `start` is `2019-01-01`, AWS retrieves invoices starting at `2019-01-01` up to the end date.
+   *
    * @public
    */
   StartDate: Date | undefined;
 
   /**
-   * <p> The end of the time period that you want invoice-related documents for. The end date is exclusive. For example, if <code>end</code> is <code>2019-01-10</code>, Amazon Web Services retrieves invoice-related documents from the start date up to, but not including, <code>2018-01-10</code>. </p>
+   * The end of the time period that you want invoice-related documents for. The end date is exclusive. For example, if `end` is `2019-01-10`, Amazon Web Services retrieves invoice-related documents from the start date up to, but not including, `2018-01-10`.
+   *
    * @public
    */
   EndDate: Date | undefined;
@@ -746,13 +859,15 @@ export interface DateInterval {
  */
 export interface DeleteInvoiceUnitRequest {
   /**
-   * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn: string | undefined;
 
   /**
-   * <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -763,7 +878,8 @@ export interface DeleteInvoiceUnitRequest {
  */
 export interface DeleteInvoiceUnitResponse {
   /**
-   * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn?: string | undefined;
@@ -774,13 +890,15 @@ export interface DeleteInvoiceUnitResponse {
  */
 export interface DeleteProcurementPortalPreferenceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to delete.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference to delete.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -791,85 +909,99 @@ export interface DeleteProcurementPortalPreferenceRequest {
  */
 export interface DeleteProcurementPortalPreferenceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted procurement portal preference.</p>
+   * The Amazon Resource Name (ARN) of the deleted procurement portal preference.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 }
 
 /**
- * <p>The organization name providing Amazon Web Services services.</p>
+ * The organization name providing Amazon Web Services services.
+ *
  * @public
  */
 export interface Entity {
   /**
-   * <p>The name of the entity that issues the Amazon Web Services invoice.</p>
+   * The name of the entity that issues the Amazon Web Services invoice.
+   *
    * @public
    */
   InvoicingEntity?: string | undefined;
 
   /**
-   * <p>Helps you identify whether your invoices are for Amazon Web Services Marketplace or for purchases of other Amazon Web Services services.</p>
+   * Helps you identify whether your invoices are for Amazon Web Services Marketplace or for purchases of other Amazon Web Services services.
+   *
    * @public
    */
   BillingEntity?: BillingEntity | undefined;
 }
 
 /**
- * <p>Specifies the supported document types and attachment types for invoice delivery to a procurement portal.</p>
+ * Specifies the supported document types and attachment types for invoice delivery to a procurement portal.
+ *
  * @public
  */
 export interface InvoiceConfiguration {
   /**
-   * <p>The e-invoice document types supported by the procurement portal.</p>
+   * The e-invoice document types supported by the procurement portal.
+   *
    * @public
    */
   DocumentTypes?: EinvoiceDeliveryDocumentType[] | undefined;
 
   /**
-   * <p>The attachment types supported by the procurement portal for e-invoice delivery.</p>
+   * The attachment types supported by the procurement portal for e-invoice delivery.
+   *
    * @public
    */
   AttachmentTypes?: EinvoiceDeliveryAttachmentType[] | undefined;
 }
 
 /**
- * <p>Contains the default feature configuration settings for a procurement portal.</p>
+ * Contains the default feature configuration settings for a procurement portal.
+ *
  * @public
  */
 export interface FeatureConfigurations {
   /**
-   * <p>The invoice configuration settings for the procurement portal.</p>
+   * The invoice configuration settings for the procurement portal.
+   *
    * @public
    */
   InvoiceConfiguration?: InvoiceConfiguration | undefined;
 }
 
 /**
- * <p>An optional input to the list API. If multiple filters are specified, the returned list will be a configuration that match all of the provided filters. Supported filter types are <code>InvoiceReceivers</code>, <code>Names</code>, and <code>Accounts</code>. </p>
+ * An optional input to the list API. If multiple filters are specified, the returned list will be a configuration that match all of the provided filters. Supported filter types are `InvoiceReceivers`, `Names`, and `Accounts`.
+ *
  * @public
  */
 export interface Filters {
   /**
-   * <p> An optional input to the list API. You can specify a list of invoice unit names inside filters to return invoice units that match only the specified invoice unit names. If multiple names are provided, the result is an <code>OR</code> condition (match any) of the specified invoice unit names. </p>
+   * An optional input to the list API. You can specify a list of invoice unit names inside filters to return invoice units that match only the specified invoice unit names. If multiple names are provided, the result is an `OR` condition (match any) of the specified invoice unit names.
+   *
    * @public
    */
   Names?: string[] | undefined;
 
   /**
-   * <p> You can specify a list of Amazon Web Services account IDs inside filters to return invoice units that match only the specified accounts. If multiple accounts are provided, the result is an <code>OR</code> condition (match any) of the specified accounts. This filter only matches the specified accounts on the invoice receivers of the invoice units. </p>
+   * You can specify a list of Amazon Web Services account IDs inside filters to return invoice units that match only the specified accounts. If multiple accounts are provided, the result is an `OR` condition (match any) of the specified accounts. This filter only matches the specified accounts on the invoice receivers of the invoice units.
+   *
    * @public
    */
   InvoiceReceivers?: string[] | undefined;
 
   /**
-   * <p> You can specify a list of Amazon Web Services account IDs inside filters to return invoice units that match only the specified accounts. If multiple accounts are provided, the result is an <code>OR</code> condition (match any) of the specified accounts. The specified account IDs are matched with either the receiver or the linked accounts in the rules. </p>
+   * You can specify a list of Amazon Web Services account IDs inside filters to return invoice units that match only the specified accounts. If multiple accounts are provided, the result is an `OR` condition (match any) of the specified accounts. The specified account IDs are matched with either the receiver or the linked accounts in the rules.
+   *
    * @public
    */
   Accounts?: string[] | undefined;
 
   /**
-   * <p> A list of Amazon Web Services account IDs used to filter invoice units. These are payer accounts from other Organizations that have delegated their billing responsibility to the receiver account through the billing transfer feature. </p>
+   * A list of Amazon Web Services account IDs used to filter invoice units. These are payer accounts from other Organizations that have delegated their billing responsibility to the receiver account through the billing transfer feature.
+   *
    * @public
    */
   BillSourceAccounts?: string[] | undefined;
@@ -880,67 +1012,78 @@ export interface Filters {
  */
 export interface GetInvoicePDFRequest {
   /**
-   * <p> Your unique invoice ID. </p>
+   * Your unique invoice ID.
+   *
    * @public
    */
   InvoiceId: string | undefined;
 }
 
 /**
- * <p>Supplemental document associated with the invoice.</p>
+ * Supplemental document associated with the invoice.
+ *
  * @public
  */
 export interface SupplementalDocument {
   /**
-   * <p>The type of supplemental document.</p>
+   * The type of supplemental document.
+   *
    * @public
    */
   DocumentType?: SupplementalDocumentType | undefined;
 
   /**
-   * <p>The ID of the supplemental document.</p>
+   * The ID of the supplemental document.
+   *
    * @public
    */
   DocumentId?: string | undefined;
 
   /**
-   * <p>The pre-signed URL to download invoice supplemental document.</p>
+   * The pre-signed URL to download invoice supplemental document.
+   *
    * @public
    */
   DocumentUrl?: string | undefined;
 
   /**
-   * <p>The pre-signed URL expiration date of invoice supplemental document.</p>
+   * The pre-signed URL expiration date of invoice supplemental document.
+   *
    * @public
    */
   DocumentUrlExpirationDate?: Date | undefined;
 }
 
 /**
- * <p> Invoice document data. </p>
+ * Invoice document data.
+ *
  * @public
  */
 export interface InvoicePDF {
   /**
-   * <p> Your unique invoice ID. </p>
+   * Your unique invoice ID.
+   *
    * @public
    */
   InvoiceId?: string | undefined;
 
   /**
-   * <p>The pre-signed URL to download the invoice document. </p>
+   * The pre-signed URL to download the invoice document.
+   *
    * @public
    */
   DocumentUrl?: string | undefined;
 
   /**
-   * <p>The pre-signed URL expiration date of the invoice document.</p>
+   * The pre-signed URL expiration date of the invoice document.
+   *
    * @public
    */
   DocumentUrlExpirationDate?: Date | undefined;
 
   /**
-   * <p>List of supplemental documents associated with the invoice.</p>
+   * List of supplemental documents associated with the invoice.
+   *
    * @public
    */
   SupplementalDocuments?: SupplementalDocument[] | undefined;
@@ -951,7 +1094,8 @@ export interface InvoicePDF {
  */
 export interface GetInvoicePDFResponse {
   /**
-   * <p> The invoice document and supplemental documents associated with the invoice. </p>
+   * The invoice document and supplemental documents associated with the invoice.
+   *
    * @public
    */
   InvoicePDF?: InvoicePDF | undefined;
@@ -962,13 +1106,15 @@ export interface GetInvoicePDFResponse {
  */
 export interface GetInvoiceUnitRequest {
   /**
-   * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn: string | undefined;
 
   /**
-   * <p> The state of an invoice unit at a specified time. You can see legacy invoice units that are currently deleted if the <code>AsOf</code> time is set to before it was deleted. If an <code>AsOf</code> is not provided, the default value is the current time. </p>
+   * The state of an invoice unit at a specified time. You can see legacy invoice units that are currently deleted if the `AsOf` time is set to before it was deleted. If an `AsOf` is not provided, the default value is the current time.
+   *
    * @public
    */
   AsOf?: Date | undefined;
@@ -979,43 +1125,50 @@ export interface GetInvoiceUnitRequest {
  */
 export interface GetInvoiceUnitResponse {
   /**
-   * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn?: string | undefined;
 
   /**
-   * <p> The Amazon Web Services account ID chosen to be the receiver of an invoice unit. All invoices generated for that invoice unit will be sent to this account ID. </p>
+   * The Amazon Web Services account ID chosen to be the receiver of an invoice unit. All invoices generated for that invoice unit will be sent to this account ID.
+   *
    * @public
    */
   InvoiceReceiver?: string | undefined;
 
   /**
-   * <p> The unique name of the invoice unit that is shown on the generated invoice. </p>
+   * The unique name of the invoice unit that is shown on the generated invoice.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p> The assigned description for an invoice unit. </p>
+   * The assigned description for an invoice unit.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p> Whether the invoice unit based tax inheritance is/ should be enabled or disabled. </p>
+   * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+   *
    * @public
    */
   TaxInheritanceDisabled?: boolean | undefined;
 
   /**
-   * <p> This is used to categorize the invoice unit. Values are Amazon Web Services account IDs. Currently, the only supported rule is <code>LINKED_ACCOUNT</code>. </p>
+   * This is used to categorize the invoice unit. Values are Amazon Web Services account IDs. Currently, the only supported rule is `LINKED_ACCOUNT`.
+   *
    * @public
    */
   Rule?: InvoiceUnitRule | undefined;
 
   /**
-   * <p> The most recent date the invoice unit response was updated. </p>
+   * The most recent date the invoice unit response was updated.
+   *
    * @public
    */
   LastModified?: Date | undefined;
@@ -1026,211 +1179,246 @@ export interface GetInvoiceUnitResponse {
  */
 export interface GetProcurementPortalPreferenceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference to retrieve.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 }
 
 /**
- * <p>Contains configuration settings for testing the procurement portal integration in a non-production environment.</p>
+ * Contains configuration settings for testing the procurement portal integration in a non-production environment.
+ *
  * @public
  */
 export interface TestEnvPreference {
   /**
-   * <p>The domain identifier for the buyer in the test environment of the procurement portal.</p>
+   * The domain identifier for the buyer in the test environment of the procurement portal.
+   *
    * @public
    */
   BuyerDomain: BuyerDomain | undefined;
 
   /**
-   * <p>The unique identifier for the buyer in the test environment of the procurement portal.</p>
+   * The unique identifier for the buyer in the test environment of the procurement portal.
+   *
    * @public
    */
   BuyerIdentifier: string | undefined;
 
   /**
-   * <p>The domain identifier for the supplier in the test environment of the procurement portal.</p>
+   * The domain identifier for the supplier in the test environment of the procurement portal.
+   *
    * @public
    */
   SupplierDomain: SupplierDomain | undefined;
 
   /**
-   * <p>The unique identifier for the supplier in the test environment of the procurement portal.</p>
+   * The unique identifier for the supplier in the test environment of the procurement portal.
+   *
    * @public
    */
   SupplierIdentifier: string | undefined;
 
   /**
-   * <p>The shared secret or authentication credential used for secure communication with the test environment.</p>
+   * The shared secret or authentication credential used for secure communication with the test environment.
+   *
    * @public
    */
   ProcurementPortalSharedSecret?: string | undefined;
 
   /**
-   * <p>The endpoint URL where e-invoices are delivered in the test environment.</p>
+   * The endpoint URL where e-invoices are delivered in the test environment.
+   *
    * @public
    */
   ProcurementPortalInstanceEndpoint?: string | undefined;
 
   /**
-   * <p>The endpoint URL used for retrieving purchase orders in the test environment.</p>
+   * The endpoint URL used for retrieving purchase orders in the test environment.
+   *
    * @public
    */
   PurchaseOrderRetrievalEndpoint?: string | undefined;
 }
 
 /**
- * <p>Represents the full configuration of a procurement portal preference, including settings for e-invoice delivery and purchase order retrieval.</p>
+ * Represents the full configuration of a procurement portal preference, including settings for e-invoice delivery and purchase order retrieval.
+ *
  * @public
  */
 export interface ProcurementPortalPreference {
   /**
-   * <p>The Amazon Web Services account ID associated with this procurement portal preference.</p>
+   * The Amazon Web Services account ID associated with this procurement portal preference.
+   *
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>The name of the procurement portal.</p>
+   * The name of the procurement portal.
+   *
    * @public
    */
   ProcurementPortalName: ProcurementPortalName | undefined;
 
   /**
-   * <p>The domain identifier for the buyer in the procurement portal.</p>
+   * The domain identifier for the buyer in the procurement portal.
+   *
    * @public
    */
   BuyerDomain: BuyerDomain | undefined;
 
   /**
-   * <p>The unique identifier for the buyer in the procurement portal.</p>
+   * The unique identifier for the buyer in the procurement portal.
+   *
    * @public
    */
   BuyerIdentifier: string | undefined;
 
   /**
-   * <p>The domain identifier for the supplier in the procurement portal.</p>
+   * The domain identifier for the supplier in the procurement portal.
+   *
    * @public
    */
   SupplierDomain: SupplierDomain | undefined;
 
   /**
-   * <p>The unique identifier for the supplier in the procurement portal.</p>
+   * The unique identifier for the supplier in the procurement portal.
+   *
    * @public
    */
   SupplierIdentifier: string | undefined;
 
   /**
-   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.
+   *
    * @public
    */
   Selector?: ProcurementPortalPreferenceSelector | undefined;
 
   /**
-   * <p>The shared secret or authentication credential used for secure communication with the procurement portal.</p>
+   * The shared secret or authentication credential used for secure communication with the procurement portal.
+   *
    * @public
    */
   ProcurementPortalSharedSecret?: string | undefined;
 
   /**
-   * <p>The endpoint URL where e-invoices are delivered to the procurement portal.</p>
+   * The endpoint URL where e-invoices are delivered to the procurement portal.
+   *
    * @public
    */
   ProcurementPortalInstanceEndpoint?: string | undefined;
 
   /**
-   * <p>The endpoint URL used for retrieving purchase orders from the procurement portal.</p>
+   * The endpoint URL used for retrieving purchase orders from the procurement portal.
+   *
    * @public
    */
   PurchaseOrderRetrievalEndpoint?: string | undefined;
 
   /**
-   * <p>Configuration on settings for the test environment of the procurement portal.</p>
+   * Configuration on settings for the test environment of the procurement portal.
+   *
    * @public
    */
   TestEnvPreference?: TestEnvPreference | undefined;
 
   /**
-   * <p>Indicates whether e-invoice delivery is enabled for this procurement portal preference.</p>
+   * Indicates whether e-invoice delivery is enabled for this procurement portal preference.
+   *
    * @public
    */
   EinvoiceDeliveryEnabled: boolean | undefined;
 
   /**
-   * <p>The e-invoice delivery configuration including document types, attachment types, and customization settings.</p>
+   * The e-invoice delivery configuration including document types, attachment types, and customization settings.
+   *
    * @public
    */
   EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
 
   /**
-   * <p>Indicates whether purchase order retrieval is enabled for this procurement portal preference.</p>
+   * Indicates whether purchase order retrieval is enabled for this procurement portal preference.
+   *
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
 
   /**
-   * <p>Indicates whether Marketplace PunchOut is enabled for this procurement portal preference. Defaults to <code>false</code>.</p>
+   * Indicates whether Marketplace PunchOut is enabled for this procurement portal preference. Defaults to `false`.
+   *
    * @public
    */
   MarketplacePunchOutEnabled?: boolean | undefined;
 
   /**
-   * <p>The Marketplace PunchOut configuration for this procurement portal preference. This is present when <code>MarketplacePunchOutEnabled</code> is <code>true</code>.</p>
+   * The Marketplace PunchOut configuration for this procurement portal preference. This is present when `MarketplacePunchOutEnabled` is `true`.
+   *
    * @public
    */
   MarketplacePunchOutPreference?: MarketplacePunchOutPreference | undefined;
 
   /**
-   * <p>List of contact information for portal administrators and technical contacts.</p>
+   * List of contact information for portal administrators and technical contacts.
+   *
    * @public
    */
   Contacts?: Contact[] | undefined;
 
   /**
-   * <p>The current status of the e-invoice delivery preference.</p>
+   * The current status of the e-invoice delivery preference.
+   *
    * @public
    */
   EinvoiceDeliveryPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
 
   /**
-   * <p>The reason for the current e-invoice delivery preference status.</p>
+   * The reason for the current e-invoice delivery preference status.
+   *
    * @public
    */
   EinvoiceDeliveryPreferenceStatusReason?: string | undefined;
 
   /**
-   * <p>The current status of the purchase order retrieval preference.</p>
+   * The current status of the purchase order retrieval preference.
+   *
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
 
   /**
-   * <p>The reason for the current purchase order retrieval preference status.</p>
+   * The reason for the current purchase order retrieval preference status.
+   *
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
 
   /**
-   * <p>The version number of the procurement portal preference configuration.</p>
+   * The version number of the procurement portal preference configuration.
+   *
    * @public
    */
   Version: number | undefined;
 
   /**
-   * <p>The date and time when the procurement portal preference was created.</p>
+   * The date and time when the procurement portal preference was created.
+   *
    * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * <p>The date and time when the procurement portal preference was last updated.</p>
+   * The date and time when the procurement portal preference was last updated.
+   *
    * @public
    */
   LastUpdateDate: Date | undefined;
@@ -1241,265 +1429,316 @@ export interface ProcurementPortalPreference {
  */
 export interface GetProcurementPortalPreferenceResponse {
   /**
-   * <p>The detailed configuration of the requested procurement portal preference.</p>
+   * The detailed configuration of the requested procurement portal preference.
+   *
    * @public
    */
   ProcurementPortalPreference: ProcurementPortalPreference | undefined;
 }
 
 /**
- * <p> The amount charged after taxes, in the preferred currency. </p>
+ * The amount charged after taxes, in the preferred currency.
+ *
  * @public
  */
 export interface InvoiceCurrencyAmount {
   /**
-   * <p> The invoice currency amount. </p>
+   * The invoice currency amount.
+   *
    * @public
    */
   TotalAmount?: string | undefined;
 
   /**
-   * <p> Details about the invoice total amount before tax. </p>
+   * Details about the invoice total amount before tax.
+   *
    * @public
    */
   TotalAmountBeforeTax?: string | undefined;
 
   /**
-   * <p>The currency dominion of the invoice document.</p>
+   * The currency dominion of the invoice document.
+   *
    * @public
    */
   CurrencyCode?: string | undefined;
 
   /**
-   * <p> Details about the invoice currency amount. </p>
+   * Details about the invoice currency amount.
+   *
    * @public
    */
   AmountBreakdown?: AmountBreakdown | undefined;
 
   /**
-   * <p> The details of currency exchange. </p>
+   * The details of currency exchange.
+   *
    * @public
    */
   CurrencyExchangeDetails?: CurrencyExchangeDetails | undefined;
 }
 
 /**
- * <p> The invoice that the API retrieved. </p>
+ * The invoice that the API retrieved.
+ *
  * @public
  */
 export interface InvoiceSummary {
   /**
-   * <p> The Amazon Web Services account ID. </p>
+   * The Amazon Web Services account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p> The invoice ID. </p>
+   * The invoice ID.
+   *
    * @public
    */
   InvoiceId?: string | undefined;
 
   /**
-   * <p> The issued date of the invoice. </p>
+   * The issued date of the invoice.
+   *
    * @public
    */
   IssuedDate?: Date | undefined;
 
   /**
-   * <p> The invoice due date. </p>
+   * The invoice due date.
+   *
    * @public
    */
   DueDate?: Date | undefined;
 
   /**
-   * <p> The list of Amazon Web Services account IDs that are the bill source of the invoice. Currently, only a single bill source account is returned.</p>
+   * The list of Amazon Web Services account IDs that are the bill source of the invoice. Currently, only a single bill source account is returned.
+   *
    * @public
    */
   BillSourceAccounts?: string[] | undefined;
 
   /**
-   * <p> The total number of accounts that are the bill source of the invoice. </p>
+   * The total number of accounts that are the bill source of the invoice.
+   *
    * @public
    */
   BillSourceAccountsTotalCount?: number | undefined;
 
   /**
-   * <p>The role of the invoice receiver.</p>
+   * The role of the invoice receiver.
+   *
    * @public
    */
   ReceiverRole?: ReceiverRole | undefined;
 
   /**
-   * <p>The organization name providing Amazon Web Services services.</p>
+   * The organization name providing Amazon Web Services services.
+   *
    * @public
    */
   Entity?: Entity | undefined;
 
   /**
-   * <p> The billing period of the invoice-related document. </p>
+   * The billing period of the invoice-related document.
+   *
    * @public
    */
   BillingPeriod?: BillingPeriod | undefined;
 
   /**
-   * <p> The frequency of the invoice. </p>
+   * The frequency of the invoice.
+   *
    * @public
    */
   InvoiceFrequency?: InvoiceFrequency | undefined;
 
   /**
-   * <p> The type of the bill. </p>
+   * The type of the bill.
+   *
    * @public
    */
   BillType?: BillType | undefined;
 
   /**
-   * <p> The type of invoice. </p>
+   * The type of invoice.
+   *
    * @public
    */
   InvoiceType?: InvoiceType | undefined;
 
   /**
-   * <p> The commercial invoice ID. This is only applicable for tax invoices and identifies the associated commercial invoice. </p>
+   * The commercial invoice ID. This is only applicable for tax invoices and identifies the associated commercial invoice.
+   *
    * @public
    */
   CommercialInvoiceId?: string | undefined;
 
   /**
-   * <p>The initial or original invoice ID. </p>
+   * The initial or original invoice ID.
+   *
    * @public
    */
   OriginalInvoiceId?: string | undefined;
 
   /**
-   * <p> The purchase order number associated to the invoice.</p>
+   * The purchase order number associated to the invoice.
+   *
    * @public
    */
   PurchaseOrderNumber?: string | undefined;
 
   /**
-   * <p> The e-invoice delivery status. </p>
+   * The e-invoice delivery status.
+   *
    * @public
    */
   EinvoiceDeliveryStatus?: EinvoiceDeliveryStatus | undefined;
 
   /**
-   * <p> The current status of an invoice as reported to the tax authority. This captures scenarios where an invoice may be cancelled after issuance. </p>
+   * The current status of an invoice as reported to the tax authority. This captures scenarios where an invoice may be cancelled after issuance.
+   *
    * @public
    */
   TaxAuthorityStatus?: TaxAuthorityStatus | undefined;
 
   /**
-   * <p> The summary with the product and service currency. </p>
+   * The summary with the product and service currency.
+   *
    * @public
    */
   BaseCurrencyAmount?: InvoiceCurrencyAmount | undefined;
 
   /**
-   * <p> The summary with the tax currency. </p>
+   * The summary with the tax currency.
+   *
    * @public
    */
   TaxCurrencyAmount?: InvoiceCurrencyAmount | undefined;
 
   /**
-   * <p> The summary with the customer configured currency. </p>
+   * The summary with the customer configured currency.
+   *
    * @public
    */
   PaymentCurrencyAmount?: InvoiceCurrencyAmount | undefined;
 }
 
 /**
- * <p> Filters for your invoice summaries. </p>
+ * Filters for your invoice summaries.
+ *
  * @public
  */
 export interface InvoiceSummariesFilter {
   /**
-   * <p>The date range for invoice summary retrieval. </p>
+   * The date range for invoice summary retrieval.
+   *
    * @public
    */
   TimeInterval?: DateInterval | undefined;
 
   /**
-   * <p>The billing period associated with the invoice documents. </p>
+   * The billing period associated with the invoice documents.
+   *
    * @public
    */
   BillingPeriod?: BillingPeriod | undefined;
 
   /**
-   * <p>The name of the entity that issues the Amazon Web Services invoice.</p>
+   * The name of the entity that issues the Amazon Web Services invoice.
+   *
    * @public
    */
   InvoicingEntity?: string | undefined;
 
   /**
-   * <p>The role of the invoice receiver to filter by.</p> <note> <p>When <code>ReceiverRole</code> is specified:</p> <ul> <li> <p>Data is available starting <code>2025-06-01</code>. Queries for periods before <code>2025-06-01</code> return a validation error.</p> </li> <li> <p> <code>TimeInterval</code> supports a time interval of up to 5 years. Without <code>ReceiverRole</code>, <code>TimeInterval</code> is limited to one month.</p> </li> </ul> </note>
+   * The role of the invoice receiver to filter by.
+   *
+   * > **Note:**
+   * >
+   * > When `ReceiverRole` is specified:
+   * >
+   * > - Data is available starting `2025-06-01`. Queries for periods before `2025-06-01` return a validation error.
+   * > - `TimeInterval` supports a time interval of up to 5 years. Without `ReceiverRole`, `TimeInterval` is limited to one month.
+   *
    * @public
    */
   ReceiverRole?: ReceiverRole | undefined;
 }
 
 /**
- * <p>Specifies the invoice summary.</p>
+ * Specifies the invoice summary.
+ *
  * @public
  */
 export interface InvoiceSummariesSelector {
   /**
-   * <p>The query identifier type (<code>INVOICE_ID</code> or <code>ACCOUNT_ID</code>).</p>
+   * The query identifier type (`INVOICE_ID` or `ACCOUNT_ID`).
+   *
    * @public
    */
   ResourceType: ListInvoiceSummariesResourceType | undefined;
 
   /**
-   * <p>The value of the query identifier.</p>
+   * The value of the query identifier.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you separate Amazon Web Services account costs and configures your invoice for each business entity going forward. </p>
+ * An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you separate Amazon Web Services account costs and configures your invoice for each business entity going forward.
+ *
  * @public
  */
 export interface InvoiceUnit {
   /**
-   * <p>ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn?: string | undefined;
 
   /**
-   * <p>The account that receives invoices related to the invoice unit. </p>
+   * The account that receives invoices related to the invoice unit.
+   *
    * @public
    */
   InvoiceReceiver?: string | undefined;
 
   /**
-   * <p> A unique name that is distinctive within your Amazon Web Services. </p>
+   * A unique name that is distinctive within your Amazon Web Services.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The assigned description for an invoice unit. This information can't be modified or deleted. </p>
+   * The assigned description for an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Whether the invoice unit based tax inheritance is/ should be enabled or disabled. </p>
+   * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+   *
    * @public
    */
   TaxInheritanceDisabled?: boolean | undefined;
 
   /**
-   * <p> An <code>InvoiceUnitRule</code> object used the categorize invoice units. </p>
+   * An `InvoiceUnitRule` object used the categorize invoice units.
+   *
    * @public
    */
   Rule?: InvoiceUnitRule | undefined;
 
   /**
-   * <p> The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration. </p>
+   * The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+   *
    * @public
    */
   LastModified?: Date | undefined;
@@ -1510,25 +1749,29 @@ export interface InvoiceUnit {
  */
 export interface ListInvoiceSummariesRequest {
   /**
-   * <p>The option to retrieve details for a specific invoice by providing its unique ID. Alternatively, access information for all invoices linked to the account by providing an account ID.</p>
+   * The option to retrieve details for a specific invoice by providing its unique ID. Alternatively, access information for all invoices linked to the account by providing an account ID.
+   *
    * @public
    */
   Selector: InvoiceSummariesSelector | undefined;
 
   /**
-   * <p>Filters you can use to customize your invoice summary.</p>
+   * Filters you can use to customize your invoice summary.
+   *
    * @public
    */
   Filter?: InvoiceSummariesFilter | undefined;
 
   /**
-   * <p>The token for the next set of results. (You received this token from a previous call.)</p>
+   * The token for the next set of results. (You received this token from a previous call.)
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of invoice summaries a paginated response can contain.</p>
+   * The maximum number of invoice summaries a paginated response can contain.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1539,13 +1782,15 @@ export interface ListInvoiceSummariesRequest {
  */
 export interface ListInvoiceSummariesResponse {
   /**
-   * <p>List of key (summary level) invoice details without line item details.</p>
+   * List of key (summary level) invoice details without line item details.
+   *
    * @public
    */
   InvoiceSummaries: InvoiceSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * The token to use to retrieve the next set of results, or null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1556,25 +1801,29 @@ export interface ListInvoiceSummariesResponse {
  */
 export interface ListInvoiceUnitsRequest {
   /**
-   * <p> An optional input to the list API. If multiple filters are specified, the returned list will be a configuration that match all of the provided filters. Supported filter types are <code>InvoiceReceivers</code>, <code>Names</code>, and <code>Accounts</code>. </p>
+   * An optional input to the list API. If multiple filters are specified, the returned list will be a configuration that match all of the provided filters. Supported filter types are `InvoiceReceivers`, `Names`, and `Accounts`.
+   *
    * @public
    */
   Filters?: Filters | undefined;
 
   /**
-   * <p>The next token used to indicate where the returned list should start from. </p>
+   * The next token used to indicate where the returned list should start from.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of invoice units that can be returned. </p>
+   * The maximum number of invoice units that can be returned.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> The state of an invoice unit at a specified time. You can see legacy invoice units that are currently deleted if the <code>AsOf</code> time is set to before it was deleted. If an <code>AsOf</code> is not provided, the default value is the current time. </p>
+   * The state of an invoice unit at a specified time. You can see legacy invoice units that are currently deleted if the `AsOf` time is set to before it was deleted. If an `AsOf` is not provided, the default value is the current time.
+   *
    * @public
    */
   AsOf?: Date | undefined;
@@ -1585,13 +1834,15 @@ export interface ListInvoiceUnitsRequest {
  */
 export interface ListInvoiceUnitsResponse {
   /**
-   * <p> An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. </p>
+   * An invoice unit is a set of mutually exclusive accounts that correspond to your business entity.
+   *
    * @public
    */
   InvoiceUnits?: InvoiceUnit[] | undefined;
 
   /**
-   * <p>The next token used to indicate where the returned list should start from. </p>
+   * The next token used to indicate where the returned list should start from.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1602,127 +1853,148 @@ export interface ListInvoiceUnitsResponse {
  */
 export interface ListProcurementPortalPreferencesRequest {
   /**
-   * <p>The token for the next set of results. (You received this token from a previous call.)</p>
+   * The token for the next set of results. (You received this token from a previous call.)
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Provides a summary of a procurement portal preference, including key identifiers and status information.</p>
+ * Provides a summary of a procurement portal preference, including key identifiers and status information.
+ *
  * @public
  */
 export interface ProcurementPortalPreferenceSummary {
   /**
-   * <p>The Amazon Web Services account ID associated with this procurement portal preference summary.</p>
+   * The Amazon Web Services account ID associated with this procurement portal preference summary.
+   *
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>The name of the procurement portal.</p>
+   * The name of the procurement portal.
+   *
    * @public
    */
   ProcurementPortalName: ProcurementPortalName | undefined;
 
   /**
-   * <p>The domain identifier for the buyer in the procurement portal.</p>
+   * The domain identifier for the buyer in the procurement portal.
+   *
    * @public
    */
   BuyerDomain: BuyerDomain | undefined;
 
   /**
-   * <p>The unique identifier for the buyer in the procurement portal.</p>
+   * The unique identifier for the buyer in the procurement portal.
+   *
    * @public
    */
   BuyerIdentifier: string | undefined;
 
   /**
-   * <p>The domain identifier for the supplier in the procurement portal.</p>
+   * The domain identifier for the supplier in the procurement portal.
+   *
    * @public
    */
   SupplierDomain: SupplierDomain | undefined;
 
   /**
-   * <p>The unique identifier for the supplier in the procurement portal.</p>
+   * The unique identifier for the supplier in the procurement portal.
+   *
    * @public
    */
   SupplierIdentifier: string | undefined;
 
   /**
-   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.
+   *
    * @public
    */
   Selector?: ProcurementPortalPreferenceSelector | undefined;
 
   /**
-   * <p>Indicates whether e-invoice delivery is enabled for this procurement portal preference.</p>
+   * Indicates whether e-invoice delivery is enabled for this procurement portal preference.
+   *
    * @public
    */
   EinvoiceDeliveryEnabled: boolean | undefined;
 
   /**
-   * <p>Indicates whether purchase order retrieval is enabled for this procurement portal preference.</p>
+   * Indicates whether purchase order retrieval is enabled for this procurement portal preference.
+   *
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
 
   /**
-   * <p>Indicates whether Marketplace PunchOut is enabled for this procurement portal preference. Defaults to <code>false</code>.</p>
+   * Indicates whether Marketplace PunchOut is enabled for this procurement portal preference. Defaults to `false`.
+   *
    * @public
    */
   MarketplacePunchOutEnabled?: boolean | undefined;
 
   /**
-   * <p>The current status of the e-invoice delivery preference in this summary.</p>
+   * The current status of the e-invoice delivery preference in this summary.
+   *
    * @public
    */
   EinvoiceDeliveryPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
 
   /**
-   * <p>The reason for the current e-invoice delivery preference status in this summary.</p>
+   * The reason for the current e-invoice delivery preference status in this summary.
+   *
    * @public
    */
   EinvoiceDeliveryPreferenceStatusReason?: string | undefined;
 
   /**
-   * <p>The current status of the purchase order retrieval preference in this summary.</p>
+   * The current status of the purchase order retrieval preference in this summary.
+   *
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
 
   /**
-   * <p>The reason for the current purchase order retrieval preference status in this summary.</p>
+   * The reason for the current purchase order retrieval preference status in this summary.
+   *
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
 
   /**
-   * <p>The version number of the procurement portal preference configuration in this summary.</p>
+   * The version number of the procurement portal preference configuration in this summary.
+   *
    * @public
    */
   Version: number | undefined;
 
   /**
-   * <p>The date and time when the procurement portal preference was created.</p>
+   * The date and time when the procurement portal preference was created.
+   *
    * @public
    */
   CreateDate: Date | undefined;
 
   /**
-   * <p>The date and time when the procurement portal preference was last updated.</p>
+   * The date and time when the procurement portal preference was last updated.
+   *
    * @public
    */
   LastUpdateDate: Date | undefined;
@@ -1733,13 +2005,15 @@ export interface ProcurementPortalPreferenceSummary {
  */
 export interface ListProcurementPortalPreferencesResponse {
   /**
-   * <p>The list of procurement portal preferences associated with the Amazon Web Services account.</p>
+   * The list of procurement portal preferences associated with the Amazon Web Services account.
+   *
    * @public
    */
   ProcurementPortalPreferences?: ProcurementPortalPreferenceSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * The token to use to retrieve the next set of results, or null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1750,43 +2024,50 @@ export interface ListProcurementPortalPreferencesResponse {
  */
 export interface ListProcurementPortalsRequest {
   /**
-   * <p>The token for the next set of results. You received this token from a previous call.</p>
+   * The token for the next set of results. You received this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. Default is 100.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. Default is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Contains metadata for a procurement portal, including the portal identifier, name, and default feature configurations.</p>
+ * Contains metadata for a procurement portal, including the portal identifier, name, and default feature configurations.
+ *
  * @public
  */
 export interface ProcurementPortal {
   /**
-   * <p>The unique identifier of the procurement portal.</p>
+   * The unique identifier of the procurement portal.
+   *
    * @public
    */
   PortalIdentifier: string | undefined;
 
   /**
-   * <p>The name of the procurement portal.</p>
+   * The name of the procurement portal.
+   *
    * @public
    */
   PortalName: ProcurementPortalName | undefined;
 
   /**
-   * <p>The display name of the procurement portal.</p>
+   * The display name of the procurement portal.
+   *
    * @public
    */
   PortalDisplayName?: string | undefined;
 
   /**
-   * <p>The default feature configurations for the procurement portal.</p>
+   * The default feature configurations for the procurement portal.
+   *
    * @public
    */
   DefaultFeatureConfigurations?: FeatureConfigurations | undefined;
@@ -1797,13 +2078,15 @@ export interface ProcurementPortal {
  */
 export interface ListProcurementPortalsResponse {
   /**
-   * <p>The list of procurement portals available for configuration.</p>
+   * The list of procurement portals available for configuration.
+   *
    * @public
    */
   ProcurementPortals: ProcurementPortal[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * The token to use to retrieve the next set of results, or null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1814,49 +2097,57 @@ export interface ListProcurementPortalsResponse {
  */
 export interface ListProcurementPortalSuppliersRequest {
   /**
-   * <p>The unique identifier of the procurement portal for which to list suppliers. Use the <code>PortalIdentifier</code> value returned by <code>ListProcurementPortals</code>.</p>
+   * The unique identifier of the procurement portal for which to list suppliers. Use the `PortalIdentifier` value returned by `ListProcurementPortals`.
+   *
    * @public
    */
   PortalIdentifier: string | undefined;
 
   /**
-   * <p>The token for the next set of results. You received this token from a previous call.</p>
+   * The token for the next set of results. You received this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. Default is 100.</p>
+   * The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. Default is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Contains metadata for a supplier configured within a procurement portal.</p>
+ * Contains metadata for a supplier configured within a procurement portal.
+ *
  * @public
  */
 export interface ProcurementPortalSupplier {
   /**
-   * <p>The unique identifier of the supplier within the procurement portal.</p>
+   * The unique identifier of the supplier within the procurement portal.
+   *
    * @public
    */
   SupplierIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Web Services seller of record associated with the supplier—the Amazon Web Services legal entity that issues invoices for the account (for example, <code>AWS_INC</code> or <code>AWS_EUROPE</code>).</p>
+   * The Amazon Web Services seller of record associated with the supplier—the Amazon Web Services legal entity that issues invoices for the account (for example, `AWS_INC` or `AWS_EUROPE`).
+   *
    * @public
    */
   SellerOfRecord?: string | undefined;
 
   /**
-   * <p>The two-letter ISO 3166-1 alpha-2 country code associated with the supplier.</p>
+   * The two-letter ISO 3166-1 alpha-2 country code associated with the supplier.
+   *
    * @public
    */
   CountryCode?: string | undefined;
 
   /**
-   * <p>The environment identifier for the supplier in the procurement portal. PROD for production env, or TEST for sandbox/test env.</p>
+   * The environment identifier for the supplier in the procurement portal. PROD for production env, or TEST for sandbox/test env.
+   *
    * @public
    */
   Environment?: ProcurementPortalEnv | undefined;
@@ -1867,13 +2158,15 @@ export interface ProcurementPortalSupplier {
  */
 export interface ListProcurementPortalSuppliersResponse {
   /**
-   * <p>The list of suppliers configured for the specified procurement portal.</p>
+   * The list of suppliers configured for the specified procurement portal.
+   *
    * @public
    */
   ProcurementPortalSuppliers: ProcurementPortalSupplier[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * The token to use to retrieve the next set of results, or null if there are no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1884,7 +2177,8 @@ export interface ListProcurementPortalSuppliersResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of tags to list. </p>
+   * The Amazon Resource Name (ARN) of tags to list.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -1895,7 +2189,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p> Adds a tag to a resource. </p>
+   * Adds a tag to a resource.
+   *
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
@@ -1906,49 +2201,57 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutProcurementPortalPreferenceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to update.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference to update.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.</p>
+   * Specifies criteria for selecting which invoices should be processed using a particular procurement portal preference.
+   *
    * @public
    */
   Selector?: ProcurementPortalPreferenceSelector | undefined;
 
   /**
-   * <p>The updated shared secret or authentication credential for the procurement portal. This value must be encrypted at rest.</p>
+   * The updated shared secret or authentication credential for the procurement portal. This value must be encrypted at rest.
+   *
    * @public
    */
   ProcurementPortalSharedSecret?: string | undefined;
 
   /**
-   * <p>The updated endpoint URL where e-invoices will be delivered to the procurement portal. Must be a valid HTTPS URL.</p>
+   * The updated endpoint URL where e-invoices will be delivered to the procurement portal. Must be a valid HTTPS URL.
+   *
    * @public
    */
   ProcurementPortalInstanceEndpoint?: string | undefined;
 
   /**
-   * <p>Updated configuration settings for the test environment of the procurement portal.</p>
+   * Updated configuration settings for the test environment of the procurement portal.
+   *
    * @public
    */
   TestEnvPreference?: TestEnvPreferenceInput | undefined;
 
   /**
-   * <p>Updated flag indicating whether e-invoice delivery is enabled for this procurement portal preference.</p>
+   * Updated flag indicating whether e-invoice delivery is enabled for this procurement portal preference.
+   *
    * @public
    */
   EinvoiceDeliveryEnabled: boolean | undefined;
 
   /**
-   * <p>Updated e-invoice delivery configuration including document types, attachment types, and customization settings for the portal.</p>
+   * Updated e-invoice delivery configuration including document types, attachment types, and customization settings for the portal.
+   *
    * @public
    */
   EinvoiceDeliveryPreference?: EinvoiceDeliveryPreference | undefined;
 
   /**
-   * <p>Updated flag indicating whether purchase order retrieval is enabled for this procurement portal preference.</p>
+   * Updated flag indicating whether purchase order retrieval is enabled for this procurement portal preference.
+   *
    * @public
    */
   PurchaseOrderRetrievalEnabled: boolean | undefined;
@@ -1966,13 +2269,15 @@ export interface PutProcurementPortalPreferenceRequest {
   MarketplacePunchOutPreference?: MarketplacePunchOutPreference | undefined;
 
   /**
-   * <p>Updated list of contact information for portal administrators and technical contacts.</p>
+   * Updated list of contact information for portal administrators and technical contacts.
+   *
    * @public
    */
   Contacts: Contact[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -1983,7 +2288,8 @@ export interface PutProcurementPortalPreferenceRequest {
  */
 export interface PutProcurementPortalPreferenceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated procurement portal preference.</p>
+   * The Amazon Resource Name (ARN) of the updated procurement portal preference.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
@@ -1994,13 +2300,15 @@ export interface PutProcurementPortalPreferenceResponse {
  */
 export interface SendProcurementPortalValidationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to validate.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference to validate.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -2011,7 +2319,8 @@ export interface SendProcurementPortalValidationRequest {
  */
 export interface SendProcurementPortalValidationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference for which the validation request was sent.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference for which the validation request was sent.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
@@ -2022,13 +2331,15 @@ export interface SendProcurementPortalValidationResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the tags. </p>
+   * The Amazon Resource Name (ARN) of the tags.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p> Adds a tag to a resource. </p>
+   * Adds a tag to a resource.
+   *
    * @public
    */
   ResourceTags: ResourceTag[] | undefined;
@@ -2044,13 +2355,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) to untag. </p>
+   * The Amazon Resource Name (ARN) to untag.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p> Keys for the tags to be removed. </p>
+   * Keys for the tags to be removed.
+   *
    * @public
    */
   ResourceTagKeys: string[] | undefined;
@@ -2066,31 +2379,36 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateInvoiceUnitRequest {
   /**
-   * <p>The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn: string | undefined;
 
   /**
-   * <p>The assigned description for an invoice unit. This information can't be modified or deleted. </p>
+   * The assigned description for an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Whether the invoice unit based tax inheritance is/ should be enabled or disabled. </p>
+   * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+   *
    * @public
    */
   TaxInheritanceDisabled?: boolean | undefined;
 
   /**
-   * <p>The <code>InvoiceUnitRule</code> object used to update invoice units. </p>
+   * The `InvoiceUnitRule` object used to update invoice units.
+   *
    * @public
    */
   Rule?: InvoiceUnitRule | undefined;
 
   /**
-   * <p> A unique, case-sensitive identifier that you provide to ensure idempotency of the request. </p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -2101,7 +2419,8 @@ export interface UpdateInvoiceUnitRequest {
  */
 export interface UpdateInvoiceUnitResponse {
   /**
-   * <p> The ARN to identify an invoice unit. This information can't be modified or deleted. </p>
+   * The ARN to identify an invoice unit. This information can't be modified or deleted.
+   *
    * @public
    */
   InvoiceUnitArn?: string | undefined;
@@ -2112,37 +2431,43 @@ export interface UpdateInvoiceUnitResponse {
  */
 export interface UpdateProcurementPortalPreferenceStatusRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to update.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference to update.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>The updated status of the e-invoice delivery preference.</p>
+   * The updated status of the e-invoice delivery preference.
+   *
    * @public
    */
   EinvoiceDeliveryPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
 
   /**
-   * <p>The reason for the e-invoice delivery preference status update, providing context for the change.</p>
+   * The reason for the e-invoice delivery preference status update, providing context for the change.
+   *
    * @public
    */
   EinvoiceDeliveryPreferenceStatusReason?: string | undefined;
 
   /**
-   * <p>The updated status of the purchase order retrieval preference.</p>
+   * The updated status of the purchase order retrieval preference.
+   *
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatus?: ProcurementPortalPreferenceStatus | undefined;
 
   /**
-   * <p>The reason for the purchase order retrieval preference status update, providing context for the change.</p>
+   * The reason for the purchase order retrieval preference status update, providing context for the change.
+   *
    * @public
    */
   PurchaseOrderRetrievalPreferenceStatusReason?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -2153,7 +2478,8 @@ export interface UpdateProcurementPortalPreferenceStatusRequest {
  */
 export interface UpdateProcurementPortalPreferenceStatusResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference with updated status.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference with updated status.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
@@ -2164,19 +2490,22 @@ export interface UpdateProcurementPortalPreferenceStatusResponse {
  */
 export interface VerifyProcurementPortalValidationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to validate.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference to validate.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;
 
   /**
-   * <p>The validation code received from the procurement portal in response to a previous <code>SendProcurementPortalValidation</code> request.</p>
+   * The validation code received from the procurement portal in response to a previous `SendProcurementPortalValidation` request.
+   *
    * @public
    */
   Code: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -2187,7 +2516,8 @@ export interface VerifyProcurementPortalValidationRequest {
  */
 export interface VerifyProcurementPortalValidationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the procurement portal preference for which validation was completed.</p>
+   * The Amazon Resource Name (ARN) of the procurement portal preference for which validation was completed.
+   *
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;

@@ -23,7 +23,12 @@ export interface ModifyDBCapacityReservationCommandInput extends ModifyDBCapacit
 export interface ModifyDBCapacityReservationCommandOutput extends ModifyDBCapacityReservationResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies a DB capacity reservation. You can change the reserved capacity in each Availability Zone of the reservation, and you can change the end date of the reservation. You can't change the Availability Zones of an existing reservation.</p> <p>The reservation must be in the <code>active</code> state. A future-dated reservation that hasn't started isn't modifiable, and neither is a reservation that Amazon RDS is already modifying.</p> <p>You must specify <code>CapacityPerAvailabilityZone</code>, <code>EndDateType</code>, or <code>EndDate</code>. A request that specifies none of the three changes nothing, and Amazon RDS rejects it.</p>
+ * Modifies a DB capacity reservation. You can change the reserved capacity in each Availability Zone of the reservation, and you can change the end date of the reservation. You can't change the Availability Zones of an existing reservation.
+ *
+ * The reservation must be in the `active` state. A future-dated reservation that hasn't started isn't modifiable, and neither is a reservation that Amazon RDS is already modifying.
+ *
+ * You must specify `CapacityPerAvailabilityZone`, `EndDateType`, or `EndDate`. A request that specifies none of the three changes nothing, and Amazon RDS rejects it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +86,24 @@ export interface ModifyDBCapacityReservationCommandOutput extends ModifyDBCapaci
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBCapacityReservationNotFoundFault} (client fault)
- *  <p> <code>DBCapacityReservationIdentifier</code> doesn't refer to an existing DB capacity reservation.</p>
+ *
+ * `DBCapacityReservationIdentifier` doesn't refer to an existing DB capacity reservation.
  *
  * @throws {@link InstanceQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB instances.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB instances.
  *
  * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
- *  <p>The specified DB instance class isn't available in the specified Availability Zone.</p>
+ *
+ * The specified DB instance class isn't available in the specified Availability Zone.
  *
  * @throws {@link InvalidDBCapacityReservationStateFault} (client fault)
- *  <p>The DB capacity reservation isn't in a valid state.</p>
+ *
+ * The DB capacity reservation isn't in a valid state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To change the capacity and the end date of a DB capacity reservation
  * ```javascript

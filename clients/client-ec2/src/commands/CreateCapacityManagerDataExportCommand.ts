@@ -23,10 +23,8 @@ export interface CreateCapacityManagerDataExportCommandInput extends CreateCapac
 export interface CreateCapacityManagerDataExportCommandOutput extends CreateCapacityManagerDataExportResult, __MetadataBearer {}
 
 /**
- * <p>
- * Creates a new data export configuration for EC2 Capacity Manager. This allows you to automatically export capacity usage data to an S3 bucket on a scheduled basis.
- * The exported data includes metrics for On-Demand, Spot, and Capacity Reservations usage across your organization.
- * </p>
+ * Creates a new data export configuration for EC2 Capacity Manager. This allows you to automatically export capacity usage data to an S3 bucket on a scheduled basis. The exported data includes metrics for On-Demand, Spot, and Capacity Reservations usage across your organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +67,8 @@ export interface CreateCapacityManagerDataExportCommandOutput extends CreateCapa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

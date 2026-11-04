@@ -23,20 +23,12 @@ export interface CompleteVaultLockCommandInput extends CompleteVaultLockInput {}
 export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation completes the vault locking process by transitioning the vault lock
- *          from the <code>InProgress</code> state to the <code>Locked</code> state, which causes the
- *          vault lock policy to become unchangeable. A vault lock is put into the
- *             <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. You can
- *          obtain the state of the vault lock by calling <a>GetVaultLock</a>. For more
- *          information about the vault locking process, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon Glacier Vault Lock</a>. </p>
- *          <p>This operation is idempotent. This request is always successful if the vault lock is
- *          in the <code>Locked</code> state and the provided lock ID matches the lock ID originally
- *          used to lock the vault.</p>
- *          <p>If an invalid lock ID is passed in the request when the vault lock is in the
- *             <code>Locked</code> state, the operation returns an <code>AccessDeniedException</code>
- *          error. If an invalid lock ID is passed in the request when the vault lock is in the
- *             <code>InProgress</code> state, the operation throws an <code>InvalidParameter</code>
- *          error.</p>
+ * This operation completes the vault locking process by transitioning the vault lock from the `InProgress` state to the `Locked` state, which causes the vault lock policy to become unchangeable. A vault lock is put into the `InProgress` state by calling InitiateVaultLock. You can obtain the state of the vault lock by calling GetVaultLock. For more information about the vault locking process, [Amazon Glacier Vault Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+ *
+ * This operation is idempotent. This request is always successful if the vault lock is in the `Locked` state and the provided lock ID matches the lock ID originally used to lock the vault.
+ *
+ * If an invalid lock ID is passed in the request when the vault lock is in the `Locked` state, the operation returns an `AccessDeniedException` error. If an invalid lock ID is passed in the request when the vault lock is in the `InProgress` state, the operation throws an `InvalidParameter` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,24 +55,28 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To complete a vault lock
  * ```javascript

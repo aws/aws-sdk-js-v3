@@ -23,7 +23,8 @@ export interface ListApplicationAssociationsCommandInput extends ListApplication
 export interface ListApplicationAssociationsCommandOutput extends ListApplicationAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of application associations for an application.</p>
+ * Returns a paginated list of application associations for an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +60,28 @@ export interface ListApplicationAssociationsCommandOutput extends ListApplicatio
  * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Request processing failed due to an error or failure with the service.</p>
+ *
+ * Request processing failed due to an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid. </p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link AppIntegrationsServiceException}
- * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ * Base exception class for all service exceptions from AppIntegrations service.
  *
  * @example To list application associations of an application
  * ```javascript

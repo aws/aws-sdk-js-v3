@@ -23,10 +23,8 @@ export interface AssignTapePoolCommandInput extends AssignTapePoolInput {}
 export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __MetadataBearer {}
 
 /**
- * <p>Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in
- *          the S3 storage class that is associated with the pool. When you use your backup application
- *          to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or
- *          S3 Glacier Deep Archive) that corresponds to the pool.</p>
+ * Assigns a tape to a tape pool for archiving. The tape assigned to a pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the S3 storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +53,16 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

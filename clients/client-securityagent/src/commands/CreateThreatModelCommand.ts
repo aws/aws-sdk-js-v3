@@ -23,7 +23,8 @@ export interface CreateThreatModelCommandInput extends CreateThreatModelInput {}
 export interface CreateThreatModelCommandOutput extends CreateThreatModelOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new threat model configuration in an agent space. A threat model defines the parameters for automated threat analysis.</p>
+ * Creates a new threat model configuration in an agent space. A threat model defines the parameters for automated threat analysis.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -223,8 +224,8 @@ export interface CreateThreatModelCommandOutput extends CreateThreatModelOutput,
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

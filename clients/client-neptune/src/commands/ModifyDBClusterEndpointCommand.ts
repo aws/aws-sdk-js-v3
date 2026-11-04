@@ -23,7 +23,8 @@ export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndp
 export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
+ * Modifies the properties of an endpoint in an Amazon Neptune DB cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,24 +71,28 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterEndpointNotFoundFault} (client fault)
- *  <p>The specified custom endpoint doesn't exist.</p>
+ *
+ * The specified custom endpoint doesn't exist.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p>
- *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * *DBInstanceIdentifier* does not refer to an existing DB instance.
  *
  * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
- *  <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * The requested operation cannot be performed on the endpoint while the endpoint is in this state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

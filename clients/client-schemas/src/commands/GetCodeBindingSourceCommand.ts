@@ -31,7 +31,8 @@ export type GetCodeBindingSourceCommandOutputType = Omit<GetCodeBindingSourceRes
 export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Get the code binding source URI.</p>
+ * Get the code binding source URI.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +74,8 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceC
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

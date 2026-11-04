@@ -23,9 +23,8 @@ export interface GetDedicatedIpCommandInput extends GetDedicatedIpRequest {}
 export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about a dedicated IP address, including the name of the dedicated IP
- *             pool that it's associated with, as well information about the automatic warm-up process
- *             for the address.</p>
+ * Get information about a dedicated IP address, including the name of the dedicated IP pool that it's associated with, as well information about the automatic warm-up process for the address.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,17 +56,20 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

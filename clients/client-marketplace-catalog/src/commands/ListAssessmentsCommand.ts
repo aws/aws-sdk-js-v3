@@ -23,15 +23,12 @@ export interface ListAssessmentsCommandInput extends ListAssessmentsRequest {}
 export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of assessments associated with an entity or change set in
- *             AWS Marketplace. An <i>assessment</i> is the result of evaluating a
- *             product or change set against a framework, such as AMI Security or Container
- *             Security.</p>
- *          <p>Use the <code>AssessmentTargetFilter</code> to scope results to a specific entity or
- *             change set, and use <code>FrameworkFilters</code> to scope results to a single
- *             framework. To retrieve detailed control-level results for an individual assessment, use
- *             the <code>DescribeAssessment</code> action.</p>
- *          <p>Results are sorted by assessment creation time in descending order.</p>
+ * Returns a paginated list of assessments associated with an entity or change set in AWS Marketplace. An *assessment* is the result of evaluating a product or change set against a framework, such as AMI Security or Container Security.
+ *
+ * Use the `AssessmentTargetFilter` to scope results to a specific entity or change set, and use `FrameworkFilters` to scope results to a single framework. To retrieve detailed control-level results for an individual assessment, use the `DescribeAssessment` action.
+ *
+ * Results are sorted by assessment creation time in descending order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,24 +92,32 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ *
+ * Access is denied.
+ *
+ * HTTP status code: 403
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ *
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ *
+ * Too many requests.
+ *
+ * HTTP status code: 429
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ *
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
  *
  * @throws {@link MarketplaceCatalogServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCatalog service.
  *
  * @public
  */

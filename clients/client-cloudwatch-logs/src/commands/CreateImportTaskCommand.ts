@@ -23,57 +23,29 @@ export interface CreateImportTaskCommandInput extends CreateImportTaskRequest {}
 export interface CreateImportTaskCommandOutput extends CreateImportTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an import from a data source to CloudWatch Log and creates a managed log group as the destination for the imported data.
- *       Currently, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">CloudTrail Event Data Store</a> is the only supported data source. </p>
- *          <p>The import task must satisfy the following constraints:</p>
- *          <ul>
- *             <li>
- *                <p>The specified source must be in an ACTIVE state.</p>
- *             </li>
- *             <li>
- *                <p>The API caller must have permissions to access the data in the provided source and to perform iam:PassRole on the
- *           provided import role which has the same permissions, as described below.</p>
- *             </li>
- *             <li>
- *                <p>The provided IAM role must trust the "cloudtrail.amazonaws.com" principal and have the following permissions:</p>
- *                <ul>
- *                   <li>
- *                      <p>cloudtrail:GetEventDataStoreData</p>
- *                   </li>
- *                   <li>
- *                      <p>logs:CreateLogGroup</p>
- *                   </li>
- *                   <li>
- *                      <p>logs:CreateLogStream</p>
- *                   </li>
- *                   <li>
- *                      <p>logs:PutResourcePolicy</p>
- *                   </li>
- *                   <li>
- *                      <p>(If source has an associated Amazon Web Services KMS Key) kms:Decrypt</p>
- *                   </li>
- *                   <li>
- *                      <p>(If source has an associated Amazon Web Services KMS Key) kms:GenerateDataKey</p>
- *                   </li>
- *                </ul>
- *                <p>Example IAM policy for provided import role:</p>
- *                <p>
- *                   <code>[ \{ "Effect": "Allow", "Action": "iam:PassRole", "Resource": "arn:aws:iam::123456789012:role/apiCallerCredentials", "Condition": \{ "StringLike": \{ "iam:AssociatedResourceARN": "arn:aws:logs:us-east-1:123456789012:log-group:aws/cloudtrail/f1d45bff-d0e3-4868-b5d9-2eb678aa32fb:*" \} \} \}, \{ "Effect": "Allow", "Action": [ "cloudtrail:GetEventDataStoreData" ], "Resource": [ "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/f1d45bff-d0e3-4868-b5d9-2eb678aa32fb" ] \}, \{ "Effect": "Allow", "Action": [ "logs:CreateImportTask", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutResourcePolicy" ], "Resource": [ "arn:aws:logs:us-east-1:123456789012:log-group:/aws/cloudtrail/*" ] \}, \{ "Effect": "Allow", "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ], "Resource": [ "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012" ] \} ]</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>If the import source has a customer managed key, the "cloudtrail.amazonaws.com" principal needs permissions to perform kms:Decrypt and kms:GenerateDataKey.</p>
- *             </li>
- *             <li>
- *                <p>There can be no more than 3 active imports per account at a given time.</p>
- *             </li>
- *             <li>
- *                <p>The startEventTime must be less than or equal to endEventTime.</p>
- *             </li>
- *             <li>
- *                <p>The data being imported must be within the specified source's retention period.</p>
- *             </li>
- *          </ul>
+ * Starts an import from a data source to CloudWatch Log and creates a managed log group as the destination for the imported data. Currently, [CloudTrail Event Data Store](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html) is the only supported data source.
+ *
+ * The import task must satisfy the following constraints:
+ *
+ * - The specified source must be in an ACTIVE state.
+ * - The API caller must have permissions to access the data in the provided source and to perform iam:PassRole on the provided import role which has the same permissions, as described below.
+ * - The provided IAM role must trust the "cloudtrail.amazonaws.com" principal and have the following permissions:
+ *
+ *   - cloudtrail:GetEventDataStoreData
+ *   - logs:CreateLogGroup
+ *   - logs:CreateLogStream
+ *   - logs:PutResourcePolicy
+ *   - (If source has an associated Amazon Web Services KMS Key) kms:Decrypt
+ *   - (If source has an associated Amazon Web Services KMS Key) kms:GenerateDataKey
+ *
+ *   Example IAM policy for provided import role:
+ *
+ *   `[ \{ "Effect": "Allow", "Action": "iam:PassRole", "Resource": "arn:aws:iam::123456789012:role/apiCallerCredentials", "Condition": \{ "StringLike": \{ "iam:AssociatedResourceARN": "arn:aws:logs:us-east-1:123456789012:log-group:aws/cloudtrail/f1d45bff-d0e3-4868-b5d9-2eb678aa32fb:*" \} \} \}, \{ "Effect": "Allow", "Action": [ "cloudtrail:GetEventDataStoreData" ], "Resource": [ "arn:aws:cloudtrail:us-east-1:123456789012:eventdatastore/f1d45bff-d0e3-4868-b5d9-2eb678aa32fb" ] \}, \{ "Effect": "Allow", "Action": [ "logs:CreateImportTask", "logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutResourcePolicy" ], "Resource": [ "arn:aws:logs:us-east-1:123456789012:log-group:/aws/cloudtrail/*" ] \}, \{ "Effect": "Allow", "Action": [ "kms:Decrypt", "kms:GenerateDataKey" ], "Resource": [ "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012" ] \} ]`
+ * - If the import source has a customer managed key, the "cloudtrail.amazonaws.com" principal needs permissions to perform kms:Decrypt and kms:GenerateDataKey.
+ * - There can be no more than 3 active imports per account at a given time.
+ * - The startEventTime must be less than or equal to endEventTime.
+ * - The data being imported must be within the specified source's retention period.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,29 +79,36 @@ export interface CreateImportTaskCommandOutput extends CreateImportTaskResponse,
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

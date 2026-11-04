@@ -23,8 +23,8 @@ export interface ExecutePolicyCommandInput extends ExecutePolicyType {}
 export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Executes the specified policy. This can be useful for testing the design of your
- *             scaling policy.</p>
+ * Executes the specified policy. This can be useful for testing the design of your scaling policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,16 +53,16 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ScalingActivityInProgressFault} (client fault)
- *  <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
+ *
+ * The operation can't be performed because there are scaling activities in progress.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To execute a scaling policy
  * ```javascript

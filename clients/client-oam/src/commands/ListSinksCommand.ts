@@ -23,7 +23,8 @@ export interface ListSinksCommandInput extends ListSinksInput {}
 export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBearer {}
 
 /**
- * <p>Use this operation in a monitoring account to return the list of sinks created in that account.</p>
+ * Use this operation in a monitoring account to return the list of sinks created in that account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface ListSinksCommandOutput extends ListSinksOutput, __MetadataBeare
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Unexpected error while processing the request. Retry the request.</p>
+ *
+ * Unexpected error while processing the request. Retry the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
+ *
+ * The request references a resource that does not exist.
  *
  * @throws {@link OAMServiceException}
- * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ * Base exception class for all service exceptions from OAM service.
  *
  * @public
  */

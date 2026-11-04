@@ -23,8 +23,8 @@ export interface RejectInboundConnectionCommandInput extends RejectInboundConnec
 export interface RejectInboundConnectionCommandOutput extends RejectInboundConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Allows the remote Amazon OpenSearch Service domain owner to reject an inbound
- *             cross-cluster connection request.</p>
+ * Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster connection request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,14 +72,16 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

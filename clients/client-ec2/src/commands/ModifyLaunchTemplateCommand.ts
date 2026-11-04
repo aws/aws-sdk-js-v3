@@ -23,9 +23,8 @@ export interface ModifyLaunchTemplateCommandInput extends ModifyLaunchTemplateRe
 export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a launch template. You can specify which version of the launch template to
- *             set as the default version. When launching an instance, the default version applies when
- *             a launch template version is not specified.</p>
+ * Modifies a launch template. You can specify which version of the launch template to set as the default version. When launching an instance, the default version applies when a launch template version is not specified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +73,8 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To change the default version of a launch template
  * ```javascript

@@ -23,9 +23,8 @@ export interface DescribeListenersCommandInput extends DescribeListenersInput {}
 export interface DescribeListenersCommandOutput extends DescribeListenersOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified listeners or the listeners for the specified Application Load
- *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
- *       balancer or one or more listeners.</p>
+ * Describes the specified listeners or the listeners for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load balancer or one or more listeners.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -155,17 +154,20 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol is not supported.</p>
+ *
+ * The specified protocol is not supported.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To describe a listener
  * ```javascript

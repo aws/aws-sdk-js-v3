@@ -26,18 +26,12 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandInput extends List
 export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput extends ListTrafficPolicyInstancesByHostedZoneResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the traffic policy instances that you created in a specified
- * 			hosted zone.</p>
- *          <note>
- *             <p>After you submit a <code>CreateTrafficPolicyInstance</code> or an
- * 					<code>UpdateTrafficPolicyInstance</code> request, there's a brief delay while
- * 				Amazon Route 53 creates the resource record sets that are specified in the traffic
- * 				policy definition. For more information, see the <code>State</code> response
- * 				element.</p>
- *          </note>
- *          <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic
- * 			policy instances, you can use the <code>MaxItems</code> parameter to list them in groups
- * 			of up to 100.</p>
+ * Gets information about the traffic policy instances that you created in a specified hosted zone.
+ *
+ * > **Note:** After you submit a `CreateTrafficPolicyInstance` or an `UpdateTrafficPolicyInstance` request, there's a brief delay while Amazon Route 53 creates the resource record sets that are specified in the traffic policy definition. For more information, see the `State` response element.
+ *
+ * Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the `MaxItems` parameter to list them in groups of up to 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,17 +77,20 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput extends Lis
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
- *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ * No traffic policy instance exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

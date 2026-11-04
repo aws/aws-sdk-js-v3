@@ -23,8 +23,8 @@ export interface RestoreSnapshotFromRecycleBinCommandInput extends RestoreSnapsh
 export interface RestoreSnapshotFromRecycleBinCommandOutput extends RestoreSnapshotFromRecycleBinResult, __MetadataBearer {}
 
 /**
- * <p>Restores a snapshot from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps">Restore
- *       snapshots from the Recycle Bin</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Restores a snapshot from the Recycle Bin. For more information, see [Restore snapshots from the Recycle Bin](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin-working-with-snaps.html#recycle-bin-restore-snaps) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +62,8 @@ export interface RestoreSnapshotFromRecycleBinCommandOutput extends RestoreSnaps
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

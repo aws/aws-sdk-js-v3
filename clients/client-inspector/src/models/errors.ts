@@ -12,7 +12,8 @@ import { InspectorServiceException as __BaseException } from "./InspectorService
 import type { AgentAlreadyRunningAssessment } from "./models_0";
 
 /**
- * <p>You do not have required permissions to access the requested resource.</p>
+ * You do not have required permissions to access the requested resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -20,13 +21,15 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Code that indicates the type of error that is generated.</p>
+   * Code that indicates the type of error that is generated.
+   *
    * @public
    */
   errorCode: AccessDeniedErrorCode | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -47,7 +50,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Internal server error.</p>
+ * Internal server error.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -55,7 +59,8 @@ export class InternalException extends __BaseException {
   readonly name = "InternalException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -75,8 +80,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -84,13 +89,15 @@ export class InvalidInputException extends __BaseException {
   readonly name = "InvalidInputException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Code that indicates the type of error that is generated.</p>
+   * Code that indicates the type of error that is generated.
+   *
    * @public
    */
   errorCode: InvalidInputErrorCode | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -111,8 +118,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
+ *
  * @public
  */
 export class NoSuchEntityException extends __BaseException {
@@ -120,13 +127,15 @@ export class NoSuchEntityException extends __BaseException {
   readonly name = "NoSuchEntityException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Code that indicates the type of error that is generated.</p>
+   * Code that indicates the type of error that is generated.
+   *
    * @public
    */
   errorCode: NoSuchEntityErrorCode | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -147,7 +156,8 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
- * <p>The serice is temporary unavailable.</p>
+ * The serice is temporary unavailable.
+ *
  * @public
  */
 export class ServiceTemporarilyUnavailableException extends __BaseException {
@@ -155,7 +165,8 @@ export class ServiceTemporarilyUnavailableException extends __BaseException {
   readonly name = "ServiceTemporarilyUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>You can wait and then retry your request.</p>
+   * You can wait and then retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -175,8 +186,8 @@ export class ServiceTemporarilyUnavailableException extends __BaseException {
 }
 
 /**
- * <p>You started an assessment run, but one of the instances is already participating in
- *          another assessment run.</p>
+ * You started an assessment run, but one of the instances is already participating in another assessment run.
+ *
  * @public
  */
 export class AgentsAlreadyRunningAssessmentException extends __BaseException {
@@ -184,19 +195,18 @@ export class AgentsAlreadyRunningAssessmentException extends __BaseException {
   readonly name = "AgentsAlreadyRunningAssessmentException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p></p>
    * @public
    */
   agents: AgentAlreadyRunningAssessment[] | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   agentsTruncated: boolean | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -218,8 +228,8 @@ export class AgentsAlreadyRunningAssessmentException extends __BaseException {
 }
 
 /**
- * <p>You cannot perform a specified action if an assessment run is currently in
- *          progress.</p>
+ * You cannot perform a specified action if an assessment run is currently in progress.
+ *
  * @public
  */
 export class AssessmentRunInProgressException extends __BaseException {
@@ -227,20 +237,22 @@ export class AssessmentRunInProgressException extends __BaseException {
   readonly name = "AssessmentRunInProgressException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ARNs of the assessment runs that are currently in progress.</p>
+   * The ARNs of the assessment runs that are currently in progress.
+   *
    * @public
    */
   assessmentRunArns: string[] | undefined;
 
   /**
-   * <p>Boolean value that indicates whether the ARN list of the assessment runs is
-   *          truncated.</p>
+   * Boolean value that indicates whether the ARN list of the assessment runs is truncated.
+   *
    * @public
    */
   assessmentRunArnsTruncated: boolean | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -262,8 +274,8 @@ export class AssessmentRunInProgressException extends __BaseException {
 }
 
 /**
- * <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
- *          instances during the assessment run.</p>
+ * Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.
+ *
  * @public
  */
 export class InvalidCrossAccountRoleException extends __BaseException {
@@ -271,13 +283,15 @@ export class InvalidCrossAccountRoleException extends __BaseException {
   readonly name = "InvalidCrossAccountRoleException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Code that indicates the type of error that is generated.</p>
+   * Code that indicates the type of error that is generated.
+   *
    * @public
    */
   errorCode: InvalidCrossAccountRoleErrorCode | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -298,8 +312,8 @@ export class InvalidCrossAccountRoleException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current
- *          AWS account limits. The error code describes the limit exceeded.</p>
+ * The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -307,13 +321,15 @@ export class LimitExceededException extends __BaseException {
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Code that indicates the type of error that is generated.</p>
+   * Code that indicates the type of error that is generated.
+   *
    * @public
    */
   errorCode: LimitExceededErrorCode | undefined;
 
   /**
-   * <p>You can immediately retry your request.</p>
+   * You can immediately retry your request.
+   *
    * @public
    */
   canRetry: boolean | undefined;
@@ -334,8 +350,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request is rejected. The specified assessment template is currently generating an
- *          exclusions preview.</p>
+ * The request is rejected. The specified assessment template is currently generating an exclusions preview.
+ *
  * @public
  */
 export class PreviewGenerationInProgressException extends __BaseException {
@@ -356,11 +372,8 @@ export class PreviewGenerationInProgressException extends __BaseException {
 }
 
 /**
- * <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
- *          because you tried to generate a report for an assessment run that existed before reporting
- *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
- *          took place or will take place after generating reports in Amazon Inspector became
- *          available.</p>
+ * Used by the GetAssessmentReport API. The request was rejected because you tried to generate a report for an assessment run that existed before reporting was supported in Amazon Inspector. You can only generate reports for assessment runs that took place or will take place after generating reports in Amazon Inspector became available.
+ *
  * @public
  */
 export class UnsupportedFeatureException extends __BaseException {

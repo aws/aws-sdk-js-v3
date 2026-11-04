@@ -23,15 +23,10 @@ export interface CreateGlobalClusterCommandInput extends CreateGlobalClusterMess
 export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Neptune global database spread across multiple Amazon Regions.
- *       The global database contains a single primary cluster with read-write
- *       capability, and read-only secondary clusters that receive data from the
- *       primary cluster through high-speed replication performed by the Neptune
- *       storage subsystem.</p>
- *          <p>You can create a global database that is initially empty, and then
- *       add a primary cluster and secondary clusters to it, or you can specify
- *       an existing Neptune cluster during the create operation to become the
- *       primary cluster of the global database.</p>
+ * Creates a Neptune global database spread across multiple Amazon Regions. The global database contains a single primary cluster with read-write capability, and read-only secondary clusters that receive data from the primary cluster through high-speed replication performed by the Neptune storage subsystem.
+ *
+ * You can create a global database that is initially empty, and then add a primary cluster and secondary clusters to it, or you can specify an existing Neptune cluster during the create operation to become the primary cluster of the global database.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,21 +96,24 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ *
+ * The `GlobalClusterIdentifier` already exists. Choose a new global database identifier (unique name) to create a new global database cluster.
  *
  * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
- *  <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+ *
+ * The number of global database clusters for this account is already at the maximum allowed.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DeleteRetrainingSchedulerCommandInput extends DeleteRetrainingS
 export interface DeleteRetrainingSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a retraining scheduler from a model. The retraining scheduler must be in the
- *             <code>STOPPED</code> status. </p>
+ * Deletes a retraining scheduler from a model. The retraining scheduler must be in the `STOPPED` status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,31 +49,32 @@ export interface DeleteRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request could not be completed because you do not have access to the resource.
- *       </p>
+ *
+ * The request could not be completed because you do not have access to the resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The request could not be completed due to a conflict with the current state of the
- *          target resource. </p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Processing of the request has failed because of an unknown error, exception or failure.
- *       </p>
+ *
+ * Processing of the request has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource requested could not be found. Verify the resource ID and retry your
- *          request. </p>
+ *
+ * The resource requested could not be found. Verify the resource ID and retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
- *          service that's being utilized. </p>
+ *
+ * The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services service that's being utilized.
  *
  * @throws {@link LookoutEquipmentServiceException}
- * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ * Base exception class for all service exceptions from LookoutEquipment service.
  *
  * @example Deletes a retraining scheduler
  * ```javascript

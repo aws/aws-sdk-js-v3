@@ -76,8 +76,8 @@ export interface ListAccessProfilesCommandOutput extends ListAccessProfilesOutpu
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List access profiles in a space
  * ```javascript

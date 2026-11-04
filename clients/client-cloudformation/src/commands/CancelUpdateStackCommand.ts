@@ -23,11 +23,10 @@ export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
- *       rolls back the update and reverts to the previous stack configuration.</p>
- *          <note>
- *             <p>You can cancel only stacks that are in the <code>UPDATE_IN_PROGRESS</code> state.</p>
- *          </note>
+ * Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update and reverts to the previous stack configuration.
+ *
+ * > **Note:** You can cancel only stacks that are in the `UPDATE_IN_PROGRESS` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +52,12 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
- *  <p>A client request token already exists.</p>
+ *
+ * A client request token already exists.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

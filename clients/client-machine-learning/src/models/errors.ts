@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MachineLearningServiceException as __BaseException } from "./MachineLearningServiceException";
 
 /**
- * <p>An error on the server occurred when trying to process a request.</p>
+ * An error on the server occurred when trying to process a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -27,7 +28,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ * An error on the client occurred. Typically, the cause is an invalid input value.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -70,7 +72,8 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>A specified resource cannot be located.</p>
+ * A specified resource cannot be located.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -113,7 +116,8 @@ export class TagLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+ * A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -136,7 +140,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
+ * The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as `DataSource`.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -159,7 +164,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>
+ * The exception is thrown when a predict request is made to an unmounted `MLModel`.
+ *
  * @public
  */
 export class PredictorNotMountedException extends __BaseException {

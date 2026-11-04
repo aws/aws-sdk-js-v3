@@ -884,7 +884,8 @@ export interface Route53RecoveryReadiness {
 }
 
 /**
- * <p>Recovery readiness</p>
+ * Recovery readiness
+ *
  * @public
  */
 export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient implements Route53RecoveryReadiness {}

@@ -23,8 +23,8 @@ export interface CreateRegexPatternSetCommandInput extends CreateRegexPatternSet
 export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have WAF inspect a web request
- *          component for the specified patterns.</p>
+ * Creates a RegexPatternSet, which you reference in a RegexPatternSetReferenceStatement, to have WAF inspect a web request component for the specified patterns.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,58 +70,45 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  * @throws {@link WAFDuplicateItemException} (client fault)
- *  <p>WAF couldn’t perform the operation because the resource that you tried to save is
- *          a duplicate of an existing one.</p>
+ *
+ * WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>Your request is valid, but WAF couldn’t perform the operation because of a system
- *          problem. Retry your request. </p>
+ *
+ * Your request is valid, but WAF couldn’t perform the operation because of a system problem. Retry your request.
  *
  * @throws {@link WAFInvalidOperationException} (client fault)
- *  <p>The operation isn't valid. </p>
+ *
+ * The operation isn't valid.
  *
  * @throws {@link WAFInvalidParameterException} (client fault)
- *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
- *          example: </p>
- *          <ul>
- *             <li>
- *                <p>You specified a parameter name or value that isn't valid.</p>
- *             </li>
- *             <li>
- *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
- *                can’t be nested. </p>
- *             </li>
- *             <li>
- *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
- *                isn't among the types available at <a>DefaultAction</a>.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                with which a web ACL can't be associated.</p>
- *             </li>
- *          </ul>
+ *
+ * The operation failed because WAF didn't recognize a parameter in the request. For example:
+ *
+ * - You specified a parameter name or value that isn't valid.
+ * - Your nested statement isn't valid. You might have tried to nest a statement that can’t be nested.
+ * - You tried to update a `WebACL` with a `DefaultAction` that isn't among the types available at DefaultAction.
+ * - Your request references an ARN that is malformed, or corresponds to a resource with which a web ACL can't be associated.
  *
  * @throws {@link WAFLimitsExceededException} (client fault)
- *  <p>WAF couldn’t perform the operation because you exceeded your resource limit. For
- *          example, the maximum number of <code>WebACL</code> objects that you can create for an Amazon Web Services
- *          account. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the
- *             <i>WAF Developer Guide</i>.</p>
+ *
+ * WAF couldn’t perform the operation because you exceeded your resource limit. For example, the maximum number of `WebACL` objects that you can create for an Amazon Web Services account. For more information, see [WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *WAF Developer Guide*.
  *
  * @throws {@link WAFOptimisticLockException} (client fault)
- *  <p>WAF couldn’t save your changes because you tried to update or delete a resource
- *          that has changed since you last retrieved it. Get the resource again, make any changes you
- *          need to make to the new copy, and retry your operation. </p>
+ *
+ * WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation.
  *
  * @throws {@link WAFTagOperationException} (client fault)
- *  <p>An error occurred during the tagging operation. Retry your request.</p>
+ *
+ * An error occurred during the tagging operation. Retry your request.
  *
  * @throws {@link WAFTagOperationInternalErrorException} (server fault)
- *  <p>WAF couldn’t perform your tagging operation because of an internal error. Retry
- *          your request.</p>
+ *
+ * WAF couldn’t perform your tagging operation because of an internal error. Retry your request.
  *
  * @throws {@link WAFV2ServiceException}
- * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ * Base exception class for all service exceptions from WAFV2 service.
  *
  * @public
  */

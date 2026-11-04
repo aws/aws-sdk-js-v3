@@ -23,7 +23,8 @@ export interface ListThreatsCommandInput extends ListThreatsInput {}
 export interface ListThreatsCommandOutput extends ListThreatsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of threats for a threat model job.</p>
+ * Returns a paginated list of threats for a threat model job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface ListThreatsCommandOutput extends ListThreatsOutput, __MetadataB
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

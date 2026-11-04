@@ -23,13 +23,8 @@ export interface ListDataDeletionJobsCommandInput extends ListDataDeletionJobsRe
 export interface ListDataDeletionJobsCommandOutput extends ListDataDeletionJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of data deletion jobs for a dataset group ordered by creation time,
- *       with the most recent first.
- *       When
- *       a dataset group is not specified, all the data deletion jobs associated with
- *       the account are listed. The response provides the properties for each
- *       job, including the Amazon Resource Name (ARN). For more
- *       information on data deletion jobs, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html">Deleting users</a>.</p>
+ * Returns a list of data deletion jobs for a dataset group ordered by creation time, with the most recent first. When a dataset group is not specified, all the data deletion jobs associated with the account are listed. The response provides the properties for each job, including the Amazon Resource Name (ARN). For more information on data deletion jobs, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +64,16 @@ export interface ListDataDeletionJobsCommandOutput extends ListDataDeletionJobsR
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid.</p>
+ *
+ * The token is not valid.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

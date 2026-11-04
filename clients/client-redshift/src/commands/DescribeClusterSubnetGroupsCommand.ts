@@ -23,17 +23,12 @@ export interface DescribeClusterSubnetGroupsCommandInput extends DescribeCluster
 export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetGroupMessage, __MetadataBearer {}
 
 /**
- * <p>Returns one or more cluster subnet group objects, which contain metadata about your
- *             cluster subnet groups. By default, this operation returns information about all cluster
- *             subnet groups that are defined in your Amazon Web Services account.</p>
- *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
- *             all subnet groups that match any combination of the specified keys and values. For
- *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
- *                 <code>admin</code> and <code>test</code> for tag values, all subnet groups that have
- *             any combination of those values are returned.</p>
- *          <p>If both tag keys and values are omitted from the request, subnet groups are
- *             returned regardless of whether they have tag keys or values associated with
- *             them.</p>
+ * Returns one or more cluster subnet group objects, which contain metadata about your cluster subnet groups. By default, this operation returns information about all cluster subnet groups that are defined in your Amazon Web Services account.
+ *
+ * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all subnet groups that match any combination of the specified keys and values. For example, if you have `owner` and `environment` for tag keys, and `admin` and `test` for tag values, all subnet groups that have any combination of those values are returned.
+ *
+ * If both tag keys and values are omitted from the request, subnet groups are returned regardless of whether they have tag keys or values associated with them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,15 +94,16 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
- *  <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ *
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

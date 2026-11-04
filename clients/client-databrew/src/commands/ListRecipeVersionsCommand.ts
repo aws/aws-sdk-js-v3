@@ -23,8 +23,8 @@ export interface ListRecipeVersionsCommandInput extends ListRecipeVersionsReques
 export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the versions of a particular DataBrew recipe, except for
- *                 <code>LATEST_WORKING</code>.</p>
+ * Lists the versions of a particular DataBrew recipe, except for `LATEST_WORKING`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,11 +88,12 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

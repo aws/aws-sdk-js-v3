@@ -23,7 +23,8 @@ export interface CreateRedshiftIdcApplicationCommandInput extends CreateRedshift
 export interface CreateRedshiftIdcApplicationCommandOutput extends CreateRedshiftIdcApplicationResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Redshift application for use with IAM Identity Center.</p>
+ * Creates an Amazon Redshift application for use with IAM Identity Center.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,30 +150,36 @@ export interface CreateRedshiftIdcApplicationCommandOutput extends CreateRedshif
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link DependentServiceAccessDeniedFault} (client fault)
- *  <p>A dependent service denied access for the integration.</p>
+ *
+ * A dependent service denied access for the integration.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link RedshiftIdcApplicationAlreadyExistsFault} (client fault)
- *  <p>The application you attempted to add already exists.</p>
+ *
+ * The application you attempted to add already exists.
  *
  * @throws {@link RedshiftIdcApplicationQuotaExceededFault} (client fault)
- *  <p>The maximum number of Redshift IAM Identity Center applications was exceeded.</p>
+ *
+ * The maximum number of Redshift IAM Identity Center applications was exceeded.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

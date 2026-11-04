@@ -23,7 +23,8 @@ export interface PutAccountSendingAttributesCommandInput extends PutAccountSendi
 export interface PutAccountSendingAttributesCommandOutput extends PutAccountSendingAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Enable or disable the ability of your account to send email.</p>
+ * Enable or disable the ability of your account to send email.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,14 +49,16 @@ export interface PutAccountSendingAttributesCommandOutput extends PutAccountSend
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

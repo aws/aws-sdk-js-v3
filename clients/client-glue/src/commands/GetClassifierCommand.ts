@@ -23,7 +23,8 @@ export interface GetClassifierCommandInput extends GetClassifierRequest {}
 export interface GetClassifierCommandOutput extends GetClassifierResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve a classifier by name.</p>
+ * Retrieve a classifier by name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,14 +95,16 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

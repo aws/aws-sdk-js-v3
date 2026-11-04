@@ -336,7 +336,8 @@ export type TrustedAdvisorClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface TrustedAdvisorClientResolvedConfig extends TrustedAdvisorClientResolvedConfigType {}
 
 /**
- * <p>TrustedAdvisor Public API</p>
+ * TrustedAdvisor Public API
+ *
  * @public
  */
 export class TrustedAdvisorClient extends __Client<

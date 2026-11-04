@@ -23,13 +23,10 @@ export interface RetrieveTapeArchiveCommandInput extends RetrieveTapeArchiveInpu
 export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway.
- *          Virtual tapes archived in the VTS are not associated with any gateway. However after a tape
- *          is retrieved, it is associated with a gateway, even though it is also listed in the VTS,
- *          that is, archive. This operation is only supported in the tape gateway type.</p>
- *          <p>Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to
- *          another gateway. You must archive the tape again before you can retrieve it to another
- *          gateway. This operation is only supported in the tape gateway type.</p>
+ * Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway. Virtual tapes archived in the VTS are not associated with any gateway. However after a tape is retrieved, it is associated with a gateway, even though it is also listed in the VTS, that is, archive. This operation is only supported in the tape gateway type.
+ *
+ * Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to another gateway. You must archive the tape again before you can retrieve it to another gateway. This operation is only supported in the tape gateway type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,16 +54,16 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To retrieve an archived tape from the VTS
  * ```javascript

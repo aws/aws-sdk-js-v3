@@ -23,15 +23,8 @@ export interface DescribeReplayCommandInput extends DescribeReplayRequest {}
 export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
- *       progress of a running replay. A replay processes events to replay based on the time in the
- *       event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and
- *       specify an <code>EventStartTime</code> and an <code>EventEndTime</code> that covers a 20
- *       minute time range, the events are replayed from the first minute of that 20 minute range
- *       first. Then the events from the second minute are replayed. You can use
- *         <code>DescribeReplay</code> to determine the progress of a replay. The value returned for
- *         <code>EventLastReplayedTime</code> indicates the time within the specified time range
- *       associated with the last event replayed.</p>
+ * Retrieves details about a replay. Use `DescribeReplay` to determine the progress of a running replay. A replay processes events to replay based on the time in the event, and replays them using 1 minute intervals. If you use `StartReplay` and specify an `EventStartTime` and an `EventEndTime` that covers a 20 minute time range, the events are replayed from the first minute of that 20 minute range first. Then the events from the second minute are replayed. You can use `DescribeReplay` to determine the progress of a replay. The value returned for `EventLastReplayedTime` indicates the time within the specified time range associated with the last event replayed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +67,16 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

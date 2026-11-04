@@ -23,14 +23,16 @@ export interface DescribeRemediationExceptionsCommandInput extends DescribeRemed
 export interface DescribeRemediationExceptionsCommandOutput extends DescribeRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted.
- * 			When you specify the limit and the next token, you receive a paginated response. </p>
- *          <note>
- *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
- * 				Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
- *             <p>When you specify the limit and the next token, you receive a paginated response. </p>
- *             <p>Limit and next token are not applicable if you request resources in batch. It is only applicable, when you request all resources.</p>
- *          </note>
+ * Returns the details of one or more remediation exceptions. A detailed view of a remediation exception for a set of resources that includes an explanation of an exception and the time when the exception will be deleted. When you specify the limit and the next token, you receive a paginated response.
+ *
+ * > **Note:**
+ * >
+ * > Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource. Remediation exceptions blocks auto-remediation until the exception is cleared.
+ * >
+ * > When you specify the limit and the next token, you receive a paginated response.
+ * >
+ * > Limit and next token are not applicable if you request resources in batch. It is only applicable, when you request all resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,17 +76,16 @@ export interface DescribeRemediationExceptionsCommandOutput extends DescribeReme
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

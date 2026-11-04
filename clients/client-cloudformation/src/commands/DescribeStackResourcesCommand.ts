@@ -23,24 +23,16 @@ export interface DescribeStackResourcesCommandInput extends DescribeStackResourc
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If
- *         <code>StackName</code> is specified, all the associated resources that are part of the stack
- *       are returned. If <code>PhysicalResourceId</code> is specified, the associated resources of the
- *       stack that the resource belongs to are returned.</p>
- *          <note>
- *             <p>Only the first 100 resources will be returned. If your stack has more resources than
- *         this, you should use <code>ListStackResources</code> instead.</p>
- *          </note>
- *          <p>For deleted stacks, <code>DescribeStackResources</code> returns resource information for
- *       up to 90 days after the stack has been deleted.</p>
- *          <p>You must specify either <code>StackName</code> or <code>PhysicalResourceId</code>, but not
- *       both. In addition, you can specify <code>LogicalResourceId</code> to filter the returned
- *       result. For more information about resources, the <code>LogicalResourceId</code> and
- *         <code>PhysicalResourceId</code>, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation User Guide</a>.</p>
- *          <note>
- *             <p>A <code>ValidationError</code> is returned if you specify both <code>StackName</code>
- *         and <code>PhysicalResourceId</code> in the same request.</p>
- *          </note>
+ * Returns Amazon Web Services resource descriptions for running and deleted stacks. If `StackName` is specified, all the associated resources that are part of the stack are returned. If `PhysicalResourceId` is specified, the associated resources of the stack that the resource belongs to are returned.
+ *
+ * > **Note:** Only the first 100 resources will be returned. If your stack has more resources than this, you should use `ListStackResources` instead.
+ *
+ * For deleted stacks, `DescribeStackResources` returns resource information for up to 90 days after the stack has been deleted.
+ *
+ * You must specify either `StackName` or `PhysicalResourceId`, but not both. In addition, you can specify `LogicalResourceId` to filter the returned result. For more information about resources, the `LogicalResourceId` and `PhysicalResourceId`, see the [CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/).
+ *
+ * > **Note:** A `ValidationError` is returned if you specify both `StackName` and `PhysicalResourceId` in the same request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +81,8 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

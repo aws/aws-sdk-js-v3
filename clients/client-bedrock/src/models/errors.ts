@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BedrockServiceException as __BaseException } from "./BedrockServiceException";
 
 /**
- * <p>The request is denied because of missing access permissions.</p>
+ * The request is denied because of missing access permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * The number of requests exceeds the limit. Resubmit your request later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -67,7 +70,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Input validation failed. Check your request parameters and retry the request.</p>
+ * Input validation failed. Check your request parameters and retry the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -88,7 +92,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Error occurred because of a conflict while performing an operation.</p>
+ * Error occurred because of a conflict while performing an operation.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -109,7 +114,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
+ * The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -130,7 +136,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+ * The number of requests exceeds the service quota. Resubmit your request later.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -151,7 +158,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -159,7 +167,8 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource with too many tags.</p>
+   * The name of the resource with too many tags.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -179,7 +188,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.</p>
+ * Thrown when attempting to delete or modify a resource that is currently being used by other resources or operations. For example, trying to delete an Automated Reasoning policy that is referenced by an active guardrail.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -200,7 +210,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Returned if the service cannot complete the request.</p>
+ * Returned if the service cannot complete the request.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {

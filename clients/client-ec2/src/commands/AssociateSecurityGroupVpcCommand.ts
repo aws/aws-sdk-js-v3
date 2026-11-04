@@ -23,26 +23,16 @@ export interface AssociateSecurityGroupVpcCommandInput extends AssociateSecurity
 export interface AssociateSecurityGroupVpcCommandOutput extends AssociateSecurityGroupVpcResult, __MetadataBearer {}
 
 /**
- * <p>Associates a security group with another VPC in the same Region. This enables you to use the same security group with network interfaces and instances in the specified VPC.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>The VPC you want to associate the security group with must be in the same Region.</p>
- *                </li>
- *                <li>
- *                   <p>You can associate the security group with another VPC if your account owns the VPC or if the VPC was shared with you.</p>
- *                </li>
- *                <li>
- *                   <p>You must own the security group.</p>
- *                </li>
- *                <li>
- *                   <p>You cannot use this feature with default security groups.</p>
- *                </li>
- *                <li>
- *                   <p>You cannot use this feature with the default VPC.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Associates a security group with another VPC in the same Region. This enables you to use the same security group with network interfaces and instances in the specified VPC.
+ *
+ * > **Note:**
+ * >
+ * > - The VPC you want to associate the security group with must be in the same Region.
+ * > - You can associate the security group with another VPC if your account owns the VPC or if the VPC was shared with you.
+ * > - You must own the security group.
+ * > - You cannot use this feature with default security groups.
+ * > - You cannot use this feature with the default VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +61,8 @@ export interface AssociateSecurityGroupVpcCommandOutput extends AssociateSecurit
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

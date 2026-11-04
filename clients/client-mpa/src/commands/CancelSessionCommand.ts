@@ -23,7 +23,8 @@ export interface CancelSessionCommandInput extends CancelSessionRequest {}
 export interface CancelSessionCommandOutput extends CancelSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels an approval session. For more information, see <a href="https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html">Session</a> in the <i>Multi-party approval User Guide</i>.</p>
+ * Cancels an approval session. For more information, see [Session](https://docs.aws.amazon.com/mpa/latest/userguide/mpa-concepts.html) in the *Multi-party approval User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,26 +49,32 @@ export interface CancelSessionCommandOutput extends CancelSessionResponse, __Met
  * @see {@link MPAClientResolvedConfig | config} for MPAClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+ *
+ * You do not have sufficient access to perform this action. Check your permissions, and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+ *
+ * The request cannot be completed because it conflicts with the current state of a resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+ *
+ * The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+ *
+ * The specified resource doesn't exist. Check the resource ID, and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link MPAServiceException}
- * <p>Base exception class for all service exceptions from MPA service.</p>
  *
+ * Base exception class for all service exceptions from MPA service.
  *
  * @public
  */

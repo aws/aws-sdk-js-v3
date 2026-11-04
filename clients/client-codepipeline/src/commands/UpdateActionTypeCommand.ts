@@ -23,10 +23,8 @@ export interface UpdateActionTypeCommandInput extends UpdateActionTypeInput {}
 export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates an action type that was created with any supported integration model, where
- *             the action type is to be used by customers of the action type provider. Use a JSON file
- *             with the action definition and <code>UpdateActionType</code> to provide the full
- *             structure.</p>
+ * Updates an action type that was created with any supported integration model, where the action type is to be used by customers of the action type provider. Use a JSON file with the action definition and `UpdateActionType` to provide the full structure.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,17 +104,20 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ActionTypeNotFoundException} (client fault)
- *  <p>The specified action type cannot be found.</p>
+ *
+ * The specified action type cannot be found.
  *
  * @throws {@link RequestFailedException} (client fault)
- *  <p>The request failed because of an unknown error, exception, or failure.</p>
+ *
+ * The request failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

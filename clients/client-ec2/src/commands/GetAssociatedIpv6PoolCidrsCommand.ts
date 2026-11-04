@@ -23,7 +23,8 @@ export interface GetAssociatedIpv6PoolCidrsCommandInput extends GetAssociatedIpv
 export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIpv6PoolCidrsResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
+ * Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +60,8 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

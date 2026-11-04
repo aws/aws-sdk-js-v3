@@ -225,11 +225,11 @@ export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAct
  */
 export const AgenticRetrieveMemoryPersistenceMode = {
   /**
-   * <p>Specifies that the question and the agent-generated answer are persisted to the session. This is the default when persistenceMode is omitted.</p>
+   * Specifies that the question and the agent-generated answer are persisted to the session. This is the default when persistenceMode is omitted.
    */
   DEFAULT: "DEFAULT",
   /**
-   * <p>Specifies that the session is left unchanged.</p>
+   * Specifies that the session is left unchanged.
    */
   NONE: "NONE",
 } as const;
@@ -245,43 +245,43 @@ export type AgenticRetrieveMemoryPersistenceMode =
  */
 export const AgenticRetrieveMemoryMetadataFilterOperator = {
   /**
-   * <p>The AFTER operator matches memory records whose timestamp metadata value falls after the supplied value.</p>
+   * The AFTER operator matches memory records whose timestamp metadata value falls after the supplied value.
    */
   AFTER: "AFTER",
   /**
-   * <p>The BEFORE operator matches memory records whose timestamp metadata value falls before the supplied value.</p>
+   * The BEFORE operator matches memory records whose timestamp metadata value falls before the supplied value.
    */
   BEFORE: "BEFORE",
   /**
-   * <p>The CONTAINS operator matches memory records whose metadata value contains the supplied value.</p>
+   * The CONTAINS operator matches memory records whose metadata value contains the supplied value.
    */
   CONTAINS: "CONTAINS",
   /**
-   * <p>The EQUALS_TO operator matches memory records whose metadata value equals the supplied value.</p>
+   * The EQUALS_TO operator matches memory records whose metadata value equals the supplied value.
    */
   EQUALS_TO: "EQUALS_TO",
   /**
-   * <p>The EXISTS operator matches memory records that carry the metadata key, whatever its value. This operator takes no right operand.</p>
+   * The EXISTS operator matches memory records that carry the metadata key, whatever its value. This operator takes no right operand.
    */
   EXISTS: "EXISTS",
   /**
-   * <p>The GREATER_THAN operator matches memory records whose numeric metadata value is greater than the supplied value.</p>
+   * The GREATER_THAN operator matches memory records whose numeric metadata value is greater than the supplied value.
    */
   GREATER_THAN: "GREATER_THAN",
   /**
-   * <p>The GREATER_THAN_OR_EQUALS operator matches memory records whose numeric metadata value is greater than or equal to the supplied value.</p>
+   * The GREATER_THAN_OR_EQUALS operator matches memory records whose numeric metadata value is greater than or equal to the supplied value.
    */
   GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
   /**
-   * <p>The LESS_THAN operator matches memory records whose numeric metadata value is less than the supplied value.</p>
+   * The LESS_THAN operator matches memory records whose numeric metadata value is less than the supplied value.
    */
   LESS_THAN: "LESS_THAN",
   /**
-   * <p>The LESS_THAN_OR_EQUALS operator matches memory records whose numeric metadata value is less than or equal to the supplied value.</p>
+   * The LESS_THAN_OR_EQUALS operator matches memory records whose numeric metadata value is less than or equal to the supplied value.
    */
   LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
   /**
-   * <p>The NOT_EXISTS operator matches memory records that do not carry the metadata key. This operator takes no right operand.</p>
+   * The NOT_EXISTS operator matches memory records that do not carry the metadata key. This operator takes no right operand.
    */
   NOT_EXISTS: "NOT_EXISTS",
 } as const;
@@ -310,11 +310,11 @@ export type ConversationRole = (typeof ConversationRole)[keyof typeof Conversati
  */
 export const AgenticRetrieveType = {
   /**
-   * <p>An AgentCore Memory resource. Long-term memory retrievals report under the Retrieval step with this source type.</p>
+   * An AgentCore Memory resource. Long-term memory retrievals report under the Retrieval step with this source type.
    */
   BEDROCK_AGENT_CORE_MEMORY: "BedrockAgentCoreMemory",
   /**
-   * <p>A Bedrock knowledge base retrieval source.</p>
+   * A Bedrock knowledge base retrieval source.
    */
   BEDROCK_KNOWLEDGE_BASE: "BedrockKnowledgeBase",
 } as const;
@@ -329,15 +329,15 @@ export type AgenticRetrieveType = (typeof AgenticRetrieveType)[keyof typeof Agen
  */
 export const AgenticRetrieveStatus = {
   /**
-   * <p>The step failed.</p>
+   * The step failed.
    */
   FAILED: "FAILED",
   /**
-   * <p>The step is currently in progress.</p>
+   * The step is currently in progress.
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * <p>The step completed successfully.</p>
+   * The step completed successfully.
    */
   SUCCEEDED: "SUCCEEDED",
 } as const;
@@ -352,27 +352,27 @@ export type AgenticRetrieveStatus = (typeof AgenticRetrieveStatus)[keyof typeof 
  */
 export const AgenticRetrieveStep = {
   /**
-   * <p>The phase that runs agent-generated code in an isolated sandbox. The code can read documents retrieved earlier in the same request.</p>
+   * The phase that runs agent-generated code in an isolated sandbox. The code can read documents retrieved earlier in the same request.
    */
   CODE_EXECUTION: "CodeExecution",
   /**
-   * <p>The full document expansion phase.</p>
+   * The full document expansion phase.
    */
   FULL_DOCUMENT_EXPANSION: "FullDocumentExpansion",
   /**
-   * <p>The planning phase of retrieval.</p>
+   * The planning phase of retrieval.
    */
   PLANNING: "Planning",
   /**
-   * <p>The retrieval phase where data is fetched.</p>
+   * The retrieval phase where data is fetched.
    */
   RETRIEVAL: "Retrieval",
   /**
-   * <p>The phase that restores prior session history from AgentCore Memory short-term memory, before the agent begins work.</p>
+   * The phase that restores prior session history from AgentCore Memory short-term memory, before the agent begins work.
    */
   SESSION_HISTORY_LOAD: "SessionHistoryLoad",
   /**
-   * <p>A speculative retrieval phase for optimization.</p>
+   * A speculative retrieval phase for optimization.
    */
   SPECULATIVE_RETRIEVAL: "SpeculativeRetrieval",
 } as const;

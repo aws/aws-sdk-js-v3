@@ -23,7 +23,14 @@ export interface UpdateSubscriptionCommandInput extends UpdateSubscriptionInput 
 export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Changes the plan tier of an existing subscription.</p> <note> <p>Upgrades take effect immediately. Downgrades are scheduled and the current tier remains unchanged until the end of the billing cycle (calendar month). You cannot update a subscription while a scheduled change is pending. To make a new change, first cancel the pending change using <code>CancelSubscriptionChange</code>.</p> <p>This operation replaces the plan tier value. If you omit the optional <code>usageLevel</code> field, it is reset to the default.</p> </note>
+ * Changes the plan tier of an existing subscription.
+ *
+ * > **Note:**
+ * >
+ * > Upgrades take effect immediately. Downgrades are scheduled and the current tier remains unchanged until the end of the billing cycle (calendar month). You cannot update a subscription while a scheduled change is pending. To make a new change, first cancel the pending change using `CancelSubscriptionChange`.
+ * >
+ * > This operation replaces the plan tier value. If you omit the optional `usageLevel` field, it is reset to the default.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,29 +80,36 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionOutpu
  * @see {@link PricingPlanManagerClientResolvedConfig | config} for PricingPlanManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.</p>
+ *
+ * You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. This typically occurs when the <code>ETag</code> value in the <code>If-Match</code> header does not match the current version of the subscription. Retrieve the latest version and retry.</p>
+ *
+ * The request conflicts with the current state of the resource. This typically occurs when the `ETag` value in the `If-Match` header does not match the current version of the subscription. Retrieve the latest version and retry.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred on the server. Retry the request.</p>
+ *
+ * An unexpected error occurred on the server. Retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.</p>
+ *
+ * The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed a service limit. You have reached the maximum number of subscriptions allowed for your account.</p>
+ *
+ * The request would exceed a service limit. You have reached the maximum number of subscriptions allowed for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeds the allowed limit. Wait briefly and retry the request.</p>
+ *
+ * The request rate exceeds the allowed limit. Wait briefly and retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.</p>
+ *
+ * The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.
  *
  * @throws {@link PricingPlanManagerServiceException}
- * <p>Base exception class for all service exceptions from PricingPlanManager service.</p>
  *
+ * Base exception class for all service exceptions from PricingPlanManager service.
  *
  * @example Update a subscription plan tier
  * ```javascript

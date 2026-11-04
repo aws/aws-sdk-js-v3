@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MarketplaceDeploymentServiceException as __BaseException } from "./MarketplaceDeploymentServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ * The request configuration has conflicts. For details, see the accompanying error message.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,7 +35,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier for the resource associated with the error.</p>
+   * The unique identifier for the resource associated with the error.
+   *
    * @public
    */
   resourceId: string | undefined;
@@ -53,7 +56,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>There was an internal service exception.</p>
+ * There was an internal service exception.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -75,7 +79,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource wasn't found.</p>
+ * The specified resource wasn't found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +101,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of requests per account has been exceeded.</p>
+ * The maximum number of requests per account has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -117,7 +123,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Too many requests.</p>
+ * Too many requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -141,7 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>An error occurred during validation.</p>
+ * An error occurred during validation.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -149,7 +157,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The field name associated with the error.</p>
+   * The field name associated with the error.
+   *
    * @public
    */
   fieldName: string | undefined;

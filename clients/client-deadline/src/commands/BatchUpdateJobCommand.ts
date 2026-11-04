@@ -23,7 +23,14 @@ export interface BatchUpdateJobCommandInput extends BatchUpdateJobRequest {}
 export interface BatchUpdateJobCommandOutput extends BatchUpdateJobResponse, __MetadataBearer {}
 
 /**
- * <p>Updates multiple jobs in a single request. This is a batch version of the <code>UpdateJob</code> API.</p> <p>The result of updating each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.</p> <p>When you change the status of a job to <code>ARCHIVED</code>, the job can't be scheduled or archived.</p> <important> <p>An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.</p> </important>
+ * Updates multiple jobs in a single request. This is a batch version of the `UpdateJob` API.
+ *
+ * The result of updating each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
+ *
+ * When you change the status of a job to `ARCHIVED`, the job can't be scheduled or archived.
+ *
+ * > **Important:** An archived job and its steps and tasks are deleted after 120 days. The job can't be recovered.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +92,8 @@ export interface BatchUpdateJobCommandOutput extends BatchUpdateJobResponse, __M
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @example Update multiple jobs in a single request
  * ```javascript

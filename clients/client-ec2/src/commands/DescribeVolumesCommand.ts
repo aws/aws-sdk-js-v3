@@ -23,19 +23,16 @@ export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
 export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified EBS volumes or all of your EBS volumes.</p>
- *          <p>If you are describing a long list of volumes, we recommend that you paginate the output to make the list
- *       more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
- *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html">Amazon EBS volumes</a> in the <i>Amazon EBS User Guide</i>.</p>
- *          <important>
- *             <p>We strongly recommend using only paginated requests. Unpaginated requests are
- *         susceptible to throttling and timeouts.</p>
- *          </important>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *         structures, might vary. Applications should not assume the elements appear in a
- *         particular order.</p>
- *          </note>
+ * Describes the specified EBS volumes or all of your EBS volumes.
+ *
+ * If you are describing a long list of volumes, we recommend that you paginate the output to make the list more manageable. For more information, see [Pagination](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination).
+ *
+ * For more information about EBS volumes, see [Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html) in the *Amazon EBS User Guide*.
+ *
+ * > **Important:** We strongly recommend using only paginated requests. Unpaginated requests are susceptible to throttling and timeouts.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,8 +121,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe all volumes
  * ```javascript

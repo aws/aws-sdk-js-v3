@@ -26,7 +26,8 @@ export interface DeleteTransitGatewayMeteringPolicyCommandInput extends DeleteTr
 export interface DeleteTransitGatewayMeteringPolicyCommandOutput extends DeleteTransitGatewayMeteringPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a transit gateway metering policy.</p>
+ * Deletes a transit gateway metering policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface DeleteTransitGatewayMeteringPolicyCommandOutput extends DeleteT
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

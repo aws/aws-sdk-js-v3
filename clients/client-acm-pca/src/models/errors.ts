@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceException";
 
 /**
- * <p>One or more of the specified arguments was not valid.</p>
+ * One or more of the specified arguments was not valid.
+ *
  * @public
  */
 export class InvalidArgsException extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidArgsException extends __BaseException {
 }
 
 /**
- * <p>The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
+ * The resource policy is invalid or is missing a required statement. For general information about IAM policy and statement structure, see [Overview of JSON Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json).
+ *
  * @public
  */
 export class InvalidPolicyException extends __BaseException {
@@ -46,7 +48,8 @@ export class InvalidPolicyException extends __BaseException {
 }
 
 /**
- * <p>The tag associated with the CA is not valid. The invalid argument is contained in the message field.</p>
+ * The tag associated with the CA is not valid. The invalid argument is contained in the message field.
+ *
  * @public
  */
 export class InvalidTagException extends __BaseException {
@@ -67,7 +70,8 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.</p>
+ * An Amazon Web Services Private CA quota has been exceeded. See the exception message returned to determine the quota that was exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -88,7 +92,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+ *
  * @public
  */
 export class InvalidArnException extends __BaseException {
@@ -109,7 +114,8 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
- * <p>The state of the private CA does not allow this action to occur.</p>
+ * The state of the private CA does not allow this action to occur.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -130,7 +136,8 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The request has failed for an unspecified reason.</p>
+ * The request has failed for an unspecified reason.
+ *
  * @public
  */
 export class RequestFailedException extends __BaseException {
@@ -151,7 +158,8 @@ export class RequestFailedException extends __BaseException {
 }
 
 /**
- * <p>Your request is already in progress.</p>
+ * Your request is already in progress.
+ *
  * @public
  */
 export class RequestInProgressException extends __BaseException {
@@ -172,7 +180,8 @@ export class RequestInProgressException extends __BaseException {
 }
 
 /**
- * <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.</p>
+ * A resource such as a private CA, S3 bucket, certificate, audit report, or policy cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -193,7 +202,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The designated permission has already been given to the user.</p>
+ * The designated permission has already been given to the user.
+ *
  * @public
  */
 export class PermissionAlreadyExistsException extends __BaseException {
@@ -214,7 +224,8 @@ export class PermissionAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>A previous update to your private CA is still ongoing.</p>
+ * A previous update to your private CA is still ongoing.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -235,7 +246,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The current action was prevented because it would lock the caller out from performing subsequent actions. Verify that the specified parameters would not result in the caller being denied access to the resource. </p>
+ * The current action was prevented because it would lock the caller out from performing subsequent actions. Verify that the specified parameters would not result in the caller being denied access to the resource.
+ *
  * @public
  */
 export class LockoutPreventedException extends __BaseException {
@@ -256,7 +268,8 @@ export class LockoutPreventedException extends __BaseException {
 }
 
 /**
- * <p>The certificate authority certificate you are importing does not comply with conditions specified in the certificate that signed it.</p>
+ * The certificate authority certificate you are importing does not comply with conditions specified in the certificate that signed it.
+ *
  * @public
  */
 export class CertificateMismatchException extends __BaseException {
@@ -277,7 +290,8 @@ export class CertificateMismatchException extends __BaseException {
 }
 
 /**
- * <p>The request action cannot be performed or is prohibited.</p>
+ * The request action cannot be performed or is prohibited.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -298,7 +312,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>One or more fields in the certificate are invalid.</p>
+ * One or more fields in the certificate are invalid.
+ *
  * @public
  */
 export class MalformedCertificateException extends __BaseException {
@@ -319,7 +334,8 @@ export class MalformedCertificateException extends __BaseException {
 }
 
 /**
- * <p>The certificate signing request is invalid.</p>
+ * The certificate signing request is invalid.
+ *
  * @public
  */
 export class MalformedCSRException extends __BaseException {
@@ -340,7 +356,8 @@ export class MalformedCSRException extends __BaseException {
 }
 
 /**
- * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token returned from your previous call to <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>.</p>
+ * The token specified in the `NextToken` argument is not valid. Use the token returned from your previous call to [ListCertificateAuthorities](https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html).
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -361,7 +378,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>Your request has already been completed.</p>
+ * Your request has already been completed.
+ *
  * @public
  */
 export class RequestAlreadyProcessedException extends __BaseException {
@@ -382,7 +400,8 @@ export class RequestAlreadyProcessedException extends __BaseException {
 }
 
 /**
- * <p>You can associate up to 50 tags with a private CA. Exception information is contained in the exception message field.</p>
+ * You can associate up to 50 tags with a private CA. Exception information is contained in the exception message field.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

@@ -23,12 +23,8 @@ export interface DescribeClusterVersionsCommandInput extends DescribeClusterVers
 export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns descriptions of the available Amazon Redshift cluster versions. You can call this
- *             operation even before creating any clusters to learn more about the Amazon Redshift versions.
+ * Returns descriptions of the available Amazon Redshift cluster versions. You can call this operation even before creating any clusters to learn more about the Amazon Redshift versions. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
  *
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +61,8 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

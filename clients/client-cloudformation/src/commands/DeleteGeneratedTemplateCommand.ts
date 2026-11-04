@@ -23,7 +23,8 @@ export interface DeleteGeneratedTemplateCommandInput extends DeleteGeneratedTemp
 export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deleted a generated template.</p>
+ * Deleted a generated template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,16 +49,16 @@ export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ConcurrentResourcesLimitExceededException} (client fault)
- *  <p>No more than 5 generated templates can be in an <code>InProgress</code> or <code>Pending</code> status at one
- *    time. This error is also returned if a generated template that is in an <code>InProgress</code> or
- *    <code>Pending</code> status is attempted to be updated or deleted.</p>
+ *
+ * No more than 5 generated templates can be in an `InProgress` or `Pending` status at one time. This error is also returned if a generated template that is in an `InProgress` or `Pending` status is attempted to be updated or deleted.
  *
  * @throws {@link GeneratedTemplateNotFoundException} (client fault)
- *  <p>The generated template was not found.</p>
+ *
+ * The generated template was not found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @example To delete a generated template
  * ```javascript

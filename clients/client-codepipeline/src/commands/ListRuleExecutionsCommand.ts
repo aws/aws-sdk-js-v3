@@ -23,8 +23,8 @@ export interface ListRuleExecutionsCommandInput extends ListRuleExecutionsInput 
 export interface ListRuleExecutionsCommandOutput extends ListRuleExecutionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the rule executions that have occurred in a pipeline configured for conditions
- *             with rules.</p>
+ * Lists the rule executions that have occurred in a pipeline configured for conditions with rules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,22 +109,24 @@ export interface ListRuleExecutionsCommandOutput extends ListRuleExecutionsOutpu
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format. Make sure that the next token
- *             you provide is the token returned by a previous call.</p>
+ *
+ * The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
  *
  * @throws {@link PipelineExecutionNotFoundException} (client fault)
- *  <p>The pipeline execution was specified in an invalid format or cannot be found, or an
- *             execution ID does not belong to the specified pipeline. </p>
+ *
+ * The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

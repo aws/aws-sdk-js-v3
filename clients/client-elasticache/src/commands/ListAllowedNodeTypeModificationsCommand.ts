@@ -23,12 +23,10 @@ export interface ListAllowedNodeTypeModificationsCommandInput extends ListAllowe
 export interface ListAllowedNodeTypeModificationsCommandOutput extends AllowedNodeTypeModificationsMessage, __MetadataBearer {}
 
 /**
- * <p>Lists all available node types that you can scale with your cluster's replication
- *             group's current node type.</p>
- *          <p>When you use the <code>ModifyCacheCluster</code> or
- *                 <code>ModifyReplicationGroup</code> operations to scale your cluster or replication
- *             group, the value of the <code>CacheNodeType</code> parameter must be one of the node
- *             types returned by this operation.</p>
+ * Lists all available node types that you can scale with your cluster's replication group's current node type.
+ *
+ * When you use the `ModifyCacheCluster` or `ModifyReplicationGroup` operations to scale your cluster or replication group, the value of the `CacheNodeType` parameter must be one of the node types returned by this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +59,24 @@ export interface ListAllowedNodeTypeModificationsCommandOutput extends AllowedNo
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example ListAllowedNodeTypeModifications
  * ```javascript

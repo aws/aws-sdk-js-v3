@@ -23,7 +23,8 @@ export interface GetVerifiedAccessGroupPolicyCommandInput extends GetVerifiedAcc
 export interface GetVerifiedAccessGroupPolicyCommandOutput extends GetVerifiedAccessGroupPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Shows the contents of the Verified Access policy associated with the group.</p>
+ * Shows the contents of the Verified Access policy associated with the group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +53,8 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput extends GetVerifiedAc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

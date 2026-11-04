@@ -23,13 +23,10 @@ export interface RejectQualificationRequestCommandInput extends RejectQualificat
 export interface RejectQualificationRequestCommandOutput extends RejectQualificationRequestResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>RejectQualificationRequest</code>
- *             operation rejects a user's request for a Qualification.
- *         </p>
- *         <p> You can provide a text message explaining why the request was
- *             rejected. The Worker who made the request can see this message.</p>
+ * The `RejectQualificationRequest` operation rejects a user's request for a Qualification.
+ *
+ * You can provide a text message explaining why the request was rejected. The Worker who made the request can see this message.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +52,16 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

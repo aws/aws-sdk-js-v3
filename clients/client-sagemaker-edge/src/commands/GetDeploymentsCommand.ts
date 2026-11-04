@@ -23,7 +23,8 @@ export interface GetDeploymentsCommandInput extends GetDeploymentsRequest {}
 export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __MetadataBearer {}
 
 /**
- * <p>Use to get the active deployments from a device.</p>
+ * Use to get the active deployments from a device.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,12 +69,12 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  * @see {@link SagemakerEdgeClientResolvedConfig | config} for SagemakerEdgeClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (client fault)
- *  <p>An internal failure occurred. Try your request again. If the problem
- *       persists, contact Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link SagemakerEdgeServiceException}
- * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ * Base exception class for all service exceptions from SagemakerEdge service.
  *
  * @public
  */

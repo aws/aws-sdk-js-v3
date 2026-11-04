@@ -23,7 +23,8 @@ export interface PutEventsCommandInput extends PutEventsRequest {}
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
+ * Sends custom events to Amazon EventBridge so that they can be matched to rules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,11 +70,12 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

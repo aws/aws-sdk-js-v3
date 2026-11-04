@@ -23,13 +23,10 @@ export interface GetCostAndUsageCommandInput extends GetCostAndUsageRequest {}
 export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves cost and usage metrics for your account. You can specify which cost and
- *       usage-related metric that you want the request to return. For example, you can specify
- *         <code>BlendedCosts</code> or <code>UsageQuantity</code>. You can also filter and group your
- *       data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific
- *       time range. For a complete list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Management account in an organization in Organizations have access to all member accounts.</p>
- *          <p>For information about filter limitations, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html">Quotas and restrictions</a>
- *       in the <i>Billing and Cost Management User Guide</i>.</p>
+ * Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric that you want the request to return. For example, you can specify `BlendedCosts` or `UsageQuantity`. You can also filter and group your data by various dimensions, such as `SERVICE` or `AZ`, in a specific time range. For a complete list of valid dimensions, see the [GetDimensionValues](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html) operation. Management account in an organization in Organizations have access to all member accounts.
+ *
+ * For information about filter limitations, see [Quotas and restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-limits.html) in the *Billing and Cost Management User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -194,32 +191,36 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link BillExpirationException} (client fault)
- *  <p>The requested report expired. Update the date interval and try again.</p>
+ *
+ * The requested report expired. Update the date interval and try again.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p>
- *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
- *         </p>
+ *
+ * The billing view status must be `HEALTHY` to perform this action. Try again when the status is `HEALTHY`.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link RequestChangedException} (client fault)
- *  <p>Your request parameters changed between pages. Try again with the old parameters or
- *             without a pagination token.</p>
+ *
+ * Your request parameters changed between pages. Try again with the old parameters or without a pagination token.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

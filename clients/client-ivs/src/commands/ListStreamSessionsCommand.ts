@@ -23,7 +23,8 @@ export interface ListStreamSessionsCommandInput extends ListStreamSessionsReques
 export interface ListStreamSessionsCommandOutput extends ListStreamSessionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a summary of current and previous streams for a specified channel in your account, in the AWS region where the API request is processed.</p>
+ * Gets a summary of current and previous streams for a specified channel in your account, in the AWS region where the API request is processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +61,20 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IvsServiceException}
- * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * Base exception class for all service exceptions from Ivs service.
  *
  * @public
  */

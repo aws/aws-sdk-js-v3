@@ -23,8 +23,8 @@ export interface GetDNSSECCommandInput extends GetDNSSECRequest {}
 export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about DNSSEC for a specific hosted zone, including the key-signing
- * 			keys (KSKs) in the hosted zone.</p>
+ * Returns information about DNSSEC for a specific hosted zone, including the key-signing keys (KSKs) in the hosted zone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,17 +74,20 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>Parameter name is not valid.</p>
+ *
+ * Parameter name is not valid.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

@@ -5,7 +5,8 @@ import { CloudWatchServiceException as __BaseException } from "./CloudWatchServi
 import type { DashboardValidationMessage } from "./models_0";
 
 /**
- * <p>This operation attempted to create a resource that already exists.</p>
+ * This operation attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -28,14 +29,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation was denied because either the calling principal lacks the required
- *             Amazon Web Services Key Management Service (Amazon Web Services KMS) permission on the
- *             key, or the key policy does not grant Amazon CloudWatch the permissions it needs
- *             to use the key. Verify that the caller has <code>kms:Decrypt</code> permission on the
- *             key, and that the key policy grants the CloudWatch service principal the
- *             <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>,
- *             <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code>
- *             permissions described in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html">AssociateDatasetKmsKey</a>.</p>
+ * The operation was denied because either the calling principal lacks the required Amazon Web Services Key Management Service (Amazon Web Services KMS) permission on the key, or the key policy does not grant Amazon CloudWatch the permissions it needs to use the key. Verify that the caller has `kms:Decrypt` permission on the key, and that the key policy grants the CloudWatch service principal the `kms:DescribeKey`, `kms:GenerateDataKey`, `kms:Encrypt`, `kms:Decrypt`, and `kms:ReEncrypt*` permissions described in [AssociateDatasetKmsKey](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html).
+ *
  * @public
  */
 export class KmsAccessDeniedException extends __BaseException {
@@ -58,9 +53,8 @@ export class KmsAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key
- *             is disabled or pending deletion. Re-enable the key (or restore it, if it is pending
- *             deletion) and retry the operation.</p>
+ * The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key is disabled or pending deletion. Re-enable the key (or restore it, if it is pending deletion) and retry the operation.
+ *
  * @public
  */
 export class KmsKeyDisabledException extends __BaseException {
@@ -83,10 +77,8 @@ export class KmsKeyDisabledException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key
- *             could not be found. Verify that the key Amazon Resource Name (ARN) is correct, that
- *             the key exists, and that it is in the same Amazon Web Services Region as the
- *             resource.</p>
+ * The specified Amazon Web Services Key Management Service (Amazon Web Services KMS) key could not be found. Verify that the key Amazon Resource Name (ARN) is correct, that the key exists, and that it is in the same Amazon Web Services Region as the resource.
+ *
  * @public
  */
 export class KmsKeyNotFoundException extends __BaseException {
@@ -109,7 +101,8 @@ export class KmsKeyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The named resource does not exist.</p>
+ * The named resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -136,7 +129,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>More than one process tried to modify a resource at the same time.</p>
+ * More than one process tried to modify a resource at the same time.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -159,7 +153,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>Some part of the dashboard data is invalid.</p>
+ * Some part of the dashboard data is invalid.
+ *
  * @public
  */
 export class DashboardInvalidInputError extends __BaseException {
@@ -182,7 +177,8 @@ export class DashboardInvalidInputError extends __BaseException {
 }
 
 /**
- * <p>The specified dashboard does not exist.</p>
+ * The specified dashboard does not exist.
+ *
  * @public
  */
 export class DashboardNotFoundError extends __BaseException {
@@ -203,7 +199,8 @@ export class DashboardNotFoundError extends __BaseException {
 }
 
 /**
- * <p>The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.</p>
+ * The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.
+ *
  * @public
  */
 export class ResourceConflict extends __BaseException {
@@ -224,7 +221,8 @@ export class ResourceConflict extends __BaseException {
 }
 
 /**
- * <p>The named resource does not exist.</p>
+ * The named resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFound extends __BaseException {
@@ -245,8 +243,8 @@ export class ResourceNotFound extends __BaseException {
 }
 
 /**
- * <p>Request processing has failed due to some unknown error, exception, or
- *             failure.</p>
+ * Request processing has failed due to some unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServiceFault extends __BaseException {
@@ -254,7 +252,6 @@ export class InternalServiceFault extends __BaseException {
   readonly name = "InternalServiceFault" as const;
   readonly $fault = "server" as const;
   /**
-   * <p></p>
    * @public
    */
   Message?: string | undefined;
@@ -273,7 +270,8 @@ export class InternalServiceFault extends __BaseException {
 }
 
 /**
- * <p>Parameters were used together that cannot be used together.</p>
+ * Parameters were used together that cannot be used together.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -294,7 +292,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>The value of an input parameter is bad or out-of-range.</p>
+ * The value of an input parameter is bad or out-of-range.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -315,7 +314,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>An input parameter that is required is missing.</p>
+ * An input parameter that is required is missing.
+ *
  * @public
  */
 export class MissingRequiredParameterException extends __BaseException {
@@ -336,7 +336,8 @@ export class MissingRequiredParameterException extends __BaseException {
 }
 
 /**
- * <p>The next token specified is invalid.</p>
+ * The next token specified is invalid.
+ *
  * @public
  */
 export class InvalidNextToken extends __BaseException {
@@ -357,7 +358,8 @@ export class InvalidNextToken extends __BaseException {
 }
 
 /**
- * <p>The operation exceeded one or more limits.</p>
+ * The operation exceeded one or more limits.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -380,7 +382,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The quota for alarms for this customer has already been reached.</p>
+ * The quota for alarms for this customer has already been reached.
+ *
  * @public
  */
 export class LimitExceededFault extends __BaseException {
@@ -401,7 +404,8 @@ export class LimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>Data was not syntactically valid JSON.</p>
+ * Data was not syntactically valid JSON.
+ *
  * @public
  */
 export class InvalidFormatFault extends __BaseException {
@@ -422,8 +426,8 @@ export class InvalidFormatFault extends __BaseException {
 }
 
 /**
- * <p>The request failed validation. One or more input parameters do not satisfy the
- *             constraints that the operation requires.</p>
+ * The request failed validation. One or more input parameters do not satisfy the constraints that the operation requires.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

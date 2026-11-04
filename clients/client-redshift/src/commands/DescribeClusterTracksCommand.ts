@@ -23,7 +23,8 @@ export interface DescribeClusterTracksCommandInput extends DescribeClusterTracks
 export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the available maintenance tracks.</p>
+ * Returns a list of all the available maintenance tracks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +70,16 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidClusterTrackFault} (client fault)
- *  <p>The provided cluster track name is not valid.</p>
+ *
+ * The provided cluster track name is not valid.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

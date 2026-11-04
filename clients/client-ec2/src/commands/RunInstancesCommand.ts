@@ -24,57 +24,28 @@ export interface RunInstancesCommandInput extends RunInstancesRequest {}
 export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer {}
 
 /**
- * <p>Launches the specified number of instances using an AMI for which you have
- *             permissions.</p>
- *          <p>You can specify a number of options, or leave the default options. The following rules
- *             apply:</p>
- *          <ul>
- *             <li>
- *                <p>If you don't specify a subnet ID, we choose a default subnet from
- *                     your default VPC for you. If you don't have a default VPC, you must specify a
- *                     subnet ID in the request.</p>
- *             </li>
- *             <li>
- *                <p>All instances have a network interface with a primary private IPv4
- *                     address. If you don't specify this address, we choose one from the IPv4 range of
- *                     your subnet.</p>
- *             </li>
- *             <li>
- *                <p>Not all instance types support IPv6 addresses. For more information, see
- *                         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
- *                     types</a>.</p>
- *             </li>
- *             <li>
- *                <p>If you don't specify a security group ID, we use the default security group
- *                     for the VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
- *                         groups</a>.</p>
- *             </li>
- *             <li>
- *                <p>If any of the AMIs have a product code attached for which the user has not
- *                     subscribed, the request fails.</p>
- *             </li>
- *          </ul>
- *          <p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>,
- *             which is a resource that contains the parameters to launch an instance. When you launch
- *             an instance using <a>RunInstances</a>, you can specify the launch template
- *             instead of specifying the launch parameters.</p>
- *          <p>To ensure faster instance launches, break up large requests into smaller batches. For
- *             example, create five separate launch requests for 100 instances each instead of one
- *             launch request for 500 instances.</p>
- *          <p>
- *             <code>RunInstances</code> is subject to both request rate limiting and resource rate
- *             limiting. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html">Request throttling</a>.</p>
- *          <p>An instance is ready for you to use when it's in the <code>running</code> state. You
- *             can check the state of your instance using <a>DescribeInstances</a>. You can
- *             tag instances and EBS volumes during launch, after launch, or both. For more
- *             information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
- *                 resources</a>.</p>
- *          <p>Linux instances have access to the public key of the key pair at boot. You can use
- *             this key to provide secure access to the instance. Amazon EC2 public images use this
- *             feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
- *                 pairs</a>.</p>
- *          <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
- *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
+ * Launches the specified number of instances using an AMI for which you have permissions.
+ *
+ * You can specify a number of options, or leave the default options. The following rules apply:
+ *
+ * - If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.
+ * - All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.
+ * - Not all instance types support IPv6 addresses. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html).
+ * - If you don't specify a security group ID, we use the default security group for the VPC. For more information, see [Security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html).
+ * - If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.
+ *
+ * You can create a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html), which is a resource that contains the parameters to launch an instance. When you launch an instance using RunInstances, you can specify the launch template instead of specifying the launch parameters.
+ *
+ * To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.
+ *
+ * `RunInstances` is subject to both request rate limiting and resource rate limiting. For more information, see [Request throttling](https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html).
+ *
+ * An instance is ready for you to use when it's in the `running` state. You can check the state of your instance using DescribeInstances. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see CreateTags and [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html).
+ *
+ * Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see [Key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
+ *
+ * For troubleshooting, see [What to do if an instance immediately terminates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html), and [Troubleshooting connecting to your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -606,8 +577,8 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To launch an instance
  * ```javascript

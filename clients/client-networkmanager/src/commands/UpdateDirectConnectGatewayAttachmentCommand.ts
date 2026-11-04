@@ -26,7 +26,8 @@ export interface UpdateDirectConnectGatewayAttachmentCommandInput extends Update
 export interface UpdateDirectConnectGatewayAttachmentCommandOutput extends UpdateDirectConnectGatewayAttachmentResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the edge locations associated with an Amazon Web Services Direct Connect gateway attachment. </p>
+ * Updates the edge locations associated with an Amazon Web Services Direct Connect gateway attachment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,27 +113,32 @@ export interface UpdateDirectConnectGatewayAttachmentCommandOutput extends Updat
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict processing the request. Updating or deleting the resource can
- *             cause an inconsistent state.</p>
+ *
+ * There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal error.</p>
+ *
+ * The request has failed due to an internal error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * The input fails to satisfy the constraints.
  *
  * @throws {@link NetworkManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkManager service.
  *
  * @public
  */

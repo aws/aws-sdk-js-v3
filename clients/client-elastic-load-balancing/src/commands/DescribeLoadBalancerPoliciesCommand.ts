@@ -23,11 +23,10 @@ export interface DescribeLoadBalancerPoliciesCommandInput extends DescribeLoadBa
 export interface DescribeLoadBalancerPoliciesCommandOutput extends DescribeLoadBalancerPoliciesOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified policies.</p>
- *          <p>If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer.
- *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
- *     If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies.
- *     The names of the sample policies have the <code>ELBSample-</code> prefix.</p>
+ * Describes the specified policies.
+ *
+ * If you specify a load balancer name, the action returns the descriptions of all policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies. The names of the sample policies have the `ELBSample-` prefix.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +67,16 @@ export interface DescribeLoadBalancerPoliciesCommandOutput extends DescribeLoadB
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link PolicyNotFoundException} (client fault)
- *  <p>One or more of the specified policies do not exist.</p>
+ *
+ * One or more of the specified policies do not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To describe a policy associated with a load balancer
  * ```javascript

@@ -26,11 +26,8 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandInput extends Des
 export interface DescribeDirectConnectGatewayAttachmentsCommandOutput extends DescribeDirectConnectGatewayAttachmentsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify
- *       a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains
- *       all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the
- *       response contains all Direct Connect gateways attached to the virtual interface. If you specify both,
- *       the response contains the attachment between the Direct Connect gateway and the virtual interface.</p>
+ * Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the response contains all Direct Connect gateways attached to the virtual interface. If you specify both, the response contains the attachment between the Direct Connect gateway and the virtual interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +68,16 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput extends De
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface GetNetworkConnectorCommandInput extends GetNetworkConnectorRequ
 export interface GetNetworkConnectorCommandOutput extends GetNetworkConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current configuration, state, and metadata of a network connector. The <code>Identifier</code> parameter accepts the connector ID, name, or full ARN. Use this operation to poll connector state after creation or update, or to inspect the current VPC configuration and any failure reasons.</p> <p>The response includes the full connector configuration, current state, and — if the connector has been updated — the <code>LastUpdateStatus</code> and <code>LastUpdateStatusReasonCode</code> fields that indicate whether the most recent update succeeded or failed.</p>
+ * Retrieves the current configuration, state, and metadata of a network connector. The `Identifier` parameter accepts the connector ID, name, or full ARN. Use this operation to poll connector state after creation or update, or to inspect the current VPC configuration and any failure reasons.
+ *
+ * The response includes the full connector configuration, current state, and — if the connector has been updated — the `LastUpdateStatus` and `LastUpdateStatusReasonCode` fields that indicate whether the most recent update succeeded or failed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,20 +81,24 @@ export interface GetNetworkConnectorCommandOutput extends GetNetworkConnectorRes
  * @see {@link LambdaCoreClientResolvedConfig | config} for LambdaCoreClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
+ *
+ * One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.</p>
+ *
+ * The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal service error occurred. Retry the request with exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request with exponential backoff.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link LambdaCoreServiceException}
- * <p>Base exception class for all service exceptions from LambdaCore service.</p>
  *
+ * Base exception class for all service exceptions from LambdaCore service.
  *
  * @public
  */

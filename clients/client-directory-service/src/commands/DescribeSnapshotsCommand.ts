@@ -23,13 +23,12 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsRequest 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult, __MetadataBearer {}
 
 /**
- * <p>Obtains information about the directory snapshots that belong to this account.</p>
- *          <p>This operation supports pagination with the use of the <i>NextToken</i> request and
- *          response parameters. If more results are available, the <i>DescribeSnapshots.NextToken</i>
- *          member contains a token that you pass in the next call to <a>DescribeSnapshots</a> to
- *          retrieve the next set of items.</p>
- *          <p>You can also specify a maximum number of return results with the <i>Limit</i>
- *          parameter.</p>
+ * Obtains information about the directory snapshots that belong to this account.
+ *
+ * This operation supports pagination with the use of the *NextToken* request and response parameters. If more results are available, the *DescribeSnapshots.NextToken* member contains a token that you pass in the next call to DescribeSnapshots to retrieve the next set of items.
+ *
+ * You can also specify a maximum number of return results with the *Limit* parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +70,28 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To describe snapshots
  * ```javascript

@@ -23,26 +23,15 @@ export interface ModifyMountTargetSecurityGroupsCommandInput extends ModifyMount
 export interface ModifyMountTargetSecurityGroupsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the set of security groups in effect for a mount target.</p>
- *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
- *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
- *       network interface associated with a mount target, with the <code>SecurityGroups</code>
- *       provided in the request. This operation requires that the network interface of the mount
- *       target has been created and the lifecycle state of the mount target is not
- *         <code>deleted</code>. </p>
- *          <p>The operation requires permissions for the following actions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>elasticfilesystem:ModifyMountTargetSecurityGroups</code> action on the mount
- *           target's file system. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ec2:ModifyNetworkInterfaceAttribute</code> action on the mount target's network
- *           interface. </p>
- *             </li>
- *          </ul>
+ * Modifies the set of security groups in effect for a mount target.
+ *
+ * When you create a mount target, Amazon EFS also creates a new network interface. For more information, see CreateMountTarget. This operation replaces the security groups in effect for the network interface associated with a mount target, with the `SecurityGroups` provided in the request. This operation requires that the network interface of the mount target has been created and the lifecycle state of the mount target is not `deleted`.
+ *
+ * The operation requires permissions for the following actions:
+ *
+ * - `elasticfilesystem:ModifyMountTargetSecurityGroups` action on the mount target's file system.
+ * - `ec2:ModifyNetworkInterfaceAttribute` action on the mount target's network interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,35 +59,32 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link IncorrectMountTargetState} (client fault)
- *  <p>Returned if the mount target is not in the correct state for the
- *             operation.</p>
+ *
+ * Returned if the mount target is not in the correct state for the operation.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link MountTargetNotFound} (client fault)
- *  <p>Returned if there is no mount target with the specified ID found in the
- *             caller's Amazon Web Services account.</p>
+ *
+ * Returned if there is no mount target with the specified ID found in the caller's Amazon Web Services account.
  *
  * @throws {@link SecurityGroupLimitExceeded} (client fault)
- *  <p>Returned if the number of <code>SecurityGroups</code> specified in the request is
- *             greater than the limit, which is based on account quota.  Either delete some security groups
- *             or request that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
- *             in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
- *             table).
- *         </p>
+ *
+ * Returned if the number of `SecurityGroups` specified in the request is greater than the limit, which is based on account quota. Either delete some security groups or request that the account quota be raised. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the **Security Groups** table).
  *
  * @throws {@link SecurityGroupNotFound} (client fault)
- *  <p>Returned if one of the specified security groups doesn't exist in the subnet's
- *             virtual private cloud (VPC).</p>
+ *
+ * Returned if one of the specified security groups doesn't exist in the subnet's virtual private cloud (VPC).
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript

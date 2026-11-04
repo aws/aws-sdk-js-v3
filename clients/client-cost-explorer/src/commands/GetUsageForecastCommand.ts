@@ -23,8 +23,8 @@ export interface GetUsageForecastCommandInput extends GetUsageForecastRequest {}
 export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
- *       over the forecast time period that you select, based on your past usage. </p>
+ * Retrieves a forecast for how much Amazon Web Services predicts that you will use over the forecast time period that you select, based on your past usage.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,27 +153,28 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p>
- *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
- *         </p>
+ *
+ * The billing view status must be `HEALTHY` to perform this action. Try again when the status is `HEALTHY`.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p>The requested data is unavailable.</p>
+ *
+ * The requested data is unavailable.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link UnresolvableUsageUnitException} (client fault)
- *  <p>Cost Explorer was unable to identify the usage unit. Provide
- *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
- *             for example: <code>hours</code>.</p>
+ *
+ * Cost Explorer was unable to identify the usage unit. Provide `UsageType/UsageTypeGroup` filter selections that contain matching units, for example: `hours`.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

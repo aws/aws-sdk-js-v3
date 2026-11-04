@@ -23,13 +23,8 @@ export interface DescribeContainerCommandInput extends DescribeContainerInput {}
 export interface DescribeContainerCommandOutput extends DescribeContainerOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties of the requested container. This request is commonly used to
- *          retrieve the endpoint of a container. An endpoint is a value assigned by the service when a
- *          new container is created. A container's endpoint does not change after it has been
- *          assigned. The <code>DescribeContainer</code> request returns a single
- *             <code>Container</code> object based on <code>ContainerName</code>. To return all
- *             <code>Container</code> objects that are associated with a specified AWS account, use
- *             <a>ListContainers</a>.</p>
+ * Retrieves the properties of the requested container. This request is commonly used to retrieve the endpoint of a container. An endpoint is a value assigned by the service when a new container is created. A container's endpoint does not change after it has been assigned. The `DescribeContainer` request returns a single `Container` object based on `ContainerName`. To return all `Container` objects that are associated with a specified AWS account, use ListContainers.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,14 +58,16 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

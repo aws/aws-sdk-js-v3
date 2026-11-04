@@ -23,24 +23,12 @@ export interface JoinStorageSessionAsViewerCommandInput extends JoinStorageSessi
 export interface JoinStorageSessionAsViewerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
- *       a viewer for an input channel. If there’s
- *       no existing session for the channel, create a new streaming session and provide
- *       the Amazon Resource Name (ARN) of the signaling channel (<code>channelArn</code>)
- *       and client id (<code>clientId</code>).
- *     </p>
- *          <p>Currently for <code>SINGLE_MASTER</code> type, a video producing device
- *       is able to ingest both audio and video media into a stream, while viewers
- *       can only ingest audio. Both a video producing device and viewers can join
- *       a session first and wait for other participants. While participants are having peer to peer conversations through WebRTC,
- *       the ingested media session will be stored into the Kinesis Video Stream.
- *       Multiple viewers are able to playback real-time media.
- *     </p>
- *          <p>Customers can also use existing Kinesis Video Streams features like
- *       <code>HLS</code> or <code>DASH</code> playback, Image generation, and more
- *       with ingested WebRTC media. If there’s an existing session with the same
- *       <code>clientId</code> that's found in the join session request, the new request takes precedence.</p>
+ * Join the ongoing one way-video and/or multi-way audio WebRTC session as a viewer for an input channel. If there’s no existing session for the channel, create a new streaming session and provide the Amazon Resource Name (ARN) of the signaling channel (`channelArn`) and client id (`clientId`).
+ *
+ * Currently for `SINGLE_MASTER` type, a video producing device is able to ingest both audio and video media into a stream, while viewers can only ingest audio. Both a video producing device and viewers can join a session first and wait for other participants. While participants are having peer to peer conversations through WebRTC, the ingested media session will be stored into the Kinesis Video Stream. Multiple viewers are able to playback real-time media.
+ *
+ * Customers can also use existing Kinesis Video Streams features like `HLS` or `DASH` playback, Image generation, and more with ingested WebRTC media. If there’s an existing session with the same `clientId` that's found in the join session request, the new request takes precedence.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,22 +54,24 @@ export interface JoinStorageSessionAsViewerCommandOutput extends __MetadataBeare
  * @see {@link KinesisVideoWebRTCStorageClientResolvedConfig | config} for KinesisVideoWebRTCStorageClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * You do not have required permissions to perform this operation.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>
- *       Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
- *     </p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource is not found.</p>
+ *
+ * The specified resource is not found.
  *
  * @throws {@link KinesisVideoWebRTCStorageServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.
  *
  * @public
  */

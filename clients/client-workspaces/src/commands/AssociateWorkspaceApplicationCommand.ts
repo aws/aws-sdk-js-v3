@@ -23,7 +23,8 @@ export interface AssociateWorkspaceApplicationCommandInput extends AssociateWork
 export interface AssociateWorkspaceApplicationCommandOutput extends AssociateWorkspaceApplicationResult, __MetadataBearer {}
 
 /**
- * <p>Associates the specified application to the specified WorkSpace.</p>
+ * Associates the specified application to the specified WorkSpace.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,38 +63,48 @@ export interface AssociateWorkspaceApplicationCommandOutput extends AssociateWor
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link ApplicationNotSupportedException} (client fault)
- *  <p>The specified application is not supported.</p>
+ *
+ * The specified application is not supported.
  *
  * @throws {@link ComputeNotCompatibleException} (client fault)
- *  <p>The compute type of the WorkSpace is not compatible with the application.</p>
+ *
+ * The compute type of the WorkSpace is not compatible with the application.
  *
  * @throws {@link IncompatibleApplicationsException} (client fault)
- *  <p>The specified application is not compatible with the resource.</p>
+ *
+ * The specified application is not compatible with the resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OperatingSystemNotCompatibleException} (client fault)
- *  <p>The operating system of the WorkSpace is not compatible with the application.</p>
+ *
+ * The operating system of the WorkSpace is not compatible with the application.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is currently in use.</p>
+ *
+ * The specified resource is currently in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

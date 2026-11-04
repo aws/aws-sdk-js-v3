@@ -23,7 +23,8 @@ export interface EnableHostedZoneDNSSECCommandInput extends EnableHostedZoneDNSS
 export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNSSECResponse, __MetadataBearer {}
 
 /**
- * <p>Enables DNSSEC signing in a specific hosted zone.</p>
+ * Enables DNSSEC signing in a specific hosted zone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,39 +56,44 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link DNSSECNotFound} (client fault)
- *  <p>The hosted zone doesn't have any DNSSEC resources.</p>
+ *
+ * The hosted zone doesn't have any DNSSEC resources.
  *
  * @throws {@link HostedZonePartiallyDelegated} (client fault)
- *  <p>The hosted zone nameservers don't match the parent nameservers. The hosted zone and
- * 			parent must have the same nameservers.</p>
+ *
+ * The hosted zone nameservers don't match the parent nameservers. The hosted zone and parent must have the same nameservers.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>Parameter name is not valid.</p>
+ *
+ * Parameter name is not valid.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidKeySigningKeyStatus} (client fault)
- *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
- * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * The key-signing key (KSK) status isn't valid or another KSK has the status `INTERNAL_FAILURE`.
  *
  * @throws {@link InvalidKMSArn} (client fault)
- *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
- * 			signing.</p>
+ *
+ * The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.
  *
  * @throws {@link KeySigningKeyWithActiveStatusNotFound} (client fault)
- *  <p>A key-signing key (KSK) with <code>ACTIVE</code> status wasn't found.</p>
+ *
+ * A key-signing key (KSK) with `ACTIVE` status wasn't found.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

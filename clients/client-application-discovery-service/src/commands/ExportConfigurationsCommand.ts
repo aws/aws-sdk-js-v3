@@ -23,12 +23,9 @@ export interface ExportConfigurationsCommandInput {}
 export interface ExportConfigurationsCommandOutput extends ExportConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
- *          <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that
- *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,
- *       connections, servers, and system performance. This API returns an export ID that you can query
- *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
- *       two configuration exports in six hours.</p>
+ * Deprecated. Use `StartExportTask` instead.
+ *
+ * Exports all discovered configuration data to an Amazon S3 bucket or an application that enables you to view and evaluate the data. Data includes tags and tag associations, processes, connections, servers, and system performance. This API returns an export ID that you can query using the *DescribeExportConfigurations* API. The system imposes a limit of two configuration exports in six hours.
  *
  * @deprecated deprecated.
  * @example
@@ -55,28 +52,32 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the IAM policy associated with this user.
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home Region is not set. Set the home Region to continue.</p>
+ *
+ * The home Region is not set. Set the home Region to continue.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * One or more parameters are not valid. Verify the parameters and try again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
+ *
+ * The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not permitted.</p>
+ *
+ * This operation is not permitted.
  *
  * @throws {@link ServerInternalErrorException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ApplicationDiscoveryServiceServiceException}
- * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  *
  * @public
  */

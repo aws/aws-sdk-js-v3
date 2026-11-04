@@ -26,10 +26,8 @@ export interface StartBatchDeleteConfigurationTaskCommandInput extends StartBatc
 export interface StartBatchDeleteConfigurationTaskCommandOutput extends StartBatchDeleteConfigurationTaskResponse, __MetadataBearer {}
 
 /**
- * <p>
- *         Takes a list of configurationId as input and starts an asynchronous deletion
- *         task to remove the configurationItems. Returns a unique deletion task identifier.
- *       </p>
+ * Takes a list of configurationId as input and starts an asynchronous deletion task to remove the configurationItems. Returns a unique deletion task identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,33 +57,36 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput extends StartBat
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the IAM policy associated with this user.
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home Region is not set. Set the home Region to continue.</p>
+ *
+ * The home Region is not set. Set the home Region to continue.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * One or more parameters are not valid. Verify the parameters and try again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
+ *
+ * The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>
- *       The limit of 200 configuration IDs per request has been exceeded.
- *     </p>
+ *
+ * The limit of 200 configuration IDs per request has been exceeded.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not permitted.</p>
+ *
+ * This operation is not permitted.
  *
  * @throws {@link ServerInternalErrorException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ApplicationDiscoveryServiceServiceException}
- * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  *
  * @public
  */

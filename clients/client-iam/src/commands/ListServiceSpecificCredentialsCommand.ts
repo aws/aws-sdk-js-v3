@@ -23,27 +23,12 @@ export interface ListServiceSpecificCredentialsCommandInput extends ListServiceS
 export interface ListServiceSpecificCredentialsCommandOutput extends ListServiceSpecificCredentialsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the service-specific credentials associated with the
- *             specified IAM user. If none exists, the operation returns an empty list. The
- *             service-specific credentials returned by this operation are used only for authenticating
- *             the IAM user to a specific service. For more information about using service-specific
- *             credentials to authenticate to an Amazon Web Services service, refer to the following docs:</p>
- *          <ul>
- *             <li>
- *                <p>For service-specific credentials with CodeCommit, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">IAM credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access
- *                         keys</a> in the <i>IAM User Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html">Use IAM with
- *                         Amazon Keyspaces (for Apache Cassandra)</a> in the
- *                         <i>IAM User Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>For services that support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API
- *                         keys for Amazon Web Services services</a> in the
- *                         <i>IAM User Guide</i>.</p>
- *             </li>
- *          </ul>
+ * Returns information about the service-specific credentials associated with the specified IAM user. If none exists, the operation returns an empty list. The service-specific credentials returned by this operation are used only for authenticating the IAM user to a specific service. For more information about using service-specific credentials to authenticate to an Amazon Web Services service, refer to the following docs:
+ *
+ * - For service-specific credentials with CodeCommit, refer to [IAM credentials for CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html) in the *IAM User Guide*.
+ * - For service-specific credentials with Amazon Keyspaces (for Apache Cassandra), refer to [Use IAM with Amazon Keyspaces (for Apache Cassandra)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_keyspaces.html) in the *IAM User Guide*.
+ * - For services that support long-term API keys, refer to [API keys for Amazon Web Services services](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,15 +72,16 @@ export interface ListServiceSpecificCredentialsCommandOutput extends ListService
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceNotSupportedException} (client fault)
- *  <p>The specified service does not support service-specific credentials.</p>
+ *
+ * The specified service does not support service-specific credentials.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

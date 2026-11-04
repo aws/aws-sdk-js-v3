@@ -29,107 +29,114 @@ import type {
  */
 export interface CreateDbBackupInput {
   /**
-   * <p>The name of the backup. Must be unique within the account and region.</p>
+   * The name of the backup. Must be unique within the account and region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The id of the DB instance or DB cluster to back up.</p>
+   * The id of the DB instance or DB cluster to back up.
+   *
    * @public
    */
   dbResourceId: string | undefined;
 
   /**
-   * <p>The number of days to retain the backup. Valid values are 1 to 3650.</p>
+   * The number of days to retain the backup. Valid values are 1 to 3650.
+   *
    * @public
    */
   retentionDays?: number | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the backup.</p>
+   * A list of key-value pairs to associate with the backup.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration for node modes in the DbCluster.</p>
- *          <p>Deprecated. Use deploymentConfiguration to define the cluster topology instead.</p>
+ * Configuration for node modes in the DbCluster.
+ *
+ * Deprecated. Use deploymentConfiguration to define the cluster topology instead.
+ *
  * @public
  */
 export interface ClusterConfiguration {
   /**
-   * <p>The number of instances in the DbCluster which can both ingest and query.</p>
+   * The number of instances in the DbCluster which can both ingest and query.
+   *
    * @public
    */
   ingestQueryInstances?: number | undefined;
 
   /**
-   * <p>The number of instances in the DbCluster which can only query.</p>
+   * The number of instances in the DbCluster which can only query.
+   *
    * @public
    */
   queryOnlyInstances?: number | undefined;
 
   /**
-   * <p>Indicates if the compactor instance is a standalone instance or not.</p>
+   * Indicates if the compactor instance is a standalone instance or not.
+   *
    * @public
    */
   dedicatedCompactor?: boolean | undefined;
 }
 
 /**
- * <p>A group of one or more nodes in a Timestream for InfluxDB cluster that share the same instance modes and instance type. A cluster's compute topology is defined as a list of node groups.</p>
+ * A group of one or more nodes in a Timestream for InfluxDB cluster that share the same instance modes and instance type. A cluster's compute topology is defined as a list of node groups.
+ *
  * @public
  */
 export interface NodeGroup {
   /**
-   * <p>The functions that the nodes in this group perform. Provide from 1 to 4 unique modes. Valid modes:</p>
-   *          <ul>
-   *             <li>
-   *                <p>INGEST – Nodes in this mode ingest data. Across all node groups, INGEST nodes must total between 1 and 4.</p>
-   *             </li>
-   *             <li>
-   *                <p>QUERY – Nodes in this mode query data. Across all node groups, QUERY nodes must total between 0 and 14.</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPACT – Nodes in this mode compact data. Exactly one node across all node groups must have this mode. If the cluster has more than three non-compaction nodes, place the COMPACT node in its own dedicated node group.</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESS – Nodes in this mode process data with the processing engine.</p>
-   *             </li>
-   *          </ul>
+   * The functions that the nodes in this group perform. Provide from 1 to 4 unique modes. Valid modes:
+   *
+   * - INGEST – Nodes in this mode ingest data. Across all node groups, INGEST nodes must total between 1 and 4.
+   * - QUERY – Nodes in this mode query data. Across all node groups, QUERY nodes must total between 0 and 14.
+   * - COMPACT – Nodes in this mode compact data. Exactly one node across all node groups must have this mode. If the cluster has more than three non-compaction nodes, place the COMPACT node in its own dedicated node group.
+   * - PROCESS – Nodes in this mode process data with the processing engine.
+   *
    * @public
    */
   instanceModes: InstanceMode[] | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on for the nodes in this group.</p>
+   * The Timestream for InfluxDB DB instance type to run InfluxDB on for the nodes in this group.
+   *
    * @public
    */
   instanceType: DbInstanceType | undefined;
 
   /**
-   * <p>The number of nodes in this group. Valid values are 1 to 13.</p>
+   * The number of nodes in this group. Valid values are 1 to 13.
+   *
    * @public
    */
   count: number | undefined;
 }
 
 /**
- * <p>The compute topology for an InfluxDB 3 Enterprise cluster, expressed as a list of node groups.</p>
+ * The compute topology for an InfluxDB 3 Enterprise cluster, expressed as a list of node groups.
+ *
  * @public
  */
 export interface InfluxDBv3EnterpriseDeploymentConfiguration {
   /**
-   * <p>The node groups that make up the cluster. Across all node groups, the cluster must include 1 to 4 nodes with the INGEST mode, 0 to 14 nodes with the QUERY mode, and exactly one node with the COMPACT mode.</p>
+   * The node groups that make up the cluster. Across all node groups, the cluster must include 1 to 4 nodes with the INGEST mode, 0 to 14 nodes with the QUERY mode, and exactly one node with the COMPACT mode.
+   *
    * @public
    */
   nodeGroups: NodeGroup[] | undefined;
 }
 
 /**
- * <p>Defines the compute topology of a Timestream for InfluxDB cluster as a set of node groups for a specific database engine. For InfluxDB 3 Enterprise, use the InfluxDBv3Enterprise member to allocate compute per function: ingest, query, compaction, and processing.</p>
+ * Defines the compute topology of a Timestream for InfluxDB cluster as a set of node groups for a specific database engine. For InfluxDB 3 Enterprise, use the InfluxDBv3Enterprise member to allocate compute per function: ingest, query, compaction, and processing.
+ *
  * @public
  */
 export type DeploymentConfiguration =
@@ -141,7 +148,8 @@ export type DeploymentConfiguration =
  */
 export namespace DeploymentConfiguration {
   /**
-   * <p>The deployment configuration for an InfluxDB 3 Enterprise cluster.</p>
+   * The deployment configuration for an InfluxDB 3 Enterprise cluster.
+   *
    * @public
    */
   export interface InfluxDBv3EnterpriseMember {
@@ -168,48 +176,56 @@ export namespace DeploymentConfiguration {
 }
 
 /**
- * <p>Configuration for S3 bucket log delivery.</p>
+ * Configuration for S3 bucket log delivery.
+ *
  * @public
  */
 export interface S3Configuration {
   /**
-   * <p>The name of the S3 bucket to deliver logs to.</p>
+   * The name of the S3 bucket to deliver logs to.
+   *
    * @public
    */
   bucketName: string | undefined;
 
   /**
-   * <p>Indicates whether log delivery to the S3 bucket is enabled.</p>
+   * Indicates whether log delivery to the S3 bucket is enabled.
+   *
    * @public
    */
   enabled: boolean | undefined;
 }
 
 /**
- * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+ * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+ *
  * @public
  */
 export interface LogDeliveryConfiguration {
   /**
-   * <p>Configuration for S3 bucket log delivery.</p>
+   * Configuration for S3 bucket log delivery.
+   *
    * @public
    */
   s3Configuration: S3Configuration | undefined;
 }
 
 /**
- * <p>Specifies the maintenance schedule for a DB instance or cluster, defining when maintenance operations such as patching can be performed.</p>
+ * Specifies the maintenance schedule for a DB instance or cluster, defining when maintenance operations such as patching can be performed.
+ *
  * @public
  */
 export interface MaintenanceSchedule {
   /**
-   * <p>The IANA timezone identifier for the maintenance window. Format: Region/City or UTC. For example, America/New_York or UTC.</p>
+   * The IANA timezone identifier for the maintenance window. Format: Region/City or UTC. For example, America/New_York or UTC.
+   *
    * @public
    */
   timezone: string | undefined;
 
   /**
-   * <p>The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM (UTC). Day must be one of: Mon, Tue, Wed, Thu, Fri, Sat, Sun. For example, Sun:02:00-Sun:06:00. Provide an empty string to let the system choose a window.</p>
+   * The preferred maintenance window in the format ddd:HH:MM-ddd:HH:MM (UTC). Day must be one of: Mon, Tue, Wed, Thu, Fri, Sat, Sun. For example, Sun:02:00-Sun:06:00. Provide an empty string to let the system choose a window.
+   *
    * @public
    */
   preferredMaintenanceWindow: string | undefined;
@@ -220,74 +236,86 @@ export interface MaintenanceSchedule {
  */
 export interface CreateDbBackupOutput {
   /**
-   * <p>Service-generated unique identifier of the backup.</p>
+   * Service-generated unique identifier of the backup.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-provided name of the backup.</p>
+   * The customer-provided name of the backup.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * The Amazon Resource Name (ARN) of the backup.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of the backup.</p>
+   * The current status of the backup.
+   *
    * @public
    */
   status?: DbBackupStatus | undefined;
 
   /**
-   * <p>The time when the backup was created.</p>
+   * The time when the backup was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date after which the backup will be automatically deleted.</p>
+   * The date after which the backup will be automatically deleted.
+   *
    * @public
    */
   expiresAfter?: string | undefined;
 
   /**
-   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * The identifier of the DB resource that the backup was created from.
+   *
    * @public
    */
   dbResourceId?: string | undefined;
 
   /**
-   * <p>The type of backup.</p>
+   * The type of backup.
+   *
    * @public
    */
   type?: DbBackupType | undefined;
 
   /**
-   * <p>The engine type of the resource that the backup was created from.</p>
+   * The engine type of the resource that the backup was created from.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
 
   /**
-   * <p>The deployment type of the resource that the backup was created from.</p>
+   * The deployment type of the resource that the backup was created from.
+   *
    * @public
    */
   deploymentType?: ResourceDeploymentType | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The cluster configuration of the resource at the time of backup.</p>
-   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   * The cluster configuration of the resource at the time of backup.
+   *
+   * Deprecated. Use deploymentConfiguration to view the cluster topology instead.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -295,85 +323,99 @@ export interface CreateDbBackupOutput {
   clusterConfiguration?: ClusterConfiguration | undefined;
 
   /**
-   * <p>The deployment configuration of the resource at the time of backup.</p>
+   * The deployment configuration of the resource at the time of backup.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The identifier of the DB parameter group associated with the backup.</p>
+   * The identifier of the DB parameter group associated with the backup.
+   *
    * @public
    */
   dbParameterGroupId?: string | undefined;
 
   /**
-   * <p>The DB instance type of the resource at the time of backup.</p>
+   * The DB instance type of the resource at the time of backup.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The log delivery configuration of the resource at the time of backup.</p>
+   * The log delivery configuration of the resource at the time of backup.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The failover mode of the resource at the time of backup.</p>
+   * The failover mode of the resource at the time of backup.
+   *
    * @public
    */
   failoverMode?: FailoverMode | undefined;
 
   /**
-   * <p>The storage type of the resource at the time of backup.</p>
+   * The storage type of the resource at the time of backup.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The allocated storage of the resource at the time of backup, in GiB.</p>
+   * The allocated storage of the resource at the time of backup, in GiB.
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>The VPC subnet IDs associated with the resource at the time of backup.</p>
+   * The VPC subnet IDs associated with the resource at the time of backup.
+   *
    * @public
    */
   vpcSubnetIds?: string[] | undefined;
 
   /**
-   * <p>The VPC security group IDs associated with the resource at the time of backup.</p>
+   * The VPC security group IDs associated with the resource at the time of backup.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the resource was publicly accessible at the time of backup.</p>
+   * Indicates whether the resource was publicly accessible at the time of backup.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>The port number of the resource at the time of backup.</p>
+   * The port number of the resource at the time of backup.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The network type of the resource at the time of backup.</p>
+   * The network type of the resource at the time of backup.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.</p>
+   * The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>The maintenance schedule of the resource at the time of backup.</p>
+   * The maintenance schedule of the resource at the time of backup.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
@@ -384,7 +426,8 @@ export interface CreateDbBackupOutput {
  */
 export interface DeleteDbBackupInput {
   /**
-   * <p>The identifier of the backup to delete.</p>
+   * The identifier of the backup to delete.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -395,74 +438,86 @@ export interface DeleteDbBackupInput {
  */
 export interface DeleteDbBackupOutput {
   /**
-   * <p>Service-generated unique identifier of the deleted backup.</p>
+   * Service-generated unique identifier of the deleted backup.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-provided name of the deleted backup.</p>
+   * The customer-provided name of the deleted backup.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted backup.</p>
+   * The Amazon Resource Name (ARN) of the deleted backup.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of the backup.</p>
+   * The current status of the backup.
+   *
    * @public
    */
   status?: DbBackupStatus | undefined;
 
   /**
-   * <p>The time when the backup was created.</p>
+   * The time when the backup was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date after which the backup was set to be automatically deleted.</p>
+   * The date after which the backup was set to be automatically deleted.
+   *
    * @public
    */
   expiresAfter?: string | undefined;
 
   /**
-   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * The identifier of the DB resource that the backup was created from.
+   *
    * @public
    */
   dbResourceId?: string | undefined;
 
   /**
-   * <p>The type of backup.</p>
+   * The type of backup.
+   *
    * @public
    */
   type?: DbBackupType | undefined;
 
   /**
-   * <p>The engine type of the resource that the backup was created from.</p>
+   * The engine type of the resource that the backup was created from.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
 
   /**
-   * <p>The deployment type of the resource that the backup was created from.</p>
+   * The deployment type of the resource that the backup was created from.
+   *
    * @public
    */
   deploymentType?: ResourceDeploymentType | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The cluster configuration of the resource at the time of backup.</p>
-   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   * The cluster configuration of the resource at the time of backup.
+   *
+   * Deprecated. Use deploymentConfiguration to view the cluster topology instead.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -470,85 +525,99 @@ export interface DeleteDbBackupOutput {
   clusterConfiguration?: ClusterConfiguration | undefined;
 
   /**
-   * <p>The deployment configuration of the resource at the time of backup.</p>
+   * The deployment configuration of the resource at the time of backup.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The identifier of the DB parameter group associated with the backup.</p>
+   * The identifier of the DB parameter group associated with the backup.
+   *
    * @public
    */
   dbParameterGroupId?: string | undefined;
 
   /**
-   * <p>The DB instance type of the resource at the time of backup.</p>
+   * The DB instance type of the resource at the time of backup.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The log delivery configuration of the resource at the time of backup.</p>
+   * The log delivery configuration of the resource at the time of backup.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The failover mode of the resource at the time of backup.</p>
+   * The failover mode of the resource at the time of backup.
+   *
    * @public
    */
   failoverMode?: FailoverMode | undefined;
 
   /**
-   * <p>The storage type of the resource at the time of backup.</p>
+   * The storage type of the resource at the time of backup.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The allocated storage of the resource at the time of backup, in GiB.</p>
+   * The allocated storage of the resource at the time of backup, in GiB.
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>The VPC subnet IDs associated with the resource at the time of backup.</p>
+   * The VPC subnet IDs associated with the resource at the time of backup.
+   *
    * @public
    */
   vpcSubnetIds?: string[] | undefined;
 
   /**
-   * <p>The VPC security group IDs associated with the resource at the time of backup.</p>
+   * The VPC security group IDs associated with the resource at the time of backup.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the resource was publicly accessible at the time of backup.</p>
+   * Indicates whether the resource was publicly accessible at the time of backup.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>The port number of the resource at the time of backup.</p>
+   * The port number of the resource at the time of backup.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The network type of the resource at the time of backup.</p>
+   * The network type of the resource at the time of backup.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.</p>
+   * The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>The maintenance schedule of the resource at the time of backup.</p>
+   * The maintenance schedule of the resource at the time of backup.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
@@ -559,7 +628,8 @@ export interface DeleteDbBackupOutput {
  */
 export interface GetDbBackupInput {
   /**
-   * <p>The identifier of the backup to retrieve information for.</p>
+   * The identifier of the backup to retrieve information for.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -570,74 +640,86 @@ export interface GetDbBackupInput {
  */
 export interface GetDbBackupOutput {
   /**
-   * <p>Service-generated unique identifier of the backup.</p>
+   * Service-generated unique identifier of the backup.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-provided name of the backup.</p>
+   * The customer-provided name of the backup.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * The Amazon Resource Name (ARN) of the backup.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of the backup.</p>
+   * The current status of the backup.
+   *
    * @public
    */
   status?: DbBackupStatus | undefined;
 
   /**
-   * <p>The time when the backup was created.</p>
+   * The time when the backup was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date after which the backup will be automatically deleted.</p>
+   * The date after which the backup will be automatically deleted.
+   *
    * @public
    */
   expiresAfter?: string | undefined;
 
   /**
-   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * The identifier of the DB resource that the backup was created from.
+   *
    * @public
    */
   dbResourceId?: string | undefined;
 
   /**
-   * <p>The type of backup.</p>
+   * The type of backup.
+   *
    * @public
    */
   type?: DbBackupType | undefined;
 
   /**
-   * <p>The engine type of the resource that the backup was created from.</p>
+   * The engine type of the resource that the backup was created from.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
 
   /**
-   * <p>The deployment type of the resource that the backup was created from.</p>
+   * The deployment type of the resource that the backup was created from.
+   *
    * @public
    */
   deploymentType?: ResourceDeploymentType | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>The cluster configuration of the resource at the time of backup.</p>
-   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   * The cluster configuration of the resource at the time of backup.
+   *
+   * Deprecated. Use deploymentConfiguration to view the cluster topology instead.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -645,85 +727,99 @@ export interface GetDbBackupOutput {
   clusterConfiguration?: ClusterConfiguration | undefined;
 
   /**
-   * <p>The deployment configuration of the resource at the time of backup.</p>
+   * The deployment configuration of the resource at the time of backup.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The identifier of the DB parameter group associated with the backup.</p>
+   * The identifier of the DB parameter group associated with the backup.
+   *
    * @public
    */
   dbParameterGroupId?: string | undefined;
 
   /**
-   * <p>The DB instance type of the resource at the time of backup.</p>
+   * The DB instance type of the resource at the time of backup.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The log delivery configuration of the resource at the time of backup.</p>
+   * The log delivery configuration of the resource at the time of backup.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The failover mode of the resource at the time of backup.</p>
+   * The failover mode of the resource at the time of backup.
+   *
    * @public
    */
   failoverMode?: FailoverMode | undefined;
 
   /**
-   * <p>The storage type of the resource at the time of backup.</p>
+   * The storage type of the resource at the time of backup.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The allocated storage of the resource at the time of backup, in GiB.</p>
+   * The allocated storage of the resource at the time of backup, in GiB.
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>The VPC subnet IDs associated with the resource at the time of backup.</p>
+   * The VPC subnet IDs associated with the resource at the time of backup.
+   *
    * @public
    */
   vpcSubnetIds?: string[] | undefined;
 
   /**
-   * <p>The VPC security group IDs associated with the resource at the time of backup.</p>
+   * The VPC security group IDs associated with the resource at the time of backup.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the resource was publicly accessible at the time of backup.</p>
+   * Indicates whether the resource was publicly accessible at the time of backup.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>The port number of the resource at the time of backup.</p>
+   * The port number of the resource at the time of backup.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The network type of the resource at the time of backup.</p>
+   * The network type of the resource at the time of backup.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.</p>
+   * The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>The maintenance schedule of the resource at the time of backup.</p>
+   * The maintenance schedule of the resource at the time of backup.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
@@ -734,91 +830,106 @@ export interface GetDbBackupOutput {
  */
 export interface ListDbBackupsInput {
   /**
-   * <p>The identifier of the DB instance or DB cluster to list backups for. If not specified, returns all backups in the account and region.</p>
+   * The identifier of the DB instance or DB cluster to list backups for. If not specified, returns all backups in the account and region.
+   *
    * @public
    */
   dbResourceId?: string | undefined;
 
   /**
-   * <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains a summary of a Timestream for InfluxDB backup.</p>
+ * Contains a summary of a Timestream for InfluxDB backup.
+ *
  * @public
  */
 export interface DbBackupSummary {
   /**
-   * <p>Service-generated unique identifier of the backup.</p>
+   * Service-generated unique identifier of the backup.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-provided name of the backup.</p>
+   * The customer-provided name of the backup.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * The Amazon Resource Name (ARN) of the backup.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the backup. Valid values are IN_PROGRESS, COMPLETED, FAILED, DELETING, and DELETED.</p>
+   * The status of the backup. Valid values are IN_PROGRESS, COMPLETED, FAILED, DELETING, and DELETED.
+   *
    * @public
    */
   status?: DbBackupStatus | undefined;
 
   /**
-   * <p>The time when the backup was created.</p>
+   * The time when the backup was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date after which the backup will be automatically deleted.</p>
+   * The date after which the backup will be automatically deleted.
+   *
    * @public
    */
   expiresAfter?: string | undefined;
 
   /**
-   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * The identifier of the DB resource that the backup was created from.
+   *
    * @public
    */
   dbResourceId?: string | undefined;
 
   /**
-   * <p>The type of backup. Valid values are HOURLY, DAILY, WEEKLY, MONTHLY, CUSTOM_SCHEDULE, ON_DEMAND, and CONTINUOUS.</p>
+   * The type of backup. Valid values are HOURLY, DAILY, WEEKLY, MONTHLY, CUSTOM_SCHEDULE, ON_DEMAND, and CONTINUOUS.
+   *
    * @public
    */
   type?: DbBackupType | undefined;
 
   /**
-   * <p>The engine type of the resource that the backup was created from.</p>
+   * The engine type of the resource that the backup was created from.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
 
   /**
-   * <p>The deployment type of the resource that the backup was created from.</p>
+   * The deployment type of the resource that the backup was created from.
+   *
    * @public
    */
   deploymentType?: ResourceDeploymentType | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -829,43 +940,50 @@ export interface DbBackupSummary {
  */
 export interface ListDbBackupsOutput {
   /**
-   * <p>A list of Timestream for InfluxDB backup summaries.</p>
+   * A list of Timestream for InfluxDB backup summaries.
+   *
    * @public
    */
   items: DbBackupSummary[] | undefined;
 
   /**
-   * <p>Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.</p>
+   * Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies the configuration for an automated backup schedule.</p>
+ * Specifies the configuration for an automated backup schedule.
+ *
  * @public
  */
 export interface DbBackupConfiguration {
   /**
-   * <p>The type of automated backup schedule. Valid values are HOURLY, DAILY, WEEKLY, MONTHLY, CUSTOM_SCHEDULE, and CONTINUOUS.</p>
+   * The type of automated backup schedule. Valid values are HOURLY, DAILY, WEEKLY, MONTHLY, CUSTOM_SCHEDULE, and CONTINUOUS.
+   *
    * @public
    */
   type: AutomatedDbBackupType | undefined;
 
   /**
-   * <p>The number of days to retain automated backups. Valid values are 1 to 365.</p>
+   * The number of days to retain automated backups. Valid values are 1 to 365.
+   *
    * @public
    */
   retentionDays: number | undefined;
 
   /**
-   * <p>Specifies whether this backup configuration is enabled.</p>
+   * Specifies whether this backup configuration is enabled.
+   *
    * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * <p>A custom cron schedule expression for the backup. Required when type is CUSTOM_SCHEDULE.</p>
+   * A custom cron schedule expression for the backup. Required when type is CUSTOM_SCHEDULE.
+   *
    * @public
    */
   customSchedule?: string | undefined;
@@ -876,91 +994,106 @@ export interface DbBackupConfiguration {
  */
 export interface RestoreFromDbBackupInput {
   /**
-   * <p>The name of the new resource to create from the restore. If restoring to an existing resource, the name must match the existing resource name.</p>
+   * The name of the new resource to create from the restore. If restoring to an existing resource, the name must match the existing resource name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the backup to restore from.</p>
+   * The identifier of the backup to restore from.
+   *
    * @public
    */
   dbBackupId: string | undefined;
 
   /**
-   * <p>The point in time to restore to, for continuous backups. Must be within the backup's retention window.</p>
+   * The point in time to restore to, for continuous backups. Must be within the backup's retention window.
+   *
    * @public
    */
   restoreToTime?: Date | undefined;
 
   /**
-   * <p>Specifies whether to restore to a new resource or replace the existing resource. Valid values are NEW_RESOURCE (default) and REPLACE_EXISTING.</p>
+   * Specifies whether to restore to a new resource or replace the existing resource. Valid values are NEW_RESOURCE (default) and REPLACE_EXISTING.
+   *
    * @public
    */
   restoreMode?: RestoreMode | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs for the restored resource. If not specified, the restored resource uses the same subnets as the backup.</p>
+   * A list of VPC subnet IDs for the restored resource. If not specified, the restored resource uses the same subnets as the backup.
+   *
    * @public
    */
   vpcSubnetIds?: string[] | undefined;
 
   /**
-   * <p>A list of VPC security group IDs for the restored resource. If not specified, the restored resource uses the same security groups as the backup.</p>
+   * A list of VPC security group IDs for the restored resource. If not specified, the restored resource uses the same security groups as the backup.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Specifies whether the restored resource is publicly accessible.</p>
+   * Specifies whether the restored resource is publicly accessible.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to the specified S3 bucket for the restored resource.</p>
+   * Configuration for sending InfluxDB engine logs to the specified S3 bucket for the restored resource.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The maintenance schedule for the restored resource.</p>
+   * The maintenance schedule for the restored resource.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the restored resource.</p>
+   * A list of key-value pairs to associate with the restored resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The port number on which the restored InfluxDB resource accepts connections.</p>
+   * The port number on which the restored InfluxDB resource accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies the network type of the restored resource. Valid values are IPV4 and DUAL.</p>
+   * Specifies the network type of the restored resource. Valid values are IPV4 and DUAL.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>Specifies the deployment type of the restored resource. Valid values are SINGLE_AZ, WITH_MULTIAZ_STANDBY, and MULTI_NODE_READ_REPLICAS.</p>
+   * Specifies the deployment type of the restored resource. Valid values are SINGLE_AZ, WITH_MULTIAZ_STANDBY, and MULTI_NODE_READ_REPLICAS.
+   *
    * @public
    */
   deploymentType?: ResourceDeploymentType | undefined;
 
   /**
-   * <p>A list of backup configurations to apply to the restored resource.</p>
+   * A list of backup configurations to apply to the restored resource.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key identifier to use for encryption of the restored resource. Can be a key ID, key ARN, alias name, or alias ARN.</p>
+   * The Amazon Web Services KMS key identifier to use for encryption of the restored resource. Can be a key ID, key ARN, alias name, or alias ARN.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -971,31 +1104,36 @@ export interface RestoreFromDbBackupInput {
  */
 export interface RestoreFromDbBackupOutput {
   /**
-   * <p>The identifier of the restored DB resource.</p>
+   * The identifier of the restored DB resource.
+   *
    * @public
    */
   restoredDbResourceId?: string | undefined;
 
   /**
-   * <p>The status of the restore operation.</p>
+   * The status of the restore operation.
+   *
    * @public
    */
   restoreStatus?: RestoreStatus | undefined;
 
   /**
-   * <p>The type of the restored resource. Valid values are DB_INSTANCE and DB_CLUSTER.</p>
+   * The type of the restored resource. Valid values are DB_INSTANCE and DB_CLUSTER.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The engine type of the restored resource.</p>
+   * The engine type of the restored resource.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
 
   /**
-   * <p>The deployment type of the restored resource.</p>
+   * The deployment type of the restored resource.
+   *
    * @public
    */
   deploymentType?: ResourceDeploymentType | undefined;
@@ -1006,151 +1144,169 @@ export interface RestoreFromDbBackupOutput {
  */
 export interface CreateDbClusterInput {
   /**
-   * <p>The name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB cluster names must be unique per customer and per region.</p>
+   * The name that uniquely identifies the DB cluster when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB cluster names must be unique per customer and per region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.</p>
+   * The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.
+   *
    * @public
    */
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB. This password will allow
-   *             you to access the InfluxDB UI to perform various administrative tasks and also use the
-   *             InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.</p>
+   * The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a secret created in Secrets Manager in your account.
+   *
    * @public
    */
   password?: string | undefined;
 
   /**
-   * <p>The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.</p>
+   * The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.
+   *
    * @public
    */
   organization?: string | undefined;
 
   /**
-   * <p>The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.</p>
+   * The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.
+   *
    * @public
    */
   bucket?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
-   *          <p>Valid Values: 1024-65535</p>
-   *          <p>Default: 8086 for InfluxDB v2, 8181 for InfluxDB v3</p>
-   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * The port number on which InfluxDB accepts connections.
+   *
+   * Valid Values: 1024-65535
+   *
+   * Default: 8086 for InfluxDB v2, 8181 for InfluxDB v3
+   *
+   * Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The ID of the DB parameter group to assign to your DB cluster. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * The ID of the DB parameter group to assign to your DB cluster. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
-   *          <p>Optional when you define the cluster topology with deploymentConfiguration, because the instance type is then specified per node group.</p>
+   * The Timestream for InfluxDB DB instance type to run InfluxDB on.
+   *
+   * Optional when you define the cluster topology with deploymentConfiguration, because the instance type is then specified per node group.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
-   *          <p>You can choose between three different types of provisioned Influx IOPS Included storage according to your workload requirements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Influx I/O Included 3000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>Influx I/O Included 12000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>Influx I/O Included 16000 IOPS</p>
-   *             </li>
-   *          </ul>
+   * The Timestream for InfluxDB DB storage type to read and write InfluxDB data.
+   *
+   * You can choose between three different types of provisioned Influx IOPS Included storage according to your workload requirements:
+   *
+   * - Influx I/O Included 3000 IOPS
+   * - Influx I/O Included 12000 IOPS
+   * - Influx I/O Included 16000 IOPS
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</p>
+   * The amount of storage to allocate for your DB storage type in GiB (gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>Configures the Timestream for InfluxDB cluster with a public IP to facilitate access from outside the VPC.</p>
+   * Configures the Timestream for InfluxDB cluster with a public IP to facilitate access from outside the VPC.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs to associate with the DB cluster. Provide at least two VPC subnet IDs in different Availability Zones when deploying with a Multi-AZ standby.</p>
+   * A list of VPC subnet IDs to associate with the DB cluster. Provide at least two VPC subnet IDs in different Availability Zones when deploying with a Multi-AZ standby.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of VPC security group IDs to associate with the Timestream for InfluxDB cluster.</p>
+   * A list of VPC security group IDs to associate with the Timestream for InfluxDB cluster.
+   *
    * @public
    */
   vpcSecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>Specifies the type of cluster to create.</p>
+   * Specifies the type of cluster to create.
+   *
    * @public
    */
   deploymentType?: ClusterDeploymentType | undefined;
 
   /**
-   * <p>The compute topology for the cluster, defined as a set of node groups. Use deploymentConfiguration to allocate compute per function: ingest, query, compaction, and processing. A deployment configuration becomes the source of truth for the cluster's topology. Timestream for InfluxDB then ignores any node-count parameters in the associated DB parameter group.</p>
+   * The compute topology for the cluster, defined as a set of node groups. Use deploymentConfiguration to allocate compute per function: ingest, query, compaction, and processing. A deployment configuration becomes the source of truth for the cluster's topology. Timestream for InfluxDB then ignores any node-count parameters in the associated DB parameter group.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>Specifies the behavior of failure recovery when the primary node of the cluster fails.</p>
+   * Specifies the behavior of failure recovery when the primary node of the cluster fails.
+   *
    * @public
    */
   failoverMode?: FailoverMode | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
+   * Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>A list of backup configurations to enable automated backups for the DB cluster.</p>
+   * A list of backup configurations to enable automated backups for the DB cluster.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key identifier to use for encryption of the DB cluster. Can be a key ID, key ARN, alias name, or alias ARN.</p>
+   * The Amazon Web Services KMS key identifier to use for encryption of the DB cluster. Can be a key ID, key ARN, alias name, or alias ARN.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the DB instance.</p>
+   * A list of key-value pairs to associate with the DB instance.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1161,13 +1317,15 @@ export interface CreateDbClusterInput {
  */
 export interface CreateDbClusterOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   dbClusterId?: string | undefined;
 
   /**
-   * <p>The status of the DB cluster.</p>
+   * The status of the DB cluster.
+   *
    * @public
    */
   dbClusterStatus?: ClusterStatus | undefined;
@@ -1178,13 +1336,15 @@ export interface CreateDbClusterOutput {
  */
 export interface DeleteDbClusterInput {
   /**
-   * <p>Service-generated unique identifier of the DB cluster.</p>
+   * Service-generated unique identifier of the DB cluster.
+   *
    * @public
    */
   dbClusterId: string | undefined;
 
   /**
-   * <p>Specifies whether to retain automated backups after the DB cluster is deleted. If set to true, automated backups are not deleted and can be restored later.</p>
+   * Specifies whether to retain automated backups after the DB cluster is deleted. If set to true, automated backups are not deleted and can be restored later.
+   *
    * @public
    */
   retainAutomatedBackups?: boolean | undefined;
@@ -1195,7 +1355,8 @@ export interface DeleteDbClusterInput {
  */
 export interface DeleteDbClusterOutput {
   /**
-   * <p>The status of the DB cluster.</p>
+   * The status of the DB cluster.
+   *
    * @public
    */
   dbClusterStatus?: ClusterStatus | undefined;
@@ -1206,43 +1367,50 @@ export interface DeleteDbClusterOutput {
  */
 export interface GetDbClusterInput {
   /**
-   * <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+   * Service-generated unique identifier of the DB cluster to retrieve.
+   *
    * @public
    */
   dbClusterId: string | undefined;
 }
 
 /**
- * <p>Contains the configuration and status for an automated backup schedule.</p>
+ * Contains the configuration and status for an automated backup schedule.
+ *
  * @public
  */
 export interface DbBackupConfigurationOutput {
   /**
-   * <p>The type of automated backup schedule.</p>
+   * The type of automated backup schedule.
+   *
    * @public
    */
   type: AutomatedDbBackupType | undefined;
 
   /**
-   * <p>The number of days automated backups are retained.</p>
+   * The number of days automated backups are retained.
+   *
    * @public
    */
   retentionDays: number | undefined;
 
   /**
-   * <p>Indicates whether this backup configuration is enabled.</p>
+   * Indicates whether this backup configuration is enabled.
+   *
    * @public
    */
   enabled: boolean | undefined;
 
   /**
-   * <p>The custom cron schedule expression for the backup, if applicable.</p>
+   * The custom cron schedule expression for the backup, if applicable.
+   *
    * @public
    */
   customSchedule?: string | undefined;
 
   /**
-   * <p>The next scheduled time for an automated backup to be taken.</p>
+   * The next scheduled time for an automated backup to be taken.
+   *
    * @public
    */
   nextAutomatedBackupTime?: Date | undefined;
@@ -1253,152 +1421,177 @@ export interface DbBackupConfigurationOutput {
  */
 export interface GetDbClusterOutput {
   /**
-   * <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+   * Service-generated unique identifier of the DB cluster to retrieve.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Customer-supplied name of the Timestream for InfluxDB cluster.</p>
+   * Customer-supplied name of the Timestream for InfluxDB cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the DB cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB cluster.</p>
+   * The status of the DB cluster.
+   *
    * @public
    */
   status?: ClusterStatus | undefined;
 
   /**
-   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for write and read operations.</p>
+   * The endpoint used to connect to the Timestream for InfluxDB cluster for write and read operations.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.</p>
+   * The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+   *
    * @public
    */
   readerEndpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Deployment type of the DB cluster.</p>
+   * Deployment type of the DB cluster.
+   *
    * @public
    */
   deploymentType?: ClusterDeploymentType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the network type of the Timestream for InfluxDB cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>The engine type of your DB cluster.</p>
+   * The engine type of your DB cluster.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
 
   /**
-   * <p>Indicates if the DB cluster has a public IP to facilitate access from outside the VPC.</p>
+   * Indicates if the DB cluster has a public IP to facilitate access from outside the VPC.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>The ID of the DB parameter group assigned to your DB cluster.</p>
+   * The ID of the DB parameter group assigned to your DB cluster.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the DB parameter group actually applied to your DB cluster. When the service applies optimized defaults, it creates a service-managed DB parameter group and this field reflects that group, while dbParameterGroupIdentifier reflects the customer-provided DB parameter group. When no service-managed DB parameter group is applied, this value matches dbParameterGroupIdentifier.</p>
+   * The ID of the DB parameter group actually applied to your DB cluster. When the service applies optimized defaults, it creates a service-managed DB parameter group and this field reflects that group, while dbParameterGroupIdentifier reflects the customer-provided DB parameter group. When no service-managed DB parameter group is applied, this value matches dbParameterGroupIdentifier.
+   *
    * @public
    */
   effectiveDbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The maintenance schedule for the DB cluster.</p>
+   * The maintenance schedule for the DB cluster.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The timestamp of the last completed maintenance operation on the DB cluster.</p>
+   * The timestamp of the last completed maintenance operation on the DB cluster.
+   *
    * @public
    */
   lastMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the next scheduled maintenance operation on the DB cluster.</p>
+   * The timestamp of the next scheduled maintenance operation on the DB cluster.
+   *
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs associated with the DB cluster.</p>
+   * A list of VPC subnet IDs associated with the DB cluster.
+   *
    * @public
    */
   vpcSubnetIds?: string[] | undefined;
 
   /**
-   * <p>A list of VPC security group IDs associated with the DB cluster.</p>
+   * A list of VPC security group IDs associated with the DB cluster.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The configured failover mode for the DB cluster.</p>
+   * The configured failover mode for the DB cluster.
+   *
    * @public
    */
   failoverMode?: FailoverMode | undefined;
 
   /**
-   * <p>Configuration for node modes in the DbCluster.</p>
-   *          <p>Deprecated. Use deploymentConfiguration to view the cluster topology instead.</p>
+   * Configuration for node modes in the DbCluster.
+   *
+   * Deprecated. Use deploymentConfiguration to view the cluster topology instead.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -1406,19 +1599,22 @@ export interface GetDbClusterOutput {
   clusterConfiguration?: ClusterConfiguration | undefined;
 
   /**
-   * <p>The current compute topology of the cluster, as a set of node groups. The returned topology reflects the cluster's actual provisioned nodes.</p>
+   * The current compute topology of the cluster, as a set of node groups. The returned topology reflects the cluster's actual provisioned nodes.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The backup configurations for the DB cluster.</p>
+   * The backup configurations for the DB cluster.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB cluster.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the DB cluster.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1429,97 +1625,113 @@ export interface GetDbClusterOutput {
  */
 export interface ListDbClustersInput {
   /**
-   * <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Describes a summary of a Timestream for InfluxDB cluster.</p>
+ * Describes a summary of a Timestream for InfluxDB cluster.
+ *
  * @public
  */
 export interface DbClusterSummary {
   /**
-   * <p>Service-generated unique identifier of the DB cluster to retrieve.</p>
+   * Service-generated unique identifier of the DB cluster to retrieve.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Customer supplied name of the Timestream for InfluxDB cluster.</p>
+   * Customer supplied name of the Timestream for InfluxDB cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB cluster.</p>
+   * The Amazon Resource Name (ARN) of the DB cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB cluster.</p>
+   * The status of the DB cluster.
+   *
    * @public
    */
   status?: ClusterStatus | undefined;
 
   /**
-   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for write and read operations.</p>
+   * The endpoint used to connect to the Timestream for InfluxDB cluster for write and read operations.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.</p>
+   * The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+   *
    * @public
    */
   readerEndpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Deployment type of the DB cluster</p>
+   * Deployment type of the DB cluster
+   *
    * @public
    */
   deploymentType?: ClusterDeploymentType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB DB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>Specifies whether the network type of the Timestream for InfluxDB Cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the network type of the Timestream for InfluxDB Cluster is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>The engine type of your DB cluster.</p>
+   * The engine type of your DB cluster.
+   *
    * @public
    */
   engineType?: EngineType | undefined;
@@ -1530,14 +1742,15 @@ export interface DbClusterSummary {
  */
 export interface ListDbClustersOutput {
   /**
-   * <p>A list of Timestream for InfluxDB cluster summaries.</p>
+   * A list of Timestream for InfluxDB cluster summaries.
+   *
    * @public
    */
   items: DbClusterSummary[] | undefined;
 
   /**
-   * <p>Token from a previous call of the operation. When this value is provided, the
-   *             service returns results from where the previous response left off.</p>
+   * Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1548,103 +1761,120 @@ export interface ListDbClustersOutput {
  */
 export interface ListDbInstancesForClusterInput {
   /**
-   * <p>Service-generated unique identifier of the DB cluster.</p>
+   * Service-generated unique identifier of the DB cluster.
+   *
    * @public
    */
   dbClusterId: string | undefined;
 
   /**
-   * <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains a summary of a DB instance belonging to a DB cluster.</p>
+ * Contains a summary of a DB instance belonging to a DB cluster.
+ *
  * @public
  */
 export interface DbInstanceForClusterSummary {
   /**
-   * <p>The service-generated unique identifier of the DB instance.</p>
+   * The service-generated unique identifier of the DB instance.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A service-generated name for the DB instance based on the customer-supplied name for the DB cluster.</p>
+   * A service-generated name for the DB instance based on the customer-supplied name for the DB cluster.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the network type of the Timestream for InfluxDB instance is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the network type of the Timestream for InfluxDB instance is IPv4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
+   * The Timestream for InfluxDB instance type to run InfluxDB on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The storage type for your DB instance.</p>
+   * The storage type for your DB instance.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type in GiB (gibibytes).</p>
+   * The amount of storage allocated for your DB storage type in GiB (gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies the deployment type if applicable.</p>
+   * Specifies the deployment type if applicable.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>Specifies the DB instance's role in the cluster.</p>
+   * Specifies the DB instance's role in the cluster.
+   *
    * @public
    */
   instanceMode?: InstanceMode | undefined;
 
   /**
-   * <p>Specifies the DB instance's roles in the cluster.</p>
+   * Specifies the DB instance's roles in the cluster.
+   *
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
@@ -1655,14 +1885,15 @@ export interface DbInstanceForClusterSummary {
  */
 export interface ListDbInstancesForClusterOutput {
   /**
-   * <p>A list of Timestream for InfluxDB instance summaries belonging to the cluster.</p>
+   * A list of Timestream for InfluxDB instance summaries belonging to the cluster.
+   *
    * @public
    */
   items: DbInstanceForClusterSummary[] | undefined;
 
   /**
-   * <p>Token from a previous call of the operation. When this value is provided, the
-   *             service returns results from where the previous response left off.</p>
+   * Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1673,13 +1904,15 @@ export interface ListDbInstancesForClusterOutput {
  */
 export interface RebootDbClusterInput {
   /**
-   * <p>Service-generated unique identifier of the DB cluster to reboot.</p>
+   * Service-generated unique identifier of the DB cluster to reboot.
+   *
    * @public
    */
   dbClusterId: string | undefined;
 
   /**
-   * <p>A list of service-generated unique DB Instance Ids belonging to the DB Cluster to reboot.</p>
+   * A list of service-generated unique DB Instance Ids belonging to the DB Cluster to reboot.
+   *
    * @public
    */
   instanceIds?: string[] | undefined;
@@ -1690,7 +1923,8 @@ export interface RebootDbClusterInput {
  */
 export interface RebootDbClusterOutput {
   /**
-   * <p>The status of the DB Cluster.</p>
+   * The status of the DB Cluster.
+   *
    * @public
    */
   dbClusterStatus?: ClusterStatus | undefined;
@@ -1701,56 +1935,66 @@ export interface RebootDbClusterOutput {
  */
 export interface UpdateDbClusterInput {
   /**
-   * <p>Service-generated unique identifier of the DB cluster to update.</p>
+   * Service-generated unique identifier of the DB cluster to update.
+   *
    * @public
    */
   dbClusterId: string | undefined;
 
   /**
-   * <p>The log delivery configuration to apply to the DB cluster.</p>
+   * The log delivery configuration to apply to the DB cluster.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>Update the DB cluster to use the specified DB parameter group.</p>
+   * Update the DB cluster to use the specified DB parameter group.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>Update the DB cluster to use the specified port.</p>
+   * Update the DB cluster to use the specified port.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Update the DB cluster to use the specified DB instance Type.</p>
-   *          <p>You can't specify both dbInstanceType and deploymentConfiguration in the same request. When you use deploymentConfiguration, the instance type is specified per node group.</p>
+   * Update the DB cluster to use the specified DB instance Type.
+   *
+   * You can't specify both dbInstanceType and deploymentConfiguration in the same request. When you use deploymentConfiguration, the instance type is specified per node group.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The updated compute topology for the cluster, defined as a set of node groups. Use deploymentConfiguration to change the cluster's topology or scale its compute in a single call. You can't specify both deploymentConfiguration and dbInstanceType in the same request. When you provide a deployment configuration, Timestream for InfluxDB ignores any node-count parameters in the associated DB parameter group.</p>
+   * The updated compute topology for the cluster, defined as a set of node groups. Use deploymentConfiguration to change the cluster's topology or scale its compute in a single call. You can't specify both deploymentConfiguration and dbInstanceType in the same request. When you provide a deployment configuration, Timestream for InfluxDB ignores any node-count parameters in the associated DB parameter group.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>Update the DB cluster's failover behavior.</p>
+   * Update the DB cluster's failover behavior.
+   *
    * @public
    */
   failoverMode?: FailoverMode | undefined;
 
   /**
-   * <p>Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.</p>
+   * Specifies the maintenance schedule for the DB cluster, including the preferred maintenance window and timezone.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>A list of backup configurations to update for the DB cluster.</p>
+   * A list of backup configurations to update for the DB cluster.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
@@ -1761,7 +2005,8 @@ export interface UpdateDbClusterInput {
  */
 export interface UpdateDbClusterOutput {
   /**
-   * <p>The status of the DB cluster.</p>
+   * The status of the DB cluster.
+   *
    * @public
    */
   dbClusterStatus?: ClusterStatus | undefined;
@@ -1772,139 +2017,153 @@ export interface UpdateDbClusterOutput {
  */
 export interface CreateDbInstanceInput {
   /**
-   * <p>The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.</p>
+   * The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Secrets Manager in your account.</p>
+   * The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Secrets Manager in your account.
+   *
    * @public
    */
   username?: string | undefined;
 
   /**
-   * <p>The password of the initial admin user created in InfluxDB v2. This password will allow
-   *             you to access the InfluxDB UI to perform various administrative tasks and also use the
-   *             InfluxDB CLI to create an operator token. These attributes will be stored in a Secret
-   *             created in Secrets Manager in your account.</p>
+   * The password of the initial admin user created in InfluxDB v2. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Secrets Manager in your account.
+   *
    * @public
    */
   password: string | undefined;
 
   /**
-   * <p>The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.</p>
+   * The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.
+   *
    * @public
    */
   organization?: string | undefined;
 
   /**
-   * <p>The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.</p>
+   * The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.
+   *
    * @public
    */
   bucket?: string | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
+   * The Timestream for InfluxDB DB instance type to run InfluxDB on.
+   *
    * @public
    */
   dbInstanceType: DbInstanceType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.</p>
+   * A list of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of VPC security group IDs to associate with the DB instance.</p>
+   * A list of VPC security group IDs to associate with the DB instance.
+   *
    * @public
    */
   vpcSecurityGroupIds: string[] | undefined;
 
   /**
-   * <p>Configures the DB instance with a public IP to facilitate access.</p>
+   * Configures the DB instance with a public IP to facilitate access.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
-   *          <p>You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Influx IO Included 3000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>Influx IO Included 12000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                <p>Influx IO Included 16000 IOPS</p>
-   *             </li>
-   *          </ul>
+   * The Timestream for InfluxDB DB storage type to read and write InfluxDB data.
+   *
+   * You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements:
+   *
+   * - Influx IO Included 3000 IOPS
+   * - Influx IO Included 12000 IOPS
+   * - Influx IO Included 16000 IOPS
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</p>
+   * The amount of storage to allocate for your DB storage type in GiB (gibibytes).
+   *
    * @public
    */
   allocatedStorage: number | undefined;
 
   /**
-   * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
+   * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to a specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.</p>
+   * Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the DB instance.</p>
+   * A list of key-value pairs to associate with the DB instance.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
-   *          <p>Valid Values: 1024-65535</p>
-   *          <p>Default: 8086</p>
-   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * The port number on which InfluxDB accepts connections.
+   *
+   * Valid Values: 1024-65535
+   *
+   * Default: 8086
+   *
+   * Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>A list of backup configurations to enable automated backups for the DB instance.</p>
+   * A list of backup configurations to enable automated backups for the DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key identifier to use for encryption of the DB instance. Can be a key ID, key ARN, alias name, or alias ARN.</p>
+   * The Amazon Web Services KMS key identifier to use for encryption of the DB instance. Can be a key ID, key ARN, alias name, or alias ARN.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -1915,163 +2174,190 @@ export interface CreateDbInstanceInput {
  */
 export interface CreateDbInstanceOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections. The default value is 8086.</p>
+   * The port number on which InfluxDB accepts connections. The default value is 8086.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * A list of VPC subnet IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * Indicates if the DB instance has a public IP to facilitate access.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * A list of VPC security group IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * The id of the DB parameter group assigned to your DB instance.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the DB instance resides.</p>
+   * The Availability Zone in which the DB instance resides.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
+   *
    * @public
    */
   secondaryAvailabilityZone?: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * Specifies the DbCluster to which this DbInstance belongs to.
+   *
    * @public
    */
   dbClusterId?: string | undefined;
 
   /**
-   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * Specifies the DbInstance's role in the cluster.
+   *
    * @public
    */
   instanceMode?: InstanceMode | undefined;
 
   /**
-   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * Specifies the DbInstance's roles in the cluster.
+   *
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
 
   /**
-   * <p>The maintenance schedule for the DB instance.</p>
+   * The maintenance schedule for the DB instance.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * The timestamp of the last completed maintenance operation on the DB instance.
+   *
    * @public
    */
   lastMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * The timestamp of the next scheduled maintenance operation on the DB instance.
+   *
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The backup configurations for the DB instance.</p>
+   * The backup configurations for the DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the DB instance.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -2082,13 +2368,15 @@ export interface CreateDbInstanceOutput {
  */
 export interface DeleteDbInstanceInput {
   /**
-   * <p>The id of the DB instance.</p>
+   * The id of the DB instance.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Specifies whether to retain automated backups after the DB instance is deleted. If set to true, automated backups are not deleted and can be restored later.</p>
+   * Specifies whether to retain automated backups after the DB instance is deleted. If set to true, automated backups are not deleted and can be restored later.
+   *
    * @public
    */
   retainAutomatedBackups?: boolean | undefined;
@@ -2099,163 +2387,190 @@ export interface DeleteDbInstanceInput {
  */
 export interface DeleteDbInstanceOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * A list of VPC subnet IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * Indicates if the DB instance has a public IP to facilitate access.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * A list of VPC security group IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * The id of the DB parameter group assigned to your DB instance.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the DB instance resides.</p>
+   * The Availability Zone in which the DB instance resides.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
+   *
    * @public
    */
   secondaryAvailabilityZone?: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * Specifies the DbCluster to which this DbInstance belongs to.
+   *
    * @public
    */
   dbClusterId?: string | undefined;
 
   /**
-   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * Specifies the DbInstance's role in the cluster.
+   *
    * @public
    */
   instanceMode?: InstanceMode | undefined;
 
   /**
-   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * Specifies the DbInstance's roles in the cluster.
+   *
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
 
   /**
-   * <p>The maintenance schedule for the DB instance.</p>
+   * The maintenance schedule for the DB instance.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * The timestamp of the last completed maintenance operation on the DB instance.
+   *
    * @public
    */
   lastMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * The timestamp of the next scheduled maintenance operation on the DB instance.
+   *
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The backup configurations that were associated with the deleted DB instance.</p>
+   * The backup configurations that were associated with the deleted DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN that was used for encryption of the deleted DB instance.</p>
+   * The Amazon Web Services KMS key ARN that was used for encryption of the deleted DB instance.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -2266,7 +2581,8 @@ export interface DeleteDbInstanceOutput {
  */
 export interface GetDbInstanceInput {
   /**
-   * <p>The id of the DB instance.</p>
+   * The id of the DB instance.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -2277,163 +2593,190 @@ export interface GetDbInstanceInput {
  */
 export interface GetDbInstanceOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * A list of VPC subnet IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * Indicates if the DB instance has a public IP to facilitate access.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * A list of VPC security group IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * The id of the DB parameter group assigned to your DB instance.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the DB instance resides.</p>
+   * The Availability Zone in which the DB instance resides.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
+   *
    * @public
    */
   secondaryAvailabilityZone?: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * Specifies the DbCluster to which this DbInstance belongs to.
+   *
    * @public
    */
   dbClusterId?: string | undefined;
 
   /**
-   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * Specifies the DbInstance's role in the cluster.
+   *
    * @public
    */
   instanceMode?: InstanceMode | undefined;
 
   /**
-   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * Specifies the DbInstance's roles in the cluster.
+   *
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
 
   /**
-   * <p>The maintenance schedule for the DB instance.</p>
+   * The maintenance schedule for the DB instance.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * The timestamp of the last completed maintenance operation on the DB instance.
+   *
    * @public
    */
   lastMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * The timestamp of the next scheduled maintenance operation on the DB instance.
+   *
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The backup configurations for the DB instance.</p>
+   * The backup configurations for the DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the DB instance.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -2444,86 +2787,99 @@ export interface GetDbInstanceOutput {
  */
 export interface ListDbInstancesInput {
   /**
-   * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains a summary of a DB instance.</p>
+ * Contains a summary of a DB instance.
+ *
  * @public
  */
 export interface DbInstanceSummary {
   /**
-   * <p>The service-generated unique identifier of the DB instance.</p>
+   * The service-generated unique identifier of the DB instance.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with
-   *             the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
+   * The Timestream for InfluxDB instance type to run InfluxDB on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The storage type for your DB instance.</p>
+   * The storage type for your DB instance.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage to allocate for your DbStorageType in GiB (gibibytes).</p>
+   * The amount of storage to allocate for your DbStorageType in GiB (gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Single-Instance or with a MultiAZ Standby for High availability.</p>
+   * Single-Instance or with a MultiAZ Standby for High availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
@@ -2534,14 +2890,15 @@ export interface DbInstanceSummary {
  */
 export interface ListDbInstancesOutput {
   /**
-   * <p>A list of Timestream for InfluxDB DB instance summaries.</p>
+   * A list of Timestream for InfluxDB DB instance summaries.
+   *
    * @public
    */
   items: DbInstanceSummary[] | undefined;
 
   /**
-   * <p>Token from a previous call of the operation. When this value is provided, the
-   *             service returns results from where the previous response left off.</p>
+   * Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2552,7 +2909,8 @@ export interface ListDbInstancesOutput {
  */
 export interface RebootDbInstanceInput {
   /**
-   * <p>The id of the DB instance to reboot.</p>
+   * The id of the DB instance to reboot.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -2563,163 +2921,190 @@ export interface RebootDbInstanceInput {
  */
 export interface RebootDbInstanceOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * The customer-supplied name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * A list of VPC subnet IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * Indicates if the DB instance has a public IP to facilitate access.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * A list of VPC security group IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * The id of the DB parameter group assigned to your DB instance.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the DB instance resides.</p>
+   * The Availability Zone in which the DB instance resides.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
+   *
    * @public
    */
   secondaryAvailabilityZone?: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * Specifies the DbCluster to which this DbInstance belongs to.
+   *
    * @public
    */
   dbClusterId?: string | undefined;
 
   /**
-   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * Specifies the DbInstance's role in the cluster.
+   *
    * @public
    */
   instanceMode?: InstanceMode | undefined;
 
   /**
-   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * Specifies the DbInstance's roles in the cluster.
+   *
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
 
   /**
-   * <p>The maintenance schedule for the DB instance.</p>
+   * The maintenance schedule for the DB instance.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * The timestamp of the last completed maintenance operation on the DB instance.
+   *
    * @public
    */
   lastMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * The timestamp of the next scheduled maintenance operation on the DB instance.
+   *
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The backup configurations for the DB instance.</p>
+   * The backup configurations for the DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the DB instance.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
@@ -2730,65 +3115,79 @@ export interface RebootDbInstanceOutput {
  */
 export interface UpdateDbInstanceInput {
   /**
-   * <p>The id of the DB instance.</p>
+   * The id of the DB instance.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
+   * The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
-   *          <p>If you change the Port value, your database restarts immediately.</p>
-   *          <p>Valid Values: 1024-65535</p>
-   *          <p>Default: 8086</p>
-   *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
+   * The port number on which InfluxDB accepts connections.
+   *
+   * If you change the Port value, your database restarts immediately.
+   *
+   * Valid Values: 1024-65535
+   *
+   * Default: 8086
+   *
+   * Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
+   * The Timestream for InfluxDB DB instance type to run InfluxDB on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
+   * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage to allocate for your DB storage type (in gibibytes).</p>
+   * The amount of storage to allocate for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.</p>
+   * Specifies the maintenance schedule for the DB instance, including the preferred maintenance window and timezone.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>A list of backup configurations to update for the DB instance.</p>
+   * A list of backup configurations to update for the DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
@@ -2799,432 +3198,530 @@ export interface UpdateDbInstanceInput {
  */
 export interface UpdateDbInstanceOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the DB instance when interacting with
-   *             the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * This customer-supplied name uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB instance.</p>
+   * The Amazon Resource Name (ARN) of the DB instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the DB instance.</p>
+   * The status of the DB instance.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
+   * The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The port number on which InfluxDB accepts connections.</p>
+   * The port number on which InfluxDB accepts connections.
+   *
    * @public
    */
   port?: number | undefined;
 
   /**
-   * <p>Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.</p>
+   * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+   *
    * @public
    */
   networkType?: NetworkType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
+   * The Timestream for InfluxDB instance type that InfluxDB runs on.
+   *
    * @public
    */
   dbInstanceType?: DbInstanceType | undefined;
 
   /**
-   * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
+   * The Timestream for InfluxDB DB storage type that InfluxDB stores data on.
+   *
    * @public
    */
   dbStorageType?: DbStorageType | undefined;
 
   /**
-   * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
+   * The amount of storage allocated for your DB storage type (in gibibytes).
+   *
    * @public
    */
   allocatedStorage?: number | undefined;
 
   /**
-   * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
+   * Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.
+   *
    * @public
    */
   deploymentType?: DeploymentType | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs associated with the DB instance.</p>
+   * A list of VPC subnet IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSubnetIds: string[] | undefined;
 
   /**
-   * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
+   * Indicates if the DB instance has a public IP to facilitate access.
+   *
    * @public
    */
   publiclyAccessible?: boolean | undefined;
 
   /**
-   * <p>A list of VPC security group IDs associated with the DB instance.</p>
+   * A list of VPC security group IDs associated with the DB instance.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The id of the DB parameter group assigned to your DB instance.</p>
+   * The id of the DB parameter group assigned to your DB instance.
+   *
    * @public
    */
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the DB instance resides.</p>
+   * The Availability Zone in which the DB instance resides.
+   *
    * @public
    */
   availabilityZone?: string | undefined;
 
   /**
-   * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
+   * The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
+   *
    * @public
    */
   secondaryAvailabilityZone?: string | undefined;
 
   /**
-   * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
+   * Configuration for sending InfluxDB engine logs to send to specified S3 bucket.
+   *
    * @public
    */
   logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.
+   *
    * @public
    */
   influxAuthParametersSecretArn?: string | undefined;
 
   /**
-   * <p>Specifies the DbCluster to which this DbInstance belongs to.</p>
+   * Specifies the DbCluster to which this DbInstance belongs to.
+   *
    * @public
    */
   dbClusterId?: string | undefined;
 
   /**
-   * <p>Specifies the DbInstance's role in the cluster.</p>
+   * Specifies the DbInstance's role in the cluster.
+   *
    * @public
    */
   instanceMode?: InstanceMode | undefined;
 
   /**
-   * <p>Specifies the DbInstance's roles in the cluster.</p>
+   * Specifies the DbInstance's roles in the cluster.
+   *
    * @public
    */
   instanceModes?: InstanceMode[] | undefined;
 
   /**
-   * <p>The maintenance schedule for the DB instance.</p>
+   * The maintenance schedule for the DB instance.
+   *
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
-   * <p>The timestamp of the last completed maintenance operation on the DB instance.</p>
+   * The timestamp of the last completed maintenance operation on the DB instance.
+   *
    * @public
    */
   lastMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The timestamp of the next scheduled maintenance operation on the DB instance.</p>
+   * The timestamp of the next scheduled maintenance operation on the DB instance.
+   *
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
 
   /**
-   * <p>The backup configurations for the DB instance.</p>
+   * The backup configurations for the DB instance.
+   *
    * @public
    */
   dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * The Amazon Web Services KMS key ARN used for encryption of the DB instance.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 }
 
 /**
- * <p>Duration for InfluxDB parameters in Timestream for InfluxDB.</p>
+ * Duration for InfluxDB parameters in Timestream for InfluxDB.
+ *
  * @public
  */
 export interface Duration {
   /**
-   * <p>The type of duration for InfluxDB parameters.</p>
+   * The type of duration for InfluxDB parameters.
+   *
    * @public
    */
   durationType: DurationType | undefined;
 
   /**
-   * <p>The value of duration for InfluxDB parameters.</p>
+   * The value of duration for InfluxDB parameters.
+   *
    * @public
    */
   value: number | undefined;
 }
 
 /**
- * <p>All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.</p>
+ * All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.
+ *
  * @public
  */
 export interface InfluxDBv2Parameters {
   /**
-   * <p>Include option to show detailed logs for Flux queries.</p>
-   *          <p>Default: false</p>
+   * Include option to show detailed logs for Flux queries.
+   *
+   * Default: false
+   *
    * @public
    */
   fluxLogEnabled?: boolean | undefined;
 
   /**
-   * <p>Log output level. InfluxDB outputs log entries with severity levels greater than or equal to the level specified.</p>
-   *          <p>Default: info</p>
+   * Log output level. InfluxDB outputs log entries with severity levels greater than or equal to the level specified.
+   *
+   * Default: info
+   *
    * @public
    */
   logLevel?: LogLevel | undefined;
 
   /**
-   * <p>Disable the task scheduler. If problematic tasks prevent InfluxDB from starting, use this option to start InfluxDB without scheduling or executing tasks.</p>
-   *          <p>Default: false</p>
+   * Disable the task scheduler. If problematic tasks prevent InfluxDB from starting, use this option to start InfluxDB without scheduling or executing tasks.
+   *
+   * Default: false
+   *
    * @public
    */
   noTasks?: boolean | undefined;
 
   /**
-   * <p>Number of queries allowed to execute concurrently. Setting to 0 allows an unlimited number of concurrent queries.</p>
-   *          <p>Default: 0</p>
+   * Number of queries allowed to execute concurrently. Setting to 0 allows an unlimited number of concurrent queries.
+   *
+   * Default: 0
+   *
    * @public
    */
   queryConcurrency?: number | undefined;
 
   /**
-   * <p>Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.</p>
-   *          <p>Default: 0</p>
+   * Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.
+   *
+   * Default: 0
+   *
    * @public
    */
   queryQueueSize?: number | undefined;
 
   /**
-   * <p>Enable tracing in InfluxDB and specifies the tracing type. Tracing is disabled by default.</p>
+   * Enable tracing in InfluxDB and specifies the tracing type. Tracing is disabled by default.
+   *
    * @public
    */
   tracingType?: TracingType | undefined;
 
   /**
-   * <p>Disable the HTTP /metrics endpoint which exposes <a href="https://docs.influxdata.com/influxdb/v2/reference/internals/metrics/">internal InfluxDB metrics</a>.</p>
-   *          <p>Default: false</p>
+   * Disable the HTTP /metrics endpoint which exposes [internal InfluxDB metrics](https://docs.influxdata.com/influxdb/v2/reference/internals/metrics/).
+   *
+   * Default: false
+   *
    * @public
    */
   metricsDisabled?: boolean | undefined;
 
   /**
-   * <p>Maximum duration the server should keep established connections alive while waiting for new requests. Set to 0 for no timeout.</p>
-   *          <p>Default: 3 minutes</p>
+   * Maximum duration the server should keep established connections alive while waiting for new requests. Set to 0 for no timeout.
+   *
+   * Default: 3 minutes
+   *
    * @public
    */
   httpIdleTimeout?: Duration | undefined;
 
   /**
-   * <p>Maximum duration the server should try to read HTTP headers for new requests. Set to 0 for no timeout.</p>
-   *          <p>Default: 10 seconds</p>
+   * Maximum duration the server should try to read HTTP headers for new requests. Set to 0 for no timeout.
+   *
+   * Default: 10 seconds
+   *
    * @public
    */
   httpReadHeaderTimeout?: Duration | undefined;
 
   /**
-   * <p>Maximum duration the server should try to read the entirety of new requests. Set to 0 for no timeout.</p>
-   *          <p>Default: 0</p>
+   * Maximum duration the server should try to read the entirety of new requests. Set to 0 for no timeout.
+   *
+   * Default: 0
+   *
    * @public
    */
   httpReadTimeout?: Duration | undefined;
 
   /**
-   * <p>Maximum duration the server should spend processing and responding to write requests. Set to 0 for no timeout.</p>
-   *          <p>Default: 0</p>
+   * Maximum duration the server should spend processing and responding to write requests. Set to 0 for no timeout.
+   *
+   * Default: 0
+   *
    * @public
    */
   httpWriteTimeout?: Duration | undefined;
 
   /**
-   * <p>Maximum number of group by time buckets a SELECT statement can create. 0 allows an unlimited number of buckets.</p>
-   *          <p>Default: 0</p>
+   * Maximum number of group by time buckets a SELECT statement can create. 0 allows an unlimited number of buckets.
+   *
+   * Default: 0
+   *
    * @public
    */
   influxqlMaxSelectBuckets?: number | undefined;
 
   /**
-   * <p>Maximum number of points a SELECT statement can process. 0 allows an unlimited number of points. InfluxDB checks the point count every second (so queries exceeding the maximum aren’t immediately aborted).</p>
-   *          <p>Default: 0</p>
+   * Maximum number of points a SELECT statement can process. 0 allows an unlimited number of points. InfluxDB checks the point count every second (so queries exceeding the maximum aren’t immediately aborted).
+   *
+   * Default: 0
+   *
    * @public
    */
   influxqlMaxSelectPoint?: number | undefined;
 
   /**
-   * <p>Maximum number of series a SELECT statement can return. 0 allows an unlimited number of series.</p>
-   *          <p>Default: 0</p>
+   * Maximum number of series a SELECT statement can return. 0 allows an unlimited number of series.
+   *
+   * Default: 0
+   *
    * @public
    */
   influxqlMaxSelectSeries?: number | undefined;
 
   /**
-   * <p>Disable the /debug/pprof HTTP endpoint. This endpoint provides runtime profiling data and can be helpful when debugging.</p>
-   *          <p>Default: true</p>
+   * Disable the /debug/pprof HTTP endpoint. This endpoint provides runtime profiling data and can be helpful when debugging.
+   *
+   * Default: true
+   *
    * @public
    */
   pprofDisabled?: boolean | undefined;
 
   /**
-   * <p>Initial bytes of memory allocated for a query.</p>
-   *          <p>Default: 0</p>
+   * Initial bytes of memory allocated for a query.
+   *
+   * Default: 0
+   *
    * @public
    */
   queryInitialMemoryBytes?: number | undefined;
 
   /**
-   * <p>Maximum total bytes of memory allowed for all running queries. When this limit is reached, new queries are rejected. Setting to 0 allows unlimited memory usage.</p>
-   *          <p>Default: 0</p>
+   * Maximum total bytes of memory allowed for all running queries. When this limit is reached, new queries are rejected. Setting to 0 allows unlimited memory usage.
+   *
+   * Default: 0
+   *
    * @public
    */
   queryMaxMemoryBytes?: number | undefined;
 
   /**
-   * <p>Maximum bytes of memory allowed for a single query. Must be greater or equal to queryInitialMemoryBytes.</p>
-   *          <p>Default: 0</p>
+   * Maximum bytes of memory allowed for a single query. Must be greater or equal to queryInitialMemoryBytes.
+   *
+   * Default: 0
+   *
    * @public
    */
   queryMemoryBytes?: number | undefined;
 
   /**
-   * <p>Specifies the Time to Live (TTL) in minutes for newly created user sessions.</p>
-   *          <p>Default: 60</p>
+   * Specifies the Time to Live (TTL) in minutes for newly created user sessions.
+   *
+   * Default: 60
+   *
    * @public
    */
   sessionLength?: number | undefined;
 
   /**
-   * <p>Disables automatically extending a user’s session TTL on each request. By default, every request sets the session’s expiration time to five minutes from now. When disabled, sessions expire after the specified <a href="https://docs.influxdata.com/influxdb/v2/reference/config-options/#session-length">session length</a> and the user is redirected to the login page, even if recently active.</p>
-   *          <p>Default: false</p>
+   * Disables automatically extending a user’s session TTL on each request. By default, every request sets the session’s expiration time to five minutes from now. When disabled, sessions expire after the specified [session length](https://docs.influxdata.com/influxdb/v2/reference/config-options/#session-length) and the user is redirected to the login page, even if recently active.
+   *
+   * Default: false
+   *
    * @public
    */
   sessionRenewDisabled?: boolean | undefined;
 
   /**
-   * <p>Maximum size (in bytes) a shard’s cache can reach before it starts rejecting writes. Must be greater than storageCacheSnapShotMemorySize and lower than instance’s total memory capacity. We recommend setting it to below 15% of the total memory capacity.</p>
-   *          <p>Default: 1073741824</p>
+   * Maximum size (in bytes) a shard’s cache can reach before it starts rejecting writes. Must be greater than storageCacheSnapShotMemorySize and lower than instance’s total memory capacity. We recommend setting it to below 15% of the total memory capacity.
+   *
+   * Default: 1073741824
+   *
    * @public
    */
   storageCacheMaxMemorySize?: number | undefined;
 
   /**
-   * <p>Size (in bytes) at which the storage engine will snapshot the cache and write it to a TSM file to make more memory available. Must not be greater than storageCacheMaxMemorySize.</p>
-   *          <p>Default: 26214400</p>
+   * Size (in bytes) at which the storage engine will snapshot the cache and write it to a TSM file to make more memory available. Must not be greater than storageCacheMaxMemorySize.
+   *
+   * Default: 26214400
+   *
    * @public
    */
   storageCacheSnapshotMemorySize?: number | undefined;
 
   /**
-   * <p>Duration at which the storage engine will snapshot the cache and write it to a new TSM file if the shard hasn’t received writes or deletes.</p>
-   *          <p>Default: 10 minutes</p>
+   * Duration at which the storage engine will snapshot the cache and write it to a new TSM file if the shard hasn’t received writes or deletes.
+   *
+   * Default: 10 minutes
+   *
    * @public
    */
   storageCacheSnapshotWriteColdDuration?: Duration | undefined;
 
   /**
-   * <p>Duration at which the storage engine will compact all TSM files in a shard if it hasn't received writes or deletes.</p>
-   *          <p>Default: 4 hours</p>
+   * Duration at which the storage engine will compact all TSM files in a shard if it hasn't received writes or deletes.
+   *
+   * Default: 4 hours
+   *
    * @public
    */
   storageCompactFullWriteColdDuration?: Duration | undefined;
 
   /**
-   * <p>Rate limit (in bytes per second) that TSM compactions can write to disk.</p>
-   *          <p>Default: 50331648</p>
+   * Rate limit (in bytes per second) that TSM compactions can write to disk.
+   *
+   * Default: 50331648
+   *
    * @public
    */
   storageCompactThroughputBurst?: number | undefined;
 
   /**
-   * <p>Maximum number of full and level compactions that can run concurrently. A value of 0 results in 50% of runtime.GOMAXPROCS(0) used at runtime. Any number greater than zero limits compactions to that value. This setting does not apply to cache snapshotting.</p>
-   *          <p>Default: 0</p>
+   * Maximum number of full and level compactions that can run concurrently. A value of 0 results in 50% of runtime.GOMAXPROCS(0) used at runtime. Any number greater than zero limits compactions to that value. This setting does not apply to cache snapshotting.
+   *
+   * Default: 0
+   *
    * @public
    */
   storageMaxConcurrentCompactions?: number | undefined;
 
   /**
-   * <p>Size (in bytes) at which an index write-ahead log (WAL) file will compact into an index file. Lower sizes will cause log files to be compacted more quickly and result in lower heap usage at the expense of write throughput.</p>
-   *          <p>Default: 1048576</p>
+   * Size (in bytes) at which an index write-ahead log (WAL) file will compact into an index file. Lower sizes will cause log files to be compacted more quickly and result in lower heap usage at the expense of write throughput.
+   *
+   * Default: 1048576
+   *
    * @public
    */
   storageMaxIndexLogFileSize?: number | undefined;
 
   /**
-   * <p>Skip field size validation on incoming write requests.</p>
-   *          <p>Default: false</p>
+   * Skip field size validation on incoming write requests.
+   *
+   * Default: false
+   *
    * @public
    */
   storageNoValidateFieldSize?: boolean | undefined;
 
   /**
-   * <p>Interval of retention policy enforcement checks. Must be greater than 0.</p>
-   *          <p>Default: 30 minutes</p>
+   * Interval of retention policy enforcement checks. Must be greater than 0.
+   *
+   * Default: 30 minutes
+   *
    * @public
    */
   storageRetentionCheckInterval?: Duration | undefined;
 
   /**
-   * <p>Maximum number of snapshot compactions that can run concurrently across all series partitions in a database.</p>
-   *          <p>Default: 0</p>
+   * Maximum number of snapshot compactions that can run concurrently across all series partitions in a database.
+   *
+   * Default: 0
+   *
    * @public
    */
   storageSeriesFileMaxConcurrentSnapshotCompactions?: number | undefined;
 
   /**
-   * <p>Size of the internal cache used in the TSI index to store previously calculated series results. Cached results are returned quickly rather than needing to be recalculated when a subsequent query with the same tag key/value predicate is executed. Setting this value to 0 will disable the cache and may decrease query performance.</p>
-   *          <p>Default: 100</p>
+   * Size of the internal cache used in the TSI index to store previously calculated series results. Cached results are returned quickly rather than needing to be recalculated when a subsequent query with the same tag key/value predicate is executed. Setting this value to 0 will disable the cache and may decrease query performance.
+   *
+   * Default: 100
+   *
    * @public
    */
   storageSeriesIdSetCacheSize?: number | undefined;
 
   /**
-   * <p>Maximum number writes to the WAL directory to attempt at the same time. Setting this value to 0 results in number of processing units available x2.</p>
-   *          <p>Default: 0</p>
+   * Maximum number writes to the WAL directory to attempt at the same time. Setting this value to 0 results in number of processing units available x2.
+   *
+   * Default: 0
+   *
    * @public
    */
   storageWalMaxConcurrentWrites?: number | undefined;
 
   /**
-   * <p>Maximum amount of time a write request to the WAL directory will wait when the <a href="https://docs.influxdata.com/influxdb/v2/reference/config-options/#storage-wal-max-concurrent-writes">maximum number of concurrent active writes to the WAL directory has been met</a>. Set to 0 to disable the timeout.</p>
-   *          <p>Default: 10 minutes</p>
+   * Maximum amount of time a write request to the WAL directory will wait when the [maximum number of concurrent active writes to the WAL directory has been met](https://docs.influxdata.com/influxdb/v2/reference/config-options/#storage-wal-max-concurrent-writes). Set to 0 to disable the timeout.
+   *
+   * Default: 10 minutes
+   *
    * @public
    */
   storageWalMaxWriteDelay?: Duration | undefined;
 
   /**
-   * <p>Disable the InfluxDB user interface (UI). The UI is enabled by default.</p>
-   *          <p>Default: false</p>
+   * Disable the InfluxDB user interface (UI). The UI is enabled by default.
+   *
+   * Default: false
+   *
    * @public
    */
   uiDisabled?: boolean | undefined;
 }
 
 /**
- * <p>Percent or Absolute Long for InfluxDB parameters</p>
+ * Percent or Absolute Long for InfluxDB parameters
+ *
  * @public
  */
 export type PercentOrAbsoluteLong =
@@ -3237,7 +3734,8 @@ export type PercentOrAbsoluteLong =
  */
 export namespace PercentOrAbsoluteLong {
   /**
-   * <p>Percent for InfluxDB parameters.</p>
+   * Percent for InfluxDB parameters.
+   *
    * @public
    */
   export interface PercentMember {
@@ -3247,7 +3745,8 @@ export namespace PercentOrAbsoluteLong {
   }
 
   /**
-   * <p>Absolute long for InfluxDB parameters.</p>
+   * Absolute long for InfluxDB parameters.
+   *
    * @public
    */
   export interface AbsoluteMember {
@@ -3277,567 +3776,708 @@ export namespace PercentOrAbsoluteLong {
 }
 
 /**
- * <p>All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.</p>
+ * All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.
+ *
  * @public
  */
 export interface InfluxDBv3CoreParameters {
   /**
-   * <p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p>
-   *          <p>Default: 432</p>
+   * Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.
+   *
+   * Default: 432
+   *
    * @public
    */
   queryFileLimit?: number | undefined;
 
   /**
-   * <p>Defines the size of the query log. Up to this many queries remain in the log before older queries are evicted to make room for new ones.</p>
-   *          <p>Default: 1000</p>
+   * Defines the size of the query log. Up to this many queries remain in the log before older queries are evicted to make room for new ones.
+   *
+   * Default: 1000
+   *
    * @public
    */
   queryLogSize?: number | undefined;
 
   /**
-   * <p>Sets the filter directive for logs.</p>
+   * Sets the filter directive for logs.
+   *
    * @public
    */
   logFilter?: string | undefined;
 
   /**
-   * <p>Defines the message format for logs.</p>
-   *          <p>Default: full</p>
+   * Defines the message format for logs.
+   *
+   * Default: full
+   *
    * @public
    */
   logFormat?: LogFormats | undefined;
 
   /**
-   * <p>Sets the maximum number of DataFusion runtime threads to use.</p>
+   * Sets the maximum number of DataFusion runtime threads to use.
+   *
    * @public
    */
   dataFusionNumThreads?: number | undefined;
 
   /**
-   * <p>Specifies the DataFusion tokio runtime type.</p>
-   *          <p>Default: multi-thread</p>
+   * Specifies the DataFusion tokio runtime type.
+   *
+   * Default: multi-thread
+   *
    * @public
    */
   dataFusionRuntimeType?: DataFusionRuntimeType | undefined;
 
   /**
-   * <p>Disables the LIFO slot of the DataFusion runtime.</p>
+   * Disables the LIFO slot of the DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeDisableLifoSlot?: boolean | undefined;
 
   /**
-   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion tokio runtime polls for external events–for example: timers, I/O.</p>
+   * Sets the number of scheduler ticks after which the scheduler of the DataFusion tokio runtime polls for external events–for example: timers, I/O.
+   *
    * @public
    */
   dataFusionRuntimeEventInterval?: number | undefined;
 
   /**
-   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion runtime polls the global task queue.</p>
+   * Sets the number of scheduler ticks after which the scheduler of the DataFusion runtime polls the global task queue.
+   *
    * @public
    */
   dataFusionRuntimeGlobalQueueInterval?: number | undefined;
 
   /**
-   * <p>Specifies the limit for additional threads spawned by the DataFusion runtime.</p>
+   * Specifies the limit for additional threads spawned by the DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeMaxBlockingThreads?: number | undefined;
 
   /**
-   * <p>Configures the maximum number of events processed per tick by the tokio DataFusion runtime.</p>
+   * Configures the maximum number of events processed per tick by the tokio DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeMaxIoEventsPerTick?: number | undefined;
 
   /**
-   * <p>Sets a custom timeout for a thread in the blocking pool of the tokio DataFusion runtime.</p>
+   * Sets a custom timeout for a thread in the blocking pool of the tokio DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeThreadKeepAlive?: Duration | undefined;
 
   /**
-   * <p>Sets the thread priority for tokio DataFusion runtime workers.</p>
-   *          <p>Default: 10</p>
+   * Sets the thread priority for tokio DataFusion runtime workers.
+   *
+   * Default: 10
+   *
    * @public
    */
   dataFusionRuntimeThreadPriority?: number | undefined;
 
   /**
-   * <p>When multiple parquet files are required in a sorted way (deduplication for example), specifies the maximum fanout.</p>
-   *          <p>Default: 1000</p>
+   * When multiple parquet files are required in a sorted way (deduplication for example), specifies the maximum fanout.
+   *
+   * Default: 1000
+   *
    * @public
    */
   dataFusionMaxParquetFanout?: number | undefined;
 
   /**
-   * <p>Uses a cached parquet loader when reading parquet files from the object store.</p>
+   * Uses a cached parquet loader when reading parquet files from the object store.
+   *
    * @public
    */
   dataFusionUseCachedParquetLoader?: boolean | undefined;
 
   /**
-   * <p>Provides custom configuration to DataFusion as a comma-separated list of key:value pairs.</p>
+   * Provides custom configuration to DataFusion as a comma-separated list of key:value pairs.
+   *
    * @public
    */
   dataFusionConfig?: string | undefined;
 
   /**
-   * <p>Specifies the maximum size of HTTP requests.</p>
-   *          <p>Default: 10485760</p>
+   * Specifies the maximum size of HTTP requests.
+   *
+   * Default: 10485760
+   *
    * @public
    */
   maxHttpRequestSize?: number | undefined;
 
   /**
-   * <p>Specifies the threshold for the internal memory buffer. Supports either a percentage (portion of available memory) or absolute value in MB–for example: 70% or 100</p>
-   *          <p>Default: 70%</p>
+   * Specifies the threshold for the internal memory buffer. Supports either a percentage (portion of available memory) or absolute value in MB–for example: 70% or 100
+   *
+   * Default: 70%
+   *
    * @public
    */
   forceSnapshotMemThreshold?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>Defines the number of WAL files to attempt to remove in a snapshot. This, multiplied by the interval, determines how often snapshots are taken.</p>
-   *          <p>Default: 600</p>
+   * Defines the number of WAL files to attempt to remove in a snapshot. This, multiplied by the interval, determines how often snapshots are taken.
+   *
+   * Default: 600
+   *
    * @public
    */
   walSnapshotSize?: number | undefined;
 
   /**
-   * <p>Specifies the maximum number of write requests that can be buffered before a flush must be executed and succeed.</p>
-   *          <p>Default: 100000</p>
+   * Specifies the maximum number of write requests that can be buffered before a flush must be executed and succeed.
+   *
+   * Default: 100000
+   *
    * @public
    */
   walMaxWriteBufferSize?: number | undefined;
 
   /**
-   * <p>Specifies the number of snapshotted WAL files to retain in the object store. Flushing the WAL files does not clear the WAL files immediately; they are deleted when the number of snapshotted WAL files exceeds this number.</p>
-   *          <p>Default: 300</p>
+   * Specifies the number of snapshotted WAL files to retain in the object store. Flushing the WAL files does not clear the WAL files immediately; they are deleted when the number of snapshotted WAL files exceeds this number.
+   *
+   * Default: 300
+   *
    * @public
    */
   snapshottedWalFilesToKeep?: number | undefined;
 
   /**
-   * <p>Specifies the interval to prefetch into the Parquet cache during compaction.</p>
-   *          <p>Default: 3d</p>
+   * Specifies the interval to prefetch into the Parquet cache during compaction.
+   *
+   * Default: 3d
+   *
    * @public
    */
   preemptiveCacheAge?: Duration | undefined;
 
   /**
-   * <p>Specifies the percentage of entries to prune during a prune operation on the in-memory Parquet cache.</p>
-   *          <p>Default: 0.1</p>
+   * Specifies the percentage of entries to prune during a prune operation on the in-memory Parquet cache.
+   *
+   * Default: 0.1
+   *
    * @public
    */
   parquetMemCachePrunePercentage?: number | undefined;
 
   /**
-   * <p>Sets the interval to check if the in-memory Parquet cache needs to be pruned.</p>
-   *          <p>Default: 1s</p>
+   * Sets the interval to check if the in-memory Parquet cache needs to be pruned.
+   *
+   * Default: 1s
+   *
    * @public
    */
   parquetMemCachePruneInterval?: Duration | undefined;
 
   /**
-   * <p>Disables the in-memory Parquet cache. By default, the cache is enabled.</p>
+   * Disables the in-memory Parquet cache. By default, the cache is enabled.
+   *
    * @public
    */
   disableParquetMemCache?: boolean | undefined;
 
   /**
-   * <p>Specifies the time window for caching recent Parquet files in memory.</p>
-   *          <p>Default: 5h</p>
+   * Specifies the time window for caching recent Parquet files in memory.
+   *
+   * Default: 5h
+   *
    * @public
    */
   parquetMemCacheQueryPathDuration?: Duration | undefined;
 
   /**
-   * <p>Specifies the interval to evict expired entries from the Last-N-Value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
-   *          <p>Default: 10s</p>
+   * Specifies the interval to evict expired entries from the Last-N-Value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.
+   *
+   * Default: 10s
+   *
    * @public
    */
   lastCacheEvictionInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies the interval to evict expired entries from the distinct value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
-   *          <p>Default: 10s</p>
+   * Specifies the interval to evict expired entries from the distinct value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.
+   *
+   * Default: 10s
+   *
    * @public
    */
   distinctCacheEvictionInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies the duration that Parquet files are arranged into. Data timestamps land each row into a file of this duration. Supported durations are 1m, 5m, and 10m. These files are known as “generation 1” files that the compactor in InfluxDB 3 Enterprise can merge into larger generations.</p>
-   *          <p>Default: 10m</p>
+   * Specifies the duration that Parquet files are arranged into. Data timestamps land each row into a file of this duration. Supported durations are 1m, 5m, and 10m. These files are known as “generation 1” files that the compactor in InfluxDB 3 Enterprise can merge into larger generations.
+   *
+   * Default: 10m
+   *
    * @public
    */
   gen1Duration?: Duration | undefined;
 
   /**
-   * <p>Specifies the size of memory pool used during query execution. Can be given as absolute value in bytes or as a percentage of the total available memory–for example: 8000000000 or 10%.</p>
-   *          <p>Default: 20%</p>
+   * Specifies the size of memory pool used during query execution. Can be given as absolute value in bytes or as a percentage of the total available memory–for example: 8000000000 or 10%.
+   *
+   * Default: 20%
+   *
    * @public
    */
   execMemPoolBytes?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>Specifies the size of the in-memory Parquet cache in megabytes or percentage of total available memory.</p>
-   *          <p>Default: 20%</p>
+   * Specifies the size of the in-memory Parquet cache in megabytes or percentage of total available memory.
+   *
+   * Default: 20%
+   *
    * @public
    */
   parquetMemCacheSize?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>Determines whether WAL replay should fail when encountering errors.</p>
-   *          <p>Default: false</p>
+   * Determines whether WAL replay should fail when encountering errors.
+   *
+   * Default: false
+   *
    * @public
    */
   walReplayFailOnError?: boolean | undefined;
 
   /**
-   * <p>Concurrency limit during WAL replay. Setting this number too high can lead to OOM. The default is dynamically determined.</p>
-   *          <p>Default: max(num_cpus, 10)</p>
+   * Concurrency limit during WAL replay. Setting this number too high can lead to OOM. The default is dynamically determined.
+   *
+   * Default: max(num_cpus, 10)
+   *
    * @public
    */
   walReplayConcurrencyLimit?: number | undefined;
 
   /**
-   * <p>Specifies the maximum number of entries in the table index cache.</p>
-   *          <p>Default: 1000</p>
+   * Specifies the maximum number of entries in the table index cache.
+   *
+   * Default: 1000
+   *
    * @public
    */
   tableIndexCacheMaxEntries?: number | undefined;
 
   /**
-   * <p>Limits the concurrency level for table index cache operations.</p>
-   *          <p>Default: 8</p>
+   * Limits the concurrency level for table index cache operations.
+   *
+   * Default: 8
+   *
    * @public
    */
   tableIndexCacheConcurrencyLimit?: number | undefined;
 
   /**
-   * <p>Specifies how far back to look when creating generation 1 Parquet files.</p>
-   *          <p>Default: 24h</p>
+   * Specifies how far back to look when creating generation 1 Parquet files.
+   *
+   * Default: 24h
+   *
    * @public
    */
   gen1LookbackDuration?: Duration | undefined;
 
   /**
-   * <p>The interval at which retention policies are checked and enforced. Enter as a human-readable time–for example: 30m or 1h.</p>
-   *          <p>Default: 30m</p>
+   * The interval at which retention policies are checked and enforced. Enter as a human-readable time–for example: 30m or 1h.
+   *
+   * Default: 30m
+   *
    * @public
    */
   retentionCheckInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies the grace period before permanently deleting data.</p>
-   *          <p>Default: 24h</p>
+   * Specifies the grace period before permanently deleting data.
+   *
+   * Default: 24h
+   *
    * @public
    */
   deleteGracePeriod?: Duration | undefined;
 
   /**
-   * <p>Sets the default duration for hard deletion of data.</p>
-   *          <p>Default: 90d</p>
+   * Sets the default duration for hard deletion of data.
+   *
+   * Default: 90d
+   *
    * @public
    */
   hardDeleteDefaultDuration?: Duration | undefined;
 
   /**
-   * <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+   * Specifies the URL of the repository that InfluxDB downloads plugins from.
+   *
    * @public
    */
   pluginRepositoryUrl?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.
+   *
    * @public
    */
   pluginRepositorySecretArn?: string | undefined;
 }
 
 /**
- * <p>All the customer-modifiable InfluxDB v3 Enterprise parameters in Timestream for InfluxDB.</p>
+ * All the customer-modifiable InfluxDB v3 Enterprise parameters in Timestream for InfluxDB.
+ *
  * @public
  */
 export interface InfluxDBv3EnterpriseParameters {
   /**
-   * <p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p>
-   *          <p>Default: 432</p>
+   * Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.
+   *
+   * Default: 432
+   *
    * @public
    */
   queryFileLimit?: number | undefined;
 
   /**
-   * <p>Defines the size of the query log. Up to this many queries remain in the log before older queries are evicted to make room for new ones.</p>
-   *          <p>Default: 1000</p>
+   * Defines the size of the query log. Up to this many queries remain in the log before older queries are evicted to make room for new ones.
+   *
+   * Default: 1000
+   *
    * @public
    */
   queryLogSize?: number | undefined;
 
   /**
-   * <p>Sets the filter directive for logs.</p>
+   * Sets the filter directive for logs.
+   *
    * @public
    */
   logFilter?: string | undefined;
 
   /**
-   * <p>Defines the message format for logs.</p>
-   *          <p>Default: full</p>
+   * Defines the message format for logs.
+   *
+   * Default: full
+   *
    * @public
    */
   logFormat?: LogFormats | undefined;
 
   /**
-   * <p>Sets the maximum number of DataFusion runtime threads to use.</p>
+   * Sets the maximum number of DataFusion runtime threads to use.
+   *
    * @public
    */
   dataFusionNumThreads?: number | undefined;
 
   /**
-   * <p>Specifies the DataFusion tokio runtime type.</p>
-   *          <p>Default: multi-thread</p>
+   * Specifies the DataFusion tokio runtime type.
+   *
+   * Default: multi-thread
+   *
    * @public
    */
   dataFusionRuntimeType?: DataFusionRuntimeType | undefined;
 
   /**
-   * <p>Disables the LIFO slot of the DataFusion runtime.</p>
+   * Disables the LIFO slot of the DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeDisableLifoSlot?: boolean | undefined;
 
   /**
-   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion tokio runtime polls for external events–for example: timers, I/O.</p>
+   * Sets the number of scheduler ticks after which the scheduler of the DataFusion tokio runtime polls for external events–for example: timers, I/O.
+   *
    * @public
    */
   dataFusionRuntimeEventInterval?: number | undefined;
 
   /**
-   * <p>Sets the number of scheduler ticks after which the scheduler of the DataFusion runtime polls the global task queue.</p>
+   * Sets the number of scheduler ticks after which the scheduler of the DataFusion runtime polls the global task queue.
+   *
    * @public
    */
   dataFusionRuntimeGlobalQueueInterval?: number | undefined;
 
   /**
-   * <p>Specifies the limit for additional threads spawned by the DataFusion runtime.</p>
+   * Specifies the limit for additional threads spawned by the DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeMaxBlockingThreads?: number | undefined;
 
   /**
-   * <p>Configures the maximum number of events processed per tick by the tokio DataFusion runtime.</p>
+   * Configures the maximum number of events processed per tick by the tokio DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeMaxIoEventsPerTick?: number | undefined;
 
   /**
-   * <p>Sets a custom timeout for a thread in the blocking pool of the tokio DataFusion runtime.</p>
+   * Sets a custom timeout for a thread in the blocking pool of the tokio DataFusion runtime.
+   *
    * @public
    */
   dataFusionRuntimeThreadKeepAlive?: Duration | undefined;
 
   /**
-   * <p>Sets the thread priority for tokio DataFusion runtime workers.</p>
-   *          <p>Default: 10</p>
+   * Sets the thread priority for tokio DataFusion runtime workers.
+   *
+   * Default: 10
+   *
    * @public
    */
   dataFusionRuntimeThreadPriority?: number | undefined;
 
   /**
-   * <p>When multiple parquet files are required in a sorted way (deduplication for example), specifies the maximum fanout.</p>
-   *          <p>Default: 1000</p>
+   * When multiple parquet files are required in a sorted way (deduplication for example), specifies the maximum fanout.
+   *
+   * Default: 1000
+   *
    * @public
    */
   dataFusionMaxParquetFanout?: number | undefined;
 
   /**
-   * <p>Uses a cached parquet loader when reading parquet files from the object store.</p>
+   * Uses a cached parquet loader when reading parquet files from the object store.
+   *
    * @public
    */
   dataFusionUseCachedParquetLoader?: boolean | undefined;
 
   /**
-   * <p>Provides custom configuration to DataFusion as a comma-separated list of key:value pairs.</p>
+   * Provides custom configuration to DataFusion as a comma-separated list of key:value pairs.
+   *
    * @public
    */
   dataFusionConfig?: string | undefined;
 
   /**
-   * <p>Specifies the maximum size of HTTP requests.</p>
-   *          <p>Default: 10485760</p>
+   * Specifies the maximum size of HTTP requests.
+   *
+   * Default: 10485760
+   *
    * @public
    */
   maxHttpRequestSize?: number | undefined;
 
   /**
-   * <p>Specifies the threshold for the internal memory buffer. Supports either a percentage (portion of available memory) or absolute value in MB–for example: 70% or 100</p>
-   *          <p>Default: 70%</p>
+   * Specifies the threshold for the internal memory buffer. Supports either a percentage (portion of available memory) or absolute value in MB–for example: 70% or 100
+   *
+   * Default: 70%
+   *
    * @public
    */
   forceSnapshotMemThreshold?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>Defines the number of WAL files to attempt to remove in a snapshot. This, multiplied by the interval, determines how often snapshots are taken.</p>
-   *          <p>Default: 600</p>
+   * Defines the number of WAL files to attempt to remove in a snapshot. This, multiplied by the interval, determines how often snapshots are taken.
+   *
+   * Default: 600
+   *
    * @public
    */
   walSnapshotSize?: number | undefined;
 
   /**
-   * <p>Specifies the maximum number of write requests that can be buffered before a flush must be executed and succeed.</p>
-   *          <p>Default: 100000</p>
+   * Specifies the maximum number of write requests that can be buffered before a flush must be executed and succeed.
+   *
+   * Default: 100000
+   *
    * @public
    */
   walMaxWriteBufferSize?: number | undefined;
 
   /**
-   * <p>Specifies the number of snapshotted WAL files to retain in the object store. Flushing the WAL files does not clear the WAL files immediately; they are deleted when the number of snapshotted WAL files exceeds this number.</p>
-   *          <p>Default: 300</p>
+   * Specifies the number of snapshotted WAL files to retain in the object store. Flushing the WAL files does not clear the WAL files immediately; they are deleted when the number of snapshotted WAL files exceeds this number.
+   *
+   * Default: 300
+   *
    * @public
    */
   snapshottedWalFilesToKeep?: number | undefined;
 
   /**
-   * <p>Specifies the interval to prefetch into the Parquet cache during compaction.</p>
-   *          <p>Default: 3d</p>
+   * Specifies the interval to prefetch into the Parquet cache during compaction.
+   *
+   * Default: 3d
+   *
    * @public
    */
   preemptiveCacheAge?: Duration | undefined;
 
   /**
-   * <p>Specifies the percentage of entries to prune during a prune operation on the in-memory Parquet cache.</p>
-   *          <p>Default: 0.1</p>
+   * Specifies the percentage of entries to prune during a prune operation on the in-memory Parquet cache.
+   *
+   * Default: 0.1
+   *
    * @public
    */
   parquetMemCachePrunePercentage?: number | undefined;
 
   /**
-   * <p>Sets the interval to check if the in-memory Parquet cache needs to be pruned.</p>
-   *          <p>Default: 1s</p>
+   * Sets the interval to check if the in-memory Parquet cache needs to be pruned.
+   *
+   * Default: 1s
+   *
    * @public
    */
   parquetMemCachePruneInterval?: Duration | undefined;
 
   /**
-   * <p>Disables the in-memory Parquet cache. By default, the cache is enabled.</p>
+   * Disables the in-memory Parquet cache. By default, the cache is enabled.
+   *
    * @public
    */
   disableParquetMemCache?: boolean | undefined;
 
   /**
-   * <p>Specifies the time window for caching recent Parquet files in memory.</p>
-   *          <p>Default: 5h</p>
+   * Specifies the time window for caching recent Parquet files in memory.
+   *
+   * Default: 5h
+   *
    * @public
    */
   parquetMemCacheQueryPathDuration?: Duration | undefined;
 
   /**
-   * <p>Specifies the interval to evict expired entries from the Last-N-Value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
-   *          <p>Default: 10s</p>
+   * Specifies the interval to evict expired entries from the Last-N-Value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.
+   *
+   * Default: 10s
+   *
    * @public
    */
   lastCacheEvictionInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies the interval to evict expired entries from the distinct value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.</p>
-   *          <p>Default: 10s</p>
+   * Specifies the interval to evict expired entries from the distinct value cache, expressed as a human-readable duration–for example: 20s, 1m, 1h.
+   *
+   * Default: 10s
+   *
    * @public
    */
   distinctCacheEvictionInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies the duration that Parquet files are arranged into. Data timestamps land each row into a file of this duration. Supported durations are 1m, 5m, and 10m. These files are known as “generation 1” files, which the compactor can merge into larger generations.</p>
-   *          <p>Default: 10m</p>
+   * Specifies the duration that Parquet files are arranged into. Data timestamps land each row into a file of this duration. Supported durations are 1m, 5m, and 10m. These files are known as “generation 1” files, which the compactor can merge into larger generations.
+   *
+   * Default: 10m
+   *
    * @public
    */
   gen1Duration?: Duration | undefined;
 
   /**
-   * <p>Specifies the size of memory pool used during query execution. Can be given as absolute value in bytes or as a percentage of the total available memory–for example: 8000000000 or 10%.</p>
-   *          <p>Default: 20%</p>
+   * Specifies the size of memory pool used during query execution. Can be given as absolute value in bytes or as a percentage of the total available memory–for example: 8000000000 or 10%.
+   *
+   * Default: 20%
+   *
    * @public
    */
   execMemPoolBytes?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>Specifies the size of the in-memory Parquet cache in megabytes or percentage of total available memory.</p>
-   *          <p>Default: 20%</p>
+   * Specifies the size of the in-memory Parquet cache in megabytes or percentage of total available memory.
+   *
+   * Default: 20%
+   *
    * @public
    */
   parquetMemCacheSize?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>Determines whether WAL replay should fail when encountering errors.</p>
-   *          <p>Default: false</p>
+   * Determines whether WAL replay should fail when encountering errors.
+   *
+   * Default: false
+   *
    * @public
    */
   walReplayFailOnError?: boolean | undefined;
 
   /**
-   * <p>Concurrency limit during WAL replay. Setting this number too high can lead to OOM. The default is dynamically determined.</p>
-   *          <p>Default: max(num_cpus, 10)</p>
+   * Concurrency limit during WAL replay. Setting this number too high can lead to OOM. The default is dynamically determined.
+   *
+   * Default: max(num_cpus, 10)
+   *
    * @public
    */
   walReplayConcurrencyLimit?: number | undefined;
 
   /**
-   * <p>Specifies the maximum number of entries in the table index cache.</p>
-   *          <p>Default: 1000</p>
+   * Specifies the maximum number of entries in the table index cache.
+   *
+   * Default: 1000
+   *
    * @public
    */
   tableIndexCacheMaxEntries?: number | undefined;
 
   /**
-   * <p>Limits the concurrency level for table index cache operations.</p>
-   *          <p>Default: 8</p>
+   * Limits the concurrency level for table index cache operations.
+   *
+   * Default: 8
+   *
    * @public
    */
   tableIndexCacheConcurrencyLimit?: number | undefined;
 
   /**
-   * <p>Specifies how far back to look when creating generation 1 Parquet files.</p>
-   *          <p>Default: 24h</p>
+   * Specifies how far back to look when creating generation 1 Parquet files.
+   *
+   * Default: 24h
+   *
    * @public
    */
   gen1LookbackDuration?: Duration | undefined;
 
   /**
-   * <p>The interval at which retention policies are checked and enforced. Enter as a human-readable time–for example: 30m or 1h.</p>
-   *          <p>Default: 30m</p>
+   * The interval at which retention policies are checked and enforced. Enter as a human-readable time–for example: 30m or 1h.
+   *
+   * Default: 30m
+   *
    * @public
    */
   retentionCheckInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies the grace period before permanently deleting data.</p>
-   *          <p>Default: 24h</p>
+   * Specifies the grace period before permanently deleting data.
+   *
+   * Default: 24h
+   *
    * @public
    */
   deleteGracePeriod?: Duration | undefined;
 
   /**
-   * <p>Sets the default duration for hard deletion of data.</p>
-   *          <p>Default: 90d</p>
+   * Sets the default duration for hard deletion of data.
+   *
+   * Default: 90d
+   *
    * @public
    */
   hardDeleteDefaultDuration?: Duration | undefined;
 
   /**
-   * <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+   * Specifies the URL of the repository that InfluxDB downloads plugins from.
+   *
    * @public
    */
   pluginRepositoryUrl?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.
+   *
    * @public
    */
   pluginRepositorySecretArn?: string | undefined;
 
   /**
-   * <p>Specifies number of instances in the DbCluster which can both ingest and query.</p>
-   *          <p>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.</p>
+   * Specifies number of instances in the DbCluster which can both ingest and query.
+   *
+   * Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -3845,8 +4485,9 @@ export interface InfluxDBv3EnterpriseParameters {
   ingestQueryInstances?: number | undefined;
 
   /**
-   * <p>Specifies number of instances in the DbCluster which can only query.</p>
-   *          <p>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.</p>
+   * Specifies number of instances in the DbCluster which can only query.
+   *
+   * Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -3854,8 +4495,9 @@ export interface InfluxDBv3EnterpriseParameters {
   queryOnlyInstances?: number | undefined;
 
   /**
-   * <p>Specifies if the compactor instance should be a standalone instance or not.</p>
-   *          <p>Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.</p>
+   * Specifies if the compactor instance should be a standalone instance or not.
+   *
+   * Deprecated. Use deploymentConfiguration on CreateDbCluster or UpdateDbCluster to define the cluster topology instead. When you supply a deployment configuration, Timestream for InfluxDB ignores this parameter.
    *
    * @deprecated (since 2026-09-28) Use deploymentConfiguration instead.
    * @public
@@ -3863,100 +4505,123 @@ export interface InfluxDBv3EnterpriseParameters {
   dedicatedCompactor?: boolean | undefined;
 
   /**
-   * <p>Specifies the soft limit for the number of rows per file that the compactor writes. The compactor may write more rows than this limit.</p>
-   *          <p>Default: 1000000</p>
+   * Specifies the soft limit for the number of rows per file that the compactor writes. The compactor may write more rows than this limit.
+   *
+   * Default: 1000000
+   *
    * @public
    */
   compactionRowLimit?: number | undefined;
 
   /**
-   * <p>Sets the maximum number of files included in any compaction plan.</p>
-   *          <p>Default: 500</p>
+   * Sets the maximum number of files included in any compaction plan.
+   *
+   * Default: 500
+   *
    * @public
    */
   compactionMaxNumFilesPerPlan?: number | undefined;
 
   /**
-   * <p>Specifies the duration of the first level of compaction (gen2). Later levels of compaction are multiples of this duration. This value should be equal to or greater than the gen1 duration.</p>
-   *          <p>Default: 20m</p>
+   * Specifies the duration of the first level of compaction (gen2). Later levels of compaction are multiples of this duration. This value should be equal to or greater than the gen1 duration.
+   *
+   * Default: 20m
+   *
    * @public
    */
   compactionGen2Duration?: Duration | undefined;
 
   /**
-   * <p>Specifies a comma-separated list of multiples defining the duration of each level of compaction. The number of elements in the list determines the number of compaction levels. The first element specifies the duration of the first level (gen3); subsequent levels are multiples of the previous level.</p>
-   *          <p>Default: 3,4,6,5</p>
+   * Specifies a comma-separated list of multiples defining the duration of each level of compaction. The number of elements in the list determines the number of compaction levels. The first element specifies the duration of the first level (gen3); subsequent levels are multiples of the previous level.
+   *
+   * Default: 3,4,6,5
+   *
    * @public
    */
   compactionMultipliers?: string | undefined;
 
   /**
-   * <p>Specifies the amount of time that the compactor waits after finishing a compaction run to delete files marked as needing deletion during that compaction run.</p>
-   *          <p>Default: 10m</p>
+   * Specifies the amount of time that the compactor waits after finishing a compaction run to delete files marked as needing deletion during that compaction run.
+   *
+   * Default: 10m
+   *
    * @public
    */
   compactionCleanupWait?: Duration | undefined;
 
   /**
-   * <p>Specifies how often the compactor checks for new compaction work to perform.</p>
-   *          <p>Default: 10s</p>
+   * Specifies how often the compactor checks for new compaction work to perform.
+   *
+   * Default: 10s
+   *
    * @public
    */
   compactionCheckInterval?: Duration | undefined;
 
   /**
-   * <p>Disables populating the last-N-value cache from historical data. If disabled, the cache is still populated with data from the write-ahead log (WAL).</p>
+   * Disables populating the last-N-value cache from historical data. If disabled, the cache is still populated with data from the write-ahead log (WAL).
+   *
    * @public
    */
   lastValueCacheDisableFromHistory?: boolean | undefined;
 
   /**
-   * <p>Disables populating the distinct value cache from historical data. If disabled, the cache is still populated with data from the write-ahead log (WAL).</p>
+   * Disables populating the distinct value cache from historical data. If disabled, the cache is still populated with data from the write-ahead log (WAL).
+   *
    * @public
    */
   distinctValueCacheDisableFromHistory?: boolean | undefined;
 
   /**
-   * <p>Specifies the interval at which data replication occurs between cluster nodes.</p>
-   *          <p>Default: 250ms</p>
+   * Specifies the interval at which data replication occurs between cluster nodes.
+   *
+   * Default: 250ms
+   *
    * @public
    */
   replicationInterval?: Duration | undefined;
 
   /**
-   * <p>Defines how often the catalog synchronizes across cluster nodes.</p>
-   *          <p>Default: 10s</p>
+   * Defines how often the catalog synchronizes across cluster nodes.
+   *
+   * Default: 10s
+   *
    * @public
    */
   catalogSyncInterval?: Duration | undefined;
 
   /**
-   * <p>Specifies whether to migrate the cluster from the Parquet storage engine to PachaTree. This action cannot be reversed. To create a new cluster on Parquet, set this to false.</p>
+   * Specifies whether to migrate the cluster from the Parquet storage engine to PachaTree. This action cannot be reversed. To create a new cluster on Parquet, set this to false.
+   *
    * @public
    */
   upgradePachaTree?: boolean | undefined;
 
   /**
-   * <p>The maximum size, in bytes, of the in-memory WAL buffer before a flush is triggered regardless of the flush interval. Increase this value if WAL files are flushed before the interval elapses.</p>
+   * The maximum size, in bytes, of the in-memory WAL buffer before a flush is triggered regardless of the flush interval. Increase this value if WAL files are flushed before the interval elapses.
+   *
    * @public
    */
   walBufferSize?: number | undefined;
 
   /**
-   * <p>The maximum size of the active snapshot bucket before it is rotated for snapshotting.</p>
+   * The maximum size of the active snapshot bucket before it is rotated for snapshotting.
+   *
    * @public
    */
   snapshotSize?: PercentOrAbsoluteLong | undefined;
 
   /**
-   * <p>The time-based trigger that controls how often the ingester creates snapshots. This value is also used on query nodes as the bucket rotation interval for the replica buffer.</p>
+   * The time-based trigger that controls how often the ingester creates snapshots. This value is also used on query nodes as the bucket rotation interval for the replica buffer.
+   *
    * @public
    */
   snapshotDuration?: Duration | undefined;
 }
 
 /**
- * <p>The parameters that comprise the parameter group.</p>
+ * The parameters that comprise the parameter group.
+ *
  * @public
  */
 export type _Parameters =
@@ -3970,7 +4635,8 @@ export type _Parameters =
  */
 export namespace _Parameters {
   /**
-   * <p>All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.</p>
+   * All the customer-modifiable InfluxDB v2 parameters in Timestream for InfluxDB.
+   *
    * @public
    */
   export interface InfluxDBv2Member {
@@ -3981,7 +4647,8 @@ export namespace _Parameters {
   }
 
   /**
-   * <p>All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.</p>
+   * All the customer-modifiable InfluxDB v3 Core parameters in Timestream for InfluxDB.
+   *
    * @public
    */
   export interface InfluxDBv3CoreMember {
@@ -3992,7 +4659,8 @@ export namespace _Parameters {
   }
 
   /**
-   * <p>All the customer-modifiable InfluxDB v3 Enterprise parameters in Timestream for InfluxDB.</p>
+   * All the customer-modifiable InfluxDB v3 Enterprise parameters in Timestream for InfluxDB.
+   *
    * @public
    */
   export interface InfluxDBv3EnterpriseMember {
@@ -4029,25 +4697,29 @@ export namespace _Parameters {
  */
 export interface CreateDbParameterGroupInput {
   /**
-   * <p>The name of the DB parameter group. The name must be unique per customer and per region.</p>
+   * The name of the DB parameter group. The name must be unique per customer and per region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the DB parameter group.</p>
+   * A description of the DB parameter group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A list of the parameters that comprise the DB parameter group.</p>
+   * A list of the parameters that comprise the DB parameter group.
+   *
    * @public
    */
   parameters?: _Parameters | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the DB parameter group.</p>
+   * A list of key-value pairs to associate with the DB parameter group.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4058,31 +4730,36 @@ export interface CreateDbParameterGroupInput {
  */
 export interface CreateDbParameterGroupOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB parameter group when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * The customer-supplied name that uniquely identifies the DB parameter group when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARM) of the DB parameter group.</p>
+   * The Amazon Resource Name (ARM) of the DB parameter group.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The description of the DB parameter group.</p>
+   * The description of the DB parameter group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A list of the parameters that comprise the DB parameter group.</p>
+   * A list of the parameters that comprise the DB parameter group.
+   *
    * @public
    */
   parameters?: _Parameters | undefined;
@@ -4093,7 +4770,8 @@ export interface CreateDbParameterGroupOutput {
  */
 export interface GetDbParameterGroupInput {
   /**
-   * <p>The id of the DB parameter group.</p>
+   * The id of the DB parameter group.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -4104,31 +4782,36 @@ export interface GetDbParameterGroupInput {
  */
 export interface GetDbParameterGroupOutput {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The customer-supplied name that uniquely identifies the DB parameter group when interacting with the Amazon Timestream for InfluxDB API and CLI commands.</p>
+   * The customer-supplied name that uniquely identifies the DB parameter group when interacting with the Amazon Timestream for InfluxDB API and CLI commands.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB parameter group.</p>
+   * The Amazon Resource Name (ARN) of the DB parameter group.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A description of the DB parameter group.</p>
+   * A description of the DB parameter group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The parameters that comprise the DB parameter group.</p>
+   * The parameters that comprise the DB parameter group.
+   *
    * @public
    */
   parameters?: _Parameters | undefined;
@@ -4139,43 +4822,50 @@ export interface GetDbParameterGroupOutput {
  */
 export interface ListDbParameterGroupsInput {
   /**
-   * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   * The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains a summary of a DB parameter group.</p>
+ * Contains a summary of a DB parameter group.
+ *
  * @public
  */
 export interface DbParameterGroupSummary {
   /**
-   * <p>A service-generated unique identifier.</p>
+   * A service-generated unique identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>This customer-supplied name uniquely identifies the parameter group.</p>
+   * This customer-supplied name uniquely identifies the parameter group.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the DB parameter group.</p>
+   * The Amazon Resource Name (ARN) of the DB parameter group.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A description of the DB parameter group.</p>
+   * A description of the DB parameter group.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4186,14 +4876,15 @@ export interface DbParameterGroupSummary {
  */
 export interface ListDbParameterGroupsOutput {
   /**
-   * <p>A list of Timestream for InfluxDB DB parameter group summaries.</p>
+   * A list of Timestream for InfluxDB DB parameter group summaries.
+   *
    * @public
    */
   items: DbParameterGroupSummary[] | undefined;
 
   /**
-   * <p>Token from a previous call of the operation. When this value is provided, the
-   *             service returns results from where the previous response left off.</p>
+   * Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4204,7 +4895,8 @@ export interface ListDbParameterGroupsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+   * The Amazon Resource Name (ARN) of the tagged resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -4215,7 +4907,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags used to categorize and track resources.</p>
+   * A list of tags used to categorize and track resources.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4226,13 +4919,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+   * The Amazon Resource Name (ARN) of the tagged resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tags used to categorize and track resources.</p>
+   * A list of tags used to categorize and track resources.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -4243,13 +4938,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the tagged resource.</p>
+   * The Amazon Resource Name (ARN) of the tagged resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys used to identify the tags.</p>
+   * The keys used to identify the tags.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

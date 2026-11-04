@@ -26,7 +26,8 @@ export interface ListInferenceRecommendationsJobsCommandInput extends ListInfere
 export interface ListInferenceRecommendationsJobsCommandOutput extends ListInferenceRecommendationsJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists recommendation jobs that satisfy various filters.</p>
+ * Lists recommendation jobs that satisfy various filters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +82,8 @@ export interface ListInferenceRecommendationsJobsCommandOutput extends ListInfer
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

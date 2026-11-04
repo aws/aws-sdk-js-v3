@@ -23,9 +23,8 @@ export interface DisassociateProfileCommandInput extends DisassociateProfileRequ
 export interface DisassociateProfileCommandOutput extends DisassociateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Dissociates a specified Route 53 Profile from the specified VPC.
- * </p>
+ * Dissociates a specified Route 53 Profile from the specified VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,38 +62,32 @@ export interface DisassociateProfileCommandOutput extends DisassociateProfileRes
  * @see {@link Route53ProfilesClientResolvedConfig | config} for Route53ProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ *
+ * The current account doesn't have the IAM permissions required to perform the specified operation.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>
- *   One or more parameters in this request are not valid.
- * </p>
+ *
+ * One or more parameters in this request are not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>
- *   The request caused one or more limits to be exceeded.
- * </p>
+ *
+ * The request caused one or more limits to be exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
+ *
  * The resource you are associating is not found.
- * </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ *
+ * The request was throttled. Try again in a few minutes.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>
- *   You have provided an invalid command.
- * </p>
+ *
+ * You have provided an invalid command.
  *
  * @throws {@link Route53ProfilesServiceException}
- * <p>Base exception class for all service exceptions from Route53Profiles service.</p>
  *
+ * Base exception class for all service exceptions from Route53Profiles service.
  *
  * @public
  */

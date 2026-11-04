@@ -26,7 +26,8 @@ export interface DisableApplicationStatusCheckSuppressionCommandInput extends Di
 export interface DisableApplicationStatusCheckSuppressionCommandOutput extends DisableApplicationStatusCheckSuppressionResult, __MetadataBearer {}
 
 /**
- * <p>Disables suppression of application status checks for the specified instances. After suppression is disabled, health check results resume affecting the instance-level application status. You can specify a maximum of 100 instance IDs for each request.</p>
+ * Disables suppression of application status checks for the specified instances. After suppression is disabled, health check results resume affecting the instance-level application status. You can specify a maximum of 100 instance IDs for each request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface DisableApplicationStatusCheckSuppressionCommandOutput extends D
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To disable application status check suppression
  * ```javascript

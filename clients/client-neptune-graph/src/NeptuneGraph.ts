@@ -1000,7 +1000,8 @@ export interface NeptuneGraph {
 }
 
 /**
- * <p>Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to insights faster by quickly processing large amounts of graph data, invoking popular graph analytic algorithms in low-latency queries, and getting analytics results in seconds.</p>
+ * Neptune Analytics is a new analytics database engine for Amazon Neptune that helps customers get to insights faster by quickly processing large amounts of graph data, invoking popular graph analytic algorithms in low-latency queries, and getting analytics results in seconds.
+ *
  * @public
  */
 export class NeptuneGraph extends NeptuneGraphClient implements NeptuneGraph {}

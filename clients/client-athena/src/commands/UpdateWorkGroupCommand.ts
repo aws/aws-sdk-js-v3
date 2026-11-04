@@ -23,8 +23,8 @@ export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
 export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the workgroup with the specified name. The workgroup's name cannot be changed.
- *             Only <code>ConfigurationUpdates</code> can be specified.</p>
+ * Updates the workgroup with the specified name. The workgroup's name cannot be changed. Only `ConfigurationUpdates` can be specified.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,16 +136,16 @@ export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __M
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

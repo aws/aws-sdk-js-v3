@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Route53ServiceException as __BaseException } from "./Route53ServiceException";
 
 /**
- * <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
+ *
  * @public
  */
 export class ConcurrentModification extends __BaseException {
@@ -26,7 +26,8 @@ export class ConcurrentModification extends __BaseException {
 }
 
 /**
- * <p>The input is not valid.</p>
+ * The input is not valid.
+ *
  * @public
  */
 export class InvalidInput extends __BaseException {
@@ -47,8 +48,8 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
- * <p>The key-signing key (KSK) status isn't valid or another KSK has the status
- * 				<code>INTERNAL_FAILURE</code>.</p>
+ * The key-signing key (KSK) status isn't valid or another KSK has the status `INTERNAL_FAILURE`.
+ *
  * @public
  */
 export class InvalidKeySigningKeyStatus extends __BaseException {
@@ -69,8 +70,8 @@ export class InvalidKeySigningKeyStatus extends __BaseException {
 }
 
 /**
- * <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
- * 			signing.</p>
+ * The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.
+ *
  * @public
  */
 export class InvalidKMSArn extends __BaseException {
@@ -91,8 +92,8 @@ export class InvalidKMSArn extends __BaseException {
 }
 
 /**
- * <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
- * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ * Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable `DNSSEC` or disable `DNSSEC`.
+ *
  * @public
  */
 export class InvalidSigningStatus extends __BaseException {
@@ -113,7 +114,8 @@ export class InvalidSigningStatus extends __BaseException {
 }
 
 /**
- * <p>The specified key-signing key (KSK) doesn't exist.</p>
+ * The specified key-signing key (KSK) doesn't exist.
+ *
  * @public
  */
 export class NoSuchKeySigningKey extends __BaseException {
@@ -134,31 +136,12 @@ export class NoSuchKeySigningKey extends __BaseException {
 }
 
 /**
- * <p>The cause of this error depends on the operation that you're performing:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Create a public hosted zone:</b> Two hosted zones
- * 					that have the same name or that have a parent/child relationship (example.com
- * 					and test.example.com) can't have any common name servers. You tried to create a
- * 					hosted zone that has the same name as an existing hosted zone or that's the
- * 					parent or child of an existing hosted zone, and you specified a delegation set
- * 					that shares one or more name servers with the existing hosted zone. For more
- * 					information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html">CreateReusableDelegationSet</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Create a private hosted zone:</b> A hosted zone
- * 					with the specified name already exists and is already associated with the Amazon
- * 					VPC that you specified.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Associate VPCs with a private hosted zone:</b>
- * 					The VPC that you specified is already associated with another hosted zone that
- * 					has the same name.</p>
- *             </li>
- *          </ul>
+ * The cause of this error depends on the operation that you're performing:
+ *
+ * - **Create a public hosted zone:** Two hosted zones that have the same name or that have a parent/child relationship (example.com and test.example.com) can't have any common name servers. You tried to create a hosted zone that has the same name as an existing hosted zone or that's the parent or child of an existing hosted zone, and you specified a delegation set that shares one or more name servers with the existing hosted zone. For more information, see [CreateReusableDelegationSet](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html).
+ * - **Create a private hosted zone:** A hosted zone with the specified name already exists and is already associated with the Amazon VPC that you specified.
+ * - **Associate VPCs with a private hosted zone:** The VPC that you specified is already associated with another hosted zone that has the same name.
+ *
  * @public
  */
 export class ConflictingDomainExists extends __BaseException {
@@ -179,8 +162,8 @@ export class ConflictingDomainExists extends __BaseException {
 }
 
 /**
- * <p>The VPC ID that you specified either isn't a valid ID or the current account is not
- * 			authorized to access this VPC.</p>
+ * The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
+ *
  * @public
  */
 export class InvalidVPCId extends __BaseException {
@@ -201,9 +184,8 @@ export class InvalidVPCId extends __BaseException {
 }
 
 /**
- * <p>This operation can't be completed because the current account has reached the
- * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
+ * This operation can't be completed because the current account has reached the limit on the resource you are trying to create. To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
  * @public
  */
 export class LimitsExceeded extends __BaseException {
@@ -224,7 +206,8 @@ export class LimitsExceeded extends __BaseException {
 }
 
 /**
- * <p>No hosted zone exists with the ID that you specified.</p>
+ * No hosted zone exists with the ID that you specified.
+ *
  * @public
  */
 export class NoSuchHostedZone extends __BaseException {
@@ -245,8 +228,8 @@ export class NoSuchHostedZone extends __BaseException {
 }
 
 /**
- * <p>Associating the specified VPC with the specified hosted zone has not been
- * 			authorized.</p>
+ * Associating the specified VPC with the specified hosted zone has not been authorized.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
@@ -267,11 +250,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * <p>If Amazon Route 53 can't process a request before the next request arrives, it will
- * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
- * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
- * 			for the same request, we recommend that you wait, in intervals of increasing duration,
- * 			before you try the request again.</p>
+ * If Amazon Route 53 can't process a request before the next request arrives, it will reject subsequent requests for the same hosted zone and return an `HTTP 400 error` (`Bad request`). If Route 53 returns this error repeatedly for the same request, we recommend that you wait, in intervals of increasing duration, before you try the request again.
+ *
  * @public
  */
 export class PriorRequestNotComplete extends __BaseException {
@@ -292,8 +272,8 @@ export class PriorRequestNotComplete extends __BaseException {
 }
 
 /**
- * <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't
- * 			support associating a VPC with a public hosted zone.</p>
+ * You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a VPC with a public hosted zone.
+ *
  * @public
  */
 export class PublicZoneVPCAssociation extends __BaseException {
@@ -314,7 +294,8 @@ export class PublicZoneVPCAssociation extends __BaseException {
 }
 
 /**
- * <p>This CIDR block is already in use.</p>
+ * This CIDR block is already in use.
+ *
  * @public
  */
 export class CidrBlockInUseException extends __BaseException {
@@ -337,8 +318,8 @@ export class CidrBlockInUseException extends __BaseException {
 }
 
 /**
- * <p>The CIDR collection version you provided, doesn't match the one in the
- * 				<code>ListCidrCollections</code> operation.</p>
+ * The CIDR collection version you provided, doesn't match the one in the `ListCidrCollections` operation.
+ *
  * @public
  */
 export class CidrCollectionVersionMismatchException extends __BaseException {
@@ -361,7 +342,8 @@ export class CidrCollectionVersionMismatchException extends __BaseException {
 }
 
 /**
- * <p>The CIDR collection you specified, doesn't exist.</p>
+ * The CIDR collection you specified, doesn't exist.
+ *
  * @public
  */
 export class NoSuchCidrCollectionException extends __BaseException {
@@ -384,8 +366,8 @@ export class NoSuchCidrCollectionException extends __BaseException {
 }
 
 /**
- * <p>This exception contains a list of messages that might contain one or more error
- * 			messages. Each error message indicates one error in the change batch.</p>
+ * This exception contains a list of messages that might contain one or more error messages. Each error message indicates one error in the change batch.
+ *
  * @public
  */
 export class InvalidChangeBatch extends __BaseException {
@@ -393,7 +375,6 @@ export class InvalidChangeBatch extends __BaseException {
   readonly name = "InvalidChangeBatch" as const;
   readonly $fault = "client" as const;
   /**
-   * <p></p>
    * @public
    */
   messages?: string[] | undefined;
@@ -413,7 +394,8 @@ export class InvalidChangeBatch extends __BaseException {
 }
 
 /**
- * <p>No health check exists with the specified ID.</p>
+ * No health check exists with the specified ID.
+ *
  * @public
  */
 export class NoSuchHealthCheck extends __BaseException {
@@ -434,7 +416,8 @@ export class NoSuchHealthCheck extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second was exceeded.</p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -455,7 +438,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>A CIDR collection with this name and a different caller reference already exists in this account.</p>
+ * A CIDR collection with this name and a different caller reference already exists in this account.
+ *
  * @public
  */
 export class CidrCollectionAlreadyExistsException extends __BaseException {
@@ -478,20 +462,11 @@ export class CidrCollectionAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p> The health check you're attempting to create already exists. Amazon Route 53 returns
- * 			this error when you submit a request that has the following values:</p>
- *          <ul>
- *             <li>
- *                <p>The same value for <code>CallerReference</code> as an existing health check,
- * 					and one or more values that differ from the existing health check that has the
- * 					same caller reference.</p>
- *             </li>
- *             <li>
- *                <p>The same value for <code>CallerReference</code> as a health check that you
- * 					created and later deleted, regardless of the other settings in the
- * 					request.</p>
- *             </li>
- *          </ul>
+ * The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:
+ *
+ * - The same value for `CallerReference` as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.
+ * - The same value for `CallerReference` as a health check that you created and later deleted, regardless of the other settings in the request.
+ *
  * @public
  */
 export class HealthCheckAlreadyExists extends __BaseException {
@@ -512,14 +487,14 @@ export class HealthCheckAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>This health check can't be created because the current account has reached the limit
- * 			on the number of active health checks.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
- *          <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
+ * This health check can't be created because the current account has reached the limit on the number of active health checks.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * For information about how to get the current limit for an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html). To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
+ * You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
  * @public
  */
 export class TooManyHealthChecks extends __BaseException {
@@ -540,10 +515,8 @@ export class TooManyHealthChecks extends __BaseException {
 }
 
 /**
- * <p>You can create a hosted zone that has the same name as an existing hosted zone
- * 			(example.com is common), but there is a limit to the number of hosted zones that have
- * 			the same name. If you get this error, Amazon Route 53 has reached that limit. If you own
- * 			the domain name and Route 53 generates this error, contact Customer Support.</p>
+ * You can create a hosted zone that has the same name as an existing hosted zone (example.com is common), but there is a limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own the domain name and Route 53 generates this error, contact Customer Support.
+ *
  * @public
  */
 export class DelegationSetNotAvailable extends __BaseException {
@@ -564,7 +537,8 @@ export class DelegationSetNotAvailable extends __BaseException {
 }
 
 /**
- * <p>A reusable delegation set with the specified ID does not exist.</p>
+ * A reusable delegation set with the specified ID does not exist.
+ *
  * @public
  */
 export class DelegationSetNotReusable extends __BaseException {
@@ -585,9 +559,8 @@ export class DelegationSetNotReusable extends __BaseException {
 }
 
 /**
- * <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this
- * 			error when a hosted zone has already been created with the specified
- * 				<code>CallerReference</code>.</p>
+ * The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created with the specified `CallerReference`.
+ *
  * @public
  */
 export class HostedZoneAlreadyExists extends __BaseException {
@@ -608,7 +581,8 @@ export class HostedZoneAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The specified domain name is not valid.</p>
+ * The specified domain name is not valid.
+ *
  * @public
  */
 export class InvalidDomainName extends __BaseException {
@@ -629,7 +603,8 @@ export class InvalidDomainName extends __BaseException {
 }
 
 /**
- * <p>A reusable delegation set with the specified ID does not exist.</p>
+ * A reusable delegation set with the specified ID does not exist.
+ *
  * @public
  */
 export class NoSuchDelegationSet extends __BaseException {
@@ -650,16 +625,16 @@ export class NoSuchDelegationSet extends __BaseException {
 }
 
 /**
- * <p>This operation can't be completed either because the current account has reached the
- * 			limit on the number of hosted zones or because you've reached the limit on the number of
- * 			hosted zones that can be associated with a reusable delegation set.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>To get the current limit on hosted zones that can be created by an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
- *          <p>To get the current limit on hosted zones that can be associated with a reusable
- * 			delegation set, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html">GetReusableDelegationSetLimit</a>.</p>
- *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
- * 				case</a> with the Amazon Web Services Support Center.</p>
+ * This operation can't be completed either because the current account has reached the limit on the number of hosted zones or because you've reached the limit on the number of hosted zones that can be associated with a reusable delegation set.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * To get the current limit on hosted zones that can be created by an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html).
+ *
+ * To get the current limit on hosted zones that can be associated with a reusable delegation set, see [GetReusableDelegationSetLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html).
+ *
+ * To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
  * @public
  */
 export class TooManyHostedZones extends __BaseException {
@@ -680,7 +655,8 @@ export class TooManyHostedZones extends __BaseException {
 }
 
 /**
- * <p>Parameter name is not valid.</p>
+ * Parameter name is not valid.
+ *
  * @public
  */
 export class InvalidArgument extends __BaseException {
@@ -701,7 +677,8 @@ export class InvalidArgument extends __BaseException {
 }
 
 /**
- * <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
+ * The key-signing key (KSK) name that you specified isn't a valid name.
+ *
  * @public
  */
 export class InvalidKeySigningKeyName extends __BaseException {
@@ -722,7 +699,8 @@ export class InvalidKeySigningKeyName extends __BaseException {
 }
 
 /**
- * <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
+ * You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.
+ *
  * @public
  */
 export class KeySigningKeyAlreadyExists extends __BaseException {
@@ -743,8 +721,8 @@ export class KeySigningKeyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least
- * 			one KSK, and then try again.</p>
+ * You've reached the limit for the number of key-signing keys (KSKs). Remove at least one KSK, and then try again.
+ *
  * @public
  */
 export class TooManyKeySigningKeys extends __BaseException {
@@ -765,31 +743,14 @@ export class TooManyKeySigningKeys extends __BaseException {
 }
 
 /**
- * <p>Amazon Route 53 doesn't have the permissions required to create log streams and send
- * 			query logs to log streams. Possible causes include the following:</p>
- *          <ul>
- *             <li>
- *                <p>There is no resource policy that specifies the log group ARN in the value for
- * 						<code>Resource</code>.</p>
- *             </li>
- *             <li>
- *                <p>The resource policy that includes the log group ARN in the value for
- * 						<code>Resource</code> doesn't have the necessary permissions.</p>
- *             </li>
- *             <li>
- *                <p>The resource policy hasn't finished propagating yet.</p>
- *             </li>
- *             <li>
- *                <p>The Key management service (KMS) key you specified doesn’t exist or it can’t
- * 					be used with the log group associated with query log. Update or provide a
- * 					resource policy to grant permissions for the KMS key.</p>
- *             </li>
- *             <li>
- *                <p>The Key management service (KMS) key you specified is marked as
- * 				disabled for the log group associated with query log. Update or provide
- * 				a resource policy to grant permissions for the KMS key.</p>
- *             </li>
- *          </ul>
+ * Amazon Route 53 doesn't have the permissions required to create log streams and send query logs to log streams. Possible causes include the following:
+ *
+ * - There is no resource policy that specifies the log group ARN in the value for `Resource`.
+ * - The resource policy that includes the log group ARN in the value for `Resource` doesn't have the necessary permissions.
+ * - The resource policy hasn't finished propagating yet.
+ * - The Key management service (KMS) key you specified doesn’t exist or it can’t be used with the log group associated with query log. Update or provide a resource policy to grant permissions for the KMS key.
+ * - The Key management service (KMS) key you specified is marked as disabled for the log group associated with query log. Update or provide a resource policy to grant permissions for the KMS key.
+ *
  * @public
  */
 export class InsufficientCloudWatchLogsResourcePolicy extends __BaseException {
@@ -810,7 +771,8 @@ export class InsufficientCloudWatchLogsResourcePolicy extends __BaseException {
 }
 
 /**
- * <p>There is no CloudWatch Logs log group with the specified ARN.</p>
+ * There is no CloudWatch Logs log group with the specified ARN.
+ *
  * @public
  */
 export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
@@ -831,8 +793,8 @@ export class NoSuchCloudWatchLogsLogGroup extends __BaseException {
 }
 
 /**
- * <p>You can create only one query logging configuration for a hosted zone, and a query
- * 			logging configuration already exists for this hosted zone.</p>
+ * You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists for this hosted zone.
+ *
  * @public
  */
 export class QueryLoggingConfigAlreadyExists extends __BaseException {
@@ -853,8 +815,8 @@ export class QueryLoggingConfigAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>A delegation set with the same owner and caller reference combination has already been
- * 			created.</p>
+ * A delegation set with the same owner and caller reference combination has already been created.
+ *
  * @public
  */
 export class DelegationSetAlreadyCreated extends __BaseException {
@@ -875,7 +837,8 @@ export class DelegationSetAlreadyCreated extends __BaseException {
 }
 
 /**
- * <p>The specified delegation set has already been marked as reusable.</p>
+ * The specified delegation set has already been marked as reusable.
+ *
  * @public
  */
 export class DelegationSetAlreadyReusable extends __BaseException {
@@ -896,7 +859,8 @@ export class DelegationSetAlreadyReusable extends __BaseException {
 }
 
 /**
- * <p>The specified HostedZone can't be found.</p>
+ * The specified HostedZone can't be found.
+ *
  * @public
  */
 export class HostedZoneNotFound extends __BaseException {
@@ -917,8 +881,8 @@ export class HostedZoneNotFound extends __BaseException {
 }
 
 /**
- * <p>The format of the traffic policy document that you specified in the
- * 				<code>Document</code> element is not valid.</p>
+ * The format of the traffic policy document that you specified in the `Document` element is not valid.
+ *
  * @public
  */
 export class InvalidTrafficPolicyDocument extends __BaseException {
@@ -939,13 +903,14 @@ export class InvalidTrafficPolicyDocument extends __BaseException {
 }
 
 /**
- * <p>This traffic policy can't be created because the current account has reached the limit
- * 			on the number of traffic policies.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>To get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. </p>
- *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
- * 				case</a> with the Amazon Web Services Support Center.</p>
+ * This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * To get the current limit for an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html).
+ *
+ * To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
  * @public
  */
 export class TooManyTrafficPolicies extends __BaseException {
@@ -966,7 +931,8 @@ export class TooManyTrafficPolicies extends __BaseException {
 }
 
 /**
- * <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
+ * A traffic policy that has the same value for `Name` already exists.
+ *
  * @public
  */
 export class TrafficPolicyAlreadyExists extends __BaseException {
@@ -987,7 +953,8 @@ export class TrafficPolicyAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>No traffic policy exists with the specified ID.</p>
+ * No traffic policy exists with the specified ID.
+ *
  * @public
  */
 export class NoSuchTrafficPolicy extends __BaseException {
@@ -1008,13 +975,14 @@ export class NoSuchTrafficPolicy extends __BaseException {
 }
 
 /**
- * <p>This traffic policy instance can't be created because the current account has reached
- * 			the limit on the number of traffic policy instances.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
- *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
- * 				case</a> with the Amazon Web Services Support Center.</p>
+ * This traffic policy instance can't be created because the current account has reached the limit on the number of traffic policy instances.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * For information about how to get the current limit for an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html).
+ *
+ * To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
  * @public
  */
 export class TooManyTrafficPolicyInstances extends __BaseException {
@@ -1035,7 +1003,8 @@ export class TooManyTrafficPolicyInstances extends __BaseException {
 }
 
 /**
- * <p>There is already a traffic policy instance with the specified ID.</p>
+ * There is already a traffic policy instance with the specified ID.
+ *
  * @public
  */
 export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
@@ -1056,12 +1025,10 @@ export class TrafficPolicyInstanceAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>This traffic policy version can't be created because you've reached the limit of 1000
- * 			on the number of versions that you can create for the current traffic policy.</p>
- *          <p>To create more traffic policy versions, you can use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>
- * 			to get the traffic policy document for a specified traffic policy version, and then use
- * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a> to create a new traffic policy using the traffic policy
- * 			document.</p>
+ * This traffic policy version can't be created because you've reached the limit of 1000 on the number of versions that you can create for the current traffic policy.
+ *
+ * To create more traffic policy versions, you can use [GetTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html) to get the traffic policy document for a specified traffic policy version, and then use [CreateTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html) to create a new traffic policy using the traffic policy document.
+ *
  * @public
  */
 export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseException {
@@ -1082,11 +1049,8 @@ export class TooManyTrafficPolicyVersionsForCurrentPolicy extends __BaseExceptio
 }
 
 /**
- * <p>You've created the maximum number of authorizations that can be created for the
- * 			specified hosted zone. To authorize another VPC to be associated with the hosted zone,
- * 			submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing
- * 			authorization. To get a list of existing authorizations, submit a
- * 				<code>ListVPCAssociationAuthorizations</code> request.</p>
+ * You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a `DeleteVPCAssociationAuthorization` request to remove an existing authorization. To get a list of existing authorizations, submit a `ListVPCAssociationAuthorizations` request.
+ *
  * @public
  */
 export class TooManyVPCAssociationAuthorizations extends __BaseException {
@@ -1107,7 +1071,8 @@ export class TooManyVPCAssociationAuthorizations extends __BaseException {
 }
 
 /**
- * <p>The key-signing key (KSK) is specified in a parent DS record.</p>
+ * The key-signing key (KSK) is specified in a parent DS record.
+ *
  * @public
  */
 export class KeySigningKeyInParentDSRecord extends __BaseException {
@@ -1128,9 +1093,8 @@ export class KeySigningKeyInParentDSRecord extends __BaseException {
 }
 
 /**
- * <p>The key-signing key (KSK) that you specified can't be deactivated because it's the
- * 			only KSK for a currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable
- * 			another KSK.</p>
+ * The key-signing key (KSK) that you specified can't be deactivated because it's the only KSK for a currently-enabled DNSSEC. Disable DNSSEC signing, or add or enable another KSK.
+ *
  * @public
  */
 export class KeySigningKeyInUse extends __BaseException {
@@ -1151,7 +1115,8 @@ export class KeySigningKeyInUse extends __BaseException {
 }
 
 /**
- * <p>This CIDR collection is in use, and isn't empty.</p>
+ * This CIDR collection is in use, and isn't empty.
+ *
  * @public
  */
 export class CidrCollectionInUseException extends __BaseException {
@@ -1174,7 +1139,7 @@ export class CidrCollectionInUseException extends __BaseException {
 }
 
 /**
- * <p>This error code is not in use.</p>
+ * This error code is not in use.
  *
  * @deprecated deprecated.
  * @public
@@ -1197,7 +1162,8 @@ export class HealthCheckInUse extends __BaseException {
 }
 
 /**
- * <p>The hosted zone contains resource records that are not SOA or NS records.</p>
+ * The hosted zone contains resource records that are not SOA or NS records.
+ *
  * @public
  */
 export class HostedZoneNotEmpty extends __BaseException {
@@ -1218,7 +1184,8 @@ export class HostedZoneNotEmpty extends __BaseException {
 }
 
 /**
- * <p>There is no DNS query logging configuration with the specified ID.</p>
+ * There is no DNS query logging configuration with the specified ID.
+ *
  * @public
  */
 export class NoSuchQueryLoggingConfig extends __BaseException {
@@ -1239,8 +1206,8 @@ export class NoSuchQueryLoggingConfig extends __BaseException {
 }
 
 /**
- * <p>The specified delegation contains associated hosted zones which must be deleted before
- * 			the reusable delegation set can be deleted.</p>
+ * The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set can be deleted.
+ *
  * @public
  */
 export class DelegationSetInUse extends __BaseException {
@@ -1261,8 +1228,8 @@ export class DelegationSetInUse extends __BaseException {
 }
 
 /**
- * <p>One or more traffic policy instances were created by using the specified traffic
- * 			policy.</p>
+ * One or more traffic policy instances were created by using the specified traffic policy.
+ *
  * @public
  */
 export class TrafficPolicyInUse extends __BaseException {
@@ -1283,7 +1250,8 @@ export class TrafficPolicyInUse extends __BaseException {
 }
 
 /**
- * <p>No traffic policy instance exists with the specified ID.</p>
+ * No traffic policy instance exists with the specified ID.
+ *
  * @public
  */
 export class NoSuchTrafficPolicyInstance extends __BaseException {
@@ -1304,8 +1272,8 @@ export class NoSuchTrafficPolicyInstance extends __BaseException {
 }
 
 /**
- * <p>The VPC that you specified is not authorized to be associated with the hosted
- * 			zone.</p>
+ * The VPC that you specified is not authorized to be associated with the hosted zone.
+ *
  * @public
  */
 export class VPCAssociationAuthorizationNotFound extends __BaseException {
@@ -1326,7 +1294,8 @@ export class VPCAssociationAuthorizationNotFound extends __BaseException {
 }
 
 /**
- * <p>The hosted zone doesn't have any DNSSEC resources.</p>
+ * The hosted zone doesn't have any DNSSEC resources.
+ *
  * @public
  */
 export class DNSSECNotFound extends __BaseException {
@@ -1347,9 +1316,8 @@ export class DNSSECNotFound extends __BaseException {
 }
 
 /**
- * <p>The VPC that you're trying to disassociate from the private hosted zone is the last
- * 			VPC that is associated with the hosted zone. Amazon Route 53 doesn't support
- * 			disassociating the last VPC from a hosted zone.</p>
+ * The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.
+ *
  * @public
  */
 export class LastVPCAssociation extends __BaseException {
@@ -1370,7 +1338,8 @@ export class LastVPCAssociation extends __BaseException {
 }
 
 /**
- * <p>The specified VPC and hosted zone are not currently associated.</p>
+ * The specified VPC and hosted zone are not currently associated.
+ *
  * @public
  */
 export class VPCAssociationNotFound extends __BaseException {
@@ -1391,8 +1360,8 @@ export class VPCAssociationNotFound extends __BaseException {
 }
 
 /**
- * <p>The hosted zone nameservers don't match the parent nameservers. The hosted zone and
- * 			parent must have the same nameservers.</p>
+ * The hosted zone nameservers don't match the parent nameservers. The hosted zone and parent must have the same nameservers.
+ *
  * @public
  */
 export class HostedZonePartiallyDelegated extends __BaseException {
@@ -1413,7 +1382,8 @@ export class HostedZonePartiallyDelegated extends __BaseException {
 }
 
 /**
- * <p>A key-signing key (KSK) with <code>ACTIVE</code> status wasn't found.</p>
+ * A key-signing key (KSK) with `ACTIVE` status wasn't found.
+ *
  * @public
  */
 export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
@@ -1434,7 +1404,8 @@ export class KeySigningKeyWithActiveStatusNotFound extends __BaseException {
 }
 
 /**
- * <p>A change with the specified change ID does not exist.</p>
+ * A change with the specified change ID does not exist.
+ *
  * @public
  */
 export class NoSuchChange extends __BaseException {
@@ -1455,9 +1426,8 @@ export class NoSuchChange extends __BaseException {
 }
 
 /**
- * <p>Amazon Route 53 doesn't support the specified geographic location. For a list of
- * 			supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
- * 			type.</p>
+ * Amazon Route 53 doesn't support the specified geographic location. For a list of supported geolocation codes, see the [GeoLocation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html) data type.
+ *
  * @public
  */
 export class NoSuchGeoLocation extends __BaseException {
@@ -1478,8 +1448,8 @@ export class NoSuchGeoLocation extends __BaseException {
 }
 
 /**
- * <p>The resource you're trying to access is unsupported on this Amazon Route 53
- * 			endpoint.</p>
+ * The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.
+ *
  * @public
  */
 export class IncompatibleVersion extends __BaseException {
@@ -1500,7 +1470,8 @@ export class IncompatibleVersion extends __BaseException {
 }
 
 /**
- * <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
+ * The specified hosted zone is a public hosted zone, not a private hosted zone.
+ *
  * @public
  */
 export class HostedZoneNotPrivate extends __BaseException {
@@ -1521,7 +1492,8 @@ export class HostedZoneNotPrivate extends __BaseException {
 }
 
 /**
- * <p>The CIDR collection location doesn't match any locations in your account.</p>
+ * The CIDR collection location doesn't match any locations in your account.
+ *
  * @public
  */
 export class NoSuchCidrLocationException extends __BaseException {
@@ -1544,8 +1516,8 @@ export class NoSuchCidrLocationException extends __BaseException {
 }
 
 /**
- * <p>The value that you specified to get the second or subsequent page of results is
- * 			invalid.</p>
+ * The value that you specified to get the second or subsequent page of results is invalid.
+ *
  * @public
  */
 export class InvalidPaginationToken extends __BaseException {
@@ -1566,8 +1538,8 @@ export class InvalidPaginationToken extends __BaseException {
 }
 
 /**
- * <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of
- * 				<code>HealthCheckVersion</code> in the health check.</p>
+ * The value of `HealthCheckVersion` in the request doesn't match the value of `HealthCheckVersion` in the health check.
+ *
  * @public
  */
 export class HealthCheckVersionMismatch extends __BaseException {
@@ -1588,10 +1560,8 @@ export class HealthCheckVersionMismatch extends __BaseException {
 }
 
 /**
- * <p>You tried to update a traffic policy instance by using a traffic policy version that
- * 			has a different DNS type than the current type for the instance. You specified the type
- * 			in the JSON document in the <code>CreateTrafficPolicy</code> or
- * 				<code>CreateTrafficPolicyVersion</code>request. </p>
+ * You tried to update a traffic policy instance by using a traffic policy version that has a different DNS type than the current type for the instance. You specified the type in the JSON document in the `CreateTrafficPolicy` or `CreateTrafficPolicyVersion`request.
+ *
  * @public
  */
 export class ConflictingTypes extends __BaseException {

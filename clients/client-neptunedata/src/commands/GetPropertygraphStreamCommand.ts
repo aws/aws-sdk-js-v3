@@ -23,7 +23,25 @@ export interface GetPropertygraphStreamCommandInput extends GetPropertygraphStre
 export interface GetPropertygraphStreamCommandOutput extends GetPropertygraphStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a stream for a property graph.</p> <p>With the Neptune Streams feature, you can generate a complete sequence of change-log entries that record every change made to your graph data as it happens. <code>GetPropertygraphStream</code> lets you collect these change-log entries for a property graph.</p> <p>The Neptune streams feature needs to be enabled on your Neptune DBcluster. To enable streams, set the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams">neptune_streams</a> DB cluster parameter to <code>1</code>.</p> <p>See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/streams.html">Capturing graph changes in real time using Neptune streams</a>.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords">neptune-db:GetStreamRecords</a> IAM action in that cluster.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that enables one of the following IAM actions, depending on the query:</p> <p>Note that you can restrict property-graph queries using the following IAM context keys:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:Gremlin</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys">neptune-db:QueryLanguage:OpenCypher</a> </p> </li> </ul> <p>See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html">Condition keys available in Neptune IAM data-access policy statements</a>).</p>
+ * Gets a stream for a property graph.
+ *
+ * With the Neptune Streams feature, you can generate a complete sequence of change-log entries that record every change made to your graph data as it happens. `GetPropertygraphStream` lets you collect these change-log entries for a property graph.
+ *
+ * The Neptune streams feature needs to be enabled on your Neptune DBcluster. To enable streams, set the [neptune_streams](https://docs.aws.amazon.com/neptune/latest/userguide/parameters.html#parameters-db-cluster-parameters-neptune_streams) DB cluster parameter to `1`.
+ *
+ * See [Capturing graph changes in real time using Neptune streams](https://docs.aws.amazon.com/neptune/latest/userguide/streams.html).
+ *
+ * When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:GetStreamRecords](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstreamrecords) IAM action in that cluster.
+ *
+ * When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that enables one of the following IAM actions, depending on the query:
+ *
+ * Note that you can restrict property-graph queries using the following IAM context keys:
+ *
+ * - [neptune-db:QueryLanguage:Gremlin](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
+ * - [neptune-db:QueryLanguage:OpenCypher](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html#iam-neptune-condition-keys)
+ *
+ * See [Condition keys available in Neptune IAM data-access policy statements](https://docs.aws.amazon.com/neptune/latest/userguide/iam-data-condition-keys.html)).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,44 +95,56 @@ export interface GetPropertygraphStreamCommandOutput extends GetPropertygraphStr
  * @see {@link NeptunedataClientResolvedConfig | config} for NeptunedataClient's `config` shape.
  *
  * @throws {@link ClientTimeoutException} (client fault)
- *  <p>Raised when a request timed out in the client.</p>
+ *
+ * Raised when a request timed out in the client.
  *
  * @throws {@link ConstraintViolationException} (client fault)
- *  <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ *
+ * Raised when a value in a request field did not satisfy required constraints.
  *
  * @throws {@link ExpiredStreamException} (client fault)
- *  <p>Raised when a request attempts to access an stream that has expired.</p>
+ *
+ * Raised when a request attempts to access an stream that has expired.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Raised when an argument in a request is not supported.</p>
+ *
+ * Raised when an argument in a request is not supported.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Raised when an argument in a request has an invalid value.</p>
+ *
+ * Raised when an argument in a request has an invalid value.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Raised when a parameter value is not valid.</p>
+ *
+ * Raised when a parameter value is not valid.
  *
  * @throws {@link MemoryLimitExceededException} (server fault)
- *  <p>Raised when a request fails because of insufficient memory resources. The request can be retried.</p>
+ *
+ * Raised when a request fails because of insufficient memory resources. The request can be retried.
  *
  * @throws {@link PreconditionsFailedException} (client fault)
- *  <p>Raised when a precondition for processing a request is not satisfied.</p>
+ *
+ * Raised when a precondition for processing a request is not satisfied.
  *
  * @throws {@link StreamRecordsNotFoundException} (client fault)
- *  <p>Raised when stream records requested by a query cannot be found.</p>
+ *
+ * Raised when stream records requested by a query cannot be found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Raised when the rate of requests exceeds the maximum throughput. Requests can be retried after encountering this exception.</p>
+ *
+ * Raised when the rate of requests exceeds the maximum throughput. Requests can be retried after encountering this exception.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Raised when the number of requests being processed exceeds the limit.</p>
+ *
+ * Raised when the number of requests being processed exceeds the limit.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ *
+ * Raised when a request attempts to initiate an operation that is not supported.
  *
  * @throws {@link NeptunedataServiceException}
- * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * Base exception class for all service exceptions from Neptunedata service.
  *
  * @public
  */

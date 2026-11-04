@@ -23,17 +23,11 @@ export interface GetTestGridSessionCommandInput extends GetTestGridSessionReques
 export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**
- * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <code>
- *             CreateTestGridUrlResult</code>. You can use the following to look up sessions:</p>
- *          <ul>
- *             <li>
- *                <p>The session ARN.</p>
- *             </li>
- *             <li>
- *                <p>The project ARN and a session ID.</p>
- *             </li>
- *          </ul>
- *          <p></p>
+ * A session is an instance of a browser created through a `RemoteWebDriver` with the URL from `CreateTestGridUrlResult`. You can use the following to look up sessions:
+ *
+ * - The session ARN.
+ * - The project ARN and a session ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,18 +63,20 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
- *          error. </p>
+ *
+ * An internal exception was raised in the service. Contact [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if you see this error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

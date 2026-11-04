@@ -23,14 +23,8 @@ export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSe
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the stale security group rules for security groups referenced across a VPC
- *             peering connection, transit gateway connection, or with a security group VPC
- *             association. Rules are stale when they reference a deleted security group. Rules can
- *             also be stale if they reference a security group in a peer VPC for which the VPC peering
- *             connection has been deleted, across a transit gateway where the transit gateway has been
- *             deleted (or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">the transit
- *                 gateway security group referencing feature</a> has been disabled), or if a
- *             security group VPC association has been disassociated.</p>
+ * Describes the stale security group rules for security groups referenced across a VPC peering connection, transit gateway connection, or with a security group VPC association. Rules are stale when they reference a deleted security group. Rules can also be stale if they reference a security group in a peer VPC for which the VPC peering connection has been deleted, across a transit gateway where the transit gateway has been deleted (or [the transit gateway security group referencing feature](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security) has been disabled), or if a security group VPC association has been disassociated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,8 +110,8 @@ export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleS
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from the given resource.</p>
+ * Removes the specified tags from the given resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link NetworkSecurityManagerClientResolvedConfig | config} for NetworkSecurityManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an internal error in the service. This is a retryable error.</p>
+ *
+ * The request processing failed because of an internal error in the service. This is a retryable error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists, then try your request again.</p>
+ *
+ * The specified resource was not found. Verify that the resource identifier is correct and that the resource exists, then try your request again.
  *
  * @throws {@link TagPolicyViolationException} (client fault)
- *  <p>The request violates a tag policy that is in effect for the account or organization.</p>
+ *
+ * The request violates a tag policy that is in effect for the account or organization.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Reduce your request rate and try again.</p>
+ *
+ * The request was denied because of request throttling. Reduce your request rate and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. For details, see the <code>reason</code> and <code>fieldList</code> members of the response.</p>
+ *
+ * The request failed validation. For details, see the `reason` and `fieldList` members of the response.
  *
  * @throws {@link NetworkSecurityManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkSecurityManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkSecurityManager service.
  *
  * @example Remove tags from a resource
  * ```javascript

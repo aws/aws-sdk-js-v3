@@ -23,11 +23,8 @@ export interface CreateTopicCommandInput extends CreateTopicInput {}
 export interface CreateTopicCommandOutput extends CreateTopicResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a topic to which notifications can be published. Users can create at most
- *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS
- *                 topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is
- *             idempotent, so if the requester already owns a topic with the specified name, that
- *             topic's ARN is returned without creating a new topic.</p>
+ * Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see [Creating an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html) in the *Amazon SNS Developer Guide*. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,40 +61,44 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link ConcurrentAccessException} (client fault)
- *  <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
- *             sequentially.</p>
+ *
+ * Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link InvalidSecurityException} (client fault)
- *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
- *             request using Signature Version 4.</p>
+ *
+ * The credential signature isn't valid. You must use an HTTPS endpoint and sign your request using Signature Version 4.
  *
  * @throws {@link StaleTagException} (client fault)
- *  <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
- *             short while and then retry the operation.</p>
+ *
+ * A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.
  *
  * @throws {@link TagLimitExceededException} (client fault)
- *  <p>Can't add more than 50 tags to a topic.</p>
+ *
+ * Can't add more than 50 tags to a topic.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
- *             retry it.</p>
+ *
+ * The request doesn't comply with the IAM tag policy. Correct your request and then retry it.
  *
  * @throws {@link TopicLimitExceededException} (client fault)
- *  <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
+ *
+ * Indicates that the customer already owns the maximum allowed number of topics.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

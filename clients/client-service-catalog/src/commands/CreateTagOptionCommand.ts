@@ -23,7 +23,8 @@ export interface CreateTagOptionCommandInput extends CreateTagOptionInput {}
 export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a TagOption.</p>
+ * Creates a TagOption.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +58,20 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>The specified resource is a duplicate.</p>
+ *
+ * The specified resource is a duplicate.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
- *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * The current limits of the service would have been exceeded by this operation. Decrease your resource use or increase your service limits and retry the operation.
  *
  * @throws {@link TagOptionNotMigratedException} (client fault)
- *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
- *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
- *          process before retrying the operation.</p>
+ *
+ * An operation requiring TagOptions failed because the TagOptions migration process has not been performed for this account. Use the Amazon Web Services Management Console to perform the migration process before retrying the operation.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

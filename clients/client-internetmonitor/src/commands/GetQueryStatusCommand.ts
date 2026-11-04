@@ -23,30 +23,14 @@ export interface GetQueryStatusCommandInput extends GetQueryStatusInput {}
 export interface GetQueryStatusCommandOutput extends GetQueryStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the current status of a query for the Amazon CloudWatch Internet Monitor query interface, for a specified query ID and monitor.
- * 			When you run a query, check the status to make sure that the query has <code>SUCCEEDED</code> before you review the results.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>QUEUED</code>: The query is scheduled to run.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RUNNING</code>: The query is in progress but not complete.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SUCCEEDED</code>: The query completed sucessfully.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FAILED</code>: The query failed due to an error.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>CANCELED</code>: The query was canceled.</p>
- *             </li>
- *          </ul>
+ * Returns the current status of a query for the Amazon CloudWatch Internet Monitor query interface, for a specified query ID and monitor. When you run a query, check the status to make sure that the query has `SUCCEEDED` before you review the results.
+ *
+ * - `QUEUED`: The query is scheduled to run.
+ * - `RUNNING`: The query is in progress but not complete.
+ * - `SUCCEEDED`: The query completed sucessfully.
+ * - `FAILED`: The query failed due to an error.
+ * - `CANCELED`: The query was canceled.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,23 +58,28 @@ export interface GetQueryStatusCommandOutput extends GetQueryStatusOutput, __Met
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a service quota.</p>
+ *
+ * The request exceeded a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

@@ -23,13 +23,10 @@ export interface DeleteResourcePolicyStatementCommandInput extends DeleteResourc
 export interface DeleteResourcePolicyStatementCommandOutput extends DeleteResourcePolicyStatementResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a policy statement from a resource policy. If you delete the
- *          last statement from a policy, the policy is deleted. If you specify a
- *          statement ID that doesn't exist in the policy, or if the bot or bot
- *          alias doesn't have a policy attached, Amazon Lex returns an
- *          exception.</p>
- *          <p>You need to add the <code>DeleteResourcePolicy</code> or <code>UpdateResourcePolicy</code>
- *          action to the bot role in order to call the API.</p>
+ * Deletes a policy statement from a resource policy. If you delete the last statement from a policy, the policy is deleted. If you specify a statement ID that doesn't exist in the policy, or if the bot or bot alias doesn't have a policy attached, Amazon Lex returns an exception.
+ *
+ * You need to add the `DeleteResourcePolicy` or `UpdateResourcePolicy` action to the bot role in order to call the API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,25 +56,24 @@ export interface DeleteResourcePolicyStatementCommandOutput extends DeleteResour
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You asked to describe a resource that doesn't exist. Check the
- *          resource that you are requesting and try again.</p>
+ *
+ * You asked to describe a resource that doesn't exist. Check the resource that you are requesting and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

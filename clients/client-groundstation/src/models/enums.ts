@@ -254,19 +254,19 @@ export type VersionFailureReasonCode = (typeof VersionFailureReasonCode)[keyof t
  */
 export const VersionStatus = {
   /**
-   * <p>The version is the current active version of the contact.</p>
+   * The version is the current active version of the contact.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>The version update failed.</p>
+   * The version update failed.
    */
   FAILED_TO_UPDATE: "FAILED_TO_UPDATE",
   /**
-   * <p>The version has been replaced by a newer version.</p>
+   * The version has been replaced by a newer version.
    */
   SUPERSEDED: "SUPERSEDED",
   /**
-   * <p>The version is being applied to the contact.</p>
+   * The version is being applied to the contact.
    */
   UPDATING: "UPDATING",
 } as const;
@@ -330,23 +330,23 @@ export type EphemerisErrorCode = (typeof EphemerisErrorCode)[keyof typeof Epheme
  */
 export const EphemerisInvalidReason = {
   /**
-   * <p>Provided KMS key is invalid.</p>
+   * Provided KMS key is invalid.
    */
   KMS_KEY_INVALID: "KMS_KEY_INVALID",
   /**
-   * <p>Provided spacecraft identifiers such as spacecraft NORAD ID are invalid.</p>
+   * Provided spacecraft identifiers such as spacecraft NORAD ID are invalid.
    */
   METADATA_INVALID: "METADATA_INVALID",
   /**
-   * <p>Start, end, or expiration time(s) are invalid for the provided ephemeris.</p>
+   * Start, end, or expiration time(s) are invalid for the provided ephemeris.
    */
   TIME_RANGE_INVALID: "TIME_RANGE_INVALID",
   /**
-   * <p>Provided ephemeris defines invalid spacecraft trajectory.</p>
+   * Provided ephemeris defines invalid spacecraft trajectory.
    */
   TRAJECTORY_INVALID: "TRAJECTORY_INVALID",
   /**
-   * <p>Internal service error occurred while processing ephemeris.</p>
+   * Internal service error occurred while processing ephemeris.
    */
   VALIDATION_ERROR: "VALIDATION_ERROR",
 } as const;

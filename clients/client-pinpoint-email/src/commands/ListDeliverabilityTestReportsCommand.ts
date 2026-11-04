@@ -23,9 +23,8 @@ export interface ListDeliverabilityTestReportsCommandInput extends ListDeliverab
 export interface ListDeliverabilityTestReportsCommandOutput extends ListDeliverabilityTestReportsResponse, __MetadataBearer {}
 
 /**
- * <p>Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For
- *             predictive inbox placement tests that are complete, you can use the <code>GetDeliverabilityTestReport</code>
- *             operation to view the results.</p>
+ * Show a list of the predictive inbox placement tests that you've performed, regardless of their statuses. For predictive inbox placement tests that are complete, you can use the `GetDeliverabilityTestReport` operation to view the results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +62,20 @@ export interface ListDeliverabilityTestReportsCommandOutput extends ListDelivera
  * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link PinpointEmailServiceException}
- * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ * Base exception class for all service exceptions from PinpointEmail service.
  *
  * @public
  */

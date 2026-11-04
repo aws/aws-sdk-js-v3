@@ -23,28 +23,18 @@ export interface GetParametersCommandInput extends GetParametersRequest {}
 export interface GetParametersCommandOutput extends GetParametersResult, __MetadataBearer {}
 
 /**
- * <p>Get information about one or more parameters by specifying multiple parameter names.</p>
- *          <note>
- *             <p>To get information about a single parameter, you can use the <a>GetParameter</a>
- *     operation instead.</p>
- *          </note>
- *          <p>Parameter names can't contain spaces. The service removes any spaces specified for the
- *    beginning or end of a parameter name. If the specified name for a parameter contains spaces
- *    between characters, the request fails with a <code>ValidationException</code> error.</p>
- *          <note>
- *             <p>Parameter Store throughput defines the number of API transactions per second (TPS) that
- *     Systems Manager can process. This applies to <code>GetParameter</code>,
- *     <code>GetParameters</code>, and <code>PutParameter</code> API calls for your Amazon Web Services account and
- *     Amazon Web Services Region. By default, Parameter Store is configured with a standard throughput quota suitable
- *     for low- to moderate-volume workloads. Applications that retrieve configuration data infrequently
- *     or operate at smaller scale can use this default setting without additional cost.</p>
- *             <p>For higher-volume workloads, you can enable higher throughput. This increases the maximum
- *     number of supported transactions per second for your account and Region. Increased throughput
- *     supports applications and workloads that need concurrent access to multiple parameters. If you
- *     experience <code>ThrottlingException: Rate exceeded</code> errors, enable higher throughput. For
- *     more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-throughput.html">Changing Parameter Store
- *      throughput</a>.</p>
- *          </note>
+ * Get information about one or more parameters by specifying multiple parameter names.
+ *
+ * > **Note:** To get information about a single parameter, you can use the GetParameter operation instead.
+ *
+ * Parameter names can't contain spaces. The service removes any spaces specified for the beginning or end of a parameter name. If the specified name for a parameter contains spaces between characters, the request fails with a `ValidationException` error.
+ *
+ * > **Note:**
+ * >
+ * > Parameter Store throughput defines the number of API transactions per second (TPS) that Systems Manager can process. This applies to `GetParameter`, `GetParameters`, and `PutParameter` API calls for your Amazon Web Services account and Amazon Web Services Region. By default, Parameter Store is configured with a standard throughput quota suitable for low- to moderate-volume workloads. Applications that retrieve configuration data infrequently or operate at smaller scale can use this default setting without additional cost.
+ * >
+ * > For higher-volume workloads, you can enable higher throughput. This increases the maximum number of supported transactions per second for your account and Region. Increased throughput supports applications and workloads that need concurrent access to multiple parameters. If you experience `ThrottlingException: Rate exceeded` errors, enable higher throughput. For more information, see [Changing Parameter Store throughput](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-throughput.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,14 +79,16 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidKeyId} (client fault)
- *  <p>The query key ID isn't valid.</p>
+ *
+ * The query key ID isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface UpdateDocumentDefaultVersionCommandInput extends UpdateDocument
 export interface UpdateDocumentDefaultVersionCommandOutput extends UpdateDocumentDefaultVersionResult, __MetadataBearer {}
 
 /**
- * <p>Set the default version of a document. </p>
- *          <note>
- *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
- *     the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
- *     parameter.</p>
- *          </note>
+ * Set the default version of a document.
+ *
+ * > **Note:** If you change a document version for a State Manager association, Systems Manager immediately runs the association unless you previously specifed the `apply-only-at-cron-interval` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +58,24 @@ export interface UpdateDocumentDefaultVersionCommandOutput extends UpdateDocumen
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentSchemaVersion} (client fault)
- *  <p>The version of the document schema isn't supported.</p>
+ *
+ * The version of the document schema isn't supported.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

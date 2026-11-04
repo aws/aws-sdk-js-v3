@@ -23,20 +23,17 @@ export interface PutPipelineDefinitionCommandInput extends PutPipelineDefinition
 export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
- * <p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p>
- *         <p>
- *             <code>PutPipelineDefinition</code> also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one
- *             of the following three validation errors exists in the pipeline.
- *         </p>
- *         <ol>
- *             <li>An object is missing a name or identifier field.</li>
- *             <li>A string or reference field is empty.</li>
- *             <li>The number of objects in the pipeline exceeds the maximum allowed objects.</li>
- *             <li>The pipeline is in a FINISHED state.</li>
- *         </ol>
- *         <p>
- *             Pipeline object definitions are passed to the <code>PutPipelineDefinition</code> action and returned by the <a>GetPipelineDefinition</a> action.
- *         </p>
+ * Adds tasks, schedules, and preconditions to the specified pipeline. You can use `PutPipelineDefinition` to populate a new pipeline.
+ *
+ * `PutPipelineDefinition` also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline.
+ *
+ * 1. An object is missing a name or identifier field.
+ * 2. A string or reference field is empty.
+ * 3. The number of objects in the pipeline exceeds the maximum allowed objects.
+ * 4. The pipeline is in a FINISHED state.
+ *
+ * Pipeline object definitions are passed to the `PutPipelineDefinition` action and returned by the GetPipelineDefinition action.
+ *
  *         <examples>
  *             <example>
  *                 <name>Example 1</name>
@@ -112,7 +109,7 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  *             <example>
  *                 <name>Example 2</name>
  *                 <description>
- *                     This example sets an invalid pipeline configuration (the value for <code>workerGroup</code> is an empty string) and returns an error message.
+ *                     This example sets an invalid pipeline configuration (the value for `workerGroup` is an empty string) and returns an error message.
  *                 </description>
  *                 <request>
  *
@@ -255,20 +252,24 @@ export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitio
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link PipelineDeletedException} (client fault)
- *  <p>The specified pipeline has been deleted.</p>
+ *
+ * The specified pipeline has been deleted.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

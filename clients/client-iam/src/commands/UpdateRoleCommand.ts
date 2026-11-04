@@ -23,7 +23,8 @@ export interface UpdateRoleCommandInput extends UpdateRoleRequest {}
 export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the description or maximum session duration setting of a role.</p>
+ * Updates the description or maximum session duration setting of a role.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,22 +51,20 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
- *       the service that depends on the service-linked role can modify or delete the role on your
- *       behalf. The error message includes the name of the service that depends on this service-linked
- *       role. You must request the change through that service.</p>
+ *
+ * The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

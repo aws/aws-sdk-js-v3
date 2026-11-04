@@ -5,7 +5,8 @@ import type { ThrottleReason } from "./enums";
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
 
 /**
- * <p>One of the parameters in the request is not valid.</p>
+ * One of the parameters in the request is not valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -13,7 +14,8 @@ export class InvalidParameterValueException extends __BaseException {
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -33,7 +35,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * The permissions policy for the resource is too large. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
+ *
  * @public
  */
 export class PolicyLengthExceededException extends __BaseException {
@@ -56,7 +59,11 @@ export class PolicyLengthExceededException extends __BaseException {
 }
 
 /**
- * <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p> <ul> <li> <p> <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p> </li> <li> <p> <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p> </li> </ul>
+ * The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.
+ *
+ * - **For AddPermission and RemovePermission API operations:** Call `GetPolicy` to retrieve the latest RevisionId for your resource.
+ * - **For all other API operations:** Call `GetFunction` or `GetAlias` to retrieve the latest RevisionId for your resource.
+ *
  * @public
  */
 export class PreconditionFailedException extends __BaseException {
@@ -64,7 +71,8 @@ export class PreconditionFailedException extends __BaseException {
   readonly name = "PreconditionFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -84,7 +92,8 @@ export class PreconditionFailedException extends __BaseException {
 }
 
 /**
- * <p>The resource already exists, or another operation is in progress.</p>
+ * The resource already exists, or another operation is in progress.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -92,7 +101,8 @@ export class ResourceConflictException extends __BaseException {
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -112,7 +122,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request does not exist.</p>
+ * The resource specified in the request does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -137,7 +148,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The Lambda service encountered an internal error.</p>
+ * The Lambda service encountered an internal error.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -162,7 +174,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ * The request throughput limit was exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests).
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -170,7 +183,8 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
+   * The number of seconds the caller should wait before retrying.
+   *
    * @public
    */
   retryAfterSeconds?: string | undefined;
@@ -194,7 +208,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.</p>
+ * The resource-based policy you tried to add to the Lambda resource would grant public access to it, which isn't allowed.
+ *
  * @public
  */
 export class PublicPolicyException extends __BaseException {
@@ -202,13 +217,15 @@ export class PublicPolicyException extends __BaseException {
   readonly name = "PublicPolicyException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -228,7 +245,8 @@ export class PublicPolicyException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * Lambda couldn't create the alias because your Amazon Web Services account has exceeded the maximum number of aliases allowed per Lambda function. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
+ *
  * @public
  */
 export class AliasLimitExceededException extends __BaseException {
@@ -236,7 +254,8 @@ export class AliasLimitExceededException extends __BaseException {
   readonly name = "AliasLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -256,7 +275,8 @@ export class AliasLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of capacity providers for your account has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a> </p>
+ * The maximum number of capacity providers for your account has been exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
+ *
  * @public
  */
 export class CapacityProviderLimitExceededException extends __BaseException {
@@ -264,7 +284,8 @@ export class CapacityProviderLimitExceededException extends __BaseException {
   readonly name = "CapacityProviderLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -284,7 +305,8 @@ export class CapacityProviderLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+ * Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.
+ *
  * @public
  */
 export class KMSAccessDeniedException extends __BaseException {
@@ -309,7 +331,8 @@ export class KMSAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+ * Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.
+ *
  * @public
  */
 export class KMSDisabledException extends __BaseException {
@@ -334,7 +357,8 @@ export class KMSDisabledException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+ * Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.
+ *
  * @public
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -359,7 +383,8 @@ export class KMSInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+ * Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.
+ *
  * @public
  */
 export class KMSNotFoundException extends __BaseException {
@@ -384,7 +409,8 @@ export class KMSNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
+ * The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -409,7 +435,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified code signing configuration does not exist.</p>
+ * The specified code signing configuration does not exist.
+ *
  * @public
  */
 export class CodeSigningConfigNotFoundException extends __BaseException {
@@ -434,7 +461,8 @@ export class CodeSigningConfigNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * Your Amazon Web Services account has exceeded its maximum total code size. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
+ *
  * @public
  */
 export class CodeStorageExceededException extends __BaseException {
@@ -442,7 +470,8 @@ export class CodeStorageExceededException extends __BaseException {
   readonly name = "CodeStorageExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -462,7 +491,8 @@ export class CodeStorageExceededException extends __BaseException {
 }
 
 /**
- * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+ * The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy is set to ENFORCE. Lambda blocks the deployment.
+ *
  * @public
  */
 export class CodeVerificationFailedException extends __BaseException {
@@ -487,7 +517,8 @@ export class CodeVerificationFailedException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * The maximum number of function versions that can be associated with a single capacity provider has been exceeded. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
+ *
  * @public
  */
 export class FunctionVersionsPerCapacityProviderLimitExceededException extends __BaseException {
@@ -495,7 +526,8 @@ export class FunctionVersionsPerCapacityProviderLimitExceededException extends _
   readonly name = "FunctionVersionsPerCapacityProviderLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -515,7 +547,8 @@ export class FunctionVersionsPerCapacityProviderLimitExceededException extends _
 }
 
 /**
- * <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.</p>
+ * The code signature failed the integrity check. If the integrity check fails, then Lambda blocks deployment, even if the code signing policy is set to WARN.
+ *
  * @public
  */
 export class InvalidCodeSignatureException extends __BaseException {
@@ -540,7 +573,8 @@ export class InvalidCodeSignatureException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.</p>
+ * The Lambda function couldn't be invoked because its code artifact user has been deleted. Wait for Lambda to provision a new code artifact user, or update the function's code package to recreate it.
+ *
  * @public
  */
 export class CodeArtifactUserDeletedException extends __BaseException {
@@ -548,7 +582,8 @@ export class CodeArtifactUserDeletedException extends __BaseException {
   readonly name = "CodeArtifactUserDeletedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -568,7 +603,8 @@ export class CodeArtifactUserDeletedException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's <code>State</code> and <code>StateReasonCode</code> for additional context.</p>
+ * The Lambda function couldn't be invoked because provisioning of its code artifact user failed. Update the function's code package or check the Lambda function's `State` and `StateReasonCode` for additional context.
+ *
  * @public
  */
 export class CodeArtifactUserFailedException extends __BaseException {
@@ -576,7 +612,8 @@ export class CodeArtifactUserFailedException extends __BaseException {
   readonly name = "CodeArtifactUserFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -596,7 +633,8 @@ export class CodeArtifactUserFailedException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's <code>State</code> to become <code>Active</code> and try the request again.</p>
+ * The Lambda function couldn't be invoked because its code artifact user is still being provisioned. Wait for the function's `State` to become `Active` and try the request again.
+ *
  * @public
  */
 export class CodeArtifactUserPendingException extends __BaseException {
@@ -604,7 +642,8 @@ export class CodeArtifactUserPendingException extends __BaseException {
   readonly name = "CodeArtifactUserPendingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -624,7 +663,8 @@ export class CodeArtifactUserPendingException extends __BaseException {
 }
 
 /**
- * <p>The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.</p>
+ * The durable execution with the specified name has already been started. Each durable execution name must be unique within the function. Use a different name or check the status of the existing execution.
+ *
  * @public
  */
 export class DurableExecutionAlreadyStartedException extends __BaseException {
@@ -632,7 +672,8 @@ export class DurableExecutionAlreadyStartedException extends __BaseException {
   readonly name = "DurableExecutionAlreadyStartedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -654,7 +695,8 @@ export class DurableExecutionAlreadyStartedException extends __BaseException {
 }
 
 /**
- * <p>Need additional permissions to configure VPC settings.</p>
+ * Need additional permissions to configure VPC settings.
+ *
  * @public
  */
 export class EC2AccessDeniedException extends __BaseException {
@@ -679,7 +721,8 @@ export class EC2AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.</p>
+ * Amazon EC2 throttled Lambda during Lambda function initialization using the execution role provided for the function.
+ *
  * @public
  */
 export class EC2ThrottledException extends __BaseException {
@@ -704,7 +747,8 @@ export class EC2ThrottledException extends __BaseException {
 }
 
 /**
- * <p>Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.</p>
+ * Lambda received an unexpected Amazon EC2 client exception while setting up for the Lambda function.
+ *
  * @public
  */
 export class EC2UnexpectedException extends __BaseException {
@@ -731,7 +775,8 @@ export class EC2UnexpectedException extends __BaseException {
 }
 
 /**
- * <p>An error occurred when reading from or writing to a connected file system.</p>
+ * An error occurred when reading from or writing to a connected file system.
+ *
  * @public
  */
 export class EFSIOException extends __BaseException {
@@ -756,7 +801,8 @@ export class EFSIOException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't make a network connection to the configured file system.</p>
+ * The Lambda function couldn't make a network connection to the configured file system.
+ *
  * @public
  */
 export class EFSMountConnectivityException extends __BaseException {
@@ -781,7 +827,8 @@ export class EFSMountConnectivityException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't mount the configured file system due to a permission or configuration issue.</p>
+ * The Lambda function couldn't mount the configured file system due to a permission or configuration issue.
+ *
  * @public
  */
 export class EFSMountFailureException extends __BaseException {
@@ -806,7 +853,8 @@ export class EFSMountFailureException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function made a network connection to the configured file system, but the mount operation timed out.</p>
+ * The Lambda function made a network connection to the configured file system, but the mount operation timed out.
+ *
  * @public
  */
 export class EFSMountTimeoutException extends __BaseException {
@@ -831,7 +879,8 @@ export class EFSMountTimeoutException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * Lambda couldn't create an elastic network interface in the VPC, specified as part of Lambda function configuration, because the limit for network interfaces has been reached. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
+ *
  * @public
  */
 export class ENILimitReachedException extends __BaseException {
@@ -856,7 +905,8 @@ export class ENILimitReachedException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">Configuring a Lambda function to access resources in a VPC</a>.</p>
+ * Lambda couldn't invoke the Lambda function because the elastic network interface (ENI) configured for its VPC connection isn't ready yet. Wait a few moments and try the request again. For more information about VPC configuration, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+ *
  * @public
  */
 export class ENINotReadyException extends __BaseException {
@@ -864,13 +914,15 @@ export class ENINotReadyException extends __BaseException {
   readonly name = "ENINotReadyException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -890,7 +942,8 @@ export class ENINotReadyException extends __BaseException {
 }
 
 /**
- * <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.</p>
+ * The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId' header is not a valid UUID string.
+ *
  * @public
  */
 export class InvalidRequestContentException extends __BaseException {
@@ -898,7 +951,8 @@ export class InvalidRequestContentException extends __BaseException {
   readonly name = "InvalidRequestContentException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -918,7 +972,8 @@ export class InvalidRequestContentException extends __BaseException {
 }
 
 /**
- * <p>The runtime or runtime version specified is not supported.</p>
+ * The runtime or runtime version specified is not supported.
+ *
  * @public
  */
 export class InvalidRuntimeException extends __BaseException {
@@ -943,7 +998,8 @@ export class InvalidRuntimeException extends __BaseException {
 }
 
 /**
- * <p>The security group ID provided in the Lambda function VPC configuration is not valid.</p>
+ * The security group ID provided in the Lambda function VPC configuration is not valid.
+ *
  * @public
  */
 export class InvalidSecurityGroupIDException extends __BaseException {
@@ -968,7 +1024,8 @@ export class InvalidSecurityGroupIDException extends __BaseException {
 }
 
 /**
- * <p>The subnet ID provided in the Lambda function VPC configuration is not valid.</p>
+ * The subnet ID provided in the Lambda function VPC configuration is not valid.
+ *
  * @public
  */
 export class InvalidSubnetIDException extends __BaseException {
@@ -993,7 +1050,8 @@ export class InvalidSubnetIDException extends __BaseException {
 }
 
 /**
- * <p>Lambda could not unzip the deployment package.</p>
+ * Lambda could not unzip the deployment package.
+ *
  * @public
  */
 export class InvalidZipFileException extends __BaseException {
@@ -1018,7 +1076,8 @@ export class InvalidZipFileException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function doesn't support the invocation mode requested. For example, calling <code>Invoke</code> with <code>InvocationType=RequestResponse</code> on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html">Invoking Lambda functions</a>.</p>
+ * The Lambda function doesn't support the invocation mode requested. For example, calling `Invoke` with `InvocationType=RequestResponse` on a function configured for asynchronous-only invocation, or vice versa. For more information about invocation types, see [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/invocation-options.html).
+ *
  * @public
  */
 export class ModeNotSupportedException extends __BaseException {
@@ -1026,7 +1085,8 @@ export class ModeNotSupportedException extends __BaseException {
   readonly name = "ModeNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -1046,7 +1106,8 @@ export class ModeNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The function has no published versions available.</p>
+ * The function has no published versions available.
+ *
  * @public
  */
 export class NoPublishedVersionException extends __BaseException {
@@ -1054,7 +1115,8 @@ export class NoPublishedVersionException extends __BaseException {
   readonly name = "NoPublishedVersionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -1076,7 +1138,8 @@ export class NoPublishedVersionException extends __BaseException {
 }
 
 /**
- * <p>Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.</p>
+ * Lambda has detected your function being invoked in a recursive loop with other Amazon Web Services resources and stopped your function's invocation.
+ *
  * @public
  */
 export class RecursiveInvocationException extends __BaseException {
@@ -1084,13 +1147,15 @@ export class RecursiveInvocationException extends __BaseException {
   readonly name = "RecursiveInvocationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1110,7 +1175,8 @@ export class RecursiveInvocationException extends __BaseException {
 }
 
 /**
- * <p>The request payload exceeded the <code>Invoke</code> request body JSON input quota. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ * The request payload exceeded the `Invoke` request body JSON input quota. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html).
+ *
  * @public
  */
 export class RequestTooLargeException extends __BaseException {
@@ -1133,7 +1199,8 @@ export class RequestTooLargeException extends __BaseException {
 }
 
 /**
- * <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.</p>
+ * The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to reestablish and try again.
+ *
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -1141,7 +1208,8 @@ export class ResourceNotReadyException extends __BaseException {
   readonly name = "ResourceNotReadyException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -1161,7 +1229,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't make a network connection to the configured S3 Files access point.</p>
+ * The Lambda function couldn't make a network connection to the configured S3 Files access point.
+ *
  * @public
  */
 export class S3FilesMountConnectivityException extends __BaseException {
@@ -1169,13 +1238,15 @@ export class S3FilesMountConnectivityException extends __BaseException {
   readonly name = "S3FilesMountConnectivityException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1195,7 +1266,8 @@ export class S3FilesMountConnectivityException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.</p>
+ * The Lambda function couldn't mount the configured S3 Files access point due to a permission or configuration issue.
+ *
  * @public
  */
 export class S3FilesMountFailureException extends __BaseException {
@@ -1203,13 +1275,15 @@ export class S3FilesMountFailureException extends __BaseException {
   readonly name = "S3FilesMountFailureException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1229,7 +1303,8 @@ export class S3FilesMountFailureException extends __BaseException {
 }
 
 /**
- * <p>The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.</p>
+ * The Lambda function made a network connection to the configured S3 Files access point, but the mount operation timed out.
+ *
  * @public
  */
 export class S3FilesMountTimeoutException extends __BaseException {
@@ -1237,13 +1312,15 @@ export class S3FilesMountTimeoutException extends __BaseException {
   readonly name = "S3FilesMountTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1263,7 +1340,8 @@ export class S3FilesMountTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The request payload exceeded the maximum allowed size for serialized request entities.</p>
+ * The request payload exceeded the maximum allowed size for serialized request entities.
+ *
  * @public
  */
 export class SerializedRequestEntityTooLargeException extends __BaseException {
@@ -1271,7 +1349,8 @@ export class SerializedRequestEntityTooLargeException extends __BaseException {
   readonly name = "SerializedRequestEntityTooLargeException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error type.</p>
+   * The error type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -1291,7 +1370,8 @@ export class SerializedRequestEntityTooLargeException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota. For more information about Lambda service quotas, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>. To request a quota increase, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i>.</p>
+ * The request would exceed a service quota. For more information about Lambda service quotas, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html). To request a quota increase, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -1299,13 +1379,15 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1325,7 +1407,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.</p>
+ * The `afterRestore()` [runtime hook](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html) encountered an error. For more information, check the Amazon CloudWatch logs.
+ *
  * @public
  */
 export class SnapStartException extends __BaseException {
@@ -1350,7 +1433,8 @@ export class SnapStartException extends __BaseException {
 }
 
 /**
- * <p>Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function state</a> becomes <code>Active</code>.</p>
+ * Lambda is initializing your function. You can invoke the function when the [function state](https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html) becomes `Active`.
+ *
  * @public
  */
 export class SnapStartNotReadyException extends __BaseException {
@@ -1375,7 +1459,8 @@ export class SnapStartNotReadyException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">Lambda SnapStart</a>.</p>
+ * Lambda couldn't regenerate the SnapStart snapshot for the function. SnapStart-enabled functions periodically regenerate snapshots when their underlying runtime or dependencies change; this regeneration failed. Wait for Lambda to retry, or update the function's configuration to trigger a new snapshot. For more information, see [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).
+ *
  * @public
  */
 export class SnapStartRegenerationFailureException extends __BaseException {
@@ -1383,13 +1468,15 @@ export class SnapStartRegenerationFailureException extends __BaseException {
   readonly name = "SnapStartRegenerationFailureException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The exception message.</p>
+   * The exception message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1409,7 +1496,8 @@ export class SnapStartRegenerationFailureException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't restore the snapshot within the timeout limit.</p>
+ * Lambda couldn't restore the snapshot within the timeout limit.
+ *
  * @public
  */
 export class SnapStartTimeoutException extends __BaseException {
@@ -1434,7 +1522,8 @@ export class SnapStartTimeoutException extends __BaseException {
 }
 
 /**
- * <p>Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.</p>
+ * Lambda couldn't set up VPC access for the Lambda function because one or more configured subnets has no available IP addresses.
+ *
  * @public
  */
 export class SubnetIPAddressLimitReachedException extends __BaseException {
@@ -1459,7 +1548,8 @@ export class SubnetIPAddressLimitReachedException extends __BaseException {
 }
 
 /**
- * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
+ * The content type of the `Invoke` request body is not JSON.
+ *
  * @public
  */
 export class UnsupportedMediaTypeException extends __BaseException {
@@ -1482,7 +1572,8 @@ export class UnsupportedMediaTypeException extends __BaseException {
 }
 
 /**
- * <p>The specified configuration does not exist.</p>
+ * The specified configuration does not exist.
+ *
  * @public
  */
 export class ProvisionedConcurrencyConfigNotFoundException extends __BaseException {
@@ -1505,7 +1596,8 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
 }
 
 /**
- * <p>The callback ID token has either expired or the callback associated with the token has already been closed.</p>
+ * The callback ID token has either expired or the callback associated with the token has already been closed.
+ *
  * @public
  */
 export class CallbackTimeoutException extends __BaseException {
@@ -1513,7 +1605,8 @@ export class CallbackTimeoutException extends __BaseException {
   readonly name = "CallbackTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;

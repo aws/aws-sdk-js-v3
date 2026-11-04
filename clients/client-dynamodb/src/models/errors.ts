@@ -5,8 +5,8 @@ import { DynamoDBServiceException as __BaseException } from "./DynamoDBServiceEx
 import type { AttributeValue, CancellationReason, ThrottlingReason } from "./models_0";
 
 /**
- * <p>There is another ongoing conflicting backup control plane operation on the table.
- *             The backup is either being created, deleted or restored to a table.</p>
+ * There is another ongoing conflicting backup control plane operation on the table. The backup is either being created, deleted or restored to a table.
+ *
  * @public
  */
 export class BackupInUseException extends __BaseException {
@@ -27,7 +27,8 @@ export class BackupInUseException extends __BaseException {
 }
 
 /**
- * <p>Backup not found for the given BackupARN. </p>
+ * Backup not found for the given BackupARN.
+ *
  * @public
  */
 export class BackupNotFoundException extends __BaseException {
@@ -48,7 +49,8 @@ export class BackupNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred on the server side.</p>
+ * An error occurred on the server side.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -69,10 +71,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Throughput exceeds the current throughput quota for your account. For detailed
- *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota
- *             increase.</p>
+ * Throughput exceeds the current throughput quota for your account. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. Contact [Amazon Web Services Support](https://aws.amazon.com/support) to request a quota increase.
+ *
  * @public
  */
 export class RequestLimitExceeded extends __BaseException {
@@ -80,9 +80,8 @@ export class RequestLimitExceeded extends __BaseException {
   readonly name = "RequestLimitExceeded" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
-   *      provide detailed diagnostic information about why the request was throttled.
-   *     </p>
+   * A list of [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) that provide detailed diagnostic information about why the request was throttled.
+   *
    * @public
    */
   ThrottlingReasons?: ThrottlingReason[] | undefined;
@@ -102,8 +101,8 @@ export class RequestLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. For detailed information about why
- *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -111,9 +110,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
-   *      provide detailed diagnostic information about why the request was throttled.
-   *     </p>
+   * A list of [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) that provide detailed diagnostic information about why the request was throttled.
+   *
    * @public
    */
   throttlingReasons?: ThrottlingReason[] | undefined;
@@ -155,12 +153,8 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. For detailed information about
- *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
- *             SDKs for DynamoDB automatically retry requests that receive this exception.
- *             Your request is eventually successful, unless your retry queue is too large to finish.
- *             Reduce the frequency of requests and use exponential backoff. For more information, go
- *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to [Error Retries and Exponential Backoff](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff) in the *Amazon DynamoDB Developer Guide*.
+ *
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
@@ -168,9 +162,8 @@ export class ProvisionedThroughputExceededException extends __BaseException {
   readonly name = "ProvisionedThroughputExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> that
-   *      provide detailed diagnostic information about why the request was throttled.
-   *     </p>
+   * A list of [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) that provide detailed diagnostic information about why the request was throttled.
+   *
    * @public
    */
   ThrottlingReasons?: ThrottlingReason[] | undefined;
@@ -190,8 +183,8 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -212,8 +205,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An item collection is too large. This exception is only returned for tables that
- *             have one or more local secondary indexes.</p>
+ * An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
+ *
  * @public
  */
 export class ItemCollectionSizeLimitExceededException extends __BaseException {
@@ -234,8 +227,8 @@ export class ItemCollectionSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because one or more items in the request are being modified
- *             by a request in another Region. </p>
+ * The request was rejected because one or more items in the request are being modified by a request in another Region.
+ *
  * @public
  */
 export class ReplicatedWriteConflictException extends __BaseException {
@@ -257,7 +250,8 @@ export class ReplicatedWriteConflictException extends __BaseException {
 }
 
 /**
- * <p>Backups have not yet been enabled for this table.</p>
+ * Backups have not yet been enabled for this table.
+ *
  * @public
  */
 export class ContinuousBackupsUnavailableException extends __BaseException {
@@ -278,22 +272,20 @@ export class ContinuousBackupsUnavailableException extends __BaseException {
 }
 
 /**
- * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -314,8 +306,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A target table with the specified name is either being created or deleted.
- *         </p>
+ * A target table with the specified name is either being created or deleted.
+ *
  * @public
  */
 export class TableInUseException extends __BaseException {
@@ -336,9 +328,8 @@ export class TableInUseException extends __BaseException {
 }
 
 /**
- * <p>A source table with the name <code>TableName</code> does not currently exist within
- *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services
- *             Region.</p>
+ * A source table with the name `TableName` does not currently exist within the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.
+ *
  * @public
  */
 export class TableNotFoundException extends __BaseException {
@@ -359,7 +350,8 @@ export class TableNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified global table already exists.</p>
+ * The specified global table already exists.
+ *
  * @public
  */
 export class GlobalTableAlreadyExistsException extends __BaseException {
@@ -380,21 +372,14 @@ export class GlobalTableAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The operation conflicts with the resource's availability. For example:</p>
- *          <ul>
- *             <li>
- *                <p>You attempted to recreate an existing table.</p>
- *             </li>
- *             <li>
- *                <p>You tried to delete a table currently in the <code>CREATING</code>
- *                     state.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a resource that was already being updated.</p>
- *             </li>
- *          </ul>
- *          <p>When appropriate, wait for the ongoing update to complete and attempt the request
- *             again.</p>
+ * The operation conflicts with the resource's availability. For example:
+ *
+ * - You attempted to recreate an existing table.
+ * - You tried to delete a table currently in the `CREATING` state.
+ * - You tried to update a resource that was already being updated.
+ *
+ * When appropriate, wait for the ongoing update to complete and attempt the request again.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -415,8 +400,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Operation was rejected because there is an ongoing transaction for the
- *             item.</p>
+ * Operation was rejected because there is an ongoing transaction for the item.
+ *
  * @public
  */
 export class TransactionConflictException extends __BaseException {
@@ -437,9 +422,10 @@ export class TransactionConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a nonexistent resource-based policy.</p>
- *          <p>If you specified an <code>ExpectedRevisionId</code>, it's possible that a policy is
- *             present for the resource but its revision ID didn't match the expected value.</p>
+ * The operation tried to access a nonexistent resource-based policy.
+ *
+ * If you specified an `ExpectedRevisionId`, it's possible that a policy is present for the resource but its revision ID didn't match the expected value.
+ *
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -460,7 +446,8 @@ export class PolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified export was not found.</p>
+ * The specified export was not found.
+ *
  * @public
  */
 export class ExportNotFoundException extends __BaseException {
@@ -481,7 +468,8 @@ export class ExportNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified global table does not exist.</p>
+ * The specified global table does not exist.
+ *
  * @public
  */
 export class GlobalTableNotFoundException extends __BaseException {
@@ -502,7 +490,8 @@ export class GlobalTableNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The specified import was not found. </p>
+ * The specified import was not found.
+ *
  * @public
  */
 export class ImportNotFoundException extends __BaseException {
@@ -523,8 +512,8 @@ export class ImportNotFoundException extends __BaseException {
 }
 
 /**
- * <p> There was an attempt to insert an item with the same primary key as an item that
- *             already exists in the DynamoDB table.</p>
+ * There was an attempt to insert an item with the same primary key as an item that already exists in the DynamoDB table.
+ *
  * @public
  */
 export class DuplicateItemException extends __BaseException {
@@ -545,8 +534,8 @@ export class DuplicateItemException extends __BaseException {
 }
 
 /**
- * <p>DynamoDB rejected the request because you retried a request with a
- *             different payload but with an idempotent token that was already used.</p>
+ * DynamoDB rejected the request because you retried a request with a different payload but with an idempotent token that was already used.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -569,63 +558,29 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>The transaction with the given request token is already in progress.</p>
- *          <p> Recommended Settings </p>
- *          <note>
- *             <p> This is a general recommendation for handling the
- *                     <code>TransactionInProgressException</code>. These settings help ensure that the
- *                 client retries will trigger completion of the ongoing
- *                     <code>TransactWriteItems</code> request. </p>
- *          </note>
- *          <ul>
- *             <li>
- *                <p> Set <code>clientExecutionTimeout</code> to a value that allows at least one
- *                     retry to be processed after 5 seconds have elapsed since the first attempt for
- *                     the <code>TransactWriteItems</code> operation. </p>
- *             </li>
- *             <li>
- *                <p> Set <code>socketTimeout</code> to a value a little lower than the
- *                         <code>requestTimeout</code> setting. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>requestTimeout</code> should be set based on the time taken for the
- *                     individual retries of a single HTTP request for your use case, but setting it to
- *                     1 second or higher should work well to reduce chances of retries and
- *                         <code>TransactionInProgressException</code> errors. </p>
- *             </li>
- *             <li>
- *                <p> Use exponential backoff when retrying and tune backoff if needed. </p>
- *             </li>
- *          </ul>
- *          <p> Assuming <a href="https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97">default retry policy</a>, example timeout settings based on the guidelines
- *             above are as follows: </p>
- *          <p>Example timeline:</p>
- *          <ul>
- *             <li>
- *                <p>0-1000 first attempt</p>
- *             </li>
- *             <li>
- *                <p>1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay
- *                     for 4xx errors)</p>
- *             </li>
- *             <li>
- *                <p>1500-2500 second attempt</p>
- *             </li>
- *             <li>
- *                <p>2500-3500 second sleep/delay (500 * 2, exponential backoff)</p>
- *             </li>
- *             <li>
- *                <p>3500-4500 third attempt</p>
- *             </li>
- *             <li>
- *                <p>4500-6500 third sleep/delay (500 * 2^2)</p>
- *             </li>
- *             <li>
- *                <p>6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds
- *                     have elapsed since the first attempt reached TC)</p>
- *             </li>
- *          </ul>
+ * The transaction with the given request token is already in progress.
+ *
+ * Recommended Settings
+ *
+ * > **Note:** This is a general recommendation for handling the `TransactionInProgressException`. These settings help ensure that the client retries will trigger completion of the ongoing `TransactWriteItems` request.
+ *
+ * - Set `clientExecutionTimeout` to a value that allows at least one retry to be processed after 5 seconds have elapsed since the first attempt for the `TransactWriteItems` operation.
+ * - Set `socketTimeout` to a value a little lower than the `requestTimeout` setting.
+ * - `requestTimeout` should be set based on the time taken for the individual retries of a single HTTP request for your use case, but setting it to 1 second or higher should work well to reduce chances of retries and `TransactionInProgressException` errors.
+ * - Use exponential backoff when retrying and tune backoff if needed.
+ *
+ * Assuming [default retry policy](https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97), example timeout settings based on the guidelines above are as follows:
+ *
+ * Example timeline:
+ *
+ * - 0-1000 first attempt
+ * - 1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay for 4xx errors)
+ * - 1500-2500 second attempt
+ * - 2500-3500 second sleep/delay (500 * 2, exponential backoff)
+ * - 3500-4500 third attempt
+ * - 4500-6500 third sleep/delay (500 * 2^2)
+ * - 6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds have elapsed since the first attempt reached TC)
+ *
  * @public
  */
 export class TransactionInProgressException extends __BaseException {
@@ -648,7 +603,8 @@ export class TransactionInProgressException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict when writing to the specified S3 bucket.</p>
+ * There was a conflict when writing to the specified S3 bucket.
+ *
  * @public
  */
 export class ExportConflictException extends __BaseException {
@@ -669,8 +625,8 @@ export class ExportConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified <code>ExportTime</code> is outside of the point in time recovery
- *             window.</p>
+ * The specified `ExportTime` is outside of the point in time recovery window.
+ *
  * @public
  */
 export class InvalidExportTimeException extends __BaseException {
@@ -691,7 +647,8 @@ export class InvalidExportTimeException extends __BaseException {
 }
 
 /**
- * <p>Point in time recovery has not yet been enabled for this source table.</p>
+ * Point in time recovery has not yet been enabled for this source table.
+ *
  * @public
  */
 export class PointInTimeRecoveryUnavailableException extends __BaseException {
@@ -712,9 +669,8 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
 }
 
 /**
- * <p> There was a conflict when importing from the specified S3 source. This can occur when
- *             the current import conflicts with a previous import request that had the same client
- *             token. </p>
+ * There was a conflict when importing from the specified S3 source. This can occur when the current import conflicts with a previous import request that had the same client token.
+ *
  * @public
  */
 export class ImportConflictException extends __BaseException {
@@ -735,7 +691,8 @@ export class ImportConflictException extends __BaseException {
 }
 
 /**
- * <p>A target table with the specified name already exists. </p>
+ * A target table with the specified name already exists.
+ *
  * @public
  */
 export class TableAlreadyExistsException extends __BaseException {
@@ -756,8 +713,8 @@ export class TableAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>An invalid restore time was specified. RestoreDateTime must be between
- *             EarliestRestorableDateTime and LatestRestorableDateTime.</p>
+ * An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.
+ *
  * @public
  */
 export class InvalidRestoreTimeException extends __BaseException {
@@ -778,7 +735,8 @@ export class InvalidRestoreTimeException extends __BaseException {
 }
 
 /**
- * <p>The specified replica is already part of the global table.</p>
+ * The specified replica is already part of the global table.
+ *
  * @public
  */
 export class ReplicaAlreadyExistsException extends __BaseException {
@@ -799,7 +757,8 @@ export class ReplicaAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified replica is no longer part of the global table.</p>
+ * The specified replica is no longer part of the global table.
+ *
  * @public
  */
 export class ReplicaNotFoundException extends __BaseException {
@@ -820,7 +779,8 @@ export class ReplicaNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a nonexistent index.</p>
+ * The operation tried to access a nonexistent index.
+ *
  * @public
  */
 export class IndexNotFoundException extends __BaseException {
@@ -841,7 +801,8 @@ export class IndexNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A condition specified in the operation failed to be evaluated.</p>
+ * A condition specified in the operation failed to be evaluated.
+ *
  * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
@@ -849,7 +810,8 @@ export class ConditionalCheckFailedException extends __BaseException {
   readonly name = "ConditionalCheckFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
+   * Item which caused the `ConditionalCheckFailedException`.
+   *
    * @public
    */
   Item?: Record<string, AttributeValue> | undefined;
@@ -869,245 +831,83 @@ export class ConditionalCheckFailedException extends __BaseException {
 }
 
 /**
- * <p>The entire transaction request was canceled.</p>
- *          <p>DynamoDB cancels a <code>TransactWriteItems</code> request under the following
- *             circumstances:</p>
- *          <ul>
- *             <li>
- *                <p>A condition in one of the condition expressions is not met.</p>
- *             </li>
- *             <li>
- *                <p>A table in the <code>TransactWriteItems</code> request is in a different
- *                     account or region.</p>
- *             </li>
- *             <li>
- *                <p>More than one action in the <code>TransactWriteItems</code> operation
- *                     targets the same item.</p>
- *             </li>
- *             <li>
- *                <p>There is insufficient provisioned capacity for the transaction to be
- *                     completed.</p>
- *             </li>
- *             <li>
- *                <p>An item size becomes too large (larger than 400 KB), or a local secondary
- *                     index (LSI) becomes too large, or a similar validation error occurs because of
- *                     changes made by the transaction.</p>
- *             </li>
- *             <li>
- *                <p>There is a user error, such as an invalid data format.</p>
- *             </li>
- *             <li>
- *                <p> There is an ongoing <code>TransactWriteItems</code> operation that
- *                     conflicts with a concurrent <code>TransactWriteItems</code> request. In this
- *                     case the <code>TransactWriteItems</code> operation fails with a
- *                         <code>TransactionCanceledException</code>. </p>
- *             </li>
- *          </ul>
- *          <p>DynamoDB cancels a <code>TransactGetItems</code> request under the
- *             following circumstances:</p>
- *          <ul>
- *             <li>
- *                <p>There is an ongoing <code>TransactGetItems</code> operation that conflicts
- *                     with a concurrent <code>PutItem</code>, <code>UpdateItem</code>,
- *                         <code>DeleteItem</code> or <code>TransactWriteItems</code> request. In this
- *                     case the <code>TransactGetItems</code> operation fails with a
- *                         <code>TransactionCanceledException</code>.</p>
- *             </li>
- *             <li>
- *                <p>A table in the <code>TransactGetItems</code> request is in a different
- *                     account or region.</p>
- *             </li>
- *             <li>
- *                <p>There is insufficient provisioned capacity for the transaction to be
- *                     completed.</p>
- *             </li>
- *             <li>
- *                <p>There is a user error, such as an invalid data format.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>DynamoDB lists the cancellation reasons on the
- *                     <code>CancellationReasons</code> property. Transaction cancellation reasons are ordered in the order of requested
- *                 items, if an item has no error it will have <code>None</code> code and
- *                     <code>Null</code> message. The <code>None</code> code is returned as the literal
- *                 string <code>"None"</code>, not a null or absent value; the message field is omitted
- *                 entirely for an item that has no error. This is important to note when using an SDK
- *                 that surfaces the code as an optional or nullable type.</p>
- *          </note>
- *          <p>Cancellation reason codes and possible error messages:</p>
- *          <ul>
- *             <li>
- *                <p>No Errors:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>None</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: <code>null</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Conditional Check Failed:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ConditionalCheckFailed</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: The conditional request failed. </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Item Collection Size Limit Exceeded:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ItemCollectionSizeLimitExceeded</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: Collection size exceeded.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Transaction Conflict:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>TransactionConflict</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Message: Transaction is ongoing for the item.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Provisioned Throughput Exceeded:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ProvisionedThroughputExceeded</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Messages:</p>
- *                      <ul>
- *                         <li>
- *                            <p>The level of configured provisioned throughput for the
- *                                     table was exceeded. Consider increasing your provisioning level
- *                                     with the UpdateTable API.</p>
- *                            <note>
- *                               <p>This Message is received when provisioned throughput is
- *                                         exceeded is on a provisioned DynamoDB
- *                                         table.</p>
- *                            </note>
- *                         </li>
- *                         <li>
- *                            <p>The level of configured provisioned throughput for one or
- *                                     more global secondary indexes of the table was exceeded.
- *                                     Consider increasing your provisioning level for the
- *                                     under-provisioned global secondary indexes with the UpdateTable
- *                                     API.</p>
- *                            <note>
- *                               <p>This message is returned when provisioned throughput is
- *                                         exceeded is on a provisioned GSI.</p>
- *                            </note>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Throttling Error:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ThrottlingError</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Messages: </p>
- *                      <ul>
- *                         <li>
- *                            <p>Throughput exceeds the current capacity of your table or
- *                                     index. DynamoDB is automatically scaling your table or
- *                                     index so please try again shortly. If exceptions persist, check
- *                                     if you have a hot key:
- *                                     https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html.</p>
- *                            <note>
- *                               <p>This message is returned when writes get throttled on an
- *                                         On-Demand table as DynamoDB is automatically
- *                                         scaling the table.</p>
- *                            </note>
- *                         </li>
- *                         <li>
- *                            <p>Throughput exceeds the current capacity for one or more
- *                                     global secondary indexes. DynamoDB is automatically
- *                                     scaling your index so please try again shortly.</p>
- *                            <note>
- *                               <p>This message is returned when writes get throttled on an
- *                                         On-Demand GSI as DynamoDB is automatically scaling
- *                                         the GSI.</p>
- *                            </note>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Validation Error:</p>
- *                <ul>
- *                   <li>
- *                      <p>Code: <code>ValidationError</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>Messages: </p>
- *                      <ul>
- *                         <li>
- *                            <p>One or more parameter values were invalid.</p>
- *                         </li>
- *                         <li>
- *                            <p>The update expression attempted to update the secondary
- *                                     index key beyond allowed size limits.</p>
- *                         </li>
- *                         <li>
- *                            <p>The update expression attempted to update the secondary
- *                                     index key to unsupported type.</p>
- *                         </li>
- *                         <li>
- *                            <p>An operand in the update expression has an incorrect data
- *                                     type.</p>
- *                         </li>
- *                         <li>
- *                            <p>Item size to update has exceeded the maximum allowed
- *                                     size.</p>
- *                         </li>
- *                         <li>
- *                            <p>Number overflow. Attempting to store a number with
- *                                     magnitude larger than supported range.</p>
- *                         </li>
- *                         <li>
- *                            <p>Type mismatch for attribute to update.</p>
- *                         </li>
- *                         <li>
- *                            <p>Nesting Levels have exceeded supported limits.</p>
- *                         </li>
- *                         <li>
- *                            <p>The document path provided in the update expression is
- *                                     invalid for update.</p>
- *                         </li>
- *                         <li>
- *                            <p>The provided expression refers to an attribute that does
- *                                     not exist in the item.</p>
- *                         </li>
- *                      </ul>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
+ * The entire transaction request was canceled.
+ *
+ * DynamoDB cancels a `TransactWriteItems` request under the following circumstances:
+ *
+ * - A condition in one of the condition expressions is not met.
+ * - A table in the `TransactWriteItems` request is in a different account or region.
+ * - More than one action in the `TransactWriteItems` operation targets the same item.
+ * - There is insufficient provisioned capacity for the transaction to be completed.
+ * - An item size becomes too large (larger than 400 KB), or a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.
+ * - There is a user error, such as an invalid data format.
+ * - There is an ongoing `TransactWriteItems` operation that conflicts with a concurrent `TransactWriteItems` request. In this case the `TransactWriteItems` operation fails with a `TransactionCanceledException`.
+ *
+ * DynamoDB cancels a `TransactGetItems` request under the following circumstances:
+ *
+ * - There is an ongoing `TransactGetItems` operation that conflicts with a concurrent `PutItem`, `UpdateItem`, `DeleteItem` or `TransactWriteItems` request. In this case the `TransactGetItems` operation fails with a `TransactionCanceledException`.
+ * - A table in the `TransactGetItems` request is in a different account or region.
+ * - There is insufficient provisioned capacity for the transaction to be completed.
+ * - There is a user error, such as an invalid data format.
+ *
+ * > **Note:** DynamoDB lists the cancellation reasons on the `CancellationReasons` property. Transaction cancellation reasons are ordered in the order of requested items, if an item has no error it will have `None` code and `Null` message. The `None` code is returned as the literal string `"None"`, not a null or absent value; the message field is omitted entirely for an item that has no error. This is important to note when using an SDK that surfaces the code as an optional or nullable type.
+ *
+ * Cancellation reason codes and possible error messages:
+ *
+ * - No Errors:
+ *
+ *   - Code: `None`
+ *   - Message: `null`
+ * - Conditional Check Failed:
+ *
+ *   - Code: `ConditionalCheckFailed`
+ *   - Message: The conditional request failed.
+ * - Item Collection Size Limit Exceeded:
+ *
+ *   - Code: `ItemCollectionSizeLimitExceeded`
+ *   - Message: Collection size exceeded.
+ * - Transaction Conflict:
+ *
+ *   - Code: `TransactionConflict`
+ *   - Message: Transaction is ongoing for the item.
+ * - Provisioned Throughput Exceeded:
+ *
+ *   - Code: `ProvisionedThroughputExceeded`
+ *   - Messages:
+ *
+ *     - The level of configured provisioned throughput for the table was exceeded. Consider increasing your provisioning level with the UpdateTable API.
+ *
+ *       > **Note:** This Message is received when provisioned throughput is exceeded is on a provisioned DynamoDB table.
+ *     - The level of configured provisioned throughput for one or more global secondary indexes of the table was exceeded. Consider increasing your provisioning level for the under-provisioned global secondary indexes with the UpdateTable API.
+ *
+ *       > **Note:** This message is returned when provisioned throughput is exceeded is on a provisioned GSI.
+ * - Throttling Error:
+ *
+ *   - Code: `ThrottlingError`
+ *   - Messages:
+ *
+ *     - Throughput exceeds the current capacity of your table or index. DynamoDB is automatically scaling your table or index so please try again shortly. If exceptions persist, check if you have a hot key: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html.
+ *
+ *       > **Note:** This message is returned when writes get throttled on an On-Demand table as DynamoDB is automatically scaling the table.
+ *     - Throughput exceeds the current capacity for one or more global secondary indexes. DynamoDB is automatically scaling your index so please try again shortly.
+ *
+ *       > **Note:** This message is returned when writes get throttled on an On-Demand GSI as DynamoDB is automatically scaling the GSI.
+ * - Validation Error:
+ *
+ *   - Code: `ValidationError`
+ *   - Messages:
+ *
+ *     - One or more parameter values were invalid.
+ *     - The update expression attempted to update the secondary index key beyond allowed size limits.
+ *     - The update expression attempted to update the secondary index key to unsupported type.
+ *     - An operand in the update expression has an incorrect data type.
+ *     - Item size to update has exceeded the maximum allowed size.
+ *     - Number overflow. Attempting to store a number with magnitude larger than supported range.
+ *     - Type mismatch for attribute to update.
+ *     - Nesting Levels have exceeded supported limits.
+ *     - The document path provided in the update expression is invalid for update.
+ *     - The provided expression refers to an attribute that does not exist in the item.
+ *
  * @public
  */
 export class TransactionCanceledException extends __BaseException {
@@ -1116,7 +916,8 @@ export class TransactionCanceledException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>A list of cancellation reasons.</p>
+   * A list of cancellation reasons.
+   *
    * @public
    */
   CancellationReasons?: CancellationReason[] | undefined;

@@ -23,7 +23,8 @@ export interface CopyOptionGroupCommandInput extends CopyOptionGroupMessage {}
 export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __MetadataBearer {}
 
 /**
- * <p>Copies the specified option group.</p>
+ * Copies the specified option group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,17 +105,20 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link OptionGroupAlreadyExistsFault} (client fault)
- *  <p>The option group you are trying to create already exists.</p>
+ *
+ * The option group you are trying to create already exists.
  *
  * @throws {@link OptionGroupNotFoundFault} (client fault)
- *  <p>The specified option group could not be found.</p>
+ *
+ * The specified option group could not be found.
  *
  * @throws {@link OptionGroupQuotaExceededFault} (client fault)
- *  <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
+ *
+ * The quota of 20 option groups was exceeded for this Amazon Web Services account.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To copy an option group
  * ```javascript

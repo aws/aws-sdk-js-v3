@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
 
 /**
- * <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -32,8 +32,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Lightsail throws this exception when an account is still in the setup in progress
- *       state.</p>
+ * Lightsail throws this exception when an account is still in the setup in progress state.
+ *
  * @public
  */
 export class AccountSetupInProgressException extends __BaseException {
@@ -60,14 +60,10 @@ export class AccountSetupInProgressException extends __BaseException {
 }
 
 /**
- * <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -94,7 +90,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>Lightsail throws this exception when it cannot find a resource.</p>
+ * Lightsail throws this exception when it cannot find a resource.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -121,7 +118,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Lightsail throws this exception when an operation fails to execute.</p>
+ * Lightsail throws this exception when an operation fails to execute.
+ *
  * @public
  */
 export class OperationFailureException extends __BaseException {
@@ -148,8 +146,8 @@ export class OperationFailureException extends __BaseException {
 }
 
 /**
- * <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
+ *
  * @public
  */
 export class RegionSetupInProgressException extends __BaseException {
@@ -158,16 +156,15 @@ export class RegionSetupInProgressException extends __BaseException {
   readonly $fault = "client" as const;
   code?: string | undefined;
   /**
-   * <p>
-   *             <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-regions-and-availability-zones-in-amazon-lightsail.html">Regions
-   *       and Availability Zones for Lightsail</a>
-   *          </p>
+   * [Regions and Availability Zones for Lightsail](https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-regions-and-availability-zones-in-amazon-lightsail.html)
+   *
    * @public
    */
   docs?: string | undefined;
 
   /**
-   * <p>Opt-in Regions typically take a few minutes to finish setting up before you can work with them. Wait a few minutes and try again.</p>
+   * Opt-in Regions typically take a few minutes to finish setting up before you can work with them. Wait a few minutes and try again.
+   *
    * @public
    */
   tip?: string | undefined;
@@ -189,7 +186,8 @@ export class RegionSetupInProgressException extends __BaseException {
 }
 
 /**
- * <p>A general service exception.</p>
+ * A general service exception.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -216,7 +214,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ * Lightsail throws this exception when the user has not been authenticated.
+ *
  * @public
  */
 export class UnauthenticatedException extends __BaseException {

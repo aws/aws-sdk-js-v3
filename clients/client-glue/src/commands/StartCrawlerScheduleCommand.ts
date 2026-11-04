@@ -23,9 +23,8 @@ export interface StartCrawlerScheduleCommandInput extends StartCrawlerScheduleRe
 export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the schedule state of the specified crawler to
- *       <code>SCHEDULED</code>, unless the crawler is already running or the
- *       schedule state is already <code>SCHEDULED</code>.</p>
+ * Changes the schedule state of the specified crawler to `SCHEDULED`, unless the crawler is already running or the schedule state is already `SCHEDULED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +49,28 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link NoScheduleException} (client fault)
- *  <p>There is no applicable schedule.</p>
+ *
+ * There is no applicable schedule.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link SchedulerRunningException} (client fault)
- *  <p>The specified scheduler is already running.</p>
+ *
+ * The specified scheduler is already running.
  *
  * @throws {@link SchedulerTransitioningException} (client fault)
- *  <p>The specified scheduler is transitioning.</p>
+ *
+ * The specified scheduler is transitioning.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

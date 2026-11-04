@@ -81,8 +81,8 @@ export interface ListSpacesCommandOutput extends ListSpacesOutput, __MetadataBea
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List spaces in a domain
  * ```javascript

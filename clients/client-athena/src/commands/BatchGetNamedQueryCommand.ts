@@ -23,15 +23,8 @@ export interface BatchGetNamedQueryCommandInput extends BatchGetNamedQueryInput 
 export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of a single named query or a list of up to 50 queries, which you
- *             provide as an array of query ID strings. Requires you to have access to the workgroup in
- *             which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the
- *             list of named query IDs in the specified workgroup. If information could not be
- *             retrieved for a submitted query ID, information about the query ID submitted is listed
- *             under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed
- *             queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each
- *             unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of
- *             query execution IDs.</p>
+ * Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use ListNamedQueriesInput to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under UnprocessedNamedQueryId. Named queries differ from executed queries. Use BatchGetQueryExecutionInput to get details about each unique query execution, and ListQueryExecutionsInput to get a list of query execution IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,16 +69,16 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

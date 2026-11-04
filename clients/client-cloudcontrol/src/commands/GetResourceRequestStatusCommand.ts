@@ -23,9 +23,8 @@ export interface GetResourceRequestStatusCommandInput extends GetResourceRequest
 export interface GetResourceRequestStatusCommandOutput extends GetResourceRequestStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the current status of a resource operation request. For more information, see
- *         <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track">Tracking the progress of resource operation requests</a> in the
- *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
+ * Returns the current status of a resource operation request. For more information, see [Tracking the progress of resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track) in the *Amazon Web Services Cloud Control API User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,11 +75,12 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  * @throws {@link RequestTokenNotFoundException} (client fault)
- *  <p>A resource operation with the specified request token can't be found.</p>
+ *
+ * A resource operation with the specified request token can't be found.
  *
  * @throws {@link CloudControlServiceException}
- * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * Base exception class for all service exceptions from CloudControl service.
  *
  * @public
  */

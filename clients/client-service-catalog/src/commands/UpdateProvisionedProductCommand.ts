@@ -23,11 +23,12 @@ export interface UpdateProvisionedProductCommandInput extends UpdateProvisionedP
 export interface UpdateProvisionedProductCommandOutput extends UpdateProvisionedProductOutput, __MetadataBearer {}
 
 /**
- * <p>Requests updates to the configuration of the specified provisioned product.</p>
- *          <p>If there are tags associated with the object, they cannot be updated or added.
- *          Depending on the specific updates requested, this operation can update with no
- *          interruption, with some interruption, or replace the provisioned product entirely.</p>
- *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
+ * Requests updates to the configuration of the specified provisioned product.
+ *
+ * If there are tags associated with the object, they cannot be updated or added. Depending on the specific updates requested, this operation can update with no interruption, with some interruption, or replace the provisioned product entirely.
+ *
+ * You can check the status of this request using DescribeRecord.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,14 +115,16 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

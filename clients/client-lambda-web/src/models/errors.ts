@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LambdaWebServiceException as __BaseException } from "./LambdaWebServiceException";
 
 /**
- * <p>You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.</p>
+ * You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. For example, the resource is being modified by another request, you tried to delete a revision that is serving traffic on an endpoint, or the policy revision ID that you specified doesn't match the current policy. Resolve the conflict and try again.</p>
+ * The request conflicts with the current state of the resource. For example, the resource is being modified by another request, you tried to delete a revision that is serving traffic on an endpoint, or the policy revision ID that you specified doesn't match the current policy. Resolve the conflict and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,13 +35,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource in conflict.</p>
+   * The identifier of the resource in conflict.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource in conflict.</p>
+   * The type of the resource in conflict.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -60,7 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.</p>
+ * The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -82,7 +87,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified web function, revision, endpoint, or resource-based policy doesn't exist. Verify the resource identifier and try again.</p>
+ * The specified web function, revision, endpoint, or resource-based policy doesn't exist. Verify the resource identifier and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -90,13 +96,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that was not found.</p>
+   * The type of the resource that was not found.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -117,7 +125,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota, such as the maximum number of web functions in your account or the maximum number of revisions or endpoints per web function. Request a quota increase or reduce usage and try again.</p>
+ * The request would exceed a service quota, such as the maximum number of web functions in your account or the maximum number of revisions or endpoints per web function. Request a quota increase or reduce usage and try again.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -125,25 +134,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that exceeded the quota.</p>
+   * The identifier of the resource that exceeded the quota.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of resource that exceeded the quota.</p>
+   * The type of resource that exceeded the quota.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The service code of the service that owns the quota.</p>
+   * The service code of the service that owns the quota.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code of the exceeded quota.</p>
+   * The quota code of the exceeded quota.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -166,7 +179,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.</p>
+ * The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -177,19 +191,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
 
   /**
-   * <p>The service code of the throttled service.</p>
+   * The service code of the throttled service.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code that was exceeded, if applicable.</p>
+   * The quota code that was exceeded, if applicable.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -211,7 +228,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request failed validation because a parameter was missing, malformed, or outside the allowed range. Check the request parameters and try again.</p>
+ * The request failed validation because a parameter was missing, malformed, or outside the allowed range. Check the request parameters and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

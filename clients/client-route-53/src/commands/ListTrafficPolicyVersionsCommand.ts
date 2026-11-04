@@ -23,9 +23,10 @@ export interface ListTrafficPolicyVersionsCommandInput extends ListTrafficPolicy
 export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolicyVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about all of the versions for a specified traffic policy.</p>
- *          <p>Traffic policy versions are listed in numerical order by
- * 			<code>VersionNumber</code>.</p>
+ * Gets information about all of the versions for a specified traffic policy.
+ *
+ * Traffic policy versions are listed in numerical order by `VersionNumber`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,14 +67,16 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchTrafficPolicy} (client fault)
- *  <p>No traffic policy exists with the specified ID.</p>
+ *
+ * No traffic policy exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

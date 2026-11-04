@@ -23,12 +23,12 @@ export interface CreateVirtualGatewayCommandInput extends CreateVirtualGatewayIn
 export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a virtual gateway.</p>
- *          <p>A virtual gateway allows resources outside your mesh to communicate to resources that
- *          are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a
- *          virtual node, which represents an Envoy running with an application, a virtual gateway
- *          represents Envoy deployed by itself.</p>
- *          <p>For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual gateways</a>. </p>
+ * Creates a virtual gateway.
+ *
+ * A virtual gateway allows resources outside your mesh to communicate to resources that are inside your mesh. The virtual gateway represents an Envoy proxy running in an Amazon ECS task, in a Kubernetes service, or on an Amazon EC2 instance. Unlike a virtual node, which represents an Envoy running with an application, a virtual gateway represents Envoy deployed by itself.
+ *
+ * For more information about virtual gateways, see [Virtual gateways](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -319,37 +319,40 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * The request syntax was malformed. Check your request syntax and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request contains a client token that was used for a previous update resource call
- *          with different specifications. Try the request again with a new client token.</p>
+ *
+ * The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You don't have permissions to perform this action.</p>
+ *
+ * You don't have permissions to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
- *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
+ *
+ * You have exceeded a service limit for your account. For more information, see [Service Limits](https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html) in the *App Mesh User Guide*.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * The specified resource doesn't exist. Check your request syntax and try again.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * The request has failed due to a temporary failure of the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
- *          your account. For best results, use an increasing or variable sleep interval between
- *          requests.</p>
+ *
+ * The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.
  *
  * @throws {@link AppMeshServiceException}
- * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * Base exception class for all service exceptions from AppMesh service.
  *
  * @public
  */

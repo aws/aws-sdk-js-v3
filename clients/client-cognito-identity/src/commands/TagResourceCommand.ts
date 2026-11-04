@@ -23,21 +23,14 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label
- *          that you can use to categorize and manage identity pools in different ways, such as by
- *          purpose, owner, environment, or other criteria.</p>
- *          <p>Each tag consists of a key and value, both of which you define. A key is a general
- *          category for more specific values. For example, if you have two versions of an identity
- *          pool, one for testing and another for production, you might assign an
- *             <code>Environment</code> tag key to both identity pools. The value of this key might be
- *             <code>Test</code> for one identity pool and <code>Production</code> for the
- *          other.</p>
- *          <p>Tags are useful for cost tracking and access control. You can activate your tags so that
- *          they appear on the Billing and Cost Management console, where you can track the costs
- *          associated with your identity pools. In an IAM policy, you can constrain
- *          permissions for identity pools based on specific tags or tag values.</p>
- *          <p>You can use this action up to 5 times per second, per account. An identity pool can have
- *          as many as 50 tags.</p>
+ * Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.
+ *
+ * Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an `Environment` tag key to both identity pools. The value of this key might be `Test` for one identity pool and `Production` for the other.
+ *
+ * Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.
+ *
+ * You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,24 +58,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

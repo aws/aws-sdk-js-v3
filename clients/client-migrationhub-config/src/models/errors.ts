@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MigrationHubConfigServiceException as __BaseException } from "./MigrationHubConfigServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Exception raised to indicate that authorization of an action was successful, when the
- *         <code>DryRun</code> flag is set to true.</p>
+ * Exception raised to indicate that authorization of an action was successful, when the `DryRun` flag is set to true.
+ *
  * @public
  */
 export class DryRunOperation extends __BaseException {
@@ -51,8 +52,8 @@ export class DryRunOperation extends __BaseException {
 }
 
 /**
- * <p>Exception raised when an internal, configuration, or dependency error is
- *       encountered.</p>
+ * Exception raised when an internal, configuration, or dependency error is encountered.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -75,8 +76,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Exception raised when the provided input violates a policy constraint or is entered in the
- *       wrong format or data type.</p>
+ * Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -99,8 +100,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>Exception raised when a request fails due to temporary unavailability of the
- *       service.</p>
+ * Exception raised when a request fails due to temporary unavailability of the service.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -123,7 +124,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -132,7 +134,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The number of seconds the caller should wait before retrying.</p>
+   * The number of seconds the caller should wait before retrying.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;

@@ -23,7 +23,8 @@ export interface ModifyPublicIpDnsNameOptionsCommandInput extends ModifyPublicIp
 export interface ModifyPublicIpDnsNameOptionsCommandOutput extends ModifyPublicIpDnsNameOptionsResult, __MetadataBearer {}
 
 /**
- * <p>Modify public hostname options for a network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Modify public hostname options for a network interface. For more information, see [EC2 instance hostnames, DNS names, and domains](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +53,8 @@ export interface ModifyPublicIpDnsNameOptionsCommandOutput extends ModifyPublicI
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

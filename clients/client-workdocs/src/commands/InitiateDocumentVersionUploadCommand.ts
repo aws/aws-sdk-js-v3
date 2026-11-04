@@ -23,12 +23,12 @@ export interface InitiateDocumentVersionUploadCommandInput extends InitiateDocum
 export interface InitiateDocumentVersionUploadCommandOutput extends InitiateDocumentVersionUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new document object and version object.</p>
- *          <p>The client specifies the parent folder ID and name of the document to upload. The
- *             ID is optionally specified when creating a new version of an existing document. This is
- *             the first step to upload a document. Next, upload the document to the URL returned from
- *             the call, and then call <a>UpdateDocumentVersion</a>.</p>
- *          <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>
+ * Creates a new document object and version object.
+ *
+ * The client specifies the parent folder ID and name of the document to upload. The ID is optionally specified when creating a new version of an existing document. This is the first step to upload a document. Next, upload the document to the URL returned from the call, and then call UpdateDocumentVersion.
+ *
+ * To cancel the document upload, call AbortDocumentVersionUpload.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,53 +97,64 @@ export interface InitiateDocumentVersionUploadCommandOutput extends InitiateDocu
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link DraftUploadOutOfSyncException} (client fault)
- *  <p>This exception is thrown when a valid checkout ID is not presented on document
- *             version upload calls for a document that has been checked out from Web client.</p>
+ *
+ * This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The resource already exists.</p>
+ *
+ * The resource already exists.
  *
  * @throws {@link EntityNotExistsException} (client fault)
- *  <p>The resource does not exist.</p>
+ *
+ * The resource does not exist.
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ *
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * The pagination marker or limit fields are not valid.
  *
  * @throws {@link InvalidPasswordException} (client fault)
- *  <p>The password is invalid.</p>
+ *
+ * The password is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+ *
+ * The maximum of 100,000 files and folders under the parent folder has been exceeded.
  *
  * @throws {@link ProhibitedStateException} (client fault)
- *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * The specified document version is not in the INITIALIZED state.
  *
  * @throws {@link ResourceAlreadyCheckedOutException} (client fault)
- *  <p>The resource is already checked out.</p>
+ *
+ * The resource is already checked out.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link StorageLimitExceededException} (client fault)
- *  <p>The storage limit has been exceeded.</p>
+ *
+ * The storage limit has been exceeded.
  *
  * @throws {@link StorageLimitWillExceedException} (client fault)
- *  <p>The storage limit will be exceeded.</p>
+ *
+ * The storage limit will be exceeded.
  *
  * @throws {@link UnauthorizedOperationException} (client fault)
- *  <p>The operation is not permitted.</p>
+ *
+ * The operation is not permitted.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

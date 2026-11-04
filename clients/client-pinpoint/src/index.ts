@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Doc Engage API - Amazon Pinpoint API</p>
+ * Doc Engage API - Amazon Pinpoint API
  *
  * @packageDocumentation
  */

@@ -23,7 +23,8 @@ export interface DescribeServiceLifecycleCommandInput extends DescribeServiceLif
 export interface DescribeServiceLifecycleCommandOutput extends DescribeServiceLifecycleResponse, __MetadataBearer {}
 
 /**
- * <p>Returns lifecycle information for Amazon Web Services services, including end-of-life dates, version recommendations, and lifecycle events.</p>
+ * Returns lifecycle information for Amazon Web Services services, including end-of-life dates, version recommendations, and lifecycle events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +76,12 @@ export interface DescribeServiceLifecycleCommandOutput extends DescribeServiceLi
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link InvalidPaginationToken} (client fault)
- *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * The specified pagination token (`nextToken`) is not valid.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @example To retrieve service lifecycle information
  * ```javascript

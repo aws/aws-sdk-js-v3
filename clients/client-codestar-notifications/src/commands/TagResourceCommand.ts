@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResult, __MetadataBearer {}
 
 /**
- * <p>Associates a set of provided tags with a notification rule.</p>
+ * Associates a set of provided tags with a notification rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,25 +56,24 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>
- *             CodeStar Notifications can't complete the request because the resource is being modified by
- *       another process. Wait a few minutes and try again.</p>
+ *
+ * CodeStar Notifications can't complete the request because the resource is being modified by another process. Wait a few minutes and try again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>One of the CodeStar Notifications limits has been exceeded. Limits apply to
- *             accounts, notification rules, notifications, resources, and targets. For more
- *             information, see Limits.</p>
+ *
+ * One of the CodeStar Notifications limits has been exceeded. Limits apply to accounts, notification rules, notifications, resources, and targets. For more information, see Limits.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *
+ * CodeStar Notifications can't find a resource that matches the provided ARN.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

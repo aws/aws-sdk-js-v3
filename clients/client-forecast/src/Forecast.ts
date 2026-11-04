@@ -1668,7 +1668,8 @@ export interface Forecast {
 }
 
 /**
- * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>
+ * Provides APIs for creating and managing Amazon Forecast resources.
+ *
  * @public
  */
 export class Forecast extends ForecastClient implements Forecast {}

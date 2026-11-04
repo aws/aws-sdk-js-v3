@@ -23,18 +23,16 @@ export interface DescribeContactFlowCommandInput extends DescribeContactFlowRequ
 export interface DescribeContactFlowCommandOutput extends DescribeContactFlowResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the specified flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Connect Customer
- *    Flow language</a>.</p>
- *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content of a Flow. For
- *    example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is published, <code>$SAVED</code> needs to
- *    be supplied to view saved content that has not been published.</p>
- *          <p>Use <code>arn:aws:.../contact-flow/\{id\}:\{version\}</code> to retrieve the content of a specific flow
- *    version.</p>
- *          <p>In the response, <b>Status</b> indicates the flow status as either <code>SAVED</code>
- *    or <code>PUBLISHED</code>. The <code>PUBLISHED</code> status will initiate validation on the content.
- *     <code>SAVED</code> does not initiate validation of the content. <code>SAVED</code> | <code>PUBLISHED</code>
- *          </p>
+ * Describes the specified flow.
+ *
+ * You can also create and update flows using the [Connect Customer Flow language](https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html).
+ *
+ * Use the `$SAVED` alias in the request to describe the `SAVED` content of a Flow. For example, `arn:aws:.../contact-flow/\{id\}:$SAVED`. After a flow is published, `$SAVED` needs to be supplied to view saved content that has not been published.
+ *
+ * Use `arn:aws:.../contact-flow/\{id\}:\{version\}` to retrieve the content of a specific flow version.
+ *
+ * In the response, **Status** indicates the flow status as either `SAVED` or `PUBLISHED`. The `PUBLISHED` status will initiate validation on the content. `SAVED` does not initiate validation of the content. `SAVED` | `PUBLISHED`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +77,32 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link ContactFlowNotPublishedException} (client fault)
- *  <p>The flow has not been published.</p>
+ *
+ * The flow has not been published.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

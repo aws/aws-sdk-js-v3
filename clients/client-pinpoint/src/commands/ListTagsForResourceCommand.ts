@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, message template, or segment.</p>
+ * Retrieves all the tags (keys and values) that are associated with an application, campaign, message template, or segment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,8 +55,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link PinpointServiceException}
- * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * Base exception class for all service exceptions from Pinpoint service.
  *
  * @public
  */

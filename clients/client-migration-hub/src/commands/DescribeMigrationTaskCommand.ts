@@ -23,7 +23,8 @@ export interface DescribeMigrationTaskCommandInput extends DescribeMigrationTask
 export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTaskResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
+ * Retrieves a list of all attributes associated with a specific migration task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,34 +67,36 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
  * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home region is not set. Set the home region to continue.</p>
+ *
+ * The home region is not set. Set the home region to continue.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Exception raised when an internal, configuration, or dependency error is
- *          encountered.</p>
+ *
+ * Exception raised when an internal, configuration, or dependency error is encountered.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Exception raised when the provided input violates a policy constraint or is entered in
- *          the wrong format or data type.</p>
+ *
+ * Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Exception raised when the request references a resource (Application Discovery Service
- *          configuration, update stream, migration task, etc.) that does not exist in Application
- *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
+ *
+ * Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Exception raised when there is an internal, configuration, or dependency error
- *          encountered.</p>
+ *
+ * Exception raised when there is an internal, configuration, or dependency error encountered.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubServiceException}
- * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHub service.
  *
  * @public
  */

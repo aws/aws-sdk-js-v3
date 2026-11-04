@@ -23,13 +23,12 @@ export interface ListGroupsForMemberCommandInput extends ListGroupsForMemberRequ
 export interface ListGroupsForMemberCommandOutput extends ListGroupsForMemberResult, __MetadataBearer {}
 
 /**
- * <p> Returns group information for the specified member. </p>
- *          <p> This operation supports pagination with the use of the <code>NextToken</code> request and
- *       response parameters. If more results are available, the
- *         <code>ListGroupsForMember.NextToken</code> member contains a token that you pass in the next
- *       call to <code>ListGroupsForMember</code>. This retrieves the next set of items. </p>
- *          <p> You can also specify a maximum number of return results with the <code>MaxResults</code>
- *       parameter. </p>
+ * Returns group information for the specified member.
+ *
+ * This operation supports pagination with the use of the `NextToken` request and response parameters. If more results are available, the `ListGroupsForMember.NextToken` member contains a token that you pass in the next call to `ListGroupsForMember`. This retrieves the next set of items.
+ *
+ * You can also specify a maximum number of return results with the `MaxResults` parameter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,33 +71,34 @@ export interface ListGroupsForMemberCommandOutput extends ListGroupsForMemberRes
  * @see {@link DirectoryServiceDataClientResolvedConfig | config} for DirectoryServiceDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have permission to perform the request or access the directory. It can also
- *       occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be
- *       outside of your organizational unit (OU). </p>
- *          <p> Make sure that you have the authentication and authorization to perform the action.
- *       Review the directory information in the request, and make sure that the object isn't outside
- *       of your OU. </p>
+ *
+ * You don't have permission to perform the request or access the directory. It can also occur when the `DirectoryId` doesn't exist or the user, member, or group might be outside of your organizational unit (OU).
+ *
+ * Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p> The request could not be completed due to a problem in the configuration or current state
- *       of the specified directory. </p>
+ *
+ * The request could not be completed due to a problem in the configuration or current state of the specified directory.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+ *
+ * The operation didn't succeed because an internal error occurred. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource couldn't be found. </p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The limit on the number of requests per second has been exceeded. </p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request isn't valid. Review the details in the error message to update the invalid
- *       parameters or values in your request. </p>
+ *
+ * The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request.
  *
  * @throws {@link DirectoryServiceDataServiceException}
- * <p>Base exception class for all service exceptions from DirectoryServiceData service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryServiceData service.
  *
  * @example To list groups for a member
  * ```javascript

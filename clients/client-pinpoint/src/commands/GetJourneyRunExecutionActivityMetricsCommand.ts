@@ -26,7 +26,8 @@ export interface GetJourneyRunExecutionActivityMetricsCommandInput extends GetJo
 export interface GetJourneyRunExecutionActivityMetricsCommandOutput extends GetJourneyRunExecutionActivityMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey activity.</p>
+ * Retrieves (queries) pre-aggregated data for a standard run execution metric that applies to a journey activity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +69,36 @@ export interface GetJourneyRunExecutionActivityMetricsCommandOutput extends GetJ
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link PayloadTooLargeException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Provides information about an API request or response.</p>
+ *
+ * Provides information about an API request or response.
  *
  * @throws {@link PinpointServiceException}
- * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ * Base exception class for all service exceptions from Pinpoint service.
  *
  * @example To get the activity execution metrics for a journey run
  * ```javascript

@@ -26,7 +26,8 @@ export interface GetIpamPrefixListResolverVersionEntriesCommandInput extends Get
 export interface GetIpamPrefixListResolverVersionEntriesCommandOutput extends GetIpamPrefixListResolverVersionEntriesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver. This shows the actual CIDRs that were selected and synchronized at a particular point in time.</p>
+ * Retrieves the CIDR entries for a specific version of an IPAM prefix list resolver. This shows the actual CIDRs that were selected and synchronized at a particular point in time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface GetIpamPrefixListResolverVersionEntriesCommandOutput extends Ge
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

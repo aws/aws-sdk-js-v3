@@ -23,7 +23,8 @@ export interface EnableStageTransitionCommandInput extends EnableStageTransition
 export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
+ * Enables artifacts in a pipeline to transition to a stage in a pipeline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +51,20 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotFoundException} (client fault)
- *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * The stage was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

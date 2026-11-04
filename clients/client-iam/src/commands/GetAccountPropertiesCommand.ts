@@ -23,12 +23,10 @@ export interface GetAccountPropertiesCommandInput extends GetAccountPropertiesRe
 export interface GetAccountPropertiesCommandOutput extends GetAccountPropertiesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the account-level properties for the caller's Amazon Web Services account. Account
- *             properties are configuration settings that control account-wide IAM features such as
- *             Role Manager.</p>
- *          <p>The service returns properties as key-value pairs in
- *                 <code>Namespace/PropertyName</code> format. Each namespace groups related
- *             configuration settings. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutAccountProperties.html">PutAccountProperties</a> to modify these properties.</p>
+ * Retrieves the account-level properties for the caller's Amazon Web Services account. Account properties are configuration settings that control account-wide IAM features such as Role Manager.
+ *
+ * The service returns properties as key-value pairs in `Namespace/PropertyName` format. Each namespace groups related configuration settings. Use [PutAccountProperties](https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutAccountProperties.html) to modify these properties.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +53,16 @@ export interface GetAccountPropertiesCommandOutput extends GetAccountPropertiesR
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface GetImageBlockPublicAccessStateCommandInput extends GetImageBloc
 export interface GetImageBlockPublicAccessStateCommandOutput extends GetImageBlockPublicAccessStateResult, __MetadataBearer {}
 
 /**
- * <p>Gets the current state of <i>block public access for AMIs</i> at the account
- *       level in the specified Amazon Web Services Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html">Block
- *       public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Gets the current state of *block public access for AMIs* at the account level in the specified Amazon Web Services Region.
+ *
+ * For more information, see [Block public access to your AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,8 +54,8 @@ export interface GetImageBlockPublicAccessStateCommandOutput extends GetImageBlo
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

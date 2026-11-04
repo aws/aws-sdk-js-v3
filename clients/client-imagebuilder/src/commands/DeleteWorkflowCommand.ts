@@ -23,9 +23,8 @@ export interface DeleteWorkflowCommandInput extends DeleteWorkflowRequest {}
 export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific workflow resource. You can't delete a workflow build
- * 			version while an image pipeline references it. The request fails with
- * 			<code>ResourceDependencyException</code>.</p>
+ * Deletes a specific workflow resource. You can't delete a workflow build version while an image pipeline references it. The request fails with `ResourceDependencyException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,36 +51,36 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
- * 			calls on your behalf. Retry with an increasing or variable delay between
- * 			requests.</p>
+ *
+ * You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder calls on your behalf. Retry with an increasing or variable delay between requests.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * You are not authorized to perform the requested operation.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is malformed or otherwise invalid. Verify the request and try
- * 			again.</p>
+ *
+ * The request is malformed or otherwise invalid. Verify the request and try again.
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
- * 			this action. See the error message for more details.</p>
+ *
+ * You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example Delete a workflow build version
  * ```javascript

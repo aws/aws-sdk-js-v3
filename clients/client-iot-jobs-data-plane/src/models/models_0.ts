@@ -2,54 +2,60 @@
 import type { JobExecutionStatus } from "./enums";
 
 /**
- * <p>The list of values used to describe a specific command parameter.</p>
+ * The list of values used to describe a specific command parameter.
+ *
  * @public
  */
 export interface CommandParameterValue {
   /**
-   * <p>An attribute of type String. For example:</p>
-   *          <p>
-   *             <code>"S": "Hello"</code>
-   *          </p>
+   * An attribute of type String. For example:
+   *
+   * `"S": "Hello"`
+   *
    * @public
    */
   S?: string | undefined;
 
   /**
-   * <p>An attribute of type Boolean. For example:</p>
-   *          <p>
-   *             <code>"BOOL": true</code>
-   *          </p>
+   * An attribute of type Boolean. For example:
+   *
+   * `"BOOL": true`
+   *
    * @public
    */
   B?: boolean | undefined;
 
   /**
-   * <p>An attribute of type Integer (Thirty-Two Bits).</p>
+   * An attribute of type Integer (Thirty-Two Bits).
+   *
    * @public
    */
   I?: number | undefined;
 
   /**
-   * <p>An attribute of type Long.</p>
+   * An attribute of type Long.
+   *
    * @public
    */
   L?: number | undefined;
 
   /**
-   * <p>An attribute of type Double (Sixty-Four Bits).</p>
+   * An attribute of type Double (Sixty-Four Bits).
+   *
    * @public
    */
   D?: number | undefined;
 
   /**
-   * <p>An attribute of type Binary.</p>
+   * An attribute of type Binary.
+   *
    * @public
    */
   BIN?: Uint8Array | undefined;
 
   /**
-   * <p>An attribute of type Unsigned Long.</p>
+   * An attribute of type Unsigned Long.
+   *
    * @public
    */
   UL?: string | undefined;
@@ -60,107 +66,115 @@ export interface CommandParameterValue {
  */
 export interface DescribeJobExecutionRequest {
   /**
-   * <p>The unique identifier assigned to this job when it was created.</p>
+   * The unique identifier assigned to this job when it was created.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The thing name associated with the device the job execution is running on.</p>
+   * The thing name associated with the device the job execution is running on.
+   *
    * @public
    */
   thingName: string | undefined;
 
   /**
-   * <p>Optional. Unless set to false, the response contains the job document. The default is
-   *          true.</p>
+   * Optional. Unless set to false, the response contains the job document. The default is true.
+   *
    * @public
    */
   includeJobDocument?: boolean | undefined;
 
   /**
-   * <p>Optional. A number that identifies a particular job execution on a particular device.
-   *          If not specified, the latest job execution is returned.</p>
+   * Optional. A number that identifies a particular job execution on a particular device. If not specified, the latest job execution is returned.
+   *
    * @public
    */
   executionNumber?: number | undefined;
 }
 
 /**
- * <p>Contains data about a job execution.</p>
+ * Contains data about a job execution.
+ *
  * @public
  */
 export interface JobExecution {
   /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * The unique identifier you assigned to this job when it was created.
+   *
    * @public
    */
   jobId?: string | undefined;
 
   /**
-   * <p>The name of the thing that is executing the job.</p>
+   * The name of the thing that is executing the job.
+   *
    * @public
    */
   thingName?: string | undefined;
 
   /**
-   * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED",
-   *          "SUCCESS", "CANCELED", "TIMED_OUT", "REJECTED", or "REMOVED".</p>
+   * The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "TIMED_OUT", "REJECTED", or "REMOVED".
+   *
    * @public
    */
   status?: JobExecutionStatus | undefined;
 
   /**
-   * <p>A collection of name/value pairs that describe the status of the job
-   *          execution.</p>
-   *          <p>The maximum length of the value in the name/value pair is 1,024 characters.</p>
+   * A collection of name/value pairs that describe the status of the job execution.
+   *
+   * The maximum length of the value in the name/value pair is 1,024 characters.
+   *
    * @public
    */
   statusDetails?: Record<string, string> | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was enqueued.</p>
+   * The time, in seconds since the epoch, when the job execution was enqueued.
+   *
    * @public
    */
   queuedAt?: number | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was started.</p>
+   * The time, in seconds since the epoch, when the job execution was started.
+   *
    * @public
    */
   startedAt?: number | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was last updated.
-   *       </p>
+   * The time, in seconds since the epoch, when the job execution was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: number | undefined;
 
   /**
-   * <p>The estimated number of seconds that remain before the job execution status will be
-   *          changed to <code>TIMED_OUT</code>. The actual job execution timeout can occur up to 60
-   *          seconds later than the estimated duration.</p>
+   * The estimated number of seconds that remain before the job execution status will be changed to `TIMED_OUT`. The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
+   *
    * @public
    */
   approximateSecondsBeforeTimedOut?: number | undefined;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time
-   *          they are updated by a device.</p>
+   * The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+   *
    * @public
    */
   versionNumber?: number | undefined;
 
   /**
-   * <p>A number that identifies a particular job execution on a particular device. It can be
-   *          used later in commands that return or update job execution information.</p>
+   * A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
+   *
    * @public
    */
   executionNumber?: number | undefined;
 
   /**
-   * <p>The content of the job document.</p>
+   * The content of the job document.
+   *
    * @public
    */
   jobDocument?: string | undefined;
@@ -171,7 +185,8 @@ export interface JobExecution {
  */
 export interface DescribeJobExecutionResponse {
   /**
-   * <p>Contains data about a job execution.</p>
+   * Contains data about a job execution.
+   *
    * @public
    */
   execution?: JobExecution | undefined;
@@ -182,51 +197,57 @@ export interface DescribeJobExecutionResponse {
  */
 export interface GetPendingJobExecutionsRequest {
   /**
-   * <p>The name of the thing that is executing the job.</p>
+   * The name of the thing that is executing the job.
+   *
    * @public
    */
   thingName: string | undefined;
 }
 
 /**
- * <p>Contains a subset of information about a job execution.</p>
+ * Contains a subset of information about a job execution.
+ *
  * @public
  */
 export interface JobExecutionSummary {
   /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * The unique identifier you assigned to this job when it was created.
+   *
    * @public
    */
   jobId?: string | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was enqueued.</p>
+   * The time, in seconds since the epoch, when the job execution was enqueued.
+   *
    * @public
    */
   queuedAt?: number | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution started.</p>
+   * The time, in seconds since the epoch, when the job execution started.
+   *
    * @public
    */
   startedAt?: number | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was last
-   *          updated.</p>
+   * The time, in seconds since the epoch, when the job execution was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: number | undefined;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time
-   *          IoT Jobs receives an update from a device.</p>
+   * The version of the job execution. Job execution versions are incremented each time IoT Jobs receives an update from a device.
+   *
    * @public
    */
   versionNumber?: number | undefined;
 
   /**
-   * <p>A number that identifies a particular job execution on a particular device.</p>
+   * A number that identifies a particular job execution on a particular device.
+   *
    * @public
    */
   executionNumber?: number | undefined;
@@ -237,13 +258,15 @@ export interface JobExecutionSummary {
  */
 export interface GetPendingJobExecutionsResponse {
   /**
-   * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
+   * A list of JobExecutionSummary objects with status IN_PROGRESS.
+   *
    * @public
    */
   inProgressJobs?: JobExecutionSummary[] | undefined;
 
   /**
-   * <p>A list of JobExecutionSummary objects with status QUEUED.</p>
+   * A list of JobExecutionSummary objects with status QUEUED.
+   *
    * @public
    */
   queuedJobs?: JobExecutionSummary[] | undefined;
@@ -254,42 +277,36 @@ export interface GetPendingJobExecutionsResponse {
  */
 export interface StartCommandExecutionRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the device where the command execution is
-   *          occurring.</p>
+   * The Amazon Resource Number (ARN) of the device where the command execution is occurring.
+   *
    * @public
    */
   targetArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the command. For example,
-   *             <code>arn:aws:iot:<region>:<accountid>:command/<commandName></code>
-   *          </p>
+   * The Amazon Resource Number (ARN) of the command. For example, `arn:aws:iot:<region>:<accountid>:command/<commandName>`
+   *
    * @public
    */
   commandArn: string | undefined;
 
   /**
-   * <p>A list of parameters that are required by the <code>StartCommandExecution</code> API
-   *          when performing the command on a device.</p>
+   * A list of parameters that are required by the `StartCommandExecution` API when performing the command on a device.
+   *
    * @public
    */
   parameters?: Record<string, CommandParameterValue> | undefined;
 
   /**
-   * <p>Specifies the amount of time in second the device has to finish the command execution. A
-   *          timer is started as soon as the command execution is created. If the command execution
-   *          status is not set to another terminal state before the timer expires, it will automatically
-   *          update to <code>TIMED_OUT</code>.</p>
+   * Specifies the amount of time in second the device has to finish the command execution. A timer is started as soon as the command execution is created. If the command execution status is not set to another terminal state before the timer expires, it will automatically update to `TIMED_OUT`.
+   *
    * @public
    */
   executionTimeoutSeconds?: number | undefined;
 
   /**
-   * <p>The client token is used to implement idempotency. It ensures that the request completes
-   *          no more than one time. If you retry a request with the same token and the same parameters,
-   *          the request will complete successfully. However, if you retry the request using the same
-   *          token but different parameters, an HTTP 409 conflict occurs. If you omit this value, Amazon Web Services
-   *          SDKs will automatically generate a unique client request.</p>
+   * The client token is used to implement idempotency. It ensures that the request completes no more than one time. If you retry a request with the same token and the same parameters, the request will complete successfully. However, if you retry the request using the same token but different parameters, an HTTP 409 conflict occurs. If you omit this value, Amazon Web Services SDKs will automatically generate a unique client request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -300,7 +317,8 @@ export interface StartCommandExecutionRequest {
  */
 export interface StartCommandExecutionResponse {
   /**
-   * <p>A unique identifier for the command execution.</p>
+   * A unique identifier for the command execution.
+   *
    * @public
    */
   executionId?: string | undefined;
@@ -311,29 +329,26 @@ export interface StartCommandExecutionResponse {
  */
 export interface StartNextPendingJobExecutionRequest {
   /**
-   * <p>The name of the thing associated with the device.</p>
+   * The name of the thing associated with the device.
+   *
    * @public
    */
   thingName: string | undefined;
 
   /**
-   * <p>A collection of name/value pairs that describe the status of the job execution. If
-   *          not specified, the statusDetails are unchanged.</p>
-   *          <p>The maximum length of the value in the name/value pair is 1,024 characters.</p>
+   * A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+   *
+   * The maximum length of the value in the name/value pair is 1,024 characters.
+   *
    * @public
    */
   statusDetails?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the amount of time this device has to finish execution of this job. If the job
-   *          execution status is not set to a terminal state before this timer expires, or before the
-   *          timer is reset (by calling <code>UpdateJobExecution</code>, setting the status to
-   *             <code>IN_PROGRESS</code>, and specifying a new timeout value in field
-   *             <code>stepTimeoutInMinutes</code>) the job execution status will be automatically set to
-   *             <code>TIMED_OUT</code>. Note that setting the step timeout has no effect on the in
-   *          progress timeout that may have been specified when the job was created
-   *             (<code>CreateJob</code> using field <code>timeoutConfig</code>).</p>
-   *          <p>Valid values for this parameter range from 1 to 10080 (1 minute to 7 days).</p>
+   * Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by calling `UpdateJobExecution`, setting the status to `IN_PROGRESS`, and specifying a new timeout value in field `stepTimeoutInMinutes`) the job execution status will be automatically set to `TIMED_OUT`. Note that setting the step timeout has no effect on the in progress timeout that may have been specified when the job was created (`CreateJob` using field `timeoutConfig`).
+   *
+   * Valid values for this parameter range from 1 to 10080 (1 minute to 7 days).
+   *
    * @public
    */
   stepTimeoutInMinutes?: number | undefined;
@@ -344,7 +359,8 @@ export interface StartNextPendingJobExecutionRequest {
  */
 export interface StartNextPendingJobExecutionResponse {
   /**
-   * <p>A JobExecution object.</p>
+   * A JobExecution object.
+   *
    * @public
    */
   execution?: JobExecution | undefined;
@@ -355,104 +371,98 @@ export interface StartNextPendingJobExecutionResponse {
  */
 export interface UpdateJobExecutionRequest {
   /**
-   * <p>The unique identifier assigned to this job when it was created.</p>
+   * The unique identifier assigned to this job when it was created.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The name of the thing associated with the device.</p>
+   * The name of the thing associated with the device.
+   *
    * @public
    */
   thingName: string | undefined;
 
   /**
-   * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED).
-   *          This must be specified on every update.</p>
+   * The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified on every update.
+   *
    * @public
    */
   status: JobExecutionStatus | undefined;
 
   /**
-   * <p> Optional. A collection of name/value pairs that describe the status of the job
-   *          execution. If not specified, the statusDetails are unchanged.</p>
-   *          <p>The maximum length of the value in the name/value pair is 1,024 characters.</p>
+   * Optional. A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+   *
+   * The maximum length of the value in the name/value pair is 1,024 characters.
+   *
    * @public
    */
   statusDetails?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies the amount of time this device has to finish execution of this job. If the job
-   *          execution status is not set to a terminal state before this timer expires, or before the
-   *          timer is reset (by again calling <code>UpdateJobExecution</code>, setting the status to
-   *             <code>IN_PROGRESS</code>, and specifying a new timeout value in this field) the job
-   *          execution status will be automatically set to <code>TIMED_OUT</code>. Note that setting or
-   *          resetting the step timeout has no effect on the in progress timeout that may have been
-   *          specified when the job was created (<code>CreateJob</code> using field
-   *             <code>timeoutConfig</code>).</p>
-   *          <p>Valid values for this parameter range from 1 to 10080 (1 minute to 7 days). A value of
-   *          -1 is also valid and will cancel the current step timer (created by an earlier use of
-   *             <code>UpdateJobExecutionRequest</code>).</p>
+   * Specifies the amount of time this device has to finish execution of this job. If the job execution status is not set to a terminal state before this timer expires, or before the timer is reset (by again calling `UpdateJobExecution`, setting the status to `IN_PROGRESS`, and specifying a new timeout value in this field) the job execution status will be automatically set to `TIMED_OUT`. Note that setting or resetting the step timeout has no effect on the in progress timeout that may have been specified when the job was created (`CreateJob` using field `timeoutConfig`).
+   *
+   * Valid values for this parameter range from 1 to 10080 (1 minute to 7 days). A value of -1 is also valid and will cancel the current step timer (created by an earlier use of `UpdateJobExecutionRequest`).
+   *
    * @public
    */
   stepTimeoutInMinutes?: number | undefined;
 
   /**
-   * <p>Optional. The expected current version of the job execution. Each time you update the
-   *          job execution, its version is incremented. If the version of the job execution stored in
-   *          Jobs does not match, the update is rejected with a VersionMismatch error, and an
-   *          ErrorResponse that contains the current job execution status data is returned. (This makes
-   *          it unnecessary to perform a separate DescribeJobExecution request in order to obtain the
-   *          job execution status data.)</p>
+   * Optional. The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)
+   *
    * @public
    */
   expectedVersion?: number | undefined;
 
   /**
-   * <p>Optional. When included and set to true, the response contains the JobExecutionState
-   *          data. The default is false.</p>
+   * Optional. When included and set to true, the response contains the JobExecutionState data. The default is false.
+   *
    * @public
    */
   includeJobExecutionState?: boolean | undefined;
 
   /**
-   * <p>Optional. When set to true, the response contains the job document. The default is
-   *          false.</p>
+   * Optional. When set to true, the response contains the job document. The default is false.
+   *
    * @public
    */
   includeJobDocument?: boolean | undefined;
 
   /**
-   * <p>Optional. A number that identifies a particular job execution on a particular
-   *          device.</p>
+   * Optional. A number that identifies a particular job execution on a particular device.
+   *
    * @public
    */
   executionNumber?: number | undefined;
 }
 
 /**
- * <p>Contains data about the state of a job execution.</p>
+ * Contains data about the state of a job execution.
+ *
  * @public
  */
 export interface JobExecutionState {
   /**
-   * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED",
-   *          "SUCCESS", "CANCELED", "TIMED_OUT", "REJECTED", or "REMOVED".</p>
+   * The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "TIMED_OUT", "REJECTED", or "REMOVED".
+   *
    * @public
    */
   status?: JobExecutionStatus | undefined;
 
   /**
-   * <p>A collection of name/value pairs that describe the status of the job
-   *          execution.</p>
-   *          <p>The maximum length of the value in the name/value pair is 1,024 characters.</p>
+   * A collection of name/value pairs that describe the status of the job execution.
+   *
+   * The maximum length of the value in the name/value pair is 1,024 characters.
+   *
    * @public
    */
   statusDetails?: Record<string, string> | undefined;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time
-   *          they are updated by a device.</p>
+   * The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+   *
    * @public
    */
   versionNumber?: number | undefined;
@@ -463,13 +473,15 @@ export interface JobExecutionState {
  */
 export interface UpdateJobExecutionResponse {
   /**
-   * <p>A JobExecutionState object.</p>
+   * A JobExecutionState object.
+   *
    * @public
    */
   executionState?: JobExecutionState | undefined;
 
   /**
-   * <p>The contents of the Job Documents.</p>
+   * The contents of the Job Documents.
+   *
    * @public
    */
   jobDocument?: string | undefined;

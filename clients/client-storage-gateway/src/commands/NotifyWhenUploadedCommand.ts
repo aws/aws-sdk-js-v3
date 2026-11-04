@@ -23,17 +23,12 @@ export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput 
 export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**
- * <p>Sends you notification through Amazon EventBridge when all files written to your file
- *          share have been uploaded to Amazon S3.</p>
- *          <p>Storage Gateway can send a notification through Amazon EventBridge when all
- *          files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you
- *          make a request for notification. When the upload is done, Storage Gateway sends you
- *          notification through EventBridge. You can configure EventBridge to send the
- *          notification through event targets such as Amazon SNS or Lambda
- *          function. This operation is only supported for S3 File Gateways.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
- *             file upload notification</a> in the <i>Amazon S3 File Gateway User
- *             Guide</i>.</p>
+ * Sends you notification through Amazon EventBridge when all files written to your file share have been uploaded to Amazon S3.
+ *
+ * Storage Gateway can send a notification through Amazon EventBridge when all files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you make a request for notification. When the upload is done, Storage Gateway sends you notification through EventBridge. You can configure EventBridge to send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.
+ *
+ * For more information, see [Getting file upload notification](https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification) in the *Amazon S3 File Gateway User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,16 +56,16 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

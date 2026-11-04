@@ -23,11 +23,8 @@ export interface CreateFlowCommandInput extends CreateFlowRequest {}
 export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
- * <p> Enables your application to create a new flow using Amazon AppFlow. You must create
- *       a connector profile before calling this API. Please note that the Request Syntax below shows
- *       syntax for multiple destinations, however, you can only transfer data to one item in this list
- *       at a time. Amazon AppFlow does not currently support flows to multiple destinations at
- *       once. </p>
+ * Enables your application to create a new flow using Amazon AppFlow. You must create a connector profile before calling this API. Please note that the Request Syntax below shows syntax for multiple destinations, however, you can only transfer data to one item in this list at a time. Amazon AppFlow does not currently support flows to multiple destinations at once.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -334,36 +331,40 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>AppFlow/Requester has invalid or missing permissions.</p>
+ *
+ * AppFlow/Requester has invalid or missing permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict when processing the request (for example, a flow with the given name
- *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again.
  *
  * @throws {@link ConnectorAuthenticationException} (client fault)
- *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * An error occurred when authenticating with the connector endpoint.
  *
  * @throws {@link ConnectorServerException} (client fault)
- *  <p> An error occurred when retrieving data from the connector endpoint. </p>
+ *
+ * An error occurred when retrieving data from the connector endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> The request would cause a service quota (such as the number of flows) to be exceeded.
- *     </p>
+ *
+ * The request would cause a service quota (such as the number of flows) to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

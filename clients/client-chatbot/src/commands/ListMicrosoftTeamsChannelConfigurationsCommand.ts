@@ -23,7 +23,8 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandInput extends Lis
 export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput extends ListTeamsChannelConfigurationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.</p>
+ * Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +81,20 @@ export interface ListMicrosoftTeamsChannelConfigurationsCommandOutput extends Li
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ListTeamsChannelConfigurationsException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

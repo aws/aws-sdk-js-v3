@@ -23,9 +23,8 @@ export interface EnableMFADeviceCommandInput extends EnableMFADeviceRequest {}
 export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables the specified MFA device and associates it with the specified IAM user. When
- *             enabled, the MFA device is required for every subsequent login by the IAM user
- *             associated with the device.</p>
+ * Enables the specified MFA device and associates it with the specified IAM user. When enabled, the MFA device is required for every subsequent login by the IAM user associated with the device.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,38 +52,36 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link EntityTemporarilyUnmodifiableException} (client fault)
- *  <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
- *       such as a user name that was deleted and then recreated. The error indicates that the request
- *       is likely to succeed if you try again after waiting several minutes. The error message
- *       describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.
  *
  * @throws {@link InvalidAuthenticationCodeException} (client fault)
- *  <p>The request was rejected because the authentication code was not recognized. The error
- *       message describes the specific error.</p>
+ *
+ * The request was rejected because the authentication code was not recognized. The error message describes the specific error.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

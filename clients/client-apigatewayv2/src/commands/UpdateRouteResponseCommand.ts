@@ -23,7 +23,8 @@ export interface UpdateRouteResponseCommandInput extends UpdateRouteResponseRequ
 export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a RouteResponse.</p>
+ * Updates a RouteResponse.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,20 +73,24 @@ export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseRes
  * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. See the message field for more information.</p>
+ *
+ * The resource specified in the request was not found. See the message field for more information.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ *
+ * A limit has been exceeded. See the accompanying error message for details.
  *
  * @throws {@link ApiGatewayV2ServiceException}
- * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ * Base exception class for all service exceptions from ApiGatewayV2 service.
  *
  * @public
  */

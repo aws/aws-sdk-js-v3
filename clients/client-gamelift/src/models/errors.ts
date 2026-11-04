@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { GameLiftServiceException as __BaseException } from "./GameLiftServiceException";
 
 /**
- * <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -28,8 +28,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -52,7 +52,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ * The requested resource was not found. The resource was either not created yet or deleted.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -75,7 +76,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested operation is not supported in the Region specified.</p>
+ * The requested operation is not supported in the Region specified.
+ *
  * @public
  */
 export class UnsupportedRegionException extends __BaseException {
@@ -98,10 +100,8 @@ export class UnsupportedRegionException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
- *          <p></p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -124,9 +124,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified game server group has no available game servers to fulfill a
- *                 <code>ClaimGameServer</code> request. Clients can retry such requests immediately or
- *             after a waiting period.</p>
+ * The specified game server group has no available game servers to fulfill a `ClaimGameServer` request. Clients can retry such requests immediately or after a waiting period.
+ *
  * @public
  */
 export class OutOfCapacityException extends __BaseException {
@@ -149,7 +148,8 @@ export class OutOfCapacityException extends __BaseException {
 }
 
 /**
- * <p>The client failed authentication. Clients should not retry such requests.</p>
+ * The client failed authentication. Clients should not retry such requests.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -172,8 +172,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -196,9 +196,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before
- *             retrying.</p>
+ * The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
+ *
  * @public
  */
 export class TaggingFailedException extends __BaseException {
@@ -221,9 +220,8 @@ export class TaggingFailedException extends __BaseException {
 }
 
 /**
- * <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
- *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
- *                 backoffs and jitter</a>. </p>
+ * The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with [exponential backoffs and jitter](http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/).
+ *
  * @public
  */
 export class NotReadyException extends __BaseException {
@@ -246,9 +244,8 @@ export class NotReadyException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a resource
- *             associated with the request and/or the fleet. Resolve the conflict before
- *             retrying.</p>
+ * The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.
+ *
  * @public
  */
 export class InvalidFleetStatusException extends __BaseException {
@@ -271,9 +268,8 @@ export class InvalidFleetStatusException extends __BaseException {
 }
 
 /**
- * <p>The specified fleet has no available instances to fulfill a
- *                 <code>CreateGameSession</code> request. Clients can retry such requests immediately
- *             or after a waiting period.</p>
+ * The specified fleet has no available instances to fulfill a `CreateGameSession` request. Clients can retry such requests immediately or after a waiting period.
+ *
  * @public
  */
 export class FleetCapacityExceededException extends __BaseException {
@@ -296,8 +292,8 @@ export class FleetCapacityExceededException extends __BaseException {
 }
 
 /**
- * <p>A game session with this custom ID string already exists in this fleet. Resolve this
- *             conflict before retrying this request.</p>
+ * A game session with this custom ID string already exists in this fleet. Resolve this conflict before retrying this request.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -320,10 +316,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>The service is unable to resolve the routing for a particular alias because it has a
- *             terminal <code>RoutingStrategy</code> associated with it. The message returned in this
- *             exception is the message defined in the routing strategy itself. Such requests should
- *             only be retried if the routing strategy for the specified alias is modified. </p>
+ * The service is unable to resolve the routing for a particular alias because it has a terminal `RoutingStrategy` associated with it. The message returned in this exception is the message defined in the routing strategy itself. Such requests should only be retried if the routing strategy for the specified alias is modified.
+ *
  * @public
  */
 export class TerminalRoutingStrategyException extends __BaseException {
@@ -346,8 +340,8 @@ export class TerminalRoutingStrategyException extends __BaseException {
 }
 
 /**
- * <p>The game instance is currently full and cannot allow the requested player(s) to join.
- *             Clients can retry such requests immediately or after a waiting period.</p>
+ * The game instance is currently full and cannot allow the requested player(s) to join. Clients can retry such requests immediately or after a waiting period.
+ *
  * @public
  */
 export class GameSessionFullException extends __BaseException {
@@ -370,9 +364,8 @@ export class GameSessionFullException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a resource
- *             associated with the request and/or the game instance. Resolve the conflict before
- *             retrying.</p>
+ * The requested operation would cause a conflict with the current state of a resource associated with the request and/or the game instance. Resolve the conflict before retrying.
+ *
  * @public
  */
 export class InvalidGameSessionStatusException extends __BaseException {

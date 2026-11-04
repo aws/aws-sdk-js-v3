@@ -23,9 +23,8 @@ export interface PutAccountAliasCommandInput extends PutAccountAliasRequest {}
 export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __MetadataBearer {}
 
 /**
- * <p>Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the
- *       Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the
- *       Amazon Web Services Support App.</p>
+ * Creates or updates an individual alias for each Amazon Web Services account ID. The alias appears in the Amazon Web Services Support App page of the Amazon Web Services Support Center. The alias also appears in Slack messages from the Amazon Web Services Support App.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,17 +49,20 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.</p>
+ *
+ * Your request input doesn't meet the constraints that the Amazon Web Services Support App specifies.
  *
  * @throws {@link SupportAppServiceException}
- * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * Base exception class for all service exceptions from SupportApp service.
  *
  * @public
  */

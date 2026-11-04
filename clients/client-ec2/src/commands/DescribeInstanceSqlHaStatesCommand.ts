@@ -23,8 +23,8 @@ export interface DescribeInstanceSqlHaStatesCommandInput extends DescribeInstanc
 export interface DescribeInstanceSqlHaStatesCommandOutput extends DescribeInstanceSqlHaStatesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the SQL Server High Availability states for Amazon EC2 instances that are
- *       enabled for Amazon EC2 High Availability for SQL Server monitoring.</p>
+ * Describes the SQL Server High Availability states for Amazon EC2 instances that are enabled for Amazon EC2 High Availability for SQL Server monitoring.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +80,8 @@ export interface DescribeInstanceSqlHaStatesCommandOutput extends DescribeInstan
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -26,14 +26,10 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandInput extend
 export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput extends DescribeDraftAppVersionResourcesImportStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the status of importing resources to an application version.</p>
- *          <note>
- *             <p>If you get a 404 error with
- *           <code>ResourceImportStatusNotFoundAppMetadataException</code>, you must call
- *           <code>importResourcesToDraftAppVersion</code> after creating the application and before
- *         calling <code>describeDraftAppVersionResourcesImportStatus</code> to obtain the
- *         status.</p>
- *          </note>
+ * Describes the status of importing resources to an application version.
+ *
+ * > **Note:** If you get a 404 error with `ResourceImportStatusNotFoundAppMetadataException`, you must call `importResourcesToDraftAppVersion` after creating the application and before calling `describeDraftAppVersionResourcesImportStatus` to obtain the status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,26 +65,28 @@ export interface DescribeDraftAppVersionResourcesImportStatusCommandOutput exten
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The user or role that is
- *       making the request must have at least one IAM permissions policy attached that grants the
- *       required permissions.</p>
+ *
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Resilience Hub service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * This exception occurs when the specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * This exception occurs when you have exceeded the limit on the number of requests per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception occurs when a request is not valid.</p>
+ *
+ * This exception occurs when a request is not valid.
  *
  * @throws {@link ResiliencehubServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehub service.
  *
  * @public
  */

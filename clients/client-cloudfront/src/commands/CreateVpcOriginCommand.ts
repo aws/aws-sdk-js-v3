@@ -23,7 +23,8 @@ export interface CreateVpcOriginCommandInput extends CreateVpcOriginRequest {}
 export interface CreateVpcOriginCommandOutput extends CreateVpcOriginResult, __MetadataBearer {}
 
 /**
- * <p>Create an Amazon CloudFront VPC origin.</p>
+ * Create an Amazon CloudFront VPC origin.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,29 +95,36 @@ export interface CreateVpcOriginCommandOutput extends CreateVpcOriginResult, __M
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The entity already exists. You must provide a unique entity.</p>
+ *
+ * The entity already exists. You must provide a unique entity.
  *
  * @throws {@link EntityLimitExceeded} (client fault)
- *  <p>The entity limit has been exceeded.</p>
+ *
+ * The entity limit has been exceeded.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidTagging} (client fault)
- *  <p>The tagging specified is not valid.</p>
+ *
+ * The tagging specified is not valid.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @example To create a VPC origin
  * ```javascript

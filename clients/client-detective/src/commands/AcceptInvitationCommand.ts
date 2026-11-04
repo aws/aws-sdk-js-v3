@@ -23,10 +23,12 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Accepts an invitation for the member account to contribute data to a behavior graph.
- *          This operation can only be called by an invited member account. </p>
- *          <p>The request provides the ARN of behavior graph.</p>
- *          <p>The member account status in the graph must be <code>INVITED</code>.</p>
+ * Accepts an invitation for the member account to contribute data to a behavior graph. This operation can only be called by an invited member account.
+ *
+ * The request provides the ARN of behavior graph.
+ *
+ * The member account status in the graph must be `INVITED`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,24 +53,28 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request attempted an invalid action.</p>
+ *
+ * The request attempted an invalid action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * The request refers to a nonexistent resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

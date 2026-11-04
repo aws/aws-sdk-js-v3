@@ -23,14 +23,10 @@ export interface UpdateGatewayInformationCommandInput extends UpdateGatewayInfor
 export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInformationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a gateway's metadata, which includes the gateway's name, time zone,
- *          and metadata cache size. To specify which gateway to update, use the Amazon Resource Name
- *          (ARN) of the gateway in your request.</p>
- *          <note>
- *             <p>For gateways activated after September 2, 2015, the gateway's ARN contains the
- *             gateway ID rather than the gateway name. However, changing the name of the gateway has
- *             no effect on the gateway's ARN.</p>
- *          </note>
+ * Updates a gateway's metadata, which includes the gateway's name, time zone, and metadata cache size. To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in your request.
+ *
+ * > **Note:** For gateways activated after September 2, 2015, the gateway's ARN contains the gateway ID rather than the gateway name. However, changing the name of the gateway has no effect on the gateway's ARN.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,16 +58,16 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To update a gateway's metadata
  * ```javascript

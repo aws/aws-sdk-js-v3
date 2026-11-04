@@ -1,47 +1,55 @@
 // smithy-typescript generated code
 /**
- * <p>Request structure for checking revocation status.</p>
+ * Request structure for checking revocation status.
+ *
  * @public
  */
 export interface GetRevocationStatusRequest {
   /**
-   * <p>The timestamp when the artifact was signed, in ISO 8601 format.</p>
+   * The timestamp when the artifact was signed, in ISO 8601 format.
+   *
    * @public
    */
   signatureTimestamp: Date | undefined;
 
   /**
-   * <p>The platform identifier for the signing platform used.</p>
+   * The platform identifier for the signing platform used.
+   *
    * @public
    */
   platformId: string | undefined;
 
   /**
-   * <p>The ARN of the signing profile version used to sign the artifact.</p>
+   * The ARN of the signing profile version used to sign the artifact.
+   *
    * @public
    */
   profileVersionArn: string | undefined;
 
   /**
-   * <p>The ARN of the signing job that produced the signature.</p>
+   * The ARN of the signing job that produced the signature.
+   *
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p>List of certificate hashes to check for revocation.</p>
+   * List of certificate hashes to check for revocation.
+   *
    * @public
    */
   certificateHashes: string[] | undefined;
 }
 
 /**
- * <p>Response containing the list of revoked entities.</p>
+ * Response containing the list of revoked entities.
+ *
  * @public
  */
 export interface GetRevocationStatusResponse {
   /**
-   * <p>List of entity identifiers that have been revoked. Empty if no revocations found.</p>
+   * List of entity identifiers that have been revoked. Empty if no revocations found.
+   *
    * @public
    */
   revokedEntities?: string[] | undefined;

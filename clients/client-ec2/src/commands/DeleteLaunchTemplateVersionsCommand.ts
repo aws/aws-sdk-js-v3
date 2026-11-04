@@ -23,15 +23,14 @@ export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTe
 export interface DeleteLaunchTemplateVersionsCommandOutput extends DeleteLaunchTemplateVersionsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more versions of a launch template.</p>
- *          <p>You can't delete the default version of a launch template; you must first assign a
- *             different version as the default. If the default version is the only version for the
- *             launch template, you must delete the entire launch template using <a>DeleteLaunchTemplate</a>.</p>
- *          <p>You can delete up to 200 launch template versions in a single request. To delete more
- *             than 200 versions in a single request, use <a>DeleteLaunchTemplate</a>, which
- *             deletes the launch template and all of its versions.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version">Delete a launch template version</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Deletes one or more versions of a launch template.
+ *
+ * You can't delete the default version of a launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must delete the entire launch template using DeleteLaunchTemplate.
+ *
+ * You can delete up to 200 launch template versions in a single request. To delete more than 200 versions in a single request, use DeleteLaunchTemplate, which deletes the launch template and all of its versions.
+ *
+ * For more information, see [Delete a launch template version](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-launch-template.html#delete-launch-template-version) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +79,8 @@ export interface DeleteLaunchTemplateVersionsCommandOutput extends DeleteLaunchT
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a launch template version
  * ```javascript

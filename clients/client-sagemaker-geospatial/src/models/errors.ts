@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SageMakerGeospatialServiceException as __BaseException } from "./SageMakerGeospatialServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -36,7 +38,8 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -56,7 +59,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -65,7 +69,6 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   Message: string | undefined;
   /**
-   * <p/>
    * @public
    */
   ResourceId?: string | undefined;
@@ -85,7 +88,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource which does not exist.</p>
+ * The request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -94,7 +98,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Identifier of the resource that was not found.</p>
+   * Identifier of the resource that was not found.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -114,7 +119,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -123,7 +129,6 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p/>
    * @public
    */
   ResourceId?: string | undefined;
@@ -143,7 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -152,7 +158,6 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p/>
    * @public
    */
   ResourceId?: string | undefined;
@@ -172,7 +177,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the service quota.</p>
+ * You have exceeded the service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -181,7 +187,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   ResourceId?: string | undefined;

@@ -24,8 +24,8 @@ export interface GetInventoryCommandInput extends GetInventoryRequest {}
 export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**
- * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
- *    or <code>Terminated</code>.</p>
+ * Query inventory information. This includes managed node status, such as `Stopped` or `Terminated`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,30 +116,36 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAggregatorException} (client fault)
- *  <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you
- *    provided is supported.</p>
+ *
+ * The specified aggregator isn't valid for the group type. Verify that the aggregator you provided is supported.
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+ *
+ * The filter name isn't valid. Verify that you entered the correct name and try again.
  *
  * @throws {@link InvalidInventoryGroupException} (client fault)
- *  <p>The specified inventory group isn't valid.</p>
+ *
+ * The specified inventory group isn't valid.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link InvalidResultAttributeException} (client fault)
- *  <p>The specified inventory item result attribute isn't valid.</p>
+ *
+ * The specified inventory item result attribute isn't valid.
  *
  * @throws {@link InvalidTypeNameException} (client fault)
- *  <p>The parameter type name isn't valid.</p>
+ *
+ * The parameter type name isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

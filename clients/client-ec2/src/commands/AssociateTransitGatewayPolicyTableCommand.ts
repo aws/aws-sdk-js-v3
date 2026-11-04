@@ -26,7 +26,8 @@ export interface AssociateTransitGatewayPolicyTableCommandInput extends Associat
 export interface AssociateTransitGatewayPolicyTableCommandOutput extends AssociateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
- * <p>Associates the specified transit gateway attachment with a transit gateway policy table.</p>
+ * Associates the specified transit gateway attachment with a transit gateway policy table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface AssociateTransitGatewayPolicyTableCommandOutput extends Associa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

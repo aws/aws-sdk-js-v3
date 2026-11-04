@@ -23,16 +23,10 @@ export interface GetDelegationRequestCommandInput extends GetDelegationRequestRe
 export interface GetDelegationRequestCommandOutput extends GetDelegationRequestResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a specific delegation request.</p>
- *          <p>
- *             If a delegation request has no owner or owner account, <code>GetDelegationRequest</code> for that delegation request can be called by any account.
- *             If the owner account is assigned but there is
- *             no owner id, only identities within that owner account can call <code>GetDelegationRequest</code>
- *             for the delegation request. Once the delegation request is fully owned, the owner of the request gets
- *             a default permission to get that delegation request. For more details, see
- *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions">
- *                 Managing Permissions for Delegation Requests</a>.
- *         </p>
+ * Retrieves information about a specific delegation request.
+ *
+ * If a delegation request has no owner or owner account, `GetDelegationRequest` for that delegation request can be called by any account. If the owner account is assigned but there is no owner id, only identities within that owner account can call `GetDelegationRequest` for the delegation request. Once the delegation request is fully owned, the owner of the request gets a default permission to get that delegation request. For more details, see [Managing Permissions for Delegation Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-temporary-delegation.html#temporary-delegation-managing-permissions).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,16 +90,16 @@ export interface GetDelegationRequestCommandOutput extends GetDelegationRequestR
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

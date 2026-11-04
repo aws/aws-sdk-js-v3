@@ -23,7 +23,8 @@ export interface BatchGetInvoiceProfileCommandInput extends BatchGetInvoiceProfi
 export interface BatchGetInvoiceProfileCommandOutput extends BatchGetInvoiceProfileResponse, __MetadataBearer {}
 
 /**
- * <p>This gets the invoice profile associated with a set of accounts. The accounts must be linked accounts under the requester management account organization.</p>
+ * This gets the invoice profile associated with a set of accounts. The accounts must be linked accounts under the requester management account organization.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +72,28 @@ export interface BatchGetInvoiceProfileCommandOutput extends BatchGetInvoiceProf
  * @see {@link InvoicingClientResolvedConfig | config} for InvoicingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The processing request failed because of an unknown error, exception, or failure. </p>
+ *
+ * The processing request failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. </p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InvoicingServiceException}
- * <p>Base exception class for all service exceptions from Invoicing service.</p>
  *
+ * Base exception class for all service exceptions from Invoicing service.
  *
  * @example BatchGetInvoiceProfile
  * ```javascript

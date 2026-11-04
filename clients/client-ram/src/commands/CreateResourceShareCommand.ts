@@ -23,14 +23,10 @@ export interface CreateResourceShareCommandInput extends CreateResourceShareRequ
 export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> for the resources that you
- *             want to share, a list of principals you want to share the resources with, the
- *             permissions to grant those principals, and optionally source constraints to enhance security for service principal sharing.</p>
- *          <note>
- *             <p>Sharing a resource makes it available for use by principals outside of the
- *                 Amazon Web Services account that created the resource. Sharing doesn't change any permissions or
- *                 quotas that apply to the resource in the account that created it.</p>
- *          </note>
+ * Creates a resource share. You can provide a list of the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for the resources that you want to share, a list of principals you want to share the resources with, the permissions to grant those principals, and optionally source constraints to enhance security for service principal sharing.
+ *
+ * > **Note:** Sharing a resource makes it available for use by principals outside of the Amazon Web Services account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,58 +96,60 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The operation failed because the client token input parameter matched one that was
- *             used with a previous call to the operation, but at least one of the other input
- *             parameters is different from the previous call.</p>
+ *
+ * The operation failed because the client token input parameter matched one that was used with a previous call to the operation, but at least one of the other input parameters is different from the previous call.
  *
  * @throws {@link InvalidClientTokenException} (client fault)
- *  <p>The operation failed because the specified client token isn't valid.</p>
+ *
+ * The operation failed because the specified client token isn't valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>The operation failed because the requested operation isn't valid for the resource
- *             share in its current state.</p>
+ *
+ * The operation failed because the requested operation isn't valid for the resource share in its current state.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link ResourceShareLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for resource shares for your account. You
- *             can associate up to 100 resources per call. To view the limits for your Amazon Web Services account,
- *             see the <a href="https://console.aws.amazon.com/servicequotas/home/services/ram/quotas">RAM page in
- *                 the Service Quotas console</a>.</p>
+ *
+ * The operation failed because it would exceed the limit for resource shares for your account. You can associate up to 100 resources per call. To view the limits for your Amazon Web Services account, see the [RAM page in the Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/ram/quotas).
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link TagLimitExceededException} (client fault)
- *  <p>The operation failed because it would exceed the limit for tags for your
- *             Amazon Web Services account.</p>
+ *
+ * The operation failed because it would exceed the limit for tags for your Amazon Web Services account.
  *
  * @throws {@link TagPolicyViolationException} (client fault)
- *  <p>The operation failed because the specified tag key is a reserved word and can't be
- *             used.</p>
+ *
+ * The operation failed because the specified tag key is a reserved word and can't be used.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The operation failed because it exceeded the rate at which you are allowed to perform
- *             this operation. Please try again later.</p>
+ *
+ * The operation failed because it exceeded the rate at which you are allowed to perform this operation. Please try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

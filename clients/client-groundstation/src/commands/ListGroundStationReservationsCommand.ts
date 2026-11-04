@@ -23,7 +23,8 @@ export interface ListGroundStationReservationsCommandInput extends ListGroundSta
 export interface ListGroundStationReservationsCommandOutput extends ListGroundStationReservationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of reservations for a specified ground station.</p>
+ * Returns a list of reservations for a specified ground station.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,14 +75,16 @@ export interface ListGroundStationReservationsCommandOutput extends ListGroundSt
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  * @throws {@link DependencyException} (server fault)
- *  <p>Dependency encountered an error.</p>
+ *
+ * Dependency encountered an error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link GroundStationServiceException}
- * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ * Base exception class for all service exceptions from GroundStation service.
  *
  * @public
  */

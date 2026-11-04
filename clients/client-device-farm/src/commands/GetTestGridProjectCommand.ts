@@ -23,7 +23,8 @@ export interface GetTestGridProjectCommandInput extends GetTestGridProjectReques
 export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a Selenium testing project.</p>
+ * Retrieves information about a Selenium testing project.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,18 +65,20 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal exception was raised in the service. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a> if you see this
- *          error. </p>
+ *
+ * An internal exception was raised in the service. Contact [aws-devicefarm-support@amazon.com](mailto:aws-devicefarm-support@amazon.com) if you see this error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

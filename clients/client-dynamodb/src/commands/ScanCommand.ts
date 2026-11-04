@@ -23,49 +23,20 @@ export interface ScanCommandInput extends ScanInput {}
 export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
 
 /**
- * <p>The <code>Scan</code> operation returns one or more items and item attributes by
- *             accessing every item in a table or a secondary index. To have DynamoDB return fewer
- *             items, you can provide a <code>FilterExpression</code> operation.</p>
- *          <p>If the total size of scanned items exceeds the maximum dataset size limit of 1 MB, the
- *             scan completes and results are returned to the user. The <code>LastEvaluatedKey</code>
- *             value is also returned and the requestor can use the <code>LastEvaluatedKey</code> to
- *             continue the scan in a subsequent operation. Each scan response also includes number of
- *             items that were scanned (ScannedCount) as part of the request. If using a
- *                 <code>FilterExpression</code>, a scan result can result in no items meeting the
- *             criteria and the <code>Count</code> will result in zero. If you did not use a
- *                 <code>FilterExpression</code> in the scan request, then <code>Count</code> is the
- *             same as <code>ScannedCount</code>.</p>
- *          <note>
- *             <p>
- *                <code>Count</code> and <code>ScannedCount</code> only return the count of items
- *                 specific to a single scan request and, unless the table is less than 1MB, do not
- *                 represent the total number of items in the table. </p>
- *          </note>
- *          <p>A single <code>Scan</code> operation first reads up to the maximum number of items set
- *             (if using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then
- *             applies any filtering to the results if a <code>FilterExpression</code> is provided. If
- *                 <code>LastEvaluatedKey</code> is present in the response, pagination is required to
- *             complete the full table scan. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination">Paginating the
- *                 Results</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
- *          <p>
- *             <code>Scan</code> operations proceed sequentially; however, for faster performance on
- *             a large table or secondary index, applications can request a parallel <code>Scan</code>
- *             operation by providing the <code>Segment</code> and <code>TotalSegments</code>
- *             parameters. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan">Parallel
- *                 Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
- *          <p>By default, a <code>Scan</code> uses eventually consistent reads when accessing the
- *             items in a table. Therefore, the results from an eventually consistent <code>Scan</code>
- *             may not include the latest item changes at the time the scan iterates through each item
- *             in the table. If you require a strongly consistent read of each item as the scan
- *             iterates through the items in the table, you can set the <code>ConsistentRead</code>
- *             parameter to true. Strong consistency only relates to the consistency of the read at the
- *             item level.</p>
- *          <note>
- *             <p> DynamoDB does not provide snapshot isolation for a scan operation when the
- *                     <code>ConsistentRead</code> parameter is set to true. Thus, a DynamoDB scan
- *                 operation does not guarantee that all reads in a scan see a consistent snapshot of
- *                 the table when the scan operation was requested. </p>
- *          </note>
+ * The `Scan` operation returns one or more items and item attributes by accessing every item in a table or a secondary index. To have DynamoDB return fewer items, you can provide a `FilterExpression` operation.
+ *
+ * If the total size of scanned items exceeds the maximum dataset size limit of 1 MB, the scan completes and results are returned to the user. The `LastEvaluatedKey` value is also returned and the requestor can use the `LastEvaluatedKey` to continue the scan in a subsequent operation. Each scan response also includes number of items that were scanned (ScannedCount) as part of the request. If using a `FilterExpression`, a scan result can result in no items meeting the criteria and the `Count` will result in zero. If you did not use a `FilterExpression` in the scan request, then `Count` is the same as `ScannedCount`.
+ *
+ * > **Note:** `Count` and `ScannedCount` only return the count of items specific to a single scan request and, unless the table is less than 1MB, do not represent the total number of items in the table.
+ *
+ * A single `Scan` operation first reads up to the maximum number of items set (if using the `Limit` parameter) or a maximum of 1 MB of data and then applies any filtering to the results if a `FilterExpression` is provided. If `LastEvaluatedKey` is present in the response, pagination is required to complete the full table scan. For more information, see [Paginating the Results](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination) in the *Amazon DynamoDB Developer Guide*.
+ *
+ * `Scan` operations proceed sequentially; however, for faster performance on a large table or secondary index, applications can request a parallel `Scan` operation by providing the `Segment` and `TotalSegments` parameters. For more information, see [Parallel Scan](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan) in the *Amazon DynamoDB Developer Guide*.
+ *
+ * By default, a `Scan` uses eventually consistent reads when accessing the items in a table. Therefore, the results from an eventually consistent `Scan` may not include the latest item changes at the time the scan iterates through each item in the table. If you require a strongly consistent read of each item as the scan iterates through the items in the table, you can set the `ConsistentRead` parameter to true. Strong consistency only relates to the consistency of the read at the item level.
+ *
+ * > **Note:** DynamoDB does not provide snapshot isolation for a scan operation when the `ConsistentRead` parameter is set to true. Thus, a DynamoDB scan operation does not guarantee that all reads in a scan see a consistent snapshot of the table when the scan operation was requested.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -246,35 +217,30 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about
- *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
- *             SDKs for DynamoDB automatically retry requests that receive this exception.
- *             Your request is eventually successful, unless your retry queue is too large to finish.
- *             Reduce the frequency of requests and use exponential backoff. For more information, go
- *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to [Error Retries and Exponential Backoff](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff) in the *Amazon DynamoDB Developer Guide*.
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>Throughput exceeds the current throughput quota for your account. For detailed
- *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota
- *             increase.</p>
+ *
+ * Throughput exceeds the current throughput quota for your account. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. Contact [Amazon Web Services Support](https://aws.amazon.com/support) to request a quota increase.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about why
- *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @example To scan a table
  * ```javascript

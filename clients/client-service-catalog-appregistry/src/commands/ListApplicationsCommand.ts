@@ -23,7 +23,8 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of all of your applications. Results are paginated.</p>
+ * Retrieves a list of all of your applications. Results are paginated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +62,16 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

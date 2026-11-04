@@ -26,32 +26,17 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput extends G
 export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput extends GetServiceLastAccessedDetailsWithEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>After you generate a group or policy report using the
- *                 <code>GenerateServiceLastAccessedDetails</code> operation, you can use the
- *                 <code>JobId</code> parameter in
- *                 <code>GetServiceLastAccessedDetailsWithEntities</code>. This operation retrieves the
- *             status of your report job and a list of entities that could have used group or policy
- *             permissions to access the specified service.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Group</b> – For a group report, this
- *                     operation returns a list of users in the group that could have used the group’s
- *                     policies in an attempt to access the service.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Policy</b> – For a policy report, this
- *                     operation returns a list of entities (users or roles) that could have used the
- *                     policy in an attempt to access the service.</p>
- *             </li>
- *          </ul>
- *          <p>You can also use this operation for user or role reports to retrieve details about
- *             those entities.</p>
- *          <p>If the operation fails, the <code>GetServiceLastAccessedDetailsWithEntities</code>
- *             operation returns the reason that it failed.</p>
- *          <p>By default, the list of associated entities is sorted by date, with the most recent
- *             access listed first.</p>
+ * After you generate a group or policy report using the `GenerateServiceLastAccessedDetails` operation, you can use the `JobId` parameter in `GetServiceLastAccessedDetailsWithEntities`. This operation retrieves the status of your report job and a list of entities that could have used group or policy permissions to access the specified service.
+ *
+ * - **Group** – For a group report, this operation returns a list of users in the group that could have used the group’s policies in an attempt to access the service.
+ * - **Policy** – For a policy report, this operation returns a list of entities (users or roles) that could have used the policy in an attempt to access the service.
+ *
+ * You can also use this operation for user or role reports to retrieve details about those entities.
+ *
+ * If the operation fails, the `GetServiceLastAccessedDetailsWithEntities` operation returns the reason that it failed.
+ *
+ * By default, the list of associated entities is sorted by date, with the most recent access listed first.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,16 +86,16 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput extends 
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To get sntity details from a previously-generated report
  * ```javascript

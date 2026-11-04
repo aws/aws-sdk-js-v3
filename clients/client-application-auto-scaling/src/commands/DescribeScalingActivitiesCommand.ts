@@ -23,11 +23,12 @@ export interface DescribeScalingActivitiesCommandInput extends DescribeScalingAc
 export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingActivitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides descriptive information about the scaling activities in the specified namespace
- *          from the previous six weeks.</p>
- *          <p>You can filter the results using <code>ResourceId</code> and
- *             <code>ScalableDimension</code>.</p>
- *          <p>For information about viewing scaling activities using the Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling activities for Application Auto Scaling</a>.</p>
+ * Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.
+ *
+ * You can filter the results using `ResourceId` and `ScalableDimension`.
+ *
+ * For information about viewing scaling activities using the Amazon Web Services CLI, see [Scaling activities for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,22 +83,24 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token supplied was invalid.</p>
+ *
+ * The next token supplied was invalid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To describe scaling activities for a scalable target
  * ```javascript

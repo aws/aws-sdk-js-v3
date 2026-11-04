@@ -23,7 +23,8 @@ export interface DescribeImportCommandInput extends DescribeImportInput {}
 export interface DescribeImportCommandOutput extends DescribeImportOutput, __MetadataBearer {}
 
 /**
- * <p> Represents the properties of the import. </p>
+ * Represents the properties of the import.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -160,11 +161,12 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ImportNotFoundException} (client fault)
- *  <p> The specified import was not found. </p>
+ *
+ * The specified import was not found.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface CreateDefaultSubnetCommandInput extends CreateDefaultSubnetRequ
 export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetResult, __MetadataBearer {}
 
 /**
- * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the
- *             specified Availability Zone in your default VPC. You can have only one default subnet
- *             per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet">Create a default
- *                 subnet</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Creates a default subnet with a size `/20` IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see [Create a default subnet](https://docs.aws.amazon.com/vpc/latest/userguide/work-with-default-vpc.html#create-default-subnet) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,8 +100,8 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

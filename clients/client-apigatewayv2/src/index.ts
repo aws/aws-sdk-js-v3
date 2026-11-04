@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon API Gateway V2</p>
+ * Amazon API Gateway V2
  *
  * @packageDocumentation
  */

@@ -23,15 +23,12 @@ export interface CreateOrganizationCommandInput extends CreateOrganizationReques
 export interface CreateOrganizationCommandOutput extends CreateOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding an organization</a> in the <i>WorkMail Administrator Guide</i>.</p>
- *          <p>You can associate multiple email domains with an organization, then choose your
- *          default email domain from the WorkMail console. You can also associate a domain that is managed
- *          in an Amazon Route 53 public hosted zone. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a
- *             domain</a> and <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html">Choosing the default domain</a>
- *          in the <i>WorkMail Administrator Guide</i>.</p>
- *          <p>Optionally, you can use a customer managed key from AWS Key Management Service (AWS
- *          KMS) to encrypt email for your organization. If you don't associate an AWS KMS key, WorkMail
- *          creates a default, AWS managed key for you.</p>
+ * Creates a new WorkMail organization. Optionally, you can choose to associate an existing AWS Directory Service directory with your organization. If an AWS Directory Service directory ID is specified, the organization alias must match the directory alias. If you choose not to associate an existing directory with your organization, then we create a new WorkMail directory for you. For more information, see [Adding an organization](https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html) in the *WorkMail Administrator Guide*.
+ *
+ * You can associate multiple email domains with an organization, then choose your default email domain from the WorkMail console. You can also associate a domain that is managed in an Amazon Route 53 public hosted zone. For more information, see [Adding a domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html) and [Choosing the default domain](https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html) in the *WorkMail Administrator Guide*.
+ *
+ * Optionally, you can use a customer managed key from AWS Key Management Service (AWS KMS) to encrypt email for your organization. If you don't associate an AWS KMS key, WorkMail creates a default, AWS managed key for you.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +65,28 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link DirectoryInUseException} (client fault)
- *  <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
+ *
+ * The directory is already in use by another WorkMail organization in the same account and Region.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+ *
+ * The directory is unavailable. It might be located in another Region or deleted.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * The request exceeds the limit of the resource.
  *
  * @throws {@link NameAvailabilityException} (client fault)
- *  <p>The user, group, or resource name isn't unique in WorkMail.</p>
+ *
+ * The user, group, or resource name isn't unique in WorkMail.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

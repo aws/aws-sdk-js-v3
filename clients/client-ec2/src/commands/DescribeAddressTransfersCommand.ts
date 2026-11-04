@@ -23,16 +23,10 @@ export interface DescribeAddressTransfersCommandInput extends DescribeAddressTra
 export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTransfersResult, __MetadataBearer {}
 
 /**
- * <p>Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
- *          <p>When you transfer an Elastic IP address, there is a two-step handshake
- *       between the source and transfer Amazon Web Services accounts. When the source account starts the transfer,
- *       the transfer account has seven days to accept the Elastic IP address
- *       transfer. During those seven days, the source account can view the
- *       pending transfer by using this action. After seven days, the
- *       transfer expires and ownership of the Elastic IP
- *       address returns to the source
- *       account. Accepted transfers are visible to the source account for 14 days
- *         after the transfers have been accepted.</p>
+ * Describes an Elastic IP address transfer. For more information, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon VPC User Guide*.
+ *
+ * When you transfer an Elastic IP address, there is a two-step handshake between the source and transfer Amazon Web Services accounts. When the source account starts the transfer, the transfer account has seven days to accept the Elastic IP address transfer. During those seven days, the source account can view the pending transfer by using this action. After seven days, the transfer expires and ownership of the Elastic IP address returns to the source account. Accepted transfers are visible to the source account for 14 days after the transfers have been accepted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +68,8 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

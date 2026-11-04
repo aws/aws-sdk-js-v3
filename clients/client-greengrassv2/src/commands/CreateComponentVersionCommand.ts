@@ -23,39 +23,25 @@ export interface CreateComponentVersionCommandInput extends CreateComponentVersi
 export interface CreateComponentVersionCommandOutput extends CreateComponentVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a component. Components are software that run on Greengrass core devices. After you
- *       develop and test a component on your core device, you can use this operation to upload your
- *       component to IoT Greengrass. Then, you can deploy the component to other core devices.</p>
- *          <p>You can use this operation to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Create components from recipes</b>
- *                </p>
- *                <p>Create a component from a recipe, which is a file that defines the component's
- *           metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For
- *           more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html">IoT Greengrass component recipe
- *             reference</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
- *                <p>To create a component from a recipe, specify <code>inlineRecipe</code> when you call
- *           this operation.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Create components from Lambda functions</b>
- *                </p>
- *                <p>Create a component from an Lambda function that runs on IoT Greengrass. This creates a recipe
- *           and artifacts from the Lambda function's deployment package. You can use this operation to
- *           migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.</p>
- *                <p>This function accepts Lambda functions in all supported versions of Python, Node.js,
- *           and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on deprecated Lambda
- *           runtime versions.</p>
- *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code> when
- *           you call this operation.</p>
- *                <note>
- *                   <p>IoT Greengrass currently supports Lambda functions on only Linux core devices.</p>
- *                </note>
- *             </li>
- *          </ul>
+ * Creates a component. Components are software that run on Greengrass core devices. After you develop and test a component on your core device, you can use this operation to upload your component to IoT Greengrass. Then, you can deploy the component to other core devices.
+ *
+ * You can use this operation to do the following:
+ *
+ * - **Create components from recipes**
+ *
+ *   Create a component from a recipe, which is a file that defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform capability. For more information, see [IoT Greengrass component recipe reference](https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html) in the *IoT Greengrass V2 Developer Guide*.
+ *
+ *   To create a component from a recipe, specify `inlineRecipe` when you call this operation.
+ * - **Create components from Lambda functions**
+ *
+ *   Create a component from an Lambda function that runs on IoT Greengrass. This creates a recipe and artifacts from the Lambda function's deployment package. You can use this operation to migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass V2.
+ *
+ *   This function accepts Lambda functions in all supported versions of Python, Node.js, and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on deprecated Lambda runtime versions.
+ *
+ *   To create a component from a Lambda function, specify `lambdaFunction` when you call this operation.
+ *
+ *   > **Note:** IoT Greengrass currently supports Lambda functions on only Linux core devices.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -160,35 +146,36 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action.</p>
+ *
+ * You don't have permission to perform the action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ *
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link RequestAlreadyInProgressException} (client fault)
- *  <p>The request is already in progress. This exception occurs when you use a client token for
- *       multiple requests while IoT Greengrass is still processing an earlier request that uses the same client
- *       token.</p>
+ *
+ * The request is already in progress. This exception occurs when you use a client token for multiple requests while IoT Greengrass is still processing an earlier request that uses the same client token.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Your request exceeds a service quota. For example, you might have the maximum number of
- *       components that you can create.</p>
+ *
+ * Your request exceeds a service quota. For example, you might have the maximum number of components that you can create.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
+ *
+ * Your request exceeded a request rate quota. For example, you might have exceeded the amount of times that you can retrieve device or deployment status per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *       unsupported characters.</p>
+ *
+ * The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

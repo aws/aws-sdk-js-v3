@@ -23,7 +23,8 @@ export interface ListQuotesCommandInput extends ListQuotesInput {}
 export interface ListQuotesCommandOutput extends ListQuotesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the quotes for your Amazon Web Services account.</p>
+ * Lists the quotes for your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,14 +168,16 @@ export interface ListQuotesCommandOutput extends ListQuotesOutput, __MetadataBea
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

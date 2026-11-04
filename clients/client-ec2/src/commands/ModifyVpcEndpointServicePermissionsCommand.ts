@@ -26,12 +26,10 @@ export interface ModifyVpcEndpointServicePermissionsCommandInput extends ModifyV
 export interface ModifyVpcEndpointServicePermissionsCommandOutput extends ModifyVpcEndpointServicePermissionsResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
- *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
- *             your endpoint service. Principal ARNs with path components aren't supported.</p>
- *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
- * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
- * 	        attachments are automatically approved.</p>
+ * Modifies the permissions for your VPC endpoint service. You can add or remove permissions for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to your endpoint service. Principal ARNs with path components aren't supported.
+ *
+ * If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +71,8 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput extends Modify
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

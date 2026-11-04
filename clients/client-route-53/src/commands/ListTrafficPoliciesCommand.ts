@@ -23,11 +23,10 @@ export interface ListTrafficPoliciesCommandInput extends ListTrafficPoliciesRequ
 export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the latest version for every traffic policy that is associated
- * 			with the current Amazon Web Services account. Policies are listed in the order that they
- * 			were created in. </p>
- *          <p>For information about how of deleting a traffic policy affects the response from
- * 				<code>ListTrafficPolicies</code>, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>. </p>
+ * Gets information about the latest version for every traffic policy that is associated with the current Amazon Web Services account. Policies are listed in the order that they were created in.
+ *
+ * For information about how of deleting a traffic policy affects the response from `ListTrafficPolicies`, see [DeleteTrafficPolicy](https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +65,12 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

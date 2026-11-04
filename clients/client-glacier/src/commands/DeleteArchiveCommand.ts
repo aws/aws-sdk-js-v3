@@ -23,33 +23,17 @@ export interface DeleteArchiveCommandInput extends DeleteArchiveInput {}
 export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This operation deletes an archive from a vault. Subsequent requests to initiate a
- *          retrieval of this archive will fail. Archive retrievals that are in progress for this
- *          archive ID may or may not succeed according to the following scenarios:</p>
- *          <ul>
- *             <li>
- *                <p>If the archive retrieval job is actively preparing the data for download when
- *                Amazon Glacier receives the delete archive request, the archival retrieval operation
- *                might fail.</p>
- *             </li>
- *             <li>
- *                <p>If the archive retrieval job has successfully prepared the archive for download
- *                when Amazon Glacier receives the delete archive request, you will be able to download
- *                the output.</p>
- *             </li>
- *          </ul>
+ * This operation deletes an archive from a vault. Subsequent requests to initiate a retrieval of this archive will fail. Archive retrievals that are in progress for this archive ID may or may not succeed according to the following scenarios:
  *
- *          <p>This operation is idempotent. Attempting to delete an already-deleted archive does
- *          not result in an error.</p>
+ * - If the archive retrieval job is actively preparing the data for download when Amazon Glacier receives the delete archive request, the archival retrieval operation might fail.
+ * - If the archive retrieval job has successfully prepared the archive for download when Amazon Glacier receives the delete archive request, you will be able to download the output.
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html">Deleting an Archive in Amazon
- *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html">Delete Archive</a> in the
- *             <i>Amazon Glacier Developer Guide</i>. </p>
+ * This operation is idempotent. Attempting to delete an already-deleted archive does not result in an error.
+ *
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and underlying REST API, see [Deleting an Archive in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-an-archive.html) and [Delete Archive](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-archive-delete.html) in the *Amazon Glacier Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,24 +60,28 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To delete an archive
  * ```javascript

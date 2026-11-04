@@ -23,9 +23,8 @@ export interface UpdateCrawlerCommandInput extends UpdateCrawlerRequest {}
 export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a crawler. If a crawler is
- *       running, you must stop it using <code>StopCrawler</code> before updating
- *       it.</p>
+ * Updates a crawler. If a crawler is running, you must stop it using `StopCrawler` before updating it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,23 +155,28 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link CrawlerRunningException} (client fault)
- *  <p>The operation cannot be performed because the crawler is already running.</p>
+ *
+ * The operation cannot be performed because the crawler is already running.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link VersionMismatchException} (client fault)
- *  <p>There was a version conflict.</p>
+ *
+ * There was a version conflict.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

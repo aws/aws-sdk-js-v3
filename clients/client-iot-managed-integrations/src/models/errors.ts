@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTManagedIntegrationsServiceException as __BaseException } from "./IoTManagedIntegrationsServiceException";
 
 /**
- * <p>User is not authorized.</p>
+ * User is not authorized.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There is a conflict with the request.</p>
+ * There is a conflict with the request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal error from the service that indicates an unexpected error or that the service is unavailable.</p>
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +113,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -132,7 +137,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The rate exceeds the limit.</p>
+ * The rate exceeds the limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -155,7 +161,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You are not authorized to perform this operation.</p>
+ * You are not authorized to perform this operation.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -178,7 +185,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>A validation error occurred when performing the API request.</p>
+ * A validation error occurred when performing the API request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -201,7 +209,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The service quota has been exceeded for this request.</p>
+ * The service quota has been exceeded for this request.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -224,7 +233,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds a service limit or quota. Adjust your request parameters and try again.</p>
+ * The request exceeds a service limit or quota. Adjust your request parameters and try again.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -247,7 +257,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error has occurred.</p>
+ * An unexpected error has occurred.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -270,7 +281,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid.</p>
+ * The request is not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {

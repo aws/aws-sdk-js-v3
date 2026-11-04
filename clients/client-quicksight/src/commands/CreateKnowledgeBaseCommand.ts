@@ -23,29 +23,14 @@ export interface CreateKnowledgeBaseCommandInput extends CreateKnowledgeBaseRequ
 export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a knowledge base from a specified data source. Supported data source connector types include:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>S3_KNOWLEDGE_BASE</code> – Uses an Amazon S3 bucket as the data source.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>WEB_CRAWLER</code> – Uses web pages indexed by the built-in web crawler as the data source.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>GOOGLE_DRIVE</code> – Uses Google Drive as the data source. Supports service account authentication only.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SHAREPOINT</code> – Uses SharePoint as the data source. Supports two-legged OAuth only.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ONE_DRIVE</code> – Uses OneDrive as the data source. Supports two-legged OAuth only.</p>
- *             </li>
- *          </ul>
+ * Creates a knowledge base from a specified data source. Supported data source connector types include:
+ *
+ * - `S3_KNOWLEDGE_BASE` – Uses an Amazon S3 bucket as the data source.
+ * - `WEB_CRAWLER` – Uses web pages indexed by the built-in web crawler as the data source.
+ * - `GOOGLE_DRIVE` – Uses Google Drive as the data source. Supports service account authentication only.
+ * - `SHAREPOINT` – Uses SharePoint as the data source. Supports two-legged OAuth only.
+ * - `ONE_DRIVE` – Uses OneDrive as the data source. Supports two-legged OAuth only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,38 +100,44 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal failure occurred.</p>
+ *
+ * An internal failure occurred.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ *
+ * You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit is exceeded.</p>
+ *
+ * A limit is exceeded.
  *
  * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
+ *
+ * One or more preconditions aren't met.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The resource specified already exists. </p>
+ *
+ * The resource specified already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

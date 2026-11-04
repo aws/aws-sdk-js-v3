@@ -59,31 +59,31 @@ export type ActorTokenContentType = (typeof ActorTokenContentType)[keyof typeof 
  */
 export const DatasetStatus = {
   /**
-   * <p> Dataset is stable. All operations are allowed per operation-specific guards. </p>
+   * Dataset is stable. All operations are allowed per operation-specific guards.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p> Initial ingestion failed. DRAFT record exists but contains no examples. </p>
+   * Initial ingestion failed. DRAFT record exists but contains no examples.
    */
   CREATE_FAILED: "CREATE_FAILED",
   /**
-   * <p> CreateDataset async ingestion in progress. All writes are blocked. </p>
+   * CreateDataset async ingestion in progress. All writes are blocked.
    */
   CREATING: "CREATING",
   /**
-   * <p> Delete failed after retries. Dataset record may be in an inconsistent state. </p>
+   * Delete failed after retries. Dataset record may be in an inconsistent state.
    */
   DELETE_FAILED: "DELETE_FAILED",
   /**
-   * <p> Full or version-specific delete is in progress. Read operations are still allowed. </p>
+   * Full or version-specific delete is in progress. Read operations are still allowed.
    */
   DELETING: "DELETING",
   /**
-   * <p> Last example mutation or CreateDatasetVersion failed. DRAFT may be partially modified. </p>
+   * Last example mutation or CreateDatasetVersion failed. DRAFT may be partially modified.
    */
   UPDATE_FAILED: "UPDATE_FAILED",
   /**
-   * <p> An async example mutation or CreateDatasetVersion is in progress. All writes are blocked. </p>
+   * An async example mutation or CreateDatasetVersion is in progress. All writes are blocked.
    */
   UPDATING: "UPDATING",
 } as const;
@@ -490,15 +490,15 @@ export type ConsentPortalStatus = (typeof ConsentPortalStatus)[keyof typeof Cons
  */
 export const DatasetSchemaType = {
   /**
-   * <p> AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn. </p>
+   * AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn.
    */
   AGENTCORE_EVALUATION_PREDEFINED_V1: "AGENTCORE_EVALUATION_PREDEFINED_V1",
   /**
-   * <p> AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation where each example is a scenario used to generate full conversations. </p>
+   * AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation where each example is a scenario used to generate full conversations.
    */
   AGENTCORE_EVALUATION_SIMULATED_V1: "AGENTCORE_EVALUATION_SIMULATED_V1",
   /**
-   * <p> Third-party evaluation schema, version 1. Supports single-turn (string input) and multi-turn (message list input) across third-party evaluation frameworks. </p>
+   * Third-party evaluation schema, version 1. Supports single-turn (string input) and multi-turn (message list input) across third-party evaluation frameworks.
    */
   THIRD_PARTY_EVALUATION_V1: "THIRD_PARTY_EVALUATION_V1",
 } as const;
@@ -513,11 +513,11 @@ export type DatasetSchemaType = (typeof DatasetSchemaType)[keyof typeof DatasetS
  */
 export const DraftStatus = {
   /**
-   * <p> DRAFT has changes not yet reflected in any published version, or no versions have been published yet. </p>
+   * DRAFT has changes not yet reflected in any published version, or no versions have been published yet.
    */
   MODIFIED: "MODIFIED",
   /**
-   * <p> DRAFT content matches the latest published version exactly. </p>
+   * DRAFT content matches the latest published version exactly.
    */
   UNMODIFIED: "UNMODIFIED",
 } as const;
@@ -1003,11 +1003,11 @@ export type HarnessEndpointStatus = (typeof HarnessEndpointStatus)[keyof typeof 
  */
 export const HarnessHookFailureMode = {
   /**
-   * <p>Specifies that the current action continues when the hook target fails.</p>
+   * Specifies that the current action continues when the hook target fails.
    */
   ALLOW: "allow",
   /**
-   * <p>Specifies that the service denies the current action when the hook target fails.</p>
+   * Specifies that the service denies the current action when the hook target fails.
    */
   DENY: "deny",
 } as const;
@@ -1038,15 +1038,15 @@ export type HarnessManagedMemoryStrategyType =
  */
 export const HarnessBedrockApiFormat = {
   /**
-   * <p>Use the Chat Completions API format.</p>
+   * Use the Chat Completions API format.
    */
   CHAT_COMPLETIONS: "chat_completions",
   /**
-   * <p>Use the Bedrock Converse Stream API format.</p>
+   * Use the Bedrock Converse Stream API format.
    */
   CONVERSE_STREAM: "converse_stream",
   /**
-   * <p>Use the Responses API format.</p>
+   * Use the Responses API format.
    */
   RESPONSES: "responses",
 } as const;
@@ -1061,11 +1061,11 @@ export type HarnessBedrockApiFormat = (typeof HarnessBedrockApiFormat)[keyof typ
  */
 export const HarnessOpenAiApiFormat = {
   /**
-   * <p>Use the Chat Completions API format.</p>
+   * Use the Chat Completions API format.
    */
   CHAT_COMPLETIONS: "chat_completions",
   /**
-   * <p>Use the Responses API format.</p>
+   * Use the Responses API format.
    */
   RESPONSES: "responses",
 } as const;
@@ -1321,11 +1321,11 @@ export type ClientAuthenticationMethodType =
  */
 export const OnBehalfOfTokenExchangeGrantTypeType = {
   /**
-   * <p>RFC 7523 JWT authorization grant, adopted by Microsoft Entra ID.</p>
+   * RFC 7523 JWT authorization grant, adopted by Microsoft Entra ID.
    */
   JWT_AUTHORIZATION_GRANT: "JWT_AUTHORIZATION_GRANT",
   /**
-   * <p>RFC 8693 token exchange, adopted by the majority of identity providers supporting on-behalf-of flows.</p>
+   * RFC 8693 token exchange, adopted by the majority of identity providers supporting on-behalf-of flows.
    */
   TOKEN_EXCHANGE: "TOKEN_EXCHANGE",
 } as const;
@@ -1465,11 +1465,11 @@ export type OnlineEvaluationConfigStatus =
  */
 export const PaymentCredentialProviderVendorType = {
   /**
-   * <p>Coinbase Developer Platform.</p>
+   * Coinbase Developer Platform.
    */
   CoinbaseCDP: "CoinbaseCDP",
   /**
-   * <p>Stripe and Privy.</p>
+   * Stripe and Privy.
    */
   StripePrivy: "StripePrivy",
 } as const;

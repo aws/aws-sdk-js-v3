@@ -23,7 +23,8 @@ export interface StartImportFileEnrichmentCommandInput extends StartImportFileEn
 export interface StartImportFileEnrichmentCommandOutput extends StartImportFileEnrichmentResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an import file enrichment job to process and enrich network migration import files with additional metadata and IP assignment strategies.</p>
+ * Starts an import file enrichment job to process and enrich network migration import files with additional metadata and IP assignment strategies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +62,28 @@ export interface StartImportFileEnrichmentCommandOutput extends StartImportFileE
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because it exceeded the service quota.</p>
+ *
+ * The request could not be completed because it exceeded the service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Reached throttling quota exception.</p>
+ *
+ * Reached throttling quota exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample StartImportFileEnrichment call
  * ```javascript

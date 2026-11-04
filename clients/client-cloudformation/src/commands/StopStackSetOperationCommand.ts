@@ -23,9 +23,8 @@ export interface StopStackSetOperationCommandInput extends StopStackSetOperation
 export interface StopStackSetOperationCommandOutput extends StopStackSetOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Stops an in-progress operation on a StackSet and its associated stack instances. StackSets
- *    will cancel all the unstarted stack instance deployments and wait for those are in-progress to
- *    complete.</p>
+ * Stops an in-progress operation on a StackSet and its associated stack instances. StackSets will cancel all the unstarted stack instance deployments and wait for those are in-progress to complete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +51,20 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The specified operation isn't valid.</p>
+ *
+ * The specified operation isn't valid.
  *
  * @throws {@link OperationNotFoundException} (client fault)
- *  <p>The specified ID refers to an operation that doesn't exist.</p>
+ *
+ * The specified ID refers to an operation that doesn't exist.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified StackSet doesn't exist.</p>
+ *
+ * The specified StackSet doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

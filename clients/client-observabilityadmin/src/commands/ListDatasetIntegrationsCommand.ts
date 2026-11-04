@@ -23,7 +23,8 @@ export interface ListDatasetIntegrationsCommandInput extends ListDatasetIntegrat
 export interface ListDatasetIntegrationsCommandOutput extends ListDatasetIntegrationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the dataset integrations in your account.</p>
+ * Returns the dataset integrations in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +60,24 @@ export interface ListDatasetIntegrationsCommandOutput extends ListDatasetIntegra
  * @see {@link ObservabilityAdminClientResolvedConfig | config} for ObservabilityAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management for Amazon Web Services resources</a> in the IAM user guide. </p>
+ *
+ * Indicates you don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management for Amazon Web Services resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the IAM user guide.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> Indicates the request has failed to process because of an unknown server error, exception, or failure. </p>
+ *
+ * Indicates the request has failed to process because of an unknown server error, exception, or failure.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> The request throughput limit was exceeded. </p>
+ *
+ * The request throughput limit was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Indicates input validation failed. Check your request parameters and retry the request. </p>
+ *
+ * Indicates input validation failed. Check your request parameters and retry the request.
  *
  * @throws {@link ObservabilityAdminServiceException}
- * <p>Base exception class for all service exceptions from ObservabilityAdmin service.</p>
  *
+ * Base exception class for all service exceptions from ObservabilityAdmin service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteFieldLevelEncryptionConfigCommandInput extends DeleteFiel
 export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Remove a field-level encryption configuration.</p>
+ * Remove a field-level encryption configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +50,28 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link FieldLevelEncryptionConfigInUse} (client fault)
- *  <p>The specified configuration for field-level encryption is in use.</p>
+ *
+ * The specified configuration for field-level encryption is in use.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchFieldLevelEncryptionConfig} (client fault)
- *  <p>The specified configuration for field-level encryption doesn't exist.</p>
+ *
+ * The specified configuration for field-level encryption doesn't exist.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

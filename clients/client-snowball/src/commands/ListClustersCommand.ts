@@ -23,9 +23,8 @@ export interface ListClustersCommandInput extends ListClustersRequest {}
 export interface ListClustersCommandOutput extends ListClustersResult, __MetadataBearer {}
 
 /**
- * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
- *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
- *       important status information.</p>
+ * Returns an array of `ClusterListEntry` objects of the specified length. Each `ClusterListEntry` object contains a cluster's state, a cluster's ID, and other important status information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,13 +60,12 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
+ *
+ * The `NextToken` string was altered unexpectedly, and the operation has stopped. Run the operation without changing the `NextToken` string, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

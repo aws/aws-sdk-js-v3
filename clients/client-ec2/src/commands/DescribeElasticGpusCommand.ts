@@ -23,10 +23,10 @@ export interface DescribeElasticGpusCommandInput extends DescribeElasticGpusRequ
 export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
- *          </note>
- *          <p>Describes the Elastic Graphics accelerator associated with your instances.</p>
+ * > **Note:** Amazon Elastic Graphics reached end of life on January 8, 2024.
+ *
+ * Describes the Elastic Graphics accelerator associated with your instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +85,8 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

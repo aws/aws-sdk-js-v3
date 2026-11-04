@@ -20,88 +20,98 @@ import type {
 } from "./enums";
 
 /**
- * <p>A rule that controls access to an WorkMail organization.</p>
+ * A rule that controls access to an WorkMail organization.
+ *
  * @public
  */
 export interface AccessControlRule {
   /**
-   * <p>The rule name.</p>
+   * The rule name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The rule effect.</p>
+   * The rule effect.
+   *
    * @public
    */
   Effect?: AccessControlRuleEffect | undefined;
 
   /**
-   * <p>The rule description.</p>
+   * The rule description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>IPv4 CIDR ranges to include in the rule.</p>
+   * IPv4 CIDR ranges to include in the rule.
+   *
    * @public
    */
   IpRanges?: string[] | undefined;
 
   /**
-   * <p>IPv4 CIDR ranges to exclude from the rule.</p>
+   * IPv4 CIDR ranges to exclude from the rule.
+   *
    * @public
    */
   NotIpRanges?: string[] | undefined;
 
   /**
-   * <p>Access protocol actions to include in the rule. Valid values include
-   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
-   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   * Access protocol actions to include in the rule. Valid values include `ActiveSync`, `AutoDiscover`, `EWS`, `IMAP`, `SMTP`, `WindowsOutlook`, and `WebMail`.
+   *
    * @public
    */
   Actions?: string[] | undefined;
 
   /**
-   * <p>Access protocol actions to exclude from the rule. Valid values include
-   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
-   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   * Access protocol actions to exclude from the rule. Valid values include `ActiveSync`, `AutoDiscover`, `EWS`, `IMAP`, `SMTP`, `WindowsOutlook`, and `WebMail`.
+   *
    * @public
    */
   NotActions?: string[] | undefined;
 
   /**
-   * <p>User IDs to include in the rule.</p>
+   * User IDs to include in the rule.
+   *
    * @public
    */
   UserIds?: string[] | undefined;
 
   /**
-   * <p>User IDs to exclude from the rule.</p>
+   * User IDs to exclude from the rule.
+   *
    * @public
    */
   NotUserIds?: string[] | undefined;
 
   /**
-   * <p>The date that the rule was created.</p>
+   * The date that the rule was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date that the rule was modified.</p>
+   * The date that the rule was modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
 
   /**
-   * <p>Impersonation role IDs to include in the rule.</p>
+   * Impersonation role IDs to include in the rule.
+   *
    * @public
    */
   ImpersonationRoleIds?: string[] | undefined;
 
   /**
-   * <p>Impersonation role IDs to exclude from the rule.</p>
+   * Impersonation role IDs to exclude from the rule.
+   *
    * @public
    */
   NotImpersonationRoleIds?: string[] | undefined;
@@ -112,43 +122,34 @@ export interface AccessControlRule {
  */
 export interface AssociateDelegateToResourceRequest {
   /**
-   * <p>The organization under which the resource exists.</p>
+   * The organization under which the resource exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The resource for which members (users or groups) are associated.</p>
-   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: resource@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name: resource</p>
-   *             </li>
-   *          </ul>
+   * The resource for which members (users or groups) are associated.
+   *
+   * The identifier can accept *ResourceId*, *Resourcename*, or *email*. The following identity formats are available:
+   *
+   * - Resource ID: r-0123456789a0123456789b0123456789
+   * - Email address: resource@domain.tld
+   * - Resource name: resource
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The member (user or group) to associate to the resource.</p>
-   *          <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity: entity</p>
-   *             </li>
-   *          </ul>
+   * The member (user or group) to associate to the resource.
+   *
+   * The entity ID can accept *UserId or GroupID*, *Username or Groupname*, or *email*.
+   *
+   * - Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity: entity
+   *
    * @public
    */
   EntityId: string | undefined;
@@ -164,43 +165,34 @@ export interface AssociateDelegateToResourceResponse {}
  */
 export interface AssociateMemberToGroupRequest {
   /**
-   * <p>The organization under which the group exists.</p>
+   * The organization under which the group exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The group to which the member (user or group) is associated.</p>
-   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: group@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Group name: group</p>
-   *             </li>
-   *          </ul>
+   * The group to which the member (user or group) is associated.
+   *
+   * The identifier can accept *GroupId*, *Groupname*, or *email*. The following identity formats are available:
+   *
+   * - Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: group@domain.tld
+   * - Group name: group
+   *
    * @public
    */
   GroupId: string | undefined;
 
   /**
-   * <p>The member (user or group) to associate to the group.</p>
-   *          <p>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Member: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: member@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Member name: member</p>
-   *             </li>
-   *          </ul>
+   * The member (user or group) to associate to the group.
+   *
+   * The member ID can accept *UserID or GroupId*, *Username or Groupname*, or *email*.
+   *
+   * - Member: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: member@domain.tld
+   * - Member name: member
+   *
    * @public
    */
   MemberId: string | undefined;
@@ -216,13 +208,15 @@ export interface AssociateMemberToGroupResponse {}
  */
 export interface AssumeImpersonationRoleRequest {
   /**
-   * <p>The WorkMail organization under which the impersonation role will be assumed.</p>
+   * The WorkMail organization under which the impersonation role will be assumed.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The impersonation role ID to assume.</p>
+   * The impersonation role ID to assume.
+   *
    * @public
    */
   ImpersonationRoleId: string | undefined;
@@ -233,115 +227,127 @@ export interface AssumeImpersonationRoleRequest {
  */
 export interface AssumeImpersonationRoleResponse {
   /**
-   * <p>The authentication token for the impersonation role.</p>
+   * The authentication token for the impersonation role.
+   *
    * @public
    */
   Token?: string | undefined;
 
   /**
-   * <p>The authentication token's validity, in seconds.</p>
+   * The authentication token's validity, in seconds.
+   *
    * @public
    */
   ExpiresIn?: number | undefined;
 }
 
 /**
- * <p>Describes an EWS based availability provider when returned from the service. It does not
- *          contain the password of the endpoint.</p>
+ * Describes an EWS based availability provider when returned from the service. It does not contain the password of the endpoint.
+ *
  * @public
  */
 export interface RedactedEwsAvailabilityProvider {
   /**
-   * <p>The endpoint of the remote EWS server.</p>
+   * The endpoint of the remote EWS server.
+   *
    * @public
    */
   EwsEndpoint?: string | undefined;
 
   /**
-   * <p>The username used to authenticate the remote EWS server.</p>
+   * The username used to authenticate the remote EWS server.
+   *
    * @public
    */
   EwsUsername?: string | undefined;
 }
 
 /**
- * <p>Describes a Lambda based availability provider.</p>
+ * Describes a Lambda based availability provider.
+ *
  * @public
  */
 export interface LambdaAvailabilityProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda that acts as the availability provider.</p>
+   * The Amazon Resource Name (ARN) of the Lambda that acts as the availability provider.
+   *
    * @public
    */
   LambdaArn: string | undefined;
 }
 
 /**
- * <p>List all the <code>AvailabilityConfiguration</code>'s for the given WorkMail
- *          organization.</p>
+ * List all the `AvailabilityConfiguration`'s for the given WorkMail organization.
+ *
  * @public
  */
 export interface AvailabilityConfiguration {
   /**
-   * <p>Displays the domain to which the provider applies.</p>
+   * Displays the domain to which the provider applies.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>Displays the provider type that applies to this domain.</p>
+   * Displays the provider type that applies to this domain.
+   *
    * @public
    */
   ProviderType?: AvailabilityProviderType | undefined;
 
   /**
-   * <p>If <code>ProviderType</code> is <code>EWS</code>, then this field contains
-   *             <code>RedactedEwsAvailabilityProvider</code>. Otherwise, it is not required.</p>
+   * If `ProviderType` is `EWS`, then this field contains `RedactedEwsAvailabilityProvider`. Otherwise, it is not required.
+   *
    * @public
    */
   EwsProvider?: RedactedEwsAvailabilityProvider | undefined;
 
   /**
-   * <p>If ProviderType is <code>LAMBDA</code> then this field contains
-   *             <code>LambdaAvailabilityProvider</code>. Otherwise, it is not required.</p>
+   * If ProviderType is `LAMBDA` then this field contains `LambdaAvailabilityProvider`. Otherwise, it is not required.
+   *
    * @public
    */
   LambdaProvider?: LambdaAvailabilityProvider | undefined;
 
   /**
-   * <p>The date and time at which the availability configuration was created.</p>
+   * The date and time at which the availability configuration was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date and time at which the availability configuration was last modified.</p>
+   * The date and time at which the availability configuration was last modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
 }
 
 /**
- * <p>At least one delegate must be associated to the resource to disable automatic replies
- *          from the resource.</p>
+ * At least one delegate must be associated to the resource to disable automatic replies from the resource.
+ *
  * @public
  */
 export interface BookingOptions {
   /**
-   * <p>The resource's ability to automatically reply to requests. If disabled, delegates
-   *          must be associated to the resource.</p>
+   * The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
+   *
    * @public
    */
   AutoAcceptRequests?: boolean | undefined;
 
   /**
-   * <p>The resource's ability to automatically decline any recurring requests.</p>
+   * The resource's ability to automatically decline any recurring requests.
+   *
    * @public
    */
   AutoDeclineRecurringRequests?: boolean | undefined;
 
   /**
-   * <p>The resource's ability to automatically decline any conflicting requests.</p>
+   * The resource's ability to automatically decline any conflicting requests.
+   *
    * @public
    */
   AutoDeclineConflictingRequests?: boolean | undefined;
@@ -352,19 +358,22 @@ export interface BookingOptions {
  */
 export interface CancelMailboxExportJobRequest {
   /**
-   * <p>The idempotency token for the client request.</p>
+   * The idempotency token for the client request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The job ID.</p>
+   * The job ID.
+   *
    * @public
    */
   JobId: string | undefined;
 
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -380,19 +389,22 @@ export interface CancelMailboxExportJobResponse {}
  */
 export interface CreateAliasRequest {
   /**
-   * <p>The organization under which the member (user or group) exists.</p>
+   * The organization under which the member (user or group) exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The member (user or group) to which this alias is added.</p>
+   * The member (user or group) to which this alias is added.
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The alias to add to the member set.</p>
+   * The alias to add to the member set.
+   *
    * @public
    */
   Alias: string | undefined;
@@ -404,24 +416,28 @@ export interface CreateAliasRequest {
 export interface CreateAliasResponse {}
 
 /**
- * <p>Describes an EWS based availability provider. This is only used as input to the service.</p>
+ * Describes an EWS based availability provider. This is only used as input to the service.
+ *
  * @public
  */
 export interface EwsAvailabilityProvider {
   /**
-   * <p>The endpoint of the remote EWS server.</p>
+   * The endpoint of the remote EWS server.
+   *
    * @public
    */
   EwsEndpoint: string | undefined;
 
   /**
-   * <p>The username used to authenticate the remote EWS server.</p>
+   * The username used to authenticate the remote EWS server.
+   *
    * @public
    */
   EwsUsername: string | undefined;
 
   /**
-   * <p>The password used to authenticate the remote EWS server.</p>
+   * The password used to authenticate the remote EWS server.
+   *
    * @public
    */
   EwsPassword: string | undefined;
@@ -432,31 +448,36 @@ export interface EwsAvailabilityProvider {
  */
 export interface CreateAvailabilityConfigurationRequest {
   /**
-   * <p>An idempotent token that ensures that an API request is executed only once.</p>
+   * An idempotent token that ensures that an API request is executed only once.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be created.</p>
+   * The WorkMail organization for which the `AvailabilityConfiguration` will be created.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain to which the provider applies.</p>
+   * The domain to which the provider applies.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>Exchange Web Services (EWS) availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>.</p>
+   * Exchange Web Services (EWS) availability provider definition. The request must contain exactly one provider definition, either `EwsProvider` or `LambdaProvider`.
+   *
    * @public
    */
   EwsProvider?: EwsAvailabilityProvider | undefined;
 
   /**
-   * <p>Lambda availability provider definition. The request must contain exactly one provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>.</p>
+   * Lambda availability provider definition. The request must contain exactly one provider definition, either `EwsProvider` or `LambdaProvider`.
+   *
    * @public
    */
   LambdaProvider?: LambdaAvailabilityProvider | undefined;
@@ -472,19 +493,22 @@ export interface CreateAvailabilityConfigurationResponse {}
  */
 export interface CreateGroupRequest {
   /**
-   * <p>The organization under which the group is to be created.</p>
+   * The organization under which the group is to be created.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name of the group.</p>
+   * The name of the group.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>If this parameter is enabled, the group will be hidden from the address book.</p>
+   * If this parameter is enabled, the group will be hidden from the address book.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
@@ -495,7 +519,8 @@ export interface CreateGroupRequest {
  */
 export interface CreateGroupResponse {
   /**
-   * <p>The identifier of the group.</p>
+   * The identifier of the group.
+   *
    * @public
    */
   GroupId?: string | undefined;
@@ -506,29 +531,22 @@ export interface CreateGroupResponse {
  */
 export interface CreateIdentityCenterApplicationRequest {
   /**
-   * <p>
-   *          The name of the IAM Identity Center application.
+   * The name of the IAM Identity Center application.
    *
-   *
-   *       </p>
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the instance.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the instance.
+   *
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>
-   *          The idempotency token associated with the request.
+   * The idempotency token associated with the request.
    *
-   *
-   *       </p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -539,52 +557,57 @@ export interface CreateIdentityCenterApplicationRequest {
  */
 export interface CreateIdentityCenterApplicationResponse {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the application.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the application.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
 }
 
 /**
- * <p>The rules for the given impersonation role.</p>
+ * The rules for the given impersonation role.
+ *
  * @public
  */
 export interface ImpersonationRule {
   /**
-   * <p>The identifier of the rule.</p>
+   * The identifier of the rule.
+   *
    * @public
    */
   ImpersonationRuleId: string | undefined;
 
   /**
-   * <p>The rule name.</p>
+   * The rule name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The rule description.</p>
+   * The rule description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The effect of the rule when it matches the input. Allowed effect values are
-   *             <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the rule when it matches the input. Allowed effect values are `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect: AccessEffect | undefined;
 
   /**
-   * <p>A list of user IDs that match the rule.</p>
+   * A list of user IDs that match the rule.
+   *
    * @public
    */
   TargetUsers?: string[] | undefined;
 
   /**
-   * <p>A list of user IDs that don't match the rule.</p>
+   * A list of user IDs that don't match the rule.
+   *
    * @public
    */
   NotTargetUsers?: string[] | undefined;
@@ -595,38 +618,43 @@ export interface ImpersonationRule {
  */
 export interface CreateImpersonationRoleRequest {
   /**
-   * <p>The idempotency token for the client request.</p>
+   * The idempotency token for the client request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The WorkMail organization to create the new impersonation role within.</p>
+   * The WorkMail organization to create the new impersonation role within.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name of the new impersonation role.</p>
+   * The name of the new impersonation role.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The impersonation role's type. The available impersonation role types are
-   *             <code>READ_ONLY</code> or <code>FULL_ACCESS</code>.</p>
+   * The impersonation role's type. The available impersonation role types are `READ_ONLY` or `FULL_ACCESS`.
+   *
    * @public
    */
   Type: ImpersonationRoleType | undefined;
 
   /**
-   * <p>The description of the new impersonation role.</p>
+   * The description of the new impersonation role.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The list of rules for the impersonation role.</p>
+   * The list of rules for the impersonation role.
+   *
    * @public
    */
   Rules: ImpersonationRule[] | undefined;
@@ -637,7 +665,8 @@ export interface CreateImpersonationRoleRequest {
  */
 export interface CreateImpersonationRoleResponse {
   /**
-   * <p>The new impersonation role ID.</p>
+   * The new impersonation role ID.
+   *
    * @public
    */
   ImpersonationRoleId?: string | undefined;
@@ -648,79 +677,92 @@ export interface CreateImpersonationRoleResponse {
  */
 export interface CreateMobileDeviceAccessRuleRequest {
   /**
-   * <p>The WorkMail organization under which the rule will be created.</p>
+   * The WorkMail organization under which the rule will be created.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The idempotency token for the client request.</p>
+   * The idempotency token for the client request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The rule name.</p>
+   * The rule name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The rule description.</p>
+   * The rule description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the rule when it matches. Allowed values are `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>Device types that the rule will match.</p>
+   * Device types that the rule will match.
+   *
    * @public
    */
   DeviceTypes?: string[] | undefined;
 
   /**
-   * <p>Device types that the rule <b>will not</b> match. All other device types will match.</p>
+   * Device types that the rule **will not** match. All other device types will match.
+   *
    * @public
    */
   NotDeviceTypes?: string[] | undefined;
 
   /**
-   * <p>Device models that the rule will match.</p>
+   * Device models that the rule will match.
+   *
    * @public
    */
   DeviceModels?: string[] | undefined;
 
   /**
-   * <p>Device models that the rule <b>will not</b> match. All other device models will match.</p>
+   * Device models that the rule **will not** match. All other device models will match.
+   *
    * @public
    */
   NotDeviceModels?: string[] | undefined;
 
   /**
-   * <p>Device operating systems that the rule will match.</p>
+   * Device operating systems that the rule will match.
+   *
    * @public
    */
   DeviceOperatingSystems?: string[] | undefined;
 
   /**
-   * <p>Device operating systems that the rule <b>will not</b> match. All other device operating systems will match.</p>
+   * Device operating systems that the rule **will not** match. All other device operating systems will match.
+   *
    * @public
    */
   NotDeviceOperatingSystems?: string[] | undefined;
 
   /**
-   * <p>Device user agents that the rule will match.</p>
+   * Device user agents that the rule will match.
+   *
    * @public
    */
   DeviceUserAgents?: string[] | undefined;
 
   /**
-   * <p>Device user agents that the rule <b>will not</b> match. All other device user agents will match.</p>
+   * Device user agents that the rule **will not** match. All other device user agents will match.
+   *
    * @public
    */
   NotDeviceUserAgents?: string[] | undefined;
@@ -731,26 +773,31 @@ export interface CreateMobileDeviceAccessRuleRequest {
  */
 export interface CreateMobileDeviceAccessRuleResponse {
   /**
-   * <p>The identifier for the newly created mobile device access rule.</p>
+   * The identifier for the newly created mobile device access rule.
+   *
    * @public
    */
   MobileDeviceAccessRuleId?: string | undefined;
 }
 
 /**
- * <p>The domain to associate with an WorkMail organization.</p>
- *          <p>When you configure a domain hosted in Amazon Route 53 (Route 53), all recommended DNS records are added to the organization when you create it. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a domain</a> in the <i>WorkMail Administrator Guide</i>.</p>
+ * The domain to associate with an WorkMail organization.
+ *
+ * When you configure a domain hosted in Amazon Route 53 (Route 53), all recommended DNS records are added to the organization when you create it. For more information, see [Adding a domain](https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html) in the *WorkMail Administrator Guide*.
+ *
  * @public
  */
 export interface Domain {
   /**
-   * <p>The fully qualified domain name.</p>
+   * The fully qualified domain name.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.</p>
+   * The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
+   *
    * @public
    */
   HostedZoneId?: string | undefined;
@@ -761,39 +808,43 @@ export interface Domain {
  */
 export interface CreateOrganizationRequest {
   /**
-   * <p>The AWS Directory Service directory ID.</p>
+   * The AWS Directory Service directory ID.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p>The organization alias.</p>
+   * The organization alias.
+   *
    * @public
    */
   Alias: string | undefined;
 
   /**
-   * <p>The idempotency token associated with the request.</p>
+   * The idempotency token associated with the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The email domains to associate with the organization.</p>
+   * The email domains to associate with the organization.
+   *
    * @public
    */
   Domains?: Domain[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a customer managed key from AWS KMS.</p>
+   * The Amazon Resource Name (ARN) of a customer managed key from AWS KMS.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>When <code>true</code>, allows organization interoperability between WorkMail and
-   *          Microsoft Exchange. If <code>true</code>, you must include a AD Connector directory ID in
-   *          the request.</p>
+   * When `true`, allows organization interoperability between WorkMail and Microsoft Exchange. If `true`, you must include a AD Connector directory ID in the request.
+   *
    * @public
    */
   EnableInteroperability?: boolean | undefined;
@@ -804,7 +855,8 @@ export interface CreateOrganizationRequest {
  */
 export interface CreateOrganizationResponse {
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
@@ -815,33 +867,36 @@ export interface CreateOrganizationResponse {
  */
 export interface CreateResourceRequest {
   /**
-   * <p>The identifier associated with the organization for which the resource is
-   *          created.</p>
+   * The identifier associated with the organization for which the resource is created.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name of the new resource.</p>
+   * The name of the new resource.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of the new resource. The available types are <code>equipment</code> and
-   *             <code>room</code>.</p>
+   * The type of the new resource. The available types are `equipment` and `room`.
+   *
    * @public
    */
   Type: ResourceType | undefined;
 
   /**
-   * <p>Resource description.</p>
+   * Resource description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>If this parameter is enabled, the resource will be hidden from the address book.</p>
+   * If this parameter is enabled, the resource will be hidden from the address book.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
@@ -852,7 +907,8 @@ export interface CreateResourceRequest {
  */
 export interface CreateResourceResponse {
   /**
-   * <p>The identifier of the new resource.</p>
+   * The identifier of the new resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -863,56 +919,66 @@ export interface CreateResourceResponse {
  */
 export interface CreateUserRequest {
   /**
-   * <p>The identifier of the organization for which the user is created.</p>
+   * The identifier of the organization for which the user is created.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.</p>
+   * The name for the new user. WorkMail directory user names have a maximum length of 64. All others have a maximum length of 20.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The display name for the new user.</p>
+   * The display name for the new user.
+   *
    * @public
    */
   DisplayName: string | undefined;
 
   /**
-   * <p>The password for the new user.</p>
+   * The password for the new user.
+   *
    * @public
    */
   Password?: string | undefined;
 
   /**
-   * <p>The role of the new user.</p>
-   *          <p>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i> role in a single request. When a user role is not selected, the default role of <i>USER</i> is selected.</p>
+   * The role of the new user.
+   *
+   * You cannot pass *SYSTEM_USER* or *RESOURCE* role in a single request. When a user role is not selected, the default role of *USER* is selected.
+   *
    * @public
    */
   Role?: UserRole | undefined;
 
   /**
-   * <p>The first name of the new user.</p>
+   * The first name of the new user.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>The last name of the new user. </p>
+   * The last name of the new user.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>If this parameter is enabled, the user will be hidden from the address book.</p>
+   * If this parameter is enabled, the user will be hidden from the address book.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
 
   /**
-   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *
    * @public
    */
   IdentityProviderUserId?: string | undefined;
@@ -923,26 +989,29 @@ export interface CreateUserRequest {
  */
 export interface CreateUserResponse {
   /**
-   * <p>The identifier for the new user.</p>
+   * The identifier for the new user.
+   *
    * @public
    */
   UserId?: string | undefined;
 }
 
 /**
- * <p>The name of the attribute, which is one of the values defined in the UserAttribute
- *          enumeration.</p>
+ * The name of the attribute, which is one of the values defined in the UserAttribute enumeration.
+ *
  * @public
  */
 export interface Delegate {
   /**
-   * <p>The identifier for the user or group associated as the resource's delegate.</p>
+   * The identifier for the user or group associated as the resource's delegate.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The type of the delegate: user or group.</p>
+   * The type of the delegate: user or group.
+   *
    * @public
    */
   Type: MemberType | undefined;
@@ -953,13 +1022,15 @@ export interface Delegate {
  */
 export interface DeleteAccessControlRuleRequest {
   /**
-   * <p>The identifier for the organization.</p>
+   * The identifier for the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name of the access control rule.</p>
+   * The name of the access control rule.
+   *
    * @public
    */
   Name: string | undefined;
@@ -975,21 +1046,22 @@ export interface DeleteAccessControlRuleResponse {}
  */
 export interface DeleteAliasRequest {
   /**
-   * <p>The identifier for the organization under which the user exists.</p>
+   * The identifier for the organization under which the user exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the member (user or group) from which to have the aliases
-   *          removed.</p>
+   * The identifier for the member (user or group) from which to have the aliases removed.
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the
-   *          list are collapsed into single entries (the list is transformed into a set).</p>
+   * The aliases to be removed from the user's set of aliases. Duplicate entries in the list are collapsed into single entries (the list is transformed into a set).
+   *
    * @public
    */
   Alias: string | undefined;
@@ -1005,13 +1077,15 @@ export interface DeleteAliasResponse {}
  */
 export interface DeleteAvailabilityConfigurationRequest {
   /**
-   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
+   * The WorkMail organization for which the `AvailabilityConfiguration` will be deleted.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain for which the <code>AvailabilityConfiguration</code> will be deleted.</p>
+   * The domain for which the `AvailabilityConfiguration` will be deleted.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -1027,7 +1101,8 @@ export interface DeleteAvailabilityConfigurationResponse {}
  */
 export interface DeleteEmailMonitoringConfigurationRequest {
   /**
-   * <p>The ID of the organization from which the email monitoring configuration is deleted.</p>
+   * The ID of the organization from which the email monitoring configuration is deleted.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1043,22 +1118,20 @@ export interface DeleteEmailMonitoringConfigurationResponse {}
  */
 export interface DeleteGroupRequest {
   /**
-   * <p>The organization that contains the group.</p>
+   * The organization that contains the group.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the group to be deleted.</p>
-   *          <p>The identifier can be the <i>GroupId</i>, or <i>Groupname</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Group name: group</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the group to be deleted.
+   *
+   * The identifier can be the *GroupId*, or *Groupname*. The following identity formats are available:
+   *
+   * - Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Group name: group
+   *
    * @public
    */
   GroupId: string | undefined;
@@ -1074,9 +1147,8 @@ export interface DeleteGroupResponse {}
  */
 export interface DeleteIdentityCenterApplicationRequest {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the application.
-   *       </p>
+   * The Amazon Resource Name (ARN) of the application.
+   *
    * @public
    */
   ApplicationArn: string | undefined;
@@ -1092,8 +1164,8 @@ export interface DeleteIdentityCenterApplicationResponse {}
  */
 export interface DeleteIdentityProviderConfigurationRequest {
   /**
-   * <p>
-   * The Organization ID. </p>
+   * The Organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1109,13 +1181,15 @@ export interface DeleteIdentityProviderConfigurationResponse {}
  */
 export interface DeleteImpersonationRoleRequest {
   /**
-   * <p>The WorkMail organization from which to delete the impersonation role.</p>
+   * The WorkMail organization from which to delete the impersonation role.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The ID of the impersonation role to delete.</p>
+   * The ID of the impersonation role to delete.
+   *
    * @public
    */
   ImpersonationRoleId: string | undefined;
@@ -1131,44 +1205,34 @@ export interface DeleteImpersonationRoleResponse {}
  */
 export interface DeleteMailboxPermissionsRequest {
   /**
-   * <p>The identifier of the organization under which the member (user or group)
-   *          exists.</p>
+   * The identifier of the organization under which the member (user or group) exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the entity that owns the mailbox.</p>
-   *          <p>The identifier can be <i>UserId or Group Id</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the entity that owns the mailbox.
+   *
+   * The identifier can be *UserId or Group Id*, *Username or Groupname*, or *email*.
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The identifier of the entity for which to delete granted permissions.</p>
-   *          <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Grantee ID: 12345678-1234-1234-1234-123456789012,r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: grantee@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Grantee name: grantee</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the entity for which to delete granted permissions.
+   *
+   * The identifier can be *UserId, ResourceID, or Group Id*, *Username or Groupname*, or *email*.
+   *
+   * - Grantee ID: 12345678-1234-1234-1234-123456789012,r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: grantee@domain.tld
+   * - Grantee name: grantee
+   *
    * @public
    */
   GranteeId: string | undefined;
@@ -1184,33 +1248,26 @@ export interface DeleteMailboxPermissionsResponse {}
  */
 export interface DeleteMobileDeviceAccessOverrideRequest {
   /**
-   * <p>The WorkMail organization for which the access override will be deleted.</p>
+   * The WorkMail organization for which the access override will be deleted.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The WorkMail user for which you want to delete the override. Accepts the following types of user identities:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID:  <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: <code>user@domain.tld</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>User name: <code>user</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The WorkMail user for which you want to delete the override. Accepts the following types of user identities:
+   *
+   * - User ID: `12345678-1234-1234-1234-123456789012` or `S-1-1-12-1234567890-123456789-123456789-1234`
+   * - Email address: `user@domain.tld`
+   * - User name: `user`
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The mobile device for which you delete the override. <code>DeviceId</code> is case insensitive.</p>
+   * The mobile device for which you delete the override. `DeviceId` is case insensitive.
+   *
    * @public
    */
   DeviceId: string | undefined;
@@ -1226,13 +1283,15 @@ export interface DeleteMobileDeviceAccessOverrideResponse {}
  */
 export interface DeleteMobileDeviceAccessRuleRequest {
   /**
-   * <p>The WorkMail organization under which the rule will be deleted.</p>
+   * The WorkMail organization under which the rule will be deleted.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the rule to be deleted.</p>
+   * The identifier of the rule to be deleted.
+   *
    * @public
    */
   MobileDeviceAccessRuleId: string | undefined;
@@ -1248,31 +1307,36 @@ export interface DeleteMobileDeviceAccessRuleResponse {}
  */
 export interface DeleteOrganizationRequest {
   /**
-   * <p>The idempotency token associated with the request.</p>
+   * The idempotency token associated with the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>If true, deletes the AWS Directory Service directory associated with the organization.</p>
+   * If true, deletes the AWS Directory Service directory associated with the organization.
+   *
    * @public
    */
   DeleteDirectory: boolean | undefined;
 
   /**
-   * <p>Deletes a WorkMail organization even if the organization has enabled users.</p>
+   * Deletes a WorkMail organization even if the organization has enabled users.
+   *
    * @public
    */
   ForceDelete?: boolean | undefined;
 
   /**
-   * <p>Deletes IAM Identity Center application for WorkMail. This action does not affect authentication settings for any organization.</p>
+   * Deletes IAM Identity Center application for WorkMail. This action does not affect authentication settings for any organization.
+   *
    * @public
    */
   DeleteIdentityCenterApplication?: boolean | undefined;
@@ -1283,13 +1347,15 @@ export interface DeleteOrganizationRequest {
  */
 export interface DeleteOrganizationResponse {
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The state of the organization.</p>
+   * The state of the organization.
+   *
    * @public
    */
   State?: string | undefined;
@@ -1300,15 +1366,15 @@ export interface DeleteOrganizationResponse {
  */
 export interface DeletePersonalAccessTokenRequest {
   /**
-   * <p>
-   *          The Organization ID. </p>
+   * The Organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>
-   *         The Personal Access Token ID.</p>
+   * The Personal Access Token ID.
+   *
    * @public
    */
   PersonalAccessTokenId: string | undefined;
@@ -1324,23 +1390,20 @@ export interface DeletePersonalAccessTokenResponse {}
  */
 export interface DeleteResourceRequest {
   /**
-   * <p>The identifier associated with the organization from which the resource is
-   *          deleted.</p>
+   * The identifier associated with the organization from which the resource is deleted.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the resource to be deleted.</p>
-   *          <p>The identifier can accept <i>ResourceId</i>, or <i>Resourcename</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name: resource</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the resource to be deleted.
+   *
+   * The identifier can accept *ResourceId*, or *Resourcename*. The following identity formats are available:
+   *
+   * - Resource ID: r-0123456789a0123456789b0123456789
+   * - Resource name: resource
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -1356,13 +1419,15 @@ export interface DeleteResourceResponse {}
  */
 export interface DeleteRetentionPolicyRequest {
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The retention policy ID.</p>
+   * The retention policy ID.
+   *
    * @public
    */
   Id: string | undefined;
@@ -1378,22 +1443,20 @@ export interface DeleteRetentionPolicyResponse {}
  */
 export interface DeleteUserRequest {
   /**
-   * <p>The organization that contains the user to be deleted.</p>
+   * The organization that contains the user to be deleted.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the user to be deleted.</p>
-   *          <p>The identifier can be the <i>UserId</i> or <i>Username</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>User name: user</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the user to be deleted.
+   *
+   * The identifier can be the *UserId* or *Username*. The following identity formats are available:
+   *
+   * - User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - User name: user
+   *
    * @public
    */
   UserId: string | undefined;
@@ -1409,25 +1472,21 @@ export interface DeleteUserResponse {}
  */
 export interface DeregisterFromWorkMailRequest {
   /**
-   * <p>The identifier for the organization under which the WorkMail entity exists.</p>
+   * The identifier for the organization under which the WorkMail entity exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the member to be updated.</p>
-   *          <p>The identifier can be <i>UserId, ResourceId, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the member to be updated.
+   *
+   * The identifier can be *UserId, ResourceId, or Group Id*, *Username, Resourcename, or Groupname*, or *email*.
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
@@ -1443,13 +1502,15 @@ export interface DeregisterFromWorkMailResponse {}
  */
 export interface DeregisterMailDomainRequest {
   /**
-   * <p>The WorkMail organization for which the domain will be deregistered.</p>
+   * The WorkMail organization for which the domain will be deregistered.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain to deregister in WorkMail and SES.</p>
+   * The domain to deregister in WorkMail and SES.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -1465,7 +1526,8 @@ export interface DeregisterMailDomainResponse {}
  */
 export interface DescribeEmailMonitoringConfigurationRequest {
   /**
-   * <p>The ID of the organization for which the email monitoring configuration is described.</p>
+   * The ID of the organization for which the email monitoring configuration is described.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1476,13 +1538,15 @@ export interface DescribeEmailMonitoringConfigurationRequest {
  */
 export interface DescribeEmailMonitoringConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>
+   * The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
+   * The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.
+   *
    * @public
    */
   LogGroupArn?: string | undefined;
@@ -1493,13 +1557,15 @@ export interface DescribeEmailMonitoringConfigurationResponse {
  */
 export interface DescribeEntityRequest {
   /**
-   * <p>The identifier for the organization under which the entity exists.</p>
+   * The identifier for the organization under which the entity exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The email under which the entity exists.</p>
+   * The email under which the entity exists.
+   *
    * @public
    */
   Email: string | undefined;
@@ -1510,19 +1576,22 @@ export interface DescribeEntityRequest {
  */
 export interface DescribeEntityResponse {
   /**
-   * <p>The entity ID under which the entity exists.</p>
+   * The entity ID under which the entity exists.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>Username, GroupName, or ResourceName based on entity type.</p>
+   * Username, GroupName, or ResourceName based on entity type.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Entity type.</p>
+   * Entity type.
+   *
    * @public
    */
   Type?: EntityType | undefined;
@@ -1533,25 +1602,21 @@ export interface DescribeEntityResponse {
  */
 export interface DescribeGroupRequest {
   /**
-   * <p>The identifier for the organization under which the group exists.</p>
+   * The identifier for the organization under which the group exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the group to be described.</p>
-   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: group@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Group name: group</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the group to be described.
+   *
+   * The identifier can accept *GroupId*, *Groupname*, or *email*. The following identity formats are available:
+   *
+   * - Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: group@domain.tld
+   * - Group name: group
+   *
    * @public
    */
   GroupId: string | undefined;
@@ -1562,46 +1627,50 @@ export interface DescribeGroupRequest {
  */
 export interface DescribeGroupResponse {
   /**
-   * <p>The identifier of the described group.</p>
+   * The identifier of the described group.
+   *
    * @public
    */
   GroupId?: string | undefined;
 
   /**
-   * <p>The name of the described group.</p>
+   * The name of the described group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The email of the described group.</p>
+   * The email of the described group.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The state of the user: enabled (registered to WorkMail) or disabled (deregistered or
-   *          never registered to WorkMail).</p>
+   * The state of the user: enabled (registered to WorkMail) or disabled (deregistered or never registered to WorkMail).
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>The date and time when a user was registered to WorkMail, in UNIX epoch time
-   *          format.</p>
+   * The date and time when a user was registered to WorkMail, in UNIX epoch time format.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time
-   *          format.</p>
+   * The date and time when a user was deregistered from WorkMail, in UNIX epoch time format.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
 
   /**
-   * <p>If the value is set to <i>true</i>, the group is hidden from the address book.</p>
+   * If the value is set to *true*, the group is hidden from the address book.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
@@ -1612,66 +1681,53 @@ export interface DescribeGroupResponse {
  */
 export interface DescribeIdentityProviderConfigurationRequest {
   /**
-   * <p>
-   *          The Organization ID. </p>
+   * The Organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 }
 
 /**
- * <p>
- *          The IAM Identity Center configuration.
- *       </p>
+ * The IAM Identity Center configuration.
+ *
  * @public
  */
 export interface IdentityCenterConfiguration {
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of the  of IAM Identity Center instance. Must be in the same AWS account and region as WorkMail organization.</p>
+   * The Amazon Resource Name (ARN) of the of IAM Identity Center instance. Must be in the same AWS account and region as WorkMail organization.
+   *
    * @public
    */
   InstanceArn: string | undefined;
 
   /**
-   * <p>
-   *          The Amazon Resource Name (ARN) of IAMIdentity Center Application for WorkMail. Must be created by the WorkMail API, see CreateIdentityCenterApplication.</p>
+   * The Amazon Resource Name (ARN) of IAMIdentity Center Application for WorkMail. Must be created by the WorkMail API, see CreateIdentityCenterApplication.
+   *
    * @public
    */
   ApplicationArn: string | undefined;
 }
 
 /**
- * <p>
- *          Displays the Personal Access Token status.
- *       </p>
+ * Displays the Personal Access Token status.
+ *
  * @public
  */
 export interface PersonalAccessTokenConfiguration {
   /**
-   * <p>
-   *          The status of the Personal Access Token allowed for the organization.
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>Active</i> - Mailbox users can login to the web application and choose <i>Settings</i> to see the new <i>Personal Access Tokens</i> page to
-   *             create and delete the Personal Access Tokens. Mailbox users can use the Personal Access Tokens to set up mailbox connection from desktop or mobile email clients.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>Inactive</i> - Personal Access Tokens are disabled for your organization. Mailbox users can’t create, list, or delete Personal Access Tokens and can’t use them to connect to
-   *             their mailboxes from desktop or mobile email clients.</p>
-   *             </li>
-   *          </ul>
+   * The status of the Personal Access Token allowed for the organization.
+   *
+   * - *Active* - Mailbox users can login to the web application and choose *Settings* to see the new *Personal Access Tokens* page to create and delete the Personal Access Tokens. Mailbox users can use the Personal Access Tokens to set up mailbox connection from desktop or mobile email clients.
+   * - *Inactive* - Personal Access Tokens are disabled for your organization. Mailbox users can’t create, list, or delete Personal Access Tokens and can’t use them to connect to their mailboxes from desktop or mobile email clients.
+   *
    * @public
    */
   Status: PersonalAccessTokenConfigurationStatus | undefined;
 
   /**
-   * <p>
-   *         The validity of the Personal Access Token status in days.
-   *       </p>
+   * The validity of the Personal Access Token status in days.
+   *
    * @public
    */
   LifetimeInDays?: number | undefined;
@@ -1682,24 +1738,22 @@ export interface PersonalAccessTokenConfiguration {
  */
 export interface DescribeIdentityProviderConfigurationResponse {
   /**
-   * <p>
-   * The authentication mode used in WorkMail.</p>
+   * The authentication mode used in WorkMail.
+   *
    * @public
    */
   AuthenticationMode?: IdentityProviderAuthenticationMode | undefined;
 
   /**
-   * <p>
-   *          The details of the IAM Identity Center configuration.
-   *       </p>
+   * The details of the IAM Identity Center configuration.
+   *
    * @public
    */
   IdentityCenterConfiguration?: IdentityCenterConfiguration | undefined;
 
   /**
-   * <p>
-   *          The details of the Personal Access Token configuration.
-   *       </p>
+   * The details of the Personal Access Token configuration.
+   *
    * @public
    */
   PersonalAccessTokenConfiguration?: PersonalAccessTokenConfiguration | undefined;
@@ -1710,7 +1764,8 @@ export interface DescribeIdentityProviderConfigurationResponse {
  */
 export interface DescribeInboundDmarcSettingsRequest {
   /**
-   * <p>Lists the ID of the given organization.</p>
+   * Lists the ID of the given organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1721,7 +1776,8 @@ export interface DescribeInboundDmarcSettingsRequest {
  */
 export interface DescribeInboundDmarcSettingsResponse {
   /**
-   * <p>Lists the enforcement setting of the applied policy.</p>
+   * Lists the enforcement setting of the applied policy.
+   *
    * @public
    */
   Enforced?: boolean | undefined;
@@ -1732,13 +1788,15 @@ export interface DescribeInboundDmarcSettingsResponse {
  */
 export interface DescribeMailboxExportJobRequest {
   /**
-   * <p>The mailbox export job ID.</p>
+   * The mailbox export job ID.
+   *
    * @public
    */
   JobId: string | undefined;
 
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1749,76 +1807,85 @@ export interface DescribeMailboxExportJobRequest {
  */
 export interface DescribeMailboxExportJobResponse {
   /**
-   * <p>The identifier of the user or resource associated with the mailbox.</p>
+   * The identifier of the user or resource associated with the mailbox.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>The mailbox export job description.</p>
+   * The mailbox export job description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple
-   *          Storage Service (Amazon S3) bucket.</p>
+   * The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple Storage Service (Amazon S3) bucket.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS)
-   *          key that encrypts the exported mailbox content.</p>
+   * The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
+   *
    * @public
    */
   KmsKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket.</p>
+   * The name of the S3 bucket.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
 
   /**
-   * <p>The S3 bucket prefix.</p>
+   * The S3 bucket prefix.
+   *
    * @public
    */
   S3Prefix?: string | undefined;
 
   /**
-   * <p>The path to the S3 bucket and file that the mailbox export job is exporting
-   *          to.</p>
+   * The path to the S3 bucket and file that the mailbox export job is exporting to.
+   *
    * @public
    */
   S3Path?: string | undefined;
 
   /**
-   * <p>The estimated progress of the mailbox export job, in percentage points.</p>
+   * The estimated progress of the mailbox export job, in percentage points.
+   *
    * @public
    */
   EstimatedProgress?: number | undefined;
 
   /**
-   * <p>The state of the mailbox export job.</p>
+   * The state of the mailbox export job.
+   *
    * @public
    */
   State?: MailboxExportJobState | undefined;
 
   /**
-   * <p>Error information for failed mailbox export jobs.</p>
+   * Error information for failed mailbox export jobs.
+   *
    * @public
    */
   ErrorInfo?: string | undefined;
 
   /**
-   * <p>The mailbox export job start timestamp.</p>
+   * The mailbox export job start timestamp.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The mailbox export job end timestamp.</p>
+   * The mailbox export job end timestamp.
+   *
    * @public
    */
   EndTime?: Date | undefined;
@@ -1829,7 +1896,8 @@ export interface DescribeMailboxExportJobResponse {
  */
 export interface DescribeOrganizationRequest {
   /**
-   * <p>The identifier for the organization to be described.</p>
+   * The identifier for the organization to be described.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1840,69 +1908,78 @@ export interface DescribeOrganizationRequest {
  */
 export interface DescribeOrganizationResponse {
   /**
-   * <p>The identifier of an organization.</p>
+   * The identifier of an organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The alias for an organization.</p>
+   * The alias for an organization.
+   *
    * @public
    */
   Alias?: string | undefined;
 
   /**
-   * <p>The state of an organization.</p>
+   * The state of an organization.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The identifier for the directory associated with an WorkMail organization.</p>
+   * The identifier for the directory associated with an WorkMail organization.
+   *
    * @public
    */
   DirectoryId?: string | undefined;
 
   /**
-   * <p>The type of directory associated with the WorkMail organization.</p>
+   * The type of directory associated with the WorkMail organization.
+   *
    * @public
    */
   DirectoryType?: string | undefined;
 
   /**
-   * <p>The default mail domain associated with the organization.</p>
+   * The default mail domain associated with the organization.
+   *
    * @public
    */
   DefaultMailDomain?: string | undefined;
 
   /**
-   * <p>The date at which the organization became usable in the WorkMail context, in UNIX epoch
-   *          time format.</p>
+   * The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
+   *
    * @public
    */
   CompletedDate?: Date | undefined;
 
   /**
-   * <p>(Optional) The error message indicating if unexpected behavior was encountered with
-   *          regards to the organization.</p>
+   * (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the organization.</p>
+   * The Amazon Resource Name (ARN) of the organization.
+   *
    * @public
    */
   ARN?: string | undefined;
 
   /**
-   * <p>The user ID of the migration admin if migration is enabled for the organization.</p>
+   * The user ID of the migration admin if migration is enabled for the organization.
+   *
    * @public
    */
   MigrationAdmin?: string | undefined;
 
   /**
-   * <p>Indicates if interoperability is enabled for this organization.</p>
+   * Indicates if interoperability is enabled for this organization.
+   *
    * @public
    */
   InteroperabilityEnabled?: boolean | undefined;
@@ -1913,26 +1990,21 @@ export interface DescribeOrganizationResponse {
  */
 export interface DescribeResourceRequest {
   /**
-   * <p>The identifier associated with the organization for which the resource is
-   *          described.</p>
+   * The identifier associated with the organization for which the resource is described.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the resource to be described.</p>
-   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: resource@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name: resource</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the resource to be described.
+   *
+   * The identifier can accept *ResourceId*, *Resourcename*, or *email*. The following identity formats are available:
+   *
+   * - Resource ID: r-0123456789a0123456789b0123456789
+   * - Email address: resource@domain.tld
+   * - Resource name: resource
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -1943,64 +2015,71 @@ export interface DescribeResourceRequest {
  */
 export interface DescribeResourceResponse {
   /**
-   * <p>The identifier of the described resource.</p>
+   * The identifier of the described resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The email of the described resource.</p>
+   * The email of the described resource.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The name of the described resource.</p>
+   * The name of the described resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of the described resource.</p>
+   * The type of the described resource.
+   *
    * @public
    */
   Type?: ResourceType | undefined;
 
   /**
-   * <p>The booking options for the described resource.</p>
+   * The booking options for the described resource.
+   *
    * @public
    */
   BookingOptions?: BookingOptions | undefined;
 
   /**
-   * <p>The state of the resource: enabled (registered to WorkMail), disabled (deregistered
-   *          or never registered to WorkMail), or deleted.</p>
+   * The state of the resource: enabled (registered to WorkMail), disabled (deregistered or never registered to WorkMail), or deleted.
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time
-   *          format.</p>
+   * The date and time when a resource was enabled for WorkMail, in UNIX epoch time format.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date and time when a resource was disabled from WorkMail, in UNIX epoch time
-   *          format.</p>
+   * The date and time when a resource was disabled from WorkMail, in UNIX epoch time format.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
 
   /**
-   * <p>Description of the resource.</p>
+   * Description of the resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>If enabled, the resource is hidden from the global address list.</p>
+   * If enabled, the resource is hidden from the global address list.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
@@ -2011,26 +2090,21 @@ export interface DescribeResourceResponse {
  */
 export interface DescribeUserRequest {
   /**
-   * <p>The identifier for the organization under which the user exists.</p>
+   * The identifier for the organization under which the user exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the user to be described.</p>
-   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: user@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>User name: user</p>
-   *             </li>
-   *          </ul>
-   *          <p></p>
+   * The identifier for the user to be described.
+   *
+   * The identifier can be the *UserId*, *Username*, or *email*. The following identity formats are available:
+   *
+   * - User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: user@domain.tld
+   * - User name: user
+   *
    * @public
    */
   UserId: string | undefined;
@@ -2041,160 +2115,176 @@ export interface DescribeUserRequest {
  */
 export interface DescribeUserResponse {
   /**
-   * <p>The identifier for the described user.</p>
+   * The identifier for the described user.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The name for the user.</p>
+   * The name for the user.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The email of the user.</p>
+   * The email of the user.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The display name of the user.</p>
+   * The display name of the user.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The state of a user: enabled (registered to WorkMail) or disabled (deregistered or
-   *          never registered to WorkMail).</p>
+   * The state of a user: enabled (registered to WorkMail) or disabled (deregistered or never registered to WorkMail).
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>In certain cases, other entities are modeled as users. If interoperability is
-   *          enabled, resources are imported into WorkMail as users. Because different WorkMail
-   *          organizations rely on different directory types, administrators can distinguish between an
-   *          unregistered user (account is disabled and has a user role) and the directory
-   *          administrators. The values are USER, RESOURCE, SYSTEM_USER, and REMOTE_USER.</p>
+   * In certain cases, other entities are modeled as users. If interoperability is enabled, resources are imported into WorkMail as users. Because different WorkMail organizations rely on different directory types, administrators can distinguish between an unregistered user (account is disabled and has a user role) and the directory administrators. The values are USER, RESOURCE, SYSTEM_USER, and REMOTE_USER.
+   *
    * @public
    */
   UserRole?: UserRole | undefined;
 
   /**
-   * <p>The date and time at which the user was enabled for WorkMailusage, in UNIX epoch
-   *          time format.</p>
+   * The date and time at which the user was enabled for WorkMailusage, in UNIX epoch time format.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date and time at which the user was disabled for WorkMail usage, in UNIX epoch
-   *          time format.</p>
+   * The date and time at which the user was disabled for WorkMail usage, in UNIX epoch time format.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
 
   /**
-   * <p>The date when the mailbox was created for the user.</p>
+   * The date when the mailbox was created for the user.
+   *
    * @public
    */
   MailboxProvisionedDate?: Date | undefined;
 
   /**
-   * <p>The date when the mailbox was removed for the user.</p>
+   * The date when the mailbox was removed for the user.
+   *
    * @public
    */
   MailboxDeprovisionedDate?: Date | undefined;
 
   /**
-   * <p>First name of the user.</p>
+   * First name of the user.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>Last name of the user.</p>
+   * Last name of the user.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>If enabled, the user is hidden from the global address list.</p>
+   * If enabled, the user is hidden from the global address list.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
 
   /**
-   * <p>Initials of the user.</p>
+   * Initials of the user.
+   *
    * @public
    */
   Initials?: string | undefined;
 
   /**
-   * <p>User's contact number.</p>
+   * User's contact number.
+   *
    * @public
    */
   Telephone?: string | undefined;
 
   /**
-   * <p>Street where the user is located.</p>
+   * Street where the user is located.
+   *
    * @public
    */
   Street?: string | undefined;
 
   /**
-   * <p>Job title of the user.</p>
+   * Job title of the user.
+   *
    * @public
    */
   JobTitle?: string | undefined;
 
   /**
-   * <p>City where the user is located.</p>
+   * City where the user is located.
+   *
    * @public
    */
   City?: string | undefined;
 
   /**
-   * <p>Company of the user.</p>
+   * Company of the user.
+   *
    * @public
    */
   Company?: string | undefined;
 
   /**
-   * <p>Zip code of the user.</p>
+   * Zip code of the user.
+   *
    * @public
    */
   ZipCode?: string | undefined;
 
   /**
-   * <p>Department of the user.</p>
+   * Department of the user.
+   *
    * @public
    */
   Department?: string | undefined;
 
   /**
-   * <p>Country where the user is located.</p>
+   * Country where the user is located.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>Office where the user is located.</p>
+   * Office where the user is located.
+   *
    * @public
    */
   Office?: string | undefined;
 
   /**
-   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *
    * @public
    */
   IdentityProviderUserId?: string | undefined;
 
   /**
-   * <p>
-   *          Identity Store ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
-   *       </p>
+   * Identity Store ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *
    * @public
    */
   IdentityProviderIdentityStoreId?: string | undefined;
@@ -2205,45 +2295,34 @@ export interface DescribeUserResponse {
  */
 export interface DisassociateDelegateFromResourceRequest {
   /**
-   * <p>The identifier for the organization under which the resource exists.</p>
+   * The identifier for the organization under which the resource exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the resource from which delegates' set members are removed.
-   *       </p>
-   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: resource@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name: resource</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the resource from which delegates' set members are removed.
+   *
+   * The identifier can accept *ResourceId*, *Resourcename*, or *email*. The following identity formats are available:
+   *
+   * - Resource ID: r-0123456789a0123456789b0123456789
+   * - Email address: resource@domain.tld
+   * - Resource name: resource
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The identifier for the member (user, group) to be removed from the resource's
-   *          delegates.</p>
-   *          <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the member (user, group) to be removed from the resource's delegates.
+   *
+   * The entity ID can accept *UserId or GroupID*, *Username or Groupname*, or *email*.
+   *
+   * - Entity: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity: entity
+   *
    * @public
    */
   EntityId: string | undefined;
@@ -2259,43 +2338,34 @@ export interface DisassociateDelegateFromResourceResponse {}
  */
 export interface DisassociateMemberFromGroupRequest {
   /**
-   * <p>The identifier for the organization under which the group exists.</p>
+   * The identifier for the organization under which the group exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the group from which members are removed.</p>
-   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: group@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Group name: group</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the group from which members are removed.
+   *
+   * The identifier can accept *GroupId*, *Groupname*, or *email*. The following identity formats are available:
+   *
+   * - Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: group@domain.tld
+   * - Group name: group
+   *
    * @public
    */
   GroupId: string | undefined;
 
   /**
-   * <p>The identifier for the member to be removed from the group.</p>
-   *          <p>The member ID can accept <i>UserID or GroupId</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Member ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: member@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Member name: member</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the member to be removed from the group.
+   *
+   * The member ID can accept *UserID or GroupId*, *Username or Groupname*, or *email*.
+   *
+   * - Member ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: member@domain.tld
+   * - Member name: member
+   *
    * @public
    */
   MemberId: string | undefined;
@@ -2307,50 +2377,56 @@ export interface DisassociateMemberFromGroupRequest {
 export interface DisassociateMemberFromGroupResponse {}
 
 /**
- * <p>A DNS record uploaded to your DNS provider.</p>
+ * A DNS record uploaded to your DNS provider.
+ *
  * @public
  */
 export interface DnsRecord {
   /**
-   * <p>The RFC 1035 record type. Possible values: <code>CNAME</code>, <code>A</code>, <code>MX</code>.</p>
+   * The RFC 1035 record type. Possible values: `CNAME`, `A`, `MX`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The DNS hostname.- For example, <code>domain.example.com</code>.</p>
+   * The DNS hostname.- For example, `domain.example.com`.
+   *
    * @public
    */
   Hostname?: string | undefined;
 
   /**
-   * <p>The value returned by the DNS for a query to that hostname and record type.</p>
+   * The value returned by the DNS for a query to that hostname and record type.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>The configuration applied to an organization's folders by its retention
- *          policy.</p>
+ * The configuration applied to an organization's folders by its retention policy.
+ *
  * @public
  */
 export interface FolderConfiguration {
   /**
-   * <p>The folder name.</p>
+   * The folder name.
+   *
    * @public
    */
   Name: FolderName | undefined;
 
   /**
-   * <p>The action to take on the folder contents at the end of the folder configuration
-   *          period.</p>
+   * The action to take on the folder contents at the end of the folder configuration period.
+   *
    * @public
    */
   Action: RetentionAction | undefined;
 
   /**
-   * <p>The number of days for which the folder-configuration action applies.</p>
+   * The number of days for which the folder-configuration action applies.
+   *
    * @public
    */
   Period?: number | undefined;
@@ -2361,33 +2437,36 @@ export interface FolderConfiguration {
  */
 export interface GetAccessControlEffectRequest {
   /**
-   * <p>The identifier for the organization.</p>
+   * The identifier for the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The IPv4 address.</p>
+   * The IPv4 address.
+   *
    * @public
    */
   IpAddress: string | undefined;
 
   /**
-   * <p>The access protocol action. Valid values include <code>ActiveSync</code>,
-   *             <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>,
-   *             <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   * The access protocol action. Valid values include `ActiveSync`, `AutoDiscover`, `EWS`, `IMAP`, `SMTP`, `WindowsOutlook`, and `WebMail`.
+   *
    * @public
    */
   Action: string | undefined;
 
   /**
-   * <p>The user ID.</p>
+   * The user ID.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The impersonation role ID.</p>
+   * The impersonation role ID.
+   *
    * @public
    */
   ImpersonationRoleId?: string | undefined;
@@ -2398,13 +2477,15 @@ export interface GetAccessControlEffectRequest {
  */
 export interface GetAccessControlEffectResponse {
   /**
-   * <p>The rule effect.</p>
+   * The rule effect.
+   *
    * @public
    */
   Effect?: AccessControlRuleEffect | undefined;
 
   /**
-   * <p>The rules that match the given parameters, resulting in an effect.</p>
+   * The rules that match the given parameters, resulting in an effect.
+   *
    * @public
    */
   MatchedRules?: string[] | undefined;
@@ -2415,7 +2496,8 @@ export interface GetAccessControlEffectResponse {
  */
 export interface GetDefaultRetentionPolicyRequest {
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -2426,25 +2508,29 @@ export interface GetDefaultRetentionPolicyRequest {
  */
 export interface GetDefaultRetentionPolicyResponse {
   /**
-   * <p>The retention policy ID.</p>
+   * The retention policy ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The retention policy name.</p>
+   * The retention policy name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The retention policy description.</p>
+   * The retention policy description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The retention policy folder configurations.</p>
+   * The retention policy folder configurations.
+   *
    * @public
    */
   FolderConfigurations?: FolderConfiguration[] | undefined;
@@ -2455,13 +2541,15 @@ export interface GetDefaultRetentionPolicyResponse {
  */
 export interface GetImpersonationRoleRequest {
   /**
-   * <p>The WorkMail organization from which to retrieve the impersonation role.</p>
+   * The WorkMail organization from which to retrieve the impersonation role.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The impersonation role ID to retrieve.</p>
+   * The impersonation role ID to retrieve.
+   *
    * @public
    */
   ImpersonationRoleId: string | undefined;
@@ -2472,43 +2560,50 @@ export interface GetImpersonationRoleRequest {
  */
 export interface GetImpersonationRoleResponse {
   /**
-   * <p>The impersonation role ID.</p>
+   * The impersonation role ID.
+   *
    * @public
    */
   ImpersonationRoleId?: string | undefined;
 
   /**
-   * <p>The impersonation role name.</p>
+   * The impersonation role name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The impersonation role type.</p>
+   * The impersonation role type.
+   *
    * @public
    */
   Type?: ImpersonationRoleType | undefined;
 
   /**
-   * <p>The impersonation role description.</p>
+   * The impersonation role description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The list of rules for the given impersonation role.</p>
+   * The list of rules for the given impersonation role.
+   *
    * @public
    */
   Rules?: ImpersonationRule[] | undefined;
 
   /**
-   * <p>The date when the impersonation role was created.</p>
+   * The date when the impersonation role was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date when the impersonation role was last modified.</p>
+   * The date when the impersonation role was last modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
@@ -2519,52 +2614,47 @@ export interface GetImpersonationRoleResponse {
  */
 export interface GetImpersonationRoleEffectRequest {
   /**
-   * <p>The WorkMail organization where the impersonation role is defined.</p>
+   * The WorkMail organization where the impersonation role is defined.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The impersonation role ID to test.</p>
+   * The impersonation role ID to test.
+   *
    * @public
    */
   ImpersonationRoleId: string | undefined;
 
   /**
-   * <p>The WorkMail organization user chosen to test the impersonation role. The following identity
-   *          formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: <code>user@domain.tld</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>User name: <code>user</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The WorkMail organization user chosen to test the impersonation role. The following identity formats are available:
+   *
+   * - User ID: `12345678-1234-1234-1234-123456789012` or `S-1-1-12-1234567890-123456789-123456789-1234`
+   * - Email address: `user@domain.tld`
+   * - User name: `user`
+   *
    * @public
    */
   TargetUser: string | undefined;
 }
 
 /**
- * <p>The impersonation rule that matched the input.</p>
+ * The impersonation rule that matched the input.
+ *
  * @public
  */
 export interface ImpersonationMatchedRule {
   /**
-   * <p>The ID of the rule that matched the input</p>
+   * The ID of the rule that matched the input
+   *
    * @public
    */
   ImpersonationRuleId?: string | undefined;
 
   /**
-   * <p>The name of the rule that matched the input.</p>
+   * The name of the rule that matched the input.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -2575,21 +2665,22 @@ export interface ImpersonationMatchedRule {
  */
 export interface GetImpersonationRoleEffectResponse {
   /**
-   * <p>The impersonation role type.</p>
+   * The impersonation role type.
+   *
    * @public
    */
   Type?: ImpersonationRoleType | undefined;
 
   /**
-   * <p>
-   *             <code></code>Effect of the impersonation role on the target user based on its rules. Available
-   *          effects are <code>ALLOW</code> or <code>DENY</code>.</p>
+   * Effect of the impersonation role on the target user based on its rules. Available effects are `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect?: AccessEffect | undefined;
 
   /**
-   * <p>A list of the rules that match the input and produce the configured effect.</p>
+   * A list of the rules that match the input and produce the configured effect.
+   *
    * @public
    */
   MatchedRules?: ImpersonationMatchedRule[] | undefined;
@@ -2600,26 +2691,21 @@ export interface GetImpersonationRoleEffectResponse {
  */
 export interface GetMailboxDetailsRequest {
   /**
-   * <p>The identifier for the organization that contains the user whose mailbox details are
-   *          being requested.</p>
+   * The identifier for the organization that contains the user whose mailbox details are being requested.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the user whose mailbox details are being requested.</p>
-   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: user@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>User name: user</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the user whose mailbox details are being requested.
+   *
+   * The identifier can be the *UserId*, *Username*, or *email*. The following identity formats are available:
+   *
+   * - User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: user@domain.tld
+   * - User name: user
+   *
    * @public
    */
   UserId: string | undefined;
@@ -2630,13 +2716,15 @@ export interface GetMailboxDetailsRequest {
  */
 export interface GetMailboxDetailsResponse {
   /**
-   * <p>The maximum allowed mailbox size, in MB, for the specified user.</p>
+   * The maximum allowed mailbox size, in MB, for the specified user.
+   *
    * @public
    */
   MailboxQuota?: number | undefined;
 
   /**
-   * <p>The current mailbox size, in MB, for the specified user.</p>
+   * The current mailbox size, in MB, for the specified user.
+   *
    * @public
    */
   MailboxSize?: number | undefined;
@@ -2647,13 +2735,15 @@ export interface GetMailboxDetailsResponse {
  */
 export interface GetMailDomainRequest {
   /**
-   * <p>The WorkMail organization for which the domain is retrieved.</p>
+   * The WorkMail organization for which the domain is retrieved.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain from which you want to retrieve details.</p>
+   * The domain from which you want to retrieve details.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -2664,32 +2754,36 @@ export interface GetMailDomainRequest {
  */
 export interface GetMailDomainResponse {
   /**
-   * <p>A list of the DNS records that WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming
-   *          email traffic to SES. See admin guide for more details.</p>
+   * A list of the DNS records that WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES. See admin guide for more details.
+   *
    * @public
    */
   Records?: DnsRecord[] | undefined;
 
   /**
-   * <p>Specifies whether the domain is a test domain provided by WorkMail, or a custom domain.</p>
+   * Specifies whether the domain is a test domain provided by WorkMail, or a custom domain.
+   *
    * @public
    */
   IsTestDomain?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the domain is the default domain for your organization.</p>
+   * Specifies whether the domain is the default domain for your organization.
+   *
    * @public
    */
   IsDefault?: boolean | undefined;
 
   /**
-   * <p> Indicates the status of the domain ownership verification.</p>
+   * Indicates the status of the domain ownership verification.
+   *
    * @public
    */
   OwnershipVerificationStatus?: DnsRecordVerificationStatus | undefined;
 
   /**
-   * <p>Indicates the status of a DKIM verification.</p>
+   * Indicates the status of a DKIM verification.
+   *
    * @public
    */
   DkimVerificationStatus?: DnsRecordVerificationStatus | undefined;
@@ -2700,49 +2794,57 @@ export interface GetMailDomainResponse {
  */
 export interface GetMobileDeviceAccessEffectRequest {
   /**
-   * <p>The WorkMail organization to simulate the access effect for.</p>
+   * The WorkMail organization to simulate the access effect for.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>Device type the simulated user will report.</p>
+   * Device type the simulated user will report.
+   *
    * @public
    */
   DeviceType?: string | undefined;
 
   /**
-   * <p>Device model the simulated user will report.</p>
+   * Device model the simulated user will report.
+   *
    * @public
    */
   DeviceModel?: string | undefined;
 
   /**
-   * <p>Device operating system the simulated user will report.</p>
+   * Device operating system the simulated user will report.
+   *
    * @public
    */
   DeviceOperatingSystem?: string | undefined;
 
   /**
-   * <p>Device user agent the simulated user will report.</p>
+   * Device user agent the simulated user will report.
+   *
    * @public
    */
   DeviceUserAgent?: string | undefined;
 }
 
 /**
- * <p>The rule that a simulated user matches.</p>
+ * The rule that a simulated user matches.
+ *
  * @public
  */
 export interface MobileDeviceAccessMatchedRule {
   /**
-   * <p>Identifier of the rule that a simulated user matches.</p>
+   * Identifier of the rule that a simulated user matches.
+   *
    * @public
    */
   MobileDeviceAccessRuleId?: string | undefined;
 
   /**
-   * <p>Name of a rule that a simulated user matches.</p>
+   * Name of a rule that a simulated user matches.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -2753,14 +2855,15 @@ export interface MobileDeviceAccessMatchedRule {
  */
 export interface GetMobileDeviceAccessEffectResponse {
   /**
-   * <p>The effect of the simulated access, <code>ALLOW</code> or <code>DENY</code>, after evaluating mobile device access rules in the WorkMail organization for the simulated
-   *          user parameters.</p>
+   * The effect of the simulated access, `ALLOW` or `DENY`, after evaluating mobile device access rules in the WorkMail organization for the simulated user parameters.
+   *
    * @public
    */
   Effect?: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>A list of the rules which matched the simulated user input and produced the effect.</p>
+   * A list of the rules which matched the simulated user input and produced the effect.
+   *
    * @public
    */
   MatchedRules?: MobileDeviceAccessMatchedRule[] | undefined;
@@ -2771,33 +2874,26 @@ export interface GetMobileDeviceAccessEffectResponse {
  */
 export interface GetMobileDeviceAccessOverrideRequest {
   /**
-   * <p>The WorkMail organization to which you want to apply the override.</p>
+   * The WorkMail organization to which you want to apply the override.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>Identifies the WorkMail user for the override. Accepts the following types of user identities: </p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: <code>user@domain.tld</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>User name: <code>user</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Identifies the WorkMail user for the override. Accepts the following types of user identities:
+   *
+   * - User ID: `12345678-1234-1234-1234-123456789012` or `S-1-1-12-1234567890-123456789-123456789-1234`
+   * - Email address: `user@domain.tld`
+   * - User name: `user`
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The mobile device to which the override applies. <code>DeviceId</code> is case insensitive.</p>
+   * The mobile device to which the override applies. `DeviceId` is case insensitive.
+   *
    * @public
    */
   DeviceId: string | undefined;
@@ -2808,37 +2904,43 @@ export interface GetMobileDeviceAccessOverrideRequest {
  */
 export interface GetMobileDeviceAccessOverrideResponse {
   /**
-   * <p>The WorkMail user to which the access override applies.</p>
+   * The WorkMail user to which the access override applies.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The device to which the access override applies.</p>
+   * The device to which the access override applies.
+   *
    * @public
    */
   DeviceId?: string | undefined;
 
   /**
-   * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the override, `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect?: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>A description of the override.</p>
+   * A description of the override.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date the override was first created.</p>
+   * The date the override was first created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date the description was last modified.</p>
+   * The date the description was last modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
@@ -2849,15 +2951,15 @@ export interface GetMobileDeviceAccessOverrideResponse {
  */
 export interface GetPersonalAccessTokenMetadataRequest {
   /**
-   * <p>
-   *          The Organization ID. </p>
+   * The Organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>
-   *          The Personal Access Token ID.</p>
+   * The Personal Access Token ID.
+   *
    * @public
    */
   PersonalAccessTokenId: string | undefined;
@@ -2868,213 +2970,232 @@ export interface GetPersonalAccessTokenMetadataRequest {
  */
 export interface GetPersonalAccessTokenMetadataResponse {
   /**
-   * <p>
-   *          The Personal Access Token ID.</p>
+   * The Personal Access Token ID.
+   *
    * @public
    */
   PersonalAccessTokenId?: string | undefined;
 
   /**
-   * <p>
-   *          The WorkMail User ID.
-   *       </p>
+   * The WorkMail User ID.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>
-   *          The Personal Access Token name.
-   *       </p>
+   * The Personal Access Token name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *          The date when the Personal Access Token ID was created.
-   *       </p>
+   * The date when the Personal Access Token ID was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>
-   *          The date when the Personal Access Token ID was last used.
-   *       </p>
+   * The date when the Personal Access Token ID was last used.
+   *
    * @public
    */
   DateLastUsed?: Date | undefined;
 
   /**
-   * <p>
-   *          The time when the Personal Access Token ID will expire.
-   *       </p>
+   * The time when the Personal Access Token ID will expire.
+   *
    * @public
    */
   ExpiresTime?: Date | undefined;
 
   /**
-   * <p>
-   *          Lists all the Personal Access Token permissions for a mailbox.
-   *       </p>
+   * Lists all the Personal Access Token permissions for a mailbox.
+   *
    * @public
    */
   Scopes?: string[] | undefined;
 }
 
 /**
- * <p>The representation of an WorkMail group.</p>
+ * The representation of an WorkMail group.
+ *
  * @public
  */
 export interface Group {
   /**
-   * <p>The identifier of the group.</p>
+   * The identifier of the group.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The email of the group.</p>
+   * The email of the group.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The name of the group.</p>
+   * The name of the group.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
+   * The state of the group, which can be ENABLED, DISABLED, or DELETED.
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>The date indicating when the group was enabled for WorkMail use.</p>
+   * The date indicating when the group was enabled for WorkMail use.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date indicating when the group was disabled from WorkMail use.</p>
+   * The date indicating when the group was disabled from WorkMail use.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
 }
 
 /**
- * <p>The identifier that contains the Group ID and name of a group.</p>
+ * The identifier that contains the Group ID and name of a group.
+ *
  * @public
  */
 export interface GroupIdentifier {
   /**
-   * <p>Group ID that matched the group.</p>
+   * Group ID that matched the group.
+   *
    * @public
    */
   GroupId?: string | undefined;
 
   /**
-   * <p>Group name that matched the group.</p>
+   * Group name that matched the group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 }
 
 /**
- * <p>An impersonation role for the given WorkMail organization.</p>
+ * An impersonation role for the given WorkMail organization.
+ *
  * @public
  */
 export interface ImpersonationRole {
   /**
-   * <p>The identifier of the impersonation role.</p>
+   * The identifier of the impersonation role.
+   *
    * @public
    */
   ImpersonationRoleId?: string | undefined;
 
   /**
-   * <p>The impersonation role name.</p>
+   * The impersonation role name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The impersonation role type.</p>
+   * The impersonation role type.
+   *
    * @public
    */
   Type?: ImpersonationRoleType | undefined;
 
   /**
-   * <p>The date when the impersonation role was created.</p>
+   * The date when the impersonation role was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date when the impersonation role was last modified.</p>
+   * The date when the impersonation role was last modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
 }
 
 /**
- * <p>The details of a mailbox export job, including the user or resource ID associated
- *          with the mailbox and the S3 bucket that the mailbox contents are exported to.</p>
+ * The details of a mailbox export job, including the user or resource ID associated with the mailbox and the S3 bucket that the mailbox contents are exported to.
+ *
  * @public
  */
 export interface MailboxExportJob {
   /**
-   * <p>The identifier of the mailbox export job.</p>
+   * The identifier of the mailbox export job.
+   *
    * @public
    */
   JobId?: string | undefined;
 
   /**
-   * <p>The identifier of the user or resource associated with the mailbox.</p>
+   * The identifier of the user or resource associated with the mailbox.
+   *
    * @public
    */
   EntityId?: string | undefined;
 
   /**
-   * <p>The mailbox export job description.</p>
+   * The mailbox export job description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket.</p>
+   * The name of the S3 bucket.
+   *
    * @public
    */
   S3BucketName?: string | undefined;
 
   /**
-   * <p>The path to the S3 bucket and file that the mailbox export job exports to.</p>
+   * The path to the S3 bucket and file that the mailbox export job exports to.
+   *
    * @public
    */
   S3Path?: string | undefined;
 
   /**
-   * <p>The estimated progress of the mailbox export job, in percentage points.</p>
+   * The estimated progress of the mailbox export job, in percentage points.
+   *
    * @public
    */
   EstimatedProgress?: number | undefined;
 
   /**
-   * <p>The state of the mailbox export job.</p>
+   * The state of the mailbox export job.
+   *
    * @public
    */
   State?: MailboxExportJobState | undefined;
 
   /**
-   * <p>The mailbox export job start timestamp.</p>
+   * The mailbox export job start timestamp.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The mailbox export job end timestamp.</p>
+   * The mailbox export job end timestamp.
+   *
    * @public
    */
   EndTime?: Date | undefined;
@@ -3085,7 +3206,8 @@ export interface MailboxExportJob {
  */
 export interface ListAccessControlRulesRequest {
   /**
-   * <p>The identifier for the organization.</p>
+   * The identifier for the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -3096,7 +3218,8 @@ export interface ListAccessControlRulesRequest {
  */
 export interface ListAccessControlRulesResponse {
   /**
-   * <p>The access control rules.</p>
+   * The access control rules.
+   *
    * @public
    */
   Rules?: AccessControlRule[] | undefined;
@@ -3107,26 +3230,29 @@ export interface ListAccessControlRulesResponse {
  */
 export interface ListAliasesRequest {
   /**
-   * <p>The identifier for the organization under which the entity exists.</p>
+   * The identifier for the organization under which the entity exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the entity for which to list the aliases.</p>
+   * The identifier for the entity for which to list the aliases.
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3137,14 +3263,15 @@ export interface ListAliasesRequest {
  */
 export interface ListAliasesResponse {
   /**
-   * <p>The entity's paginated aliases.</p>
+   * The entity's paginated aliases.
+   *
    * @public
    */
   Aliases?: string[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value is "null" when there
-   *          are no more results to return.</p>
+   * The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3155,20 +3282,22 @@ export interface ListAliasesResponse {
  */
 export interface ListAvailabilityConfigurationsRequest {
   /**
-   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be
-   *          listed.</p>
+   * The WorkMail organization for which the `AvailabilityConfiguration`'s will be listed.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+   * The token to use to retrieve the next page of results. The first call does not require a token.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3179,13 +3308,15 @@ export interface ListAvailabilityConfigurationsRequest {
  */
 export interface ListAvailabilityConfigurationsResponse {
   /**
-   * <p>The list of <code>AvailabilityConfiguration</code>'s that exist for the specified WorkMail organization.</p>
+   * The list of `AvailabilityConfiguration`'s that exist for the specified WorkMail organization.
+   *
    * @public
    */
   AvailabilityConfigurations?: AvailabilityConfiguration[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no further results to return.</p>
+   * The token to use to retrieve the next page of results. The value is `null` when there are no further results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3196,81 +3327,84 @@ export interface ListAvailabilityConfigurationsResponse {
  */
 export interface ListGroupMembersRequest {
   /**
-   * <p>The identifier for the organization under which the group exists.</p>
+   * The identifier for the organization under which the group exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the group to which the members (users or groups) are
-   *          associated.</p>
-   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: group@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Group name: group</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the group to which the members (users or groups) are associated.
+   *
+   * The identifier can accept *GroupId*, *Groupname*, or *email*. The following identity formats are available:
+   *
+   * - Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: group@domain.tld
+   * - Group name: group
+   *
    * @public
    */
   GroupId: string | undefined;
 
   /**
-   * <p> The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The representation of a user or group.</p>
+ * The representation of a user or group.
+ *
  * @public
  */
 export interface Member {
   /**
-   * <p>The identifier of the member.</p>
+   * The identifier of the member.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the member.</p>
+   * The name of the member.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A member can be a user or group.</p>
+   * A member can be a user or group.
+   *
    * @public
    */
   Type?: MemberType | undefined;
 
   /**
-   * <p>The state of the member, which can be ENABLED, DISABLED, or DELETED.</p>
+   * The state of the member, which can be ENABLED, DISABLED, or DELETED.
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>The date indicating when the member was enabled for WorkMail use.</p>
+   * The date indicating when the member was enabled for WorkMail use.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date indicating when the member was disabled from WorkMail use.</p>
+   * The date indicating when the member was disabled from WorkMail use.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
@@ -3281,38 +3415,43 @@ export interface Member {
  */
 export interface ListGroupMembersResponse {
   /**
-   * <p>The members associated to the group.</p>
+   * The members associated to the group.
+   *
    * @public
    */
   Members?: Member[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> Filtering options for <i>ListGroups</i> operation. This is only used as input to Operation.</p>
+ * Filtering options for *ListGroups* operation. This is only used as input to Operation.
+ *
  * @public
  */
 export interface ListGroupsFilters {
   /**
-   * <p>Filters only groups with the provided name prefix.</p>
+   * Filters only groups with the provided name prefix.
+   *
    * @public
    */
   NamePrefix?: string | undefined;
 
   /**
-   * <p>Filters only groups with the provided primary email prefix.</p>
+   * Filters only groups with the provided primary email prefix.
+   *
    * @public
    */
   PrimaryEmailPrefix?: string | undefined;
 
   /**
-   * <p>Filters only groups with the provided state.</p>
+   * Filters only groups with the provided state.
+   *
    * @public
    */
   State?: EntityState | undefined;
@@ -3323,26 +3462,29 @@ export interface ListGroupsFilters {
  */
 export interface ListGroupsRequest {
   /**
-   * <p>The identifier for the organization under which the groups exist.</p>
+   * The identifier for the organization under which the groups exist.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Limit the search results based on the filter criteria. Only one filter per request is supported.</p>
+   * Limit the search results based on the filter criteria. Only one filter per request is supported.
+   *
    * @public
    */
   Filters?: ListGroupsFilters | undefined;
@@ -3353,26 +3495,29 @@ export interface ListGroupsRequest {
  */
 export interface ListGroupsResponse {
   /**
-   * <p>The overview of groups for an organization.</p>
+   * The overview of groups for an organization.
+   *
    * @public
    */
   Groups?: Group[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value is "null" when there
-   *          are no more results to return.</p>
+   * The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p> Filtering options for <i>ListGroupsForEntity</i> operation. This is only used as input to Operation.</p>
+ * Filtering options for *ListGroupsForEntity* operation. This is only used as input to Operation.
+ *
  * @public
  */
 export interface ListGroupsForEntityFilters {
   /**
-   * <p>Filters only group names that start with the provided name prefix.</p>
+   * Filters only group names that start with the provided name prefix.
+   *
    * @public
    */
   GroupNamePrefix?: string | undefined;
@@ -3383,43 +3528,42 @@ export interface ListGroupsForEntityFilters {
  */
 export interface ListGroupsForEntityRequest {
   /**
-   * <p>The identifier for the organization under which the entity exists.</p>
+   * The identifier for the organization under which the entity exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the entity.</p>
-   *          <p>The entity ID can accept <i>UserId or GroupID</i>, <i>Username or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the entity.
+   *
+   * The entity ID can accept *UserId or GroupID*, *Username or Groupname*, or *email*.
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>Limit the search results based on the filter criteria.</p>
+   * Limit the search results based on the filter criteria.
+   *
    * @public
    */
   Filters?: ListGroupsForEntityFilters | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3430,13 +3574,15 @@ export interface ListGroupsForEntityRequest {
  */
 export interface ListGroupsForEntityResponse {
   /**
-   * <p>The overview of groups in an organization.</p>
+   * The overview of groups in an organization.
+   *
    * @public
    */
   Groups?: GroupIdentifier[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3447,20 +3593,22 @@ export interface ListGroupsForEntityResponse {
  */
 export interface ListImpersonationRolesRequest {
   /**
-   * <p>The WorkMail organization to which the listed impersonation roles belong.</p>
+   * The WorkMail organization to which the listed impersonation roles belong.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The token used to retrieve the next page of results. The first call doesn't require a
-   *          token.</p>
+   * The token used to retrieve the next page of results. The first call doesn't require a token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results returned in a single call.</p>
+   * The maximum number of results returned in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3471,14 +3619,15 @@ export interface ListImpersonationRolesRequest {
  */
 export interface ListImpersonationRolesResponse {
   /**
-   * <p>The list of impersonation roles under the given WorkMail organization.</p>
+   * The list of impersonation roles under the given WorkMail organization.
+   *
    * @public
    */
   Roles?: ImpersonationRole[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. The value is <code>null</code> when
-   *          there are no results to return.</p>
+   * The token to retrieve the next page of results. The value is `null` when there are no results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3489,19 +3638,22 @@ export interface ListImpersonationRolesResponse {
  */
 export interface ListMailboxExportJobsRequest {
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -3512,13 +3664,15 @@ export interface ListMailboxExportJobsRequest {
  */
 export interface ListMailboxExportJobsResponse {
   /**
-   * <p>The mailbox export job details.</p>
+   * The mailbox export job details.
+   *
    * @public
    */
   Jobs?: MailboxExportJob[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * The token to use to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3529,71 +3683,63 @@ export interface ListMailboxExportJobsResponse {
  */
 export interface ListMailboxPermissionsRequest {
   /**
-   * <p>The identifier of the organization under which the user, group, or resource
-   *          exists.</p>
+   * The identifier of the organization under which the user, group, or resource exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the user, or resource for which to list mailbox
-   *          permissions.</p>
-   *          <p>The entity ID can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the user, or resource for which to list mailbox permissions.
+   *
+   * The entity ID can accept *UserId or ResourceId*, *Username or Resourcename*, or *email*.
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, or r-0123456789a0123456789b0123456789
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Permission granted to a user, group, or resource to access a certain aspect of
- *          another user, group, or resource mailbox.</p>
+ * Permission granted to a user, group, or resource to access a certain aspect of another user, group, or resource mailbox.
+ *
  * @public
  */
 export interface Permission {
   /**
-   * <p>The identifier of the user, group, or resource to which the permissions are
-   *          granted.</p>
+   * The identifier of the user, group, or resource to which the permissions are granted.
+   *
    * @public
    */
   GranteeId: string | undefined;
 
   /**
-   * <p>The type of user, group, or resource referred to in GranteeId.</p>
+   * The type of user, group, or resource referred to in GranteeId.
+   *
    * @public
    */
   GranteeType: MemberType | undefined;
 
   /**
-   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as
-   *          the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF
-   *          allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not
-   *          mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full
-   *          access to the mailbox, irrespective of other folder-level permissions set on the
-   *          mailbox.</p>
+   * The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
+   *
    * @public
    */
   PermissionValues: PermissionType[] | undefined;
@@ -3604,14 +3750,15 @@ export interface Permission {
  */
 export interface ListMailboxPermissionsResponse {
   /**
-   * <p>One page of the user, group, or resource mailbox permissions.</p>
+   * One page of the user, group, or resource mailbox permissions.
+   *
    * @public
    */
   Permissions?: Permission[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value is "null" when there
-   *          are no more results to return.</p>
+   * The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3622,37 +3769,43 @@ export interface ListMailboxPermissionsResponse {
  */
 export interface ListMailDomainsRequest {
   /**
-   * <p>The WorkMail organization for which to list domains.</p>
+   * The WorkMail organization for which to list domains.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+   * The token to use to retrieve the next page of results. The first call does not require a token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>The data for a given domain.</p>
+ * The data for a given domain.
+ *
  * @public
  */
 export interface MailDomainSummary {
   /**
-   * <p>The domain name.</p>
+   * The domain name.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>Whether the domain is default or not.</p>
+   * Whether the domain is default or not.
+   *
    * @public
    */
   DefaultDomain?: boolean | undefined;
@@ -3663,13 +3816,15 @@ export interface MailDomainSummary {
  */
 export interface ListMailDomainsResponse {
   /**
-   * <p>The list of mail domain summaries, specifying domains that exist in the specified WorkMail organization, along with the information about whether the domain is or isn't the default.</p>
+   * The list of mail domain summaries, specifying domains that exist in the specified WorkMail organization, along with the information about whether the domain is or isn't the default.
+   *
    * @public
    */
   MailDomains?: MailDomainSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value becomes <code>null</code> when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. The value becomes `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3680,87 +3835,89 @@ export interface ListMailDomainsResponse {
  */
 export interface ListMobileDeviceAccessOverridesRequest {
   /**
-   * <p>The WorkMail organization under which to list mobile device access overrides.</p>
+   * The WorkMail organization under which to list mobile device access overrides.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The WorkMail user under which you list the mobile device access overrides. Accepts the following types of user identities:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: <code>user@domain.tld</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>User name: <code>user</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The WorkMail user under which you list the mobile device access overrides. Accepts the following types of user identities:
+   *
+   * - User ID: `12345678-1234-1234-1234-123456789012` or `S-1-1-12-1234567890-123456789-123456789-1234`
+   * - Email address: `user@domain.tld`
+   * - User name: `user`
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The mobile device to which the access override applies.</p>
+   * The mobile device to which the access override applies.
+   *
    * @public
    */
   DeviceId?: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+   * The token to use to retrieve the next page of results. The first call does not require a token.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The override object.</p>
+ * The override object.
+ *
  * @public
  */
 export interface MobileDeviceAccessOverride {
   /**
-   * <p>The WorkMail user to which the access override applies.</p>
+   * The WorkMail user to which the access override applies.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The device to which the override applies.</p>
+   * The device to which the override applies.
+   *
    * @public
    */
   DeviceId?: string | undefined;
 
   /**
-   * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the override, `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect?: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>A description of the override.</p>
+   * A description of the override.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date the override was first created.</p>
+   * The date the override was first created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date the override was last modified.</p>
+   * The date the override was last modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
@@ -3771,13 +3928,15 @@ export interface MobileDeviceAccessOverride {
  */
 export interface ListMobileDeviceAccessOverridesResponse {
   /**
-   * <p>The list of mobile device access overrides that exist for the specified WorkMail organization and user.</p>
+   * The list of mobile device access overrides that exist for the specified WorkMail organization and user.
+   *
    * @public
    */
   Overrides?: MobileDeviceAccessOverride[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value is “null” when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. The value is “null” when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3788,97 +3947,113 @@ export interface ListMobileDeviceAccessOverridesResponse {
  */
 export interface ListMobileDeviceAccessRulesRequest {
   /**
-   * <p>The WorkMail organization for which to list the rules.</p>
+   * The WorkMail organization for which to list the rules.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 }
 
 /**
- * <p>A rule that controls access to mobile devices for an WorkMail group.</p>
+ * A rule that controls access to mobile devices for an WorkMail group.
+ *
  * @public
  */
 export interface MobileDeviceAccessRule {
   /**
-   * <p>The ID assigned to a mobile access rule.</p>
+   * The ID assigned to a mobile access rule.
+   *
    * @public
    */
   MobileDeviceAccessRuleId?: string | undefined;
 
   /**
-   * <p>The name of a mobile access rule.</p>
+   * The name of a mobile access rule.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of a mobile access rule.</p>
+   * The description of a mobile access rule.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the rule when it matches. Allowed values are `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect?: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>Device types that a rule will match.</p>
+   * Device types that a rule will match.
+   *
    * @public
    */
   DeviceTypes?: string[] | undefined;
 
   /**
-   * <p>Device types that a rule <b>will not</b> match. All other device types will match.</p>
+   * Device types that a rule **will not** match. All other device types will match.
+   *
    * @public
    */
   NotDeviceTypes?: string[] | undefined;
 
   /**
-   * <p>Device models that a rule will match.</p>
+   * Device models that a rule will match.
+   *
    * @public
    */
   DeviceModels?: string[] | undefined;
 
   /**
-   * <p>Device models that a rule <b>will not</b> match. All other device models will match.</p>
+   * Device models that a rule **will not** match. All other device models will match.
+   *
    * @public
    */
   NotDeviceModels?: string[] | undefined;
 
   /**
-   * <p>Device operating systems that a rule will match.</p>
+   * Device operating systems that a rule will match.
+   *
    * @public
    */
   DeviceOperatingSystems?: string[] | undefined;
 
   /**
-   * <p>Device operating systems that a rule <b>will not</b> match. All other device types will match.</p>
+   * Device operating systems that a rule **will not** match. All other device types will match.
+   *
    * @public
    */
   NotDeviceOperatingSystems?: string[] | undefined;
 
   /**
-   * <p>Device user agents that a rule will match.</p>
+   * Device user agents that a rule will match.
+   *
    * @public
    */
   DeviceUserAgents?: string[] | undefined;
 
   /**
-   * <p>Device user agents that a rule <b>will not</b> match. All other device user agents will match.</p>
+   * Device user agents that a rule **will not** match. All other device user agents will match.
+   *
    * @public
    */
   NotDeviceUserAgents?: string[] | undefined;
 
   /**
-   * <p>The date and time at which an access rule was created.</p>
+   * The date and time at which an access rule was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>The date and time at which an access rule was modified.</p>
+   * The date and time at which an access rule was modified.
+   *
    * @public
    */
   DateModified?: Date | undefined;
@@ -3889,7 +4064,8 @@ export interface MobileDeviceAccessRule {
  */
 export interface ListMobileDeviceAccessRulesResponse {
   /**
-   * <p>The list of mobile device access rules that exist under the specified WorkMail organization.</p>
+   * The list of mobile device access rules that exist under the specified WorkMail organization.
+   *
    * @public
    */
   Rules?: MobileDeviceAccessRule[] | undefined;
@@ -3900,52 +4076,57 @@ export interface ListMobileDeviceAccessRulesResponse {
  */
 export interface ListOrganizationsRequest {
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>The representation of an organization.</p>
+ * The representation of an organization.
+ *
  * @public
  */
 export interface OrganizationSummary {
   /**
-   * <p>The identifier associated with the organization.</p>
+   * The identifier associated with the organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The alias associated with the organization.</p>
+   * The alias associated with the organization.
+   *
    * @public
    */
   Alias?: string | undefined;
 
   /**
-   * <p>The default email domain associated with the organization.</p>
+   * The default email domain associated with the organization.
+   *
    * @public
    */
   DefaultMailDomain?: string | undefined;
 
   /**
-   * <p>The error message associated with the organization. It is only present if unexpected
-   *          behavior has occurred with regards to the organization. It provides insight or solutions
-   *          regarding unexpected behavior.</p>
+   * The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The state associated with the organization.</p>
+   * The state associated with the organization.
+   *
    * @public
    */
   State?: string | undefined;
@@ -3956,15 +4137,15 @@ export interface OrganizationSummary {
  */
 export interface ListOrganizationsResponse {
   /**
-   * <p>The overview of owned organizations presented as a list of organization
-   *          summaries.</p>
+   * The overview of owned organizations presented as a list of organization summaries.
+   *
    * @public
    */
   OrganizationSummaries?: OrganizationSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The value is "null" when there
-   *          are no more results to return.</p>
+   * The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3975,95 +4156,85 @@ export interface ListOrganizationsResponse {
  */
 export interface ListPersonalAccessTokensRequest {
   /**
-   * <p>
-   *          The Organization ID. </p>
+   * The Organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>
-   *          The WorkMail User ID.
-   *       </p>
+   * The WorkMail User ID.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>
-   *          The token from the previous response to query the next page.</p>
+   * The token from the previous response to query the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *         The maximum amount of items that should be returned in a response.
-   *       </p>
+   * The maximum amount of items that should be returned in a response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>
- *          The summary of the Personal Access Token.
- *       </p>
+ * The summary of the Personal Access Token.
+ *
  * @public
  */
 export interface PersonalAccessTokenSummary {
   /**
-   * <p>
-   *          The ID of the Personal Access Token.
-   *          </p>
+   * The ID of the Personal Access Token.
+   *
    * @public
    */
   PersonalAccessTokenId?: string | undefined;
 
   /**
-   * <p>
-   *          The user ID of the WorkMail user associated with the Personal Access Token.
-   *       </p>
+   * The user ID of the WorkMail user associated with the Personal Access Token.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>
-   *          The name of the Personal Access Token.
-   *       </p>
+   * The name of the Personal Access Token.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>
-   *          The date when the Personal Access Token was created.
-   *       </p>
+   * The date when the Personal Access Token was created.
+   *
    * @public
    */
   DateCreated?: Date | undefined;
 
   /**
-   * <p>
-   *          The date when the Personal Access Token was last used.
-   *       </p>
+   * The date when the Personal Access Token was last used.
+   *
    * @public
    */
   DateLastUsed?: Date | undefined;
 
   /**
-   * <p>
-   *          The date when the Personal Access Token will expire.
-   *       </p>
+   * The date when the Personal Access Token will expire.
+   *
    * @public
    */
   ExpiresTime?: Date | undefined;
 
   /**
-   * <p>
-   *          Lists all the Personal Access Token permissions for a mailbox.
-   *       </p>
+   * Lists all the Personal Access Token permissions for a mailbox.
+   *
    * @public
    */
   Scopes?: string[] | undefined;
@@ -4074,16 +4245,15 @@ export interface PersonalAccessTokenSummary {
  */
 export interface ListPersonalAccessTokensResponse {
   /**
-   * <p>
-   *          The token from the previous response to query the next page.</p>
+   * The token from the previous response to query the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>
-   *          Lists all the personal tokens in an organization or user, if user ID is provided.
-   *       </p>
+   * Lists all the personal tokens in an organization or user, if user ID is provided.
+   *
    * @public
    */
   PersonalAccessTokenSummaries?: PersonalAccessTokenSummary[] | undefined;
@@ -4094,39 +4264,35 @@ export interface ListPersonalAccessTokensResponse {
  */
 export interface ListResourceDelegatesRequest {
   /**
-   * <p>The identifier for the organization that contains the resource for which delegates
-   *          are listed.</p>
+   * The identifier for the organization that contains the resource for which delegates are listed.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the resource whose delegates are listed.</p>
-   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: resource@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name: resource</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the resource whose delegates are listed.
+   *
+   * The identifier can accept *ResourceId*, *Resourcename*, or *email*. The following identity formats are available:
+   *
+   * - Resource ID: r-0123456789a0123456789b0123456789
+   * - Email address: resource@domain.tld
+   * - Resource name: resource
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The token used to paginate through the delegates associated with a
-   *          resource.</p>
+   * The token used to paginate through the delegates associated with a resource.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The number of maximum results in a page.</p>
+   * The number of maximum results in a page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -4137,39 +4303,43 @@ export interface ListResourceDelegatesRequest {
  */
 export interface ListResourceDelegatesResponse {
   /**
-   * <p>One page of the resource's delegates.</p>
+   * One page of the resource's delegates.
+   *
    * @public
    */
   Delegates?: Delegate[] | undefined;
 
   /**
-   * <p>The token used to paginate through the delegates associated with a resource. While
-   *          results are still available, it has an associated value. When the last page is reached, the
-   *          token is empty.</p>
+   * The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Filtering options for <i>ListResources</i> operation. This is only used as input to Operation.</p>
+ * Filtering options for *ListResources* operation. This is only used as input to Operation.
+ *
  * @public
  */
 export interface ListResourcesFilters {
   /**
-   * <p>Filters only resource that start with the entered name prefix .</p>
+   * Filters only resource that start with the entered name prefix .
+   *
    * @public
    */
   NamePrefix?: string | undefined;
 
   /**
-   * <p>Filters only resource with the provided primary email prefix.</p>
+   * Filters only resource with the provided primary email prefix.
+   *
    * @public
    */
   PrimaryEmailPrefix?: string | undefined;
 
   /**
-   * <p>Filters only resource with the provided state.</p>
+   * Filters only resource with the provided state.
+   *
    * @public
    */
   State?: EntityState | undefined;
@@ -4180,80 +4350,92 @@ export interface ListResourcesFilters {
  */
 export interface ListResourcesRequest {
   /**
-   * <p>The identifier for the organization under which the resources exist.</p>
+   * The identifier for the organization under which the resources exist.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Limit the resource search results based on the filter criteria. You can only use one filter per request.</p>
+   * Limit the resource search results based on the filter criteria. You can only use one filter per request.
+   *
    * @public
    */
   Filters?: ListResourcesFilters | undefined;
 }
 
 /**
- * <p>The representation of a resource.</p>
+ * The representation of a resource.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The identifier of the resource.</p>
+   * The identifier of the resource.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The email of the resource.</p>
+   * The email of the resource.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The type of the resource: equipment or room.</p>
+   * The type of the resource: equipment or room.
+   *
    * @public
    */
   Type?: ResourceType | undefined;
 
   /**
-   * <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
+   * The state of the resource, which can be ENABLED, DISABLED, or DELETED.
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>The date indicating when the resource was enabled for WorkMail use.</p>
+   * The date indicating when the resource was enabled for WorkMail use.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date indicating when the resource was disabled from WorkMail use.</p>
+   * The date indicating when the resource was disabled from WorkMail use.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
 
   /**
-   * <p>Resource description.</p>
+   * Resource description.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -4264,15 +4446,15 @@ export interface Resource {
  */
 export interface ListResourcesResponse {
   /**
-   * <p>One page of the organization's resource representation.</p>
+   * One page of the organization's resource representation.
+   *
    * @public
    */
   Resources?: Resource[] | undefined;
 
   /**
-   * <p> The token used to paginate through all the organization's resources. While results
-   *          are still available, it has an associated value. When the last page is reached, the token
-   *          is empty.</p>
+   * The token used to paginate through all the organization's resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4283,25 +4465,29 @@ export interface ListResourcesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 }
 
 /**
- * <p>Describes a tag applied to a resource.</p>
+ * Describes a tag applied to a resource.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   Value: string | undefined;
@@ -4312,43 +4498,50 @@ export interface Tag {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tag key-value pairs.</p>
+   * A list of tag key-value pairs.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p> Filtering options for <i>ListUsers</i> operation. This is only used as input to Operation.</p>
+ * Filtering options for *ListUsers* operation. This is only used as input to Operation.
+ *
  * @public
  */
 export interface ListUsersFilters {
   /**
-   * <p>Filters only users with the provided username prefix.</p>
+   * Filters only users with the provided username prefix.
+   *
    * @public
    */
   UsernamePrefix?: string | undefined;
 
   /**
-   * <p>Filters only users with the provided display name prefix.</p>
+   * Filters only users with the provided display name prefix.
+   *
    * @public
    */
   DisplayNamePrefix?: string | undefined;
 
   /**
-   * <p>Filters only users with the provided email prefix.</p>
+   * Filters only users with the provided email prefix.
+   *
    * @public
    */
   PrimaryEmailPrefix?: string | undefined;
 
   /**
-   * <p>Filters only users with the provided state.</p>
+   * Filters only users with the provided state.
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>Filters only users with the ID from the IAM Identity Center.</p>
+   * Filters only users with the ID from the IAM Identity Center.
+   *
    * @public
    */
   IdentityProviderUserIdPrefix?: string | undefined;
@@ -4359,92 +4552,106 @@ export interface ListUsersFilters {
  */
 export interface ListUsersRequest {
   /**
-   * <p>The identifier for the organization under which the users exist.</p>
+   * The identifier for the organization under which the users exist.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not
-   *          contain any tokens.</p>
+   * The token to use to retrieve the next page of results. The first call does not contain any tokens.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Limit the user search results based on the filter criteria. You can only use one filter per request.</p>
+   * Limit the user search results based on the filter criteria. You can only use one filter per request.
+   *
    * @public
    */
   Filters?: ListUsersFilters | undefined;
 }
 
 /**
- * <p>The representation of an WorkMail user.</p>
+ * The representation of an WorkMail user.
+ *
  * @public
  */
 export interface User {
   /**
-   * <p>The identifier of the user.</p>
+   * The identifier of the user.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The email of the user.</p>
+   * The email of the user.
+   *
    * @public
    */
   Email?: string | undefined;
 
   /**
-   * <p>The name of the user.</p>
+   * The name of the user.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The display name of the user.</p>
+   * The display name of the user.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
+   * The state of the user, which can be ENABLED, DISABLED, or DELETED.
+   *
    * @public
    */
   State?: EntityState | undefined;
 
   /**
-   * <p>The role of the user.</p>
+   * The role of the user.
+   *
    * @public
    */
   UserRole?: UserRole | undefined;
 
   /**
-   * <p>The date indicating when the user was enabled for WorkMail use.</p>
+   * The date indicating when the user was enabled for WorkMail use.
+   *
    * @public
    */
   EnabledDate?: Date | undefined;
 
   /**
-   * <p>The date indicating when the user was disabled from WorkMail use.</p>
+   * The date indicating when the user was disabled from WorkMail use.
+   *
    * @public
    */
   DisabledDate?: Date | undefined;
 
   /**
-   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *
    * @public
    */
   IdentityProviderUserId?: string | undefined;
 
   /**
-   * <p>Identity store ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * Identity store ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *
    * @public
    */
   IdentityProviderIdentityStoreId?: string | undefined;
@@ -4455,14 +4662,15 @@ export interface User {
  */
 export interface ListUsersResponse {
   /**
-   * <p>The overview of users for an organization.</p>
+   * The overview of users for an organization.
+   *
    * @public
    */
   Users?: User[] | undefined;
 
   /**
-   * <p> The token to use to retrieve the next page of results. This value is `null` when
-   *          there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -4473,77 +4681,85 @@ export interface ListUsersResponse {
  */
 export interface PutAccessControlRuleRequest {
   /**
-   * <p>The rule name.</p>
+   * The rule name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The rule effect.</p>
+   * The rule effect.
+   *
    * @public
    */
   Effect: AccessControlRuleEffect | undefined;
 
   /**
-   * <p>The rule description.</p>
+   * The rule description.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>IPv4 CIDR ranges to include in the rule.</p>
+   * IPv4 CIDR ranges to include in the rule.
+   *
    * @public
    */
   IpRanges?: string[] | undefined;
 
   /**
-   * <p>IPv4 CIDR ranges to exclude from the rule.</p>
+   * IPv4 CIDR ranges to exclude from the rule.
+   *
    * @public
    */
   NotIpRanges?: string[] | undefined;
 
   /**
-   * <p>Access protocol actions to include in the rule. Valid values include
-   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
-   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   * Access protocol actions to include in the rule. Valid values include `ActiveSync`, `AutoDiscover`, `EWS`, `IMAP`, `SMTP`, `WindowsOutlook`, and `WebMail`.
+   *
    * @public
    */
   Actions?: string[] | undefined;
 
   /**
-   * <p>Access protocol actions to exclude from the rule. Valid values include
-   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
-   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   * Access protocol actions to exclude from the rule. Valid values include `ActiveSync`, `AutoDiscover`, `EWS`, `IMAP`, `SMTP`, `WindowsOutlook`, and `WebMail`.
+   *
    * @public
    */
   NotActions?: string[] | undefined;
 
   /**
-   * <p>User IDs to include in the rule.</p>
+   * User IDs to include in the rule.
+   *
    * @public
    */
   UserIds?: string[] | undefined;
 
   /**
-   * <p>User IDs to exclude from the rule.</p>
+   * User IDs to exclude from the rule.
+   *
    * @public
    */
   NotUserIds?: string[] | undefined;
 
   /**
-   * <p>The identifier of the organization.</p>
+   * The identifier of the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>Impersonation role IDs to include in the rule.</p>
+   * Impersonation role IDs to include in the rule.
+   *
    * @public
    */
   ImpersonationRoleIds?: string[] | undefined;
 
   /**
-   * <p>Impersonation role IDs to exclude from the rule.</p>
+   * Impersonation role IDs to exclude from the rule.
+   *
    * @public
    */
   NotImpersonationRoleIds?: string[] | undefined;
@@ -4559,19 +4775,22 @@ export interface PutAccessControlRuleResponse {}
  */
 export interface PutEmailMonitoringConfigurationRequest {
   /**
-   * <p>The ID of the organization for which the email monitoring configuration is set.</p>
+   * The ID of the organization for which the email monitoring configuration is set.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration. If absent, the IAM Role Arn of AWSServiceRoleForAmazonWorkMailEvents will be used.</p>
+   * The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration. If absent, the IAM Role Arn of AWSServiceRoleForAmazonWorkMailEvents will be used.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.</p>
+   * The Amazon Resource Name (ARN) of the CloudWatch Log group associated with the email monitoring configuration.
+   *
    * @public
    */
   LogGroupArn: string | undefined;
@@ -4587,30 +4806,29 @@ export interface PutEmailMonitoringConfigurationResponse {}
  */
 export interface PutIdentityProviderConfigurationRequest {
   /**
-   * <p>
-   *          The ID of the WorkMail Organization. </p>
+   * The ID of the WorkMail Organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>
-   *          The authentication mode used in WorkMail.</p>
+   * The authentication mode used in WorkMail.
+   *
    * @public
    */
   AuthenticationMode: IdentityProviderAuthenticationMode | undefined;
 
   /**
-   * <p>
-   *          The details of the IAM Identity Center configuration.</p>
+   * The details of the IAM Identity Center configuration.
+   *
    * @public
    */
   IdentityCenterConfiguration: IdentityCenterConfiguration | undefined;
 
   /**
-   * <p>
-   *          The details of the Personal Access Token configuration.
-   *       </p>
+   * The details of the Personal Access Token configuration.
+   *
    * @public
    */
   PersonalAccessTokenConfiguration: PersonalAccessTokenConfiguration | undefined;
@@ -4626,13 +4844,15 @@ export interface PutIdentityProviderConfigurationResponse {}
  */
 export interface PutInboundDmarcSettingsRequest {
   /**
-   * <p>The ID of the organization that you are applying the DMARC policy to.</p>
+   * The ID of the organization that you are applying the DMARC policy to.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>Enforces or suspends a policy after it's applied.</p>
+   * Enforces or suspends a policy after it's applied.
+   *
    * @public
    */
   Enforced: boolean | undefined;
@@ -4648,57 +4868,41 @@ export interface PutInboundDmarcSettingsResponse {}
  */
 export interface PutMailboxPermissionsRequest {
   /**
-   * <p>The identifier of the organization under which the user, group, or resource
-   *          exists.</p>
+   * The identifier of the organization under which the user, group, or resource exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the user or resource for which to update mailbox
-   *          permissions.</p>
-   *          <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the user or resource for which to update mailbox permissions.
+   *
+   * The identifier can be *UserId, ResourceID, or Group Id*, *Username, Resourcename, or Groupname*, or *email*.
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The identifier of the user, group, or resource to which to grant the
-   *          permissions.</p>
-   *          <p>The identifier can be <i>UserId, ResourceID, or Group Id</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Grantee ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: grantee@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Grantee name: grantee</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the user, group, or resource to which to grant the permissions.
+   *
+   * The identifier can be *UserId, ResourceID, or Group Id*, *Username, Resourcename, or Groupname*, or *email*.
+   *
+   * - Grantee ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: grantee@domain.tld
+   * - Grantee name: grantee
+   *
    * @public
    */
   GranteeId: string | undefined;
 
   /**
-   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as
-   *          the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF
-   *          allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not
-   *          mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full
-   *          access to the mailbox, irrespective of other folder-level permissions set on the
-   *          mailbox.</p>
+   * The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.
+   *
    * @public
    */
   PermissionValues: PermissionType[] | undefined;
@@ -4714,45 +4918,40 @@ export interface PutMailboxPermissionsResponse {}
  */
 export interface PutMobileDeviceAccessOverrideRequest {
   /**
-   * <p>Identifies the WorkMail organization for which you create the override.</p>
+   * Identifies the WorkMail organization for which you create the override.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The WorkMail user for which you create the override. Accepts the following types of user identities:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: <code>user@domain.tld</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>User name: <code>user</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The WorkMail user for which you create the override. Accepts the following types of user identities:
+   *
+   * - User ID: `12345678-1234-1234-1234-123456789012` or `S-1-1-12-1234567890-123456789-123456789-1234`
+   * - Email address: `user@domain.tld`
+   * - User name: `user`
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The mobile device for which you create the override. <code>DeviceId</code> is case insensitive.</p>
+   * The mobile device for which you create the override. `DeviceId` is case insensitive.
+   *
    * @public
    */
   DeviceId: string | undefined;
 
   /**
-   * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the override, `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>A description of the override.</p>
+   * A description of the override.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -4768,31 +4967,36 @@ export interface PutMobileDeviceAccessOverrideResponse {}
  */
 export interface PutRetentionPolicyRequest {
   /**
-   * <p>The organization ID.</p>
+   * The organization ID.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The retention policy ID.</p>
+   * The retention policy ID.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The retention policy name.</p>
+   * The retention policy name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The retention policy description.</p>
+   * The retention policy description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The retention policy folder configurations.</p>
+   * The retention policy folder configurations.
+   *
    * @public
    */
   FolderConfigurations: FolderConfiguration[] | undefined;
@@ -4808,19 +5012,22 @@ export interface PutRetentionPolicyResponse {}
  */
 export interface RegisterMailDomainRequest {
   /**
-   * <p>Idempotency token used when retrying requests.</p>
+   * Idempotency token used when retrying requests.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The WorkMail organization under which you're creating the domain.</p>
+   * The WorkMail organization under which you're creating the domain.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The name of the mail domain to create in WorkMail and SES.</p>
+   * The name of the mail domain to create in WorkMail and SES.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -4836,29 +5043,27 @@ export interface RegisterMailDomainResponse {}
  */
 export interface RegisterToWorkMailRequest {
   /**
-   * <p>The identifier for the organization under which the user, group, or resource
-   *          exists.</p>
+   * The identifier for the organization under which the user, group, or resource exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the user, group, or resource to be updated.</p>
-   *          <p>The identifier can accept <i>UserId, ResourceId, or GroupId</i>, or <i>Username, Resourcename, or Groupname</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the user, group, or resource to be updated.
+   *
+   * The identifier can accept *UserId, ResourceId, or GroupId*, or *Username, Resourcename, or Groupname*. The following identity formats are available:
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The email for the user, group, or resource to be updated.</p>
+   * The email for the user, group, or resource to be updated.
+   *
    * @public
    */
   Email: string | undefined;
@@ -4874,20 +5079,22 @@ export interface RegisterToWorkMailResponse {}
  */
 export interface ResetPasswordRequest {
   /**
-   * <p>The identifier of the organization that contains the user for which the password is
-   *          reset.</p>
+   * The identifier of the organization that contains the user for which the password is reset.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the user for whom the password is reset.</p>
+   * The identifier of the user for whom the password is reset.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The new password for the user.</p>
+   * The new password for the user.
+   *
    * @public
    */
   Password: string | undefined;
@@ -4903,64 +5110,63 @@ export interface ResetPasswordResponse {}
  */
 export interface StartMailboxExportJobRequest {
   /**
-   * <p>The idempotency token for the client request.</p>
+   * The idempotency token for the client request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The identifier associated with the organization.</p>
+   * The identifier associated with the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the user or resource associated with the mailbox.</p>
-   *          <p>The identifier can accept <i>UserId or ResourceId</i>, <i>Username or Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789
-   *             , or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the user or resource associated with the mailbox.
+   *
+   * The identifier can accept *UserId or ResourceId*, *Username or Resourcename*, or *email*. The following identity formats are available:
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789 , or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The mailbox export job description.</p>
+   * The mailbox export job description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3
-   *          bucket.</p>
+   * The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3 bucket.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS)
-   *          key that encrypts the exported mailbox content.</p>
+   * The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS) key that encrypts the exported mailbox content.
+   *
    * @public
    */
   KmsKeyArn: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket.</p>
+   * The name of the S3 bucket.
+   *
    * @public
    */
   S3BucketName: string | undefined;
 
   /**
-   * <p>The S3 bucket prefix.</p>
+   * The S3 bucket prefix.
+   *
    * @public
    */
   S3Prefix: string | undefined;
@@ -4971,7 +5177,8 @@ export interface StartMailboxExportJobRequest {
  */
 export interface StartMailboxExportJobResponse {
   /**
-   * <p>The job ID.</p>
+   * The job ID.
+   *
    * @public
    */
   JobId?: string | undefined;
@@ -4982,13 +5189,15 @@ export interface StartMailboxExportJobResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tag key-value pairs.</p>
+   * The tag key-value pairs.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -5004,25 +5213,29 @@ export interface TagResourceResponse {}
  */
 export interface TestAvailabilityConfigurationRequest {
   /**
-   * <p>The WorkMail organization where the availability provider will be tested.</p>
+   * The WorkMail organization where the availability provider will be tested.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain to which the provider applies. If this field is provided, a stored availability provider associated to this domain name will be tested.</p>
+   * The domain to which the provider applies. If this field is provided, a stored availability provider associated to this domain name will be tested.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>Describes an EWS based availability provider. This is only used as input to the service.</p>
+   * Describes an EWS based availability provider. This is only used as input to the service.
+   *
    * @public
    */
   EwsProvider?: EwsAvailabilityProvider | undefined;
 
   /**
-   * <p>Describes a Lambda based availability provider.</p>
+   * Describes a Lambda based availability provider.
+   *
    * @public
    */
   LambdaProvider?: LambdaAvailabilityProvider | undefined;
@@ -5033,13 +5246,15 @@ export interface TestAvailabilityConfigurationRequest {
  */
 export interface TestAvailabilityConfigurationResponse {
   /**
-   * <p>Boolean indicating whether the test passed or failed.</p>
+   * Boolean indicating whether the test passed or failed.
+   *
    * @public
    */
   TestPassed?: boolean | undefined;
 
   /**
-   * <p>String containing the reason for a failed test if <code>TestPassed</code> is false.</p>
+   * String containing the reason for a failed test if `TestPassed` is false.
+   *
    * @public
    */
   FailureReason?: string | undefined;
@@ -5050,13 +5265,15 @@ export interface TestAvailabilityConfigurationResponse {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The resource ARN.</p>
+   * The resource ARN.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -5072,30 +5289,29 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAvailabilityConfigurationRequest {
   /**
-   * <p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be
-   *          updated.</p>
+   * The WorkMail organization for which the `AvailabilityConfiguration` will be updated.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain to which the provider applies the availability configuration.</p>
+   * The domain to which the provider applies the availability configuration.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The EWS availability provider definition. The request must contain exactly one provider
-   *          definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>. The previously
-   *          stored provider will be overridden by the one provided.</p>
+   * The EWS availability provider definition. The request must contain exactly one provider definition, either `EwsProvider` or `LambdaProvider`. The previously stored provider will be overridden by the one provided.
+   *
    * @public
    */
   EwsProvider?: EwsAvailabilityProvider | undefined;
 
   /**
-   * <p>The Lambda availability provider definition. The request must contain exactly one
-   *          provider definition, either <code>EwsProvider</code> or <code>LambdaProvider</code>. The
-   *          previously stored provider will be overridden by the one provided.</p>
+   * The Lambda availability provider definition. The request must contain exactly one provider definition, either `EwsProvider` or `LambdaProvider`. The previously stored provider will be overridden by the one provided.
+   *
    * @public
    */
   LambdaProvider?: LambdaAvailabilityProvider | undefined;
@@ -5111,13 +5327,15 @@ export interface UpdateAvailabilityConfigurationResponse {}
  */
 export interface UpdateDefaultMailDomainRequest {
   /**
-   * <p>The WorkMail organization for which to list domains.</p>
+   * The WorkMail organization for which to list domains.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The domain name that will become the default domain.</p>
+   * The domain name that will become the default domain.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -5133,31 +5351,28 @@ export interface UpdateDefaultMailDomainResponse {}
  */
 export interface UpdateGroupRequest {
   /**
-   * <p>The identifier for the organization under which the group exists.</p>
+   * The identifier for the organization under which the group exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the group to be updated.</p>
-   *          <p>The identifier can accept <i>GroupId</i>, <i>Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: group@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Group name: group</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the group to be updated.
+   *
+   * The identifier can accept *GroupId*, *Groupname*, or *email*. The following identity formats are available:
+   *
+   * - Group ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: group@domain.tld
+   * - Group name: group
+   *
    * @public
    */
   GroupId: string | undefined;
 
   /**
-   * <p>If enabled, the group is hidden from the global address list.</p>
+   * If enabled, the group is hidden from the global address list.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
@@ -5173,37 +5388,43 @@ export interface UpdateGroupResponse {}
  */
 export interface UpdateImpersonationRoleRequest {
   /**
-   * <p>The WorkMail organization that contains the impersonation role to update.</p>
+   * The WorkMail organization that contains the impersonation role to update.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The ID of the impersonation role to update.</p>
+   * The ID of the impersonation role to update.
+   *
    * @public
    */
   ImpersonationRoleId: string | undefined;
 
   /**
-   * <p>The updated impersonation role name.</p>
+   * The updated impersonation role name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The updated impersonation role type.</p>
+   * The updated impersonation role type.
+   *
    * @public
    */
   Type: ImpersonationRoleType | undefined;
 
   /**
-   * <p>The updated impersonation role description.</p>
+   * The updated impersonation role description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The updated list of rules.</p>
+   * The updated list of rules.
+   *
    * @public
    */
   Rules: ImpersonationRule[] | undefined;
@@ -5219,32 +5440,28 @@ export interface UpdateImpersonationRoleResponse {}
  */
 export interface UpdateMailboxQuotaRequest {
   /**
-   * <p>The identifier for the organization that contains the user for whom to update the
-   *          mailbox quota.</p>
+   * The identifier for the organization that contains the user for whom to update the mailbox quota.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifer for the user for whom to update the mailbox quota.</p>
-   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: user@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>User name: user</p>
-   *             </li>
-   *          </ul>
+   * The identifer for the user for whom to update the mailbox quota.
+   *
+   * The identifier can be the *UserId*, *Username*, or *email*. The following identity formats are available:
+   *
+   * - User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: user@domain.tld
+   * - User name: user
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The updated mailbox quota, in MB, for the specified user.</p>
+   * The updated mailbox quota, in MB, for the specified user.
+   *
    * @public
    */
   MailboxQuota: number | undefined;
@@ -5260,79 +5477,92 @@ export interface UpdateMailboxQuotaResponse {}
  */
 export interface UpdateMobileDeviceAccessRuleRequest {
   /**
-   * <p>The WorkMail organization under which the rule will be updated.</p>
+   * The WorkMail organization under which the rule will be updated.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the rule to be updated.</p>
+   * The identifier of the rule to be updated.
+   *
    * @public
    */
   MobileDeviceAccessRuleId: string | undefined;
 
   /**
-   * <p>The updated rule name.</p>
+   * The updated rule name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The updated rule description.</p>
+   * The updated rule description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The effect of the rule when it matches. Allowed values are <code>ALLOW</code> or <code>DENY</code>.</p>
+   * The effect of the rule when it matches. Allowed values are `ALLOW` or `DENY`.
+   *
    * @public
    */
   Effect: MobileDeviceAccessRuleEffect | undefined;
 
   /**
-   * <p>Device types that the updated rule will match.</p>
+   * Device types that the updated rule will match.
+   *
    * @public
    */
   DeviceTypes?: string[] | undefined;
 
   /**
-   * <p>Device types that the updated rule <b>will not</b> match. All other device types will match.</p>
+   * Device types that the updated rule **will not** match. All other device types will match.
+   *
    * @public
    */
   NotDeviceTypes?: string[] | undefined;
 
   /**
-   * <p>Device models that the updated rule will match.</p>
+   * Device models that the updated rule will match.
+   *
    * @public
    */
   DeviceModels?: string[] | undefined;
 
   /**
-   * <p>Device models that the updated rule <b>will not</b> match. All other device models will match.</p>
+   * Device models that the updated rule **will not** match. All other device models will match.
+   *
    * @public
    */
   NotDeviceModels?: string[] | undefined;
 
   /**
-   * <p>Device operating systems that the updated rule will match.</p>
+   * Device operating systems that the updated rule will match.
+   *
    * @public
    */
   DeviceOperatingSystems?: string[] | undefined;
 
   /**
-   * <p>Device operating systems that the updated rule <b>will not</b> match. All other device operating systems will match.</p>
+   * Device operating systems that the updated rule **will not** match. All other device operating systems will match.
+   *
    * @public
    */
   NotDeviceOperatingSystems?: string[] | undefined;
 
   /**
-   * <p>User agents that the updated rule will match.</p>
+   * User agents that the updated rule will match.
+   *
    * @public
    */
   DeviceUserAgents?: string[] | undefined;
 
   /**
-   * <p>User agents that the updated rule <b>will not</b> match. All other user agents will match.</p>
+   * User agents that the updated rule **will not** match. All other user agents will match.
+   *
    * @public
    */
   NotDeviceUserAgents?: string[] | undefined;
@@ -5348,31 +5578,28 @@ export interface UpdateMobileDeviceAccessRuleResponse {}
  */
 export interface UpdatePrimaryEmailAddressRequest {
   /**
-   * <p>The organization that contains the user, group, or resource to update.</p>
+   * The organization that contains the user, group, or resource to update.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The user, group, or resource to update.</p>
-   *          <p>The identifier can accept <i>UseriD, ResourceId, or GroupId</i>, <i>Username, Resourcename, or Groupname</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: entity@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Entity name: entity</p>
-   *             </li>
-   *          </ul>
+   * The user, group, or resource to update.
+   *
+   * The identifier can accept *UseriD, ResourceId, or GroupId*, *Username, Resourcename, or Groupname*, or *email*. The following identity formats are available:
+   *
+   * - Entity ID: 12345678-1234-1234-1234-123456789012, r-0123456789a0123456789b0123456789, or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: entity@domain.tld
+   * - Entity name: entity
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The value of the email to be updated as primary.</p>
+   * The value of the email to be updated as primary.
+   *
    * @public
    */
   Email: string | undefined;
@@ -5388,56 +5615,56 @@ export interface UpdatePrimaryEmailAddressResponse {}
  */
 export interface UpdateResourceRequest {
   /**
-   * <p>The identifier associated with the organization for which the resource is
-   *          updated.</p>
+   * The identifier associated with the organization for which the resource is updated.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the resource to be updated.</p>
-   *          <p>The identifier can accept <i>ResourceId</i>, <i>Resourcename</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Resource ID: r-0123456789a0123456789b0123456789</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: resource@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>Resource name: resource</p>
-   *             </li>
-   *          </ul>
+   * The identifier of the resource to be updated.
+   *
+   * The identifier can accept *ResourceId*, *Resourcename*, or *email*. The following identity formats are available:
+   *
+   * - Resource ID: r-0123456789a0123456789b0123456789
+   * - Email address: resource@domain.tld
+   * - Resource name: resource
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The name of the resource to be updated.</p>
+   * The name of the resource to be updated.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The resource's booking options to be updated.</p>
+   * The resource's booking options to be updated.
+   *
    * @public
    */
   BookingOptions?: BookingOptions | undefined;
 
   /**
-   * <p>Updates the resource description.</p>
+   * Updates the resource description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Updates the resource type.</p>
+   * Updates the resource type.
+   *
    * @public
    */
   Type?: ResourceType | undefined;
 
   /**
-   * <p>If enabled, the resource is hidden from the global address list.</p>
+   * If enabled, the resource is hidden from the global address list.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
@@ -5453,122 +5680,135 @@ export interface UpdateResourceResponse {}
  */
 export interface UpdateUserRequest {
   /**
-   * <p>The identifier for the organization under which the user exists.</p>
+   * The identifier for the organization under which the user exists.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier for the user to be updated.</p>
-   *          <p>The identifier can be the <i>UserId</i>, <i>Username</i>, or <i>email</i>. The following identity formats are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234</p>
-   *             </li>
-   *             <li>
-   *                <p>Email address: user@domain.tld</p>
-   *             </li>
-   *             <li>
-   *                <p>User name: user</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the user to be updated.
+   *
+   * The identifier can be the *UserId*, *Username*, or *email*. The following identity formats are available:
+   *
+   * - User ID: 12345678-1234-1234-1234-123456789012 or S-1-1-12-1234567890-123456789-123456789-1234
+   * - Email address: user@domain.tld
+   * - User name: user
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>Updates the user role.</p>
-   *          <p>You cannot pass <i>SYSTEM_USER</i> or <i>RESOURCE</i>.</p>
+   * Updates the user role.
+   *
+   * You cannot pass *SYSTEM_USER* or *RESOURCE*.
+   *
    * @public
    */
   Role?: UserRole | undefined;
 
   /**
-   * <p>Updates the display name of the user.</p>
+   * Updates the display name of the user.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>Updates the user's first name.</p>
+   * Updates the user's first name.
+   *
    * @public
    */
   FirstName?: string | undefined;
 
   /**
-   * <p>Updates the user's last name.</p>
+   * Updates the user's last name.
+   *
    * @public
    */
   LastName?: string | undefined;
 
   /**
-   * <p>If enabled, the user is hidden from the global address list.</p>
+   * If enabled, the user is hidden from the global address list.
+   *
    * @public
    */
   HiddenFromGlobalAddressList?: boolean | undefined;
 
   /**
-   * <p>Updates the user's initials.</p>
+   * Updates the user's initials.
+   *
    * @public
    */
   Initials?: string | undefined;
 
   /**
-   * <p>Updates the user's contact details.</p>
+   * Updates the user's contact details.
+   *
    * @public
    */
   Telephone?: string | undefined;
 
   /**
-   * <p>Updates the user's street address.</p>
+   * Updates the user's street address.
+   *
    * @public
    */
   Street?: string | undefined;
 
   /**
-   * <p>Updates the user's job title.</p>
+   * Updates the user's job title.
+   *
    * @public
    */
   JobTitle?: string | undefined;
 
   /**
-   * <p>Updates the user's city.</p>
+   * Updates the user's city.
+   *
    * @public
    */
   City?: string | undefined;
 
   /**
-   * <p>Updates the user's company.</p>
+   * Updates the user's company.
+   *
    * @public
    */
   Company?: string | undefined;
 
   /**
-   * <p>Updates the user's zip code.</p>
+   * Updates the user's zip code.
+   *
    * @public
    */
   ZipCode?: string | undefined;
 
   /**
-   * <p>Updates the user's department.</p>
+   * Updates the user's department.
+   *
    * @public
    */
   Department?: string | undefined;
 
   /**
-   * <p>Updates the user's country.</p>
+   * Updates the user's country.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>Updates the user's office.</p>
+   * Updates the user's office.
+   *
    * @public
    */
   Office?: string | undefined;
 
   /**
-   * <p>User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.</p>
+   * User ID from the IAM Identity Center. If this parameter is empty it will be updated automatically when the user logs in for the first time to the mailbox associated with WorkMail.
+   *
    * @public
    */
   IdentityProviderUserId?: string | undefined;

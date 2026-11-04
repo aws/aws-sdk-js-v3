@@ -23,12 +23,10 @@ export interface DeleteConfigurationTemplateCommandInput extends DeleteConfigura
 export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified configuration template.</p>
- *          <note>
- *             <p>When you launch an environment using a configuration template, the environment gets a
- *         copy of the template. You can delete or modify the environment's copy of the template
- *         without affecting the running environment.</p>
- *          </note>
+ * Deletes the specified configuration template.
+ *
+ * > **Note:** When you launch an environment using a configuration template, the environment gets a copy of the template. You can delete or modify the environment's copy of the template without affecting the running environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,12 +52,12 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
+ *
+ * Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To delete a configuration template
  * ```javascript

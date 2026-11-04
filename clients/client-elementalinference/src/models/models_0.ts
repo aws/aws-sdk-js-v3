@@ -15,133 +15,169 @@ import type {
 } from "./enums";
 
 /**
- * <p>The width and height of the output video. Used in SubtitlingConfig to determine subtitle layout. </p>
+ * The width and height of the output video. Used in SubtitlingConfig to determine subtitle layout.
+ *
  * @public
  */
 export interface AspectRatio {
   /**
-   * <p>The width component of the aspect ratio (for example, 16 in a 16:9 ratio).</p>
+   * The width component of the aspect ratio (for example, 16 in a 16:9 ratio).
+   *
    * @public
    */
   width: number | undefined;
 
   /**
-   * <p>The height component of the aspect ratio (for example, 9 in a 16:9 ratio).</p>
+   * The height component of the aspect ratio (for example, 9 in a 16:9 ratio).
+   *
    * @public
    */
   height: number | undefined;
 }
 
 /**
- * <p>Contains the data source configuration for a clipping output. It identifies the fixture whose event data Elemental Inference maps onto the clipping metadata. It is used in the dataSourceConfiguration property of a ClippingConfig. </p>
+ * Contains the data source configuration for a clipping output. It identifies the fixture whose event data Elemental Inference maps onto the clipping metadata. It is used in the dataSourceConfiguration property of a ClippingConfig.
+ *
  * @public
  */
 export interface DataSourceConfiguration {
   /**
-   * <p>The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. The fixture should be the sports event in the source media that the feed is processing. </p> <p>To obtain this ID, use the SearchFixtures operation to find the fixture, then use the fixtureId from the matching FixtureSummary. </p>
+   * The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. The fixture should be the sports event in the source media that the feed is processing.
+   *
+   * To obtain this ID, use the SearchFixtures operation to find the fixture, then use the fixtureId from the matching FixtureSummary.
+   *
    * @public
    */
   fixtureId: string | undefined;
 }
 
 /**
- * <p>A type of OutputConfig, used when the output in a feed is for the clip feature.</p>
+ * A type of OutputConfig, used when the output in a feed is for the clip feature.
+ *
  * @public
  */
 export interface ClippingConfig {
   /**
-   * <p>A string that you want Elemental Inference to always include in the event clipping metadata for this output. The string might identify the sports event in the source media, for example. </p>
+   * A string that you want Elemental Inference to always include in the event clipping metadata for this output. The string might identify the sports event in the source media, for example.
+   *
    * @public
    */
   callbackMetadata?: string | undefined;
 
   /**
-   * <p>The data source to map onto this clipping output. This parameter is optional. When you include this parameter, Elemental Inference reads the event data for the fixture that you specify, and includes that data in the event clipping metadata for this output. </p> <p>If you omit this parameter, Elemental Inference doesn't map a data source onto this output. </p>
+   * The data source to map onto this clipping output. This parameter is optional. When you include this parameter, Elemental Inference reads the event data for the fixture that you specify, and includes that data in the event clipping metadata for this output.
+   *
+   * If you omit this parameter, Elemental Inference doesn't map a data source onto this output.
+   *
    * @public
    */
   dataSourceConfiguration?: DataSourceConfiguration | undefined;
 }
 
 /**
- * <p>The output configuration settings for the contextual metadata feature. Use this structure when the feed output generates metadata that describes the media content. </p>
+ * The output configuration settings for the contextual metadata feature. Use this structure when the feed output generates metadata that describes the media content.
+ *
  * @public
  */
 export interface ContextualMetadataConfig {
   /**
-   * <p>Specifies whether Elemental Inference generates a descriptive summary of the media content for this output, along with the objects and actions that it detects. This setting is independent of <code>extendedAnalysis</code>. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference populates the summary, objects, and actions fields, along with the IAB taxonomy and GARM suitability classifications. </p> </li> <li> <p>DISABLED – Elemental Inference doesn't populate the summary, objects, and actions fields. </p> </li> </ul>
+   * Specifies whether Elemental Inference generates a descriptive summary of the media content for this output, along with the objects and actions that it detects. This setting is independent of `extendedAnalysis`.
+   *
+   * Valid values:
+   *
+   * - ENABLED (default) – Elemental Inference populates the summary, objects, and actions fields, along with the IAB taxonomy and GARM suitability classifications.
+   * - DISABLED – Elemental Inference doesn't populate the summary, objects, and actions fields.
+   *
    * @public
    */
   summaryGeneration?: SummaryGenerationMode | undefined;
 
   /**
-   * <p>Specifies whether Elemental Inference generates extended analysis of the media content for this output. Extended analysis identifies the people, environments, brands, and on-screen text in the media content. This setting is independent of <code>summaryGeneration</code>. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference populates the people, environments, brands, and on-screen text fields. </p> </li> <li> <p>DISABLED – Elemental Inference doesn't populate the people, environments, brands, and on-screen text fields. </p> </li> </ul>
+   * Specifies whether Elemental Inference generates extended analysis of the media content for this output. Extended analysis identifies the people, environments, brands, and on-screen text in the media content. This setting is independent of `summaryGeneration`.
+   *
+   * Valid values:
+   *
+   * - ENABLED (default) – Elemental Inference populates the people, environments, brands, and on-screen text fields.
+   * - DISABLED – Elemental Inference doesn't populate the people, environments, brands, and on-screen text fields.
+   *
    * @public
    */
   extendedAnalysis?: ExtendedAnalysisMode | undefined;
 }
 
 /**
- * <p>A named set of graphics-compositing templates used by the crop feature, specified in the templateGroups array of a CroppingConfig. </p>
+ * A named set of graphics-compositing templates used by the crop feature, specified in the templateGroups array of a CroppingConfig.
+ *
  * @public
  */
 export interface TemplateGroup {
   /**
-   * <p>A name for the template group.</p>
+   * A name for the template group.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An array of Amazon S3 URIs that point to the graphics-compositing templates for this group. You can specify 1 or 2 URIs. Each URI must be in the form <code>s3://bucket-name/key</code>. Elemental Inference reads these templates using the IAM role that you specify in accessRoleArn. </p>
+   * An array of Amazon S3 URIs that point to the graphics-compositing templates for this group. You can specify 1 or 2 URIs. Each URI must be in the form `s3://bucket-name/key`. Elemental Inference reads these templates using the IAM role that you specify in accessRoleArn.
+   *
    * @public
    */
   templateUris: string[] | undefined;
 }
 
 /**
- * <p>A type of OutputConfig, used when the output in a feed is for the crop feature.</p>
+ * A type of OutputConfig, used when the output in a feed is for the crop feature.
+ *
  * @public
  */
 export interface CroppingConfig {
   /**
-   * <p>An array of template groups for the crop output. Each template group provides the graphics-compositing templates that Elemental Inference applies to the cropped video. You can specify from 1 to 4 template groups. </p>
+   * An array of template groups for the crop output. Each template group provides the graphics-compositing templates that Elemental Inference applies to the cropped video. You can specify from 1 to 4 template groups.
+   *
    * @public
    */
   templateGroups?: TemplateGroup[] | undefined;
 }
 
 /**
- * <p>A type of OutputConfig, used when the output in a feed is for the smart subtitling feature. Smart subtitling uses automatic speech recognition (ASR) to generate live TTML subtitles from the audio in your source media. </p>
+ * A type of OutputConfig, used when the output in a feed is for the smart subtitling feature. Smart subtitling uses automatic speech recognition (ASR) to generate live TTML subtitles from the audio in your source media.
+ *
  * @public
  */
 export interface SubtitlingConfig {
   /**
-   * <p>The language of the audio in the source media. Elemental Inference uses this setting to optimize transcription accuracy. Specify the language using an ISO 639-2/T three-letter code, optionally with a region subtag. Supported values: eng, eng-au, eng-gb, eng-us, fra, ita, deu, spa, por. </p>
+   * The language of the audio in the source media. Elemental Inference uses this setting to optimize transcription accuracy. Specify the language using an ISO 639-2/T three-letter code, optionally with a region subtag. Supported values: eng, eng-au, eng-gb, eng-us, fra, ita, deu, spa, por.
+   *
    * @public
    */
   language: TranscriptionLanguage | undefined;
 
   /**
-   * <p>The aspect ratio of the output video, specified as width and height integer values. Elemental Inference uses the aspect ratio to determine subtitle layout and line lengths. </p>
+   * The aspect ratio of the output video, specified as width and height integer values. Elemental Inference uses the aspect ratio to determine subtitle layout and line lengths.
+   *
    * @public
    */
   aspectRatio?: AspectRatio | undefined;
 
   /**
-   * <p>The ID of a custom dictionary to improve transcription accuracy for domain-specific terminology. Use the CreateDictionary operation to create a dictionary. </p>
+   * The ID of a custom dictionary to improve transcription accuracy for domain-specific terminology. Use the CreateDictionary operation to create a dictionary.
+   *
    * @public
    */
   dictionary?: string | undefined;
 
   /**
-   * <p>Controls how profanity is handled in the generated subtitles. Valid values: DISABLED (no filtering, default), CENSOR (replace profanity with asterisks), DROP (remove profanity from the transcript). </p>
+   * Controls how profanity is handled in the generated subtitles. Valid values: DISABLED (no filtering, default), CENSOR (replace profanity with asterisks), DROP (remove profanity from the transcript).
+   *
    * @public
    */
   profanityFilter?: ProfanityFilterMode | undefined;
 }
 
 /**
- * <p>Contains one typed output. It is used in the CreateOutput, GetOutput, and Update Output structures.</p>
+ * Contains one typed output. It is used in the CreateOutput, GetOutput, and Update Output structures.
+ *
  * @public
  */
 export type OutputConfig =
@@ -156,7 +192,8 @@ export type OutputConfig =
  */
 export namespace OutputConfig {
   /**
-   * <p>The output config type that applies to the cropping feature.</p>
+   * The output config type that applies to the cropping feature.
+   *
    * @public
    */
   export interface CroppingMember {
@@ -168,7 +205,8 @@ export namespace OutputConfig {
   }
 
   /**
-   * <p>The output config type that applies to the clipping feature.</p>
+   * The output config type that applies to the clipping feature.
+   *
    * @public
    */
   export interface ClippingMember {
@@ -180,7 +218,8 @@ export namespace OutputConfig {
   }
 
   /**
-   * <p>The output config type that applies to the smart subtitling feature.</p>
+   * The output config type that applies to the smart subtitling feature.
+   *
    * @public
    */
   export interface SubtitlingMember {
@@ -192,7 +231,8 @@ export namespace OutputConfig {
   }
 
   /**
-   * <p>The output config type that applies to the contextual metadata feature.</p>
+   * The output config type that applies to the contextual metadata feature.
+   *
    * @public
    */
   export interface ContextualMetadataMember {
@@ -228,30 +268,35 @@ export namespace OutputConfig {
 }
 
 /**
- * <p>Contains configuration information about one output in a feed. It is used in the AssociateFeed and the CreateFeed actions. </p>
+ * Contains configuration information about one output in a feed. It is used in the AssociateFeed and the CreateFeed actions.
+ *
  * @public
  */
 export interface CreateOutput {
   /**
-   * <p>A name for the output.</p>
+   * A name for the output.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A typed property for an output in a feed. It identifies the action for Elemental Inference to perform. It also provides a repository for the results of that action. For example, CroppingConfig output will contain the metadata for the crop feature. </p>
+   * A typed property for an output in a feed. It identifies the action for Elemental Inference to perform. It also provides a repository for the results of that action. For example, CroppingConfig output will contain the metadata for the crop feature.
+   *
    * @public
    */
   outputConfig: OutputConfig | undefined;
 
   /**
-   * <p>The status to assign to the output.</p>
+   * The status to assign to the output.
+   *
    * @public
    */
   status: OutputStatus | undefined;
 
   /**
-   * <p>A description for the output.</p>
+   * A description for the output.
+   *
    * @public
    */
   description?: string | undefined;
@@ -262,25 +307,33 @@ export interface CreateOutput {
  */
 export interface AssociateFeedRequest {
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>An identifier for the resource. This name must not resemble an ARN.</p> <p>The resource is the source media that the feed will process. The name you assign should help you to later identify the source media that belongs to the feed. In this way, you will know which source media to push to the feed (using PutMedia). </p>
+   * An identifier for the resource. This name must not resemble an ARN.
+   *
+   * The resource is the source media that the feed will process. The name you assign should help you to later identify the source media that belongs to the feed. In this way, you will know which source media to push to the feed (using PutMedia).
+   *
    * @public
    */
   associatedResourceName?: string | undefined;
 
   /**
-   * <p>An array of one or more outputs that you want to add to this feed now, to supplement any outputs that you specified when you created or updated the feed. </p>
+   * An array of one or more outputs that you want to add to this feed now, to supplement any outputs that you specified when you created or updated the feed.
+   *
    * @public
    */
   outputs: CreateOutput[] | undefined;
 
   /**
-   * <p>Set to true if you want to do a dry run of the associate action.</p> <p>Elemental Inference will validate that the real request would succeed without actually making any changes. A dry run catches errors such as missing IAM permissions, quota limits exceeded, conflicting outputs, and so on. If the dry run fails, the action returns a 4xx error code. After you've fixed the errors, resubmit the request. </p>
+   * Set to true if you want to do a dry run of the associate action.
+   *
+   * Elemental Inference will validate that the real request would succeed without actually making any changes. A dry run catches errors such as missing IAM permissions, quota limits exceeded, conflicting outputs, and so on. If the dry run fails, the action returns a 4xx error code. After you've fixed the errors, resubmit the request.
+   *
    * @public
    */
   dryRun?: boolean | undefined;
@@ -291,31 +344,36 @@ export interface AssociateFeedRequest {
  */
 export interface AssociateFeedResponse {
   /**
-   * <p>The ARN of the feed.</p>
+   * The ARN of the feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
 }
 
 /**
- * <p>Contains information about one competitor in a fixture. It is used in the FixtureSummary that is in the SearchFixtures response. </p>
+ * Contains information about one competitor in a fixture. It is used in the FixtureSummary that is in the SearchFixtures response.
+ *
  * @public
  */
 export interface Competitor {
   /**
-   * <p>The name of the competitor, as provided by the data source.</p>
+   * The name of the competitor, as provided by the data source.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Specifies whether this competitor is the home side in the fixture. If true, this competitor is the home side. If false, this competitor is the away side. </p>
+   * Specifies whether this competitor is the home side in the fixture. If true, this competitor is the home side. If false, this competitor is the away side.
+   *
    * @public
    */
   isHome?: boolean | undefined;
@@ -326,25 +384,29 @@ export interface Competitor {
  */
 export interface CreateDictionaryRequest {
   /**
-   * <p>A user-friendly name for this dictionary.</p>
+   * A user-friendly name for this dictionary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The language of the dictionary entries. Specify the language using an ISO 639-2/T three-letter code. Supported values: eng, fra, ita, deu, spa, por. </p>
+   * The language of the dictionary entries. Specify the language using an ISO 639-2/T three-letter code. Supported values: eng, fra, ita, deu, spa, por.
+   *
    * @public
    */
   language: DictionaryLanguage | undefined;
 
   /**
-   * <p>The dictionary entries payload. Contains the custom words and phrases for the dictionary. Maximum size is 40,960 characters. </p>
+   * The dictionary entries payload. Contains the custom words and phrases for the dictionary. Maximum size is 40,960 characters.
+   *
    * @public
    */
   entries?: string | undefined;
 
   /**
-   * <p>Optional tags to associate with the dictionary.</p>
+   * Optional tags to associate with the dictionary.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -355,43 +417,50 @@ export interface CreateDictionaryRequest {
  */
 export interface CreateDictionaryResponse {
   /**
-   * <p>The name that you specified in the request.</p>
+   * The name that you specified in the request.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the dictionary.</p>
+   * The ARN of the dictionary.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A unique ID that Elemental Inference assigns to the dictionary.</p>
+   * A unique ID that Elemental Inference assigns to the dictionary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The language of the dictionary.</p>
+   * The language of the dictionary.
+   *
    * @public
    */
   language: DictionaryLanguage | undefined;
 
   /**
-   * <p>The current status of the dictionary. After creation succeeds, the status will be AVAILABLE. </p>
+   * The current status of the dictionary. After creation succeeds, the status will be AVAILABLE.
+   *
    * @public
    */
   status: DictionaryStatus | undefined;
 
   /**
-   * <p>A list of feed IDs that reference this dictionary.</p>
+   * A list of feed IDs that reference this dictionary.
+   *
    * @public
    */
   references?: string[] | undefined;
 
   /**
-   * <p>Any tags that you included when you created the dictionary.</p>
+   * Any tags that you included when you created the dictionary.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -402,73 +471,87 @@ export interface CreateDictionaryResponse {
  */
 export interface CreateFeedRequest {
   /**
-   * <p>A user-friendly name for this feed.</p>
+   * A user-friendly name for this feed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role that Elemental Inference assumes to access resources in your account on your behalf. For example, the smart crop feature uses this role to read graphics-compositing templates from your Amazon S3 bucket. You specify one access role for each feed. </p>
+   * The ARN of an IAM role that Elemental Inference assumes to access resources in your account on your behalf. For example, the smart crop feature uses this role to read graphics-compositing templates from your Amazon S3 bucket. You specify one access role for each feed.
+   *
    * @public
    */
   accessRoleArn?: string | undefined;
 
   /**
-   * <p>An array of outputs for this feed. Each output represents a specific Elemental Inference feature. For example, there is one output type for the smart crop feature. You must specify at least one output, but you can later add outputs using AssociateFeed, or add, modify, and delete outputs using UpdateFeed. </p>
+   * An array of outputs for this feed. Each output represents a specific Elemental Inference feature. For example, there is one output type for the smart crop feature. You must specify at least one output, but you can later add outputs using AssociateFeed, or add, modify, and delete outputs using UpdateFeed.
+   *
    * @public
    */
   outputs: CreateOutput[] | undefined;
 
   /**
-   * <p>Optional tags. You can also add tags later, using TagResource.</p>
+   * Optional tags. You can also add tags later, using TagResource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains information about the resource that is associated with a feed. It is used in the FeedSummary that is used in the response of a ListFeeds action. </p>
+ * Contains information about the resource that is associated with a feed. It is used in the FeedSummary that is used in the response of a ListFeeds action.
+ *
  * @public
  */
 export interface FeedAssociation {
   /**
-   * <p>The name of the associated resource.</p>
+   * The name of the associated resource.
+   *
    * @public
    */
   associatedResourceName: string | undefined;
 }
 
 /**
- * <p>Contains configuration information about one output in a feed. It is used in the GetFeed response. </p>
+ * Contains configuration information about one output in a feed. It is used in the GetFeed response.
+ *
  * @public
  */
 export interface GetOutput {
   /**
-   * <p>The name of the output.</p>
+   * The name of the output.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A typed property for an output in a feed. It identifies the action for Elemental Inference to perform. It also provides a repository for the results of that action. For example, CroppingConfig output will contain the metadata for the crop feature. </p>
+   * A typed property for an output in a feed. It identifies the action for Elemental Inference to perform. It also provides a repository for the results of that action. For example, CroppingConfig output will contain the metadata for the crop feature.
+   *
    * @public
    */
   outputConfig: OutputConfig | undefined;
 
   /**
-   * <p>The status of the output.</p>
+   * The status of the output.
+   *
    * @public
    */
   status: OutputStatus | undefined;
 
   /**
-   * <p>The description of the output.</p>
+   * The description of the output.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>True means that the output was originally created in the feed using AssociateFeed. False means it was created using CreateFeed or UpdateFeed. </p> <p>You will need this value if you use UpdateFeed to modify the list of outputs in the feed.</p>
+   * True means that the output was originally created in the feed using AssociateFeed. False means it was created using CreateFeed or UpdateFeed.
+   *
+   * You will need this value if you use UpdateFeed to modify the list of outputs in the feed.
+   *
    * @public
    */
   fromAssociation?: boolean | undefined;
@@ -479,110 +562,128 @@ export interface GetOutput {
  */
 export interface CreateFeedResponse {
   /**
-   * <p>A unique ARN that Elemental Inference assigns to the feed.</p>
+   * A unique ARN that Elemental Inference assigns to the feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name that you specified in the request.</p>
+   * The name that you specified in the request.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A unique ID that Elemental Inference assigns to the feed.</p>
+   * A unique ID that Elemental Inference assigns to the feed.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>An array of endpoints for the feed. Typically, there is only one endpoint. The feed receives source media at this endpoint (when the calling application calls PutMedia) and returns the resulting metadata to this endpoint (when the calling application calls GetMetadata). </p>
+   * An array of endpoints for the feed. Typically, there is only one endpoint. The feed receives source media at this endpoint (when the calling application calls PutMedia) and returns the resulting metadata to this endpoint (when the calling application calls GetMetadata).
+   *
    * @public
    */
   dataEndpoints: string[] | undefined;
 
   /**
-   * <p>Repeats the outputs that you specified in the request.</p>
+   * Repeats the outputs that you specified in the request.
+   *
    * @public
    */
   outputs: GetOutput[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that you specified in the request. This property is absent if you didn't specify an IAM role. </p>
+   * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that you specified in the request. This property is absent if you didn't specify an IAM role.
+   *
    * @public
    */
   accessRoleArn?: string | undefined;
 
   /**
-   * <p>The current status of the feed. After creation of the feed has succeeded, the status will be AVAILABLE. </p>
+   * The current status of the feed. After creation of the feed has succeeded, the status will be AVAILABLE.
+   *
    * @public
    */
   status: FeedStatus | undefined;
 
   /**
-   * <p>The association for this feed. When you create the feed, this property is empty. You must associate a resource with the feed using AssociateFeed or UpdateFeed. </p>
+   * The association for this feed. When you create the feed, this property is empty. You must associate a resource with the feed using AssociateFeed or UpdateFeed.
+   *
    * @public
    */
   association?: FeedAssociation | undefined;
 
   /**
-   * <p>Any tags that you included when you created the feed.</p>
+   * Any tags that you included when you created the feed.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Removes the game from an event clipping output at the action's scheduled time. This is a type of ScheduleActionOperation, and the output must be an event clipping output. </p>
+ * Removes the game from an event clipping output at the action's scheduled time. This is a type of ScheduleActionOperation, and the output must be an event clipping output.
+ *
  * @public
  */
 export interface RemoveClippingDataSourceConfiguration {
   /**
-   * <p>The name of the output that you want to remove the game from.</p>
+   * The name of the output that you want to remove the game from.
+   *
    * @public
    */
   outputName: string | undefined;
 }
 
 /**
- * <p>Attaches a game to an event clipping output at the action's scheduled time. This is a type of ScheduleActionOperation, and the output must be an event clipping output. </p>
+ * Attaches a game to an event clipping output at the action's scheduled time. This is a type of ScheduleActionOperation, and the output must be an event clipping output.
+ *
  * @public
  */
 export interface UpdateClippingDataSourceConfiguration {
   /**
-   * <p>The name of the output that you want to attach the game to.</p>
+   * The name of the output that you want to attach the game to.
+   *
    * @public
    */
   outputName: string | undefined;
 
   /**
-   * <p>The game that you want to attach to the output.</p>
+   * The game that you want to attach to the output.
+   *
    * @public
    */
   dataSourceConfiguration: DataSourceConfiguration | undefined;
 }
 
 /**
- * <p>Enables or disables an output at the action's scheduled time. This is a type of ScheduleActionOperation. </p>
+ * Enables or disables an output at the action's scheduled time. This is a type of ScheduleActionOperation.
+ *
  * @public
  */
 export interface UpdateOutputStatus {
   /**
-   * <p>The name of the output that you want to enable or disable. The output must exist in the feed when you create the action. </p>
+   * The name of the output that you want to enable or disable. The output must exist in the feed when you create the action.
+   *
    * @public
    */
   outputName: string | undefined;
 
   /**
-   * <p>Specifies whether the output is enabled or disabled after the action runs.</p>
+   * Specifies whether the output is enabled or disabled after the action runs.
+   *
    * @public
    */
   status: OutputStatus | undefined;
 }
 
 /**
- * <p>Holds one typed configuration change that a schedule action makes to a feed. Each operation must contain exactly one property. </p>
+ * Holds one typed configuration change that a schedule action makes to a feed. Each operation must contain exactly one property.
+ *
  * @public
  */
 export type ScheduleActionOperation =
@@ -596,7 +697,8 @@ export type ScheduleActionOperation =
  */
 export namespace ScheduleActionOperation {
   /**
-   * <p>The operation type that enables or disables an output.</p>
+   * The operation type that enables or disables an output.
+   *
    * @public
    */
   export interface UpdateOutputStatusMember {
@@ -607,7 +709,8 @@ export namespace ScheduleActionOperation {
   }
 
   /**
-   * <p>The operation type that attaches a game to an event clipping output.</p>
+   * The operation type that attaches a game to an event clipping output.
+   *
    * @public
    */
   export interface UpdateClippingDataSourceConfigurationMember {
@@ -618,7 +721,8 @@ export namespace ScheduleActionOperation {
   }
 
   /**
-   * <p>The operation type that removes the game from an event clipping output.</p>
+   * The operation type that removes the game from an event clipping output.
+   *
    * @public
    */
   export interface RemoveClippingDataSourceConfigurationMember {
@@ -651,19 +755,24 @@ export namespace ScheduleActionOperation {
 }
 
 /**
- * <p>Sets the time at which a schedule action runs once. This is a type of ScheduleActionStartConfiguration. </p>
+ * Sets the time at which a schedule action runs once. This is a type of ScheduleActionStartConfiguration.
+ *
  * @public
  */
 export interface FixedModeScheduleActionStartSettings {
   /**
-   * <p>The UTC time at which the action runs. Specify the time in whole seconds. For the range of times that you can specify, see the AWS Elemental Inference User Guide. </p> <p>This time is approximate. The change can take a few minutes to take effect on the media that the feed is processing. </p>
+   * The UTC time at which the action runs. Specify the time in whole seconds. For the range of times that you can specify, see the AWS Elemental Inference User Guide.
+   *
+   * This time is approximate. The change can take a few minutes to take effect on the media that the feed is processing.
+   *
    * @public
    */
   scheduledAt: Date | undefined;
 }
 
 /**
- * <p>Holds the typed start settings that determine when a schedule action runs. Currently, only fixed mode is supported. </p>
+ * Holds the typed start settings that determine when a schedule action runs. Currently, only fixed mode is supported.
+ *
  * @public
  */
 export type ScheduleActionStartConfiguration =
@@ -675,7 +784,8 @@ export type ScheduleActionStartConfiguration =
  */
 export namespace ScheduleActionStartConfiguration {
   /**
-   * <p>The start settings type for an action that runs once, at a fixed time.</p>
+   * The start settings type for an action that runs once, at a fixed time.
+   *
    * @public
    */
   export interface FixedModeScheduleActionStartSettingsMember {
@@ -706,43 +816,58 @@ export namespace ScheduleActionStartConfiguration {
  */
 export interface CreateScheduleActionRequest {
   /**
-   * <p>Specifies the ID of the feed that you want to add the schedule action to.</p>
+   * Specifies the ID of the feed that you want to add the schedule action to.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A name for the schedule action. The name must be unique within the feed. You can reuse the name of an action that you deleted. </p>
+   * A name for the schedule action. The name must be unique within the feed. You can reuse the name of an action that you deleted.
+   *
    * @public
    */
   actionName: string | undefined;
 
   /**
-   * <p>Specifies when the action runs.</p>
+   * Specifies when the action runs.
+   *
    * @public
    */
   startConfiguration: ScheduleActionStartConfiguration | undefined;
 
   /**
-   * <p>Specifies the list of configuration changes that you want to make to the feed. Elemental Inference applies all the operations in an action together, in the order that you specify them. If any operation fails, Elemental Inference doesn't apply any of them. </p>
+   * Specifies the list of configuration changes that you want to make to the feed. Elemental Inference applies all the operations in an action together, in the order that you specify them. If any operation fails, Elemental Inference doesn't apply any of them.
+   *
    * @public
    */
   operations: ScheduleActionOperation[] | undefined;
 }
 
 /**
- * <p>Describes the cause of a schedule action failure, including the failure type and a description of what went wrong. </p>
+ * Describes the cause of a schedule action failure, including the failure type and a description of what went wrong.
+ *
  * @public
  */
 export interface ScheduleActionError {
   /**
-   * <p>The type of failure. Valid values are the following:</p> <dl> <dt>INVALID_ACTION_TARGET</dt> <dd> <p>The action referred to something that didn't exist or wasn't valid at the scheduled time, for example an output that you deleted. </p> </dd> <dt>INTERNAL_ERROR</dt> <dd> <p>An unexpected error prevented the action from completing.</p> </dd> </dl>
+   * The type of failure. Valid values are the following:
+   *
+   * - **INVALID_ACTION_TARGET**
+   *
+   *   The action referred to something that didn't exist or wasn't valid at the scheduled time, for example an output that you deleted.
+   *
+   * - **INTERNAL_ERROR**
+   *
+   *   An unexpected error prevented the action from completing.
+   *
    * @public
    */
   errorCode: ScheduleActionErrorCode | undefined;
 
   /**
-   * <p>A description of the failure.</p>
+   * A description of the failure.
+   *
    * @public
    */
   errorMessage: string | undefined;
@@ -753,31 +878,36 @@ export interface ScheduleActionError {
  */
 export interface CreateScheduleActionResponse {
   /**
-   * <p>The name that you specified.</p>
+   * The name that you specified.
+   *
    * @public
    */
   actionName: string | undefined;
 
   /**
-   * <p>Specifies when the action runs.</p>
+   * Specifies when the action runs.
+   *
    * @public
    */
   startConfiguration: ScheduleActionStartConfiguration | undefined;
 
   /**
-   * <p>The configuration changes that the action makes to the feed.</p>
+   * The configuration changes that the action makes to the feed.
+   *
    * @public
    */
   operations: ScheduleActionOperation[] | undefined;
 
   /**
-   * <p>The status of the action. After you create the action successfully, Elemental Inference sets the status to PENDING. </p>
+   * The status of the action. After you create the action successfully, Elemental Inference sets the status to PENDING.
+   *
    * @public
    */
   status: ScheduleActionStatus | undefined;
 
   /**
-   * <p>A description of why the action failed. Elemental Inference returns this property only when the status is FAILED. </p>
+   * A description of why the action failed. Elemental Inference returns this property only when the status is FAILED.
+   *
    * @public
    */
   error?: ScheduleActionError | undefined;
@@ -788,7 +918,8 @@ export interface CreateScheduleActionResponse {
  */
 export interface DeleteDictionaryRequest {
   /**
-   * <p>The ID of the dictionary to delete.</p>
+   * The ID of the dictionary to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -799,19 +930,22 @@ export interface DeleteDictionaryRequest {
  */
 export interface DeleteDictionaryResponse {
   /**
-   * <p>The ARN of the deleted dictionary.</p>
+   * The ARN of the deleted dictionary.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the deleted dictionary.</p>
+   * The ID of the deleted dictionary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The status of the dictionary after deletion.</p>
+   * The status of the dictionary after deletion.
+   *
    * @public
    */
   status: DictionaryStatus | undefined;
@@ -822,7 +956,8 @@ export interface DeleteDictionaryResponse {
  */
 export interface DeleteFeedRequest {
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
@@ -833,19 +968,22 @@ export interface DeleteFeedRequest {
  */
 export interface DeleteFeedResponse {
   /**
-   * <p>The ARN of the deleted feed.</p>
+   * The ARN of the deleted feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the deleted feed.</p>
+   * The ID of the deleted feed.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The current status of the feed. When deletion of the feed has succeeded, the status will be DELETED. </p>
+   * The current status of the feed. When deletion of the feed has succeeded, the status will be DELETED.
+   *
    * @public
    */
   status: FeedStatus | undefined;
@@ -856,7 +994,8 @@ export interface DeleteFeedResponse {
  */
 export interface DeleteFeedPolicyRequest {
   /**
-   * <p>The ID of the feed whose policy you want to delete.</p>
+   * The ID of the feed whose policy you want to delete.
+   *
    * @public
    */
   id: string | undefined;
@@ -867,13 +1006,15 @@ export interface DeleteFeedPolicyRequest {
  */
 export interface DeleteScheduleActionRequest {
   /**
-   * <p>The ID of the feed that holds the schedule action.</p>
+   * The ID of the feed that holds the schedule action.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the schedule action that you want to delete.</p>
+   * The name of the schedule action that you want to delete.
+   *
    * @public
    */
   actionName: string | undefined;
@@ -884,7 +1025,8 @@ export interface DeleteScheduleActionRequest {
  */
 export interface DeleteScheduleActionResponse {
   /**
-   * <p>The name of the schedule action that Elemental Inference deleted.</p>
+   * The name of the schedule action that Elemental Inference deleted.
+   *
    * @public
    */
   actionName: string | undefined;
@@ -895,7 +1037,8 @@ export interface DeleteScheduleActionResponse {
  */
 export interface ExportDictionaryEntriesRequest {
   /**
-   * <p>The ID of the dictionary whose entries you want to export.</p>
+   * The ID of the dictionary whose entries you want to export.
+   *
    * @public
    */
   id: string | undefined;
@@ -906,7 +1049,8 @@ export interface ExportDictionaryEntriesRequest {
  */
 export interface ExportDictionaryEntriesResponse {
   /**
-   * <p>The dictionary entries payload.</p>
+   * The dictionary entries payload.
+   *
    * @public
    */
   entries?: string | undefined;
@@ -917,7 +1061,8 @@ export interface ExportDictionaryEntriesResponse {
  */
 export interface GetDictionaryRequest {
   /**
-   * <p>The ID of the dictionary to retrieve.</p>
+   * The ID of the dictionary to retrieve.
+   *
    * @public
    */
   id: string | undefined;
@@ -928,43 +1073,50 @@ export interface GetDictionaryRequest {
  */
 export interface GetDictionaryResponse {
   /**
-   * <p>The name of the dictionary.</p>
+   * The name of the dictionary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the dictionary.</p>
+   * The ARN of the dictionary.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the dictionary.</p>
+   * The ID of the dictionary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The language of the dictionary.</p>
+   * The language of the dictionary.
+   *
    * @public
    */
   language: DictionaryLanguage | undefined;
 
   /**
-   * <p>The current status of the dictionary.</p>
+   * The current status of the dictionary.
+   *
    * @public
    */
   status: DictionaryStatus | undefined;
 
   /**
-   * <p>A list of feed IDs that reference this dictionary.</p>
+   * A list of feed IDs that reference this dictionary.
+   *
    * @public
    */
   references?: string[] | undefined;
 
   /**
-   * <p>The tags associated with the dictionary.</p>
+   * The tags associated with the dictionary.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -975,49 +1127,57 @@ export interface GetDictionaryResponse {
  */
 export interface ListDictionariesRequest {
   /**
-   * <p>The maximum number of results to return per API request. Valid range: 1 to 100.</p>
+   * The maximum number of results to return per API request. Valid range: 1 to 100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies the next batch of results to return.</p>
+   * The token that identifies the next batch of results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a dictionary. Used in the ListDictionaries response. </p>
+ * Contains summary information about a dictionary. Used in the ListDictionaries response.
+ *
  * @public
  */
 export interface DictionarySummary {
   /**
-   * <p>The ARN of the dictionary.</p>
+   * The ARN of the dictionary.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the dictionary.</p>
+   * The ID of the dictionary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the dictionary.</p>
+   * The name of the dictionary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The language of the dictionary.</p>
+   * The language of the dictionary.
+   *
    * @public
    */
   language: DictionaryLanguage | undefined;
 
   /**
-   * <p>The status of the dictionary.</p>
+   * The status of the dictionary.
+   *
    * @public
    */
   status: DictionaryStatus | undefined;
@@ -1028,13 +1188,15 @@ export interface DictionarySummary {
  */
 export interface ListDictionariesResponse {
   /**
-   * <p>A list of DictionarySummary objects.</p>
+   * A list of DictionarySummary objects.
+   *
    * @public
    */
   dictionaries: DictionarySummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next batch of results.</p>
+   * The token to use to retrieve the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1045,25 +1207,29 @@ export interface ListDictionariesResponse {
  */
 export interface UpdateDictionaryRequest {
   /**
-   * <p>The ID of the dictionary to update.</p>
+   * The ID of the dictionary to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A new name for the dictionary. If not specified, the name is not changed.</p>
+   * A new name for the dictionary. If not specified, the name is not changed.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A new language for the dictionary. If not specified, the language is not changed.</p>
+   * A new language for the dictionary. If not specified, the language is not changed.
+   *
    * @public
    */
   language?: DictionaryLanguage | undefined;
 
   /**
-   * <p>New dictionary entries. If not specified, the entries are not changed.</p>
+   * New dictionary entries. If not specified, the entries are not changed.
+   *
    * @public
    */
   entries?: string | undefined;
@@ -1074,43 +1240,50 @@ export interface UpdateDictionaryRequest {
  */
 export interface UpdateDictionaryResponse {
   /**
-   * <p>The updated or original name of the dictionary.</p>
+   * The updated or original name of the dictionary.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the dictionary.</p>
+   * The ARN of the dictionary.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the dictionary.</p>
+   * The ID of the dictionary.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The updated or original language of the dictionary.</p>
+   * The updated or original language of the dictionary.
+   *
    * @public
    */
   language: DictionaryLanguage | undefined;
 
   /**
-   * <p>The current status of the dictionary.</p>
+   * The current status of the dictionary.
+   *
    * @public
    */
   status: DictionaryStatus | undefined;
 
   /**
-   * <p>A list of feed IDs that reference this dictionary.</p>
+   * A list of feed IDs that reference this dictionary.
+   *
    * @public
    */
   references?: string[] | undefined;
 
   /**
-   * <p>Any tags associated with the dictionary.</p>
+   * Any tags associated with the dictionary.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1121,19 +1294,24 @@ export interface UpdateDictionaryResponse {
  */
 export interface DisassociateFeedRequest {
   /**
-   * <p>The ID of the feed where you want to release the resource.</p>
+   * The ID of the feed where you want to release the resource.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the resource currently associated with the feed.</p>
+   * The name of the resource currently associated with the feed.
+   *
    * @public
    */
   associatedResourceName?: string | undefined;
 
   /**
-   * <p>Set to true if you want to do a dry run of the disassociate action.</p> <p>Elemental Inference will validate that the real request would succeed without actually making any changes. A dry run catches errors such as missing IAM permissions. If the dry run fails, the action returns a 4xx error code. </p>
+   * Set to true if you want to do a dry run of the disassociate action.
+   *
+   * Elemental Inference will validate that the real request would succeed without actually making any changes. A dry run catches errors such as missing IAM permissions. If the dry run fails, the action returns a 4xx error code.
+   *
    * @public
    */
   dryRun?: boolean | undefined;
@@ -1144,13 +1322,15 @@ export interface DisassociateFeedRequest {
  */
 export interface DisassociateFeedResponse {
   /**
-   * <p>The ARN of the feed.</p>
+   * The ARN of the feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
@@ -1161,7 +1341,8 @@ export interface DisassociateFeedResponse {
  */
 export interface GetFeedRequest {
   /**
-   * <p>The ID of the feed to query.</p>
+   * The ID of the feed to query.
+   *
    * @public
    */
   id: string | undefined;
@@ -1172,55 +1353,64 @@ export interface GetFeedRequest {
  */
 export interface GetFeedResponse {
   /**
-   * <p>The ARN of the feed.</p>
+   * The ARN of the feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the feed.</p>
+   * The name of the feed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The dataEndpoints of the feed.</p>
+   * The dataEndpoints of the feed.
+   *
    * @public
    */
   dataEndpoints: string[] | undefined;
 
   /**
-   * <p>An array of the outputs in the feed.</p>
+   * An array of the outputs in the feed.
+   *
    * @public
    */
   outputs: GetOutput[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that Elemental Inference assumes. Elemental Inference uses this role to access resources in your account on your behalf. This property is absent if the feed doesn't have an IAM role. </p>
+   * The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that Elemental Inference assumes. Elemental Inference uses this role to access resources in your account on your behalf. This property is absent if the feed doesn't have an IAM role.
+   *
    * @public
    */
   accessRoleArn?: string | undefined;
 
   /**
-   * <p>The status of the feed.</p>
+   * The status of the feed.
+   *
    * @public
    */
   status: FeedStatus | undefined;
 
   /**
-   * <p>Information about the resource that is associated with the feed. It's possible that there is no associated resource. This is not an error. </p>
+   * Information about the resource that is associated with the feed. It's possible that there is no associated resource. This is not an error.
+   *
    * @public
    */
   association?: FeedAssociation | undefined;
 
   /**
-   * <p>A list of the tags, if any, for the feed.</p>
+   * A list of the tags, if any, for the feed.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1231,7 +1421,8 @@ export interface GetFeedResponse {
  */
 export interface GetFeedPolicyRequest {
   /**
-   * <p>The ID of the feed whose policy you want to retrieve.</p>
+   * The ID of the feed whose policy you want to retrieve.
+   *
    * @public
    */
   id: string | undefined;
@@ -1242,7 +1433,8 @@ export interface GetFeedPolicyRequest {
  */
 export interface GetFeedPolicyResponse {
   /**
-   * <p>The resource-based policy document attached to the feed.</p>
+   * The resource-based policy document attached to the feed.
+   *
    * @public
    */
   policy: string | undefined;
@@ -1253,49 +1445,65 @@ export interface GetFeedPolicyResponse {
  */
 export interface ListFeedsRequest {
   /**
-   * <p>The maximum number of results to return per API request.</p> <p>For example, you submit a list request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page. </p> <p>Valid Range: Minimum value of 1. Maximum value of 1000.</p>
+   * The maximum number of results to return per API request.
+   *
+   * For example, you submit a list request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.)
+   *
+   * The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page.
+   *
+   * Valid Range: Minimum value of 1. Maximum value of 1000.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies the batch of results that you want to see.</p> <p>For example, you submit a ListFeeds request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFeeds request a second time and specify the NextToken value. </p>
+   * The token that identifies the batch of results that you want to see.
+   *
+   * For example, you submit a ListFeeds request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the ListFeeds request a second time and specify the NextToken value.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains configuration information about a feed. It is used in the ListFeeds response. </p>
+ * Contains configuration information about a feed. It is used in the ListFeeds response.
+ *
  * @public
  */
 export interface FeedSummary {
   /**
-   * <p>The ARN of the feed.</p>
+   * The ARN of the feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the feed</p>
+   * The name of the feed
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The resource, if any, associated with the feed.</p>
+   * The resource, if any, associated with the feed.
+   *
    * @public
    */
   association?: FeedAssociation | undefined;
 
   /**
-   * <p>The status of the feed.</p>
+   * The status of the feed.
+   *
    * @public
    */
   status: FeedStatus | undefined;
@@ -1306,13 +1514,15 @@ export interface FeedSummary {
  */
 export interface ListFeedsResponse {
   /**
-   * <p>A list of FeedSummary objects.</p>
+   * A list of FeedSummary objects.
+   *
    * @public
    */
   feeds: FeedSummary[] | undefined;
 
   /**
-   * <p>The token that identifies the batch of results that you want to see. For example, you submit a list request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the list request a second time and specify the NextToken value. </p>
+   * The token that identifies the batch of results that you want to see. For example, you submit a list request with MaxResults set at 5. The service returns the first batch of results (up to 5) and a NextToken value. To see the next batch of results, you can submit the list request a second time and specify the NextToken value.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1323,55 +1533,76 @@ export interface ListFeedsResponse {
  */
 export interface ListScheduleActionsRequest {
   /**
-   * <p>The ID of the feed that you want to query.</p>
+   * The ID of the feed that you want to query.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for each API request. If you don't specify MaxResults, Elemental Inference returns a maximum of 10 results for each page. </p>
+   * The maximum number of results to return for each API request. If you don't specify MaxResults, Elemental Inference returns a maximum of 10 results for each page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies the batch of results that you want to see. To see the next batch, submit the request a second time and specify the NextToken value that Elemental Inference returned. </p>
+   * The token that identifies the batch of results that you want to see. To see the next batch, submit the request a second time and specify the NextToken value that Elemental Inference returned.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes one schedule action on a feed, including the changes it makes and whether it has run yet. Elemental Inference returns this structure in the ListScheduleActions operation. </p>
+ * Describes one schedule action on a feed, including the changes it makes and whether it has run yet. Elemental Inference returns this structure in the ListScheduleActions operation.
+ *
  * @public
  */
 export interface ScheduleAction {
   /**
-   * <p>The name of the schedule action. The name is unique within the feed.</p>
+   * The name of the schedule action. The name is unique within the feed.
+   *
    * @public
    */
   actionName: string | undefined;
 
   /**
-   * <p>Specifies when the action runs.</p>
+   * Specifies when the action runs.
+   *
    * @public
    */
   startConfiguration: ScheduleActionStartConfiguration | undefined;
 
   /**
-   * <p>The configuration changes that the action makes to the feed.</p>
+   * The configuration changes that the action makes to the feed.
+   *
    * @public
    */
   operations: ScheduleActionOperation[] | undefined;
 
   /**
-   * <p>The status of the action. Valid values are the following:</p> <dl> <dt>PENDING</dt> <dd> <p>The action is waiting for its scheduled time.</p> </dd> <dt>COMPLETED</dt> <dd> <p>Elemental Inference applied all the action's operations to the feed.</p> </dd> <dt>FAILED</dt> <dd> <p>Elemental Inference couldn't apply the action.</p> </dd> </dl>
+   * The status of the action. Valid values are the following:
+   *
+   * - **PENDING**
+   *
+   *   The action is waiting for its scheduled time.
+   *
+   * - **COMPLETED**
+   *
+   *   Elemental Inference applied all the action's operations to the feed.
+   *
+   * - **FAILED**
+   *
+   *   Elemental Inference couldn't apply the action.
+   *
    * @public
    */
   status: ScheduleActionStatus | undefined;
 
   /**
-   * <p>A description of why the action failed. Elemental Inference returns this property only when the status is FAILED. </p>
+   * A description of why the action failed. Elemental Inference returns this property only when the status is FAILED.
+   *
    * @public
    */
   error?: ScheduleActionError | undefined;
@@ -1382,13 +1613,15 @@ export interface ScheduleAction {
  */
 export interface ListScheduleActionsResponse {
   /**
-   * <p>A list of the schedule actions on the feed.</p>
+   * A list of the schedule actions on the feed.
+   *
    * @public
    */
   scheduleActions: ScheduleAction[] | undefined;
 
   /**
-   * <p>The token that identifies the next batch of results. Elemental Inference returns it only when more results are available. </p>
+   * The token that identifies the next batch of results. Elemental Inference returns it only when more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1399,13 +1632,15 @@ export interface ListScheduleActionsResponse {
  */
 export interface PutFeedPolicyRequest {
   /**
-   * <p>The ID of the feed to attach the policy to.</p>
+   * The ID of the feed to attach the policy to.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The resource-based policy document to attach to the feed.</p>
+   * The resource-based policy document to attach to the feed.
+   *
    * @public
    */
   policy: string | undefined;
@@ -1417,36 +1652,44 @@ export interface PutFeedPolicyRequest {
 export interface PutFeedPolicyResponse {}
 
 /**
- * <p>Contains configuration information about one output in a feed. It is used in the UpdateFeed action. </p>
+ * Contains configuration information about one output in a feed. It is used in the UpdateFeed action.
+ *
  * @public
  */
 export interface UpdateOutput {
   /**
-   * <p>The name of the output.</p>
+   * The name of the output.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A typed property for an output in a feed. It identifies the action for Elemental Inference to perform. It also provides a repository for the results of that action. For example, CroppingConfig output will contain the metadata for the crop feature. </p>
+   * A typed property for an output in a feed. It identifies the action for Elemental Inference to perform. It also provides a repository for the results of that action. For example, CroppingConfig output will contain the metadata for the crop feature.
+   *
    * @public
    */
   outputConfig: OutputConfig | undefined;
 
   /**
-   * <p>The status of the output.</p>
+   * The status of the output.
+   *
    * @public
    */
   status: OutputStatus | undefined;
 
   /**
-   * <p>A description of the output.</p>
+   * A description of the output.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Elemental Inference originally sets this parameter to True if this output was created by AssociateFeed or to False if this output was created by CreateFeed or UpdateFeed. </p> <p>You must not change this value. Therefore, use GetFeed to determine the current value. Then in the UpdateFeed request, if the current value is True, include this parameter with a value of True. If it's False, omit the parameter. </p>
+   * Elemental Inference originally sets this parameter to True if this output was created by AssociateFeed or to False if this output was created by CreateFeed or UpdateFeed.
+   *
+   * You must not change this value. Therefore, use GetFeed to determine the current value. Then in the UpdateFeed request, if the current value is True, include this parameter with a value of True. If it's False, omit the parameter.
+   *
    * @public
    */
   fromAssociation?: boolean | undefined;
@@ -1457,25 +1700,29 @@ export interface UpdateOutput {
  */
 export interface UpdateFeedRequest {
   /**
-   * <p>Required. You can specify the existing name (to leave it unchanged) or a new name. </p>
+   * Required. You can specify the existing name (to leave it unchanged) or a new name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role that Elemental Inference assumes to access resources in your account on your behalf. You can specify the existing role (to leave it unchanged) or a new role. You specify one access role for each feed. </p>
+   * The ARN of an IAM role that Elemental Inference assumes to access resources in your account on your behalf. You can specify the existing role (to leave it unchanged) or a new role. You specify one access role for each feed.
+   *
    * @public
    */
   accessRoleArn?: string | undefined;
 
   /**
-   * <p>The ID of the feed to update.</p>
+   * The ID of the feed to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Required. You can specify the existing array of outputs (to leave outputs unchanged) or you can specify a new array. </p>
+   * Required. You can specify the existing array of outputs (to leave outputs unchanged) or you can specify a new array.
+   *
    * @public
    */
   outputs: UpdateOutput[] | undefined;
@@ -1486,55 +1733,64 @@ export interface UpdateFeedRequest {
  */
 export interface UpdateFeedResponse {
   /**
-   * <p>The ARN of the feed.</p>
+   * The ARN of the feed.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The updated or original name of the feed.</p>
+   * The updated or original name of the feed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the feed.</p>
+   * The ID of the feed.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The data endpoints of the feed.</p>
+   * The data endpoints of the feed.
+   *
    * @public
    */
   dataEndpoints: string[] | undefined;
 
   /**
-   * <p>The array of outputs in the feed. You might have left this array unchanged, or you might have changed it. </p>
+   * The array of outputs in the feed. You might have left this array unchanged, or you might have changed it.
+   *
    * @public
    */
   outputs: GetOutput[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for the feed, after the update. This property is absent if the feed doesn't have an IAM role. </p>
+   * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for the feed, after the update. This property is absent if the feed doesn't have an IAM role.
+   *
    * @public
    */
   accessRoleArn?: string | undefined;
 
   /**
-   * <p>The status of the feed.</p>
+   * The status of the feed.
+   *
    * @public
    */
   status: FeedStatus | undefined;
 
   /**
-   * <p>Information about the resource that is associated with the feed, if any.</p>
+   * Information about the resource that is associated with the feed, if any.
+   *
    * @public
    */
   association?: FeedAssociation | undefined;
 
   /**
-   * <p>The tags associated with the feed.</p>
+   * The tags associated with the feed.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1545,7 +1801,8 @@ export interface UpdateFeedResponse {
  */
 export interface GetFixtureRequest {
   /**
-   * <p>The ID of the fixture to retrieve, as returned by SearchFixtures.</p>
+   * The ID of the fixture to retrieve, as returned by SearchFixtures.
+   *
    * @public
    */
   fixtureId: string | undefined;
@@ -1556,37 +1813,43 @@ export interface GetFixtureRequest {
  */
 export interface GetFixtureResponse {
   /**
-   * <p>The ID that you specified in the request.</p>
+   * The ID that you specified in the request.
+   *
    * @public
    */
   fixtureId: string | undefined;
 
   /**
-   * <p>The name of the fixture, as provided by the data source. For example, the names of the two competing teams. </p>
+   * The name of the fixture, as provided by the data source. For example, the names of the two competing teams.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The group that the fixture belongs to, such as the competition, league, or tournament. The data source doesn't provide this information for every fixture. </p>
+   * The group that the fixture belongs to, such as the competition, league, or tournament. The data source doesn't provide this information for every fixture.
+   *
    * @public
    */
   fixtureGroup?: string | undefined;
 
   /**
-   * <p>The scheduled start time of the fixture, as provided by the data source. The actual start time might differ. </p>
+   * The scheduled start time of the fixture, as provided by the data source. The actual start time might differ.
+   *
    * @public
    */
   scheduledStart?: Date | undefined;
 
   /**
-   * <p>The status of the fixture in its lifecycle, as provided by the data source. For example, Scheduled or Completed. </p>
+   * The status of the fixture in its lifecycle, as provided by the data source. For example, Scheduled or Completed.
+   *
    * @public
    */
   status: string | undefined;
 
   /**
-   * <p>An array of the competitors (the teams or individuals) in the fixture.</p>
+   * An array of the competitors (the teams or individuals) in the fixture.
+   *
    * @public
    */
   competitors: Competitor[] | undefined;
@@ -1597,7 +1860,8 @@ export interface GetFixtureResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource whose tags you want to query.</p>
+   * The ARN of the resource whose tags you want to query.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1608,25 +1872,29 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of the tags that belong to this resource.</p>
+   * A list of the tags that belong to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A filter for a fixture search. It is used in the filters array of a SearchFixtures request. </p>
+ * A filter for a fixture search. It is used in the filters array of a SearchFixtures request.
+ *
  * @public
  */
 export interface SearchFilter {
   /**
-   * <p>The dimension of the fixture to filter on. Valid values: COMPETITOR.</p>
+   * The dimension of the fixture to filter on. Valid values: COMPETITOR.
+   *
    * @public
    */
   name: FilterName | undefined;
 
   /**
-   * <p>An array of values to match in the dimension that you specified in name. You can specify up to 10 values. A fixture appears in the results if it matches at least one of these values. </p>
+   * An array of values to match in the dimension that you specified in name. You can specify up to 10 values. A fixture appears in the results if it matches at least one of these values.
+   *
    * @public
    */
   values: string[] | undefined;
@@ -1637,79 +1905,104 @@ export interface SearchFilter {
  */
 export interface SearchFixturesRequest {
   /**
-   * <p>The sport to search for fixtures. Valid values: basketball (search for basketball fixtures), american-football (search for american-football fixtures). </p>
+   * The sport to search for fixtures. Valid values: basketball (search for basketball fixtures), american-football (search for american-football fixtures).
+   *
    * @public
    */
   sport: DataSourceSport | undefined;
 
   /**
-   * <p>The first day of the search window, in UTC. The search includes fixtures that are scheduled on this day. </p> <p>Specify the date in ISO 8601 format, as <code>YYYY-MM-DD</code>. For example, 2026-03-14. </p>
+   * The first day of the search window, in UTC. The search includes fixtures that are scheduled on this day.
+   *
+   * Specify the date in ISO 8601 format, as `YYYY-MM-DD`. For example, 2026-03-14.
+   *
    * @public
    */
   startDate: string | undefined;
 
   /**
-   * <p>The last day of the search window, in UTC. The search includes fixtures that are scheduled on this day. Specify the date in ISO 8601 format, as <code>YYYY-MM-DD</code>. </p> <p>If you omit this parameter, Elemental Inference searches only the day that you specified in startDate. The window from startDate through endDate must not exceed seven days. </p>
+   * The last day of the search window, in UTC. The search includes fixtures that are scheduled on this day. Specify the date in ISO 8601 format, as `YYYY-MM-DD`.
+   *
+   * If you omit this parameter, Elemental Inference searches only the day that you specified in startDate. The window from startDate through endDate must not exceed seven days.
+   *
    * @public
    */
   endDate?: string | undefined;
 
   /**
-   * <p>An array of filters that narrow the results. Each filter applies to one dimension of a fixture, such as the competitor. You can specify up to 10 filters. </p> <p>A fixture must satisfy every filter in the array in order to appear in the results. Within one filter, a fixture must match at least one of the values. </p>
+   * An array of filters that narrow the results. Each filter applies to one dimension of a fixture, such as the competitor. You can specify up to 10 filters.
+   *
+   * A fixture must satisfy every filter in the array in order to appear in the results. Within one filter, a fixture must match at least one of the values.
+   *
    * @public
    */
   filters?: SearchFilter[] | undefined;
 
   /**
-   * <p>The maximum number of fixtures to return for each API request.</p> <p>The service might return fewer fixtures than the maxResults value. When more fixtures match the search, the response also includes a nextToken value that you can use to fetch the next batch of results. </p>
+   * The maximum number of fixtures to return for each API request.
+   *
+   * The service might return fewer fixtures than the maxResults value. When more fixtures match the search, the response also includes a nextToken value that you can use to fetch the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies the batch of results that you want to see.</p> <p>For example, you submit a SearchFixtures request with maxResults set at 5. The service returns the first batch of results (up to 5) and a nextToken value. To see the next batch of results, you submit the SearchFixtures request a second time, with the same search criteria, and specify the nextToken value. </p>
+   * The token that identifies the batch of results that you want to see.
+   *
+   * For example, you submit a SearchFixtures request with maxResults set at 5. The service returns the first batch of results (up to 5) and a nextToken value. To see the next batch of results, you submit the SearchFixtures request a second time, with the same search criteria, and specify the nextToken value.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains information about one fixture. It is used in the SearchFixtures response.</p> <p>Elemental Inference relays the information in this structure from the data source, so that you can identify the fixture that matches your source media. </p>
+ * Contains information about one fixture. It is used in the SearchFixtures response.
+ *
+ * Elemental Inference relays the information in this structure from the data source, so that you can identify the fixture that matches your source media.
+ *
  * @public
  */
 export interface FixtureSummary {
   /**
-   * <p>The ID of the fixture. Specify this ID in the clipping output of a feed, to identify the fixture whose event data you want Elemental Inference to map onto the clipping metadata. </p>
+   * The ID of the fixture. Specify this ID in the clipping output of a feed, to identify the fixture whose event data you want Elemental Inference to map onto the clipping metadata.
+   *
    * @public
    */
   fixtureId: string | undefined;
 
   /**
-   * <p>The name of the fixture, as provided by the data source. For example, the names of the two competing teams. </p>
+   * The name of the fixture, as provided by the data source. For example, the names of the two competing teams.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The group that the fixture belongs to, such as the competition, league, or tournament. The data source doesn't provide this information for every fixture. </p>
+   * The group that the fixture belongs to, such as the competition, league, or tournament. The data source doesn't provide this information for every fixture.
+   *
    * @public
    */
   fixtureGroup?: string | undefined;
 
   /**
-   * <p>The scheduled start time of the fixture, as provided by the data source. The actual start time might differ. </p>
+   * The scheduled start time of the fixture, as provided by the data source. The actual start time might differ.
+   *
    * @public
    */
   scheduledStart?: Date | undefined;
 
   /**
-   * <p>The status of the fixture in its lifecycle, as provided by the data source. For example, Scheduled or Completed. </p>
+   * The status of the fixture in its lifecycle, as provided by the data source. For example, Scheduled or Completed.
+   *
    * @public
    */
   status: string | undefined;
 
   /**
-   * <p>An array of the competitors (the teams or individuals) in the fixture.</p>
+   * An array of the competitors (the teams or individuals) in the fixture.
+   *
    * @public
    */
   competitors: Competitor[] | undefined;
@@ -1720,13 +2013,17 @@ export interface FixtureSummary {
  */
 export interface SearchFixturesResponse {
   /**
-   * <p>An array of FixtureSummary objects, one for each fixture that matches the search. The array is empty if no fixtures match. </p>
+   * An array of FixtureSummary objects, one for each fixture that matches the search. The array is empty if no fixtures match.
+   *
    * @public
    */
   fixtures: FixtureSummary[] | undefined;
 
   /**
-   * <p>The token that identifies the next batch of results. To see the next batch, submit the SearchFixtures request again, with the same search criteria, and specify this value in nextToken. </p> <p>This parameter is absent when there are no more results to return.</p>
+   * The token that identifies the next batch of results. To see the next batch, submit the SearchFixtures request again, with the same search criteria, and specify this value in nextToken.
+   *
+   * This parameter is absent when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1737,13 +2034,15 @@ export interface SearchFixturesResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource where you want to add tags.</p>
+   * The ARN of the resource where you want to add tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tags to add to the resource.</p>
+   * A list of tags to add to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1754,13 +2053,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource where you want to delete one or more tags.</p>
+   * The ARN of the resource where you want to delete one or more tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to delete.</p>
+   * The keys of the tags to delete.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

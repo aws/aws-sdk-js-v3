@@ -23,9 +23,10 @@ export interface SetIdentityPoolRolesCommandInput extends SetIdentityPoolRolesIn
 export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
- *          <p>You must use Amazon Web Services developer credentials to call this
- *          operation.</p>
+ * Sets the roles for an identity pool. These roles are used when making calls to GetCredentialsForIdentity action.
+ *
+ * You must use Amazon Web Services developer credentials to call this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,31 +70,36 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Thrown if there are parallel requests to modify a resource.</p>
+ *
+ * Thrown if there are parallel requests to modify a resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>Thrown when a user tries to use a login which is already linked to another
- *          account.</p>
+ *
+ * Thrown when a user tries to use a login which is already linked to another account.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

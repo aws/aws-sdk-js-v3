@@ -23,8 +23,8 @@ export interface DescribeClientVpnConnectionsCommandInput extends DescribeClient
 export interface DescribeClientVpnConnectionsCommandOutput extends DescribeClientVpnConnectionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes active client connections and connections that have been terminated within the last 60
- * 			minutes for the specified Client VPN endpoint.</p>
+ * Describes active client connections and connections that have been terminated within the last 60 minutes for the specified Client VPN endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,8 +87,8 @@ export interface DescribeClientVpnConnectionsCommandOutput extends DescribeClien
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

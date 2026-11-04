@@ -23,15 +23,8 @@ export interface DescribeOrderableClusterOptionsCommandInput extends DescribeOrd
 export interface DescribeOrderableClusterOptionsCommandOutput extends OrderableClusterOptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of orderable cluster options. Before you create a new cluster you
- *             can use this operation to find what options are available, such as the EC2 Availability
- *             Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the node types you can
- *             request. The node types differ by available storage, memory, CPU and price. With the
- *             cost involved you might want to obtain a list of cluster options in the specific region
- *             and specify values when creating a cluster.
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Returns a list of orderable cluster options. Before you create a new cluster you can use this operation to find what options are available, such as the EC2 Availability Zones (AZ) in the specific Amazon Web Services Region that you can specify, and the node types you can request. The node types differ by available storage, memory, CPU and price. With the cost involved you might want to obtain a list of cluster options in the specific region and specify values when creating a cluster. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +71,8 @@ export interface DescribeOrderableClusterOptionsCommandOutput extends OrderableC
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

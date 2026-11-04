@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PinpointEmailServiceException as __BaseException } from "./PinpointEmailServiceException";
 
 /**
- * <p>The message can't be sent because the account's ability to send email has been
- *             permanently restricted.</p>
+ * The message can't be sent because the account's ability to send email has been permanently restricted.
+ *
  * @public
  */
 export class AccountSuspendedException extends __BaseException {
@@ -26,7 +26,8 @@ export class AccountSuspendedException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in your request already exists.</p>
+ * The resource specified in your request already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -47,7 +48,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The input you provided is invalid.</p>
+ * The input you provided is invalid.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -68,7 +70,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource is being modified by another operation or thread.</p>
+ * The resource is being modified by another operation or thread.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -89,7 +92,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>There are too many instances of the specified resource type.</p>
+ * There are too many instances of the specified resource type.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -110,7 +114,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource you attempted to access doesn't exist.</p>
+ * The resource you attempted to access doesn't exist.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -131,7 +136,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Too many requests have been made to the operation.</p>
+ * Too many requests have been made to the operation.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -152,7 +158,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The message can't be sent because the sending domain isn't verified.</p>
+ * The message can't be sent because the sending domain isn't verified.
+ *
  * @public
  */
 export class MailFromDomainNotVerifiedException extends __BaseException {
@@ -173,7 +180,8 @@ export class MailFromDomainNotVerifiedException extends __BaseException {
 }
 
 /**
- * <p>The message can't be sent because it contains invalid content.</p>
+ * The message can't be sent because it contains invalid content.
+ *
  * @public
  */
 export class MessageRejected extends __BaseException {
@@ -194,8 +202,8 @@ export class MessageRejected extends __BaseException {
 }
 
 /**
- * <p>The message can't be sent because the account's ability to send email is currently
- *             paused.</p>
+ * The message can't be sent because the account's ability to send email is currently paused.
+ *
  * @public
  */
 export class SendingPausedException extends __BaseException {

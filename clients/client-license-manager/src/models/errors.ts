@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LicenseManagerServiceException as __BaseException } from "./LicenseManagerServiceException";
 
 /**
- * <p>Access to resource denied.</p>
+ * Access to resource denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
+ *
  * @public
  */
 export class AuthorizationException extends __BaseException {
@@ -51,7 +52,8 @@ export class AuthorizationException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter values are not valid.</p>
+ * One or more parameter values are not valid.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -74,7 +76,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ * Too many requests have been submitted. Try again after a brief wait.
+ *
  * @public
  */
 export class RateLimitExceededException extends __BaseException {
@@ -97,7 +100,8 @@ export class RateLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Your resource limits have been exceeded.</p>
+ * Your resource limits have been exceeded.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -120,7 +124,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The server experienced an internal error. Try again.</p>
+ * The server experienced an internal error. Try again.
+ *
  * @public
  */
 export class ServerInternalException extends __BaseException {
@@ -143,7 +148,8 @@ export class ServerInternalException extends __BaseException {
 }
 
 /**
- * <p>The provided input is not valid. Try your request again.</p>
+ * The provided input is not valid. Try your request again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -166,7 +172,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict processing the request. Try your request again.</p>
+ * There was a conflict processing the request. Try your request again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -189,7 +196,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource cannot be found.</p>
+ * The resource cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -212,7 +220,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The entitlement is not allowed.</p>
+ * The entitlement is not allowed.
+ *
  * @public
  */
 export class EntitlementNotAllowedException extends __BaseException {
@@ -235,7 +244,8 @@ export class EntitlementNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
+ * There are no entitlements found for this license, or the entitlement maximum count is reached.
+ *
  * @public
  */
 export class NoEntitlementsAllowedException extends __BaseException {
@@ -258,7 +268,8 @@ export class NoEntitlementsAllowedException extends __BaseException {
 }
 
 /**
- * <p>This is not the correct Region for the resource. Try again.</p>
+ * This is not the correct Region for the resource. Try again.
+ *
  * @public
  */
 export class RedirectException extends __BaseException {
@@ -283,7 +294,8 @@ export class RedirectException extends __BaseException {
 }
 
 /**
- * <p>The digital signature method is unsupported. Try your request again.</p>
+ * The digital signature method is unsupported. Try your request again.
+ *
  * @public
  */
 export class UnsupportedDigitalSignatureMethodException extends __BaseException {
@@ -306,7 +318,8 @@ export class UnsupportedDigitalSignatureMethodException extends __BaseException 
 }
 
 /**
- * <p>The request uses too many filters or too many filter values.</p>
+ * The request uses too many filters or too many filter values.
+ *
  * @public
  */
 export class FilterLimitExceededException extends __BaseException {
@@ -329,7 +342,8 @@ export class FilterLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A dependency required to run the API is missing.</p>
+ * A dependency required to run the API is missing.
+ *
  * @public
  */
 export class FailedDependencyException extends __BaseException {
@@ -354,9 +368,10 @@ export class FailedDependencyException extends __BaseException {
 }
 
 /**
- * <p>License Manager cannot allocate a license to a resource because of its state. </p>
- *          <p>For example, you cannot allocate a license to an instance in the process of shutting
- *          down.</p>
+ * License Manager cannot allocate a license to a resource because of its state.
+ *
+ * For example, you cannot allocate a license to an instance in the process of shutting down.
+ *
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
@@ -379,7 +394,8 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
- * <p>You do not have enough licenses available to support a new resource launch.</p>
+ * You do not have enough licenses available to support a new resource launch.
+ *
  * @public
  */
 export class LicenseUsageException extends __BaseException {

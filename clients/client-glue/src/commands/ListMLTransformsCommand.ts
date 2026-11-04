@@ -23,11 +23,8 @@ export interface ListMLTransformsCommandInput extends ListMLTransformsRequest {}
 export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves a sortable, filterable list of existing Glue machine learning transforms in this Amazon Web Services account,
- *        or the resources with the specified tag. This operation takes the optional <code>Tags</code> field, which you can use as
- *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
- *        filtering, only resources with the tags are retrieved.
- *      </p>
+ * Retrieves a sortable, filterable list of existing Glue machine learning transforms in this Amazon Web Services account, or the resources with the specified tag. This operation takes the optional `Tags` field, which you can use as a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag filtering, only resources with the tags are retrieved.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +78,24 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

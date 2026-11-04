@@ -23,7 +23,8 @@ export interface CreateSubscriptionCommandInput extends CreateSubscriptionInput 
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Subscription within a Domain for billing and user management.</p>
+ * Creates a new Subscription within a Domain for billing and user management.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,23 +58,28 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionOutpu
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+ *
+ * This error is thrown when the client does not supply proper credentials to the API.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error is thrown when a transient error causes our API to fail.</p>
+ *
+ * This error is thrown when a transient error causes our API to fail.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error is thrown when the requested resource is not found.</p>
+ *
+ * This error is thrown when the requested resource is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This error is thrown when the client supplies invalid input to the API.</p>
+ *
+ * This error is thrown when the client supplies invalid input to the API.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

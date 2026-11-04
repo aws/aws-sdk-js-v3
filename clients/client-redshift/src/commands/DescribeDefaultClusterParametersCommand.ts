@@ -26,12 +26,10 @@ export interface DescribeDefaultClusterParametersCommandInput extends DescribeDe
 export interface DescribeDefaultClusterParametersCommandOutput extends DescribeDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of parameter settings for the specified parameter group
- *             family.</p>
- *          <p>
- * For more information about parameters and parameter groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Returns a list of parameter settings for the specified parameter group family.
+ *
+ * For more information about parameters and parameter groups, go to [Amazon Redshift Parameter Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +74,8 @@ export interface DescribeDefaultClusterParametersCommandOutput extends DescribeD
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

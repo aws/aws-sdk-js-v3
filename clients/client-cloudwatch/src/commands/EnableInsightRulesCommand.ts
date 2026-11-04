@@ -23,8 +23,8 @@ export interface EnableInsightRulesCommandInput extends EnableInsightRulesInput 
 export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Enables the specified Contributor Insights rules. When rules are enabled, they
- *             immediately begin analyzing log data.</p>
+ * Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +60,20 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeded one or more limits.</p>
+ *
+ * The operation exceeded one or more limits.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>An input parameter that is required is missing.</p>
+ *
+ * An input parameter that is required is missing.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

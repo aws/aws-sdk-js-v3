@@ -23,26 +23,16 @@ export interface CreateMLModelCommandInput extends CreateMLModelInput {}
 export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as
- *             information sources. </p>
- *         <p>An <code>MLModel</code> is nearly immutable. Users can update only the
- *                 <code>MLModelName</code> and the <code>ScoreThreshold</code> in an
- *                 <code>MLModel</code> without creating a new <code>MLModel</code>. </p>
- *         <p>
- *             <code>CreateMLModel</code> is an asynchronous operation. In response to
- *                 <code>CreateMLModel</code>, Amazon Machine Learning (Amazon ML) immediately returns
- *             and sets the <code>MLModel</code> status to <code>PENDING</code>. After the
- *                 <code>MLModel</code> has been created and ready is for use, Amazon ML sets the
- *             status to <code>COMPLETED</code>. </p>
- *         <p>You can use the <code>GetMLModel</code> operation to check the progress of the
- *                 <code>MLModel</code> during the creation operation.</p>
+ * Creates a new `MLModel` using the `DataSource` and the recipe as information sources.
  *
- *         <p>
- *            <code>CreateMLModel</code> requires a <code>DataSource</code> with computed statistics,
- *           which can be created by setting <code>ComputeStatistics</code> to <code>true</code> in
- *           <code>CreateDataSourceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or
- *           <code>CreateDataSourceFromRedshift</code> operations.
- *         </p>
+ * An `MLModel` is nearly immutable. Users can update only the `MLModelName` and the `ScoreThreshold` in an `MLModel` without creating a new `MLModel`.
+ *
+ * `CreateMLModel` is an asynchronous operation. In response to `CreateMLModel`, Amazon Machine Learning (Amazon ML) immediately returns and sets the `MLModel` status to `PENDING`. After the `MLModel` has been created and ready is for use, Amazon ML sets the status to `COMPLETED`.
+ *
+ * You can use the `GetMLModel` operation to check the progress of the `MLModel` during the creation operation.
+ *
+ * `CreateMLModel` requires a `DataSource` with computed statistics, which can be created by setting `ComputeStatistics` to `true` in `CreateDataSourceFromRDS`, `CreateDataSourceFromS3`, or `CreateDataSourceFromRedshift` operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +67,20 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+ *
+ * A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

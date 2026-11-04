@@ -23,9 +23,8 @@ export interface GetOTelEnrichmentCommandInput extends GetOTelEnrichmentInput {}
 export interface GetOTelEnrichmentCommandOutput extends GetOTelEnrichmentOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the current status of vended metric enrichment for the account, including
- *             whether CloudWatch vended metrics are enriched with resource ARN and resource tag labels
- *             and queryable using PromQL. For the list of supported resources, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html">Supported Amazon Web Services infrastructure metrics</a>.</p>
+ * Returns the current status of vended metric enrichment for the account, including whether CloudWatch vended metrics are enriched with resource ARN and resource tag labels and queryable using PromQL. For the list of supported resources, see [Supported Amazon Web Services infrastructure metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +67,8 @@ export interface GetOTelEnrichmentCommandOutput extends GetOTelEnrichmentOutput,
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

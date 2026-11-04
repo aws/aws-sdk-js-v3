@@ -279,11 +279,11 @@ export type ListInvoiceSummariesResourceType =
  */
 export const ProcurementPortalEnv = {
   /**
-   * <p>The production environment.</p>
+   * The production environment.
    */
   PROD: "PROD",
   /**
-   * <p>The sandbox or test environment.</p>
+   * The sandbox or test environment.
    */
   TEST: "TEST",
 } as const;

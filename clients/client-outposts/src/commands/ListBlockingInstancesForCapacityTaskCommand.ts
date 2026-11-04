@@ -26,9 +26,8 @@ export interface ListBlockingInstancesForCapacityTaskCommandInput extends ListBl
 export interface ListBlockingInstancesForCapacityTaskCommandOutput extends ListBlockingInstancesForCapacityTaskOutput, __MetadataBearer {}
 
 /**
- * <p>A list of Amazon EC2 instances running on the Outpost and belonging to the account that
- *       initiated the capacity task. Use this list to specify the instances you cannot stop to free up
- *       capacity to run the capacity task.</p>
+ * A list of Amazon EC2 instances running on the Outpost and belonging to the account that initiated the capacity task. Use this list to specify the instances you cannot stop to free up capacity to run the capacity task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +64,24 @@ export interface ListBlockingInstancesForCapacityTaskCommandOutput extends ListB
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

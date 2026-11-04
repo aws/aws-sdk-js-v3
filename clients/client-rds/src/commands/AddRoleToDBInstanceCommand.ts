@@ -23,7 +23,12 @@ export interface AddRoleToDBInstanceCommandInput extends AddRoleToDBInstanceMess
 export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p> <note> <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p> </note> <p>This command doesn't apply to RDS Custom.</p>
+ * Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.
+ *
+ * > **Note:** To add a role to a DB instance, the status of the DB instance must be `available`.
+ *
+ * This command doesn't apply to RDS Custom.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,20 +55,24 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBInstanceRoleAlreadyExistsFault} (client fault)
- *  <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>
+ *
+ * The specified `RoleArn` or `FeatureName` value is already associated with the DB instance.
  *
  * @throws {@link DBInstanceRoleQuotaExceededFault} (client fault)
- *  <p>You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
+ *
+ * You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB instance
  * ```javascript

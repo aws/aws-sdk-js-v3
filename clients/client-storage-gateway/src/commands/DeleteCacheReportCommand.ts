@@ -23,13 +23,10 @@ export interface DeleteCacheReportCommandInput extends DeleteCacheReportInput {}
 export interface DeleteCacheReportCommandOutput extends DeleteCacheReportOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified cache report and any associated tags from the Storage Gateway database. You can only delete completed reports. If the status of the
- *          report you attempt to delete still IN-PROGRESS, the delete operation returns an error. You
- *          can use <code>CancelCacheReport</code> to cancel an IN-PROGRESS report.</p>
- *          <note>
- *             <p>
- *                <code>DeleteCacheReport</code> does not delete the report object from your Amazon S3 bucket.</p>
- *          </note>
+ * Deletes the specified cache report and any associated tags from the Storage Gateway database. You can only delete completed reports. If the status of the report you attempt to delete still IN-PROGRESS, the delete operation returns an error. You can use `CancelCacheReport` to cancel an IN-PROGRESS report.
+ *
+ * > **Note:** `DeleteCacheReport` does not delete the report object from your Amazon S3 bucket.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,16 +53,16 @@ export interface DeleteCacheReportCommandOutput extends DeleteCacheReportOutput,
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

@@ -23,11 +23,9 @@ export interface GetSlotTypeCommandInput extends GetSlotTypeRequest {}
 export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific version of a slot type. In
- *       addition to specifying the slot type name, you must specify the slot type
- *       version.</p>
- *          <p>This operation requires permissions for the
- *         <code>lex:GetSlotType</code> action.</p>
+ * Returns information about a specific version of a slot type. In addition to specifying the slot type name, you must specify the slot type version.
+ *
+ * This operation requires permissions for the `lex:GetSlotType` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -79,23 +77,24 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @example To get information about a slot type
  * ```javascript

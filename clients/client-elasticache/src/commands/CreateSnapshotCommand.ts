@@ -23,11 +23,10 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotMessage {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a copy of an entire cluster or replication group at a specific moment in
- *             time.</p>
- *          <note>
- *             <p>This operation is valid for Valkey or Redis OSS only.</p>
- *          </note>
+ * Creates a copy of an entire cluster or replication group at a specific moment in time.
+ *
+ * > **Note:** This operation is valid for Valkey or Redis OSS only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,52 +114,53 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
- *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * The requested cluster is not in the `available` state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidReplicationGroupStateFault} (client fault)
- *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * The requested replication group is not in the `available` state.
  *
  * @throws {@link ReplicationGroupNotFoundFault} (client fault)
- *  <p>The specified replication group does not exist.</p>
+ *
+ * The specified replication group does not exist.
  *
  * @throws {@link SnapshotAlreadyExistsFault} (client fault)
- *  <p>You already have a snapshot with the given name.</p>
+ *
+ * You already have a snapshot with the given name.
  *
  * @throws {@link SnapshotFeatureNotSupportedFault} (client fault)
- *  <p>You attempted one of the following operations:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
- *                         <code>cache.t1.micro</code> cache node.</p>
- *             </li>
- *             <li>
- *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Valkey or Redis OSS.</p>
- *             </li>
- *          </ul>
- *          <p>Neither of these are supported by ElastiCache.</p>
+ *
+ * You attempted one of the following operations:
+ *
+ * - Creating a snapshot of a Valkey or Redis OSS cluster running on a `cache.t1.micro` cache node.
+ * - Creating a snapshot of a cluster that is running Memcached rather than Valkey or Redis OSS.
+ *
+ * Neither of these are supported by ElastiCache.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of
- *             snapshots.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of snapshots.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would cause the resource to have more than
- *             the allowed number of tags. The maximum number of tags permitted on a resource is
- *             50.</p>
+ *
+ * The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example CreateSnapshot - NonClustered Redis, 2 read-replicas
  * ```javascript

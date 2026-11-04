@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RekognitionServiceException as __BaseException } from "./RekognitionServiceException";
 
 /**
- * <p>You are not authorized to perform the action.</p>
+ * You are not authorized to perform the action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -35,8 +37,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> A User with the same Id already exists within the collection, or the update or deletion
- *       of the User caused an inconsistent state. ** </p>
+ * A User with the same Id already exists within the collection, or the update or deletion of the User caused an inconsistent state. **
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -67,8 +70,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at least one of the other input
- *         parameters is different from the previous call to the operation.</p>
+ * A `ClientRequestToken` input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -78,7 +81,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -99,7 +103,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ * Amazon Rekognition experienced a service issue. Try your call again.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -109,7 +114,8 @@ export class InternalServerError extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -130,8 +136,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -141,7 +147,8 @@ export class InvalidParameterException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -162,8 +169,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
+ *
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
@@ -173,7 +180,8 @@ export class ProvisionedThroughputExceededException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -194,7 +202,8 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request cannot be found.</p>
+ * The resource specified in the request cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -204,7 +213,8 @@ export class ResourceNotFoundException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -225,9 +235,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -237,7 +246,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -258,7 +268,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -268,7 +279,8 @@ export class ThrottlingException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -289,10 +301,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *
  * @public
  */
 export class ImageTooLargeException extends __BaseException {
@@ -302,7 +312,8 @@ export class ImageTooLargeException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -323,7 +334,8 @@ export class ImageTooLargeException extends __BaseException {
 }
 
 /**
- * <p>The provided image format is not supported. </p>
+ * The provided image format is not supported.
+ *
  * @public
  */
 export class InvalidImageFormatException extends __BaseException {
@@ -333,7 +345,8 @@ export class InvalidImageFormatException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -354,7 +367,8 @@ export class InvalidImageFormatException extends __BaseException {
 }
 
 /**
- * <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
+ *
  * @public
  */
 export class InvalidS3ObjectException extends __BaseException {
@@ -364,7 +378,8 @@ export class InvalidS3ObjectException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -385,11 +400,8 @@ export class InvalidS3ObjectException extends __BaseException {
 }
 
 /**
- * <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
- *             concurrently, subsequent calls to start operations (ex:
- *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
- *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *             the Amazon Rekognition service limit. </p>
+ * An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs concurrently, subsequent calls to start operations (ex: `StartLabelDetection`) will raise a `LimitExceededException` exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Rekognition service limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -399,7 +411,8 @@ export class LimitExceededException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -420,7 +433,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is already being used.</p>
+ * The specified resource is already being used.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -430,7 +444,8 @@ export class ResourceInUseException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -451,7 +466,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>A resource with the specified ID already exists.</p>
+ * A resource with the specified ID already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -461,7 +477,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -482,7 +499,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The supplied revision id for the project policy is invalid.</p>
+ * The supplied revision id for the project policy is invalid.
+ *
  * @public
  */
 export class InvalidPolicyRevisionIdException extends __BaseException {
@@ -492,7 +510,8 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -513,7 +532,8 @@ export class InvalidPolicyRevisionIdException extends __BaseException {
 }
 
 /**
- * <p>Pagination token in the request is not valid.</p>
+ * Pagination token in the request is not valid.
+ *
  * @public
  */
 export class InvalidPaginationTokenException extends __BaseException {
@@ -523,7 +543,8 @@ export class InvalidPaginationTokenException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -544,9 +565,8 @@ export class InvalidPaginationTokenException extends __BaseException {
 }
 
 /**
- * <p>The requested resource isn't ready. For example,
- *          this exception occurs when you call <code>DetectCustomLabels</code> with a
- *          model version that isn't deployed. </p>
+ * The requested resource isn't ready. For example, this exception occurs when you call `DetectCustomLabels` with a model version that isn't deployed.
+ *
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -556,7 +576,8 @@ export class ResourceNotReadyException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -577,7 +598,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
+ * The number of in-progress human reviews you have has exceeded the number allowed.
+ *
  * @public
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
@@ -585,19 +607,22 @@ export class HumanLoopQuotaExceededException extends __BaseException {
   readonly name = "HumanLoopQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The quota code.</p>
+   * The quota code.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>The service code.</p>
+   * The service code.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
@@ -605,7 +630,8 @@ export class HumanLoopQuotaExceededException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -629,7 +655,8 @@ export class HumanLoopQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a given sessionId is not found.</p>
+ * Occurs when a given sessionId is not found.
+ *
  * @public
  */
 export class SessionNotFoundException extends __BaseException {
@@ -639,7 +666,8 @@ export class SessionNotFoundException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -660,7 +688,8 @@ export class SessionNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a provided manifest file is empty or larger than the allowed limit.</p>
+ * Indicates that a provided manifest file is empty or larger than the allowed limit.
+ *
  * @public
  */
 export class InvalidManifestException extends __BaseException {
@@ -670,7 +699,8 @@ export class InvalidManifestException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -691,8 +721,8 @@ export class InvalidManifestException extends __BaseException {
 }
 
 /**
- * <p>The format of the project policy document that you supplied to
- *       <code>PutProjectPolicy</code> is incorrect. </p>
+ * The format of the project policy document that you supplied to `PutProjectPolicy` is incorrect.
+ *
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -702,7 +732,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;
@@ -723,8 +754,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The file size or duration of the supplied media is too large. The maximum file size is 10GB.
- *         The maximum duration is 6 hours. </p>
+ * The file size or duration of the supplied media is too large. The maximum file size is 10GB. The maximum duration is 6 hours.
+ *
  * @public
  */
 export class VideoTooLargeException extends __BaseException {
@@ -734,7 +765,8 @@ export class VideoTooLargeException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
+   * A universally unique identifier (UUID) for the request.
+   *
    * @public
    */
   Logref?: string | undefined;

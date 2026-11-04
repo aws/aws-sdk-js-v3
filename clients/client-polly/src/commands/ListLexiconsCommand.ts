@@ -23,7 +23,8 @@ export interface ListLexiconsCommandInput extends ListLexiconsInput {}
 export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ * Returns a list of pronunciation lexicons stored in an Amazon Web Services Region. For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,15 +64,16 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The NextToken is invalid. Verify that it's spelled correctly, and
- *       then try again.</p>
+ *
+ * The NextToken is invalid. Verify that it's spelled correctly, and then try again.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @example To list all lexicons in a region
  * ```javascript

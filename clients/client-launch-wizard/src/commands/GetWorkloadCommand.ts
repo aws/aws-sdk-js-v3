@@ -23,7 +23,8 @@ export interface GetWorkloadCommandInput extends GetWorkloadInput {}
 export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a workload.</p>
+ * Returns information about a workload.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +67,20 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * @see {@link LaunchWizardClientResolvedConfig | config} for LaunchWizardClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ *
+ * An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on [re:Post](https://repost.aws/).
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified workload or deployment resource can't be found.</p>
+ *
+ * The specified workload or deployment resource can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link LaunchWizardServiceException}
- * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ * Base exception class for all service exceptions from LaunchWizard service.
  *
  * @example Get details about a specific workload.
  * ```javascript

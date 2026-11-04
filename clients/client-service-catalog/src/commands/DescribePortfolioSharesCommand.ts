@@ -23,11 +23,12 @@ export interface DescribePortfolioSharesCommandInput extends DescribePortfolioSh
 export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioSharesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a summary of each of the portfolio shares that were created for the specified portfolio.</p>
- *          <p>You can use this API to determine which accounts or organizational nodes this
- *          portfolio have been shared, whether the recipient entity has imported the share, and
- *          whether TagOptions are included with the share.</p>
- *          <p>The <code>PortfolioId</code> and <code>Type</code> parameters are both required.</p>
+ * Returns a summary of each of the portfolio shares that were created for the specified portfolio.
+ *
+ * You can use this API to determine which accounts or organizational nodes this portfolio have been shared, whether the recipient entity has imported the share, and whether TagOptions are included with the share.
+ *
+ * The `PortfolioId` and `Type` parameters are both required.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,14 +67,16 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

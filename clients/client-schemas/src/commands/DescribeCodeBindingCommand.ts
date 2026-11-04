@@ -23,7 +23,8 @@ export interface DescribeCodeBindingCommandInput extends DescribeCodeBindingRequ
 export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingResponse, __MetadataBearer {}
 
 /**
- * <p>Describe the code binding URI.</p>
+ * Describe the code binding URI.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

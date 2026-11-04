@@ -23,8 +23,10 @@ export interface GetSendQuotaCommandInput {}
 export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the sending limits for the Amazon SES account. </p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Provides the sending limits for the Amazon SES account.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +53,8 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example GetSendQuota
  * ```javascript

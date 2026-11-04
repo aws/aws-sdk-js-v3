@@ -23,7 +23,8 @@ export interface ListApplicationRevisionsCommandInput extends ListApplicationRev
 export interface ListApplicationRevisionsCommandOutput extends ListApplicationRevisionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists information about revisions for an application.</p>
+ * Lists information about revisions for an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,39 +81,48 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link BucketNameFilterRequiredException} (client fault)
- *  <p>A bucket name is required, but was not provided.</p>
+ *
+ * A bucket name is required, but was not provided.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidBucketNameFilterException} (client fault)
- *  <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
+ *
+ * The bucket name either doesn't exist or was specified in an invalid format.
  *
  * @throws {@link InvalidDeployedStateFilterException} (client fault)
- *  <p>The deployed state filter was specified in an invalid format.</p>
+ *
+ * The deployed state filter was specified in an invalid format.
  *
  * @throws {@link InvalidKeyPrefixFilterException} (client fault)
- *  <p>The specified key prefix filter was specified in an invalid format.</p>
+ *
+ * The specified key prefix filter was specified in an invalid format.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link InvalidSortByException} (client fault)
- *  <p>The column name to sort by is either not present or was specified in an invalid
- *             format.</p>
+ *
+ * The column name to sort by is either not present or was specified in an invalid format.
  *
  * @throws {@link InvalidSortOrderException} (client fault)
- *  <p>The sort order was specified in an invalid format.</p>
+ *
+ * The sort order was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface EnableClientAuthenticationCommandInput extends EnableClientAuth
 export interface EnableClientAuthenticationCommandOutput extends EnableClientAuthenticationResult, __MetadataBearer {}
 
 /**
- * <p>Enables alternative client authentication methods for the specified directory.</p>
+ * Enables alternative client authentication methods for the specified directory.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,30 +50,36 @@ export interface EnableClientAuthenticationCommandOutput extends EnableClientAut
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link InvalidClientAuthStatusException} (client fault)
- *  <p>Client authentication is already enabled.</p>
+ *
+ * Client authentication is already enabled.
  *
  * @throws {@link NoAvailableCertificateException} (client fault)
- *  <p>Client authentication setup could not be completed because at least one valid certificate
- *       must be registered in the system.</p>
+ *
+ * Client authentication setup could not be completed because at least one valid certificate must be registered in the system.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

@@ -23,12 +23,12 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of member accounts for a behavior graph.</p>
- *          <p>For invited accounts, the results do not include member accounts that were removed from
- *          the behavior graph.</p>
- *          <p>For the organization behavior graph, the results do not include organization accounts
- *          that the Detective administrator account has not enabled as member
- *          accounts.</p>
+ * Retrieves the list of member accounts for a behavior graph.
+ *
+ * For invited accounts, the results do not include member accounts that were removed from the behavior graph.
+ *
+ * For the organization behavior graph, the results do not include organization accounts that the Detective administrator account has not enabled as member accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,21 +84,24 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * The request refers to a nonexistent resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

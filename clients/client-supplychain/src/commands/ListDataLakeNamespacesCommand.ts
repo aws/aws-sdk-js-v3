@@ -23,7 +23,8 @@ export interface ListDataLakeNamespacesCommandInput extends ListDataLakeNamespac
 export interface ListDataLakeNamespacesCommandOutput extends ListDataLakeNamespacesResponse, __MetadataBearer {}
 
 /**
- * <p>Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake namespaces. Developers can view the namespaces and the corresponding information such as description for a given instance ID. Note that this API only return custom namespaces, instance pre-defined namespaces are not included.</p>
+ * Enables you to programmatically view the list of Amazon Web Services Supply Chain data lake namespaces. Developers can view the namespaces and the corresponding information such as description for a given instance ID. Note that this API only return custom namespaces, instance pre-defined namespaces are not included.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,29 +63,36 @@ export interface ListDataLakeNamespacesCommandOutput extends ListDataLakeNamespa
  * @see {@link SupplyChainClientResolvedConfig | config} for SupplyChainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the required privileges to perform this action.</p>
+ *
+ * You do not have the required privileges to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input does not satisfy the constraints specified by an AWS service.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * Request would cause a service quota to be exceeded.
  *
  * @throws {@link SupplyChainServiceException}
- * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
+ * Base exception class for all service exceptions from SupplyChain service.
  *
  * @example List AWS Supply Chain namespaces
  * ```javascript

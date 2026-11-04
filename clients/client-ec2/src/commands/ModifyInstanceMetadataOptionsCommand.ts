@@ -23,13 +23,8 @@ export interface ModifyInstanceMetadataOptionsCommandInput extends ModifyInstanc
 export interface ModifyInstanceMetadataOptionsCommandOutput extends ModifyInstanceMetadataOptionsResult, __MetadataBearer {}
 
 /**
- * <p>Modify the instance metadata parameters on a running or stopped instance. When you
- *             modify the parameters on a stopped instance, they are applied when the instance is
- *             started. When you modify the parameters on a running instance, the API responds with a
- *             state of “pending”. After the parameter modifications are successfully applied to the
- *             instance, the state of the modifications changes from “pending” to “applied” in
- *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Modify the instance metadata parameters on a running or stopped instance. When you modify the parameters on a stopped instance, they are applied when the instance is started. When you modify the parameters on a running instance, the API responds with a state of “pending”. After the parameter modifications are successfully applied to the instance, the state of the modifications changes from “pending” to “applied” in subsequent describe-instances API calls. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +65,8 @@ export interface ModifyInstanceMetadataOptionsCommandOutput extends ModifyInstan
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

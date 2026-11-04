@@ -23,11 +23,12 @@ export interface DescribeVirtualGatewaysCommandInput {}
 export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Deprecated. Use <code>DescribeVpnGateways</code> instead. See <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html">DescribeVPNGateways</a> in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
- *          </note>
- *          <p>Lists the virtual private gateways owned by the Amazon Web Services account.</p>
- *          <p>You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
+ * > **Note:** Deprecated. Use `DescribeVpnGateways` instead. See [DescribeVPNGateways](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html) in the *Amazon Elastic Compute Cloud API Reference*.
+ *
+ * Lists the virtual private gateways owned by the Amazon Web Services account.
+ *
+ * You can create one or more Direct Connect private virtual interfaces linked to a virtual private gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +58,16 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

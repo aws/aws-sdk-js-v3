@@ -24,61 +24,57 @@ import type {
  */
 export interface BatchGetMemberAccountDetailsRequest {
   /**
-   * <p>Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to query. </p>
+   * Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to query.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>Optional element to query the membership relationship status to a provided list of account IDs.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
+   * Optional element to query the membership relationship status to a provided list of account IDs.
+   *
+   * > **Note:** AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be `123123123` which is nine digits, and with zero-prepend would be `000123123123`. Not zero-prepending to 12 digits could result in errors.
+   *
    * @public
    */
   accountIds: string[] | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface GetMembershipAccountDetailError {
   /**
-   * <p/>
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   error: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface GetMembershipAccountDetailItem {
   /**
-   * <p/>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   relationshipStatus?: MembershipAccountRelationshipStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   relationshipType?: MembershipAccountRelationshipType | undefined;
@@ -89,31 +85,30 @@ export interface GetMembershipAccountDetailItem {
  */
 export interface BatchGetMemberAccountDetailsResponse {
   /**
-   * <p>The response element providing responses for requests to GetMembershipAccountDetails.</p>
+   * The response element providing responses for requests to GetMembershipAccountDetails.
+   *
    * @public
    */
   items?: GetMembershipAccountDetailItem[] | undefined;
 
   /**
-   * <p>The response element providing error messages for requests to GetMembershipAccountDetails.</p>
+   * The response element providing error messages for requests to GetMembershipAccountDetails.
+   *
    * @public
    */
   errors?: GetMembershipAccountDetailError[] | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p/>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   message: string | undefined;
@@ -124,7 +119,8 @@ export interface ValidationExceptionField {
  */
 export interface CancelMembershipRequest {
   /**
-   * <p>Required element used in combination with CancelMembershipRequest to identify the membership ID to cancel. </p>
+   * Required element used in combination with CancelMembershipRequest to identify the membership ID to cancel.
+   *
    * @public
    */
   membershipId: string | undefined;
@@ -135,7 +131,8 @@ export interface CancelMembershipRequest {
  */
 export interface CancelMembershipResponse {
   /**
-   * <p>The response element providing responses for requests to CancelMembershipRequest.</p>
+   * The response element providing responses for requests to CancelMembershipRequest.
+   *
    * @public
    */
   membershipId: string | undefined;
@@ -146,7 +143,8 @@ export interface CancelMembershipResponse {
  */
 export interface CloseCaseRequest {
   /**
-   * <p>Required element used in combination with CloseCase to identify the case ID to close.</p>
+   * Required element used in combination with CloseCase to identify the case ID to close.
+   *
    * @public
    */
   caseId: string | undefined;
@@ -157,67 +155,60 @@ export interface CloseCaseRequest {
  */
 export interface CloseCaseResponse {
   /**
-   * <p>A response element providing responses for requests to CloseCase. This element responds <code>Closed </code> if successful. </p>
+   * A response element providing responses for requests to CloseCase. This element responds `Closed` if successful.
+   *
    * @public
    */
   caseStatus?: CaseStatus | undefined;
 
   /**
-   * <p>A response element providing responses for requests to CloseCase. This element responds with the ISO-8601 formatted timestamp of the moment when the case was closed. </p>
+   * A response element providing responses for requests to CloseCase. This element responds with the ISO-8601 formatted timestamp of the moment when the case was closed.
+   *
    * @public
    */
   closedDate?: Date | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface ImpactedAwsRegion {
   /**
-   * <p/>
    * @public
    */
   region: AwsRegion | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface ThreatActorIp {
   /**
-   * <p/>
    * @public
    */
   ipAddress: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   userAgent?: string | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface Watcher {
   /**
-   * <p/>
    * @public
    */
   email: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   jobTitle?: string | undefined;
@@ -228,73 +219,89 @@ export interface Watcher {
  */
 export interface CreateCaseRequest {
   /**
-   * <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
+   * > **Note:** The `clientToken` field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to identify the resolver type.</p>
+   * Required element used in combination with CreateCase to identify the resolver type.
+   *
    * @public
    */
   resolverType: ResolverType | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide a title for the new case.</p>
+   * Required element used in combination with CreateCase to provide a title for the new case.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase</p> <p>to provide a description for the new case.</p>
+   * Required element used in combination with CreateCase
+   *
+   * to provide a description for the new case.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide an engagement type for the new cases. Available engagement types include Security Incident | Investigation </p>
+   * Required element used in combination with CreateCase to provide an engagement type for the new cases. Available engagement types include Security Incident | Investigation
+   *
    * @public
    */
   engagementType: EngagementType | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide an initial start date for the unauthorized activity. </p>
+   * Required element used in combination with CreateCase to provide an initial start date for the unauthorized activity.
+   *
    * @public
    */
   reportedIncidentStartDate: Date | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide a list of impacted accounts.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
+   * Required element used in combination with CreateCase to provide a list of impacted accounts.
+   *
+   * > **Note:** AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be `123123123` which is nine digits, and with zero-prepend would be `000123123123`. Not zero-prepending to 12 digits could result in errors.
+   *
    * @public
    */
   impactedAccounts: string[] | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCase to provide a list of entities to receive notifications for case updates. </p>
+   * Required element used in combination with CreateCase to provide a list of entities to receive notifications for case updates.
+   *
    * @public
    */
   watchers: Watcher[] | undefined;
 
   /**
-   * <p>An optional element used in combination with CreateCase to provide a list of suspicious internet protocol addresses associated with unauthorized activity. </p>
+   * An optional element used in combination with CreateCase to provide a list of suspicious internet protocol addresses associated with unauthorized activity.
+   *
    * @public
    */
   threatActorIpAddresses?: ThreatActorIp[] | undefined;
 
   /**
-   * <p>An optional element used in combination with CreateCase to provide a list of services impacted.</p>
+   * An optional element used in combination with CreateCase to provide a list of services impacted.
+   *
    * @public
    */
   impactedServices?: string[] | undefined;
 
   /**
-   * <p>An optional element used in combination with CreateCase to provide a list of impacted regions.</p>
+   * An optional element used in combination with CreateCase to provide a list of impacted regions.
+   *
    * @public
    */
   impactedAwsRegions?: ImpactedAwsRegion[] | undefined;
 
   /**
-   * <p>An optional element used in combination with CreateCase to add customer specified tags to a case.</p>
+   * An optional element used in combination with CreateCase to add customer specified tags to a case.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -305,7 +312,8 @@ export interface CreateCaseRequest {
  */
 export interface CreateCaseResponse {
   /**
-   * <p>A response element providing responses for requests to CreateCase. This element responds with the case ID. </p>
+   * A response element providing responses for requests to CreateCase. This element responds with the case ID.
+   *
    * @public
    */
   caseId: string | undefined;
@@ -316,19 +324,22 @@ export interface CreateCaseResponse {
  */
 export interface CreateCaseCommentRequest {
   /**
-   * <p>Required element used in combination with CreateCaseComment to specify a case ID.</p>
+   * Required element used in combination with CreateCaseComment to specify a case ID.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
+   * > **Note:** The `clientToken` field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateCaseComment to add content for the new comment.</p>
+   * Required element used in combination with CreateCaseComment to add content for the new comment.
+   *
    * @public
    */
   body: string | undefined;
@@ -339,7 +350,8 @@ export interface CreateCaseCommentRequest {
  */
 export interface CreateCaseCommentResponse {
   /**
-   * <p>Response element indicating the new comment ID.</p>
+   * Response element indicating the new comment ID.
+   *
    * @public
    */
   commentId: string | undefined;
@@ -350,61 +362,59 @@ export interface CreateCaseCommentResponse {
  */
 export interface GetCaseRequest {
   /**
-   * <p>Required element for GetCase to identify the requested case ID.</p>
+   * Required element for GetCase to identify the requested case ID.
+   *
    * @public
    */
   caseId: string | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface CaseAttachmentAttributes {
   /**
-   * <p/>
    * @public
    */
   attachmentId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   attachmentStatus: CaseAttachmentStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   creator: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdDate: Date | undefined;
 }
 
 /**
- * <p>Represents a single metadata entry associated with a case. Each entry consists of a key-value pair that provides additional contextual information about the case, such as classification tags, custom attributes, or system-generated properties. </p>
+ * Represents a single metadata entry associated with a case. Each entry consists of a key-value pair that provides additional contextual information about the case, such as classification tags, custom attributes, or system-generated properties.
+ *
  * @public
  */
 export interface CaseMetadataEntry {
   /**
-   * <p>The identifier for the metadata field. This key uniquely identifies the type of metadata being stored, such as "severity", "category", or "assignee".</p>
+   * The identifier for the metadata field. This key uniquely identifies the type of metadata being stored, such as "severity", "category", or "assignee".
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value associated with the metadata key. This contains the actual data for the metadata field identified by the key.</p>
+   * The value associated with the metadata key. This contains the actual data for the metadata field identified by the key.
+   *
    * @public
    */
   value: string | undefined;
@@ -415,121 +425,141 @@ export interface CaseMetadataEntry {
  */
 export interface GetCaseResponse {
   /**
-   * <p>Response element for GetCase that provides the case title.</p>
+   * Response element for GetCase that provides the case title.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the case ARN</p>
+   * Response element for GetCase that provides the case ARN
+   *
    * @public
    */
   caseArn?: string | undefined;
 
   /**
-   * <p>Response element for GetCase that provides contents of the case description.</p>
+   * Response element for GetCase that provides contents of the case description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the case status. Options for statuses include <code>Submitted | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities | Closed </code> </p>
+   * Response element for GetCase that provides the case status. Options for statuses include `Submitted | Detection and Analysis | Eradication, Containment and Recovery | Post-Incident Activities | Closed`
+   *
    * @public
    */
   caseStatus?: CaseStatus | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the engagement type. Options for engagement type include <code>Active Security Event | Investigations</code> </p>
+   * Response element for GetCase that provides the engagement type. Options for engagement type include `Active Security Event | Investigations`
+   *
    * @public
    */
   engagementType?: EngagementType | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the customer provided incident start date.</p>
+   * Response element for GetCase that provides the customer provided incident start date.
+   *
    * @public
    */
   reportedIncidentStartDate?: Date | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the actual incident start date as identified by data analysis during the investigation. </p>
+   * Response element for GetCase that provides the actual incident start date as identified by data analysis during the investigation.
+   *
    * @public
    */
   actualIncidentStartDate?: Date | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the impacted regions.</p>
+   * Response element for GetCase that provides the impacted regions.
+   *
    * @public
    */
   impactedAwsRegions?: ImpactedAwsRegion[] | undefined;
 
   /**
-   * <p>Response element for GetCase that provides a list of suspicious IP addresses associated with unauthorized activity. </p>
+   * Response element for GetCase that provides a list of suspicious IP addresses associated with unauthorized activity.
+   *
    * @public
    */
   threatActorIpAddresses?: ThreatActorIp[] | undefined;
 
   /**
-   * <p>Response element for GetCase that identifies the case is waiting on customer input.</p>
+   * Response element for GetCase that identifies the case is waiting on customer input.
+   *
    * @public
    */
   pendingAction?: PendingAction | undefined;
 
   /**
-   * <p>Response element for GetCase that provides a list of impacted accounts.</p>
+   * Response element for GetCase that provides a list of impacted accounts.
+   *
    * @public
    */
   impactedAccounts?: string[] | undefined;
 
   /**
-   * <p>Response element for GetCase that provides a list of Watchers added to the case.</p>
+   * Response element for GetCase that provides a list of Watchers added to the case.
+   *
    * @public
    */
   watchers?: Watcher[] | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the date the case was created.</p>
+   * Response element for GetCase that provides the date the case was created.
+   *
    * @public
    */
   createdDate?: Date | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the date a case was last modified.</p>
+   * Response element for GetCase that provides the date a case was last modified.
+   *
    * @public
    */
   lastUpdatedDate?: Date | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the summary code for why a case was closed.</p>
+   * Response element for GetCase that provides the summary code for why a case was closed.
+   *
    * @public
    */
   closureCode?: ClosureCode | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the current resolver types.</p>
+   * Response element for GetCase that provides the current resolver types.
+   *
    * @public
    */
   resolverType?: ResolverType | undefined;
 
   /**
-   * <p>Response element for GetCase that provides a list of impacted services.</p>
+   * Response element for GetCase that provides a list of impacted services.
+   *
    * @public
    */
   impactedServices?: string[] | undefined;
 
   /**
-   * <p>Response element for GetCase that provides a list of current case attachments.</p>
+   * Response element for GetCase that provides a list of current case attachments.
+   *
    * @public
    */
   caseAttachments?: CaseAttachmentAttributes[] | undefined;
 
   /**
-   * <p>Response element for GetCase that provides the date a specified case was closed.</p>
+   * Response element for GetCase that provides the date a specified case was closed.
+   *
    * @public
    */
   closedDate?: Date | undefined;
 
   /**
-   * <p>Case response metadata</p>
+   * Case response metadata
+   *
    * @public
    */
   caseMetadata?: CaseMetadataEntry[] | undefined;
@@ -540,13 +570,15 @@ export interface GetCaseResponse {
  */
 export interface GetCaseAttachmentDownloadUrlRequest {
   /**
-   * <p>Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment from. </p>
+   * Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment from.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for GetCaseAttachmentDownloadUrl to identify the attachment ID for downloading an attachment. </p>
+   * Required element for GetCaseAttachmentDownloadUrl to identify the attachment ID for downloading an attachment.
+   *
    * @public
    */
   attachmentId: string | undefined;
@@ -557,7 +589,8 @@ export interface GetCaseAttachmentDownloadUrlRequest {
  */
 export interface GetCaseAttachmentDownloadUrlResponse {
   /**
-   * <p>Response element providing the Amazon S3 presigned URL to download an attachment.</p>
+   * Response element providing the Amazon S3 presigned URL to download an attachment.
+   *
    * @public
    */
   attachmentPresignedUrl: string | undefined;
@@ -568,25 +601,29 @@ export interface GetCaseAttachmentDownloadUrlResponse {
  */
 export interface GetCaseAttachmentUploadUrlRequest {
   /**
-   * <p>Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading an attachment. </p>
+   * Required element for GetCaseAttachmentUploadUrl to identify the case ID for uploading an attachment.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for GetCaseAttachmentUploadUrl to identify the file name of the attachment to upload. </p>
+   * Required element for GetCaseAttachmentUploadUrl to identify the file name of the attachment to upload.
+   *
    * @public
    */
   fileName: string | undefined;
 
   /**
-   * <p>Required element for GetCaseAttachmentUploadUrl to identify the size of the file attachment.</p>
+   * Required element for GetCaseAttachmentUploadUrl to identify the size of the file attachment.
+   *
    * @public
    */
   contentLength: number | undefined;
 
   /**
-   * <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
+   * > **Note:** The `clientToken` field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -597,7 +634,8 @@ export interface GetCaseAttachmentUploadUrlRequest {
  */
 export interface GetCaseAttachmentUploadUrlResponse {
   /**
-   * <p>Response element providing the Amazon S3 presigned URL to upload the attachment.</p>
+   * Response element providing the Amazon S3 presigned URL to upload the attachment.
+   *
    * @public
    */
   attachmentPresignedUrl: string | undefined;
@@ -608,49 +646,47 @@ export interface GetCaseAttachmentUploadUrlResponse {
  */
 export interface ListCaseEditsRequest {
   /**
-   * <p>An optional string that, if supplied, must be copied from the output of a previous call to ListCaseEdits. When provided in this manner, the API fetches the next page of results. </p>
+   * An optional string that, if supplied, must be copied from the output of a previous call to ListCaseEdits. When provided in this manner, the API fetches the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Optional element to identify how many results to obtain. There is a maximum value of 25.</p>
+   * Optional element to identify how many results to obtain. There is a maximum value of 25.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Required element used with ListCaseEdits to identify the case to query.</p>
+   * Required element used with ListCaseEdits to identify the case to query.
+   *
    * @public
    */
   caseId: string | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface CaseEditItem {
   /**
-   * <p/>
    * @public
    */
   eventTimestamp?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   principal?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   action?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   message?: string | undefined;
@@ -661,19 +697,22 @@ export interface CaseEditItem {
  */
 export interface ListCaseEditsResponse {
   /**
-   * <p>An optional string that, if supplied on subsequent calls to ListCaseEdits, allows the API to fetch the next page of results. </p>
+   * An optional string that, if supplied on subsequent calls to ListCaseEdits, allows the API to fetch the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Response element for ListCaseEdits that includes the action, event timestamp, message, and principal for the response. </p>
+   * Response element for ListCaseEdits that includes the action, event timestamp, message, and principal for the response.
+   *
    * @public
    */
   items?: CaseEditItem[] | undefined;
 
   /**
-   * <p>Response element for ListCaseEdits that identifies the total number of edits.</p>
+   * Response element for ListCaseEdits that identifies the total number of edits.
+   *
    * @public
    */
   total?: number | undefined;
@@ -684,79 +723,70 @@ export interface ListCaseEditsResponse {
  */
 export interface ListCasesRequest {
   /**
-   * <p>An optional string that, if supplied, must be copied from the output of a previous call to ListCases. When provided in this manner, the API fetches the next page of results. </p>
+   * An optional string that, if supplied, must be copied from the output of a previous call to ListCases. When provided in this manner, the API fetches the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Optional element for ListCases to limit the number of responses.</p>
+   * Optional element for ListCases to limit the number of responses.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface ListCasesItem {
   /**
-   * <p/>
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   lastUpdatedDate?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   caseArn?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   engagementType?: EngagementType | undefined;
 
   /**
-   * <p/>
    * @public
    */
   caseStatus?: CaseStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdDate?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   closedDate?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   resolverType?: ResolverType | undefined;
 
   /**
-   * <p/>
    * @public
    */
   pendingAction?: PendingAction | undefined;
@@ -767,19 +797,22 @@ export interface ListCasesItem {
  */
 export interface ListCasesResponse {
   /**
-   * <p>An optional string that, if supplied on subsequent calls to ListCases, allows the API to fetch the next page of results. </p>
+   * An optional string that, if supplied on subsequent calls to ListCases, allows the API to fetch the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Response element for ListCases that includes caseARN, caseID, caseStatus, closedDate, createdDate, engagementType, lastUpdatedDate, pendingAction, resolverType, and title for each response. </p>
+   * Response element for ListCases that includes caseARN, caseID, caseStatus, closedDate, createdDate, engagementType, lastUpdatedDate, pendingAction, resolverType, and title for each response.
+   *
    * @public
    */
   items?: ListCasesItem[] | undefined;
 
   /**
-   * <p>Response element for ListCases providing the total number of responses.</p>
+   * Response element for ListCases providing the total number of responses.
+   *
    * @public
    */
   total?: number | undefined;
@@ -790,61 +823,57 @@ export interface ListCasesResponse {
  */
 export interface ListCommentsRequest {
   /**
-   * <p>An optional string that, if supplied, must be copied from the output of a previous call to ListComments. When provided in this manner, the API fetches the next page of results. </p>
+   * An optional string that, if supplied, must be copied from the output of a previous call to ListComments. When provided in this manner, the API fetches the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Optional element for ListComments to limit the number of responses.</p>
+   * Optional element for ListComments to limit the number of responses.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Required element for ListComments to designate the case to query.</p>
+   * Required element for ListComments to designate the case to query.
+   *
    * @public
    */
   caseId: string | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface ListCommentsItem {
   /**
-   * <p/>
    * @public
    */
   commentId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdDate?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   lastUpdatedDate?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   creator?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   lastUpdatedBy?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   body?: string | undefined;
@@ -855,19 +884,22 @@ export interface ListCommentsItem {
  */
 export interface ListCommentsResponse {
   /**
-   * <p>An optional string that, if supplied on subsequent calls to ListComments, allows the API to fetch the next page of results. </p>
+   * An optional string that, if supplied on subsequent calls to ListComments, allows the API to fetch the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Response element for ListComments providing the body, commentID, createDate, creator, lastUpdatedBy and lastUpdatedDate for each response. </p>
+   * Response element for ListComments providing the body, commentID, createDate, creator, lastUpdatedBy and lastUpdatedDate for each response.
+   *
    * @public
    */
   items?: ListCommentsItem[] | undefined;
 
   /**
-   * <p>Response element for ListComments identifying the number of responses.</p>
+   * Response element for ListComments identifying the number of responses.
+   *
    * @public
    */
   total?: number | undefined;
@@ -878,91 +910,106 @@ export interface ListCommentsResponse {
  */
 export interface ListInvestigationsRequest {
   /**
-   * <p>Investigation performed by an agent for a security incident request</p>
+   * Investigation performed by an agent for a security incident request
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Investigation performed by an agent for a security incident request, returning max results</p>
+   * Investigation performed by an agent for a security incident request, returning max results
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Investigation performed by an agent for a security incident per caseID</p>
+   * Investigation performed by an agent for a security incident per caseID
+   *
    * @public
    */
   caseId: string | undefined;
 }
 
 /**
- * <p>Represents user feedback for an investigation result. This structure captures the user's evaluation of the investigation's quality, usefulness, and any additional comments.</p>
+ * Represents user feedback for an investigation result. This structure captures the user's evaluation of the investigation's quality, usefulness, and any additional comments.
+ *
  * @public
  */
 export interface InvestigationFeedback {
   /**
-   * <p>User assessment of the investigation result's quality and helpfulness. This rating indicates how valuable the investigation findings were in addressing the case.</p>
+   * User assessment of the investigation result's quality and helpfulness. This rating indicates how valuable the investigation findings were in addressing the case.
+   *
    * @public
    */
   usefulness?: UsefulnessRating | undefined;
 
   /**
-   * <p>Optional user comments providing additional context about the investigation feedback. This allows users to explain their rating or provide suggestions for improvement.</p>
+   * Optional user comments providing additional context about the investigation feedback. This allows users to explain their rating or provide suggestions for improvement.
+   *
    * @public
    */
   comment?: string | undefined;
 
   /**
-   * <p>ISO 8601 timestamp when the feedback was submitted. This records when the user provided their assessment of the investigation results.</p>
+   * ISO 8601 timestamp when the feedback was submitted. This records when the user provided their assessment of the investigation results.
+   *
    * @public
    */
   submittedAt?: Date | undefined;
 }
 
 /**
- * <p>Represents an investigation action performed within a case. This structure captures the details of an automated or manual investigation, including its status, results, and user feedback.</p>
+ * Represents an investigation action performed within a case. This structure captures the details of an automated or manual investigation, including its status, results, and user feedback.
+ *
  * @public
  */
 export interface InvestigationAction {
   /**
-   * <p>The unique identifier for this investigation action. This ID is used to track and reference the specific investigation throughout its lifecycle.</p>
+   * The unique identifier for this investigation action. This ID is used to track and reference the specific investigation throughout its lifecycle.
+   *
    * @public
    */
   investigationId: string | undefined;
 
   /**
-   * <p>The type of investigation action being performed. This categorizes the investigation method or approach used in the case.</p>
+   * The type of investigation action being performed. This categorizes the investigation method or approach used in the case.
+   *
    * @public
    */
   actionType: ActionType | undefined;
 
   /**
-   * <p>Human-readable summary of the investigation focus. This provides a brief description of what the investigation is examining or analyzing.</p>
+   * Human-readable summary of the investigation focus. This provides a brief description of what the investigation is examining or analyzing.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p>Detailed investigation results in rich markdown format. This field contains the comprehensive findings, analysis, and conclusions from the investigation.</p>
+   * Detailed investigation results in rich markdown format. This field contains the comprehensive findings, analysis, and conclusions from the investigation.
+   *
    * @public
    */
   content: string | undefined;
 
   /**
-   * <p>The current execution status of the investigation. This indicates whether the investigation is pending, in progress, completed, or failed.</p>
+   * The current execution status of the investigation. This indicates whether the investigation is pending, in progress, completed, or failed.
+   *
    * @public
    */
   status: ExecutionStatus | undefined;
 
   /**
-   * <p>ISO 8601 timestamp of the most recent status update. This indicates when the investigation was last modified or when its status last changed.</p>
+   * ISO 8601 timestamp of the most recent status update. This indicates when the investigation was last modified or when its status last changed.
+   *
    * @public
    */
   lastUpdated: Date | undefined;
 
   /**
-   * <p>User feedback for this investigation result. This contains the user's assessment and comments about the quality and usefulness of the investigation findings.</p>
+   * User feedback for this investigation result. This contains the user's assessment and comments about the quality and usefulness of the investigation findings.
+   *
    * @public
    */
   feedback?: InvestigationFeedback | undefined;
@@ -973,13 +1020,15 @@ export interface InvestigationAction {
  */
 export interface ListInvestigationsResponse {
   /**
-   * <p>Investigation performed by an agent for a security incident for next Token</p>
+   * Investigation performed by an agent for a security incident for next Token
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Investigation performed by an agent for a security incid…Unique identifier for the specific investigation&gt;</p>
+   * Investigation performed by an agent for a security incid…Unique identifier for the specific investigation&gt;
+   *
    * @public
    */
   investigationActions: InvestigationAction[] | undefined;
@@ -990,25 +1039,29 @@ export interface ListInvestigationsResponse {
  */
 export interface SendFeedbackRequest {
   /**
-   * <p>Send feedback based on request caseID</p>
+   * Send feedback based on request caseID
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Send feedback based on request result ID</p>
+   * Send feedback based on request result ID
+   *
    * @public
    */
   resultId: string | undefined;
 
   /**
-   * <p>Required enum value indicating user assessment of result q.....</p>
+   * Required enum value indicating user assessment of result q.....
+   *
    * @public
    */
   usefulness: UsefulnessRating | undefined;
 
   /**
-   * <p>Send feedback based on request comments</p>
+   * Send feedback based on request comments
+   *
    * @public
    */
   comment?: string | undefined;
@@ -1024,103 +1077,124 @@ export interface SendFeedbackResponse {}
  */
 export interface UpdateCaseRequest {
   /**
-   * <p>Required element for UpdateCase to identify the case ID for updates.</p>
+   * Required element for UpdateCase to identify the case ID for updates.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the title field.</p>
+   * Optional element for UpdateCase to provide content for the title field.
+   *
    * @public
    */
   title?: string | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the description field.</p>
+   * Optional element for UpdateCase to provide content for the description field.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the customer reported incident start date field. </p>
+   * Optional element for UpdateCase to provide content for the customer reported incident start date field.
+   *
    * @public
    */
   reportedIncidentStartDate?: Date | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the incident start date field.</p>
+   * Optional element for UpdateCase to provide content for the incident start date field.
+   *
    * @public
    */
   actualIncidentStartDate?: Date | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content for the engagement type field. <code>Available engagement types include Security Incident | Investigation</code>. </p>
+   * Optional element for UpdateCase to provide content for the engagement type field. `Available engagement types include Security Incident | Investigation`.
+   *
    * @public
    */
   engagementType?: EngagementType | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add additional watchers to a case.</p>
+   * Optional element for UpdateCase to provide content to add additional watchers to a case.
+   *
    * @public
    */
   watchersToAdd?: Watcher[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to remove existing watchers from a case.</p>
+   * Optional element for UpdateCase to provide content to remove existing watchers from a case.
+   *
    * @public
    */
   watchersToDelete?: Watcher[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add additional suspicious IP addresses related to a case. </p>
+   * Optional element for UpdateCase to provide content to add additional suspicious IP addresses related to a case.
+   *
    * @public
    */
   threatActorIpAddressesToAdd?: ThreatActorIp[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to remove suspicious IP addresses from a case.</p>
+   * Optional element for UpdateCase to provide content to remove suspicious IP addresses from a case.
+   *
    * @public
    */
   threatActorIpAddressesToDelete?: ThreatActorIp[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add services impacted.</p>
+   * Optional element for UpdateCase to provide content to add services impacted.
+   *
    * @public
    */
   impactedServicesToAdd?: string[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to remove services impacted.</p>
+   * Optional element for UpdateCase to provide content to remove services impacted.
+   *
    * @public
    */
   impactedServicesToDelete?: string[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add regions impacted.</p>
+   * Optional element for UpdateCase to provide content to add regions impacted.
+   *
    * @public
    */
   impactedAwsRegionsToAdd?: ImpactedAwsRegion[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to remove regions impacted.</p>
+   * Optional element for UpdateCase to provide content to remove regions impacted.
+   *
    * @public
    */
   impactedAwsRegionsToDelete?: ImpactedAwsRegion[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add accounts impacted.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
+   * Optional element for UpdateCase to provide content to add accounts impacted.
+   *
+   * > **Note:** AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be `123123123` which is nine digits, and with zero-prepend would be `000123123123`. Not zero-prepending to 12 digits could result in errors.
+   *
    * @public
    */
   impactedAccountsToAdd?: string[] | undefined;
 
   /**
-   * <p>Optional element for UpdateCase to provide content to add accounts impacted.</p> <note> <p> AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be <code>123123123</code> which is nine digits, and with zero-prepend would be <code>000123123123</code>. Not zero-prepending to 12 digits could result in errors. </p> </note>
+   * Optional element for UpdateCase to provide content to add accounts impacted.
+   *
+   * > **Note:** AWS account ID's may appear less than 12 characters and need to be zero-prepended. An example would be `123123123` which is nine digits, and with zero-prepend would be `000123123123`. Not zero-prepending to 12 digits could result in errors.
+   *
    * @public
    */
   impactedAccountsToDelete?: string[] | undefined;
 
   /**
-   * <p>Update the case request with case metadata</p>
+   * Update the case request with case metadata
+   *
    * @public
    */
   caseMetadata?: CaseMetadataEntry[] | undefined;
@@ -1136,19 +1210,22 @@ export interface UpdateCaseResponse {}
  */
 export interface UpdateCaseCommentRequest {
   /**
-   * <p>Required element for UpdateCaseComment to identify the case ID containing the comment to be updated. </p>
+   * Required element for UpdateCaseComment to identify the case ID containing the comment to be updated.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for UpdateCaseComment to identify the case ID to be updated.</p>
+   * Required element for UpdateCaseComment to identify the case ID to be updated.
+   *
    * @public
    */
   commentId: string | undefined;
 
   /**
-   * <p>Required element for UpdateCaseComment to identify the content for the comment to be updated.</p>
+   * Required element for UpdateCaseComment to identify the content for the comment to be updated.
+   *
    * @public
    */
   body: string | undefined;
@@ -1159,13 +1236,15 @@ export interface UpdateCaseCommentRequest {
  */
 export interface UpdateCaseCommentResponse {
   /**
-   * <p>Response element for UpdateCaseComment providing the updated comment ID.</p>
+   * Response element for UpdateCaseComment providing the updated comment ID.
+   *
    * @public
    */
   commentId: string | undefined;
 
   /**
-   * <p>Response element for UpdateCaseComment providing the updated comment content.</p>
+   * Response element for UpdateCaseComment providing the updated comment content.
+   *
    * @public
    */
   body?: string | undefined;
@@ -1176,13 +1255,15 @@ export interface UpdateCaseCommentResponse {
  */
 export interface UpdateCaseStatusRequest {
   /**
-   * <p>Required element for UpdateCaseStatus to identify the case to update.</p>
+   * Required element for UpdateCaseStatus to identify the case to update.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for UpdateCaseStatus to identify the status for a case. Options include <code>Submitted | Detection and Analysis | Containment, Eradication and Recovery | Post-incident Activities</code>. </p>
+   * Required element for UpdateCaseStatus to identify the status for a case. Options include `Submitted | Detection and Analysis | Containment, Eradication and Recovery | Post-incident Activities`.
+   *
    * @public
    */
   caseStatus: SelfManagedCaseStatus | undefined;
@@ -1193,7 +1274,8 @@ export interface UpdateCaseStatusRequest {
  */
 export interface UpdateCaseStatusResponse {
   /**
-   * <p>Response element for UpdateCaseStatus showing the newly configured status.</p>
+   * Response element for UpdateCaseStatus showing the newly configured status.
+   *
    * @public
    */
   caseStatus?: SelfManagedCaseStatus | undefined;
@@ -1204,13 +1286,15 @@ export interface UpdateCaseStatusResponse {
  */
 export interface UpdateResolverTypeRequest {
   /**
-   * <p>Required element for UpdateResolverType to identify the case to update.</p>
+   * Required element for UpdateResolverType to identify the case to update.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Required element for UpdateResolverType to identify the new resolver.</p>
+   * Required element for UpdateResolverType to identify the new resolver.
+   *
    * @public
    */
   resolverType: ResolverType | undefined;
@@ -1221,67 +1305,62 @@ export interface UpdateResolverTypeRequest {
  */
 export interface UpdateResolverTypeResponse {
   /**
-   * <p>Response element for UpdateResolver identifying the case ID being updated.</p>
+   * Response element for UpdateResolver identifying the case ID being updated.
+   *
    * @public
    */
   caseId: string | undefined;
 
   /**
-   * <p>Response element for UpdateResolver identifying the current status of the case.</p>
+   * Response element for UpdateResolver identifying the current status of the case.
+   *
    * @public
    */
   caseStatus?: CaseStatus | undefined;
 
   /**
-   * <p>Response element for UpdateResolver identifying the current resolver of the case.</p>
+   * Response element for UpdateResolver identifying the current resolver of the case.
+   *
    * @public
    */
   resolverType?: ResolverType | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface IncidentResponder {
   /**
-   * <p/>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   jobTitle: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   email: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   communicationPreferences?: CommunicationType[] | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface OptInFeature {
   /**
-   * <p/>
    * @public
    */
   featureName: OptInFeatureName | undefined;
 
   /**
-   * <p/>
    * @public
    */
   isEnabled: boolean | undefined;
@@ -1292,37 +1371,48 @@ export interface OptInFeature {
  */
 export interface CreateMembershipRequest {
   /**
-   * <note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>
+   * > **Note:** The `clientToken` field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateMembership to create a name for the membership.</p>
+   * Required element used in combination with CreateMembership to create a name for the membership.
+   *
    * @public
    */
   membershipName: string | undefined;
 
   /**
-   * <p>Required element used in combination with CreateMembership to add customer incident response team members and trusted partners to the membership. </p>
+   * Required element used in combination with CreateMembership to add customer incident response team members and trusted partners to the membership.
+   *
    * @public
    */
   incidentResponseTeam: IncidentResponder[] | undefined;
 
   /**
-   * <p>Optional element to enable the monitoring and investigation opt-in features for the service.</p>
+   * Optional element to enable the monitoring and investigation opt-in features for the service.
+   *
    * @public
    */
   optInFeatures?: OptInFeature[] | undefined;
 
   /**
-   * <p>Optional element for customer configured tags.</p>
+   * Optional element for customer configured tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The <code>coverEntireOrganization</code> parameter is a boolean flag that determines whether the membership should be applied to the entire Amazon Web Services Organization. When set to true, the membership will be created for all accounts within the organization. When set to false, the membership will only be created for specified accounts. </p> <p>This parameter is optional. If not specified, the default value is false.</p> <ul> <li> <p>If set to <i>true</i>: The membership will automatically include all existing and future accounts in the Amazon Web Services Organization. </p> </li> <li> <p>If set to <i>false</i>: The membership will only apply to explicitly specified accounts. </p> </li> </ul>
+   * The `coverEntireOrganization` parameter is a boolean flag that determines whether the membership should be applied to the entire Amazon Web Services Organization. When set to true, the membership will be created for all accounts within the organization. When set to false, the membership will only be created for specified accounts.
+   *
+   * This parameter is optional. If not specified, the default value is false.
+   *
+   * - If set to *true*: The membership will automatically include all existing and future accounts in the Amazon Web Services Organization.
+   * - If set to *false*: The membership will only apply to explicitly specified accounts.
+   *
    * @public
    */
   coverEntireOrganization?: boolean | undefined;
@@ -1333,7 +1423,8 @@ export interface CreateMembershipRequest {
  */
 export interface CreateMembershipResponse {
   /**
-   * <p>Response element for CreateMembership providing the newly created membership ID.</p>
+   * Response element for CreateMembership providing the newly created membership ID.
+   *
    * @public
    */
   membershipId: string | undefined;
@@ -1439,25 +1530,45 @@ export interface GetFindingMetricsResponse {
  */
 export interface GetMembershipRequest {
   /**
-   * <p>Required element for GetMembership to identify the membership ID to query.</p>
+   * Required element for GetMembership to identify the membership ID to query.
+   *
    * @public
    */
   membershipId: string | undefined;
 }
 
 /**
- * <p>The <code>MembershipAccountsConfigurations</code> structure defines the configuration settings for managing membership accounts withinAmazon Web Services. </p> <p>This structure contains settings that determine how member accounts are configured and managed within your organization, including: </p> <ul> <li> <p>Account configuration preferences</p> </li> <li> <p>Membership validation rules</p> </li> <li> <p>Account access settings</p> </li> </ul> <p>You can use this structure to define and maintain standardized configurations across multiple member accounts in your organization. </p>
+ * The `MembershipAccountsConfigurations` structure defines the configuration settings for managing membership accounts withinAmazon Web Services.
+ *
+ * This structure contains settings that determine how member accounts are configured and managed within your organization, including:
+ *
+ * - Account configuration preferences
+ * - Membership validation rules
+ * - Account access settings
+ *
+ * You can use this structure to define and maintain standardized configurations across multiple member accounts in your organization.
+ *
  * @public
  */
 export interface MembershipAccountsConfigurations {
   /**
-   * <p>The <code>coverEntireOrganization</code> field is a boolean value that determines whether the membership configuration applies to all accounts within an Amazon Web Services Organization. </p> <p>When set to <code>true</code>, the configuration will be applied across all accounts in the organization. When set to <code>false</code>, the configuration will only apply to specifically designated accounts under the AWS Organizational Units specificied. </p>
+   * The `coverEntireOrganization` field is a boolean value that determines whether the membership configuration applies to all accounts within an Amazon Web Services Organization.
+   *
+   * When set to `true`, the configuration will be applied across all accounts in the organization. When set to `false`, the configuration will only apply to specifically designated accounts under the AWS Organizational Units specificied.
+   *
    * @public
    */
   coverEntireOrganization?: boolean | undefined;
 
   /**
-   * <p>A list of organizational unit IDs that follow the pattern <code>ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}</code>. These IDs represent the organizational units within an Amazon Web Services Organizations structure that are covered by the membership. </p> <p>Each organizational unit ID in the list must:</p> <ul> <li> <p>Begin with the prefix 'ou-'</p> </li> <li> <p>Contain between 4 and 32 alphanumeric characters in the first segment</p> </li> <li> <p>Contain between 8 and 32 alphanumeric characters in the second segment</p> </li> </ul>
+   * A list of organizational unit IDs that follow the pattern `ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}`. These IDs represent the organizational units within an Amazon Web Services Organizations structure that are covered by the membership.
+   *
+   * Each organizational unit ID in the list must:
+   *
+   * - Begin with the prefix 'ou-'
+   * - Contain between 4 and 32 alphanumeric characters in the first segment
+   * - Contain between 8 and 32 alphanumeric characters in the second segment
+   *
    * @public
    */
   organizationalUnits?: string[] | undefined;
@@ -1468,115 +1579,128 @@ export interface MembershipAccountsConfigurations {
  */
 export interface GetMembershipResponse {
   /**
-   * <p>Response element for GetMembership that provides the queried membership ID.</p>
+   * Response element for GetMembership that provides the queried membership ID.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the account configured to manage the membership.</p>
+   * Response element for GetMembership that provides the account configured to manage the membership.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the region configured to manage the membership.</p>
+   * Response element for GetMembership that provides the region configured to manage the membership.
+   *
    * @public
    */
   region?: AwsRegion | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership name.</p>
+   * Response element for GetMembership that provides the configured membership name.
+   *
    * @public
    */
   membershipName?: string | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the membership ARN.</p>
+   * Response element for GetMembership that provides the membership ARN.
+   *
    * @public
    */
   membershipArn?: string | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the current membership status.</p>
+   * Response element for GetMembership that provides the current membership status.
+   *
    * @public
    */
   membershipStatus?: MembershipStatus | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership activation timestamp.</p>
+   * Response element for GetMembership that provides the configured membership activation timestamp.
+   *
    * @public
    */
   membershipActivationTimestamp?: Date | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership name deactivation timestamp. </p>
+   * Response element for GetMembership that provides the configured membership name deactivation timestamp.
+   *
    * @public
    */
   membershipDeactivationTimestamp?: Date | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership type. Options include <code> Standalone | Organizations</code>. </p>
+   * Response element for GetMembership that provides the configured membership type. Options include `Standalone | Organizations`.
+   *
    * @public
    */
   customerType?: CustomerType | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the number of accounts in the membership.</p>
+   * Response element for GetMembership that provides the number of accounts in the membership.
+   *
    * @public
    */
   numberOfAccountsCovered?: number | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the configured membership incident response team members. </p>
+   * Response element for GetMembership that provides the configured membership incident response team members.
+   *
    * @public
    */
   incidentResponseTeam?: IncidentResponder[] | undefined;
 
   /**
-   * <p>Response element for GetMembership that provides the if opt-in features have been enabled.</p>
+   * Response element for GetMembership that provides the if opt-in features have been enabled.
+   *
    * @public
    */
   optInFeatures?: OptInFeature[] | undefined;
 
   /**
-   * <p>The <code>membershipAccountsConfigurations</code> field contains the configuration details for member accounts within the Amazon Web Services Organizations membership structure. </p> <p>This field returns a structure containing information about:</p> <ul> <li> <p>Account configurations for member accounts</p> </li> <li> <p>Membership settings and preferences</p> </li> <li> <p>Account-level permissions and roles</p> </li> </ul>
+   * The `membershipAccountsConfigurations` field contains the configuration details for member accounts within the Amazon Web Services Organizations membership structure.
+   *
+   * This field returns a structure containing information about:
+   *
+   * - Account configurations for member accounts
+   * - Membership settings and preferences
+   * - Account-level permissions and roles
+   *
    * @public
    */
   membershipAccountsConfigurations?: MembershipAccountsConfigurations | undefined;
 }
 
 /**
- * <p/>
  * @public
  */
 export interface ListMembershipItem {
   /**
-   * <p/>
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   region?: AwsRegion | undefined;
 
   /**
-   * <p/>
    * @public
    */
   membershipArn?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   membershipStatus?: MembershipStatus | undefined;
@@ -1587,13 +1711,15 @@ export interface ListMembershipItem {
  */
 export interface ListMembershipsRequest {
   /**
-   * <p>An optional string that, if supplied, must be copied from the output of a previous call to ListMemberships. When provided in this manner, the API fetches the next page of results. </p>
+   * An optional string that, if supplied, must be copied from the output of a previous call to ListMemberships. When provided in this manner, the API fetches the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Request element for ListMemberships to limit the number of responses.</p>
+   * Request element for ListMemberships to limit the number of responses.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1604,13 +1730,15 @@ export interface ListMembershipsRequest {
  */
 export interface ListMembershipsResponse {
   /**
-   * <p>An optional string that, if supplied on subsequent calls to ListMemberships, allows the API to fetch the next page of results. </p>
+   * An optional string that, if supplied on subsequent calls to ListMemberships, allows the API to fetch the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Request element for ListMemberships including the accountID, membershipARN, membershipID, membershipStatus, and region for each response. </p>
+   * Request element for ListMemberships including the accountID, membershipARN, membershipID, membershipStatus, and region for each response.
+   *
    * @public
    */
   items?: ListMembershipItem[] | undefined;
@@ -1621,7 +1749,8 @@ export interface ListMembershipsResponse {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>Required element for ListTagsForResource to provide the ARN to identify a specific resource.</p>
+   * Required element for ListTagsForResource to provide the ARN to identify a specific resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1632,31 +1761,50 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>Response element for ListTagsForResource providing content for each configured tag.</p>
+   * Response element for ListTagsForResource providing content for each configured tag.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
 }
 
 /**
- * <p>The <code>MembershipAccountsConfigurationsUpdate</code>structure represents the configuration updates for member accounts within an Amazon Web Services organization. </p> <p>This structure is used to modify existing account configurations and settings for members in the organization. When applying updates, ensure all required fields are properly specified to maintain account consistency. </p> <p>Key considerations when using this structure:</p> <ul> <li> <p>All configuration changes are validated before being applied</p> </li> <li> <p>Updates are processed asynchronously in the background</p> </li> <li> <p>Configuration changes may take several minutes to propagate across all affected accounts</p> </li> </ul>
+ * The `MembershipAccountsConfigurationsUpdate`structure represents the configuration updates for member accounts within an Amazon Web Services organization.
+ *
+ * This structure is used to modify existing account configurations and settings for members in the organization. When applying updates, ensure all required fields are properly specified to maintain account consistency.
+ *
+ * Key considerations when using this structure:
+ *
+ * - All configuration changes are validated before being applied
+ * - Updates are processed asynchronously in the background
+ * - Configuration changes may take several minutes to propagate across all affected accounts
+ *
  * @public
  */
 export interface MembershipAccountsConfigurationsUpdate {
   /**
-   * <p>The <code>coverEntireOrganization</code> field is a boolean value that determines whether the membership configuration should be applied across the entire Amazon Web Services Organization. </p> <p>When set to <code>true</code>, the configuration will be applied to all accounts within the organization. When set to <code>false</code>, the configuration will only apply to specifically designated accounts. </p>
+   * The `coverEntireOrganization` field is a boolean value that determines whether the membership configuration should be applied across the entire Amazon Web Services Organization.
+   *
+   * When set to `true`, the configuration will be applied to all accounts within the organization. When set to `false`, the configuration will only apply to specifically designated accounts.
+   *
    * @public
    */
   coverEntireOrganization?: boolean | undefined;
 
   /**
-   * <p>A list of organizational unit IDs to add to the membership configuration. Each organizational unit ID must match the pattern <code>ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}</code>. </p> <p>The list must contain between 1 and 5 organizational unit IDs.</p>
+   * A list of organizational unit IDs to add to the membership configuration. Each organizational unit ID must match the pattern `ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}`.
+   *
+   * The list must contain between 1 and 5 organizational unit IDs.
+   *
    * @public
    */
   organizationalUnitsToAdd?: string[] | undefined;
 
   /**
-   * <p>A list of organizational unit IDs to remove from the membership configuration. Each organizational unit ID must match the pattern <code>ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}</code>. </p> <p>The list must contain between 1 and 5 organizational unit IDs per invocation of the API request.</p>
+   * A list of organizational unit IDs to remove from the membership configuration. Each organizational unit ID must match the pattern `ou-[0-9a-z]\{4,32\}-[a-z0-9]\{8,32\}`.
+   *
+   * The list must contain between 1 and 5 organizational unit IDs per invocation of the API request.
+   *
    * @public
    */
   organizationalUnitsToRemove?: string[] | undefined;
@@ -1667,37 +1815,50 @@ export interface MembershipAccountsConfigurationsUpdate {
  */
 export interface UpdateMembershipRequest {
   /**
-   * <p>Required element for UpdateMembership to identify the membership to update.</p>
+   * Required element for UpdateMembership to identify the membership to update.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>Optional element for UpdateMembership to update the membership name.</p>
+   * Optional element for UpdateMembership to update the membership name.
+   *
    * @public
    */
   membershipName?: string | undefined;
 
   /**
-   * <p>Optional element for UpdateMembership to update the membership name.</p>
+   * Optional element for UpdateMembership to update the membership name.
+   *
    * @public
    */
   incidentResponseTeam?: IncidentResponder[] | undefined;
 
   /**
-   * <p>Optional element for UpdateMembership to enable or disable opt-in features for the service.</p>
+   * Optional element for UpdateMembership to enable or disable opt-in features for the service.
+   *
    * @public
    */
   optInFeatures?: OptInFeature[] | undefined;
 
   /**
-   * <p>The <code>membershipAccountsConfigurationsUpdate</code> field in the <code>UpdateMembershipRequest</code> structure allows you to update the configuration settings for accounts within a membership. </p> <p>This field is optional and contains a structure of type <code>MembershipAccountsConfigurationsUpdate </code> that specifies the updated account configurations for the membership. </p>
+   * The `membershipAccountsConfigurationsUpdate` field in the `UpdateMembershipRequest` structure allows you to update the configuration settings for accounts within a membership.
+   *
+   * This field is optional and contains a structure of type `MembershipAccountsConfigurationsUpdate` that specifies the updated account configurations for the membership.
+   *
    * @public
    */
   membershipAccountsConfigurationsUpdate?: MembershipAccountsConfigurationsUpdate | undefined;
 
   /**
-   * <p>The <code>undoMembershipCancellation</code> parameter is a boolean flag that indicates whether to reverse a previously requested membership cancellation. When set to true, this will revoke the cancellation request and maintain the membership status. </p> <p>This parameter is optional and can be used in scenarios where you need to restore a membership that was marked for cancellation but hasn't been fully terminated yet. </p> <ul> <li> <p>If set to <code>true</code>, the cancellation request will be revoked </p> </li> <li> <p>If set to <code>false</code> the service will throw a ValidationException. </p> </li> </ul>
+   * The `undoMembershipCancellation` parameter is a boolean flag that indicates whether to reverse a previously requested membership cancellation. When set to true, this will revoke the cancellation request and maintain the membership status.
+   *
+   * This parameter is optional and can be used in scenarios where you need to restore a membership that was marked for cancellation but hasn't been fully terminated yet.
+   *
+   * - If set to `true`, the cancellation request will be revoked
+   * - If set to `false` the service will throw a ValidationException.
+   *
    * @public
    */
   undoMembershipCancellation?: boolean | undefined;
@@ -1713,13 +1874,15 @@ export interface UpdateMembershipResponse {}
  */
 export interface TagResourceInput {
   /**
-   * <p>Required element for TagResource to identify the ARN for the resource to add a tag to.</p>
+   * Required element for TagResource to identify the ARN for the resource to add a tag to.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Required element for ListTagsForResource to provide the content for a tag.</p>
+   * Required element for ListTagsForResource to provide the content for a tag.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1735,13 +1898,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>Required element for UnTagResource to identify the ARN for the resource to remove a tag from.</p>
+   * Required element for UnTagResource to identify the ARN for the resource to remove a tag from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Required element for UnTagResource to identify tag to remove.</p>
+   * Required element for UnTagResource to identify tag to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

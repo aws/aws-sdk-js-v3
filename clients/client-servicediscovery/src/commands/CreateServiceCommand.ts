@@ -23,48 +23,21 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a service. This action defines the configuration for the following entities:</p>
- *          <ul>
- *             <li>
- *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in
- *      Amazon Route 53:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>A</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>AAAA</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>A</code> and <code>AAAA</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>SRV</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>CNAME</code>
- *                      </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>Optionally, a health check</p>
- *             </li>
- *          </ul>
- *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and
- *    Cloud Map uses the values in the configuration to create the specified entities.</p>
- *          <p>For the current quota on the number of instances that you can register using the same
- *    namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
+ * Creates a service. This action defines the configuration for the following entities:
+ *
+ * - For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:
+ *
+ *   - `A`
+ *   - `AAAA`
+ *   - `A` and `AAAA`
+ *   - `SRV`
+ *   - `CNAME`
+ * - Optionally, a health check
+ *
+ * After you create the service, you can submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, and Cloud Map uses the values in the configuration to create the specified entities.
+ *
+ * For the current quota on the number of instances that you can register using the same namespace and using the same service, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *Cloud Map Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,27 +122,28 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link NamespaceNotFound} (client fault)
- *  <p>No namespace exists with the specified ID.</p>
+ *
+ * No namespace exists with the specified ID.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of
- *    resources.</p>
+ *
+ * The resource can't be created because you've reached the quota on the number of resources.
  *
  * @throws {@link ServiceAlreadyExists} (client fault)
- *  <p>The service can't be created because a service with the same name already exists.</p>
+ *
+ * The service can't be created because a service with the same name already exists.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
- *    applied to a resource is 50.</p>
+ *
+ * The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example Example: Create service
  * ```javascript

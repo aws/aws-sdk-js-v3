@@ -23,7 +23,8 @@ export interface UpdateAgentSpaceCommandInput extends UpdateAgentSpaceInput {}
 export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing agent space, including its name, description, AWS resources, target domains, and code review settings.</p>
+ * Updates the configuration of an existing agent space, including its name, description, AWS resources, target domains, and code review settings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,8 +127,8 @@ export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, _
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

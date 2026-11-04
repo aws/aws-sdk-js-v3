@@ -23,8 +23,8 @@ export interface DescribeReplicationTasksCommandInput extends DescribeReplicatio
 export interface DescribeReplicationTasksCommandOutput extends DescribeReplicationTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about replication tasks for your account in the current
- *          region.</p>
+ * Returns information about replication tasks for your account in the current region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,11 +96,12 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe replication tasks
  * ```javascript

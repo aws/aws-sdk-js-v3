@@ -23,7 +23,8 @@ export interface DeleteApprovalRuleTemplateCommandInput extends DeleteApprovalRu
 export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template.</p>
+ * Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,21 +51,20 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ApprovalRuleTemplateInUseException} (client fault)
- *  <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
- *         all associations, and then try again.</p>
+ *
+ * The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove all associations, and then try again.
  *
  * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
- *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * An approval rule template name is required, but was not specified.
  *
  * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
- *  <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ *
+ * The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

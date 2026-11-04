@@ -23,18 +23,11 @@ export interface DescribeHsmCommandInput extends DescribeHsmRequest {}
 export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __MetadataBearer {}
 
 /**
- * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For
- *       more information, see <a href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM
- *       Classic FAQs</a>, the <a href="https://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS
- *       CloudHSM Classic User Guide</a>, and the <a href="https://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS CloudHSM Classic API Reference</a>.</p>
- *          <p>
- *             <b>For information about the current version of AWS
- *       CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a>, the
- *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
- *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
- *       Reference</a>.</p>
- *          <p>Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
- *       number.</p>
+ * This is documentation for **AWS CloudHSM Classic**. For more information, see [AWS CloudHSM Classic FAQs](http://aws.amazon.com/cloudhsm/faqs-classic/), the [AWS CloudHSM Classic User Guide](https://docs.aws.amazon.com/cloudhsm/classic/userguide/), and the [AWS CloudHSM Classic API Reference](https://docs.aws.amazon.com/cloudhsm/classic/APIReference/).
+ *
+ * **For information about the current version of AWS CloudHSM**, see [AWS CloudHSM](http://aws.amazon.com/cloudhsm/), the [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/), and the [AWS CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).
+ *
+ * Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
  *
  * @deprecated This API is deprecated.
  * @example
@@ -86,17 +79,20 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  * @throws {@link CloudHsmInternalException} (server fault)
- *  <p>Indicates that an internal error occurred.</p>
+ *
+ * Indicates that an internal error occurred.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
+ *
+ * Indicates that an exception occurred in the AWS CloudHSM service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that one or more of the request parameters are not valid.</p>
+ *
+ * Indicates that one or more of the request parameters are not valid.
  *
  * @throws {@link CloudHSMServiceException}
- * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSM service.
  *
  * @public
  */

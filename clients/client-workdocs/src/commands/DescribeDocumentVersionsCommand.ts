@@ -23,8 +23,10 @@ export interface DescribeDocumentVersionsCommandInput extends DescribeDocumentVe
 export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the document versions for the specified document.</p>
- *          <p>By default, only active versions are returned.</p>
+ * Retrieves the document versions for the specified document.
+ *
+ * By default, only active versions are returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,34 +79,40 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link EntityNotExistsException} (client fault)
- *  <p>The resource does not exist.</p>
+ *
+ * The resource does not exist.
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ *
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * The pagination marker or limit fields are not valid.
  *
  * @throws {@link InvalidPasswordException} (client fault)
- *  <p>The password is invalid.</p>
+ *
+ * The password is invalid.
  *
  * @throws {@link ProhibitedStateException} (client fault)
- *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * The specified document version is not in the INITIALIZED state.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedOperationException} (client fault)
- *  <p>The operation is not permitted.</p>
+ *
+ * The operation is not permitted.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

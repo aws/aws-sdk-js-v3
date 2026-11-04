@@ -26,7 +26,8 @@ export interface ListCertificateDomainValidationsCommandInput extends ListCertif
 export interface ListCertificateDomainValidationsCommandOutput extends ListCertificateDomainValidationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns per-domain validation summaries for an ACM certificate. Each summary includes the domain name, the active validation configuration, and the requested validation configuration when a validation method migration is in progress. You can use the results to monitor the progress of an email-to-DNS validation migration and to retrieve the CNAME records required for DNS validation.</p>
+ * Returns per-domain validation summaries for an ACM certificate. Each summary includes the domain name, the active validation configuration, and the requested validation configuration when a validation method migration is in progress. You can use the results to monitor the progress of an email-to-DNS validation migration and to retrieve the CNAME records required for DNS validation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,20 +99,24 @@ export interface ListCertificateDomainValidationsCommandOutput extends ListCerti
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have access required to perform this action.</p>
+ *
+ * You do not have access required to perform this action.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One or more of request parameters specified is not valid.</p>
+ *
+ * One or more of request parameters specified is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * The request was denied because it exceeded a quota.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

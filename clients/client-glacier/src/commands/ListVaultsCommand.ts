@@ -23,25 +23,14 @@ export interface ListVaultsCommandInput extends ListVaultsInput {}
 export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation lists all vaults owned by the calling user's account. The list
- *          returned in the response is ASCII-sorted by vault name.</p>
+ * This operation lists all vaults owned by the calling user's account. The list returned in the response is ASCII-sorted by vault name.
  *
- *          <p>By default, this operation returns up to 10 items. If there are more vaults to
- *          list, the response <code>marker</code> field contains the vault Amazon Resource Name (ARN)
- *          at which to continue the list with a new List Vaults request; otherwise, the
- *             <code>marker</code> field is <code>null</code>. To return a list of vaults that begins
- *          at a specific vault, set the <code>marker</code> request parameter to the vault ARN you
- *          obtained from a previous List Vaults request. You can also limit the number of vaults
- *          returned in the response by specifying the <code>limit</code> parameter in the request. </p>
+ * By default, this operation returns up to 10 items. If there are more vaults to list, the response `marker` field contains the vault Amazon Resource Name (ARN) at which to continue the list with a new List Vaults request; otherwise, the `marker` field is `null`. To return a list of vaults that begins at a specific vault, set the `marker` request parameter to the vault ARN you obtained from a previous List Vaults request. You can also limit the number of vaults returned in the response by specifying the `limit` parameter in the request.
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving Vault Metadata in
- *             Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List Vaults </a> in the
- *             <i>Amazon Glacier Developer Guide</i>. </p>
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and underlying REST API, see [Retrieving Vault Metadata in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html) and [List Vaults](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html) in the *Amazon Glacier Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,24 +69,28 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To list all vaults owned by the calling user's account
  * ```javascript

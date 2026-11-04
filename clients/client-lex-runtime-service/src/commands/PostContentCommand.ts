@@ -32,83 +32,29 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
 }
 
 /**
- * <p> Sends user input (text or speech) to Amazon Lex. Clients use this API to
- *       send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the
- *       user input using the machine learning model that it built for the bot. </p>
- *          <p>The <code>PostContent</code> operation supports audio input at 8kHz
- *       and 16kHz. You can use 8kHz audio to achieve higher speech recognition
- *       accuracy in telephone audio applications. </p>
- *          <p> In response, Amazon Lex returns the next message to convey to the user.
- *       Consider the following example messages: </p>
- *          <ul>
- *             <li>
- *                <p> For a user input "I would like a pizza," Amazon Lex might return a
- *           response with a message eliciting slot data (for example,
- *             <code>PizzaSize</code>): "What size pizza would you like?". </p>
- *             </li>
- *             <li>
- *                <p> After the user provides all of the pizza order information, Amazon Lex
- *           might return a response with a message to get user confirmation:
- *           "Order the pizza?". </p>
- *             </li>
- *             <li>
- *                <p> After the user replies "Yes" to the confirmation prompt, Amazon Lex
- *           might return a conclusion statement: "Thank you, your cheese pizza has
- *           been ordered.". </p>
- *             </li>
- *          </ul>
- *          <p> Not all Amazon Lex messages require a response from the user. For example,
- *       conclusion statements do not require a response. Some messages require
- *       only a yes or no response. In addition to the <code>message</code>, Amazon Lex
- *       provides additional context about the message in the response that you can
- *       use to enhance client behavior, such as displaying the appropriate client
- *       user interface. Consider the following examples: </p>
- *          <ul>
- *             <li>
- *                <p> If the message is to elicit slot data, Amazon Lex returns the
- *           following context information: </p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <code>x-amz-lex-dialog-state</code> header set to
- *                 <code>ElicitSlot</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>x-amz-lex-intent-name</code> header set to the intent name
- *               in the current context </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>x-amz-lex-slot-to-elicit</code> header set to the slot name
- *               for which the <code>message</code> is eliciting information
- *             </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>x-amz-lex-slots</code> header set to a map of slots
- *               configured for the intent with their current values </p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p> If the message is a confirmation prompt, the
- *             <code>x-amz-lex-dialog-state</code> header is set to
- *             <code>Confirmation</code> and the
- *             <code>x-amz-lex-slot-to-elicit</code> header is omitted. </p>
- *             </li>
- *             <li>
- *                <p> If the message is a clarification prompt configured for the
- *           intent, indicating that the user intent is not understood, the
- *             <code>x-amz-dialog-state</code> header is set to
- *             <code>ElicitIntent</code> and the <code>x-amz-slot-to-elicit</code>
- *           header is omitted. </p>
- *             </li>
- *          </ul>
- *          <p> In addition, Amazon Lex also returns your application-specific
- *         <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing
- *         Conversation Context</a>. </p>
+ * Sends user input (text or speech) to Amazon Lex. Clients use this API to send text and audio requests to Amazon Lex at runtime. Amazon Lex interprets the user input using the machine learning model that it built for the bot.
+ *
+ * The `PostContent` operation supports audio input at 8kHz and 16kHz. You can use 8kHz audio to achieve higher speech recognition accuracy in telephone audio applications.
+ *
+ * In response, Amazon Lex returns the next message to convey to the user. Consider the following example messages:
+ *
+ * - For a user input "I would like a pizza," Amazon Lex might return a response with a message eliciting slot data (for example, `PizzaSize`): "What size pizza would you like?".
+ * - After the user provides all of the pizza order information, Amazon Lex might return a response with a message to get user confirmation: "Order the pizza?".
+ * - After the user replies "Yes" to the confirmation prompt, Amazon Lex might return a conclusion statement: "Thank you, your cheese pizza has been ordered.".
+ *
+ * Not all Amazon Lex messages require a response from the user. For example, conclusion statements do not require a response. Some messages require only a yes or no response. In addition to the `message`, Amazon Lex provides additional context about the message in the response that you can use to enhance client behavior, such as displaying the appropriate client user interface. Consider the following examples:
+ *
+ * - If the message is to elicit slot data, Amazon Lex returns the following context information:
+ *
+ *   - `x-amz-lex-dialog-state` header set to `ElicitSlot`
+ *   - `x-amz-lex-intent-name` header set to the intent name in the current context
+ *   - `x-amz-lex-slot-to-elicit` header set to the slot name for which the `message` is eliciting information
+ *   - `x-amz-lex-slots` header set to a map of slots configured for the intent with their current values
+ * - If the message is a confirmation prompt, the `x-amz-lex-dialog-state` header is set to `Confirmation` and the `x-amz-lex-slot-to-elicit` header is omitted.
+ * - If the message is a clarification prompt configured for the intent, indicating that the user intent is not understood, the `x-amz-dialog-state` header is set to `ElicitIntent` and the `x-amz-slot-to-elicit` header is omitted.
+ *
+ * In addition, Amazon Lex also returns your application-specific `sessionAttributes`. For more information, see [Managing Conversation Context](https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,63 +111,56 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p>Either the Amazon Lex bot is still building, or one of the dependent
- *       services (Amazon Polly, AWS Lambda) failed with an internal service
- *       error.</p>
+ *
+ * Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
+ *
+ * Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> Two clients are using the same AWS account, Amazon Lex bot, and user
- *       ID. </p>
+ *
+ * Two clients are using the same AWS account, Amazon Lex bot, and user ID.
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
- *       exception. For example, </p>
- *          <ul>
- *             <li>
- *                <p>If Amazon Lex does not have sufficient permissions to call a Lambda
- *           function.</p>
- *             </li>
- *             <li>
- *                <p>If a Lambda function takes longer than 30 seconds to
- *           execute.</p>
- *             </li>
- *             <li>
- *                <p>If a fulfillment Lambda function returns a <code>Delegate</code>
- *           dialog action without removing any slot values.</p>
- *             </li>
- *          </ul>
+ *
+ * One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example,
+ *
+ * - If Amazon Lex does not have sufficient permissions to call a Lambda function.
+ * - If a Lambda function takes longer than 30 seconds to execute.
+ * - If a fulfillment Lambda function returns a `Delegate` dialog action without removing any slot values.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>Internal service error. Retry the call.</p>
+ *
+ * Internal service error. Retry the call.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Exceeded a limit.</p>
+ *
+ * Exceeded a limit.
  *
  * @throws {@link LoopDetectedException} (server fault)
- *  <p>This exception is not used.</p>
+ *
+ * This exception is not used.
  *
  * @throws {@link NotAcceptableException} (client fault)
- *  <p>The accept header in the request does not have a valid value.</p>
+ *
+ * The accept header in the request does not have a valid value.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
+ *
+ * The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The input speech is too long.</p>
+ *
+ * The input speech is too long.
  *
  * @throws {@link UnsupportedMediaTypeException} (client fault)
- *  <p>The Content-Type header (<code>PostContent</code> API) has an invalid
- *       value. </p>
+ *
+ * The Content-Type header (`PostContent` API) has an invalid value.
  *
  * @throws {@link LexRuntimeServiceServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeService service.
  *
  * @public
  */

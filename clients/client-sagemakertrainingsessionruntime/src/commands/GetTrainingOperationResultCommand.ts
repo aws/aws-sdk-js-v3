@@ -23,7 +23,8 @@ export interface GetTrainingOperationResultCommandInput extends GetTrainingOpera
 export interface GetTrainingOperationResultCommandOutput extends GetTrainingOperationResultOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current status and result of a previously submitted training operation. Poll this operation until the status reaches a terminal state (Completed, Failed, or Skipped).</p>
+ * Retrieves the current status and result of a previously submitted training operation. Poll this operation until the status reaches a terminal state (Completed, Failed, or Skipped).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,20 +110,24 @@ export interface GetTrainingOperationResultCommandOutput extends GetTrainingOper
  * @see {@link SageMakerTrainingSessionRuntimeClientResolvedConfig | config} for SageMakerTrainingSessionRuntimeClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Retry the request using exponential backoff.</p>
+ *
+ * An internal service error occurred. Retry the request using exponential backoff.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified training session or operation does not exist, or the operation does not belong to the specified training session.</p>
+ *
+ * The specified training session or operation does not exist, or the operation does not belong to the specified training session.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled. Retry the request after a brief wait using exponential backoff.</p>
+ *
+ * The request was throttled. Retry the request after a brief wait using exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.</p>
+ *
+ * The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.
  *
  * @throws {@link SageMakerTrainingSessionRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerTrainingSessionRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerTrainingSessionRuntime service.
  *
  * @example Get the result of a training operation
  * ```javascript

@@ -23,10 +23,8 @@ export interface RejectVpcPeeringConnectionCommandInput extends RejectVpcPeering
 export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * <p>Rejects a VPC peering connection request. The VPC peering connection must be in the
- * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
- * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
- * 			connection, or to delete a VPC peering connection request that you initiated, use	<a>DeleteVpcPeeringConnection</a>.</p>
+ * Rejects a VPC peering connection request. The VPC peering connection must be in the `pending-acceptance` state. Use the DescribeVpcPeeringConnections request to view your outstanding VPC peering connection requests. To delete an active VPC peering connection, or to delete a VPC peering connection request that you initiated, use DeleteVpcPeeringConnection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,8 +52,8 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

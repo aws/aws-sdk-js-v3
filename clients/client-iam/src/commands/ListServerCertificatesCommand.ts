@@ -23,19 +23,14 @@ export interface ListServerCertificatesCommandInput extends ListServerCertificat
 export interface ListServerCertificatesCommandOutput extends ListServerCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the server certificates stored in IAM that have the specified path prefix. If
- *             none exist, the operation returns an empty list.</p>
- *          <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
- *          <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
- *                 with server certificates</a> in the <i>IAM User Guide</i>. This
- *             topic also includes a list of Amazon Web Services services that can use the server certificates that
- *             you manage with IAM.</p>
- *          <note>
- *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see
- *                     <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html">GetServerCertificate</a>.</p>
- *          </note>
+ * Lists the server certificates stored in IAM that have the specified path prefix. If none exist, the operation returns an empty list.
+ *
+ * You can paginate the results using the `MaxItems` and `Marker` parameters.
+ *
+ * For more information about working with server certificates, see [Working with server certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html) in the *IAM User Guide*. This topic also includes a list of Amazon Web Services services that can use the server certificates that you manage with IAM.
+ *
+ * > **Note:** IAM resource-listing operations return a subset of the available attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a servercertificate, see [GetServerCertificate](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,12 +70,12 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

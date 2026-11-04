@@ -26,7 +26,8 @@ export interface StartMaterializedViewRefreshTaskRunCommandInput extends StartMa
 export interface StartMaterializedViewRefreshTaskRunCommandOutput extends StartMaterializedViewRefreshTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a materialized view refresh task run for a specified materialized view.</p>
+ * Starts a materialized view refresh task run for a specified materialized view.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,26 +57,32 @@ export interface StartMaterializedViewRefreshTaskRunCommandOutput extends StartM
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link MaterializedViewRefreshTaskRunningException} (client fault)
- *  <p>Exception thrown when a task is already in running state.</p>
+ *
+ * Exception thrown when a task is already in running state.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface BatchGetIncidentFindingsCommandInput extends BatchGetIncidentFi
 export interface BatchGetIncidentFindingsCommandOutput extends BatchGetIncidentFindingsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about all specified findings for an incident, including descriptive details about each finding. A finding
- *       represents a recent application environment change made by an CodeDeploy
- *       deployment or an CloudFormation stack creation or update that can be investigated as a
- *       potential cause of the incident.</p>
+ * Retrieves details about all specified findings for an incident, including descriptive details about each finding. A finding represents a recent application environment change made by an CodeDeploy deployment or an CloudFormation stack creation or update that can be investigated as a potential cause of the incident.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,25 +80,28 @@ export interface BatchGetIncidentFindingsCommandOutput extends BatchGetIncidentF
  * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * You don't have sufficient access to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which doesn't exist. </p>
+ *
+ * Request references a resource which doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SSMIncidentsServiceException}
- * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ * Base exception class for all service exceptions from SSMIncidents service.
  *
  * @public
  */

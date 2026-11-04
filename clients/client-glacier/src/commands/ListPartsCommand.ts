@@ -23,28 +23,14 @@ export interface ListPartsCommandInput extends ListPartsInput {}
 export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation lists the parts of an archive that have been uploaded in a specific
- *          multipart upload. You can make this request at any time during an in-progress multipart
- *          upload before you complete the upload (see <a>CompleteMultipartUpload</a>. List
- *          Parts returns an error for completed uploads. The list returned in the List Parts response
- *          is sorted by part range. </p>
+ * This operation lists the parts of an archive that have been uploaded in a specific multipart upload. You can make this request at any time during an in-progress multipart upload before you complete the upload (see CompleteMultipartUpload. List Parts returns an error for completed uploads. The list returned in the List Parts response is sorted by part range.
  *
- *          <p>The List Parts operation supports pagination. By default, this operation returns up
- *          to 50 uploaded parts in the response. You should always check the response for a
- *             <code>marker</code> at which to continue the list; if there are no more items the
- *             <code>marker</code> is <code>null</code>. To return a list of parts that begins at a
- *          specific part, set the <code>marker</code> request parameter to the value you obtained from
- *          a previous List Parts request. You can also limit the number of parts returned in the
- *          response by specifying the <code>limit</code> parameter in the request. </p>
+ * The List Parts operation supports pagination. By default, this operation returns up to 50 uploaded parts in the response. You should always check the response for a `marker` at which to continue the list; if there are no more items the `marker` is `null`. To return a list of parts that begins at a specific part, set the `marker` request parameter to the value you obtained from a previous List Parts request. You can also limit the number of parts returned in the response by specifying the `limit` parameter in the request.
  *
- *          <p>An AWS account has full permission to perform all operations (actions). However, AWS
- *          Identity and Access Management (IAM) users don't have any permissions by default. You must
- *          grant them explicit permission to perform specific actions. For more information, see
- *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html">Access Control Using
- *             AWS Identity and Access Management (IAM)</a>.</p>
- *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working
- *             with Archives in Amazon Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html">List Parts</a> in the
- *             <i>Amazon Glacier Developer Guide</i>.</p>
+ * An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see [Access Control Using AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html).
+ *
+ * For conceptual information and the underlying REST API, see [Working with Archives in Amazon Glacier](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html) and [List Parts](https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html) in the *Amazon Glacier Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,24 +72,28 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To list the parts of an archive that have been uploaded in a multipart upload
  * ```javascript

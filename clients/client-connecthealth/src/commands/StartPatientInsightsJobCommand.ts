@@ -23,7 +23,8 @@ export interface StartPatientInsightsJobCommandInput extends StartPatientInsight
 export interface StartPatientInsightsJobCommandOutput extends StartPatientInsightsJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a new patient insights job.</p>
+ * Starts a new patient insights job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,26 +84,32 @@ export interface StartPatientInsightsJobCommandOutput extends StartPatientInsigh
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+ *
+ * This error is thrown when the client does not supply proper credentials to the API.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This error is thrown when a resource update is no longer valid due to assumptions about initial state changing.</p>
+ *
+ * This error is thrown when a resource update is no longer valid due to assumptions about initial state changing.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error is thrown when a transient error causes our API to fail.</p>
+ *
+ * This error is thrown when a transient error causes our API to fail.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error is thrown when the requested resource is not found.</p>
+ *
+ * This error is thrown when the requested resource is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error is thrown when the client exceeds the allowed request rate.</p>
+ *
+ * This error is thrown when the client exceeds the allowed request rate.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This error is thrown when the client supplies invalid input to the API.</p>
+ *
+ * This error is thrown when the client supplies invalid input to the API.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

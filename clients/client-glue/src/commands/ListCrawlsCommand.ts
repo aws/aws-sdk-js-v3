@@ -23,22 +23,15 @@ export interface ListCrawlsCommandInput extends ListCrawlsRequest {}
 export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
- *          <p>You may use this API to:</p>
- *          <ul>
- *             <li>
- *                <p>Retrive all the crawls of a specified crawler.</p>
- *             </li>
- *             <li>
- *                <p>Retrieve all the crawls of a specified crawler within a limited count.</p>
- *             </li>
- *             <li>
- *                <p>Retrieve all the crawls of a specified crawler in a specific time range.</p>
- *             </li>
- *             <li>
- *                <p>Retrieve all the crawls of a specified crawler with a particular state, crawl ID, or DPU hour value.</p>
- *             </li>
- *          </ul>
+ * Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.
+ *
+ * You may use this API to:
+ *
+ * - Retrive all the crawls of a specified crawler.
+ * - Retrieve all the crawls of a specified crawler within a limited count.
+ * - Retrieve all the crawls of a specified crawler in a specific time range.
+ * - Retrieve all the crawls of a specified crawler with a particular state, crawl ID, or DPU hour value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,17 +81,20 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

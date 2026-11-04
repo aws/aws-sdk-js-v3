@@ -23,7 +23,8 @@ export interface UpdateOriginAccessControlCommandInput extends UpdateOriginAcces
 export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAccessControlResult, __MetadataBearer {}
 
 /**
- * <p>Updates a CloudFront origin access control.</p>
+ * Updates a CloudFront origin access control.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,29 +69,36 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link IllegalUpdate} (client fault)
- *  <p>The update contains modifications that are not allowed.</p>
+ *
+ * The update contains modifications that are not allowed.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
- *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * The `If-Match` version is missing or not valid.
  *
  * @throws {@link NoSuchOriginAccessControl} (client fault)
- *  <p>The origin access control does not exist.</p>
+ *
+ * The origin access control does not exist.
  *
  * @throws {@link OriginAccessControlAlreadyExists} (client fault)
- *  <p>An origin access control with the specified parameters already exists.</p>
+ *
+ * An origin access control with the specified parameters already exists.
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * The precondition in one or more of the request fields evaluated to `false`.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

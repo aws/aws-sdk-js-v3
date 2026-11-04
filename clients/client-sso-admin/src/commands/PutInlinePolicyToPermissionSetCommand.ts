@@ -23,7 +23,10 @@ export interface PutInlinePolicyToPermissionSetCommandInput extends PutInlinePol
 export interface PutInlinePolicyToPermissionSetCommandOutput extends PutInlinePolicyToPermissionSetResponse, __MetadataBearer {}
 
 /**
- * <p>Attaches an inline policy to a permission set.</p> <note> <p>If the permission set is already referenced by one or more account assignments, you will need to call <code> <a>ProvisionPermissionSet</a> </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p> </note>
+ * Attaches an inline policy to a permission set.
+ *
+ * > **Note:** If the permission set is already referenced by one or more account assignments, you will need to call `ProvisionPermissionSet` after this action to apply the corresponding IAM policy updates to all assigned accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,29 +53,36 @@ export interface PutInlinePolicyToPermissionSetCommandOutput extends PutInlinePo
  * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+ *
+ * Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * Indicates that a requested resource is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+ *
+ * Indicates that the principal has crossed the permitted number of resources that can be created.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ * Indicates that the principal has crossed the throttling limits of the API operations.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * The request failed because it contains a syntax error.
  *
  * @throws {@link SSOAdminServiceException}
- * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ * Base exception class for all service exceptions from SSOAdmin service.
  *
  * @public
  */

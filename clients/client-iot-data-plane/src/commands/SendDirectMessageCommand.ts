@@ -30,13 +30,14 @@ export interface SendDirectMessageCommandInput extends SendDirectMessageCommandI
 export interface SendDirectMessageCommandOutput extends SendDirectMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Sends an MQTT message directly to a specific client identified by its client ID.</p>
- *          <p>
- *             <code>SendDirectMessage</code> targets a single client ID. The receiving client does not
- *       need to subscribe to the topic, but the receiver's policy must allow <code>iot:Receive</code> on the specified topic.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">SendDirectMessage</a> action.</p>
- *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/">Amazon Web Services IoT Core
- *       pricing</a>.</p>
+ * Sends an MQTT message directly to a specific client identified by its client ID.
+ *
+ * `SendDirectMessage` targets a single client ID. The receiving client does not need to subscribe to the topic, but the receiver's policy must allow `iot:Receive` on the specified topic.
+ *
+ * Requires permission to access the [SendDirectMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
+ * For more information about messaging costs, see [Amazon Web Services IoT Core pricing](http://aws.amazon.com/iot-core/pricing/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,32 +74,40 @@ export interface SendDirectMessageCommandOutput extends SendDirectMessageRespons
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * The caller isn't authorized to make the request.
  *
  * @throws {@link GatewayTimeoutException} (server fault)
- *  <p>The delivery confirmation was not received from the client within the specified timeout period.</p>
+ *
+ * The delivery confirmation was not received from the client within the specified timeout period.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link RequestEntityTooLargeException} (client fault)
- *  <p>The payload exceeds the maximum size allowed.</p>
+ *
+ * The payload exceeds the maximum size allowed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTDataPlane service.
  *
  * @public
  */

@@ -23,19 +23,14 @@ export interface PutEventsCommandInput extends PutEventsRequest {}
 export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
- *          <p>You can batch multiple event entries into one request for efficiency.
- *       However, the total entry size must be less than 1MB. You can calculate the entry size before you send the events.
- *       For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size">Calculating PutEvents event entry
- *         size</a> in the <i>
- *                <i>Amazon EventBridge User Guide</i>
- *             </i>.</p>
- *          <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the
- *       constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of
- *       9,223,372,036,854,775,807.</p>
- *          <note>
- *             <p>PutEvents will only process nested JSON up to 1000 levels deep.</p>
- *          </note>
+ * Sends custom events to Amazon EventBridge so that they can be matched to rules.
+ *
+ * You can batch multiple event entries into one request for efficiency. However, the total entry size must be less than 1MB. You can calculate the entry size before you send the events. For more information, see [Calculating PutEvents event entry size](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size) in the **Amazon EventBridge User Guide** .
+ *
+ * PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.
+ *
+ * > **Note:** PutEvents will only process nested JSON up to 1000 levels deep.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +77,12 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

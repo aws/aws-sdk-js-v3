@@ -23,9 +23,10 @@ export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
 export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the
- *    document.</p>
- *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all managed nodes that are associated with the document.</p>
+ * Deletes the Amazon Web Services Systems Manager document (SSM document) and all managed node associations to the document.
+ *
+ * Before you delete the document, we recommend that you use DeleteAssociation to disassociate all managed nodes that are associated with the document.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,24 +54,28 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AssociatedInstances} (client fault)
- *  <p>You must disassociate a document from all managed nodes before you can delete it.</p>
+ *
+ * You must disassociate a document from all managed nodes before you can delete it.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentOperation} (client fault)
- *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
- *    document before you can delete it.</p>
+ *
+ * You attempted to delete a document while it is still shared. You must stop sharing the document before you can delete it.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

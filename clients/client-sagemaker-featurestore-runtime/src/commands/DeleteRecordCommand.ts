@@ -23,40 +23,15 @@ export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
 export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the
- *             <code>OnlineStore</code>. Feature Store supports both <code>SoftDelete</code> and
- *             <code>HardDelete</code>. For <code>SoftDelete</code> (default), feature columns are set
- *          to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code> or
- *             <code>BatchGetRecord</code>. For <code>HardDelete</code>, the complete
- *             <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature
- *          Store appends the deleted record marker to the <code>OfflineStore</code>. The deleted
- *          record marker is a record with the same <code>RecordIdentifer</code> as the original, but
- *          with <code>is_deleted</code> value set to <code>True</code>, <code>EventTime</code> set to
- *          the delete input <code>EventTime</code>, and other feature values set to
- *          <code>null</code>.</p>
- *          <p>Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should be
- *          set later than the <code>EventTime</code> of the existing record in the
- *             <code>OnlineStore</code> for that <code>RecordIdentifer</code>. If it is not, the
- *          deletion does not occur:</p>
- *          <ul>
- *             <li>
- *                <p>For <code>SoftDelete</code>, the existing (not deleted) record remains in the
- *                   <code>OnlineStore</code>, though the delete record marker is still written to the
- *                   <code>OfflineStore</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>HardDelete</code> returns <code>EventTime</code>: <code>400
- *                   ValidationException</code> to indicate that the delete operation failed. No delete
- *                record marker is written to the <code>OfflineStore</code>.</p>
- *             </li>
- *          </ul>
- *          <p>When a record is deleted from the <code>OnlineStore</code>, the deleted record marker is
- *          appended to the <code>OfflineStore</code>. If you have the Iceberg table format enabled for
- *          your <code>OfflineStore</code>, you can remove all history of a record from the
- *             <code>OfflineStore</code> using Amazon Athena or Apache Spark. For information on how to
- *          hard delete a record from the <code>OfflineStore</code> with the Iceberg table format
- *          enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records.html#feature-store-delete-records-offline-store">Delete records from the offline store</a>.</p>
+ * Deletes a `Record` from a `FeatureGroup` in the `OnlineStore`. Feature Store supports both `SoftDelete` and `HardDelete`. For `SoftDelete` (default), feature columns are set to `null` and the record is no longer retrievable by `GetRecord` or `BatchGetRecord`. For `HardDelete`, the complete `Record` is removed from the `OnlineStore`. In both cases, Feature Store appends the deleted record marker to the `OfflineStore`. The deleted record marker is a record with the same `RecordIdentifer` as the original, but with `is_deleted` value set to `True`, `EventTime` set to the delete input `EventTime`, and other feature values set to `null`.
+ *
+ * Note that the `EventTime` specified in `DeleteRecord` should be set later than the `EventTime` of the existing record in the `OnlineStore` for that `RecordIdentifer`. If it is not, the deletion does not occur:
+ *
+ * - For `SoftDelete`, the existing (not deleted) record remains in the `OnlineStore`, though the delete record marker is still written to the `OfflineStore`.
+ * - `HardDelete` returns `EventTime`: `400 ValidationException` to indicate that the delete operation failed. No delete record marker is written to the `OfflineStore`.
+ *
+ * When a record is deleted from the `OnlineStore`, the deleted record marker is appended to the `OfflineStore`. If you have the Iceberg table format enabled for your `OfflineStore`, you can remove all history of a record from the `OfflineStore` using Amazon Athena or Apache Spark. For information on how to hard delete a record from the `OfflineStore` with the Iceberg table format enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records.html#feature-store-delete-records-offline-store).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,21 +62,24 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  * @throws {@link AccessForbidden} (client fault)
- *  <p>You do not have permission to perform an action.</p>
+ *
+ * You do not have permission to perform an action.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p>There was an error validating your request.</p>
+ *
+ * There was an error validating your request.
  *
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.
  *
  * @public
  */

@@ -23,30 +23,13 @@ export interface CreateGrantCommandInput extends CreateGrantRequest {}
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a grant for the specified license. A grant shares the use of license
- *          entitlements with a specific Amazon Web Services account, an organization, or an
- *          organizational unit (OU). For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted licenses in License Manager</a> in the <i>License Manager User Guide</i>.</p>
- *          <p>Set the type of grant with the <code>GrantType</code> field:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>BuyerGrant</code> - The default grant type, created by the seller when a
- *                customer subscribes to a product. The seller creates a license for the subscription
- *                and a buyer grant for the customer. With a buyer grant, the customer can use,
- *                consume, and distribute the license, according to the permissions the seller sets in
- *                the product contract.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DelegateGrant</code> - A delegate grant gives the grantee read-only
- *                visibility into the licenses and grants that you have distributed to buyers for a
- *                product. The grantee can monitor that activity on your behalf, and can also listen
- *                for the related Amazon EventBridge events. A delegate grant conveys no entitlement to
- *                use the licenses, and its only allowed operation is <code>ListReceivedLicenses</code>.
- *                You must create the delegate grant, and its license, from the same
- *                Amazon Web Services account that you used to create those buyer licenses and grants.</p>
- *             </li>
- *          </ul>
+ * Creates a grant for the specified license. A grant shares the use of license entitlements with a specific Amazon Web Services account, an organization, or an organizational unit (OU). For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html) in the *License Manager User Guide*.
+ *
+ * Set the type of grant with the `GrantType` field:
+ *
+ * - `BuyerGrant` - The default grant type, created by the seller when a customer subscribes to a product. The seller creates a license for the subscription and a buyer grant for the customer. With a buyer grant, the customer can use, consume, and distribute the license, according to the permissions the seller sets in the product contract.
+ * - `DelegateGrant` - A delegate grant gives the grantee read-only visibility into the licenses and grants that you have distributed to buyers for a product. The grantee can monitor that activity on your behalf, and can also listen for the related Amazon EventBridge events. A delegate grant conveys no entitlement to use the licenses, and its only allowed operation is `ListReceivedLicenses`. You must create the delegate grant, and its license, from the same Amazon Web Services account that you used to create those buyer licenses and grants.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,30 +78,36 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to resource denied.</p>
+ *
+ * Access to resource denied.
  *
  * @throws {@link AuthorizationException} (client fault)
- *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
- *          policy associated with this account.</p>
+ *
+ * The Amazon Web Services user account does not have permission to perform the action. Check the IAM policy associated with this account.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link RateLimitExceededException} (client fault)
- *  <p>Too many requests have been submitted. Try again after a brief wait.</p>
+ *
+ * Too many requests have been submitted. Try again after a brief wait.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Your resource limits have been exceeded.</p>
+ *
+ * Your resource limits have been exceeded.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ * The provided input is not valid. Try your request again.
  *
  * @throws {@link LicenseManagerServiceException}
- * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ * Base exception class for all service exceptions from LicenseManager service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface DetachClassicLinkVpcCommandInput extends DetachClassicLinkVpcRe
 export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked,
- * 		    the VPC security groups are no longer associated with it. An instance is automatically unlinked from
- * 		    a VPC when it's stopped.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +55,8 @@ export interface DetachClassicLinkVpcCommandOutput extends DetachClassicLinkVpcR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DeleteCacheSubnetGroupCommandInput extends DeleteCacheSubnetGro
 export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a cache subnet group.</p>
- *          <note>
- *             <p>You cannot delete a default cache subnet group or one that is associated with any
- *                 clusters.</p>
- *          </note>
+ * Deletes a cache subnet group.
+ *
+ * > **Note:** You cannot delete a default cache subnet group or one that is associated with any clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,15 +51,16 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheSubnetGroupInUse} (client fault)
- *  <p>The requested cache subnet group is currently in use.</p>
+ *
+ * The requested cache subnet group is currently in use.
  *
  * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
- *  <p>The requested cache subnet group name does not refer to an existing cache subnet
- *             group.</p>
+ *
+ * The requested cache subnet group name does not refer to an existing cache subnet group.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DeleteCacheSubnetGroup
  * ```javascript

@@ -23,9 +23,8 @@ export interface DescribeDBClusterParameterGroupsCommandInput extends DescribeDB
 export interface DescribeDBClusterParameterGroupsCommandOutput extends DBClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
- * <p> Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a
- *       <code>DBClusterParameterGroupName</code> parameter is specified, the list will contain only
- *       the description of the specified DB cluster parameter group.</p>
+ * Returns a list of `DBClusterParameterGroup` descriptions. If a `DBClusterParameterGroupName` parameter is specified, the list will contain only the description of the specified DB cluster parameter group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,13 +69,12 @@ export interface DescribeDBClusterParameterGroupsCommandOutput extends DBCluster
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ *
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

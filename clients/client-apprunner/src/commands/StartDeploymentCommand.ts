@@ -23,12 +23,12 @@ export interface StartDeploymentCommandInput extends StartDeploymentRequest {}
 export interface StartDeploymentCommandOutput extends StartDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Initiate a manual deployment of the latest commit in a source code repository or the latest image in a source image repository to an App Runner
- *       service.</p>
- *          <p>For a source code repository, App Runner retrieves the commit and builds a Docker image. For a source image repository, App Runner retrieves the latest Docker
- *       image. In both cases, App Runner then deploys the new image to your service and starts a new container instance.</p>
- *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
- *       call to track the operation's progress.</p>
+ * Initiate a manual deployment of the latest commit in a source code repository or the latest image in a source image repository to an App Runner service.
+ *
+ * For a source code repository, App Runner retrieves the commit and builds a Docker image. For a source image repository, App Runner retrieves the latest Docker image. In both cases, App Runner then deploys the new image to your service and starts a new container instance.
+ *
+ * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations call to track the operation's progress.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +55,20 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

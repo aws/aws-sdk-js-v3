@@ -23,9 +23,8 @@ export interface ModifyWorkspaceAccessPropertiesCommandInput extends ModifyWorks
 export interface ModifyWorkspaceAccessPropertiesCommandOutput extends ModifyWorkspaceAccessPropertiesResult, __MetadataBearer {}
 
 /**
- * <p>Specifies which devices and operating systems users can use to access their WorkSpaces.
- *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access">
- *             Control Device Access</a>.</p>
+ * Specifies which devices and operating systems users can use to access their WorkSpaces. For more information, see [Control Device Access](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,23 +71,28 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput extends ModifyWork
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more of the selected parameter values cannot be used together.</p>
+ *
+ * Two or more of the selected parameter values cannot be used together.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

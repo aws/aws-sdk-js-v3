@@ -23,7 +23,8 @@ export interface DeleteRegistryPolicyCommandInput extends DeleteRegistryPolicyRe
 export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the registry permissions policy.</p>
+ * Deletes the registry permissions policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,21 +50,24 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RegistryPolicyNotFoundException} (client fault)
- *  <p>The registry doesn't have an associated registry policy.</p>
+ *
+ * The registry doesn't have an associated registry policy.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

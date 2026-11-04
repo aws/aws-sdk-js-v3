@@ -23,20 +23,16 @@ export interface RegisterClusterCommandInput extends RegisterClusterRequest {}
 export interface RegisterClusterCommandOutput extends RegisterClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Connects a Kubernetes cluster to the Amazon EKS control plane. </p>
- *          <p>Any Kubernetes cluster can be connected to the Amazon EKS control plane to view current
- *             information about the cluster and its nodes. </p>
- *          <p>Cluster connection requires two steps. First, send a <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterClusterRequest.html">
- *                <code>RegisterClusterRequest</code>
- *             </a> to add it to the Amazon EKS control
- *             plane.</p>
- *          <p>Second, a <a href="https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml">Manifest</a> containing the <code>activationID</code> and
- *                 <code>activationCode</code> must be applied to the Kubernetes cluster through it's native
- *             provider to provide visibility.</p>
- *          <p>After the manifest is updated and applied, the connected cluster is visible to the
- *             Amazon EKS control plane. If the manifest isn't applied within three days, the connected
- *             cluster will no longer be visible and must be deregistered using
- *                 <code>DeregisterCluster</code>.</p>
+ * Connects a Kubernetes cluster to the Amazon EKS control plane.
+ *
+ * Any Kubernetes cluster can be connected to the Amazon EKS control plane to view current information about the cluster and its nodes.
+ *
+ * Cluster connection requires two steps. First, send a [`RegisterClusterRequest`](https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterClusterRequest.html) to add it to the Amazon EKS control plane.
+ *
+ * Second, a [Manifest](https://amazon-eks.s3.us-west-2.amazonaws.com/eks-connector/manifests/eks-connector/latest/eks-connector.yaml) containing the `activationID` and `activationCode` must be applied to the Kubernetes cluster through it's native provider to provide visibility.
+ *
+ * After the manifest is updated and applied, the connected cluster is visible to the Amazon EKS control plane. If the manifest isn't applied within three days, the connected cluster will no longer be visible and must be deregistered using `DeregisterCluster`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -238,39 +234,40 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
- *             making the request must have at least one IAM permissions policy attached that grants
- *             the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>. </p>
+ *
+ * You don't have permissions to perform the requested operation. The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
+ *
+ * These errors are usually caused by a client action. Actions can include using an action or resource on behalf of an [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) that doesn't have permissions to use the action or resource or specifying an identifier that is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * You have encountered a service limit on the specified resource.
  *
  * @throws {@link ResourcePropagationDelayException} (client fault)
- *  <p>Required resources (such as service-linked roles) were created and are still
- *             propagating. Retry later.</p>
+ *
+ * Required resources (such as service-linked roles) were created and are still propagating. Retry later.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * The service is unavailable. Back off and retry the operation.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

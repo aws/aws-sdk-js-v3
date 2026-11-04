@@ -23,9 +23,8 @@ export interface StopFlowCommandInput extends StopFlowRequest {}
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
- * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
- *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
- *       flows, this operation deactivates the flow. </p>
+ * Deactivates the existing flow. For on-demand flows, this operation returns an `unsupportedOperationException` error message. For schedule and event-triggered flows, this operation deactivates the flow.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,23 +52,24 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> There was a conflict when processing the request (for example, a flow with the given name
- *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * There was a conflict when processing the request (for example, a flow with the given name already exists within the account. Check for conflicting resource names and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p> The requested operation is not supported for the current flow. </p>
+ *
+ * The requested operation is not supported for the current flow.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

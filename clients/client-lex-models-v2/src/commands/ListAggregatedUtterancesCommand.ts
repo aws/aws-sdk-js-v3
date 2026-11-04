@@ -23,31 +23,20 @@ export interface ListAggregatedUtterancesCommandInput extends ListAggregatedUtte
 export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtterancesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of utterances that users have sent to the
- *          bot.</p>
- *          <p>Utterances are aggregated by the text of the utterance. For example,
- *          all instances where customers used the phrase "I want to order pizza"
- *          are aggregated into the same line in the response.</p>
- *          <p>You can see both detected utterances and missed utterances. A
- *          detected utterance is where the bot properly recognized the utterance
- *          and activated the associated intent. A missed utterance was not
- *          recognized by the bot and didn't activate an intent.</p>
- *          <p>Utterances can be aggregated for a bot alias or for a bot version,
- *          but not both at the same time.</p>
- *          <p>Utterances statistics are not generated under the following
- *          conditions:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>childDirected</code> field was set to true when the
- *                bot was created.</p>
- *             </li>
- *             <li>
- *                <p>You are using slot obfuscation with one or more slots.</p>
- *             </li>
- *             <li>
- *                <p>You opted out of participating in improving Amazon Lex.</p>
- *             </li>
- *          </ul>
+ * Provides a list of utterances that users have sent to the bot.
+ *
+ * Utterances are aggregated by the text of the utterance. For example, all instances where customers used the phrase "I want to order pizza" are aggregated into the same line in the response.
+ *
+ * You can see both detected utterances and missed utterances. A detected utterance is where the bot properly recognized the utterance and activated the associated intent. A missed utterance was not recognized by the bot and didn't activate an intent.
+ *
+ * Utterances can be aggregated for a bot alias or for a bot version, but not both at the same time.
+ *
+ * Utterances statistics are not generated under the following conditions:
+ *
+ * - The `childDirected` field was set to true when the bot was created.
+ * - You are using slot obfuscation with one or more slots.
+ * - You opted out of participating in improving Amazon Lex.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,25 +110,24 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetDbBackupCommandInput extends GetDbBackupInput {}
 export interface GetDbBackupCommandOutput extends GetDbBackupOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific Timestream for InfluxDB backup.</p>
+ * Returns information about a specific Timestream for InfluxDB backup.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,23 +104,28 @@ export interface GetDbBackupCommandOutput extends GetDbBackupOutput, __MetadataB
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found or does not exist.</p>
+ *
+ * The requested resource was not found or does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Timestream for InfluxDB.</p>
+ *
+ * The input fails to satisfy the constraints specified by Timestream for InfluxDB.
  *
  * @throws {@link TimestreamInfluxDBServiceException}
- * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamInfluxDB service.
  *
  * @public
  */

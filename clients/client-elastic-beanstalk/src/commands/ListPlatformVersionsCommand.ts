@@ -23,19 +23,14 @@ export interface ListPlatformVersionsCommandInput extends ListPlatformVersionsRe
 export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the platform versions available for your account in an Amazon Web Services Region. Provides summary information about each platform version. Compare to <a>DescribePlatformVersion</a>, which provides full details about a single platform version.</p>
- *          <p>This action only returns information about platform versions that the calling principle has IAM permissions to access. For example, consider a case
- *       where a user only has permission to access one of ten platform versions. When the user calls the <i>ListPlatformVersions</i> action, the
- *       response will only include the one platform version that the user has permission to access instead of all ten platform versions. If the user doesn’t have
- *       access to any of the platform versions an empty result is returned.</p>
- *          <note>
- *             <p>The <i>AWSElasticBeanstalkReadOnly</i> managed policy allows operators to view information about resources related to Elastic Beanstalk
- *         environments. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk
- *           user policies</a> in the <i>Elastic Beanstalk Developer Guide</i>. For detailed instructions to attach a policy to a user or group, see the
- *         section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access
- *           with managed policies</a> in the same topic.</p>
- *          </note>
- *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">Elastic Beanstalk Platforms Glossary</a>.</p>
+ * Lists the platform versions available for your account in an Amazon Web Services Region. Provides summary information about each platform version. Compare to DescribePlatformVersion, which provides full details about a single platform version.
+ *
+ * This action only returns information about platform versions that the calling principle has IAM permissions to access. For example, consider a case where a user only has permission to access one of ten platform versions. When the user calls the *ListPlatformVersions* action, the response will only include the one platform version that the user has permission to access instead of all ten platform versions. If the user doesn’t have access to any of the platform versions an empty result is returned.
+ *
+ * > **Note:** The *AWSElasticBeanstalkReadOnly* managed policy allows operators to view information about resources related to Elastic Beanstalk environments. For more information, see [Managing Elastic Beanstalk user policies](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html) in the *Elastic Beanstalk Developer Guide*. For detailed instructions to attach a policy to a user or group, see the section [Controlling access with managed policies](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed) in the same topic.
+ *
+ * For definitions of platform version and other platform-related terms, see [Elastic Beanstalk Platforms Glossary](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,14 +87,16 @@ export interface ListPlatformVersionsCommandOutput extends ListPlatformVersionsR
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
- *  <p>A generic service exception has occurred.</p>
+ *
+ * A generic service exception has occurred.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

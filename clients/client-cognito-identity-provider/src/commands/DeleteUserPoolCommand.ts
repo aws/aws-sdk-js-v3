@@ -23,15 +23,12 @@ export interface DeleteUserPoolCommandInput extends DeleteUserPoolRequest {}
 export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a user pool. After you delete a user pool, users can no longer sign in to any
- *             associated applications. </p>
- *          <p>When you delete a user pool, it's no longer visible or operational in your Amazon Web Services account. Amazon Cognito retains deleted user pools in an inactive state for 14
- *             days, then begins a cleanup process that fully removes them from Amazon Web Services systems. In case
- *             of accidental deletion, contact Amazon Web Services Support within 14 days for restoration
- *             assistance.</p>
- *          <p>Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In
- *             the case of large user pools, the cleanup process might take significant additional time
- *             before all user data is permanently deleted.</p>
+ * Deletes a user pool. After you delete a user pool, users can no longer sign in to any associated applications.
+ *
+ * When you delete a user pool, it's no longer visible or operational in your Amazon Web Services account. Amazon Cognito retains deleted user pools in an inactive state for 14 days, then begins a cleanup process that fully removes them from Amazon Web Services systems. In case of accidental deletion, contact Amazon Web Services Support within 14 days for restoration assistance.
+ *
+ * Amazon Cognito begins full deletion of all resources from deleted user pools after 14 days. In the case of large user pools, the cleanup process might take significant additional time before all user data is permanently deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,33 +53,36 @@ export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UserImportInProgressException} (client fault)
- *  <p>This exception is thrown when you're trying to modify a user pool while a user import
- *             job is in progress for that pool.</p>
+ *
+ * This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

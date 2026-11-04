@@ -23,7 +23,8 @@ export interface CreateACLCommandInput extends CreateACLRequest {}
 export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Access Control List. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html">Authenticating users with Access Contol Lists (ACLs)</a>.</p>
+ * Creates an Access Control List. For more information, see [Authenticating users with Access Contol Lists (ACLs)](https://docs.aws.amazon.com/MemoryDB/latest/devguide/clusters.acls.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,29 +79,36 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLAlreadyExistsFault} (client fault)
- *  <p>An ACL with the specified name already exists.</p>
+ *
+ * An ACL with the specified name already exists.
  *
  * @throws {@link ACLQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of ACLs allowed.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of ACLs allowed.
  *
  * @throws {@link DefaultUserRequired} (client fault)
- *  <p>A default user is required and must be specified.</p>
+ *
+ * A default user is required and must be specified.
  *
  * @throws {@link DuplicateUserNameFault} (client fault)
- *  <p>A user with the specified name already exists.</p>
+ *
+ * A user with the specified name already exists.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

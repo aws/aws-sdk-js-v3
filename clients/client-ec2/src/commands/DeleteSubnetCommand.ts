@@ -23,7 +23,8 @@ export interface DeleteSubnetCommandInput extends DeleteSubnetRequest {}
 export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>
+ * Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a subnet
  * ```javascript

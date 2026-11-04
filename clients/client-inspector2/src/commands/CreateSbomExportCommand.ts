@@ -23,7 +23,8 @@ export interface CreateSbomExportCommandInput extends CreateSbomExportRequest {}
 export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a software bill of materials (SBOM) report.</p>
+ * Creates a software bill of materials (SBOM) report.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,23 +127,30 @@ export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse,
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p> <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region. </p>
+ *
+ * You do not have sufficient access to perform this action.
+ *
+ * For `Enable`, you receive this error if you attempt to use a feature in an unsupported Amazon Web Services Region.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * The request has failed due to an internal failure of the Amazon Inspector service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *
+ * The operation tried to access an invalid resource. Make sure the resource is specified correctly.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation due to missing required fields or having invalid inputs.</p>
+ *
+ * The request has failed validation due to missing required fields or having invalid inputs.
  *
  * @throws {@link Inspector2ServiceException}
- * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ * Base exception class for all service exceptions from Inspector2 service.
  *
  * @public
  */

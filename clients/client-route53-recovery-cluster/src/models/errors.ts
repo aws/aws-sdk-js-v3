@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { Route53RecoveryClusterServiceException as __BaseException } from "./Route53RecoveryClusterServiceException";
 
 /**
- * <p>You don't have sufficient permissions to perform this action.</p>
+ * You don't have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict with this request. Try again.</p>
+ * There was a conflict with this request. Try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -62,7 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ * The cluster endpoint isn't available. Try another cluster endpoint.
+ *
  * @public
  */
 export class EndpointTemporarilyUnavailableException extends __BaseException {
@@ -83,7 +86,8 @@ export class EndpointTemporarilyUnavailableException extends __BaseException {
 }
 
 /**
- * <p>There was an unexpected error during processing of the request.</p>
+ * There was an unexpected error during processing of the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -111,7 +115,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request references a routing control or control panel that was not found.</p>
+ * The request references a routing control or control panel that was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -146,7 +151,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because of request throttling.</p>
+ * The request was denied because of request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -174,7 +180,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>There was a validation error on the request.</p>
+ * There was a validation error on the request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -209,7 +216,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request can't update that many routing control states at the same time. Try again with fewer routing control states.</p>
+ * The request can't update that many routing control states at the same time. Try again with fewer routing control states.
+ *
  * @public
  */
 export class ServiceLimitExceededException extends __BaseException {
@@ -217,25 +225,29 @@ export class ServiceLimitExceededException extends __BaseException {
   readonly name = "ServiceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource identifier of the limit that was exceeded.</p>
+   * The resource identifier of the limit that was exceeded.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The resource type of the limit that was exceeded.</p>
+   * The resource type of the limit that was exceeded.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p>The code of the limit that was exceeded.</p>
+   * The code of the limit that was exceeded.
+   *
    * @public
    */
   limitCode: string | undefined;
 
   /**
-   * <p>The service code of the limit that was exceeded.</p>
+   * The service code of the limit that was exceeded.
+   *
    * @public
    */
   serviceCode: string | undefined;

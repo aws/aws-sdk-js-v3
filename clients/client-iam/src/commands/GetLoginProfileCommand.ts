@@ -23,16 +23,12 @@ export interface GetLoginProfileCommandInput extends GetLoginProfileRequest {}
 export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the user name for the specified IAM user. A login profile is created when
- *             you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist
- *             or does not have a password, the operation returns a 404 (<code>NoSuchEntity</code>)
- *             error.</p>
- *          <p>If you create an IAM user with access to the console, the <code>CreateDate</code>
- *             reflects the date you created the initial password for the user.</p>
- *          <p>If you create an IAM user with programmatic access, and then later add a password
- *             for the user to access the Amazon Web Services Management Console, the <code>CreateDate</code> reflects the initial
- *             password creation date. A user with programmatic access does not have a login profile
- *             unless you create a password for the user to access the Amazon Web Services Management Console.</p>
+ * Retrieves the user name for the specified IAM user. A login profile is created when you create a password for the user to access the Amazon Web Services Management Console. If the user does not exist or does not have a password, the operation returns a 404 (`NoSuchEntity`) error.
+ *
+ * If you create an IAM user with access to the console, the `CreateDate` reflects the date you created the initial password for the user.
+ *
+ * If you create an IAM user with programmatic access, and then later add a password for the user to access the Amazon Web Services Management Console, the `CreateDate` reflects the initial password creation date. A user with programmatic access does not have a login profile unless you create a password for the user to access the Amazon Web Services Management Console.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,16 +59,16 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To get password information for an IAM user
  * ```javascript

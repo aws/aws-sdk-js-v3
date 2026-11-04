@@ -21,18 +21,21 @@ import type {
 } from "./enums";
 
 /**
- * <p>A set of AWS accounts and organizational units.</p>
+ * A set of AWS accounts and organizational units.
+ *
  * @public
  */
 export interface AccountSet {
   /**
-   * <p>The list of AWS account IDs.</p>
+   * The list of AWS account IDs.
+   *
    * @public
    */
   accountIds?: string[] | undefined;
 
   /**
-   * <p>The AWS Organizations organizational units (OUs) in the selection.</p>
+   * The AWS Organizations organizational units (OUs) in the selection.
+   *
    * @public
    */
   organizationalUnits?: string[] | undefined;
@@ -44,7 +47,8 @@ export interface AccountSet {
 export interface Unit {}
 
 /**
- * <p>Determines which accounts are in scope. Exactly one of <code>includeAll</code>, <code>include</code>, or <code>exclude</code> is set.</p>
+ * Determines which accounts are in scope. Exactly one of `includeAll`, `include`, or `exclude` is set.
+ *
  * @public
  */
 export type AccountFilter =
@@ -58,7 +62,8 @@ export type AccountFilter =
  */
 export namespace AccountFilter {
   /**
-   * <p>Includes all accounts. No account filtering is applied.</p>
+   * Includes all accounts. No account filtering is applied.
+   *
    * @public
    */
   export interface IncludeAllMember {
@@ -69,7 +74,8 @@ export namespace AccountFilter {
   }
 
   /**
-   * <p>Includes only the specified accounts and organizational units.</p>
+   * Includes only the specified accounts and organizational units.
+   *
    * @public
    */
   export interface IncludeMember {
@@ -80,7 +86,8 @@ export namespace AccountFilter {
   }
 
   /**
-   * <p>Excludes the specified accounts and organizational units. All others are in scope.</p>
+   * Excludes the specified accounts and organizational units. All others are in scope.
+   *
    * @public
    */
   export interface ExcludeMember {
@@ -113,85 +120,99 @@ export namespace AccountFilter {
 }
 
 /**
- * <p>A reference to an AWS account, with optional display metadata.</p>
+ * A reference to an AWS account, with optional display metadata.
+ *
  * @public
  */
 export interface AccountReference {
   /**
-   * <p>The AWS account ID.</p>
+   * The AWS account ID.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The display name of the account.</p>
+   * The display name of the account.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The email address associated with the account.</p>
+   * The email address associated with the account.
+   *
    * @public
    */
   email?: string | undefined;
 }
 
 /**
- * <p>Defines the firewall types that an administrator can create and manage.</p>
+ * Defines the firewall types that an administrator can create and manage.
+ *
  * @public
  */
 export interface AdminFirewallTypeScope {
   /**
-   * <p>Specifies whether the administrator can manage all firewall types, except for third-party firewall types.</p>
+   * Specifies whether the administrator can manage all firewall types, except for third-party firewall types.
+   *
    * @public
    */
   allFirewallTypesEnabled?: boolean | undefined;
 
   /**
-   * <p>The list of firewall types that the administrator can manage.</p>
+   * The list of firewall types that the administrator can manage.
+   *
    * @public
    */
   firewallTypes?: PolicyFirewallType[] | undefined;
 }
 
 /**
- * <p>A reference to an AWS Organizations organizational unit (OU), with optional display metadata.</p>
+ * A reference to an AWS Organizations organizational unit (OU), with optional display metadata.
+ *
  * @public
  */
 export interface OrganizationalUnitReference {
   /**
-   * <p>The ID of the AWS Organizations organizational unit (OU).</p>
+   * The ID of the AWS Organizations organizational unit (OU).
+   *
    * @public
    */
   ouId: string | undefined;
 
   /**
-   * <p>The display name of the organizational unit.</p>
+   * The display name of the organizational unit.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>A selection of accounts and organizational units. This is the reference form, which includes display metadata.</p>
+ * A selection of accounts and organizational units. This is the reference form, which includes display metadata.
+ *
  * @public
  */
 export interface AdminScopeSelection {
   /**
-   * <p>The AWS accounts in the selection.</p>
+   * The AWS accounts in the selection.
+   *
    * @public
    */
   accounts?: AccountReference[] | undefined;
 
   /**
-   * <p>The AWS Organizations organizational units (OUs) in the selection.</p>
+   * The AWS Organizations organizational units (OUs) in the selection.
+   *
    * @public
    */
   organizationalUnits?: OrganizationalUnitReference[] | undefined;
 }
 
 /**
- * <p>Determines which accounts and organizational units are in an administrator's scope. This is the reference form, which includes display metadata.</p>
+ * Determines which accounts and organizational units are in an administrator's scope. This is the reference form, which includes display metadata.
+ *
  * @public
  */
 export type AdminScopeFilter =
@@ -205,7 +226,8 @@ export type AdminScopeFilter =
  */
 export namespace AdminScopeFilter {
   /**
-   * <p>All accounts and organizational units are in scope.</p>
+   * All accounts and organizational units are in scope.
+   *
    * @public
    */
   export interface IncludeAllMember {
@@ -216,7 +238,8 @@ export namespace AdminScopeFilter {
   }
 
   /**
-   * <p>Only the specified accounts and organizational units are in the administrator's scope.</p>
+   * Only the specified accounts and organizational units are in the administrator's scope.
+   *
    * @public
    */
   export interface IncludeOnlyMember {
@@ -227,7 +250,8 @@ export namespace AdminScopeFilter {
   }
 
   /**
-   * <p>The accounts and organizational units to exclude from the administrator's scope. All others are in scope.</p>
+   * The accounts and organizational units to exclude from the administrator's scope. All others are in scope.
+   *
    * @public
    */
   export interface ExcludeOnlyMember {
@@ -260,103 +284,120 @@ export namespace AdminScopeFilter {
 }
 
 /**
- * <p>Defines the accounts, organizational units, and firewall types that an administrator can manage.</p>
+ * Defines the accounts, organizational units, and firewall types that an administrator can manage.
+ *
  * @public
  */
 export interface AdminScope {
   /**
-   * <p>The filter that determines which accounts and organizational units are in the administrator's scope.</p>
+   * The filter that determines which accounts and organizational units are in the administrator's scope.
+   *
    * @public
    */
   scopeFilter?: AdminScopeFilter | undefined;
 
   /**
-   * <p>The firewall types that the administrator can create and manage.</p>
+   * The firewall types that the administrator can create and manage.
+   *
    * @public
    */
   firewallTypeScope?: AdminFirewallTypeScope | undefined;
 }
 
 /**
- * <p>The details of an AWS Network Security Manager administrator account.</p>
+ * The details of an AWS Network Security Manager administrator account.
+ *
  * @public
  */
 export interface AdminAccountDetails {
   /**
-   * <p>The AWS account ID of the administrator account.</p>
+   * The AWS account ID of the administrator account.
+   *
    * @public
    */
   adminAccount: string | undefined;
 
   /**
-   * <p>The priority assigned to the administrator account.</p>
+   * The priority assigned to the administrator account.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The administrative scope, which defines the accounts, organizational units, and firewall types that the administrator can manage.</p>
+   * The administrative scope, which defines the accounts, organizational units, and firewall types that the administrator can manage.
+   *
    * @public
    */
   adminScope?: AdminScope | undefined;
 
   /**
-   * <p>The status of the administrator account, either <code>ONBOARDED</code> or <code>OFFBOARDED</code>.</p>
+   * The status of the administrator account, either `ONBOARDED` or `OFFBOARDED`.
+   *
    * @public
    */
   status?: AdminAccountStatus | undefined;
 }
 
 /**
- * <p>Summary information about an AWS Network Security Manager administrator account.</p>
+ * Summary information about an AWS Network Security Manager administrator account.
+ *
  * @public
  */
 export interface AdminAccountSummary {
   /**
-   * <p>The AWS account ID.</p>
+   * The AWS account ID.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The priority assigned to the administrator account.</p>
+   * The priority assigned to the administrator account.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The name of the administrator account.</p>
+   * The name of the administrator account.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The email address associated with the account.</p>
+   * The email address associated with the account.
+   *
    * @public
    */
   email?: string | undefined;
 }
 
 /**
- * <p>A selection of accounts and organizational units. This is the input form, which uses account and organizational unit IDs.</p>
+ * A selection of accounts and organizational units. This is the input form, which uses account and organizational unit IDs.
+ *
  * @public
  */
 export interface AdminScopeSelectionInput {
   /**
-   * <p>The AWS accounts in the selection.</p>
+   * The AWS accounts in the selection.
+   *
    * @public
    */
   accounts?: string[] | undefined;
 
   /**
-   * <p>The AWS Organizations organizational units (OUs) in the selection.</p>
+   * The AWS Organizations organizational units (OUs) in the selection.
+   *
    * @public
    */
   organizationalUnits?: string[] | undefined;
 }
 
 /**
- * <p>Determines which accounts and organizational units are in an administrator's scope. This is the input form, which uses account and organizational unit IDs.</p>
+ * Determines which accounts and organizational units are in an administrator's scope. This is the input form, which uses account and organizational unit IDs.
+ *
  * @public
  */
 export type AdminScopeFilterInput =
@@ -370,7 +411,8 @@ export type AdminScopeFilterInput =
  */
 export namespace AdminScopeFilterInput {
   /**
-   * <p>All accounts and organizational units are in scope.</p>
+   * All accounts and organizational units are in scope.
+   *
    * @public
    */
   export interface IncludeAllMember {
@@ -381,7 +423,8 @@ export namespace AdminScopeFilterInput {
   }
 
   /**
-   * <p>Only the specified accounts and organizational units are in the administrator's scope.</p>
+   * Only the specified accounts and organizational units are in the administrator's scope.
+   *
    * @public
    */
   export interface IncludeOnlyMember {
@@ -392,7 +435,8 @@ export namespace AdminScopeFilterInput {
   }
 
   /**
-   * <p>The accounts and organizational units to exclude from the administrator's scope. All others are in scope.</p>
+   * The accounts and organizational units to exclude from the administrator's scope. All others are in scope.
+   *
    * @public
    */
   export interface ExcludeOnlyMember {
@@ -425,79 +469,92 @@ export namespace AdminScopeFilterInput {
 }
 
 /**
- * <p>The administrative scope configuration provided on input, using account and organizational unit IDs.</p>
+ * The administrative scope configuration provided on input, using account and organizational unit IDs.
+ *
  * @public
  */
 export interface AdminScopeInput {
   /**
-   * <p>The filter that determines which accounts and organizational units are in the administrator's scope.</p>
+   * The filter that determines which accounts and organizational units are in the administrator's scope.
+   *
    * @public
    */
   scopeFilter?: AdminScopeFilterInput | undefined;
 
   /**
-   * <p>The firewall types that the administrator can create and manage.</p>
+   * The firewall types that the administrator can create and manage.
+   *
    * @public
    */
   firewallTypeScope?: AdminFirewallTypeScope | undefined;
 }
 
 /**
- * <p>Filter criteria specific to Application Load Balancers.</p>
+ * Filter criteria specific to Application Load Balancers.
+ *
  * @public
  */
 export interface AlbConfiguration {
   /**
-   * <p>The scheme of the Application Load Balancer, either <code>internet-facing</code> or <code>internal</code>.</p>
+   * The scheme of the Application Load Balancer, either `internet-facing` or `internal`.
+   *
    * @public
    */
   scheme?: Scheme | undefined;
 
   /**
-   * <p>The IP address type of the Application Load Balancer.</p>
+   * The IP address type of the Application Load Balancer.
+   *
    * @public
    */
   ipAddressType?: IpAddressType | undefined;
 }
 
 /**
- * <p>An association between a deployment and a policy, as returned in outputs. The corresponding request structure is <code>PolicyReference</code>.</p>
+ * An association between a deployment and a policy, as returned in outputs. The corresponding request structure is `PolicyReference`.
+ *
  * @public
  */
 export interface AssociatedPolicy {
   /**
-   * <p>The ARN of the associated policy, including its version qualifier when a specific published version is pinned (for example, <code>...:policy:abc123:3</code>).</p>
+   * The ARN of the associated policy, including its version qualifier when a specific published version is pinned (for example, `...:policy:abc123:3`).
+   *
    * @public
    */
   policyArn: string | undefined;
 }
 
 /**
- * <p>An association between a template and a rule, as returned in outputs. The corresponding request structure is <code>RuleReference</code>.</p>
+ * An association between a template and a rule, as returned in outputs. The corresponding request structure is `RuleReference`.
+ *
  * @public
  */
 export interface AssociatedRule {
   /**
-   * <p>The ARN of the associated rule.</p>
+   * The ARN of the associated rule.
+   *
    * @public
    */
   ruleArn: string | undefined;
 }
 
 /**
- * <p>An association between a deployment and a scope, as returned in outputs. The corresponding request structure is <code>ScopeReference</code>.</p>
+ * An association between a deployment and a scope, as returned in outputs. The corresponding request structure is `ScopeReference`.
+ *
  * @public
  */
 export interface AssociatedScope {
   /**
-   * <p>The ARN of the associated scope.</p>
+   * The ARN of the associated scope.
+   *
    * @public
    */
   scopeArn: string | undefined;
 }
 
 /**
- * <p>An association between a policy and either a template or a rule, as returned in outputs. Exactly one of <code>templateArn</code> or <code>ruleArn</code> is set. The corresponding request structure is <code>TemplateOrRuleReference</code>.</p>
+ * An association between a policy and either a template or a rule, as returned in outputs. Exactly one of `templateArn` or `ruleArn` is set. The corresponding request structure is `TemplateOrRuleReference`.
+ *
  * @public
  */
 export type AssociatedTemplateOrRule =
@@ -510,7 +567,8 @@ export type AssociatedTemplateOrRule =
  */
 export namespace AssociatedTemplateOrRule {
   /**
-   * <p>The ARN of the associated template.</p>
+   * The ARN of the associated template.
+   *
    * @public
    */
   export interface TemplateArnMember {
@@ -520,7 +578,8 @@ export namespace AssociatedTemplateOrRule {
   }
 
   /**
-   * <p>The ARN of the associated rule.</p>
+   * The ARN of the associated rule.
+   *
    * @public
    */
   export interface RuleArnMember {
@@ -550,60 +609,70 @@ export namespace AssociatedTemplateOrRule {
 }
 
 /**
- * <p>Describes a single configuration value that does not match the intended configuration.</p>
+ * Describes a single configuration value that does not match the intended configuration.
+ *
  * @public
  */
 export interface ConfigurationIssue {
   /**
-   * <p>The name of the configuration setting that is in conflict.</p>
+   * The name of the configuration setting that is in conflict.
+   *
    * @public
    */
   configurationName?: string | undefined;
 
   /**
-   * <p>The configuration value that AWS Network Security Manager expected.</p>
+   * The configuration value that AWS Network Security Manager expected.
+   *
    * @public
    */
   expectedValue?: string | undefined;
 
   /**
-   * <p>The configuration value that was found on the resource.</p>
+   * The configuration value that was found on the resource.
+   *
    * @public
    */
   actualValue?: string | undefined;
 }
 
 /**
- * <p>A reference to a policy in a create or update request.</p>
+ * A reference to a policy in a create or update request.
+ *
  * @public
  */
 export interface PolicyReference {
   /**
-   * <p>The identifier of the policy. This is the policy's Amazon Resource Name (ARN), optionally version-qualified to pin a specific published version.</p>
+   * The identifier of the policy. This is the policy's Amazon Resource Name (ARN), optionally version-qualified to pin a specific published version.
+   *
    * @public
    */
   policyIdentifier: string | undefined;
 }
 
 /**
- * <p>A reference to a scope in a create or update request.</p>
+ * A reference to a scope in a create or update request.
+ *
  * @public
  */
 export interface ScopeReference {
   /**
-   * <p>The identifier of the scope. This is the scope's Amazon Resource Name (ARN).</p>
+   * The identifier of the scope. This is the scope's Amazon Resource Name (ARN).
+   *
    * @public
    */
   scopeIdentifier: string | undefined;
 }
 
 /**
- * <p>Configuration settings that control a deployment's behavior.</p>
+ * Configuration settings that control a deployment's behavior.
+ *
  * @public
  */
 export interface DeploymentConfiguration {
   /**
-   * <p>Specifies whether aggregate synchronization status details for the resources covered by this deployment are visible across accounts. Default: <code>false</code>.</p>
+   * Specifies whether aggregate synchronization status details for the resources covered by this deployment are visible across accounts. Default: `false`.
+   *
    * @public
    */
   enableCrossAccountVisibility: boolean | undefined;
@@ -614,97 +683,113 @@ export interface DeploymentConfiguration {
  */
 export interface CreateDeploymentInput {
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   deploymentName: string | undefined;
 
   /**
-   * <p>A description of the deployment.</p>
+   * A description of the deployment.
+   *
    * @public
    */
   deploymentDescription?: string | undefined;
 
   /**
-   * <p>The configuration settings for the deployment.</p>
+   * The configuration settings for the deployment.
+   *
    * @public
    */
   deploymentConfiguration: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The policies associated with the deployment.</p>
+   * The policies associated with the deployment.
+   *
    * @public
    */
   associatedPolicyList: PolicyReference[] | undefined;
 
   /**
-   * <p>The scope associated with the deployment. A deployment has exactly one scope.</p>
+   * The scope associated with the deployment. A deployment has exactly one scope.
+   *
    * @public
    */
   associatedScopeList: ScopeReference[] | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>). Default: <code>true</code>.</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`). Default: `true`.
+   *
    * @public
    */
   isPublished?: boolean | undefined;
 
   /**
-   * <p>The tags to add to the resource when it is created.</p>
+   * The tags to add to the resource when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Coverage information for one firewall type within a deployment. It lists the deployment's policies that have this firewall type. It also lists the resource types in the deployment's scope that the firewall type protects.</p>
+ * Coverage information for one firewall type within a deployment. It lists the deployment's policies that have this firewall type. It also lists the resource types in the deployment's scope that the firewall type protects.
+ *
  * @public
  */
 export interface DeploymentCoverageEntry {
   /**
-   * <p>The firewall type that the policies in this entry share.</p>
+   * The firewall type that the policies in this entry share.
+   *
    * @public
    */
   firewallType: PolicyFirewallType | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the deployment's policies that have this firewall type.</p>
+   * The Amazon Resource Names (ARNs) of the deployment's policies that have this firewall type.
+   *
    * @public
    */
   policyArns: string[] | undefined;
 
   /**
-   * <p>The resource types in the deployment's scope that this firewall type protects. This list is empty if the scope does not select any resource types that the firewall type protects.</p>
+   * The resource types in the deployment's scope that this firewall type protects. This list is empty if the scope does not select any resource types that the firewall type protects.
+   *
    * @public
    */
   inScopeResourceTypes: ScopeResourceType[] | undefined;
 }
 
 /**
- * <p>A warning about a potential issue with a deployment.</p>
+ * A warning about a potential issue with a deployment.
+ *
  * @public
  */
 export interface DeploymentWarningEntry {
   /**
-   * <p>A code that identifies the type of warning.</p>
+   * A code that identifies the type of warning.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The ARN of the policy that the warning relates to.</p>
+   * The ARN of the policy that the warning relates to.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>A human-readable description of the warning.</p>
+   * A human-readable description of the warning.
+   *
    * @public
    */
   message: string | undefined;
@@ -715,109 +800,127 @@ export interface DeploymentWarningEntry {
  */
 export interface CreateDeploymentOutput {
   /**
-   * <p>The service-generated id of the deployment.</p>
+   * The service-generated id of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * The Amazon Resource Name (ARN) of the deployment.
+   *
    * @public
    */
   deploymentArn: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   deploymentName: string | undefined;
 
   /**
-   * <p>A description of the deployment.</p>
+   * A description of the deployment.
+   *
    * @public
    */
   deploymentDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The configuration settings for the deployment.</p>
+   * The configuration settings for the deployment.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The policies associated with the deployment.</p>
+   * The policies associated with the deployment.
+   *
    * @public
    */
   associatedPolicyList: AssociatedPolicy[] | undefined;
 
   /**
-   * <p>The scope associated with the deployment. A deployment has exactly one scope.</p>
+   * The scope associated with the deployment. A deployment has exactly one scope.
+   *
    * @public
    */
   associatedScopeList: AssociatedScope[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The coverage information for the deployment. For each firewall type, it shows which policies have that firewall type and which in-scope resource types the firewall type protects.</p>
+   * The coverage information for the deployment. For each firewall type, it shows which policies have that firewall type and which in-scope resource types the firewall type protects.
+   *
    * @public
    */
   deploymentCoverage?: DeploymentCoverageEntry[] | undefined;
 
   /**
-   * <p>Warnings about potential issues, such as a policy that has no applicable resources in the deployment's scope.</p>
+   * Warnings about potential issues, such as a policy that has no applicable resources in the deployment's scope.
+   *
    * @public
    */
   warnings?: DeploymentWarningEntry[] | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>Describes a single request field that failed validation.</p>
+ * Describes a single request field that failed validation.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message describing the validation error for the field.</p>
+   * A message describing the validation error for the field.
+   *
    * @public
    */
   message: string | undefined;
@@ -828,19 +931,22 @@ export interface ValidationExceptionField {
  */
 export interface CreateDeploymentSnapshotInput {
   /**
-   * <p>The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).</p>
+   * The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).
+   *
    * @public
    */
   deploymentIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to add to the snapshot when it is created.</p>
+   * The tags to add to the snapshot when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -851,86 +957,100 @@ export interface CreateDeploymentSnapshotInput {
  */
 export interface CreateDeploymentSnapshotOutput {
   /**
-   * <p>The service-generated id of the deployment.</p>
+   * The service-generated id of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * The Amazon Resource Name (ARN) of the deployment.
+   *
    * @public
    */
   deploymentArn: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   deploymentName: string | undefined;
 
   /**
-   * <p>A description of the deployment.</p>
+   * A description of the deployment.
+   *
    * @public
    */
   deploymentDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The configuration settings for the deployment.</p>
+   * The configuration settings for the deployment.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The policies associated with the deployment.</p>
+   * The policies associated with the deployment.
+   *
    * @public
    */
   associatedPolicyList: AssociatedPolicy[] | undefined;
 
   /**
-   * <p>The scope associated with the deployment. A deployment has exactly one scope.</p>
+   * The scope associated with the deployment. A deployment has exactly one scope.
+   *
    * @public
    */
   associatedScopeList: AssociatedScope[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>A reference to either a template or a rule in a create or update request. Set exactly one of <code>templateIdentifier</code> or <code>ruleIdentifier</code>.</p>
+ * A reference to either a template or a rule in a create or update request. Set exactly one of `templateIdentifier` or `ruleIdentifier`.
+ *
  * @public
  */
 export type TemplateOrRuleReference =
@@ -943,7 +1063,8 @@ export type TemplateOrRuleReference =
  */
 export namespace TemplateOrRuleReference {
   /**
-   * <p>The identifier of the template. This is the template's Amazon Resource Name (ARN).</p>
+   * The identifier of the template. This is the template's Amazon Resource Name (ARN).
+   *
    * @public
    */
   export interface TemplateIdentifierMember {
@@ -953,7 +1074,8 @@ export namespace TemplateOrRuleReference {
   }
 
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   export interface RuleIdentifierMember {
@@ -983,42 +1105,49 @@ export namespace TemplateOrRuleReference {
 }
 
 /**
- * <p>AWS WAF-specific policy configuration settings.</p>
+ * AWS WAF-specific policy configuration settings.
+ *
  * @public
  */
 export interface WafConfig {
   /**
-   * <p>Determines how AWS Network Security Manager handles remediation when a resource already has a customer-created web ACL. Required for AWS WAF policies.</p>
+   * Determines how AWS Network Security Manager handles remediation when a resource already has a customer-created web ACL. Required for AWS WAF policies.
+   *
    * @public
    */
   existingCustomerWebACLResolution: ExistingCustomerWebACLResolution | undefined;
 
   /**
-   * <p>The conflict-resolution strategy for AWS WAF policies. Required for AWS WAF policies.</p>
+   * The conflict-resolution strategy for AWS WAF policies. Required for AWS WAF policies.
+   *
    * @public
    */
   conflictResolution: WAFConflictResolutionOptions | undefined;
 }
 
 /**
- * <p>Configuration settings that control a policy's behavior.</p>
+ * Configuration settings that control a policy's behavior.
+ *
  * @public
  */
 export interface PolicyConfiguration {
   /**
-   * <p>Specifies whether AWS Network Security Manager automatically remediates noncompliant resources. Default: <code>false</code>.</p>
+   * Specifies whether AWS Network Security Manager automatically remediates noncompliant resources. Default: `false`.
+   *
    * @public
    */
   remediationEnabled: boolean | undefined;
 
   /**
-   * <p>Specifies whether AWS Network Security Manager automatically removes the resources it created when they are no longer needed. Default: <code>false</code>.</p>
+   * Specifies whether AWS Network Security Manager automatically removes the resources it created when they are no longer needed. Default: `false`.
+   *
    * @public
    */
   resourcesCleanUp: boolean | undefined;
 
   /**
-   * <p>AWS WAF-specific policy settings. This is populated only for AWS WAF policies.</p>
+   * AWS WAF-specific policy settings. This is populated only for AWS WAF policies.
+   *
    * @public
    */
   wafConfig?: WafConfig | undefined;
@@ -1029,55 +1158,64 @@ export interface PolicyConfiguration {
  */
 export interface CreatePolicyInput {
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   policyName: string | undefined;
 
   /**
-   * <p>A description of the policy.</p>
+   * A description of the policy.
+   *
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The templates and rules to associate with the policy. For AWS WAF policies, specify 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list must be empty.</p>
+   * The templates and rules to associate with the policy. For AWS WAF policies, specify 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list must be empty.
+   *
    * @public
    */
   associatedTemplateAndRuleList?: TemplateOrRuleReference[] | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: PolicyFirewallType | undefined;
 
   /**
-   * <p>The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.</p>
+   * The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.
+   *
    * @public
    */
   policyConfiguration: PolicyConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>). Default: <code>true</code>.</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`). Default: `true`.
+   *
    * @public
    */
   isPublished?: boolean | undefined;
 
   /**
-   * <p>The tags to add to the resource when it is created.</p>
+   * The tags to add to the resource when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1088,85 +1226,99 @@ export interface CreatePolicyInput {
  */
 export interface CreatePolicyOutput {
   /**
-   * <p>The service-generated id of the policy.</p>
+   * The service-generated id of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   policyName: string | undefined;
 
   /**
-   * <p>A description of the policy.</p>
+   * A description of the policy.
+   *
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.</p>
+   * The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.
+   *
    * @public
    */
   associatedTemplateAndRuleList: AssociatedTemplateOrRule[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: PolicyFirewallType | undefined;
 
   /**
-   * <p>The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.</p>
+   * The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.
+   *
    * @public
    */
   policyConfiguration?: PolicyConfiguration | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1177,19 +1329,22 @@ export interface CreatePolicyOutput {
  */
 export interface CreatePolicySnapshotInput {
   /**
-   * <p>The identifier of the policy. This is the policy's Amazon Resource Name (ARN).</p>
+   * The identifier of the policy. This is the policy's Amazon Resource Name (ARN).
+   *
    * @public
    */
   policyIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to add to the snapshot when it is created.</p>
+   * The tags to add to the snapshot when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1200,85 +1355,99 @@ export interface CreatePolicySnapshotInput {
  */
 export interface CreatePolicySnapshotOutput {
   /**
-   * <p>The service-generated id of the policy.</p>
+   * The service-generated id of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   policyName: string | undefined;
 
   /**
-   * <p>A description of the policy.</p>
+   * A description of the policy.
+   *
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.</p>
+   * The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.
+   *
    * @public
    */
   associatedTemplateAndRuleList: AssociatedTemplateOrRule[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: PolicyFirewallType | undefined;
 
   /**
-   * <p>The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.</p>
+   * The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.
+   *
    * @public
    */
   policyConfiguration?: PolicyConfiguration | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1289,49 +1458,57 @@ export interface CreatePolicySnapshotOutput {
  */
 export interface CreateRuleInput {
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   ruleName: string | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p>A description of the rule.</p>
+   * A description of the rule.
+   *
    * @public
    */
   ruleDescription?: string | undefined;
 
   /**
-   * <p>The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type. For an AWS WAF <code>INSPECTION</code> rule, provide an AWS WAF rule group. For an AWS WAF <code>CONFIGURATION</code> rule, provide a single web ACL setting, such as <code>DefaultAction</code> or <code>VisibilityConfig</code>; use <code>wafConfigDataType</code> to declare which setting the document contains. For the schema of each setting and complete examples, see <a href="https://docs.aws.amazon.com/network-security-manager/latest/devguide/what-is.html">Writing rule configurations</a> in the <i>AWS Network Security Manager Developer Guide</i>.</p>
+   * The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type. For an AWS WAF `INSPECTION` rule, provide an AWS WAF rule group. For an AWS WAF `CONFIGURATION` rule, provide a single web ACL setting, such as `DefaultAction` or `VisibilityConfig`; use `wafConfigDataType` to declare which setting the document contains. For the schema of each setting and complete examples, see [Writing rule configurations](https://docs.aws.amazon.com/network-security-manager/latest/devguide/what-is.html) in the *AWS Network Security Manager Developer Guide*.
+   *
    * @public
    */
   configuration: __DocumentType | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>). Default: <code>true</code>.</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`). Default: `true`.
+   *
    * @public
    */
   isPublished?: boolean | undefined;
 
   /**
-   * <p>The tags to add to the resource when it is created.</p>
+   * The tags to add to the resource when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1342,79 +1519,92 @@ export interface CreateRuleInput {
  */
 export interface CreateRuleOutput {
   /**
-   * <p>The service-generated id of the rule.</p>
+   * The service-generated id of the rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   ruleName: string | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>A description of the rule.</p>
+   * A description of the rule.
+   *
    * @public
    */
   ruleDescription?: string | undefined;
 
   /**
-   * <p>The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.</p>
+   * The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.
+   *
    * @public
    */
   configuration: __DocumentType | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1425,19 +1615,22 @@ export interface CreateRuleOutput {
  */
 export interface CreateRuleSnapshotInput {
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to add to the snapshot when it is created.</p>
+   * The tags to add to the snapshot when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1448,86 +1641,100 @@ export interface CreateRuleSnapshotInput {
  */
 export interface CreateRuleSnapshotOutput {
   /**
-   * <p>The service-generated id of the rule.</p>
+   * The service-generated id of the rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   ruleName: string | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>A description of the rule.</p>
+   * A description of the rule.
+   *
    * @public
    */
   ruleDescription?: string | undefined;
 
   /**
-   * <p>The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.</p>
+   * The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.
+   *
    * @public
    */
   configuration: __DocumentType | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>A leaf condition that matches resources by tag or by resource-type-specific configuration.</p>
+ * A leaf condition that matches resources by tag or by resource-type-specific configuration.
+ *
  * @public
  */
 export type ResourceCriteria =
@@ -1540,7 +1747,8 @@ export type ResourceCriteria =
  */
 export namespace ResourceCriteria {
   /**
-   * <p>Tag key-value pairs used to match resources.</p>
+   * Tag key-value pairs used to match resources.
+   *
    * @public
    */
   export interface TagsMember {
@@ -1550,7 +1758,8 @@ export namespace ResourceCriteria {
   }
 
   /**
-   * <p>Filter criteria specific to Application Load Balancers.</p>
+   * Filter criteria specific to Application Load Balancers.
+   *
    * @public
    */
   export interface AlbConfigMember {
@@ -1584,31 +1793,36 @@ export namespace ResourceCriteria {
  */
 export interface CreateScopeSnapshotInput {
   /**
-   * <p>The identifier of the scope. This is the scope's Amazon Resource Name (ARN).</p>
+   * The identifier of the scope. This is the scope's Amazon Resource Name (ARN).
+   *
    * @public
    */
   scopeIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to add to the snapshot when it is created.</p>
+   * The tags to add to the snapshot when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A reference to a rule in a create or update request.</p>
+ * A reference to a rule in a create or update request.
+ *
  * @public
  */
 export interface RuleReference {
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
@@ -1619,43 +1833,50 @@ export interface RuleReference {
  */
 export interface CreateTemplateInput {
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the template.</p>
+   * The name of the template.
+   *
    * @public
    */
   templateName: string | undefined;
 
   /**
-   * <p>A description of the template.</p>
+   * A description of the template.
+   *
    * @public
    */
   templateDescription?: string | undefined;
 
   /**
-   * <p>The rules associated with the template.</p>
+   * The rules associated with the template.
+   *
    * @public
    */
   associatedRuleList: RuleReference[] | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: TemplateFirewallType | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>). Default: <code>true</code>.</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`). Default: `true`.
+   *
    * @public
    */
   isPublished?: boolean | undefined;
 
   /**
-   * <p>The tags to add to the resource when it is created.</p>
+   * The tags to add to the resource when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1666,73 +1887,85 @@ export interface CreateTemplateInput {
  */
 export interface CreateTemplateOutput {
   /**
-   * <p>The service-generated id of the template.</p>
+   * The service-generated id of the template.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * The Amazon Resource Name (ARN) of the template.
+   *
    * @public
    */
   templateArn: string | undefined;
 
   /**
-   * <p>The name of the template.</p>
+   * The name of the template.
+   *
    * @public
    */
   templateName: string | undefined;
 
   /**
-   * <p>A description of the template.</p>
+   * A description of the template.
+   *
    * @public
    */
   templateDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The rules associated with the template.</p>
+   * The rules associated with the template.
+   *
    * @public
    */
   associatedRuleList: AssociatedRule[] | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: TemplateFirewallType | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1743,19 +1976,22 @@ export interface CreateTemplateOutput {
  */
 export interface CreateTemplateSnapshotInput {
   /**
-   * <p>The identifier of the template. This is the template's Amazon Resource Name (ARN).</p>
+   * The identifier of the template. This is the template's Amazon Resource Name (ARN).
+   *
    * @public
    */
   templateIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags to add to the snapshot when it is created.</p>
+   * The tags to add to the snapshot when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1766,73 +2002,85 @@ export interface CreateTemplateSnapshotInput {
  */
 export interface CreateTemplateSnapshotOutput {
   /**
-   * <p>The service-generated id of the template.</p>
+   * The service-generated id of the template.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * The Amazon Resource Name (ARN) of the template.
+   *
    * @public
    */
   templateArn: string | undefined;
 
   /**
-   * <p>The name of the template.</p>
+   * The name of the template.
+   *
    * @public
    */
   templateName: string | undefined;
 
   /**
-   * <p>A description of the template.</p>
+   * A description of the template.
+   *
    * @public
    */
   templateDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The rules associated with the template.</p>
+   * The rules associated with the template.
+   *
    * @public
    */
   associatedRuleList: AssociatedRule[] | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: TemplateFirewallType | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -1843,7 +2091,8 @@ export interface CreateTemplateSnapshotOutput {
  */
 export interface DeleteAdminAccountRequest {
   /**
-   * <p>The AWS account ID of the administrator account to remove.</p>
+   * The AWS account ID of the administrator account to remove.
+   *
    * @public
    */
   accountId: string | undefined;
@@ -1854,7 +2103,8 @@ export interface DeleteAdminAccountRequest {
  */
 export interface DeleteDeploymentInput {
   /**
-   * <p>The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).</p>
+   * The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).
+   *
    * @public
    */
   deploymentIdentifier: string | undefined;
@@ -1865,7 +2115,8 @@ export interface DeleteDeploymentInput {
  */
 export interface DeletePolicyInput {
   /**
-   * <p>The identifier of the policy. This is the policy's Amazon Resource Name (ARN).</p>
+   * The identifier of the policy. This is the policy's Amazon Resource Name (ARN).
+   *
    * @public
    */
   policyIdentifier: string | undefined;
@@ -1876,7 +2127,8 @@ export interface DeletePolicyInput {
  */
 export interface DeleteRuleInput {
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
@@ -1887,7 +2139,8 @@ export interface DeleteRuleInput {
  */
 export interface DeleteScopeInput {
   /**
-   * <p>The identifier of the scope. This is the scope's Amazon Resource Name (ARN).</p>
+   * The identifier of the scope. This is the scope's Amazon Resource Name (ARN).
+   *
    * @public
    */
   scopeIdentifier: string | undefined;
@@ -1898,7 +2151,8 @@ export interface DeleteScopeInput {
  */
 export interface DeleteTemplateInput {
   /**
-   * <p>The identifier of the template. This is the template's Amazon Resource Name (ARN).</p>
+   * The identifier of the template. This is the template's Amazon Resource Name (ARN).
+   *
    * @public
    */
   templateIdentifier: string | undefined;
@@ -1909,7 +2163,8 @@ export interface DeleteTemplateInput {
  */
 export interface GetDeploymentInput {
   /**
-   * <p>The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).</p>
+   * The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).
+   *
    * @public
    */
   deploymentIdentifier: string | undefined;
@@ -1920,91 +2175,106 @@ export interface GetDeploymentInput {
  */
 export interface GetDeploymentOutput {
   /**
-   * <p>The service-generated id of the deployment.</p>
+   * The service-generated id of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * The Amazon Resource Name (ARN) of the deployment.
+   *
    * @public
    */
   deploymentArn: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   deploymentName: string | undefined;
 
   /**
-   * <p>A description of the deployment.</p>
+   * A description of the deployment.
+   *
    * @public
    */
   deploymentDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable), <code>ACTIVE</code> (published, in use), or <code>DISABLED</code> (deactivated; changes cannot be published until the resource is re-enabled).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable), `ACTIVE` (published, in use), or `DISABLED` (deactivated; changes cannot be published until the resource is re-enabled).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The configuration settings for the deployment.</p>
+   * The configuration settings for the deployment.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The policies associated with the deployment.</p>
+   * The policies associated with the deployment.
+   *
    * @public
    */
   associatedPolicyList: AssociatedPolicy[] | undefined;
 
   /**
-   * <p>The scope associated with the deployment. A deployment has exactly one scope.</p>
+   * The scope associated with the deployment. A deployment has exactly one scope.
+   *
    * @public
    */
   associatedScopeList: AssociatedScope[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The coverage information for the deployment. For each firewall type, it shows which policies have that firewall type and which in-scope resource types the firewall type protects.</p>
+   * The coverage information for the deployment. For each firewall type, it shows which policies have that firewall type and which in-scope resource types the firewall type protects.
+   *
    * @public
    */
   deploymentCoverage?: DeploymentCoverageEntry[] | undefined;
 
   /**
-   * <p>Warnings about potential issues, such as a policy that has no applicable resources in the deployment's scope.</p>
+   * Warnings about potential issues, such as a policy that has no applicable resources in the deployment's scope.
+   *
    * @public
    */
   warnings?: DeploymentWarningEntry[] | undefined;
@@ -2015,67 +2285,78 @@ export interface GetDeploymentOutput {
  */
 export interface ListDeploymentsInput {
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the results by status: <code>ACTIVE</code>, <code>DRAFT</code>, or <code>DISABLED</code>.</p>
+   * Filters the results by status: `ACTIVE`, `DRAFT`, or `DISABLED`.
+   *
    * @public
    */
   status?: EntityStatusFilter | undefined;
 }
 
 /**
- * <p>Summary information about a deployment.</p>
+ * Summary information about a deployment.
+ *
  * @public
  */
 export interface DeploymentSummary {
   /**
-   * <p>The service-generated id of the deployment.</p>
+   * The service-generated id of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * The Amazon Resource Name (ARN) of the deployment.
+   *
    * @public
    */
   deploymentArn: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   deploymentName?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable), <code>ACTIVE</code> (published, in use), or <code>DISABLED</code> (deactivated; changes cannot be published until the resource is re-enabled).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable), `ACTIVE` (published, in use), or `DISABLED` (deactivated; changes cannot be published until the resource is re-enabled).
+   *
    * @public
    */
   status?: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.</p>
+   * The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2086,13 +2367,15 @@ export interface DeploymentSummary {
  */
 export interface ListDeploymentsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of deployments.</p>
+   * The list of deployments.
+   *
    * @public
    */
   deployments: DeploymentSummary[] | undefined;
@@ -2103,19 +2386,22 @@ export interface ListDeploymentsOutput {
  */
 export interface ListDeploymentSnapshotsInput {
   /**
-   * <p>The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).</p>
+   * The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).
+   *
    * @public
    */
   deploymentIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2126,13 +2412,15 @@ export interface ListDeploymentSnapshotsInput {
  */
 export interface ListDeploymentSnapshotsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The snapshots of the deployment.</p>
+   * The snapshots of the deployment.
+   *
    * @public
    */
   snapshots: DeploymentSummary[] | undefined;
@@ -2143,86 +2431,100 @@ export interface ListDeploymentSnapshotsOutput {
  */
 export interface ListResourceSynchronizationStatusesInput {
   /**
-   * <p>The identifier of the deployment to list synchronization statuses for. This is the deployment's Amazon Resource Name (ARN).</p>
+   * The identifier of the deployment to list synchronization statuses for. This is the deployment's Amazon Resource Name (ARN).
+   *
    * @public
    */
   deploymentIdentifier: string | undefined;
 
   /**
-   * <p>Filters the results by synchronization status, such as <code>IN_SYNC</code> or <code>OUT_OF_SYNC</code>.</p>
+   * Filters the results by synchronization status, such as `IN_SYNC` or `OUT_OF_SYNC`.
+   *
    * @public
    */
   synchronizationStatus?: SynchronizationStatus | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Indicates that details are not visible because of cross-account restrictions.</p>
+ * Indicates that details are not visible because of cross-account restrictions.
+ *
  * @public
  */
 export interface NotVisibleMarker {
   /**
-   * <p>The reason the details are not visible.</p>
+   * The reason the details are not visible.
+   *
    * @public
    */
   reason: string | undefined;
 }
 
 /**
- * <p>Details about the ways in which a firewall's configuration differs from the intended configuration.</p>
+ * Details about the ways in which a firewall's configuration differs from the intended configuration.
+ *
  * @public
  */
 export interface InvalidFirewallReasons {
   /**
-   * <p>Single-value configuration settings whose values do not match the expected values.</p>
+   * Single-value configuration settings whose values do not match the expected values.
+   *
    * @public
    */
   incorrectSingleValueConfigurations?: ConfigurationIssue[] | undefined;
 
   /**
-   * <p>Appendable configuration values that are expected but missing.</p>
+   * Appendable configuration values that are expected but missing.
+   *
    * @public
    */
   missingAppendableConfigurationValues?: ConfigurationIssue[] | undefined;
 
   /**
-   * <p>Appendable configuration values that are present but not expected.</p>
+   * Appendable configuration values that are present but not expected.
+   *
    * @public
    */
   unexpectedAppendableConfigurationValues?: ConfigurationIssue[] | undefined;
 
   /**
-   * <p>Appendable configuration values that are present but in the wrong order.</p>
+   * Appendable configuration values that are present but in the wrong order.
+   *
    * @public
    */
   incorrectAppendableConfigurationOrder?: ConfigurationIssue[] | undefined;
 
   /**
-   * <p>Mergeable configuration values that are expected but missing.</p>
+   * Mergeable configuration values that are expected but missing.
+   *
    * @public
    */
   missingMergeableConfigurationValues?: ConfigurationIssue[] | undefined;
 
   /**
-   * <p>Mergeable configuration values that are present but not expected.</p>
+   * Mergeable configuration values that are present but not expected.
+   *
    * @public
    */
   unexpectedMergeableConfigurationValues?: ConfigurationIssue[] | undefined;
 }
 
 /**
- * <p>Describes why a firewall is out of sync. Exactly one of <code>missingFirewall</code> or <code>invalidFirewall</code> is set.</p>
+ * Describes why a firewall is out of sync. Exactly one of `missingFirewall` or `invalidFirewall` is set.
+ *
  * @public
  */
 export type FirewallSyncReason =
@@ -2235,7 +2537,8 @@ export type FirewallSyncReason =
  */
 export namespace FirewallSyncReason {
   /**
-   * <p>Indicates that an expected firewall is missing. The value describes the missing firewall.</p>
+   * Indicates that an expected firewall is missing. The value describes the missing firewall.
+   *
    * @public
    */
   export interface MissingFirewallMember {
@@ -2245,7 +2548,8 @@ export namespace FirewallSyncReason {
   }
 
   /**
-   * <p>Details about a firewall whose configuration does not match the intended configuration.</p>
+   * Details about a firewall whose configuration does not match the intended configuration.
+   *
    * @public
    */
   export interface InvalidFirewallMember {
@@ -2275,7 +2579,8 @@ export namespace FirewallSyncReason {
 }
 
 /**
- * <p>The out-of-sync reasons for a resource, or a marker indicating that the details are not visible. Exactly one member is set.</p>
+ * The out-of-sync reasons for a resource, or a marker indicating that the details are not visible. Exactly one member is set.
+ *
  * @public
  */
 export type OutOfSyncReasonsView =
@@ -2288,7 +2593,8 @@ export type OutOfSyncReasonsView =
  */
 export namespace OutOfSyncReasonsView {
   /**
-   * <p>The out-of-sync reasons, keyed by firewall type.</p>
+   * The out-of-sync reasons, keyed by firewall type.
+   *
    * @public
    */
   export interface ReasonsMember {
@@ -2298,7 +2604,8 @@ export namespace OutOfSyncReasonsView {
   }
 
   /**
-   * <p>Indicates that the details are not visible because of cross-account restrictions.</p>
+   * Indicates that the details are not visible because of cross-account restrictions.
+   *
    * @public
    */
   export interface NotVisibleMember {
@@ -2328,31 +2635,36 @@ export namespace OutOfSyncReasonsView {
 }
 
 /**
- * <p>Details about a remediation issue for a firewall type.</p>
+ * Details about a remediation issue for a firewall type.
+ *
  * @public
  */
 export interface RemediationIssueDetails {
   /**
-   * <p>The type of remediation issue.</p>
+   * The type of remediation issue.
+   *
    * @public
    */
   issueType?: string | undefined;
 
   /**
-   * <p>A human-readable description of the remediation issue.</p>
+   * A human-readable description of the remediation issue.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>A recommended action for resolving the remediation issue.</p>
+   * A recommended action for resolving the remediation issue.
+   *
    * @public
    */
   correctiveAction?: string | undefined;
 }
 
 /**
- * <p>Remediation issue details for a resource, or a marker indicating that the details are not visible. Exactly one member is set.</p>
+ * Remediation issue details for a resource, or a marker indicating that the details are not visible. Exactly one member is set.
+ *
  * @public
  */
 export type RemediationIssuesView =
@@ -2365,7 +2677,8 @@ export type RemediationIssuesView =
  */
 export namespace RemediationIssuesView {
   /**
-   * <p>The remediation issues, keyed by firewall type.</p>
+   * The remediation issues, keyed by firewall type.
+   *
    * @public
    */
   export interface IssuesMember {
@@ -2375,7 +2688,8 @@ export namespace RemediationIssuesView {
   }
 
   /**
-   * <p>Indicates that the details are not visible because of cross-account restrictions.</p>
+   * Indicates that the details are not visible because of cross-account restrictions.
+   *
    * @public
    */
   export interface NotVisibleMember {
@@ -2405,60 +2719,70 @@ export namespace RemediationIssuesView {
 }
 
 /**
- * <p>The synchronization status of a resource covered by a deployment.</p>
+ * The synchronization status of a resource covered by a deployment.
+ *
  * @public
  */
 export interface ResourceSynchronizationStatusSummary {
   /**
-   * <p>The synchronization status of the resource, such as <code>IN_SYNC</code> or <code>OUT_OF_SYNC</code>.</p>
+   * The synchronization status of the resource, such as `IN_SYNC` or `OUT_OF_SYNC`.
+   *
    * @public
    */
   synchronizationStatus: SynchronizationStatus | undefined;
 
   /**
-   * <p>The AWS account ID that owns the resource.</p>
+   * The AWS account ID that owns the resource.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The ARN of the resource whose synchronization status is reported.</p>
+   * The ARN of the resource whose synchronization status is reported.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The ARN of the deployment that the synchronization status is associated with. This is absent for aggregate (cross-deployment) statuses.</p>
+   * The ARN of the deployment that the synchronization status is associated with. This is absent for aggregate (cross-deployment) statuses.
+   *
    * @public
    */
   deploymentArn?: string | undefined;
 
   /**
-   * <p>The type of the resource, in AWS CloudFormation format.</p>
+   * The type of the resource, in AWS CloudFormation format.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reasons the resource is out of sync, keyed by firewall type. This is null when the resource is in sync.</p>
+   * The reasons the resource is out of sync, keyed by firewall type. This is null when the resource is in sync.
+   *
    * @public
    */
   outOfSyncReasons?: OutOfSyncReasonsView | undefined;
 
   /**
-   * <p>Details about remediation issues, keyed by firewall type. This is null when there are no remediation issues.</p>
+   * Details about remediation issues, keyed by firewall type. This is null when there are no remediation issues.
+   *
    * @public
    */
   remediationIssues?: RemediationIssuesView | undefined;
 
   /**
-   * <p>The time when the synchronization status was last evaluated.</p>
+   * The time when the synchronization status was last evaluated.
+   *
    * @public
    */
   evaluatedAt?: Date | undefined;
@@ -2469,13 +2793,15 @@ export interface ResourceSynchronizationStatusSummary {
  */
 export interface ListResourceSynchronizationStatusesOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of resource synchronization statuses.</p>
+   * The list of resource synchronization statuses.
+   *
    * @public
    */
   resourceSynchronizationStatuses: ResourceSynchronizationStatusSummary[] | undefined;
@@ -2486,49 +2812,57 @@ export interface ListResourceSynchronizationStatusesOutput {
  */
 export interface UpdateDeploymentInput {
   /**
-   * <p>The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).</p>
+   * The identifier of the deployment. This is the deployment's Amazon Resource Name (ARN).
+   *
    * @public
    */
   deploymentIdentifier: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken: string | undefined;
 
   /**
-   * <p>A description of the deployment.</p>
+   * A description of the deployment.
+   *
    * @public
    */
   deploymentDescription?: string | undefined;
 
   /**
-   * <p>The configuration settings for the deployment.</p>
+   * The configuration settings for the deployment.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The policies associated with the deployment.</p>
+   * The policies associated with the deployment.
+   *
    * @public
    */
   associatedPolicyList?: PolicyReference[] | undefined;
 
   /**
-   * <p>The scope associated with the deployment. A deployment has exactly one scope.</p>
+   * The scope associated with the deployment. A deployment has exactly one scope.
+   *
    * @public
    */
   associatedScopeList?: ScopeReference[] | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>).</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`).
+   *
    * @public
    */
   isPublished: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2539,91 +2873,106 @@ export interface UpdateDeploymentInput {
  */
 export interface UpdateDeploymentOutput {
   /**
-   * <p>The service-generated id of the deployment.</p>
+   * The service-generated id of the deployment.
+   *
    * @public
    */
   deploymentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deployment.</p>
+   * The Amazon Resource Name (ARN) of the deployment.
+   *
    * @public
    */
   deploymentArn: string | undefined;
 
   /**
-   * <p>The name of the deployment.</p>
+   * The name of the deployment.
+   *
    * @public
    */
   deploymentName: string | undefined;
 
   /**
-   * <p>A description of the deployment.</p>
+   * A description of the deployment.
+   *
    * @public
    */
   deploymentDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The configuration settings for the deployment.</p>
+   * The configuration settings for the deployment.
+   *
    * @public
    */
   deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
-   * <p>The policies associated with the deployment.</p>
+   * The policies associated with the deployment.
+   *
    * @public
    */
   associatedPolicyList: AssociatedPolicy[] | undefined;
 
   /**
-   * <p>The scope associated with the deployment. A deployment has exactly one scope.</p>
+   * The scope associated with the deployment. A deployment has exactly one scope.
+   *
    * @public
    */
   associatedScopeList: AssociatedScope[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The coverage information for the deployment. For each firewall type, it shows which policies have that firewall type and which in-scope resource types the firewall type protects.</p>
+   * The coverage information for the deployment. For each firewall type, it shows which policies have that firewall type and which in-scope resource types the firewall type protects.
+   *
    * @public
    */
   deploymentCoverage?: DeploymentCoverageEntry[] | undefined;
 
   /**
-   * <p>Warnings about potential issues, such as a policy that has no applicable resources in the deployment's scope.</p>
+   * Warnings about potential issues, such as a policy that has no applicable resources in the deployment's scope.
+   *
    * @public
    */
   warnings?: DeploymentWarningEntry[] | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2634,37 +2983,43 @@ export interface UpdateDeploymentOutput {
  */
 export interface GenerateRuleConfigurationRequest {
   /**
-   * <p>A natural-language description of the configuration that you want to generate.</p>
+   * A natural-language description of the configuration that you want to generate.
+   *
    * @public
    */
   prompt: string | undefined;
 
   /**
-   * <p>The firewall type of the rule.</p>
+   * The firewall type of the rule.
+   *
    * @public
    */
   ruleFirewallType: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType: RuleType | undefined;
 
   /**
-   * <p>For AWS WAF configuration rules, the specific AWS WAF configuration variant to generate. This is optional; if you omit it, the service selects the variant.</p>
+   * For AWS WAF configuration rules, the specific AWS WAF configuration variant to generate. This is optional; if you omit it, the service selects the variant.
+   *
    * @public
    */
   wafConfigDataType?: WAFConfigDataType | undefined;
 
   /**
-   * <p>An existing configuration to edit, as a JSON string. When you provide this value, the operation edits the configuration. When you omit it, the operation generates a new configuration.</p>
+   * An existing configuration to edit, as a JSON string. When you provide this value, the operation edits the configuration. When you omit it, the operation generates a new configuration.
+   *
    * @public
    */
   currentConfiguration?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2675,13 +3030,15 @@ export interface GenerateRuleConfigurationRequest {
  */
 export interface GenerateRuleConfigurationResponse {
   /**
-   * <p>The generated configuration, as a JSON string. You can use this value in the <code>configuration</code> field of a rule.</p>
+   * The generated configuration, as a JSON string. You can use this value in the `configuration` field of a rule.
+   *
    * @public
    */
   configuration: string | undefined;
 
   /**
-   * <p>Reserved for a future human-readable description of the generated configuration. This field is currently not populated.</p>
+   * Reserved for a future human-readable description of the generated configuration. This field is currently not populated.
+   *
    * @public
    */
   description?: string | undefined;
@@ -2692,7 +3049,8 @@ export interface GenerateRuleConfigurationResponse {
  */
 export interface GetAdminAccountRequest {
   /**
-   * <p>The AWS account ID of the administrator account to retrieve.</p>
+   * The AWS account ID of the administrator account to retrieve.
+   *
    * @public
    */
   accountId: string | undefined;
@@ -2703,7 +3061,8 @@ export interface GetAdminAccountRequest {
  */
 export interface GetAdminAccountResponse {
   /**
-   * <p>The details of the administrator account.</p>
+   * The details of the administrator account.
+   *
    * @public
    */
   adminAccountDetails?: AdminAccountDetails | undefined;
@@ -2714,7 +3073,8 @@ export interface GetAdminAccountResponse {
  */
 export interface GetPolicyInput {
   /**
-   * <p>The identifier of the policy. This is the policy's Amazon Resource Name (ARN).</p>
+   * The identifier of the policy. This is the policy's Amazon Resource Name (ARN).
+   *
    * @public
    */
   policyIdentifier: string | undefined;
@@ -2725,85 +3085,99 @@ export interface GetPolicyInput {
  */
 export interface GetPolicyOutput {
   /**
-   * <p>The service-generated id of the policy.</p>
+   * The service-generated id of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   policyName: string | undefined;
 
   /**
-   * <p>A description of the policy.</p>
+   * A description of the policy.
+   *
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.</p>
+   * The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.
+   *
    * @public
    */
   associatedTemplateAndRuleList: AssociatedTemplateOrRule[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: PolicyFirewallType | undefined;
 
   /**
-   * <p>The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.</p>
+   * The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.
+   *
    * @public
    */
   policyConfiguration?: PolicyConfiguration | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2814,7 +3188,8 @@ export interface GetPolicyOutput {
  */
 export interface GetRuleInput {
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
@@ -2825,79 +3200,92 @@ export interface GetRuleInput {
  */
 export interface GetRuleOutput {
   /**
-   * <p>The service-generated id of the rule.</p>
+   * The service-generated id of the rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   ruleName: string | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>A description of the rule.</p>
+   * A description of the rule.
+   *
    * @public
    */
   ruleDescription?: string | undefined;
 
   /**
-   * <p>The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.</p>
+   * The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.
+   *
    * @public
    */
   configuration: __DocumentType | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -2908,7 +3296,8 @@ export interface GetRuleOutput {
  */
 export interface GetScopeInput {
   /**
-   * <p>The identifier of the scope. This is the scope's Amazon Resource Name (ARN).</p>
+   * The identifier of the scope. This is the scope's Amazon Resource Name (ARN).
+   *
    * @public
    */
   scopeIdentifier: string | undefined;
@@ -2919,7 +3308,8 @@ export interface GetScopeInput {
  */
 export interface GetTemplateInput {
   /**
-   * <p>The identifier of the template. This is the template's Amazon Resource Name (ARN).</p>
+   * The identifier of the template. This is the template's Amazon Resource Name (ARN).
+   *
    * @public
    */
   templateIdentifier: string | undefined;
@@ -2930,73 +3320,85 @@ export interface GetTemplateInput {
  */
 export interface GetTemplateOutput {
   /**
-   * <p>The service-generated id of the template.</p>
+   * The service-generated id of the template.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * The Amazon Resource Name (ARN) of the template.
+   *
    * @public
    */
   templateArn: string | undefined;
 
   /**
-   * <p>The name of the template.</p>
+   * The name of the template.
+   *
    * @public
    */
   templateName: string | undefined;
 
   /**
-   * <p>A description of the template.</p>
+   * A description of the template.
+   *
    * @public
    */
   templateDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The rules associated with the template.</p>
+   * The rules associated with the template.
+   *
    * @public
    */
   associatedRuleList: AssociatedRule[] | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: TemplateFirewallType | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3007,13 +3409,15 @@ export interface GetTemplateOutput {
  */
 export interface ListAdminAccountsRequest {
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3024,13 +3428,15 @@ export interface ListAdminAccountsRequest {
  */
 export interface ListAdminAccountsResponse {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of administrator accounts.</p>
+   * The list of administrator accounts.
+   *
    * @public
    */
   adminAccounts: AdminAccountSummary[] | undefined;
@@ -3041,19 +3447,22 @@ export interface ListAdminAccountsResponse {
  */
 export interface ListAggregateResourceSynchronizationStatusesInput {
   /**
-   * <p>Filters the results by synchronization status, such as <code>IN_SYNC</code> or <code>OUT_OF_SYNC</code>.</p>
+   * Filters the results by synchronization status, such as `IN_SYNC` or `OUT_OF_SYNC`.
+   *
    * @public
    */
   synchronizationStatus?: SynchronizationStatus | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3064,13 +3473,15 @@ export interface ListAggregateResourceSynchronizationStatusesInput {
  */
 export interface ListAggregateResourceSynchronizationStatusesOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of resource synchronization statuses.</p>
+   * The list of resource synchronization statuses.
+   *
    * @public
    */
   resourceSynchronizationStatuses: ResourceSynchronizationStatusSummary[] | undefined;
@@ -3081,79 +3492,92 @@ export interface ListAggregateResourceSynchronizationStatusesOutput {
  */
 export interface ListPoliciesInput {
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the results by status, either <code>ACTIVE</code> or <code>DRAFT</code>.</p>
+   * Filters the results by status, either `ACTIVE` or `DRAFT`.
+   *
    * @public
    */
   status?: EntityStatusFilter | undefined;
 }
 
 /**
- * <p>Summary information about a policy.</p>
+ * Summary information about a policy.
+ *
  * @public
  */
 export interface PolicySummary {
   /**
-   * <p>The service-generated id of the policy.</p>
+   * The service-generated id of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   policyName?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status?: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType?: PolicyFirewallType | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.</p>
+   * The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3164,13 +3588,15 @@ export interface PolicySummary {
  */
 export interface ListPoliciesOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of policies.</p>
+   * The list of policies.
+   *
    * @public
    */
   policies: PolicySummary[] | undefined;
@@ -3181,19 +3607,22 @@ export interface ListPoliciesOutput {
  */
 export interface ListPolicySnapshotsInput {
   /**
-   * <p>The identifier of the policy. This is the policy's Amazon Resource Name (ARN).</p>
+   * The identifier of the policy. This is the policy's Amazon Resource Name (ARN).
+   *
    * @public
    */
   policyIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3204,13 +3633,15 @@ export interface ListPolicySnapshotsInput {
  */
 export interface ListPolicySnapshotsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The snapshots of the policy.</p>
+   * The snapshots of the policy.
+   *
    * @public
    */
   snapshots: PolicySummary[] | undefined;
@@ -3221,37 +3652,43 @@ export interface ListPolicySnapshotsOutput {
  */
 export interface ListResourceAssociationsInput {
   /**
-   * <p>The identifier of the resource to list associations for. This is the resource's Amazon Resource Name (ARN).</p>
+   * The identifier of the resource to list associations for. This is the resource's Amazon Resource Name (ARN).
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes an association between a resource and another entity.</p>
+ * Describes an association between a resource and another entity.
+ *
  * @public
  */
 export interface ResourceAssociation {
   /**
-   * <p>The ARN of the associated resource.</p>
+   * The ARN of the associated resource.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The type of the associated resource, such as <code>Policy</code>, <code>Template</code>, or <code>Deployment</code>.</p>
+   * The type of the associated resource, such as `Policy`, `Template`, or `Deployment`.
+   *
    * @public
    */
   resourceType: ServiceResourceType | undefined;
@@ -3262,13 +3699,15 @@ export interface ResourceAssociation {
  */
 export interface ListResourceAssociationsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of resource associations.</p>
+   * The list of resource associations.
+   *
    * @public
    */
   resourceAssociations: ResourceAssociation[] | undefined;
@@ -3279,79 +3718,92 @@ export interface ListResourceAssociationsOutput {
  */
 export interface ListRulesInput {
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the results by status, either <code>ACTIVE</code> or <code>DRAFT</code>.</p>
+   * Filters the results by status, either `ACTIVE` or `DRAFT`.
+   *
    * @public
    */
   status?: EntityStatusFilter | undefined;
 }
 
 /**
- * <p>Summary information about a rule.</p>
+ * Summary information about a rule.
+ *
  * @public
  */
 export interface RuleSummary {
   /**
-   * <p>The service-generated id of the rule.</p>
+   * The service-generated id of the rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   ruleName: string | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType?: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status?: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.</p>
+   * The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3362,13 +3814,15 @@ export interface RuleSummary {
  */
 export interface ListRulesOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of rules.</p>
+   * The list of rules.
+   *
    * @public
    */
   rules: RuleSummary[] | undefined;
@@ -3379,19 +3833,22 @@ export interface ListRulesOutput {
  */
 export interface ListRuleSnapshotsInput {
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3402,13 +3859,15 @@ export interface ListRuleSnapshotsInput {
  */
 export interface ListRuleSnapshotsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The snapshots of the rule.</p>
+   * The snapshots of the rule.
+   *
    * @public
    */
   snapshots: RuleSummary[] | undefined;
@@ -3419,67 +3878,78 @@ export interface ListRuleSnapshotsOutput {
  */
 export interface ListScopesInput {
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the results by status: <code>ACTIVE</code>, <code>DRAFT</code>, or <code>DISABLED</code>.</p>
+   * Filters the results by status: `ACTIVE`, `DRAFT`, or `DISABLED`.
+   *
    * @public
    */
   status?: EntityStatusFilter | undefined;
 }
 
 /**
- * <p>Summary information about a scope.</p>
+ * Summary information about a scope.
+ *
  * @public
  */
 export interface ScopeSummary {
   /**
-   * <p>The service-generated id of the scope.</p>
+   * The service-generated id of the scope.
+   *
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scope.</p>
+   * The Amazon Resource Name (ARN) of the scope.
+   *
    * @public
    */
   scopeArn: string | undefined;
 
   /**
-   * <p>The name of the scope.</p>
+   * The name of the scope.
+   *
    * @public
    */
   scopeName?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable), <code>ACTIVE</code> (published, in use), or <code>DISABLED</code> (deactivated; changes cannot be published until the resource is re-enabled).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable), `ACTIVE` (published, in use), or `DISABLED` (deactivated; changes cannot be published until the resource is re-enabled).
+   *
    * @public
    */
   status?: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.</p>
+   * The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3490,13 +3960,15 @@ export interface ScopeSummary {
  */
 export interface ListScopesOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of scopes.</p>
+   * The list of scopes.
+   *
    * @public
    */
   scopes: ScopeSummary[] | undefined;
@@ -3507,19 +3979,22 @@ export interface ListScopesOutput {
  */
 export interface ListScopeSnapshotsInput {
   /**
-   * <p>The identifier of the scope. This is the scope's Amazon Resource Name (ARN).</p>
+   * The identifier of the scope. This is the scope's Amazon Resource Name (ARN).
+   *
    * @public
    */
   scopeIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3530,13 +4005,15 @@ export interface ListScopeSnapshotsInput {
  */
 export interface ListScopeSnapshotsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The snapshots of the scope.</p>
+   * The snapshots of the scope.
+   *
    * @public
    */
   snapshots: ScopeSummary[] | undefined;
@@ -3547,7 +4024,8 @@ export interface ListScopeSnapshotsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource to list tags for. The ARN must not include a <code>:DRAFT</code> qualifier.</p>
+   * The ARN of the resource to list tags for. The ARN must not include a `:DRAFT` qualifier.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -3558,7 +4036,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags associated with the resource. Each tag is a key-value pair.</p>
+   * The tags associated with the resource. Each tag is a key-value pair.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -3569,73 +4048,85 @@ export interface ListTagsForResourceOutput {
  */
 export interface ListTemplatesInput {
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the results by status, either <code>ACTIVE</code> or <code>DRAFT</code>.</p>
+   * Filters the results by status, either `ACTIVE` or `DRAFT`.
+   *
    * @public
    */
   status?: EntityStatusFilter | undefined;
 }
 
 /**
- * <p>Summary information about a template.</p>
+ * Summary information about a template.
+ *
  * @public
  */
 export interface TemplateSummary {
   /**
-   * <p>The service-generated id of the template.</p>
+   * The service-generated id of the template.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * The Amazon Resource Name (ARN) of the template.
+   *
    * @public
    */
   templateArn: string | undefined;
 
   /**
-   * <p>The name of the template.</p>
+   * The name of the template.
+   *
    * @public
    */
   templateName: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status?: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType?: TemplateFirewallType | undefined;
 
   /**
-   * <p>The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.</p>
+   * The time when the resource was last updated. For a snapshot, this is the time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3646,13 +4137,15 @@ export interface TemplateSummary {
  */
 export interface ListTemplatesOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of templates.</p>
+   * The list of templates.
+   *
    * @public
    */
   templates: TemplateSummary[] | undefined;
@@ -3663,19 +4156,22 @@ export interface ListTemplatesOutput {
  */
 export interface ListTemplateSnapshotsInput {
   /**
-   * <p>The identifier of the template. This is the template's Amazon Resource Name (ARN).</p>
+   * The identifier of the template. This is the template's Amazon Resource Name (ARN).
+   *
    * @public
    */
   templateIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned <code>nextToken</code> value in a subsequent call.</p>
+   * The maximum number of results to return in a single call. Valid range: 1-100. To retrieve the remaining results, use the returned `nextToken` value in a subsequent call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3686,13 +4182,15 @@ export interface ListTemplateSnapshotsInput {
  */
 export interface ListTemplateSnapshotsOutput {
   /**
-   * <p>The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.</p>
+   * The token for the next page of results. To retrieve the next page, call the operation again and provide this value. When there are no more results, this value is null.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The snapshots of the template.</p>
+   * The snapshots of the template.
+   *
    * @public
    */
   snapshots: TemplateSummary[] | undefined;
@@ -3703,49 +4201,57 @@ export interface ListTemplateSnapshotsOutput {
  */
 export interface UpdatePolicyInput {
   /**
-   * <p>The identifier of the policy. This is the policy's Amazon Resource Name (ARN).</p>
+   * The identifier of the policy. This is the policy's Amazon Resource Name (ARN).
+   *
    * @public
    */
   policyIdentifier: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken: string | undefined;
 
   /**
-   * <p>A description of the policy.</p>
+   * A description of the policy.
+   *
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority?: number | undefined;
 
   /**
-   * <p>The templates and rules to associate with the policy. For AWS WAF policies, specify 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list must be empty.</p>
+   * The templates and rules to associate with the policy. For AWS WAF policies, specify 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list must be empty.
+   *
    * @public
    */
   associatedTemplateAndRuleList?: TemplateOrRuleReference[] | undefined;
 
   /**
-   * <p>The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.</p>
+   * The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.
+   *
    * @public
    */
   policyConfiguration?: PolicyConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>).</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`).
+   *
    * @public
    */
   isPublished: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3756,85 +4262,99 @@ export interface UpdatePolicyInput {
  */
 export interface UpdatePolicyOutput {
   /**
-   * <p>The service-generated id of the policy.</p>
+   * The service-generated id of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   policyName: string | undefined;
 
   /**
-   * <p>A description of the policy.</p>
+   * A description of the policy.
+   *
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The priority of the resource. A lower number indicates a higher priority.</p>
+   * The priority of the resource. A lower number indicates a higher priority.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.</p>
+   * The templates and rules associated with the policy. For AWS WAF policies, this list contains 1 to 100 templates or rules, of which at most 2 can be templates. For AWS Shield Advanced policies, this list is empty.
+   *
    * @public
    */
   associatedTemplateAndRuleList: AssociatedTemplateOrRule[] | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: PolicyFirewallType | undefined;
 
   /**
-   * <p>The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.</p>
+   * The configuration settings that control the policy's behavior, including remediation and firewall-type-specific settings.
+   *
    * @public
    */
   policyConfiguration?: PolicyConfiguration | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3845,19 +4365,22 @@ export interface UpdatePolicyOutput {
  */
 export interface PutAdminAccountRequest {
   /**
-   * <p>The AWS account ID to set as the AWS Network Security Manager administrator account.</p>
+   * The AWS account ID to set as the AWS Network Security Manager administrator account.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The priority to assign to the administrator account.</p>
+   * The priority to assign to the administrator account.
+   *
    * @public
    */
   priority: number | undefined;
 
   /**
-   * <p>The scope of accounts, organizational units, and firewall types that the administrator can manage.</p>
+   * The scope of accounts, organizational units, and firewall types that the administrator can manage.
+   *
    * @public
    */
   adminScope?: AdminScopeInput | undefined;
@@ -3868,7 +4391,8 @@ export interface PutAdminAccountRequest {
  */
 export interface PutAdminAccountResponse {
   /**
-   * <p>The details of the administrator account that was set.</p>
+   * The details of the administrator account that was set.
+   *
    * @public
    */
   adminAccountDetails?: AdminAccountDetails | undefined;
@@ -3879,43 +4403,50 @@ export interface PutAdminAccountResponse {
  */
 export interface UpdateRuleInput {
   /**
-   * <p>The identifier of the rule. This is the rule's Amazon Resource Name (ARN).</p>
+   * The identifier of the rule. This is the rule's Amazon Resource Name (ARN).
+   *
    * @public
    */
   ruleIdentifier: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken: string | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>A description of the rule.</p>
+   * A description of the rule.
+   *
    * @public
    */
   ruleDescription?: string | undefined;
 
   /**
-   * <p>The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type. For an AWS WAF <code>INSPECTION</code> rule, provide an AWS WAF rule group. For an AWS WAF <code>CONFIGURATION</code> rule, provide a single web ACL setting, such as <code>DefaultAction</code> or <code>VisibilityConfig</code>; use <code>wafConfigDataType</code> to declare which setting the document contains. For the schema of each setting and complete examples, see <a href="https://docs.aws.amazon.com/network-security-manager/latest/devguide/what-is.html">Writing rule configurations</a> in the <i>AWS Network Security Manager Developer Guide</i>.</p>
+   * The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type. For an AWS WAF `INSPECTION` rule, provide an AWS WAF rule group. For an AWS WAF `CONFIGURATION` rule, provide a single web ACL setting, such as `DefaultAction` or `VisibilityConfig`; use `wafConfigDataType` to declare which setting the document contains. For the schema of each setting and complete examples, see [Writing rule configurations](https://docs.aws.amazon.com/network-security-manager/latest/devguide/what-is.html) in the *AWS Network Security Manager Developer Guide*.
+   *
    * @public
    */
   configuration?: __DocumentType | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>).</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`).
+   *
    * @public
    */
   isPublished: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3926,79 +4457,92 @@ export interface UpdateRuleInput {
  */
 export interface UpdateRuleOutput {
   /**
-   * <p>The service-generated id of the rule.</p>
+   * The service-generated id of the rule.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * The Amazon Resource Name (ARN) of the rule.
+   *
    * @public
    */
   ruleArn: string | undefined;
 
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   ruleName: string | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: RuleFirewallType | undefined;
 
   /**
-   * <p>The type of the rule. <code>CONFIGURATION</code> rules contain firewall settings, and <code>INSPECTION</code> rules contain rule groups.</p>
+   * The type of the rule. `CONFIGURATION` rules contain firewall settings, and `INSPECTION` rules contain rule groups.
+   *
    * @public
    */
   ruleType?: RuleType | undefined;
 
   /**
-   * <p>A description of the rule.</p>
+   * A description of the rule.
+   *
    * @public
    */
   ruleDescription?: string | undefined;
 
   /**
-   * <p>The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.</p>
+   * The firewall configuration for the rule, as a JSON document. The structure depends on the rule's firewall type and rule type.
+   *
    * @public
    */
   configuration: __DocumentType | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4009,13 +4553,15 @@ export interface UpdateRuleOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN of the resource to tag. The ARN must not include a <code>:DRAFT</code> qualifier.</p>
+   * The ARN of the resource to tag. The ARN must not include a `:DRAFT` qualifier.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource.</p>
+   * The tags to add to the resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -4031,37 +4577,43 @@ export interface TagResourceOutput {}
  */
 export interface UpdateTemplateInput {
   /**
-   * <p>The identifier of the template. This is the template's Amazon Resource Name (ARN).</p>
+   * The identifier of the template. This is the template's Amazon Resource Name (ARN).
+   *
    * @public
    */
   templateIdentifier: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken: string | undefined;
 
   /**
-   * <p>A description of the template.</p>
+   * A description of the template.
+   *
    * @public
    */
   templateDescription?: string | undefined;
 
   /**
-   * <p>The rules associated with the template.</p>
+   * The rules associated with the template.
+   *
    * @public
    */
   associatedRuleList?: RuleReference[] | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>).</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`).
+   *
    * @public
    */
   isPublished: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4072,73 +4624,85 @@ export interface UpdateTemplateInput {
  */
 export interface UpdateTemplateOutput {
   /**
-   * <p>The service-generated id of the template.</p>
+   * The service-generated id of the template.
+   *
    * @public
    */
   templateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * The Amazon Resource Name (ARN) of the template.
+   *
    * @public
    */
   templateArn: string | undefined;
 
   /**
-   * <p>The name of the template.</p>
+   * The name of the template.
+   *
    * @public
    */
   templateName: string | undefined;
 
   /**
-   * <p>A description of the template.</p>
+   * A description of the template.
+   *
    * @public
    */
   templateDescription?: string | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The rules associated with the template.</p>
+   * The rules associated with the template.
+   *
    * @public
    */
   associatedRuleList: AssociatedRule[] | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The firewall type associated with the resource.</p>
+   * The firewall type associated with the resource.
+   *
    * @public
    */
   firewallType: TemplateFirewallType | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4149,13 +4713,15 @@ export interface UpdateTemplateOutput {
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN of the resource to remove tags from. The ARN must not include a <code>:DRAFT</code> qualifier.</p>
+   * The ARN of the resource to remove tags from. The ARN must not include a `:DRAFT` qualifier.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The keys of the tags to remove from the resource.</p>
+   * The keys of the tags to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -4167,7 +4733,8 @@ export interface UntagResourceInput {
 export interface UntagResourceOutput {}
 
 /**
- * <p>A logical expression that selects resources. Exactly one of <code>criteria</code>, <code>and</code>, <code>or</code>, or <code>not</code> is set.</p>
+ * A logical expression that selects resources. Exactly one of `criteria`, `and`, `or`, or `not` is set.
+ *
  * @public
  */
 export type ResourceLogicalExpression =
@@ -4182,7 +4749,8 @@ export type ResourceLogicalExpression =
  */
 export namespace ResourceLogicalExpression {
   /**
-   * <p>A leaf condition that matches resources by tag or by resource-type-specific configuration.</p>
+   * A leaf condition that matches resources by tag or by resource-type-specific configuration.
+   *
    * @public
    */
   export interface CriteriaMember {
@@ -4194,7 +4762,8 @@ export namespace ResourceLogicalExpression {
   }
 
   /**
-   * <p>A list of subexpressions that must all match.</p>
+   * A list of subexpressions that must all match.
+   *
    * @public
    */
   export interface AndMember {
@@ -4206,7 +4775,8 @@ export namespace ResourceLogicalExpression {
   }
 
   /**
-   * <p>A list of subexpressions of which at least one must match.</p>
+   * A list of subexpressions of which at least one must match.
+   *
    * @public
    */
   export interface OrMember {
@@ -4218,7 +4788,8 @@ export namespace ResourceLogicalExpression {
   }
 
   /**
-   * <p>A subexpression that must not match.</p>
+   * A subexpression that must not match.
+   *
    * @public
    */
   export interface NotMember {
@@ -4254,60 +4825,72 @@ export namespace ResourceLogicalExpression {
 }
 
 /**
- * <p>A set of resources defined by explicit ARNs, a logical expression, or both.</p>
+ * A set of resources defined by explicit ARNs, a logical expression, or both.
+ *
  * @public
  */
 export interface ResourceSet {
   /**
-   * <p>An explicit list of resource ARNs.</p>
+   * An explicit list of resource ARNs.
+   *
    * @public
    */
   explicitArns?: string[] | undefined;
 
   /**
-   * <p>A logical expression that selects resources by combining criteria with AND, OR, and NOT operators.</p>
+   * A logical expression that selects resources by combining criteria with AND, OR, and NOT operators.
+   *
    * @public
    */
   expression?: ResourceLogicalExpression | undefined;
 }
 
 /**
- * <p>Defines which resources of a given type are in scope. Exactly one of <code>includeAll</code>, <code>include</code>, or <code>exclude</code> is set.</p>
+ * Defines which resources of a given type are in scope. Exactly one of `includeAll`, `include`, or `exclude` is set.
+ *
  * @public
  */
 export interface ResourceScope {
   /**
-   * <p>Includes all resources of the resource type.</p>
+   * Includes all resources of the resource type.
+   *
    * @public
    */
   includeAll?: boolean | undefined;
 
   /**
-   * <p>Includes the resources that match the specified criteria or explicit ARNs.</p>
+   * Includes the resources that match the specified criteria or explicit ARNs.
+   *
    * @public
    */
   include?: ResourceSet | undefined;
 
   /**
-   * <p>Excludes the resources that match the specified criteria or explicit ARNs.</p>
+   * Excludes the resources that match the specified criteria or explicit ARNs.
+   *
    * @public
    */
   exclude?: ResourceSet | undefined;
 }
 
 /**
- * <p>Defines which accounts and resources are in scope.</p>
+ * Defines which accounts and resources are in scope.
+ *
  * @public
  */
 export interface ScopeConfiguration {
   /**
-   * <p>The account filter that determines which accounts are in scope. When set, exactly one of <code>includeAll</code>, <code>include</code>, or <code>exclude</code> is set.</p> <p>Organization administrators must include an account filter in every scope configuration. Single-account administrators must omit it: a scope without an account filter applies only to the administrator's own account. The presence of an account filter is fixed when the scope is created: an update can't add an account filter to a scope that was created without one, or remove the account filter from a scope that was created with one.</p>
+   * The account filter that determines which accounts are in scope. When set, exactly one of `includeAll`, `include`, or `exclude` is set.
+   *
+   * Organization administrators must include an account filter in every scope configuration. Single-account administrators must omit it: a scope without an account filter applies only to the administrator's own account. The presence of an account filter is fixed when the scope is created: an update can't add an account filter to a scope that was created without one, or remove the account filter from a scope that was created with one.
+   *
    * @public
    */
   accountFilter?: AccountFilter | undefined;
 
   /**
-   * <p>The resource-level scoping configuration, keyed by resource type, that defines which resources within the selected accounts are in scope.</p>
+   * The resource-level scoping configuration, keyed by resource type, that defines which resources within the selected accounts are in scope.
+   *
    * @public
    */
   resourceScopes: Partial<Record<ScopeResourceType, ResourceScope>> | undefined;
@@ -4318,37 +4901,43 @@ export interface ScopeConfiguration {
  */
 export interface CreateScopeInput {
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The name of the scope.</p>
+   * The name of the scope.
+   *
    * @public
    */
   scopeName: string | undefined;
 
   /**
-   * <p>A description of the scope.</p>
+   * A description of the scope.
+   *
    * @public
    */
   scopeDescription?: string | undefined;
 
   /**
-   * <p>The configuration that defines which accounts and resources are in scope.</p>
+   * The configuration that defines which accounts and resources are in scope.
+   *
    * @public
    */
   scopeConfiguration: ScopeConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>). Default: <code>true</code>.</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`). Default: `true`.
+   *
    * @public
    */
   isPublished?: boolean | undefined;
 
   /**
-   * <p>The tags to add to the resource when it is created.</p>
+   * The tags to add to the resource when it is created.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4359,67 +4948,78 @@ export interface CreateScopeInput {
  */
 export interface CreateScopeOutput {
   /**
-   * <p>The service-generated id of the scope.</p>
+   * The service-generated id of the scope.
+   *
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scope.</p>
+   * The Amazon Resource Name (ARN) of the scope.
+   *
    * @public
    */
   scopeArn: string | undefined;
 
   /**
-   * <p>The name of the scope.</p>
+   * The name of the scope.
+   *
    * @public
    */
   scopeName: string | undefined;
 
   /**
-   * <p>A description of the scope.</p>
+   * A description of the scope.
+   *
    * @public
    */
   scopeDescription?: string | undefined;
 
   /**
-   * <p>The configuration that defines which accounts and resources are in scope.</p>
+   * The configuration that defines which accounts and resources are in scope.
+   *
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4430,67 +5030,78 @@ export interface CreateScopeOutput {
  */
 export interface CreateScopeSnapshotOutput {
   /**
-   * <p>The service-generated id of the scope.</p>
+   * The service-generated id of the scope.
+   *
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scope.</p>
+   * The Amazon Resource Name (ARN) of the scope.
+   *
    * @public
    */
   scopeArn: string | undefined;
 
   /**
-   * <p>The name of the scope.</p>
+   * The name of the scope.
+   *
    * @public
    */
   scopeName: string | undefined;
 
   /**
-   * <p>A description of the scope.</p>
+   * A description of the scope.
+   *
    * @public
    */
   scopeDescription?: string | undefined;
 
   /**
-   * <p>The configuration that defines which accounts and resources are in scope.</p>
+   * The configuration that defines which accounts and resources are in scope.
+   *
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4501,67 +5112,78 @@ export interface CreateScopeSnapshotOutput {
  */
 export interface GetScopeOutput {
   /**
-   * <p>The service-generated id of the scope.</p>
+   * The service-generated id of the scope.
+   *
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scope.</p>
+   * The Amazon Resource Name (ARN) of the scope.
+   *
    * @public
    */
   scopeArn: string | undefined;
 
   /**
-   * <p>The name of the scope.</p>
+   * The name of the scope.
+   *
    * @public
    */
   scopeName: string | undefined;
 
   /**
-   * <p>A description of the scope.</p>
+   * A description of the scope.
+   *
    * @public
    */
   scopeDescription?: string | undefined;
 
   /**
-   * <p>The configuration that defines which accounts and resources are in scope.</p>
+   * The configuration that defines which accounts and resources are in scope.
+   *
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable), <code>ACTIVE</code> (published, in use), or <code>DISABLED</code> (deactivated; changes cannot be published until the resource is re-enabled).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable), `ACTIVE` (published, in use), or `DISABLED` (deactivated; changes cannot be published until the resource is re-enabled).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -4572,37 +5194,45 @@ export interface GetScopeOutput {
  */
 export interface UpdateScopeInput {
   /**
-   * <p>The identifier of the scope. This is the scope's Amazon Resource Name (ARN).</p>
+   * The identifier of the scope. This is the scope's Amazon Resource Name (ARN).
+   *
    * @public
    */
   scopeIdentifier: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken: string | undefined;
 
   /**
-   * <p>A description of the scope.</p>
+   * A description of the scope.
+   *
    * @public
    */
   scopeDescription?: string | undefined;
 
   /**
-   * <p>The configuration that defines which accounts and resources are in scope. If you don't include this member, the scope keeps its existing configuration.</p> <p>A new configuration can change which accounts and resources are selected, but it can't add or remove the account filter itself: a scope created for multi-account use stays multi-account, and a scope created for single-account use stays single-account.</p>
+   * The configuration that defines which accounts and resources are in scope. If you don't include this member, the scope keeps its existing configuration.
+   *
+   * A new configuration can change which accounts and resources are selected, but it can't add or remove the account filter itself: a scope created for multi-account use stays multi-account, and a scope created for single-account use stays single-account.
+   *
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to publish the resource. When <code>true</code>, the resource is saved in published (<code>ACTIVE</code>) state. When <code>false</code>, it is saved as a draft (<code>DRAFT</code>).</p>
+   * Specifies whether to publish the resource. When `true`, the resource is saved in published (`ACTIVE`) state. When `false`, it is saved as a draft (`DRAFT`).
+   *
    * @public
    */
   isPublished: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.</p>
+   * A unique, case-sensitive token that you provide to ensure that the operation completes no more than one time. If you retry a request with the same client token and the same parameters, the service returns the result of the original successful request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4613,67 +5243,78 @@ export interface UpdateScopeInput {
  */
 export interface UpdateScopeOutput {
   /**
-   * <p>The service-generated id of the scope.</p>
+   * The service-generated id of the scope.
+   *
    * @public
    */
   scopeId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the scope.</p>
+   * The Amazon Resource Name (ARN) of the scope.
+   *
    * @public
    */
   scopeArn: string | undefined;
 
   /**
-   * <p>The name of the scope.</p>
+   * The name of the scope.
+   *
    * @public
    */
   scopeName: string | undefined;
 
   /**
-   * <p>A description of the scope.</p>
+   * A description of the scope.
+   *
    * @public
    */
   scopeDescription?: string | undefined;
 
   /**
-   * <p>The configuration that defines which accounts and resources are in scope.</p>
+   * The configuration that defines which accounts and resources are in scope.
+   *
    * @public
    */
   scopeConfiguration?: ScopeConfiguration | undefined;
 
   /**
-   * <p>The current status of the resource: <code>DRAFT</code> (unpublished, editable) or <code>ACTIVE</code> (published, in use).</p>
+   * The current status of the resource: `DRAFT` (unpublished, editable) or `ACTIVE` (published, in use).
+   *
    * @public
    */
   status: EntityStatus | undefined;
 
   /**
-   * <p>The version of the resource.</p>
+   * The version of the resource.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>A token used for optimistic concurrency control. Each read and write returns an <code>updateToken</code>. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.</p>
+   * A token used for optimistic concurrency control. Each read and write returns an `updateToken`. Provide the most recent value on your next update to detect and prevent conflicting concurrent modifications.
+   *
    * @public
    */
   updateToken?: string | undefined;
 
   /**
-   * <p>Specifies whether the resource is a snapshot of a published version.</p>
+   * Specifies whether the resource is a snapshot of a published version.
+   *
    * @public
    */
   isSnapshot?: boolean | undefined;
 
   /**
-   * <p>Specifies whether a published version of the resource exists.</p>
+   * Specifies whether a published version of the resource exists.
+   *
    * @public
    */
   hasPublishedVersion?: boolean | undefined;
 
   /**
-   * <p>The time when the resource was last updated.</p>
+   * The time when the resource was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;

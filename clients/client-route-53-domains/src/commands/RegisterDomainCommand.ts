@@ -23,41 +23,18 @@ export interface RegisterDomainCommandInput extends RegisterDomainRequest {}
 export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __MetadataBearer {}
 
 /**
- * <p>This operation registers a domain. For some top-level domains (TLDs), this operation
- * 			requires extra parameters.</p>
- *          <p>When you register a domain, Amazon Route 53 does the following:</p>
- *          <ul>
- *             <li>
- *                <p>Creates a Route 53 hosted zone that has the same name as the domain. Route 53
- * 					assigns four name servers to your hosted zone and automatically updates your
- * 					domain registration with the names of these name servers.</p>
- *             </li>
- *             <li>
- *                <p>Enables auto renew, so your domain registration will renew automatically each
- * 					year. We'll notify you in advance of the renewal date so you can choose whether
- * 					to renew the registration.</p>
- *             </li>
- *             <li>
- *                <p>Optionally enables privacy protection, so WHOIS queries return contact for the registrar
- * 					or the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain name> owner."
- * 					If you don't enable privacy protection, WHOIS queries return the information
- * 					that you entered for the administrative, registrant, and technical
- * 					contacts.</p>
- *                <note>
- *                   <p>While some domains may allow different privacy settings per contact, we recommend
- * 						specifying the same privacy setting for all contacts.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>If registration is successful, returns an operation ID that you can use to
- * 					track the progress and completion of the action. If the request is not completed
- * 					successfully, the domain registrant is notified by email.</p>
- *             </li>
- *             <li>
- *                <p>Charges your Amazon Web Services account an amount based on the top-level
- * 					domain. For more information, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
- *             </li>
- *          </ul>
+ * This operation registers a domain. For some top-level domains (TLDs), this operation requires extra parameters.
+ *
+ * When you register a domain, Amazon Route 53 does the following:
+ *
+ * - Creates a Route 53 hosted zone that has the same name as the domain. Route 53 assigns four name servers to your hosted zone and automatically updates your domain registration with the names of these name servers.
+ * - Enables auto renew, so your domain registration will renew automatically each year. We'll notify you in advance of the renewal date so you can choose whether to renew the registration.
+ * - Optionally enables privacy protection, so WHOIS queries return contact for the registrar or the phrase "REDACTED FOR PRIVACY", or "On behalf of <domain name> owner." If you don't enable privacy protection, WHOIS queries return the information that you entered for the administrative, registrant, and technical contacts.
+ *
+ *   > **Note:** While some domains may allow different privacy settings per contact, we recommend specifying the same privacy setting for all contacts.
+ * - If registration is successful, returns an operation ID that you can use to track the progress and completion of the action. If the request is not completed successfully, the domain registrant is notified by email.
+ * - Charges your Amazon Web Services account an amount based on the top-level domain. For more information, see [Amazon Route 53 Pricing](http://aws.amazon.com/route53/pricing/).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -179,30 +156,32 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  * @throws {@link DomainLimitExceeded} (client fault)
- *  <p>The number of domains has exceeded the allowed threshold for the account.</p>
+ *
+ * The number of domains has exceeded the allowed threshold for the account.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The request is already in progress for the domain.</p>
+ *
+ * The request is already in progress for the domain.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The requested item is not acceptable. For example, for APIs that accept a domain name,
- * 			the request might specify a domain name that doesn't belong to the account that
- * 			submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>, the
- * 			password might be invalid.</p>
+ *
+ * The requested item is not acceptable. For example, for APIs that accept a domain name, the request might specify a domain name that doesn't belong to the account that submitted the request. For `AcceptDomainTransferFromAnotherAwsAccount`, the password might be invalid.
  *
  * @throws {@link OperationLimitExceeded} (client fault)
- *  <p>The number of operations or jobs running exceeded the allowed threshold for the
- * 			account.</p>
+ *
+ * The number of operations or jobs running exceeded the allowed threshold for the account.
  *
  * @throws {@link TLDRulesViolation} (client fault)
- *  <p>The top-level domain does not support this operation.</p>
+ *
+ * The top-level domain does not support this operation.
  *
  * @throws {@link UnsupportedTLD} (client fault)
- *  <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+ *
+ * Amazon Route 53 does not support this top-level domain (TLD).
  *
  * @throws {@link Route53DomainsServiceException}
- * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ * Base exception class for all service exceptions from Route53Domains service.
  *
  * @public
  */

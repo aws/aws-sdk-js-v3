@@ -23,19 +23,14 @@ export interface CreateBudgetCommandInput extends CreateBudgetRequest {}
 export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a budget and, if included, notifications and subscribers. </p>
- *          <important>
- *             <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in
- *             the syntax at one time. Use the syntax that matches your use case. The Request Syntax
- *             section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>,
- *             see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples">Examples</a> section.</p>
- *             <p>Similarly, only one set of filter and metric selections can be present in the syntax
- *             at one time. Either <code>FilterExpression</code> and <code>Metrics</code> or
- *                <code>CostFilters</code> and <code>CostTypes</code>, not both or a different
- *             combination. We recommend using <code>FilterExpression</code> and <code>Metrics</code>
- *             as they provide more flexible and powerful filtering capabilities. The Request Syntax
- *             section shows the <code>FilterExpression</code>/<code>Metrics</code> syntax.</p>
- *          </important>
+ * Creates a budget and, if included, notifications and subscribers.
+ *
+ * > **Important:**
+ * >
+ * > Only one of `BudgetLimit` or `PlannedBudgetLimits` can be present in the syntax at one time. Use the syntax that matches your use case. The Request Syntax section shows the `BudgetLimit` syntax. For `PlannedBudgetLimits`, see the [Examples](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_CreateBudget.html#API_CreateBudget_Examples) section.
+ * >
+ * > Similarly, only one set of filter and metric selections can be present in the syntax at one time. Either `FilterExpression` and `Metrics` or `CostFilters` and `CostTypes`, not both or a different combination. We recommend using `FilterExpression` and `Metrics` as they provide more flexible and powerful filtering capabilities. The Request Syntax section shows the `FilterExpression`/`Metrics` syntax.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -225,38 +220,44 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to use this operation with the given parameters.</p>
+ *
+ * You are not authorized to use this operation with the given parameters.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p>
- *       The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
- *     </p>
+ *
+ * The billing view status must be HEALTHY to perform this action. Try again when the status is HEALTHY.
  *
  * @throws {@link CreationLimitExceededException} (client fault)
- *  <p>You've exceeded the notification or subscriber limit.</p>
+ *
+ * You've exceeded the notification or subscriber limit.
  *
  * @throws {@link DuplicateRecordException} (client fault)
- *  <p>The budget name already exists. Budget names must be unique within an account.</p>
+ *
+ * The budget name already exists. Budget names must be unique within an account.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>We can’t locate the resource that you specified.</p>
+ *
+ * We can’t locate the resource that you specified.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've reached a Service Quota limit on this resource.</p>
+ *
+ * You've reached a Service Quota limit on this resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of API requests has exceeded the maximum allowed API request throttling limit
- *       for the account.</p>
+ *
+ * The number of API requests has exceeded the maximum allowed API request throttling limit for the account.
  *
  * @throws {@link BudgetsServiceException}
- * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ * Base exception class for all service exceptions from Budgets service.
  *
  * @public
  */

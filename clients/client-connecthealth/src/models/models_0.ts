@@ -24,67 +24,62 @@ import type { InternalServerException, ValidationException } from "./errors";
  */
 export interface ActivateSubscriptionInput {
   /**
-   * <p>The unique identifier of the parent Domain.</p>
+   * The unique identifier of the parent Domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The unique identifier of the Subscription.</p>
+   * The unique identifier of the Subscription.
+   *
    * @public
    */
   subscriptionId: string | undefined;
 }
 
 /**
- * <p>Complete subscription resource data.</p>
+ * Complete subscription resource data.
+ *
  * @public
  */
 export interface SubscriptionDescription {
   /**
-   * <p/>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   subscriptionId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   activatedAt?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   deactivatedAt?: Date | undefined;
@@ -95,110 +90,124 @@ export interface SubscriptionDescription {
  */
 export interface ActivateSubscriptionOutput {
   /**
-   * <p/>
    * @public
    */
   subscription?: SubscriptionDescription | undefined;
 }
 
 /**
- * <p>Details about a generated artifact including location and status</p>
+ * Details about a generated artifact including location and status
+ *
  * @public
  */
 export interface ArtifactDetails {
   /**
-   * <p/>
    * @public
    */
   outputLocation?: string | undefined;
 
   /**
-   * <p>The generation status of the artifact</p>
+   * The generation status of the artifact
+   *
    * @public
    */
   status?: PostStreamArtifactGenerationStatus | undefined;
 
   /**
-   * <p>The reason for failure if the artifact generation failed</p>
+   * The reason for failure if the artifact generation failed
+   *
    * @public
    */
   failureReason?: string | undefined;
 }
 
 /**
- * <p>Results of clinical note generation including note, transcript, and summary</p>
+ * Results of clinical note generation including note, transcript, and summary
+ *
  * @public
  */
 export interface ClinicalNoteGenerationResult {
   /**
-   * <p>Details about the generated clinical note</p>
+   * Details about the generated clinical note
+   *
    * @public
    */
   noteResult?: ArtifactDetails | undefined;
 
   /**
-   * <p>Details about the generated transcript</p>
+   * Details about the generated transcript
+   *
    * @public
    */
   transcriptResult?: ArtifactDetails | undefined;
 
   /**
-   * <p>Details about the generated after visit summary</p>
+   * Details about the generated after visit summary
+   *
    * @public
    */
   afterVisitSummaryResult?: ArtifactDetails | undefined;
 }
 
 /**
- * <p>Instructions for generating a specific section of a clinical note</p>
+ * Instructions for generating a specific section of a clinical note
+ *
  * @public
  */
 export interface TemplateSectionInstruction {
   /**
-   * <p>The header for this section of the template</p>
+   * The header for this section of the template
+   *
    * @public
    */
   sectionHeader: string | undefined;
 
   /**
-   * <p>The instruction for generating this section</p>
+   * The instruction for generating this section
+   *
    * @public
    */
   sectionInstruction: string | undefined;
 }
 
 /**
- * <p>Configuration for using a custom note template with specific instructions</p>
+ * Configuration for using a custom note template with specific instructions
+ *
  * @public
  */
 export interface CustomTemplate {
   /**
-   * <p>The base template type to customize</p>
+   * The base template type to customize
+   *
    * @public
    */
   templateType: CustomTemplateBase | undefined;
 
   /**
-   * <p>Custom instructions for each section of the template</p>
+   * Custom instructions for each section of the template
+   *
    * @public
    */
   templateInstructions: TemplateSectionInstruction[] | undefined;
 }
 
 /**
- * <p>Configuration for using a managed note template</p>
+ * Configuration for using a managed note template
+ *
  * @public
  */
 export interface ManagedTemplate {
   /**
-   * <p>The type of managed template to use</p>
+   * The type of managed template to use
+   *
    * @public
    */
   templateType: ManagedNoteTemplate | undefined;
 }
 
 /**
- * <p>Settings for the note template to use for clinical note generation</p>
+ * Settings for the note template to use for clinical note generation
+ *
  * @public
  */
 export type NoteTemplateSettings =
@@ -211,7 +220,6 @@ export type NoteTemplateSettings =
  */
 export namespace NoteTemplateSettings {
   /**
-   * <p/>
    * @public
    */
   export interface ManagedTemplateMember {
@@ -221,7 +229,6 @@ export namespace NoteTemplateSettings {
   }
 
   /**
-   * <p/>
    * @public
    */
   export interface CustomTemplateMember {
@@ -251,43 +258,50 @@ export namespace NoteTemplateSettings {
 }
 
 /**
- * <p>Settings for generating clinical notes from the audio stream</p>
+ * Settings for generating clinical notes from the audio stream
+ *
  * @public
  */
 export interface ClinicalNoteGenerationSettings {
   /**
-   * <p>Settings for the note template to use</p>
+   * Settings for the note template to use
+   *
    * @public
    */
   noteTemplateSettings: NoteTemplateSettings | undefined;
 }
 
 /**
- * <p>Response containing custom template information</p>
+ * Response containing custom template information
+ *
  * @public
  */
 export interface CustomTemplateResponse {
   /**
-   * <p>The base template type that was customized</p>
+   * The base template type that was customized
+   *
    * @public
    */
   templateType?: CustomTemplateBase | undefined;
 }
 
 /**
- * <p>Response containing managed template information</p>
+ * Response containing managed template information
+ *
  * @public
  */
 export interface ManagedTemplateResponse {
   /**
-   * <p>The type of managed template used</p>
+   * The type of managed template used
+   *
    * @public
    */
   templateType?: ManagedNoteTemplate | undefined;
 }
 
 /**
- * <p>Response containing note template settings</p>
+ * Response containing note template settings
+ *
  * @public
  */
 export type NoteTemplateSettingsResponse =
@@ -300,7 +314,6 @@ export type NoteTemplateSettingsResponse =
  */
 export namespace NoteTemplateSettingsResponse {
   /**
-   * <p/>
    * @public
    */
   export interface ManagedTemplateMember {
@@ -310,7 +323,6 @@ export namespace NoteTemplateSettingsResponse {
   }
 
   /**
-   * <p/>
    * @public
    */
   export interface CustomTemplateMember {
@@ -340,36 +352,42 @@ export namespace NoteTemplateSettingsResponse {
 }
 
 /**
- * <p>Response containing settings for clinical note generation</p>
+ * Response containing settings for clinical note generation
+ *
  * @public
  */
 export interface ClinicalNoteGenerationSettingsResponse {
   /**
-   * <p>Settings for the note template used</p>
+   * Settings for the note template used
+   *
    * @public
    */
   noteTemplateSettings?: NoteTemplateSettingsResponse | undefined;
 }
 
 /**
- * <p>Input configuration for creating a web application. Used only in CreateDomain operation input.</p>
+ * Input configuration for creating a web application. Used only in CreateDomain operation input.
+ *
  * @public
  */
 export interface CreateWebAppConfiguration {
   /**
-   * <p>ARN of the IAM role used for EHR operations.</p>
+   * ARN of the IAM role used for EHR operations.
+   *
    * @public
    */
   ehrRole: string | undefined;
 
   /**
-   * <p>The Identity Center instance ID to use for creating the application.</p>
+   * The Identity Center instance ID to use for creating the application.
+   *
    * @public
    */
   idcInstanceId: string | undefined;
 
   /**
-   * <p>The AWS region where Identity Center is configured.</p>
+   * The AWS region where Identity Center is configured.
+   *
    * @public
    */
   idcRegion: string | undefined;
@@ -380,67 +398,78 @@ export interface CreateWebAppConfiguration {
  */
 export interface CreateDomainInput {
   /**
-   * <p>The name for the new Domain.</p>
+   * The name for the new Domain.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the KMS key to use for encrypting data in this Domain.</p>
+   * The ARN of the KMS key to use for encrypting data in this Domain.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>Configuration for the Domain web application. Optional, but if provided all fields are required.</p>
+   * Configuration for the Domain web application. Optional, but if provided all fields are required.
+   *
    * @public
    */
   webAppSetupConfiguration?: CreateWebAppConfiguration | undefined;
 
   /**
-   * <p>Tags to associate with the Domain.</p>
+   * Tags to associate with the Domain.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Encryption context for a Domain.</p>
+ * Encryption context for a Domain.
+ *
  * @public
  */
 export interface EncryptionContext {
   /**
-   * <p>The type of encryption key used.</p>
+   * The type of encryption key used.
+   *
    * @public
    */
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The ARN of the KMS key. Only present when encryptionType is CUSTOMER_MANAGED_KEY.</p>
+   * The ARN of the KMS key. Only present when encryptionType is CUSTOMER_MANAGED_KEY.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 }
 
 /**
- * <p>Configuration for the Domain web application, including Identity Center settings. If provided, all fields are required.</p>
+ * Configuration for the Domain web application, including Identity Center settings. If provided, all fields are required.
+ *
  * @public
  */
 export interface WebAppConfiguration {
   /**
-   * <p>ARN of the IAM role used for EHR operations.</p>
+   * ARN of the IAM role used for EHR operations.
+   *
    * @public
    */
   ehrRole: string | undefined;
 
   /**
-   * <p>The Identity Center application ID associated with this Domain.</p>
+   * The Identity Center application ID associated with this Domain.
+   *
    * @public
    */
   idcApplicationId: string | undefined;
 
   /**
-   * <p>The AWS region where Identity Center is configured.</p>
+   * The AWS region where Identity Center is configured.
+   *
    * @public
    */
   idcRegion: string | undefined;
@@ -451,55 +480,46 @@ export interface WebAppConfiguration {
  */
 export interface CreateDomainOutput {
   /**
-   * <p/>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   encryptionContext?: EncryptionContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   status: DomainStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   webAppUrl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   webAppConfiguration?: WebAppConfiguration | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdAt: Date | undefined;
@@ -510,7 +530,8 @@ export interface CreateDomainOutput {
  */
 export interface CreateSubscriptionInput {
   /**
-   * <p>The unique identifier of the parent Domain.</p>
+   * The unique identifier of the parent Domain.
+   *
    * @public
    */
   domainId: string | undefined;
@@ -521,49 +542,41 @@ export interface CreateSubscriptionInput {
  */
 export interface CreateSubscriptionOutput {
   /**
-   * <p/>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   subscriptionId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   status: SubscriptionStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   activatedAt?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   deactivatedAt?: Date | undefined;
@@ -574,13 +587,15 @@ export interface CreateSubscriptionOutput {
  */
 export interface DeactivateSubscriptionInput {
   /**
-   * <p>The unique identifier of the parent Domain.</p>
+   * The unique identifier of the parent Domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The unique identifier of the Subscription.</p>
+   * The unique identifier of the Subscription.
+   *
    * @public
    */
   subscriptionId: string | undefined;
@@ -591,7 +606,6 @@ export interface DeactivateSubscriptionInput {
  */
 export interface DeactivateSubscriptionOutput {
   /**
-   * <p/>
    * @public
    */
   subscription?: SubscriptionDescription | undefined;
@@ -602,7 +616,8 @@ export interface DeactivateSubscriptionOutput {
  */
 export interface DeleteDomainInput {
   /**
-   * <p>The id of the Domain to delete</p>
+   * The id of the Domain to delete
+   *
    * @public
    */
   domainId: string | undefined;
@@ -613,19 +628,22 @@ export interface DeleteDomainInput {
  */
 export interface DeleteDomainOutput {
   /**
-   * <p>The id of the Domain requested for deletion</p>
+   * The id of the Domain requested for deletion
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The ARN of the Domain that was requested for deletion</p>
+   * The ARN of the Domain that was requested for deletion
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>Current status of Domain</p>
+   * Current status of Domain
+   *
    * @public
    */
   status: DomainStatus | undefined;
@@ -636,7 +654,8 @@ export interface DeleteDomainOutput {
  */
 export interface GetDomainInput {
   /**
-   * <p>The id of the Domain to get</p>
+   * The id of the Domain to get
+   *
    * @public
    */
   domainId: string | undefined;
@@ -647,61 +666,53 @@ export interface GetDomainInput {
  */
 export interface GetDomainOutput {
   /**
-   * <p/>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   encryptionContext?: EncryptionContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   status: DomainStatus | undefined;
 
   /**
-   * <p/>
    * @public
    */
   webAppUrl?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   webAppConfiguration?: WebAppConfiguration | undefined;
 
   /**
-   * <p/>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Tags associated with the Domain</p>
+   * Tags associated with the Domain
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -712,151 +723,174 @@ export interface GetDomainOutput {
  */
 export interface GetMedicalScribeListeningSessionInput {
   /**
-   * <p>The Session identifier</p>
+   * The Session identifier
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The Domain identifier</p>
+   * The Domain identifier
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Subscription identifier</p>
+   * The Subscription identifier
+   *
    * @public
    */
   subscriptionId: string | undefined;
 }
 
 /**
- * <p>Defines a channel in the audio stream</p>
+ * Defines a channel in the audio stream
+ *
  * @public
  */
 export interface MedicalScribeChannelDefinition {
   /**
-   * <p>The channel identifier</p>
+   * The channel identifier
+   *
    * @public
    */
   channelId: number | undefined;
 
   /**
-   * <p>The role of the participant on this channel</p>
+   * The role of the participant on this channel
+   *
    * @public
    */
   participantRole: MedicalScribeParticipantRole | undefined;
 }
 
 /**
- * <p>Results of post-stream actions performed after the audio stream ended</p>
+ * Results of post-stream actions performed after the audio stream ended
+ *
  * @public
  */
 export interface MedicalScribePostStreamActionsResult {
   /**
-   * <p>Results of clinical note generation</p>
+   * Results of clinical note generation
+   *
    * @public
    */
   clinicalNoteGenerationResult?: ClinicalNoteGenerationResult | undefined;
 }
 
 /**
- * <p>Response containing settings for post-stream actions</p>
+ * Response containing settings for post-stream actions
+ *
  * @public
  */
 export interface MedicalScribePostStreamActionSettingsResponse {
   /**
-   * <p/>
    * @public
    */
   outputS3Uri: string | undefined;
 
   /**
-   * <p>Settings for clinical note generation</p>
+   * Settings for clinical note generation
+   *
    * @public
    */
   clinicalNoteGenerationSettings: ClinicalNoteGenerationSettingsResponse | undefined;
 }
 
 /**
- * <p>Detailed information about a Medical Scribe listening session</p>
+ * Detailed information about a Medical Scribe listening session
+ *
  * @public
  */
 export interface MedicalScribeListeningSessionDetails {
   /**
-   * <p>The Session identifier</p>
+   * The Session identifier
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The Domain identifier</p>
+   * The Domain identifier
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The Subscription identifier</p>
+   * The Subscription identifier
+   *
    * @public
    */
   subscriptionId?: string | undefined;
 
   /**
-   * <p>The Language Code for the audio in the session</p>
+   * The Language Code for the audio in the session
+   *
    * @public
    */
   languageCode?: MedicalScribeLanguageCode | undefined;
 
   /**
-   * <p>The sample rate of the input audio</p>
+   * The sample rate of the input audio
+   *
    * @public
    */
   mediaSampleRateHertz?: number | undefined;
 
   /**
-   * <p>The encoding for the input audio</p>
+   * The encoding for the input audio
+   *
    * @public
    */
   mediaEncoding?: MedicalScribeMediaEncoding | undefined;
 
   /**
-   * <p>Channel definitions for the audio stream</p>
+   * Channel definitions for the audio stream
+   *
    * @public
    */
   channelDefinitions?: MedicalScribeChannelDefinition[] | undefined;
 
   /**
-   * <p>Settings for post-stream actions</p>
+   * Settings for post-stream actions
+   *
    * @public
    */
   postStreamActionSettings?: MedicalScribePostStreamActionSettingsResponse | undefined;
 
   /**
-   * <p>Results of post-stream actions</p>
+   * Results of post-stream actions
+   *
    * @public
    */
   postStreamActionResult?: MedicalScribePostStreamActionsResult | undefined;
 
   /**
-   * <p>Indicates whether encounter context was provided</p>
+   * Indicates whether encounter context was provided
+   *
    * @public
    */
   encounterContextProvided?: boolean | undefined;
 
   /**
-   * <p>The current status of the stream</p>
+   * The current status of the stream
+   *
    * @public
    */
   streamStatus?: MedicalScribeStreamStatus | undefined;
 
   /**
-   * <p>The timestamp when the stream was created</p>
+   * The timestamp when the stream was created
+   *
    * @public
    */
   streamCreationTime?: Date | undefined;
 
   /**
-   * <p>The timestamp when the stream ended</p>
+   * The timestamp when the stream ended
+   *
    * @public
    */
   streamEndTime?: Date | undefined;
@@ -867,7 +901,8 @@ export interface MedicalScribeListeningSessionDetails {
  */
 export interface GetMedicalScribeListeningSessionOutput {
   /**
-   * <p>Details about the Medical Scribe listening session</p>
+   * Details about the Medical Scribe listening session
+   *
    * @public
    */
   medicalScribeListeningSessionDetails?: MedicalScribeListeningSessionDetails | undefined;
@@ -878,157 +913,171 @@ export interface GetMedicalScribeListeningSessionOutput {
  */
 export interface GetPatientInsightsJobRequest {
   /**
-   * <p/>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>Details for an encounter</p>
+ * Details for an encounter
+ *
  * @public
  */
 export interface PatientInsightsEncounterContext {
   /**
-   * <p>Chief complaint for the visit</p>
+   * Chief complaint for the visit
+   *
    * @public
    */
   encounterReason: string | undefined;
 }
 
 /**
- * <p>FHIR server configuration for input data source</p>
+ * FHIR server configuration for input data source
+ *
  * @public
  */
 export interface FHIRServer {
   /**
-   * <p>FHIR server endpoint URL for accessing patient data.</p>
+   * FHIR server endpoint URL for accessing patient data.
+   *
    * @public
    */
   fhirEndpoint: string | undefined;
 
   /**
-   * <p>OAuth token for authenticating with the FHIR server.</p>
+   * OAuth token for authenticating with the FHIR server.
+   *
    * @public
    */
   oauthToken?: string | undefined;
 }
 
 /**
- * <p>S3 uri for input data source</p>
+ * S3 uri for input data source
+ *
  * @public
  */
 export interface S3Source {
   /**
-   * <p>The S3 URI.</p>
+   * The S3 URI.
+   *
    * @public
    */
   uri: string | undefined;
 }
 
 /**
- * <p>Configuration details for input patient data</p>
+ * Configuration details for input patient data
+ *
  * @public
  */
 export interface InputDataConfig {
   /**
-   * <p>FHIR server configuration to retrieve patient data.</p>
+   * FHIR server configuration to retrieve patient data.
+   *
    * @public
    */
   fhirServer?: FHIRServer | undefined;
 
   /**
-   * <p>List of S3 sources containing patient data.</p>
+   * List of S3 sources containing patient data.
+   *
    * @public
    */
   s3Sources?: S3Source[] | undefined;
 }
 
 /**
- * <p>Details for insights that user wants to generate</p>
+ * Details for insights that user wants to generate
+ *
  * @public
  */
 export interface InsightsContext {
   /**
-   * <p/>
    * @public
    */
   insightsType: InsightsType | undefined;
 }
 
 /**
- * <p>Output of patient insights job</p>
+ * Output of patient insights job
+ *
  * @public
  */
 export interface InsightsOutput {
   /**
-   * <p/>
    * @public
    */
   uri: string | undefined;
 }
 
 /**
- * <p>Configuration details for insights output.</p>
+ * Configuration details for insights output.
+ *
  * @public
  */
 export interface OutputDataConfig {
   /**
-   * <p>S3 URI where the insights output will be stored.</p>
+   * S3 URI where the insights output will be stored.
+   *
    * @public
    */
   s3OutputPath: string | undefined;
 }
 
 /**
- * <p>Details for a patient</p>
+ * Details for a patient
+ *
  * @public
  */
 export interface PatientInsightsPatientContext {
   /**
-   * <p>Unique identifier of the patient</p>
+   * Unique identifier of the patient
+   *
    * @public
    */
   patientId: string | undefined;
 
   /**
-   * <p>Date of birth of the patient.</p>
+   * Date of birth of the patient.
+   *
    * @public
    */
   dateOfBirth?: string | undefined;
 
   /**
-   * <p>Pronouns preferred by the patient.</p>
+   * Pronouns preferred by the patient.
+   *
    * @public
    */
   pronouns?: Pronouns | undefined;
 }
 
 /**
- * <p>Details for user initiating insights job</p>
+ * Details for user initiating insights job
+ *
  * @public
  */
 export interface UserContext {
   /**
-   * <p/>
    * @public
    */
   role: ProviderRole | undefined;
 
   /**
-   * <p>Unique identifier of the user</p>
+   * Unique identifier of the user
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   specialty?: Specialty | undefined;
@@ -1039,79 +1088,72 @@ export interface UserContext {
  */
 export interface GetPatientInsightsJobResponse {
   /**
-   * <p/>
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   jobStatus: JobStatus | undefined;
 
   /**
-   * <p>Date and time the patient insights job was submitted.</p>
+   * Date and time the patient insights job was submitted.
+   *
    * @public
    */
   creationTime?: Date | undefined;
 
   /**
-   * <p>Date and time the patient insights job was last updated.</p>
+   * Date and time the patient insights job was last updated.
+   *
    * @public
    */
   updatedTime?: Date | undefined;
 
   /**
-   * <p/>
    * @public
    */
   insightsOutput?: InsightsOutput | undefined;
 
   /**
-   * <p>Contains information about the status of a job.</p>
+   * Contains information about the status of a job.
+   *
    * @public
    */
   statusDetails?: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   patientContext: PatientInsightsPatientContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   insightsContext: InsightsContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   encounterContext: PatientInsightsEncounterContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   userContext: UserContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   inputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p/>
    * @public
    */
   outputDataConfig: OutputDataConfig | undefined;
@@ -1122,13 +1164,15 @@ export interface GetPatientInsightsJobResponse {
  */
 export interface GetSubscriptionInput {
   /**
-   * <p>The unique identifier of the parent Domain.</p>
+   * The unique identifier of the parent Domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The unique identifier of the Subscription.</p>
+   * The unique identifier of the Subscription.
+   *
    * @public
    */
   subscriptionId: string | undefined;
@@ -1139,7 +1183,6 @@ export interface GetSubscriptionInput {
  */
 export interface GetSubscriptionOutput {
   /**
-   * <p/>
    * @public
    */
   subscription?: SubscriptionDescription | undefined;
@@ -1150,55 +1193,58 @@ export interface GetSubscriptionOutput {
  */
 export interface ListDomainsInput {
   /**
-   * <p>Filter by Domain status.</p>
+   * Filter by Domain status.
+   *
    * @public
    */
   status?: DomainStatus | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination.</p>
+   * Token for pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a Domain.</p>
+ * Summary information about a Domain.
+ *
  * @public
  */
 export interface DomainSummary {
   /**
-   * <p>The unique identifier of the Domain.</p>
+   * The unique identifier of the Domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   status: DomainStatus | undefined;
 
   /**
-   * <p>The timestamp when the Domain was created.</p>
+   * The timestamp when the Domain was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -1209,13 +1255,15 @@ export interface DomainSummary {
  */
 export interface ListDomainsOutput {
   /**
-   * <p>List of Domains.</p>
+   * List of Domains.
+   *
    * @public
    */
   domains: DomainSummary[] | undefined;
 
   /**
-   * <p>Token for the next page of results.</p>
+   * Token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1226,19 +1274,22 @@ export interface ListDomainsOutput {
  */
 export interface ListSubscriptionsInput {
   /**
-   * <p>The unique identifier of the parent Domain.</p>
+   * The unique identifier of the parent Domain.
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination.</p>
+   * Token for pagination.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1249,13 +1300,15 @@ export interface ListSubscriptionsInput {
  */
 export interface ListSubscriptionsOutput {
   /**
-   * <p>List of Subscriptions.</p>
+   * List of Subscriptions.
+   *
    * @public
    */
   subscriptions: SubscriptionDescription[] | undefined;
 
   /**
-   * <p>Token for the next page of results.</p>
+   * Token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1266,7 +1319,8 @@ export interface ListSubscriptionsOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource to list tags for</p>
+   * The ARN of the resource to list tags for
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1277,104 +1331,119 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags associated with the resource</p>
+   * The tags associated with the resource
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>An event containing audio data for the Medical Scribe stream</p>
+ * An event containing audio data for the Medical Scribe stream
+ *
  * @public
  */
 export interface MedicalScribeAudioEvent {
   /**
-   * <p>The audio data chunk</p>
+   * The audio data chunk
+   *
    * @public
    */
   audioChunk: Uint8Array | undefined;
 }
 
 /**
- * <p>An event containing raw binary audio data for the Medical Scribe stream. The audio is sent as a raw binary payload rather than as a base64-encoded value.</p>
+ * An event containing raw binary audio data for the Medical Scribe stream. The audio is sent as a raw binary payload rather than as a base64-encoded value.
+ *
  * @public
  */
 export interface MedicalScribeBinaryAudioEvent {
   /**
-   * <p>The raw binary audio data chunk</p>
+   * The raw binary audio data chunk
+   *
    * @public
    */
   audioChunk: Uint8Array | undefined;
 }
 
 /**
- * <p>Context information about the clinical encounter</p>
+ * Context information about the clinical encounter
+ *
  * @public
  */
 export interface EncounterContext {
   /**
-   * <p>Unstructured context information in markdown format</p>
+   * Unstructured context information in markdown format
+   *
    * @public
    */
   unstructuredContext?: string | undefined;
 }
 
 /**
- * <p>Settings for actions to perform after the audio stream ends</p>
+ * Settings for actions to perform after the audio stream ends
+ *
  * @public
  */
 export interface MedicalScribePostStreamActionSettings {
   /**
-   * <p/>
    * @public
    */
   outputS3Uri: string | undefined;
 
   /**
-   * <p>Settings for clinical note generation</p>
+   * Settings for clinical note generation
+   *
    * @public
    */
   clinicalNoteGenerationSettings: ClinicalNoteGenerationSettings | undefined;
 }
 
 /**
- * <p>An event containing configuration for the Medical Scribe session</p>
+ * An event containing configuration for the Medical Scribe session
+ *
  * @public
  */
 export interface MedicalScribeConfigurationEvent {
   /**
-   * <p>Settings for actions to perform after the stream ends</p>
+   * Settings for actions to perform after the stream ends
+   *
    * @public
    */
   postStreamActionSettings: MedicalScribePostStreamActionSettings | undefined;
 
   /**
-   * <p>Channel definitions for the audio stream</p>
+   * Channel definitions for the audio stream
+   *
    * @public
    */
   channelDefinitions?: MedicalScribeChannelDefinition[] | undefined;
 
   /**
-   * <p>Context information about the clinical encounter</p>
+   * Context information about the clinical encounter
+   *
    * @public
    */
   encounterContext?: EncounterContext | undefined;
 }
 
 /**
- * <p>An event for controlling the Medical Scribe session</p>
+ * An event for controlling the Medical Scribe session
+ *
  * @public
  */
 export interface MedicalScribeSessionControlEvent {
   /**
-   * <p>The type of session control event</p>
+   * The type of session control event
+   *
    * @public
    */
   type?: MedicalScribeSessionControlEventType | undefined;
 }
 
 /**
- * <p>Input stream for Medical Scribe containing audio and configuration events</p>
+ * Input stream for Medical Scribe containing audio and configuration events
+ *
  * @public
  */
 export type MedicalScribeInputStream =
@@ -1389,7 +1458,6 @@ export type MedicalScribeInputStream =
  */
 export namespace MedicalScribeInputStream {
   /**
-   * <p/>
    * @public
    */
   export interface AudioEventMember {
@@ -1401,7 +1469,8 @@ export namespace MedicalScribeInputStream {
   }
 
   /**
-   * <p>An event containing raw binary audio data for the Medical Scribe stream. The audio is sent as a raw binary payload rather than as a base64-encoded value.</p>
+   * An event containing raw binary audio data for the Medical Scribe stream. The audio is sent as a raw binary payload rather than as a base64-encoded value.
+   *
    * @public
    */
   export interface BinaryAudioEventMember {
@@ -1413,7 +1482,6 @@ export namespace MedicalScribeInputStream {
   }
 
   /**
-   * <p/>
    * @public
    */
   export interface SessionControlEventMember {
@@ -1425,7 +1493,6 @@ export namespace MedicalScribeInputStream {
   }
 
   /**
-   * <p/>
    * @public
    */
   export interface ConfigurationEventMember {
@@ -1465,104 +1532,119 @@ export namespace MedicalScribeInputStream {
  */
 export interface StartMedicalScribeListeningSessionInput {
   /**
-   * <p>The Session identifier</p>
+   * The Session identifier
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The Domain identifier</p>
+   * The Domain identifier
+   *
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p>The Subscription identifier</p>
+   * The Subscription identifier
+   *
    * @public
    */
   subscriptionId: string | undefined;
 
   /**
-   * <p>The Language Code for the audio in the session</p>
+   * The Language Code for the audio in the session
+   *
    * @public
    */
   languageCode: MedicalScribeLanguageCode | undefined;
 
   /**
-   * <p>The sample rate of the input audio</p>
+   * The sample rate of the input audio
+   *
    * @public
    */
   mediaSampleRateHertz: number | undefined;
 
   /**
-   * <p>The encoding for the input audio</p>
+   * The encoding for the input audio
+   *
    * @public
    */
   mediaEncoding: MedicalScribeMediaEncoding | undefined;
 
   /**
-   * <p/>
    * @public
    */
   inputStream?: AsyncIterable<MedicalScribeInputStream> | undefined;
 }
 
 /**
- * <p>A segment of transcript text with timing and channel information</p>
+ * A segment of transcript text with timing and channel information
+ *
  * @public
  */
 export interface MedicalScribeTranscriptSegment {
   /**
-   * <p>The unique identifier for this segment</p>
+   * The unique identifier for this segment
+   *
    * @public
    */
   segmentId?: string | undefined;
 
   /**
-   * <p>The offset from audio start when the audio for this segment begins</p>
+   * The offset from audio start when the audio for this segment begins
+   *
    * @public
    */
   audioBeginOffset?: number | undefined;
 
   /**
-   * <p>The offset from audio start when the audio for this segment ends</p>
+   * The offset from audio start when the audio for this segment ends
+   *
    * @public
    */
   audioEndOffset?: number | undefined;
 
   /**
-   * <p>Indicates whether this is a partial or final transcript</p>
+   * Indicates whether this is a partial or final transcript
+   *
    * @public
    */
   isPartial?: boolean | undefined;
 
   /**
-   * <p>The channel identifier for this segment</p>
+   * The channel identifier for this segment
+   *
    * @public
    */
   channelId?: string | undefined;
 
   /**
-   * <p>The transcript text content</p>
+   * The transcript text content
+   *
    * @public
    */
   content?: string | undefined;
 }
 
 /**
- * <p>An event containing transcript data from the Medical Scribe stream</p>
+ * An event containing transcript data from the Medical Scribe stream
+ *
  * @public
  */
 export interface MedicalScribeTranscriptEvent {
   /**
-   * <p>A segment of the transcript</p>
+   * A segment of the transcript
+   *
    * @public
    */
   transcriptSegment?: MedicalScribeTranscriptSegment | undefined;
 }
 
 /**
- * <p>Output stream from Medical Scribe containing transcript events and errors</p>
+ * Output stream from Medical Scribe containing transcript events and errors
+ *
  * @public
  */
 export type MedicalScribeOutputStream =
@@ -1576,7 +1658,6 @@ export type MedicalScribeOutputStream =
  */
 export namespace MedicalScribeOutputStream {
   /**
-   * <p/>
    * @public
    */
   export interface TranscriptEventMember {
@@ -1587,7 +1668,6 @@ export namespace MedicalScribeOutputStream {
   }
 
   /**
-   * <p/>
    * @public
    */
   export interface InternalFailureExceptionMember {
@@ -1598,7 +1678,6 @@ export namespace MedicalScribeOutputStream {
   }
 
   /**
-   * <p/>
    * @public
    */
   export interface ValidationExceptionMember {
@@ -1635,49 +1714,57 @@ export namespace MedicalScribeOutputStream {
  */
 export interface StartMedicalScribeListeningSessionOutput {
   /**
-   * <p>The Session identifier</p>
+   * The Session identifier
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The Domain identifier</p>
+   * The Domain identifier
+   *
    * @public
    */
   domainId?: string | undefined;
 
   /**
-   * <p>The Subscription identifier</p>
+   * The Subscription identifier
+   *
    * @public
    */
   subscriptionId?: string | undefined;
 
   /**
-   * <p>The Request identifier</p>
+   * The Request identifier
+   *
    * @public
    */
   requestId?: string | undefined;
 
   /**
-   * <p>The Language Code for the audio in the session</p>
+   * The Language Code for the audio in the session
+   *
    * @public
    */
   languageCode?: MedicalScribeLanguageCode | undefined;
 
   /**
-   * <p>The sample rate of the input audio</p>
+   * The sample rate of the input audio
+   *
    * @public
    */
   mediaSampleRateHertz?: number | undefined;
 
   /**
-   * <p>The encoding for the input audio</p>
+   * The encoding for the input audio
+   *
    * @public
    */
   mediaEncoding?: MedicalScribeMediaEncoding | undefined;
 
   /**
-   * <p>The output stream containing transcript events</p>
+   * The output stream containing transcript events
+   *
    * @public
    */
   responseStream?: AsyncIterable<MedicalScribeOutputStream> | undefined;
@@ -1688,49 +1775,43 @@ export interface StartMedicalScribeListeningSessionOutput {
  */
 export interface StartPatientInsightsJobRequest {
   /**
-   * <p/>
    * @public
    */
   domainId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   patientContext: PatientInsightsPatientContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   insightsContext: InsightsContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   encounterContext: PatientInsightsEncounterContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   userContext: UserContext | undefined;
 
   /**
-   * <p/>
    * @public
    */
   inputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p/>
    * @public
    */
   outputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1741,19 +1822,18 @@ export interface StartPatientInsightsJobRequest {
  */
 export interface StartPatientInsightsJobResponse {
   /**
-   * <p/>
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>Date and time the patient insights job was submitted.</p>
+   * Date and time the patient insights job was submitted.
+   *
    * @public
    */
   creationTime?: Date | undefined;
@@ -1764,13 +1844,15 @@ export interface StartPatientInsightsJobResponse {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN of the resource to tag</p>
+   * The ARN of the resource to tag
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource</p>
+   * The tags to add to the resource
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1781,13 +1863,15 @@ export interface TagResourceInput {
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN of the resource to untag</p>
+   * The ARN of the resource to untag
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys to remove from the resource</p>
+   * The tag keys to remove from the resource
+   *
    * @public
    */
   tagKeys: string[] | undefined;

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AmplifyBackendServiceException as __BaseException } from "./AmplifyBackendServiceException";
 
 /**
- * <p>An error returned if a request is not formed properly.</p>
+ * An error returned if a request is not formed properly.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -12,7 +13,8 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error message to inform that the request failed.</p>
+   * An error message to inform that the request failed.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -31,7 +33,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>An error returned if there's a temporary issue with the service.</p>
+ * An error returned if there's a temporary issue with the service.
+ *
  * @public
  */
 export class GatewayTimeoutException extends __BaseException {
@@ -39,7 +42,8 @@ export class GatewayTimeoutException extends __BaseException {
   readonly name = "GatewayTimeoutException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>An error message to inform that the request failed.</p>
+   * An error message to inform that the request failed.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -58,7 +62,8 @@ export class GatewayTimeoutException extends __BaseException {
 }
 
 /**
- * <p>An error returned when a specific resource type is not found.</p>
+ * An error returned when a specific resource type is not found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -66,13 +71,15 @@ export class NotFoundException extends __BaseException {
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error message to inform that the request has failed.</p>
+   * An error message to inform that the request has failed.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The type of resource that is not found.</p>
+   * The type of resource that is not found.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -92,7 +99,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
+ * An error that is returned when a limit of a specific type has been exceeded.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -100,13 +108,15 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The type of limit that was exceeded.</p>
+   * The type of limit that was exceeded.
+   *
    * @public
    */
   LimitType?: string | undefined;
 
   /**
-   * <p>An error message to inform that the request has failed.</p>
+   * An error message to inform that the request has failed.
+   *
    * @public
    */
   Message?: string | undefined;

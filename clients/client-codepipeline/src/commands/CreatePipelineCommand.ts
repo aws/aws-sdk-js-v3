@@ -23,13 +23,10 @@ export interface CreatePipelineCommandInput extends CreatePipelineInput {}
 export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a pipeline.</p>
- *          <note>
- *             <p>In the pipeline structure, you must include either <code>artifactStore</code>
- *                 or <code>artifactStores</code> in your pipeline, but you cannot use both. If you
- *                 create a cross-region action in your pipeline, you must use
- *                     <code>artifactStores</code>.</p>
- *          </note>
+ * Creates a pipeline.
+ *
+ * > **Note:** In the pipeline structure, you must include either `artifactStore` or `artifactStores` in your pipeline, but you cannot use both. If you create a cross-region action in your pipeline, you must use `artifactStores`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -560,39 +557,48 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * Unable to modify the tag due to a simultaneous update request.
  *
  * @throws {@link InvalidActionDeclarationException} (client fault)
- *  <p>The action declaration was specified in an invalid format.</p>
+ *
+ * The action declaration was specified in an invalid format.
  *
  * @throws {@link InvalidBlockerDeclarationException} (client fault)
- *  <p>Reserved for future use.</p>
+ *
+ * Reserved for future use.
  *
  * @throws {@link InvalidStageDeclarationException} (client fault)
- *  <p>The stage declaration was specified in an invalid format.</p>
+ *
+ * The stage declaration was specified in an invalid format.
  *
  * @throws {@link InvalidStructureException} (client fault)
- *  <p>The structure was specified in an invalid format.</p>
+ *
+ * The structure was specified in an invalid format.
  *
  * @throws {@link InvalidTagsException} (client fault)
- *  <p>The specified resource tags are invalid.</p>
+ *
+ * The specified resource tags are invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The number of pipelines associated with the Amazon Web Services account has exceeded
- *             the limit allowed for the account.</p>
+ *
+ * The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.
  *
  * @throws {@link PipelineNameInUseException} (client fault)
- *  <p>The specified pipeline name is already in use.</p>
+ *
+ * The specified pipeline name is already in use.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The tags limit for a resource has been exceeded.</p>
+ *
+ * The tags limit for a resource has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

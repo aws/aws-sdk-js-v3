@@ -23,14 +23,12 @@ export interface GetSpotPlacementScoresCommandInput extends GetSpotPlacementScor
 export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementScoresResult, __MetadataBearer {}
 
 /**
- * <p>Calculates the Spot placement score for a Region or Availability Zone based on the
- *          specified target capacity and compute requirements.</p>
- *          <p>You can specify your compute requirements either by using
- *             <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal
- *          instance types to fulfill your Spot request, or you can specify the instance types by using
- *             <code>InstanceTypes</code>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in
- *          the <i>Amazon EC2 User Guide</i>.</p>
+ * Calculates the Spot placement score for a Region or Availability Zone based on the specified target capacity and compute requirements.
+ *
+ * You can specify your compute requirements either by using `InstanceRequirementsWithMetadata` and letting Amazon EC2 choose the optimal instance types to fulfill your Spot request, or you can specify the instance types by using `InstanceTypes`.
+ *
+ * For more information, see [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -163,8 +161,8 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

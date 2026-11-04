@@ -23,81 +23,40 @@ export interface CreateCampaignCommandInput extends CreateCampaignRequest {}
 export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p> You incur campaign costs while it is active. To avoid unnecessary costs, make sure to delete the campaign when you are finished. For information about campaign
- *         costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
- *          </important>
- *          <p>Creates a campaign that deploys a solution version. When a client calls the
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
- *       and
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html">GetPersonalizedRanking</a>
- *       APIs, a campaign is specified in the request.</p>
- *          <p>
- *             <b>Minimum Provisioned TPS and Auto-Scaling</b>
- *          </p>
- *          <important>
- *             <p> A high <code>minProvisionedTPS</code> will increase your cost. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default). Track
- *         your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code>
- *         as necessary.</p>
- *          </important>
- *          <p>
- *       When you create an Amazon Personalize campaign, you can specify the minimum provisioned transactions per second
- *       (<code>minProvisionedTPS</code>) for the campaign. This is the baseline transaction throughput for the campaign provisioned by
- *       Amazon Personalize. It sets the minimum billing charge for the campaign while it is active. A transaction is a single <code>GetRecommendations</code> or
- *       <code>GetPersonalizedRanking</code> request. The default <code>minProvisionedTPS</code> is 1.</p>
- *          <p> If your TPS increases beyond the <code>minProvisionedTPS</code>, Amazon Personalize auto-scales the provisioned capacity up
- *       and down, but never below <code>minProvisionedTPS</code>.
- *       There's a short time delay while the capacity is increased
- *       that might cause loss of transactions. When your traffic reduces, capacity returns to the <code>minProvisionedTPS</code>.
- *     </p>
- *          <p>You are charged for the
- *       the minimum provisioned TPS or, if your requests exceed the <code>minProvisionedTPS</code>, the actual TPS.
- *       The actual TPS is the total number of recommendation requests you make.
- *       We recommend starting with a low <code>minProvisionedTPS</code>, track
- *       your usage using Amazon CloudWatch metrics, and then increase the <code>minProvisionedTPS</code> as necessary.</p>
- *          <p>For more information about campaign costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
- *          <p>
- *             <b>Status</b>
- *          </p>
- *          <p>A campaign can be in one of the following states:</p>
- *          <ul>
- *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
- *             </li>
- *             <li>
- *                <p>DELETE PENDING > DELETE IN_PROGRESS</p>
- *             </li>
- *          </ul>
- *          <p>To get the campaign status, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>.</p>
- *          <note>
- *             <p>Wait until the <code>status</code> of the campaign
- *         is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
- *          </note>
- *          <p class="title">
- *             <b>Related APIs</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html">UpdateCampaign</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html">DeleteCampaign</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Important:** You incur campaign costs while it is active. To avoid unnecessary costs, make sure to delete the campaign when you are finished. For information about campaign costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
+ *
+ * Creates a campaign that deploys a solution version. When a client calls the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) and [GetPersonalizedRanking](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html) APIs, a campaign is specified in the request.
+ *
+ * **Minimum Provisioned TPS and Auto-Scaling**
+ *
+ * > **Important:** A high `minProvisionedTPS` will increase your cost. We recommend starting with 1 for `minProvisionedTPS` (the default). Track your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as necessary.
+ *
+ * When you create an Amazon Personalize campaign, you can specify the minimum provisioned transactions per second (`minProvisionedTPS`) for the campaign. This is the baseline transaction throughput for the campaign provisioned by Amazon Personalize. It sets the minimum billing charge for the campaign while it is active. A transaction is a single `GetRecommendations` or `GetPersonalizedRanking` request. The default `minProvisionedTPS` is 1.
+ *
+ * If your TPS increases beyond the `minProvisionedTPS`, Amazon Personalize auto-scales the provisioned capacity up and down, but never below `minProvisionedTPS`. There's a short time delay while the capacity is increased that might cause loss of transactions. When your traffic reduces, capacity returns to the `minProvisionedTPS`.
+ *
+ * You are charged for the the minimum provisioned TPS or, if your requests exceed the `minProvisionedTPS`, the actual TPS. The actual TPS is the total number of recommendation requests you make. We recommend starting with a low `minProvisionedTPS`, track your usage using Amazon CloudWatch metrics, and then increase the `minProvisionedTPS` as necessary.
+ *
+ * For more information about campaign costs, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/).
+ *
+ * **Status**
+ *
+ * A campaign can be in one of the following states:
+ *
+ * - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
+ * - DELETE PENDING > DELETE IN_PROGRESS
+ *
+ * To get the campaign status, call [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html).
+ *
+ * > **Note:** Wait until the `status` of the campaign is `ACTIVE` before asking the campaign for recommendations.
+ *
+ * **Related APIs**
+ *
+ * - [ListCampaigns](https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html)
+ * - [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html)
+ * - [UpdateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html)
+ * - [DeleteCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,26 +101,32 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

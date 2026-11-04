@@ -26,13 +26,12 @@ export interface CreateTenantResourceAssociationCommandInput extends CreateTenan
 export interface CreateTenantResourceAssociationCommandOutput extends CreateTenantResourceAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Associate a resource with a tenant.</p>
- *          <p>
- *             <i>Resources</i> can be email identities, configuration sets, or email templates.
- *             When you associate a resource with a tenant, you can use that resource when sending emails
- *             on behalf of that tenant.</p>
- *          <p>A single resource can be associated with multiple tenants, allowing for resource sharing
- *             across different tenants while maintaining isolation in email sending operations.</p>
+ * Associate a resource with a tenant.
+ *
+ * *Resources* can be email identities, configuration sets, or email templates. When you associate a resource with a tenant, you can use that resource when sending emails on behalf of that tenant.
+ *
+ * A single resource can be associated with multiple tenants, allowing for resource sharing across different tenants while maintaining isolation in email sending operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +57,24 @@ export interface CreateTenantResourceAssociationCommandOutput extends CreateTena
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

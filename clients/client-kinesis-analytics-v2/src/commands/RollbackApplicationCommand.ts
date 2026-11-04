@@ -23,12 +23,12 @@ export interface RollbackApplicationCommandInput extends RollbackApplicationRequ
 export interface RollbackApplicationCommandOutput extends RollbackApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Reverts the application to the previous running version. You can roll back an
- *       application if you suspect it is stuck in a transient status or in the running status. </p>
- *          <p>You can roll back an application only if it is in the <code>UPDATING</code>,
- *         <code>AUTOSCALING</code>, or  <code>RUNNING</code> statuses.</p>
- *          <p>When you rollback an application, it loads state data from the last successful snapshot.
- *         If the application has no snapshots, Managed Service for Apache Flink rejects the rollback request.</p>
+ * Reverts the application to the previous running version. You can roll back an application if you suspect it is stuck in a transient status or in the running status.
+ *
+ * You can roll back an application only if it is in the `UPDATING`, `AUTOSCALING`, or `RUNNING` statuses.
+ *
+ * When you rollback an application, it loads state data from the last successful snapshot. If the application has no snapshots, Managed Service for Apache Flink rejects the rollback request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -299,29 +299,32 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modifications to an application. This error can
- *       be the result of attempting to modify an application without using the current application
- *       ID.</p>
+ *
+ * Exception thrown as a result of concurrent modifications to an application. This error can be the result of attempting to modify an application without using the current application ID.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter value is not valid.</p>
+ *
+ * The specified input parameter value is not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request JSON is not valid for the operation.</p>
+ *
+ * The request JSON is not valid for the operation.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The application is not available for this operation.</p>
+ *
+ * The application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsV2ServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalyticsV2 service.
  *
  * @public
  */

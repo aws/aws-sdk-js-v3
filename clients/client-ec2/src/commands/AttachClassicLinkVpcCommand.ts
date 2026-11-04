@@ -23,16 +23,14 @@ export interface AttachClassicLinkVpcCommandInput extends AttachClassicLinkVpcRe
 export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC
- * 			security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You
- * 			can only link an instance that's in the <code>running</code> state. An instance is
- * 			automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when
- * 			you restart it.</p>
- *          <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>
- *          <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You can only link an instance that's in the `running` state. An instance is automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when you restart it.
+ *
+ * After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.
+ *
+ * Linking your instance to a VPC is sometimes referred to as *attaching* your instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +62,8 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

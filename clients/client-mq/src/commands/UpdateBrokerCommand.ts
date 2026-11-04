@@ -23,7 +23,8 @@ export interface UpdateBrokerCommandInput extends UpdateBrokerRequest {}
 export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a pending configuration change to a broker.</p>
+ * Adds a pending configuration change to a broker.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,23 +145,28 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Returns information about an error.</p>
+ *
+ * Returns information about an error.
  *
  * @throws {@link MqServiceException}
- * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ * Base exception class for all service exceptions from Mq service.
  *
  * @public
  */

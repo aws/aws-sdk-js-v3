@@ -23,9 +23,8 @@ export interface GetInsightCommandInput extends GetInsightRequest {}
 export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the summary information of an insight. This includes impact to clients and
- *          root cause services, the top anomalous services, the category, the state of the insight,
- *          and the start and end time of the insight.</p>
+ * Retrieves the summary information of an insight. This includes impact to clients and root cause services, the top anomalous services, the category, the state of the insight, and the start and end time of the insight.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,14 +92,16 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

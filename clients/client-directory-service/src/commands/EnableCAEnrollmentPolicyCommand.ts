@@ -23,14 +23,10 @@ export interface EnableCAEnrollmentPolicyCommandInput extends EnableCAEnrollment
 export interface EnableCAEnrollmentPolicyCommandOutput extends EnableCAEnrollmentPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Enables certificate authority (CA) enrollment policy for the specified directory. This allows
- *       domain-joined clients to automatically request and receive certificates from the specified
- *       Amazon Web Services Private Certificate Authority.</p>
- *          <note>
- *             <p>Before enabling CA enrollment, ensure that the PCA connector is properly configured and
- *         accessible from the directory. The connector must be in an active state and have the
- *         necessary permissions.</p>
- *          </note>
+ * Enables certificate authority (CA) enrollment policy for the specified directory. This allows domain-joined clients to automatically request and receive certificates from the specified Amazon Web Services Private Certificate Authority.
+ *
+ * > **Note:** Before enabling CA enrollment, ensure that the PCA connector is properly configured and accessible from the directory. The connector must be in an active state and have the necessary permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,35 +52,44 @@ export interface EnableCAEnrollmentPolicyCommandOutput extends EnableCAEnrollmen
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
- *  <p>The specified directory does not exist in the system.</p>
+ *
+ * The specified directory does not exist in the system.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable.</p>
+ *
+ * The specified directory is unavailable.
  *
  * @throws {@link EnableAlreadyInProgressException} (client fault)
- *  <p>An enable operation for CA enrollment policy is already in progress for this directory.</p>
+ *
+ * An enable operation for CA enrollment policy is already in progress for this directory.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The specified entity already exists.</p>
+ *
+ * The specified entity already exists.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @public
  */

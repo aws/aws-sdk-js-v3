@@ -23,9 +23,8 @@ export interface CreateNotebookCommandInput extends CreateNotebookInput {}
 export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an empty <code>ipynb</code> file in the specified Apache Spark enabled
- *             workgroup. Throws an error if a file in the workgroup with the same name already
- *             exists.</p>
+ * Creates an empty `ipynb` file in the specified Apache Spark enabled workgroup. Throws an error if a file in the workgroup with the same name already exists.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,19 +53,20 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Indicates that the request was throttled.</p>
+ *
+ * Indicates that the request was throttled.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

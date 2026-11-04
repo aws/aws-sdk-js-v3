@@ -23,56 +23,29 @@ export interface DescribeCasesCommandInput extends DescribeCasesRequest {}
 export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of cases that you specify by passing one or more case IDs. You can use
- *             the <code>afterTime</code> and <code>beforeTime</code> parameters to filter the cases by
- *             date. You can set values for the <code>includeResolvedCases</code> and
- *                 <code>includeCommunications</code> parameters to specify how much information to
- *             return.</p>
- *          <p>The response returns the following in JSON format:</p>
- *          <ul>
- *             <li>
- *                <p>One or more <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a> data types.</p>
- *             </li>
- *             <li>
- *                <p>One or more <code>nextToken</code> values, which specify where to paginate the
- *                     returned records represented by the <code>CaseDetails</code> objects.</p>
- *             </li>
- *          </ul>
- *          <p>Case data is available for 24 months after creation. If a case was created more than
- *             24 months ago, a request might return an error.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
- *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
- *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <important>
- *             <p>Each <a>Communication</a> returned by this operation includes
- *                 attachment information in two fields:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>attachmentSet</code>: returns only attachments that are 5 MB or
- *                         smaller. Attachments larger than 5 MB are not included in this field.</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>attachments</code>: returns all attachments regardless of size.</p>
- *                </li>
- *             </ul>
- *             <p>Amazon Web Services recommends that you use the <code>attachments</code> field and download each
- *                 attachment with <a>GetAttachmentDownloadLink</a>, which supports
- *                 attachments of any size. The <code>attachmentSet</code> field and <a>DescribeAttachment</a> return only attachments that are 5 MB or
- *                 smaller.</p>
- *          </important>
+ * Returns a list of cases that you specify by passing one or more case IDs. You can use the `afterTime` and `beforeTime` parameters to filter the cases by date. You can set values for the `includeResolvedCases` and `includeCommunications` parameters to specify how much information to return.
+ *
+ * The response returns the following in JSON format:
+ *
+ * - One or more [CaseDetails](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html) data types.
+ * - One or more `nextToken` values, which specify where to paginate the returned records represented by the `CaseDetails` objects.
+ *
+ * Case data is available for 24 months after creation. If a case was created more than 24 months ago, a request might return an error.
+ *
+ * > **Note:**
+ * >
+ * > - You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ *
+ * > **Important:**
+ * >
+ * > Each Communication returned by this operation includes attachment information in two fields:
+ * >
+ * > - `attachmentSet`: returns only attachments that are 5 MB or smaller. Attachments larger than 5 MB are not included in this field.
+ * > - `attachments`: returns all attachments regardless of size.
+ * >
+ * > Amazon Web Services recommends that you use the `attachments` field and download each attachment with GetAttachmentDownloadLink, which supports attachments of any size. The `attachmentSet` field and DescribeAttachment return only attachments that are 5 MB or smaller.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,18 +123,20 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link CaseIdNotFound} (client fault)
- *  <p>The requested <code>caseId</code> couldn't be located.</p>
+ *
+ * The requested `caseId` couldn't be located.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
- *          set to <code>true</code>.</p>
+ *
+ * The request was valid, but the operation wasn't performed because `dryRun` was set to `true`.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

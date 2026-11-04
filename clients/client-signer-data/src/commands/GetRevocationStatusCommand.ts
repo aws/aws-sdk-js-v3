@@ -23,7 +23,8 @@ export interface GetRevocationStatusCommandInput extends GetRevocationStatusRequ
 export interface GetRevocationStatusCommandOutput extends GetRevocationStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the revocation status for a signed artifact by checking if the signing profile, job, or certificate has been revoked.</p>
+ * Retrieves the revocation status for a signed artifact by checking if the signing profile, job, or certificate has been revoked.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +59,24 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
  * @see {@link SignerDataClientResolvedConfig | config} for SignerDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request contains invalid parameters or is malformed.</p>
+ *
+ * The request contains invalid parameters or is malformed.
  *
  * @throws {@link SignerDataServiceException}
- * <p>Base exception class for all service exceptions from SignerData service.</p>
  *
+ * Base exception class for all service exceptions from SignerData service.
  *
  * @example Check revocation status for a signed artifact
  * ```javascript

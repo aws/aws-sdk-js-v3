@@ -23,10 +23,10 @@ export interface GetSendStatisticsCommandInput {}
 export interface GetSendStatisticsCommandOutput extends GetSendStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides sending statistics for the current Amazon Web Services Region. The result is a list of data
- *             points, representing the last two weeks of sending activity. Each data point in the list
- *             contains statistics for a 15-minute period of time.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Provides sending statistics for the current Amazon Web Services Region. The result is a list of data points, representing the last two weeks of sending activity. Each data point in the list contains statistics for a 15-minute period of time.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +59,8 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example GetSendStatistics
  * ```javascript

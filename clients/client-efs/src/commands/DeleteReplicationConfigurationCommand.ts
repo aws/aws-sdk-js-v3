@@ -23,12 +23,10 @@ export interface DeleteReplicationConfigurationCommandInput extends DeleteReplic
 export interface DeleteReplicationConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a replication configuration. Deleting a replication configuration ends the
- *       replication process. After a replication configuration is deleted, the destination file system
- *       becomes <code>Writeable</code> and its replication overwrite protection is re-enabled. For
- *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html">Delete a replication configuration</a>.</p>
- *          <p>This operation requires permissions for the
- *         <code>elasticfilesystem:DeleteReplicationConfiguration</code> action. </p>
+ * Deletes a replication configuration. Deleting a replication configuration ends the replication process. After a replication configuration is deleted, the destination file system becomes `Writeable` and its replication overwrite protection is re-enabled. For more information, see [Delete a replication configuration](https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html).
+ *
+ * This operation requires permissions for the `elasticfilesystem:DeleteReplicationConfiguration` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,23 +52,24 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link ReplicationNotFound} (client fault)
- *  <p>Returned if the specified file system does not have a replication
- *             configuration.</p>
+ *
+ * Returned if the specified file system does not have a replication configuration.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

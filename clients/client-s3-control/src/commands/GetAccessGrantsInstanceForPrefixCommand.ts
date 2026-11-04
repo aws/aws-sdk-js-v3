@@ -26,17 +26,16 @@ export interface GetAccessGrantsInstanceForPrefixCommandInput extends GetAccessG
 export interface GetAccessGrantsInstanceForPrefixCommandOutput extends GetAccessGrantsInstanceForPrefixResult, __MetadataBearer {}
 
 /**
- * <p>Retrieve the S3 Access Grants instance that contains a particular prefix.  </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:GetAccessGrantsInstanceForPrefix</code> permission for the caller account to use this operation. </p>
- *             </dd>
- *             <dt>Additional Permissions</dt>
- *             <dd>
- *                <p>The prefix owner account must grant you the following permissions to their S3 Access Grants instance: <code>s3:GetAccessGrantsInstanceForPrefix</code>. </p>
- *             </dd>
- *          </dl>
+ * Retrieve the S3 Access Grants instance that contains a particular prefix.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:GetAccessGrantsInstanceForPrefix` permission for the caller account to use this operation.
+ *
+ * - **Additional Permissions**
+ *
+ *   The prefix owner account must grant you the following permissions to their S3 Access Grants instance: `s3:GetAccessGrantsInstanceForPrefix`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +64,8 @@ export interface GetAccessGrantsInstanceForPrefixCommandOutput extends GetAccess
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

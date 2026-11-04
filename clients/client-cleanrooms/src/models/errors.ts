@@ -11,7 +11,8 @@ import type {
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>Caller does not have sufficient access to perform this action.</p>
+ * Caller does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -19,7 +20,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A reason code for the exception.</p>
+   * A reason code for the exception.
+   *
    * @public
    */
   reason?: AccessDeniedExceptionReason | undefined;
@@ -39,7 +41,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -47,19 +50,22 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the conflicting resource.</p>
+   * The ID of the conflicting resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the conflicting resource.</p>
+   * The type of the conflicting resource.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>A reason code for the exception.</p>
+   * A reason code for the exception.
+   *
    * @public
    */
   reason?: ConflictExceptionReason | undefined;
@@ -81,7 +87,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
+ * Unexpected error during processing of request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -102,7 +109,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Request references a resource which does not exist.</p>
+ * Request references a resource which does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -110,13 +118,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Id of the missing resource.</p>
+   * The Id of the missing resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the missing resource.</p>
+   * The type of the missing resource.
+   *
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -137,7 +147,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Request denied because service quota has been exceeded.</p>
+ * Request denied because service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -145,13 +156,15 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the quota.</p>
+   * The name of the quota.
+   *
    * @public
    */
   quotaName: string | undefined;
 
   /**
-   * <p>The value of the quota.</p>
+   * The value of the quota.
+   *
    * @public
    */
   quotaValue: number | undefined;
@@ -172,7 +185,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Request was denied due to request throttling.</p>
+ * Request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -193,7 +207,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the specified constraints.</p>
+ * The input fails to satisfy the specified constraints.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -201,13 +216,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A reason code for the exception.</p>
+   * A reason code for the exception.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>Validation errors for specific input parameters.</p>
+   * Validation errors for specific input parameters.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

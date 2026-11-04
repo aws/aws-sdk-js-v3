@@ -24,27 +24,18 @@ export interface CreateContactCommandInput extends CreateContactRequest {}
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
- * <important>
- *             <p>Only the VOICE, EMAIL, and TASK channels are supported. </p>
- *             <ul>
- *                <li>
- *                   <p>For VOICE: The supported initiation method is <code>TRANSFER</code>. The contacts created with this
- *       initiation method have a subtype <code>connect:ExternalAudio</code>. </p>
- *                </li>
- *                <li>
- *                   <p>For EMAIL: The supported initiation methods are <code>OUTBOUND</code>, <code>AGENT_REPLY</code>, and
- *        <code>FLOW</code>. </p>
- *                </li>
- *                <li>
- *                   <p>For TASK: The supported initiation method is <code>API</code>. Contacts created with this API have a sub-type
- *       of <code>connect:ExternalTask</code>.</p>
- *                </li>
- *             </ul>
- *          </important>
- *          <p>Creates a new VOICE, EMAIL, or TASK contact. </p>
- *          <p>After a contact is created, you can move it to the desired state by using the <code>InitiateAs</code> parameter.
- *    While you can use API to create task contacts that are in the <code>COMPLETED</code> state, you must contact Amazon Web Services Support before using it for bulk import use cases. Bulk import causes your requests to be throttled or
- *    fail if your CreateContact limits aren't high enough. </p>
+ * > **Important:**
+ * >
+ * > Only the VOICE, EMAIL, and TASK channels are supported.
+ * >
+ * > - For VOICE: The supported initiation method is `TRANSFER`. The contacts created with this initiation method have a subtype `connect:ExternalAudio`.
+ * > - For EMAIL: The supported initiation methods are `OUTBOUND`, `AGENT_REPLY`, and `FLOW`.
+ * > - For TASK: The supported initiation method is `API`. Contacts created with this API have a sub-type of `connect:ExternalTask`.
+ *
+ * Creates a new VOICE, EMAIL, or TASK contact.
+ *
+ * After a contact is created, you can move it to the desired state by using the `InitiateAs` parameter. While you can use API to create task contacts that are in the `COMPLETED` state, you must contact Amazon Web Services Support before using it for bulk import use cases. Bulk import causes your requests to be throttled or fail if your CreateContact limits aren't high enough.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,36 +110,44 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
- *    state.</p>
+ *
+ * Operation cannot be performed at this time as there is a conflict with another operation or contact state.
  *
  * @throws {@link IdempotencyException} (client fault)
- *  <p>An entity with the same name already exists.</p>
+ *
+ * An entity with the same name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

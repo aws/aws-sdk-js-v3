@@ -26,10 +26,10 @@ export interface GetSnapshotBlockPublicAccessStateCommandInput extends GetSnapsh
 export interface GetSnapshotBlockPublicAccessStateCommandOutput extends GetSnapshotBlockPublicAccessStateResult, __MetadataBearer {}
 
 /**
- * <p>Gets the current state of <i>block public access for snapshots</i> setting
- *       for the account and Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
- *       Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Gets the current state of *block public access for snapshots* setting for the account and Region.
+ *
+ * For more information, see [Block public access for snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +57,8 @@ export interface GetSnapshotBlockPublicAccessStateCommandOutput extends GetSnaps
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

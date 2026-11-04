@@ -23,19 +23,12 @@ export interface ExecuteStatementCommandInput extends ExecuteStatementInput {}
 export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, __MetadataBearer {}
 
 /**
- * <p>This operation allows you to perform reads and singleton writes on data stored in
- *             DynamoDB, using PartiQL.</p>
- *          <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
- *             items exceeds the maximum dataset size limit of 1 MB, the read stops and results are
- *             returned to the user as a <code>LastEvaluatedKey</code> value to continue the read in a
- *             subsequent operation. If the filter criteria in <code>WHERE</code> clause does not match
- *             any data, the read will return an empty result set.</p>
- *          <p>A single <code>SELECT</code> statement response can return up to the maximum number of
- *             items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any
- *             filtering to the results using <code>WHERE</code> clause). If
- *                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
- *             result set. If <code>NextToken</code> is present, you need to paginate the result set
- *             and include <code>NextToken</code>.</p>
+ * This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.
+ *
+ * For PartiQL reads (`SELECT` statement), if the total number of processed items exceeds the maximum dataset size limit of 1 MB, the read stops and results are returned to the user as a `LastEvaluatedKey` value to continue the read in a subsequent operation. If the filter criteria in `WHERE` clause does not match any data, the read will return an empty result set.
+ *
+ * A single `SELECT` statement response can return up to the maximum number of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any filtering to the results using `WHERE` clause). If `LastEvaluatedKey` is present in the response, you need to paginate the result set. If `NextToken` is present, you need to paginate the result set and include `NextToken`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -193,48 +186,44 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ConditionalCheckFailedException} (client fault)
- *  <p>A condition specified in the operation failed to be evaluated.</p>
+ *
+ * A condition specified in the operation failed to be evaluated.
  *
  * @throws {@link DuplicateItemException} (client fault)
- *  <p> There was an attempt to insert an item with the same primary key as an item that
- *             already exists in the DynamoDB table.</p>
+ *
+ * There was an attempt to insert an item with the same primary key as an item that already exists in the DynamoDB table.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ItemCollectionSizeLimitExceededException} (client fault)
- *  <p>An item collection is too large. This exception is only returned for tables that
- *             have one or more local secondary indexes.</p>
+ *
+ * An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about
- *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
- *             SDKs for DynamoDB automatically retry requests that receive this exception.
- *             Your request is eventually successful, unless your retry queue is too large to finish.
- *             Reduce the frequency of requests and use exponential backoff. For more information, go
- *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to [Error Retries and Exponential Backoff](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff) in the *Amazon DynamoDB Developer Guide*.
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>Throughput exceeds the current throughput quota for your account. For detailed
- *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota
- *             increase.</p>
+ *
+ * Throughput exceeds the current throughput quota for your account. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. Contact [Amazon Web Services Support](https://aws.amazon.com/support) to request a quota increase.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about why
- *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception.
  *
  * @throws {@link TransactionConflictException} (client fault)
- *  <p>Operation was rejected because there is an ongoing transaction for the
- *             item.</p>
+ *
+ * Operation was rejected because there is an ongoing transaction for the item.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

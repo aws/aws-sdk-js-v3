@@ -23,21 +23,12 @@ export interface CreateEventSubscriptionCommandInput extends CreateEventSubscrip
 export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Creates an event notification subscription. This action requires a topic ARN (Amazon
- *       Resource Name) created by either the Neptune console, the SNS console, or the SNS API. To
- *       obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The
- *       ARN is displayed in the SNS console.</p>
- *          <p>You can specify the type of source (SourceType) you want to be notified of, provide a list
- *       of Neptune sources (SourceIds) that triggers the events, and provide a list of event
- *       categories (EventCategories) for events you want to be notified of. For example, you can
- *       specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and EventCategories
- *       = Availability, Backup.</p>
- *          <p>If you specify both the SourceType and SourceIds, such as SourceType = db-instance and
- *       SourceIdentifier = myDBInstance1, you are notified of all the db-instance events for the
- *       specified source. If you specify a SourceType but do not specify a SourceIdentifier, you
- *       receive notice of the events for that source type for all your Neptune sources. If you do not
- *       specify either the SourceType nor the SourceIdentifier, you are notified of events generated
- *       from all Neptune sources belonging to your customer account.</p>
+ * Creates an event notification subscription. This action requires a topic ARN (Amazon Resource Name) created by either the Neptune console, the SNS console, or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to the topic. The ARN is displayed in the SNS console.
+ *
+ * You can specify the type of source (SourceType) you want to be notified of, provide a list of Neptune sources (SourceIds) that triggers the events, and provide a list of event categories (EventCategories) for events you want to be notified of. For example, you can specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2 and EventCategories = Availability, Backup.
+ *
+ * If you specify both the SourceType and SourceIds, such as SourceType = db-instance and SourceIdentifier = myDBInstance1, you are notified of all the db-instance events for the specified source. If you specify a SourceType but do not specify a SourceIdentifier, you receive notice of the events for that source type for all your Neptune sources. If you do not specify either the SourceType nor the SourceIdentifier, you are notified of events generated from all Neptune sources belonging to your customer account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,29 +85,36 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
- *  <p>You have exceeded the number of events you can subscribe to.</p>
+ *
+ * You have exceeded the number of events you can subscribe to.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>The SNS topic is invalid.</p>
+ *
+ * The SNS topic is invalid.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>There is no SNS authorization.</p>
+ *
+ * There is no SNS authorization.
  *
  * @throws {@link SNSTopicArnNotFoundFault} (client fault)
- *  <p>The ARN of the SNS topic could not be found.</p>
+ *
+ * The ARN of the SNS topic could not be found.
  *
  * @throws {@link SourceNotFoundFault} (client fault)
- *  <p>The source could not be found.</p>
+ *
+ * The source could not be found.
  *
  * @throws {@link SubscriptionAlreadyExistFault} (client fault)
- *  <p>This subscription already exists.</p>
+ *
+ * This subscription already exists.
  *
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
- *  <p>The designated subscription category could not be found.</p>
+ *
+ * The designated subscription category could not be found.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

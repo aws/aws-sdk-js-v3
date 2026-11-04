@@ -23,10 +23,8 @@ export interface StopMigrationCommandInput extends StopMigrationRequest {}
 export interface StopMigrationCommandOutput extends StopMigrationResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an ongoing data sync between the source and the serverless cache. The migration remains
- *             open and the data sync can be restarted. This operation is valid only while the migration is
- *             syncing; during cutover it returns
- *             <code>InvalidServerlessCacheStateFault</code>.</p>
+ * Stops an ongoing data sync between the source and the serverless cache. The migration remains open and the data sync can be restarted. This operation is valid only while the migration is syncing; during cutover it returns `InvalidServerlessCacheStateFault`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,20 +100,24 @@ export interface StopMigrationCommandOutput extends StopMigrationResponse, __Met
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServerlessCacheNotUnderMigrationFault} (client fault)
- *  <p>The serverless cache is not currently under migration.</p>
+ *
+ * The serverless cache is not currently under migration.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

@@ -23,11 +23,10 @@ export interface DeleteVirtualMFADeviceCommandInput extends DeleteVirtualMFADevi
 export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a virtual MFA device.</p>
- *          <note>
- *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
- *                 information about deactivating MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html">DeactivateMFADevice</a>. </p>
- *          </note>
+ * Deletes a virtual MFA device.
+ *
+ * > **Note:** You must deactivate a user's virtual MFA device before you can delete it. For information about deactivating MFA devices, see [DeactivateMFADevice](https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,28 +51,28 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
  *
  * @throws {@link DeleteConflictException} (client fault)
- *  <p>The request was rejected because it attempted to delete a resource that has attached
- *       subordinate entities. The error message describes these entities.</p>
+ *
+ * The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To remove a virtual MFA device
  * ```javascript

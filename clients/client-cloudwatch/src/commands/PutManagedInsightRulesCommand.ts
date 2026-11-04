@@ -23,16 +23,8 @@ export interface PutManagedInsightRulesCommandInput extends PutManagedInsightRul
 export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p> Creates a managed Contributor Insights rule for a specified Amazon Web Services
- *             resource. When you enable a managed rule, you create a Contributor Insights rule that
- *             collects data from Amazon Web Services services. You cannot edit these rules with
- *                 <code>PutInsightRule</code>. The rules can be enabled, disabled, and deleted using
- *                 <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and
- *                 <code>DeleteInsightRules</code>. If a previously created managed rule is currently
- *             disabled, a subsequent call to this API will re-enable it. Use
- *                 <code>ListManagedInsightRules</code> to describe all available rules.
+ * Creates a managed Contributor Insights rule for a specified Amazon Web Services resource. When you enable a managed rule, you create a Contributor Insights rule that collects data from Amazon Web Services services. You cannot edit these rules with `PutInsightRule`. The rules can be enabled, disabled, and deleted using `EnableInsightRules`, `DisableInsightRules`, and `DeleteInsightRules`. If a previously created managed rule is currently disabled, a subsequent call to this API will re-enable it. Use `ListManagedInsightRules` to describe all available rules.
  *
- *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +69,16 @@ export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRu
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>An input parameter that is required is missing.</p>
+ *
+ * An input parameter that is required is missing.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

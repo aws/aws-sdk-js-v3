@@ -23,7 +23,8 @@ export interface CreateIngressPointCommandInput extends CreateIngressPointReques
 export interface CreateIngressPointCommandOutput extends CreateIngressPointResponse, __MetadataBearer {}
 
 /**
- * <p>Provision a new ingress endpoint resource.</p>
+ * Provision a new ingress endpoint resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +81,20 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+ *
+ * Occurs when an operation exceeds a predefined service quota or limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @example Create Open IngressPoint
  * ```javascript

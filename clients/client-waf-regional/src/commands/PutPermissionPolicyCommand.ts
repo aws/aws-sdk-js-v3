@@ -23,47 +23,36 @@ export interface PutPermissionPolicyCommandInput extends PutPermissionPolicyRequ
 export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is <b>AWS WAF Classic</b> documentation. For
- *       more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
- *       WAF Classic</a> in the developer guide.</p>
- *             <p>
- *                <b>For the latest version of AWS
- *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
- *          </note>
- *          <p>Attaches an IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup across accounts.</p>
- *          <p>The <code>PutPermissionPolicy</code> is subject to the following restrictions:</p>
- *          <ul>
- *             <li>
- *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
- *             </li>
- *             <li>
- *                <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p>
- *             </li>
- *             <li>
+ * > **Note:**
+ * >
+ * > This is **AWS WAF Classic** documentation. For more information, see [AWS WAF Classic](https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html) in the developer guide.
+ * >
+ * > **For the latest version of AWS WAF**, use the AWS WAFV2 API and see the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html). With the latest version, AWS WAF has a single set of endpoints for regional and global use.
  *
- *                <p>
- *                   <code>Effect</code> must specify <code>Allow</code>.</p>
- *             </li>
- *             <li>
- *                <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>, <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code> . Any extra or wildcard actions in the policy will be rejected.</p>
- *             </li>
- *             <li>
- *                <p>The policy cannot include a <code>Resource</code> parameter.</p>
- *             </li>
- *             <li>
- *                <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p>
- *             </li>
- *             <li>
- *                <p>The user making the request must be the owner of the RuleGroup.</p>
- *             </li>
- *             <li>
- *                <p>Your policy must be composed using IAM Policy version 2012-10-17.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a>.  </p>
  *
- *          <p>An example of a valid policy parameter is shown in the Examples section below.</p>
+ *
+ * Attaches an IAM policy to the specified resource. The only supported use for this action is to share a RuleGroup across accounts.
+ *
+ * The `PutPermissionPolicy` is subject to the following restrictions:
+ *
+ * - You can attach only one policy with each `PutPermissionPolicy` request.
+ * - The policy must include an `Effect`, `Action` and `Principal`.
+ * - `Effect` must specify `Allow`.
+ * - The `Action` in the policy must be `waf:UpdateWebACL`, `waf-regional:UpdateWebACL`, `waf:GetRuleGroup` and `waf-regional:GetRuleGroup` . Any extra or wildcard actions in the policy will be rejected.
+ * - The policy cannot include a `Resource` parameter.
+ * - The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.
+ * - The user making the request must be the owner of the RuleGroup.
+ * - Your policy must be composed using IAM Policy version 2012-10-17.
+ *
+ *
+ *
+ * For more information, see [IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
+ *
+ *
+ *
+ *
+ * An example of a valid policy parameter is shown in the Examples section below.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,49 +78,35 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  * @throws {@link WAFInternalErrorException} (server fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link WAFInvalidPermissionPolicyException} (client fault)
- *  <p>The operation failed because the specified policy is not in the proper format. </p>
- *          <p>The policy is subject to the following restrictions:</p>
- *          <ul>
- *             <li>
- *                <p>You can attach only one policy with each <code>PutPermissionPolicy</code> request.</p>
- *             </li>
- *             <li>
- *                <p>The policy must include an <code>Effect</code>, <code>Action</code> and <code>Principal</code>. </p>
- *             </li>
- *             <li>
  *
- *                <p>
- *                   <code>Effect</code> must specify <code>Allow</code>.</p>
- *             </li>
- *             <li>
- *                <p>The <code>Action</code> in the policy must be <code>waf:UpdateWebACL</code>, <code>waf-regional:UpdateWebACL</code>, <code>waf:GetRuleGroup</code> and <code>waf-regional:GetRuleGroup</code> . Any extra or wildcard actions in the policy will be rejected.</p>
- *             </li>
- *             <li>
- *                <p>The policy cannot include a <code>Resource</code> parameter.</p>
- *             </li>
- *             <li>
- *                <p>The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.</p>
- *             </li>
- *             <li>
- *                <p>The user making the request must be the owner of the RuleGroup.</p>
- *             </li>
- *             <li>
- *                <p>Your policy must be composed using IAM Policy version 2012-10-17.</p>
- *             </li>
- *          </ul>
+ * The operation failed because the specified policy is not in the proper format.
+ *
+ * The policy is subject to the following restrictions:
+ *
+ * - You can attach only one policy with each `PutPermissionPolicy` request.
+ * - The policy must include an `Effect`, `Action` and `Principal`.
+ * - `Effect` must specify `Allow`.
+ * - The `Action` in the policy must be `waf:UpdateWebACL`, `waf-regional:UpdateWebACL`, `waf:GetRuleGroup` and `waf-regional:GetRuleGroup` . Any extra or wildcard actions in the policy will be rejected.
+ * - The policy cannot include a `Resource` parameter.
+ * - The ARN in the request must be a valid WAF RuleGroup ARN and the RuleGroup must exist in the same region.
+ * - The user making the request must be the owner of the RuleGroup.
+ * - Your policy must be composed using IAM Policy version 2012-10-17.
  *
  * @throws {@link WAFNonexistentItemException} (client fault)
- *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ * The operation failed because the referenced object doesn't exist.
  *
  * @throws {@link WAFStaleDataException} (client fault)
- *  <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
+ *
+ * The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.
  *
  * @throws {@link WAFRegionalServiceException}
- * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ * Base exception class for all service exceptions from WAFRegional service.
  *
  * @public
  */

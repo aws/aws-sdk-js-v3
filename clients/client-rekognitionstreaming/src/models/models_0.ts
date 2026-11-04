@@ -9,103 +9,116 @@ import type {
 } from "./errors";
 
 /**
- * <p>Identifies the bounding box around a given label, face, text, object of interest, or
- *       personal protective equipment. The left (x-coordinate) and top (y-coordinate) are coordinates
- *       representing the top and left sides of the bounding box. Note that the upper-left corner of
- *       the image is the origin (0,0). </p>
- *          <p>The top and left values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a left value of 0.5 (350/700) and a top value of 0.25 (50/200).</p>
- *          <p>The width and height values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
+ * Identifies the bounding box around a given label, face, text, object of interest, or personal protective equipment. The left (x-coordinate) and top (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0).
+ *
+ * The top and left values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a left value of 0.5 (350/700) and a top value of 0.25 (50/200).
+ *
+ * The width and height values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1.
+ *
  * @public
  */
 export interface BoundingBox {
   /**
-   * <p>Width of the bounding box as a ratio of the overall image width.</p>
+   * Width of the bounding box as a ratio of the overall image width.
+   *
    * @public
    */
   Width: number | undefined;
 
   /**
-   * <p>Height of the bounding box as a ratio of the overall image height.</p>
+   * Height of the bounding box as a ratio of the overall image height.
+   *
    * @public
    */
   Height: number | undefined;
 
   /**
-   * <p>Left coordinate of the bounding box as a ratio of overall image width.</p>
+   * Left coordinate of the bounding box as a ratio of overall image width.
+   *
    * @public
    */
   Left: number | undefined;
 
   /**
-   * <p>Top coordinate of the bounding box as a ratio of overall image height.</p>
+   * Top coordinate of the bounding box as a ratio of overall image height.
+   *
    * @public
    */
   Top: number | undefined;
 }
 
 /**
- * <p>Configuration options for Face Liveness challenges performed at the client side. </p>
+ * Configuration options for Face Liveness challenges performed at the client side.
+ *
  * @public
  */
 export interface ChallengeConfig {
   /**
-   * <p>Threshold for face detection done using blaze face.</p>
+   * Threshold for face detection done using blaze face.
+   *
    * @public
    */
   BlazeFaceDetectionThreshold?: number | undefined;
 
   /**
-   * <p>Threshold for the minimum distance that face can be from the camera before face oval
-   *       match challenge starts.</p>
+   * Threshold for the minimum distance that face can be from the camera before face oval match challenge starts.
+   *
    * @public
    */
   FaceDistanceThresholdMin?: number | undefined;
 
   /**
-   * <p>Threshold for face distance threshold face liveness challenge.</p>
+   * Threshold for face distance threshold face liveness challenge.
+   *
    * @public
    */
   FaceDistanceThreshold?: number | undefined;
 
   /**
-   * <p>Threshold for the maximum distance that face can be from the camera before face oval
-   *       match challenge starts.</p>
+   * Threshold for the maximum distance that face can be from the camera before face oval match challenge starts.
+   *
    * @public
    */
   FaceDistanceThresholdMax?: number | undefined;
 
   /**
-   * <p>Threshold for face oval match using IoU (Intersection over Union).</p>
+   * Threshold for face oval match using IoU (Intersection over Union).
+   *
    * @public
    */
   OvalIouThreshold?: number | undefined;
 
   /**
-   * <p>Height to width ratio of oval used for face oval match.</p>
+   * Height to width ratio of oval used for face oval match.
+   *
    * @public
    */
   OvalHeightWidthRatio?: number | undefined;
 
   /**
-   * <p>Threshold for width during oval IOU (Intersection over Union) match.</p>
+   * Threshold for width during oval IOU (Intersection over Union) match.
+   *
    * @public
    */
   OvalIouWidthThreshold?: number | undefined;
 
   /**
-   * <p>Threshold for height during oval IOU (Intersection over Union) match.</p>
+   * Threshold for height during oval IOU (Intersection over Union) match.
+   *
    * @public
    */
   OvalIouHeightThreshold?: number | undefined;
 
   /**
-   * <p>Threshold for width during face IOU (Intersection over Union) match.</p>
+   * Threshold for width during face IOU (Intersection over Union) match.
+   *
    * @public
    */
   FaceIouWidthThreshold?: number | undefined;
 
   /**
-   * <p> Threshold for height during face IOU (Intersection over Union) match.</p>
+   * Threshold for height during face IOU (Intersection over Union) match.
+   *
    * @public
    */
   FaceIouHeightThreshold?: number | undefined;
@@ -122,139 +135,149 @@ export interface ChallengeEvent {
 }
 
 /**
- * <p>Represents the colors to be flashed to the end user, each color represented in RGB values.</p>
+ * Represents the colors to be flashed to the end user, each color represented in RGB values.
+ *
  * @public
  */
 export interface FreshnessColor {
   /**
-   * <p>RGB values for a color to be flashed to the end user.</p>
+   * RGB values for a color to be flashed to the end user.
+   *
    * @public
    */
   RGB: number[] | undefined;
 }
 
 /**
- * <p>Contains information regarding <code>SequenceNumber</code>, <code>CurrentColor</code>,
- *         <code>PreviousColor</code>, and <code>CurrentColorStartTimestamp</code>.</p>
+ * Contains information regarding `SequenceNumber`, `CurrentColor`, `PreviousColor`, and `CurrentColorStartTimestamp`.
+ *
  * @public
  */
 export interface ColorDisplayed {
   /**
-   * <p> The current color being displayed on the screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255). </p>
+   * The current color being displayed on the screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255).
+   *
    * @public
    */
   CurrentColor: FreshnessColor | undefined;
 
   /**
-   * <p>The previous color displayed on screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255). </p>
+   * The previous color displayed on screen (flat or downscrolled). It will contain a separate RGB list having 3 elements (each element can have values between 0 to 255).
+   *
    * @public
    */
   PreviousColor?: FreshnessColor | undefined;
 
   /**
-   * <p>The order in which the current color was displayed on the screen.</p>
+   * The order in which the current color was displayed on the screen.
+   *
    * @public
    */
   SequenceNumber: number | undefined;
 
   /**
-   * <p>Epoch timestamp of when the current color was displayed on the user screen.</p>
+   * Epoch timestamp of when the current color was displayed on the user screen.
+   *
    * @public
    */
   CurrentColorStartTimestamp: number | undefined;
 }
 
 /**
- * <p> Contains bounding box of initial face position of the user on the device screen.
- *       Contains an epoch timestamp of when the user was detected in this position. Used for Face
- *       Liveness detection.</p>
+ * Contains bounding box of initial face position of the user on the device screen. Contains an epoch timestamp of when the user was detected in this position. Used for Face Liveness detection.
+ *
  * @public
  */
 export interface InitialFace {
   /**
-   * <p>The bounding box for the initial face position of the user on the device screen.</p>
+   * The bounding box for the initial face position of the user on the device screen.
+   *
    * @public
    */
   BoundingBox: BoundingBox | undefined;
 
   /**
-   * <p>Timestamp that a face was initially detected at.</p>
+   * Timestamp that a face was initially detected at.
+   *
    * @public
    */
   InitialFaceDetectedTimestamp: number | undefined;
 }
 
 /**
- * <p>Contains bounding box of face position of the user on the device screen at target
- *       location constructed for the challenge. This is generated using the random offsets provided by
- *       the server to the client at session start. Also contains start and end epoch timestamp of when
- *       the user was detected in this position.</p>
+ * Contains bounding box of face position of the user on the device screen at target location constructed for the challenge. This is generated using the random offsets provided by the server to the client at session start. Also contains start and end epoch timestamp of when the user was detected in this position.
+ *
  * @public
  */
 export interface TargetFace {
   /**
-   * <p>A bounding box for the target face.</p>
+   * A bounding box for the target face.
+   *
    * @public
    */
   BoundingBox: BoundingBox | undefined;
 
   /**
-   * <p>Starting timestamp at which a face was detected in the target position.</p>
+   * Starting timestamp at which a face was detected in the target position.
+   *
    * @public
    */
   FaceDetectedInTargetPositionStartTimestamp: number | undefined;
 
   /**
-   * <p>Ending timestamp at which a face was detected in the target position.</p>
+   * Ending timestamp at which a face was detected in the target position.
+   *
    * @public
    */
   FaceDetectedInTargetPositionEndTimestamp: number | undefined;
 }
 
 /**
- * <p>Holds information about the type of face movement and light challenges that need to be
- *       performed.</p>
+ * Holds information about the type of face movement and light challenges that need to be performed.
+ *
  * @public
  */
 export interface FaceMovementAndLightClientChallenge {
   /**
-   * <p>An ID that uniquely identifies a challenge from a client.</p>
+   * An ID that uniquely identifies a challenge from a client.
+   *
    * @public
    */
   ChallengeId: string | undefined;
 
   /**
-   * <p>Epoch timestamp indicating start of video recording.</p>
+   * Epoch timestamp indicating start of video recording.
+   *
    * @public
    */
   VideoStartTimestamp?: number | undefined;
 
   /**
-   * <p>Epoch timestamp indicating end of video recording.</p>
+   * Epoch timestamp indicating end of video recording.
+   *
    * @public
    */
   VideoEndTimestamp?: number | undefined;
 
   /**
-   * <p>Contains the bounding box of the initial face position for the user on the device screen.
-   *       Also contains an epoch timestamp of when the user was detected in this position. Used for Face
-   *       Liveness detection.</p>
+   * Contains the bounding box of the initial face position for the user on the device screen. Also contains an epoch timestamp of when the user was detected in this position. Used for Face Liveness detection.
+   *
    * @public
    */
   InitialFace?: InitialFace | undefined;
 
   /**
-   * <p>Contains the face position bounding box for the user on the device's screen, set at the
-   *       target location constructed for the challenge. Generated using a precise oval location
-   *       depending on the provided video </p>
-   *          <p>dimensions in the input stream. Contains start and end epoch timestamp of when the user
-   *       was detected in this position.</p>
+   * Contains the face position bounding box for the user on the device's screen, set at the target location constructed for the challenge. Generated using a precise oval location depending on the provided video
+   *
+   * dimensions in the input stream. Contains start and end epoch timestamp of when the user was detected in this position.
+   *
    * @public
    */
   TargetFace?: TargetFace | undefined;
 
   /**
-   * <p>Contains information regarding SequenceNumber, CurrentColor, PreviousColor, and CurrentColorStartTimestamp for a challenge.</p>
+   * Contains information regarding SequenceNumber, CurrentColor, PreviousColor, and CurrentColorStartTimestamp for a challenge.
+   *
    * @public
    */
   ColorDisplayed?: ColorDisplayed | undefined;
@@ -268,26 +291,23 @@ export interface FaceMovementClientChallenge {
   VideoStartTimestamp?: number | undefined;
   VideoEndTimestamp?: number | undefined;
   /**
-   * <p> Contains bounding box of initial face position of the user on the device screen.
-   *       Contains an epoch timestamp of when the user was detected in this position. Used for Face
-   *       Liveness detection.</p>
+   * Contains bounding box of initial face position of the user on the device screen. Contains an epoch timestamp of when the user was detected in this position. Used for Face Liveness detection.
+   *
    * @public
    */
   InitialFace?: InitialFace | undefined;
 
   /**
-   * <p>Contains bounding box of face position of the user on the device screen at target
-   *       location constructed for the challenge. This is generated using the random offsets provided by
-   *       the server to the client at session start. Also contains start and end epoch timestamp of when
-   *       the user was detected in this position.</p>
+   * Contains bounding box of face position of the user on the device screen at target location constructed for the challenge. This is generated using the random offsets provided by the server to the client at session start. Also contains start and end epoch timestamp of when the user was detected in this position.
+   *
    * @public
    */
   TargetFace?: TargetFace | undefined;
 }
 
 /**
- * <p>Object containing information for Face Liveness challenges performed at the client
- *       side.</p>
+ * Object containing information for Face Liveness challenges performed at the client side.
+ *
  * @public
  */
 export type ClientChallenge =
@@ -300,7 +320,8 @@ export type ClientChallenge =
  */
 export namespace ClientChallenge {
   /**
-   * <p>Information about a face movement and light challenge type.</p>
+   * Information about a face movement and light challenge type.
+   *
    * @public
    */
   export interface FaceMovementAndLightChallengeMember {
@@ -336,111 +357,126 @@ export namespace ClientChallenge {
 }
 
 /**
- * <p>Any information that the client needs to send for the streaming session. For face movement challenge,
- *        it will contain information like initial face position and target face position.</p>
+ * Any information that the client needs to send for the streaming session. For face movement challenge, it will contain information like initial face position and target face position.
+ *
  * @public
  */
 export interface ClientSessionInformationEvent {
   /**
-   * <p>Contains information on FaceMovementAndLightChellenge, TargetFace, and ColorDisplayed, for a given Challenge.</p>
+   * Contains information on FaceMovementAndLightChellenge, TargetFace, and ColorDisplayed, for a given Challenge.
+   *
    * @public
    */
   Challenge: ClientChallenge | undefined;
 }
 
 /**
- * <p>A color sequence to be displayed on the user’s screen. </p>
+ * A color sequence to be displayed on the user’s screen.
+ *
  * @public
  */
 export interface ColorSequence {
   /**
-   * <p>Represents the colors in a given ColorSequence to be flashed to the end user, with each color represented in RGB values.</p>
+   * Represents the colors in a given ColorSequence to be flashed to the end user, with each color represented in RGB values.
+   *
    * @public
    */
   FreshnessColor: FreshnessColor | undefined;
 
   /**
-   * <p>Duration in milliseconds for which a given color in the color sequence will down-scroll before taking over full screen.</p>
+   * Duration in milliseconds for which a given color in the color sequence will down-scroll before taking over full screen.
+   *
    * @public
    */
   DownscrollDuration: number | undefined;
 
   /**
-   * <p>Duration in milliseconds for which a given flat color in the color sequence will be displayed on the full screen.</p>
+   * Duration in milliseconds for which a given flat color in the color sequence will be displayed on the full screen.
+   *
    * @public
    */
   FlatDisplayDuration: number | undefined;
 }
 
 /**
- * <p>Contains information regarding if a disconnection event took place
- *       during the Face Liveness session. Disconnection events may indicate processing is complete at the server side.</p>
+ * Contains information regarding if a disconnection event took place during the Face Liveness session. Disconnection events may indicate processing is complete at the server side.
+ *
  * @public
  */
 export interface DisconnectionEvent {
   /**
-   * <p>The timestamp that a disconnection event took place at.</p>
+   * The timestamp that a disconnection event took place at.
+   *
    * @public
    */
   TimestampMillis: number | undefined;
 }
 
 /**
- * <p>Oval parameters need for oval display to complete oval match challenge.</p>
+ * Oval parameters need for oval display to complete oval match challenge.
+ *
  * @public
  */
 export interface OvalParameters {
   /**
-   * <p>Width of the oval</p>
+   * Width of the oval
+   *
    * @public
    */
   Width: number | undefined;
 
   /**
-   * <p>Height of the oval</p>
+   * Height of the oval
+   *
    * @public
    */
   Height: number | undefined;
 
   /**
-   * <p>X-axis co-ordinate of  for center of oval</p>
+   * X-axis co-ordinate of for center of oval
+   *
    * @public
    */
   CenterX: number | undefined;
 
   /**
-   * <p>Y-axis co-ordinate of  for center of oval</p>
+   * Y-axis co-ordinate of for center of oval
+   *
    * @public
    */
   CenterY: number | undefined;
 }
 
 /**
- * <p>Contains information regarding the <code>OvalParameters</code> and
- *         <code>LightChallengeType</code> for a challenge.</p>
+ * Contains information regarding the `OvalParameters` and `LightChallengeType` for a challenge.
+ *
  * @public
  */
 export interface FaceMovementAndLightServerChallenge {
   /**
-   * <p>The parameters needed for an oval to display and to complete oval match challenge.</p>
+   * The parameters needed for an oval to display and to complete oval match challenge.
+   *
    * @public
    */
   OvalParameters: OvalParameters | undefined;
 
   /**
-   * <p>Information on the type of colored light challenge.</p>
+   * Information on the type of colored light challenge.
+   *
    * @public
    */
   LightChallengeType: LightChallengeType | undefined;
 
   /**
-   * <p>Configurations for attributes of the Face Liveness movement and light challenges.</p>
+   * Configurations for attributes of the Face Liveness movement and light challenges.
+   *
    * @public
    */
   ChallengeConfig: ChallengeConfig | undefined;
 
   /**
-   * <p>Used to generate a list of color sequences to be displayed on a user's screen.</p>
+   * Used to generate a list of color sequences to be displayed on a user's screen.
+   *
    * @public
    */
   ColorSequences: ColorSequence[] | undefined;
@@ -451,38 +487,44 @@ export interface FaceMovementAndLightServerChallenge {
  */
 export interface FaceMovementServerChallenge {
   /**
-   * <p>Oval parameters need for oval display to complete oval match challenge.</p>
+   * Oval parameters need for oval display to complete oval match challenge.
+   *
    * @public
    */
   OvalParameters: OvalParameters | undefined;
 
   /**
-   * <p>Configuration options for Face Liveness challenges performed at the client side. </p>
+   * Configuration options for Face Liveness challenges performed at the client side.
+   *
    * @public
    */
   ChallengeConfig: ChallengeConfig | undefined;
 }
 
 /**
- * <p>Contains the video chunk blob.</p>
+ * Contains the video chunk blob.
+ *
  * @public
  */
 export interface VideoEvent {
   /**
-   * <p>The video chunk for a video event.</p>
+   * The video chunk for a video event.
+   *
    * @public
    */
   VideoChunk?: Uint8Array | undefined;
 
   /**
-   * <p>Milisecond timestamp for a video chunk in a video event.</p>
+   * Milisecond timestamp for a video chunk in a video event.
+   *
    * @public
    */
   TimestampMillis?: number | undefined;
 }
 
 /**
- * <p>Contains information regarding video events and client session details for a Face Liveness verification request stream.</p>
+ * Contains information regarding video events and client session details for a Face Liveness verification request stream.
+ *
  * @public
  */
 export type LivenessRequestStream =
@@ -495,7 +537,8 @@ export type LivenessRequestStream =
  */
 export namespace LivenessRequestStream {
   /**
-   * <p>Contains video events for a Face Liveness request stream.</p>
+   * Contains video events for a Face Liveness request stream.
+   *
    * @public
    */
   export interface VideoEventMember {
@@ -505,7 +548,8 @@ export namespace LivenessRequestStream {
   }
 
   /**
-   * <p>Information event for the client session for a given Face Liveness request stream.</p>
+   * Information event for the client session for a given Face Liveness request stream.
+   *
    * @public
    */
   export interface ClientSessionInformationEventMember {
@@ -535,7 +579,8 @@ export namespace LivenessRequestStream {
 }
 
 /**
- * <p>Information on the challenge sent by the server.</p>
+ * Information on the challenge sent by the server.
+ *
  * @public
  */
 export type ServerChallenge =
@@ -548,7 +593,8 @@ export type ServerChallenge =
  */
 export namespace ServerChallenge {
   /**
-   * <p>Paramteters and configuration information for the face movement and light sequence challenges.</p>
+   * Paramteters and configuration information for the face movement and light sequence challenges.
+   *
    * @public
    */
   export interface FaceMovementAndLightChallengeMember {
@@ -584,31 +630,36 @@ export namespace ServerChallenge {
 }
 
 /**
- * <p>Information required for the streaming session.</p>
+ * Information required for the streaming session.
+ *
  * @public
  */
 export interface SessionInformation {
   /**
-   * <p>Object containing information of Face Liveness challenge to be performed by the client. The information is used to construct the challenges at the client's SDK.</p>
+   * Object containing information of Face Liveness challenge to be performed by the client. The information is used to construct the challenges at the client's SDK.
+   *
    * @public
    */
   Challenge: ServerChallenge | undefined;
 }
 
 /**
- * <p>Event containing session information for the server.</p>
+ * Event containing session information for the server.
+ *
  * @public
  */
 export interface ServerSessionInformationEvent {
   /**
-   * <p>Contains the session information sent by the server..</p>
+   * Contains the session information sent by the server..
+   *
    * @public
    */
   SessionInformation: SessionInformation | undefined;
 }
 
 /**
- * <p>Contains information event details and exception information for a Face Liveness verification response stream.</p>
+ * Contains information event details and exception information for a Face Liveness verification response stream.
+ *
  * @public
  */
 export type LivenessResponseStream =
@@ -627,7 +678,8 @@ export type LivenessResponseStream =
  */
 export namespace LivenessResponseStream {
   /**
-   * <p>Details for a server session information event.</p>
+   * Details for a server session information event.
+   *
    * @public
    */
   export interface ServerSessionInformationEventMember {
@@ -643,7 +695,8 @@ export namespace LivenessResponseStream {
   }
 
   /**
-   * <p>Notification that disconnection event has occurred to a Face Liveness session.</p>
+   * Notification that disconnection event has occurred to a Face Liveness session.
+   *
    * @public
    */
   export interface DisconnectionEventMember {
@@ -671,7 +724,8 @@ export namespace LivenessResponseStream {
   }
 
   /**
-   * <p>Notification that a ValidationException occurred during a Face Liveness session.</p>
+   * Notification that a ValidationException occurred during a Face Liveness session.
+   *
    * @public
    */
   export interface ValidationExceptionMember {
@@ -687,7 +741,8 @@ export namespace LivenessResponseStream {
   }
 
   /**
-   * <p>Notification that an InternalServerException occurred during a Face Liveness session.</p>
+   * Notification that an InternalServerException occurred during a Face Liveness session.
+   *
    * @public
    */
   export interface InternalServerExceptionMember {
@@ -703,7 +758,8 @@ export namespace LivenessResponseStream {
   }
 
   /**
-   * <p>Notification that a ThrottlingException occurred during a Face Liveness session.</p>
+   * Notification that a ThrottlingException occurred during a Face Liveness session.
+   *
    * @public
    */
   export interface ThrottlingExceptionMember {
@@ -719,7 +775,8 @@ export namespace LivenessResponseStream {
   }
 
   /**
-   * <p>Notification that a ServiceQuotaExceededException occurred during a Face Liveness session.</p>
+   * Notification that a ServiceQuotaExceededException occurred during a Face Liveness session.
+   *
    * @public
    */
   export interface ServiceQuotaExceededExceptionMember {
@@ -735,7 +792,8 @@ export namespace LivenessResponseStream {
   }
 
   /**
-   * <p>Notification that a ServiceUnavailableException occurred during a Face Liveness session.</p>
+   * Notification that a ServiceUnavailableException occurred during a Face Liveness session.
+   *
    * @public
    */
   export interface ServiceUnavailableExceptionMember {
@@ -787,34 +845,36 @@ export namespace LivenessResponseStream {
  */
 export interface StartFaceLivenessSessionRequest {
   /**
-   * <p>A unique 128-bit UUID. Used to uniquely identify the session and also acta as an
-   *       idempotency token for all operations associated with the session.</p>
+   * A unique 128-bit UUID. Used to uniquely identify the session and also acta as an idempotency token for all operations associated with the session.
+   *
    * @public
    */
   SessionId: string | undefined;
 
   /**
-   * <p>The width of the video object included in a request to start a Face Liveness
-   *       session.</p>
+   * The width of the video object included in a request to start a Face Liveness session.
+   *
    * @public
    */
   VideoWidth: string | undefined;
 
   /**
-   * <p>The height of the video object included in a request to start a Face Liveness
-   *       session.</p>
+   * The height of the video object included in a request to start a Face Liveness session.
+   *
    * @public
    */
   VideoHeight: string | undefined;
 
   /**
-   * <p>String containing comma separated list of challenge versions supported by client.</p>
+   * String containing comma separated list of challenge versions supported by client.
+   *
    * @public
    */
   ChallengeVersions: string | undefined;
 
   /**
-   * <p>Information regarding the request stream for a Face Liveness session.</p>
+   * Information regarding the request stream for a Face Liveness session.
+   *
    * @public
    */
   LivenessRequestStream?: AsyncIterable<LivenessRequestStream> | undefined;
@@ -825,13 +885,15 @@ export interface StartFaceLivenessSessionRequest {
  */
 export interface StartFaceLivenessSessionResponse {
   /**
-   * <p>The ID that identifies a Face Liveness session.</p>
+   * The ID that identifies a Face Liveness session.
+   *
    * @public
    */
   SessionId: string | undefined;
 
   /**
-   * <p>Information regarding the response stream for a Face Liveness session.</p>
+   * Information regarding the response stream for a Face Liveness session.
+   *
    * @public
    */
   LivenessResponseStream?: AsyncIterable<LivenessResponseStream> | undefined;

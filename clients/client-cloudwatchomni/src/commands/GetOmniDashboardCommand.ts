@@ -78,8 +78,8 @@ export interface GetOmniDashboardCommandOutput extends GetOmniDashboardOutput, _
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Get a dashboard
  * ```javascript

@@ -23,13 +23,12 @@ export interface PutAnomalyDetectorCommandInput extends PutAnomalyDetectorInput 
 export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model to
- *             display a band of expected normal values when the metric is graphed.</p>
- *          <p>If you have enabled unified cross-account observability, and this account is a
- *             monitoring account, the metric can be in the same account or a source account. You can
- *             specify the account ID in the object you specify in the
- *                 <code>SingleMetricAnomalyDetector</code> parameter.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">CloudWatch Anomaly Detection</a>.</p>
+ * Creates an anomaly detection model for a CloudWatch metric. You can use the model to display a band of expected normal values when the metric is graphed.
+ *
+ * If you have enabled unified cross-account observability, and this account is a monitoring account, the metric can be in the same account or a source account. You can specify the account ID in the object you specify in the `SingleMetricAnomalyDetector` parameter.
+ *
+ * For more information, see [CloudWatch Anomaly Detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,24 +111,28 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or
- *             failure.</p>
+ *
+ * Request processing has failed due to some unknown error, exception, or failure.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Parameters were used together that cannot be used together.</p>
+ *
+ * Parameters were used together that cannot be used together.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * The value of an input parameter is bad or out-of-range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation exceeded one or more limits.</p>
+ *
+ * The operation exceeded one or more limits.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>An input parameter that is required is missing.</p>
+ *
+ * An input parameter that is required is missing.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSub
 export interface DescribeEventSubscriptionsCommandOutput extends EventSubscriptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Lists all the subscription descriptions for a customer account. The description for a
- *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
- *       CreationTime, and Status.</p>
- *          <p>If you specify a SubscriptionName, lists the description for that subscription.</p>
+ * Lists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status.
+ *
+ * If you specify a SubscriptionName, lists the description for that subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,11 +81,12 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The designated subscription could not be found.</p>
+ *
+ * The designated subscription could not be found.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

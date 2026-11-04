@@ -23,7 +23,8 @@ export interface UpdateCodeReviewCommandInput extends UpdateCodeReviewInput {}
 export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing code review configuration.</p>
+ * Updates an existing code review configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -252,8 +253,8 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

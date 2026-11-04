@@ -23,7 +23,8 @@ export interface IncreaseReplicationFactorCommandInput extends IncreaseReplicati
 export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicationFactorResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more nodes to a DAX cluster.</p>
+ * Adds one or more nodes to a DAX cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,39 +110,44 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX
- *             cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing DAX cluster.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>There are not enough system resources to create the cluster you requested (or to
- *             resize an already-existing cluster). </p>
+ *
+ * There are not enough system resources to create the cluster you requested (or to resize an already-existing cluster).
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The requested DAX cluster is not in the
- *                 <i>available</i> state.</p>
+ *
+ * The requested DAX cluster is not in the *available* state.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The VPC network is in an invalid state.</p>
+ *
+ * The VPC network is in an invalid state.
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of nodes for a DAX
- *             cluster.</p>
+ *
+ * You have attempted to exceed the maximum number of nodes for a DAX cluster.
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.</p>
+ *
+ * You have attempted to exceed the maximum number of nodes for your Amazon Web Services account.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

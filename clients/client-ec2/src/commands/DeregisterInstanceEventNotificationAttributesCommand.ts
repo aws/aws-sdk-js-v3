@@ -26,8 +26,8 @@ export interface DeregisterInstanceEventNotificationAttributesCommandInput exten
 export interface DeregisterInstanceEventNotificationAttributesCommandOutput extends DeregisterInstanceEventNotificationAttributesResult, __MetadataBearer {}
 
 /**
- * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being
- *          included in scheduled event notifications for resources in the Region.</p>
+ * Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +65,8 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput exte
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

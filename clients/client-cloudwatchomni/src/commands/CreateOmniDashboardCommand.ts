@@ -94,8 +94,8 @@ export interface CreateOmniDashboardCommandOutput extends CreateOmniDashboardOut
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Create a dashboard
  * ```javascript

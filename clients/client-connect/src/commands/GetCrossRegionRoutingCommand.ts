@@ -23,12 +23,10 @@ export interface GetCrossRegionRoutingCommandInput extends GetCrossRegionRouting
 export interface GetCrossRegionRoutingCommandOutput extends GetCrossRegionRoutingResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current cross-region routing configuration for an Amazon Connect Global Resiliency instance
- *    enabled for global routing. This operation returns whether cross-region routing is currently enabled or disabled
- *    (isolated) for the instance.</p>
- *          <note>
- *             <p>This operation is available only for Amazon Connect Global Resiliency instances enabled for global routing.</p>
- *          </note>
+ * Retrieves the current cross-region routing configuration for an Amazon Connect Global Resiliency instance enabled for global routing. This operation returns whether cross-region routing is currently enabled or disabled (isolated) for the instance.
+ *
+ * > **Note:** This operation is available only for Amazon Connect Global Resiliency instances enabled for global routing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,23 +55,28 @@ export interface GetCrossRegionRoutingCommandOutput extends GetCrossRegionRoutin
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

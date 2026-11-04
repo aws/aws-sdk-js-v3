@@ -23,7 +23,10 @@ export interface UpdateSpaceCommandInput extends UpdateSpaceRequest {}
 export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the settings of a space.</p> <note> <p>You can't edit the app type of a space in the <code>SpaceSettings</code>.</p> </note>
+ * Updates the settings of a space.
+ *
+ * > **Note:** You can't edit the app type of a space in the `SpaceSettings`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,17 +151,20 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceInUse} (client fault)
- *  <p>Resource being accessed is in use.</p>
+ *
+ * Resource being accessed is in use.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
+ *
+ * You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

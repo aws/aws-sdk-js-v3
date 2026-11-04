@@ -24,10 +24,8 @@ export interface ResetClusterParameterGroupCommandInput extends ResetClusterPara
 export interface ResetClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p>Sets one or more parameters of the specified parameter group to their default
- *             values and sets the source values of the parameters to "engine-default". To reset the
- *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
- *             For parameter changes to take effect you must reboot any associated clusters. </p>
+ * Sets one or more parameters of the specified parameter group to their default values and sets the source values of the parameters to "engine-default". To reset the entire parameter group specify the *ResetAllParameters* parameter. For parameter changes to take effect you must reboot any associated clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,16 +67,16 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link InvalidClusterParameterGroupStateFault} (client fault)
- *  <p>The cluster parameter group action can not be completed because another task is in
- *             progress that involves the parameter group. Wait a few moments and try the operation
- *             again.</p>
+ *
+ * The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

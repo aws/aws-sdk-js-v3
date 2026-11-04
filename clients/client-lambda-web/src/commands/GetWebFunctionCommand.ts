@@ -23,7 +23,8 @@ export interface GetWebFunctionCommandInput extends GetWebFunctionRequest {}
 export interface GetWebFunctionCommandOutput extends GetWebFunctionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about a web function, including its current state and configuration.</p>
+ * Retrieves details about a web function, including its current state and configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +56,28 @@ export interface GetWebFunctionCommandOutput extends GetWebFunctionResponse, __M
  * @see {@link LambdaWebClientResolvedConfig | config} for LambdaWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.</p>
+ *
+ * You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.</p>
+ *
+ * The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified web function, revision, endpoint, or resource-based policy doesn't exist. Verify the resource identifier and try again.</p>
+ *
+ * The specified web function, revision, endpoint, or resource-based policy doesn't exist. Verify the resource identifier and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.</p>
+ *
+ * The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation because a parameter was missing, malformed, or outside the allowed range. Check the request parameters and try again.</p>
+ *
+ * The request failed validation because a parameter was missing, malformed, or outside the allowed range. Check the request parameters and try again.
  *
  * @throws {@link LambdaWebServiceException}
- * <p>Base exception class for all service exceptions from LambdaWeb service.</p>
  *
+ * Base exception class for all service exceptions from LambdaWeb service.
  *
  * @public
  */

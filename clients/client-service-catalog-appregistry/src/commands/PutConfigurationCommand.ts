@@ -23,10 +23,8 @@ export interface PutConfigurationCommandInput extends PutConfigurationRequest {}
 export interface PutConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *       Associates a <code>TagKey</code> configuration
- *       to an account.
- *     </p>
+ * Associates a `TagKey` configuration to an account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,18 +53,20 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when processing the request (for example, a resource with the given
- *       name already exists within the account).</p>
+ *
+ * There was a conflict when processing the request (for example, a resource with the given name already exists within the account).
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

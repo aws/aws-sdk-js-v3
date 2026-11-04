@@ -23,7 +23,8 @@ export interface GetCanaryRunsCommandInput extends GetCanaryRunsRequest {}
 export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of runs for a specified canary.</p>
+ * Retrieves a list of runs for a specified canary.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,17 +80,20 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

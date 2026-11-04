@@ -26,39 +26,18 @@ export interface DescribeLoadBalancerTargetGroupsCommandInput extends DescribeLo
 export interface DescribeLoadBalancerTargetGroupsCommandOutput extends DescribeLoadBalancerTargetGroupsResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>,
- *                 which can describe multiple traffic sources types. We recommend using
- *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
- *                 However, we continue to support <code>DescribeLoadBalancerTargetGroups</code>. You
- *                 can use both the original <code>DescribeLoadBalancerTargetGroups</code> API
- *                 operation and <code>DescribeTrafficSources</code> on the same Auto Scaling group.</p>
- *          </note>
- *          <p>Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.</p>
- *          <p>To determine the attachment status of the target group, use the <code>State</code>
- *             element in the response. When you attach a target group to an Auto Scaling group, the initial
- *                 <code>State</code> value is <code>Adding</code>. The state transitions to
- *                 <code>Added</code> after all Auto Scaling instances are registered with the target group. If
- *             Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to
- *                 <code>InService</code> after at least one Auto Scaling instance passes the health check.
- *             When the target group is in the <code>InService</code> state, Amazon EC2 Auto Scaling can terminate and
- *             replace any instances that are reported as unhealthy. If no registered instances pass
- *             the health checks, the target group doesn't enter the <code>InService</code> state. </p>
- *          <p>Target groups also have an <code>InService</code> state if you attach them in the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> API call. If your target group state is
- *                 <code>InService</code>, but it is not working properly, check the scaling activities
- *             by calling <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> and take any corrective actions
- *             necessary.</p>
- *          <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
- *                 Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more
- *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
- *                 distribute traffic across the instances in your Auto Scaling group</a> in the
- *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
- *          <note>
- *             <p>You can use this operation to describe target groups that were attached by using
- *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html">AttachLoadBalancerTargetGroups</a>, but not for target groups that
- *                 were attached by using <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>.</p>
- *          </note>
+ * > **Note:** This API operation is superseded by [DescribeTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html), which can describe multiple traffic sources types. We recommend using `DetachTrafficSources` to simplify how you manage traffic sources. However, we continue to support `DescribeLoadBalancerTargetGroups`. You can use both the original `DescribeLoadBalancerTargetGroups` API operation and `DescribeTrafficSources` on the same Auto Scaling group.
+ *
+ * Gets information about the Elastic Load Balancing target groups for the specified Auto Scaling group.
+ *
+ * To determine the attachment status of the target group, use the `State` element in the response. When you attach a target group to an Auto Scaling group, the initial `State` value is `Adding`. The state transitions to `Added` after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group, the state transitions to `InService` after at least one Auto Scaling instance passes the health check. When the target group is in the `InService` state, Amazon EC2 Auto Scaling can terminate and replace any instances that are reported as unhealthy. If no registered instances pass the health checks, the target group doesn't enter the `InService` state.
+ *
+ * Target groups also have an `InService` state if you attach them in the [CreateAutoScalingGroup](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html) API call. If your target group state is `InService`, but it is not working properly, check the scaling activities by calling [DescribeScalingActivities](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html) and take any corrective actions necessary.
+ *
+ * For help with failed health checks, see [Troubleshooting Amazon EC2 Auto Scaling: Health checks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html) in the *Amazon EC2 Auto Scaling User Guide*. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
+ * > **Note:** You can use this operation to describe target groups that were attached by using [AttachLoadBalancerTargetGroups](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachLoadBalancerTargetGroups.html), but not for target groups that were attached by using [AttachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,15 +72,16 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput extends DescribeL
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe the target groups for an Auto Scaling group
  * ```javascript

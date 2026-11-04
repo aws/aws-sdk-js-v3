@@ -69,7 +69,8 @@ import type {
  */
 export interface CreateMessageTemplateAttachmentResponse {
   /**
-   * <p>The message template attachment.</p>
+   * The message template attachment.
+   *
    * @public
    */
   attachment?: MessageTemplateAttachment | undefined;
@@ -80,157 +81,183 @@ export interface CreateMessageTemplateAttachmentResponse {
  */
 export interface CreateMessageTemplateVersionRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the <code>$LATEST</code> qualifier by default.</p>
+   * The checksum value of the message template content that is referenced by the `$LATEST` qualifier. It can be returned in `MessageTemplateData` or `ExtendedMessageTemplateData`. It’s calculated by content, language, `defaultAttributes` and `Attachments` of the message template. If not supplied, the message template version will be created based on the message template content that is referenced by the `$LATEST` qualifier by default.
+   *
    * @public
    */
   messageTemplateContentSha256?: string | undefined;
 }
 
 /**
- * <p>The extended data of a message template.</p>
+ * The extended data of a message template.
+ *
  * @public
  */
 export interface ExtendedMessageTemplateData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The channel of the message template.</p>
+   * The channel of the message template.
+   *
    * @public
    */
   channel?: string | undefined;
 
   /**
-   * <p>The channel subtype this message template applies to.</p>
+   * The channel subtype this message template applies to.
+   *
    * @public
    */
   channelSubtype: ChannelSubtype | undefined;
 
   /**
-   * <p>The timestamp when the message template was created.</p>
+   * The timestamp when the message template was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the message template data was last modified.</p>
+   * The timestamp when the message template data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the message template data.
+   *
    * @public
    */
   lastModifiedBy: string | undefined;
 
   /**
-   * <p>The content of the message template.</p>
+   * The content of the message template.
+   *
    * @public
    */
   content?: MessageTemplateContentProvider | undefined;
 
   /**
-   * <p>The description of the message template.</p>
+   * The description of the message template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The source configuration summary of the message template.</p>
+   * The source configuration summary of the message template.
+   *
    * @public
    */
   sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
 
   /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * The configuration information of the grouping of Amazon Q in Connect users.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+   *
    * @public
    */
   defaultAttributes?: MessageTemplateAttributes | undefined;
 
   /**
-   * <p>The types of attributes contain the message template.</p>
+   * The types of attributes contain the message template.
+   *
    * @public
    */
   attributeTypes?: MessageTemplateAttributeType[] | undefined;
 
   /**
-   * <p>The message template attachments.</p>
+   * The message template attachments.
+   *
    * @public
    */
   attachments?: MessageTemplateAttachment[] | undefined;
 
   /**
-   * <p>Whether the version of the message template is activated.</p>
+   * Whether the version of the message template is activated.
+   *
    * @public
    */
   isActive?: boolean | undefined;
 
   /**
-   * <p>The version number of the message template version.</p>
+   * The version number of the message template version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
 
   /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * The checksum value of the message template content that is referenced by the `$LATEST` qualifier. It can be returned in `MessageTemplateData` or `ExtendedMessageTemplateData`. It’s calculated by content, language, `defaultAttributes` and `Attachments` of the message template.
+   *
    * @public
    */
   messageTemplateContentSha256: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -241,14 +268,16 @@ export interface ExtendedMessageTemplateData {
  */
 export interface CreateMessageTemplateVersionResponse {
   /**
-   * <p>The message template.</p>
+   * The message template.
+   *
    * @public
    */
   messageTemplate?: ExtendedMessageTemplateData | undefined;
 }
 
 /**
- * <p>The container of quick response data.</p>
+ * The container of quick response data.
+ *
  * @public
  */
 export type QuickResponseDataProvider =
@@ -260,7 +289,8 @@ export type QuickResponseDataProvider =
  */
 export namespace QuickResponseDataProvider {
   /**
-   * <p>The content of the quick response.</p>
+   * The content of the quick response.
+   *
    * @public
    */
   export interface ContentMember {
@@ -291,80 +321,96 @@ export namespace QuickResponseDataProvider {
  */
 export interface CreateQuickResponseRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the quick response.</p>
+   * The name of the quick response.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The content of the quick response.</p>
+   * The content of the quick response.
+   *
    * @public
    */
   content: QuickResponseDataProvider | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
+   * The media type of the quick response content.
+   *
+   * - Use `application/x.quickresponse;format=plain` for a quick response written in plain text.
+   * - Use `application/x.quickresponse;format=markdown` for a quick response written in richtext.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * The configuration information of the user groups that the quick response is accessible to.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The description of the quick response.</p>
+   * The description of the quick response.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
+   * The shortcut key of the quick response. The value should be unique across the knowledge base.
+   *
    * @public
    */
   shortcutKey?: string | undefined;
 
   /**
-   * <p>Whether the quick response is active.</p>
+   * Whether the quick response is active.
+   *
    * @public
    */
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Connect Customer channels this quick response applies to.</p>
+   * The Connect Customer channels this quick response applies to.
+   *
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The container quick response content.</p>
+ * The container quick response content.
+ *
  * @public
  */
 export type QuickResponseContentProvider =
@@ -376,7 +422,8 @@ export type QuickResponseContentProvider =
  */
 export namespace QuickResponseContentProvider {
   /**
-   * <p>The content of the quick response.</p>
+   * The content of the quick response.
+   *
    * @public
    */
   export interface ContentMember {
@@ -403,132 +450,157 @@ export namespace QuickResponseContentProvider {
 }
 
 /**
- * <p>The content of the quick response stored in different media types.</p>
+ * The content of the quick response stored in different media types.
+ *
  * @public
  */
 export interface QuickResponseContents {
   /**
-   * <p>The container quick response content.</p>
+   * The container quick response content.
+   *
    * @public
    */
   plainText?: QuickResponseContentProvider | undefined;
 
   /**
-   * <p>The container quick response content.</p>
+   * The container quick response content.
+   *
    * @public
    */
   markdown?: QuickResponseContentProvider | undefined;
 }
 
 /**
- * <p>Information about the quick response.</p>
+ * Information about the quick response.
+ *
  * @public
  */
 export interface QuickResponseData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * The Amazon Resource Name (ARN) of the quick response.
+   *
    * @public
    */
   quickResponseArn: string | undefined;
 
   /**
-   * <p>The identifier of the quick response.</p>
+   * The identifier of the quick response.
+   *
    * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the quick response.</p>
+   * The name of the quick response.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
+   * The media type of the quick response content.
+   *
+   * - Use `application/x.quickresponse;format=plain` for quick response written in plain text.
+   * - Use `application/x.quickresponse;format=markdown` for quick response written in richtext.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The status of the quick response data.</p>
+   * The status of the quick response data.
+   *
    * @public
    */
   status: QuickResponseStatus | undefined;
 
   /**
-   * <p>The timestamp when the quick response was created.</p>
+   * The timestamp when the quick response was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the quick response data was last modified.</p>
+   * The timestamp when the quick response data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The contents of the quick response.</p>
+   * The contents of the quick response.
+   *
    * @public
    */
   contents?: QuickResponseContents | undefined;
 
   /**
-   * <p>The description of the quick response.</p>
+   * The description of the quick response.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * The configuration information of the user groups that the quick response is accessible to.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
+   * The shortcut key of the quick response. The value should be unique across the knowledge base.
+   *
    * @public
    */
   shortcutKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the quick response data.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>Whether the quick response is active.</p>
+   * Whether the quick response is active.
+   *
    * @public
    */
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * The Connect Customer contact channels this quick response applies to. The supported contact channel types include `Chat`.
+   *
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -539,7 +611,8 @@ export interface QuickResponseData {
  */
 export interface CreateQuickResponseResponse {
   /**
-   * <p>The quick response.</p>
+   * The quick response.
+   *
    * @public
    */
   quickResponse?: QuickResponseData | undefined;
@@ -550,19 +623,22 @@ export interface CreateQuickResponseResponse {
  */
 export interface DeactivateMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The version number of the message template version to deactivate.</p>
+   * The version number of the message template version to deactivate.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -573,19 +649,22 @@ export interface DeactivateMessageTemplateRequest {
  */
 export interface DeactivateMessageTemplateResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The version number of the message template version that has been deactivated.</p>
+   * The version number of the message template version that has been deactivated.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -596,13 +675,15 @@ export interface DeactivateMessageTemplateResponse {
  */
 export interface DeleteImportJobRequest {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the import job to be deleted.</p>
+   * The identifier of the import job to be deleted.
+   *
    * @public
    */
   importJobId: string | undefined;
@@ -618,7 +699,8 @@ export interface DeleteImportJobResponse {}
  */
 export interface DeleteKnowledgeBaseRequest {
   /**
-   * <p>The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The knowledge base to delete content from. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -634,13 +716,15 @@ export interface DeleteKnowledgeBaseResponse {}
  */
 export interface DeleteMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * The identifier of the message template. Can be either the ID or the ARN.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
@@ -656,19 +740,22 @@ export interface DeleteMessageTemplateResponse {}
  */
 export interface DeleteMessageTemplateAttachmentRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The identifier of the attachment file.</p>
+   * The identifier of the attachment file.
+   *
    * @public
    */
   attachmentId: string | undefined;
@@ -684,13 +771,15 @@ export interface DeleteMessageTemplateAttachmentResponse {}
  */
 export interface DeleteQuickResponseRequest {
   /**
-   * <p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>
+   * The knowledge base from which the quick response is deleted. The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the quick response to delete.</p>
+   * The identifier of the quick response to delete.
+   *
    * @public
    */
   quickResponseId: string | undefined;
@@ -702,18 +791,21 @@ export interface DeleteQuickResponseRequest {
 export interface DeleteQuickResponseResponse {}
 
 /**
- * <p>The configuration information of the external data source.</p>
+ * The configuration information of the external data source.
+ *
  * @public
  */
 export interface ExternalSourceConfiguration {
   /**
-   * <p>The type of the external data source.</p>
+   * The type of the external data source.
+   *
    * @public
    */
   source: ExternalSource | undefined;
 
   /**
-   * <p>The configuration information of the external data source.</p>
+   * The configuration information of the external data source.
+   *
    * @public
    */
   configuration: Configuration | undefined;
@@ -724,97 +816,113 @@ export interface ExternalSourceConfiguration {
  */
 export interface GetImportJobRequest {
   /**
-   * <p>The identifier of the import job to retrieve.</p>
+   * The identifier of the import job to retrieve.
+   *
    * @public
    */
   importJobId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base that the import job belongs to.</p>
+   * The identifier of the knowledge base that the import job belongs to.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * <p>Summary information about the import job.</p>
+ * Summary information about the import job.
+ *
  * @public
  */
 export interface ImportJobData {
   /**
-   * <p>The identifier of the import job.</p>
+   * The identifier of the import job.
+   *
    * @public
    */
   importJobId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * A pointer to the uploaded asset. This value is returned by [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html).
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The type of the import job.</p>
+   * The type of the import job.
+   *
    * @public
    */
   importJobType: ImportJobType | undefined;
 
   /**
-   * <p>The status of the import job.</p>
+   * The status of the import job.
+   *
    * @public
    */
   status: ImportJobStatus | undefined;
 
   /**
-   * <p>The download link to the resource file that is uploaded to the import job.</p>
+   * The download link to the resource file that is uploaded to the import job.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The link to download the information of resource data that failed to be imported.</p>
+   * The link to download the information of resource data that failed to be imported.
+   *
    * @public
    */
   failedRecordReport?: string | undefined;
 
   /**
-   * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * The expiration time of the URL as an epoch timestamp.
+   *
    * @public
    */
   urlExpiry: Date | undefined;
 
   /**
-   * <p>The timestamp when the import job was created.</p>
+   * The timestamp when the import job was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the import job data was last modified.</p>
+   * The timestamp when the import job data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * The metadata fields of the imported Amazon Q in Connect resources.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information of the external data source.</p>
+   * The configuration information of the external data source.
+   *
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
@@ -825,7 +933,8 @@ export interface ImportJobData {
  */
 export interface GetImportJobResponse {
   /**
-   * <p>The import job.</p>
+   * The import job.
+   *
    * @public
    */
   importJob?: ImportJobData | undefined;
@@ -836,7 +945,8 @@ export interface GetImportJobResponse {
  */
 export interface GetKnowledgeBaseRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -847,7 +957,8 @@ export interface GetKnowledgeBaseRequest {
  */
 export interface GetKnowledgeBaseResponse {
   /**
-   * <p>The knowledge base.</p>
+   * The knowledge base.
+   *
    * @public
    */
   knowledgeBase?: KnowledgeBaseData | undefined;
@@ -858,13 +969,15 @@ export interface GetKnowledgeBaseResponse {
  */
 export interface GetMessageTemplateRequest {
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * The identifier of the message template. Can be either the ID or the ARN.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -875,7 +988,8 @@ export interface GetMessageTemplateRequest {
  */
 export interface GetMessageTemplateResponse {
   /**
-   * <p>The message template.</p>
+   * The message template.
+   *
    * @public
    */
   messageTemplate?: ExtendedMessageTemplateData | undefined;
@@ -886,13 +1000,15 @@ export interface GetMessageTemplateResponse {
  */
 export interface GetQuickResponseRequest {
   /**
-   * <p>The identifier of the quick response.</p>
+   * The identifier of the quick response.
+   *
    * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.</p>
+   * The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -903,73 +1019,85 @@ export interface GetQuickResponseRequest {
  */
 export interface GetQuickResponseResponse {
   /**
-   * <p>The quick response.</p>
+   * The quick response.
+   *
    * @public
    */
   quickResponse?: QuickResponseData | undefined;
 }
 
 /**
- * <p>Summary information about the import job.</p>
+ * Summary information about the import job.
+ *
  * @public
  */
 export interface ImportJobSummary {
   /**
-   * <p>The identifier of the import job.</p>
+   * The identifier of the import job.
+   *
    * @public
    */
   importJobId: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * A pointer to the uploaded asset. This value is returned by [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html).
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The type of import job.</p>
+   * The type of import job.
+   *
    * @public
    */
   importJobType: ImportJobType | undefined;
 
   /**
-   * <p>The status of the import job.</p>
+   * The status of the import job.
+   *
    * @public
    */
   status: ImportJobStatus | undefined;
 
   /**
-   * <p>The timestamp when the import job was created.</p>
+   * The timestamp when the import job was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the import job was last modified.</p>
+   * The timestamp when the import job was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * The metadata fields of the imported Amazon Q in Connect resources.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * The configuration information of the external source that the resource data are imported from.
+   *
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
@@ -980,19 +1108,22 @@ export interface ImportJobSummary {
  */
 export interface ListImportJobsRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1003,13 +1134,15 @@ export interface ListImportJobsRequest {
  */
 export interface ListImportJobsResponse {
   /**
-   * <p>Summary information about the import jobs.</p>
+   * Summary information about the import jobs.
+   *
    * @public
    */
   importJobSummaries: ImportJobSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1020,85 +1153,103 @@ export interface ListImportJobsResponse {
  */
 export interface ListKnowledgeBasesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about the knowledge base.</p>
+ * Summary information about the knowledge base.
+ *
  * @public
  */
 export interface KnowledgeBaseSummary {
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The name of the knowledge base.</p>
+   * The name of the knowledge base.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of knowledge base.</p>
+   * The type of knowledge base.
+   *
    * @public
    */
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * <p>The status of the knowledge base summary.</p>
+   * The status of the knowledge base summary.
+   *
    * @public
    */
   status: KnowledgeBaseStatus | undefined;
 
   /**
-   * <p>Configuration information about the external data source.</p>
+   * Configuration information about the external data source.
+   *
    * @public
    */
   sourceConfiguration?: SourceConfiguration | undefined;
 
   /**
-   * <p>Contains details about how to ingest the documents in a data source.</p>
+   * Contains details about how to ingest the documents in a data source.
+   *
    * @public
    */
   vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 
   /**
-   * <p>Information about how to render the content.</p>
+   * Information about how to render the content.
+   *
    * @public
    */
   renderingConfiguration?: RenderingConfiguration | undefined;
 
   /**
-   * <p>The configuration information for the customer managed key used for encryption. </p> <p>This KMS key must have a policy that allows <code>kms:CreateGrant</code>, <code>kms:DescribeKey</code>, <code>kms:Decrypt</code>, and <code>kms:GenerateDataKey*</code> permissions to the IAM identity using the key to invoke Amazon Q in Connect. </p> <p>For more information about setting up a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable Amazon Q in Connect for your instance</a>.</p>
+   * The configuration information for the customer managed key used for encryption.
+   *
+   * This KMS key must have a policy that allows `kms:CreateGrant`, `kms:DescribeKey`, `kms:Decrypt`, and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect.
+   *
+   * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html).
+   *
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
-   * <p>The description of the knowledge base.</p>
+   * The description of the knowledge base.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1109,13 +1260,15 @@ export interface KnowledgeBaseSummary {
  */
 export interface ListKnowledgeBasesResponse {
   /**
-   * <p>Information about the knowledge bases.</p>
+   * Information about the knowledge bases.
+   *
    * @public
    */
   knowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1126,109 +1279,127 @@ export interface ListKnowledgeBasesResponse {
  */
 export interface ListMessageTemplatesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * <p>The summary of the message template.</p>
+ * The summary of the message template.
+ *
  * @public
  */
 export interface MessageTemplateSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The channel this message template applies to.</p>
+   * The channel this message template applies to.
+   *
    * @public
    */
   channel?: string | undefined;
 
   /**
-   * <p>The channel subtype this message template applies to.</p>
+   * The channel subtype this message template applies to.
+   *
    * @public
    */
   channelSubtype: ChannelSubtype | undefined;
 
   /**
-   * <p>The timestamp when the message template was created.</p>
+   * The timestamp when the message template was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the message template data was last modified.</p>
+   * The timestamp when the message template data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the message template data.
+   *
    * @public
    */
   lastModifiedBy: string | undefined;
 
   /**
-   * <p>The container of message template source configuration.</p>
+   * The container of message template source configuration.
+   *
    * @public
    */
   sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
 
   /**
-   * <p>The version number of the message template version that is activated.</p>
+   * The version number of the message template version that is activated.
+   *
    * @public
    */
   activeVersionNumber?: number | undefined;
 
   /**
-   * <p>The description of the message template.</p>
+   * The description of the message template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1239,13 +1410,15 @@ export interface MessageTemplateSummary {
  */
 export interface ListMessageTemplatesResponse {
   /**
-   * <p>Summary information about the message template.</p>
+   * Summary information about the message template.
+   *
    * @public
    */
   messageTemplateSummaries: MessageTemplateSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1256,85 +1429,99 @@ export interface ListMessageTemplatesResponse {
  */
 export interface ListMessageTemplateVersionsRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The summary of the message template version.</p>
+ * The summary of the message template version.
+ *
  * @public
  */
 export interface MessageTemplateVersionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The channel of the message template.</p>
+   * The channel of the message template.
+   *
    * @public
    */
   channel?: string | undefined;
 
   /**
-   * <p>The channel subtype this message template applies to.</p>
+   * The channel subtype this message template applies to.
+   *
    * @public
    */
   channelSubtype: ChannelSubtype | undefined;
 
   /**
-   * <p>Whether the version of the message template is activated.</p>
+   * Whether the version of the message template is activated.
+   *
    * @public
    */
   isActive: boolean | undefined;
 
   /**
-   * <p>The version number of the message template version.</p>
+   * The version number of the message template version.
+   *
    * @public
    */
   versionNumber: number | undefined;
@@ -1345,13 +1532,15 @@ export interface MessageTemplateVersionSummary {
  */
 export interface ListMessageTemplateVersionsResponse {
   /**
-   * <p>Summary information about the versions of a message template.</p>
+   * Summary information about the versions of a message template.
+   *
    * @public
    */
   messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1362,19 +1551,22 @@ export interface ListMessageTemplateVersionsResponse {
  */
 export interface RenderMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * The identifier of the message template. Can be either the ID or the ARN.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable.</p>
+   * An object that specifies the values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the value for that variable.
+   *
    * @public
    */
   attributes: MessageTemplateAttributes | undefined;
@@ -1385,25 +1577,29 @@ export interface RenderMessageTemplateRequest {
  */
 export interface RenderMessageTemplateResponse {
   /**
-   * <p>The content of the message template.</p>
+   * The content of the message template.
+   *
    * @public
    */
   content?: MessageTemplateContentProvider | undefined;
 
   /**
-   * <p>The source configuration of the message template.</p>
+   * The source configuration of the message template.
+   *
    * @public
    */
   sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
 
   /**
-   * <p>The attribute keys that are not resolved.</p>
+   * The attribute keys that are not resolved.
+   *
    * @public
    */
   attributesNotInterpolated?: string[] | undefined;
 
   /**
-   * <p>The message template attachments.</p>
+   * The message template attachments.
+   *
    * @public
    */
   attachments?: MessageTemplateAttachment[] | undefined;
@@ -1414,37 +1610,43 @@ export interface RenderMessageTemplateResponse {
  */
 export interface UpdateMessageTemplateRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The content of the message template.</p>
+   * The content of the message template.
+   *
    * @public
    */
   content?: MessageTemplateContentProvider | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The source configuration of the message template. Only set this argument for WHATSAPP channel subtype.</p>
+   * The source configuration of the message template. Only set this argument for WHATSAPP channel subtype.
+   *
    * @public
    */
   sourceConfiguration?: MessageTemplateSourceConfiguration | undefined;
 
   /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+   *
    * @public
    */
   defaultAttributes?: MessageTemplateAttributes | undefined;
@@ -1455,7 +1657,8 @@ export interface UpdateMessageTemplateRequest {
  */
 export interface UpdateMessageTemplateResponse {
   /**
-   * <p>The message template.</p>
+   * The message template.
+   *
    * @public
    */
   messageTemplate?: MessageTemplateData | undefined;
@@ -1466,31 +1669,36 @@ export interface UpdateMessageTemplateResponse {
  */
 export interface UpdateMessageTemplateMetadataRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the message template.</p>
+   * The description of the message template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * The configuration information of the grouping of Amazon Q in Connect users.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
@@ -1501,7 +1709,8 @@ export interface UpdateMessageTemplateMetadataRequest {
  */
 export interface UpdateMessageTemplateMetadataResponse {
   /**
-   * <p>The message template.</p>
+   * The message template.
+   *
    * @public
    */
   messageTemplate?: MessageTemplateData | undefined;
@@ -1512,109 +1721,130 @@ export interface UpdateMessageTemplateMetadataResponse {
  */
 export interface ListQuickResponsesRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 }
 
 /**
- * <p>The summary information about the quick response.</p>
+ * The summary information about the quick response.
+ *
  * @public
  */
 export interface QuickResponseSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * The Amazon Resource Name (ARN) of the quick response.
+   *
    * @public
    */
   quickResponseArn: string | undefined;
 
   /**
-   * <p>The identifier of the quick response.</p>
+   * The identifier of the quick response.
+   *
    * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the quick response.</p>
+   * The name of the quick response.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
+   * The media type of the quick response content.
+   *
+   * - Use `application/x.quickresponse;format=plain` for quick response written in plain text.
+   * - Use `application/x.quickresponse;format=markdown` for quick response written in richtext.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The resource status of the quick response.</p>
+   * The resource status of the quick response.
+   *
    * @public
    */
   status: QuickResponseStatus | undefined;
 
   /**
-   * <p>The timestamp when the quick response was created.</p>
+   * The timestamp when the quick response was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the quick response summary was last modified.</p>
+   * The timestamp when the quick response summary was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The description of the quick response.</p>
+   * The description of the quick response.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the quick response data.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>Whether the quick response is active.</p>
+   * Whether the quick response is active.
+   *
    * @public
    */
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * The Connect Customer contact channels this quick response applies to. The supported contact channel types include `Chat`.
+   *
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1625,13 +1855,15 @@ export interface QuickResponseSummary {
  */
 export interface ListQuickResponsesResponse {
   /**
-   * <p>Summary information about the quick responses.</p>
+   * Summary information about the quick responses.
+   *
    * @public
    */
   quickResponseSummaries: QuickResponseSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1642,85 +1874,102 @@ export interface ListQuickResponsesResponse {
  */
 export interface UpdateQuickResponseRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The identifier of the quick response.</p>
+   * The identifier of the quick response.
+   *
    * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * <p>The name of the quick response.</p>
+   * The name of the quick response.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated content of the quick response.</p>
+   * The updated content of the quick response.
+   *
    * @public
    */
   content?: QuickResponseDataProvider | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
+   * The media type of the quick response content.
+   *
+   * - Use `application/x.quickresponse;format=plain` for quick response written in plain text.
+   * - Use `application/x.quickresponse;format=markdown` for quick response written in richtext.
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>The updated grouping configuration of the quick response.</p>
+   * The updated grouping configuration of the quick response.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>Whether to remove the grouping configuration of the quick response.</p>
+   * Whether to remove the grouping configuration of the quick response.
+   *
    * @public
    */
   removeGroupingConfiguration?: boolean | undefined;
 
   /**
-   * <p>The updated description of the quick response.</p>
+   * The updated description of the quick response.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Whether to remove the description from the quick response.</p>
+   * Whether to remove the description from the quick response.
+   *
    * @public
    */
   removeDescription?: boolean | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
+   * The shortcut key of the quick response. The value should be unique across the knowledge base.
+   *
    * @public
    */
   shortcutKey?: string | undefined;
 
   /**
-   * <p>Whether to remove the shortcut key of the quick response.</p>
+   * Whether to remove the shortcut key of the quick response.
+   *
    * @public
    */
   removeShortcutKey?: boolean | undefined;
 
   /**
-   * <p>Whether the quick response is active. </p>
+   * Whether the quick response is active.
+   *
    * @public
    */
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * The Connect Customer contact channels this quick response applies to. The supported contact channel types include `Chat`.
+   *
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
@@ -1731,7 +1980,8 @@ export interface UpdateQuickResponseRequest {
  */
 export interface UpdateQuickResponseResponse {
   /**
-   * <p>The quick response.</p>
+   * The quick response.
+   *
    * @public
    */
   quickResponse?: QuickResponseData | undefined;
@@ -1742,7 +1992,8 @@ export interface UpdateQuickResponseResponse {
  */
 export interface RemoveKnowledgeBaseTemplateUriRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
@@ -1758,25 +2009,29 @@ export interface RemoveKnowledgeBaseTemplateUriResponse {}
  */
 export interface SearchContentRequest {
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The search expression to filter results.</p>
+   * The search expression to filter results.
+   *
    * @public
    */
   searchExpression: SearchExpression | undefined;
@@ -1787,121 +2042,168 @@ export interface SearchContentRequest {
  */
 export interface SearchContentResponse {
   /**
-   * <p>Summary information about the content.</p>
+   * Summary information about the content.
+   *
    * @public
    */
   contentSummaries: ContentSummary[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The message template fields to filter the message template query results by. The following is the list of supported field names:</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>channel</p> </li> <li> <p>channelSubtype</p> </li> <li> <p>language</p> </li> <li> <p>qualifier</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
+ * The message template fields to filter the message template query results by. The following is the list of supported field names:
+ *
+ * - name
+ * - description
+ * - channel
+ * - channelSubtype
+ * - language
+ * - qualifier
+ * - createdTime
+ * - lastModifiedTime
+ * - lastModifiedBy
+ * - groupingConfiguration.criteria
+ * - groupingConfiguration.values
+ *
  * @public
  */
 export interface MessageTemplateFilterField {
   /**
-   * <p>The name of the attribute field to filter the message templates by.</p>
+   * The name of the attribute field to filter the message templates by.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values of attribute field to filter the message template by.</p>
+   * The values of attribute field to filter the message template by.
+   *
    * @public
    */
   values?: string[] | undefined;
 
   /**
-   * <p>The operator to use for filtering.</p>
+   * The operator to use for filtering.
+   *
    * @public
    */
   operator: MessageTemplateFilterOperator | undefined;
 
   /**
-   * <p>Whether to treat null value as a match for the attribute field.</p>
+   * Whether to treat null value as a match for the attribute field.
+   *
    * @public
    */
   includeNoExistence?: boolean | undefined;
 }
 
 /**
- * <p>The message template fields to order the message template query results by. The following is the list of supported field names:</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>channel</p> </li> <li> <p>channelSubtype</p> </li> <li> <p>language</p> </li> <li> <p>qualifier</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
+ * The message template fields to order the message template query results by. The following is the list of supported field names:
+ *
+ * - name
+ * - description
+ * - channel
+ * - channelSubtype
+ * - language
+ * - qualifier
+ * - createdTime
+ * - lastModifiedTime
+ * - lastModifiedBy
+ * - groupingConfiguration.criteria
+ * - groupingConfiguration.values
+ *
  * @public
  */
 export interface MessageTemplateOrderField {
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The order at which the message templates are sorted by.</p>
+   * The order at which the message templates are sorted by.
+   *
    * @public
    */
   order?: Order | undefined;
 }
 
 /**
- * <p>The message template fields to query message templates by. The following is the list of supported field names:</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> </ul>
+ * The message template fields to query message templates by. The following is the list of supported field names:
+ *
+ * - name
+ * - description
+ *
  * @public
  */
 export interface MessageTemplateQueryField {
   /**
-   * <p>The name of the attribute to query the message templates by.</p>
+   * The name of the attribute to query the message templates by.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values of the attribute to query the message templates by.</p>
+   * The values of the attribute to query the message templates by.
+   *
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>The operator to use for matching attribute field values in the query.</p>
+   * The operator to use for matching attribute field values in the query.
+   *
    * @public
    */
   operator: MessageTemplateQueryOperator | undefined;
 
   /**
-   * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
+   * Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.
+   *
    * @public
    */
   allowFuzziness?: boolean | undefined;
 
   /**
-   * <p>The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.</p>
+   * The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.
+   *
    * @public
    */
   priority?: Priority | undefined;
 }
 
 /**
- * <p>The search expression of the message template.</p>
+ * The search expression of the message template.
+ *
  * @public
  */
 export interface MessageTemplateSearchExpression {
   /**
-   * <p>The message template query expressions.</p>
+   * The message template query expressions.
+   *
    * @public
    */
   queries?: MessageTemplateQueryField[] | undefined;
 
   /**
-   * <p>The configuration of filtering rules applied to message template query results.</p>
+   * The configuration of filtering rules applied to message template query results.
+   *
    * @public
    */
   filters?: MessageTemplateFilterField[] | undefined;
 
   /**
-   * <p>The message template attribute fields on which the query results are ordered.</p>
+   * The message template attribute fields on which the query results are ordered.
+   *
    * @public
    */
   orderOnField?: MessageTemplateOrderField | undefined;
@@ -1912,133 +2214,155 @@ export interface MessageTemplateSearchExpression {
  */
 export interface SearchMessageTemplatesRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The search expression for querying the message template.</p>
+   * The search expression for querying the message template.
+   *
    * @public
    */
   searchExpression: MessageTemplateSearchExpression | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The result of message template search.</p>
+ * The result of message template search.
+ *
  * @public
  */
 export interface MessageTemplateSearchResultData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * The Amazon Resource Name (ARN) of the message template.
+   *
    * @public
    */
   messageTemplateArn: string | undefined;
 
   /**
-   * <p>The identifier of the message template.</p>
+   * The identifier of the message template.
+   *
    * @public
    */
   messageTemplateId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base.</p>
+   * The identifier of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the message template.</p>
+   * The name of the message template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The channel of the message template.</p>
+   * The channel of the message template.
+   *
    * @public
    */
   channel?: string | undefined;
 
   /**
-   * <p>The channel subtype this message template applies to.</p>
+   * The channel subtype this message template applies to.
+   *
    * @public
    */
   channelSubtype: ChannelSubtype | undefined;
 
   /**
-   * <p>The timestamp when the message template was created.</p>
+   * The timestamp when the message template was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the message template data was last modified.</p>
+   * The timestamp when the message template data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the message template data.
+   *
    * @public
    */
   lastModifiedBy: string | undefined;
 
   /**
-   * <p>Whether the version of the message template is activated.</p>
+   * Whether the version of the message template is activated.
+   *
    * @public
    */
   isActive?: boolean | undefined;
 
   /**
-   * <p>The version number of the message template version.</p>
+   * The version number of the message template version.
+   *
    * @public
    */
   versionNumber?: number | undefined;
 
   /**
-   * <p>The description of the message template.</p>
+   * The description of the message template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The source configuration summary of the message template.</p>
+   * The source configuration summary of the message template.
+   *
    * @public
    */
   sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
 
   /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * The configuration information of the grouping of Amazon Q in Connect users.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * The language code value for the language in which the quick response is written. The supported language codes include `de_DE`, `en_US`, `es_ES`, `fr_FR`, `id_ID`, `it_IT`, `ja_JP`, `ko_KR`, `pt_BR`, `zh_CN`, `zh_TW`
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2049,121 +2373,178 @@ export interface MessageTemplateSearchResultData {
  */
 export interface SearchMessageTemplatesResponse {
   /**
-   * <p>The results of the message template search.</p>
+   * The results of the message template search.
+   *
    * @public
    */
   results: MessageTemplateSearchResultData[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The quick response fields to filter the quick response query results by.</p> <p>The following is the list of supported field names.</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>shortcutKey</p> </li> <li> <p>isActive</p> </li> <li> <p>channels</p> </li> <li> <p>language</p> </li> <li> <p>contentType</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
+ * The quick response fields to filter the quick response query results by.
+ *
+ * The following is the list of supported field names.
+ *
+ * - name
+ * - description
+ * - shortcutKey
+ * - isActive
+ * - channels
+ * - language
+ * - contentType
+ * - createdTime
+ * - lastModifiedTime
+ * - lastModifiedBy
+ * - groupingConfiguration.criteria
+ * - groupingConfiguration.values
+ *
  * @public
  */
 export interface QuickResponseFilterField {
   /**
-   * <p>The name of the attribute field to filter the quick responses by.</p>
+   * The name of the attribute field to filter the quick responses by.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values of attribute field to filter the quick response by.</p>
+   * The values of attribute field to filter the quick response by.
+   *
    * @public
    */
   values?: string[] | undefined;
 
   /**
-   * <p>The operator to use for filtering.</p>
+   * The operator to use for filtering.
+   *
    * @public
    */
   operator: QuickResponseFilterOperator | undefined;
 
   /**
-   * <p>Whether to treat null value as a match for the attribute field.</p>
+   * Whether to treat null value as a match for the attribute field.
+   *
    * @public
    */
   includeNoExistence?: boolean | undefined;
 }
 
 /**
- * <p>The quick response fields to order the quick response query results by.</p> <p>The following is the list of supported field names.</p> <ul> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>shortcutKey</p> </li> <li> <p>isActive</p> </li> <li> <p>channels</p> </li> <li> <p>language</p> </li> <li> <p>contentType</p> </li> <li> <p>createdTime</p> </li> <li> <p>lastModifiedTime</p> </li> <li> <p>lastModifiedBy</p> </li> <li> <p>groupingConfiguration.criteria</p> </li> <li> <p>groupingConfiguration.values</p> </li> </ul>
+ * The quick response fields to order the quick response query results by.
+ *
+ * The following is the list of supported field names.
+ *
+ * - name
+ * - description
+ * - shortcutKey
+ * - isActive
+ * - channels
+ * - language
+ * - contentType
+ * - createdTime
+ * - lastModifiedTime
+ * - lastModifiedBy
+ * - groupingConfiguration.criteria
+ * - groupingConfiguration.values
+ *
  * @public
  */
 export interface QuickResponseOrderField {
   /**
-   * <p>The name of the attribute to order the quick response query results by.</p>
+   * The name of the attribute to order the quick response query results by.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The order at which the quick responses are sorted by.</p>
+   * The order at which the quick responses are sorted by.
+   *
    * @public
    */
   order?: Order | undefined;
 }
 
 /**
- * <p>The quick response fields to query quick responses by.</p> <p>The following is the list of supported field names.</p> <ul> <li> <p>content</p> </li> <li> <p>name</p> </li> <li> <p>description</p> </li> <li> <p>shortcutKey</p> </li> </ul>
+ * The quick response fields to query quick responses by.
+ *
+ * The following is the list of supported field names.
+ *
+ * - content
+ * - name
+ * - description
+ * - shortcutKey
+ *
  * @public
  */
 export interface QuickResponseQueryField {
   /**
-   * <p>The name of the attribute to query the quick responses by.</p>
+   * The name of the attribute to query the quick responses by.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The values of the attribute to query the quick responses by.</p>
+   * The values of the attribute to query the quick responses by.
+   *
    * @public
    */
   values: string[] | undefined;
 
   /**
-   * <p>The operator to use for matching attribute field values in the query.</p>
+   * The operator to use for matching attribute field values in the query.
+   *
    * @public
    */
   operator: QuickResponseQueryOperator | undefined;
 
   /**
-   * <p>Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.</p>
+   * Whether the query expects only exact matches on the attribute field values. The results of the query will only include exact matches if this parameter is set to false.
+   *
    * @public
    */
   allowFuzziness?: boolean | undefined;
 
   /**
-   * <p>The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.</p>
+   * The importance of the attribute field when calculating query result relevancy scores. The value set for this parameter affects the ordering of search results.
+   *
    * @public
    */
   priority?: Priority | undefined;
 }
 
 /**
- * <p>Information about the import job.</p>
+ * Information about the import job.
+ *
  * @public
  */
 export interface QuickResponseSearchExpression {
   /**
-   * <p>The quick response query expressions.</p>
+   * The quick response query expressions.
+   *
    * @public
    */
   queries?: QuickResponseQueryField[] | undefined;
 
   /**
-   * <p>The configuration of filtering rules applied to quick response query results.</p>
+   * The configuration of filtering rules applied to quick response query results.
+   *
    * @public
    */
   filters?: QuickResponseFilterField[] | undefined;
 
   /**
-   * <p>The quick response attribute fields on which the query results are ordered.</p>
+   * The quick response attribute fields on which the query results are ordered.
+   *
    * @public
    */
   orderOnField?: QuickResponseOrderField | undefined;
@@ -2174,157 +2555,186 @@ export interface QuickResponseSearchExpression {
  */
 export interface SearchQuickResponsesRequest {
   /**
-   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The search expression for querying the quick response.</p>
+   * The search expression for querying the quick response.
+   *
    * @public
    */
   searchExpression: QuickResponseSearchExpression | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Connect Customer contact attributes</a> to be resolved when search results are returned.</p>
+   * The [user-defined Connect Customer contact attributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes) to be resolved when search results are returned.
+   *
    * @public
    */
   attributes?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The result of quick response search.</p>
+ * The result of quick response search.
+ *
  * @public
  */
 export interface QuickResponseSearchResultData {
   /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
+   * The Amazon Resource Name (ARN) of the quick response.
+   *
    * @public
    */
   quickResponseArn: string | undefined;
 
   /**
-   * <p>The identifier of the quick response.</p>
+   * The identifier of the quick response.
+   *
    * @public
    */
   quickResponseId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * The Amazon Resource Name (ARN) of the knowledge base.
+   *
    * @public
    */
   knowledgeBaseArn: string | undefined;
 
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The name of the quick response.</p>
+   * The name of the quick response.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response written in richtext.</p> </li> </ul>
+   * The media type of the quick response content.
+   *
+   * - Use `application/x.quickresponse;format=plain` for quick response written in plain text.
+   * - Use `application/x.quickresponse;format=markdown` for quick response written in richtext.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The resource status of the quick response.</p>
+   * The resource status of the quick response.
+   *
    * @public
    */
   status: QuickResponseStatus | undefined;
 
   /**
-   * <p>The contents of the quick response.</p>
+   * The contents of the quick response.
+   *
    * @public
    */
   contents: QuickResponseContents | undefined;
 
   /**
-   * <p>The timestamp when the quick response was created.</p>
+   * The timestamp when the quick response was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the quick response search result data was last modified.</p>
+   * The timestamp when the quick response search result data was last modified.
+   *
    * @public
    */
   lastModifiedTime: Date | undefined;
 
   /**
-   * <p>Whether the quick response is active.</p>
+   * Whether the quick response is active.
+   *
    * @public
    */
   isActive: boolean | undefined;
 
   /**
-   * <p>The description of the quick response.</p>
+   * The description of the quick response.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * The configuration information of the user groups that the quick response is accessible to.
+   *
    * @public
    */
   groupingConfiguration?: GroupingConfiguration | undefined;
 
   /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base.</p>
+   * The shortcut key of the quick response. The value should be unique across the knowledge base.
+   *
    * @public
    */
   shortcutKey?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search result data.</p>
+   * The Amazon Resource Name (ARN) of the user who last updated the quick response search result data.
+   *
    * @public
    */
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * The Connect Customer contact channels this quick response applies to. The supported contact channel types include `Chat`.
+   *
    * @public
    */
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written.</p>
+   * The language code value for the language in which the quick response is written.
+   *
    * @public
    */
   language?: string | undefined;
 
   /**
-   * <p>The user defined contact attributes that are not resolved when the search result is returned.</p>
+   * The user defined contact attributes that are not resolved when the search result is returned.
+   *
    * @public
    */
   attributesNotInterpolated?: string[] | undefined;
 
   /**
-   * <p>The user defined contact attributes that are resolved when the search result is returned.</p>
+   * The user defined contact attributes that are resolved when the search result is returned.
+   *
    * @public
    */
   attributesInterpolated?: string[] | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2335,13 +2745,15 @@ export interface QuickResponseSearchResultData {
  */
 export interface SearchQuickResponsesResponse {
   /**
-   * <p>The results of the quick response search.</p>
+   * The results of the quick response search.
+   *
    * @public
    */
   results: QuickResponseSearchResultData[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2352,19 +2764,22 @@ export interface SearchQuickResponsesResponse {
  */
 export interface StartContentUploadRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The type of content to upload.</p>
+   * The type of content to upload.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The expected expiration time of the generated presigned URL, specified in minutes.</p>
+   * The expected expiration time of the generated presigned URL, specified in minutes.
+   *
    * @public
    */
   presignedUrlTimeToLive?: number | undefined;
@@ -2375,25 +2790,29 @@ export interface StartContentUploadRequest {
  */
 export interface StartContentUploadResponse {
   /**
-   * <p>The identifier of the upload.</p>
+   * The identifier of the upload.
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The URL of the upload.</p>
+   * The URL of the upload.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>The expiration time of the URL as an epoch timestamp.</p>
+   * The expiration time of the URL as an epoch timestamp.
+   *
    * @public
    */
   urlExpiry: Date | undefined;
 
   /**
-   * <p>The headers to include in the upload.</p>
+   * The headers to include in the upload.
+   *
    * @public
    */
   headersToInclude: Record<string, string> | undefined;
@@ -2404,37 +2823,47 @@ export interface StartContentUploadResponse {
  */
 export interface StartImportJobRequest {
   /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p> <ul> <li> <p>For importing Amazon Q in Connect quick responses, this should be a <code>QUICK_RESPONSES</code> type knowledge base.</p> </li> </ul>
+   * The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
+   * - For importing Amazon Q in Connect quick responses, this should be a `QUICK_RESPONSES` type knowledge base.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The type of the import job.</p> <ul> <li> <p>For importing quick response resource, set the value to <code>QUICK_RESPONSES</code>.</p> </li> </ul>
+   * The type of the import job.
+   *
+   * - For importing quick response resource, set the value to `QUICK_RESPONSES`.
+   *
    * @public
    */
   importJobType: ImportJobType | undefined;
 
   /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
+   * A pointer to the uploaded asset. This value is returned by [StartContentUpload](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html).
+   *
    * @public
    */
   uploadId: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
+   * The metadata fields of the imported Amazon Q in Connect resources.
+   *
    * @public
    */
   metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The configuration information of the external source that the resource data are imported from.</p>
+   * The configuration information of the external source that the resource data are imported from.
+   *
    * @public
    */
   externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
@@ -2445,7 +2874,8 @@ export interface StartImportJobRequest {
  */
 export interface StartImportJobResponse {
   /**
-   * <p>The import job.</p>
+   * The import job.
+   *
    * @public
    */
   importJob?: ImportJobData | undefined;
@@ -2456,13 +2886,15 @@ export interface StartImportJobResponse {
  */
 export interface UpdateKnowledgeBaseTemplateUriRequest {
   /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   *
    * @public
    */
   knowledgeBaseId: string | undefined;
 
   /**
-   * <p>The template URI to update.</p>
+   * The template URI to update.
+   *
    * @public
    */
   templateUri: string | undefined;
@@ -2473,7 +2905,8 @@ export interface UpdateKnowledgeBaseTemplateUriRequest {
  */
 export interface UpdateKnowledgeBaseTemplateUriResponse {
   /**
-   * <p>The knowledge base to update.</p>
+   * The knowledge base to update.
+   *
    * @public
    */
   knowledgeBase?: KnowledgeBaseData | undefined;
@@ -2484,7 +2917,8 @@ export interface UpdateKnowledgeBaseTemplateUriResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -2495,7 +2929,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2506,13 +2941,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * The tags used to organize, track, or control access for this resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2528,13 +2965,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys.</p>
+   * The tag keys.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -2546,7 +2985,8 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>Message content value - can be text, tool invocation, tool result, or reasoning</p>
+ * Message content value - can be text, tool invocation, tool result, or reasoning
+ *
  * @public
  */
 export type SpanMessageValue =
@@ -2561,7 +3001,8 @@ export type SpanMessageValue =
  */
 export namespace SpanMessageValue {
   /**
-   * <p>Text message content</p>
+   * Text message content
+   *
    * @public
    */
   export interface TextMember {
@@ -2573,7 +3014,8 @@ export namespace SpanMessageValue {
   }
 
   /**
-   * <p>Tool invocation message content</p>
+   * Tool invocation message content
+   *
    * @public
    */
   export interface ToolUseMember {
@@ -2585,7 +3027,8 @@ export namespace SpanMessageValue {
   }
 
   /**
-   * <p>Tool result message content</p>
+   * Tool result message content
+   *
    * @public
    */
   export interface ToolResultMember {
@@ -2597,7 +3040,8 @@ export namespace SpanMessageValue {
   }
 
   /**
-   * <p>Model reasoning and it's internal decision making process</p>
+   * Model reasoning and it's internal decision making process
+   *
    * @public
    */
   export interface ReasoningMember {
@@ -2633,31 +3077,36 @@ export namespace SpanMessageValue {
 }
 
 /**
- * <p>Tool result message content</p>
+ * Tool result message content
+ *
  * @public
  */
 export interface SpanToolResultValue {
   /**
-   * <p>Relates this result back to the tool invocation</p>
+   * Relates this result back to the tool invocation
+   *
    * @public
    */
   toolUseId: string | undefined;
 
   /**
-   * <p>The tool results</p>
+   * The tool results
+   *
    * @public
    */
   values: SpanMessageValue[] | undefined;
 
   /**
-   * <p>The tool invocation error if failed</p>
+   * The tool invocation error if failed
+   *
    * @public
    */
   error?: string | undefined;
 }
 
 /**
- * <p>Configuration for filtering content during retrieval operations.</p>
+ * Configuration for filtering content during retrieval operations.
+ *
  * @public
  */
 export type RetrievalFilterConfiguration =
@@ -2681,7 +3130,8 @@ export type RetrievalFilterConfiguration =
  */
 export namespace RetrievalFilterConfiguration {
   /**
-   * <p>Filter configuration that requires all conditions to be met.</p>
+   * Filter configuration that requires all conditions to be met.
+   *
    * @public
    */
   export interface AndAllMember {
@@ -2702,7 +3152,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for exact equality matching.</p>
+   * Filter configuration for exact equality matching.
+   *
    * @public
    */
   export interface EqualsMember {
@@ -2723,7 +3174,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for greater than comparison.</p>
+   * Filter configuration for greater than comparison.
+   *
    * @public
    */
   export interface GreaterThanMember {
@@ -2744,7 +3196,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for greater than or equal comparison.</p>
+   * Filter configuration for greater than or equal comparison.
+   *
    * @public
    */
   export interface GreaterThanOrEqualsMember {
@@ -2765,7 +3218,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for membership in a set of values.</p>
+   * Filter configuration for membership in a set of values.
+   *
    * @public
    */
   export interface InMember {
@@ -2786,7 +3240,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for less than comparison.</p>
+   * Filter configuration for less than comparison.
+   *
    * @public
    */
   export interface LessThanMember {
@@ -2807,7 +3262,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for less than or equal comparison.</p>
+   * Filter configuration for less than or equal comparison.
+   *
    * @public
    */
   export interface LessThanOrEqualsMember {
@@ -2828,7 +3284,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for checking if a list contains a value.</p>
+   * Filter configuration for checking if a list contains a value.
+   *
    * @public
    */
   export interface ListContainsMember {
@@ -2849,7 +3306,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for inequality matching.</p>
+   * Filter configuration for inequality matching.
+   *
    * @public
    */
   export interface NotEqualsMember {
@@ -2870,7 +3328,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for exclusion from a set of values.</p>
+   * Filter configuration for exclusion from a set of values.
+   *
    * @public
    */
   export interface NotInMember {
@@ -2891,7 +3350,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration where any condition can be met.</p>
+   * Filter configuration where any condition can be met.
+   *
    * @public
    */
   export interface OrAllMember {
@@ -2912,7 +3372,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for prefix matching.</p>
+   * Filter configuration for prefix matching.
+   *
    * @public
    */
   export interface StartsWithMember {
@@ -2933,7 +3394,8 @@ export namespace RetrievalFilterConfiguration {
   }
 
   /**
-   * <p>Filter configuration for substring matching.</p>
+   * Filter configuration for substring matching.
+   *
    * @public
    */
   export interface StringContainsMember {
@@ -2996,60 +3458,70 @@ export namespace RetrievalFilterConfiguration {
 }
 
 /**
- * <p>A message in the conversation history with participant role and content values</p>
+ * A message in the conversation history with participant role and content values
+ *
  * @public
  */
 export interface SpanMessage {
   /**
-   * <p>Unique message identifier</p>
+   * Unique message identifier
+   *
    * @public
    */
   messageId: string | undefined;
 
   /**
-   * <p>Message source role</p>
+   * Message source role
+   *
    * @public
    */
   participant: Participant | undefined;
 
   /**
-   * <p>Message timestamp</p>
+   * Message timestamp
+   *
    * @public
    */
   timestamp: Date | undefined;
 
   /**
-   * <p>Message content values (text, tool use, tool result, reasoning)</p>
+   * Message content values (text, tool use, tool result, reasoning)
+   *
    * @public
    */
   values: SpanMessageValue[] | undefined;
 }
 
 /**
- * <p>Configuration for content retrieval operations.</p>
+ * Configuration for content retrieval operations.
+ *
  * @public
  */
 export interface RetrievalConfiguration {
   /**
-   * <p>The knowledge source configuration for content retrieval.</p>
+   * The knowledge source configuration for content retrieval.
+   *
    * @public
    */
   knowledgeSource: KnowledgeSource | undefined;
 
   /**
-   * <p>The filter configuration for content retrieval.</p>
+   * The filter configuration for content retrieval.
+   *
    * @public
    */
   filter?: RetrievalFilterConfiguration | undefined;
 
   /**
-   * <p>The number of results to retrieve.</p>
+   * The number of results to retrieve.
+   *
    * @public
    */
   numberOfResults?: number | undefined;
 
   /**
-   * <p>Override setting for the knowledge base search type during retrieval.</p>
+   * Override setting for the knowledge base search type during retrieval.
+   *
    * @public
    */
   overrideKnowledgeBaseSearchType?: KnowledgeBaseSearchType | undefined;
@@ -3060,26 +3532,30 @@ export interface RetrievalConfiguration {
  */
 export interface RetrieveRequest {
   /**
-   * <p>The identifier of the Amazon Q in Connect assistant for content retrieval.</p>
+   * The identifier of the Amazon Q in Connect assistant for content retrieval.
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>The configuration for the content retrieval operation.</p>
+   * The configuration for the content retrieval operation.
+   *
    * @public
    */
   retrievalConfiguration: RetrievalConfiguration | undefined;
 
   /**
-   * <p>The query for content retrieval.</p>
+   * The query for content retrieval.
+   *
    * @public
    */
   retrievalQuery: string | undefined;
 }
 
 /**
- * <p>Details about the data.</p>
+ * Details about the data.
+ *
  * @public
  */
 export type DataDetails =
@@ -3103,7 +3579,8 @@ export type DataDetails =
  */
 export namespace DataDetails {
   /**
-   * <p>Details about the content data.</p>
+   * Details about the content data.
+   *
    * @public
    */
   export interface ContentDataMember {
@@ -3124,7 +3601,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p> Details about the generative data.</p>
+   * Details about the generative data.
+   *
    * @public
    */
   export interface GenerativeDataMember {
@@ -3145,7 +3623,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about the intent data.</p>
+   * Details about the intent data.
+   *
    * @public
    */
   export interface IntentDetectedDataMember {
@@ -3166,7 +3645,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about the content data.</p>
+   * Details about the content data.
+   *
    * @public
    */
   export interface SourceContentDataMember {
@@ -3187,7 +3667,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about the generative chunk data.</p>
+   * Details about the generative chunk data.
+   *
    * @public
    */
   export interface GenerativeChunkDataMember {
@@ -3208,7 +3689,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Streaming chunk data for email response generation containing partial response content.</p>
+   * Streaming chunk data for email response generation containing partial response content.
+   *
    * @public
    */
   export interface EmailResponseChunkDataMember {
@@ -3229,7 +3711,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Streaming chunk data for email overview containing partial overview content.</p>
+   * Streaming chunk data for email overview containing partial overview content.
+   *
    * @public
    */
   export interface EmailOverviewChunkDataMember {
@@ -3250,7 +3733,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Streaming chunk data for email generative answers containing partial knowledge-based response content.</p>
+   * Streaming chunk data for email generative answers containing partial knowledge-based response content.
+   *
    * @public
    */
   export interface EmailGenerativeAnswerChunkDataMember {
@@ -3271,7 +3755,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about case summarization chunk data.</p>
+   * Details about case summarization chunk data.
+   *
    * @public
    */
   export interface CaseSummarizationChunkDataMember {
@@ -3292,7 +3777,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about suggested message data.</p>
+   * Details about suggested message data.
+   *
    * @public
    */
   export interface SuggestedMessageDataMember {
@@ -3313,7 +3799,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about notes data.</p>
+   * Details about notes data.
+   *
    * @public
    */
   export interface NotesDataMember {
@@ -3334,7 +3821,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about notes chunk data.</p>
+   * Details about notes chunk data.
+   *
    * @public
    */
   export interface NotesChunkDataMember {
@@ -3355,7 +3843,8 @@ export namespace DataDetails {
   }
 
   /**
-   * <p>Details about a proactive recommendation, including the token used to retrieve its chunked response with <code>GetNextMessage</code>.</p>
+   * Details about a proactive recommendation, including the token used to retrieve its chunked response with `GetNextMessage`.
+   *
    * @public
    */
   export interface ProactiveRecommendationDataMember {
@@ -3418,492 +3907,574 @@ export namespace DataDetails {
 }
 
 /**
- * <p>Summary of the data.</p>
+ * Summary of the data.
+ *
  * @public
  */
 export interface DataSummary {
   /**
-   * <p>Reference information about the content.</p>
+   * Reference information about the content.
+   *
    * @public
    */
   reference: DataReference | undefined;
 
   /**
-   * <p>Details about the data.</p>
+   * Details about the data.
+   *
    * @public
    */
   details: DataDetails | undefined;
 }
 
 /**
- * <p>Details of streaming chunk data for email generative answers including completion text and references.</p>
+ * Details of streaming chunk data for email generative answers including completion text and references.
+ *
  * @public
  */
 export interface EmailGenerativeAnswerChunkDataDetails {
   /**
-   * <p>The partial or complete text content of the generative answer response.</p>
+   * The partial or complete text content of the generative answer response.
+   *
    * @public
    */
   completion?: string | undefined;
 
   /**
-   * <p>Source references and citations from knowledge base articles used to generate the answer.</p>
+   * Source references and citations from knowledge base articles used to generate the answer.
+   *
    * @public
    */
   references?: DataSummary[] | undefined;
 
   /**
-   * <p>Token for retrieving the next chunk of streaming response data, if available.</p>
+   * Token for retrieving the next chunk of streaming response data, if available.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 }
 
 /**
- * <p>Details about the generative chunk data.</p>
+ * Details about the generative chunk data.
+ *
  * @public
  */
 export interface GenerativeChunkDataDetails {
   /**
-   * <p>A chunk of the LLM response.</p>
+   * A chunk of the LLM response.
+   *
    * @public
    */
   completion?: string | undefined;
 
   /**
-   * <p>The references used to generate the LLM response.</p>
+   * The references used to generate the LLM response.
+   *
    * @public
    */
   references?: DataSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.</p>
+   * The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks.
+   *
    * @public
    */
   nextChunkToken?: string | undefined;
 }
 
 /**
- * <p>Details about generative data.</p>
+ * Details about generative data.
+ *
  * @public
  */
 export interface GenerativeDataDetails {
   /**
-   * <p>The LLM response.</p>
+   * The LLM response.
+   *
    * @public
    */
   completion: string | undefined;
 
   /**
-   * <p>The references used to generative the LLM response.</p>
+   * The references used to generative the LLM response.
+   *
    * @public
    */
   references: DataSummary[] | undefined;
 
   /**
-   * <p>Details about the generative content ranking data.</p>
+   * Details about the generative content ranking data.
+   *
    * @public
    */
   rankingData: RankingData | undefined;
 }
 
 /**
- * <p>Information about the recommendation.</p>
+ * Information about the recommendation.
+ *
  * @public
  */
 export interface RecommendationData {
   /**
-   * <p>The identifier of the recommendation.</p>
+   * The identifier of the recommendation.
+   *
    * @public
    */
   recommendationId: string | undefined;
 
   /**
-   * <p>The recommended document.</p>
+   * The recommended document.
+   *
    * @public
    */
   document?: Document | undefined;
 
   /**
-   * <p>The relevance score of the recommendation.</p>
+   * The relevance score of the recommendation.
+   *
    * @public
    */
   relevanceScore?: number | undefined;
 
   /**
-   * <p>The relevance level of the recommendation.</p>
+   * The relevance level of the recommendation.
+   *
    * @public
    */
   relevanceLevel?: RelevanceLevel | undefined;
 
   /**
-   * <p>The type of recommendation.</p>
+   * The type of recommendation.
+   *
    * @public
    */
   type?: RecommendationType | undefined;
 
   /**
-   * <p> Summary of the recommended content.</p>
+   * Summary of the recommended content.
+   *
    * @public
    */
   data?: DataSummary | undefined;
 }
 
 /**
- * <p>Information about the result.</p>
+ * Information about the result.
+ *
  * @public
  */
 export interface ResultData {
   /**
-   * <p>The identifier of the result data.</p>
+   * The identifier of the result data.
+   *
    * @public
    */
   resultId: string | undefined;
 
   /**
-   * <p>The document.</p>
+   * The document.
+   *
    * @public
    */
   document?: Document | undefined;
 
   /**
-   * <p>The relevance score of the results.</p>
+   * The relevance score of the results.
+   *
    * @public
    */
   relevanceScore?: number | undefined;
 
   /**
-   * <p> Summary of the recommended content.</p>
+   * Summary of the recommended content.
+   *
    * @public
    */
   data?: DataSummary | undefined;
 
   /**
-   * <p>The type of the query result.</p>
+   * The type of the query result.
+   *
    * @public
    */
   type?: QueryResultType | undefined;
 }
 
 /**
- * <p>Contextual attributes capturing operation details, LLM configuration, usage metrics, and conversation data</p>
+ * Contextual attributes capturing operation details, LLM configuration, usage metrics, and conversation data
+ *
  * @public
  */
 export interface SpanAttributes {
   /**
-   * <p>Action being performed</p>
+   * Action being performed
+   *
    * @public
    */
   operationName?: string | undefined;
 
   /**
-   * <p>Model provider identifier (e.g., aws.bedrock)</p>
+   * Model provider identifier (e.g., aws.bedrock)
+   *
    * @public
    */
   providerName?: string | undefined;
 
   /**
-   * <p>Error classification if span failed (e.g., throttle, timeout)</p>
+   * Error classification if span failed (e.g., throttle, timeout)
+   *
    * @public
    */
   errorType?: string | undefined;
 
   /**
-   * <p>Amazon Connect agent ID</p>
+   * Amazon Connect agent ID
+   *
    * @public
    */
   agentId?: string | undefined;
 
   /**
-   * <p>Amazon Connect instance ARN</p>
+   * Amazon Connect instance ARN
+   *
    * @public
    */
   instanceArn?: string | undefined;
 
   /**
-   * <p>Amazon Connect contact identifier</p>
+   * Amazon Connect contact identifier
+   *
    * @public
    */
   contactId?: string | undefined;
 
   /**
-   * <p>Amazon Connect contact identifier</p>
+   * Amazon Connect contact identifier
+   *
    * @public
    */
   initialContactId?: string | undefined;
 
   /**
-   * <p>Session name</p>
+   * Session name
+   *
    * @public
    */
   sessionName?: string | undefined;
 
   /**
-   * <p>AI agent ARN</p>
+   * AI agent ARN
+   *
    * @public
    */
   aiAgentArn?: string | undefined;
 
   /**
-   * <p>AI agent type</p>
+   * AI agent type
+   *
    * @public
    */
   aiAgentType?: AIAgentType | undefined;
 
   /**
-   * <p>AI agent name</p>
+   * AI agent name
+   *
    * @public
    */
   aiAgentName?: string | undefined;
 
   /**
-   * <p>AI agent identifier</p>
+   * AI agent identifier
+   *
    * @public
    */
   aiAgentId?: string | undefined;
 
   /**
-   * <p>AI agent version number</p>
+   * AI agent version number
+   *
    * @public
    */
   aiAgentVersion?: number | undefined;
 
   /**
-   * <p>Entity that invoked the AI agent</p>
+   * Entity that invoked the AI agent
+   *
    * @public
    */
   aiAgentInvoker?: string | undefined;
 
   /**
-   * <p>AI agent orchestrator use case</p>
+   * AI agent orchestrator use case
+   *
    * @public
    */
   aiAgentOrchestratorUseCase?: string | undefined;
 
   /**
-   * <p>How the orchestrator engaged the collaborator agent. Present on spans that invoke a collaborator agent.</p>
+   * How the orchestrator engaged the collaborator agent. Present on spans that invoke a collaborator agent.
+   *
    * @public
    */
   interactionMode?: InteractionMode | undefined;
 
   /**
-   * <p>Identifier of the collaborator agent being invoked. For first-party collaborators this is the Amazon Connect AI agent ID; for third-party collaborators this is the external application ID.</p>
+   * Identifier of the collaborator agent being invoked. For first-party collaborators this is the Amazon Connect AI agent ID; for third-party collaborators this is the external application ID.
+   *
    * @public
    */
   targetAgentId?: string | undefined;
 
   /**
-   * <p>Reason a sub-agent returned control to the calling agent. Present on return_to_agent spans.</p>
+   * Reason a sub-agent returned control to the calling agent. Present on return_to_agent spans.
+   *
    * @public
    */
   returnReason?: ReturnReason | undefined;
 
   /**
-   * <p>LLM model ID for request (e.g., anthropic.claude-3-sonnet)</p>
+   * LLM model ID for request (e.g., anthropic.claude-3-sonnet)
+   *
    * @public
    */
   requestModel?: string | undefined;
 
   /**
-   * <p>Maximum tokens configured for generation</p>
+   * Maximum tokens configured for generation
+   *
    * @public
    */
   requestMaxTokens?: number | undefined;
 
   /**
-   * <p>Sampling temperature for generation</p>
+   * Sampling temperature for generation
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>Top-p sampling parameter for generation</p>
+   * Top-p sampling parameter for generation
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>Actual model used for response (usually matches requestModel)</p>
+   * Actual model used for response (usually matches requestModel)
+   *
    * @public
    */
   responseModel?: string | undefined;
 
   /**
-   * <p>Generation termination reasons (e.g., stop, max_tokens)</p>
+   * Generation termination reasons (e.g., stop, max_tokens)
+   *
    * @public
    */
   responseFinishReasons?: string[] | undefined;
 
   /**
-   * <p>Number of input tokens in prompt</p>
+   * Number of input tokens in prompt
+   *
    * @public
    */
   usageInputTokens?: number | undefined;
 
   /**
-   * <p>Number of output tokens in response</p>
+   * Number of output tokens in response
+   *
    * @public
    */
   usageOutputTokens?: number | undefined;
 
   /**
-   * <p>Total tokens consumed (input + output)</p>
+   * Total tokens consumed (input + output)
+   *
    * @public
    */
   usageTotalTokens?: number | undefined;
 
   /**
-   * <p>Number of input tokens that were retrieved from cache</p>
+   * Number of input tokens that were retrieved from cache
+   *
    * @public
    */
   cacheReadInputTokens?: number | undefined;
 
   /**
-   * <p>Number of input tokens that were written to cache in this request</p>
+   * Number of input tokens that were written to cache in this request
+   *
    * @public
    */
   cacheWriteInputTokens?: number | undefined;
 
   /**
-   * <p>Input message collection sent to LLM</p>
+   * Input message collection sent to LLM
+   *
    * @public
    */
   inputMessages?: SpanMessage[] | undefined;
 
   /**
-   * <p>Output message collection received from LLM</p>
+   * Output message collection received from LLM
+   *
    * @public
    */
   outputMessages?: SpanMessage[] | undefined;
 
   /**
-   * <p>System prompt instructions</p>
+   * System prompt instructions
+   *
    * @public
    */
   systemInstructions?: SpanMessageValue[] | undefined;
 
   /**
-   * <p>AI prompt ARN</p>
+   * AI prompt ARN
+   *
    * @public
    */
   promptArn?: string | undefined;
 
   /**
-   * <p>AI prompt identifier</p>
+   * AI prompt identifier
+   *
    * @public
    */
   promptId?: string | undefined;
 
   /**
-   * <p>AI prompt type</p>
+   * AI prompt type
+   *
    * @public
    */
   promptType?: AIPromptType | undefined;
 
   /**
-   * <p>AI prompt name</p>
+   * AI prompt name
+   *
    * @public
    */
   promptName?: string | undefined;
 
   /**
-   * <p>AI prompt version number</p>
+   * AI prompt version number
+   *
    * @public
    */
   promptVersion?: number | undefined;
 
   /**
-   * <p>Time to first token in milliseconds, measured from when Amazon Bedrock was invoked to when the first token was returned</p>
+   * Time to first token in milliseconds, measured from when Amazon Bedrock was invoked to when the first token was returned
+   *
    * @public
    */
   timeToFirstTokenMs?: number | undefined;
 
   /**
-   * <p>Guardrail assessments for the inference span. Absent on other span types and when no AI Guardrail is attached to the AI Agent.</p>
+   * Guardrail assessments for the inference span. Absent on other span types and when no AI Guardrail is attached to the AI Agent.
+   *
    * @public
    */
   guardrailAssessments?: SpanGuardrailAssessment[] | undefined;
 }
 
 /**
- * <p>A span represents a unit of work during AI agent execution, capturing timing, status, and contextual attributes.</p>
+ * A span represents a unit of work during AI agent execution, capturing timing, status, and contextual attributes.
+ *
  * @public
  */
 export interface Span {
   /**
-   * <p>Unique span identifier</p>
+   * Unique span identifier
+   *
    * @public
    */
   spanId: string | undefined;
 
   /**
-   * <p>UUID of the Connect AI Assistant resource</p>
+   * UUID of the Connect AI Assistant resource
+   *
    * @public
    */
   assistantId: string | undefined;
 
   /**
-   * <p>UUID of the Connect AI Session resource</p>
+   * UUID of the Connect AI Session resource
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>Parent span identifier for hierarchy. Null for root spans.</p>
+   * Parent span identifier for hierarchy. Null for root spans.
+   *
    * @public
    */
   parentSpanId?: string | undefined;
 
   /**
-   * <p>Service-defined operation name</p>
+   * Service-defined operation name
+   *
    * @public
    */
   spanName: string | undefined;
 
   /**
-   * <p>Operation relationship type</p>
+   * Operation relationship type
+   *
    * @public
    */
   spanType: SpanType | undefined;
 
   /**
-   * <p>Operation start time in milliseconds since epoch</p>
+   * Operation start time in milliseconds since epoch
+   *
    * @public
    */
   startTimestamp: Date | undefined;
 
   /**
-   * <p>Operation end time in milliseconds since epoch</p>
+   * Operation end time in milliseconds since epoch
+   *
    * @public
    */
   endTimestamp: Date | undefined;
 
   /**
-   * <p>Span completion status</p>
+   * Span completion status
+   *
    * @public
    */
   status: SpanStatus | undefined;
 
   /**
-   * <p>Human-readable error description when status is ERROR or TIMEOUT</p>
+   * Human-readable error description when status is ERROR or TIMEOUT
+   *
    * @public
    */
   statusDescription?: string | undefined;
 
   /**
-   * <p>The service request ID that initiated the operation</p>
+   * The service request ID that initiated the operation
+   *
    * @public
    */
   requestId: string | undefined;
 
   /**
-   * <p>The origin request identifier for end-to-end tracing.</p>
+   * The origin request identifier for end-to-end tracing.
+   *
    * @public
    */
   originRequestId?: string | undefined;
 
   /**
-   * <p>Span-specific contextual attributes</p>
+   * Span-specific contextual attributes
+   *
    * @public
    */
   attributes: SpanAttributes | undefined;
@@ -3914,13 +4485,15 @@ export interface Span {
  */
 export interface GetRecommendationsResponse {
   /**
-   * <p>The recommendations.</p>
+   * The recommendations.
+   *
    * @public
    */
   recommendations: RecommendationData[] | undefined;
 
   /**
-   * <p>The triggers corresponding to recommendations.</p>
+   * The triggers corresponding to recommendations.
+   *
    * @public
    */
   triggers?: RecommendationTrigger[] | undefined;
@@ -3931,13 +4504,15 @@ export interface GetRecommendationsResponse {
  */
 export interface QueryAssistantResponse {
   /**
-   * <p>The results of the query.</p>
+   * The results of the query.
+   *
    * @public
    */
   results: ResultData[] | undefined;
 
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * If there are additional results, this is the token for the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3948,13 +4523,15 @@ export interface QueryAssistantResponse {
  */
 export interface ListSpansResponse {
   /**
-   * <p>Array of span objects for the session</p>
+   * Array of span objects for the session
+   *
    * @public
    */
   spans: Span[] | undefined;
 
   /**
-   * <p>Pagination token for retrieving additional results</p>
+   * Pagination token for retrieving additional results
+   *
    * @public
    */
   nextToken?: string | undefined;

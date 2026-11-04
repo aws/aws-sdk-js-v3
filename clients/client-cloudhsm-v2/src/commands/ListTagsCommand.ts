@@ -23,14 +23,12 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of tags for the specified CloudHSM cluster.</p>
- *          <p>This is a paginated operation, which means that each response might contain only a
- *       subset of all the tags. When the response contains only a subset of tags, it includes a
- *       <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to
- *       get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null
- *       value), that means there are no more tags to get.</p>
- *          <p>
- *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
+ * Gets a list of tags for the specified CloudHSM cluster.
+ *
+ * This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a `NextToken` value. Use this value in a subsequent `ListTags` request to get more tags. When you receive a response with no `NextToken` (or an empty or null value), that means there are no more tags to get.
+ *
+ * **Cross-account use:** No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,29 +63,32 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  * @throws {@link CloudHsmAccessDeniedException} (client fault)
- *  <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
+ *
+ * The request was rejected because the requester does not have permission to perform the requested operation.
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an CloudHSM internal failure. The request can
- *       be retried.</p>
+ *
+ * The request was rejected because of an CloudHSM internal failure. The request can be retried.
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
- *  <p>The request was rejected because it is not a valid request.</p>
+ *
+ * The request was rejected because it is not a valid request.
  *
  * @throws {@link CloudHsmResourceNotFoundException} (client fault)
- *  <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
+ *
+ * The request was rejected because it refers to a resource that cannot be found.
  *
  * @throws {@link CloudHsmServiceException} (client fault)
- *  <p>The request was rejected because an error occurred.</p>
+ *
+ * The request was rejected because an error occurred.
  *
  * @throws {@link CloudHsmTagException} (client fault)
- *  <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+ *
+ * The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.
  *
  * @throws {@link CloudHSMV2ServiceException}
- * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ * Base exception class for all service exceptions from CloudHSMV2 service.
  *
  * @public
  */

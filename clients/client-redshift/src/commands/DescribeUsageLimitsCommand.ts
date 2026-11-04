@@ -23,26 +23,13 @@ export interface DescribeUsageLimitsCommandInput extends DescribeUsageLimitsMess
 export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __MetadataBearer {}
 
 /**
- * <p>Shows usage limits on a cluster.
- *             Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:</p>
- *          <ul>
- *             <li>
- *                <p>If usage limit identifier, cluster identifier, and feature type are not provided,
- *                 then all usage limit objects for the current account in the current region are returned.</p>
- *             </li>
- *             <li>
- *                <p>If usage limit identifier is provided,
- *                 then the corresponding usage limit object is returned.</p>
- *             </li>
- *             <li>
- *                <p>If cluster identifier is provided,
- *                 then all usage limit objects for the specified cluster are returned.</p>
- *             </li>
- *             <li>
- *                <p>If cluster identifier and feature type are provided,
- *                 then all usage limit objects for the combination of cluster and feature are returned.</p>
- *             </li>
- *          </ul>
+ * Shows usage limits on a cluster. Results are filtered based on the combination of input usage limit identifier, cluster identifier, and feature type parameters:
+ *
+ * - If usage limit identifier, cluster identifier, and feature type are not provided, then all usage limit objects for the current account in the current region are returned.
+ * - If usage limit identifier is provided, then the corresponding usage limit object is returned.
+ * - If cluster identifier is provided, then all usage limit objects for the specified cluster are returned.
+ * - If cluster identifier and feature type are provided, then all usage limit objects for the combination of cluster and feature are returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,15 +83,16 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

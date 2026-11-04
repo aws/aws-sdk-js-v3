@@ -23,7 +23,8 @@ export interface ModifyReplicationSubnetGroupCommandInput extends ModifyReplicat
 export interface ModifyReplicationSubnetGroupCommandOutput extends ModifyReplicationSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for the specified replication subnet group.</p>
+ * Modifies the settings for the specified replication subnet group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,27 +73,32 @@ export interface ModifyReplicationSubnetGroupCommandOutput extends ModifyReplica
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The subnet provided isn't valid.</p>
+ *
+ * The subnet provided isn't valid.
  *
  * @throws {@link ReplicationSubnetGroupDoesNotCoverEnoughAZs} (client fault)
- *  <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
+ *
+ * The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link SubnetAlreadyInUse} (client fault)
- *  <p>The specified subnet is already in use.</p>
+ *
+ * The specified subnet is already in use.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Modify replication subnet group
  * ```javascript

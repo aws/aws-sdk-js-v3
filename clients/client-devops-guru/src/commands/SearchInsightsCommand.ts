@@ -23,13 +23,10 @@ export interface SearchInsightsCommandInput extends SearchInsightsRequest {}
 export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of insights in your Amazon Web Services account. You can specify which insights are
- * 			returned by their start time, one or more statuses (<code>ONGOING</code> or <code>CLOSED</code>), one or more severities
- * 				(<code>LOW</code>, <code>MEDIUM</code>, and <code>HIGH</code>), and type
- * 				(<code>REACTIVE</code> or <code>PROACTIVE</code>). </p>
- *          <p> Use the <code>Filters</code> parameter to specify status and severity search
- * 			parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or
- * 				<code>PROACTIVE</code> in your search. </p>
+ * Returns a list of insights in your Amazon Web Services account. You can specify which insights are returned by their start time, one or more statuses (`ONGOING` or `CLOSED`), one or more severities (`LOW`, `MEDIUM`, and `HIGH`), and type (`REACTIVE` or `PROACTIVE`).
+ *
+ * Use the `Filters` parameter to specify status and severity search parameters. Use the `Type` parameter to specify `REACTIVE` or `PROACTIVE` in your search.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -164,24 +161,24 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have permissions to perform the requested operation. The user or role that
- * 			is making the request must have at least one IAM permissions policy attached that grants
- * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- * 				<i>IAM User Guide</i>. </p>
+ *
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * An internal failure in an Amazon service occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to a request throttling.</p>
+ *
+ * The request was denied due to a request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Contains information about data passed in to a field during a request that is not
- * 			valid. </p>
+ *
+ * Contains information about data passed in to a field during a request that is not valid.
  *
  * @throws {@link DevOpsGuruServiceException}
- * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * Base exception class for all service exceptions from DevOpsGuru service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
 /**
- * <p>Internal server error.</p>
+ * Internal server error.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -29,7 +30,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>The account doesn't have permission to perform this action.</p>
+ * The account doesn't have permission to perform this action.
+ *
  * @public
  */
 export class InvalidAccessException extends __BaseException {
@@ -54,8 +56,8 @@ export class InvalidAccessException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -80,8 +82,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -106,7 +108,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because we can't find the specified resource.</p>
+ * The request was rejected because we can't find the specified resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -131,7 +134,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You don't have permission to perform the action specified in the request.</p>
+ * You don't have permission to perform the action specified in the request.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -156,7 +160,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request causes conflict with the current state of the service resource.</p>
+ * The request causes conflict with the current state of the service resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -181,9 +186,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ * The request has failed due to an internal failure of the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -208,9 +212,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ * The limit on the number of requests per second was exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -235,7 +238,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ * The request has failed validation because it's missing required fields or has invalid inputs.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -260,7 +264,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request conflicts with an existing resource.</p>
+ * The resource specified in the request conflicts with an existing resource.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -285,7 +290,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it would exceed the service quota limit.</p>
+ * The request was rejected because it would exceed the service quota limit.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -310,7 +316,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ * The request failed because one or more organizational units specified in the request don't exist within the caller's organization.
+ *
  * @public
  */
 export class OrganizationalUnitNotFoundException extends __BaseException {
@@ -335,7 +342,8 @@ export class OrganizationalUnitNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+ * The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.
+ *
  * @public
  */
 export class OrganizationNotFoundException extends __BaseException {
@@ -360,10 +368,8 @@ export class OrganizationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *             The request was rejected because it conflicts with the resource's availability. For example, you tried
- *             to update a security control that's currently in the <code>UPDATING</code> state.
- *         </p>
+ * The request was rejected because it conflicts with the resource's availability. For example, you tried to update a security control that's currently in the `UPDATING` state.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {

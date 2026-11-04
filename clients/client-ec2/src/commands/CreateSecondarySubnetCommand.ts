@@ -23,9 +23,12 @@ export interface CreateSecondarySubnetCommandInput extends CreateSecondarySubnet
 export interface CreateSecondarySubnetCommandOutput extends CreateSecondarySubnetResult, __MetadataBearer {}
 
 /**
- * <p>Creates a secondary subnet in a secondary network.</p>
- *          <p>A secondary subnet CIDR block must not overlap with the CIDR block of an existing secondary subnet in the secondary network. After you create a secondary subnet, you can't change its CIDR block.</p>
- *          <p>The allowed size for a secondary subnet CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses). Amazon reserves the first four IP addresses and the last IP address in each secondary subnet for internal use.</p>
+ * Creates a secondary subnet in a secondary network.
+ *
+ * A secondary subnet CIDR block must not overlap with the CIDR block of an existing secondary subnet in the secondary network. After you create a secondary subnet, you can't change its CIDR block.
+ *
+ * The allowed size for a secondary subnet CIDR block is between /28 netmask (16 IP addresses) and /12 netmask (1,048,576 IP addresses). Amazon reserves the first four IP addresses and the last IP address in each secondary subnet for internal use.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,8 +96,8 @@ export interface CreateSecondarySubnetCommandOutput extends CreateSecondarySubne
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a secondary subnet
  * ```javascript

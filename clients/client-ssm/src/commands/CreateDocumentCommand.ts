@@ -23,10 +23,8 @@ export interface CreateDocumentCommandInput extends CreateDocumentRequest {}
 export interface CreateDocumentCommandOutput extends CreateDocumentResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
- *    on your managed nodes. For more information about SSM documents, including information about
- *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html">Amazon Web Services Systems Manager Documents</a> in the
- *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ * Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs on your managed nodes. For more information about SSM documents, including information about supported schemas, features, and syntax, see [Amazon Web Services Systems Manager Documents](https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,32 +146,40 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DocumentAlreadyExists} (client fault)
- *  <p>The specified document already exists.</p>
+ *
+ * The specified document already exists.
  *
  * @throws {@link DocumentLimitExceeded} (client fault)
- *  <p>You can have at most 500 active SSM documents.</p>
+ *
+ * You can have at most 500 active SSM documents.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocumentContent} (client fault)
- *  <p>The content for the document isn't valid.</p>
+ *
+ * The content for the document isn't valid.
  *
  * @throws {@link InvalidDocumentSchemaVersion} (client fault)
- *  <p>The version of the document schema isn't supported.</p>
+ *
+ * The version of the document schema isn't supported.
  *
  * @throws {@link MaxDocumentSizeExceeded} (client fault)
- *  <p>The size limit of a document is 64 KB.</p>
+ *
+ * The size limit of a document is 64 KB.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>The requested operation is no longer supported by Systems Manager.</p>
+ *
+ * The requested operation is no longer supported by Systems Manager.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

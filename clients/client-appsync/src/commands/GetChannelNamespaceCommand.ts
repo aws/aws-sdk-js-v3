@@ -23,7 +23,8 @@ export interface GetChannelNamespaceCommandInput extends GetChannelNamespaceRequ
 export interface GetChannelNamespaceCommandOutput extends GetChannelNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the channel namespace for a specified <code>Api</code>.</p>
+ * Retrieves the channel namespace for a specified `Api`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,25 +92,28 @@ export interface GetChannelNamespaceCommandOutput extends GetChannelNamespaceRes
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to perform this operation on this resource.</p>
+ *
+ * You don't have access to perform this operation on this resource.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is
- *          missing. Check the field values, and then try again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and then try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * An internal AppSync error occurred. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try
- *          again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource, and then try again.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You aren't authorized to perform this operation.</p>
+ *
+ * You aren't authorized to perform this operation.
  *
  * @throws {@link AppSyncServiceException}
- * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * Base exception class for all service exceptions from AppSync service.
  *
  * @public
  */

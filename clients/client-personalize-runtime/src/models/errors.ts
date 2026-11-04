@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PersonalizeRuntimeServiceException as __BaseException } from "./PersonalizeRuntimeServiceException";
 
 /**
- * <p>Provide a valid value for the field or parameter.</p>
+ * Provide a valid value for the field or parameter.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

@@ -23,37 +23,19 @@ export interface DeleteResourceTreeCommandInput extends DeleteResourceTreeReques
 export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an entire resource tree. This operation will delete the parent resource and
- *             its child resources.</p>
- *          <p>Child resources are resources that were created from another resource. For example,
- *             when a forecast is generated from a predictor, the forecast is the child resource and
- *             the predictor is the parent resource.</p>
- *          <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Dataset</b>: dataset import jobs</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Dataset Group</b>: predictors, predictor backtest
- *                     export jobs, forecasts, forecast export jobs</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Predictor</b>: predictor backtest export jobs,
- *                     forecasts, forecast export jobs</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Forecast</b>: forecast export jobs</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>
- *                <code>DeleteResourceTree</code> will only delete Amazon Forecast resources, and will not
- *                 delete datasets or exported files stored in Amazon S3. </p>
- *          </note>
+ * Deletes an entire resource tree. This operation will delete the parent resource and its child resources.
+ *
+ * Child resources are resources that were created from another resource. For example, when a forecast is generated from a predictor, the forecast is the child resource and the predictor is the parent resource.
+ *
+ * Amazon Forecast resources possess the following parent-child resource hierarchies:
+ *
+ * - **Dataset**: dataset import jobs
+ * - **Dataset Group**: predictors, predictor backtest export jobs, forecasts, forecast export jobs
+ * - **Predictor**: predictor backtest export jobs, forecasts, forecast export jobs
+ * - **Forecast**: forecast export jobs
+ *
+ * > **Note:** `DeleteResourceTree` will only delete Amazon Forecast resources, and will not delete datasets or exported files stored in Amazon S3.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,19 +60,20 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

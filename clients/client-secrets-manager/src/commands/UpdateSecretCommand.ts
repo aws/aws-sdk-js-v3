@@ -23,46 +23,24 @@ export interface UpdateSecretCommandInput extends UpdateSecretRequest {}
 export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the details of a secret, including metadata and the secret value. To change
- *             the secret value, you can also use <a>PutSecretValue</a>.</p>
- *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a>
- *             instead.</p>
- *          <p>To change a secret so that it is managed by another service, you need to recreate the
- *             secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets Manager secrets
- *                 managed by other Amazon Web Services services</a>.</p>
- *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
- *             than once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret
- *             value, Secrets Manager creates a new version of the secret. Secrets Manager removes outdated versions when
- *             there are more than 100, but it does not remove versions created less than 24 hours ago.
- *             If you update the secret value more than once every 10 minutes, you create more versions
- *             than Secrets Manager removes, and you will reach the quota for secret versions.</p>
- *          <p>If you include <code>SecretString</code> or <code>SecretBinary</code> to create a new
- *             secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code> to
- *             the new version. Then it attaches the label <code>AWSPREVIOUS</code> to the version that
- *                 <code>AWSCURRENT</code> was removed from.</p>
- *          <p>If you call this operation with a <code>ClientRequestToken</code> that matches an
- *             existing version's <code>VersionId</code>, the operation results in an error. You can't
- *             modify an existing version, you can only create a new version. To remove a version,
- *             remove all staging labels from it. See <a>UpdateSecretVersionStage</a>.</p>
- *          <p>Secrets Manager generates a CloudTrail log entry when you call this action.
- *             Do not include sensitive information in request parameters except
- *                 <code>SecretBinary</code> or <code>SecretString</code> because it might be logged.
- *             For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
- *          <p>
- *             <b>Required permissions:
- *                 </b>
- *             <code>secretsmanager:UpdateSecret</code>. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
- *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
- *       and access control in Secrets Manager</a>. If you use a
- *                 customer managed key, you must also have <code>kms:GenerateDataKey</code>,
- *                 <code>kms:Encrypt</code>, and <code>kms:Decrypt</code> permissions on the key. If
- *             you change the KMS key and you don't have <code>kms:Encrypt</code> permission to the new
- *             key, Secrets Manager does not re-encrypt existing secret versions with the new key. For more
- *             information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html"> Secret encryption
- *                 and decryption</a>.</p>
- *          <important>
- *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
- *          </important>
+ * Modifies the details of a secret, including metadata and the secret value. To change the secret value, you can also use PutSecretValue.
+ *
+ * To change the rotation configuration of a secret, use RotateSecret instead.
+ *
+ * To change a secret so that it is managed by another service, you need to recreate the secret in that service. See [Secrets Manager secrets managed by other Amazon Web Services services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
+ *
+ * We recommend you avoid calling `UpdateSecret` at a sustained rate of more than once every 10 minutes. When you call `UpdateSecret` to update the secret value, Secrets Manager creates a new version of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not remove versions created less than 24 hours ago. If you update the secret value more than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach the quota for secret versions.
+ *
+ * If you include `SecretString` or `SecretBinary` to create a new secret version, Secrets Manager automatically moves the staging label `AWSCURRENT` to the new version. Then it attaches the label `AWSPREVIOUS` to the version that `AWSCURRENT` was removed from.
+ *
+ * If you call this operation with a `ClientRequestToken` that matches an existing version's `VersionId`, the operation results in an error. You can't modify an existing version, you can only create a new version. To remove a version, remove all staging labels from it. See UpdateSecretVersionStage.
+ *
+ * Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters except `SecretBinary` or `SecretString` because it might be logged. For more information, see [Logging Secrets Manager events with CloudTrail](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html).
+ *
+ * **Required permissions:** `secretsmanager:UpdateSecret`. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html). If you use a customer managed key, you must also have `kms:GenerateDataKey`, `kms:Encrypt`, and `kms:Decrypt` permissions on the key. If you change the KMS key and you don't have `kms:Encrypt` permission to the new key, Secrets Manager does not re-encrypt existing secret versions with the new key. For more information, see [Secret encryption and decryption](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html).
+ *
+ * > **Important:** When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to [Mitigate the risks of using command-line tools to store Secrets Manager secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,55 +75,54 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  * @throws {@link DecryptionFailure} (client fault)
- *  <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ *
+ * Secrets Manager can't decrypt the protected secret text using the provided KMS key.
  *
  * @throws {@link EncryptionFailure} (client fault)
- *  <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
- *       KMS key is available, enabled, and not in an invalid state. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
+ *
+ * Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the KMS key is available, enabled, and not in an invalid state. For more information, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html).
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The parameter name or value is invalid.</p>
+ *
+ * The parameter name or value is invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>A parameter value is not valid for the current state of the
- *       resource.</p>
- *          <p>Possible causes:</p>
- *          <ul>
- *             <li>
- *                <p>The secret is scheduled for deletion.</p>
- *             </li>
- *             <li>
- *                <p>You tried to enable rotation on a secret that doesn't already have a Lambda function
- *           ARN configured and you didn't include such an ARN as a parameter in this call. </p>
- *             </li>
- *             <li>
- *                <p>The secret is managed by another service, and you must use that service to update it.
- *           For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets managed by other Amazon Web Services services</a>.</p>
- *             </li>
- *          </ul>
+ *
+ * A parameter value is not valid for the current state of the resource.
+ *
+ * Possible causes:
+ *
+ * - The secret is scheduled for deletion.
+ * - You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call.
+ * - The secret is managed by another service, and you must use that service to update it. For more information, see [Secrets managed by other Amazon Web Services services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html).
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
+ *
+ * The request failed because it would exceed one of the Secrets Manager quotas.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The resource policy has syntax errors.</p>
+ *
+ * The resource policy has syntax errors.
  *
  * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>The request failed because you did not complete all the prerequisite steps.</p>
+ *
+ * The request failed because you did not complete all the prerequisite steps.
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>A resource with the ID you requested already exists.</p>
+ *
+ * A resource with the ID you requested already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ * Secrets Manager can't find the resource that you asked for.
  *
  * @throws {@link SecretsManagerServiceException}
- * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ * Base exception class for all service exceptions from SecretsManager service.
  *
  * @example To create a new version of the encrypted secret value
  * ```javascript

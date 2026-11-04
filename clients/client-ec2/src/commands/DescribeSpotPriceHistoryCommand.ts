@@ -23,11 +23,10 @@ export interface DescribeSpotPriceHistoryCommandInput extends DescribeSpotPriceH
 export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPriceHistoryResult, __MetadataBearer {}
 
 /**
- * <p>Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot Instance pricing history</a> in the
- *             <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you specify a start and end time, the operation returns the prices of the
- *             instance types within that time range. It also returns the last price change before the
- *             start time, which is the effective price as of the start time.</p>
+ * Describes the Spot price history. For more information, see [Spot Instance pricing history](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html) in the *Amazon EC2 User Guide*.
+ *
+ * When you specify a start and end time, the operation returns the prices of the instance types within that time range. It also returns the last price change before the start time, which is the effective price as of the start time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +83,8 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe Spot price history for Linux/UNIX (Amazon VPC)
  * ```javascript

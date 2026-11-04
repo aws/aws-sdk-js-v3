@@ -23,9 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags
- *             on a resource are not specified in the request parameters, they are not changed. When a resource is deleted,
- *             the tags associated with that resource are also deleted.</p>
+ * Associates the specified tags to a resource with the specified `resourceArn`. If existing tags on a resource are not specified in the request parameters, they are not changed. When a resource is deleted, the tags associated with that resource are also deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,25 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link TagOperationException} (client fault)
- *  <p>The operation was not successful. Try again.</p>
+ *
+ * The operation was not successful. Try again.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The request doesn't comply with the AWS Identity and Access Management (IAM) tag
- *             policy. Correct your request and then retry it.</p>
+ *
+ * The request doesn't comply with the AWS Identity and Access Management (IAM) tag policy. Correct your request and then retry it.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *             can be applied to a repository is 50. </p>
+ *
+ * The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @public
  */

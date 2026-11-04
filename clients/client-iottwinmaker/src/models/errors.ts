@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
 
 /**
- * <p>Access is denied.</p>
+ * Access is denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error has occurred.</p>
+ * An unexpected error has occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource wasn't found.</p>
+ * The resource wasn't found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The rate exceeds the limit.</p>
+ * The rate exceeds the limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -88,7 +92,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Failed</p>
+ * Failed
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -109,7 +114,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>A conflict occurred.</p>
+ * A conflict occurred.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -130,7 +136,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The service quota was exceeded.</p>
+ * The service quota was exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -151,7 +158,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The query timeout exception.</p>
+ * The query timeout exception.
+ *
  * @public
  */
 export class QueryTimeoutException extends __BaseException {
@@ -173,7 +181,8 @@ export class QueryTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The connector failed.</p>
+ * The connector failed.
+ *
  * @public
  */
 export class ConnectorFailureException extends __BaseException {
@@ -194,7 +203,8 @@ export class ConnectorFailureException extends __BaseException {
 }
 
 /**
- * <p>The connector timed out.</p>
+ * The connector timed out.
+ *
  * @public
  */
 export class ConnectorTimeoutException extends __BaseException {
@@ -215,7 +225,8 @@ export class ConnectorTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The number of tags exceeds the limit.</p>
+ * The number of tags exceeds the limit.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

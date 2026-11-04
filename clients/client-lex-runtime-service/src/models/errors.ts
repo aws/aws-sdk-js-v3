@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";
 
 /**
- * <p> Request validation failed, there is no usable message in the context,
- *       or the bot build failed, is still in progress, or contains unbuilt
- *       changes. </p>
+ * Request validation failed, there is no usable message in the context, or the bot build failed, is still in progress, or contains unbuilt changes.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -27,8 +26,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p> Two clients are using the same AWS account, Amazon Lex bot, and user
- *       ID. </p>
+ * Two clients are using the same AWS account, Amazon Lex bot, and user ID.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -49,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal service error. Retry the call.</p>
+ * Internal service error. Retry the call.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -70,7 +70,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>Exceeded a limit.</p>
+ * Exceeded a limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -93,8 +94,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The resource (such as the Amazon Lex bot or an alias) that is referred
- *       to is not found.</p>
+ * The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -115,9 +116,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Either the Amazon Lex bot is still building, or one of the dependent
- *       services (Amazon Polly, AWS Lambda) failed with an internal service
- *       error.</p>
+ * Either the Amazon Lex bot is still building, or one of the dependent services (Amazon Polly, AWS Lambda) failed with an internal service error.
+ *
  * @public
  */
 export class BadGatewayException extends __BaseException {
@@ -140,22 +140,12 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
- * <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
- *       exception. For example, </p>
- *          <ul>
- *             <li>
- *                <p>If Amazon Lex does not have sufficient permissions to call a Lambda
- *           function.</p>
- *             </li>
- *             <li>
- *                <p>If a Lambda function takes longer than 30 seconds to
- *           execute.</p>
- *             </li>
- *             <li>
- *                <p>If a fulfillment Lambda function returns a <code>Delegate</code>
- *           dialog action without removing any slot values.</p>
- *             </li>
- *          </ul>
+ * One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception. For example,
+ *
+ * - If Amazon Lex does not have sufficient permissions to call a Lambda function.
+ * - If a Lambda function takes longer than 30 seconds to execute.
+ * - If a fulfillment Lambda function returns a `Delegate` dialog action without removing any slot values.
+ *
  * @public
  */
 export class DependencyFailedException extends __BaseException {
@@ -178,7 +168,8 @@ export class DependencyFailedException extends __BaseException {
 }
 
 /**
- * <p>This exception is not used.</p>
+ * This exception is not used.
+ *
  * @public
  */
 export class LoopDetectedException extends __BaseException {
@@ -201,7 +192,8 @@ export class LoopDetectedException extends __BaseException {
 }
 
 /**
- * <p>The accept header in the request does not have a valid value.</p>
+ * The accept header in the request does not have a valid value.
+ *
  * @public
  */
 export class NotAcceptableException extends __BaseException {
@@ -222,7 +214,8 @@ export class NotAcceptableException extends __BaseException {
 }
 
 /**
- * <p>The input speech is too long.</p>
+ * The input speech is too long.
+ *
  * @public
  */
 export class RequestTimeoutException extends __BaseException {
@@ -243,8 +236,8 @@ export class RequestTimeoutException extends __BaseException {
 }
 
 /**
- * <p>The Content-Type header (<code>PostContent</code> API) has an invalid
- *       value. </p>
+ * The Content-Type header (`PostContent` API) has an invalid value.
+ *
  * @public
  */
 export class UnsupportedMediaTypeException extends __BaseException {

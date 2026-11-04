@@ -23,13 +23,10 @@ export interface GetOpsItemCommandInput extends GetOpsItemRequest {}
 export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information,
- *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
- *     up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
- *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
- *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
- *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">Amazon Web Services Systems Manager OpsCenter</a> in the
- *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ * Get information about an OpsItem by using the ID. You must have permission in Identity and Access Management (IAM) to view information about an OpsItem. For more information, see [Set up OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
+ * Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and remediate operational issues impacting the performance and health of their Amazon Web Services resources. For more information, see [Amazon Web Services Systems Manager OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,19 +90,20 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsItemAccessDeniedException} (client fault)
- *  <p>You don't have permission to view OpsItems in the specified account. Verify that your account
- *    is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations
- *    management account.</p>
+ *
+ * You don't have permission to view OpsItems in the specified account. Verify that your account is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations management account.
  *
  * @throws {@link OpsItemNotFoundException} (client fault)
- *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ * The specified OpsItem ID doesn't exist. Verify the ID and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

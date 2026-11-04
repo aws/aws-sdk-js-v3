@@ -26,8 +26,8 @@ export interface DeleteSlackWorkspaceAuthorizationCommandInput extends DeleteSla
 export interface DeleteSlackWorkspaceAuthorizationCommandOutput extends DeleteSlackWorkspaceAuthorizationResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the Slack workspace authorization that allows channels to be configured in that workspace. This requires all configured channels in the workspace to be deleted.
- *   </p>
+ * Deletes the Slack workspace authorization that allows channels to be configured in that workspace. This requires all configured channels in the workspace to be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +52,16 @@ export interface DeleteSlackWorkspaceAuthorizationCommandOutput extends DeleteSl
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link DeleteSlackWorkspaceAuthorizationFault} (server fault)
- *  <p>There was an issue deleting your Slack workspace.</p>
+ *
+ * There was an issue deleting your Slack workspace.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @public
  */

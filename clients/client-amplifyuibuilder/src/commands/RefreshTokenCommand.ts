@@ -23,10 +23,10 @@ export interface RefreshTokenCommandInput extends RefreshTokenRequest {}
 export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This is for internal use.</p>
- *          </note>
- *          <p>Amplify uses this action to refresh a previously issued access token that might have expired.</p>
+ * > **Note:** This is for internal use.
+ *
+ * Amplify uses this action to refresh a previously issued access token that might have expired.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +58,12 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

@@ -23,16 +23,12 @@ export interface RetrieveTapeRecoveryPointCommandInput extends RetrieveTapeRecov
 export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeRecoveryPointOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the recovery point for the specified virtual tape. This operation is only
- *          supported in the tape gateway type.</p>
- *          <p>A recovery point is a point in time view of a virtual tape at which all the data on the
- *          tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be
- *          recovered to a new gateway.</p>
- *          <note>
- *             <p>The virtual tape can be retrieved to only one gateway. The retrieved tape is
- *             read-only. The virtual tape can be retrieved to only a tape gateway. There is no charge
- *             for retrieving recovery points.</p>
- *          </note>
+ * Retrieves the recovery point for the specified virtual tape. This operation is only supported in the tape gateway type.
+ *
+ * A recovery point is a point in time view of a virtual tape at which all the data on the tape is consistent. If your gateway crashes, virtual tapes that have recovery points can be recovered to a new gateway.
+ *
+ * > **Note:** The virtual tape can be retrieved to only one gateway. The retrieved tape is read-only. The virtual tape can be retrieved to only a tape gateway. There is no charge for retrieving recovery points.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,16 +56,16 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To retrieve the recovery point of a virtual tape
  * ```javascript

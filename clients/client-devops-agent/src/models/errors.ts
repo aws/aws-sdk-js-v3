@@ -5,7 +5,8 @@ import { DevOpsAgentServiceException as __BaseException } from "./DevOpsAgentSer
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>Access to the requested resource is denied due to insufficient permissions.</p>
+ * Access to the requested resource is denied due to insufficient permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource.</p>
+ * The request conflicts with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -47,7 +49,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+ * This exception is thrown when the content size exceeds the allowed limit.
+ *
  * @public
  */
 export class ContentSizeExceededException extends __BaseException {
@@ -68,7 +71,8 @@ export class ContentSizeExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+ * This exception is thrown when an unexpected error occurs in the processing of a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -90,7 +94,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters provided in the request are invalid.</p>
+ * One or more parameters provided in the request are invalid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -111,7 +116,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found.</p>
+ * The requested resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -132,7 +138,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed the service quota limit.</p>
+ * The request would exceed the service quota limit.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -153,7 +160,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+ * The request was throttled due to too many requests. Please slow down and try again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -175,7 +183,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -183,7 +192,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of specific failures encountered while validating the input. A member can appear in this list more than once if it failed to satisfy multiple constraints.</p>
+   * A list of specific failures encountered while validating the input. A member can appear in this list more than once if it failed to satisfy multiple constraints.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -203,7 +213,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Calls to the customer Identity Center have failed</p>
+ * Calls to the customer Identity Center have failed
+ *
  * @public
  */
 export class IdentityCenterServiceException extends __BaseException {
@@ -211,7 +222,8 @@ export class IdentityCenterServiceException extends __BaseException {
   readonly name = "IdentityCenterServiceException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The Idc error code</p>
+   * The Idc error code
+   *
    * @public
    */
   underlyingErrorCode?: string | undefined;

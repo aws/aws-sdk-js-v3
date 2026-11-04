@@ -23,7 +23,8 @@ export interface ListQueriesCommandInput extends ListQueriesInput {}
 export interface ListQueriesCommandOutput extends ListQueriesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists active openCypher queries.</p>
+ * Lists active openCypher queries.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,20 +61,24 @@ export interface ListQueriesCommandOutput extends ListQueriesOutput, __MetadataB
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Raised in case of an authentication or authorization failure.</p>
+ *
+ * Raised in case of an authentication or authorization failure.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

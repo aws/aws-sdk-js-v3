@@ -23,14 +23,16 @@ export interface ModifyInstanceEventWindowCommandInput extends ModifyInstanceEve
 export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEventWindowResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified event window.</p>
- *          <p>You can define either a set of time ranges or a cron expression when modifying the event
- *          window, but not both.</p>
- *          <p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p>
- *          <p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time
- *          of the scheduled event.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
- *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Modifies the specified event window.
+ *
+ * You can define either a set of time ranges or a cron expression when modifying the event window, but not both.
+ *
+ * To modify the targets associated with the event window, use the AssociateInstanceEventWindow and DisassociateInstanceEventWindow API.
+ *
+ * If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.
+ *
+ * For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,8 +103,8 @@ export interface ModifyInstanceEventWindowCommandOutput extends ModifyInstanceEv
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

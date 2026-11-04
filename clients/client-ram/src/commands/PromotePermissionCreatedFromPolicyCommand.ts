@@ -26,38 +26,18 @@ export interface PromotePermissionCreatedFromPolicyCommandInput extends PromoteP
 export interface PromotePermissionCreatedFromPolicyCommandOutput extends PromotePermissionCreatedFromPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>When you attach a resource-based policy to a resource, RAM automatically creates
- *             a resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a managed permission that
- *             has the same IAM permissions as the original resource-based policy. However, this type
- *             of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by
- *             using RAM.</p>
- *          <p>This operation creates a separate, fully manageable customer managed permission that has the same IAM
- *             permissions as the original resource-based policy. You can associate this customer managed permission to any
- *             resource shares.</p>
- *          <p>Before you use <a>PromoteResourceShareCreatedFromPolicy</a>, you should
- *             first run this operation to ensure that you have an appropriate customer managed permission that can be
- *             associated with the promoted resource share.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>The original <code>CREATED_FROM_POLICY</code> policy isn't deleted, and
- *                         resource shares using that original policy aren't automatically
- *                         updated.</p>
- *                </li>
- *                <li>
- *                   <p>You can't modify a <code>CREATED_FROM_POLICY</code> resource share so you can't
- *                         associate the new customer managed permission by using
- *                         <code>ReplacePermsissionAssociations</code>. However, if you use <a>PromoteResourceShareCreatedFromPolicy</a>, that operation
- *                         automatically associates the fully manageable customer managed permission to the newly promoted
- *                             <code>STANDARD</code> resource share.</p>
- *                </li>
- *                <li>
- *                   <p>After you promote a resource share, if the original <code>CREATED_FROM_POLICY</code>
- *                         managed permission has no other associations to A resource share, then RAM automatically deletes
- *                         it.</p>
- *                </li>
- *             </ul>
- *          </note>
+ * When you attach a resource-based policy to a resource, RAM automatically creates a resource share of `featureSet`=`CREATED_FROM_POLICY` with a managed permission that has the same IAM permissions as the original resource-based policy. However, this type of managed permission is visible to only the resource share owner, and the associated resource share can't be modified by using RAM.
+ *
+ * This operation creates a separate, fully manageable customer managed permission that has the same IAM permissions as the original resource-based policy. You can associate this customer managed permission to any resource shares.
+ *
+ * Before you use PromoteResourceShareCreatedFromPolicy, you should first run this operation to ensure that you have an appropriate customer managed permission that can be associated with the promoted resource share.
+ *
+ * > **Note:**
+ * >
+ * > - The original `CREATED_FROM_POLICY` policy isn't deleted, and resource shares using that original policy aren't automatically updated.
+ * > - You can't modify a `CREATED_FROM_POLICY` resource share so you can't associate the new customer managed permission by using `ReplacePermsissionAssociations`. However, if you use PromoteResourceShareCreatedFromPolicy, that operation automatically associates the fully manageable customer managed permission to the newly promoted `STANDARD` resource share.
+ * > - After you promote a resource share, if the original `CREATED_FROM_POLICY` managed permission has no other associations to A resource share, then RAM automatically deletes it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,34 +85,40 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput extends Promote
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The operation failed because a parameter you specified isn't valid.</p>
+ *
+ * The operation failed because a parameter you specified isn't valid.
  *
  * @throws {@link InvalidPolicyException} (client fault)
- *  <p>The operation failed because a policy you specified isn't valid.</p>
+ *
+ * The operation failed because a policy you specified isn't valid.
  *
  * @throws {@link MalformedArnException} (client fault)
- *  <p>The operation failed because the specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> has a format that isn't
- *             valid.</p>
+ *
+ * The operation failed because the specified [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) has a format that isn't valid.
  *
  * @throws {@link MissingRequiredParameterException} (client fault)
- *  <p>The operation failed because a required input parameter is missing.</p>
+ *
+ * The operation failed because a required input parameter is missing.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The operation failed because the requested operation isn't permitted.</p>
+ *
+ * The operation failed because the requested operation isn't permitted.
  *
  * @throws {@link ServerInternalException} (server fault)
- *  <p>The operation failed because the service could not respond to the request due to an
- *             internal problem. Try again later.</p>
+ *
+ * The operation failed because the service could not respond to the request due to an internal problem. Try again later.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The operation failed because the service isn't available. Try again later.</p>
+ *
+ * The operation failed because the service isn't available. Try again later.
  *
  * @throws {@link UnknownResourceException} (client fault)
- *  <p>The operation failed because a specified resource couldn't be found.</p>
+ *
+ * The operation failed because a specified resource couldn't be found.
  *
  * @throws {@link RAMServiceException}
- * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ * Base exception class for all service exceptions from RAM service.
  *
  * @public
  */

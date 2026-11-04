@@ -23,7 +23,10 @@ export interface ListRecommendedActionsCommandInput extends ListRecommendedActio
 export interface ListRecommendedActionsCommandOutput extends ListRecommendedActionsResponse, __MetadataBearer {}
 
 /**
- * <p> Lists the recommended actions based that match specified filters. </p> <note> <p>Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using <code>AssociateAccounts</code>.</p> </note>
+ * Lists the recommended actions based that match specified filters.
+ *
+ * > **Note:** Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using `AssociateAccounts`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,29 +109,36 @@ export interface ListRecommendedActionsCommandOutput extends ListRecommendedActi
  * @see {@link ComputeOptimizerAutomationClientResolvedConfig | config} for ComputeOptimizerAutomationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You do not have sufficient permissions to perform this action. </p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *
+ * You are not authorized to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal error occurred while processing the request. </p>
+ *
+ * An internal error occurred while processing the request.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p> One or more parameter values are not valid. </p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OptInRequiredException} (client fault)
- *  <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>
+ *
+ * The account must be opted in to Compute Optimizer Automation before performing this action.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The service is temporarily unavailable. </p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerAutomationServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizerAutomation service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizerAutomation service.
  *
  * @public
  */

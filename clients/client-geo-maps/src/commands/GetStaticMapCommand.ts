@@ -31,7 +31,14 @@ export type GetStaticMapCommandOutputType = Omit<GetStaticMapResponse, "Blob"> &
 export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetStaticMap</code> provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>For more information, see the following topics in the <i>Amazon Location Service Developer Guide</i>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html">Static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html">Customize static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html">Overlay on the static map</a> </p> </li> </ul>
+ * `GetStaticMap` provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots. Not supported in `ap-southeast-1` and `ap-southeast-5` regions for [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html) customers.
+ *
+ * For more information, see the following topics in the *Amazon Location Service Developer Guide*:
+ *
+ * - [Static maps](https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html)
+ * - [Customize static maps](https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html)
+ * - [Overlay on the static map](https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +88,24 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ *
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoMapsServiceException}
- * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ * Base exception class for all service exceptions from GeoMaps service.
  *
  * @public
  */

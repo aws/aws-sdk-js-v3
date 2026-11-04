@@ -23,9 +23,12 @@ export interface CreateReceiptRuleSetCommandInput extends CreateReceiptRuleSetRe
 export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an empty receipt rule set.</p>
- *          <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates an empty receipt rule set.
+ *
+ * For information about setting up receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,16 +53,16 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * Indicates that a resource could not be created because of a naming conflict.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example CreateReceiptRuleSet
  * ```javascript

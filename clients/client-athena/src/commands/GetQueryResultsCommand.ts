@@ -23,22 +23,12 @@ export interface GetQueryResultsCommandInput extends GetQueryResultsInput {}
 export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __MetadataBearer {}
 
 /**
- * <p>Streams the results of a single query execution specified by
- *                 <code>QueryExecutionId</code> from the Athena query results location in
- *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with query results, recent queries, and
- *                 output files</a> in the <i>Amazon Athena User Guide</i>.
- *             This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
- *          <p>To stream query results successfully, the IAM principal with permission to call
- *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
- *             <code>GetObject</code> action for the Athena query results location.</p>
- *          <important>
- *             <p>IAM principals with permission to the Amazon S3
- *                 <code>GetObject</code> action for the query results location are able to retrieve
- *                 query results from Amazon S3 even if permission to the
- *                     <code>GetQueryResults</code> action is denied. To restrict user or role access,
- *                 ensure that Amazon S3 permissions to the Athena query location
- *                 are denied.</p>
- *          </important>
+ * Streams the results of a single query execution specified by `QueryExecutionId` from the Athena query results location in Amazon S3. For more information, see [Working with query results, recent queries, and output files](https://docs.aws.amazon.com/athena/latest/ug/querying.html) in the *Amazon Athena User Guide*. This request does not execute the query but returns results. Use StartQueryExecution to run a query.
+ *
+ * To stream query results successfully, the IAM principal with permission to call `GetQueryResults` also must have permissions to the Amazon S3 `GetObject` action for the Athena query results location.
+ *
+ * > **Important:** IAM principals with permission to the Amazon S3 `GetObject` action for the query results location are able to retrieve query results from Amazon S3 even if permission to the `GetQueryResults` action is denied. To restrict user or role access, ensure that Amazon S3 permissions to the Athena query location are denied.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,19 +86,20 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Indicates that the request was throttled.</p>
+ *
+ * Indicates that the request was throttled.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

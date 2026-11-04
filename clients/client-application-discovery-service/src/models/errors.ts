@@ -6,8 +6,8 @@ import {
 } from "./ApplicationDiscoveryServiceServiceException";
 
 /**
- * <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
+ * The user does not have permission to perform the action. Check the IAM policy associated with this user.
+ *
  * @public
  */
 export class AuthorizationErrorException extends __BaseException {
@@ -28,7 +28,8 @@ export class AuthorizationErrorException extends __BaseException {
 }
 
 /**
- * <p>The home Region is not set. Set the home Region to continue.</p>
+ * The home Region is not set. Set the home Region to continue.
+ *
  * @public
  */
 export class HomeRegionNotSetException extends __BaseException {
@@ -49,7 +50,8 @@ export class HomeRegionNotSetException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ * One or more parameters are not valid. Verify the parameters and try again.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -70,8 +72,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
+ * The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -92,7 +94,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The server experienced an internal error. Try again.</p>
+ * The server experienced an internal error. Try again.
+ *
  * @public
  */
 export class ServerInternalErrorException extends __BaseException {
@@ -113,8 +116,8 @@ export class ServerInternalErrorException extends __BaseException {
 }
 
 /**
- * <p>The specified configuration ID was not located. Verify the configuration ID and try
- *       again.</p>
+ * The specified configuration ID was not located. Verify the configuration ID and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -135,7 +138,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This operation is not permitted.</p>
+ * This operation is not permitted.
+ *
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -156,9 +160,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>
- *       The limit of 200 configuration IDs per request has been exceeded.
- *     </p>
+ * The limit of 200 configuration IDs per request has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -179,7 +182,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Conflict error.</p>
+ * Conflict error.
+ *
  * @public
  */
 export class ConflictErrorException extends __BaseException {
@@ -200,11 +204,8 @@ export class ConflictErrorException extends __BaseException {
 }
 
 /**
- * <p>This issue occurs when the same <code>clientRequestToken</code> is used with the
- *         <code>StartImportTask</code> action, but with different parameters. For example, you use the
- *       same request token but have two different import URLs, you can encounter this issue. If the
- *       import tasks are meant to be different, use a different <code>clientRequestToken</code>, and
- *       try again.</p>
+ * This issue occurs when the same `clientRequestToken` is used with the `StartImportTask` action, but with different parameters. For example, you use the same request token but have two different import URLs, you can encounter this issue. If the import tasks are meant to be different, use a different `clientRequestToken`, and try again.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {

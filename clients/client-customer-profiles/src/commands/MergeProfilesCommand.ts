@@ -23,49 +23,22 @@ export interface MergeProfilesCommandInput extends MergeProfilesRequest {}
 export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Runs an AWS Lambda job that does the following:</p>
- *          <ol>
- *             <li>
- *                <p>All the profileKeys in the <code>ProfileToBeMerged</code> will be moved to the
- *                main profile.</p>
- *             </li>
- *             <li>
- *                <p>All the objects in the <code>ProfileToBeMerged</code> will be moved to the main
- *                profile.</p>
- *             </li>
- *             <li>
- *                <p>All the <code>ProfileToBeMerged</code> will be deleted at the end.</p>
- *             </li>
- *             <li>
- *                <p>All the profileKeys in the <code>ProfileIdsToBeMerged</code> will be moved to the
- *                main profile.</p>
- *             </li>
- *             <li>
- *                <p>Standard fields are merged as follows:</p>
- *                <ol>
- *                   <li>
- *                      <p>Fields are always "union"-ed if there are no conflicts in standard fields or
- *                      attributeKeys.</p>
- *                   </li>
- *                   <li>
- *                      <p>When there are conflicting fields:</p>
- *                      <ol>
- *                         <li>
- *                            <p>If no <code>SourceProfileIds</code> entry is specified, the main
- *                            Profile value is always taken. </p>
- *                         </li>
- *                         <li>
- *                            <p>If a <code>SourceProfileIds</code> entry is specified, the specified
- *                            profileId is always taken, even if it is a NULL value.</p>
- *                         </li>
- *                      </ol>
- *                   </li>
- *                </ol>
- *             </li>
- *          </ol>
- *          <p>You can use MergeProfiles together with <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html">GetMatches</a>, which
- *          returns potentially matching profiles, or use it with the results of another matching
- *          system. After profiles have been merged, they cannot be separated (unmerged).</p>
+ * Runs an AWS Lambda job that does the following:
+ *
+ * 1. All the profileKeys in the `ProfileToBeMerged` will be moved to the main profile.
+ * 2. All the objects in the `ProfileToBeMerged` will be moved to the main profile.
+ * 3. All the `ProfileToBeMerged` will be deleted at the end.
+ * 4. All the profileKeys in the `ProfileIdsToBeMerged` will be moved to the main profile.
+ * 5. Standard fields are merged as follows:
+ *
+ *    1. Fields are always "union"-ed if there are no conflicts in standard fields or attributeKeys.
+ *    2. When there are conflicting fields:
+ *
+ *       1. If no `SourceProfileIds` entry is specified, the main Profile value is always taken.
+ *       2. If a `SourceProfileIds` entry is specified, the specified profileId is always taken, even if it is a NULL value.
+ *
+ * You can use MergeProfiles together with [GetMatches](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html), which returns potentially matching profiles, or use it with the results of another matching system. After profiles have been merged, they cannot be separated (unmerged).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,20 +96,24 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

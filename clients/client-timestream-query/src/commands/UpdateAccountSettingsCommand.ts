@@ -23,10 +23,10 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Transitions your account to use TCUs for query pricing and modifies the maximum query compute units that you've configured. If you reduce the value of <code>MaxQueryTCU</code> to a desired configuration, the new value can take up to 24 hours to be effective.</p>
- *          <note>
- *             <p>After you've transitioned your account to use TCUs for query pricing, you can't transition to using bytes scanned for query pricing.</p>
- *          </note>
+ * Transitions your account to use TCUs for query pricing and modifies the maximum query compute units that you've configured. If you reduce the value of `MaxQueryTCU` to a desired configuration, the new value can take up to 24 hours to be effective.
+ *
+ * > **Note:** After you've transitioned your account to use TCUs for query pricing, you can't transition to using bytes scanned for query pricing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,23 +84,28 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the necessary permissions to access the account settings.</p>
+ *
+ * You do not have the necessary permissions to access the account settings.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request.</p>
+ *
+ * An internal server error occurred while processing the request.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint is invalid.</p>
+ *
+ * The requested endpoint is invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to excessive requests.</p>
+ *
+ * The request was throttled due to excessive requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Invalid or malformed request. </p>
+ *
+ * Invalid or malformed request.
  *
  * @throws {@link TimestreamQueryServiceException}
- * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamQuery service.
  *
  * @public
  */

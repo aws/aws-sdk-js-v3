@@ -23,7 +23,8 @@ export interface StopCrawlerCommandInput extends StopCrawlerRequest {}
 export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>If the specified crawler is running, stops the crawl.</p>
+ * If the specified crawler is running, stops the crawl.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,20 +49,24 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link CrawlerNotRunningException} (client fault)
- *  <p>The specified crawler is not running.</p>
+ *
+ * The specified crawler is not running.
  *
  * @throws {@link CrawlerStoppingException} (client fault)
- *  <p>The specified crawler is stopping.</p>
+ *
+ * The specified crawler is stopping.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

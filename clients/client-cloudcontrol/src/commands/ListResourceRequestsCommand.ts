@@ -23,12 +23,10 @@ export interface ListResourceRequestsCommandInput extends ListResourceRequestsIn
 export interface ListResourceRequestsCommandOutput extends ListResourceRequestsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns existing resource operation requests. This includes requests of all status types.
- *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list">Listing active resource operation requests</a> in the
- *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
- *          <note>
- *             <p>Resource operation requests expire after 7 days.</p>
- *          </note>
+ * Returns existing resource operation requests. This includes requests of all status types. For more information, see [Listing active resource operation requests](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list) in the *Amazon Web Services Cloud Control API User Guide*.
+ *
+ * > **Note:** Resource operation requests expire after 7 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +77,8 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  * @throws {@link CloudControlServiceException}
- * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * Base exception class for all service exceptions from CloudControl service.
  *
  * @public
  */

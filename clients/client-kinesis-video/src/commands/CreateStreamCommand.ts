@@ -23,14 +23,16 @@ export interface CreateStreamCommandInput extends CreateStreamInput {}
 export interface CreateStreamCommandOutput extends CreateStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Kinesis video stream. </p>
- *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
- *             When you change the stream's metadata, Kinesis Video Streams updates the version. </p>
- *          <p>
- *             <code>CreateStream</code> is an asynchronous operation.</p>
- *          <p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
- *          <p>You must have permissions for the <code>KinesisVideo:CreateStream</code>
- *             action.</p>
+ * Creates a new Kinesis video stream.
+ *
+ * When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version.
+ *
+ * `CreateStream` is an asynchronous operation.
+ *
+ * For information about how the service works, see [How it Works](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html).
+ *
+ * You must have permissions for the `KinesisVideo:CreateStream` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,49 +69,40 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link AccountStreamLimitExceededException} (client fault)
- *  <p>The number of streams created for the account is too high.</p>
+ *
+ * The number of streams created for the account is too high.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link DeviceStreamLimitExceededException} (client fault)
- *  <p>Not implemented.
- *             </p>
+ *
+ * Not implemented.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link InvalidDeviceException} (client fault)
- *  <p>Not implemented.</p>
+ *
+ * Not implemented.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
- *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
- *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
- *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
- *          <ol>
- *             <li>
- *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
- *             </p>
- *             </li>
- *             <li>
- *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
- *             </p>
- *             </li>
- *          </ol>
+ *
+ * When the input `StreamARN` or `ChannelARN` in `CLOUD_STORAGE_MODE` is already mapped to a different Kinesis Video Stream resource, or if the provided input `StreamARN` or `ChannelARN` is not in Active status, try one of the following :
+ *
+ * 1. The `DescribeMediaStorageConfiguration` API to determine what the stream given channel is mapped to.
+ * 2. The `DescribeMappedResourceConfiguration` API to determine the channel that the given stream is mapped to.
+ * 3. The `DescribeStream` or `DescribeSignalingChannel` API to determine the status of the resource.
  *
  * @throws {@link TagsPerResourceExceededLimitException} (client fault)
- *  <p>You have exceeded the limit of tags that you can associate with the resource.
- *             A Kinesis video stream can support up to 50 tags. </p>
+ *
+ * You have exceeded the limit of tags that you can associate with the resource. A Kinesis video stream can support up to 50 tags.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

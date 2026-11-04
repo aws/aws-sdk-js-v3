@@ -23,7 +23,8 @@ export interface PutTaxExemptionCommandInput extends PutTaxExemptionRequest {}
 export interface PutTaxExemptionCommandOutput extends PutTaxExemptionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds the tax exemption for a single account or all accounts listed in a consolidated billing family. The IAM action is <code>tax:UpdateExemptions</code>. </p>
+ * Adds the tax exemption for a single account or all accounts listed in a consolidated billing family. The IAM action is `tax:UpdateExemptions`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,26 +62,32 @@ export interface PutTaxExemptionCommandOutput extends PutTaxExemptionResponse, _
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The access is denied for the Amazon Web Services Support API. </p>
+ *
+ * The access is denied for the Amazon Web Services Support API.
  *
  * @throws {@link AttachmentUploadException} (client fault)
- *  <p>Failed to upload the tax exemption document to Amazon Web Services Support case. </p>
+ *
+ * Failed to upload the tax exemption document to Amazon Web Services Support case.
  *
  * @throws {@link CaseCreationLimitExceededException} (client fault)
- *  <p>You've exceeded the Amazon Web Services Support case creation limit for your account. </p>
+ *
+ * You've exceeded the Amazon Web Services Support case creation limit for your account.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ *
+ * The exception thrown when an unexpected error occurs when processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ *
+ * The exception thrown when the input doesn't have a resource associated to it.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ *
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
  *
  * @throws {@link TaxSettingsServiceException}
- * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ * Base exception class for all service exceptions from TaxSettings service.
  *
  * @public
  */

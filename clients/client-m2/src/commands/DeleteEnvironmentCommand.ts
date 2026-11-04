@@ -23,9 +23,8 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific runtime environment. The environment cannot contain deployed
- *          applications. If it does, you must delete those applications before you delete the
- *          environment.</p>
+ * Deletes a specific runtime environment. The environment cannot contain deployed applications. If it does, you must delete those applications before you delete the environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +49,28 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * The parameters provided in the request conflict with existing resources.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameters provided in the request is not valid.</p>
+ *
+ * One or more parameters provided in the request is not valid.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

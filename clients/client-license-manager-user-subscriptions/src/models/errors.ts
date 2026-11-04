@@ -6,7 +6,8 @@ import {
 } from "./LicenseManagerUserSubscriptionsServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ * The request couldn't be completed because it conflicted with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -48,7 +50,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An exception occurred with the service.</p>
+ * An exception occurred with the service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +72,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource couldn't be found.</p>
+ * The resource couldn't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -90,7 +94,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request failed because a service quota is exceeded.</p>
+ * The request failed because a service quota is exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -111,7 +116,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because of request throttling. Retry the request.</p>
+ * The request was denied because of request throttling. Retry the request.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -132,7 +138,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>A parameter is not valid.</p>
+ * A parameter is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

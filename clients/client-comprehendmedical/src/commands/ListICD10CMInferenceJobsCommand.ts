@@ -23,7 +23,8 @@ export interface ListICD10CMInferenceJobsCommandInput extends ListICD10CMInferen
 export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInferenceJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
+ * Gets a list of InferICD10CM jobs that you have submitted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,24 +82,24 @@ export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInfere
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request.</p>
+ *
+ * The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again. Contact customer support for more information about a service
- *       limit increase. </p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The filter that you specified for the operation is invalid. Check the filter values that
- *       you entered and try your request again.</p>
+ *
+ * The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.
  *
  * @throws {@link ComprehendMedicalServiceException}
- * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * Base exception class for all service exceptions from ComprehendMedical service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface ListProtectedResourcesCommandInput extends ListProtectedResourc
 export interface ListProtectedResourcesCommandOutput extends ListProtectedResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of resources with recovery points created by Backup
- *          (regardless of the recovery point's <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeRecoveryPoint.html#Backup-DescribeRecoveryPoint-response-Status">status</a>),
- *          including the time the resource was saved, an Amazon Resource Name (ARN) of the resource,
- *          and a resource type.</p>
+ * Returns an array of resources with recovery points created by Backup (regardless of the recovery point's [status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeRecoveryPoint.html#Backup-DescribeRecoveryPoint-response-Status)), including the time the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,15 +62,16 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

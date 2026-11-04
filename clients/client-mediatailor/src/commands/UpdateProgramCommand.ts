@@ -23,7 +23,8 @@ export interface UpdateProgramCommandInput extends UpdateProgramRequest {}
 export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a program within a channel.</p>
+ * Updates a program within a channel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -256,8 +257,8 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

@@ -23,11 +23,12 @@ export interface CloneReceiptRuleSetCommandInput extends CloneReceiptRuleSetRequ
 export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and
- *             configurations are copied to the new receipt rule set and are completely independent of
- *             the source rule set.</p>
- *          <p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules">Amazon SES Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates a receipt rule set by cloning an existing one. All receipt rules and configurations are copied to the new receipt rule set and are completely independent of the source rule set.
+ *
+ * For information about setting up rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-concepts.html#receiving-email-concepts-rules).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,19 +54,20 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * Indicates that a resource could not be created because of a naming conflict.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Indicates that a resource could not be created because of service limits. For a list
- *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
- *             Guide</a>.</p>
+ *
+ * Indicates that a resource could not be created because of service limits. For a list of Amazon SES limits, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html).
  *
  * @throws {@link RuleSetDoesNotExistException} (client fault)
- *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ * Indicates that the provided receipt rule set does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example CloneReceiptRuleSet
  * ```javascript

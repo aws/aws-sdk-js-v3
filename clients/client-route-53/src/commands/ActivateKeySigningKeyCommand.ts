@@ -23,8 +23,8 @@ export interface ActivateKeySigningKeyCommandInput extends ActivateKeySigningKey
 export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This
- * 			operation changes the KSK status to <code>ACTIVE</code>.</p>
+ * Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This operation changes the KSK status to `ACTIVE`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,30 +57,32 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidKeySigningKeyStatus} (client fault)
- *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
- * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * The key-signing key (KSK) status isn't valid or another KSK has the status `INTERNAL_FAILURE`.
  *
  * @throws {@link InvalidKMSArn} (client fault)
- *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
- * 			signing.</p>
+ *
+ * The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.
  *
  * @throws {@link InvalidSigningStatus} (client fault)
- *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
- * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable `DNSSEC` or disable `DNSSEC`.
  *
  * @throws {@link NoSuchKeySigningKey} (client fault)
- *  <p>The specified key-signing key (KSK) doesn't exist.</p>
+ *
+ * The specified key-signing key (KSK) doesn't exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

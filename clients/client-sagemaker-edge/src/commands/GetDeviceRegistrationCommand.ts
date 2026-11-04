@@ -23,7 +23,8 @@ export interface GetDeviceRegistrationCommandInput extends GetDeviceRegistration
 export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistrationResult, __MetadataBearer {}
 
 /**
- * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
+ * Use to check if a device is registered with SageMaker Edge Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,12 +53,12 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * @see {@link SagemakerEdgeClientResolvedConfig | config} for SagemakerEdgeClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (client fault)
- *  <p>An internal failure occurred. Try your request again. If the problem
- *       persists, contact Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link SagemakerEdgeServiceException}
- * <p>Base exception class for all service exceptions from SagemakerEdge service.</p>
  *
+ * Base exception class for all service exceptions from SagemakerEdge service.
  *
  * @public
  */

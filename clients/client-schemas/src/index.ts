@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon EventBridge Schema Registry</p>
+ * Amazon EventBridge Schema Registry
  *
  * @packageDocumentation
  */

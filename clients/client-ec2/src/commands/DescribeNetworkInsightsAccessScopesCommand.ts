@@ -26,7 +26,8 @@ export interface DescribeNetworkInsightsAccessScopesCommandInput extends Describ
 export interface DescribeNetworkInsightsAccessScopesCommandOutput extends DescribeNetworkInsightsAccessScopesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Network Access Scopes.</p>
+ * Describes the specified Network Access Scopes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +81,8 @@ export interface DescribeNetworkInsightsAccessScopesCommandOutput extends Descri
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateAliasCommandInput extends CreateAliasRequest {}
 export interface CreateAliasCommandOutput extends CreateAliasResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an alias to the set of a given member (user or group) of WorkMail.</p>
+ * Adds an alias to the set of a given member (user or group) of WorkMail.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,41 +51,44 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link EmailAddressInUseException} (client fault)
- *  <p>The email address that you're trying to assign is already created for a different
- *          user, group, or resource.</p>
+ *
+ * The email address that you're trying to assign is already created for a different user, group, or resource.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ *
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
  *
  * @throws {@link EntityStateException} (client fault)
- *  <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
+ *
+ * You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * The request exceeds the limit of the resource.
  *
  * @throws {@link MailDomainNotFoundException} (client fault)
- *  <p>The domain specified is not found in your organization.</p>
+ *
+ * The domain specified is not found in your organization.
  *
  * @throws {@link MailDomainStateException} (client fault)
- *  <p>After a domain has been added to the organization, it must be verified. The domain is
- *          not yet verified.</p>
+ *
+ * After a domain has been added to the organization, it must be verified. The domain is not yet verified.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface StopMaterializedViewRefreshTaskRunCommandInput extends StopMate
 export interface StopMaterializedViewRefreshTaskRunCommandOutput extends StopMaterializedViewRefreshTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a materialized view refresh task run for a specified materialized view.</p>
+ * Stops a materialized view refresh task run for a specified materialized view.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,23 +54,28 @@ export interface StopMaterializedViewRefreshTaskRunCommandOutput extends StopMat
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link MaterializedViewRefreshTaskNotRunningException} (client fault)
- *  <p>Exception thrown when stopping a task that is not in running state.</p>
+ *
+ * Exception thrown when stopping a task that is not in running state.
  *
  * @throws {@link MaterializedViewRefreshTaskStoppingException} (client fault)
- *  <p>Exception thrown when a task is already in stopping state.</p>
+ *
+ * Exception thrown when a task is already in stopping state.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

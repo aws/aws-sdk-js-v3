@@ -26,11 +26,8 @@ export interface DescribeResourceCollectionHealthCommandInput extends DescribeRe
 export interface DescribeResourceCollectionHealthCommandOutput extends DescribeResourceCollectionHealthResponse, __MetadataBearer {}
 
 /**
- * <p> Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR)
- * 			for all closed insights in resource collections in your account. You specify the type of
- * 			Amazon Web Services resources collection. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
- *           Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze
- *       	the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
+ * Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR) for all closed insights in resource collections in your account. You specify the type of Amazon Web Services resources collection. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag *key*. You can specify up to 500 Amazon Web Services CloudFormation stacks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,24 +88,24 @@ export interface DescribeResourceCollectionHealthCommandOutput extends DescribeR
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have permissions to perform the requested operation. The user or role that
- * 			is making the request must have at least one IAM permissions policy attached that grants
- * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- * 				<i>IAM User Guide</i>. </p>
+ *
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * An internal failure in an Amazon service occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to a request throttling.</p>
+ *
+ * The request was denied due to a request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Contains information about data passed in to a field during a request that is not
- * 			valid. </p>
+ *
+ * Contains information about data passed in to a field during a request that is not valid.
  *
  * @throws {@link DevOpsGuruServiceException}
- * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * Base exception class for all service exceptions from DevOpsGuru service.
  *
  * @public
  */

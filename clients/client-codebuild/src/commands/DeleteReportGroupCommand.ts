@@ -23,7 +23,8 @@ export interface DeleteReportGroupCommandInput extends DeleteReportGroupInput {}
 export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
+ * Deletes a report group. Before you delete a report group, you must delete its reports.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +50,12 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

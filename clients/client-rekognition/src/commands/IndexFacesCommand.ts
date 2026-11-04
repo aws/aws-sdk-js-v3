@@ -23,99 +23,54 @@ export interface IndexFacesCommandInput extends IndexFacesRequest {}
 export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**
- * <p>Detects faces in the input image and adds them to the specified collection. </p>
- *          <p>Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying
- *       detection algorithm first detects the faces in the input image. For each face, the algorithm
- *       extracts facial features into a feature vector, and stores it in the backend database.
- *       Amazon Rekognition uses feature vectors when it performs face match and search operations using the
- *         <a>SearchFaces</a> and <a>SearchFacesByImage</a> operations.</p>
- *          <p>For more information, see Adding faces to a collection in the Amazon Rekognition
- *       Developer Guide.</p>
- *          <p>To get the number of faces in a collection, call <a>DescribeCollection</a>. </p>
- *          <p>If you're using version 1.0 of the face detection model, <code>IndexFaces</code>
- *       indexes the 15 largest faces in the input image. Later versions of the face detection model
- *       index the 100 largest faces in the input image. </p>
- *          <p>If you're using version 4 or later of the face model, image orientation information is not
- *       returned in the <code>OrientationCorrection</code> field. </p>
- *          <p>To determine which version of the model you're using, call <a>DescribeCollection</a> and supply the collection ID. You can also get the model
- *       version from the value of <code>FaceModelVersion</code> in the response from
- *         <code>IndexFaces</code>
- *          </p>
- *          <p>For more information, see Model Versioning in the Amazon Rekognition Developer
- *       Guide.</p>
- *          <p>If you provide the optional <code>ExternalImageId</code> for the input image you
- *       provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the <a>ListFaces</a> operation, the response returns the external ID. You can use this
- *       external image ID to create a client-side index to associate the faces with each image. You
- *       can then use the index to find all faces in an image.</p>
- *          <p>You can specify the maximum number of faces to index with the <code>MaxFaces</code> input
- *       parameter. This is useful when you want to index the largest faces in an image and don't want
- *       to index smaller faces, such as those belonging to people standing in the background.</p>
- *          <p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces
- *       that don’t meet a required quality bar. The quality bar is based on a variety of common use
- *       cases. By default, <code>IndexFaces</code> chooses the quality bar that's used to filter
- *       faces. You can also explicitly choose the quality bar. Use <code>QualityFilter</code>, to set
- *       the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If
- *       you do not want to filter detected faces, specify <code>NONE</code>. </p>
- *          <note>
- *             <p>To use quality filtering, you need a collection associated with version 3 of the face
- *         model or higher. To get the version of the face model associated with a collection, call
- *           <a>DescribeCollection</a>. </p>
- *          </note>
- *          <p>Information about faces detected in an image, but not indexed, is returned in an array of
- *         <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed
- *       for reasons such as:</p>
- *          <ul>
- *             <li>
- *                <p>The number of faces detected exceeds the value of the <code>MaxFaces</code> request
- *           parameter.</p>
- *             </li>
- *             <li>
- *                <p>The face is too small compared to the image dimensions.</p>
- *             </li>
- *             <li>
- *                <p>The face is too blurry.</p>
- *             </li>
- *             <li>
- *                <p>The image is too dark.</p>
- *             </li>
- *             <li>
- *                <p>The face has an extreme pose.</p>
- *             </li>
- *             <li>
- *                <p>The face doesn’t have enough detail to be suitable for face search.</p>
- *             </li>
- *          </ul>
- *          <p>In response, the <code>IndexFaces</code> operation returns an array of metadata for all
- *       detected faces, <code>FaceRecords</code>. This includes: </p>
- *          <ul>
- *             <li>
- *                <p>The bounding box, <code>BoundingBox</code>, of the detected face. </p>
- *             </li>
- *             <li>
- *                <p>A confidence value, <code>Confidence</code>, which indicates the confidence that the
- *           bounding box contains a face.</p>
- *             </li>
- *             <li>
- *                <p>A face ID, <code>FaceId</code>, assigned by the service for each face that's detected
- *           and stored.</p>
- *             </li>
- *             <li>
- *                <p>An image ID, <code>ImageId</code>, assigned by the service for the input image.</p>
- *             </li>
- *          </ul>
- *          <p>If you request <code>ALL</code> or specific facial attributes (e.g.,
- *         <code>FACE_OCCLUDED</code>) by using the detectionAttributes parameter, Amazon Rekognition
- *       returns detailed facial attributes, such as facial landmarks (for example, location of eye and
- *       mouth), facial occlusion, and other facial attributes.</p>
- *          <p>If you provide the same image, specify the same collection, and use the same external ID
- *       in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face
- *       metadata.</p>
- *          <p></p>
- *          <p>The input image is passed either as base64-encoded image bytes, or as a reference to an
- *       image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
- *       passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p>
- *          <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
- *       action.</p>
+ * Detects faces in the input image and adds them to the specified collection.
+ *
+ * Amazon Rekognition doesn't save the actual faces that are detected. Instead, the underlying detection algorithm first detects the faces in the input image. For each face, the algorithm extracts facial features into a feature vector, and stores it in the backend database. Amazon Rekognition uses feature vectors when it performs face match and search operations using the SearchFaces and SearchFacesByImage operations.
+ *
+ * For more information, see Adding faces to a collection in the Amazon Rekognition Developer Guide.
+ *
+ * To get the number of faces in a collection, call DescribeCollection.
+ *
+ * If you're using version 1.0 of the face detection model, `IndexFaces` indexes the 15 largest faces in the input image. Later versions of the face detection model index the 100 largest faces in the input image.
+ *
+ * If you're using version 4 or later of the face model, image orientation information is not returned in the `OrientationCorrection` field.
+ *
+ * To determine which version of the model you're using, call DescribeCollection and supply the collection ID. You can also get the model version from the value of `FaceModelVersion` in the response from `IndexFaces`
+ *
+ * For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
+ *
+ * If you provide the optional `ExternalImageId` for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the ListFaces operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image.
+ *
+ * You can specify the maximum number of faces to index with the `MaxFaces` input parameter. This is useful when you want to index the largest faces in an image and don't want to index smaller faces, such as those belonging to people standing in the background.
+ *
+ * The `QualityFilter` input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. By default, `IndexFaces` chooses the quality bar that's used to filter faces. You can also explicitly choose the quality bar. Use `QualityFilter`, to set the quality bar by specifying `LOW`, `MEDIUM`, or `HIGH`. If you do not want to filter detected faces, specify `NONE`.
+ *
+ * > **Note:** To use quality filtering, you need a collection associated with version 3 of the face model or higher. To get the version of the face model associated with a collection, call DescribeCollection.
+ *
+ * Information about faces detected in an image, but not indexed, is returned in an array of UnindexedFace objects, `UnindexedFaces`. Faces aren't indexed for reasons such as:
+ *
+ * - The number of faces detected exceeds the value of the `MaxFaces` request parameter.
+ * - The face is too small compared to the image dimensions.
+ * - The face is too blurry.
+ * - The image is too dark.
+ * - The face has an extreme pose.
+ * - The face doesn’t have enough detail to be suitable for face search.
+ *
+ * In response, the `IndexFaces` operation returns an array of metadata for all detected faces, `FaceRecords`. This includes:
+ *
+ * - The bounding box, `BoundingBox`, of the detected face.
+ * - A confidence value, `Confidence`, which indicates the confidence that the bounding box contains a face.
+ * - A face ID, `FaceId`, assigned by the service for each face that's detected and stored.
+ * - An image ID, `ImageId`, assigned by the service for the input image.
+ *
+ * If you request `ALL` or specific facial attributes (e.g., `FACE_OCCLUDED`) by using the detectionAttributes parameter, Amazon Rekognition returns detailed facial attributes, such as facial landmarks (for example, location of eye and mouth), facial occlusion, and other facial attributes.
+ *
+ * If you provide the same image, specify the same collection, and use the same external ID in the `IndexFaces` operation, Amazon Rekognition doesn't save duplicate face metadata.
+ *
+ * The input image is passed either as base64-encoded image bytes, or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file.
+ *
+ * This operation requires permissions to perform the `rekognition:IndexFaces` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -334,45 +289,48 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource specified in the request cannot be found.</p>
+ *
+ * The resource specified in the request cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To add a face to a collection
  * ```javascript

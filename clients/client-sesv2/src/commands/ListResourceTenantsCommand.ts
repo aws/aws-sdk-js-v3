@@ -23,10 +23,10 @@ export interface ListResourceTenantsCommandInput extends ListResourceTenantsRequ
 export interface ListResourceTenantsCommandOutput extends ListResourceTenantsResponse, __MetadataBearer {}
 
 /**
- * <p>List all tenants associated with a specific resource.</p>
- *          <p>This operation returns a list of tenants that are associated with the specified
- *             resource. This is useful for understanding which tenants are currently using a particular
- *             resource such as an email identity, configuration set, or email template.</p>
+ * List all tenants associated with a specific resource.
+ *
+ * This operation returns a list of tenants that are associated with the specified resource. This is useful for understanding which tenants are currently using a particular resource such as an email identity, configuration set, or email template.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +63,20 @@ export interface ListResourceTenantsCommandOutput extends ListResourceTenantsRes
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

@@ -23,11 +23,8 @@ export interface CreateApprovalRuleTemplateCommandInput extends CreateApprovalRu
 export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a template for approval rules that can then be associated with one or more
- *             repositories in your Amazon Web Services account. When you associate a template with a repository,
- *             CodeCommit creates an approval rule that matches the conditions of the template for all
- *             pull requests that meet the conditions of the template. For more information, see
- *             <a>AssociateApprovalRuleTemplateWithRepository</a>.</p>
+ * Creates a template for approval rules that can then be associated with one or more repositories in your Amazon Web Services account. When you associate a template with a repository, CodeCommit creates an approval rule that matches the conditions of the template for all pull requests that meet the conditions of the template. For more information, see AssociateApprovalRuleTemplateWithRepository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,37 +62,36 @@ export interface CreateApprovalRuleTemplateCommandOutput extends CreateApprovalR
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link ApprovalRuleTemplateContentRequiredException} (client fault)
- *  <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
+ *
+ * The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.
  *
  * @throws {@link ApprovalRuleTemplateNameAlreadyExistsException} (client fault)
- *  <p>You cannot create an approval rule template with that name because a template with
- *             that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template
- *             names must be unique.</p>
+ *
+ * You cannot create an approval rule template with that name because a template with that name already exists in this Amazon Web Services Region for your Amazon Web Services account. Approval rule template names must be unique.
  *
  * @throws {@link ApprovalRuleTemplateNameRequiredException} (client fault)
- *  <p>An approval rule template name is required, but was not specified.</p>
+ *
+ * An approval rule template name is required, but was not specified.
  *
  * @throws {@link InvalidApprovalRuleTemplateContentException} (client fault)
- *  <p>The content of the approval rule template is not valid.</p>
+ *
+ * The content of the approval rule template is not valid.
  *
  * @throws {@link InvalidApprovalRuleTemplateDescriptionException} (client fault)
- *  <p>The description for the approval rule template is not valid because it exceeds the
- *             maximum characters allowed for a description. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ *
+ * The description for the approval rule template is not valid because it exceeds the maximum characters allowed for a description. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
  *
  * @throws {@link InvalidApprovalRuleTemplateNameException} (client fault)
- *  <p>The name of the approval rule template is not valid. Template names must be between 1
- *             and 100 valid characters in length. For more information about limits in CodeCommit,
- *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Quotas</a> in the <i>
- *                CodeCommit User Guide</i>.</p>
+ *
+ * The name of the approval rule template is not valid. Template names must be between 1 and 100 valid characters in length. For more information about limits in CodeCommit, see [Quotas](https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html) in the *CodeCommit User Guide*.
  *
  * @throws {@link NumberOfRuleTemplatesExceededException} (client fault)
- *  <p>The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region. </p>
+ *
+ * The maximum number of approval rule templates has been exceeded for this Amazon Web Services Region.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

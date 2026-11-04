@@ -36,7 +36,6 @@ export interface KinesisVideoMedia {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class KinesisVideoMedia extends KinesisVideoMediaClient implements KinesisVideoMedia {}

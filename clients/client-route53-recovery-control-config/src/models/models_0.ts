@@ -2,354 +2,421 @@
 import type { NetworkType, RuleType, Status } from "./enums";
 
 /**
- * <p>A cluster endpoint. Specify an endpoint when you want to set or retrieve a routing control state in the cluster.</p>
+ * A cluster endpoint. Specify an endpoint when you want to set or retrieve a routing control state in the cluster.
+ *
  * @public
  */
 export interface ClusterEndpoint {
   /**
-   * <p>A cluster endpoint. Specify an endpoint and Amazon Web Services Region when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.</p>
+   * A cluster endpoint. Specify an endpoint and Amazon Web Services Region when you want to set or retrieve a routing control state in the cluster.
+   *
+   * To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.
+   *
    * @public
    */
   Endpoint?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for a cluster endpoint.</p>
+   * The Amazon Web Services Region for a cluster endpoint.
+   *
    * @public
    */
   Region?: string | undefined;
 }
 
 /**
- * <p>A set of five redundant Regional endpoints against which you can execute API calls to update or get the state of routing controls. You can host multiple control panels and routing controls on one cluster.</p>
+ * A set of five redundant Regional endpoints against which you can execute API calls to update or get the state of routing controls. You can host multiple control panels and routing controls on one cluster.
+ *
  * @public
  */
 export interface Cluster {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * The Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 
   /**
-   * <p>Endpoints for a cluster. Specify one of these endpoints when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.</p>
+   * Endpoints for a cluster. Specify one of these endpoints when you want to set or retrieve a routing control state in the cluster.
+   *
+   * To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.
+   *
    * @public
    */
   ClusterEndpoints?: ClusterEndpoint[] | undefined;
 
   /**
-   * <p>The name of the cluster.</p>
+   * The name of the cluster.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
+   * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the cluster owner.</p>
+   * The Amazon Web Services account ID of the cluster owner.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+   * The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.
+   *
    * @public
    */
   NetworkType?: NetworkType | undefined;
 }
 
 /**
- * <p>A control panel represents a group of routing controls that can be changed together in a single transaction.</p>
+ * A control panel represents a group of routing controls that can be changed together in a single transaction.
+ *
  * @public
  */
 export interface ControlPanel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster that includes the control panel.</p>
+   * The Amazon Resource Name (ARN) of the cluster that includes the control panel.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn?: string | undefined;
 
   /**
-   * <p>A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.</p>
+   * A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
+   *
    * @public
    */
   DefaultControlPanel?: boolean | undefined;
 
   /**
-   * <p>The name of the control panel. You can use any non-white space character in the name.</p>
+   * The name of the control panel. You can use any non-white space character in the name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The number of routing controls in the control panel.</p>
+   * The number of routing controls in the control panel.
+   *
    * @public
    */
   RoutingControlCount?: number | undefined;
 
   /**
-   * <p>The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
+   * The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the control panel owner.</p>
+   * The Amazon Web Services account ID of the control panel owner.
+   *
    * @public
    */
   Owner?: string | undefined;
 }
 
 /**
- * <p>A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control traffic routing.</p>
+ * A routing control has one of two states: ON and OFF. You can map the routing control state to the state of an Amazon Route 53 health check, which can be used to control traffic routing.
+ *
  * @public
  */
 export interface RoutingControl {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel that includes the routing control.</p>
+   * The Amazon Resource Name (ARN) of the control panel that includes the routing control.
+   *
    * @public
    */
   ControlPanelArn?: string | undefined;
 
   /**
-   * <p>The name of the routing control.</p>
+   * The name of the routing control.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
+   * The Amazon Resource Name (ARN) of the routing control.
+   *
    * @public
    */
   RoutingControlArn?: string | undefined;
 
   /**
-   * <p>The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
+   * The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the routing control owner.</p>
+   * The Amazon Web Services account ID of the routing control owner.
+   *
    * @public
    */
   Owner?: string | undefined;
 }
 
 /**
- * <p>The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many control states must be ON after a transaction completes.</p>
+ * The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many control states must be ON after a transaction completes.
+ *
  * @public
  */
 export interface RuleConfig {
   /**
-   * <p>Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.</p>
+   * Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
+   *
    * @public
    */
   Inverted: boolean | undefined;
 
   /**
-   * <p>The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.</p>
+   * The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
+   *
    * @public
    */
   Threshold: number | undefined;
 
   /**
-   * <p>A rule can be one of the following: ATLEAST, AND, or OR.</p>
+   * A rule can be one of the following: ATLEAST, AND, or OR.
+   *
    * @public
    */
   Type: RuleType | undefined;
 }
 
 /**
- * <p>An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>
+ * An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+ *
  * @public
  */
 export interface AssertionRule {
   /**
-   * <p>The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three Amazon Web Services Regions.</p>
+   * The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three Amazon Web Services Regions.
+   *
    * @public
    */
   AssertedControls: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>Name of the assertion rule. You can use any non-white space character in the name.</p>
+   * Name of the assertion rule. You can use any non-white space character in the name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific assertion routing controls (AssertedControls) that designate how many routing control states must be ON as the result of a transaction. For example, if you have three assertion routing controls, you might specify ATLEAST 2 for your rule configuration. This means that at least two assertion routing control states must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>
+   * The criteria that you set for specific assertion routing controls (AssertedControls) that designate how many routing control states must be ON as the result of a transaction. For example, if you have three assertion routing controls, you might specify ATLEAST 2 for your rule configuration. This means that at least two assertion routing control states must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.
+   *
    * @public
    */
   RuleConfig: RuleConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the assertion rule.</p>
+   * The Amazon Resource Name (ARN) of the assertion rule.
+   *
    * @public
    */
   SafetyRuleArn: string | undefined;
 
   /**
-   * <p>The deployment status of an assertion rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
+   * The deployment status of an assertion rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+   *
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
+   * An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+   *
    * @public
    */
   WaitPeriodMs: number | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the assertion rule owner.</p>
+   * The Amazon Web Services account ID of the assertion rule owner.
+   *
    * @public
    */
   Owner?: string | undefined;
 }
 
 /**
- * <p>A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
+ * A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+ *
+ * For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+ *
  * @public
  */
 export interface GatingRule {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>An array of gating routing control Amazon Resource Names (ARNs). For a simple "on/off" switch, specify the ARN for one routing control. The gating routing controls are evaluated by the rule configuration that you specify to determine if the target routing control states can be changed.</p>
+   * An array of gating routing control Amazon Resource Names (ARNs). For a simple "on/off" switch, specify the ARN for one routing control. The gating routing controls are evaluated by the rule configuration that you specify to determine if the target routing control states can be changed.
+   *
    * @public
    */
   GatingControls: string[] | undefined;
 
   /**
-   * <p>The name for the gating rule. You can use any non-white space character in the name.</p>
+   * The name for the gating rule. You can use any non-white space character in the name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for gating routing controls that designate how many of the routing control states must be ON to allow you to update target routing control states.</p>
+   * The criteria that you set for gating routing controls that designate how many of the routing control states must be ON to allow you to update target routing control states.
+   *
    * @public
    */
   RuleConfig: RuleConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gating rule.</p>
+   * The Amazon Resource Name (ARN) of the gating rule.
+   *
    * @public
    */
   SafetyRuleArn: string | undefined;
 
   /**
-   * <p>The deployment status of a gating rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
+   * The deployment status of a gating rule. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+   *
    * @public
    */
   Status: Status | undefined;
 
   /**
-   * <p>An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control. As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated failover, for example.</p>
+   * An array of target routing control Amazon Resource Names (ARNs) for which the states can only be updated if the rule configuration that you specify evaluates to true for the gating routing control. As a simple example, if you have a single gating control, it acts as an overall "on/off" switch for a set of target routing controls. You can use this to manually override automated failover, for example.
+   *
    * @public
    */
   TargetControls: string[] | undefined;
 
   /**
-   * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
+   * An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+   *
    * @public
    */
   WaitPeriodMs: number | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the gating rule owner.</p>
+   * The Amazon Web Services account ID of the gating rule owner.
+   *
    * @public
    */
   Owner?: string | undefined;
 }
 
 /**
- * <p>A safety rule. A safety rule can be an assertion rule or a gating rule.</p>
+ * A safety rule. A safety rule can be an assertion rule or a gating rule.
+ *
  * @public
  */
 export interface Rule {
   /**
-   * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control state is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>
+   * An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control state is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
+   *
    * @public
    */
   ASSERTION?: AssertionRule | undefined;
 
   /**
-   * <p>A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
+   * A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
+   *
+   * For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
+   *
    * @public
    */
   GATING?: GatingRule | undefined;
 }
 
 /**
- * <p>An update to an assertion rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
+ * An update to an assertion rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.
+ *
  * @public
  */
 export interface AssertionRuleUpdate {
   /**
-   * <p>The name of the assertion rule. You can use any non-white space character in the name.</p>
+   * The name of the assertion rule. You can use any non-white space character in the name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the assertion rule.</p>
+   * The Amazon Resource Name (ARN) of the assertion rule.
+   *
    * @public
    */
   SafetyRuleArn: string | undefined;
 
   /**
-   * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
+   * An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+   *
    * @public
    */
   WaitPeriodMs: number | undefined;
 }
 
 /**
- * <p>Creates a cluster.</p>
+ * Creates a cluster.
+ *
  * @public
  */
 export interface CreateClusterRequest {
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
+   * A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The name of the cluster.</p>
+   * The name of the cluster.
+   *
    * @public
    */
   ClusterName: string | undefined;
 
   /**
-   * <p>The tags associated with the cluster.</p>
+   * The tags associated with the cluster.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+   * The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.
+   *
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -360,37 +427,43 @@ export interface CreateClusterRequest {
  */
 export interface CreateClusterResponse {
   /**
-   * <p>The cluster that was created.</p>
+   * The cluster that was created.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
 }
 
 /**
- * <p>The details of the control panel that you're creating.</p>
+ * The details of the control panel that you're creating.
+ *
  * @public
  */
 export interface CreateControlPanelRequest {
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
+   * A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster for the control panel.</p>
+   * The Amazon Resource Name (ARN) of the cluster for the control panel.
+   *
    * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * <p>The name of the control panel.</p>
+   * The name of the control panel.
+   *
    * @public
    */
   ControlPanelName: string | undefined;
 
   /**
-   * <p>The tags associated with the control panel.</p>
+   * The tags associated with the control panel.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -401,37 +474,43 @@ export interface CreateControlPanelRequest {
  */
 export interface CreateControlPanelResponse {
   /**
-   * <p>Information about a control panel.</p>
+   * Information about a control panel.
+   *
    * @public
    */
   ControlPanel?: ControlPanel | undefined;
 }
 
 /**
- * <p>The details of the routing control that you're creating.</p>
+ * The details of the routing control that you're creating.
+ *
  * @public
  */
 export interface CreateRoutingControlRequest {
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
+   * A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster that includes the routing control.</p>
+   * The Amazon Resource Name (ARN) of the cluster that includes the routing control.
+   *
    * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel that includes the routing control.</p>
+   * The Amazon Resource Name (ARN) of the control panel that includes the routing control.
+   *
    * @public
    */
   ControlPanelArn?: string | undefined;
 
   /**
-   * <p>The name of the routing control.</p>
+   * The name of the routing control.
+   *
    * @public
    */
   RoutingControlName: string | undefined;
@@ -442,115 +521,136 @@ export interface CreateRoutingControlRequest {
  */
 export interface CreateRoutingControlResponse {
   /**
-   * <p>The routing control that is created.</p>
+   * The routing control that is created.
+   *
    * @public
    */
   RoutingControl?: RoutingControl | undefined;
 }
 
 /**
- * <p>A new assertion rule for a control panel.</p>
+ * A new assertion rule for a control panel.
+ *
  * @public
  */
 export interface NewAssertionRule {
   /**
-   * <p>The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three Amazon Web Services Regions.</p>
+   * The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three Amazon Web Services Regions.
+   *
    * @public
    */
   AssertedControls: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the control panel.</p>
+   * The Amazon Resource Name (ARN) for the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>The name of the assertion rule. You can use any non-white space character in the name.</p>
+   * The name of the assertion rule. You can use any non-white space character in the name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be ON as the result of a transaction. For example, if you have three assertion controls, you might specify ATLEAST 2 for your rule configuration. This means that at least two assertion controls must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.</p>
+   * The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be ON as the result of a transaction. For example, if you have three assertion controls, you might specify ATLEAST 2 for your rule configuration. This means that at least two assertion controls must be ON, so that at least two Amazon Web Services Regions have traffic flowing to them.
+   *
    * @public
    */
   RuleConfig: RuleConfig | undefined;
 
   /**
-   * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
+   * An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+   *
    * @public
    */
   WaitPeriodMs: number | undefined;
 }
 
 /**
- * <p>A new gating rule for a control panel.</p>
+ * A new gating rule for a control panel.
+ *
  * @public
  */
 export interface NewGatingRule {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>The gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.</p>
+   * The gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
+   *
    * @public
    */
   GatingControls: string[] | undefined;
 
   /**
-   * <p>The name for the new gating rule.</p>
+   * The name for the new gating rule.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The criteria that you set for specific gating controls (routing controls) that designate how many control states must be ON to allow you to change (set or unset) the target control states.</p>
+   * The criteria that you set for specific gating controls (routing controls) that designate how many control states must be ON to allow you to change (set or unset) the target control states.
+   *
    * @public
    */
   RuleConfig: RuleConfig | undefined;
 
   /**
-   * <p>Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three Amazon Web Services Regions. Now you specify ATLEAST 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.</p> <p>In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</p>
+   * Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three Amazon Web Services Regions. Now you specify ATLEAST 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.
+   *
+   * In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
+   *
    * @public
    */
   TargetControls: string[] | undefined;
 
   /**
-   * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
+   * An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+   *
    * @public
    */
   WaitPeriodMs: number | undefined;
 }
 
 /**
- * <p>The request body that you include when you create a safety rule.</p>
+ * The request body that you include when you create a safety rule.
+ *
  * @public
  */
 export interface CreateSafetyRuleRequest {
   /**
-   * <p>The assertion rule requested.</p>
+   * The assertion rule requested.
+   *
    * @public
    */
   AssertionRule?: NewAssertionRule | undefined;
 
   /**
-   * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
+   * A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The gating rule requested.</p>
+   * The gating rule requested.
+   *
    * @public
    */
   GatingRule?: NewGatingRule | undefined;
 
   /**
-   * <p>The tags associated with the safety rule.</p>
+   * The tags associated with the safety rule.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -561,13 +661,15 @@ export interface CreateSafetyRuleRequest {
  */
 export interface CreateSafetyRuleResponse {
   /**
-   * <p>The assertion rule created.</p>
+   * The assertion rule created.
+   *
    * @public
    */
   AssertionRule?: AssertionRule | undefined;
 
   /**
-   * <p>The gating rule created.</p>
+   * The gating rule created.
+   *
    * @public
    */
   GatingRule?: GatingRule | undefined;
@@ -578,7 +680,8 @@ export interface CreateSafetyRuleResponse {
  */
 export interface DeleteClusterRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster that you're deleting.</p>
+   * The Amazon Resource Name (ARN) of the cluster that you're deleting.
+   *
    * @public
    */
   ClusterArn: string | undefined;
@@ -594,7 +697,8 @@ export interface DeleteClusterResponse {}
  */
 export interface DeleteControlPanelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
@@ -610,7 +714,8 @@ export interface DeleteControlPanelResponse {}
  */
 export interface DeleteRoutingControlRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control that you're deleting.</p>
+   * The Amazon Resource Name (ARN) of the routing control that you're deleting.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
@@ -626,7 +731,8 @@ export interface DeleteRoutingControlResponse {}
  */
 export interface DeleteSafetyRuleRequest {
   /**
-   * <p>The ARN of the safety rule.</p>
+   * The ARN of the safety rule.
+   *
    * @public
    */
   SafetyRuleArn: string | undefined;
@@ -642,7 +748,8 @@ export interface DeleteSafetyRuleResponse {}
  */
 export interface DescribeClusterRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * The Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   ClusterArn: string | undefined;
@@ -653,7 +760,8 @@ export interface DescribeClusterRequest {
  */
 export interface DescribeClusterResponse {
   /**
-   * <p>The cluster for the DescribeCluster request.</p>
+   * The cluster for the DescribeCluster request.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
@@ -664,7 +772,8 @@ export interface DescribeClusterResponse {
  */
 export interface DescribeControlPanelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
@@ -675,7 +784,8 @@ export interface DescribeControlPanelRequest {
  */
 export interface DescribeControlPanelResponse {
   /**
-   * <p>Information about the control panel.</p>
+   * Information about the control panel.
+   *
    * @public
    */
   ControlPanel?: ControlPanel | undefined;
@@ -686,7 +796,8 @@ export interface DescribeControlPanelResponse {
  */
 export interface DescribeRoutingControlRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
+   * The Amazon Resource Name (ARN) of the routing control.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
@@ -697,7 +808,8 @@ export interface DescribeRoutingControlRequest {
  */
 export interface DescribeRoutingControlResponse {
   /**
-   * <p>Information about the routing control.</p>
+   * Information about the routing control.
+   *
    * @public
    */
   RoutingControl?: RoutingControl | undefined;
@@ -708,7 +820,8 @@ export interface DescribeRoutingControlResponse {
  */
 export interface DescribeSafetyRuleRequest {
   /**
-   * <p>The ARN of the safety rule.</p>
+   * The ARN of the safety rule.
+   *
    * @public
    */
   SafetyRuleArn: string | undefined;
@@ -719,37 +832,43 @@ export interface DescribeSafetyRuleRequest {
  */
 export interface DescribeSafetyRuleResponse {
   /**
-   * <p>The assertion rule in the response.</p>
+   * The assertion rule in the response.
+   *
    * @public
    */
   AssertionRule?: AssertionRule | undefined;
 
   /**
-   * <p>The gating rule in the response.</p>
+   * The gating rule in the response.
+   *
    * @public
    */
   GatingRule?: GatingRule | undefined;
 }
 
 /**
- * <p>Update to a gating rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.</p>
+ * Update to a gating rule. You can update the name or the evaluation period (wait period). If you don't specify one of the items to update, the item is unchanged.
+ *
  * @public
  */
 export interface GatingRuleUpdate {
   /**
-   * <p>The name for the gating rule. You can use any non-white space character in the name.</p>
+   * The name for the gating rule. You can use any non-white space character in the name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the gating rule.</p>
+   * The Amazon Resource Name (ARN) of the gating rule.
+   *
    * @public
    */
   SafetyRuleArn: string | undefined;
 
   /**
-   * <p>An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.</p>
+   * An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
+   *
    * @public
    */
   WaitPeriodMs: number | undefined;
@@ -760,7 +879,8 @@ export interface GatingRuleUpdate {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -771,7 +891,8 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The resource policy.</p>
+   * The resource policy.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -782,19 +903,22 @@ export interface GetResourcePolicyResponse {
  */
 export interface ListAssociatedRoute53HealthChecksRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
+   * The Amazon Resource Name (ARN) of the routing control.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
@@ -805,13 +929,15 @@ export interface ListAssociatedRoute53HealthChecksRequest {
  */
 export interface ListAssociatedRoute53HealthChecksResponse {
   /**
-   * <p>Identifiers for the health checks.</p>
+   * Identifiers for the health checks.
+   *
    * @public
    */
   HealthCheckIds?: string[] | undefined;
 
   /**
-   * <p>Next token for listing health checks.</p>
+   * Next token for listing health checks.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -822,13 +948,15 @@ export interface ListAssociatedRoute53HealthChecksResponse {
  */
 export interface ListClustersRequest {
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -839,13 +967,15 @@ export interface ListClustersRequest {
  */
 export interface ListClustersResponse {
   /**
-   * <p>An array of the clusters in an account.</p>
+   * An array of the clusters in an account.
+   *
    * @public
    */
   Clusters?: Cluster[] | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -856,19 +986,22 @@ export interface ListClustersResponse {
  */
 export interface ListControlPanelsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of a cluster.</p>
+   * The Amazon Resource Name (ARN) of a cluster.
+   *
    * @public
    */
   ClusterArn?: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -879,13 +1012,15 @@ export interface ListControlPanelsRequest {
  */
 export interface ListControlPanelsResponse {
   /**
-   * <p>The result of a successful ListControlPanel request.</p>
+   * The result of a successful ListControlPanel request.
+   *
    * @public
    */
   ControlPanels?: ControlPanel[] | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -896,19 +1031,22 @@ export interface ListControlPanelsResponse {
  */
 export interface ListRoutingControlsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -919,13 +1057,15 @@ export interface ListRoutingControlsRequest {
  */
 export interface ListRoutingControlsResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>An array of routing controls.</p>
+   * An array of routing controls.
+   *
    * @public
    */
   RoutingControls?: RoutingControl[] | undefined;
@@ -936,19 +1076,22 @@ export interface ListRoutingControlsResponse {
  */
 export interface ListSafetyRulesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>The number of objects that you want to return with this call.</p>
+   * The number of objects that you want to return with this call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -959,13 +1102,15 @@ export interface ListSafetyRulesRequest {
  */
 export interface ListSafetyRulesResponse {
   /**
-   * <p>The token that identifies which batch of results you want to see.</p>
+   * The token that identifies which batch of results you want to see.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The list of safety rules in a control panel.</p>
+   * The list of safety rules in a control panel.
+   *
    * @public
    */
   SafetyRules?: Rule[] | undefined;
@@ -976,7 +1121,8 @@ export interface ListSafetyRulesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+   * The Amazon Resource Name (ARN) for the resource that's tagged.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -987,25 +1133,29 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Request of adding tag to the resource</p>
+ * Request of adding tag to the resource
+ *
  * @public
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+   * The Amazon Resource Name (ARN) for the resource that's tagged.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -1021,13 +1171,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the resource that's tagged.</p>
+   * The Amazon Resource Name (ARN) for the resource that's tagged.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Keys for the tags to be removed.</p>
+   * Keys for the tags to be removed.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1039,18 +1191,21 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
- * <p>The details of the cluster that you're updating.</p>
+ * The details of the cluster that you're updating.
+ *
  * @public
  */
 export interface UpdateClusterRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster.</p>
+   * The Amazon Resource Name (ARN) of the cluster.
+   *
    * @public
    */
   ClusterArn: string | undefined;
 
   /**
-   * <p>The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.</p>
+   * The network type of the cluster. NetworkType can be one of the following: IPV4, DUALSTACK.
+   *
    * @public
    */
   NetworkType: NetworkType | undefined;
@@ -1061,25 +1216,29 @@ export interface UpdateClusterRequest {
  */
 export interface UpdateClusterResponse {
   /**
-   * <p>The cluster that was updated.</p>
+   * The cluster that was updated.
+   *
    * @public
    */
   Cluster?: Cluster | undefined;
 }
 
 /**
- * <p>The details of the control panel that you're updating.</p>
+ * The details of the control panel that you're updating.
+ *
  * @public
  */
 export interface UpdateControlPanelRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the control panel.</p>
+   * The Amazon Resource Name (ARN) of the control panel.
+   *
    * @public
    */
   ControlPanelArn: string | undefined;
 
   /**
-   * <p>The name of the control panel.</p>
+   * The name of the control panel.
+   *
    * @public
    */
   ControlPanelName: string | undefined;
@@ -1090,25 +1249,29 @@ export interface UpdateControlPanelRequest {
  */
 export interface UpdateControlPanelResponse {
   /**
-   * <p>The control panel to update.</p>
+   * The control panel to update.
+   *
    * @public
    */
   ControlPanel?: ControlPanel | undefined;
 }
 
 /**
- * <p>The details of the routing control that you're updating.</p>
+ * The details of the routing control that you're updating.
+ *
  * @public
  */
 export interface UpdateRoutingControlRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the routing control.</p>
+   * The Amazon Resource Name (ARN) of the routing control.
+   *
    * @public
    */
   RoutingControlArn: string | undefined;
 
   /**
-   * <p>The name of the routing control.</p>
+   * The name of the routing control.
+   *
    * @public
    */
   RoutingControlName: string | undefined;
@@ -1119,25 +1282,29 @@ export interface UpdateRoutingControlRequest {
  */
 export interface UpdateRoutingControlResponse {
   /**
-   * <p>The routing control that was updated.</p>
+   * The routing control that was updated.
+   *
    * @public
    */
   RoutingControl?: RoutingControl | undefined;
 }
 
 /**
- * <p>A rule that you add to Application Recovery Controller to ensure that recovery actions don't accidentally impair your application's availability.</p>
+ * A rule that you add to Application Recovery Controller to ensure that recovery actions don't accidentally impair your application's availability.
+ *
  * @public
  */
 export interface UpdateSafetyRuleRequest {
   /**
-   * <p>The assertion rule to update.</p>
+   * The assertion rule to update.
+   *
    * @public
    */
   AssertionRuleUpdate?: AssertionRuleUpdate | undefined;
 
   /**
-   * <p>The gating rule to update.</p>
+   * The gating rule to update.
+   *
    * @public
    */
   GatingRuleUpdate?: GatingRuleUpdate | undefined;
@@ -1148,13 +1315,15 @@ export interface UpdateSafetyRuleRequest {
  */
 export interface UpdateSafetyRuleResponse {
   /**
-   * <p>The assertion rule updated.</p>
+   * The assertion rule updated.
+   *
    * @public
    */
   AssertionRule?: AssertionRule | undefined;
 
   /**
-   * <p>The gating rule updated.</p>
+   * The gating rule updated.
+   *
    * @public
    */
   GatingRule?: GatingRule | undefined;

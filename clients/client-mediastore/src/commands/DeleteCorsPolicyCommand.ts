@@ -23,11 +23,10 @@ export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
 export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is
- *          set for the container.</p>
- *          <p>To use this operation, you must have permission to perform the
- *             <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission
- *          by default and can grant this permission to others.</p>
+ * Deletes the cross-origin resource sharing (CORS) configuration information that is set for the container.
+ *
+ * To use this operation, you must have permission to perform the `MediaStore:DeleteCorsPolicy` action. The container owner has this permission by default and can grant this permission to others.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,21 +51,24 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link CorsPolicyNotFoundException} (client fault)
- *  <p>The CORS policy that you specified in the request does not exist.</p>
+ *
+ * The CORS policy that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified resource.</p>
+ * Lists the tags for the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +53,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred.</p>
+ *
+ * An unexpected error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters is not valid.</p>
+ *
+ * One of the input parameters is not valid.
  *
  * @throws {@link SavingsplansServiceException}
- * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ * Base exception class for all service exceptions from Savingsplans service.
  *
  * @public
  */

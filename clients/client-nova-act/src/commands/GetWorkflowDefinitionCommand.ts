@@ -23,7 +23,8 @@ export interface GetWorkflowDefinitionCommandInput extends GetWorkflowDefinition
 export interface GetWorkflowDefinitionCommandOutput extends GetWorkflowDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details and configuration of a specific workflow definition.</p>
+ * Retrieves the details and configuration of a specific workflow definition.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,23 +59,28 @@ export interface GetWorkflowDefinitionCommandOutput extends GetWorkflowDefinitio
  * @see {@link NovaActClientResolvedConfig | config} for NovaActClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Please try again later.</p>
+ *
+ * An internal server error occurred. Please try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please try again later.</p>
+ *
+ * The request was throttled due to too many requests. Please try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for the request are invalid.</p>
+ *
+ * The input parameters for the request are invalid.
  *
  * @throws {@link NovaActServiceException}
- * <p>Base exception class for all service exceptions from NovaAct service.</p>
  *
+ * Base exception class for all service exceptions from NovaAct service.
  *
  * @public
  */

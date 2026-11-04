@@ -23,9 +23,8 @@ export interface CreateTokenCommandInput extends CreateTokenRequest {}
 export interface CreateTokenCommandOutput extends CreateTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and returns access and refresh tokens for clients that are authenticated using
- *       client secrets. The access token can be used to fetch short-lived credentials for the assigned
- *       AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
+ * Creates and returns access and refresh tokens for clients that are authenticated using client secrets. The access token can be used to fetch short-lived credentials for the assigned AWS accounts or to access application APIs using `bearer` authentication.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,49 +65,52 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link AuthorizationPendingException} (client fault)
- *  <p>Indicates that a request to authorize a client with an access user session token is
- *       pending.</p>
+ *
+ * Indicates that a request to authorize a client with an access user session token is pending.
  *
  * @throws {@link ExpiredTokenException} (client fault)
- *  <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
+ *
+ * Indicates that the token issued by the service is expired and is no longer valid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates that an error from the service occurred while trying to process a
- *       request.</p>
+ *
+ * Indicates that an error from the service occurred while trying to process a request.
  *
  * @throws {@link InvalidClientException} (client fault)
- *  <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
- *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
- *       an expired <code>clientSecret</code>.</p>
+ *
+ * Indicates that the `clientId` or `clientSecret` in the request is invalid. For example, this can occur when a client sends an incorrect `clientId` or an expired `clientSecret`.
  *
  * @throws {@link InvalidGrantException} (client fault)
- *  <p>Indicates that a request contains an invalid grant. This can occur if a client makes a
- *         <a>CreateToken</a> request with an invalid grant type.</p>
+ *
+ * Indicates that a request contains an invalid grant. This can occur if a client makes a CreateToken request with an invalid grant type.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter might be missing or out of range.
  *
  * @throws {@link InvalidScopeException} (client fault)
- *  <p>Indicates that the scope provided in the request is invalid.</p>
+ *
+ * Indicates that the scope provided in the request is invalid.
  *
  * @throws {@link SlowDownException} (client fault)
- *  <p>Indicates that the client is making the request too frequently and is more than the
- *       service can handle. </p>
+ *
+ * Indicates that the client is making the request too frequently and is more than the service can handle.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>Indicates that the client is not currently authorized to make the request. This can happen
- *       when a <code>clientId</code> is not issued for a public client.</p>
+ *
+ * Indicates that the client is not currently authorized to make the request. This can happen when a `clientId` is not issued for a public client.
  *
  * @throws {@link UnsupportedGrantTypeException} (client fault)
- *  <p>Indicates that the grant type in the request is not supported by the service.</p>
+ *
+ * Indicates that the grant type in the request is not supported by the service.
  *
  * @throws {@link SSOOIDCServiceException}
- * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * Base exception class for all service exceptions from SSOOIDC service.
  *
  * @example Call OAuth/OIDC /token endpoint for Device Code grant with Secret authentication
  * ```javascript

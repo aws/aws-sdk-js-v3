@@ -23,8 +23,8 @@ export interface DescribeNodeConfigurationOptionsCommandInput extends DescribeNo
 export interface DescribeNodeConfigurationOptionsCommandOutput extends NodeConfigurationOptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns properties of possible node configurations such as node type, number of nodes, and
- *             disk usage for the specified action type.</p>
+ * Returns properties of possible node configurations such as node type, number of nodes, and disk usage for the specified action type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +74,28 @@ export interface DescribeNodeConfigurationOptionsCommandOutput extends NodeConfi
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AccessToSnapshotDeniedFault} (client fault)
- *  <p>The owner of the specified snapshot has not authorized your account to access the
- *             snapshot.</p>
+ *
+ * The owner of the specified snapshot has not authorized your account to access the snapshot.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
- *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ *
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

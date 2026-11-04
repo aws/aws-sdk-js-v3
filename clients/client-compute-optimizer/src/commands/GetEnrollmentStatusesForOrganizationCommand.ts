@@ -26,9 +26,10 @@ export interface GetEnrollmentStatusesForOrganizationCommandInput extends GetEnr
 export interface GetEnrollmentStatusesForOrganizationCommandOutput extends GetEnrollmentStatusesForOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the Compute Optimizer enrollment (opt-in) status of organization member
- *             accounts, if your account is an organization management account.</p>
- *          <p>To get the enrollment status of standalone accounts, use the <a>GetEnrollmentStatus</a> action.</p>
+ * Returns the Compute Optimizer enrollment (opt-in) status of organization member accounts, if your account is an organization management account.
+ *
+ * To get the enrollment status of standalone accounts, use the GetEnrollmentStatus action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,27 +73,32 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput extends GetEn
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * An internal error has occurred. Try your call again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * The value supplied for the input parameter is out of range or not valid.
  *
  * @throws {@link MissingAuthenticationToken} (client fault)
- *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ *
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizer service.
  *
  * @public
  */

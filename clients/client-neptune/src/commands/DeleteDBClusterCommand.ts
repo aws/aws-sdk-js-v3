@@ -23,12 +23,10 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
- *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
- *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
- *          <p>Note that the DB Cluster cannot be deleted if deletion protection is enabled.  To
- *       delete it, you must first set its <code>DeletionProtection</code> field to
- *       <code>False</code>.</p>
+ * The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.
+ *
+ * Note that the DB Cluster cannot be deleted if deletion protection is enabled. To delete it, you must first set its `DeletionProtection` field to `False`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -153,24 +151,28 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link DBClusterSnapshotAlreadyExistsFault} (client fault)
- *  <p>User already has a DB cluster snapshot with the given identifier.</p>
+ *
+ * User already has a DB cluster snapshot with the given identifier.
  *
  * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
- *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ * The supplied value is not a valid DB cluster snapshot state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB snapshots.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

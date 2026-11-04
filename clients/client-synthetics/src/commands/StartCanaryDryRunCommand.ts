@@ -23,7 +23,8 @@ export interface StartCanaryDryRunCommandInput extends StartCanaryDryRunRequest 
 export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to start a dry run for a canary that has already been created</p>
+ * Use this operation to start a dry run for a canary that has already been created
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,23 +131,28 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform this operation on this resource.</p>
+ *
+ * You don't have permission to perform this operation on this resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

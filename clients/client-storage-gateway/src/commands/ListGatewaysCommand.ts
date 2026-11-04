@@ -23,15 +23,12 @@ export interface ListGatewaysCommandInput extends ListGatewaysInput {}
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**
- * <p>Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
- *          specified in the request. The returned list is ordered by gateway Amazon Resource Name
- *          (ARN).</p>
- *          <p>By default, the operation returns a maximum of 100 gateways. This operation supports
- *          pagination that allows you to optionally reduce the number of gateways returned in a
- *          response.</p>
- *          <p>If you have more gateways than are returned in a response (that is, the response returns
- *          only a truncated list of your gateways), the response contains a marker that you can
- *          specify in your next request to fetch the next page of gateways.</p>
+ * Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN).
+ *
+ * By default, the operation returns a maximum of 100 gateways. This operation supports pagination that allows you to optionally reduce the number of gateways returned in a response.
+ *
+ * If you have more gateways than are returned in a response (that is, the response returns only a truncated list of your gateways), the response contains a marker that you can specify in your next request to fetch the next page of gateways.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,16 +71,16 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To lists region specific gateways per AWS account
  * ```javascript

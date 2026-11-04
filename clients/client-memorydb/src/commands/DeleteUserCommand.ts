@@ -23,7 +23,8 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a user. The user will be removed from all ACLs and in turn removed from all clusters.</p>
+ * Deletes a user. The user will be removed from all ACLs and in turn removed from all clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +64,20 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link InvalidUserStateFault} (client fault)
- *  <p>The user is not in a valid state for the requested operation.</p>
+ *
+ * The user is not in a valid state for the requested operation.
  *
  * @throws {@link UserNotFoundFault} (client fault)
- *  <p>The specified user does not exist.</p>
+ *
+ * The specified user does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetCrawlerCommandInput extends GetCrawlerRequest {}
 export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves metadata for a specified crawler.</p>
+ * Retrieves metadata for a specified crawler.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -174,14 +175,16 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

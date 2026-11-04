@@ -23,37 +23,21 @@ export interface ModifyClusterCommandInput extends ModifyClusterMessage {}
 export interface ModifyClusterCommandOutput extends ModifyClusterResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a cluster.</p>
- *          <p>You can also change node type and the number of nodes to scale up or down the
- *             cluster. When resizing a cluster, you must specify both the number of nodes and the node
- *             type even if one of the parameters does not change.</p>
- *          <p>You can add another security or
- *             parameter group, or change the admin user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect.
- * For more information about managing clusters, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *          <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
- *             you own in a Region from reaching or being reached from the internet through internet
- *             gateways and egress-only internet gateways. If a subnet group for a
- *             provisioned cluster is in an account with VPC BPA turned on, the following capabilities
- *             are blocked:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Restoring a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Modifying a private cluster to be public</p>
- *             </li>
- *             <li>
- *                <p>Adding a subnet with VPC BPA turned on to the subnet group when there's at
- *                     least one public cluster within the group</p>
- *             </li>
- *          </ul>
- *          <p>For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and
- *             subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Modifies the settings for a cluster.
+ *
+ * You can also change node type and the number of nodes to scale up or down the cluster. When resizing a cluster, you must specify both the number of nodes and the node type even if one of the parameters does not change.
+ *
+ * You can add another security or parameter group, or change the admin user password. Resetting a cluster password or modifying the security groups associated with a cluster do not need a reboot. However, modifying a parameter group requires a reboot for parameters to take effect. For more information about managing clusters, go to [Amazon Redshift Clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
+ * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. If a subnet group for a provisioned cluster is in an account with VPC BPA turned on, the following capabilities are blocked:
+ *
+ * - Creating a public cluster
+ * - Restoring a public cluster
+ * - Modifying a private cluster to be public
+ * - Adding a subnet with VPC BPA turned on to the subnet group when there's at least one public cluster within the group
+ *
+ * For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -317,86 +301,98 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterAlreadyExistsFault} (client fault)
- *  <p>The account already has a cluster with the given identifier.</p>
+ *
+ * The account already has a cluster with the given identifier.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
- *  <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ *
+ * The cluster security group name does not refer to an existing cluster security group.
  *
  * @throws {@link CustomCnameAssociationFault} (client fault)
- *  <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ *
+ * An error occurred when an attempt was made to change the custom domain association.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ *
+ * There is no Amazon Redshift HSM client certificate with the specified identifier.
  *
  * @throws {@link HsmConfigurationNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * There is no Amazon Redshift HSM configuration with the specified identifier.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
+ *
+ * The number of nodes specified exceeds the allotted capacity of the cluster.
  *
  * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
- *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * The state of the cluster security group is not `available`.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidClusterTrackFault} (client fault)
- *  <p>The provided cluster track name is not valid.</p>
+ *
+ * The provided cluster track name is not valid.
  *
  * @throws {@link InvalidElasticIpFault} (client fault)
- *  <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ * The Elastic IP (EIP) is invalid or cannot be found.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
- *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
- *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ *
+ * There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * The operation would exceed the number of nodes allowed for a cluster.
  *
  * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allotted to the account.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link TableLimitExceededFault} (client fault)
- *  <p>The number of tables in the cluster exceeds the limit for the requested new cluster
- *             node type. </p>
+ *
+ * The number of tables in the cluster exceeds the limit for the requested new cluster node type.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link UnsupportedOptionFault} (client fault)
- *  <p>A request option was specified that is not supported.</p>
+ *
+ * A request option was specified that is not supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

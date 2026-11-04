@@ -23,7 +23,10 @@ export interface DeleteWebFunctionCommandInput extends DeleteWebFunctionRequest 
 export interface DeleteWebFunctionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a web function and all of its associated revisions and endpoints.</p> <p>To use this operation, you must have the <code>DeleteWebFunction</code> permission on the web function. You don't need the <code>DeleteWebFunctionRevision</code> or <code>DeleteWebFunctionEndpoint</code> permission.</p>
+ * Deletes a web function and all of its associated revisions and endpoints.
+ *
+ * To use this operation, you must have the `DeleteWebFunction` permission on the web function. You don't need the `DeleteWebFunctionRevision` or `DeleteWebFunctionEndpoint` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,26 +51,32 @@ export interface DeleteWebFunctionCommandOutput extends __MetadataBearer {}
  * @see {@link LambdaWebClientResolvedConfig | config} for LambdaWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.</p>
+ *
+ * You don't have permission to perform this operation. Check the IAM policies for your identity and any resource-based policy on the web function.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. For example, the resource is being modified by another request, you tried to delete a revision that is serving traffic on an endpoint, or the policy revision ID that you specified doesn't match the current policy. Resolve the conflict and try again.</p>
+ *
+ * The request conflicts with the current state of the resource. For example, the resource is being modified by another request, you tried to delete a revision that is serving traffic on an endpoint, or the policy revision ID that you specified doesn't match the current policy. Resolve the conflict and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.</p>
+ *
+ * The request failed because of an internal error in the service. Retry the request. If the error persists, open a support case.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified web function, revision, endpoint, or resource-based policy doesn't exist. Verify the resource identifier and try again.</p>
+ *
+ * The specified web function, revision, endpoint, or resource-based policy doesn't exist. Verify the resource identifier and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.</p>
+ *
+ * The request was denied because it exceeded the request rate that Lambda allows for your account. Reduce the frequency of requests and retry with exponential backoff.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation because a parameter was missing, malformed, or outside the allowed range. Check the request parameters and try again.</p>
+ *
+ * The request failed validation because a parameter was missing, malformed, or outside the allowed range. Check the request parameters and try again.
  *
  * @throws {@link LambdaWebServiceException}
- * <p>Base exception class for all service exceptions from LambdaWeb service.</p>
  *
+ * Base exception class for all service exceptions from LambdaWeb service.
  *
  * @public
  */

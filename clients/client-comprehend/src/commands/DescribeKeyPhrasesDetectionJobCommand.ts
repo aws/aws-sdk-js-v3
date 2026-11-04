@@ -23,8 +23,8 @@ export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyP
 export interface DescribeKeyPhrasesDetectionJobCommandOutput extends DescribeKeyPhrasesDetectionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
- *       the status of a detection job.</p>
+ * Gets the properties associated with a key phrases detection job. Use this operation to get the status of a detection job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,20 +85,24 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput extends DescribeKey
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link JobNotFoundException} (client fault)
- *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * The specified job was not found. Check the job ID and try again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

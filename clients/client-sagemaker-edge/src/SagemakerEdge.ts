@@ -86,7 +86,8 @@ export interface SagemakerEdge {
 }
 
 /**
- * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>
+ * SageMaker Edge Manager dataplane service for communicating with active agents.
+ *
  * @public
  */
 export class SagemakerEdge extends SagemakerEdgeClient implements SagemakerEdge {}

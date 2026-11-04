@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AppRunnerServiceException as __BaseException } from "./AppRunnerServiceException";
 
 /**
- * <p>An unexpected service exception occurred.</p>
+ * An unexpected service exception occurred.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -27,7 +28,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -50,7 +52,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>You can't perform this action when the resource is in its current state.</p>
+ * You can't perform this action when the resource is in its current state.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {
@@ -73,9 +76,10 @@ export class InvalidStateException extends __BaseException {
 }
 
 /**
- * <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
- *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
- *         <i>Amazon Web Services General Reference</i>.</p>
+ * App Runner can't create this resource. You've reached your account quota for this resource type.
+ *
+ * For App Runner per-resource quotas, see [App Runner endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/apprunner.html) in the *Amazon Web Services General Reference*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -98,7 +102,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

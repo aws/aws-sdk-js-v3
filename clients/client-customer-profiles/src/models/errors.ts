@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CustomerProfilesServiceException as __BaseException } from "./CustomerProfilesServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The input you provided is invalid.</p>
+ * The input you provided is invalid.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -50,7 +52,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred.</p>
+ * An internal service error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource does not exist, or access was denied.</p>
+ * The requested resource does not exist, or access was denied.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You exceeded the maximum number of requests.</p>
+ * You exceeded the maximum number of requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

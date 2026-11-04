@@ -23,15 +23,12 @@ export interface DescribeInstanceEventWindowsCommandInput extends DescribeInstan
 export interface DescribeInstanceEventWindowsCommandOutput extends DescribeInstanceEventWindowsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified event windows or all event windows.</p>
- *          <p>If you specify event window IDs, the output includes information for only the specified
- *          event windows. If you specify filters, the output includes information for only those event
- *          windows that meet the filter criteria. If you do not specify event windows IDs or filters,
- *          the output includes information for all event windows, which can affect performance. We
- *          recommend that you use pagination to ensure that the operation returns quickly and
- *          successfully. </p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
- *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the specified event windows or all event windows.
+ *
+ * If you specify event window IDs, the output includes information for only the specified event windows. If you specify filters, the output includes information for only those event windows that meet the filter criteria. If you do not specify event windows IDs or filters, the output includes information for all event windows, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully.
+ *
+ * For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,8 +104,8 @@ export interface DescribeInstanceEventWindowsCommandOutput extends DescribeInsta
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DescribeDeliveryDestinationsCommandInput extends DescribeDelive
 export interface DescribeDeliveryDestinationsCommandOutput extends DescribeDeliveryDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the delivery destinations that have been created in the
- *       account.</p>
+ * Retrieves a list of the delivery destinations that have been created in the account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,20 +70,24 @@ export interface DescribeDeliveryDestinationsCommandOutput extends DescribeDeliv
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

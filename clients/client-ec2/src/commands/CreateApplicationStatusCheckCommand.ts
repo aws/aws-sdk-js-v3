@@ -23,30 +23,16 @@ export interface CreateApplicationStatusCheckCommandInput extends CreateApplicat
 export interface CreateApplicationStatusCheckCommandOutput extends CreateApplicationStatusCheckResult, __MetadataBearer {}
 
 /**
- * <p>Creates an application status check for monitoring the health of applications running on your instances. You can configure the protocol, port, path, and thresholds for the health check. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>You can create a maximum of 50 application status checks for each account.</p>
- *             </li>
- *             <li>
- *                <p>You must associate the check with instances or tags using <code>AssociateApplicationStatusCheck</code> before health checks start.</p>
- *             </li>
- *             <li>
- *                <p>You must set the <code>Timeout</code> value to less than the <code>Interval</code> value.</p>
- *             </li>
- *             <li>
- *                <p>You must start the <code>Path</code> with a forward slash (<code>/</code>). Default: <code>/</code>.</p>
- *             </li>
- *             <li>
- *                <p>You can specify <code>Aggregation</code> as <code>included</code> or <code>excluded</code>. If you do not specify a value, it defaults to <code>included</code>, which means the check contributes to the instance-level application status.</p>
- *             </li>
- *             <li>
- *                <p>You can use the following default values: <code>Interval</code> is 60 seconds, <code>Timeout</code> is 6 seconds, <code>FailureThreshold</code> is 2, <code>SuccessThreshold</code> is 2, <code>StatusCodeMatcher</code> is <code>200</code>, <code>InitializationGracePeriodSeconds</code> is 300 seconds.</p>
- *             </li>
- *             <li>
- *                <p>You can tag the application status check during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a>.</p>
- *             </li>
- *          </ul>
+ * Creates an application status check for monitoring the health of applications running on your instances. You can configure the protocol, port, path, and thresholds for the health check. The following rules apply:
+ *
+ * - You can create a maximum of 50 application status checks for each account.
+ * - You must associate the check with instances or tags using `AssociateApplicationStatusCheck` before health checks start.
+ * - You must set the `Timeout` value to less than the `Interval` value.
+ * - You must start the `Path` with a forward slash (`/`). Default: `/`.
+ * - You can specify `Aggregation` as `included` or `excluded`. If you do not specify a value, it defaults to `included`, which means the check contributes to the instance-level application status.
+ * - You can use the following default values: `Interval` is 60 seconds, `Timeout` is 6 seconds, `FailureThreshold` is 2, `SuccessThreshold` is 2, `StatusCodeMatcher` is `200`, `InitializationGracePeriodSeconds` is 300 seconds.
+ * - You can tag the application status check during creation. For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -157,8 +143,8 @@ export interface CreateApplicationStatusCheckCommandOutput extends CreateApplica
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create an application status check
  * ```javascript

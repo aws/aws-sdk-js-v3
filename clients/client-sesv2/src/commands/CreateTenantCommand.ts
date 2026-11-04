@@ -23,15 +23,12 @@ export interface CreateTenantCommandInput extends CreateTenantRequest {}
 export interface CreateTenantCommandOutput extends CreateTenantResponse, __MetadataBearer {}
 
 /**
- * <p>Create a tenant.</p>
- *          <p>
- *             <i>Tenants</i> are logical containers that group related SES resources together.
- *             Each tenant can have its own set of resources like email identities, configuration sets,
- *             and templates, along with reputation metrics and sending status. This helps isolate and manage
- *             email sending for different customers or business units within your Amazon SES API v2 account.</p>
- *          <p>You can optionally specify <code>SuppressionAttributes</code> to configure tenant-level
- *             suppression at creation time. When tenant-level suppression is enabled, Amazon SES maintains a
- *             separate suppression list for the tenant instead of using the account-level suppression list.</p>
+ * Create a tenant.
+ *
+ * *Tenants* are logical containers that group related SES resources together. Each tenant can have its own set of resources like email identities, configuration sets, and templates, along with reputation metrics and sending status. This helps isolate and manage email sending for different customers or business units within your Amazon SES API v2 account.
+ *
+ * You can optionally specify `SuppressionAttributes` to configure tenant-level suppression at creation time. When tenant-level suppression is enabled, Amazon SES maintains a separate suppression list for the tenant instead of using the account-level suppression list.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,20 +83,24 @@ export interface CreateTenantCommandOutput extends CreateTenantResponse, __Metad
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource specified in your request already exists.</p>
+ *
+ * The resource specified in your request already exists.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * There are too many instances of the specified resource type.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

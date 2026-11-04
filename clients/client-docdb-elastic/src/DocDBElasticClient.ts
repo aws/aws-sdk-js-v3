@@ -354,21 +354,16 @@ export type DocDBElasticClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface DocDBElasticClientResolvedConfig extends DocDBElasticClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon DocumentDB elastic clusters</fullname>
- *          <p>Amazon DocumentDB elastic-clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
- *       Amazon DocumentDB elastic clusters also simplify how developers interact with Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or upgrade instances.</p>
- *          <p>Amazon DocumentDB elastic-clusters were created to:</p>
- *          <ul>
- *             <li>
- *                <p>provide a solution for customers looking for a database that provides virtually limitless scale with rich query capabilities and MongoDB API compatibility.</p>
- *             </li>
- *             <li>
- *                <p>give customers higher connection limits, and to reduce downtime from patching.</p>
- *             </li>
- *             <li>
- *                <p>continue investing in a cloud-native, elastic, and class leading architecture for JSON workloads.</p>
- *             </li>
- *          </ul>
+ * Amazon DocumentDB elastic clusters
+ *
+ * Amazon DocumentDB elastic-clusters support workloads with millions of reads/writes per second and petabytes of storage capacity. Amazon DocumentDB elastic clusters also simplify how developers interact with Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or upgrade instances.
+ *
+ * Amazon DocumentDB elastic-clusters were created to:
+ *
+ * - provide a solution for customers looking for a database that provides virtually limitless scale with rich query capabilities and MongoDB API compatibility.
+ * - give customers higher connection limits, and to reduce downtime from patching.
+ * - continue investing in a cloud-native, elastic, and class leading architecture for JSON workloads.
+ *
  * @public
  */
 export class DocDBElasticClient extends __Client<

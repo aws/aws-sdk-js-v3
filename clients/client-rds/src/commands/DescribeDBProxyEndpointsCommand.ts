@@ -23,7 +23,8 @@ export interface DescribeDBProxyEndpointsCommandInput extends DescribeDBProxyEnd
 export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about DB proxy endpoints.</p>
+ * Returns information about DB proxy endpoints.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,14 +82,16 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBProxyEndpointNotFoundFault} (client fault)
- *  <p>The DB proxy endpoint doesn't exist.</p>
+ *
+ * The DB proxy endpoint doesn't exist.
  *
  * @throws {@link DBProxyNotFoundFault} (client fault)
- *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>This exception is thrown when a request is denied per access permissions</p>
+ * This exception is thrown when a request is denied per access permissions
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when there is a conflict performing an operation</p>
+ * This exception is thrown when there is a conflict performing an operation
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -48,7 +50,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown if there was an unexpected error during processing of request</p>
+ * This exception is thrown if there was an unexpected error during processing of request
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +72,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ * This exception is thrown when a resource referenced by the operation does not exist
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -90,7 +94,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a request is made beyond the service quota</p>
+ * This exception is thrown when a request is made beyond the service quota
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -111,7 +116,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the number of requests exceeds the limit</p>
+ * This exception is thrown when the number of requests exceeds the limit
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -132,7 +138,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * The input fails to satisfy the constraints specified by the service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -157,7 +164,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when decryption of a secret fails.</p>
+ * Exception thrown when decryption of a secret fails.
+ *
  * @public
  */
 export class DecryptionFailure extends __BaseException {
@@ -178,7 +186,8 @@ export class DecryptionFailure extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when encryption of a secret fails.</p>
+ * Exception thrown when encryption of a secret fails.
+ *
  * @public
  */
 export class EncryptionFailure extends __BaseException {
@@ -199,7 +208,8 @@ export class EncryptionFailure extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when a resource limit is exceeded.</p>
+ * Exception thrown when a resource limit is exceeded.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -220,7 +230,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
+ * This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -241,7 +252,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because of a conflicting request. Retry the request.</p>
+ * The operation failed because of a conflicting request. Retry the request.
+ *
  * @public
  */
 export class RetryableConflictException extends __BaseException {
@@ -263,7 +275,8 @@ export class RetryableConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred.</p>
+ * An internal error occurred.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -285,7 +298,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>API rate limit has been exceeded.</p>
+ * API rate limit has been exceeded.
+ *
  * @public
  */
 export class ThrottledException extends __BaseException {
@@ -307,7 +321,8 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
- * <p>The request failed because it requires an active Amazon Web Services Marketplace subscription that is not present. Subscribe to the required product in Amazon Web Services Marketplace and try again.</p>
+ * The request failed because it requires an active Amazon Web Services Marketplace subscription that is not present. Subscribe to the required product in Amazon Web Services Marketplace and try again.
+ *
  * @public
  */
 export class SubscriptionRequiredException extends __BaseException {
@@ -342,7 +357,8 @@ export class SubscriptionRequiredException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when a resource is modified concurrently by multiple requests.</p>
+ * Exception thrown when a resource is modified concurrently by multiple requests.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {

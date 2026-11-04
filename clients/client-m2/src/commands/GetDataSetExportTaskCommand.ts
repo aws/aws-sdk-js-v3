@@ -23,7 +23,8 @@ export interface GetDataSetExportTaskCommandInput extends GetDataSetExportTaskRe
 export interface GetDataSetExportTaskCommandOutput extends GetDataSetExportTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the status of a data set import task initiated with the <a>CreateDataSetExportTask</a> operation.</p>
+ * Gets the status of a data set import task initiated with the CreateDataSetExportTask operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,23 +62,28 @@ export interface GetDataSetExportTaskCommandOutput extends GetDataSetExportTaskR
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameters provided in the request is not valid.</p>
+ *
+ * One or more parameters provided in the request is not valid.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

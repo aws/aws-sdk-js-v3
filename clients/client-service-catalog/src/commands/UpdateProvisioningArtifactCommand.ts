@@ -23,8 +23,10 @@ export interface UpdateProvisioningArtifactCommandInput extends UpdateProvisioni
 export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
- *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
+ * Updates the specified provisioning artifact (also known as a version) for the specified product.
+ *
+ * You cannot update a provisioning artifact for a product that was shared with you.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +72,16 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

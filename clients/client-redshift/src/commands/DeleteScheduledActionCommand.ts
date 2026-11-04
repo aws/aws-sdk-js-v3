@@ -23,8 +23,8 @@ export interface DeleteScheduledActionCommandInput extends DeleteScheduledAction
 export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a scheduled action.
- *              </p>
+ * Deletes a scheduled action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,14 +49,16 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ScheduledActionNotFoundFault} (client fault)
- *  <p>The scheduled action cannot be found. </p>
+ *
+ * The scheduled action cannot be found.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

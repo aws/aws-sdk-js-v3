@@ -23,7 +23,8 @@ export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists your experiments.</p>
+ * Lists your experiments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,11 +78,12 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

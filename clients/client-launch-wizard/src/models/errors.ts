@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LaunchWizardServiceException as __BaseException } from "./LaunchWizardServiceException";
 
 /**
- * <p>An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on <a href="https://repost.aws/">re:Post</a>.</p>
+ * An internal error has occurred. Retry your request, but if the problem persists, contact us with details by posting a question on [re:Post](https://repost.aws/).
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -25,7 +26,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.</p>
+ * You have exceeded an Launch Wizard resource limit. For example, you might have too many deployments in progress.
+ *
  * @public
  */
 export class ResourceLimitException extends __BaseException {
@@ -46,7 +48,8 @@ export class ResourceLimitException extends __BaseException {
 }
 
 /**
- * <p>The specified workload or deployment resource can't be found.</p>
+ * The specified workload or deployment resource can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

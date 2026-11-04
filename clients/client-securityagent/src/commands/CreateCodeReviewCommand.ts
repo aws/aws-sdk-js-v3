@@ -23,7 +23,8 @@ export interface CreateCodeReviewCommandInput extends CreateCodeReviewInput {}
 export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new code review configuration in an agent space. A code review defines the parameters for automated security-focused code analysis.</p>
+ * Creates a new code review configuration in an agent space. A code review defines the parameters for automated security-focused code analysis.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -251,8 +252,8 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

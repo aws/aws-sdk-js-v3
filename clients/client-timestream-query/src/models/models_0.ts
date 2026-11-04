@@ -15,30 +15,35 @@ import type {
 } from "./enums";
 
 /**
- * <p>Details on SNS that are required to send the notification.</p>
+ * Details on SNS that are required to send the notification.
+ *
  * @public
  */
 export interface SnsConfiguration {
   /**
-   * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
+   * SNS topic ARN that the scheduled query status notifications will be sent to.
+   *
    * @public
    */
   TopicArn: string | undefined;
 }
 
 /**
- * <p>Configuration settings for notifications related to account settings.</p>
+ * Configuration settings for notifications related to account settings.
+ *
  * @public
  */
 export interface AccountSettingsNotificationConfiguration {
   /**
-   * <p>Details on SNS that are required to send the notification.</p>
+   * Details on SNS that are required to send the notification.
+   *
    * @public
    */
   SnsConfiguration?: SnsConfiguration | undefined;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that grants Timestream permission to publish notifications. This field is only visible if SNS Topic is provided when updating the account settings.</p>
+   * An Amazon Resource Name (ARN) that grants Timestream permission to publish notifications. This field is only visible if SNS Topic is provided when updating the account settings.
+   *
    * @public
    */
   RoleArn: string | undefined;
@@ -49,8 +54,8 @@ export interface AccountSettingsNotificationConfiguration {
  */
 export interface CancelQueryRequest {
   /**
-   * <p> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned as
-   *             part of the query result. </p>
+   * The ID of the query that needs to be cancelled. `QueryID` is returned as part of the query result.
+   *
    * @public
    */
   QueryId: string | undefined;
@@ -61,267 +66,281 @@ export interface CancelQueryRequest {
  */
 export interface CancelQueryResponse {
   /**
-   * <p> A <code>CancellationMessage</code> is returned when a <code>CancelQuery</code>
-   *             request for the query specified by <code>QueryId</code> has already been issued. </p>
+   * A `CancellationMessage` is returned when a `CancelQuery` request for the query specified by `QueryId` has already been issued.
+   *
    * @public
    */
   CancellationMessage?: string | undefined;
 }
 
 /**
- * <p>Details on S3 location for error reports that result from running a query. </p>
+ * Details on S3 location for error reports that result from running a query.
+ *
  * @public
  */
 export interface S3Configuration {
   /**
-   * <p> Name of the S3 bucket under which error reports will be created.</p>
+   * Name of the S3 bucket under which error reports will be created.
+   *
    * @public
    */
   BucketName: string | undefined;
 
   /**
-   * <p> Prefix for the error report key. Timestream by default adds the following prefix to
-   *             the error report path. </p>
+   * Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
+   *
    * @public
    */
   ObjectKeyPrefix?: string | undefined;
 
   /**
-   * <p> Encryption at rest options for the error reports. If no encryption option is
-   *             specified, Timestream will choose SSE_S3 as default. </p>
+   * Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
+   *
    * @public
    */
   EncryptionOption?: S3EncryptionOption | undefined;
 }
 
 /**
- * <p>Configuration required for error reporting.</p>
+ * Configuration required for error reporting.
+ *
  * @public
  */
 export interface ErrorReportConfiguration {
   /**
-   * <p>The S3 configuration for the error reports.</p>
+   * The S3 configuration for the error reports.
+   *
    * @public
    */
   S3Configuration: S3Configuration | undefined;
 }
 
 /**
- * <p>Notification configuration for a scheduled query. A notification is sent by Timestream
- *             when a scheduled query is created, its state is updated or when it is deleted. </p>
+ * Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+ *
  * @public
  */
 export interface NotificationConfiguration {
   /**
-   * <p>Details about the Amazon Simple Notification Service (SNS) configuration. This field is visible only when SNS Topic is provided when updating the account settings.  </p>
+   * Details about the Amazon Simple Notification Service (SNS) configuration. This field is visible only when SNS Topic is provided when updating the account settings.
+   *
    * @public
    */
   SnsConfiguration: SnsConfiguration | undefined;
 }
 
 /**
- * <p>Configuration of the schedule of the query.</p>
+ * Configuration of the schedule of the query.
+ *
  * @public
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>An expression that denotes when to trigger the scheduled query run. This can be a cron
-   *             expression or a rate expression. </p>
+   * An expression that denotes when to trigger the scheduled query run. This can be a cron expression or a rate expression.
+   *
    * @public
    */
   ScheduleExpression: string | undefined;
 }
 
 /**
- * <p>A tag is a label that you assign to a Timestream database and/or table. Each tag
- *             consists of a key and an optional value, both of which you define. Tags enable you to
- *             categorize databases and/or tables, for example, by purpose, owner, or environment.
- *         </p>
+ * A tag is a label that you assign to a Timestream database and/or table. Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize databases and/or tables, for example, by purpose, owner, or environment.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag. Tag keys are case sensitive. </p>
+   * The key of the tag. Tag keys are case sensitive.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag. Tag values are case sensitive and can be null. </p>
+   * The value of the tag. Tag values are case sensitive and can be null.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>This type is used to map column(s) from the query result to a dimension in the
- *             destination table.</p>
+ * This type is used to map column(s) from the query result to a dimension in the destination table.
+ *
  * @public
  */
 export interface DimensionMapping {
   /**
-   * <p>Column name from query result.</p>
+   * Column name from query result.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Type for the dimension. </p>
+   * Type for the dimension.
+   *
    * @public
    */
   DimensionValueType: DimensionValueType | undefined;
 }
 
 /**
- * <p>Attribute mapping for MULTI value measures.</p>
+ * Attribute mapping for MULTI value measures.
+ *
  * @public
  */
 export interface MultiMeasureAttributeMapping {
   /**
-   * <p>Source column from where the attribute value is to be read.</p>
+   * Source column from where the attribute value is to be read.
+   *
    * @public
    */
   SourceColumn: string | undefined;
 
   /**
-   * <p>Custom name to be used for attribute name in derived table. If not provided, source
-   *             column name would be used.</p>
+   * Custom name to be used for attribute name in derived table. If not provided, source column name would be used.
+   *
    * @public
    */
   TargetMultiMeasureAttributeName?: string | undefined;
 
   /**
-   * <p>Type of the attribute to be read from the source column.</p>
+   * Type of the attribute to be read from the source column.
+   *
    * @public
    */
   MeasureValueType: ScalarMeasureValueType | undefined;
 }
 
 /**
- * <p>MixedMeasureMappings are mappings that can be used to ingest data into a mixture of
- *             narrow and multi measures in the derived table.</p>
+ * MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
+ *
  * @public
  */
 export interface MixedMeasureMapping {
   /**
-   * <p>Refers to the value of measure_name in a result row. This field is required if
-   *             MeasureNameColumn is provided.</p>
+   * Refers to the value of measure_name in a result row. This field is required if MeasureNameColumn is provided.
+   *
    * @public
    */
   MeasureName?: string | undefined;
 
   /**
-   * <p>This field refers to the source column from which measure-value is to be read for
-   *             result materialization.</p>
+   * This field refers to the source column from which measure-value is to be read for result materialization.
+   *
    * @public
    */
   SourceColumn?: string | undefined;
 
   /**
-   * <p>Target measure name to be used. If not provided, the target measure name by default
-   *             would be measure-name if provided, or sourceColumn otherwise. </p>
+   * Target measure name to be used. If not provided, the target measure name by default would be measure-name if provided, or sourceColumn otherwise.
+   *
    * @public
    */
   TargetMeasureName?: string | undefined;
 
   /**
-   * <p>Type of the value that is to be read from sourceColumn. If the mapping is for MULTI,
-   *             use MeasureValueType.MULTI.</p>
+   * Type of the value that is to be read from sourceColumn. If the mapping is for MULTI, use MeasureValueType.MULTI.
+   *
    * @public
    */
   MeasureValueType: MeasureValueType | undefined;
 
   /**
-   * <p>Required when measureValueType is MULTI. Attribute mappings for MULTI value
-   *             measures.</p>
+   * Required when measureValueType is MULTI. Attribute mappings for MULTI value measures.
+   *
    * @public
    */
   MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[] | undefined;
 }
 
 /**
- * <p>Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided.
- *             MultiMeasureMappings can be used to ingest data as multi measures in the derived
- *             table.</p>
+ * Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+ *
  * @public
  */
 export interface MultiMeasureMappings {
   /**
-   * <p>The name of the target multi-measure name in the derived table. This input is required
-   *             when measureNameColumn is not provided. If MeasureNameColumn is provided, then value
-   *             from that column will be used as multi-measure name.</p>
+   * The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
+   *
    * @public
    */
   TargetMultiMeasureName?: string | undefined;
 
   /**
-   * <p>Required. Attribute mappings to be used for mapping query results to ingest data for
-   *             multi-measure attributes.</p>
+   * Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
+   *
    * @public
    */
   MultiMeasureAttributeMappings: MultiMeasureAttributeMapping[] | undefined;
 }
 
 /**
- * <p> Configuration to write data into Timestream database and table. This configuration
- *             allows the user to map the query result select columns into the destination table
- *             columns. </p>
+ * Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+ *
  * @public
  */
 export interface TimestreamConfiguration {
   /**
-   * <p>Name of Timestream database to which the query result will be written.</p>
+   * Name of Timestream database to which the query result will be written.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>Name of Timestream table that the query result will be written to. The table should be
-   *             within the same database that is provided in Timestream configuration.</p>
+   * Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>Column from query result that should be used as the time column in destination table.
-   *             Column type for this should be TIMESTAMP.</p>
+   * Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
+   *
    * @public
    */
   TimeColumn: string | undefined;
 
   /**
-   * <p> This is to allow mapping column(s) from the query result to the dimension in the
-   *             destination table. </p>
+   * This is to allow mapping column(s) from the query result to the dimension in the destination table.
+   *
    * @public
    */
   DimensionMappings: DimensionMapping[] | undefined;
 
   /**
-   * <p>Multi-measure mappings.</p>
+   * Multi-measure mappings.
+   *
    * @public
    */
   MultiMeasureMappings?: MultiMeasureMappings | undefined;
 
   /**
-   * <p>Specifies how to map measures to multi-measure records.</p>
+   * Specifies how to map measures to multi-measure records.
+   *
    * @public
    */
   MixedMeasureMappings?: MixedMeasureMapping[] | undefined;
 
   /**
-   * <p>Name of the measure column.</p>
+   * Name of the measure column.
+   *
    * @public
    */
   MeasureNameColumn?: string | undefined;
 }
 
 /**
- * <p>Configuration used for writing the output of a query.</p>
+ * Configuration used for writing the output of a query.
+ *
  * @public
  */
 export interface TargetConfiguration {
   /**
-   * <p>Configuration needed to write data into the Timestream database and table.</p>
+   * Configuration needed to write data into the Timestream database and table.
+   *
    * @public
    */
   TimestreamConfiguration: TimestreamConfiguration | undefined;
@@ -332,92 +351,78 @@ export interface TargetConfiguration {
  */
 export interface CreateScheduledQueryRequest {
   /**
-   * <p>Name of the scheduled query.</p>
+   * Name of the scheduled query.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The query string to run. Parameter names can be specified in the query string
-   *                 <code>@</code> character followed by an identifier. The named Parameter
-   *                 <code>@scheduled_runtime</code> is reserved and can be used in the query to get the
-   *             time at which the query is scheduled to run.</p>
-   *          <p>The timestamp calculated according to the ScheduleConfiguration parameter, will be the
-   *             value of <code>@scheduled_runtime</code> paramater for each query run. For example,
-   *             consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this
-   *             instance, the <code>@scheduled_runtime</code> parameter is initialized to the timestamp
-   *             2021-12-01 00:00:00 when invoking the query.</p>
+   * The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
+   *
+   * The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+   *
    * @public
    */
   QueryString: string | undefined;
 
   /**
-   * <p>The schedule configuration for the query.</p>
+   * The schedule configuration for the query.
+   *
    * @public
    */
   ScheduleConfiguration: ScheduleConfiguration | undefined;
 
   /**
-   * <p>Notification configuration for the scheduled query. A notification is sent by
-   *             Timestream when a query run finishes, when the state is updated or when you delete it.
-   *         </p>
+   * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
+   *
    * @public
    */
   NotificationConfiguration: NotificationConfiguration | undefined;
 
   /**
-   * <p>Configuration used for writing the result of a query.</p>
+   * Configuration used for writing the result of a query.
+   *
    * @public
    */
   TargetConfiguration?: TargetConfiguration | undefined;
 
   /**
-   * <p>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words,
-   *             making the same request repeatedly will produce the same result. Making multiple
-   *             identical CreateScheduledQuery requests has the same effect as making a single request. </p>
-   *          <ul>
-   *             <li>
-   *                <p> If CreateScheduledQuery is called without a <code>ClientToken</code>, the
-   *                     Query SDK generates a <code>ClientToken</code> on your behalf.</p>
-   *             </li>
-   *             <li>
-   *                <p> After 8 hours, any request with the same <code>ClientToken</code> is treated
-   *                     as a new request. </p>
-   *             </li>
-   *          </ul>
+   * Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
+   *
+   * - If CreateScheduledQuery is called without a `ClientToken`, the Query SDK generates a `ClientToken` on your behalf.
+   * - After 8 hours, any request with the same `ClientToken` is treated as a new request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The ARN for the IAM role that Timestream will assume when running the scheduled query.
-   *         </p>
+   * The ARN for the IAM role that Timestream will assume when running the scheduled query.
+   *
    * @public
    */
   ScheduledQueryExecutionRoleArn: string | undefined;
 
   /**
-   * <p>A list of key-value pairs to label the scheduled query.</p>
+   * A list of key-value pairs to label the scheduled query.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the
-   *             Amazon KMS key is not specified, the scheduled query resource will be encrypted with a
-   *             Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias
-   *             name, or alias ARN. When using an alias name, prefix the name with
-   *                 <i>alias/</i>
-   *          </p>
-   *          <p>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same
-   *             KmsKeyId is used to encrypt the error report at rest.</p>
+   * The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
+   *
+   * If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>Configuration for error reporting. Error reports will be generated when a problem is
-   *             encountered when writing the query results. </p>
+   * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+   *
    * @public
    */
   ErrorReportConfiguration: ErrorReportConfiguration | undefined;
@@ -428,7 +433,8 @@ export interface CreateScheduledQueryRequest {
  */
 export interface CreateScheduledQueryResponse {
   /**
-   * <p>ARN for the created scheduled query.</p>
+   * ARN for the created scheduled query.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -439,7 +445,8 @@ export interface CreateScheduledQueryResponse {
  */
 export interface DeleteScheduledQueryRequest {
   /**
-   * <p>The ARN of the scheduled query. </p>
+   * The ARN of the scheduled query.
+   *
    * @public
    */
   ScheduledQueryArn: string | undefined;
@@ -451,66 +458,77 @@ export interface DeleteScheduledQueryRequest {
 export interface DescribeAccountSettingsRequest {}
 
 /**
- * <p>Configuration object that contains the most recent account settings update, visible only if settings have been updated previously.</p>
+ * Configuration object that contains the most recent account settings update, visible only if settings have been updated previously.
+ *
  * @public
  */
 export interface LastUpdate {
   /**
-   * <p>The number of TimeStream Compute Units (TCUs) requested in the last account settings update.</p>
+   * The number of TimeStream Compute Units (TCUs) requested in the last account settings update.
+   *
    * @public
    */
   TargetQueryTCU?: number | undefined;
 
   /**
-   * <p>The status of the last update. Can be either <code>PENDING</code>, <code>FAILED</code>, or <code>SUCCEEDED</code>.</p>
+   * The status of the last update. Can be either `PENDING`, `FAILED`, or `SUCCEEDED`.
+   *
    * @public
    */
   Status?: LastUpdateStatus | undefined;
 
   /**
-   * <p>Error message describing the last account settings update status, visible only if an error occurred.</p>
+   * Error message describing the last account settings update status, visible only if an error occurred.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>The response to a request to update the provisioned capacity settings for querying data.</p>
+ * The response to a request to update the provisioned capacity settings for querying data.
+ *
  * @public
  */
 export interface ProvisionedCapacityResponse {
   /**
-   * <p>The number of Timestream Compute Units (TCUs) provisioned in the account. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>
+   * The number of Timestream Compute Units (TCUs) provisioned in the account. This field is only visible when the compute mode is `PROVISIONED`.
+   *
    * @public
    */
   ActiveQueryTCU?: number | undefined;
 
   /**
-   * <p>An object that contains settings for notifications that are sent whenever the provisioned capacity settings are modified. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>
+   * An object that contains settings for notifications that are sent whenever the provisioned capacity settings are modified. This field is only visible when the compute mode is `PROVISIONED`.
+   *
    * @public
    */
   NotificationConfiguration?: AccountSettingsNotificationConfiguration | undefined;
 
   /**
-   * <p>Information about the last update to the provisioned capacity settings.</p>
+   * Information about the last update to the provisioned capacity settings.
+   *
    * @public
    */
   LastUpdate?: LastUpdate | undefined;
 }
 
 /**
- * <p>The response to a request to retrieve or update the compute capacity settings for querying data.</p>
+ * The response to a request to retrieve or update the compute capacity settings for querying data.
+ *
  * @public
  */
 export interface QueryComputeResponse {
   /**
-   * <p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai)  region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>
+   * The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai) region, the API operation only recognizes the value `PROVISIONED`.
+   *
    * @public
    */
   ComputeMode?: ComputeMode | undefined;
 
   /**
-   * <p>Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.</p>
+   * Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.
+   *
    * @public
    */
   ProvisionedCapacity?: ProvisionedCapacityResponse | undefined;
@@ -521,25 +539,24 @@ export interface QueryComputeResponse {
  */
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The maximum number of <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html">Timestream compute units</a> (TCUs) the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. This configuration is applicable only for on-demand usage of (TCUs).
+   * The maximum number of [Timestream compute units](https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html) (TCUs) the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. This configuration is applicable only for on-demand usage of (TCUs).
    *
-   *
-   *         </p>
    * @public
    */
   MaxQueryTCU?: number | undefined;
 
   /**
-   * <p>The pricing model for queries in your account.</p>
-   *          <note>
-   *             <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p>
-   *          </note>
+   * The pricing model for queries in your account.
+   *
+   * > **Note:** The `QueryPricingModel` parameter is used by several Timestream operations; however, the `UpdateAccountSettings` API operation doesn't recognize any values other than `COMPUTE_UNITS`.
+   *
    * @public
    */
   QueryPricingModel?: QueryPricingModel | undefined;
 
   /**
-   * <p>An object that contains the usage settings for Timestream Compute Units (TCUs) in your account for the query workload. </p>
+   * An object that contains the usage settings for Timestream Compute Units (TCUs) in your account for the query workload.
+   *
    * @public
    */
   QueryCompute?: QueryComputeResponse | undefined;
@@ -551,19 +568,21 @@ export interface DescribeAccountSettingsResponse {
 export interface DescribeEndpointsRequest {}
 
 /**
- * <p>Represents an available endpoint against which to make API calls against, as well as
- *             the TTL for that endpoint.</p>
+ * Represents an available endpoint against which to make API calls against, as well as the TTL for that endpoint.
+ *
  * @public
  */
 export interface Endpoint {
   /**
-   * <p>An endpoint address.</p>
+   * An endpoint address.
+   *
    * @public
    */
   Address: string | undefined;
 
   /**
-   * <p>The TTL for the endpoint, in minutes.</p>
+   * The TTL for the endpoint, in minutes.
+   *
    * @public
    */
   CachePeriodInMinutes: number | undefined;
@@ -574,8 +593,8 @@ export interface Endpoint {
  */
 export interface DescribeEndpointsResponse {
   /**
-   * <p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code>
-   *             request is made.</p>
+   * An `Endpoints` object is returned when a `DescribeEndpoints` request is made.
+   *
    * @public
    */
   Endpoints: Endpoint[] | undefined;
@@ -586,375 +605,395 @@ export interface DescribeEndpointsResponse {
  */
 export interface DescribeScheduledQueryRequest {
   /**
-   * <p>The ARN of the scheduled query.</p>
+   * The ARN of the scheduled query.
+   *
    * @public
    */
   ScheduledQueryArn: string | undefined;
 }
 
 /**
- * <p> S3 report location for the scheduled query run.</p>
+ * S3 report location for the scheduled query run.
+ *
  * @public
  */
 export interface S3ReportLocation {
   /**
-   * <p> S3 bucket name. </p>
+   * S3 bucket name.
+   *
    * @public
    */
   BucketName?: string | undefined;
 
   /**
-   * <p>S3 key. </p>
+   * S3 key.
+   *
    * @public
    */
   ObjectKey?: string | undefined;
 }
 
 /**
- * <p>This contains the location of the error report for a single scheduled query call.
- *         </p>
+ * This contains the location of the error report for a single scheduled query call.
+ *
  * @public
  */
 export interface ErrorReportLocation {
   /**
-   * <p>The S3 location where error reports are written.</p>
+   * The S3 location where error reports are written.
+   *
    * @public
    */
   S3ReportLocation?: S3ReportLocation | undefined;
 }
 
 /**
- * <p>Statistics for a single scheduled query run.</p>
+ * Statistics for a single scheduled query run.
+ *
  * @public
  */
 export interface ExecutionStats {
   /**
-   * <p>Total time, measured in milliseconds, that was needed for the scheduled query run to
-   *             complete.</p>
+   * Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
+   *
    * @public
    */
   ExecutionTimeInMillis?: number | undefined;
 
   /**
-   * <p>Data writes metered for records ingested in a single scheduled query run.</p>
+   * Data writes metered for records ingested in a single scheduled query run.
+   *
    * @public
    */
   DataWrites?: number | undefined;
 
   /**
-   * <p>Bytes metered for a single scheduled query run.</p>
+   * Bytes metered for a single scheduled query run.
+   *
    * @public
    */
   BytesMetered?: number | undefined;
 
   /**
-   * <p>Bytes scanned for a single scheduled query run.</p>
+   * Bytes scanned for a single scheduled query run.
+   *
    * @public
    */
   CumulativeBytesScanned?: number | undefined;
 
   /**
-   * <p>The number of records ingested for a single scheduled query run. </p>
+   * The number of records ingested for a single scheduled query run.
+   *
    * @public
    */
   RecordsIngested?: number | undefined;
 
   /**
-   * <p>Number of rows present in the output from running a query before ingestion to
-   *             destination data source.</p>
+   * Number of rows present in the output from running a query before ingestion to destination data source.
+   *
    * @public
    */
   QueryResultRows?: number | undefined;
 }
 
 /**
- * <p>Provides insights into the table with the most sub-optimal spatial range scanned by your query.</p>
+ * Provides insights into the table with the most sub-optimal spatial range scanned by your query.
+ *
  * @public
  */
 export interface QuerySpatialCoverageMax {
   /**
-   * <p>The maximum ratio of spatial coverage.</p>
+   * The maximum ratio of spatial coverage.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table with the most sub-optimal spatial pruning.</p>
+   * The Amazon Resource Name (ARN) of the table with the most sub-optimal spatial pruning.
+   *
    * @public
    */
   TableArn?: string | undefined;
 
   /**
-   * <p>The partition key used for partitioning, which can be a default <code>measure_name</code> or a <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html">customer defined partition key</a>.</p>
+   * The partition key used for partitioning, which can be a default `measure_name` or a [customer defined partition key](https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html).
+   *
    * @public
    */
   PartitionKey?: string[] | undefined;
 }
 
 /**
- * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning</p>
- *          <p>For example, you can do the following with the <code>QuerySpatialCoverage</code> information:</p>
- *          <ul>
- *             <li>
- *                <p>Add measure_name or use <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html">customer-defined partition key</a> (CDPK) predicates.</p>
- *             </li>
- *             <li>
- *                <p>If you've already done the preceding action, remove functions around them or clauses, such as <code>LIKE</code>.</p>
- *             </li>
- *          </ul>
+ * Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning
+ *
+ * For example, you can do the following with the `QuerySpatialCoverage` information:
+ *
+ * - Add measure_name or use [customer-defined partition key](https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html) (CDPK) predicates.
+ * - If you've already done the preceding action, remove functions around them or clauses, such as `LIKE`.
+ *
  * @public
  */
 export interface QuerySpatialCoverage {
   /**
-   * <p>Provides insights into the spatial coverage of the executed query and the table with the most inefficient spatial pruning.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Value</code> – The maximum ratio of spatial coverage.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TableArn</code> – The Amazon Resource Name (ARN) of the table with sub-optimal spatial pruning.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PartitionKey</code> – The partition key used for partitioning, which can be a default <code>measure_name</code> or a CDPK.</p>
-   *             </li>
-   *          </ul>
+   * Provides insights into the spatial coverage of the executed query and the table with the most inefficient spatial pruning.
+   *
+   * - `Value` – The maximum ratio of spatial coverage.
+   * - `TableArn` – The Amazon Resource Name (ARN) of the table with sub-optimal spatial pruning.
+   * - `PartitionKey` – The partition key used for partitioning, which can be a default `measure_name` or a CDPK.
+   *
    * @public
    */
   Max?: QuerySpatialCoverageMax | undefined;
 }
 
 /**
- * <p>Provides insights into the table with the most sub-optimal temporal pruning scanned by your query.</p>
+ * Provides insights into the table with the most sub-optimal temporal pruning scanned by your query.
+ *
  * @public
  */
 export interface QueryTemporalRangeMax {
   /**
-   * <p>The maximum duration in nanoseconds between the start and end of the query.</p>
+   * The maximum duration in nanoseconds between the start and end of the query.
+   *
    * @public
    */
   Value?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the table which is queried with the largest time range.</p>
+   * The Amazon Resource Name (ARN) of the table which is queried with the largest time range.
+   *
    * @public
    */
   TableArn?: string | undefined;
 }
 
 /**
- * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range.</p>
+ * Provides insights into the temporal range of the query, including the table with the largest (max) time range.
+ *
  * @public
  */
 export interface QueryTemporalRange {
   /**
-   * <p>Encapsulates the following properties that provide insights into the most sub-optimal performing table on the temporal axis:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Value</code> – The maximum duration in nanoseconds between the start and end of the query.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TableArn</code> – The Amazon Resource Name (ARN) of the table which is queried with the largest time range.</p>
-   *             </li>
-   *          </ul>
+   * Encapsulates the following properties that provide insights into the most sub-optimal performing table on the temporal axis:
+   *
+   * - `Value` – The maximum duration in nanoseconds between the start and end of the query.
+   * - `TableArn` – The Amazon Resource Name (ARN) of the table which is queried with the largest time range.
+   *
    * @public
    */
   Max?: QueryTemporalRangeMax | undefined;
 }
 
 /**
- * <p>Provides various insights and metrics related to the <code>ExecuteScheduledQueryRequest</code> that was executed.</p>
+ * Provides various insights and metrics related to the `ExecuteScheduledQueryRequest` that was executed.
+ *
  * @public
  */
 export interface ScheduledQueryInsightsResponse {
   /**
-   * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.</p>
+   * Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+   *
    * @public
    */
   QuerySpatialCoverage?: QuerySpatialCoverage | undefined;
 
   /**
-   * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Add missing time-predicates.</p>
-   *             </li>
-   *             <li>
-   *                <p>Remove functions around the time predicates.</p>
-   *             </li>
-   *             <li>
-   *                <p>Add time predicates to all the sub-queries.</p>
-   *             </li>
-   *          </ul>
+   * Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:
+   *
+   * - Add missing time-predicates.
+   * - Remove functions around the time predicates.
+   * - Add time predicates to all the sub-queries.
+   *
    * @public
    */
   QueryTemporalRange?: QueryTemporalRange | undefined;
 
   /**
-   * <p>Indicates the number of tables in the query.</p>
+   * Indicates the number of tables in the query.
+   *
    * @public
    */
   QueryTableCount?: number | undefined;
 
   /**
-   * <p>Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.</p>
+   * Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
+   *
    * @public
    */
   OutputRows?: number | undefined;
 
   /**
-   * <p>Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.</p>
+   * Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
+   *
    * @public
    */
   OutputBytes?: number | undefined;
 }
 
 /**
- * <p>Run summary for the scheduled query</p>
+ * Run summary for the scheduled query
+ *
  * @public
  */
 export interface ScheduledQueryRunSummary {
   /**
-   * <p>InvocationTime for this run. This is the time at which the query is scheduled to run.
-   *             Parameter <code>@scheduled_runtime</code> can be used in the query to get the value.
-   *         </p>
+   * InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
+   *
    * @public
    */
   InvocationTime?: Date | undefined;
 
   /**
-   * <p>The actual time when the query was run.</p>
+   * The actual time when the query was run.
+   *
    * @public
    */
   TriggerTime?: Date | undefined;
 
   /**
-   * <p>The status of a scheduled query run.</p>
+   * The status of a scheduled query run.
+   *
    * @public
    */
   RunStatus?: ScheduledQueryRunStatus | undefined;
 
   /**
-   * <p>Runtime statistics for a scheduled run.</p>
+   * Runtime statistics for a scheduled run.
+   *
    * @public
    */
   ExecutionStats?: ExecutionStats | undefined;
 
   /**
-   * <p>Provides various insights and metrics related to the run summary of the scheduled query.</p>
+   * Provides various insights and metrics related to the run summary of the scheduled query.
+   *
    * @public
    */
   QueryInsightsResponse?: ScheduledQueryInsightsResponse | undefined;
 
   /**
-   * <p>S3 location for error report.</p>
+   * S3 location for error report.
+   *
    * @public
    */
   ErrorReportLocation?: ErrorReportLocation | undefined;
 
   /**
-   * <p>Error message for the scheduled query in case of failure. You might have to look at
-   *             the error report to get more detailed error reasons. </p>
+   * Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 }
 
 /**
- * <p>Structure that describes scheduled query.</p>
+ * Structure that describes scheduled query.
+ *
  * @public
  */
 export interface ScheduledQueryDescription {
   /**
-   * <p>Scheduled query ARN.</p>
+   * Scheduled query ARN.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Name of the scheduled query.</p>
+   * Name of the scheduled query.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The query to be run.</p>
+   * The query to be run.
+   *
    * @public
    */
   QueryString: string | undefined;
 
   /**
-   * <p>Creation time of the scheduled query.</p>
+   * Creation time of the scheduled query.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>State of the scheduled query. </p>
+   * State of the scheduled query.
+   *
    * @public
    */
   State: ScheduledQueryState | undefined;
 
   /**
-   * <p>Last time the query was run.</p>
+   * Last time the query was run.
+   *
    * @public
    */
   PreviousInvocationTime?: Date | undefined;
 
   /**
-   * <p>The next time the scheduled query is scheduled to run.</p>
+   * The next time the scheduled query is scheduled to run.
+   *
    * @public
    */
   NextInvocationTime?: Date | undefined;
 
   /**
-   * <p>Schedule configuration.</p>
+   * Schedule configuration.
+   *
    * @public
    */
   ScheduleConfiguration: ScheduleConfiguration | undefined;
 
   /**
-   * <p>Notification configuration.</p>
+   * Notification configuration.
+   *
    * @public
    */
   NotificationConfiguration: NotificationConfiguration | undefined;
 
   /**
-   * <p>Scheduled query target store configuration.</p>
+   * Scheduled query target store configuration.
+   *
    * @public
    */
   TargetConfiguration?: TargetConfiguration | undefined;
 
   /**
-   * <p>IAM role that Timestream uses to run the schedule query.</p>
+   * IAM role that Timestream uses to run the schedule query.
+   *
    * @public
    */
   ScheduledQueryExecutionRoleArn?: string | undefined;
 
   /**
-   * <p>A customer provided KMS key used to encrypt the scheduled query resource.</p>
+   * A customer provided KMS key used to encrypt the scheduled query resource.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>Error-reporting configuration for the scheduled query.</p>
+   * Error-reporting configuration for the scheduled query.
+   *
    * @public
    */
   ErrorReportConfiguration?: ErrorReportConfiguration | undefined;
 
   /**
-   * <p>Runtime summary for the last scheduled query run. </p>
+   * Runtime summary for the last scheduled query run.
+   *
    * @public
    */
   LastRunSummary?: ScheduledQueryRunSummary | undefined;
 
   /**
-   * <p>Runtime summary for the last five failed scheduled query runs.</p>
+   * Runtime summary for the last five failed scheduled query runs.
+   *
    * @public
    */
   RecentlyFailedRuns?: ScheduledQueryRunSummary[] | undefined;
@@ -965,29 +1004,25 @@ export interface ScheduledQueryDescription {
  */
 export interface DescribeScheduledQueryResponse {
   /**
-   * <p>The scheduled query.</p>
+   * The scheduled query.
+   *
    * @public
    */
   ScheduledQuery: ScheduledQueryDescription | undefined;
 }
 
 /**
- * <p>Encapsulates settings for enabling <code>QueryInsights</code> on an <code>ExecuteScheduledQueryRequest</code>.</p>
+ * Encapsulates settings for enabling `QueryInsights` on an `ExecuteScheduledQueryRequest`.
+ *
  * @public
  */
 export interface ScheduledQueryInsights {
   /**
-   * <p>Provides the following modes to enable <code>ScheduledQueryInsights</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED_WITH_RATE_CONTROL</code> – Enables <code>ScheduledQueryInsights</code> for the queries being processed. This mode also includes a rate control mechanism, which limits the <code>QueryInsights</code> feature to 1 query per second (QPS).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> – Disables <code>ScheduledQueryInsights</code>.</p>
-   *             </li>
-   *          </ul>
+   * Provides the following modes to enable `ScheduledQueryInsights`:
+   *
+   * - `ENABLED_WITH_RATE_CONTROL` – Enables `ScheduledQueryInsights` for the queries being processed. This mode also includes a rate control mechanism, which limits the `QueryInsights` feature to 1 query per second (QPS).
+   * - `DISABLED` – Disables `ScheduledQueryInsights`.
+   *
    * @public
    */
   Mode: ScheduledQueryInsightsMode | undefined;
@@ -998,27 +1033,31 @@ export interface ScheduledQueryInsights {
  */
 export interface ExecuteScheduledQueryRequest {
   /**
-   * <p>ARN of the scheduled query.</p>
+   * ARN of the scheduled query.
+   *
    * @public
    */
   ScheduledQueryArn: string | undefined;
 
   /**
-   * <p>The timestamp in UTC. Query will be run as if it was invoked at this timestamp.
-   *         </p>
+   * The timestamp in UTC. Query will be run as if it was invoked at this timestamp.
+   *
    * @public
    */
   InvocationTime: Date | undefined;
 
   /**
-   * <p>Not used. </p>
+   * Not used.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p>
-   *          <p>Enabling <code>QueryInsights</code> returns insights and metrics as a part of the Amazon SNS notification for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance and cost.</p>
+   * Encapsulates settings for enabling `QueryInsights`.
+   *
+   * Enabling `QueryInsights` returns insights and metrics as a part of the Amazon SNS notification for the query that you executed. You can use `QueryInsights` to tune your query performance and cost.
+   *
    * @public
    */
   QueryInsights?: ScheduledQueryInsights | undefined;
@@ -1029,107 +1068,120 @@ export interface ExecuteScheduledQueryRequest {
  */
 export interface ListScheduledQueriesRequest {
   /**
-   * <p>The maximum number of items to return in the output. If the total number of items
-   *             available is more than the value specified, a <code>NextToken</code> is provided in the
-   *             output. To resume pagination, provide the <code>NextToken</code> value as the argument
-   *             to the subsequent call to <code>ListScheduledQueriesRequest</code>.</p>
+   * The maximum number of items to return in the output. If the total number of items available is more than the value specified, a `NextToken` is provided in the output. To resume pagination, provide the `NextToken` value as the argument to the subsequent call to `ListScheduledQueriesRequest`.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p> A pagination token to resume pagination.</p>
+   * A pagination token to resume pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Destination for scheduled query.</p>
+ * Destination for scheduled query.
+ *
  * @public
  */
 export interface TimestreamDestination {
   /**
-   * <p>Timestream database name. </p>
+   * Timestream database name.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p>Timestream table name. </p>
+   * Timestream table name.
+   *
    * @public
    */
   TableName?: string | undefined;
 }
 
 /**
- * <p>Destination details to write data for a target data source. Current supported data
- *             source is Timestream.</p>
+ * Destination details to write data for a target data source. Current supported data source is Timestream.
+ *
  * @public
  */
 export interface TargetDestination {
   /**
-   * <p>Query result destination details for Timestream data source.</p>
+   * Query result destination details for Timestream data source.
+   *
    * @public
    */
   TimestreamDestination?: TimestreamDestination | undefined;
 }
 
 /**
- * <p>Scheduled Query</p>
+ * Scheduled Query
+ *
  * @public
  */
 export interface ScheduledQuery {
   /**
-   * <p>The Amazon Resource Name.</p>
+   * The Amazon Resource Name.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the scheduled query.</p>
+   * The name of the scheduled query.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The creation time of the scheduled query.</p>
+   * The creation time of the scheduled query.
+   *
    * @public
    */
   CreationTime?: Date | undefined;
 
   /**
-   * <p>State of scheduled query. </p>
+   * State of scheduled query.
+   *
    * @public
    */
   State: ScheduledQueryState | undefined;
 
   /**
-   * <p>The last time the scheduled query was run.</p>
+   * The last time the scheduled query was run.
+   *
    * @public
    */
   PreviousInvocationTime?: Date | undefined;
 
   /**
-   * <p>The next time the scheduled query is to be run.</p>
+   * The next time the scheduled query is to be run.
+   *
    * @public
    */
   NextInvocationTime?: Date | undefined;
 
   /**
-   * <p>Configuration for scheduled query error reporting.</p>
+   * Configuration for scheduled query error reporting.
+   *
    * @public
    */
   ErrorReportConfiguration?: ErrorReportConfiguration | undefined;
 
   /**
-   * <p>Target data source where final scheduled query result will be written.</p>
+   * Target data source where final scheduled query result will be written.
+   *
    * @public
    */
   TargetDestination?: TargetDestination | undefined;
 
   /**
-   * <p>Status of the last scheduled query run.</p>
+   * Status of the last scheduled query run.
+   *
    * @public
    */
   LastRunStatus?: ScheduledQueryRunStatus | undefined;
@@ -1140,14 +1192,15 @@ export interface ScheduledQuery {
  */
 export interface ListScheduledQueriesResponse {
   /**
-   * <p>A list of scheduled queries.</p>
+   * A list of scheduled queries.
+   *
    * @public
    */
   ScheduledQueries: ScheduledQuery[] | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the NextToken from a previously
-   *             truncated response.</p>
+   * A token to specify where to start paginating. This is the NextToken from a previously truncated response.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1158,20 +1211,22 @@ export interface ListScheduledQueriesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Timestream resource with tags to be listed. This value is an Amazon Resource Name
-   *             (ARN).</p>
+   * The Timestream resource with tags to be listed. This value is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The maximum number of tags to return.</p>
+   * The maximum number of tags to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A pagination token to resume pagination.</p>
+   * A pagination token to resume pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1182,14 +1237,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags currently associated with the Timestream resource. </p>
+   * The tags currently associated with the Timestream resource.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
 
   /**
-   * <p>A pagination token to resume pagination with a subsequent call to
-   *                 <code>ListTagsForResourceResponse</code>.</p>
+   * A pagination token to resume pagination with a subsequent call to `ListTagsForResourceResponse`.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1200,80 +1256,65 @@ export interface ListTagsForResourceResponse {
  */
 export interface PrepareQueryRequest {
   /**
-   * <p>The Timestream query string that you want to use as a prepared statement. Parameter
-   *             names can be specified in the query string <code>@</code> character followed by an
-   *             identifier. </p>
+   * The Timestream query string that you want to use as a prepared statement. Parameter names can be specified in the query string `@` character followed by an identifier.
+   *
    * @public
    */
   QueryString: string | undefined;
 
   /**
-   * <p>By setting this value to <code>true</code>, Timestream will only validate that the
-   *             query string is a valid Timestream query, and not store the prepared query for later
-   *             use.</p>
+   * By setting this value to `true`, Timestream will only validate that the query string is a valid Timestream query, and not store the prepared query for later use.
+   *
    * @public
    */
   ValidateOnly?: boolean | undefined;
 }
 
 /**
- * <p>A request to update the provisioned capacity settings for querying data.</p>
+ * A request to update the provisioned capacity settings for querying data.
+ *
  * @public
  */
 export interface ProvisionedCapacityRequest {
   /**
-   * <p>The target compute capacity for querying data, specified in Timestream Compute Units (TCUs).</p>
+   * The target compute capacity for querying data, specified in Timestream Compute Units (TCUs).
+   *
    * @public
    */
   TargetQueryTCU: number | undefined;
 
   /**
-   * <p>Configuration settings for notifications related to the provisioned capacity update.</p>
+   * Configuration settings for notifications related to the provisioned capacity update.
+   *
    * @public
    */
   NotificationConfiguration?: AccountSettingsNotificationConfiguration | undefined;
 }
 
 /**
- * <p>
- *             <code>QueryInsights</code> is a performance tuning feature that helps you optimize your queries, reducing costs and improving performance. With <code>QueryInsights</code>, you can assess the pruning efficiency of your queries and identify areas for improvement to enhance query performance. With <code>QueryInsights</code>, you can also analyze the effectiveness of your queries in terms of temporal and spatial pruning, and identify opportunities to improve performance. Specifically, you can evaluate how well your queries use time-based and partition key-based indexing strategies to optimize data retrieval. To optimize query performance, it's essential that you fine-tune both the temporal and spatial parameters that govern query execution.</p>
- *          <p>The key metrics provided by <code>QueryInsights</code> are <code>QuerySpatialCoverage</code> and <code>QueryTemporalRange</code>. <code>QuerySpatialCoverage</code> indicates how much of the spatial axis the query scans, with lower values being more efficient. <code>QueryTemporalRange</code> shows the time range scanned, with narrower ranges being more performant.</p>
- *          <p>
- *             <b>Benefits of QueryInsights</b>
- *          </p>
- *          <p>The following are the key benefits of using <code>QueryInsights</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Identifying inefficient queries</b> – <code>QueryInsights</code> provides information on the time-based and attribute-based pruning of the tables accessed by the query. This information helps you identify the tables that are sub-optimally accessed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Optimizing your data model and partitioning</b> – You can use the <code>QueryInsights</code> information to access and fine-tune your data model and partitioning strategy.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Tuning queries</b> – <code>QueryInsights</code> highlights opportunities to use indexes more effectively.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The maximum number of <code>Query</code> API requests you're allowed to make with <code>QueryInsights</code> enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.</p>
- *          </note>
+ * `QueryInsights` is a performance tuning feature that helps you optimize your queries, reducing costs and improving performance. With `QueryInsights`, you can assess the pruning efficiency of your queries and identify areas for improvement to enhance query performance. With `QueryInsights`, you can also analyze the effectiveness of your queries in terms of temporal and spatial pruning, and identify opportunities to improve performance. Specifically, you can evaluate how well your queries use time-based and partition key-based indexing strategies to optimize data retrieval. To optimize query performance, it's essential that you fine-tune both the temporal and spatial parameters that govern query execution.
+ *
+ * The key metrics provided by `QueryInsights` are `QuerySpatialCoverage` and `QueryTemporalRange`. `QuerySpatialCoverage` indicates how much of the spatial axis the query scans, with lower values being more efficient. `QueryTemporalRange` shows the time range scanned, with narrower ranges being more performant.
+ *
+ * **Benefits of QueryInsights**
+ *
+ * The following are the key benefits of using `QueryInsights`:
+ *
+ * - **Identifying inefficient queries** – `QueryInsights` provides information on the time-based and attribute-based pruning of the tables accessed by the query. This information helps you identify the tables that are sub-optimally accessed.
+ * - **Optimizing your data model and partitioning** – You can use the `QueryInsights` information to access and fine-tune your data model and partitioning strategy.
+ * - **Tuning queries** – `QueryInsights` highlights opportunities to use indexes more effectively.
+ *
+ * > **Note:** The maximum number of `Query` API requests you're allowed to make with `QueryInsights` enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.
+ *
  * @public
  */
 export interface QueryInsights {
   /**
-   * <p>Provides the following modes to enable <code>QueryInsights</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED_WITH_RATE_CONTROL</code> – Enables <code>QueryInsights</code> for the queries being processed. This mode also includes a rate control mechanism, which limits the <code>QueryInsights</code> feature to 1 query per second (QPS).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> – Disables <code>QueryInsights</code>.</p>
-   *             </li>
-   *          </ul>
+   * Provides the following modes to enable `QueryInsights`:
+   *
+   * - `ENABLED_WITH_RATE_CONTROL` – Enables `QueryInsights` for the queries being processed. This mode also includes a rate control mechanism, which limits the `QueryInsights` feature to 1 query per second (QPS).
+   * - `DISABLED` – Disables `QueryInsights`.
+   *
    * @public
    */
   Mode: QueryInsightsMode | undefined;
@@ -1284,227 +1325,175 @@ export interface QueryInsights {
  */
 export interface QueryRequest {
   /**
-   * <p> The query to be run by Timestream. </p>
+   * The query to be run by Timestream.
+   *
    * @public
    */
   QueryString: string | undefined;
 
   /**
-   * <p> Unique, case-sensitive string of up to 64 ASCII characters specified when a
-   *                 <code>Query</code> request is made. Providing a <code>ClientToken</code> makes the
-   *             call to <code>Query</code>
-   *             <i>idempotent</i>. This means that running the same query repeatedly will
-   *             produce the same result. In other words, making multiple identical <code>Query</code>
-   *             requests has the same effect as making a single request. When using
-   *                 <code>ClientToken</code> in a query, note the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p> If the Query API is instantiated without a <code>ClientToken</code>, the
-   *                     Query SDK generates a <code>ClientToken</code> on your behalf.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the <code>Query</code> invocation only contains the
-   *                         <code>ClientToken</code> but does not include a <code>NextToken</code>, that
-   *                     invocation of <code>Query</code> is assumed to be a new query run.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the invocation contains <code>NextToken</code>, that particular invocation
-   *                     is assumed to be a subsequent invocation of a prior call to the Query API, and a
-   *                     result set is returned.</p>
-   *             </li>
-   *             <li>
-   *                <p> After 4 hours, any request with the same <code>ClientToken</code> is treated
-   *                     as a new request. </p>
-   *             </li>
-   *          </ul>
+   * Unique, case-sensitive string of up to 64 ASCII characters specified when a `Query` request is made. Providing a `ClientToken` makes the call to `Query` *idempotent*. This means that running the same query repeatedly will produce the same result. In other words, making multiple identical `Query` requests has the same effect as making a single request. When using `ClientToken` in a query, note the following:
+   *
+   * - If the Query API is instantiated without a `ClientToken`, the Query SDK generates a `ClientToken` on your behalf.
+   * - If the `Query` invocation only contains the `ClientToken` but does not include a `NextToken`, that invocation of `Query` is assumed to be a new query run.
+   * - If the invocation contains `NextToken`, that particular invocation is assumed to be a subsequent invocation of a prior call to the Query API, and a result set is returned.
+   * - After 4 hours, any request with the same `ClientToken` is treated as a new request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p> A pagination token used to return a set of results. When the <code>Query</code> API
-   *             is invoked using <code>NextToken</code>, that particular invocation is assumed to be a
-   *             subsequent invocation of a prior call to <code>Query</code>, and a result set is
-   *             returned. However, if the <code>Query</code> invocation only contains the
-   *                 <code>ClientToken</code>, that invocation of <code>Query</code> is assumed to be a
-   *             new query run. </p>
-   *          <p>Note the following when using NextToken in a query:</p>
-   *          <ul>
-   *             <li>
-   *                <p>A pagination token can be used for up to five <code>Query</code> invocations,
-   *                     OR for a duration of up to 1 hour – whichever comes first.</p>
-   *             </li>
-   *             <li>
-   *                <p>Using the same <code>NextToken</code> will return the same set of records. To
-   *                     keep paginating through the result set, you must to use the most recent
-   *                         <code>nextToken</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Suppose a <code>Query</code> invocation returns two <code>NextToken</code>
-   *                     values, <code>TokenA</code> and <code>TokenB</code>. If <code>TokenB</code> is
-   *                     used in a subsequent <code>Query</code> invocation, then <code>TokenA</code> is
-   *                     invalidated and cannot be reused.</p>
-   *             </li>
-   *             <li>
-   *                <p>To request a previous result set from a query after pagination has begun, you
-   *                     must re-invoke the Query API.</p>
-   *             </li>
-   *             <li>
-   *                <p>The latest <code>NextToken</code> should be used to paginate until
-   *                         <code>null</code> is returned, at which point a new <code>NextToken</code>
-   *                     should be used.</p>
-   *             </li>
-   *             <li>
-   *                <p> If the IAM principal of the query initiator and the result reader are not the
-   *                     same and/or the query initiator and the result reader do not have the same query
-   *                     string in the query requests, the query will fail with an <code>Invalid
-   *                         pagination token</code> error. </p>
-   *             </li>
-   *          </ul>
+   * A pagination token used to return a set of results. When the `Query` API is invoked using `NextToken`, that particular invocation is assumed to be a subsequent invocation of a prior call to `Query`, and a result set is returned. However, if the `Query` invocation only contains the `ClientToken`, that invocation of `Query` is assumed to be a new query run.
+   *
+   * Note the following when using NextToken in a query:
+   *
+   * - A pagination token can be used for up to five `Query` invocations, OR for a duration of up to 1 hour – whichever comes first.
+   * - Using the same `NextToken` will return the same set of records. To keep paginating through the result set, you must to use the most recent `nextToken`.
+   * - Suppose a `Query` invocation returns two `NextToken` values, `TokenA` and `TokenB`. If `TokenB` is used in a subsequent `Query` invocation, then `TokenA` is invalidated and cannot be reused.
+   * - To request a previous result set from a query after pagination has begun, you must re-invoke the Query API.
+   * - The latest `NextToken` should be used to paginate until `null` is returned, at which point a new `NextToken` should be used.
+   * - If the IAM principal of the query initiator and the result reader are not the same and/or the query initiator and the result reader do not have the same query string in the query requests, the query will fail with an `Invalid pagination token` error.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The total number of rows to be returned in the <code>Query</code> output. The initial
-   *             run of <code>Query</code> with a <code>MaxRows</code> value specified will return the
-   *             result set of the query in two cases: </p>
-   *          <ul>
-   *             <li>
-   *                <p>The size of the result is less than <code>1MB</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The number of rows in the result set is less than the value of
-   *                         <code>maxRows</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Otherwise, the initial invocation of <code>Query</code> only returns a
-   *                 <code>NextToken</code>, which can then be used in subsequent calls to fetch the
-   *             result set. To resume pagination, provide the <code>NextToken</code> value in the
-   *             subsequent command.</p>
-   *          <p>If the row size is large (e.g. a row has many columns), Timestream may return
-   *             fewer rows to keep the response size from exceeding the 1 MB limit. If
-   *                 <code>MaxRows</code> is not provided, Timestream will send the necessary
-   *             number of rows to meet the 1 MB limit.</p>
+   * The total number of rows to be returned in the `Query` output. The initial run of `Query` with a `MaxRows` value specified will return the result set of the query in two cases:
+   *
+   * - The size of the result is less than `1MB`.
+   * - The number of rows in the result set is less than the value of `maxRows`.
+   *
+   * Otherwise, the initial invocation of `Query` only returns a `NextToken`, which can then be used in subsequent calls to fetch the result set. To resume pagination, provide the `NextToken` value in the subsequent command.
+   *
+   * If the row size is large (e.g. a row has many columns), Timestream may return fewer rows to keep the response size from exceeding the 1 MB limit. If `MaxRows` is not provided, Timestream will send the necessary number of rows to meet the 1 MB limit.
+   *
    * @public
    */
   MaxRows?: number | undefined;
 
   /**
-   * <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p>
-   *          <p>Enabling <code>QueryInsights</code> returns insights and metrics in addition to query results for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance.</p>
+   * Encapsulates settings for enabling `QueryInsights`.
+   *
+   * Enabling `QueryInsights` returns insights and metrics in addition to query results for the query that you executed. You can use `QueryInsights` to tune your query performance.
+   *
    * @public
    */
   QueryInsights?: QueryInsights | undefined;
 }
 
 /**
- * <p>Provides various insights and metrics related to the query that you executed.</p>
+ * Provides various insights and metrics related to the query that you executed.
+ *
  * @public
  */
 export interface QueryInsightsResponse {
   /**
-   * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. </p>
+   * Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+   *
    * @public
    */
   QuerySpatialCoverage?: QuerySpatialCoverage | undefined;
 
   /**
-   * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Add missing time-predicates.</p>
-   *             </li>
-   *             <li>
-   *                <p>Remove functions around the time predicates.</p>
-   *             </li>
-   *             <li>
-   *                <p>Add time predicates to all the sub-queries.</p>
-   *             </li>
-   *          </ul>
+   * Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:
+   *
+   * - Add missing time-predicates.
+   * - Remove functions around the time predicates.
+   * - Add time predicates to all the sub-queries.
+   *
    * @public
    */
   QueryTemporalRange?: QueryTemporalRange | undefined;
 
   /**
-   * <p>Indicates the number of tables in the query.</p>
+   * Indicates the number of tables in the query.
+   *
    * @public
    */
   QueryTableCount?: number | undefined;
 
   /**
-   * <p>Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.</p>
+   * Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
+   *
    * @public
    */
   OutputRows?: number | undefined;
 
   /**
-   * <p>Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.</p>
+   * Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
+   *
    * @public
    */
   OutputBytes?: number | undefined;
 
   /**
-   * <p>Indicates the partitions created by the <code>Unload</code> operation.</p>
+   * Indicates the partitions created by the `Unload` operation.
+   *
    * @public
    */
   UnloadPartitionCount?: number | undefined;
 
   /**
-   * <p>Indicates the rows written by the <code>Unload</code> query.</p>
+   * Indicates the rows written by the `Unload` query.
+   *
    * @public
    */
   UnloadWrittenRows?: number | undefined;
 
   /**
-   * <p>Indicates the size, in bytes, written by the <code>Unload</code> operation.</p>
+   * Indicates the size, in bytes, written by the `Unload` operation.
+   *
    * @public
    */
   UnloadWrittenBytes?: number | undefined;
 }
 
 /**
- * <p>Information about the status of the query, including progress and bytes
- *             scanned.</p>
+ * Information about the status of the query, including progress and bytes scanned.
+ *
  * @public
  */
 export interface QueryStatus {
   /**
-   * <p>The progress of the query, expressed as a percentage.</p>
+   * The progress of the query, expressed as a percentage.
+   *
    * @public
    */
   ProgressPercentage?: number | undefined;
 
   /**
-   * <p>The amount of data scanned by the query in bytes. This is a cumulative sum and
-   *             represents the total amount of bytes scanned since the query was started. </p>
+   * The amount of data scanned by the query in bytes. This is a cumulative sum and represents the total amount of bytes scanned since the query was started.
+   *
    * @public
    */
   CumulativeBytesScanned?: number | undefined;
 
   /**
-   * <p>The amount of data scanned by the query in bytes that you will be charged for. This is
-   *             a cumulative sum and represents the total amount of data that you will be charged for
-   *             since the query was started. The charge is applied only once and is either applied when
-   *             the query completes running or when the query is cancelled. </p>
+   * The amount of data scanned by the query in bytes that you will be charged for. This is a cumulative sum and represents the total amount of data that you will be charged for since the query was started. The charge is applied only once and is either applied when the query completes running or when the query is cancelled.
+   *
    * @public
    */
   CumulativeBytesMetered?: number | undefined;
 }
 
 /**
- * <p>A request to retrieve or update the compute capacity settings for querying data.</p>
+ * A request to retrieve or update the compute capacity settings for querying data.
+ *
  * @public
  */
 export interface QueryComputeRequest {
   /**
-   * <p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai)  region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>
+   * The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai) region, the API operation only recognizes the value `PROVISIONED`.
+   *
    * @public
    */
   ComputeMode?: ComputeMode | undefined;
 
   /**
-   * <p>Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.</p>
+   * Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.
+   *
    * @public
    */
   ProvisionedCapacity?: ProvisionedCapacityRequest | undefined;
@@ -1515,14 +1504,15 @@ export interface QueryComputeRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>Identifies the Timestream resource to which tags should be added. This value is an
-   *             Amazon Resource Name (ARN).</p>
+   * Identifies the Timestream resource to which tags should be added. This value is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tags to be assigned to the Timestream resource.</p>
+   * The tags to be assigned to the Timestream resource.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -1538,15 +1528,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Timestream resource that the tags will be removed from. This value is an Amazon
-   *             Resource Name (ARN). </p>
+   * The Timestream resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>A list of tags keys. Existing tags of the resource whose keys are members of this list
-   *             will be removed from the Timestream resource. </p>
+   * A list of tags keys. Existing tags of the resource whose keys are members of this list will be removed from the Timestream resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1562,26 +1552,28 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see Default quotas. This configuration is applicable only for on-demand usage of Timestream Compute Units (TCUs).</p>
-   *          <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for <code>maxQueryTCU</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default quotas</a>.</p>
+   * The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. The maximum value supported for `MaxQueryTCU` is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see Default quotas. This configuration is applicable only for on-demand usage of Timestream Compute Units (TCUs).
+   *
+   * The maximum value supported for `MaxQueryTCU` is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for `maxQueryTCU`, see [Default quotas](https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default).
+   *
    * @public
    */
   MaxQueryTCU?: number | undefined;
 
   /**
-   * <p>The pricing model for queries in an account.</p>
-   *          <note>
-   *             <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p>
-   *          </note>
+   * The pricing model for queries in an account.
+   *
+   * > **Note:** The `QueryPricingModel` parameter is used by several Timestream operations; however, the `UpdateAccountSettings` API operation doesn't recognize any values other than `COMPUTE_UNITS`.
+   *
    * @public
    */
   QueryPricingModel?: QueryPricingModel | undefined;
 
   /**
-   * <p>Modifies the query compute settings configured in your account, including the query pricing model and provisioned Timestream Compute Units (TCUs) in your account.</p>
-   *          <note>
-   *             <p>This API is idempotent, meaning that making the same request multiple times will have the same effect as making the request once.</p>
-   *          </note>
+   * Modifies the query compute settings configured in your account, including the query pricing model and provisioned Timestream Compute Units (TCUs) in your account.
+   *
+   * > **Note:** This API is idempotent, meaning that making the same request multiple times will have the same effect as making the request once.
+   *
    * @public
    */
   QueryCompute?: QueryComputeRequest | undefined;
@@ -1592,19 +1584,22 @@ export interface UpdateAccountSettingsRequest {
  */
 export interface UpdateAccountSettingsResponse {
   /**
-   * <p>The configured maximum number of compute units the service will use at any point in time to serve your queries.</p>
+   * The configured maximum number of compute units the service will use at any point in time to serve your queries.
+   *
    * @public
    */
   MaxQueryTCU?: number | undefined;
 
   /**
-   * <p>The pricing model for an account.</p>
+   * The pricing model for an account.
+   *
    * @public
    */
   QueryPricingModel?: QueryPricingModel | undefined;
 
   /**
-   * <p>Confirms the updated account settings for querying data in your account.</p>
+   * Confirms the updated account settings for querying data in your account.
+   *
    * @public
    */
   QueryCompute?: QueryComputeResponse | undefined;
@@ -1615,200 +1610,211 @@ export interface UpdateAccountSettingsResponse {
  */
 export interface UpdateScheduledQueryRequest {
   /**
-   * <p>ARN of the scheuled query.</p>
+   * ARN of the scheuled query.
+   *
    * @public
    */
   ScheduledQueryArn: string | undefined;
 
   /**
-   * <p>State of the scheduled query. </p>
+   * State of the scheduled query.
+   *
    * @public
    */
   State: ScheduledQueryState | undefined;
 }
 
 /**
- * <p> Contains the metadata for query results such as the column names, data types, and
- *             other attributes. </p>
+ * Contains the metadata for query results such as the column names, data types, and other attributes.
+ *
  * @public
  */
 export interface ColumnInfo {
   /**
-   * <p> The name of the result set column. The name of the result set is available for
-   *             columns of all data types except for arrays. </p>
+   * The name of the result set column. The name of the result set is available for columns of all data types except for arrays.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The data type of the result set column. The data type can be a scalar or complex.
-   *             Scalar data types are integers, strings, doubles, Booleans, and others. Complex data
-   *             types are types such as arrays, rows, and others. </p>
+   * The data type of the result set column. The data type can be a scalar or complex. Scalar data types are integers, strings, doubles, Booleans, and others. Complex data types are types such as arrays, rows, and others.
+   *
    * @public
    */
   Type: Type | undefined;
 }
 
 /**
- * <p>Contains the data type of a column in a query result set. The data type can be scalar
- *             or complex. The supported scalar data types are integers, Boolean, string, double,
- *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
- *             and timeseries.</p>
+ * Contains the data type of a column in a query result set. The data type can be scalar or complex. The supported scalar data types are integers, Boolean, string, double, timestamp, date, time, and intervals. The supported complex data types are arrays, rows, and timeseries.
+ *
  * @public
  */
 export interface Type {
   /**
-   * <p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date,
-   *             time. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/supported-data-types.html">Supported data
-   *                 types</a>.</p>
+   * Indicates if the column is of type string, integer, Boolean, double, timestamp, date, time. For more information, see [Supported data types](https://docs.aws.amazon.com/timestream/latest/developerguide/supported-data-types.html).
+   *
    * @public
    */
   ScalarType?: ScalarType | undefined;
 
   /**
-   * <p>Indicates if the column is an array.</p>
+   * Indicates if the column is an array.
+   *
    * @public
    */
   ArrayColumnInfo?: ColumnInfo | undefined;
 
   /**
-   * <p>Indicates if the column is a timeseries data type.</p>
+   * Indicates if the column is a timeseries data type.
+   *
    * @public
    */
   TimeSeriesMeasureValueColumnInfo?: ColumnInfo | undefined;
 
   /**
-   * <p>Indicates if the column is a row.</p>
+   * Indicates if the column is a row.
+   *
    * @public
    */
   RowColumnInfo?: ColumnInfo[] | undefined;
 }
 
 /**
- * <p> Datum represents a single data point in a query result. </p>
+ * Datum represents a single data point in a query result.
+ *
  * @public
  */
 export interface Datum {
   /**
-   * <p> Indicates if the data point is a scalar value such as integer, string, double, or
-   *             Boolean. </p>
+   * Indicates if the data point is a scalar value such as integer, string, double, or Boolean.
+   *
    * @public
    */
   ScalarValue?: string | undefined;
 
   /**
-   * <p> Indicates if the data point is a timeseries data type. </p>
+   * Indicates if the data point is a timeseries data type.
+   *
    * @public
    */
   TimeSeriesValue?: TimeSeriesDataPoint[] | undefined;
 
   /**
-   * <p> Indicates if the data point is an array. </p>
+   * Indicates if the data point is an array.
+   *
    * @public
    */
   ArrayValue?: Datum[] | undefined;
 
   /**
-   * <p> Indicates if the data point is a row. </p>
+   * Indicates if the data point is a row.
+   *
    * @public
    */
   RowValue?: Row | undefined;
 
   /**
-   * <p> Indicates if the data point is null. </p>
+   * Indicates if the data point is null.
+   *
    * @public
    */
   NullValue?: boolean | undefined;
 }
 
 /**
- * <p>Mapping for named parameters.</p>
+ * Mapping for named parameters.
+ *
  * @public
  */
 export interface ParameterMapping {
   /**
-   * <p>Parameter name.</p>
+   * Parameter name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Contains the data type of a column in a query result set. The data type can be scalar
-   *             or complex. The supported scalar data types are integers, Boolean, string, double,
-   *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
-   *             and timeseries.</p>
+   * Contains the data type of a column in a query result set. The data type can be scalar or complex. The supported scalar data types are integers, Boolean, string, double, timestamp, date, time, and intervals. The supported complex data types are arrays, rows, and timeseries.
+   *
    * @public
    */
   Type: Type | undefined;
 }
 
 /**
- * <p>Details of the column that is returned by the query. </p>
+ * Details of the column that is returned by the query.
+ *
  * @public
  */
 export interface SelectColumn {
   /**
-   * <p>Name of the column.</p>
+   * Name of the column.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>Contains the data type of a column in a query result set. The data type can be scalar
-   *             or complex. The supported scalar data types are integers, Boolean, string, double,
-   *             timestamp, date, time, and intervals. The supported complex data types are arrays, rows,
-   *             and timeseries.</p>
+   * Contains the data type of a column in a query result set. The data type can be scalar or complex. The supported scalar data types are integers, Boolean, string, double, timestamp, date, time, and intervals. The supported complex data types are arrays, rows, and timeseries.
+   *
    * @public
    */
   Type?: Type | undefined;
 
   /**
-   * <p> Database that has this column.</p>
+   * Database that has this column.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p>Table within the database that has this column. </p>
+   * Table within the database that has this column.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>True, if the column name was aliased by the query. False otherwise.</p>
+   * True, if the column name was aliased by the query. False otherwise.
+   *
    * @public
    */
   Aliased?: boolean | undefined;
 }
 
 /**
- * <p>The timeseries data type represents the values of a measure over time. A time series
- *             is an array of rows of timestamps and measure values, with rows sorted in ascending
- *             order of time. A TimeSeriesDataPoint is a single data point in the time series. It
- *             represents a tuple of (time, measure value) in a time series. </p>
+ * The timeseries data type represents the values of a measure over time. A time series is an array of rows of timestamps and measure values, with rows sorted in ascending order of time. A TimeSeriesDataPoint is a single data point in the time series. It represents a tuple of (time, measure value) in a time series.
+ *
  * @public
  */
 export interface TimeSeriesDataPoint {
   /**
-   * <p>The timestamp when the measure value was collected.</p>
+   * The timestamp when the measure value was collected.
+   *
    * @public
    */
   Time: string | undefined;
 
   /**
-   * <p>The measure value for the data point.</p>
+   * The measure value for the data point.
+   *
    * @public
    */
   Value: Datum | undefined;
 }
 
 /**
- * <p>Represents a single row in the query results.</p>
+ * Represents a single row in the query results.
+ *
  * @public
  */
 export interface Row {
   /**
-   * <p>List of data points in a single row of the result set.</p>
+   * List of data points in a single row of the result set.
+   *
    * @public
    */
   Data: Datum[] | undefined;
@@ -1819,39 +1825,43 @@ export interface Row {
  */
 export interface QueryResponse {
   /**
-   * <p> A unique ID for the given query. </p>
+   * A unique ID for the given query.
+   *
    * @public
    */
   QueryId: string | undefined;
 
   /**
-   * <p> A pagination token that can be used again on a <code>Query</code> call to get the
-   *             next set of results. </p>
+   * A pagination token that can be used again on a `Query` call to get the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p> The result set rows returned by the query. </p>
+   * The result set rows returned by the query.
+   *
    * @public
    */
   Rows: Row[] | undefined;
 
   /**
-   * <p> The column data types of the returned result set. </p>
+   * The column data types of the returned result set.
+   *
    * @public
    */
   ColumnInfo: ColumnInfo[] | undefined;
 
   /**
-   * <p>Information about the status of the query, including progress and bytes
-   *             scanned.</p>
+   * Information about the status of the query, including progress and bytes scanned.
+   *
    * @public
    */
   QueryStatus?: QueryStatus | undefined;
 
   /**
-   * <p>Encapsulates <code>QueryInsights</code> containing insights and metrics related to the query that you executed.</p>
+   * Encapsulates `QueryInsights` containing insights and metrics related to the query that you executed.
+   *
    * @public
    */
   QueryInsightsResponse?: QueryInsightsResponse | undefined;
@@ -1862,19 +1872,22 @@ export interface QueryResponse {
  */
 export interface PrepareQueryResponse {
   /**
-   * <p>The query string that you want prepare.</p>
+   * The query string that you want prepare.
+   *
    * @public
    */
   QueryString: string | undefined;
 
   /**
-   * <p>A list of SELECT clause columns of the submitted query string. </p>
+   * A list of SELECT clause columns of the submitted query string.
+   *
    * @public
    */
   Columns: SelectColumn[] | undefined;
 
   /**
-   * <p>A list of parameters used in the submitted query string. </p>
+   * A list of parameters used in the submitted query string.
+   *
    * @public
    */
   Parameters: ParameterMapping[] | undefined;

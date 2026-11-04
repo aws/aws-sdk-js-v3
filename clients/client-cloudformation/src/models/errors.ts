@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudFormationServiceException as __BaseException } from "./CloudFormationServiceException";
 
 /**
- * <p>The specified operation isn't valid.</p>
+ * The specified operation isn't valid.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -27,7 +28,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>The specified ID refers to an operation that doesn't exist.</p>
+ * The specified ID refers to an operation that doesn't exist.
+ *
  * @public
  */
 export class OperationNotFoundException extends __BaseException {
@@ -50,7 +52,8 @@ export class OperationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An error occurred during a CloudFormation registry operation.</p>
+ * An error occurred during a CloudFormation registry operation.
+ *
  * @public
  */
 export class CFNRegistryException extends __BaseException {
@@ -58,7 +61,8 @@ export class CFNRegistryException extends __BaseException {
   readonly name = "CFNRegistryException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message with details about the error that occurred.</p>
+   * A message with details about the error that occurred.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -77,7 +81,8 @@ export class CFNRegistryException extends __BaseException {
 }
 
 /**
- * <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ * The specified extension doesn't exist in the CloudFormation registry.
+ *
  * @public
  */
 export class TypeNotFoundException extends __BaseException {
@@ -85,7 +90,8 @@ export class TypeNotFoundException extends __BaseException {
   readonly name = "TypeNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message with details about the error that occurred.</p>
+   * A message with details about the error that occurred.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -104,7 +110,8 @@ export class TypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The resource with the name requested already exists.</p>
+ * The resource with the name requested already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -127,7 +134,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified extension configuration can't be found.</p>
+ * The specified extension configuration can't be found.
+ *
  * @public
  */
 export class TypeConfigurationNotFoundException extends __BaseException {
@@ -135,7 +143,8 @@ export class TypeConfigurationNotFoundException extends __BaseException {
   readonly name = "TypeConfigurationNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A message with details about the error that occurred.</p>
+   * A message with details about the error that occurred.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -154,7 +163,8 @@ export class TypeConfigurationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A client request token already exists.</p>
+ * A client request token already exists.
+ *
  * @public
  */
 export class TokenAlreadyExistsException extends __BaseException {
@@ -177,8 +187,8 @@ export class TokenAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
- *    <code>ListChangeSets</code> operation.</p>
+ * The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the `ListChangeSets` operation.
+ *
  * @public
  */
 export class ChangeSetNotFoundException extends __BaseException {
@@ -201,7 +211,8 @@ export class ChangeSetNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+ * The template contains resources with capabilities that weren't specified in the Capabilities parameter.
+ *
  * @public
  */
 export class InsufficientCapabilitiesException extends __BaseException {
@@ -224,9 +235,10 @@ export class InsufficientCapabilitiesException extends __BaseException {
 }
 
 /**
- * <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
- *    <i>CloudFormation User Guide</i>.</p>
+ * The quota for the resource has already been reached.
+ *
+ * For information about resource and stack limitations, see [CloudFormation quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html) in the *CloudFormation User Guide*.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -249,9 +261,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>No more than 5 generated templates can be in an <code>InProgress</code> or <code>Pending</code> status at one
- *    time. This error is also returned if a generated template that is in an <code>InProgress</code> or
- *    <code>Pending</code> status is attempted to be updated or deleted.</p>
+ * No more than 5 generated templates can be in an `InProgress` or `Pending` status at one time. This error is also returned if a generated template that is in an `InProgress` or `Pending` status is attempted to be updated or deleted.
+ *
  * @public
  */
 export class ConcurrentResourcesLimitExceededException extends __BaseException {
@@ -274,7 +285,8 @@ export class ConcurrentResourcesLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified operation ID already exists.</p>
+ * The specified operation ID already exists.
+ *
  * @public
  */
 export class OperationIdAlreadyExistsException extends __BaseException {
@@ -297,8 +309,8 @@ export class OperationIdAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack
- *    set at a given time.</p>
+ * Another operation is currently in progress for this StackSet. Only one operation can be performed for a stack set at a given time.
+ *
  * @public
  */
 export class OperationInProgressException extends __BaseException {
@@ -321,7 +333,8 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
- * <p>The specified StackSet doesn't exist.</p>
+ * The specified StackSet doesn't exist.
+ *
  * @public
  */
 export class StackSetNotFoundException extends __BaseException {
@@ -344,7 +357,8 @@ export class StackSetNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Another operation has been performed on this StackSet since the specified operation was performed.</p>
+ * Another operation has been performed on this StackSet since the specified operation was performed.
+ *
  * @public
  */
 export class StaleRequestException extends __BaseException {
@@ -367,7 +381,8 @@ export class StaleRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified resource exists, but has been changed.</p>
+ * The specified resource exists, but has been changed.
+ *
  * @public
  */
 export class CreatedButModifiedException extends __BaseException {
@@ -390,7 +405,8 @@ export class CreatedButModifiedException extends __BaseException {
 }
 
 /**
- * <p>The specified name is already in use.</p>
+ * The specified name is already in use.
+ *
  * @public
  */
 export class NameAlreadyExistsException extends __BaseException {
@@ -413,8 +429,8 @@ export class NameAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified change set can't be used to update the stack. For example, the change set status might be
- *    <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
+ * The specified change set can't be used to update the stack. For example, the change set status might be `CREATE_IN_PROGRESS`, or the stack status might be `UPDATE_IN_PROGRESS`.
+ *
  * @public
  */
 export class InvalidChangeSetStatusException extends __BaseException {
@@ -437,7 +453,8 @@ export class InvalidChangeSetStatusException extends __BaseException {
 }
 
 /**
- * <p>The generated template was not found.</p>
+ * The generated template was not found.
+ *
  * @public
  */
 export class GeneratedTemplateNotFoundException extends __BaseException {
@@ -460,8 +477,8 @@ export class GeneratedTemplateNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You can't yet delete this StackSet, because it still contains one or more stack instances. Delete all stack
- *    instances from the StackSet before deleting the StackSet.</p>
+ * You can't yet delete this StackSet, because it still contains one or more stack instances. Delete all stack instances from the StackSet before deleting the StackSet.
+ *
  * @public
  */
 export class StackSetNotEmptyException extends __BaseException {
@@ -484,7 +501,8 @@ export class StackSetNotEmptyException extends __BaseException {
 }
 
 /**
- * <p>The resource scan was not found.</p>
+ * The resource scan was not found.
+ *
  * @public
  */
 export class ResourceScanNotFoundException extends __BaseException {
@@ -507,7 +525,8 @@ export class ResourceScanNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified stack instance doesn't exist.</p>
+ * The specified stack instance doesn't exist.
+ *
  * @public
  */
 export class StackInstanceNotFoundException extends __BaseException {
@@ -530,7 +549,8 @@ export class StackInstanceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified stack refactor can't be found.</p>
+ * The specified stack refactor can't be found.
+ *
  * @public
  */
 export class StackRefactorNotFoundException extends __BaseException {
@@ -553,7 +573,8 @@ export class StackRefactorNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified target doesn't have any requested Hook invocations.</p>
+ * The specified target doesn't have any requested Hook invocations.
+ *
  * @public
  */
 export class HookResultNotFoundException extends __BaseException {
@@ -576,7 +597,8 @@ export class HookResultNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in input.</p>
+ * The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in input.
+ *
  * @public
  */
 export class StackNotFoundException extends __BaseException {
@@ -599,7 +621,8 @@ export class StackNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+ * A resource scan is currently in progress. Only one can be run at a time for an account in a Region.
+ *
  * @public
  */
 export class ResourceScanInProgressException extends __BaseException {
@@ -622,8 +645,8 @@ export class ResourceScanInProgressException extends __BaseException {
 }
 
 /**
- * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't
- *    return this error to users.</p>
+ * Error reserved for use by the [CloudFormation CLI](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html). CloudFormation doesn't return this error to users.
+ *
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
@@ -646,8 +669,8 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
- * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation doesn't
- *    return this error to users.</p>
+ * Error reserved for use by the [CloudFormation CLI](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html). CloudFormation doesn't return this error to users.
+ *
  * @public
  */
 export class OperationStatusCheckFailedException extends __BaseException {
@@ -670,19 +693,12 @@ export class OperationStatusCheckFailedException extends __BaseException {
 }
 
 /**
- * <p>The limit on resource scans has been exceeded. Reasons include:</p>
- *          <ul>
- *             <li>
- *                <p>Exceeded the daily quota for resource scans.</p>
- *             </li>
- *             <li>
- *                <p>A resource scan recently failed. You must wait 10 minutes before starting a new resource scan.</p>
- *             </li>
- *             <li>
- *                <p>The last resource scan failed after exceeding 100,000 resources. When this happens, you must wait 24 hours
- *      before starting a new resource scan.</p>
- *             </li>
- *          </ul>
+ * The limit on resource scans has been exceeded. Reasons include:
+ *
+ * - Exceeded the daily quota for resource scans.
+ * - A resource scan recently failed. You must wait 10 minutes before starting a new resource scan.
+ * - The last resource scan failed after exceeding 100,000 resources. When this happens, you must wait 24 hours before starting a new resource scan.
+ *
  * @public
  */
 export class ResourceScanLimitExceededException extends __BaseException {

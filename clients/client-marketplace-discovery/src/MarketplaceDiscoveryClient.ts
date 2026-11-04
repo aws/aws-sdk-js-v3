@@ -300,7 +300,8 @@ export type MarketplaceDiscoveryClientResolvedConfigType = __SmithyResolvedConfi
 export interface MarketplaceDiscoveryClientResolvedConfig extends MarketplaceDiscoveryClientResolvedConfigType {}
 
 /**
- * <p>The AWS Marketplace Discovery API provides programmatic access to the AWS Marketplace catalog, including searching and browsing listings, retrieving product details and fulfillment options, and accessing public and private offer pricing and terms.</p>
+ * The AWS Marketplace Discovery API provides programmatic access to the AWS Marketplace catalog, including searching and browsing listings, retrieving product details and fulfillment options, and accessing public and private offer pricing and terms.
+ *
  * @public
  */
 export class MarketplaceDiscoveryClient extends __Client<

@@ -23,10 +23,8 @@ export interface CreatePullThroughCacheRuleCommandInput extends CreatePullThroug
 export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThroughCacheRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a pull through cache rule. A pull through cache rule provides a way to cache
- *             images from an upstream registry source in your Amazon ECR private registry. For more
- *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html">Using pull through cache
- *                 rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * Creates a pull through cache rule. A pull through cache rule provides a way to cache images from an upstream registry source in your Amazon ECR private registry. For more information, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html) in the *Amazon Elastic Container Registry User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,42 +64,44 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
  *
  * @throws {@link PullThroughCacheRuleAlreadyExistsException} (client fault)
- *  <p>A pull through cache rule with these settings already exists for the private
- *             registry.</p>
+ *
+ * A pull through cache rule with these settings already exists for the private registry.
  *
  * @throws {@link SecretNotFoundException} (client fault)
- *  <p>The ARN of the secret specified in the pull through cache rule was not found. Update
- *             the pull through cache rule with a valid secret ARN and try again.</p>
+ *
+ * The ARN of the secret specified in the pull through cache rule was not found. Update the pull through cache rule with a valid secret ARN and try again.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnableToAccessSecretException} (client fault)
- *  <p>The secret is unable to be accessed. Verify the resource permissions for the secret
- *             and try again.</p>
+ *
+ * The secret is unable to be accessed. Verify the resource permissions for the secret and try again.
  *
  * @throws {@link UnableToDecryptSecretValueException} (client fault)
- *  <p>The secret is accessible but is unable to be decrypted. Verify the resource
- *             permisisons and try again.</p>
+ *
+ * The secret is accessible but is unable to be decrypted. Verify the resource permisisons and try again.
  *
  * @throws {@link UnsupportedUpstreamRegistryException} (client fault)
- *  <p>The specified upstream registry isn't supported.</p>
+ *
+ * The specified upstream registry isn't supported.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

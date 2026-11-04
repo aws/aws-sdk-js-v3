@@ -10,25 +10,29 @@ import type {
 } from "./enums";
 
 /**
- * <p> The monetary amount of the credit. </p>
+ * The monetary amount of the credit.
+ *
  * @public
  */
 export interface MonetaryAmount {
   /**
-   * <p> The aggregated monetary amount of credits earned. </p>
+   * The aggregated monetary amount of credits earned.
+   *
    * @public
    */
   amount: number | undefined;
 
   /**
-   * <p> The unit that the monetary amount is given in. </p>
+   * The unit that the monetary amount is given in.
+   *
    * @public
    */
   unit: CurrencyCode | undefined;
 }
 
 /**
- * <p> The summary of the rewards granted as a result of activities completed. </p>
+ * The summary of the rewards granted as a result of activities completed.
+ *
  * @public
  */
 export type ActivityReward =
@@ -40,7 +44,8 @@ export type ActivityReward =
  */
 export namespace ActivityReward {
   /**
-   * <p> The credits gained by activity rewards. </p>
+   * The credits gained by activity rewards.
+   *
    * @public
    */
   export interface CreditMember {
@@ -67,30 +72,35 @@ export namespace ActivityReward {
 }
 
 /**
- * <p> The summary of activities. </p>
+ * The summary of activities.
+ *
  * @public
  */
 export interface ActivitySummary {
   /**
-   * <p> A unique identifier that identifies the activity. </p>
+   * A unique identifier that identifies the activity.
+   *
    * @public
    */
   activityId: string | undefined;
 
   /**
-   * <p> The title of the activity. </p>
+   * The title of the activity.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p> The reward for the activity. </p>
+   * The reward for the activity.
+   *
    * @public
    */
   reward: ActivityReward | undefined;
 
   /**
-   * <p> The current status of the activity. </p>
+   * The current status of the activity.
+   *
    * @public
    */
   status: ActivityStatus | undefined;
@@ -101,13 +111,15 @@ export interface ActivitySummary {
  */
 export interface GetAccountActivityRequest {
   /**
-   * <p> A unique identifier that identifies the activity. </p>
+   * A unique identifier that identifies the activity.
+   *
    * @public
    */
   activityId: string | undefined;
 
   /**
-   * <p> The language code used to return translated title and description fields. </p>
+   * The language code used to return translated title and description fields.
+   *
    * @public
    */
   languageCode?: LanguageCode | undefined;
@@ -118,61 +130,71 @@ export interface GetAccountActivityRequest {
  */
 export interface GetAccountActivityResponse {
   /**
-   * <p> A unique identifier that identifies the activity. </p>
+   * A unique identifier that identifies the activity.
+   *
    * @public
    */
   activityId: string | undefined;
 
   /**
-   * <p> A short activity title. </p>
+   * A short activity title.
+   *
    * @public
    */
   title: string | undefined;
 
   /**
-   * <p> Provides detailed information about the activity and its expected outcomes. </p>
+   * Provides detailed information about the activity and its expected outcomes.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p> The current activity status. </p>
+   * The current activity status.
+   *
    * @public
    */
   status: ActivityStatus | undefined;
 
   /**
-   * <p> The URL resource that provides guidance on activity requirements and completion. </p>
+   * The URL resource that provides guidance on activity requirements and completion.
+   *
    * @public
    */
   instructionsUrl: string | undefined;
 
   /**
-   * <p> A reward granted upon activity completion. </p>
+   * A reward granted upon activity completion.
+   *
    * @public
    */
   reward: ActivityReward | undefined;
 
   /**
-   * <p> The estimated time to complete the activity. This is the duration in minutes. </p>
+   * The estimated time to complete the activity. This is the duration in minutes.
+   *
    * @public
    */
   estimatedTimeToCompleteInMinutes?: number | undefined;
 
   /**
-   * <p> The time by which the activity must be completed to receive a reward. </p>
+   * The time by which the activity must be completed to receive a reward.
+   *
    * @public
    */
   expiresAt?: Date | undefined;
 
   /**
-   * <p> The timestamp when the activity started. This field appears only for activities in the <code>IN_PROGRESS</code> or <code>COMPLETED</code> states. </p>
+   * The timestamp when the activity started. This field appears only for activities in the `IN_PROGRESS` or `COMPLETED` states.
+   *
    * @public
    */
   startedAt?: Date | undefined;
 
   /**
-   * <p> The timestamp when the activity is completed. This field appears only for activities in the <code>COMPLETED</code> state. </p>
+   * The timestamp when the activity is completed. This field appears only for activities in the `COMPLETED` state.
+   *
    * @public
    */
   completedAt?: Date | undefined;
@@ -188,121 +210,141 @@ export interface GetAccountPlanStateRequest {}
  */
 export interface GetAccountPlanStateResponse {
   /**
-   * <p> A unique identifier that identifies the account. </p>
+   * A unique identifier that identifies the account.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p> The plan type for the account. </p>
+   * The plan type for the account.
+   *
    * @public
    */
   accountPlanType: AccountPlanType | undefined;
 
   /**
-   * <p> The current status for the account plan. </p>
+   * The current status for the account plan.
+   *
    * @public
    */
   accountPlanStatus: AccountPlanStatus | undefined;
 
   /**
-   * <p> The amount of credits remaining for the account. </p>
+   * The amount of credits remaining for the account.
+   *
    * @public
    */
   accountPlanRemainingCredits?: MonetaryAmount | undefined;
 
   /**
-   * <p> The timestamp for when the current account plan expires. </p>
+   * The timestamp for when the current account plan expires.
+   *
    * @public
    */
   accountPlanExpirationDate?: Date | undefined;
 }
 
 /**
- * <p>Contains the specifications for the filters to use for your request.</p>
+ * Contains the specifications for the filters to use for your request.
+ *
  * @public
  */
 export interface DimensionValues {
   /**
-   * <p>The name of the dimension that you want to filter on.</p>
+   * The name of the dimension that you want to filter on.
+   *
    * @public
    */
   Key: Dimension | undefined;
 
   /**
-   * <p>The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.</p>
+   * The metadata values you can specify to filter upon, so that the results all match at least one of the specified values.
+   *
    * @public
    */
   Values: string[] | undefined;
 
   /**
-   * <p>The match options that you can use to filter your results. You can specify only one of these values in the array.</p>
+   * The match options that you can use to filter your results. You can specify only one of these values in the array.
+   *
    * @public
    */
   MatchOptions: MatchOption[] | undefined;
 }
 
 /**
- * <p>Consists of a Amazon Web Services Free Tier offer’s metadata and your data usage for the offer.</p>
+ * Consists of a Amazon Web Services Free Tier offer’s metadata and your data usage for the offer.
+ *
  * @public
  */
 export interface FreeTierUsage {
   /**
-   * <p>The name of the Amazon Web Services service providing the Free Tier offer. For example, this can be Amazon Elastic Compute Cloud.</p>
+   * The name of the Amazon Web Services service providing the Free Tier offer. For example, this can be Amazon Elastic Compute Cloud.
+   *
    * @public
    */
   service?: string | undefined;
 
   /**
-   * <p>Describes <code>usageType</code> more granularly with the specific Amazon Web Services service API operation. For example, this can be the <code>RunInstances</code> API operation for Amazon Elastic Compute Cloud.</p>
+   * Describes `usageType` more granularly with the specific Amazon Web Services service API operation. For example, this can be the `RunInstances` API operation for Amazon Elastic Compute Cloud.
+   *
    * @public
    */
   operation?: string | undefined;
 
   /**
-   * <p>Describes the usage details of the offer. For example, this might be <code>Global-BoxUsage:freetrial</code>.</p>
+   * Describes the usage details of the offer. For example, this might be `Global-BoxUsage:freetrial`.
+   *
    * @public
    */
   usageType?: string | undefined;
 
   /**
-   * <p>Describes the Amazon Web Services Region for which this offer is applicable</p>
+   * Describes the Amazon Web Services Region for which this offer is applicable
+   *
    * @public
    */
   region?: string | undefined;
 
   /**
-   * <p>Describes the actual usage accrued month-to-day (MTD) that you've used so far.</p>
+   * Describes the actual usage accrued month-to-day (MTD) that you've used so far.
+   *
    * @public
    */
   actualUsageAmount?: number | undefined;
 
   /**
-   * <p>Describes the forecasted usage by the month that you're expected to use.</p>
+   * Describes the forecasted usage by the month that you're expected to use.
+   *
    * @public
    */
   forecastedUsageAmount?: number | undefined;
 
   /**
-   * <p>Describes the maximum usage allowed in Free Tier.</p>
+   * Describes the maximum usage allowed in Free Tier.
+   *
    * @public
    */
   limit?: number | undefined;
 
   /**
-   * <p>Describes the unit of the <code>usageType</code>, such as <code>Hrs</code>.</p>
+   * Describes the unit of the `usageType`, such as `Hrs`.
+   *
    * @public
    */
   unit?: string | undefined;
 
   /**
-   * <p>The description of the Free Tier offer.</p>
+   * The description of the Free Tier offer.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Describes the type of the Free Tier offer. For example, the offer can be <code>"12 Months Free"</code>, <code>"Always Free"</code>, and <code>"Free Trial"</code>.</p>
+   * Describes the type of the Free Tier offer. For example, the offer can be `"12 Months Free"`, `"Always Free"`, and `"Free Trial"`.
+   *
    * @public
    */
   freeTierType?: string | undefined;
@@ -313,13 +355,15 @@ export interface FreeTierUsage {
  */
 export interface GetFreeTierUsageResponse {
   /**
-   * <p>The list of Free Tier usage objects that meet your filter expression.</p>
+   * The list of Free Tier usage objects that meet your filter expression.
+   *
    * @public
    */
   freeTierUsages: FreeTierUsage[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -330,25 +374,29 @@ export interface GetFreeTierUsageResponse {
  */
 export interface ListAccountActivitiesRequest {
   /**
-   * <p> The activity status filter. This field can be used to filter the response by activities status. </p>
+   * The activity status filter. This field can be used to filter the response by activities status.
+   *
    * @public
    */
   filterActivityStatuses?: ActivityStatus[] | undefined;
 
   /**
-   * <p> A token from a previous paginated response. If this is specified, the response includes records beginning from this token (inclusive), up to the number specified by <code>maxResults</code>. </p>
+   * A token from a previous paginated response. If this is specified, the response includes records beginning from this token (inclusive), up to the number specified by `maxResults`.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p> The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. </p>
+   * The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> The language code used to return translated titles. </p>
+   * The language code used to return translated titles.
+   *
    * @public
    */
   languageCode?: LanguageCode | undefined;
@@ -359,13 +407,15 @@ export interface ListAccountActivitiesRequest {
  */
 export interface ListAccountActivitiesResponse {
   /**
-   * <p> A brief information about the activities. </p>
+   * A brief information about the activities.
+   *
    * @public
    */
   activities: ActivitySummary[] | undefined;
 
   /**
-   * <p> The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return. </p>
+   * The token to include in another request to get the next page of items. This value is `null` when there are no more items to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -376,7 +426,8 @@ export interface ListAccountActivitiesResponse {
  */
 export interface UpgradeAccountPlanRequest {
   /**
-   * <p> The target account plan type. This makes it explicit about the change and latest value of the <code>accountPlanType</code>. </p>
+   * The target account plan type. This makes it explicit about the change and latest value of the `accountPlanType`.
+   *
    * @public
    */
   accountPlanType: AccountPlanType | undefined;
@@ -387,49 +438,82 @@ export interface UpgradeAccountPlanRequest {
  */
 export interface UpgradeAccountPlanResponse {
   /**
-   * <p> A unique identifier that identifies the account. </p>
+   * A unique identifier that identifies the account.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p> The type of plan for the account. </p>
+   * The type of plan for the account.
+   *
    * @public
    */
   accountPlanType: AccountPlanType | undefined;
 
   /**
-   * <p> This indicates the latest state of the account plan within its lifecycle. </p>
+   * This indicates the latest state of the account plan within its lifecycle.
+   *
    * @public
    */
   accountPlanStatus: AccountPlanStatus | undefined;
 }
 
 /**
- * <p>Use <code>Expression</code> to filter in the <code>GetFreeTierUsage</code> API operation.</p> <p>You can use the following patterns:</p> <ul> <li> <p>Simple dimension values (<code>Dimensions</code> root operator)</p> </li> <li> <p>Complex expressions with logical operators (<code>AND</code>, <code>NOT</code>, and <code>OR</code> root operators).</p> </li> </ul> <p>For <i>simple dimension values</i>, you can set the dimension name, values, and match type for the filters that you plan to use.</p> <p> <b>Example for simple dimension values</b> </p> <p>You can filter to match exactly for <code>REGION==us-east-1 OR REGION==us-west-1</code>.</p> <p>The corresponding <code>Expression</code> appears like the following: <code>\{ "Dimensions": \{ "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ], "MatchOptions": ["EQUALS"] \} \}</code> </p> <p>As shown in the previous example, lists of dimension values are combined with <code>OR</code> when you apply the filter.</p> <p>For <i>complex expressions with logical operators</i>, you can have nested expressions to use the logical operators and specify advanced filtering.</p> <p> <b>Example for complex expressions with logical operators</b> </p> <p>You can filter by <code>((REGION == us-east-1 OR REGION == us-west-1) OR (SERVICE CONTAINS AWSLambda)) AND (USAGE_TYPE !CONTAINS DataTransfer)</code>.</p> <p>The corresponding <code>Expression</code> appears like the following: <code>\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ], "MatchOptions": ["EQUALS"] \}\}, \{"Dimensions": \{ "Key": "SERVICE", "Values": ["AWSLambda"], "MatchOptions": ["CONTAINS"] \} \} ]\}, \{"Not": \{"Dimensions": \{ "Key": "USAGE_TYPE", "Values": ["DataTransfer"], "MatchOptions": ["CONTAINS"] \}\}\} ] \}</code> </p> <p>In the following <b>Contents</b>, you must specify exactly one of the following root operators.</p>
+ * Use `Expression` to filter in the `GetFreeTierUsage` API operation.
+ *
+ * You can use the following patterns:
+ *
+ * - Simple dimension values (`Dimensions` root operator)
+ * - Complex expressions with logical operators (`AND`, `NOT`, and `OR` root operators).
+ *
+ * For *simple dimension values*, you can set the dimension name, values, and match type for the filters that you plan to use.
+ *
+ * **Example for simple dimension values**
+ *
+ * You can filter to match exactly for `REGION==us-east-1 OR REGION==us-west-1`.
+ *
+ * The corresponding `Expression` appears like the following: `\{ "Dimensions": \{ "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ], "MatchOptions": ["EQUALS"] \} \}`
+ *
+ * As shown in the previous example, lists of dimension values are combined with `OR` when you apply the filter.
+ *
+ * For *complex expressions with logical operators*, you can have nested expressions to use the logical operators and specify advanced filtering.
+ *
+ * **Example for complex expressions with logical operators**
+ *
+ * You can filter by `((REGION == us-east-1 OR REGION == us-west-1) OR (SERVICE CONTAINS AWSLambda)) AND (USAGE_TYPE !CONTAINS DataTransfer)`.
+ *
+ * The corresponding `Expression` appears like the following: `\{ "And": [ \{"Or": [ \{"Dimensions": \{ "Key": "REGION", "Values": [ "us-east-1", "us-west-1" ], "MatchOptions": ["EQUALS"] \}\}, \{"Dimensions": \{ "Key": "SERVICE", "Values": ["AWSLambda"], "MatchOptions": ["CONTAINS"] \} \} ]\}, \{"Not": \{"Dimensions": \{ "Key": "USAGE_TYPE", "Values": ["DataTransfer"], "MatchOptions": ["CONTAINS"] \}\}\} ] \}`
+ *
+ * In the following **Contents**, you must specify exactly one of the following root operators.
+ *
  * @public
  */
 export interface Expression {
   /**
-   * <p>Return results that match any of the <code>Expressions</code> that you specified. in the array.</p>
+   * Return results that match any of the `Expressions` that you specified. in the array.
+   *
    * @public
    */
   Or?: Expression[] | undefined;
 
   /**
-   * <p>Return results that match all <code>Expressions</code> that you specified in the array.</p>
+   * Return results that match all `Expressions` that you specified in the array.
+   *
    * @public
    */
   And?: Expression[] | undefined;
 
   /**
-   * <p>Return results that don’t match the <code>Expression</code> that you specified.</p>
+   * Return results that don’t match the `Expression` that you specified.
+   *
    * @public
    */
   Not?: Expression | undefined;
 
   /**
-   * <p>The specific dimension, values, and match type to filter objects with.</p>
+   * The specific dimension, values, and match type to filter objects with.
+   *
    * @public
    */
   Dimensions?: DimensionValues | undefined;
@@ -440,19 +524,22 @@ export interface Expression {
  */
 export interface GetFreeTierUsageRequest {
   /**
-   * <p>An expression that specifies the conditions that you want each <code>FreeTierUsage</code> object to meet.</p>
+   * An expression that specifies the conditions that you want each `FreeTierUsage` object to meet.
+   *
    * @public
    */
   filter?: Expression | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. <code>MaxResults</code> means that there can be up to the specified number of values, but there might be fewer results based on your filters.</p>
+   * The maximum number of results to return in the response. `MaxResults` means that there can be up to the specified number of values, but there might be fewer results based on your filters.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * The pagination token that indicates the next set of results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;

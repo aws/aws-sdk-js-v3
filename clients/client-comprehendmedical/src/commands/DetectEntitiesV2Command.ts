@@ -23,17 +23,14 @@ export interface DetectEntitiesV2CommandInput extends DetectEntitiesV2Request {}
 export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response, __MetadataBearer {}
 
 /**
- * <p>Inspects the clinical text for a variety of medical entities and returns specific
- *       information about them such as entity category, location, and confidence score on that
- *       information. Amazon Comprehend Medical only detects medical entities in English language
- *       texts.</p>
- *          <p>The <code>DetectEntitiesV2</code> operation replaces the <a>DetectEntities</a>
- *       operation. This new action uses a different model for determining the entities in your medical
- *       text and changes the way that some entities are returned in the output. You should use the
- *         <code>DetectEntitiesV2</code> operation in all new applications.</p>
+ * Inspects the clinical text for a variety of medical entities and returns specific information about them such as entity category, location, and confidence score on that information. Amazon Comprehend Medical only detects medical entities in English language texts.
  *
- *          <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and
- *         <code>Direction</code> entities as attributes instead of types. </p>
+ * The `DetectEntitiesV2` operation replaces the DetectEntities operation. This new action uses a different model for determining the entities in your medical text and changes the way that some entities are returned in the output. You should use the `DetectEntitiesV2` operation in all new applications.
+ *
+ *
+ *
+ * The `DetectEntitiesV2` operation returns the `Acuity` and `Direction` entities as attributes instead of types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,32 +111,32 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidEncodingException} (client fault)
- *  <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
- *       request.</p>
+ *
+ * The input text was not in valid UTF-8 character encoding. Check your text then retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request.</p>
+ *
+ * The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
- *     </p>
+ *
+ * The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)
- *  <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
- *       use a smaller document and then retry your request. </p>
+ *
+ * The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again. Contact customer support for more information about a service
- *       limit increase. </p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase.
  *
  * @throws {@link ComprehendMedicalServiceException}
- * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * Base exception class for all service exceptions from ComprehendMedical service.
  *
  * @public
  */

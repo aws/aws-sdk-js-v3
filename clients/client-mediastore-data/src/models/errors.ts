@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreDataServiceException";
 
 /**
- * <p>The specified container was not found for the specified account.</p>
+ * The specified container was not found for the specified account.
+ *
  * @public
  */
 export class ContainerNotFoundException extends __BaseException {
@@ -27,7 +28,8 @@ export class ContainerNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>Could not perform an operation on an object that does not exist.</p>
+ * Could not perform an operation on an object that does not exist.
+ *
  * @public
  */
 export class ObjectNotFoundException extends __BaseException {
@@ -73,7 +76,8 @@ export class ObjectNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested content range is not valid.</p>
+ * The requested content range is not valid.
+ *
  * @public
  */
 export class RequestedRangeNotSatisfiableException extends __BaseException {

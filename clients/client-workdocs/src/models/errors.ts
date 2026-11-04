@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { WorkDocsServiceException as __BaseException } from "./WorkDocsServiceException";
 
 /**
- * <p>The resource hierarchy is changing.</p>
+ * The resource hierarchy is changing.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -27,7 +28,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The resource does not exist.</p>
+ * The resource does not exist.
+ *
  * @public
  */
 export class EntityNotExistsException extends __BaseException {
@@ -36,7 +38,8 @@ export class EntityNotExistsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The IDs of the non-existent resources.</p>
+   * The IDs of the non-existent resources.
+   *
    * @public
    */
   EntityIds?: string[] | undefined;
@@ -56,9 +59,8 @@ export class EntityNotExistsException extends __BaseException {
 }
 
 /**
- * <p>The Directory Service cannot reach an on-premises instance. Or a dependency
- *             under the control of the organization is failing, such as a connected Active
- *             Directory.</p>
+ * The Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected Active Directory.
+ *
  * @public
  */
 export class FailedDependencyException extends __BaseException {
@@ -81,7 +83,8 @@ export class FailedDependencyException extends __BaseException {
 }
 
 /**
- * <p>The specified document version is not in the INITIALIZED state.</p>
+ * The specified document version is not in the INITIALIZED state.
+ *
  * @public
  */
 export class ProhibitedStateException extends __BaseException {
@@ -104,7 +107,8 @@ export class ProhibitedStateException extends __BaseException {
 }
 
 /**
- * <p>One or more of the dependencies is unavailable.</p>
+ * One or more of the dependencies is unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -127,7 +131,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The operation is not permitted.</p>
+ * The operation is not permitted.
+ *
  * @public
  */
 export class UnauthorizedOperationException extends __BaseException {
@@ -152,7 +157,8 @@ export class UnauthorizedOperationException extends __BaseException {
 }
 
 /**
- * <p>The caller does not have access to perform the action on the resource.</p>
+ * The caller does not have access to perform the action on the resource.
+ *
  * @public
  */
 export class UnauthorizedResourceAccessException extends __BaseException {
@@ -175,8 +181,8 @@ export class UnauthorizedResourceAccessException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the document is locked for comments and user tries to
- *             create or delete a comment on that document.</p>
+ * This exception is thrown when the document is locked for comments and user tries to create or delete a comment on that document.
+ *
  * @public
  */
 export class DocumentLockedForCommentsException extends __BaseException {
@@ -199,7 +205,8 @@ export class DocumentLockedForCommentsException extends __BaseException {
 }
 
 /**
- * <p>The requested operation is not allowed on the specified comment object.</p>
+ * The requested operation is not allowed on the specified comment object.
+ *
  * @public
  */
 export class InvalidCommentOperationException extends __BaseException {
@@ -222,8 +229,8 @@ export class InvalidCommentOperationException extends __BaseException {
 }
 
 /**
- * <p>The limit has been reached on the number of custom properties for the specified
- *             resource.</p>
+ * The limit has been reached on the number of custom properties for the specified resource.
+ *
  * @public
  */
 export class CustomMetadataLimitExceededException extends __BaseException {
@@ -246,7 +253,8 @@ export class CustomMetadataLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+ * Another operation is in progress on the resource that conflicts with the current operation.
+ *
  * @public
  */
 export class ConflictingOperationException extends __BaseException {
@@ -269,7 +277,8 @@ export class ConflictingOperationException extends __BaseException {
 }
 
 /**
- * <p>The resource already exists.</p>
+ * The resource already exists.
+ *
  * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
@@ -292,7 +301,8 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The maximum of 100,000 files and folders under the parent folder has been exceeded.</p>
+ * The maximum of 100,000 files and folders under the parent folder has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -315,8 +325,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The limit has been reached on the number of labels for the specified
- *             resource.</p>
+ * The limit has been reached on the number of labels for the specified resource.
+ *
  * @public
  */
 export class TooManyLabelsException extends __BaseException {
@@ -339,7 +349,8 @@ export class TooManyLabelsException extends __BaseException {
 }
 
 /**
- * <p>The pagination marker or limit fields are not valid.</p>
+ * The pagination marker or limit fields are not valid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -362,8 +373,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of subscriptions for the WorkDocs
- *             instance.</p>
+ * You've reached the limit on the number of subscriptions for the WorkDocs instance.
+ *
  * @public
  */
 export class TooManySubscriptionsException extends __BaseException {
@@ -386,7 +397,8 @@ export class TooManySubscriptionsException extends __BaseException {
 }
 
 /**
- * <p>The operation is invalid.</p>
+ * The operation is invalid.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -409,7 +421,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>The password is invalid.</p>
+ * The password is invalid.
+ *
  * @public
  */
 export class InvalidPasswordException extends __BaseException {
@@ -432,7 +445,8 @@ export class InvalidPasswordException extends __BaseException {
 }
 
 /**
- * <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
+ * The response is too large to return. The request must include a filter to reduce the size of the response.
+ *
  * @public
  */
 export class RequestedEntityTooLargeException extends __BaseException {
@@ -455,8 +469,8 @@ export class RequestedEntityTooLargeException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when a valid checkout ID is not presented on document
- *             version upload calls for a document that has been checked out from Web client.</p>
+ * This exception is thrown when a valid checkout ID is not presented on document version upload calls for a document that has been checked out from Web client.
+ *
  * @public
  */
 export class DraftUploadOutOfSyncException extends __BaseException {
@@ -479,7 +493,8 @@ export class DraftUploadOutOfSyncException extends __BaseException {
 }
 
 /**
- * <p>The resource is already checked out.</p>
+ * The resource is already checked out.
+ *
  * @public
  */
 export class ResourceAlreadyCheckedOutException extends __BaseException {
@@ -502,7 +517,8 @@ export class ResourceAlreadyCheckedOutException extends __BaseException {
 }
 
 /**
- * <p>The storage limit has been exceeded.</p>
+ * The storage limit has been exceeded.
+ *
  * @public
  */
 export class StorageLimitExceededException extends __BaseException {
@@ -525,7 +541,8 @@ export class StorageLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The storage limit will be exceeded.</p>
+ * The storage limit will be exceeded.
+ *
  * @public
  */
 export class StorageLimitWillExceedException extends __BaseException {
@@ -548,7 +565,8 @@ export class StorageLimitWillExceedException extends __BaseException {
 }
 
 /**
- * <p>The last user in the organization is being deactivated.</p>
+ * The last user in the organization is being deactivated.
+ *
  * @public
  */
 export class DeactivatingLastSystemUserException extends __BaseException {
@@ -573,7 +591,8 @@ export class DeactivatingLastSystemUserException extends __BaseException {
 }
 
 /**
- * <p>The user is undergoing transfer of ownership.</p>
+ * The user is undergoing transfer of ownership.
+ *
  * @public
  */
 export class IllegalUserStateException extends __BaseException {

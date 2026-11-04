@@ -23,7 +23,8 @@ export interface UpdateDevicesCommandInput extends UpdateDevicesRequest {}
 export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates one or more devices in a fleet.</p>
+ * Updates one or more devices in a fleet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +56,8 @@ export interface UpdateDevicesCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

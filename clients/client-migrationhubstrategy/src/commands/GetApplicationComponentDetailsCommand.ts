@@ -23,7 +23,8 @@ export interface GetApplicationComponentDetailsCommandInput extends GetApplicati
 export interface GetApplicationComponentDetailsCommandOutput extends GetApplicationComponentDetailsResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves details about an application component. </p>
+ * Retrieves details about an application component.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,17 +136,20 @@ export interface GetApplicationComponentDetailsCommandOutput extends GetApplicat
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ID in the request is not found. </p>
+ *
+ * The specified ID in the request is not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link MigrationHubStrategyServiceException}
- * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ * Base exception class for all service exceptions from MigrationHubStrategy service.
  *
  * @public
  */

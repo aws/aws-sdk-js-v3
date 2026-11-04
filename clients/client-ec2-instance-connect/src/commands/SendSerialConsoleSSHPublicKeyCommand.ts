@@ -23,10 +23,8 @@ export interface SendSerialConsoleSSHPublicKeyCommandInput extends SendSerialCon
 export interface SendSerialConsoleSSHPublicKeyCommandOutput extends SendSerialConsoleSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60
- *             seconds, which gives you 60 seconds to establish a serial console connection to the
- *             instance using SSH. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html">EC2 Serial Console</a> in
- *             the <i>Amazon EC2 User Guide</i>.</p>
+ * Pushes an SSH public key to the specified EC2 instance. The key remains for 60 seconds, which gives you 60 seconds to establish a serial console connection to the instance using SSH. For more information, see [EC2 Serial Console](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,50 +54,56 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput extends SendSerialCo
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
  *
  * @throws {@link AuthException} (client fault)
- *  <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+ *
+ * Either your AWS credentials are not valid or you do not have access to the EC2 instance.
  *
  * @throws {@link EC2InstanceNotFoundException} (client fault)
- *  <p>The specified instance was not found.</p>
+ *
+ * The specified instance was not found.
  *
  * @throws {@link EC2InstanceStateInvalidException} (client fault)
- *  <p>Unable to connect because the instance is not in a valid state.
- *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
- *             start your instance, and try to connect again.</p>
+ *
+ * Unable to connect because the instance is not in a valid state. Connecting to a stopped or terminated instance is not supported. If the instance is stopped, start your instance, and try to connect again.
  *
  * @throws {@link EC2InstanceTypeInvalidException} (client fault)
- *  <p>The instance type is not supported for connecting via the serial console. Only Nitro
- *             instance types are currently supported.</p>
+ *
+ * The instance type is not supported for connecting via the serial console. Only Nitro instance types are currently supported.
  *
  * @throws {@link EC2InstanceUnavailableException} (server fault)
- *  <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ *
+ * The instance is currently unavailable. Wait a few minutes and try again.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One of the parameters is not valid.</p>
+ *
+ * One of the parameters is not valid.
  *
  * @throws {@link SerialConsoleAccessDisabledException} (client fault)
- *  <p>Your account is not authorized to use the EC2 Serial Console. To authorize your
- *             account, run the EnableSerialConsoleAccess API. For more information, see
- *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html">EnableSerialConsoleAccess</a> in the <i>Amazon EC2 API Reference</i>.</p>
+ *
+ * Your account is not authorized to use the EC2 Serial Console. To authorize your account, run the EnableSerialConsoleAccess API. For more information, see [EnableSerialConsoleAccess](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html) in the *Amazon EC2 API Reference*.
  *
  * @throws {@link SerialConsoleSessionLimitExceededException} (client fault)
- *  <p>The instance currently has 1 active serial console session. Only 1 session is supported at a time.</p>
+ *
+ * The instance currently has 1 active serial console session. Only 1 session is supported at a time.
  *
  * @throws {@link SerialConsoleSessionUnavailableException} (server fault)
- *  <p>Unable to start a serial console session. Please try again.</p>
+ *
+ * Unable to start a serial console session. Please try again.
  *
  * @throws {@link SerialConsoleSessionUnsupportedException} (client fault)
- *  <p>Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.</p>
+ *
+ * Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+ *
+ * The service encountered an error. Follow the instructions in the error message and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
- *             To increase the limit on your request frequency, contact AWS Support.</p>
+ *
+ * The requests were made too frequently and have been throttled. Wait a while and try again. To increase the limit on your request frequency, contact AWS Support.
  *
  * @throws {@link EC2InstanceConnectServiceException}
- * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
+ * Base exception class for all service exceptions from EC2InstanceConnect service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest 
 export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing subnet group.</p>
+ * Modifies an existing subnet group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,32 +71,32 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * An invalid subnet identifier was specified.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The requested subnet group name does not refer to an existing subnet
- *             group.</p>
+ *
+ * The requested subnet group name does not refer to an existing subnet group.
  *
  * @throws {@link SubnetInUse} (client fault)
- *  <p>The requested subnet is being used by another subnet group.</p>
+ *
+ * The requested subnet is being used by another subnet group.
  *
  * @throws {@link SubnetNotAllowedFault} (client fault)
- *  <p>The specified subnet can't be used for the requested network type. This error
- *             occurs when either there aren't enough subnets of the required network type to create
- *             the cluster, or when you try to use a subnet that doesn't support the requested network
- *             type (for example, trying to create a dual-stack cluster with a subnet that doesn't have
- *             IPv6 CIDR). </p>
+ *
+ * The specified subnet can't be used for the requested network type. This error occurs when either there aren't enough subnets of the required network type to create the cluster, or when you try to use a subnet that doesn't support the requested network type (for example, trying to create a dual-stack cluster with a subnet that doesn't have IPv6 CIDR).
  *
  * @throws {@link SubnetQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the allowed number of
- *             subnets in a subnet group.</p>
+ *
+ * The request cannot be processed because it would exceed the allowed number of subnets in a subnet group.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

@@ -23,20 +23,12 @@ export interface RestoreTableFromClusterSnapshotCommandInput extends RestoreTabl
 export interface RestoreTableFromClusterSnapshotCommandOutput extends RestoreTableFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new table from a table in an Amazon Redshift cluster snapshot. You must
- *             create the new table within the Amazon Redshift cluster that the snapshot was taken
- *             from.</p>
- *          <p>You cannot use <code>RestoreTableFromClusterSnapshot</code> to restore a table with
- *             the same name as an existing table in an Amazon Redshift cluster. That is, you cannot
- *             overwrite an existing table in a cluster with a restored table. If you want to replace
- *             your original table with a new, restored table, then rename or drop your original table
- *             before you call <code>RestoreTableFromClusterSnapshot</code>. When you have renamed your
- *             original table, then you can pass the original name of the table as the
- *                 <code>NewTableName</code> parameter value in the call to
- *                 <code>RestoreTableFromClusterSnapshot</code>. This way, you can replace the original
- *             table with the table created from the snapshot.</p>
- *          <p>You can't use this operation to restore tables with
- *             <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved sort keys</a>.</p>
+ * Creates a new table from a table in an Amazon Redshift cluster snapshot. You must create the new table within the Amazon Redshift cluster that the snapshot was taken from.
+ *
+ * You cannot use `RestoreTableFromClusterSnapshot` to restore a table with the same name as an existing table in an Amazon Redshift cluster. That is, you cannot overwrite an existing table in a cluster with a restored table. If you want to replace your original table with a new, restored table, then rename or drop your original table before you call `RestoreTableFromClusterSnapshot`. When you have renamed your original table, then you can pass the original name of the table as the `NewTableName` parameter value in the call to `RestoreTableFromClusterSnapshot`. This way, you can replace the original table with the table created from the snapshot.
+ *
+ * You can't use this operation to restore tables with [interleaved sort keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,34 +78,36 @@ export interface RestoreTableFromClusterSnapshotCommandOutput extends RestoreTab
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link InProgressTableRestoreQuotaExceededFault} (client fault)
- *  <p>You have exceeded the allowed number of table restore requests. Wait for your
- *             current table restore requests to complete before making a new request.</p>
+ *
+ * You have exceeded the allowed number of table restore requests. Wait for your current table restore requests to complete before making a new request.
  *
  * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
- *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ *
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidTableRestoreArgumentFault} (client fault)
- *  <p>The value specified for the <code>sourceDatabaseName</code>,
- *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
- *             combination of these, doesn't exist in the snapshot.</p>
+ *
+ * The value specified for the `sourceDatabaseName`, `sourceSchemaName`, or `sourceTableName` parameter, or a combination of these, doesn't exist in the snapshot.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

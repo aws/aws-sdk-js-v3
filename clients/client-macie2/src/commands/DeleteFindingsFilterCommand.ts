@@ -23,7 +23,8 @@ export interface DeleteFindingsFilterCommandInput extends DeleteFindingsFilterRe
 export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a findings filter.</p>
+ * Deletes a findings filter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,29 +49,36 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Provides information about an error that occurred due to insufficient access to a specified resource.</p>
+ *
+ * Provides information about an error that occurred due to insufficient access to a specified resource.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Provides information about an error that occurred due to a versioning conflict for a specified resource.</p>
+ *
+ * Provides information about an error that occurred due to a versioning conflict for a specified resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Provides information about an error that occurred due to an unknown internal server error, exception, or failure.</p>
+ *
+ * Provides information about an error that occurred due to an unknown internal server error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Provides information about an error that occurred because a specified resource wasn't found.</p>
+ *
+ * Provides information about an error that occurred because a specified resource wasn't found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Provides information about an error that occurred due to one or more service quotas for an account.</p>
+ *
+ * Provides information about an error that occurred due to one or more service quotas for an account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Provides information about an error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * Provides information about an error that occurred because too many requests were sent during a certain amount of time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Provides information about an error that occurred due to a syntax error in a request.</p>
+ *
+ * Provides information about an error that occurred due to a syntax error in a request.
  *
  * @throws {@link Macie2ServiceException}
- * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ * Base exception class for all service exceptions from Macie2 service.
  *
  * @public
  */

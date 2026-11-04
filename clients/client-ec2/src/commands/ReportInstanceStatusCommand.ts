@@ -23,11 +23,10 @@ export interface ReportInstanceStatusCommandInput extends ReportInstanceStatusRe
 export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Submits feedback about the status of an instance. The instance must be in the
- *                 <code>running</code> state. If your experience with the instance differs from the
- *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
- *             EC2 collects this information to improve the accuracy of status checks.</p>
- *          <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
+ * Submits feedback about the status of an instance. The instance must be in the `running` state. If your experience with the instance differs from the instance status returned by DescribeInstanceStatus, use ReportInstanceStatus to report your experience with the instance. Amazon EC2 collects this information to improve the accuracy of status checks.
+ *
+ * Use of this action does not change the value returned by DescribeInstanceStatus.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,8 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CleanRoomsMLServiceException as __BaseException } from "./CleanRoomsMLServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -46,7 +48,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request parameters for this request are incorrect.</p>
+ * The request parameters for this request are incorrect.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -67,7 +70,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You can't complete this action because another resource depends on this resource.</p>
+ * You can't complete this action because another resource depends on this resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -88,7 +92,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource you are requesting does not exist.</p>
+ * The resource you are requesting does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your service quota.</p>
+ * You have exceeded your service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -144,7 +150,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred. Retry your request. If the problem persists, contact AWS Support.</p>
+ * An internal service error occurred. Retry your request. If the problem persists, contact AWS Support.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {

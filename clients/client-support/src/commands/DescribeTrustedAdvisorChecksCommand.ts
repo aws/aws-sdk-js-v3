@@ -23,32 +23,18 @@ export interface DescribeTrustedAdvisorChecksCommandInput extends DescribeTruste
 export interface DescribeTrustedAdvisorChecksCommandOutput extends DescribeTrustedAdvisorChecksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all available Trusted Advisor checks, including the name, ID,
- *             category, description, and metadata. You must specify a language code.</p>
- *          <p>The response contains a <a>TrustedAdvisorCheckDescription</a> object for
- *             each check. You must set the Amazon Web Services Region to us-east-1.</p>
- *          <note>
- *             <ul>
- *                <li>
- *                   <p>You must have a Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. </p>
- *                </li>
- *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the <code>SubscriptionRequiredException</code> error
- *                         message appears. For information about changing your support plan, see
- *                             <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
- *                </li>
- *                <li>
- *                   <p>The names and descriptions for Trusted Advisor checks are subject to change. We
- *                         recommend that you specify the check ID in your code to uniquely identify a
- *                         check.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <p>To call the Trusted Advisor operations in
- * the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland)
- * endpoints don't support the Trusted Advisor operations. For more information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About the Amazon Web Services Support
- * API</a> in the <i>Amazon Web Services Support User Guide</i>.</p>
+ * Returns information about all available Trusted Advisor checks, including the name, ID, category, description, and metadata. You must specify a language code.
+ *
+ * The response contains a TrustedAdvisorCheckDescription object for each check. You must set the Amazon Web Services Region to us-east-1.
+ *
+ * > **Note:**
+ * >
+ * > - You must have a Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API.
+ * > - If you call the Amazon Web Services Support API from an account that doesn't have a Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the `SubscriptionRequiredException` error message appears. For information about changing your support plan, see [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/).
+ * > - The names and descriptions for Trusted Advisor checks are subject to change. We recommend that you specify the check ID in your code to uniquely identify a check.
+ *
+ * To call the Trusted Advisor operations in the Amazon Web Services Support API, you must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe (Ireland) endpoints don't support the Trusted Advisor operations. For more information, see [About the Amazon Web Services Support API](https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint) in the *Amazon Web Services Support User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,16 +71,16 @@ export interface DescribeTrustedAdvisorChecksCommandOutput extends DescribeTrust
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *         You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
- *         </p>
+ *
+ * You have exceeded the maximum allowed TPS (Transactions Per Second) for the operations.
  *
  * @throws {@link SupportServiceException}
- * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ * Base exception class for all service exceptions from Support service.
  *
  * @public
  */

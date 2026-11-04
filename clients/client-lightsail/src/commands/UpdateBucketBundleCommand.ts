@@ -23,19 +23,12 @@ export interface UpdateBucketBundleCommandInput extends UpdateBucketBundleReques
 export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResult, __MetadataBearer {}
 
 /**
- * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
- *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
- *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
- *       billing cycle. To determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
- *         <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can
- *       currently update a bucket's bundle.</p>
- *          <p>Update a bucket's bundle if it's consistently going over its storage space or data
- *       transfer quota, or if a bucket's usage is consistently in the lower range of its storage space
- *       or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might
- *       experience, we strongly recommend that you update a bucket's bundle only as a long-term
- *       strategy, instead of as a short-term, monthly cost-cutting measure. Choose a bucket bundle
- *       that will provide the bucket with ample storage space and data transfer for a long time to
- *       come.</p>
+ * Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.
+ *
+ * A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services billing cycle. To determine if you can update a bucket's bundle, use the [GetBuckets](https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html) action. The `ableToUpdateBundle` parameter in the response will indicate whether you can currently update a bucket's bundle.
+ *
+ * Update a bucket's bundle if it's consistently going over its storage space or data transfer quota, or if a bucket's usage is consistently in the lower range of its storage space or data transfer quota. Due to the unpredictable usage fluctuations that a bucket might experience, we strongly recommend that you update a bucket's bundle only as a long-term strategy, instead of as a short-term, monthly cost-cutting measure. Choose a bucket bundle that will provide the bucket with ample storage space and data transfer for a long time to come.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,35 +74,34 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link RegionSetupInProgressException} (client fault)
- *  <p>Lightsail throws this exception when an operation is performed on resources in an opt-in
- *       Region that is currently being set up.</p>
+ *
+ * Lightsail throws this exception when an operation is performed on resources in an opt-in Region that is currently being set up.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

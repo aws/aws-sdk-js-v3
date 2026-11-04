@@ -23,22 +23,14 @@ export interface PutRecordCommandInput extends PutRecordRequest {}
 export interface PutRecordCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>The <code>PutRecord</code> API is used to ingest a list of <code>Records</code> into
- *          your feature group. </p>
- *          <p>If a new record’s <code>EventTime</code> is greater, the new record is written to both
- *          the <code>OnlineStore</code> and <code>OfflineStore</code>. Otherwise, the record is a
- *          historic record and it is written only to the <code>OfflineStore</code>. </p>
- *          <p>You can specify the ingestion to be applied to the <code>OnlineStore</code>,
- *             <code>OfflineStore</code>, or both by using the <code>TargetStores</code> request
- *          parameter. </p>
- *          <p>You can set the ingested record to expire at a given time to live (TTL) duration after
- *          the record’s event time, <code>ExpiresAt</code> = <code>EventTime</code> +
- *             <code>TtlDuration</code>, by specifying the <code>TtlDuration</code> parameter. A record
- *          level <code>TtlDuration</code> is set when specifying the <code>TtlDuration</code>
- *          parameter using the <code>PutRecord</code> API call. If the input <code>TtlDuration</code>
- *          is <code>null</code> or unspecified, <code>TtlDuration</code> is set to the default feature
- *          group level <code>TtlDuration</code>. A record level <code>TtlDuration</code> supersedes
- *          the group level <code>TtlDuration</code>.</p>
+ * The `PutRecord` API is used to ingest a list of `Records` into your feature group.
+ *
+ * If a new record’s `EventTime` is greater, the new record is written to both the `OnlineStore` and `OfflineStore`. Otherwise, the record is a historic record and it is written only to the `OfflineStore`.
+ *
+ * You can specify the ingestion to be applied to the `OnlineStore`, `OfflineStore`, or both by using the `TargetStores` request parameter.
+ *
+ * You can set the ingested record to expire at a given time to live (TTL) duration after the record’s event time, `ExpiresAt` = `EventTime` + `TtlDuration`, by specifying the `TtlDuration` parameter. A record level `TtlDuration` is set when specifying the `TtlDuration` parameter using the `PutRecord` API call. If the input `TtlDuration` is `null` or unspecified, `TtlDuration` is set to the default feature group level `TtlDuration`. A record level `TtlDuration` supersedes the group level `TtlDuration`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,21 +71,24 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  * @throws {@link AccessForbidden} (client fault)
- *  <p>You do not have permission to perform an action.</p>
+ *
+ * You do not have permission to perform an action.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p>There was an error validating your request.</p>
+ *
+ * There was an error validating your request.
  *
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.
  *
  * @public
  */

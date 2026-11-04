@@ -23,24 +23,19 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the IAM users that have the specified path prefix. If no path prefix is
- *             specified, the operation returns all users in the Amazon Web Services account. If there are none, the
- *             operation returns an empty list.</p>
- *          <note>
- *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:</p>
- *             <ul>
- *                <li>
- *                   <p>PermissionsBoundary</p>
- *                </li>
- *                <li>
- *                   <p>Tags</p>
- *                </li>
- *             </ul>
- *             <p>To view all of the information for a user, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html">GetUser</a>.</p>
- *          </note>
- *          <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
+ * Lists the IAM users that have the specified path prefix. If no path prefix is specified, the operation returns all users in the Amazon Web Services account. If there are none, the operation returns an empty list.
+ *
+ * > **Note:**
+ * >
+ * > IAM resource-listing operations return a subset of the available attributes for the resource. This operation does not return the following attributes, even though they are an attribute of the returned object:
+ * >
+ * > - PermissionsBoundary
+ * > - Tags
+ * >
+ * > To view all of the information for a user, see [GetUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html).
+ *
+ * You can paginate the results using the `MaxItems` and `Marker` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,12 +85,12 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To list IAM users
  * ```javascript

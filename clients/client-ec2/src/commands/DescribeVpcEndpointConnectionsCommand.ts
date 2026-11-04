@@ -23,8 +23,8 @@ export interface DescribeVpcEndpointConnectionsCommandInput extends DescribeVpcE
 export interface DescribeVpcEndpointConnectionsCommandOutput extends DescribeVpcEndpointConnectionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the VPC endpoint connections to your VPC endpoint services, including any
- *             endpoints that are pending your acceptance.</p>
+ * Describes the VPC endpoint connections to your VPC endpoint services, including any endpoints that are pending your acceptance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,8 +97,8 @@ export interface DescribeVpcEndpointConnectionsCommandOutput extends DescribeVpc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

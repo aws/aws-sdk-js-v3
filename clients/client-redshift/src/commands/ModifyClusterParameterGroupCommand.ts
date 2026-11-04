@@ -23,11 +23,10 @@ export interface ModifyClusterParameterGroupCommandInput extends ModifyClusterPa
 export interface ModifyClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.</p>
- *          <p>
- * For more information about parameters and parameter groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Modifies the parameters of a parameter group. For the parameters parameter, it can't contain ASCII characters.
+ *
+ * For more information about parameters and parameter groups, go to [Amazon Redshift Parameter Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,16 +67,16 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link InvalidClusterParameterGroupStateFault} (client fault)
- *  <p>The cluster parameter group action can not be completed because another task is in
- *             progress that involves the parameter group. Wait a few moments and try the operation
- *             again.</p>
+ *
+ * The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListSourceLocationsCommandInput extends ListSourceLocationsRequ
 export interface ListSourceLocationsCommandOutput extends ListSourceLocationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the source locations for a channel. A source location defines the host server URL, and contains a list of sources.</p>
+ * Lists the source locations for a channel. A source location defines the host server URL, and contains a list of sources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +83,8 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateQuantumTaskCommandInput extends CreateQuantumTaskRequest 
 export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a quantum task.</p>
+ * Creates a quantum task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,29 +70,36 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link DeviceOfflineException} (client fault)
- *  <p>The specified device is currently offline.</p>
+ *
+ * The specified device is currently offline.
  *
  * @throws {@link DeviceRetiredException} (client fault)
- *  <p>The specified device has been retired.</p>
+ *
+ * The specified device has been retired.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request failed because of an unknown error.</p>
+ *
+ * The request failed because of an unknown error.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request failed because a service quota is exceeded.</p>
+ *
+ * The request failed because a service quota is exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The API throttling rate limit is exceeded.</p>
+ *
+ * The API throttling rate limit is exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+ *
+ * The input request failed to satisfy constraints expected by Amazon Braket.
  *
  * @throws {@link BraketServiceException}
- * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * Base exception class for all service exceptions from Braket service.
  *
  * @public
  */

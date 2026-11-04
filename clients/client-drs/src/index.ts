@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>AWS Elastic Disaster Recovery Service.</p>
+ * AWS Elastic Disaster Recovery Service.
  *
  * @packageDocumentation
  */

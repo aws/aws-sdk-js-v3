@@ -23,13 +23,10 @@ export interface ModifyInstanceFleetCommandInput extends ModifyInstanceFleetInpu
 export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the
- *          specified InstanceFleetID within the cluster specified using ClusterID. The call either
- *          succeeds or fails atomically.</p>
- *          <note>
- *             <p>The instance fleet configuration is available only in Amazon EMR releases
- *             4.8.0 and later, excluding 5.0.x versions.</p>
- *          </note>
+ * Modifies the target On-Demand and target Spot capacities for the instance fleet with the specified InstanceFleetID within the cluster specified using ClusterID. The call either succeeds or fails atomically.
+ *
+ * > **Note:** The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and later, excluding 5.0.x versions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,15 +113,16 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

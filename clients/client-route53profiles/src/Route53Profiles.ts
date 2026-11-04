@@ -433,9 +433,8 @@ export interface Route53Profiles {
 }
 
 /**
- * <p>
- *  With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
- * </p>
+ * With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs and AWS accounts
+ *
  * @public
  */
 export class Route53Profiles extends Route53ProfilesClient implements Route53Profiles {}

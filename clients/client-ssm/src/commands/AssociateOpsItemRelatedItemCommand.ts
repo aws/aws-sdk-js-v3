@@ -23,9 +23,8 @@ export interface AssociateOpsItemRelatedItemCommandInput extends AssociateOpsIte
 export interface AssociateOpsItemRelatedItemCommandOutput extends AssociateOpsItemRelatedItemResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
- *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are tools in
- *    Amazon Web Services Systems Manager.</p>
+ * Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are tools in Amazon Web Services Systems Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,27 +54,32 @@ export interface AssociateOpsItemRelatedItemCommandOutput extends AssociateOpsIt
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsItemConflictException} (client fault)
- *  <p>The specified OpsItem is in the process of being deleted.</p>
+ *
+ * The specified OpsItem is in the process of being deleted.
  *
  * @throws {@link OpsItemInvalidParameterException} (client fault)
- *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
+ *
+ * A specified parameter argument isn't valid. Verify the available arguments and try again.
  *
  * @throws {@link OpsItemLimitExceededException} (client fault)
- *  <p>The request caused OpsItems to exceed one or more quotas.</p>
+ *
+ * The request caused OpsItems to exceed one or more quotas.
  *
  * @throws {@link OpsItemNotFoundException} (client fault)
- *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ * The specified OpsItem ID doesn't exist. Verify the ID and try again.
  *
  * @throws {@link OpsItemRelatedItemAlreadyExistsException} (client fault)
- *  <p>The Amazon Resource Name (ARN) is already associated with the OpsItem.</p>
+ *
+ * The Amazon Resource Name (ARN) is already associated with the OpsItem.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

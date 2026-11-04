@@ -6,10 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p> You don't have permissions to perform the requested operation. The user or role that
- * 			is making the request must have at least one IAM permissions policy attached that grants
- * 			the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- * 				<i>IAM User Guide</i>. </p>
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see [Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) in the *IAM User Guide*.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -32,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> An exception that is thrown when a conflict occurs. </p>
+ * An exception that is thrown when a conflict occurs.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -41,13 +40,15 @@ export class ConflictException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p> The ID of the Amazon Web Services resource in which a conflict occurred. </p>
+   * The ID of the Amazon Web Services resource in which a conflict occurred.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p> The type of the Amazon Web Services resource in which a conflict occurred. </p>
+   * The type of the Amazon Web Services resource in which a conflict occurred.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -68,7 +69,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal failure in an Amazon service occurred.</p>
+ * An internal failure in an Amazon service occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -77,8 +79,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   Message: string | undefined;
   /**
-   * <p> The number of seconds after which the action that caused the internal server
-   * 			exception can be retried. </p>
+   * The number of seconds after which the action that caused the internal server exception can be retried.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -98,7 +100,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>A requested resource could not be found</p>
+ * A requested resource could not be found
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -107,13 +110,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p> The ID of the Amazon Web Services resource that could not be found. </p>
+   * The ID of the Amazon Web Services resource that could not be found.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p> The type of the Amazon Web Services resource that could not be found. </p>
+   * The type of the Amazon Web Services resource that could not be found.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -134,7 +139,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request contains a value that exceeds a maximum quota.</p>
+ * The request contains a value that exceeds a maximum quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -157,7 +163,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to a request throttling.</p>
+ * The request was denied due to a request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -166,20 +173,22 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p> The code of the quota that was exceeded, causing the throttling exception. </p>
+   * The code of the quota that was exceeded, causing the throttling exception.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p> The code of the service that caused the throttling exception. </p>
+   * The code of the service that caused the throttling exception.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
 
   /**
-   * <p> The number of seconds after which the action that caused the throttling exception can
-   * 			be retried. </p>
+   * The number of seconds after which the action that caused the throttling exception can be retried.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -201,8 +210,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> Contains information about data passed in to a field during a request that is not
- * 			valid. </p>
+ * Contains information about data passed in to a field during a request that is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -210,19 +219,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> A message that describes the validation exception. </p>
+   * A message that describes the validation exception.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p> The reason the validation exception was thrown. </p>
+   * The reason the validation exception was thrown.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p> An array of fields that are associated with the validation exception. </p>
+   * An array of fields that are associated with the validation exception.
+   *
    * @public
    */
   Fields?: ValidationExceptionField[] | undefined;

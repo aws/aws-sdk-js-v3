@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { S3FilesServiceException as __BaseException } from "./S3FilesServiceException";
 
 /**
- * <p>The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.</p>
+ * The request conflicts with the current state of the resource. This can occur when trying to create a resource that already exists or delete a resource that is in use.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -12,19 +13,22 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   errorCode: string | undefined;
 
   /**
-   * <p>The identifier of the resource that caused the conflict.</p>
+   * The identifier of the resource that caused the conflict.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that caused the conflict.</p>
+   * The type of the resource that caused the conflict.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -46,7 +50,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -54,7 +59,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -74,7 +80,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found. Verify that the resource exists and that you have permission to access it.</p>
+ * The specified resource was not found. Verify that the resource exists and that you have permission to access it.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -82,7 +89,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -102,7 +110,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota. Review your service quotas and either delete resources or request a quota increase.</p>
+ * The request would exceed a service quota. Review your service quotas and either delete resources or request a quota increase.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -110,7 +119,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -130,7 +140,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled. Retry your request using exponential backoff.</p>
+ * The request was throttled. Retry your request using exponential backoff.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -138,7 +149,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -158,7 +170,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input parameters are not valid. Check the parameter values and try again.</p>
+ * The input parameters are not valid. Check the parameter values and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -166,7 +179,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The error code associated with the exception.</p>
+   * The error code associated with the exception.
+   *
    * @public
    */
   errorCode: string | undefined;

@@ -23,38 +23,23 @@ export interface DescribeContainerGroupDefinitionCommandInput extends DescribeCo
 export interface DescribeContainerGroupDefinitionCommandOutput extends DescribeContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Retrieves the properties of a container group definition, including all container
- *       definitions in the group. </p>
- *          <p>
- *             <b>Request options:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Retrieve the latest version of a  container group definition. Specify the container
- *           group definition name only, or use an ARN value without a version number.</p>
- *             </li>
- *             <li>
- *                <p>Retrieve a particular version. Specify the container group definition name and a
- *           version number, or use an ARN value that includes the version number.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results:</b>
- *          </p>
- *          <p>If successful, this operation returns the complete properties of a container group
- *       definition version.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage a container group definition</a>
- *                </p>
- *             </li>
- *          </ul>
+ * **This API works with the following fleet types:** Container
+ *
+ * Retrieves the properties of a container group definition, including all container definitions in the group.
+ *
+ * **Request options:**
+ *
+ * - Retrieve the latest version of a container group definition. Specify the container group definition name only, or use an ARN value without a version number.
+ * - Retrieve a particular version. Specify the container group definition name and a version number, or use an ARN value that includes the version number.
+ *
+ * **Results:**
+ *
+ * If successful, this operation returns the complete properties of a container group definition version.
+ *
+ * **Learn more**
+ *
+ * - [Manage a container group definition](https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -186,25 +171,28 @@ export interface DescribeContainerGroupDefinitionCommandOutput extends DescribeC
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

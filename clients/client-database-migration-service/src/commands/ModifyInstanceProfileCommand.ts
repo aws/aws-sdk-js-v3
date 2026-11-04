@@ -23,15 +23,12 @@ export interface ModifyInstanceProfileCommandInput extends ModifyInstanceProfile
 export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified instance profile using the provided parameters.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:UpdateInstanceProfile</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
- *          <note>
- *             <p>All migration projects associated with the instance profile must be deleted or
- *             modified before you can modify the instance profile.</p>
- *          </note>
+ * Modifies the specified instance profile using the provided parameters.
+ *
+ * **Required permissions:** `dms:UpdateInstanceProfile`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
+ * > **Note:** All migration projects associated with the instance profile must be deleted or modified before you can modify the instance profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,31 +78,36 @@ export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfil
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link S3AccessDeniedFault} (client fault)
- *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * Insufficient privileges are preventing access to an Amazon S3 object.
  *
  * @throws {@link S3ResourceNotFoundFault} (client fault)
- *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
- *             found.</p>
+ *
+ * A specified Amazon S3 bucket, bucket folder, or other object can't be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Modify an instance profile
  * ```javascript

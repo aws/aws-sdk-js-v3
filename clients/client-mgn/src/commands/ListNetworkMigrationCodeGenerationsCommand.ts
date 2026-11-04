@@ -26,7 +26,8 @@ export interface ListNetworkMigrationCodeGenerationsCommandInput extends ListNet
 export interface ListNetworkMigrationCodeGenerationsCommandOutput extends ListNetworkMigrationCodeGenerationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists network migration code generation jobs, which convert network mappings into infrastructure-as-code templates.</p>
+ * Lists network migration code generation jobs, which convert network mappings into infrastructure-as-code templates.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,20 +79,24 @@ export interface ListNetworkMigrationCodeGenerationsCommandOutput extends ListNe
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Reached throttling quota exception.</p>
+ *
+ * Reached throttling quota exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample ListNetworkMigrationCodeGenerations call
  * ```javascript

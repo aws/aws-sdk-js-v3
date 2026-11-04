@@ -26,14 +26,10 @@ export interface DescribeApplicationStatusCheckAssociationsCommandInput extends 
 export interface DescribeApplicationStatusCheckAssociationsCommandOutput extends DescribeApplicationStatusCheckAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the associations for one or more application status checks. For more
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-application-status-checks.html">Application
- *                 status checks</a>. To avoid timeouts and retrieve complete results, use the
- *             pagination parameters.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *                 structures, might vary.</p>
- *          </note>
+ * Describes the associations for one or more application status checks. For more information, see [Application status checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-application-status-checks.html). To avoid timeouts and retrieve complete results, use the pagination parameters.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,8 +83,8 @@ export interface DescribeApplicationStatusCheckAssociationsCommandOutput extends
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe application status check associations
  * ```javascript

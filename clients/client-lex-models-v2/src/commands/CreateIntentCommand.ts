@@ -23,44 +23,19 @@ export interface CreateIntentCommandInput extends CreateIntentRequest {}
 export interface CreateIntentCommandOutput extends CreateIntentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an intent.</p>
- *          <p>To define the interaction between the user and your bot, you define
- *          one or more intents. For example, for a pizza ordering bot you would
- *          create an <code>OrderPizza</code> intent.</p>
- *          <p>When you create an intent, you must provide a name. You can
- *          optionally provide the following:</p>
- *          <ul>
- *             <li>
- *                <p>Sample utterances. For example, "I want to order a pizza" and
- *                "Can I order a pizza." You can't provide utterances for built-in
- *                intents.</p>
- *             </li>
- *             <li>
- *                <p>Information to be gathered. You specify slots for the
- *                information that you bot requests from the user. You can specify
- *                standard slot types, such as date and time, or custom slot types
- *                for your application.</p>
- *             </li>
- *             <li>
- *                <p>How the intent is fulfilled. You can provide a Lambda function
- *                or configure the intent to return the intent information to your
- *                client application. If you use a Lambda function, Amazon Lex invokes
- *                the function when all of the intent information is
- *                available.</p>
- *             </li>
- *             <li>
- *                <p>A confirmation prompt to send to the user to confirm an
- *                intent. For example, "Shall I order your pizza?"</p>
- *             </li>
- *             <li>
- *                <p>A conclusion statement to send to the user after the intent is
- *                fulfilled. For example, "I ordered your pizza."</p>
- *             </li>
- *             <li>
- *                <p>A follow-up prompt that asks the user for additional activity.
- *                For example, "Do you want a drink with your pizza?"</p>
- *             </li>
- *          </ul>
+ * Creates an intent.
+ *
+ * To define the interaction between the user and your bot, you define one or more intents. For example, for a pizza ordering bot you would create an `OrderPizza` intent.
+ *
+ * When you create an intent, you must provide a name. You can optionally provide the following:
+ *
+ * - Sample utterances. For example, "I want to order a pizza" and "Can I order a pizza." You can't provide utterances for built-in intents.
+ * - Information to be gathered. You specify slots for the information that you bot requests from the user. You can specify standard slot types, such as date and time, or custom slot types for your application.
+ * - How the intent is fulfilled. You can provide a Lambda function or configure the intent to return the intent information to your client application. If you use a Lambda function, Amazon Lex invokes the function when all of the intent information is available.
+ * - A confirmation prompt to send to the user to confirm an intent. For example, "Shall I order your pizza?"
+ * - A conclusion statement to send to the user after the intent is fulfilled. For example, "I ordered your pizza."
+ * - A follow-up prompt that asks the user for additional activity. For example, "Do you want a drink with your pizza?"
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -1031,33 +1006,32 @@ export interface CreateIntentCommandOutput extends CreateIntentResponse, __Metad
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The action that you tried to perform couldn't be completed because
- *          the resource is in a conflicting state. For example, deleting a bot
- *          that is in the CREATING state. Try your request again. </p>
+ *
+ * The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have reached a quota for your bot. </p>
+ *
+ * You have reached a quota for your bot.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

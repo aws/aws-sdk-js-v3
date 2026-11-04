@@ -23,11 +23,10 @@ export interface UntagStreamCommandInput extends UntagStreamInput {}
 export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
- *             keys; don't specify the value. If you specify a tag key that does not exist, it's
- *             ignored.</p>
- *          <p>In the request, you must provide the <code>StreamName</code> or
- *                 <code>StreamARN</code>.</p>
+ * Removes one or more tags from a stream. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.
+ *
+ * In the request, you must provide the `StreamName` or `StreamARN`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,24 +55,28 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *             allowed client calls. Try making the call later.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The value for this input parameter is invalid.</p>
+ *
+ * The value for this input parameter is invalid.
  *
  * @throws {@link InvalidResourceFormatException} (client fault)
- *  <p>The format of the <code>StreamARN</code> is invalid.</p>
+ *
+ * The format of the `StreamARN` is invalid.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * The caller is not authorized to perform this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
+ *
+ * Amazon Kinesis Video Streams can't find the stream that you specified.
  *
  * @throws {@link KinesisVideoServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideo service.
  *
  * @public
  */

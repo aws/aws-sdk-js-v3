@@ -23,49 +23,25 @@ export interface GetObjectAclCommandInput extends GetObjectAclRequest {}
 export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Returns the access control list (ACL) of an object. To use this operation, you must have
- *         <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object. For more
- *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping">Mapping of ACL
- *         permissions and access policy permissions</a> in the <i>Amazon S3 User Guide</i>
- *          </p>
- *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
- *          <p>By default, GET returns ACL information about the current version of an object. To return ACL
- *       information about a different version, use the versionId subresource.</p>
- *          <note>
- *             <p>If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests to read
- *         ACLs are still supported and return the <code>bucket-owner-full-control</code> ACL with the owner
- *         being the account that created the bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling object ownership and
- *           disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          </note>
- *          <p>The following operations are related to <code>GetObjectAcl</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Returns the access control list (ACL) of an object. To use this operation, you must have `s3:GetObjectAcl` permissions or `READ_ACP` access to the object. For more information, see [Mapping of ACL permissions and access policy permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#acl-access-policy-permission-mapping) in the *Amazon S3 User Guide*
+ *
+ * This functionality is not supported for Amazon S3 on Outposts.
+ *
+ * By default, GET returns ACL information about the current version of an object. To return ACL information about a different version, use the versionId subresource.
+ *
+ * > **Note:** If your bucket uses the bucket owner enforced setting for S3 Object Ownership, requests to read ACLs are still supported and return the `bucket-owner-full-control` ACL with the owner being the account that created the bucket. For more information, see [Controlling object ownership and disabling ACLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
+ *
+ * The following operations are related to `GetObjectAcl`:
+ *
+ * - [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+ * - [GetObjectAttributes](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html)
+ * - [DeleteObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html)
+ * - [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,11 +88,12 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link NoSuchKey} (client fault)
- *  <p>The specified key does not exist.</p>
+ *
+ * The specified key does not exist.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To retrieve object ACL
  * ```javascript

@@ -26,8 +26,8 @@ export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSp
 export interface DescribeSpotDatafeedSubscriptionCommandOutput extends DescribeSpotDatafeedSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
- *             Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the data feed for Spot Instances. For more information, see [Spot Instance data feed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +63,8 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput extends DescribeS
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the datafeed for your AWS account
  * ```javascript

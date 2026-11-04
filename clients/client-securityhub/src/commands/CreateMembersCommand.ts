@@ -23,41 +23,28 @@ export interface CreateMembersCommandInput extends CreateMembersRequest {}
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a member association in Security Hub CSPM between the specified accounts and the account
- *          used to make the request, which is the administrator account. If you are integrated with
- *          Organizations, then the administrator account is designated by the organization management account.</p>
- *          <p>
- *             <code>CreateMembers</code> is always used to add accounts that are not organization
- *          members.</p>
- *          <p>For accounts that are managed using Organizations, <code>CreateMembers</code> is only used
- *          in the following cases:</p>
- *          <ul>
- *             <li>
- *                <p>Security Hub CSPM is not configured to automatically add new organization accounts.</p>
- *             </li>
- *             <li>
- *                <p>The account was disassociated or deleted in Security Hub CSPM.</p>
- *             </li>
- *          </ul>
- *          <p>This action can only be used by an account that has Security Hub CSPM enabled. To enable Security Hub CSPM, you
- *          can use the <code>EnableSecurityHub</code> operation.</p>
- *          <p>For accounts that are not organization members, you create the account association and
- *          then send an invitation to the member account. To send the invitation, you use the
- *                <code>InviteMembers</code> operation. If the account owner accepts
- *          the invitation, the account becomes a member account in Security Hub CSPM.</p>
- *          <p>Accounts that are managed using Organizations don't receive an invitation. They
- *          automatically become a member account in Security Hub CSPM.</p>
- *          <ul>
- *             <li>
- *                <p>If the organization account does not have Security Hub CSPM enabled, then Security Hub CSPM and the default standards are automatically enabled. Note that Security Hub CSPM cannot be enabled automatically for the organization management account. The organization management account must enable Security Hub CSPM before the administrator account enables it as a member account.</p>
- *             </li>
- *             <li>
- *                <p>For organization accounts that already have Security Hub CSPM enabled, Security Hub CSPM does not make any other changes to those accounts. It does not change their enabled standards or controls.</p>
- *             </li>
- *          </ul>
- *          <p>A permissions policy is added that permits the administrator account to view the findings
- *          generated in the member account.</p>
- *          <p>To remove the association between the administrator and member accounts, use the <code>DisassociateFromMasterAccount</code> or <code>DisassociateMembers</code> operation.</p>
+ * Creates a member association in Security Hub CSPM between the specified accounts and the account used to make the request, which is the administrator account. If you are integrated with Organizations, then the administrator account is designated by the organization management account.
+ *
+ * `CreateMembers` is always used to add accounts that are not organization members.
+ *
+ * For accounts that are managed using Organizations, `CreateMembers` is only used in the following cases:
+ *
+ * - Security Hub CSPM is not configured to automatically add new organization accounts.
+ * - The account was disassociated or deleted in Security Hub CSPM.
+ *
+ * This action can only be used by an account that has Security Hub CSPM enabled. To enable Security Hub CSPM, you can use the `EnableSecurityHub` operation.
+ *
+ * For accounts that are not organization members, you create the account association and then send an invitation to the member account. To send the invitation, you use the `InviteMembers` operation. If the account owner accepts the invitation, the account becomes a member account in Security Hub CSPM.
+ *
+ * Accounts that are managed using Organizations don't receive an invitation. They automatically become a member account in Security Hub CSPM.
+ *
+ * - If the organization account does not have Security Hub CSPM enabled, then Security Hub CSPM and the default standards are automatically enabled. Note that Security Hub CSPM cannot be enabled automatically for the organization management account. The organization management account must enable Security Hub CSPM before the administrator account enables it as a member account.
+ * - For organization accounts that already have Security Hub CSPM enabled, Security Hub CSPM does not make any other changes to those accounts. It does not change their enabled standards or controls.
+ *
+ * A permissions policy is added that permits the administrator account to view the findings generated in the member account.
+ *
+ * To remove the association between the administrator and member accounts, use the `DisassociateFromMasterAccount` or `DisassociateMembers` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,28 +81,32 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * The resource specified in the request conflicts with an existing resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To add a member account
  * ```javascript

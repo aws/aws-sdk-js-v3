@@ -26,7 +26,8 @@ export interface StopColumnStatisticsTaskRunScheduleCommandInput extends StopCol
 export interface StopColumnStatisticsTaskRunScheduleCommandOutput extends StopColumnStatisticsTaskRunScheduleResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a column statistics task run schedule.</p>
+ * Stops a column statistics task run schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +54,20 @@ export interface StopColumnStatisticsTaskRunScheduleCommandOutput extends StopCo
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

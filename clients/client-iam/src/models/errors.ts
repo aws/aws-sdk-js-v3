@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
 /**
- * <p>The request was rejected because multiple requests to change this object were submitted
- *       simultaneously. Wait a few minutes and submit your request again.</p>
+ * The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -26,8 +26,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
+ *
  * @public
  */
 export class NoSuchEntityException extends __BaseException {
@@ -48,8 +48,8 @@ export class NoSuchEntityException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class ServiceFailureException extends __BaseException {
@@ -70,9 +70,8 @@ export class ServiceFailureException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the account making the request is not the management
- *       account or delegated administrator account for <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management">centralized root
- *         access</a>.</p>
+ * The request was rejected because the account making the request is not the management account or delegated administrator account for [centralized root access](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management).
+ *
  * @public
  */
 export class AccountNotManagementOrDelegatedAdministratorException extends __BaseException {
@@ -95,8 +94,8 @@ export class AccountNotManagementOrDelegatedAdministratorException extends __Bas
 }
 
 /**
- * <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ * The request was rejected because it attempted to create a resource that already exists.
+ *
  * @public
  */
 export class EntityAlreadyExistsException extends __BaseException {
@@ -117,8 +116,8 @@ export class EntityAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -139,8 +138,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current
- *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -161,8 +160,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
+ * The request was rejected because the policy document was malformed. The error message describes the specific error.
+ *
  * @public
  */
 export class MalformedPolicyDocumentException extends __BaseException {
@@ -183,8 +182,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the resulting role name conflicts with an existing role
- *       in the account.</p>
+ * The request was rejected because the resulting role name conflicts with an existing role in the account.
+ *
  * @public
  */
 export class NameConflictException extends __BaseException {
@@ -205,8 +204,8 @@ export class NameConflictException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because someone modified the role template while the service was
- *       creating the role. Wait a few minutes and try the request again.</p>
+ * The request was rejected because someone modified the role template while the service was creating the role. Wait a few minutes and try the request again.
+ *
  * @public
  */
 export class RoleModifiedException extends __BaseException {
@@ -227,9 +226,8 @@ export class RoleModifiedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified role template is disabled. A disabled
- *       role template cannot be used to create new roles. Contact your administrator to enable the
- *       role template, or use a different role template.</p>
+ * The request was rejected because the specified role template is disabled. A disabled role template cannot be used to create new roles. Contact your administrator to enable the role template, or use a different role template.
+ *
  * @public
  */
 export class RoleTemplateDisabledException extends __BaseException {
@@ -250,10 +248,8 @@ export class RoleTemplateDisabledException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
- *       the service that depends on the service-linked role can modify or delete the role on your
- *       behalf. The error message includes the name of the service that depends on this service-linked
- *       role. You must request the change through that service.</p>
+ * The request was rejected because service-linked roles are protected Amazon Web Services resources. Only the service that depends on the service-linked role can modify or delete the role on your behalf. The error message includes the name of the service that depends on this service-linked role. You must request the change through that service.
+ *
  * @public
  */
 export class UnmodifiableEntityException extends __BaseException {
@@ -274,8 +270,8 @@ export class UnmodifiableEntityException extends __BaseException {
 }
 
 /**
- * <p>The request failed because Amazon Web Services service role policies can only be attached to the
- *       service-linked role for that service.</p>
+ * The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.
+ *
  * @public
  */
 export class PolicyNotAttachableException extends __BaseException {
@@ -296,10 +292,8 @@ export class PolicyNotAttachableException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it referenced an entity that is temporarily unmodifiable,
- *       such as a user name that was deleted and then recreated. The error indicates that the request
- *       is likely to succeed if you try again after waiting several minutes. The error message
- *       describes the entity.</p>
+ * The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.
+ *
  * @public
  */
 export class EntityTemporarilyUnmodifiableException extends __BaseException {
@@ -320,8 +314,8 @@ export class EntityTemporarilyUnmodifiableException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the type of user for the transaction was
- *       incorrect.</p>
+ * The request was rejected because the type of user for the transaction was incorrect.
+ *
  * @public
  */
 export class InvalidUserTypeException extends __BaseException {
@@ -342,8 +336,8 @@ export class InvalidUserTypeException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the provided password did not meet the requirements
- *       imposed by the account password policy.</p>
+ * The request was rejected because the provided password did not meet the requirements imposed by the account password policy.
+ *
  * @public
  */
 export class PasswordPolicyViolationException extends __BaseException {
@@ -364,8 +358,8 @@ export class PasswordPolicyViolationException extends __BaseException {
 }
 
 /**
- * <p>The request failed because IAM cannot connect to the OpenID Connect identity provider
- *       URL.</p>
+ * The request failed because IAM cannot connect to the OpenID Connect identity provider URL.
+ *
  * @public
  */
 export class OpenIdIdpCommunicationErrorException extends __BaseException {
@@ -386,7 +380,8 @@ export class OpenIdIdpCommunicationErrorException extends __BaseException {
 }
 
 /**
- * <p>The specified service does not support service-specific credentials.</p>
+ * The specified service does not support service-specific credentials.
+ *
  * @public
  */
 export class ServiceNotSupportedException extends __BaseException {
@@ -407,8 +402,8 @@ export class ServiceNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to delete a resource that has attached
- *       subordinate entities. The error message describes these entities.</p>
+ * The request was rejected because it attempted to delete a resource that has attached subordinate entities. The error message describes these entities.
+ *
  * @public
  */
 export class DeleteConflictException extends __BaseException {
@@ -429,7 +424,8 @@ export class DeleteConflictException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because no organization is associated with your account.</p>
+ * The request was rejected because no organization is associated with your account.
+ *
  * @public
  */
 export class OrganizationNotFoundException extends __BaseException {
@@ -452,9 +448,8 @@ export class OrganizationNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because your organization does not have All features enabled. For
- *       more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set">Available feature sets</a> in the <i>Organizations User
- *       Guide</i>.</p>
+ * The request was rejected because your organization does not have All features enabled. For more information, see [Available feature sets](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set) in the *Organizations User Guide*.
+ *
  * @public
  */
 export class OrganizationNotInAllFeaturesModeException extends __BaseException {
@@ -477,7 +472,8 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>
+ * The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the *Organizations User Guide*.
+ *
  * @public
  */
 export class ServiceAccessNotEnabledException extends __BaseException {
@@ -500,7 +496,8 @@ export class ServiceAccessNotEnabledException extends __BaseException {
 }
 
 /**
- * <p>The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times</p>
+ * The request failed because outbound identity federation is already disabled for your Amazon Web Services account. You cannot disable the feature multiple times
+ *
  * @public
  */
 export class FeatureDisabledException extends __BaseException {
@@ -521,8 +518,8 @@ export class FeatureDisabledException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the authentication code was not recognized. The error
- *       message describes the specific error.</p>
+ * The request was rejected because the authentication code was not recognized. The error message describes the specific error.
+ *
  * @public
  */
 export class InvalidAuthenticationCodeException extends __BaseException {
@@ -543,8 +540,8 @@ export class InvalidAuthenticationCodeException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the account making the request is not the management
- *       account for the organization.</p>
+ * The request was rejected because the account making the request is not the management account for the organization.
+ *
  * @public
  */
 export class CallerIsNotManagementAccountException extends __BaseException {
@@ -567,8 +564,8 @@ export class CallerIsNotManagementAccountException extends __BaseException {
 }
 
 /**
- * <p>The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You
- *       cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the <code>GetOutboundWebIdentityFederationInfo</code> operation.</p>
+ * The request failed because outbound identity federation is already enabled for your Amazon Web Services account. You cannot enable the feature multiple times. To fetch the current configuration (including the unique issuer URL), use the `GetOutboundWebIdentityFederationInfo` operation.
+ *
  * @public
  */
 export class FeatureEnabledException extends __BaseException {
@@ -589,8 +586,8 @@ export class FeatureEnabledException extends __BaseException {
 }
 
 /**
- * <p>The request failed because the maximum number of concurrent requests for this account are
- *       already running.</p>
+ * The request failed because the maximum number of concurrent requests for this account are already running.
+ *
  * @public
  */
 export class ReportGenerationLimitExceededException extends __BaseException {
@@ -611,10 +608,8 @@ export class ReportGenerationLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the most recent credential report has expired. To
- *       generate a new credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>. For more information about credential report expiration,
- *       see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
- *         credential reports</a> in the <i>IAM User Guide</i>.</p>
+ * The request was rejected because the most recent credential report has expired. To generate a new credential report, use [GenerateCredentialReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html). For more information about credential report expiration, see [Getting credential reports](https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html) in the *IAM User Guide*.
+ *
  * @public
  */
 export class CredentialReportExpiredException extends __BaseException {
@@ -635,8 +630,8 @@ export class CredentialReportExpiredException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the credential report does not exist. To generate a
- *       credential report, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html">GenerateCredentialReport</a>.</p>
+ * The request was rejected because the credential report does not exist. To generate a credential report, use [GenerateCredentialReport](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html).
+ *
  * @public
  */
 export class CredentialReportNotPresentException extends __BaseException {
@@ -657,7 +652,8 @@ export class CredentialReportNotPresentException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the credential report is still being generated.</p>
+ * The request was rejected because the credential report is still being generated.
+ *
  * @public
  */
 export class CredentialReportNotReadyException extends __BaseException {
@@ -678,8 +674,8 @@ export class CredentialReportNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the public key encoding format is unsupported or
- *       unrecognized.</p>
+ * The request was rejected because the public key encoding format is unsupported or unrecognized.
+ *
  * @public
  */
 export class UnrecognizedPublicKeyEncodingException extends __BaseException {
@@ -700,8 +696,8 @@ export class UnrecognizedPublicKeyEncodingException extends __BaseException {
 }
 
 /**
- * <p>The request failed because a provided policy could not be successfully evaluated. An
- *       additional detailed message indicates the source of the failure.</p>
+ * The request failed because a provided policy could not be successfully evaluated. An additional detailed message indicates the source of the failure.
+ *
  * @public
  */
 export class PolicyEvaluationException extends __BaseException {
@@ -722,8 +718,8 @@ export class PolicyEvaluationException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the public key certificate and the private key do not
- *       match.</p>
+ * The request was rejected because the public key certificate and the private key do not match.
+ *
  * @public
  */
 export class KeyPairMismatchException extends __BaseException {
@@ -744,8 +740,8 @@ export class KeyPairMismatchException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the certificate was malformed or expired. The error
- *       message describes the specific error.</p>
+ * The request was rejected because the certificate was malformed or expired. The error message describes the specific error.
+ *
  * @public
  */
 export class MalformedCertificateException extends __BaseException {
@@ -766,8 +762,8 @@ export class MalformedCertificateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the same certificate is associated with an IAM user in
- *       the account.</p>
+ * The request was rejected because the same certificate is associated with an IAM user in the account.
+ *
  * @public
  */
 export class DuplicateCertificateException extends __BaseException {
@@ -788,7 +784,8 @@ export class DuplicateCertificateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the certificate is invalid.</p>
+ * The request was rejected because the certificate is invalid.
+ *
  * @public
  */
 export class InvalidCertificateException extends __BaseException {
@@ -809,8 +806,8 @@ export class InvalidCertificateException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the SSH public key is already associated with the
- *       specified IAM user.</p>
+ * The request was rejected because the SSH public key is already associated with the specified IAM user.
+ *
  * @public
  */
 export class DuplicateSSHPublicKeyException extends __BaseException {
@@ -831,7 +828,8 @@ export class DuplicateSSHPublicKeyException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
+ * The request was rejected because the public key is malformed or otherwise invalid.
+ *
  * @public
  */
 export class InvalidPublicKeyException extends __BaseException {

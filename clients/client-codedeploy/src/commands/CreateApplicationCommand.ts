@@ -23,7 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationInput {}
 export interface CreateApplicationCommandOutput extends CreateApplicationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an application.</p>
+ * Creates an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,30 +58,36 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationAlreadyExistsException} (client fault)
- *  <p>An application with the specified name with the user or Amazon Web Services account
- *             already exists.</p>
+ *
+ * An application with the specified name with the user or Amazon Web Services account already exists.
  *
  * @throws {@link ApplicationLimitExceededException} (client fault)
- *  <p>More applications were attempted to be created than are allowed.</p>
+ *
+ * More applications were attempted to be created than are allowed.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
- *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
  *
  * @throws {@link InvalidTagsToAddException} (client fault)
- *  <p> The specified tags are not valid. </p>
+ *
+ * The specified tags are not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An API function was called too frequently.</p>
+ *
+ * An API function was called too frequently.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

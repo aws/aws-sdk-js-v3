@@ -26,12 +26,12 @@ export interface GetCustomVerificationEmailTemplateCommandInput extends GetCusto
 export interface GetCustomVerificationEmailTemplateCommandOutput extends GetCustomVerificationEmailTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the custom email verification template for the template name you
- *             specify.</p>
- *          <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
- *                 Custom Verification Email Templates</a> in the <i>Amazon SES Developer
- *                 Guide</i>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Returns the custom email verification template for the template name you specify.
+ *
+ * For more information about custom verification email templates, see [Using Custom Verification Email Templates](https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom) in the *Amazon SES Developer Guide*.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,12 +63,12 @@ export interface GetCustomVerificationEmailTemplateCommandOutput extends GetCust
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link CustomVerificationEmailTemplateDoesNotExistException} (client fault)
- *  <p>Indicates that a custom verification email template with the name you specified does
- *             not exist.</p>
+ *
+ * Indicates that a custom verification email template with the name you specified does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

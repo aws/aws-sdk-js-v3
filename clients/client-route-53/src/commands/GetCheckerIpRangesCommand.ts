@@ -23,16 +23,10 @@ export interface GetCheckerIpRangesCommandInput extends GetCheckerIpRangesReques
 export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesResponse, __MetadataBearer {}
 
 /**
- * <p>Route 53 does not perform authorization for this API because it retrieves information
- * 			that is already available to the public.</p>
- *          <important>
- *             <p>
- *                <code>GetCheckerIpRanges</code> still works, but we recommend that you download
- * 				ip-ranges.json, which includes IP address ranges for all Amazon Web Services
- * 				services. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges
- * 					of Amazon Route 53 Servers</a> in the <i>Amazon Route 53 Developer
- * 					Guide</i>.</p>
- *          </important>
+ * Route 53 does not perform authorization for this API because it retrieves information that is already available to the public.
+ *
+ * > **Important:** `GetCheckerIpRanges` still works, but we recommend that you download ip-ranges.json, which includes IP address ranges for all Amazon Web Services services. For more information, see [IP Address Ranges of Amazon Route 53 Servers](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html) in the *Amazon Route 53 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +53,8 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

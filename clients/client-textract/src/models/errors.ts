@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { TextractServiceException as __BaseException } from "./TextractServiceException";
 
 /**
- * <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
- *             of an authorized user or IAM role to perform the operation.</p>
+ * You aren't authorized to perform the action. Use the Amazon Resource Name (ARN) of an authorized user or IAM role to perform the operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -30,8 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits.html">Hard limits</a>.</p>
+ * Amazon Textract isn't able to read the document. For more information on the document limits in Amazon Textract, see [Hard limits](https://docs.aws.amazon.com/textract/latest/dg/limits.html).
+ *
  * @public
  */
 export class BadDocumentException extends __BaseException {
@@ -56,9 +56,8 @@ export class BadDocumentException extends __BaseException {
 }
 
 /**
- * <p>The document can't be processed because it's too large. The maximum document size for
- *          synchronous operations 10 MB. The maximum document size for asynchronous operations is 500
- *          MB for PDF files.</p>
+ * The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.
+ *
  * @public
  */
 export class DocumentTooLargeException extends __BaseException {
@@ -83,7 +82,8 @@ export class DocumentTooLargeException extends __BaseException {
 }
 
 /**
- * <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
+ * Indicates you have exceeded the maximum number of active human in the loop workflows available
+ *
  * @public
  */
 export class HumanLoopQuotaExceededException extends __BaseException {
@@ -91,19 +91,22 @@ export class HumanLoopQuotaExceededException extends __BaseException {
   readonly name = "HumanLoopQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The quota code.</p>
+   * The quota code.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>The service code.</p>
+   * The service code.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
@@ -129,7 +132,8 @@ export class HumanLoopQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ * Amazon Textract experienced a service issue. Try your call again.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -154,11 +158,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>An input parameter violated a constraint. For example, in synchronous operations,
- *        an <code>InvalidParameterException</code> exception occurs
- *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
- *       request parameter.
- *        Validate your parameter before calling the API operation again.</p>
+ * An input parameter violated a constraint. For example, in synchronous operations, an `InvalidParameterException` exception occurs when neither of the `S3Object` or `Bytes` values are supplied in the `Document` request parameter. Validate your parameter before calling the API operation again.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -183,10 +184,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Amazon Textract is unable to access the S3 object that's specified in the request.
- *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
- *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
- *          </p>
+ * Amazon Textract is unable to access the S3 object that's specified in the request. for more information, [Configure Access to Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html) For troubleshooting information, see [Troubleshooting Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html)
+ *
  * @public
  */
 export class InvalidS3ObjectException extends __BaseException {
@@ -211,8 +210,8 @@ export class InvalidS3ObjectException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
- *          contact Amazon Textract.</p>
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Textract.
+ *
  * @public
  */
 export class ProvisionedThroughputExceededException extends __BaseException {
@@ -237,7 +236,8 @@ export class ProvisionedThroughputExceededException extends __BaseException {
 }
 
 /**
- * <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ * Amazon Textract is temporarily unable to process the request. Try your call again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -262,8 +262,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The format of the input document isn't supported. Documents for operations can be in
- *          PNG, JPEG, PDF, or TIFF format.</p>
+ * The format of the input document isn't supported. Documents for operations can be in PNG, JPEG, PDF, or TIFF format.
+ *
  * @public
  */
 export class UnsupportedDocumentException extends __BaseException {
@@ -288,7 +288,8 @@ export class UnsupportedDocumentException extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ * Updating or deleting a resource can cause an inconsistent state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -313,9 +314,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
- *          least one of the other input parameters is different from the previous call to the
- *          operation. </p>
+ * A `ClientRequestToken` input parameter was reused with an operation, but at least one of the other input parameters is different from the previous call to the operation.
+ *
  * @public
  */
 export class IdempotentParameterMismatchException extends __BaseException {
@@ -340,11 +340,8 @@ export class IdempotentParameterMismatchException extends __BaseException {
 }
 
 /**
- * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
- *          asynchronous jobs concurrently, calls to start operations
- *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
- *          exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *          the Amazon Textract service limit. </p>
+ * An Amazon Textract service limit was exceeded. For example, if you start too many asynchronous jobs concurrently, calls to start operations (`StartDocumentTextDetection`, for example) raise a LimitExceededException exception (HTTP status code: 400) until the number of concurrently running jobs is below the Amazon Textract service limit.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -369,7 +366,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+ * Returned when a request cannot be completed as it would exceed a maximum service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -394,7 +392,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>  Indicates that a request was not valid. Check request for proper formatting. </p>
+ * Indicates that a request was not valid. Check request for proper formatting.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -419,8 +418,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
+ * Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly.
+ *
  * @public
  */
 export class InvalidKMSKeyException extends __BaseException {
@@ -445,7 +444,8 @@ export class InvalidKMSKeyException extends __BaseException {
 }
 
 /**
- * <p> Returned when an operation tried to access a nonexistent resource. </p>
+ * Returned when an operation tried to access a nonexistent resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -470,7 +470,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ * An invalid job identifier was passed to an asynchronous analysis operation.
+ *
  * @public
  */
 export class InvalidJobIdException extends __BaseException {

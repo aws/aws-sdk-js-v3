@@ -23,177 +23,82 @@ export interface CreateKeyCommandInput extends CreateKeyRequest {}
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
- *       You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services
- *       services let you use KMS keys that you create and manage to protect your service
- *       resources.</p>
- *          <p>A KMS key is a logical representation of a cryptographic key. In addition to the key
- *       material used in cryptographic operations, a KMS key includes metadata, such as the key ID,
- *       key policy, creation date, description, and key state. </p>
- *          <p>Use the parameters of <code>CreateKey</code> to specify the type of KMS key, the source of
- *       its key material, its key policy, description, tags, and other properties.</p>
- *          <note>
- *             <p>KMS has replaced the term <i>customer master key (CMK)</i> with <i>Key Management Service key</i>
- *   and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
- *          </note>
- *          <p>To create different types of KMS keys, use the following guidance:</p>
- *          <dl>
- *             <dt>Symmetric encryption KMS key</dt>
- *             <dd>
- *                <p>By default, <code>CreateKey</code> creates a symmetric encryption KMS key with key
- *             material that KMS generates. This is the basic and most widely used type of KMS key, and
- *             provides the best performance.</p>
- *                <p>To create a symmetric encryption KMS key, you don't need to specify any parameters.
- *             The default value for <code>KeySpec</code>, <code>SYMMETRIC_DEFAULT</code>, the default
- *             value for <code>KeyUsage</code>, <code>ENCRYPT_DECRYPT</code>, and the default value for
- *               <code>Origin</code>, <code>AWS_KMS</code>, create a symmetric encryption KMS key with
- *             KMS key material.</p>
- *                <p>If you need a key for basic encryption and decryption or you are creating a KMS key
- *             to protect your resources in an Amazon Web Services service, create a symmetric encryption KMS key.
- *             The key material in a symmetric encryption key never leaves KMS unencrypted. You can
- *             use a symmetric encryption KMS key to encrypt and decrypt data up to 4,096 bytes, but
- *             they are typically used to generate data keys and data keys pairs. For details, see
- *               <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a>.</p>
- *                <p> </p>
- *             </dd>
- *             <dt>Asymmetric KMS keys</dt>
- *             <dd>
- *                <p>To create an asymmetric KMS key, use the <code>KeySpec</code> parameter to specify
- *             the type of key material in the KMS key. Then, use the <code>KeyUsage</code> parameter
- *             to determine whether the KMS key will be used to encrypt and decrypt or sign and verify.
- *             You can't change these properties after the KMS key is created.</p>
- *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, ML-DSA
- *             key pair or an SM2 key pair (China Regions only). The private key in an asymmetric KMS
- *             key never leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to download the public key so it can be used
- *             outside of KMS. Each KMS key can have only one key usage. KMS keys with RSA key pairs
- *             can be used to encrypt and decrypt data or sign and verify messages (but not both). KMS
- *             keys with NIST-standard ECC key pairs can be used to sign and verify messages or
- *             derive shared secrets (but not both). KMS keys with <code>ECC_SECG_P256K1</code> can be
- *             used only to sign and verify messages. KMS keys with ML-DSA key pairs can be used to
- *             sign and verify messages. KMS keys with SM2 key pairs (China Regions only) can be used
- *             to either encrypt and decrypt data, sign and verify messages, or derive shared secrets
- *             (you must choose one key usage type). For information about asymmetric KMS keys, see
- *               <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
- *               KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *                <p> </p>
- *             </dd>
- *             <dt>HMAC KMS key</dt>
- *             <dd>
- *                <p>To create an HMAC KMS key, set the <code>KeySpec</code> parameter to a key spec
- *             value for HMAC KMS keys. Then set the <code>KeyUsage</code> parameter to
- *               <code>GENERATE_VERIFY_MAC</code>. You must set the key usage even though
- *               <code>GENERATE_VERIFY_MAC</code> is the only valid key usage value for HMAC KMS keys.
- *             You can't change these properties after the KMS key is created.</p>
- *                <p>HMAC KMS keys are symmetric keys that never leave KMS unencrypted. You can use
- *             HMAC keys to generate (<a>GenerateMac</a>) and verify (<a>VerifyMac</a>) HMAC codes for messages up to 4096 bytes.</p>
- *                <p> </p>
- *             </dd>
- *             <dt>Multi-Region primary keys</dt>
- *             <dd>
- *                <p>To create a multi-Region <i>primary key</i> in the local Amazon Web Services Region,
- *             use the <code>MultiRegion</code> parameter with a value of <code>True</code>. To create
- *             a multi-Region <i>replica key</i>, that is, a KMS key with the same key ID
- *             and key material as a primary key, but in a different Amazon Web Services Region, use the <a>ReplicateKey</a> operation. To change a replica key to a primary key, and its
- *             primary key to a replica key, use the <a>UpdatePrimaryRegion</a>
- *             operation.</p>
- *                <p>You can create multi-Region KMS keys for all supported KMS key types: symmetric
- *             encryption KMS keys, HMAC KMS keys, asymmetric encryption KMS keys, and asymmetric
- *             signing KMS keys. You can also create multi-Region keys with imported key material.
- *             However, you can't create multi-Region keys in a custom key store.</p>
- *                <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
- *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
- *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
- *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *                <p> </p>
- *             </dd>
- *             <dt>Imported key material</dt>
- *             <dd>
- *                <p>To import your own key material into a KMS key, begin by creating a KMS key with no
- *             key material. To do this, use the <code>Origin</code> parameter of
- *               <code>CreateKey</code> with a value of <code>EXTERNAL</code>. Next, use <a>GetParametersForImport</a> operation to get a public key and import token. Use
- *             the wrapping public key to encrypt your key material. Then, use <a>ImportKeyMaterial</a> with your import token to import the key material. For
- *             step-by-step instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *                <p>You can import key material into KMS keys of all supported KMS key types: symmetric
- *             encryption KMS keys, HMAC KMS keys, asymmetric encryption KMS keys, and asymmetric
- *             signing KMS keys. You can also create multi-Region keys with imported key material.
- *             However, you can't import key material into a KMS key in a custom key store.</p>
- *                <p>To create a multi-Region primary key with imported key material, use the
- *               <code>Origin</code> parameter of <code>CreateKey</code> with a value of
- *               <code>EXTERNAL</code> and the <code>MultiRegion</code> parameter with a value of
- *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html ">Importing key material step
- *               1</a>. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *                <p> </p>
- *             </dd>
- *             <dt>Custom key store</dt>
- *             <dd>
- *                <p>A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> lets you protect your Amazon Web Services resources using keys in a backing key
- *             store that you own and manage. When you request a cryptographic operation with a KMS key
- *             in a custom key store, the operation is performed in the backing key store using its
- *             cryptographic keys.</p>
- *                <p>KMS supports <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a> backed by an CloudHSM cluster and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key stores</a> backed by an
- *             external key manager outside of Amazon Web Services. When you create a KMS key in an CloudHSM key store,
- *             KMS generates an encryption key in the CloudHSM cluster and associates it with the KMS
- *             key. When you create a KMS key in an external key store, you specify an existing
- *             encryption key in the external key manager.</p>
- *                <note>
- *                   <p>Some external key managers provide a simpler method for creating a KMS key in an
- *               external key store. For details, see your external key manager documentation.</p>
- *                </note>
- *                <p>Before you create a KMS key in a custom key store, the <code>ConnectionState</code>
- *             of the key store must be <code>CONNECTED</code>. To connect the custom key store, use
- *             the <a>ConnectCustomKeyStore</a> operation. To find the
- *               <code>ConnectionState</code>, use the <a>DescribeCustomKeyStores</a>
- *             operation.</p>
- *                <p>To create a KMS key in a custom key store, use the <code>CustomKeyStoreId</code>.
- *             Use the default <code>KeySpec</code> value, <code>SYMMETRIC_DEFAULT</code>, and the
- *             default <code>KeyUsage</code> value, <code>ENCRYPT_DECRYPT</code> to create a symmetric
- *             encryption key. No other key type is supported in a custom key store.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">CloudHSM key store</a>, use the
- *               <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The CloudHSM
- *             cluster that is associated with the custom key store must have at least two active HSMs
- *             in different Availability Zones in the Amazon Web Services Region.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">external key store</a>, use the
- *               <code>Origin</code> parameter with a value of <code>EXTERNAL_KEY_STORE</code> and an
- *               <code>XksKeyId</code> parameter that identifies an existing external key.</p>
- *                <note>
- *                   <p>Some external key managers provide a simpler method for creating a KMS key in an
- *               external key store. For details, see your external key manager documentation.</p>
- *                </note>
- *             </dd>
- *          </dl>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot use this operation to
- *       create a KMS key in a different Amazon Web Services account.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a> (IAM policy). To use the
- *         <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (IAM policy). For examples and information about related
- *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/customer-managed-policies.html#iam-policy-example-create-key">Allow a user
- *         to create KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DescribeKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListKeys</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ScheduleKeyDeletion</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Creates a unique customer managed [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys) in your Amazon Web Services account and Region. You can use a KMS key in cryptographic operations, such as encryption and signing. Some Amazon Web Services services let you use KMS keys that you create and manage to protect your service resources.
+ *
+ * A KMS key is a logical representation of a cryptographic key. In addition to the key material used in cryptographic operations, a KMS key includes metadata, such as the key ID, key policy, creation date, description, and key state.
+ *
+ * Use the parameters of `CreateKey` to specify the type of KMS key, the source of its key material, its key policy, description, tags, and other properties.
+ *
+ * > **Note:** KMS has replaced the term *customer master key (CMK)* with *Key Management Service key* and *KMS key*. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.
+ *
+ * To create different types of KMS keys, use the following guidance:
+ *
+ * - **Symmetric encryption KMS key**
+ *
+ *   By default, `CreateKey` creates a symmetric encryption KMS key with key material that KMS generates. This is the basic and most widely used type of KMS key, and provides the best performance.
+ *
+ *   To create a symmetric encryption KMS key, you don't need to specify any parameters. The default value for `KeySpec`, `SYMMETRIC_DEFAULT`, the default value for `KeyUsage`, `ENCRYPT_DECRYPT`, and the default value for `Origin`, `AWS_KMS`, create a symmetric encryption KMS key with KMS key material.
+ *
+ *   If you need a key for basic encryption and decryption or you are creating a KMS key to protect your resources in an Amazon Web Services service, create a symmetric encryption KMS key. The key material in a symmetric encryption key never leaves KMS unencrypted. You can use a symmetric encryption KMS key to encrypt and decrypt data up to 4,096 bytes, but they are typically used to generate data keys and data keys pairs. For details, see GenerateDataKey and GenerateDataKeyPair.
+ *
+ * - **Asymmetric KMS keys**
+ *
+ *   To create an asymmetric KMS key, use the `KeySpec` parameter to specify the type of key material in the KMS key. Then, use the `KeyUsage` parameter to determine whether the KMS key will be used to encrypt and decrypt or sign and verify. You can't change these properties after the KMS key is created.
+ *
+ *   Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, ML-DSA key pair or an SM2 key pair (China Regions only). The private key in an asymmetric KMS key never leaves KMS unencrypted. However, you can use the GetPublicKey operation to download the public key so it can be used outside of KMS. Each KMS key can have only one key usage. KMS keys with RSA key pairs can be used to encrypt and decrypt data or sign and verify messages (but not both). KMS keys with NIST-standard ECC key pairs can be used to sign and verify messages or derive shared secrets (but not both). KMS keys with `ECC_SECG_P256K1` can be used only to sign and verify messages. KMS keys with ML-DSA key pairs can be used to sign and verify messages. KMS keys with SM2 key pairs (China Regions only) can be used to either encrypt and decrypt data, sign and verify messages, or derive shared secrets (you must choose one key usage type). For information about asymmetric KMS keys, see [Asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
+ *
+ * - **HMAC KMS key**
+ *
+ *   To create an HMAC KMS key, set the `KeySpec` parameter to a key spec value for HMAC KMS keys. Then set the `KeyUsage` parameter to `GENERATE_VERIFY_MAC`. You must set the key usage even though `GENERATE_VERIFY_MAC` is the only valid key usage value for HMAC KMS keys. You can't change these properties after the KMS key is created.
+ *
+ *   HMAC KMS keys are symmetric keys that never leave KMS unencrypted. You can use HMAC keys to generate (GenerateMac) and verify (VerifyMac) HMAC codes for messages up to 4096 bytes.
+ *
+ * - **Multi-Region primary keys**
+ *
+ *   To create a multi-Region *primary key* in the local Amazon Web Services Region, use the `MultiRegion` parameter with a value of `True`. To create a multi-Region *replica key*, that is, a KMS key with the same key ID and key material as a primary key, but in a different Amazon Web Services Region, use the ReplicateKey operation. To change a replica key to a primary key, and its primary key to a replica key, use the UpdatePrimaryRegion operation.
+ *
+ *   You can create multi-Region KMS keys for all supported KMS key types: symmetric encryption KMS keys, HMAC KMS keys, asymmetric encryption KMS keys, and asymmetric signing KMS keys. You can also create multi-Region keys with imported key material. However, you can't create multi-Region keys in a custom key store.
+ *
+ *   This operation supports *multi-Region keys*, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *Key Management Service Developer Guide*.
+ *
+ * - **Imported key material**
+ *
+ *   To import your own key material into a KMS key, begin by creating a KMS key with no key material. To do this, use the `Origin` parameter of `CreateKey` with a value of `EXTERNAL`. Next, use GetParametersForImport operation to get a public key and import token. Use the wrapping public key to encrypt your key material. Then, use ImportKeyMaterial with your import token to import the key material. For step-by-step instructions, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the **Key Management Service Developer Guide** .
+ *
+ *   You can import key material into KMS keys of all supported KMS key types: symmetric encryption KMS keys, HMAC KMS keys, asymmetric encryption KMS keys, and asymmetric signing KMS keys. You can also create multi-Region keys with imported key material. However, you can't import key material into a KMS key in a custom key store.
+ *
+ *   To create a multi-Region primary key with imported key material, use the `Origin` parameter of `CreateKey` with a value of `EXTERNAL` and the `MultiRegion` parameter with a value of `True`. To create replicas of the multi-Region primary key, use the ReplicateKey operation. For instructions, see [Importing key material step 1](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html). For more information about multi-Region keys, see [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *Key Management Service Developer Guide*.
+ *
+ * - **Custom key store**
+ *
+ *   A [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html) lets you protect your Amazon Web Services resources using keys in a backing key store that you own and manage. When you request a cryptographic operation with a KMS key in a custom key store, the operation is performed in the backing key store using its cryptographic keys.
+ *
+ *   KMS supports [CloudHSM key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html) backed by an CloudHSM cluster and [external key stores](https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html) backed by an external key manager outside of Amazon Web Services. When you create a KMS key in an CloudHSM key store, KMS generates an encryption key in the CloudHSM cluster and associates it with the KMS key. When you create a KMS key in an external key store, you specify an existing encryption key in the external key manager.
+ *
+ *   > **Note:** Some external key managers provide a simpler method for creating a KMS key in an external key store. For details, see your external key manager documentation.
+ *
+ *   Before you create a KMS key in a custom key store, the `ConnectionState` of the key store must be `CONNECTED`. To connect the custom key store, use the ConnectCustomKeyStore operation. To find the `ConnectionState`, use the DescribeCustomKeyStores operation.
+ *
+ *   To create a KMS key in a custom key store, use the `CustomKeyStoreId`. Use the default `KeySpec` value, `SYMMETRIC_DEFAULT`, and the default `KeyUsage` value, `ENCRYPT_DECRYPT` to create a symmetric encryption key. No other key type is supported in a custom key store.
+ *
+ *   To create a KMS key in an [CloudHSM key store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html), use the `Origin` parameter with a value of `AWS_CLOUDHSM`. The CloudHSM cluster that is associated with the custom key store must have at least two active HSMs in different Availability Zones in the Amazon Web Services Region.
+ *
+ *   To create a KMS key in an [external key store](https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html), use the `Origin` parameter with a value of `EXTERNAL_KEY_STORE` and an `XksKeyId` parameter that identifies an existing external key.
+ *
+ *   > **Note:** Some external key managers provide a simpler method for creating a KMS key in an external key store. For details, see your external key manager documentation.
+ *
+ * **Cross-account use**: No. You cannot use this operation to create a KMS key in a different Amazon Web Services account.
+ *
+ * **Required permissions**: [kms:CreateKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy). To use the `Tags` parameter, [kms:TagResource](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy). For examples and information about related permissions, see [Allow a user to create KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/customer-managed-policies.html#iam-policy-example-create-key) in the *Key Management Service Developer Guide*.
+ *
+ * **Related operations:**
+ *
+ * - DescribeKey
+ * - ListKeys
+ * - ScheduleKeyDeletion
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -287,132 +192,80 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link CloudHsmClusterInvalidConfigurationException} (client fault)
- *  <p>The request was rejected because the associated CloudHSM cluster did not meet the
- *       configuration requirements for an CloudHSM key store.</p>
- *          <ul>
- *             <li>
- *                <p>The CloudHSM cluster must be configured with private subnets in at least two different
- *           Availability Zones in the Region.</p>
- *             </li>
- *             <li>
- *                <p>The <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">security group for
- *             the cluster</a> (cloudhsm-cluster-<i><cluster-id></i>-sg) must
- *           include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The
- *             <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group
- *           ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or
- *           change them. To get information about a particular security group, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">DescribeSecurityGroups</a> operation.</p>
- *             </li>
- *             <li>
- *                <p>The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add
- *           HSMs, use the CloudHSM <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation.</p>
- *                <p>For the <a>CreateCustomKeyStore</a>, <a>UpdateCustomKeyStore</a>, and <a>CreateKey</a> operations, the CloudHSM cluster must have at least two
- *           active HSMs, each in a different Availability Zone. For the <a>ConnectCustomKeyStore</a> operation, the CloudHSM must contain at least one active
- *           HSM.</p>
- *             </li>
- *          </ul>
- *          <p>For information about the requirements for an CloudHSM cluster that is associated with an
- *       CloudHSM key store, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">Assemble the Prerequisites</a>
- *       in the <i>Key Management Service Developer Guide</i>. For information about creating a private subnet for an CloudHSM cluster,
- *       see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html">Create a Private
- *         Subnet</a> in the <i>CloudHSM User Guide</i>. For information about cluster security groups, see
- *         <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">Configure a Default Security
- *         Group</a> in the <i>
- *                <i>CloudHSM User Guide</i>
- *             </i>. </p>
+ *
+ * The request was rejected because the associated CloudHSM cluster did not meet the configuration requirements for an CloudHSM key store.
+ *
+ * - The CloudHSM cluster must be configured with private subnets in at least two different Availability Zones in the Region.
+ * - The [security group for the cluster](https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html) (cloudhsm-cluster-*<cluster-id>*-sg) must include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The **Source** in the inbound rules and the **Destination** in the outbound rules must match the security group ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or change them. To get information about a particular security group, use the [DescribeSecurityGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html) operation.
+ * - The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add HSMs, use the CloudHSM [CreateHsm](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html) operation.
+ *
+ *   For the CreateCustomKeyStore, UpdateCustomKeyStore, and CreateKey operations, the CloudHSM cluster must have at least two active HSMs, each in a different Availability Zone. For the ConnectCustomKeyStore operation, the CloudHSM must contain at least one active HSM.
+ *
+ * For information about the requirements for an CloudHSM cluster that is associated with an CloudHSM key store, see [Assemble the Prerequisites](https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore) in the *Key Management Service Developer Guide*. For information about creating a private subnet for an CloudHSM cluster, see [Create a Private Subnet](https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html) in the *CloudHSM User Guide*. For information about cluster security groups, see [Configure a Default Security Group](https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html) in the **CloudHSM User Guide** .
  *
  * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
- *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
- *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p>This exception is thrown under the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
- *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
- *             (<a>DisconnectCustomKeyStore</a>), then connect it
- *             (<code>ConnectCustomKeyStore</code>).</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
- *           not connected. This operations is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>DISCONNECTED</code>. This operation is valid for all other
- *             <code>ConnectionState</code> values.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
- *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
- *             For all other properties, the custom key store
- *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
- *           that is not connected. This operation is valid only when the CloudHSM key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because of the `ConnectionState` of the custom key store. To get the `ConnectionState` of a custom key store, use the DescribeCustomKeyStores operation.
+ *
+ * This exception is thrown under the following conditions:
+ *
+ * - You requested the ConnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `FAILED`. This operation is valid for all other `ConnectionState` values. To reconnect a custom key store in a `FAILED` state, disconnect it (DisconnectCustomKeyStore), then connect it (`ConnectCustomKeyStore`).
+ * - You requested the CreateKey operation in a custom key store that is not connected. This operations is valid only when the custom key store `ConnectionState` is `CONNECTED`.
+ * - You requested the DisconnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `DISCONNECTED`. This operation is valid for all other `ConnectionState` values.
+ * - You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation on a custom key store that is not disconnected. `UpdateCustomKeyStore` can be called on a custom key store in the `CONNECTED` state only to update `NewCustomKeyStoreName`. For all other properties, the custom key store `ConnectionState` must be `DISCONNECTED`.
+ * - You requested the GenerateRandom operation in an CloudHSM key store that is not connected. This operation is valid only when the CloudHSM key store `ConnectionState` is `CONNECTED`.
  *
  * @throws {@link CustomKeyStoreNotFoundException} (client fault)
- *  <p>The request was rejected because KMS cannot find a custom key store with the specified
- *       key store name or ID.</p>
+ *
+ * The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a length constraint or quota was exceeded. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
- *       the <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * The request was rejected because a length constraint or quota was exceeded. For more information, see [Quotas](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html) in the *Key Management Service Developer Guide*.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The request was rejected because the specified policy is not syntactically or semantically
- *       correct.</p>
+ *
+ * The request was rejected because the specified policy is not syntactically or semantically correct.
  *
  * @throws {@link TagException} (client fault)
- *  <p>The request was rejected because one or more tags are not valid.</p>
+ *
+ * The request was rejected because one or more tags are not valid.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified
- *       resource is not valid for this operation.</p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link XksKeyAlreadyInUseException} (client fault)
- *  <p>The request was rejected because the (<code>XksKeyId</code>) is already associated with
- *       another KMS key in this external key store. Each KMS key in an external key store must be
- *       associated with a different external key.</p>
+ *
+ * The request was rejected because the (`XksKeyId`) is already associated with another KMS key in this external key store. Each KMS key in an external key store must be associated with a different external key.
  *
  * @throws {@link XksKeyInvalidConfigurationException} (client fault)
- *  <p>The request was rejected because the external key specified by the <code>XksKeyId</code>
- *       parameter did not meet the configuration requirements for an external key store.</p>
- *          <p>The external key must be an AES-256 symmetric key that is enabled and performs encryption
- *       and decryption.</p>
+ *
+ * The request was rejected because the external key specified by the `XksKeyId` parameter did not meet the configuration requirements for an external key store.
+ *
+ * The external key must be an AES-256 symmetric key that is enabled and performs encryption and decryption.
  *
  * @throws {@link XksKeyNotFoundException} (client fault)
- *  <p>The request was rejected because the external key store proxy could not find the external
- *       key. This exception is thrown when the value of the <code>XksKeyId</code> parameter doesn't
- *       identify a key in the external key manager associated with the external key proxy.</p>
- *          <p>Verify that the <code>XksKeyId</code> represents an existing key in the external key
- *       manager. Use the key identifier that the external key store proxy uses to identify the key.
- *       For details, see the documentation provided with your external key store proxy or key
- *       manager.</p>
+ *
+ * The request was rejected because the external key store proxy could not find the external key. This exception is thrown when the value of the `XksKeyId` parameter doesn't identify a key in the external key manager associated with the external key proxy.
+ *
+ * Verify that the `XksKeyId` represents an existing key in the external key manager. Use the key identifier that the external key store proxy uses to identify the key. For details, see the documentation provided with your external key store proxy or key manager.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @public
  */

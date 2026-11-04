@@ -23,19 +23,13 @@ export interface DescribeVirtualInterfacesCommandInput extends DescribeVirtualIn
 export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterfaces, __MetadataBearer {}
 
 /**
- * <p>Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer
- *       than 15 minutes before you make the request are also returned. If you specify a
- *       connection ID, only the virtual interfaces associated with the connection are returned.
- *       If you specify a virtual interface ID, then only a single virtual interface is returned.</p>
- *          <p>A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network.</p>
- *          <ul>
- *             <li>
- *                <p>If you're using an <code>asn</code>, the response includes the ASN value in both the <code>asn</code> and <code>asnLong</code> fields.</p>
- *             </li>
- *             <li>
- *                <p>If you're using <code>asnLong</code>, the response returns a value of <code>0</code> (zero) for the <code>asn</code> attribute because it exceeds the highest ASN value of 2,147,483,647 that it can support</p>
- *             </li>
- *          </ul>
+ * Displays all virtual interfaces for an Amazon Web Services account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned.
+ *
+ * A virtual interface (VLAN) transmits the traffic between the Direct Connect location and the customer network.
+ *
+ * - If you're using an `asn`, the response includes the ASN value in both the `asn` and `asnLong` fields.
+ * - If you're using `asnLong`, the response returns a value of `0` (zero) for the `asn` attribute because it exceeds the highest ASN value of 2,147,483,647 that it can support
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,14 +116,16 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

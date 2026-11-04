@@ -26,10 +26,8 @@ export interface GetSavingsPlansPurchaseRecommendationCommandInput extends GetSa
 export interface GetSavingsPlansPurchaseRecommendationCommandOutput extends GetSavingsPlansPurchaseRecommendationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Savings Plans recommendations for your account. First use
- *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
- *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
- *       them.</p>
+ * Retrieves the Savings Plans recommendations for your account. First use `StartSavingsPlansPurchaseRecommendationGeneration` to generate a new set of recommendations, and then use `GetSavingsPlansPurchaseRecommendation` to retrieve them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -193,14 +191,16 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput extends GetS
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

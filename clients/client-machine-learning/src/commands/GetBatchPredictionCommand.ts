@@ -23,8 +23,8 @@ export interface GetBatchPredictionCommandInput extends GetBatchPredictionInput 
 export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
- *             <code>Batch Prediction</code> request.</p>
+ * Returns a `BatchPrediction` that includes detailed metadata, status, and data file information for a `Batch Prediction` request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +67,20 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * An error on the server occurred when trying to process a request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * An error on the client occurred. Typically, the cause is an invalid input value.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A specified resource cannot be located.</p>
+ *
+ * A specified resource cannot be located.
  *
  * @throws {@link MachineLearningServiceException}
- * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ * Base exception class for all service exceptions from MachineLearning service.
  *
  * @public
  */

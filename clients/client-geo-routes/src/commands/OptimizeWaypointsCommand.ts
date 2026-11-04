@@ -23,7 +23,10 @@ export interface OptimizeWaypointsCommandInput extends OptimizeWaypointsRequest 
 export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsResponse, __MetadataBearer {}
 
 /**
- * <p> <code>OptimizeWaypoints</code> calculates the optimal order to travel between a set of waypoints to minimize either the travel time or the distance travelled during the journey, based on road network restrictions and the traffic pattern data.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/actions-optimize-waypoints.html">Optimize waypoints</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `OptimizeWaypoints` calculates the optimal order to travel between a set of waypoints to minimize either the travel time or the distance travelled during the journey, based on road network restrictions and the traffic pattern data.
+ *
+ * For more information, see [Optimize waypoints](https://docs.aws.amazon.com/location/latest/developerguide/actions-optimize-waypoints.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -223,20 +226,24 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  * @see {@link GeoRoutesClientResolvedConfig | config} for GeoRoutesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoRoutesServiceException}
- * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ * Base exception class for all service exceptions from GeoRoutes service.
  *
  * @public
  */

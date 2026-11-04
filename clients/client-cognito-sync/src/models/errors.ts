@@ -198,7 +198,8 @@ export class InvalidConfigurationException extends __BaseException {
 }
 
 /**
- * <p>Thrown if there are parallel requests to modify a resource.</p>
+ * Thrown if there are parallel requests to modify a resource.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -219,7 +220,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The AWS Lambda function returned invalid output or an exception.</p>
+ * The AWS Lambda function returned invalid output or an exception.
+ *
  * @public
  */
 export class InvalidLambdaFunctionOutputException extends __BaseException {
@@ -240,7 +242,8 @@ export class InvalidLambdaFunctionOutputException extends __BaseException {
 }
 
 /**
- * <p>AWS Lambda throttled your account, please contact AWS Support</p>
+ * AWS Lambda throttled your account, please contact AWS Support
+ *
  * @public
  */
 export class LambdaThrottledException extends __BaseException {

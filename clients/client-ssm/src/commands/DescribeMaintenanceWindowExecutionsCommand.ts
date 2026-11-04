@@ -26,9 +26,8 @@ export interface DescribeMaintenanceWindowExecutionsCommandInput extends Describ
 export interface DescribeMaintenanceWindowExecutionsCommandOutput extends DescribeMaintenanceWindowExecutionsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the executions of a maintenance window. This includes information about when the
- *    maintenance window was scheduled to be active, and information about tasks registered and run
- *    with the maintenance window.</p>
+ * Lists the executions of a maintenance window. This includes information about when the maintenance window was scheduled to be active, and information about tasks registered and run with the maintenance window.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +74,12 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput extends Descri
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

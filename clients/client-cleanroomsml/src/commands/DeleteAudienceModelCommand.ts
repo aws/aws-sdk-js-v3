@@ -23,7 +23,8 @@ export interface DeleteAudienceModelCommandInput extends DeleteAudienceModelRequ
 export interface DeleteAudienceModelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Specifies an audience model that you want to delete. You can't delete an audience model if there are any configured audience models that depend on the audience model.</p>
+ * Specifies an audience model that you want to delete. You can't delete an audience model if there are any configured audience models that depend on the audience model.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +49,28 @@ export interface DeleteAudienceModelCommandOutput extends __MetadataBearer {}
  * @see {@link CleanRoomsMLClientResolvedConfig | config} for CleanRoomsMLClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can't complete this action because another resource depends on this resource.</p>
+ *
+ * You can't complete this action because another resource depends on this resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you are requesting does not exist.</p>
+ *
+ * The resource you are requesting does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters for this request are incorrect.</p>
+ *
+ * The request parameters for this request are incorrect.
  *
  * @throws {@link CleanRoomsMLServiceException}
- * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ * Base exception class for all service exceptions from CleanRoomsML service.
  *
  * @public
  */

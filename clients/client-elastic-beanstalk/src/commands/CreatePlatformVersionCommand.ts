@@ -23,7 +23,8 @@ export interface CreatePlatformVersionCommandInput extends CreatePlatformVersion
 export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersionResult, __MetadataBearer {}
 
 /**
- * <p>Create a new version of your custom platform.</p>
+ * Create a new version of your custom platform.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,17 +91,20 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkServiceException} (client fault)
- *  <p>A generic service exception has occurred.</p>
+ *
+ * A generic service exception has occurred.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link TooManyPlatformsException} (client fault)
- *  <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
+ *
+ * You have exceeded the maximum number of allowed platforms associated with the account.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

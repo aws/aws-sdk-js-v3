@@ -76,8 +76,8 @@ export interface GetCloudWatchAlarmTemplateGroupCommandOutput extends GetCloudWa
  *  Placeholder documentation for TooManyRequestsException
  *
  * @throws {@link MediaLiveServiceException}
- * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ * Base exception class for all service exceptions from MediaLive service.
  *
  * @public
  */

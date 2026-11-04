@@ -23,28 +23,15 @@ export interface ListHookResultsCommandInput extends ListHookResultsInput {}
 export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summaries of invoked Hooks. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html">View invocation
- *         summaries for CloudFormation Hooks</a> in the <i>CloudFormation Hooks User Guide</i>.</p>
- *          <p>This operation supports the following parameter combinations:</p>
- *          <ul>
- *             <li>
- *                <p>No parameters: Returns all Hook invocation summaries.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TypeArn</code> only: Returns summaries for a specific Hook.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TypeArn</code> and <code>Status</code>: Returns summaries for a specific Hook
- *           filtered by status.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TargetId</code> and <code>TargetType</code>: Returns summaries for a specific
- *           Hook invocation target.</p>
- *             </li>
- *          </ul>
+ * Returns summaries of invoked Hooks. For more information, see [View invocation summaries for CloudFormation Hooks](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/hooks-view-invocations.html) in the *CloudFormation Hooks User Guide*.
+ *
+ * This operation supports the following parameter combinations:
+ *
+ * - No parameters: Returns all Hook invocation summaries.
+ * - `TypeArn` only: Returns summaries for a specific Hook.
+ * - `TypeArn` and `Status`: Returns summaries for a specific Hook filtered by status.
+ * - `TargetId` and `TargetType`: Returns summaries for a specific Hook invocation target.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,11 +81,12 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link HookResultNotFoundException} (client fault)
- *  <p>The specified target doesn't have any requested Hook invocations.</p>
+ *
+ * The specified target doesn't have any requested Hook invocations.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

@@ -23,37 +23,22 @@ export interface AttachLoadBalancerTargetGroupsCommandInput extends AttachLoadBa
 export interface AttachLoadBalancerTargetGroupsCommandOutput extends AttachLoadBalancerTargetGroupsResultType, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html">AttachTrafficSources</a>, which
- *                 can attach multiple traffic sources types. We recommend using
- *                     <code>AttachTrafficSources</code> to simplify how you manage traffic sources.
- *                 However, we continue to support <code>AttachLoadBalancerTargetGroups</code>. You can
- *                 use both the original <code>AttachLoadBalancerTargetGroups</code> API operation and
- *                     <code>AttachTrafficSources</code> on the same Auto Scaling group.</p>
- *          </note>
- *          <p>Attaches one or more target groups to the specified Auto Scaling group.</p>
- *          <p>This operation is used with the following load balancer types: </p>
- *          <ul>
- *             <li>
- *                <p>Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and
- *                     HTTPS. </p>
- *             </li>
- *             <li>
- *                <p>Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and
- *                     UDP. </p>
- *             </li>
- *             <li>
- *                <p>Gateway Load Balancer - Operates at the network layer (layer 3).</p>
- *             </li>
- *          </ul>
- *          <p>To describe the target groups for an Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html">DescribeLoadBalancerTargetGroups</a>
- *             API. To detach the target group from
- *             the Auto Scaling group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html">DetachLoadBalancerTargetGroups</a> API.</p>
- *          <p>This operation is additive and does not detach existing target groups or Classic Load
- *             Balancers from the Auto Scaling group.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
- *                 distribute traffic across the instances in your Auto Scaling group</a> in the
- *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ * > **Note:** This API operation is superseded by [AttachTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_AttachTrafficSources.html), which can attach multiple traffic sources types. We recommend using `AttachTrafficSources` to simplify how you manage traffic sources. However, we continue to support `AttachLoadBalancerTargetGroups`. You can use both the original `AttachLoadBalancerTargetGroups` API operation and `AttachTrafficSources` on the same Auto Scaling group.
+ *
+ * Attaches one or more target groups to the specified Auto Scaling group.
+ *
+ * This operation is used with the following load balancer types:
+ *
+ * - Application Load Balancer - Operates at the application layer (layer 7) and supports HTTP and HTTPS.
+ * - Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP, TLS, and UDP.
+ * - Gateway Load Balancer - Operates at the network layer (layer 3).
+ *
+ * To describe the target groups for an Auto Scaling group, call the [DescribeLoadBalancerTargetGroups](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancerTargetGroups.html) API. To detach the target group from the Auto Scaling group, call the [DetachLoadBalancerTargetGroups](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html) API.
+ *
+ * This operation is additive and does not detach existing target groups or Classic Load Balancers from the Auto Scaling group.
+ *
+ * For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,19 +66,20 @@ export interface AttachLoadBalancerTargetGroupsCommandOutput extends AttachLoadB
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InstanceRefreshInProgressFault} (client fault)
- *  <p>The request failed because an active instance refresh already exists for the specified
- *             Auto Scaling group.</p>
+ *
+ * The request failed because an active instance refresh already exists for the specified Auto Scaling group.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
- *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ * The service-linked role is not yet ready for use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript

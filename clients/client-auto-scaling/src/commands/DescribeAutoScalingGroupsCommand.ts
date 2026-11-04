@@ -23,14 +23,12 @@ export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupN
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
- * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
- *          <p>If you specify Auto Scaling group names, the output includes information for only the
- *             specified Auto Scaling groups. If you specify filters, the output includes information for only
- *             those Auto Scaling groups that meet the filter criteria. If you do not specify group names or
- *             filters, the output includes information for all Auto Scaling groups. </p>
- *          <p>This operation also returns information about instances in Auto Scaling groups. To retrieve
- *             information about the instances in a warm pool, you must call the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html">DescribeWarmPool</a> API. </p>
+ * Gets information about the Auto Scaling groups in the account and Region.
+ *
+ * If you specify Auto Scaling group names, the output includes information for only the specified Auto Scaling groups. If you specify filters, the output includes information for only those Auto Scaling groups that meet the filter criteria. If you do not specify group names or filters, the output includes information for all Auto Scaling groups.
+ *
+ * This operation also returns information about instances in Auto Scaling groups. To retrieve information about the instances in a warm pool, you must call the [DescribeWarmPool](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeWarmPool.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -308,15 +306,16 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * The `NextToken` value is not valid.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe an Auto Scaling group
  * ```javascript

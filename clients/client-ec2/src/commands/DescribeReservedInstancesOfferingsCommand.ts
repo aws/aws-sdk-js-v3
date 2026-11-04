@@ -26,19 +26,14 @@ export interface DescribeReservedInstancesOfferingsCommandInput extends Describe
 export interface DescribeReservedInstancesOfferingsCommandOutput extends DescribeReservedInstancesOfferingsResult, __MetadataBearer {}
 
 /**
- * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved
- *       Instances, you purchase the right to launch instances for a period of time. During that time
- *       period, you do not receive insufficient capacity errors, and you pay a lower usage rate than
- *       the rate charged for On-Demand instances for the actual time used.</p>
- *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance
- *       Marketplace, they will be excluded from these results. This is to ensure that you do not
- *       purchase your own Reserved Instances.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
- *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.
+ *
+ * If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.
+ *
+ * For more information, see [Sell in the Reserved Instance Marketplace](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html) in the *Amazon EC2 User Guide*.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,8 +114,8 @@ export interface DescribeReservedInstancesOfferingsCommandOutput extends Describ
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

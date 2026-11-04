@@ -25,7 +25,8 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
 }
 
 /**
- * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
+ * Downloads the object at the specified path. If the object’s upload availability is set to `streaming`, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The specified container was not found for the specified account.</p>
+ *
+ * The specified container was not found for the specified account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>Could not perform an operation on an object that does not exist.</p>
+ *
+ * Could not perform an operation on an object that does not exist.
  *
  * @throws {@link RequestedRangeNotSatisfiableException} (client fault)
- *  <p>The requested content range is not valid.</p>
+ *
+ * The requested content range is not valid.
  *
  * @throws {@link MediaStoreDataServiceException}
- * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * Base exception class for all service exceptions from MediaStoreData service.
  *
  * @public
  */

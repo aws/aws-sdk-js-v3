@@ -23,7 +23,12 @@ export interface PutInvestigationGroupPolicyCommandInput extends PutInvestigatio
 export interface PutInvestigationGroupPolicyCommandOutput extends PutInvestigationGroupPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an IAM resource policy and assigns it to the specified investigation group.</p> <p>If you create your investigation group with <code>CreateInvestigationGroup</code> and you want to enable CloudWatch alarms to create investigations and add events to investigations, you must use this operation to create a policy similar to this example.</p> <p> <code> \{ "Version": "2008-10-17", "Statement": [ \{ "Effect": "Allow", "Principal": \{ "Service": "aiops.alarms.cloudwatch.amazonaws.com" \}, "Action": [ "aiops:CreateInvestigation", "aiops:CreateInvestigationEvent" ], "Resource": "*", "Condition": \{ "StringEquals": \{ "aws:SourceAccount": "account-id" \}, "ArnLike": \{ "aws:SourceArn": "arn:aws:cloudwatch:region:account-id:alarm:*" \} \} \} ] \} </code> </p>
+ * Creates an IAM resource policy and assigns it to the specified investigation group.
+ *
+ * If you create your investigation group with `CreateInvestigationGroup` and you want to enable CloudWatch alarms to create investigations and add events to investigations, you must use this operation to create a policy similar to this example.
+ *
+ * `\{ "Version": "2008-10-17", "Statement": [ \{ "Effect": "Allow", "Principal": \{ "Service": "aiops.alarms.cloudwatch.amazonaws.com" \}, "Action": [ "aiops:CreateInvestigation", "aiops:CreateInvestigationEvent" ], "Resource": "*", "Condition": \{ "StringEquals": \{ "aws:SourceAccount": "account-id" \}, "ArnLike": \{ "aws:SourceArn": "arn:aws:cloudwatch:region:account-id:alarm:*" \} \} \} ] \}`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,29 +56,36 @@ export interface PutInvestigationGroupPolicyCommandOutput extends PutInvestigati
  * @see {@link AIOpsClientResolvedConfig | config} for AIOpsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation couldn't be completed because of a conflict in resource states.</p>
+ *
+ * This operation couldn't be completed because of a conflict in resource states.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. You can try again later.</p>
+ *
+ * An internal server error occurred. You can try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits. You can try again later.</p>
+ *
+ * The request was throttled because of quota limits. You can try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This operation or its parameters aren't formatted correctly.</p>
+ *
+ * This operation or its parameters aren't formatted correctly.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>Access id denied for this operation, or this operation is not valid for the specified resource.</p>
+ *
+ * Access id denied for this operation, or this operation is not valid for the specified resource.
  *
  * @throws {@link AIOpsServiceException}
- * <p>Base exception class for all service exceptions from AIOps service.</p>
  *
+ * Base exception class for all service exceptions from AIOps service.
  *
  * @public
  */

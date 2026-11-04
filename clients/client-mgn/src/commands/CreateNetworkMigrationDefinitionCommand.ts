@@ -23,7 +23,8 @@ export interface CreateNetworkMigrationDefinitionCommandInput extends CreateNetw
 export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMigrationDefinition, __MetadataBearer {}
 
 /**
- * <p>Creates a new network migration definition that specifies the source and target network configuration for a migration.</p>
+ * Creates a new network migration definition that specifies the source and target network configuration for a migration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,14 +125,16 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because it exceeded the service quota.</p>
+ *
+ * The request could not be completed because it exceeded the service quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample CreateNetworkMigrationDefinition call
  * ```javascript

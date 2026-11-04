@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodeConnectionsServiceException as __BaseException } from "./CodeConnectionsServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Exceeded the maximum limit for connections.</p>
+ * Exceeded the maximum limit for connections.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -50,7 +52,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ * Resource not found. Verify the connection resource ARN and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -73,7 +76,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ * Resource not found. Verify the ARN for the host resource and try again.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time. </p>
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -119,7 +124,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>Received an internal server exception. Try again later.</p>
+ * Received an internal server exception. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -142,7 +148,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The input is not valid. Verify that the action is typed correctly.</p>
+ * The input is not valid. Verify that the action is typed correctly.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -165,7 +172,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>Unable to create resource. Resource already exists.</p>
+ * Unable to create resource. Resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -188,7 +196,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -211,7 +220,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Unable to continue. The sync blocker still exists.</p>
+ * Unable to continue. The sync blocker still exists.
+ *
  * @public
  */
 export class SyncConfigurationStillExistsException extends __BaseException {
@@ -234,7 +244,8 @@ export class SyncConfigurationStillExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified provider type is not supported for connections.</p>
+ * The specified provider type is not supported for connections.
+ *
  * @public
  */
 export class UnsupportedProviderTypeException extends __BaseException {
@@ -257,7 +268,8 @@ export class UnsupportedProviderTypeException extends __BaseException {
 }
 
 /**
- * <p>Two conflicting operations have been made on the same resource.</p>
+ * Two conflicting operations have been made on the same resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -280,7 +292,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The operation is not supported. Check the connection status and try again.</p>
+ * The operation is not supported. Check the connection status and try again.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -303,7 +316,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The conditional check failed. Try again later.</p>
+ * The conditional check failed. Try again later.
+ *
  * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
@@ -326,7 +340,8 @@ export class ConditionalCheckFailedException extends __BaseException {
 }
 
 /**
- * <p>The update is out of sync. Try syncing again.</p>
+ * The update is out of sync. Try syncing again.
+ *
  * @public
  */
 export class UpdateOutOfSyncException extends __BaseException {
@@ -349,7 +364,8 @@ export class UpdateOutOfSyncException extends __BaseException {
 }
 
 /**
- * <p>Retrying the latest commit failed. Try again later.</p>
+ * Retrying the latest commit failed. Try again later.
+ *
  * @public
  */
 export class RetryLatestCommitFailedException extends __BaseException {
@@ -372,7 +388,8 @@ export class RetryLatestCommitFailedException extends __BaseException {
 }
 
 /**
- * <p>Unable to continue. The sync blocker does not exist.</p>
+ * Unable to continue. The sync blocker does not exist.
+ *
  * @public
  */
 export class SyncBlockerDoesNotExistException extends __BaseException {

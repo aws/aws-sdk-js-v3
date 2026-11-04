@@ -23,7 +23,8 @@ export interface CreateMicrovmImageCommandInput extends CreateMicrovmImageReques
 export interface CreateMicrovmImageCommandOutput extends CreateMicrovmImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a MicroVM image from the specified code artifact and base image. The build is asynchronous — the image transitions from CREATING to CREATED on success, or CREATE_FAILED on failure. Use GetMicrovmImage to poll for completion.</p>
+ * Creates a MicroVM image from the specified code artifact and base image. The build is asynchronous — the image transitions from CREATING to CREATED on success, or CREATE_FAILED on failure. Use GetMicrovmImage to poll for completion.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,29 +169,36 @@ export interface CreateMicrovmImageCommandOutput extends CreateMicrovmImageRespo
  * @see {@link LambdaMicrovmsClientResolvedConfig | config} for LambdaMicrovmsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry the request later.</p>
+ *
+ * An internal server error occurred. Retry the request later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded a service quota for Lambda MicroVMs.</p>
+ *
+ * You have exceeded a service quota for Lambda MicroVMs.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Retry the request later.</p>
+ *
+ * The request was denied due to request throttling. Retry the request later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by the service.</p>
+ *
+ * The input does not satisfy the constraints specified by the service.
  *
  * @throws {@link LambdaMicrovmsServiceException}
- * <p>Base exception class for all service exceptions from LambdaMicrovms service.</p>
  *
+ * Base exception class for all service exceptions from LambdaMicrovms service.
  *
  * @public
  */

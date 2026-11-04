@@ -23,34 +23,16 @@ export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCo
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Resends the code that confirms a new account for a user who has signed up in your user
- *             pool. Amazon Cognito sends confirmation codes to the user attribute in the
- *                 <code>AutoVerifiedAttributes</code> property of your user pool. When you prompt new
- *             users for the confirmation code, include a "Resend code" option that generates a call to
- *             this API operation.</p>
- *          <note>
- *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you can't use IAM credentials to authorize requests, and you can't
- *     grant IAM permissions in policies. For more information about authorization models in
- *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
- *          </note>
- *          <note>
- *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
- *             require you to register an origination phone number before you can send SMS messages
- *             to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a
- *             phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>.
- *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
- *             receive SMS messages might not be able to sign up, activate their accounts, or sign
- *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
- *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
- *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
- *                     mode</a>
- *                </i>, you can send messages only to verified phone
- *             numbers. After you test your app while in the sandbox environment, you can move out
- *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
- *                 Developer Guide</i>.</p>
- *          </note>
+ * Resends the code that confirms a new account for a user who has signed up in your user pool. Amazon Cognito sends confirmation codes to the user attribute in the `AutoVerifiedAttributes` property of your user pool. When you prompt new users for the confirmation code, include a "Resend code" option that generates a call to this API operation.
+ *
+ * > **Note:** Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you can't use IAM credentials to authorize requests, and you can't grant IAM permissions in policies. For more information about authorization models in Amazon Cognito, see [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html).
+ *
+ * > **Note:**
+ * >
+ * > This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an origination phone number before you can send SMS messages to US phone numbers. If you use SMS text messages in Amazon Cognito, you must register a phone number with [Amazon Pinpoint](https://console.aws.amazon.com/pinpoint/home/). Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must receive SMS messages might not be able to sign up, activate their accounts, or sign in.
+ * >
+ * > If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service, Amazon Simple Notification Service might place your account in the SMS sandbox. In *[sandbox mode](https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html)* , you can send messages only to verified phone numbers. After you test your app while in the sandbox environment, you can move out of the sandbox and into production. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) in the *Amazon Cognito Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,69 +75,72 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link CodeDeliveryFailureException} (client fault)
- *  <p>This exception is thrown when a verification code fails to deliver
- *             successfully.</p>
+ *
+ * This exception is thrown when a verification code fails to deliver successfully.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web
- *             ACL that's associated with your user pool.</p>
+ *
+ * This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
- *             status code: 400.</p>
+ *
+ * This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.
  *
  * @throws {@link InvalidLambdaResponseException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an invalid Lambda response.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link InvalidSmsRoleAccessPolicyException} (client fault)
- *  <p>This exception is returned when the role provided for SMS configuration doesn't have
- *             permission to publish using Amazon SNS.</p>
+ *
+ * This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.
  *
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
- *  <p>This exception is thrown when the trust relationship is not valid for the role
- *             provided for SMS configuration. This can happen if you don't trust
- *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
- *             not match what is provided in the SMS configuration for the user pool.</p>
+ *
+ * This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust `cognito-idp.amazonaws.com` or the external ID provided in the role does not match what is provided in the SMS configuration for the user pool.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ *
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UnexpectedLambdaException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
- *             Lambda.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.
  *
  * @throws {@link UserLambdaValidationException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
- *             with the Lambda service.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.
  *
  * @throws {@link UserNotFoundException} (client fault)
- *  <p>This exception is thrown when a user isn't found.</p>
+ *
+ * This exception is thrown when a user isn't found.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

@@ -1058,8 +1058,8 @@ export interface XRay {
 }
 
 /**
- * <p>Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps
- *       and other data created by processing those traces.</p>
+ * Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.
+ *
  * @public
  */
 export class XRay extends XRayClient implements XRay {}

@@ -23,9 +23,10 @@ export interface CreateLoadBalancerListenersCommandInput extends CreateLoadBalan
 export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
- * <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.
+ *
+ * For more information, see [Listeners for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,25 +60,28 @@ export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBala
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link CertificateNotFoundException} (client fault)
- *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
- *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
- *             indicate that the certificate is not fully available yet.</p>
+ *
+ * The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
  *
  * @throws {@link DuplicateListenerException} (client fault)
- *  <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>
+ *
+ * A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ * The specified protocol or signature version is not supported.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To create an HTTP listener for a load balancer
  * ```javascript

@@ -23,14 +23,12 @@ export interface UploadLayerPartCommandInput extends UploadLayerPartRequest {}
 export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, __MetadataBearer {}
 
 /**
- * <p>Uploads an image layer part to Amazon ECR.</p>
- *          <p>When an image is pushed, each new image layer is uploaded in parts. The maximum size
- *             of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API
- *             is called once per each new image layer part.</p>
- *          <note>
- *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
- *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
- *          </note>
+ * Uploads an image layer part to Amazon ECR.
+ *
+ * When an image is pushed, each new image layer is uploaded in parts. The maximum size of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart API is called once per each new image layer part.
+ *
+ * > **Note:** This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,35 +63,36 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidLayerPartException} (client fault)
- *  <p>The layer part size is not valid, or the first byte specified is not consecutive to
- *             the last byte of a previous layer part upload.</p>
+ *
+ * The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link KmsException} (client fault)
- *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * The operation failed due to a KMS exception.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * The operation did not succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UploadNotFoundException} (client fault)
- *  <p>The upload could not be found, or the specified upload ID is not valid for this
- *             repository.</p>
+ *
+ * The upload could not be found, or the specified upload ID is not valid for this repository.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

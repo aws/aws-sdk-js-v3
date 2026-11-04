@@ -4,7 +4,6 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2ServiceException";
 
 /**
- * <p></p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +24,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +44,6 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +64,6 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -88,7 +84,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -109,7 +104,6 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -130,7 +124,6 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class BadGatewayException extends __BaseException {
@@ -151,7 +144,6 @@ export class BadGatewayException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class DependencyFailedException extends __BaseException {

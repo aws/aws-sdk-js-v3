@@ -23,12 +23,10 @@ export interface DescribeCostCategoryDefinitionCommandInput extends DescribeCost
 export interface DescribeCostCategoryDefinitionCommandOutput extends DescribeCostCategoryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a
- *       cost category that's defined in the account.</p>
- *          <p>You have the option to use <code>EffectiveOn</code> to return a cost category that's
- *       active on a specific date. If there's no <code>EffectiveOn</code> specified, you see a Cost
- *       Category that's effective on the current date. If cost category is still effective,
- *         <code>EffectiveEnd</code> is omitted in the response. </p>
+ * Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a cost category that's defined in the account.
+ *
+ * You have the option to use `EffectiveOn` to return a cost category that's active on a specific date. If there's no `EffectiveOn` specified, you see a Cost Category that's effective on the current date. If cost category is still effective, `EffectiveEnd` is omitted in the response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -177,14 +175,16 @@ export interface DescribeCostCategoryDefinitionCommandOutput extends DescribeCos
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

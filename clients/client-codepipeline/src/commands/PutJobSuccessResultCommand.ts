@@ -23,8 +23,8 @@ export interface PutJobSuccessResultCommandInput extends PutJobSuccessResultInpu
 export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Represents the success of a job as returned to the pipeline by a job worker. Used
- *             for custom actions only.</p>
+ * Represents the success of a job as returned to the pipeline by a job worker. Used for custom actions only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,20 +64,24 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The job state was specified in an invalid format.</p>
+ *
+ * The job state was specified in an invalid format.
  *
  * @throws {@link JobNotFoundException} (client fault)
- *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * The job was specified in an invalid format or cannot be found.
  *
  * @throws {@link OutputVariablesSizeExceededException} (client fault)
- *  <p>Exceeded the total size limit for all variables in the pipeline.</p>
+ *
+ * Exceeded the total size limit for all variables in the pipeline.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

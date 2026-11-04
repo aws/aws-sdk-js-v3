@@ -23,12 +23,8 @@ export interface DeleteMLTransformCommandInput extends DeleteMLTransformRequest 
 export interface DeleteMLTransformCommandOutput extends DeleteMLTransformResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Glue machine learning transform. Machine learning transforms are a special
- *       type of transform that use machine learning to learn the details of the transformation to be
- *       performed by learning from examples provided by humans. These transformations are then saved
- *       by Glue. If you no longer need a transform, you can delete it by calling
- *         <code>DeleteMLTransforms</code>. However, any Glue jobs that still reference the deleted
- *       transform will no longer succeed.</p>
+ * Deletes an Glue machine learning transform. Machine learning transforms are a special type of transform that use machine learning to learn the details of the transformation to be performed by learning from examples provided by humans. These transformations are then saved by Glue. If you no longer need a transform, you can delete it by calling `DeleteMLTransforms`. However, any Glue jobs that still reference the deleted transform will no longer succeed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,20 +51,24 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -5,7 +5,8 @@ import type { KmsKeyState, ValidationExceptionReason } from "./enums";
 import { SFNServiceException as __BaseException } from "./SFNServiceException";
 
 /**
- * <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
+ * Activity already exists. `EncryptionConfiguration` may not be updated.
+ *
  * @public
  */
 export class ActivityAlreadyExists extends __BaseException {
@@ -26,7 +27,8 @@ export class ActivityAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The specified activity does not exist.</p>
+ * The specified activity does not exist.
+ *
  * @public
  */
 export class ActivityDoesNotExist extends __BaseException {
@@ -47,8 +49,8 @@ export class ActivityDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The maximum number of activities has been reached. Existing activities must be deleted
- *       before a new activity can be created.</p>
+ * The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.
+ *
  * @public
  */
 export class ActivityLimitExceeded extends __BaseException {
@@ -69,8 +71,8 @@ export class ActivityLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The maximum number of workers concurrently polling for activity tasks has been
- *       reached.</p>
+ * The maximum number of workers concurrently polling for activity tasks has been reached.
+ *
  * @public
  */
 export class ActivityWorkerLimitExceeded extends __BaseException {
@@ -91,7 +93,8 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ * Received when `encryptionConfiguration` is specified but various conditions exist which make the configuration invalid. For example, if `type` is set to `CUSTOMER_MANAGED_KMS_KEY`, but `kmsKeyId` is null, or `kmsDataKeyReusePeriodSeconds` is not between 60 and 900, or the KMS key is not symmetric or inactive.
+ *
  * @public
  */
 export class InvalidEncryptionConfiguration extends __BaseException {
@@ -112,7 +115,8 @@ export class InvalidEncryptionConfiguration extends __BaseException {
 }
 
 /**
- * <p>The provided name is not valid.</p>
+ * The provided name is not valid.
+ *
  * @public
  */
 export class InvalidName extends __BaseException {
@@ -133,7 +137,8 @@ export class InvalidName extends __BaseException {
 }
 
 /**
- * <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ * Either your KMS key policy or API caller does not have the required permissions.
+ *
  * @public
  */
 export class KmsAccessDeniedException extends __BaseException {
@@ -154,7 +159,8 @@ export class KmsAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
+ *
  * @public
  */
 export class KmsThrottlingException extends __BaseException {
@@ -175,8 +181,8 @@ export class KmsThrottlingException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       Step Functions Developer Guide.</p>
+ * You've exceeded the number of tags allowed for a resource. See the [Limits Topic](https://docs.aws.amazon.com/step-functions/latest/dg/limits.html) in the Step Functions Developer Guide.
+ *
  * @public
  */
 export class TooManyTags extends __BaseException {
@@ -199,8 +205,10 @@ export class TooManyTags extends __BaseException {
 }
 
 /**
- * <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
- *          <p>HTTP Status Code: 409</p>
+ * Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for DeleteStateMachineVersion, PublishStateMachineVersion, or UpdateStateMachine with the `publish` parameter set to `true`.
+ *
+ * HTTP Status Code: 409
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -221,7 +229,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ * The provided Amazon Resource Name (ARN) is not valid.
+ *
  * @public
  */
 export class InvalidArn extends __BaseException {
@@ -242,7 +251,8 @@ export class InvalidArn extends __BaseException {
 }
 
 /**
- * <p>The provided Amazon States Language definition is not valid.</p>
+ * The provided Amazon States Language definition is not valid.
+ *
  * @public
  */
 export class InvalidDefinition extends __BaseException {
@@ -263,7 +273,8 @@ export class InvalidDefinition extends __BaseException {
 }
 
 /**
- * <p>Configuration is not valid.</p>
+ * Configuration is not valid.
+ *
  * @public
  */
 export class InvalidLoggingConfiguration extends __BaseException {
@@ -284,8 +295,8 @@ export class InvalidLoggingConfiguration extends __BaseException {
 }
 
 /**
- * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
- *       been set to <code>true</code> or <code>false</code>.</p>
+ * Your `tracingConfiguration` key does not match, or `enabled` has not been set to `true` or `false`.
+ *
  * @public
  */
 export class InvalidTracingConfiguration extends __BaseException {
@@ -306,8 +317,8 @@ export class InvalidTracingConfiguration extends __BaseException {
 }
 
 /**
- * <p>A state machine with the same name but a different definition or role ARN already
- *       exists.</p>
+ * A state machine with the same name but a different definition or role ARN already exists.
+ *
  * @public
  */
 export class StateMachineAlreadyExists extends __BaseException {
@@ -328,7 +339,8 @@ export class StateMachineAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The specified state machine is being deleted.</p>
+ * The specified state machine is being deleted.
+ *
  * @public
  */
 export class StateMachineDeleting extends __BaseException {
@@ -349,8 +361,8 @@ export class StateMachineDeleting extends __BaseException {
 }
 
 /**
- * <p>The maximum number of state machines has been reached. Existing state machines must be
- *       deleted before a new state machine can be created.</p>
+ * The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.
+ *
  * @public
  */
 export class StateMachineLimitExceeded extends __BaseException {
@@ -371,7 +383,8 @@ export class StateMachineLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>State machine type is not supported.</p>
+ * State machine type is not supported.
+ *
  * @public
  */
 export class StateMachineTypeNotSupported extends __BaseException {
@@ -392,7 +405,8 @@ export class StateMachineTypeNotSupported extends __BaseException {
 }
 
 /**
- * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -400,7 +414,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+   * The input does not satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
@@ -420,7 +435,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Could not find the referenced resource.</p>
+ * Could not find the referenced resource.
+ *
  * @public
  */
 export class ResourceNotFound extends __BaseException {
@@ -443,8 +459,10 @@ export class ResourceNotFound extends __BaseException {
 }
 
 /**
- * <p>The request would cause a service quota to be exceeded.</p>
- *          <p>HTTP Status Code: 402</p>
+ * The request would cause a service quota to be exceeded.
+ *
+ * HTTP Status Code: 402
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -465,7 +483,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified execution does not exist.</p>
+ * The specified execution does not exist.
+ *
  * @public
  */
 export class ExecutionDoesNotExist extends __BaseException {
@@ -486,7 +505,8 @@ export class ExecutionDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ * The KMS key is not in valid state, for example: Disabled or Deleted.
+ *
  * @public
  */
 export class KmsInvalidStateException extends __BaseException {
@@ -494,7 +514,8 @@ export class KmsInvalidStateException extends __BaseException {
   readonly name = "KmsInvalidStateException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Current status of the KMS; key. For example: <code>DISABLED</code>, <code>PENDING_DELETION</code>, <code>PENDING_IMPORT</code>, <code>UNAVAILABLE</code>, <code>CREATING</code>.</p>
+   * Current status of the KMS; key. For example: `DISABLED`, `PENDING_DELETION`, `PENDING_IMPORT`, `UNAVAILABLE`, `CREATING`.
+   *
    * @public
    */
   kmsKeyState?: KmsKeyState | undefined;
@@ -514,7 +535,8 @@ export class KmsInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The specified state machine does not exist.</p>
+ * The specified state machine does not exist.
+ *
  * @public
  */
 export class StateMachineDoesNotExist extends __BaseException {
@@ -535,7 +557,8 @@ export class StateMachineDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The provided token is not valid.</p>
+ * The provided token is not valid.
+ *
  * @public
  */
 export class InvalidToken extends __BaseException {
@@ -556,8 +579,8 @@ export class InvalidToken extends __BaseException {
 }
 
 /**
- * <p>The maximum number of running executions has been reached. Running executions must end or
- *       be stopped before a new execution can be started.</p>
+ * The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.
+ *
  * @public
  */
 export class ExecutionLimitExceeded extends __BaseException {
@@ -578,7 +601,8 @@ export class ExecutionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The execution Amazon Resource Name (ARN) that you specified for <code>executionArn</code> cannot be redriven.</p>
+ * The execution Amazon Resource Name (ARN) that you specified for `executionArn` cannot be redriven.
+ *
  * @public
  */
 export class ExecutionNotRedrivable extends __BaseException {
@@ -599,7 +623,8 @@ export class ExecutionNotRedrivable extends __BaseException {
 }
 
 /**
- * <p>The activity does not exist.</p>
+ * The activity does not exist.
+ *
  * @public
  */
 export class TaskDoesNotExist extends __BaseException {
@@ -620,7 +645,8 @@ export class TaskDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The task token has either expired or the task associated with the token has already been closed.</p>
+ * The task token has either expired or the task associated with the token has already been closed.
+ *
  * @public
  */
 export class TaskTimedOut extends __BaseException {
@@ -641,7 +667,8 @@ export class TaskTimedOut extends __BaseException {
 }
 
 /**
- * <p>The provided JSON output data is not valid.</p>
+ * The provided JSON output data is not valid.
+ *
  * @public
  */
 export class InvalidOutput extends __BaseException {
@@ -662,12 +689,10 @@ export class InvalidOutput extends __BaseException {
 }
 
 /**
- * <p>The execution has the same <code>name</code> as another execution (but a different
- *         <code>input</code>).</p>
- *          <note>
- *             <p>Executions with the same <code>name</code> and <code>input</code> are considered
- *         idempotent.</p>
- *          </note>
+ * The execution has the same `name` as another execution (but a different `input`).
+ *
+ * > **Note:** Executions with the same `name` and `input` are considered idempotent.
+ *
  * @public
  */
 export class ExecutionAlreadyExists extends __BaseException {
@@ -688,7 +713,8 @@ export class ExecutionAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The provided JSON input data is not valid.</p>
+ * The provided JSON input data is not valid.
+ *
  * @public
  */
 export class InvalidExecutionInput extends __BaseException {
@@ -709,8 +735,8 @@ export class InvalidExecutionInput extends __BaseException {
 }
 
 /**
- * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
- *       and <code>roleArn</code> are not specified.</p>
+ * Request is missing a required parameter. This error occurs if both `definition` and `roleArn` are not specified.
+ *
  * @public
  */
 export class MissingRequiredParameter extends __BaseException {

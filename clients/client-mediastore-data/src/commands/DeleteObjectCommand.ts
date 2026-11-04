@@ -23,7 +23,8 @@ export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
 export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an object at the specified path.</p>
+ * Deletes an object at the specified path.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The specified container was not found for the specified account.</p>
+ *
+ * The specified container was not found for the specified account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ObjectNotFoundException} (client fault)
- *  <p>Could not perform an operation on an object that does not exist.</p>
+ *
+ * Could not perform an operation on an object that does not exist.
  *
  * @throws {@link MediaStoreDataServiceException}
- * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ * Base exception class for all service exceptions from MediaStoreData service.
  *
  * @public
  */

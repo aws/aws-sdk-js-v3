@@ -6,8 +6,8 @@ import {
 } from "./MarketplaceEntitlementServiceServiceException";
 
 /**
- * <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *    message with details on the AWS forums.</p>
+ * An internal error has occurred. Retry your request. If the problem persists, post a message with details on the AWS forums.
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -28,7 +28,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters in your request was invalid.</p>
+ * One or more parameters in your request was invalid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -49,7 +50,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The calls to the GetEntitlements API are throttled.</p>
+ * The calls to the GetEntitlements API are throttled.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

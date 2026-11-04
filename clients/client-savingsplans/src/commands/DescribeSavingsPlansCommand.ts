@@ -23,7 +23,8 @@ export interface DescribeSavingsPlansCommandInput extends DescribeSavingsPlansRe
 export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Savings Plans.</p>
+ * Describes the specified Savings Plans.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,14 +96,16 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred.</p>
+ *
+ * An unexpected error occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters is not valid.</p>
+ *
+ * One of the input parameters is not valid.
  *
  * @throws {@link SavingsplansServiceException}
- * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ * Base exception class for all service exceptions from Savingsplans service.
  *
  * @public
  */

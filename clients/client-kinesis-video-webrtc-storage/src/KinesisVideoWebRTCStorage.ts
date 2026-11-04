@@ -63,9 +63,8 @@ export interface KinesisVideoWebRTCStorage {
 }
 
 /**
- * <fullname>webrtc</fullname>
- *          <p>
- *     </p>
+ * webrtc
+ *
  * @public
  */
 export class KinesisVideoWebRTCStorage extends KinesisVideoWebRTCStorageClient implements KinesisVideoWebRTCStorage {}

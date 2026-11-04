@@ -23,7 +23,8 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionInput {}
 export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>The connection to be deleted.</p>
+ * The connection to be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +49,12 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionOutput, _
  * @see {@link CodeConnectionsClientResolvedConfig | config} for CodeConnectionsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * Resource not found. Verify the connection resource ARN and try again.
  *
  * @throws {@link CodeConnectionsServiceException}
- * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ * Base exception class for all service exceptions from CodeConnections service.
  *
  * @public
  */

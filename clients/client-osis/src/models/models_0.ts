@@ -9,131 +9,140 @@ import type {
 } from "./enums";
 
 /**
- * <p>Options that specify the configuration of a persistent buffer.
- *    To configure how OpenSearch Ingestion encrypts this data, set the <code>EncryptionAtRestOptions</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering">Persistent buffering</a>.</p>
+ * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions`. For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering).
+ *
  * @public
  */
 export interface BufferOptions {
   /**
-   * <p>Whether persistent buffering should be enabled.</p>
+   * Whether persistent buffering should be enabled.
+   *
    * @public
    */
   PersistentBufferEnabled: boolean | undefined;
 }
 
 /**
- * <p>Options to control how OpenSearch encrypts buffer data.</p>
+ * Options to control how OpenSearch encrypts buffer data.
+ *
  * @public
  */
 export interface EncryptionAtRestOptions {
   /**
-   * <p>The ARN of the KMS key used to encrypt buffer data.
-   *    By default, data is encrypted using an Amazon Web Services owned key.</p>
+   * The ARN of the KMS key used to encrypt buffer data. By default, data is encrypted using an Amazon Web Services owned key.
+   *
    * @public
    */
   KmsKeyArn: string | undefined;
 }
 
 /**
- * <p>The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch.</p>
+ * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch.
+ *
  * @public
  */
 export interface CloudWatchLogDestination {
   /**
-   * <p>The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing
-   *    log group or create a new one. For example,
-   *    <code>/aws/vendedlogs/OpenSearchService/pipelines</code>.</p>
+   * The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, `/aws/vendedlogs/OpenSearchService/pipelines`.
+   *
    * @public
    */
   LogGroup: string | undefined;
 }
 
 /**
- * <p>Container for the values required to configure logging for the pipeline. If you don't
- *    specify these values, OpenSearch Ingestion will not publish logs from your application to
- *    CloudWatch Logs.</p>
+ * Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+ *
  * @public
  */
 export interface LogPublishingOptions {
   /**
-   * <p>Whether logs should be published.</p>
+   * Whether logs should be published.
+   *
    * @public
    */
   IsLoggingEnabled?: boolean | undefined;
 
   /**
-   * <p>The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This
-   *    parameter is required if <code>IsLoggingEnabled</code> is set to <code>true</code>.</p>
+   * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if `IsLoggingEnabled` is set to `true`.
+   *
    * @public
    */
   CloudWatchLogDestination?: CloudWatchLogDestination | undefined;
 }
 
 /**
- * <p>A tag (key-value pair) for an OpenSearch Ingestion pipeline.</p>
+ * A tag (key-value pair) for an OpenSearch Ingestion pipeline.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The tag key. Tag keys must be unique for the pipeline to which they are attached.</p>
+   * The tag key. Tag keys must be unique for the pipeline to which they are attached.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value assigned to the corresponding tag key. Tag values can be null and don't have to
-   *    be unique in a tag set. For example, you can have a key value pair in a tag set of
-   *    <code>project : Trinity</code> and <code>cost-center : Trinity</code>
-   *          </p>
+   * The value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key value pair in a tag set of `project : Trinity` and `cost-center : Trinity`
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>Options for attaching a VPC to pipeline.</p>
+ * Options for attaching a VPC to pipeline.
+ *
  * @public
  */
 export interface VpcAttachmentOptions {
   /**
-   * <p>Whether a VPC is attached to the pipeline.</p>
+   * Whether a VPC is attached to the pipeline.
+   *
    * @public
    */
   AttachToVpc: boolean | undefined;
 
   /**
-   * <p>The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).</p>
+   * The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+   *
    * @public
    */
   CidrBlock?: string | undefined;
 }
 
 /**
- * <p>Options that specify the subnets and security groups for an OpenSearch Ingestion
- *    VPC endpoint.</p>
+ * Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+ *
  * @public
  */
 export interface VpcOptions {
   /**
-   * <p>A list of subnet IDs associated with the VPC endpoint.</p>
+   * A list of subnet IDs associated with the VPC endpoint.
+   *
    * @public
    */
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of security groups associated with the VPC endpoint.</p>
+   * A list of security groups associated with the VPC endpoint.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Options for attaching a VPC to a pipeline.</p>
+   * Options for attaching a VPC to a pipeline.
+   *
    * @public
    */
   VpcAttachmentOptions?: VpcAttachmentOptions | undefined;
 
   /**
-   * <p>Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.</p>
+   * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+   *
    * @public
    */
   VpcEndpointManagement?: VpcEndpointManagement | undefined;
@@ -144,263 +153,295 @@ export interface VpcOptions {
  */
 export interface CreatePipelineRequest {
   /**
-   * <p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the
-   *    pipelines owned by an account within an Amazon Web Services Region.</p>
+   * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an Amazon Web Services Region.
+   *
    * @public
    */
   PipelineName: string | undefined;
 
   /**
-   * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MinUnits: number | undefined;
 
   /**
-   * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MaxUnits: number | undefined;
 
   /**
-   * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
-   *    a string or within a .yaml file. If you provide the configuration as a string, each new line must
-   *    be escaped with <code>\n</code>.</p>
+   * The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+   *
    * @public
    */
   PipelineConfigurationBody: string | undefined;
 
   /**
-   * <p>Key-value pairs to configure log publishing.</p>
+   * Key-value pairs to configure log publishing.
+   *
    * @public
    */
   LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
-   * <p>Container for the values required to configure VPC access for the pipeline. If you don't
-   *    specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint.</p>
+   * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint.
+   *
    * @public
    */
   VpcOptions?: VpcOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
+   * Key-value pairs to configure persistent buffering for the pipeline.
+   *
    * @public
    */
   BufferOptions?: BufferOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure encryption for data that is written to a persistent
-   *    buffer.</p>
+   * Key-value pairs to configure encryption for data that is written to a persistent buffer.
+   *
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
-   * <p>List of tags to add to the pipeline upon creation.</p>
+   * List of tags to add to the pipeline upon creation.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access
-   *     Amazon Web Services resources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access Amazon Web Services resources.
+   *
    * @public
    */
   PipelineRoleArn?: string | undefined;
 }
 
 /**
- * <p>An object representing the destination of a pipeline.</p>
+ * An object representing the destination of a pipeline.
+ *
  * @public
  */
 export interface PipelineDestination {
   /**
-   * <p>The name of the service receiving data from the pipeline.</p>
+   * The name of the service receiving data from the pipeline.
+   *
    * @public
    */
   ServiceName?: string | undefined;
 
   /**
-   * <p>The endpoint receiving data from the pipeline.</p>
+   * The endpoint receiving data from the pipeline.
+   *
    * @public
    */
   Endpoint?: string | undefined;
 }
 
 /**
- * <p>A container for information about VPC endpoints that were created to other services</p>
+ * A container for information about VPC endpoints that were created to other services
+ *
  * @public
  */
 export interface ServiceVpcEndpoint {
   /**
-   * <p>The name of the service for which a VPC endpoint was created.</p>
+   * The name of the service for which a VPC endpoint was created.
+   *
    * @public
    */
   ServiceName?: VpcEndpointServiceName | undefined;
 
   /**
-   * <p>The unique identifier of the VPC endpoint that was created.</p>
+   * The unique identifier of the VPC endpoint that was created.
+   *
    * @public
    */
   VpcEndpointId?: string | undefined;
 }
 
 /**
- * <p>Information about a pipeline's current status.</p>
+ * Information about a pipeline's current status.
+ *
  * @public
  */
 export interface PipelineStatusReason {
   /**
-   * <p>A description of why a pipeline has a certain status.</p>
+   * A description of why a pipeline has a certain status.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>An OpenSearch Ingestion-managed VPC endpoint that will access one or more
- *    pipelines.</p>
+ * An OpenSearch Ingestion-managed VPC endpoint that will access one or more pipelines.
+ *
  * @public
  */
 export interface VpcEndpoint {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   VpcEndpointId?: string | undefined;
 
   /**
-   * <p>The ID for your VPC. Amazon Web Services PrivateLink generates this value when you create a
-   *    VPC.</p>
+   * The ID for your VPC. Amazon Web Services PrivateLink generates this value when you create a VPC.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>Information about the VPC, including associated subnets and security groups.</p>
+   * Information about the VPC, including associated subnets and security groups.
+   *
    * @public
    */
   VpcOptions?: VpcOptions | undefined;
 }
 
 /**
- * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
+ * Information about an existing OpenSearch Ingestion pipeline.
+ *
  * @public
  */
 export interface Pipeline {
   /**
-   * <p>The name of the pipeline.</p>
+   * The name of the pipeline.
+   *
    * @public
    */
   PipelineName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * The Amazon Resource Name (ARN) of the pipeline.
+   *
    * @public
    */
   PipelineArn?: string | undefined;
 
   /**
-   * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MinUnits?: number | undefined;
 
   /**
-   * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MaxUnits?: number | undefined;
 
   /**
-   * <p>The current status of the pipeline.</p>
+   * The current status of the pipeline.
+   *
    * @public
    */
   Status?: PipelineStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the pipeline.</p>
+   * The reason for the current status of the pipeline.
+   *
    * @public
    */
   StatusReason?: PipelineStatusReason | undefined;
 
   /**
-   * <p>The Data Prepper pipeline configuration in YAML format.</p>
+   * The Data Prepper pipeline configuration in YAML format.
+   *
    * @public
    */
   PipelineConfigurationBody?: string | undefined;
 
   /**
-   * <p>The date and time when the pipeline was created.</p>
+   * The date and time when the pipeline was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the pipeline was last updated.</p>
+   * The date and time when the pipeline was last updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>The ingestion endpoints for the pipeline, which you can send data to.</p>
+   * The ingestion endpoints for the pipeline, which you can send data to.
+   *
    * @public
    */
   IngestEndpointUrls?: string[] | undefined;
 
   /**
-   * <p>Key-value pairs that represent log publishing settings.</p>
+   * Key-value pairs that represent log publishing settings.
+   *
    * @public
    */
   LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
-   * <p>The VPC interface endpoints that have access to the pipeline.</p>
+   * The VPC interface endpoints that have access to the pipeline.
+   *
    * @public
    */
   VpcEndpoints?: VpcEndpoint[] | undefined;
 
   /**
-   * <p>Options that specify the configuration of a persistent buffer.
-   *    To configure how OpenSearch Ingestion encrypts this data, set the <code>EncryptionAtRestOptions</code>. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering">Persistent buffering</a>.</p>
+   * Options that specify the configuration of a persistent buffer. To configure how OpenSearch Ingestion encrypts this data, set the `EncryptionAtRestOptions`. For more information, see [Persistent buffering](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-features-overview.html#persistent-buffering).
+   *
    * @public
    */
   BufferOptions?: BufferOptions | undefined;
 
   /**
-   * <p>Options to control how OpenSearch encrypts buffer data.</p>
+   * Options to control how OpenSearch encrypts buffer data.
+   *
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
-   * <p>The VPC endpoint service name for the pipeline.</p>
+   * The VPC endpoint service name for the pipeline.
+   *
    * @public
    */
   VpcEndpointService?: string | undefined;
 
   /**
-   * <p>A list of VPC endpoints that OpenSearch Ingestion has created to other Amazon Web Services services.</p>
+   * A list of VPC endpoints that OpenSearch Ingestion has created to other Amazon Web Services services.
+   *
    * @public
    */
   ServiceVpcEndpoints?: ServiceVpcEndpoint[] | undefined;
 
   /**
-   * <p>Destinations to which the pipeline writes data.</p>
+   * Destinations to which the pipeline writes data.
+   *
    * @public
    */
   Destinations?: PipelineDestination[] | undefined;
 
   /**
-   * <p>A list of tags associated with the given pipeline.</p>
+   * A list of tags associated with the given pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS
-   *    resources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that the pipeline uses to access AWS resources.
+   *
    * @public
    */
   PipelineRoleArn?: string | undefined;
@@ -411,25 +452,29 @@ export interface Pipeline {
  */
 export interface CreatePipelineResponse {
   /**
-   * <p>Container for information about the created pipeline.</p>
+   * Container for information about the created pipeline.
+   *
    * @public
    */
   Pipeline?: Pipeline | undefined;
 }
 
 /**
- * <p>Configuration settings for the VPC endpoint, specifying network access controls.</p>
+ * Configuration settings for the VPC endpoint, specifying network access controls.
+ *
  * @public
  */
 export interface PipelineEndpointVpcOptions {
   /**
-   * <p>A list of subnet IDs where the pipeline endpoint network interfaces are created.</p>
+   * A list of subnet IDs where the pipeline endpoint network interfaces are created.
+   *
    * @public
    */
   SubnetIds?: string[] | undefined;
 
   /**
-   * <p>A list of security group IDs that control network access to the pipeline endpoint.</p>
+   * A list of security group IDs that control network access to the pipeline endpoint.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
@@ -440,14 +485,15 @@ export interface PipelineEndpointVpcOptions {
  */
 export interface CreatePipelineEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.</p>
+   * The Amazon Resource Name (ARN) of the pipeline to create the endpoint for.
+   *
    * @public
    */
   PipelineArn: string | undefined;
 
   /**
-   * <p>Container for the VPC configuration for the pipeline endpoint, including subnet IDs and
-   *    security group IDs.</p>
+   * Container for the VPC configuration for the pipeline endpoint, including subnet IDs and security group IDs.
+   *
    * @public
    */
   VpcOptions: PipelineEndpointVpcOptions | undefined;
@@ -458,25 +504,29 @@ export interface CreatePipelineEndpointRequest {
  */
 export interface CreatePipelineEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline associated with the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the pipeline associated with the endpoint.
+   *
    * @public
    */
   PipelineArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the pipeline endpoint.</p>
+   * The unique identifier of the pipeline endpoint.
+   *
    * @public
    */
   EndpointId?: string | undefined;
 
   /**
-   * <p>The current status of the pipeline endpoint.</p>
+   * The current status of the pipeline endpoint.
+   *
    * @public
    */
   Status?: PipelineEndpointStatus | undefined;
 
   /**
-   * <p>The ID of the VPC where the pipeline endpoint was created.</p>
+   * The ID of the VPC where the pipeline endpoint was created.
+   *
    * @public
    */
   VpcId?: string | undefined;
@@ -487,7 +537,8 @@ export interface CreatePipelineEndpointResponse {
  */
 export interface DeletePipelineRequest {
   /**
-   * <p>The name of the pipeline to delete.</p>
+   * The name of the pipeline to delete.
+   *
    * @public
    */
   PipelineName: string | undefined;
@@ -503,7 +554,8 @@ export interface DeletePipelineResponse {}
  */
 export interface DeletePipelineEndpointRequest {
   /**
-   * <p>The unique identifier of the pipeline endpoint to delete.</p>
+   * The unique identifier of the pipeline endpoint to delete.
+   *
    * @public
    */
   EndpointId: string | undefined;
@@ -519,7 +571,8 @@ export interface DeletePipelineEndpointResponse {}
  */
 export interface DeleteResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to delete the policy.</p>
+   * The Amazon Resource Name (ARN) of the resource from which to delete the policy.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -535,7 +588,8 @@ export interface DeleteResourcePolicyResponse {}
  */
 export interface GetPipelineRequest {
   /**
-   * <p>The name of the pipeline.</p>
+   * The name of the pipeline.
+   *
    * @public
    */
   PipelineName: string | undefined;
@@ -546,7 +600,8 @@ export interface GetPipelineRequest {
  */
 export interface GetPipelineResponse {
   /**
-   * <p>Detailed information about the requested pipeline.</p>
+   * Detailed information about the requested pipeline.
+   *
    * @public
    */
   Pipeline?: Pipeline | undefined;
@@ -557,55 +612,64 @@ export interface GetPipelineResponse {
  */
 export interface GetPipelineBlueprintRequest {
   /**
-   * <p>The name of the blueprint to retrieve.</p>
+   * The name of the blueprint to retrieve.
+   *
    * @public
    */
   BlueprintName: string | undefined;
 
   /**
-   * <p>The format format of the blueprint to retrieve.</p>
+   * The format format of the blueprint to retrieve.
+   *
    * @public
    */
   Format?: string | undefined;
 }
 
 /**
- * <p>Container for information about an OpenSearch Ingestion blueprint.</p>
+ * Container for information about an OpenSearch Ingestion blueprint.
+ *
  * @public
  */
 export interface PipelineBlueprint {
   /**
-   * <p>The name of the blueprint.</p>
+   * The name of the blueprint.
+   *
    * @public
    */
   BlueprintName?: string | undefined;
 
   /**
-   * <p>The YAML configuration of the blueprint.</p>
+   * The YAML configuration of the blueprint.
+   *
    * @public
    */
   PipelineConfigurationBody?: string | undefined;
 
   /**
-   * <p>The display name of the blueprint.</p>
+   * The display name of the blueprint.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>A description of the blueprint.</p>
+   * A description of the blueprint.
+   *
    * @public
    */
   DisplayDescription?: string | undefined;
 
   /**
-   * <p>The name of the service that the blueprint is associated with.</p>
+   * The name of the service that the blueprint is associated with.
+   *
    * @public
    */
   Service?: string | undefined;
 
   /**
-   * <p>The use case that the blueprint relates to.</p>
+   * The use case that the blueprint relates to.
+   *
    * @public
    */
   UseCase?: string | undefined;
@@ -616,13 +680,15 @@ export interface PipelineBlueprint {
  */
 export interface GetPipelineBlueprintResponse {
   /**
-   * <p>The requested blueprint in YAML format.</p>
+   * The requested blueprint in YAML format.
+   *
    * @public
    */
   Blueprint?: PipelineBlueprint | undefined;
 
   /**
-   * <p>The format of the blueprint.</p>
+   * The format of the blueprint.
+   *
    * @public
    */
   Format?: string | undefined;
@@ -633,67 +699,78 @@ export interface GetPipelineBlueprintResponse {
  */
 export interface GetPipelineChangeProgressRequest {
   /**
-   * <p>The name of the pipeline.</p>
+   * The name of the pipeline.
+   *
    * @public
    */
   PipelineName: string | undefined;
 }
 
 /**
- * <p>Progress details for a specific stage of a pipeline configuration change.</p>
+ * Progress details for a specific stage of a pipeline configuration change.
+ *
  * @public
  */
 export interface ChangeProgressStage {
   /**
-   * <p>The name of the stage.</p>
+   * The name of the stage.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current status of the stage that the change is in.</p>
+   * The current status of the stage that the change is in.
+   *
    * @public
    */
   Status?: ChangeProgressStageStatuses | undefined;
 
   /**
-   * <p>A description of the stage.</p>
+   * A description of the stage.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The most recent updated timestamp of the stage.</p>
+   * The most recent updated timestamp of the stage.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>The progress details of a pipeline configuration change.</p>
+ * The progress details of a pipeline configuration change.
+ *
  * @public
  */
 export interface ChangeProgressStatus {
   /**
-   * <p>The time at which the configuration change is made on the pipeline.</p>
+   * The time at which the configuration change is made on the pipeline.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The overall status of the pipeline configuration change.</p>
+   * The overall status of the pipeline configuration change.
+   *
    * @public
    */
   Status?: ChangeProgressStatuses | undefined;
 
   /**
-   * <p>The total number of stages required for the pipeline configuration change.</p>
+   * The total number of stages required for the pipeline configuration change.
+   *
    * @public
    */
   TotalNumberOfStages?: number | undefined;
 
   /**
-   * <p>Information about the stages that the pipeline is going through to perform the configuration change.</p>
+   * Information about the stages that the pipeline is going through to perform the configuration change.
+   *
    * @public
    */
   ChangeProgressStages?: ChangeProgressStage[] | undefined;
@@ -704,7 +781,8 @@ export interface ChangeProgressStatus {
  */
 export interface GetPipelineChangeProgressResponse {
   /**
-   * <p>The current status of the change happening on the pipeline.</p>
+   * The current status of the change happening on the pipeline.
+   *
    * @public
    */
   ChangeProgressStatuses?: ChangeProgressStatus[] | undefined;
@@ -715,7 +793,8 @@ export interface GetPipelineChangeProgressResponse {
  */
 export interface GetResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve the policy.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to retrieve the policy.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -726,13 +805,15 @@ export interface GetResourcePolicyRequest {
  */
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The resource-based policy document in JSON format.</p>
+   * The resource-based policy document in JSON format.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -744,36 +825,42 @@ export interface GetResourcePolicyResponse {
 export interface ListPipelineBlueprintsRequest {}
 
 /**
- * <p>A summary of an OpenSearch Ingestion blueprint.</p>
+ * A summary of an OpenSearch Ingestion blueprint.
+ *
  * @public
  */
 export interface PipelineBlueprintSummary {
   /**
-   * <p>The name of the blueprint.</p>
+   * The name of the blueprint.
+   *
    * @public
    */
   BlueprintName?: string | undefined;
 
   /**
-   * <p>The display name of the blueprint.</p>
+   * The display name of the blueprint.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>A description of the blueprint.</p>
+   * A description of the blueprint.
+   *
    * @public
    */
   DisplayDescription?: string | undefined;
 
   /**
-   * <p>The name of the service that the blueprint is associated with.</p>
+   * The name of the service that the blueprint is associated with.
+   *
    * @public
    */
   Service?: string | undefined;
 
   /**
-   * <p>The use case that the blueprint relates to.</p>
+   * The use case that the blueprint relates to.
+   *
    * @public
    */
   UseCase?: string | undefined;
@@ -784,7 +871,8 @@ export interface PipelineBlueprintSummary {
  */
 export interface ListPipelineBlueprintsResponse {
   /**
-   * <p>A list of available blueprints for Data Prepper.</p>
+   * A list of available blueprints for Data Prepper.
+   *
    * @public
    */
   Blueprints?: PipelineBlueprintSummary[] | undefined;
@@ -795,47 +883,50 @@ export interface ListPipelineBlueprintsResponse {
  */
 export interface ListPipelineEndpointConnectionsRequest {
   /**
-   * <p>The maximum number of pipeline endpoint connections to return in the response.</p>
+   * The maximum number of pipeline endpoint connections to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListPipelineEndpointConnections</code> operation returns a
-   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-   *     <code>ListPipelineEndpointConnections</code> operations, which returns results in the next
-   *    page.</p>
+   * If your initial `ListPipelineEndpointConnections` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListPipelineEndpointConnections` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a connection to a pipeline endpoint, containing details about the endpoint
- *    association.</p>
+ * Represents a connection to a pipeline endpoint, containing details about the endpoint association.
+ *
  * @public
  */
 export interface PipelineEndpointConnection {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline in the endpoint connection.</p>
+   * The Amazon Resource Name (ARN) of the pipeline in the endpoint connection.
+   *
    * @public
    */
   PipelineArn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the endpoint in the connection.</p>
+   * The unique identifier of the endpoint in the connection.
+   *
    * @public
    */
   EndpointId?: string | undefined;
 
   /**
-   * <p>The current status of the pipeline endpoint connection.</p>
+   * The current status of the pipeline endpoint connection.
+   *
    * @public
    */
   Status?: PipelineEndpointStatus | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the VPC endpoint used in this connection.</p>
+   * The Amazon Web Services account ID that owns the VPC endpoint used in this connection.
+   *
    * @public
    */
   VpcEndpointOwner?: string | undefined;
@@ -846,15 +937,15 @@ export interface PipelineEndpointConnection {
  */
 export interface ListPipelineEndpointConnectionsResponse {
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
-   *    returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of pipeline endpoint connections.</p>
+   * A list of pipeline endpoint connections.
+   *
    * @public
    */
   PipelineEndpointConnections?: PipelineEndpointConnection[] | undefined;
@@ -865,59 +956,64 @@ export interface ListPipelineEndpointConnectionsResponse {
  */
 export interface ListPipelineEndpointsRequest {
   /**
-   * <p>The maximum number of pipeline endpoints to return in the response.</p>
+   * The maximum number of pipeline endpoints to return in the response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListPipelineEndpoints</code> operation returns a
-   *     <code>NextToken</code>, you can include the returned <code>NextToken</code> in subsequent
-   *     <code>ListPipelineEndpoints</code> operations, which returns results in the next page.</p>
+   * If your initial `ListPipelineEndpoints` operation returns a `NextToken`, you can include the returned `NextToken` in subsequent `ListPipelineEndpoints` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a VPC endpoint for an OpenSearch Ingestion pipeline, enabling private
- *    connectivity between your VPC and the pipeline.</p>
+ * Represents a VPC endpoint for an OpenSearch Ingestion pipeline, enabling private connectivity between your VPC and the pipeline.
+ *
  * @public
  */
 export interface PipelineEndpoint {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline associated with this endpoint.</p>
+   * The Amazon Resource Name (ARN) of the pipeline associated with this endpoint.
+   *
    * @public
    */
   PipelineArn?: string | undefined;
 
   /**
-   * <p>The unique identifier for the pipeline endpoint.</p>
+   * The unique identifier for the pipeline endpoint.
+   *
    * @public
    */
   EndpointId?: string | undefined;
 
   /**
-   * <p>The current status of the pipeline endpoint.</p>
+   * The current status of the pipeline endpoint.
+   *
    * @public
    */
   Status?: PipelineEndpointStatus | undefined;
 
   /**
-   * <p>The ID of the VPC where the pipeline endpoint is created.</p>
+   * The ID of the VPC where the pipeline endpoint is created.
+   *
    * @public
    */
   VpcId?: string | undefined;
 
   /**
-   * <p>Configuration options for the VPC endpoint, including subnet and security group
-   *    settings.</p>
+   * Configuration options for the VPC endpoint, including subnet and security group settings.
+   *
    * @public
    */
   VpcOptions?: PipelineEndpointVpcOptions | undefined;
 
   /**
-   * <p>The URL used to ingest data to the pipeline through the VPC endpoint.</p>
+   * The URL used to ingest data to the pipeline through the VPC endpoint.
+   *
    * @public
    */
   IngestEndpointUrl?: string | undefined;
@@ -928,15 +1024,15 @@ export interface PipelineEndpoint {
  */
 export interface ListPipelineEndpointsResponse {
   /**
-   * <p>When <code>NextToken</code> is returned, there are more results available. The value of
-   *     <code>NextToken</code> is a unique pagination token for each page. Make the call again using the
-   *    returned token to retrieve the next page.</p>
+   * When `NextToken` is returned, there are more results available. The value of `NextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of pipeline endpoints.</p>
+   * A list of pipeline endpoints.
+   *
    * @public
    */
   PipelineEndpoints?: PipelineEndpoint[] | undefined;
@@ -947,82 +1043,92 @@ export interface ListPipelineEndpointsResponse {
  */
 export interface ListPipelinesRequest {
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use
-   *     <code>nextToken</code> to get the next page of results.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>If your initial <code>ListPipelines</code> operation returns a <code>nextToken</code>, you
-   *    can include the returned <code>nextToken</code> in subsequent <code>ListPipelines</code>
-   *    operations, which returns results in the next page.</p>
+   * If your initial `ListPipelines` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListPipelines` operations, which returns results in the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information for an OpenSearch Ingestion pipeline.</p>
+ * Summary information for an OpenSearch Ingestion pipeline.
+ *
  * @public
  */
 export interface PipelineSummary {
   /**
-   * <p>The current status of the pipeline.</p>
+   * The current status of the pipeline.
+   *
    * @public
    */
   Status?: PipelineStatus | undefined;
 
   /**
-   * <p>Information about a pipeline's current status.</p>
+   * Information about a pipeline's current status.
+   *
    * @public
    */
   StatusReason?: PipelineStatusReason | undefined;
 
   /**
-   * <p>The name of the pipeline.</p>
+   * The name of the pipeline.
+   *
    * @public
    */
   PipelineName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * The Amazon Resource Name (ARN) of the pipeline.
+   *
    * @public
    */
   PipelineArn?: string | undefined;
 
   /**
-   * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MinUnits?: number | undefined;
 
   /**
-   * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MaxUnits?: number | undefined;
 
   /**
-   * <p>The date and time when the pipeline was created.</p>
+   * The date and time when the pipeline was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the pipeline was last updated.</p>
+   * The date and time when the pipeline was last updated.
+   *
    * @public
    */
   LastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>A list of destinations to which the pipeline writes data.</p>
+   * A list of destinations to which the pipeline writes data.
+   *
    * @public
    */
   Destinations?: PipelineDestination[] | undefined;
 
   /**
-   * <p>A list of tags associated with the given pipeline.</p>
+   * A list of tags associated with the given pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1033,15 +1139,15 @@ export interface PipelineSummary {
  */
 export interface ListPipelinesResponse {
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
-   *    returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of all existing Data Prepper pipelines.</p>
+   * A list of all existing Data Prepper pipelines.
+   *
    * @public
    */
   Pipelines?: PipelineSummary[] | undefined;
@@ -1052,7 +1158,8 @@ export interface ListPipelinesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.</p>
+   * The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.
+   *
    * @public
    */
   Arn: string | undefined;
@@ -1063,7 +1170,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags associated with the given pipeline.</p>
+   * A list of tags associated with the given pipeline.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1074,13 +1182,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to attach the policy to.</p>
+   * The Amazon Resource Name (ARN) of the resource to attach the policy to.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The resource-based policy document in JSON format.</p>
+   * The resource-based policy document in JSON format.
+   *
    * @public
    */
   Policy: string | undefined;
@@ -1091,13 +1201,15 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The resource-based policy document that was attached to the resource.</p>
+   * The resource-based policy document that was attached to the resource.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -1108,14 +1220,15 @@ export interface PutResourcePolicyResponse {
  */
 export interface RevokePipelineEndpointConnectionsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline from which to revoke endpoint
-   *    connections.</p>
+   * The Amazon Resource Name (ARN) of the pipeline from which to revoke endpoint connections.
+   *
    * @public
    */
   PipelineArn: string | undefined;
 
   /**
-   * <p>A list of endpoint IDs for which to revoke access to the pipeline.</p>
+   * A list of endpoint IDs for which to revoke access to the pipeline.
+   *
    * @public
    */
   EndpointIds: string[] | undefined;
@@ -1126,8 +1239,8 @@ export interface RevokePipelineEndpointConnectionsRequest {
  */
 export interface RevokePipelineEndpointConnectionsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline from which endpoint connections were
-   *    revoked.</p>
+   * The Amazon Resource Name (ARN) of the pipeline from which endpoint connections were revoked.
+   *
    * @public
    */
   PipelineArn?: string | undefined;
@@ -1138,7 +1251,8 @@ export interface RevokePipelineEndpointConnectionsResponse {
  */
 export interface StartPipelineRequest {
   /**
-   * <p>The name of the pipeline to start.</p>
+   * The name of the pipeline to start.
+   *
    * @public
    */
   PipelineName: string | undefined;
@@ -1149,7 +1263,8 @@ export interface StartPipelineRequest {
  */
 export interface StartPipelineResponse {
   /**
-   * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
+   * Information about an existing OpenSearch Ingestion pipeline.
+   *
    * @public
    */
   Pipeline?: Pipeline | undefined;
@@ -1160,7 +1275,8 @@ export interface StartPipelineResponse {
  */
 export interface StopPipelineRequest {
   /**
-   * <p>The name of the pipeline to stop.</p>
+   * The name of the pipeline to stop.
+   *
    * @public
    */
   PipelineName: string | undefined;
@@ -1171,7 +1287,8 @@ export interface StopPipelineRequest {
  */
 export interface StopPipelineResponse {
   /**
-   * <p>Information about an existing OpenSearch Ingestion pipeline.</p>
+   * Information about an existing OpenSearch Ingestion pipeline.
+   *
    * @public
    */
   Pipeline?: Pipeline | undefined;
@@ -1182,13 +1299,15 @@ export interface StopPipelineResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline to tag.</p>
+   * The Amazon Resource Name (ARN) of the pipeline to tag.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The list of key-value tags to add to the pipeline.</p>
+   * The list of key-value tags to add to the pipeline.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -1204,13 +1323,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the pipeline to remove tags from.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The tag keys to remove.</p>
+   * The tag keys to remove.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -1226,53 +1347,57 @@ export interface UntagResourceResponse {}
  */
 export interface UpdatePipelineRequest {
   /**
-   * <p>The name of the pipeline to update.</p>
+   * The name of the pipeline to update.
+   *
    * @public
    */
   PipelineName: string | undefined;
 
   /**
-   * <p>The minimum pipeline capacity, in Ingestion Compute Units (ICUs).</p>
+   * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+   *
    * @public
    */
   MinUnits?: number | undefined;
 
   /**
-   * <p>The maximum pipeline capacity, in Ingestion Compute Units (ICUs)</p>
+   * The maximum pipeline capacity, in Ingestion Compute Units (ICUs)
+   *
    * @public
    */
   MaxUnits?: number | undefined;
 
   /**
-   * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
-   *    a string or within a .yaml file. If you provide the configuration as a string, each new line must
-   *    be escaped with <code>\n</code>.</p>
+   * The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+   *
    * @public
    */
   PipelineConfigurationBody?: string | undefined;
 
   /**
-   * <p>Key-value pairs to configure log publishing.</p>
+   * Key-value pairs to configure log publishing.
+   *
    * @public
    */
   LogPublishingOptions?: LogPublishingOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure persistent buffering for the pipeline.</p>
+   * Key-value pairs to configure persistent buffering for the pipeline.
+   *
    * @public
    */
   BufferOptions?: BufferOptions | undefined;
 
   /**
-   * <p>Key-value pairs to configure encryption for data that is written to a persistent
-   *    buffer.</p>
+   * Key-value pairs to configure encryption for data that is written to a persistent buffer.
+   *
    * @public
    */
   EncryptionAtRestOptions?: EncryptionAtRestOptions | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access
-   *    Amazon Web Services resources.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that grants the pipeline permission to access Amazon Web Services resources.
+   *
    * @public
    */
   PipelineRoleArn?: string | undefined;
@@ -1283,7 +1408,8 @@ export interface UpdatePipelineRequest {
  */
 export interface UpdatePipelineResponse {
   /**
-   * <p>Container for information about the updated pipeline.</p>
+   * Container for information about the updated pipeline.
+   *
    * @public
    */
   Pipeline?: Pipeline | undefined;
@@ -1294,22 +1420,22 @@ export interface UpdatePipelineResponse {
  */
 export interface ValidatePipelineRequest {
   /**
-   * <p>The pipeline configuration in YAML format. The command accepts the pipeline configuration as
-   *    a string or within a .yaml file. If you provide the configuration as a string, each new line must
-   *    be escaped with <code>\n</code>.</p>
+   * The pipeline configuration in YAML format. The command accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
+   *
    * @public
    */
   PipelineConfigurationBody: string | undefined;
 }
 
 /**
- * <p>A validation message associated with a <code>ValidatePipeline</code> request in OpenSearch
- *    Ingestion.</p>
+ * A validation message associated with a `ValidatePipeline` request in OpenSearch Ingestion.
+ *
  * @public
  */
 export interface ValidationMessage {
   /**
-   * <p>The validation message.</p>
+   * The validation message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -1320,13 +1446,15 @@ export interface ValidationMessage {
  */
 export interface ValidatePipelineResponse {
   /**
-   * <p>A boolean indicating whether or not the pipeline configuration is valid.</p>
+   * A boolean indicating whether or not the pipeline configuration is valid.
+   *
    * @public
    */
   isValid?: boolean | undefined;
 
   /**
-   * <p>A list of errors if the configuration is invalid.</p>
+   * A list of errors if the configuration is invalid.
+   *
    * @public
    */
   Errors?: ValidationMessage[] | undefined;

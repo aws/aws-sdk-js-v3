@@ -23,7 +23,8 @@ export interface ModifyIpPoolsCommandInput extends ModifyIpPoolsInput {}
 export interface ModifyIpPoolsCommandOutput extends ModifyIpPoolsOutput, __MetadataBearer {}
 
 /**
- * <p>[Application Load Balancers] Modify the IP pool associated to a load balancer.</p>
+ * [Application Load Balancers] Modify the IP pool associated to a load balancer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,11 +59,12 @@ export interface ModifyIpPoolsCommandOutput extends ModifyIpPoolsOutput, __Metad
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

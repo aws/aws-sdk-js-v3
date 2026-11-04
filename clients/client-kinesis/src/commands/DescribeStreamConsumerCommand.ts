@@ -23,17 +23,12 @@ export interface DescribeStreamConsumerCommandInput extends DescribeStreamConsum
 export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsumerOutput, __MetadataBearer {}
 
 /**
- * <p>To get the description of a registered consumer, provide the ARN of the consumer.
- *             Alternatively, you can provide the ARN of the data stream and the name you gave the
- *             consumer when you registered it. You may also provide all three parameters, as long as
- *             they don't conflict with each other. If you don't know the name or ARN of the consumer
- *             that you want to describe, you can use the <a>ListStreamConsumers</a>
- *             operation to get a list of the descriptions of all the consumers that are currently
- *             registered with a given data stream.</p>
- *          <p>This operation has a limit of 20 transactions per second per stream.</p>
- *          <note>
- *             <p>When making a cross-account call with <code>DescribeStreamConsumer</code>, make sure to provide the ARN of the consumer.  </p>
- *          </note>
+ * To get the description of a registered consumer, provide the ARN of the consumer. Alternatively, you can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as they don't conflict with each other. If you don't know the name or ARN of the consumer that you want to describe, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream.
+ *
+ * This operation has a limit of 20 transactions per second per stream.
+ *
+ * > **Note:** When making a cross-account call with `DescribeStreamConsumer`, make sure to provide the ARN of the consumer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,20 +64,20 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

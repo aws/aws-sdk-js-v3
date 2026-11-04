@@ -23,42 +23,19 @@ export interface StartCacheReportCommandInput extends StartCacheReportInput {}
 export interface StartCacheReportCommandOutput extends StartCacheReportOutput, __MetadataBearer {}
 
 /**
- * <p>Starts generating a report of the file metadata currently cached by an S3 File Gateway for a specific file share. You can use this report to identify and resolve
- *          issues if you have files failing upload from your gateway to Amazon S3. The report
- *          is a CSV file containing a list of files which match the set of filter parameters you
- *          specify in the request.</p>
- *          <note>
- *             <p>The <b>Files Failing Upload</b> flag is reset every 24
- *             hours and during gateway reboot. If this report captures the files after the reset, but
- *             before they become flagged again, they will not be reported as <b>Files Failing Upload</b>.</p>
- *          </note>
- *          <p>The following requirements must be met to successfully generate a cache report:</p>
- *          <ul>
- *             <li>
- *                <p>You must have <code>s3:PutObject</code> and <code>s3:AbortMultipartUpload</code>
- *                permissions for the Amazon S3 bucket where you want to store the cache
- *                report.</p>
- *             </li>
- *             <li>
- *                <p>No other cache reports can currently be in-progress for the specified file
- *                share.</p>
- *             </li>
- *             <li>
- *                <p>There must be fewer than 10 existing cache reports for the specified file
- *                share.</p>
- *             </li>
- *             <li>
- *                <p>The gateway must be online and connected to Amazon Web Services.</p>
- *             </li>
- *             <li>
- *                <p>The root disk must have at least 20GB of free space when report generation
- *                starts.</p>
- *             </li>
- *             <li>
- *                <p>You must specify at least one value for <code>InclusionFilters</code> or
- *                   <code>ExclusionFilters</code> in the request.</p>
- *             </li>
- *          </ul>
+ * Starts generating a report of the file metadata currently cached by an S3 File Gateway for a specific file share. You can use this report to identify and resolve issues if you have files failing upload from your gateway to Amazon S3. The report is a CSV file containing a list of files which match the set of filter parameters you specify in the request.
+ *
+ * > **Note:** The **Files Failing Upload** flag is reset every 24 hours and during gateway reboot. If this report captures the files after the reset, but before they become flagged again, they will not be reported as **Files Failing Upload**.
+ *
+ * The following requirements must be met to successfully generate a cache report:
+ *
+ * - You must have `s3:PutObject` and `s3:AbortMultipartUpload` permissions for the Amazon S3 bucket where you want to store the cache report.
+ * - No other cache reports can currently be in-progress for the specified file share.
+ * - There must be fewer than 10 existing cache reports for the specified file share.
+ * - The gateway must be online and connected to Amazon Web Services.
+ * - The root disk must have at least 20GB of free space when report generation starts.
+ * - You must specify at least one value for `InclusionFilters` or `ExclusionFilters` in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,16 +89,16 @@ export interface StartCacheReportCommandOutput extends StartCacheReportOutput, _
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

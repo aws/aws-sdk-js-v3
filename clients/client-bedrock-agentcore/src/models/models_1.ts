@@ -38,115 +38,134 @@ import type {
  */
 export interface CreateEventInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource in which to create the event.</p>
+   * The identifier of the AgentCore Memory resource in which to create the event.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the actor associated with this event. An actor represents an entity that participates in sessions and generates events.</p>
+   * The identifier of the actor associated with this event. An actor represents an entity that participates in sessions and generates events.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The identifier of the session in which this event occurs. A session represents a sequence of related events.</p>
+   * The identifier of the session in which this event occurs. A session represents a sequence of related events.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The timestamp when the event occurred. If not specified, the current time is used.</p>
+   * The timestamp when the event occurred. If not specified, the current time is used.
+   *
    * @public
    */
   eventTimestamp: Date | undefined;
 
   /**
-   * <p>The content payload of the event. This can include conversational data, JSON data, or binary content.</p>
+   * The content payload of the event. This can include conversational data, JSON data, or binary content.
+   *
    * @public
    */
   payload: PayloadType[] | undefined;
 
   /**
-   * <p>The branch information for this event. Branches allow for organizing events into different conversation threads or paths.</p>
+   * The branch information for this event. Branches allow for organizing events into different conversation threads or paths.
+   *
    * @public
    */
   branch?: Branch | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The key-value metadata to attach to the event.</p>
+   * The key-value metadata to attach to the event.
+   *
    * @public
    */
   metadata?: Record<string, MetadataValue> | undefined;
 
   /**
-   * <p>Controls long-term memory extraction for this event. When set to <code>SKIP</code>, the event is stored in short-term memory but is excluded from long-term memory extraction. If not specified, the event is processed for extraction as usual.</p>
+   * Controls long-term memory extraction for this event. When set to `SKIP`, the event is stored in short-term memory but is excluded from long-term memory extraction. If not specified, the event is processed for extraction as usual.
+   *
    * @public
    */
   extractionMode?: ExtractionMode | undefined;
 
   /**
-   * <p>The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.</p>
+   * The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.
+   *
    * @public
    */
   extractionConfig?: ExtractionConfig | undefined;
 }
 
 /**
- * <p>Contains information about an event in an AgentCore Memory resource.</p>
+ * Contains information about an event in an AgentCore Memory resource.
+ *
  * @public
  */
 export interface Event {
   /**
-   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
+   * The identifier of the AgentCore Memory resource containing the event.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the actor associated with the event.</p>
+   * The identifier of the actor associated with the event.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The identifier of the session containing the event.</p>
+   * The identifier of the session containing the event.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the event.</p>
+   * The unique identifier of the event.
+   *
    * @public
    */
   eventId: string | undefined;
 
   /**
-   * <p>The timestamp when the event occurred.</p>
+   * The timestamp when the event occurred.
+   *
    * @public
    */
   eventTimestamp: Date | undefined;
 
   /**
-   * <p>The content payload of the event.</p>
+   * The content payload of the event.
+   *
    * @public
    */
   payload: PayloadType[] | undefined;
 
   /**
-   * <p>The branch information for the event.</p>
+   * The branch information for the event.
+   *
    * @public
    */
   branch?: Branch | undefined;
 
   /**
-   * <p>Metadata associated with an event.</p>
+   * Metadata associated with an event.
+   *
    * @public
    */
   metadata?: Record<string, MetadataValue> | undefined;
@@ -157,7 +176,8 @@ export interface Event {
  */
 export interface CreateEventOutput {
   /**
-   * <p>The event that was created.</p>
+   * The event that was created.
+   *
    * @public
    */
   event: Event | undefined;
@@ -168,25 +188,29 @@ export interface CreateEventOutput {
  */
 export interface DeleteEventInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource from which to delete the event.</p>
+   * The identifier of the AgentCore Memory resource from which to delete the event.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the session containing the event to delete.</p>
+   * The identifier of the session containing the event to delete.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The identifier of the event to delete.</p>
+   * The identifier of the event to delete.
+   *
    * @public
    */
   eventId: string | undefined;
 
   /**
-   * <p>The identifier of the actor associated with the event to delete.</p>
+   * The identifier of the actor associated with the event to delete.
+   *
    * @public
    */
   actorId: string | undefined;
@@ -197,7 +221,8 @@ export interface DeleteEventInput {
  */
 export interface DeleteEventOutput {
   /**
-   * <p>The identifier of the event that was deleted.</p>
+   * The identifier of the event that was deleted.
+   *
    * @public
    */
   eventId: string | undefined;
@@ -208,19 +233,22 @@ export interface DeleteEventOutput {
  */
 export interface DeleteMemoryRecordInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
+   * The identifier of the AgentCore Memory resource from which to delete the memory record.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the memory record to delete.</p>
+   * The identifier of the memory record to delete.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>The namespace of the memory record to delete. This value is used for IAM condition key authorization.</p>
+   * The namespace of the memory record to delete. This value is used for IAM condition key authorization.
+   *
    * @public
    */
   namespace?: string | undefined;
@@ -231,7 +259,8 @@ export interface DeleteMemoryRecordInput {
  */
 export interface DeleteMemoryRecordOutput {
   /**
-   * <p>The identifier of the memory record that was deleted.</p>
+   * The identifier of the memory record that was deleted.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
@@ -242,25 +271,29 @@ export interface DeleteMemoryRecordOutput {
  */
 export interface GetEventInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
+   * The identifier of the AgentCore Memory resource containing the event.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the session containing the event.</p>
+   * The identifier of the session containing the event.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The identifier of the actor associated with the event.</p>
+   * The identifier of the actor associated with the event.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The identifier of the event to retrieve.</p>
+   * The identifier of the event to retrieve.
+   *
    * @public
    */
   eventId: string | undefined;
@@ -271,7 +304,8 @@ export interface GetEventInput {
  */
 export interface GetEventOutput {
   /**
-   * <p>The requested event information.</p>
+   * The requested event information.
+   *
    * @public
    */
   event: Event | undefined;
@@ -282,73 +316,85 @@ export interface GetEventOutput {
  */
 export interface GetMemoryRecordInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
+   * The identifier of the AgentCore Memory resource containing the memory record.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the memory record to retrieve.</p>
+   * The identifier of the memory record to retrieve.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>The namespace of the memory record to retrieve. This value is used for IAM condition key authorization.</p>
+   * The namespace of the memory record to retrieve. This value is used for IAM condition key authorization.
+   *
    * @public
    */
   namespace?: string | undefined;
 }
 
 /**
- * <p>Contains information about a memory record in an AgentCore Memory resource.</p>
+ * Contains information about a memory record in an AgentCore Memory resource.
+ *
  * @public
  */
 export interface MemoryRecord {
   /**
-   * <p>The unique identifier of the memory record.</p>
+   * The unique identifier of the memory record.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>The content of the memory record.</p>
+   * The content of the memory record.
+   *
    * @public
    */
   content: MemoryContent | undefined;
 
   /**
-   * <p>The identifier of the memory strategy associated with this record.</p>
+   * The identifier of the memory strategy associated with this record.
+   *
    * @public
    */
   memoryStrategyId: string | undefined;
 
   /**
-   * <p>The namespaces associated with this memory record. Namespaces help organize and categorize memory records.</p>
+   * The namespaces associated with this memory record. Namespaces help organize and categorize memory records.
+   *
    * @public
    */
   namespaces: string[] | undefined;
 
   /**
-   * <p>The timestamp when the memory record was created.</p>
+   * The timestamp when the memory record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp based on which the memory record was ingested. This reflects the time of the source content that the record was derived from, which can differ from <code>createdAt</code>, the time the record itself was written.</p>
+   * The timestamp based on which the memory record was ingested. This reflects the time of the source content that the record was derived from, which can differ from `createdAt`, the time the record itself was written.
+   *
    * @public
    */
   timestamp?: Date | undefined;
 
   /**
-   * <p>A map of metadata key-value pairs associated with a memory record.</p>
+   * A map of metadata key-value pairs associated with a memory record.
+   *
    * @public
    */
   metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
 
   /**
-   * <p>The timestamp at which the memory record expires and becomes eligible for deletion. This value is set when a record expiry (long-term memory time-to-live) applies to the record, either from the strategy the record belongs to or from a record expiry provided on the batch request that created or updated it. If the record has no expiry configured, this value is not present and the record does not expire.</p>
+   * The timestamp at which the memory record expires and becomes eligible for deletion. This value is set when a record expiry (long-term memory time-to-live) applies to the record, either from the strategy the record belongs to or from a record expiry provided on the batch request that created or updated it. If the record has no expiry configured, this value is not present and the record does not expire.
+   *
    * @public
    */
   expiresAt?: Date | undefined;
@@ -359,14 +405,16 @@ export interface MemoryRecord {
  */
 export interface GetMemoryRecordOutput {
   /**
-   * <p>The requested memory record.</p>
+   * The requested memory record.
+   *
    * @public
    */
   memoryRecord: MemoryRecord | undefined;
 }
 
 /**
- * <p>A single content payload item to ingest. A payload item contains either conversational or JSON content.</p>
+ * A single content payload item to ingest. A payload item contains either conversational or JSON content.
+ *
  * @public
  */
 export type IngestPayloadType =
@@ -379,7 +427,8 @@ export type IngestPayloadType =
  */
 export namespace IngestPayloadType {
   /**
-   * <p>The conversational content for this payload item.</p>
+   * The conversational content for this payload item.
+   *
    * @public
    */
   export interface ConversationalMember {
@@ -389,7 +438,8 @@ export namespace IngestPayloadType {
   }
 
   /**
-   * <p>The JSON content for this payload item.</p>
+   * The JSON content for this payload item.
+   *
    * @public
    */
   export interface JsonMember {
@@ -419,19 +469,22 @@ export namespace IngestPayloadType {
 }
 
 /**
- * <p>The content included directly in the request as one or more payload items.</p>
+ * The content included directly in the request as one or more payload items.
+ *
  * @public
  */
 export interface InlineMemoryContent {
   /**
-   * <p>The list of content payload items to ingest.</p>
+   * The list of content payload items to ingest.
+   *
    * @public
    */
   payload: IngestPayloadType[] | undefined;
 }
 
 /**
- * <p>The source of the content to ingest. Only inline content is supported.</p>
+ * The source of the content to ingest. Only inline content is supported.
+ *
  * @public
  */
 export type ContentSource =
@@ -443,7 +496,8 @@ export type ContentSource =
  */
 export namespace ContentSource {
   /**
-   * <p>The content included directly in the request.</p>
+   * The content included directly in the request.
+   *
    * @public
    */
   export interface InlineMember {
@@ -474,49 +528,57 @@ export namespace ContentSource {
  */
 export interface IngestDataInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource to ingest content into.</p>
+   * The identifier of the AgentCore Memory resource to ingest content into.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The content to ingest. Only inline content is supported.</p>
+   * The content to ingest. Only inline content is supported.
+   *
    * @public
    */
   source: ContentSource | undefined;
 
   /**
-   * <p>The timestamp of when the content occurred.</p>
+   * The timestamp of when the content occurred.
+   *
    * @public
    */
   contentTimestamp: Date | undefined;
 
   /**
-   * <p>The identifier of the actor associated with this content. An actor represents an entity that participates in sessions and generates content.</p>
+   * The identifier of the actor associated with this content. An actor represents an entity that participates in sessions and generates content.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The identifier of the session that the content belongs to. If not provided, a session identifier is generated and returned in the response.</p>
+   * The identifier of the session that the content belongs to. If not provided, a session identifier is generated and returned in the response.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.</p>
+   * The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.
+   *
    * @public
    */
   extractionConfig?: ExtractionConfig | undefined;
 
   /**
-   * <p>The key-value metadata to attach to the content.</p>
+   * The key-value metadata to attach to the content.
+   *
    * @public
    */
   metadata?: Record<string, MetadataValue> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -527,7 +589,8 @@ export interface IngestDataInput {
  */
 export interface IngestDataOutput {
   /**
-   * <p>The identifier of the session that the service ingested the content into. This value echoes the session identifier from the request, or the identifier that the service generated when you did not provide one.</p>
+   * The identifier of the session that the service ingested the content into. This value echoes the session identifier from the request, or the identifier that the service generated when you did not provide one.
+   *
    * @public
    */
   sessionId: string | undefined;
@@ -538,19 +601,22 @@ export interface IngestDataOutput {
  */
 export interface ListActorsInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource for which to list actors.</p>
+   * The identifier of the AgentCore Memory resource for which to list actors.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -561,38 +627,44 @@ export interface ListActorsInput {
  */
 export interface ListActorsOutput {
   /**
-   * <p>The list of actor summaries.</p>
+   * The list of actor summaries.
+   *
    * @public
    */
   actorSummaries: ActorSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains filter criteria for branches when listing events.</p>
+ * Contains filter criteria for branches when listing events.
+ *
  * @public
  */
 export interface BranchFilter {
   /**
-   * <p>The name of the branch to filter by.</p>
+   * The name of the branch to filter by.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Specifies whether to include parent branches in the results. Set to true to include parent branches, or false to exclude them.</p>
+   * Specifies whether to include parent branches in the results. Set to true to include parent branches, or false to exclude them.
+   *
    * @public
    */
   includeParentBranches?: boolean | undefined;
 }
 
 /**
- * <p>Left expression of the event metadata filter.</p>
+ * Left expression of the event metadata filter.
+ *
  * @public
  */
 export type LeftExpression =
@@ -604,7 +676,8 @@ export type LeftExpression =
  */
 export namespace LeftExpression {
   /**
-   * <p>Key associated with the metadata in an event.</p>
+   * Key associated with the metadata in an event.
+   *
    * @public
    */
   export interface MetadataKeyMember {
@@ -631,7 +704,8 @@ export namespace LeftExpression {
 }
 
 /**
- * <p>Right expression of the <code>eventMetadata</code>filter.</p>
+ * Right expression of the `eventMetadata`filter.
+ *
  * @public
  */
 export type RightExpression =
@@ -643,7 +717,8 @@ export type RightExpression =
  */
 export namespace RightExpression {
   /**
-   * <p>Value associated with the key in <code>eventMetadata</code>.</p>
+   * Value associated with the key in `eventMetadata`.
+   *
    * @public
    */
   export interface MetadataValueMember {
@@ -670,42 +745,49 @@ export namespace RightExpression {
 }
 
 /**
- * <p>Filter expression for retrieving events based on metadata associated with an event.</p>
+ * Filter expression for retrieving events based on metadata associated with an event.
+ *
  * @public
  */
 export interface EventMetadataFilterExpression {
   /**
-   * <p>Left operand of the event metadata filter expression.</p>
+   * Left operand of the event metadata filter expression.
+   *
    * @public
    */
   left: LeftExpression | undefined;
 
   /**
-   * <p>Operator applied to the event metadata filter expression.</p>
+   * Operator applied to the event metadata filter expression.
+   *
    * @public
    */
   operator: OperatorType | undefined;
 
   /**
-   * <p>Right operand of the event metadata filter expression.</p>
+   * Right operand of the event metadata filter expression.
+   *
    * @public
    */
   right?: RightExpression | undefined;
 }
 
 /**
- * <p>Contains filter criteria for listing events.</p>
+ * Contains filter criteria for listing events.
+ *
  * @public
  */
 export interface FilterInput {
   /**
-   * <p>The branch filter criteria to apply when listing events.</p>
+   * The branch filter criteria to apply when listing events.
+   *
    * @public
    */
   branch?: BranchFilter | undefined;
 
   /**
-   * <p>Event metadata filter criteria to apply when retrieving events.</p>
+   * Event metadata filter criteria to apply when retrieving events.
+   *
    * @public
    */
   eventMetadata?: EventMetadataFilterExpression[] | undefined;
@@ -716,43 +798,50 @@ export interface FilterInput {
  */
 export interface ListEventsInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource for which to list events.</p>
+   * The identifier of the AgentCore Memory resource for which to list events.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the session for which to list events.</p>
+   * The identifier of the session for which to list events.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The identifier of the actor for which to list events.</p>
+   * The identifier of the actor for which to list events.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>Specifies whether to include event payloads in the response. Set to true to include payloads, or false to exclude them.</p>
+   * Specifies whether to include event payloads in the response. Set to true to include payloads, or false to exclude them.
+   *
    * @public
    */
   includePayloads?: boolean | undefined;
 
   /**
-   * <p>Filter criteria to apply when listing events.</p>
+   * Filter criteria to apply when listing events.
+   *
    * @public
    */
   filter?: FilterInput | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -763,43 +852,50 @@ export interface ListEventsInput {
  */
 export interface ListEventsOutput {
   /**
-   * <p>The list of events that match the specified criteria.</p>
+   * The list of events that match the specified criteria.
+   *
    * @public
    */
   events: Event[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Filters for querying memory extraction jobs based on various criteria.</p>
+ * Filters for querying memory extraction jobs based on various criteria.
+ *
  * @public
  */
 export interface ExtractionJobFilterInput {
   /**
-   * <p>The memory strategy identifier to filter extraction jobs by. If specified, only extraction jobs with this strategy ID are returned.</p>
+   * The memory strategy identifier to filter extraction jobs by. If specified, only extraction jobs with this strategy ID are returned.
+   *
    * @public
    */
   strategyId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the session. If specified, only extraction jobs with this session ID are returned.</p>
+   * The unique identifier of the session. If specified, only extraction jobs with this session ID are returned.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The identifier of the actor. If specified, only extraction jobs with this actor ID are returned.</p>
+   * The identifier of the actor. If specified, only extraction jobs with this actor ID are returned.
+   *
    * @public
    */
   actorId?: string | undefined;
 
   /**
-   * <p>The status of the extraction job. If specified, only extraction jobs with this status are returned.</p>
+   * The status of the extraction job. If specified, only extraction jobs with this status are returned.
+   *
    * @public
    */
   status?: ExtractionJobStatus | undefined;
@@ -810,50 +906,58 @@ export interface ExtractionJobFilterInput {
  */
 export interface ListMemoryExtractionJobsInput {
   /**
-   * <p>The unique identifier of the memory to list extraction jobs for.</p>
+   * The unique identifier of the memory to list extraction jobs for.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Filter criteria to apply when listing extraction jobs.</p>
+   * Filter criteria to apply when listing extraction jobs.
+   *
    * @public
    */
   filter?: ExtractionJobFilterInput | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Metadata information associated with this message.</p>
+ * Metadata information associated with this message.
+ *
  * @public
  */
 export interface MessageMetadata {
   /**
-   * <p>The identifier of the event associated with this message.</p>
+   * The identifier of the event associated with this message.
+   *
    * @public
    */
   eventId: string | undefined;
 
   /**
-   * <p>The position of this message within that event’s ordered list of messages.</p>
+   * The position of this message within that event’s ordered list of messages.
+   *
    * @public
    */
   messageIndex: number | undefined;
 }
 
 /**
- * <p>The list of messages that compose this extraction job.</p>
+ * The list of messages that compose this extraction job.
+ *
  * @public
  */
 export type ExtractionJobMessages =
@@ -865,7 +969,8 @@ export type ExtractionJobMessages =
  */
 export namespace ExtractionJobMessages {
   /**
-   * <p>The list of messages that compose this extraction job.</p>
+   * The list of messages that compose this extraction job.
+   *
    * @public
    */
   export interface MessagesListMember {
@@ -892,48 +997,56 @@ export namespace ExtractionJobMessages {
 }
 
 /**
- * <p>Metadata information associated with this extraction job.</p>
+ * Metadata information associated with this extraction job.
+ *
  * @public
  */
 export interface ExtractionJobMetadata {
   /**
-   * <p>The unique identifier for the extraction job.</p>
+   * The unique identifier for the extraction job.
+   *
    * @public
    */
   jobID: string | undefined;
 
   /**
-   * <p>The messages associated with the extraction job.</p>
+   * The messages associated with the extraction job.
+   *
    * @public
    */
   messages: ExtractionJobMessages | undefined;
 
   /**
-   * <p>The current status of the extraction job.</p>
+   * The current status of the extraction job.
+   *
    * @public
    */
   status?: ExtractionJobStatus | undefined;
 
   /**
-   * <p>The cause of failure, if the job did not complete successfully.</p>
+   * The cause of failure, if the job did not complete successfully.
+   *
    * @public
    */
   failureReason?: string | undefined;
 
   /**
-   * <p>The identifier of the memory strategy for this extraction job.</p>
+   * The identifier of the memory strategy for this extraction job.
+   *
    * @public
    */
   strategyId?: string | undefined;
 
   /**
-   * <p>The identifier of the session for this extraction job.</p>
+   * The identifier of the session for this extraction job.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>The identifier of the actor for this extraction job.</p>
+   * The identifier of the actor for this extraction job.
+   *
    * @public
    */
   actorId?: string | undefined;
@@ -944,20 +1057,23 @@ export interface ExtractionJobMetadata {
  */
 export interface ListMemoryExtractionJobsOutput {
   /**
-   * <p>List of extraction job metadata matching the specified criteria.</p>
+   * List of extraction job metadata matching the specified criteria.
+   *
    * @public
    */
   jobs: ExtractionJobMetadata[] | undefined;
 
   /**
-   * <p>Token to retrieve the next page of results, if available.</p>
+   * Token to retrieve the next page of results, if available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The left-hand side of a memory record metadata filter expression.</p>
+ * The left-hand side of a memory record metadata filter expression.
+ *
  * @public
  */
 export type MemoryRecordLeftExpression =
@@ -969,7 +1085,8 @@ export type MemoryRecordLeftExpression =
  */
 export namespace MemoryRecordLeftExpression {
   /**
-   * <p>The metadata key to filter on.</p>
+   * The metadata key to filter on.
+   *
    * @public
    */
   export interface MetadataKeyMember {
@@ -996,7 +1113,8 @@ export namespace MemoryRecordLeftExpression {
 }
 
 /**
- * <p>The right-hand side of a memory record metadata filter expression.</p>
+ * The right-hand side of a memory record metadata filter expression.
+ *
  * @public
  */
 export type MemoryRecordRightExpression =
@@ -1008,7 +1126,8 @@ export type MemoryRecordRightExpression =
  */
 export namespace MemoryRecordRightExpression {
   /**
-   * <p>The metadata value to compare against.</p>
+   * The metadata value to compare against.
+   *
    * @public
    */
   export interface MetadataValueMember {
@@ -1035,24 +1154,28 @@ export namespace MemoryRecordRightExpression {
 }
 
 /**
- * <p>Filters to apply to metadata associated with a memory. Specify the metadata key and value in the <code>left</code> and <code>right</code> fields and use the <code>operator</code> field to define the relationship to match.</p>
+ * Filters to apply to metadata associated with a memory. Specify the metadata key and value in the `left` and `right` fields and use the `operator` field to define the relationship to match.
+ *
  * @public
  */
 export interface MemoryMetadataFilterExpression {
   /**
-   * <p>The metadata key to evaluate.</p>
+   * The metadata key to evaluate.
+   *
    * @public
    */
   left: MemoryRecordLeftExpression | undefined;
 
   /**
-   * <p>The relationship between the metadata key and value to match when applying the metadata filter.</p>
+   * The relationship between the metadata key and value to match when applying the metadata filter.
+   *
    * @public
    */
   operator: MemoryRecordOperatorType | undefined;
 
   /**
-   * <p>The value to compare against. Required for all operators except EXISTS and NOT_EXISTS.</p>
+   * The value to compare against. Required for all operators except EXISTS and NOT_EXISTS.
+   *
    * @public
    */
   right?: MemoryRecordRightExpression | undefined;
@@ -1063,97 +1186,113 @@ export interface MemoryMetadataFilterExpression {
  */
 export interface ListMemoryRecordsInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource for which to list memory records.</p>
+   * The identifier of the AgentCore Memory resource for which to list memory records.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The exact namespace to filter memory records by. Returns all memory records that matches the provided namespace. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * The exact namespace to filter memory records by. Returns all memory records that matches the provided namespace. Either `namespace` or `namespacePath` is required.
+   *
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either `namespace` or `namespacePath` is required.
+   *
    * @public
    */
   namespacePath?: string | undefined;
 
   /**
-   * <p>The memory strategy identifier to filter memory records by. If specified, only memory records with this strategy ID are returned.</p>
+   * The memory strategy identifier to filter memory records by. If specified, only memory records with this strategy ID are returned.
+   *
    * @public
    */
   memoryStrategyId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of metadata filter expressions to scope the returned memory records.</p>
+   * A list of metadata filter expressions to scope the returned memory records.
+   *
    * @public
    */
   metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
 }
 
 /**
- * <p>Contains summary information about a memory record.</p>
+ * Contains summary information about a memory record.
+ *
  * @public
  */
 export interface MemoryRecordSummary {
   /**
-   * <p>The unique identifier of the memory record.</p>
+   * The unique identifier of the memory record.
+   *
    * @public
    */
   memoryRecordId: string | undefined;
 
   /**
-   * <p>The content of the memory record.</p>
+   * The content of the memory record.
+   *
    * @public
    */
   content: MemoryContent | undefined;
 
   /**
-   * <p>The identifier of the memory strategy associated with this record.</p>
+   * The identifier of the memory strategy associated with this record.
+   *
    * @public
    */
   memoryStrategyId: string | undefined;
 
   /**
-   * <p>The namespaces associated with this memory record.</p>
+   * The namespaces associated with this memory record.
+   *
    * @public
    */
   namespaces: string[] | undefined;
 
   /**
-   * <p>The timestamp when the memory record was created.</p>
+   * The timestamp when the memory record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The relevance score of the memory record when returned as part of a search result. Higher values indicate greater relevance to the search query.</p>
+   * The relevance score of the memory record when returned as part of a search result. Higher values indicate greater relevance to the search query.
+   *
    * @public
    */
   score?: number | undefined;
 
   /**
-   * <p>The timestamp based on which the memory record was ingested. This reflects the time of the source content that the record was derived from, which can differ from <code>createdAt</code>, the time the record itself was written.</p>
+   * The timestamp based on which the memory record was ingested. This reflects the time of the source content that the record was derived from, which can differ from `createdAt`, the time the record itself was written.
+   *
    * @public
    */
   timestamp?: Date | undefined;
 
   /**
-   * <p>A map of metadata key-value pairs associated with a memory record.</p>
+   * A map of metadata key-value pairs associated with a memory record.
+   *
    * @public
    */
   metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
@@ -1164,25 +1303,29 @@ export interface MemoryRecordSummary {
  */
 export interface ListMemoryRecordsOutput {
   /**
-   * <p>The list of memory record summaries that match the specified criteria.</p>
+   * The list of memory record summaries that match the specified criteria.
+   *
    * @public
    */
   memoryRecordSummaries: MemoryRecordSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains filter criteria for listing sessions.</p>
+ * Contains filter criteria for listing sessions.
+ *
  * @public
  */
 export interface SessionFilter {
   /**
-   * <p>The event filter condition to apply. Use this to filter sessions based on event presence.</p>
+   * The event filter condition to apply. Use this to filter sessions based on event presence.
+   *
    * @public
    */
   eventFilter?: EventFilterCondition | undefined;
@@ -1193,55 +1336,64 @@ export interface SessionFilter {
  */
 export interface ListSessionsInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource for which to list sessions.</p>
+   * The identifier of the AgentCore Memory resource for which to list sessions.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The identifier of the actor for which to list sessions. </p>
+   * The identifier of the actor for which to list sessions.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter criteria to apply when listing sessions.</p>
+   * Filter criteria to apply when listing sessions.
+   *
    * @public
    */
   filter?: SessionFilter | undefined;
 }
 
 /**
- * <p>Contains summary information about a session in an AgentCore Memory resource.</p>
+ * Contains summary information about a session in an AgentCore Memory resource.
+ *
  * @public
  */
 export interface SessionSummary {
   /**
-   * <p>The unique identifier of the session.</p>
+   * The unique identifier of the session.
+   *
    * @public
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The identifier of the actor associated with the session.</p>
+   * The identifier of the actor associated with the session.
+   *
    * @public
    */
   actorId: string | undefined;
 
   /**
-   * <p>The timestamp when the session was created.</p>
+   * The timestamp when the session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -1252,43 +1404,50 @@ export interface SessionSummary {
  */
 export interface ListSessionsOutput {
   /**
-   * <p>The list of session summaries that match the specified criteria.</p>
+   * The list of session summaries that match the specified criteria.
+   *
    * @public
    */
   sessionSummaries: SessionSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains search criteria for retrieving memory records.</p>
+ * Contains search criteria for retrieving memory records.
+ *
  * @public
  */
 export interface SearchCriteria {
   /**
-   * <p>The search query to use for finding relevant memory records.</p>
+   * The search query to use for finding relevant memory records.
+   *
    * @public
    */
   searchQuery: string | undefined;
 
   /**
-   * <p>The memory strategy identifier to filter memory records by.</p>
+   * The memory strategy identifier to filter memory records by.
+   *
    * @public
    */
   memoryStrategyId?: string | undefined;
 
   /**
-   * <p>The maximum number of top-scoring memory records to return. This value is used for semantic search ranking.</p>
+   * The maximum number of top-scoring memory records to return. This value is used for semantic search ranking.
+   *
    * @public
    */
   topK?: number | undefined;
 
   /**
-   * <p>Filters to apply to metadata associated with a memory.</p>
+   * Filters to apply to metadata associated with a memory.
+   *
    * @public
    */
   metadataFilters?: MemoryMetadataFilterExpression[] | undefined;
@@ -1299,37 +1458,43 @@ export interface SearchCriteria {
  */
 export interface RetrieveMemoryRecordsInput {
   /**
-   * <p>The identifier of the AgentCore Memory resource from which to retrieve memory records.</p>
+   * The identifier of the AgentCore Memory resource from which to retrieve memory records.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>The exact namespace to filter memory records by. Searches for memory records that matches the provided namespace value. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * The exact namespace to filter memory records by. Searches for memory records that matches the provided namespace value. Either `namespace` or `namespacePath` is required.
+   *
    * @public
    */
   namespace?: string | undefined;
 
   /**
-   * <p>Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either <code>namespace</code> or <code>namespacePath</code> is required.</p>
+   * Use namespacePath for hierarchical retrievals. Return all memory records where namespace falls under the same parent hierarchy. Either `namespace` or `namespacePath` is required.
+   *
    * @public
    */
   namespacePath?: string | undefined;
 
   /**
-   * <p>The search criteria to use for finding relevant memory records. This includes the search query, memory strategy ID, and other search parameters.</p>
+   * The search criteria to use for finding relevant memory records. This includes the search query, memory strategy ID, and other search parameters.
+   *
    * @public
    */
   searchCriteria: SearchCriteria | undefined;
 
   /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * The maximum number of results to return in a single call. The default value is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1340,25 +1505,29 @@ export interface RetrieveMemoryRecordsInput {
  */
 export interface RetrieveMemoryRecordsOutput {
   /**
-   * <p>The list of memory record summaries that match the search criteria, ordered by relevance.</p>
+   * The list of memory record summaries that match the search criteria, ordered by relevance.
+   *
    * @public
    */
   memoryRecordSummaries: MemoryRecordSummary[] | undefined;
 
   /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the metadata of a memory extraction job such as the message identifiers that compose this job.</p>
+ * Represents the metadata of a memory extraction job such as the message identifiers that compose this job.
+ *
  * @public
  */
 export interface ExtractionJob {
   /**
-   * <p>The unique identifier of the extraction job.</p>
+   * The unique identifier of the extraction job.
+   *
    * @public
    */
   jobId: string | undefined;
@@ -1369,19 +1538,22 @@ export interface ExtractionJob {
  */
 export interface StartMemoryExtractionJobInput {
   /**
-   * <p>The unique identifier of the memory for which to start extraction jobs.</p>
+   * The unique identifier of the memory for which to start extraction jobs.
+   *
    * @public
    */
   memoryId: string | undefined;
 
   /**
-   * <p>Extraction job to start in this operation.</p>
+   * Extraction job to start in this operation.
+   *
    * @public
    */
   extractionJob: ExtractionJob | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotent processing of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotent processing of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1392,74 +1564,86 @@ export interface StartMemoryExtractionJobInput {
  */
 export interface StartMemoryExtractionJobOutput {
   /**
-   * <p>Extraction Job ID that was attempted to start.</p>
+   * Extraction Job ID that was attempted to start.
+   *
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>Authentication method using JWT with key ID and subject claims.</p>
+ * Authentication method using JWT with key ID and subject claims.
+ *
  * @public
  */
 export interface LinkedAccountDeveloperJwt {
   /**
-   * <p>The key ID (kid) from the JWT header. Identifies which key was used to sign the JWT.</p>
+   * The key ID (kid) from the JWT header. Identifies which key was used to sign the JWT.
+   *
    * @public
    */
   kid: string | undefined;
 
   /**
-   * <p>The subject (sub) claim from the JWT payload. Identifies the principal that is the subject of the JWT.</p>
+   * The subject (sub) claim from the JWT payload. Identifies the principal that is the subject of the JWT.
+   *
    * @public
    */
   sub: string | undefined;
 }
 
 /**
- * <p>Linked account using an email address.</p>
+ * Linked account using an email address.
+ *
  * @public
  */
 export interface LinkedAccountEmail {
   /**
-   * <p>The email address used for the linked account. Must be a valid email format.</p>
+   * The email address used for the linked account. Must be a valid email format.
+   *
    * @public
    */
   emailAddress: string | undefined;
 }
 
 /**
- * <p>OAuth2 authentication information for third-party providers.</p>
+ * OAuth2 authentication information for third-party providers.
+ *
  * @public
  */
 export interface OAuth2Authentication {
   /**
-   * <p>The subject (sub) claim from the OAuth2 provider. Uniquely identifies the user at the provider.</p>
+   * The subject (sub) claim from the OAuth2 provider. Uniquely identifies the user at the provider.
+   *
    * @public
    */
   sub: string | undefined;
 
   /**
-   * <p>The email address from the OAuth2 provider.</p>
+   * The email address from the OAuth2 provider.
+   *
    * @public
    */
   emailAddress?: string | undefined;
 
   /**
-   * <p>The user's name from the OAuth2 provider.</p>
+   * The user's name from the OAuth2 provider.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The username from the OAuth2 provider.</p>
+   * The username from the OAuth2 provider.
+   *
    * @public
    */
   username?: string | undefined;
 }
 
 /**
- * <p>Authentication method using OAuth2 providers. Supports Google, Apple, X, Telegram, and GitHub providers.</p>
+ * Authentication method using OAuth2 providers. Supports Google, Apple, X, Telegram, and GitHub providers.
+ *
  * @public
  */
 export type LinkedAccountOAuth2 =
@@ -1475,7 +1659,8 @@ export type LinkedAccountOAuth2 =
  */
 export namespace LinkedAccountOAuth2 {
   /**
-   * <p>Google OAuth2 authentication.</p>
+   * Google OAuth2 authentication.
+   *
    * @public
    */
   export interface GoogleMember {
@@ -1488,7 +1673,8 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * <p>Apple OAuth2 authentication.</p>
+   * Apple OAuth2 authentication.
+   *
    * @public
    */
   export interface AppleMember {
@@ -1501,7 +1687,8 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * <p>X (formerly Twitter) OAuth2 authentication.</p>
+   * X (formerly Twitter) OAuth2 authentication.
+   *
    * @public
    */
   export interface XMember {
@@ -1514,7 +1701,8 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * <p>Telegram OAuth2 authentication.</p>
+   * Telegram OAuth2 authentication.
+   *
    * @public
    */
   export interface TelegramMember {
@@ -1527,7 +1715,8 @@ export namespace LinkedAccountOAuth2 {
   }
 
   /**
-   * <p>GitHub OAuth2 authentication.</p>
+   * GitHub OAuth2 authentication.
+   *
    * @public
    */
   export interface GithubMember {
@@ -1566,19 +1755,22 @@ export namespace LinkedAccountOAuth2 {
 }
 
 /**
- * <p>Linked account using a phone number in E.164 format.</p>
+ * Linked account using a phone number in E.164 format.
+ *
  * @public
  */
 export interface LinkedAccountSms {
   /**
-   * <p>The phone number in E.164 format (e.g., +1234567890).</p>
+   * The phone number in E.164 format (e.g., +1234567890).
+   *
    * @public
    */
   phoneNumber: string | undefined;
 }
 
 /**
- * <p>Represents different linked accounts that can be linked to an embedded wallet. Supports email, SMS, JWT, and OAuth2 approaches.</p>
+ * Represents different linked accounts that can be linked to an embedded wallet. Supports email, SMS, JWT, and OAuth2 approaches.
+ *
  * @public
  */
 export type LinkedAccount =
@@ -1593,7 +1785,8 @@ export type LinkedAccount =
  */
 export namespace LinkedAccount {
   /**
-   * <p>Email-based linked account.</p>
+   * Email-based linked account.
+   *
    * @public
    */
   export interface EmailMember {
@@ -1605,7 +1798,8 @@ export namespace LinkedAccount {
   }
 
   /**
-   * <p>SMS-based linked account using phone number.</p>
+   * SMS-based linked account using phone number.
+   *
    * @public
    */
   export interface SmsMember {
@@ -1617,7 +1811,8 @@ export namespace LinkedAccount {
   }
 
   /**
-   * <p>Developer JWT linked account with key ID and subject.</p>
+   * Developer JWT linked account with key ID and subject.
+   *
    * @public
    */
   export interface DeveloperJwtMember {
@@ -1629,7 +1824,8 @@ export namespace LinkedAccount {
   }
 
   /**
-   * <p>OAuth2 provider linked account (Google, Apple, X, Telegram, GitHub).</p>
+   * OAuth2 provider linked account (Google, Apple, X, Telegram, GitHub).
+   *
    * @public
    */
   export interface OAuth2Member {
@@ -1665,37 +1861,43 @@ export namespace LinkedAccount {
 }
 
 /**
- * <p>Embedded crypto wallet instrument details.</p>
+ * Embedded crypto wallet instrument details.
+ *
  * @public
  */
 export interface EmbeddedCryptoWallet {
   /**
-   * <p>The blockchain network for this embedded crypto wallet. Supported networks: ETHEREUM, SOLANA.</p>
+   * The blockchain network for this embedded crypto wallet. Supported networks: ETHEREUM, SOLANA.
+   *
    * @public
    */
   network: CryptoWalletNetwork | undefined;
 
   /**
-   * <p>List of linked accounts linked to this wallet. Each represents a way the end user can authenticate to this wallet.</p>
+   * List of linked accounts linked to this wallet. Each represents a way the end user can authenticate to this wallet.
+   *
    * @public
    */
   linkedAccounts: LinkedAccount[] | undefined;
 
   /**
-   * <p>The wallet address on the specified blockchain network.</p>
+   * The wallet address on the specified blockchain network.
+   *
    * @public
    */
   walletAddress?: string | undefined;
 
   /**
-   * <p>URL for the end user to complete a provider-specific action such as wallet linking or onboarding.</p>
+   * URL for the end user to complete a provider-specific action such as wallet linking or onboarding.
+   *
    * @public
    */
   redirectUrl?: string | undefined;
 }
 
 /**
- * <p>Details specific to the instrument type.</p>
+ * Details specific to the instrument type.
+ *
  * @public
  */
 export type PaymentInstrumentDetails =
@@ -1707,7 +1909,8 @@ export type PaymentInstrumentDetails =
  */
 export namespace PaymentInstrumentDetails {
   /**
-   * <p>Embedded crypto wallet managed directly by end user.</p>
+   * Embedded crypto wallet managed directly by end user.
+   *
    * @public
    */
   export interface EmbeddedCryptoWalletMember {
@@ -1734,811 +1937,952 @@ export namespace PaymentInstrumentDetails {
 }
 
 /**
- * <p>Request structure for creating a payment instrument.</p>
+ * Request structure for creating a payment instrument.
+ *
  * @public
  */
 export interface CreatePaymentInstrumentRequest {
   /**
-   * <p>The user ID associated with this payment instrument.</p>
+   * The user ID associated with this payment instrument.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this payment instrument.</p>
+   * The ARN of the payment manager that owns this payment instrument.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment connector to use for this instrument.</p>
+   * The ID of the payment connector to use for this instrument.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The type of payment instrument being created.</p>
+   * The type of payment instrument being created.
+   *
    * @public
    */
   paymentInstrumentType: PaymentInstrumentType | undefined;
 
   /**
-   * <p>The details of the payment instrument.</p>
+   * The details of the payment instrument.
+   *
    * @public
    */
   paymentInstrumentDetails: PaymentInstrumentDetails | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Represents a payment instrument.</p>
+ * Represents a payment instrument.
+ *
  * @public
  */
 export interface PaymentInstrument {
   /**
-   * <p>The unique identifier for this payment instrument.</p>
+   * The unique identifier for this payment instrument.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this payment instrument.</p>
+   * The ARN of the payment manager that owns this payment instrument.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment connector associated with this instrument.</p>
+   * The ID of the payment connector associated with this instrument.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The user ID associated with this payment instrument.</p>
+   * The user ID associated with this payment instrument.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).</p>
+   * The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).
+   *
    * @public
    */
   paymentInstrumentType: PaymentInstrumentType | undefined;
 
   /**
-   * <p>The details specific to the payment instrument type.</p>
+   * The details specific to the payment instrument type.
+   *
    * @public
    */
   paymentInstrumentDetails: PaymentInstrumentDetails | undefined;
 
   /**
-   * <p>The timestamp when this payment instrument was created.</p>
+   * The timestamp when this payment instrument was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of this payment instrument.</p>
+   * The current status of this payment instrument.
+   *
    * @public
    */
   status: PaymentInstrumentStatus | undefined;
 
   /**
-   * <p>The timestamp when this payment instrument was last updated.</p>
+   * The timestamp when this payment instrument was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Response structure for creating a payment instrument.</p>
+ * Response structure for creating a payment instrument.
+ *
  * @public
  */
 export interface CreatePaymentInstrumentResponse {
   /**
-   * <p>The created payment instrument.</p>
+   * The created payment instrument.
+   *
    * @public
    */
   paymentInstrument: PaymentInstrument | undefined;
 }
 
 /**
- * <p>Request structure for deleting a payment instrument.</p>
+ * Request structure for deleting a payment instrument.
+ *
  * @public
  */
 export interface DeletePaymentInstrumentRequest {
   /**
-   * <p>The user ID making the delete request. Must match the instrument's userId.</p>
+   * The user ID making the delete request. Must match the instrument's userId.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The payment manager ARN. Must match the instrument's paymentManagerArn.</p>
+   * The payment manager ARN. Must match the instrument's paymentManagerArn.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The payment connector ID. Must match the instrument's paymentConnectorId.</p>
+   * The payment connector ID. Must match the instrument's paymentConnectorId.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The payment instrument ID to delete.</p>
+   * The payment instrument ID to delete.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 }
 
 /**
- * <p>Response structure for deleting a payment instrument.</p>
+ * Response structure for deleting a payment instrument.
+ *
  * @public
  */
 export interface DeletePaymentInstrumentResponse {
   /**
-   * <p>The status of the instrument after deletion. Always DELETED for successful soft delete.</p>
+   * The status of the instrument after deletion. Always DELETED for successful soft delete.
+   *
    * @public
    */
   status: PaymentInstrumentStatus | undefined;
 }
 
 /**
- * <p>Request structure for getting a payment instrument.</p>
+ * Request structure for getting a payment instrument.
+ *
  * @public
  */
 export interface GetPaymentInstrumentRequest {
   /**
-   * <p>The user ID associated with this payment instrument.</p>
+   * The user ID associated with this payment instrument.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this payment instrument.</p>
+   * The ARN of the payment manager that owns this payment instrument.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment connector.</p>
+   * The ID of the payment connector.
+   *
    * @public
    */
   paymentConnectorId?: string | undefined;
 
   /**
-   * <p>The ID of the payment instrument to retrieve.</p>
+   * The ID of the payment instrument to retrieve.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 }
 
 /**
- * <p>Response structure for getting a payment instrument.</p>
+ * Response structure for getting a payment instrument.
+ *
  * @public
  */
 export interface GetPaymentInstrumentResponse {
   /**
-   * <p>The payment instrument details.</p>
+   * The payment instrument details.
+   *
    * @public
    */
   paymentInstrument: PaymentInstrument | undefined;
 }
 
 /**
- * <p>Request structure for getting payment instrument balance.</p>
+ * Request structure for getting payment instrument balance.
+ *
  * @public
  */
 export interface GetPaymentInstrumentBalanceRequest {
   /**
-   * <p>The user ID associated with this payment instrument.</p>
+   * The user ID associated with this payment instrument.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this payment instrument.</p>
+   * The ARN of the payment manager that owns this payment instrument.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment connector associated with this instrument.</p>
+   * The ID of the payment connector associated with this instrument.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The ID of the payment instrument to query balance for.</p>
+   * The ID of the payment instrument to query balance for.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * <p>The specific blockchain chain to query balance on. Required because balances are chain-specific.</p>
+   * The specific blockchain chain to query balance on. Required because balances are chain-specific.
+   *
    * @public
    */
   chain: BlockchainChainId | undefined;
 
   /**
-   * <p>The token to query balance for. Only tokens supported for X402 payments are returned.</p>
+   * The token to query balance for. Only tokens supported for X402 payments are returned.
+   *
    * @public
    */
   token: InstrumentBalanceToken | undefined;
 }
 
 /**
- * <p>A single token balance entry.</p>
+ * A single token balance entry.
+ *
  * @public
  */
 export interface TokenBalance {
   /**
-   * <p>Raw balance in the smallest denomination (e.g., USDC base units where 1 USDC = 1000000).</p>
+   * Raw balance in the smallest denomination (e.g., USDC base units where 1 USDC = 1000000).
+   *
    * @public
    */
   amount: string | undefined;
 
   /**
-   * <p>Number of decimal places for the token (e.g., 6 for USDC).</p>
+   * Number of decimal places for the token (e.g., 6 for USDC).
+   *
    * @public
    */
   decimals: number | undefined;
 
   /**
-   * <p>The supported token for this balance.</p>
+   * The supported token for this balance.
+   *
    * @public
    */
   token: InstrumentBalanceToken | undefined;
 
   /**
-   * <p>The blockchain network family (ETHEREUM or SOLANA).</p>
+   * The blockchain network family (ETHEREUM or SOLANA).
+   *
    * @public
    */
   network: CryptoWalletNetwork | undefined;
 
   /**
-   * <p>The specific blockchain chain.</p>
+   * The specific blockchain chain.
+   *
    * @public
    */
   chain: BlockchainChainId | undefined;
 }
 
 /**
- * <p>Response structure for getting payment instrument balance.</p>
+ * Response structure for getting payment instrument balance.
+ *
  * @public
  */
 export interface GetPaymentInstrumentBalanceResponse {
   /**
-   * <p>The ID of the payment instrument.</p>
+   * The ID of the payment instrument.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * <p>The balance of the supported token on the requested chain.</p>
+   * The balance of the supported token on the requested chain.
+   *
    * @public
    */
   tokenBalance: TokenBalance | undefined;
 }
 
 /**
- * <p>Request structure for listing payment instruments.</p>
+ * Request structure for listing payment instruments.
+ *
  * @public
  */
 export interface ListPaymentInstrumentsRequest {
   /**
-   * <p>The user ID associated with the payment instruments.</p>
+   * The user ID associated with the payment instruments.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns the payment instruments.</p>
+   * The ARN of the payment manager that owns the payment instruments.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment connector to filter by.</p>
+   * The ID of the payment connector to filter by.
+   *
    * @public
    */
   paymentConnectorId?: string | undefined;
 
   /**
-   * <p>Token for pagination to retrieve the next set of results.</p>
+   * Token for pagination to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results to return in a single response.</p>
+   * Maximum number of results to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary of a payment instrument for list operations.</p>
+ * Summary of a payment instrument for list operations.
+ *
  * @public
  */
 export interface PaymentInstrumentSummary {
   /**
-   * <p>The unique identifier for this payment instrument.</p>
+   * The unique identifier for this payment instrument.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this payment instrument.</p>
+   * The ARN of the payment manager that owns this payment instrument.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment connector associated with this instrument.</p>
+   * The ID of the payment connector associated with this instrument.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The user ID associated with this payment instrument.</p>
+   * The user ID associated with this payment instrument.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).</p>
+   * The type of payment instrument (e.g., EMBEDDED_CRYPTO_WALLET).
+   *
    * @public
    */
   paymentInstrumentType: PaymentInstrumentType | undefined;
 
   /**
-   * <p>The current status of this payment instrument.</p>
+   * The current status of this payment instrument.
+   *
    * @public
    */
   status: PaymentInstrumentStatus | undefined;
 
   /**
-   * <p>The timestamp when this payment instrument was created.</p>
+   * The timestamp when this payment instrument was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when this payment instrument was last updated.</p>
+   * The timestamp when this payment instrument was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Response structure for listing payment instruments.</p>
+ * Response structure for listing payment instruments.
+ *
  * @public
  */
 export interface ListPaymentInstrumentsResponse {
   /**
-   * <p>List of payment instrument summaries matching the request criteria.</p>
+   * List of payment instrument summaries matching the request criteria.
+   *
    * @public
    */
   paymentInstruments: PaymentInstrumentSummary[] | undefined;
 
   /**
-   * <p>Token for pagination to retrieve the next set of results.</p>
+   * Token for pagination to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a monetary amount with a currency.</p>
+ * Represents a monetary amount with a currency.
+ *
  * @public
  */
 export interface Amount {
   /**
-   * <p>The numeric value of the amount.</p>
+   * The numeric value of the amount.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The currency code for the amount.</p>
+   * The currency code for the amount.
+   *
    * @public
    */
   currency: Currency | undefined;
 }
 
 /**
- * <p>The spending limits configuration for a payment session.</p>
+ * The spending limits configuration for a payment session.
+ *
  * @public
  */
 export interface SessionLimits {
   /**
-   * <p>The maximum amount that can be spent in the session.</p>
+   * The maximum amount that can be spent in the session.
+   *
    * @public
    */
   maxSpendAmount: Amount | undefined;
 }
 
 /**
- * <p>Request structure for creating a payment session.</p>
+ * Request structure for creating a payment session.
+ *
  * @public
  */
 export interface CreatePaymentSessionRequest {
   /**
-   * <p>The user ID associated with this payment session.</p>
+   * The user ID associated with this payment session.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this session.</p>
+   * The ARN of the payment manager that owns this session.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The spending limits for this payment session.</p>
+   * The spending limits for this payment session.
+   *
    * @public
    */
   limits?: SessionLimits | undefined;
 
   /**
-   * <p>The session expiry time in minutes. Must be between 15 and 480 minutes.</p>
+   * The session expiry time in minutes. Must be between 15 and 480 minutes.
+   *
    * @public
    */
   expiryTimeInMinutes: number | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The available spending limits for a payment session.</p>
+ * The available spending limits for a payment session.
+ *
  * @public
  */
 export interface AvailableLimits {
   /**
-   * <p>The remaining available amount that can be spent.</p>
+   * The remaining available amount that can be spent.
+   *
    * @public
    */
   availableSpendAmount?: Amount | undefined;
 
   /**
-   * <p>The timestamp when the available limits were last updated.</p>
+   * The timestamp when the available limits were last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 }
 
 /**
- * <p>A payment session for managing payment transactions.</p>
+ * A payment session for managing payment transactions.
+ *
  * @public
  */
 export interface PaymentSession {
   /**
-   * <p>The unique identifier of the payment session.</p>
+   * The unique identifier of the payment session.
+   *
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this session.</p>
+   * The ARN of the payment manager that owns this session.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The spending limits for the payment session.</p>
+   * The spending limits for the payment session.
+   *
    * @public
    */
   limits?: SessionLimits | undefined;
 
   /**
-   * <p>The user ID associated with this session.</p>
+   * The user ID associated with this session.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>The session expiry time in minutes.</p>
+   * The session expiry time in minutes.
+   *
    * @public
    */
   expiryTimeInMinutes: number | undefined;
 
   /**
-   * <p>The timestamp when the session was created.</p>
+   * The timestamp when the session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current available spending limits.</p>
+   * The current available spending limits.
+   *
    * @public
    */
   availableLimits?: AvailableLimits | undefined;
 
   /**
-   * <p>The timestamp when the session was last updated.</p>
+   * The timestamp when the session was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Response structure for creating a payment session.</p>
+ * Response structure for creating a payment session.
+ *
  * @public
  */
 export interface CreatePaymentSessionResponse {
   /**
-   * <p>The created payment session.</p>
+   * The created payment session.
+   *
    * @public
    */
   paymentSession: PaymentSession | undefined;
 }
 
 /**
- * <p>Request structure for deleting a payment session.</p>
+ * Request structure for deleting a payment session.
+ *
  * @public
  */
 export interface DeletePaymentSessionRequest {
   /**
-   * <p>The user ID making the delete request. Must match the session's userId.</p>
+   * The user ID making the delete request. Must match the session's userId.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The payment manager ARN. Must match the session's paymentManagerArn.</p>
+   * The payment manager ARN. Must match the session's paymentManagerArn.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The payment session ID to delete.</p>
+   * The payment session ID to delete.
+   *
    * @public
    */
   paymentSessionId: string | undefined;
 }
 
 /**
- * <p>Response structure for deleting a payment session.</p>
+ * Response structure for deleting a payment session.
+ *
  * @public
  */
 export interface DeletePaymentSessionResponse {
   /**
-   * <p>The status of the deletion. Always DELETED for successful hard delete.</p>
+   * The status of the deletion. Always DELETED for successful hard delete.
+   *
    * @public
    */
   status: PaymentSessionStatus | undefined;
 }
 
 /**
- * <p>Request structure for getting a payment session.</p>
+ * Request structure for getting a payment session.
+ *
  * @public
  */
 export interface GetPaymentSessionRequest {
   /**
-   * <p>The user ID associated with this payment session.</p>
+   * The user ID associated with this payment session.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this session.</p>
+   * The ARN of the payment manager that owns this session.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment session to retrieve.</p>
+   * The ID of the payment session to retrieve.
+   *
    * @public
    */
   paymentSessionId: string | undefined;
 }
 
 /**
- * <p>Response structure for getting a payment session.</p>
+ * Response structure for getting a payment session.
+ *
  * @public
  */
 export interface GetPaymentSessionResponse {
   /**
-   * <p>The payment session details.</p>
+   * The payment session details.
+   *
    * @public
    */
   paymentSession: PaymentSession | undefined;
 }
 
 /**
- * <p>Request structure for listing payment sessions.</p>
+ * Request structure for listing payment sessions.
+ *
  * @public
  */
 export interface ListPaymentSessionsRequest {
   /**
-   * <p>The user ID associated with the payment sessions.</p>
+   * The user ID associated with the payment sessions.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns the sessions.</p>
+   * The ARN of the payment manager that owns the sessions.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>Token for pagination to retrieve the next set of results.</p>
+   * Token for pagination to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results to return in a single response.</p>
+   * Maximum number of results to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about a payment session.</p>
+ * Summary information about a payment session.
+ *
  * @public
  */
 export interface PaymentSessionSummary {
   /**
-   * <p>The unique identifier of the payment session.</p>
+   * The unique identifier of the payment session.
+   *
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager that owns this session.</p>
+   * The ARN of the payment manager that owns this session.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The user ID associated with this session.</p>
+   * The user ID associated with this session.
+   *
    * @public
    */
   userId: string | undefined;
 
   /**
-   * <p>The session expiry time in minutes.</p>
+   * The session expiry time in minutes.
+   *
    * @public
    */
   expiryTimeInMinutes: number | undefined;
 
   /**
-   * <p>The timestamp when the session was created.</p>
+   * The timestamp when the session was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the session was last updated.</p>
+   * The timestamp when the session was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Response structure for listing payment sessions.</p>
+ * Response structure for listing payment sessions.
+ *
  * @public
  */
 export interface ListPaymentSessionsResponse {
   /**
-   * <p>List of payment session summaries matching the request criteria.</p>
+   * List of payment session summaries matching the request criteria.
+   *
    * @public
    */
   paymentSessions: PaymentSessionSummary[] | undefined;
 
   /**
-   * <p>Token for pagination to retrieve the next set of results.</p>
+   * Token for pagination to retrieve the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>The input for a crypto X402 payment.</p>
+ * The input for a crypto X402 payment.
+ *
  * @public
  */
 export interface CryptoX402PaymentInput {
   /**
-   * <p>The version of the X402 protocol.</p>
+   * The version of the X402 protocol.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The X402 payment payload.</p>
+   * The X402 payment payload.
+   *
    * @public
    */
   payload: __DocumentType | undefined;
 
   /**
-   * <p>The maximum on-chain Permit2 allowance to grant before signing the payment authorization, in the asset's smallest denomination. This field is valid only for the <code>upto</code> (metered) scheme; supplying it for the <code>exact</code> scheme returns a validation error.</p> <p>When set, the service approves an ERC-20 allowance for this amount before processing the payment. The approval sets, rather than adds to, the wallet's allowance. Set this field only when the wallet needs approving, for example on its first <code>upto</code> payment, to avoid a redundant on-chain transaction. Omit the field to skip allowance handling. This is the default, and the only behavior for the <code>exact</code> scheme.</p>
+   * The maximum on-chain Permit2 allowance to grant before signing the payment authorization, in the asset's smallest denomination. This field is valid only for the `upto` (metered) scheme; supplying it for the `exact` scheme returns a validation error.
+   *
+   * When set, the service approves an ERC-20 allowance for this amount before processing the payment. The approval sets, rather than adds to, the wallet's allowance. Set this field only when the wallet needs approving, for example on its first `upto` payment, to avoid a redundant on-chain transaction. Omit the field to skip allowance handling. This is the default, and the only behavior for the `exact` scheme.
+   *
    * @public
    */
   permit2AllowanceLimit?: string | undefined;
 }
 
 /**
- * <p>Contains the payment challenge from a 402 Payment Required response. Forward the raw <code>WWW-Authenticate: Payment</code> header value verbatim. In response, you receive a payment credential that satisfies the challenge. Provide exactly one challenge per request.</p>
+ * Contains the payment challenge from a 402 Payment Required response. Forward the raw `WWW-Authenticate: Payment` header value verbatim. In response, you receive a payment credential that satisfies the challenge. Provide exactly one challenge per request.
+ *
  * @public
  */
 export interface MppPaymentInput {
   /**
-   * <p>The MPP protocol version, for example "1" or "2".</p>
+   * The MPP protocol version, for example "1" or "2".
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The raw <code>WWW-Authenticate: Payment</code> header value from the 402 response, passed verbatim. Provide exactly one entry. The service uses this value to generate the payment credential.</p>
+   * The raw `WWW-Authenticate: Payment` header value from the 402 response, passed verbatim. Provide exactly one entry. The service uses this value to generate the payment credential.
+   *
    * @public
    */
   wwwAuthenticateHeaders: string[] | undefined;
 
   /**
-   * <p>Authorizes the service to sign a payment whose blockchain network (gas) fees are charged to your wallet, on top of the payment amount.</p> <p>The challenge indicates who sponsors the network fees. When the challenge does not sponsor them, the service signs the payment only if this field is <code>true</code>. Otherwise it returns a validation error, so you can decide whether to pay the fees or obtain a challenge that sponsors them.</p> <p>Optional. When omitted or <code>false</code>, you decline to pay network fees. This field has no effect on challenges that already sponsor the fees.</p>
+   * Authorizes the service to sign a payment whose blockchain network (gas) fees are charged to your wallet, on top of the payment amount.
+   *
+   * The challenge indicates who sponsors the network fees. When the challenge does not sponsor them, the service signs the payment only if this field is `true`. Otherwise it returns a validation error, so you can decide whether to pay the fees or obtain a challenge that sponsors them.
+   *
+   * Optional. When omitted or `false`, you decline to pay network fees. This field has no effect on challenges that already sponsor the fees.
+   *
    * @public
    */
   buyerPaysGasFees?: boolean | undefined;
 }
 
 /**
- * <p>The payment input details, which vary by payment type.</p>
+ * The payment input details, which vary by payment type.
+ *
  * @public
  */
 export type PaymentInput =
@@ -2551,7 +2895,8 @@ export type PaymentInput =
  */
 export namespace PaymentInput {
   /**
-   * <p>Input for a crypto X402 payment.</p>
+   * Input for a crypto X402 payment.
+   *
    * @public
    */
   export interface CryptoX402Member {
@@ -2561,7 +2906,8 @@ export namespace PaymentInput {
   }
 
   /**
-   * <p>Contains the payment challenge from a 402 Payment Required response. Forward the raw <code>WWW-Authenticate: Payment</code> header value verbatim. In response, you receive a payment credential that satisfies the challenge. Provide exactly one challenge per request.</p>
+   * Contains the payment challenge from a 402 Payment Required response. Forward the raw `WWW-Authenticate: Payment` header value verbatim. In response, you receive a payment credential that satisfies the challenge. Provide exactly one challenge per request.
+   *
    * @public
    */
   export interface MppMember {
@@ -2591,103 +2937,120 @@ export namespace PaymentInput {
 }
 
 /**
- * <p>Request structure for processing a payment.</p>
+ * Request structure for processing a payment.
+ *
  * @public
  */
 export interface ProcessPaymentRequest {
   /**
-   * <p>The user ID associated with this payment.</p>
+   * The user ID associated with this payment.
+   *
    * @public
    */
   userId?: string | undefined;
 
   /**
-   * <p>The agent name associated with this request, used for observability.</p>
+   * The agent name associated with this request, used for observability.
+   *
    * @public
    */
   agentName?: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager.</p>
+   * The ARN of the payment manager.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment session.</p>
+   * The ID of the payment session.
+   *
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * <p>The ID of the payment instrument to use.</p>
+   * The ID of the payment instrument to use.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * <p>The type of payment to process.</p>
+   * The type of payment to process.
+   *
    * @public
    */
   paymentType: PaymentType | undefined;
 
   /**
-   * <p>The payment input details specific to the payment type.</p>
+   * The payment input details specific to the payment type.
+   *
    * @public
    */
   paymentInput: PaymentInput | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The output from a crypto X402 payment.</p>
+ * The output from a crypto X402 payment.
+ *
  * @public
  */
 export interface CryptoX402PaymentOutput {
   /**
-   * <p>The version of the X402 protocol.</p>
+   * The version of the X402 protocol.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The X402 payment response payload.</p>
+   * The X402 payment response payload.
+   *
    * @public
    */
   payload: __DocumentType | undefined;
 }
 
 /**
- * <p>Contains the payment credential, ready to retry the request.</p>
+ * Contains the payment credential, ready to retry the request.
+ *
  * @public
  */
 export interface MppPaymentOutput {
   /**
-   * <p>The MPP protocol version, for example "1" or "2".</p>
+   * The MPP protocol version, for example "1" or "2".
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The id of the challenge that was paid, echoed from the input challenge so you can correlate the result without decoding the credential.</p>
+   * The id of the challenge that was paid, echoed from the input challenge so you can correlate the result without decoding the credential.
+   *
    * @public
    */
   selectedPaymentId: string | undefined;
 
   /**
-   * <p>Ready-to-send value for the <code>Authorization</code> header, in the form "Payment &lt;base64url-token&gt;". Attach this header and retry the original request. To inspect the full credential, base64url-decode the token.</p>
+   * Ready-to-send value for the `Authorization` header, in the form "Payment &lt;base64url-token&gt;". Attach this header and retry the original request. To inspect the full credential, base64url-decode the token.
+   *
    * @public
    */
   paymentCredential: string | undefined;
 }
 
 /**
- * <p>The payment output details, which vary by payment type.</p>
+ * The payment output details, which vary by payment type.
+ *
  * @public
  */
 export type PaymentOutput =
@@ -2700,7 +3063,8 @@ export type PaymentOutput =
  */
 export namespace PaymentOutput {
   /**
-   * <p>Output from a crypto X402 payment.</p>
+   * Output from a crypto X402 payment.
+   *
    * @public
    */
   export interface CryptoX402Member {
@@ -2710,7 +3074,8 @@ export namespace PaymentOutput {
   }
 
   /**
-   * <p>Contains the payment credential, ready to retry the request.</p>
+   * Contains the payment credential, ready to retry the request.
+   *
    * @public
    */
   export interface MppMember {
@@ -2740,60 +3105,70 @@ export namespace PaymentOutput {
 }
 
 /**
- * <p>Response structure for processing a payment.</p>
+ * Response structure for processing a payment.
+ *
  * @public
  */
 export interface ProcessPaymentResponse {
   /**
-   * <p>The unique identifier of the processed payment.</p>
+   * The unique identifier of the processed payment.
+   *
    * @public
    */
   processPaymentId: string | undefined;
 
   /**
-   * <p>The ARN of the payment manager.</p>
+   * The ARN of the payment manager.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The ID of the payment session used.</p>
+   * The ID of the payment session used.
+   *
    * @public
    */
   paymentSessionId: string | undefined;
 
   /**
-   * <p>The ID of the payment instrument used.</p>
+   * The ID of the payment instrument used.
+   *
    * @public
    */
   paymentInstrumentId: string | undefined;
 
   /**
-   * <p>The type of payment processed.</p>
+   * The type of payment processed.
+   *
    * @public
    */
   paymentType: PaymentType | undefined;
 
   /**
-   * <p>The status of the payment.</p>
+   * The status of the payment.
+   *
    * @public
    */
   status: PaymentStatus | undefined;
 
   /**
-   * <p>The payment output details specific to the payment type.</p>
+   * The payment output details specific to the payment type.
+   *
    * @public
    */
   paymentOutput: PaymentOutput | undefined;
 
   /**
-   * <p>The timestamp when the payment was created.</p>
+   * The timestamp when the payment was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment was last updated.</p>
+   * The timestamp when the payment was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2804,193 +3179,225 @@ export interface ProcessPaymentResponse {
  */
 export interface SearchRegistryRecordsRequest {
   /**
-   * <p> The search query to find matching registry records.</p>
+   * The search query to find matching registry records.
+   *
    * @public
    */
   searchQuery: string | undefined;
 
   /**
-   * <p> The list of registry identifiers to search within. Currently, you can specify exactly one registry identifier. You can provide either the full Amazon Web Services Resource Name (ARN) or the 12-character alphanumeric registry ID.</p>
+   * The list of registry identifiers to search within. Currently, you can specify exactly one registry identifier. You can provide either the full Amazon Web Services Resource Name (ARN) or the 12-character alphanumeric registry ID.
+   *
    * @public
    */
   registryIds: string[] | undefined;
 
   /**
-   * <p> The maximum number of records to return in a single call. Valid values are 1 through 20. The default value is 10.</p>
+   * The maximum number of records to return in a single call. Valid values are 1 through 20. The default value is 10.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> A metadata filter expression to narrow search results. Uses structured JSON operators including field-level operators (<code>$eq</code>, <code>$ne</code>, <code>$in</code>) and logical operators (<code>$and</code>, <code>$or</code>) on filterable fields (<code>name</code>, <code>descriptorType</code>, <code>version</code>). For example, to filter by descriptor type: <code>\{"descriptorType": \{"$eq": "MCP"\}\}</code>. To combine filters: <code>\{"$and": [\{"descriptorType": \{"$eq": "MCP"\}\}, \{"name": \{"$eq": "my-tool"\}\}]\}</code>.</p>
+   * A metadata filter expression to narrow search results. Uses structured JSON operators including field-level operators (`$eq`, `$ne`, `$in`) and logical operators (`$and`, `$or`) on filterable fields (`name`, `descriptorType`, `version`). For example, to filter by descriptor type: `\{"descriptorType": \{"$eq": "MCP"\}\}`. To combine filters: `\{"$and": [\{"descriptorType": \{"$eq": "MCP"\}\}, \{"name": \{"$eq": "my-tool"\}\}]\}`.
+   *
    * @public
    */
   filters?: __DocumentType | undefined;
 }
 
 /**
- * <p> A custom descriptor configuration for a registry record.</p>
+ * A custom descriptor configuration for a registry record.
+ *
  * @public
  */
 export interface CustomDescriptor {
   /**
-   * <p> The inline content of the custom descriptor.</p>
+   * The inline content of the custom descriptor.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p> The MCP server definition with a schema version and inline content. The <code>schemaVersion</code> identifies the version of the MCP server configuration schema.</p>
+ * The MCP server definition with a schema version and inline content. The `schemaVersion` identifies the version of the MCP server configuration schema.
+ *
  * @public
  */
 export interface ServerDefinition {
   /**
-   * <p> The schema version of the MCP server configuration. The schema version identifies the format of the server definition content.</p>
+   * The schema version of the MCP server configuration. The schema version identifies the format of the server definition content.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p> The inline content of the server definition.</p>
+   * The inline content of the server definition.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p> The MCP tools definition with a protocol version and inline content. The <code>protocolVersion</code> identifies the MCP protocol version that the tools conform to. This differs from <code>schemaVersion</code> in the server definition, which identifies the server configuration schema format.</p>
+ * The MCP tools definition with a protocol version and inline content. The `protocolVersion` identifies the MCP protocol version that the tools conform to. This differs from `schemaVersion` in the server definition, which identifies the server configuration schema format.
+ *
  * @public
  */
 export interface ToolsDefinition {
   /**
-   * <p> The MCP protocol version that the tools conform to. This differs from the <code>schemaVersion</code> field in the server definition, which identifies the server configuration schema format.</p>
+   * The MCP protocol version that the tools conform to. This differs from the `schemaVersion` field in the server definition, which identifies the server configuration schema format.
+   *
    * @public
    */
   protocolVersion?: string | undefined;
 
   /**
-   * <p> The inline content of the tools definition.</p>
+   * The inline content of the tools definition.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p> The MCP (Model Context Protocol) descriptor configuration for a registry record. Contains the server definition and tools definition.</p>
+ * The MCP (Model Context Protocol) descriptor configuration for a registry record. Contains the server definition and tools definition.
+ *
  * @public
  */
 export interface McpDescriptor {
   /**
-   * <p> The MCP server definition that describes the server configuration.</p>
+   * The MCP server definition that describes the server configuration.
+   *
    * @public
    */
   server: ServerDefinition | undefined;
 
   /**
-   * <p> The MCP tools definition that describes the available tools.</p>
+   * The MCP tools definition that describes the available tools.
+   *
    * @public
    */
   tools: ToolsDefinition | undefined;
 }
 
 /**
- * <p> Contains the descriptor configuration for a registry record. Only the field that matches the record's <code>descriptorType</code> is populated.</p>
+ * Contains the descriptor configuration for a registry record. Only the field that matches the record's `descriptorType` is populated.
+ *
  * @public
  */
 export interface Descriptors {
   /**
-   * <p> The MCP (Model Context Protocol) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>MCP</code>.</p>
+   * The MCP (Model Context Protocol) descriptor configuration. Populated when the record's `descriptorType` is `MCP`.
+   *
    * @public
    */
   mcp?: McpDescriptor | undefined;
 
   /**
-   * <p> The A2A (Agent-to-Agent) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>A2A</code>.</p>
+   * The A2A (Agent-to-Agent) descriptor configuration. Populated when the record's `descriptorType` is `A2A`.
+   *
    * @public
    */
   a2a?: A2aDescriptor | undefined;
 
   /**
-   * <p> The custom descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>CUSTOM</code>.</p>
+   * The custom descriptor configuration. Populated when the record's `descriptorType` is `CUSTOM`.
+   *
    * @public
    */
   custom?: CustomDescriptor | undefined;
 
   /**
-   * <p> The agent skills descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>AGENT_SKILLS</code>.</p>
+   * The agent skills descriptor configuration. Populated when the record's `descriptorType` is `AGENT_SKILLS`.
+   *
    * @public
    */
   agentSkills?: AgentSkillsDescriptor | undefined;
 }
 
 /**
- * <p> Summary information about a registry record.</p>
+ * Summary information about a registry record.
+ *
  * @public
  */
 export interface RegistryRecordSummary {
   /**
-   * <p> The Amazon Resource Name (ARN) of the registry that this record belongs to.</p>
+   * The Amazon Resource Name (ARN) of the registry that this record belongs to.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p> The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p> The name of the registry record.</p>
+   * The name of the registry record.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p> A description of the registry record.</p>
+   * A description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The type of descriptor associated with this registry record.</p>
+   * The type of descriptor associated with this registry record.
+   *
    * @public
    */
   descriptorType: DescriptorType | undefined;
 
   /**
-   * <p> The descriptor configurations for this registry record.</p>
+   * The descriptor configurations for this registry record.
+   *
    * @public
    */
   descriptors: Descriptors | undefined;
 
   /**
-   * <p> The version of the registry record.</p>
+   * The version of the registry record.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p> The current status of the registry record.</p>
+   * The current status of the registry record.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p> The date and time when the registry record was created.</p>
+   * The date and time when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p> The date and time when the registry record was last updated.</p>
+   * The date and time when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3001,7 +3408,8 @@ export interface RegistryRecordSummary {
  */
 export interface SearchRegistryRecordsResponse {
   /**
-   * <p> The list of registry records that match the search query, ordered by relevance.</p>
+   * The list of registry records that match the search query, ordered by relevance.
+   *
    * @public
    */
   registryRecords: RegistryRecordSummary[] | undefined;

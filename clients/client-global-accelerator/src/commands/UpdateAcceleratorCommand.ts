@@ -23,29 +23,17 @@ export interface UpdateAcceleratorCommandInput extends UpdateAcceleratorRequest 
 export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorResponse, __MetadataBearer {}
 
 /**
- * <p>Update an accelerator to make changes, such as the following: </p>
- *          <ul>
- *             <li>
- *                <p>Change the name of the accelerator.</p>
- *             </li>
- *             <li>
- *                <p>Disable the accelerator so that it no longer accepts or routes traffic, or so that you can delete it.</p>
- *             </li>
- *             <li>
- *                <p>Enable the accelerator, if it is disabled.</p>
- *             </li>
- *             <li>
- *                <p>Change the IP address type to dual-stack if it is IPv4, or change the IP address type to IPv4 if it's dual-stack.</p>
- *             </li>
- *          </ul>
- *          <p>Be aware that static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no
- * 			longer accepts or routes traffic. However, when you delete the accelerator, you lose the static IP addresses that are assigned to it, so you
- * 			can no longer route traffic by using them.</p>
- *          <important>
- *             <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the
- * 				US West (Oregon) Region to create, update, or otherwise work with accelerators.  That is, for example, specify <code>--region us-west-2</code>
- * 				on Amazon Web Services CLI commands.</p>
- *          </important>
+ * Update an accelerator to make changes, such as the following:
+ *
+ * - Change the name of the accelerator.
+ * - Disable the accelerator so that it no longer accepts or routes traffic, or so that you can delete it.
+ * - Enable the accelerator, if it is disabled.
+ * - Change the IP address type to dual-stack if it is IPv4, or change the IP address type to IPv4 if it's dual-stack.
+ *
+ * Be aware that static IP addresses remain assigned to your accelerator for as long as it exists, even if you disable the accelerator and it no longer accepts or routes traffic. However, when you delete the accelerator, you lose the static IP addresses that are assigned to it, so you can no longer route traffic by using them.
+ *
+ * > **Important:** Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the US West (Oregon) Region to create, update, or otherwise work with accelerators. That is, for example, specify `--region us-west-2` on Amazon Web Services CLI commands.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,26 +97,32 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can't use both of those options.</p>
+ *
+ * You can't use both of those options.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link TransactionInProgressException} (client fault)
- *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
+ * There's already a transaction in progress. Another transaction can't be processed.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

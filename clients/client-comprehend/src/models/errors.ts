@@ -6,8 +6,8 @@ import type { InvalidRequestReason } from "./enums";
 import type { InvalidRequestDetail } from "./models_0";
 
 /**
- * <p>The number of documents in the request exceeds the limit of 25. Try your request again
- *       with fewer documents.</p>
+ * The number of documents in the request exceeds the limit of 25. Try your request again with fewer documents.
+ *
  * @public
  */
 export class BatchSizeLimitExceededException extends __BaseException {
@@ -30,7 +30,8 @@ export class BatchSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -53,7 +54,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid.</p>
+ * The request is invalid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -63,7 +65,8 @@ export class InvalidRequestException extends __BaseException {
   Message?: string | undefined;
   Reason?: InvalidRequestReason | undefined;
   /**
-   * <p>Provides additional detail about why the request failed.</p>
+   * Provides additional detail about why the request failed.
+   *
    * @public
    */
   Detail?: InvalidRequestDetail | undefined;
@@ -84,7 +87,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ * The size of the input text exceeds the limit. Use a smaller document.
+ *
  * @public
  */
 export class TextSizeLimitExceededException extends __BaseException {
@@ -107,9 +111,8 @@ export class TextSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
+ * Amazon Comprehend can't process the language of the input text. For a list of supported languages, [Supported languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html) in the Comprehend Developer Guide.
+ *
  * @public
  */
 export class UnsupportedLanguageException extends __BaseException {
@@ -132,8 +135,8 @@ export class UnsupportedLanguageException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ * The specified resource is not available. Check the resource and try your request again.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -156,8 +159,8 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
+ * The specified resource name is already in use. Use a different name and try your request again.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -180,8 +183,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The maximum number of resources per account has been exceeded. Review the resources, and
- *       then try your request again.</p>
+ * The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -204,7 +207,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ * The specified resource ARN was not found. Check the ARN and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -227,7 +231,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ * The number of requests exceeds the limit. Resubmit your request later.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -250,9 +255,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -275,8 +279,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
+ * The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.
+ *
  * @public
  */
 export class KmsKeyValidationException extends __BaseException {
@@ -299,7 +303,8 @@ export class KmsKeyValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified job was not found. Check the job ID and try again.</p>
+ * The specified job was not found. Check the job ID and try again.
+ *
  * @public
  */
 export class JobNotFoundException extends __BaseException {
@@ -322,8 +327,8 @@ export class JobNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The filter specified for the operation is invalid. Specify a different
- *       filter.</p>
+ * The filter specified for the operation is invalid. Specify a different filter.
+ *
  * @public
  */
 export class InvalidFilterException extends __BaseException {
@@ -346,8 +351,8 @@ export class InvalidFilterException extends __BaseException {
 }
 
 /**
- * <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not
- *       supported. </p>
+ * Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -370,8 +375,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per
- *       resource).</p>
+ * The request contains more tag keys than can be associated with a resource (50 tag keys per resource).
+ *
  * @public
  */
 export class TooManyTagKeysException extends __BaseException {

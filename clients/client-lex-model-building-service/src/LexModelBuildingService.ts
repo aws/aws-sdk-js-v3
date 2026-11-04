@@ -1107,10 +1107,10 @@ export interface LexModelBuildingService {
 }
 
 /**
- * <fullname>Amazon Lex Build-Time Actions</fullname>
- *          <p> Amazon Lex is an AWS service for building conversational voice and text
- *       interfaces. Use these actions to create, update, and delete conversational
- *       bots for new and existing client applications. </p>
+ * Amazon Lex Build-Time Actions
+ *
+ * Amazon Lex is an AWS service for building conversational voice and text interfaces. Use these actions to create, update, and delete conversational bots for new and existing client applications.
+ *
  * @public
  */
 export class LexModelBuildingService extends LexModelBuildingServiceClient implements LexModelBuildingService {}

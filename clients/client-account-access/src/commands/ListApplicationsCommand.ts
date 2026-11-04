@@ -23,7 +23,8 @@ export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
 export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the account access manager applications in your account. Use pagination to ensure that the operation returns quickly and successfully.</p>
+ * Lists the account access manager applications in your account. Use pagination to ensure that the operation returns quickly and successfully.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +60,24 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link AccountAccessClientResolvedConfig | config} for AccountAccessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this operation.</p>
+ *
+ * You do not have sufficient access to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Try your request again later.</p>
+ *
+ * An internal service error occurred. Try your request again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Try your request again later.</p>
+ *
+ * The request was denied due to request throttling. Try your request again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
+ *
+ * The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.
  *
  * @throws {@link AccountAccessServiceException}
- * <p>Base exception class for all service exceptions from AccountAccess service.</p>
  *
+ * Base exception class for all service exceptions from AccountAccess service.
  *
  * @public
  */

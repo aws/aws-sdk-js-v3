@@ -23,7 +23,8 @@ export interface ListWorkgroupsCommandInput extends ListWorkgroupsRequest {}
 export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a list of specified workgroups.</p>
+ * Returns information about a list of specified workgroups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,14 +115,16 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link RedshiftServerlessServiceException}
- * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftServerless service.
  *
  * @public
  */

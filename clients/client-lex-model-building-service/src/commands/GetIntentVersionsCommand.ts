@@ -23,17 +23,13 @@ export interface GetIntentVersionsCommandInput extends GetIntentVersionsRequest 
 export interface GetIntentVersionsCommandOutput extends GetIntentVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about all of the versions of an intent.</p>
- *          <p>The <code>GetIntentVersions</code> operation returns an
- *         <code>IntentMetadata</code> object for each version of an intent. For
- *       example, if an intent has three numbered versions, the
- *         <code>GetIntentVersions</code> operation returns four
- *         <code>IntentMetadata</code> objects in the response, one for each
- *       numbered version and one for the <code>$LATEST</code> version. </p>
- *          <p>The <code>GetIntentVersions</code> operation always returns at
- *       least one version, the <code>$LATEST</code> version.</p>
- *          <p>This operation requires permissions for the
- *         <code>lex:GetIntentVersions</code> action.</p>
+ * Gets information about all of the versions of an intent.
+ *
+ * The `GetIntentVersions` operation returns an `IntentMetadata` object for each version of an intent. For example, if an intent has three numbered versions, the `GetIntentVersions` operation returns four `IntentMetadata` objects in the response, one for each numbered version and one for the `$LATEST` version.
+ *
+ * The `GetIntentVersions` operation always returns at least one version, the `$LATEST` version.
+ *
+ * This operation requires permissions for the `lex:GetIntentVersions` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -73,23 +69,24 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

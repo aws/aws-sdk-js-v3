@@ -23,11 +23,10 @@ export interface CreateImageUsageReportCommandInput extends CreateImageUsageRepo
 export interface CreateImageUsageReportCommandOutput extends CreateImageUsageReportResult, __MetadataBearer {}
 
 /**
- * <p>Creates a report that shows how your image is used across other Amazon Web Services accounts. The report
- *       provides visibility into which accounts are using the specified image, and how many resources
- *       (EC2 instances or launch templates) are referencing it.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html">View your AMI usage</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * Creates a report that shows how your image is used across other Amazon Web Services accounts. The report provides visibility into which accounts are using the specified image, and how many resources (EC2 instances or launch templates) are referencing it.
+ *
+ * For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +82,8 @@ export interface CreateImageUsageReportCommandOutput extends CreateImageUsageRep
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

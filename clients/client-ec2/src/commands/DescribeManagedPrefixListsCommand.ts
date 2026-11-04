@@ -23,7 +23,8 @@ export interface DescribeManagedPrefixListsCommandInput extends DescribeManagedP
 export interface DescribeManagedPrefixListsCommandOutput extends DescribeManagedPrefixListsResult, __MetadataBearer {}
 
 /**
- * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
+ * Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +85,8 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface StopCodeReviewJobCommandInput extends StopCodeReviewJobInput {}
 export interface StopCodeReviewJobCommandOutput extends StopCodeReviewJobOutput, __MetadataBearer {}
 
 /**
- * <p>Stops a running code review job. The job transitions to a stopping state and then to stopped after cleanup completes.</p>
+ * Stops a running code review job. The job transitions to a stopping state and then to stopped after cleanup completes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface StopCodeReviewJobCommandOutput extends StopCodeReviewJobOutput,
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

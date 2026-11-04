@@ -23,22 +23,14 @@ export interface GetUserPolicyCommandInput extends GetUserPolicyRequest {}
 export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified inline policy document that is embedded in the specified IAM
- *             user.</p>
- *          <note>
- *             <p>Policies returned by this operation are URL-encoded compliant
- *     with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL
- *     decoding method to convert the policy back to plain JSON text. For example, if you use Java, you
- *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
- *     the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding
- *     automatically.</p>
- *          </note>
- *          <p>An IAM user can also have managed policies attached to it. To retrieve a managed
- *             policy document that is attached to a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html">GetPolicy</a> to determine the
- *             policy's default version. Then use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a> to
- *             retrieve the policy document.</p>
- *          <p>For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
- *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ * Retrieves the specified inline policy document that is embedded in the specified IAM user.
+ *
+ * > **Note:** Policies returned by this operation are URL-encoded compliant with [RFC 3986](https://tools.ietf.org/html/rfc3986). You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the `decode` method of the `java.net.URLDecoder` utility class in the Java SDK. Other languages and SDKs provide similar functionality, and some SDKs do this decoding automatically.
+ *
+ * An IAM user can also have managed policies attached to it. To retrieve a managed policy document that is attached to a user, use [GetPolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html) to determine the policy's default version. Then use [GetPolicyVersion](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html) to retrieve the policy document.
+ *
+ * For more information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,16 +60,16 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

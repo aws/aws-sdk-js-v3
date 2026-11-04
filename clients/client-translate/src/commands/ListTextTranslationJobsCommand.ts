@@ -23,7 +23,8 @@ export interface ListTextTranslationJobsCommandInput extends ListTextTranslation
 export interface ListTextTranslationJobsCommandOutput extends ListTextTranslationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the batch translation jobs that you have submitted.</p>
+ * Gets a list of the batch translation jobs that you have submitted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,22 +100,24 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidFilterException} (client fault)
- *  <p>The filter specified for the operation is not valid. Specify a different filter.</p>
+ *
+ * The filter specified for the operation is not valid. Specify a different filter.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p> The request that you made is not valid. Check your request to determine why it's not
- *       valid and then retry the request. </p>
+ *
+ * The request that you made is not valid. Check your request to determine why it's not valid and then retry the request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again.</p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again.
  *
  * @throws {@link TranslateServiceException}
- * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ * Base exception class for all service exceptions from Translate service.
  *
  * @public
  */

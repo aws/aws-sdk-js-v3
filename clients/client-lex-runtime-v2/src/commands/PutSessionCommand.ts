@@ -25,9 +25,8 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
 }
 
 /**
- * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
- *          bot. Use this operation to enable your application to set the state of
- *          the bot.</p>
+ * Creates a new session or modifies an existing session with an Amazon Lex V2 bot. Use this operation to enable your application to set the state of the bot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -177,32 +176,24 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * @see {@link LexRuntimeV2ClientResolvedConfig | config} for LexRuntimeV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p></p>
  *
  * @throws {@link BadGatewayException} (server fault)
- *  <p></p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p></p>
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  <p></p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p></p>
  *
  * @throws {@link LexRuntimeV2ServiceException}
- * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexRuntimeV2 service.
  *
  * @public
  */

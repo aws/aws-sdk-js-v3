@@ -23,21 +23,16 @@ export interface ListAccessKeysCommandInput extends ListAccessKeysRequest {}
 export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the access key IDs associated with the specified IAM user.
- *             If there is none, the operation returns an empty list.</p>
- *          <p>Although each user is limited to a small number of keys, you can still paginate the
- *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
- *          <p>If the <code>UserName</code> is not specified, the user name is determined implicitly
- *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
- *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
- *             user, then <code>UserName</code> is not required.</p>
- *          <p>This operation works for access keys under the Amazon Web Services account. If the Amazon Web Services account has
- *             no associated users, the root user returns it's own access key IDs by running this
- *             command.</p>
- *          <note>
- *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
- *                 only during key and user creation.</p>
- *          </note>
+ * Returns information about the access key IDs associated with the specified IAM user. If there is none, the operation returns an empty list.
+ *
+ * Although each user is limited to a small number of keys, you can still paginate the results using the `MaxItems` and `Marker` parameters.
+ *
+ * If the `UserName` is not specified, the user name is determined implicitly based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is used, then `UserName` is required. If a long-term key is assigned to the user, then `UserName` is not required.
+ *
+ * This operation works for access keys under the Amazon Web Services account. If the Amazon Web Services account has no associated users, the root user returns it's own access key IDs by running this command.
+ *
+ * > **Note:** To ensure the security of your Amazon Web Services account, the secret access key is accessible only during key and user creation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,16 +70,16 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To list the access key IDs for an IAM user
  * ```javascript

@@ -23,97 +23,40 @@ export interface CopyImageCommandInput extends CopyImageRequest {}
 export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBearer {}
 
 /**
- * <p>Initiates an AMI copy operation. You must specify the source AMI ID and both the source
- *       and destination locations. The copy operation must be initiated in the destination
- *       Region.</p>
- *          <p class="title">
- *             <b>CopyImage supports the following source to destination copies:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Region to Region</p>
- *             </li>
- *             <li>
- *                <p>Region to Outpost</p>
- *             </li>
- *             <li>
- *                <p>Parent Region to Local Zone</p>
- *             </li>
- *             <li>
- *                <p>Local Zone to parent Region</p>
- *             </li>
- *             <li>
- *                <p>Between Local Zones with the same parent Region (only supported for certain Local
- *           Zones)</p>
- *             </li>
- *          </ul>
- *          <p class="title">
- *             <b>CopyImage does not support the following source to destination copies:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Local Zone to non-parent Regions</p>
- *             </li>
- *             <li>
- *                <p>Between Local Zones with different parent Regions</p>
- *             </li>
- *             <li>
- *                <p>Local Zone to Outpost</p>
- *             </li>
- *             <li>
- *                <p>Outpost to Local Zone</p>
- *             </li>
- *             <li>
- *                <p>Outpost to Region</p>
- *             </li>
- *             <li>
- *                <p>Between Outposts</p>
- *             </li>
- *             <li>
- *                <p>Within same Outpost</p>
- *             </li>
- *             <li>
- *                <p>Cross-partition copies (use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a> instead)</p>
- *             </li>
- *          </ul>
- *          <p class="title">
- *             <b>Destination specification</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Region to Region: The destination Region is the Region in which you initiate the copy
- *           operation.</p>
- *             </li>
- *             <li>
- *                <p>Region to Outpost: Specify the destination using the
- *             <code>DestinationOutpostArn</code> parameter (the ARN of the Outpost)</p>
- *             </li>
- *             <li>
- *                <p>Region to Local Zone, and Local Zone to Local Zone copies: Specify the destination
- *           using the <code>DestinationAvailabilityZone</code> parameter (the name of the destination
- *           Local Zone) or <code>DestinationAvailabilityZoneId</code> parameter (the ID of the
- *           destination Local Zone).</p>
- *             </li>
- *          </ul>
- *          <p class="title">
- *             <b>Snapshot encryption</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Region to Outpost: Backing snapshots copied to an Outpost are encrypted by default
- *           using the default encryption key for the Region or the key that you specify. Outposts do
- *           not support unencrypted snapshots.</p>
- *             </li>
- *             <li>
- *                <p>Region to Local Zone, and Local Zone to Local Zone: Not all Local Zones require
- *           encrypted snapshots. In Local Zones that require encrypted snapshots, backing snapshots
- *           are automatically encrypted during copy. In Local Zones where encryption is not required,
- *           snapshots retain their original encryption state (encrypted or unencrypted) by
- *           default.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, including the required permissions for copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an Amazon EC2 AMI</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ * Initiates an AMI copy operation. You must specify the source AMI ID and both the source and destination locations. The copy operation must be initiated in the destination Region.
+ *
+ * **CopyImage supports the following source to destination copies:**
+ *
+ * - Region to Region
+ * - Region to Outpost
+ * - Parent Region to Local Zone
+ * - Local Zone to parent Region
+ * - Between Local Zones with the same parent Region (only supported for certain Local Zones)
+ *
+ * **CopyImage does not support the following source to destination copies:**
+ *
+ * - Local Zone to non-parent Regions
+ * - Between Local Zones with different parent Regions
+ * - Local Zone to Outpost
+ * - Outpost to Local Zone
+ * - Outpost to Region
+ * - Between Outposts
+ * - Within same Outpost
+ * - Cross-partition copies (use [CreateStoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html) instead)
+ *
+ * **Destination specification**
+ *
+ * - Region to Region: The destination Region is the Region in which you initiate the copy operation.
+ * - Region to Outpost: Specify the destination using the `DestinationOutpostArn` parameter (the ARN of the Outpost)
+ * - Region to Local Zone, and Local Zone to Local Zone copies: Specify the destination using the `DestinationAvailabilityZone` parameter (the name of the destination Local Zone) or `DestinationAvailabilityZoneId` parameter (the ID of the destination Local Zone).
+ *
+ * **Snapshot encryption**
+ *
+ * - Region to Outpost: Backing snapshots copied to an Outpost are encrypted by default using the default encryption key for the Region or the key that you specify. Outposts do not support unencrypted snapshots.
+ * - Region to Local Zone, and Local Zone to Local Zone: Not all Local Zones require encrypted snapshots. In Local Zones that require encrypted snapshots, backing snapshots are automatically encrypted during copy. In Local Zones where encryption is not required, snapshots retain their original encryption state (encrypted or unencrypted) by default.
+ *
+ * For more information, including the required permissions for copying an AMI, see [Copy an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -163,8 +106,8 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To copy an AMI to another region
  * ```javascript

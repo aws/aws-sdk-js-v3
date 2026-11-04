@@ -23,7 +23,8 @@ export interface ListTrainingPlansCommandInput extends ListTrainingPlansRequest 
 export interface ListTrainingPlansCommandOutput extends ListTrainingPlansResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of training plans for the current account. </p>
+ * Retrieves a list of training plans for the current account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,8 +100,8 @@ export interface ListTrainingPlansCommandOutput extends ListTrainingPlansRespons
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

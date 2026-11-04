@@ -23,55 +23,22 @@ export interface StartMedicalTranscriptionJobCommandInput extends StartMedicalTr
 export interface StartMedicalTranscriptionJobCommandOutput extends StartMedicalTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Transcribes the audio from a medical dictation or conversation and applies any
- *             additional Request Parameters you choose to include in your request.</p>
- *          <p>In addition to many standard transcription features, Amazon Transcribe Medical
- *             provides you with a robust medical vocabulary and, optionally, content identification,
- *             which adds flags to personal health information (PHI). To learn more about these
- *             features, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works-med.html">How Amazon Transcribe Medical
- *                 works</a>.</p>
- *          <p>To make a <code>StartMedicalTranscriptionJob</code> request, you must first upload
- *             your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location
- *             of the file using the <code>Media</code> parameter.</p>
- *          <p>You must include the following parameters in your
- *                 <code>StartMedicalTranscriptionJob</code> request:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>region</code>: The Amazon Web Services Region where you are making your
- *                     request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe endpoints and
- *                         quotas</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MedicalTranscriptionJobName</code>: A custom name you create for your
- *                     transcription job that is unique within your Amazon Web Services account.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location
- *                     of your media file.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LanguageCode</code>: This must be <code>en-US</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>OutputBucketName</code>: The Amazon S3 bucket where you want
- *                     your transcript stored. If you want your output stored in a sub-folder of this
- *                     bucket, you must also include <code>OutputKey</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Specialty</code>: This must be <code>PRIMARYCARE</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Type</code>: Choose whether your audio is a conversation or a
- *                     dictation.</p>
- *             </li>
- *          </ul>
+ * Transcribes the audio from a medical dictation or conversation and applies any additional Request Parameters you choose to include in your request.
+ *
+ * In addition to many standard transcription features, Amazon Transcribe Medical provides you with a robust medical vocabulary and, optionally, content identification, which adds flags to personal health information (PHI). To learn more about these features, refer to [How Amazon Transcribe Medical works](https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works-med.html).
+ *
+ * To make a `StartMedicalTranscriptionJob` request, you must first upload your media file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the file using the `Media` parameter.
+ *
+ * You must include the following parameters in your `StartMedicalTranscriptionJob` request:
+ *
+ * - `region`: The Amazon Web Services Region where you are making your request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to [Amazon Transcribe endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/transcribe.html).
+ * - `MedicalTranscriptionJobName`: A custom name you create for your transcription job that is unique within your Amazon Web Services account.
+ * - `Media` (`MediaFileUri`): The Amazon S3 location of your media file.
+ * - `LanguageCode`: This must be `en-US`.
+ * - `OutputBucketName`: The Amazon S3 bucket where you want your transcript stored. If you want your output stored in a sub-folder of this bucket, you must also include `OutputKey`.
+ * - `Specialty`: This must be `PRIMARYCARE`.
+ * - `Type`: Choose whether your audio is a conversation or a dictation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,26 +129,24 @@ export interface StartMedicalTranscriptionJobCommandOutput extends StartMedicalT
  * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Your request didn't pass one or more validation tests. This can occur when the entity
- *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
- *                 <code>IN PROGRESS</code>). See the exception message field for more
- *             information.</p>
+ *
+ * Your request didn't pass one or more validation tests. This can occur when the entity you're trying to delete doesn't exist or if it's in a non-terminal state (such as `IN PROGRESS`). See the exception message field for more information.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource already exists with this name. Resource names must be unique within an
- *                 Amazon Web Services account.</p>
+ *
+ * A resource already exists with this name. Resource names must be unique within an Amazon Web Services account.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>There was an internal error. Check the error message, correct the issue, and try your
- *             request again.</p>
+ *
+ * There was an internal error. Check the error message, correct the issue, and try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You've either sent too many requests or your input file is too long. Wait before
- *             retrying your request, or use a smaller file and try your request again.</p>
+ *
+ * You've either sent too many requests or your input file is too long. Wait before retrying your request, or use a smaller file and try your request again.
  *
  * @throws {@link TranscribeServiceException}
- * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ * Base exception class for all service exceptions from Transcribe service.
  *
  * @public
  */

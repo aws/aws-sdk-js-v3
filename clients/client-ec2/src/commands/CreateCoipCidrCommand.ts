@@ -23,9 +23,8 @@ export interface CreateCoipCidrCommandInput extends CreateCoipCidrRequest {}
 export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __MetadataBearer {}
 
 /**
- * <p>
- *      Creates a range of customer-owned IP addresses.
- *       </p>
+ * Creates a range of customer-owned IP addresses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,8 @@ export interface CreateCoipCidrCommandOutput extends CreateCoipCidrResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

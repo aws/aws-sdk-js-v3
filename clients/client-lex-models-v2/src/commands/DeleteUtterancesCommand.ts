@@ -23,18 +23,12 @@ export interface DeleteUtterancesCommandInput extends DeleteUtterancesRequest {}
 export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes stored utterances.</p>
- *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
- *          are stored for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a> operation, and
- *          then stored indefinitely for use in improving the ability of your bot
- *          to respond to user input..</p>
- *          <p>Use the <code>DeleteUtterances</code> operation to manually delete
- *          utterances for a specific session. When you use the
- *             <code>DeleteUtterances</code> operation, utterances stored for
- *          improving your bot's ability to respond to user input are deleted
- *          immediately. Utterances stored for use with the
- *             <code>ListAggregatedUtterances</code> operation are deleted after 15
- *          days.</p>
+ * Deletes stored utterances.
+ *
+ * Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the [ListAggregatedUtterances](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html) operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input..
+ *
+ * Use the `DeleteUtterances` operation to manually delete utterances for a specific session. When you use the `DeleteUtterances` operation, utterances stored for improving your bot's ability to respond to user input are deleted immediately. Utterances stored for use with the `ListAggregatedUtterances` operation are deleted after 15 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +55,20 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

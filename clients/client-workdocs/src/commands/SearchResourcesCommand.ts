@@ -23,7 +23,8 @@ export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches metadata and the content of folders, documents, document versions, and comments.</p>
+ * Searches metadata and the content of folders, documents, document versions, and comments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -206,20 +207,24 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * The pagination marker or limit fields are not valid.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link UnauthorizedOperationException} (client fault)
- *  <p>The operation is not permitted.</p>
+ *
+ * The operation is not permitted.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.</p>
+ * The exception that occurs when you do not have sufficient permissions to perform an action. Verify that your IAM policy includes the necessary permissions for the operation you are trying to perform.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ * The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ * The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -69,7 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+ * The exception that occurs when there is a retryable conflict performing an operation. This is a temporary condition that may resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.
+ *
  * @public
  */
 export class RetryableConflictException extends __BaseException {
@@ -91,7 +95,8 @@ export class RetryableConflictException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+ * The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.
+ *
  * @public
  */
 export class RuntimeClientError extends __BaseException {
@@ -112,7 +117,8 @@ export class RuntimeClientError extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ * The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -133,7 +139,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+ * The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -154,7 +161,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+ * The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -179,7 +187,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.</p>
+ * The exception that occurs when the request conflicts with the current state of the resource. This can happen when trying to modify a resource that is currently being modified by another request, or when trying to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -200,7 +209,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access</p>
+ * This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -221,7 +231,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p> An exception thrown when attempting to create a resource with an identifier that already exists.</p>
+ * An exception thrown when attempting to create a resource with an identifier that already exists.
+ *
  * @public
  */
 export class DuplicateIdException extends __BaseException {
@@ -242,7 +253,8 @@ export class DuplicateIdException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an internal error. Try your request again later.</p>
+ * The service encountered an internal error. Try your request again later.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -263,7 +275,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>
+ * The request was denied due to request throttling. Reduce the frequency of requests and try again.
+ *
  * @public
  */
 export class ThrottledException extends __BaseException {
@@ -284,7 +297,8 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.</p>
+ * The input fails to satisfy the constraints specified by AgentCore. Check your input values and try again.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -305,7 +319,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>Returned when you attempt a wallet operation against a Coinbase Marketplace connector whose account does not hold an active Marketplace subscription and is not within the legacy exception period. Subscribe to the Marketplace listing before you retry the operation.</p>
+ * Returned when you attempt a wallet operation against a Coinbase Marketplace connector whose account does not hold an active Marketplace subscription and is not within the legacy exception period. Subscribe to the Marketplace listing before you retry the operation.
+ *
  * @public
  */
 export class SubscriptionRequiredException extends __BaseException {
@@ -313,13 +328,15 @@ export class SubscriptionRequiredException extends __BaseException {
   readonly name = "SubscriptionRequiredException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The URL to the Marketplace listing where you can subscribe.</p>
+   * The URL to the Marketplace listing where you can subscribe.
+   *
    * @public
    */
   subscriptionUrl?: string | undefined;
 
   /**
-   * <p>The name of the product that requires a Marketplace subscription.</p>
+   * The name of the product that requires a Marketplace subscription.
+   *
    * @public
    */
   productName?: string | undefined;

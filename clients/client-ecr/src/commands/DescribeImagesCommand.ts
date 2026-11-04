@@ -23,20 +23,12 @@ export interface DescribeImagesCommandInput extends DescribeImagesRequest {}
 export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata about the images in a repository.</p>
- *          <note>
- *             <p>Starting with Docker version 1.9, the Docker client compresses image layers before
- *                 pushing them to a V2 Docker registry. The output of the <code>docker images</code>
- *                 command shows the uncompressed image size. Therefore, Docker might return a larger
- *                 image than the image shown in the Amazon Web Services Management Console.</p>
- *          </note>
- *          <important>
- *             <p>The new version of Amazon ECR
- *                 <i>Basic Scanning</i> doesn't use the <a>ImageDetail$imageScanFindingsSummary</a> and <a>ImageDetail$imageScanStatus</a> attributes from the API response to
- *                 return scan results. Use the <a>DescribeImageScanFindings</a> API
- *                 instead. For more information about Amazon Web Services native basic scanning, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html"> Scan
- *                     images for software vulnerabilities in Amazon ECR</a>.</p>
- *          </important>
+ * Returns metadata about the images in a repository.
+ *
+ * > **Note:** Starting with Docker version 1.9, the Docker client compresses image layers before pushing them to a V2 Docker registry. The output of the `docker images` command shows the uncompressed image size. Therefore, Docker might return a larger image than the image shown in the Amazon Web Services Management Console.
+ *
+ * > **Important:** The new version of Amazon ECR *Basic Scanning* doesn't use the ImageDetail$imageScanFindingsSummary and ImageDetail$imageScanStatus attributes from the API response to return scan results. Use the DescribeImageScanFindings API instead. For more information about Amazon Web Services native basic scanning, see [Scan images for software vulnerabilities in Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,22 +98,24 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link ImageNotFoundException} (client fault)
- *  <p>The image requested does not exist in the specified repository.</p>
+ *
+ * The image requested does not exist in the specified repository.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

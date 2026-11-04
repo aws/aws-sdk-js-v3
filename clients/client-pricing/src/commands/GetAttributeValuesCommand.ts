@@ -23,7 +23,8 @@ export interface GetAttributeValuesCommandInput extends GetAttributeValuesReques
 export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of attribute values. Attributes are similar to the details in a Price List API offer file. For a list of available attributes, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs">Offer File Definitions</a> in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html">Billing and Cost Management User Guide</a>.</p>
+ * Returns a list of attribute values. Attributes are similar to the details in a Price List API offer file. For a list of available attributes, see [Offer File Definitions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/reading-an-offer.html#pps-defs) in the [Billing and Cost Management User Guide](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,29 +59,36 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
+ * General authentication failure. The request wasn't signed correctly.
  *
  * @throws {@link ExpiredNextTokenException} (client fault)
- *  <p>The pagination token expired. Try again without a pagination token.</p>
+ *
+ * The pagination token expired. Try again without a pagination token.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters had an invalid value.</p>
+ *
+ * One or more parameters had an invalid value.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas. </p>
+ *
+ * You've made too many requests exceeding service quotas.
  *
  * @throws {@link PricingServiceException}
- * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * Base exception class for all service exceptions from Pricing service.
  *
  * @example To retrieve a list of attribute values
  * ```javascript

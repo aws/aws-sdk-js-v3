@@ -26,17 +26,10 @@ export interface CreateVPCAssociationAuthorizationCommandInput extends CreateVPC
 export interface CreateVPCAssociationAuthorizationCommandOutput extends CreateVPCAssociationAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Authorizes the Amazon Web Services account that created a specified VPC to submit an
- * 				<code>AssociateVPCWithHostedZone</code> request to associate the VPC with a
- * 			specified hosted zone that was created by a different account. To submit a
- * 				<code>CreateVPCAssociationAuthorization</code> request, you must use the account
- * 			that created the hosted zone. After you authorize the association, use the account that
- * 			created the VPC to submit an <code>AssociateVPCWithHostedZone</code> request.</p>
- *          <note>
- *             <p>If you want to associate multiple VPCs that you created by using one account with
- * 				a hosted zone that you created by using a different account, you must submit one
- * 				authorization request for each VPC.</p>
- *          </note>
+ * Authorizes the Amazon Web Services account that created a specified VPC to submit an `AssociateVPCWithHostedZone` request to associate the VPC with a specified hosted zone that was created by a different account. To submit a `CreateVPCAssociationAuthorization` request, you must use the account that created the hosted zone. After you authorize the association, use the account that created the VPC to submit an `AssociateVPCWithHostedZone` request.
+ *
+ * > **Note:** If you want to associate multiple VPCs that you created by using one account with a hosted zone that you created by using a different account, you must submit one authorization request for each VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,29 +64,28 @@ export interface CreateVPCAssociationAuthorizationCommandOutput extends CreateVP
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidVPCId} (client fault)
- *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
- * 			authorized to access this VPC.</p>
+ *
+ * The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link TooManyVPCAssociationAuthorizations} (client fault)
- *  <p>You've created the maximum number of authorizations that can be created for the
- * 			specified hosted zone. To authorize another VPC to be associated with the hosted zone,
- * 			submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing
- * 			authorization. To get a list of existing authorizations, submit a
- * 				<code>ListVPCAssociationAuthorizations</code> request.</p>
+ *
+ * You've created the maximum number of authorizations that can be created for the specified hosted zone. To authorize another VPC to be associated with the hosted zone, submit a `DeleteVPCAssociationAuthorization` request to remove an existing authorization. To get a list of existing authorizations, submit a `ListVPCAssociationAuthorizations` request.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

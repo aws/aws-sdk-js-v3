@@ -23,10 +23,10 @@ export interface StopWorkspacesCommandInput extends StopWorkspacesRequest {}
 export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Stops the specified WorkSpaces.</p>
- *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> or
- *          <code>Manual</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>,
- *          <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
+ * Stops the specified WorkSpaces.
+ *
+ * You cannot stop a WorkSpace unless it has a running mode of `AutoStop` or `Manual` and a state of `AVAILABLE`, `IMPAIRED`, `UNHEALTHY`, or `ERROR`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +63,8 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

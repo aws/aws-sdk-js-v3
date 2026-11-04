@@ -18,27 +18,27 @@ export type Action = (typeof Action)[keyof typeof Action];
  */
 export const RebuildStatus = {
   /**
-   * <p>The rebuild operation was cancelled by the user.</p>
+   * The rebuild operation was cancelled by the user.
    */
   CANCELLED: "CANCELLED",
   /**
-   * <p>The rebuild operation was cancelled by the user and is in cancelling phase.</p>
+   * The rebuild operation was cancelled by the user and is in cancelling phase.
    */
   CANCELLING: "CANCELLING",
   /**
-   * <p>The rebuild operation has completed successfully.</p>
+   * The rebuild operation has completed successfully.
    */
   COMPLETED: "COMPLETED",
   /**
-   * <p>The rebuild operation has failed (completely or partially).</p>
+   * The rebuild operation has failed (completely or partially).
    */
   FAILED: "FAILED",
   /**
-   * <p>The rebuild operation is being prepared.</p>
+   * The rebuild operation is being prepared.
    */
   PREPARING: "PREPARING",
   /**
-   * <p>The rebuild operation is actively rebuilding indexes.</p>
+   * The rebuild operation is actively rebuilding indexes.
    */
   REBUILDING: "REBUILDING",
 } as const;
@@ -53,15 +53,15 @@ export type RebuildStatus = (typeof RebuildStatus)[keyof typeof RebuildStatus];
  */
 export const WriteBufferSize = {
   /**
-   * <p>Use when rebuilding indexes during heavy write workloads or continuous bulk data ingestion.</p>
+   * Use when rebuilding indexes during heavy write workloads or continuous bulk data ingestion.
    */
   HIGH: "HIGH",
   /**
-   * <p>Suitable for databases with light to moderate write activity. This is the default.</p>
+   * Suitable for databases with light to moderate write activity. This is the default.
    */
   LOW: "LOW",
   /**
-   * <p>Recommended for databases with sustained write traffic or bulk loading.</p>
+   * Recommended for databases with sustained write traffic or bulk loading.
    */
   MEDIUM: "MEDIUM",
 } as const;
@@ -90,15 +90,15 @@ export type OpenCypherExplainMode = (typeof OpenCypherExplainMode)[keyof typeof 
  */
 export const Scope = {
   /**
-   * <p>Rebuild all (quads and dictionaries). This is the default option.</p>
+   * Rebuild all (quads and dictionaries). This is the default option.
    */
   ALL: "ALL",
   /**
-   * <p>Rebuild only the dictionaries.</p>
+   * Rebuild only the dictionaries.
    */
   DICTIONARIES: "DICTIONARIES",
   /**
-   * <p>Rebuild only the quad indexes.</p>
+   * Rebuild only the quad indexes.
    */
   QUADS: "QUADS",
 } as const;

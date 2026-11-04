@@ -23,11 +23,10 @@ export interface DescribeDomainReplicationCommandInput extends DescribeDomainRep
 export interface DescribeDomainReplicationCommandOutput extends DescribeDomainReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the replication arrangement that a domain participates in, including the domain's
- *   role and the state of its relationship with each peer.</p>
- *          <p>A domain that is not replicating is returned with an empty <code>Peers</code> list and no
- *   <code>Role</code>. Returns <code>ResourceNotFoundException</code> if the domain does not
- *   exist.</p>
+ * Describes the replication arrangement that a domain participates in, including the domain's role and the state of its relationship with each peer.
+ *
+ * A domain that is not replicating is returned with an empty `Peers` list and no `Role`. Returns `ResourceNotFoundException` if the domain does not exist.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,20 +62,24 @@ export interface DescribeDomainReplicationCommandOutput extends DescribeDomainRe
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

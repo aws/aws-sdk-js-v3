@@ -23,9 +23,8 @@ export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a repository. If the repository isn't empty, you must either delete the
- *             contents of the repository or use the <code>force</code> option to delete the repository
- *             and have Amazon ECR delete all of its contents on your behalf.</p>
+ * Deletes a repository. If the repository isn't empty, you must either delete the contents of the repository or use the `force` option to delete the repository and have Amazon ECR delete all of its contents on your behalf.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,26 +73,28 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link KmsException} (client fault)
- *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * The operation failed due to a KMS exception.
  *
  * @throws {@link RepositoryNotEmptyException} (client fault)
- *  <p>The specified repository contains images. To delete a repository that contains images,
- *             you must force the deletion with the <code>force</code> parameter.</p>
+ *
+ * The specified repository contains images. To delete a repository that contains images, you must force the deletion with the `force` parameter.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository could not be found. Check the spelling of the specified
- *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @example To force delete a repository
  * ```javascript

@@ -23,15 +23,12 @@ export interface ListContainersCommandInput extends ListContainersInput {}
 export interface ListContainersCommandOutput extends ListContainersOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>
- *          <p>You can query to receive all the containers in one response. Or you can include the
- *             <code>MaxResults</code> parameter to receive a limited number of containers in each
- *          response. In this case, the response includes a token. To get the next set of containers,
- *          send the command again, this time with the <code>NextToken</code> parameter (with the
- *          returned token as its value). The next set of responses appears, with a token if there are
- *          still more containers to receive. </p>
- *          <p>See also <a>DescribeContainer</a>, which gets the properties of one
- *          container. </p>
+ * Lists the properties of all containers in AWS Elemental MediaStore.
+ *
+ * You can query to receive all the containers in one response. Or you can include the `MaxResults` parameter to receive a limited number of containers in each response. In this case, the response includes a token. To get the next set of containers, send the command again, this time with the `NextToken` parameter (with the returned token as its value). The next set of responses appears, with a token if there are still more containers to receive.
+ *
+ * See also DescribeContainer, which gets the properties of one container.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,11 +66,12 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

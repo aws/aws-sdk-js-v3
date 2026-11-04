@@ -23,8 +23,10 @@ export interface ScanProvisionedProductsCommandInput extends ScanProvisionedProd
 export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedProductsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the provisioned products that are available (not terminated).</p>
- *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
+ * Lists the provisioned products that are available (not terminated).
+ *
+ * To use additional filtering, see SearchProvisionedProducts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +77,12 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

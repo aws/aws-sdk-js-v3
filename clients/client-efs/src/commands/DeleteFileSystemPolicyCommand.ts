@@ -23,10 +23,10 @@ export interface DeleteFileSystemPolicyCommandInput extends DeleteFileSystemPoli
 export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.
- *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
- *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
- *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystemPolicy</code> action.</p>
+ * Deletes the `FileSystemPolicy` for the specified file system. The default `FileSystemPolicy` goes into effect once the existing policy is deleted. For more information about the default file system policy, see [Using Resource-based Policies with EFS](https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html).
+ *
+ * This operation requires permissions for the `elasticfilesystem:DeleteFileSystemPolicy` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,22 +51,24 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
- *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * Returned if the file system's lifecycle state is not "available".
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

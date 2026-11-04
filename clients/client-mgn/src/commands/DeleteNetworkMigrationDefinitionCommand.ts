@@ -26,7 +26,8 @@ export interface DeleteNetworkMigrationDefinitionCommandInput extends DeleteNetw
 export interface DeleteNetworkMigrationDefinitionCommandOutput extends DeleteNetworkMigrationDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a network migration definition. This operation removes the migration definition and all associated metadata.</p>
+ * Deletes a network migration definition. This operation removes the migration definition and all associated metadata.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface DeleteNetworkMigrationDefinitionCommandOutput extends DeleteNet
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operation denied due to a file permission or access check error.</p>
+ *
+ * Operation denied due to a file permission or access check error.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found exception.</p>
+ *
+ * Resource not found exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @example Sample DeleteNetworkMigrationDefinition call
  * ```javascript

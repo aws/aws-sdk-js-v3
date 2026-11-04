@@ -24,11 +24,12 @@ export interface GetFindingStatisticsV2CommandInput extends GetFindingStatistics
 export interface GetFindingStatisticsV2CommandOutput extends GetFindingStatisticsV2Response, __MetadataBearer {}
 
 /**
- * <p>Returns aggregated statistical data about findings.</p>
- *          <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you aggregate findings from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
- *          <p>
- *             <code>GetFindingStatisticsV2</code> uses <code>securityhub:GetAdhocInsightResults</code> in the <code>Action</code> element of an IAM policy statement.
- *          You must have permission to perform the <code>securityhub:GetAdhocInsightResults</code> action.</p>
+ * Returns aggregated statistical data about findings.
+ *
+ * You can use the `Scopes` parameter to define the data boundary for the query. Currently, `Scopes` supports `AwsOrganizations`, which lets you aggregate findings from your entire organization or from specific organizational units. Only the delegated administrator account can use `Scopes`.
+ *
+ * `GetFindingStatisticsV2` uses `securityhub:GetAdhocInsightResults` in the `Action` element of an IAM policy statement. You must have permission to perform the `securityhub:GetAdhocInsightResults` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -215,33 +216,36 @@ export interface GetFindingStatisticsV2CommandOutput extends GetFindingStatistic
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request causes conflict with the current state of the service resource.</p>
+ *
+ * The request causes conflict with the current state of the service resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link OrganizationalUnitNotFoundException} (client fault)
- *  <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ *
+ * The request failed because one or more organizational units specified in the request don't exist within the caller's organization.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+ *
+ * The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @public
  */

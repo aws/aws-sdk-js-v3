@@ -23,13 +23,17 @@ export interface AddTagsCommandInput extends AddTagsInput {}
 export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.</p>
+ * Adds the specified tags to the specified load balancer. Each load balancer can have a maximum of 10 tags.
  *
- *         <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated
- *             with the load balancer, <code>AddTags</code> updates its value.</p>
  *
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag Your Classic Load Balancer</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ *
+ * Each tag consists of a key and an optional value. If a tag with the same key is already associated with the load balancer, `AddTags` updates its value.
+ *
+ *
+ *
+ *
+ * For more information, see [Tag Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +66,20 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+ *
+ * The quota for the number of tags that can be assigned to a load balancer has been reached.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To add tags to a load balancer
  * ```javascript

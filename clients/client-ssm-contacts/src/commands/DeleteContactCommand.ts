@@ -23,11 +23,8 @@ export interface DeleteContactCommandInput extends DeleteContactRequest {}
 export interface DeleteContactCommandOutput extends DeleteContactResult, __MetadataBearer {}
 
 /**
- * <p>To remove a contact from Incident Manager, you can delete the contact. However, deleting a
- *          contact does not remove it from escalation plans and related response plans. Deleting an
- *          escalation plan also does not remove it from all related response plans. To modify an
- *          escalation plan, we recommend using the <a>UpdateContact</a> action to specify a
- *          different existing contact.</p>
+ * To remove a contact from Incident Manager, you can delete the contact. However, deleting a contact does not remove it from escalation plans and related response plans. Deleting an escalation plan also does not remove it from all related response plans. To modify an escalation plan, we recommend using the UpdateContact action to specify a different existing contact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,27 +49,32 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this operation.</p>
+ *
+ * You don't have sufficient access to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource causes an inconsistent state.</p>
+ *
+ * Updating or deleting a resource causes an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error occurred while processing the request.</p>
+ *
+ * Unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource that doesn't exist.</p>
+ *
+ * Request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SSMContactsServiceException}
- * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ * Base exception class for all service exceptions from SSMContacts service.
  *
  * @public
  */

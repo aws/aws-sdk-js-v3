@@ -23,9 +23,8 @@ export interface ListSpeakerEnrollmentJobsCommandInput extends ListSpeakerEnroll
 export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrollmentJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the speaker enrollment jobs in the domain with the specified
- *                 <code>JobStatus</code>. If <code>JobStatus</code> is not provided, this lists all
- *             jobs with all possible speaker enrollment job statuses.</p>
+ * Lists all the speaker enrollment jobs in the domain with the specified `JobStatus`. If `JobStatus` is not provided, this lists all jobs with all possible speaker enrollment job statuses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,29 +71,28 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action. Check the error message
- *             and try again.</p>
+ *
+ * You do not have sufficient permissions to perform this action. Check the error message and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unknown error on the server side.</p>
+ *
+ * The request failed due to an unknown error on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found. Check the <code>ResourceType</code> and error
- *             message for more details.</p>
+ *
+ * The specified resource cannot be found. Check the `ResourceType` and error message for more details.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please slow down your request rate.
- *             Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas">
- *                 Amazon Connect Voice ID Service API throttling quotas </a> and try your
- *             request again.</p>
+ *
+ * The request was denied due to request throttling. Please slow down your request rate. Refer to [Amazon Connect Voice ID Service API throttling quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas) and try your request again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed one or more validations; check the error message for more
- *             details.</p>
+ *
+ * The request failed one or more validations; check the error message for more details.
  *
  * @throws {@link VoiceIDServiceException}
- * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ * Base exception class for all service exceptions from VoiceID service.
  *
  * @public
  */

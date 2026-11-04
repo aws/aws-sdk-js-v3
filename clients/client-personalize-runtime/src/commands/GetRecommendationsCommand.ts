@@ -23,24 +23,15 @@ export interface GetRecommendationsCommandInput extends GetRecommendationsReques
 export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to
- *       create the solution backing the campaign as follows:</p>
- *          <ul>
- *             <li>
- *                <p>USER_PERSONALIZATION - <code>userId</code> required, <code>itemId</code> not used</p>
- *             </li>
- *             <li>
- *                <p>RELATED_ITEMS - <code>itemId</code> required, <code>userId</code> not used</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>Campaigns that are backed by a solution created using a recipe of type
- *         PERSONALIZED_RANKING use the  API.</p>
- *          </note>
- *          <p>
- *       For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender.
- *       For information on use case requirements see <a href="https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html">Choosing recommender use cases</a>.
- *     </p>
+ * Returns a list of recommended items. For campaigns, the campaign's Amazon Resource Name (ARN) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:
+ *
+ * - USER_PERSONALIZATION - `userId` required, `itemId` not used
+ * - RELATED_ITEMS - `itemId` required, `userId` not used
+ *
+ * > **Note:** Campaigns that are backed by a solution created using a recipe of type PERSONALIZED_RANKING use the API.
+ *
+ * For recommenders, the recommender's ARN is required and the required item and user input depends on the use case (domain-based recipe) backing the recommender. For information on use case requirements see [Choosing recommender use cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,14 +97,16 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link PersonalizeRuntimeServiceException}
- * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ * Base exception class for all service exceptions from PersonalizeRuntime service.
  *
  * @public
  */

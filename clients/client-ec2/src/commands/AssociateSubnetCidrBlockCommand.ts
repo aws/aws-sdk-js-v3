@@ -23,8 +23,8 @@ export interface AssociateSubnetCidrBlockCommandInput extends AssociateSubnetCid
 export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
- * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR
- *             block with your subnet.</p>
+ * Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +64,8 @@ export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

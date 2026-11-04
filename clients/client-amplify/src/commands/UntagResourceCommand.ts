@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Untags a resource with a specified Amazon Resource Name (ARN).</p>
+ * Untags a resource with a specified Amazon Resource Name (ARN).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A request contains unexpected data. </p>
+ *
+ * A request contains unexpected data.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>The service failed to perform an operation due to an internal issue. </p>
+ *
+ * The service failed to perform an operation due to an internal issue.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An operation failed due to a non-existent resource. </p>
+ *
+ * An operation failed due to a non-existent resource.
  *
  * @throws {@link AmplifyServiceException}
- * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ * Base exception class for all service exceptions from Amplify service.
  *
  * @public
  */

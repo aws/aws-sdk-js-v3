@@ -183,7 +183,6 @@ export interface KinesisVideoArchivedMedia {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class KinesisVideoArchivedMedia extends KinesisVideoArchivedMediaClient implements KinesisVideoArchivedMedia {}

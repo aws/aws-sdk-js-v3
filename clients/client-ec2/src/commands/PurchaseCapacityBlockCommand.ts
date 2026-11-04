@@ -23,9 +23,8 @@ export interface PurchaseCapacityBlockCommandInput extends PurchaseCapacityBlock
 export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBlockResult, __MetadataBearer {}
 
 /**
- * <p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure
- * 			GPU capacity is available for machine learning (ML) workloads. You must specify the ID
- * 			of the Capacity Block offering you are purchasing.</p>
+ * Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,8 +158,8 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

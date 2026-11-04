@@ -23,8 +23,8 @@ export interface AcknowledgeJobCommandInput extends AcknowledgeJobInput {}
 export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specified job and whether that job has been received by
- *             the job worker. Used for custom actions only.</p>
+ * Returns information about a specified job and whether that job has been received by the job worker. Used for custom actions only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,17 +52,20 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link InvalidNonceException} (client fault)
- *  <p>The nonce was specified in an invalid format.</p>
+ *
+ * The nonce was specified in an invalid format.
  *
  * @throws {@link JobNotFoundException} (client fault)
- *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * The job was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface CreateIpamRoutingPolicyRegistrationCommandInput extends CreateI
 export interface CreateIpamRoutingPolicyRegistrationCommandOutput extends CreateIpamRoutingPolicyRegistrationResult, __MetadataBearer {}
 
 /**
- * <p>Creates a routing policy registration and publishes Route Origin Authorizations (ROAs) to the RPKI for the specified CIDR prefix and ASNs.</p>
+ * Creates a routing policy registration and publishes Route Origin Authorizations (ROAs) to the RPKI for the specified CIDR prefix and ASNs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface CreateIpamRoutingPolicyRegistrationCommandOutput extends Create
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

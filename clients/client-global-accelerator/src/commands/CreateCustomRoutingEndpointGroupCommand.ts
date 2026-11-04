@@ -26,9 +26,8 @@ export interface CreateCustomRoutingEndpointGroupCommandInput extends CreateCust
 export interface CreateCustomRoutingEndpointGroupCommandOutput extends CreateCustomRoutingEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
- * 	    An endpoint group is a collection of endpoints in one Amazon Web Services
- * 		Region. </p>
+ * Create an endpoint group for the specified listener for a custom routing accelerator. An endpoint group is a collection of endpoints in one Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,32 +82,40 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput extends CreateCus
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AcceleratorNotFoundException} (client fault)
- *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * The accelerator that you specified doesn't exist.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link EndpointGroupAlreadyExistsException} (client fault)
- *  <p>The endpoint group that you specified already exists.</p>
+ *
+ * The endpoint group that you specified already exists.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link InvalidPortRangeException} (client fault)
- *  <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ *
+ * The port numbers that you specified are not valid numbers or are not unique for this accelerator.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The listener that you specified doesn't exist.</p>
+ *
+ * The listener that you specified doesn't exist.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

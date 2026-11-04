@@ -23,9 +23,10 @@ export interface ModifyIpamPoolCommandInput extends ModifyIpamPoolRequest {}
 export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __MetadataBearer {}
 
 /**
- * <p>Modify the configurations of an IPAM pool.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html">Modify a pool</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
+ * Modify the configurations of an IPAM pool.
+ *
+ * For more information, see [Modify a pool](https://docs.aws.amazon.com/vpc/latest/ipam/mod-pool-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,8 +112,8 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

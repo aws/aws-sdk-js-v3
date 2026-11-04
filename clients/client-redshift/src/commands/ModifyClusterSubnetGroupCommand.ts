@@ -23,30 +23,17 @@ export interface ModifyClusterSubnetGroupCommandInput extends ModifyClusterSubne
 export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
- *             operation replaces the existing list of subnets with the new list of subnets.</p>
- *          <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
- *             you own in a Region from reaching or being reached from the internet through internet
- *             gateways and egress-only internet gateways. If a subnet group for a
- *             provisioned cluster is in an account with VPC BPA turned on, the following capabilities
- *             are blocked:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Restoring a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Modifying a private cluster to be public</p>
- *             </li>
- *             <li>
- *                <p>Adding a subnet with VPC BPA turned on to the subnet group when there's at
- *                     least one public cluster within the group</p>
- *             </li>
- *          </ul>
- *          <p>For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and
- *             subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Modifies a cluster subnet group to include the specified list of VPC subnets. The operation replaces the existing list of subnets with the new list of subnets.
+ *
+ * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. If a subnet group for a provisioned cluster is in an account with VPC BPA turned on, the following capabilities are blocked:
+ *
+ * - Creating a public cluster
+ * - Restoring a public cluster
+ * - Modifying a private cluster to be public
+ * - Adding a subnet with VPC BPA turned on to the subnet group when there's at least one public cluster within the group
+ *
+ * For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,33 +92,32 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
- *  <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ *
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
  *
  * @throws {@link ClusterSubnetQuotaExceededFault} (client fault)
- *  <p>The request would result in user exceeding the allowed number of subnets in a
- *             cluster subnet groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ *
+ * The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is not valid, or not all of the subnets are in the same
- *             VPC.</p>
+ *
+ * The requested subnet is not valid, or not all of the subnets are in the same VPC.
  *
  * @throws {@link SubnetAlreadyInUse} (client fault)
- *  <p>A specified subnet is already in use by another cluster.</p>
+ *
+ * A specified subnet is already in use by another cluster.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

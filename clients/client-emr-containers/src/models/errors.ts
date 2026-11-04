@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { EMRContainersServiceException as __BaseException } from "./EMRContainersServiceException";
 
 /**
- * <p>This is an internal server exception.</p>
+ * This is an internal server exception.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -25,7 +26,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>There are invalid parameters in the client request.</p>
+ * There are invalid parameters in the client request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -46,7 +48,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded the Amazon EKS API operation limits.</p>
+ * The request exceeded the Amazon EKS API operation limits.
+ *
  * @public
  */
 export class EKSRequestThrottledException extends __BaseException {
@@ -88,7 +92,8 @@ export class EKSRequestThrottledException extends __BaseException {
 }
 
 /**
- * <p>The request throttled.</p>
+ * The request throttled.
+ *
  * @public
  */
 export class RequestThrottledException extends __BaseException {

@@ -26,8 +26,8 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandInput extends Reba
 export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput extends RebalanceSlotsInGlobalReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Redistribute slots to ensure uniform distribution across existing shards in the
- *             cluster.</p>
+ * Redistribute slots to ensure uniform distribution across existing shards in the cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,17 +82,20 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput extends Reb
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link GlobalReplicationGroupNotFoundFault} (client fault)
- *  <p>The Global datastore does not exist</p>
+ *
+ * The Global datastore does not exist
  *
  * @throws {@link InvalidGlobalReplicationGroupStateFault} (client fault)
- *  <p>The Global datastore is not available or in primary-only state.</p>
+ *
+ * The Global datastore is not available or in primary-only state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

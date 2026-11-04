@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>A resource tag.</p>
+ * A resource tag.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +55,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
+ * Thrown when an operation is attempted on a resource that does not exist.
  *
  * @throws {@link IoTSecureTunnelingServiceException}
- * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * Base exception class for all service exceptions from IoTSecureTunneling service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateFlywheelCommandInput extends UpdateFlywheelRequest {}
 export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __MetadataBearer {}
 
 /**
- * <p>Update the configuration information for an existing flywheel.</p>
+ * Update the configuration information for an existing flywheel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,24 +105,28 @@ export interface UpdateFlywheelCommandOutput extends UpdateFlywheelResponse, __M
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link KmsKeyValidationException} (client fault)
- *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
+ *
+ * The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

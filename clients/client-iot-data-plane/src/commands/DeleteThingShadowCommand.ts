@@ -31,9 +31,12 @@ export type DeleteThingShadowCommandOutputType = Omit<DeleteThingShadowResponse,
 export interface DeleteThingShadowCommandOutput extends DeleteThingShadowCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Deletes the shadow for the specified thing.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteThingShadow</a> action.</p>
- *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the IoT Developer Guide.</p>
+ * Deletes the shadow for the specified thing.
+ *
+ * Requires permission to access the [DeleteThingShadow](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
+ * For more information, see [DeleteThingShadow](http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html) in the IoT Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,32 +64,40 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowCommand
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The specified combination of HTTP verb and URI is not supported.</p>
+ *
+ * The specified combination of HTTP verb and URI is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link UnsupportedDocumentEncodingException} (client fault)
- *  <p>The document encoding is not supported.</p>
+ *
+ * The document encoding is not supported.
  *
  * @throws {@link IoTDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTDataPlane service.
  *
  * @public
  */

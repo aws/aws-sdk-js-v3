@@ -23,8 +23,8 @@ export interface CreateCommandCommandInput extends CreateCommandRequest {}
 export interface CreateCommandCommandOutput extends CreateCommandResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a command. A command contains reusable configurations that can be applied
- *             before they are sent to the devices.</p>
+ * Creates a command. A command contains reusable configurations that can be applied before they are sent to the devices.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,24 +116,28 @@ export interface CreateCommandCommandOutput extends CreateCommandResponse, __Met
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Service quota has been exceeded.</p>
+ *
+ * Service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

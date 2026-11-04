@@ -6,7 +6,8 @@ import {
 } from "./ElasticBeanstalkSyntheticServiceException";
 
 /**
- * <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
+ *
  * @public
  */
 export class InsufficientPrivilegesException extends __BaseException {
@@ -27,7 +28,8 @@ export class InsufficientPrivilegesException extends __BaseException {
 }
 
 /**
- * <p>A generic service exception has occurred.</p>
+ * A generic service exception has occurred.
+ *
  * @public
  */
 export class ElasticBeanstalkServiceException extends __BaseException {
@@ -48,7 +50,8 @@ export class ElasticBeanstalkServiceException extends __BaseException {
 }
 
 /**
- * <p>Cannot modify the managed action in its current state.</p>
+ * Cannot modify the managed action in its current state.
+ *
  * @public
  */
 export class ManagedActionInvalidStateException extends __BaseException {
@@ -69,7 +72,8 @@ export class ManagedActionInvalidStateException extends __BaseException {
 }
 
 /**
- * <p>The specified account has reached its limit of environments.</p>
+ * The specified account has reached its limit of environments.
+ *
  * @public
  */
 export class TooManyEnvironmentsException extends __BaseException {
@@ -90,7 +94,8 @@ export class TooManyEnvironmentsException extends __BaseException {
 }
 
 /**
- * <p>The specified account has reached its limit of applications.</p>
+ * The specified account has reached its limit of applications.
+ *
  * @public
  */
 export class TooManyApplicationsException extends __BaseException {
@@ -111,7 +116,8 @@ export class TooManyApplicationsException extends __BaseException {
 }
 
 /**
- * <p>CodeBuild is not available in the specified region.</p>
+ * CodeBuild is not available in the specified region.
+ *
  * @public
  */
 export class CodeBuildNotInServiceRegionException extends __BaseException {
@@ -132,19 +138,12 @@ export class CodeBuildNotInServiceRegionException extends __BaseException {
 }
 
 /**
- * <p>The specified S3 bucket does not belong to the S3 region in which the service is
- *       running. The following regions are supported:</p>
- *          <ul>
- *             <li>
- *                <p>IAD/us-east-1</p>
- *             </li>
- *             <li>
- *                <p>PDX/us-west-2</p>
- *             </li>
- *             <li>
- *                <p>DUB/eu-west-1</p>
- *             </li>
- *          </ul>
+ * The specified S3 bucket does not belong to the S3 region in which the service is running. The following regions are supported:
+ *
+ * - IAD/us-east-1
+ * - PDX/us-west-2
+ * - DUB/eu-west-1
+ *
  * @public
  */
 export class S3LocationNotInServiceRegionException extends __BaseException {
@@ -165,7 +164,8 @@ export class S3LocationNotInServiceRegionException extends __BaseException {
 }
 
 /**
- * <p>The specified account has reached its limit of application versions.</p>
+ * The specified account has reached its limit of application versions.
+ *
  * @public
  */
 export class TooManyApplicationVersionsException extends __BaseException {
@@ -186,7 +186,8 @@ export class TooManyApplicationVersionsException extends __BaseException {
 }
 
 /**
- * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ * The specified account has reached its limit of Amazon S3 buckets.
+ *
  * @public
  */
 export class TooManyBucketsException extends __BaseException {
@@ -207,7 +208,8 @@ export class TooManyBucketsException extends __BaseException {
 }
 
 /**
- * <p>The specified account has reached its limit of configuration templates.</p>
+ * The specified account has reached its limit of configuration templates.
+ *
  * @public
  */
 export class TooManyConfigurationTemplatesException extends __BaseException {
@@ -228,7 +230,8 @@ export class TooManyConfigurationTemplatesException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
+ * You have exceeded the maximum number of allowed platforms associated with the account.
+ *
  * @public
  */
 export class TooManyPlatformsException extends __BaseException {
@@ -249,7 +252,8 @@ export class TooManyPlatformsException extends __BaseException {
 }
 
 /**
- * <p>The specified account does not have a subscription to Amazon S3.</p>
+ * The specified account does not have a subscription to Amazon S3.
+ *
  * @public
  */
 export class S3SubscriptionRequiredException extends __BaseException {
@@ -270,8 +274,8 @@ export class S3SubscriptionRequiredException extends __BaseException {
 }
 
 /**
- * <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
+ * Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
+ *
  * @public
  */
 export class OperationInProgressException extends __BaseException {
@@ -292,8 +296,8 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
- * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
- *       The application version was deleted successfully.</p>
+ * Unable to delete the Amazon S3 source bundle associated with the application version. The application version was deleted successfully.
+ *
  * @public
  */
 export class SourceBundleDeletionException extends __BaseException {
@@ -314,7 +318,8 @@ export class SourceBundleDeletionException extends __BaseException {
 }
 
 /**
- * <p>You cannot delete the platform version because there are still environments running on it.</p>
+ * You cannot delete the platform version because there are still environments running on it.
+ *
  * @public
  */
 export class PlatformVersionStillReferencedException extends __BaseException {
@@ -335,8 +340,8 @@ export class PlatformVersionStillReferencedException extends __BaseException {
 }
 
 /**
- * <p>One or more input parameters is not valid. Please correct the input parameters and try
- *       the operation again.</p>
+ * One or more input parameters is not valid. Please correct the input parameters and try the operation again.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -357,7 +362,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN).
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -378,7 +384,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
+ * The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.
+ *
  * @public
  */
 export class ResourceTypeNotSupportedException extends __BaseException {
@@ -399,10 +406,10 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The number of tags in the resource would exceed the number of tags that each resource
- *       can have.</p>
- *          <p>To calculate this, the operation considers both the number of tags the resource already has
- *       and the tags this operation would add if it succeeded.</p>
+ * The number of tags in the resource would exceed the number of tags that each resource can have.
+ *
+ * To calculate this, the operation considers both the number of tags the resource already has and the tags this operation would add if it succeeded.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

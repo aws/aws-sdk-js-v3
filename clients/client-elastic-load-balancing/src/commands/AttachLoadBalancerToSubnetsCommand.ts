@@ -23,10 +23,12 @@ export interface AttachLoadBalancerToSubnetsCommandInput extends AttachLoadBalan
 export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBalancerToSubnetsOutput, __MetadataBearer {}
 
 /**
- * <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>
- *         <p>The load balancer evenly distributes requests across all registered subnets.
- *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add or Remove Subnets for Your Load Balancer in a VPC</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Adds one or more subnets to the set of configured subnets for the specified load balancer.
+ *
+ *
+ *
+ * The load balancer evenly distributes requests across all registered subnets. For more information, see [Add or Remove Subnets for Your Load Balancer in a VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +60,24 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link InvalidSubnetException} (client fault)
- *  <p>The specified VPC has no associated Internet gateway.</p>
+ *
+ * The specified VPC has no associated Internet gateway.
  *
  * @throws {@link SubnetNotFoundException} (client fault)
- *  <p>One or more of the specified subnets do not exist.</p>
+ *
+ * One or more of the specified subnets do not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To attach subnets to a load balancer
  * ```javascript

@@ -26,7 +26,8 @@ export interface PutConfigurationSetDeliveryOptionsCommandInput extends PutConfi
 export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConfigurationSetDeliveryOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates the delivery options for a configuration set.</p>
+ * Adds or updates the delivery options for a configuration set.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,14 +55,16 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput extends PutConf
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link InvalidDeliveryOptionsException} (client fault)
- *  <p>Indicates that provided delivery option is invalid.</p>
+ *
+ * Indicates that provided delivery option is invalid.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

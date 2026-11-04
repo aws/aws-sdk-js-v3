@@ -549,7 +549,8 @@ export type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface LocationClientResolvedConfig extends LocationClientResolvedConfigType {}
 
 /**
- * <p>"Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"</p>
+ * "Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing"
+ *
  * @public
  */
 export class LocationClient extends __Client<

@@ -5,7 +5,10 @@ import type { ValidationExceptionType } from "./enums";
 import { KeyspacesStreamsServiceException as __BaseException } from "./KeyspacesStreamsServiceException";
 
 /**
- * <p>You don't have sufficient access permissions to perform this operation. </p> <p>This exception occurs when your IAM user or role lacks the required permissions to access the Amazon Keyspaces resource or perform the requested action. Check your IAM policies and ensure they grant the necessary permissions.</p>
+ * You don't have sufficient access permissions to perform this operation.
+ *
+ * This exception occurs when your IAM user or role lacks the required permissions to access the Amazon Keyspaces resource or perform the requested action. Check your IAM policies and ensure they grant the necessary permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +29,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The Amazon Keyspaces service encountered an unexpected error while processing the request. </p> <p>This internal server error is not related to your request parameters. Retry your request after a brief delay. If the issue persists, contact Amazon Web Services Support with details of your request to help identify and resolve the problem.</p>
+ * The Amazon Keyspaces service encountered an unexpected error while processing the request.
+ *
+ * This internal server error is not related to your request parameters. Retry your request after a brief delay. If the issue persists, contact Amazon Web Services Support with details of your request to help identify and resolve the problem.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -47,7 +53,10 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource doesn't exist or could not be found. </p> <p>This exception occurs when you attempt to access a keyspace, table, stream, or other Amazon Keyspaces resource that doesn't exist or that has been deleted. Verify that the resource identifier is correct and that the resource exists in your account.</p>
+ * The requested resource doesn't exist or could not be found.
+ *
+ * This exception occurs when you attempt to access a keyspace, table, stream, or other Amazon Keyspaces resource that doesn't exist or that has been deleted. Verify that the resource identifier is correct and that the resource exists in your account.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +77,12 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request rate is too high and exceeds the service's throughput limits. </p> <p>This exception occurs when you send too many requests in a short period of time. Implement exponential backoff in your retry strategy to handle this exception. Reducing your request frequency or distributing requests more evenly can help avoid throughput exceptions.</p> <p>This exception can also occur when more than two processes are reading from the same stream shard at the same time. Ensure that only one process reads from a stream shard at the same time. </p>
+ * The request rate is too high and exceeds the service's throughput limits.
+ *
+ * This exception occurs when you send too many requests in a short period of time. Implement exponential backoff in your retry strategy to handle this exception. Reducing your request frequency or distributing requests more evenly can help avoid throughput exceptions.
+ *
+ * This exception can also occur when more than two processes are reading from the same stream shard at the same time. Ensure that only one process reads from a stream shard at the same time.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -89,7 +103,10 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request validation failed because one or more input parameters failed validation. </p> <p>This exception occurs when there are syntax errors in the request, field constraints are violated, or required parameters are missing. To help you fix the issue, the exception message provides details about which parameter failed and why.</p>
+ * The request validation failed because one or more input parameters failed validation.
+ *
+ * This exception occurs when there are syntax errors in the request, field constraints are violated, or required parameters are missing. To help you fix the issue, the exception message provides details about which parameter failed and why.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -97,7 +114,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>An error occurred validating your request. See the error message for details.</p>
+   * An error occurred validating your request. See the error message for details.
+   *
    * @public
    */
   errorCode?: ValidationExceptionType | undefined;

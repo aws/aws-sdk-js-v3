@@ -23,9 +23,8 @@ export interface ListSpeechSynthesisTasksCommandInput extends ListSpeechSynthesi
 export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthesisTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of SpeechSynthesisTask objects ordered by their
- *       creation date. This operation can filter the tasks by their status, for
- *       example, allowing users to list only tasks that are completed.</p>
+ * Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,15 +76,16 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The NextToken is invalid. Verify that it's spelled correctly, and
- *       then try again.</p>
+ *
+ * The NextToken is invalid. Verify that it's spelled correctly, and then try again.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @public
  */

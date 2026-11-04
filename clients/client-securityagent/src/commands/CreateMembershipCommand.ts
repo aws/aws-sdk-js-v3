@@ -23,7 +23,8 @@ export interface CreateMembershipCommandInput extends CreateMembershipRequest {}
 export interface CreateMembershipCommandOutput extends CreateMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new membership, granting a user access to an agent space within an application.</p>
+ * Creates a new membership, granting a user access to an agent space within an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +57,8 @@ export interface CreateMembershipCommandOutput extends CreateMembershipResponse,
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

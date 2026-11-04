@@ -23,25 +23,16 @@ export interface AssumeRootCommandInput extends AssumeRootRequest {}
 export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a set of short term credentials you can use to perform privileged tasks on a
- *          member account in your organization. You must use credentials from an Organizations management
- *          account or a delegated administrator account for IAM to call <code>AssumeRoot</code>. You
- *          cannot use root user credentials to make this call.</p>
- *          <p>Before you can launch a privileged session, you must have centralized root access in
- *          your organization. For steps to enable this feature, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html">Centralize root access for
- *             member accounts</a> in the <i>IAM User Guide</i>.</p>
- *          <note>
- *             <p>The STS global endpoint is not supported for AssumeRoot. You must send this request
- *             to a Regional STS endpoint. For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html#sts-endpoints">Endpoints</a>.</p>
- *          </note>
- *          <p>You can track AssumeRoot in CloudTrail logs to determine what actions were performed in a
- *          session. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.html">Track privileged tasks
- *             in CloudTrail</a> in the <i>IAM User Guide</i>.</p>
- *          <p>When granting access to privileged tasks you should only grant the necessary permissions
- *          required to perform that task. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">Security best practices in
- *          IAM</a>. In addition, you can use <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">service control
- *             policies</a> (SCPs) to manage and limit permissions in your organization. See <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html">General examples</a> in the <i>Organizations User
- *             Guide</i> for more information on SCPs.</p>
+ * Returns a set of short term credentials you can use to perform privileged tasks on a member account in your organization. You must use credentials from an Organizations management account or a delegated administrator account for IAM to call `AssumeRoot`. You cannot use root user credentials to make this call.
+ *
+ * Before you can launch a privileged session, you must have centralized root access in your organization. For steps to enable this feature, see [Centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html) in the *IAM User Guide*.
+ *
+ * > **Note:** The STS global endpoint is not supported for AssumeRoot. You must send this request to a Regional STS endpoint. For more information, see [Endpoints](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html#sts-endpoints).
+ *
+ * You can track AssumeRoot in CloudTrail logs to determine what actions were performed in a session. For more information, see [Track privileged tasks in CloudTrail](https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.html) in the *IAM User Guide*.
+ *
+ * When granting access to privileged tasks you should only grant the necessary permissions required to perform that task. For more information, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html). In addition, you can use [service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) (SCPs) to manage and limit permissions in your organization. See [General examples](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html) in the *Organizations User Guide* for more information on SCPs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,18 +72,16 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
  * @throws {@link ExpiredTokenException} (client fault)
- *  <p>The web identity token that was passed is expired or is not valid. Get a new identity
- *             token from the identity provider and then retry the request.</p>
+ *
+ * The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.
  *
  * @throws {@link RegionDisabledException} (client fault)
- *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate
- *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate">Activating and Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM
- *                 User Guide</i>.</p>
+ *
+ * STS is not activated in the requested region for the account that is being asked to generate credentials. The account administrator must use the IAM console to activate STS in that region. For more information, see [Activating and Deactivating STS in an Amazon Web Services Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-activate-deactivate) in the *IAM User Guide*.
  *
  * @throws {@link STSServiceException}
- * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * Base exception class for all service exceptions from STS service.
  *
  * @example To launch a privileged session
  * ```javascript

@@ -23,8 +23,8 @@ export interface ModifyClusterDbRevisionCommandInput extends ModifyClusterDbRevi
 export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRevisionResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the database revision of a cluster. The database revision is a unique
- *             revision of the database running in a cluster.</p>
+ * Modifies the database revision of a cluster. The database revision is a unique revision of the database running in a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -256,21 +256,24 @@ export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRev
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link ClusterOnLatestRevisionFault} (client fault)
- *  <p>Cluster is already on the latest database revision.</p>
+ *
+ * Cluster is already on the latest database revision.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

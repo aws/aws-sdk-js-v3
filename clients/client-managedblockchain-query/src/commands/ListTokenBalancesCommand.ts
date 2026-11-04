@@ -23,23 +23,14 @@ export interface ListTokenBalancesCommandInput extends ListTokenBalancesInput {}
 export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput, __MetadataBearer {}
 
 /**
- * <p>This action returns the following for a given blockchain network:</p>
- *          <ul>
- *             <li>
- *                <p>Lists all token balances owned by an address (either a contract
- *           address or a wallet address).</p>
- *             </li>
- *             <li>
- *                <p>Lists all token balances for all tokens created by a contract.</p>
- *             </li>
- *             <li>
- *                <p>Lists all token balances for a given token.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>You must always specify the network property of
- *                               the <code>tokenFilter</code> when using this operation.</p>
- *          </note>
+ * This action returns the following for a given blockchain network:
+ *
+ * - Lists all token balances owned by an address (either a contract address or a wallet address).
+ * - Lists all token balances for all tokens created by a contract.
+ * - Lists all token balances for a given token.
+ *
+ * > **Note:** You must always specify the network property of the `tokenFilter` when using this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,26 +85,28 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  * @see {@link ManagedBlockchainQueryClientResolvedConfig | config} for ManagedBlockchainQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The Amazon Web Services account doesn’t have access to this resource. </p>
+ *
+ * The Amazon Web Services account doesn’t have access to this resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an internal error in the service.</p>
+ *
+ * The request processing has failed because of an internal error in the service.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded for this resource.</p>
+ *
+ * The service quota has been exceeded for this resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is throttling
- *       requests. The most common source of throttling errors is when you create resources
- *       that exceed your service limit for this resource type. Request a limit increase or
- *       delete unused resources, if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is when you create resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources, if possible.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource passed is invalid.</p>
+ *
+ * The resource passed is invalid.
  *
  * @throws {@link ManagedBlockchainQueryServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchainQuery service.
  *
  * @public
  */

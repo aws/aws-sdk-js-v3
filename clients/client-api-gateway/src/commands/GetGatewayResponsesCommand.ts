@@ -23,7 +23,8 @@ export interface GetGatewayResponsesCommandInput extends GetGatewayResponsesRequ
 export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __MetadataBearer {}
 
 /**
- * <p>Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.</p>
+ * Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +66,24 @@ export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __Me
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ *
+ * The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ *
+ * The requested resource is not found. Make sure that the request URI is correct.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ *
+ * The request has reached its throttling limit. Retry after the specified time period.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request is denied because the caller has insufficient permissions.</p>
+ *
+ * The request is denied because the caller has insufficient permissions.
  *
  * @throws {@link APIGatewayServiceException}
- * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ * Base exception class for all service exceptions from APIGateway service.
  *
  * @public
  */

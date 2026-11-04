@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RolesAnywhereServiceException as __BaseException } from "./RolesAnywhereServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Validation exception error.</p>
+ * Validation exception error.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -46,7 +48,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found.</p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Too many tags.</p>
+ * Too many tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

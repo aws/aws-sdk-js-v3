@@ -23,7 +23,8 @@ export interface CreateCustomDBEngineVersionCommandInput extends CreateCustomDBE
 export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersion, __MetadataBearer {}
 
 /**
- * <p>Creates a custom DB engine version (CEV).</p>
+ * Creates a custom DB engine version (CEV).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,29 +160,36 @@ export interface CreateCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link CreateCustomDBEngineVersionFault} (client fault)
- *  <p>An error occurred while trying to create the CEV.</p>
+ *
+ * An error occurred while trying to create the CEV.
  *
  * @throws {@link CustomDBEngineVersionAlreadyExistsFault} (client fault)
- *  <p>A CEV with the specified name already exists.</p>
+ *
+ * A CEV with the specified name already exists.
  *
  * @throws {@link CustomDBEngineVersionNotFoundFault} (client fault)
- *  <p>The specified CEV was not found.</p>
+ *
+ * The specified CEV was not found.
  *
  * @throws {@link CustomDBEngineVersionQuotaExceededFault} (client fault)
- *  <p>You have exceeded your CEV quota.</p>
+ *
+ * You have exceeded your CEV quota.
  *
  * @throws {@link Ec2ImagePropertiesNotSupportedFault} (client fault)
- *  <p>The AMI configuration prerequisite has not been met.</p>
+ *
+ * The AMI configuration prerequisite has not been met.
  *
  * @throws {@link InvalidCustomDBEngineVersionStateFault} (client fault)
- *  <p>You can't delete the CEV.</p>
+ *
+ * You can't delete the CEV.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

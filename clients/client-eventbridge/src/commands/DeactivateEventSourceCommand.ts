@@ -23,11 +23,12 @@ export interface DeactivateEventSourceCommandInput extends DeactivateEventSource
 export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>You can use this operation to temporarily stop receiving events from the specified partner
- *       event source. The matching event bus is not deleted. </p>
- *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
- *       remains in PENDING state for more than two weeks, it is deleted.</p>
- *          <p>To activate a deactivated partner event source, use <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html">ActivateEventSource</a>.</p>
+ * You can use this operation to temporarily stop receiving events from the specified partner event source. The matching event bus is not deleted.
+ *
+ * When you deactivate a partner event source, the source goes into PENDING state. If it remains in PENDING state for more than two weeks, it is deleted.
+ *
+ * To activate a deactivated partner event source, use [ActivateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +53,28 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * There is concurrent modification on a rule, target, archive, or replay.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>The specified state is not a valid state for an event source.</p>
+ *
+ * The specified state is not a valid state for an event source.
  *
  * @throws {@link OperationDisabledException} (client fault)
- *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * The operation you are attempting is not available in this region.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

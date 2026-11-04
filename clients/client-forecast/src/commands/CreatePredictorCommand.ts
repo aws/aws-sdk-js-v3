@@ -23,66 +23,37 @@ export interface CreatePredictorCommandInput extends CreatePredictorRequest {}
 export interface CreatePredictorCommandOutput extends CreatePredictorResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p> This operation creates a legacy predictor that does not include all the predictor
- *         functionalities provided by Amazon Forecast. To create a predictor that is compatible with all
- *         aspects of Forecast, use <a>CreateAutoPredictor</a>.</p>
- *          </note>
- *          <p>Creates an Amazon Forecast predictor.</p>
- *          <p>In the request, provide a dataset group and either specify an algorithm or let Amazon Forecast
- *       choose an algorithm for you using AutoML. If you specify an algorithm, you also can override
- *       algorithm-specific hyperparameters.</p>
- *          <p>Amazon Forecast uses the algorithm to train a predictor using the latest version of the datasets
- *       in the specified dataset group. You can then generate a forecast using the <a>CreateForecast</a> operation.</p>
- *          <p> To see the evaluation metrics, use the <a>GetAccuracyMetrics</a> operation. </p>
- *          <p>You can specify a featurization configuration to fill and aggregate the data fields in the
- *         <code>TARGET_TIME_SERIES</code> dataset to improve model training. For more information, see
- *         <a>FeaturizationConfig</a>.</p>
- *          <p>For RELATED_TIME_SERIES datasets, <code>CreatePredictor</code> verifies that the
- *         <code>DataFrequency</code> specified when the dataset was created matches the
- *         <code>ForecastFrequency</code>. TARGET_TIME_SERIES datasets don't have this restriction.
- *       Amazon Forecast also verifies the delimiter and timestamp format. For more information, see <a>howitworks-datasets-groups</a>.</p>
- *          <p>By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and 0.9
- *       (P90) quantiles. You can choose custom forecast types to train and evaluate your predictor by
- *       setting the <code>ForecastTypes</code>. </p>
- *          <p>
- *             <b>AutoML</b>
- *          </p>
- *          <p>If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes the
- *         <code>objective function</code>, set <code>PerformAutoML</code> to <code>true</code>. The
- *         <code>objective function</code> is defined as the mean of the weighted losses over the
- *       forecast types. By default, these are the p10, p50, and p90 quantile losses. For more
- *       information, see <a>EvaluationResult</a>.</p>
- *          <p>When AutoML is enabled, the following properties are disallowed:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AlgorithmArn</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>HPOConfig</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PerformHPO</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TrainingParameters</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>To get a list of all of your predictors, use the <a>ListPredictors</a>
- *       operation.</p>
- *          <note>
- *             <p>Before you can use the predictor to create a forecast, the <code>Status</code> of the
- *         predictor must be <code>ACTIVE</code>, signifying that training has completed. To get the
- *         status, use the <a>DescribePredictor</a> operation.</p>
- *          </note>
+ * > **Note:** This operation creates a legacy predictor that does not include all the predictor functionalities provided by Amazon Forecast. To create a predictor that is compatible with all aspects of Forecast, use CreateAutoPredictor.
+ *
+ * Creates an Amazon Forecast predictor.
+ *
+ * In the request, provide a dataset group and either specify an algorithm or let Amazon Forecast choose an algorithm for you using AutoML. If you specify an algorithm, you also can override algorithm-specific hyperparameters.
+ *
+ * Amazon Forecast uses the algorithm to train a predictor using the latest version of the datasets in the specified dataset group. You can then generate a forecast using the CreateForecast operation.
+ *
+ * To see the evaluation metrics, use the GetAccuracyMetrics operation.
+ *
+ * You can specify a featurization configuration to fill and aggregate the data fields in the `TARGET_TIME_SERIES` dataset to improve model training. For more information, see FeaturizationConfig.
+ *
+ * For RELATED_TIME_SERIES datasets, `CreatePredictor` verifies that the `DataFrequency` specified when the dataset was created matches the `ForecastFrequency`. TARGET_TIME_SERIES datasets don't have this restriction. Amazon Forecast also verifies the delimiter and timestamp format. For more information, see howitworks-datasets-groups.
+ *
+ * By default, predictors are trained and evaluated at the 0.1 (P10), 0.5 (P50), and 0.9 (P90) quantiles. You can choose custom forecast types to train and evaluate your predictor by setting the `ForecastTypes`.
+ *
+ * **AutoML**
+ *
+ * If you want Amazon Forecast to evaluate each algorithm and choose the one that minimizes the `objective function`, set `PerformAutoML` to `true`. The `objective function` is defined as the mean of the weighted losses over the forecast types. By default, these are the p10, p50, and p90 quantile losses. For more information, see EvaluationResult.
+ *
+ * When AutoML is enabled, the following properties are disallowed:
+ *
+ * - `AlgorithmArn`
+ * - `HPOConfig`
+ * - `PerformHPO`
+ * - `TrainingParameters`
+ *
+ * To get a list of all of your predictors, use the ListPredictors operation.
+ *
+ * > **Note:** Before you can use the predictor to create a forecast, the `Status` of the predictor must be `ACTIVE`, signifying that training has completed. To get the status, use the DescribePredictor operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -191,25 +162,28 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

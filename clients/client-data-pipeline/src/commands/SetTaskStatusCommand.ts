@@ -23,9 +23,8 @@ export interface SetTaskStatusCommandInput extends SetTaskStatusInput {}
 export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status.
- *             A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call <code>SetTaskStatus</code> for
- *             tasks that are canceled by the web service during a call to <a>ReportTaskProgress</a>.</p>
+ * Task runners call `SetTaskStatus` to notify AWS Data Pipeline that a task is completed and provide information about the final status. A task runner makes this call regardless of whether the task was sucessful. A task runner does not need to call `SetTaskStatus` for tasks that are canceled by the web service during a call to ReportTaskProgress.
+ *
  *
  *         <examples>
  *             <request>
@@ -82,23 +81,28 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link PipelineDeletedException} (client fault)
- *  <p>The specified pipeline has been deleted.</p>
+ *
+ * The specified pipeline has been deleted.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
+ *
+ * The specified pipeline was not found. Verify that you used the correct user and account identifiers.
  *
  * @throws {@link TaskNotFoundException} (client fault)
- *  <p>The specified task was not found. </p>
+ *
+ * The specified task was not found.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

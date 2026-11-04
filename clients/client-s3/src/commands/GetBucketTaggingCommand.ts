@@ -23,41 +23,25 @@ export interface GetBucketTaggingCommandInput extends GetBucketTaggingRequest {}
 export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Returns the tag set associated with the general purpose bucket.</p>
- *          <p>To use this operation, you must have permission to perform the <code>s3:GetBucketTagging</code>
- *       action. By default, the bucket owner has this permission and can grant this permission to others.</p>
- *          <p>
- *             <code>GetBucketTagging</code> has the following special error:</p>
- *          <ul>
- *             <li>
- *                <p>Error code: <code>NoSuchTagSet</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: There is no tag set associated with the bucket.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p>The following operations are related to <code>GetBucketTagging</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Returns the tag set associated with the general purpose bucket.
+ *
+ * To use this operation, you must have permission to perform the `s3:GetBucketTagging` action. By default, the bucket owner has this permission and can grant this permission to others.
+ *
+ * `GetBucketTagging` has the following special error:
+ *
+ * - Error code: `NoSuchTagSet`
+ *
+ *   - Description: There is no tag set associated with the bucket.
+ *
+ * The following operations are related to `GetBucketTagging`:
+ *
+ * - [PutBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html)
+ * - [DeleteBucketTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +74,8 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To get tag set associated with a bucket
  * ```javascript

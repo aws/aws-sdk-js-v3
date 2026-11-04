@@ -73,7 +73,7 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 export const RegistryRecordFilterName = {
   DESCRIPTOR_TYPE: "descriptorType",
   /**
-   * <p> Filters records by record type, such as <code>MCP</code> or <code>AGENT</code>.</p>
+   * Filters records by record type, such as `MCP` or `AGENT`.
    */
   RECORD_TYPE: "recordType",
 } as const;

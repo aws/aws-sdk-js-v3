@@ -23,7 +23,8 @@ export interface ListEventTypesCommandInput extends ListEventTypesRequest {}
 export interface ListEventTypesCommandOutput extends ListEventTypesResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about the event types available for configuring notifications.</p>
+ * Returns information about the event types available for configuring notifications.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+ *
+ * The value for the enumeration token used in the request to return the next batch of the results is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

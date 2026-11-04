@@ -23,9 +23,8 @@ export interface ListMonitoredResourcesCommandInput extends ListMonitoredResourc
 export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>
- * 			Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
- * 		</p>
+ * Returns the list of all log groups that are being monitored and tagged by DevOps Guru.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,21 +81,24 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * An internal failure in an Amazon service occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource could not be found</p>
+ *
+ * A requested resource could not be found
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to a request throttling.</p>
+ *
+ * The request was denied due to a request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> Contains information about data passed in to a field during a request that is not
- * 			valid. </p>
+ *
+ * Contains information about data passed in to a field during a request that is not valid.
  *
  * @throws {@link DevOpsGuruServiceException}
- * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ * Base exception class for all service exceptions from DevOpsGuru service.
  *
  * @public
  */

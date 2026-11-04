@@ -23,21 +23,14 @@ export interface DescribeClusterSecurityGroupsCommandInput extends DescribeClust
 export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecurityGroupMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about Amazon Redshift security groups. If the name of a security
- *             group is specified, the response will contain only information about only that security
- *             group.</p>
- *          <p>
- * For information about managing security groups, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon Redshift Cluster Security Groups</a> in the
- * <i>Amazon Redshift Cluster Management Guide</i>.</p>
- *          <p>If you specify both tag keys and tag values in the same request, Amazon Redshift returns
- *             all security groups that match any combination of the specified keys and values. For
- *             example, if you have <code>owner</code> and <code>environment</code> for tag keys, and
- *                 <code>admin</code> and <code>test</code> for tag values, all security groups that
- *             have any combination of those values are returned.</p>
- *          <p>If both tag keys and values are omitted from the request, security groups are
- *             returned regardless of whether they have tag keys or values associated with
- *             them.</p>
+ * Returns information about Amazon Redshift security groups. If the name of a security group is specified, the response will contain only information about only that security group.
+ *
+ * For information about managing security groups, go to [Amazon Redshift Cluster Security Groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
+ * If you specify both tag keys and tag values in the same request, Amazon Redshift returns all security groups that match any combination of the specified keys and values. For example, if you have `owner` and `environment` for tag keys, and `admin` and `test` for tag values, all security groups that have any combination of those values are returned.
+ *
+ * If both tag keys and values are omitted from the request, security groups are returned regardless of whether they have tag keys or values associated with them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,15 +102,16 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
- *  <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ *
+ * The cluster security group name does not refer to an existing cluster security group.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

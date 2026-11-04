@@ -23,52 +23,27 @@ export interface UpdateServicePipelineCommandInput extends UpdateServicePipeline
 export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelineOutput, __MetadataBearer {}
 
 /**
- * <p>Update the service pipeline.</p>
- *          <p>There are four modes for updating a service pipeline. The <code>deploymentType</code>
- *       field defines the mode.</p>
- *          <dl>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>NONE</code>
- *                </p>
- *                <p>In this mode, a deployment <i>doesn't</i> occur. Only the requested
- *             metadata parameters are updated.</p>
- *             </dd>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>CURRENT_VERSION</code>
- *                </p>
- *                <p>In this mode, the service pipeline is deployed and updated with the new spec that
- *             you provide. Only requested parameters are updated. <i>Don’t</i> include
- *             major or minor version parameters when you use this <code>deployment-type</code>.</p>
- *             </dd>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>MINOR_VERSION</code>
- *                </p>
- *                <p>In this mode, the service pipeline is deployed and updated with the published,
- *             recommended (latest) minor version of the current major version in use, by default. You
- *             can specify a different minor version of the current major version in use.</p>
- *             </dd>
- *             <dt/>
- *             <dd>
- *                <p>
- *                   <code>MAJOR_VERSION</code>
- *                </p>
- *                <p>In this mode, the service pipeline is deployed and updated with the published,
- *             recommended (latest) major and minor version of the current template by default. You can
- *             specify a different major version that's higher than the major version in use and a
- *             minor version.</p>
- *             </dd>
- *          </dl>
+ * Update the service pipeline.
  *
- * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
- * @example
- * Use a bare-bones client and the command you need to make an API call.
- * ```javascript
+ * There are four modes for updating a service pipeline. The `deploymentType` field defines the mode.
+ *
+ * - **`NONE`
+ *
+ *   In this mode, a deployment *doesn't* occur. Only the requested metadata parameters are updated.
+ *
+ * - **`CURRENT_VERSION`
+ *
+ *   In this mode, the service pipeline is deployed and updated with the new spec that you provide. Only requested parameters are updated. *Don’t* include major or minor version parameters when you use this `deployment-type`.
+ *
+ * - **`MINOR_VERSION`
+ *
+ *   In this mode, the service pipeline is deployed and updated with the published, recommended (latest) minor version of the current major version in use, by default. You can specify a different minor version of the current major version in use.
+ *
+ * - **`MAJOR_VERSION`
+ *
+ *   In this mode, the service pipeline is deployed and updated with the published, recommended (latest) major and minor version of the current template by default. You can specify a different major version that's higher than the major version in use and a minor version.
+ *
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers. @example Use a bare-bones client and the command you need to make an API call.********```javascript
  * import { ProtonClient, UpdateServicePipelineCommand } from "@aws-sdk/client-proton"; // ES Modules import
  * // const { ProtonClient, UpdateServicePipelineCommand } = require("@aws-sdk/client-proton"); // CommonJS import
  * // import type { ProtonClientConfig } from "@aws-sdk/client-proton";
@@ -109,26 +84,32 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>There <i>isn't</i> sufficient access for performing this action.</p>
+ *
+ * There *isn't* sufficient access for performing this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request <i>couldn't</i> be made due to a conflicting operation or resource.</p>
+ *
+ * The request *couldn't* be made due to a conflicting operation or resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed to register with the service.</p>
+ *
+ * The request failed to register with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource <i>wasn't</i> found.</p>
+ *
+ * The requested resource *wasn't* found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input is invalid or an out-of-range value was supplied for the input parameter.</p>
+ *
+ * The input is invalid or an out-of-range value was supplied for the input parameter.
  *
  * @throws {@link ProtonServiceException}
- * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ * Base exception class for all service exceptions from Proton service.
  *
  * @public
  */

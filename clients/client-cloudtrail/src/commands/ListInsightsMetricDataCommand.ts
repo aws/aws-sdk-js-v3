@@ -23,38 +23,23 @@ export interface ListInsightsMetricDataCommandInput extends ListInsightsMetricDa
 export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricDataResponse, __MetadataBearer {}
 
 /**
- * <p>Returns Insights metrics data for trails that have enabled Insights. The request must include the <code>EventSource</code>,
- *          <code>EventName</code>, and <code>InsightType</code> parameters.</p>
- *          <p>If the <code>InsightType</code> is set to <code>ApiErrorRateInsight</code>, the request must also include the <code>ErrorCode</code> parameter.</p>
- *          <p>The following are the available time periods for <code>ListInsightsMetricData</code>. Each cutoff is inclusive.</p>
- *          <ul>
- *             <li>
- *                <p>Data points with a period of 60 seconds (1-minute) are available for 15 days.</p>
- *             </li>
- *             <li>
- *                <p>Data points with a period of 300 seconds (5-minute) are available for 63 days.</p>
- *             </li>
- *             <li>
- *                <p>Data points with a period of 3600 seconds (1 hour) are available for 90 days.</p>
- *             </li>
- *          </ul>
- *          <p>To use <code>ListInsightsMetricData</code> operation, you must have the following permissions:</p>
- *          <ul>
- *             <li>
- *                <p>If <code>ListInsightsMetricData</code> is invoked with <code>TrailName</code> parameter, access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action and <code>cloudtrail:ListInsightsData</code>. To use this operation,
- *          you must have permissions to perform the <code>cloudtrail:LookupEvents</code> and <code>cloudtrail:ListInsightsData</code> action on the specific trail.</p>
- *             </li>
- *             <li>
- *                <p>If <code>ListInsightsMetricData</code> is invoked without <code>TrailName</code> parameter, access to the <code>ListInsightsMetricData</code> API operation is linked to the <code>cloudtrail:LookupEvents</code> action only. To use this operation,
- *          you must have permissions to perform the <code>cloudtrail:LookupEvents</code> action.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>For data event Insights on organization trails, only the management account and delegated
- *             administrator accounts can call <code>ListInsightsMetricData</code>. For these callers, the API returns
- *             Insights metrics only for the caller's own account. Member accounts cannot call this API on
- *             organization trails.</p>
- *          </note>
+ * Returns Insights metrics data for trails that have enabled Insights. The request must include the `EventSource`, `EventName`, and `InsightType` parameters.
+ *
+ * If the `InsightType` is set to `ApiErrorRateInsight`, the request must also include the `ErrorCode` parameter.
+ *
+ * The following are the available time periods for `ListInsightsMetricData`. Each cutoff is inclusive.
+ *
+ * - Data points with a period of 60 seconds (1-minute) are available for 15 days.
+ * - Data points with a period of 300 seconds (5-minute) are available for 63 days.
+ * - Data points with a period of 3600 seconds (1 hour) are available for 90 days.
+ *
+ * To use `ListInsightsMetricData` operation, you must have the following permissions:
+ *
+ * - If `ListInsightsMetricData` is invoked with `TrailName` parameter, access to the `ListInsightsMetricData` API operation is linked to the `cloudtrail:LookupEvents` action and `cloudtrail:ListInsightsData`. To use this operation, you must have permissions to perform the `cloudtrail:LookupEvents` and `cloudtrail:ListInsightsData` action on the specific trail.
+ * - If `ListInsightsMetricData` is invoked without `TrailName` parameter, access to the `ListInsightsMetricData` API operation is linked to the `cloudtrail:LookupEvents` action only. To use this operation, you must have permissions to perform the `cloudtrail:LookupEvents` action.
+ *
+ * > **Note:** For data event Insights on organization trails, only the management account and delegated administrator accounts can call `ListInsightsMetricData`. For these callers, the API returns Insights metrics only for the caller's own account. Member accounts cannot call this API on organization trails.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,40 +87,30 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * The request includes a parameter that is not valid.
  *
  * @throws {@link InvalidTrailNameException} (client fault)
- *  <p>This exception is thrown when the provided trail name is not valid. Trail names must
- *          meet the following requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
- *                (_), or dashes (-)</p>
- *             </li>
- *             <li>
- *                <p>Start with a letter or number, and end with a letter or number</p>
- *             </li>
- *             <li>
- *                <p>Be between 3 and 128 characters</p>
- *             </li>
- *             <li>
- *                <p>Have no adjacent periods, underscores or dashes. Names like
- *                   <code>my-_namespace</code> and <code>my--namespace</code> are not valid.</p>
- *             </li>
- *             <li>
- *                <p>Not be in IP address format (for example, 192.168.5.4)</p>
- *             </li>
- *          </ul>
+ *
+ * This exception is thrown when the provided trail name is not valid. Trail names must meet the following requirements:
+ *
+ * - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+ * - Start with a letter or number, and end with a letter or number
+ * - Be between 3 and 128 characters
+ * - Have no adjacent periods, underscores or dashes. Names like `my-_namespace` and `my--namespace` are not valid.
+ * - Not be in IP address format (for example, 192.168.5.4)
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * This exception is thrown when the requested operation is not permitted.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ * This exception is thrown when the requested operation is not supported.
  *
  * @throws {@link CloudTrailServiceException}
- * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ * Base exception class for all service exceptions from CloudTrail service.
  *
  * @public
  */

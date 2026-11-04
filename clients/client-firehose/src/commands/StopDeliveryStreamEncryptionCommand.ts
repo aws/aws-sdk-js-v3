@@ -23,25 +23,16 @@ export interface StopDeliveryStreamEncryptionCommandInput extends StopDeliverySt
 export interface StopDeliveryStreamEncryptionCommandOutput extends StopDeliveryStreamEncryptionOutput, __MetadataBearer {}
 
 /**
- * <p>Disables server-side encryption (SSE) for the Firehose stream. </p>
- *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Firehose first sets the encryption status of the stream to <code>DISABLING</code>, and then
- *          to <code>DISABLED</code>. You can continue to read and write data to your stream while its
- *          status is <code>DISABLING</code>. It can take up to 5 seconds after the encryption status
- *          changes to <code>DISABLED</code> before all records written to the Firehose stream are no
- *          longer subject to encryption. To find out whether a record or a batch of records was
- *          encrypted, check the response elements <a>PutRecordOutput$Encrypted</a> and
- *             <a>PutRecordBatchOutput$Encrypted</a>, respectively.</p>
- *          <p>To check the encryption state of a Firehose stream, use <a>DescribeDeliveryStream</a>. </p>
- *          <p>If SSE is enabled using a customer managed CMK and then you invoke
- *             <code>StopDeliveryStreamEncryption</code>, Firehose schedules the related
- *          KMS grant for retirement and then retires it after it ensures that it is finished
- *          delivering records to the destination.</p>
- *          <p>The <code>StartDeliveryStreamEncryption</code> and
- *             <code>StopDeliveryStreamEncryption</code> operations have a combined limit of 25 calls
- *          per Firehose stream per 24 hours. For example, you reach the limit if you call
- *             <code>StartDeliveryStreamEncryption</code> 13 times and
- *             <code>StopDeliveryStreamEncryption</code> 12 times for the same Firehose stream in a
- *          24-hour period.</p>
+ * Disables server-side encryption (SSE) for the Firehose stream.
+ *
+ * This operation is asynchronous. It returns immediately. When you invoke it, Firehose first sets the encryption status of the stream to `DISABLING`, and then to `DISABLED`. You can continue to read and write data to your stream while its status is `DISABLING`. It can take up to 5 seconds after the encryption status changes to `DISABLED` before all records written to the Firehose stream are no longer subject to encryption. To find out whether a record or a batch of records was encrypted, check the response elements PutRecordOutput$Encrypted and PutRecordBatchOutput$Encrypted, respectively.
+ *
+ * To check the encryption state of a Firehose stream, use DescribeDeliveryStream.
+ *
+ * If SSE is enabled using a customer managed CMK and then you invoke `StopDeliveryStreamEncryption`, Firehose schedules the related KMS grant for retirement and then retires it after it ensures that it is finished delivering records to the destination.
+ *
+ * The `StartDeliveryStreamEncryption` and `StopDeliveryStreamEncryption` operations have a combined limit of 25 calls per Firehose stream per 24 hours. For example, you reach the limit if you call `StartDeliveryStreamEncryption` 13 times and `StopDeliveryStreamEncryption` 12 times for the same Firehose stream in a 24-hour period.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,20 +57,24 @@ export interface StopDeliveryStreamEncryptionCommandOutput extends StopDeliveryS
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * The specified input parameter has a value that is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * You have already reached the limit for a requested resource.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is already in use and not available for this operation.</p>
+ *
+ * The resource is already in use and not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link FirehoseServiceException}
- * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * Base exception class for all service exceptions from Firehose service.
  *
  * @public
  */

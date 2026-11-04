@@ -23,32 +23,20 @@ export interface RegisterTypeCommandInput extends RegisterTypeInput {}
 export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Registers an extension with the CloudFormation service. Registering an extension makes it
- *       available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
- *          <ul>
- *             <li>
- *                <p>Validating the extension schema.</p>
- *             </li>
- *             <li>
- *                <p>Determining which handlers, if any, have been specified for the extension.</p>
- *             </li>
- *             <li>
- *                <p>Making the extension available for use in your account.</p>
- *             </li>
- *          </ul>
- *          <p>For more information about how to develop extensions and ready them for registration, see
- *         <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating resource types using the CloudFormation CLI</a> in the
- *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
- *          <p>You can have a maximum of 50 resource extension versions registered at a time. This
- *       maximum is per account and per Region. Use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a>
- *       to deregister specific extension versions if necessary.</p>
- *          <p>Once you have initiated a registration request using <a>RegisterType</a>, you
- *       can use <a>DescribeTypeRegistration</a> to monitor the progress of the registration
- *       request.</p>
- *          <p>Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For
- *       more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
- *         data for extensions in your account</a> in the
- *       <i>CloudFormation User Guide</i>.</p>
+ * Registers an extension with the CloudFormation service. Registering an extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:
+ *
+ * - Validating the extension schema.
+ * - Determining which handlers, if any, have been specified for the extension.
+ * - Making the extension available for use in your account.
+ *
+ * For more information about how to develop extensions and ready them for registration, see [Creating resource types using the CloudFormation CLI](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html) in the *CloudFormation Command Line Interface (CLI) User Guide*.
+ *
+ * You can have a maximum of 50 resource extension versions registered at a time. This maximum is per account and per Region. Use [DeregisterType](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html) to deregister specific extension versions if necessary.
+ *
+ * Once you have initiated a registration request using RegisterType, you can use DescribeTypeRegistration to monitor the progress of the registration request.
+ *
+ * Once you have registered a private extension in your account and Region, use [SetTypeConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html) to specify configuration properties for the extension. For more information, see [Edit configuration data for extensions in your account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html) in the *CloudFormation User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +71,12 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

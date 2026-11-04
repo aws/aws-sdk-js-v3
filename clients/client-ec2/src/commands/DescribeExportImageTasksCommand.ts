@@ -23,7 +23,8 @@ export interface DescribeExportImageTasksCommandInput extends DescribeExportImag
 export interface DescribeExportImageTasksCommandOutput extends DescribeExportImageTasksResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified export image tasks or all of your export image tasks.</p>
+ * Describes the specified export image tasks or all of your export image tasks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +84,8 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

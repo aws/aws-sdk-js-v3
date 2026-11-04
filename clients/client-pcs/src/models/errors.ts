@@ -6,7 +6,15 @@ import type { ValidationExceptionField } from "./models_0";
 import { PCSServiceException as __BaseException } from "./PCSServiceException";
 
 /**
- * <p>You don't have permission to perform the action.</p> <p> <u>Examples</u> </p> <ul> <li> <p>The launch template instance profile doesn't pass <code>iam:PassRole</code> verification.</p> </li> <li> <p>There is a mismatch between the account ID and cluster ID.</p> </li> <li> <p>The cluster ID doesn't exist.</p> </li> <li> <p>The EC2 instance isn't present.</p> </li> </ul>
+ * You don't have permission to perform the action.
+ *
+ * Examples
+ *
+ * - The launch template instance profile doesn't pass `iam:PassRole` verification.
+ * - There is a mismatch between the account ID and cluster ID.
+ * - The cluster ID doesn't exist.
+ * - The EC2 instance isn't present.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +35,15 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more than 1 operation on the same resource at the same time.</p> <p> <u>Examples</u> </p> <ul> <li> <p>A cluster with the same name already exists.</p> </li> <li> <p>A cluster isn't in <code>ACTIVE</code> status.</p> </li> <li> <p>A cluster to delete is in an unstable state. For example, because it still has <code>ACTIVE</code> node groups or queues.</p> </li> <li> <p>A queue already exists in a cluster.</p> </li> </ul>
+ * Your request has conflicting operations. This can occur if you're trying to perform more than 1 operation on the same resource at the same time.
+ *
+ * Examples
+ *
+ * - A cluster with the same name already exists.
+ * - A cluster isn't in `ACTIVE` status.
+ * - A cluster to delete is in an unstable state. For example, because it still has `ACTIVE` node groups or queues.
+ * - A queue already exists in a cluster.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +51,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The unique identifier of the resource that caused the conflict exception. </p>
+   * The unique identifier of the resource that caused the conflict exception.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type or category of the resource that caused the conflict exception." </p>
+   * The type or category of the resource that caused the conflict exception."
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +80,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>PCS can't process your request right now. Try again later.</p>
+ * PCS can't process your request right now. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -84,7 +103,10 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.</p> <p> <u>Examples</u> </p>
+ * The requested resource can't be found. The cluster, node group, or queue you're attempting to get, update, list, or delete doesn't exist.
+ *
+ * Examples
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -92,13 +114,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The unique identifier of the resource that was not found. </p>
+   * The unique identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p> The type or category of the resource that was not found. </p>
+   * The type or category of the resource that was not found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -119,7 +143,14 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. To learn how to increase your service quota, see <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html">Requesting a quota increase</a> in the <i>Service Quotas User Guide</i> </p> <p> <u>Examples</u> </p> <ul> <li> <p>The max number of clusters or queues has been reached for the account.</p> </li> <li> <p>The max number of compute node groups has been reached for the associated cluster.</p> </li> <li> <p>The total of <code>maxInstances</code> across all compute node groups has been reached for associated cluster.</p> </li> </ul>
+ * You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account. To learn how to increase your service quota, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*
+ *
+ * Examples
+ *
+ * - The max number of clusters or queues has been reached for the account.
+ * - The max number of compute node groups has been reached for the associated cluster.
+ * - The total of `maxInstances` across all compute node groups has been reached for associated cluster.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -127,25 +158,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The service code associated with the quota that was exceeded. </p>
+   * The service code associated with the quota that was exceeded.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p> The unique identifier of the resource that caused the quota to be exceeded. </p>
+   * The unique identifier of the resource that caused the quota to be exceeded.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p> The type or category of the resource that caused the quota to be exceeded. </p>
+   * The type or category of the resource that caused the quota to be exceeded.
+   *
    * @public
    */
   resourceType?: string | undefined;
 
   /**
-   * <p> The <b>quota code</b> of the service quota that was exceeded. </p>
+   * The **quota code** of the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode?: string | undefined;
@@ -168,7 +203,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeded a request rate quota. Check the resource's request rate quota and try again.</p>
+ * Your request exceeded a request rate quota. Check the resource's request rate quota and try again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -177,7 +213,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   $retryable = {};
   /**
-   * <p> The number of seconds to wait before retrying the request. </p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -197,7 +234,15 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request isn't valid.</p> <p> <u>Examples</u> </p> <ul> <li> <p>Your request contains malformed JSON or unsupported characters.</p> </li> <li> <p>The scheduler version isn't supported.</p> </li> <li> <p>There are networking related errors, such as network validation failure.</p> </li> <li> <p>AMI type is <code>CUSTOM</code> and the launch template doesn't define the AMI ID, or the AMI type is AL2 and the launch template defines the AMI.</p> </li> </ul>
+ * The request isn't valid.
+ *
+ * Examples
+ *
+ * - Your request contains malformed JSON or unsupported characters.
+ * - The scheduler version isn't supported.
+ * - There are networking related errors, such as network validation failure.
+ * - AMI type is `CUSTOM` and the launch template doesn't define the AMI ID, or the AMI type is AL2 and the launch template defines the AMI.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -205,13 +250,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p> The specific reason or cause of the validation error. </p>
+   * The specific reason or cause of the validation error.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p> A list of fields or properties that failed validation. </p>
+   * A list of fields or properties that failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

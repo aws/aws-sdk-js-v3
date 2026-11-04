@@ -23,8 +23,8 @@ export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRe
 export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is
- *             associated with any DAX clusters.</p>
+ * Deletes the specified parameter group. You cannot delete a parameter group if it is associated with any DAX clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +51,28 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterGroupStateFault} (client fault)
- *  <p>One or more parameters in a parameter group are in an invalid state.</p>
+ *
+ * One or more parameters in a parameter group are in an invalid state.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

@@ -26,13 +26,10 @@ export interface AuthorizeCacheSecurityGroupIngressCommandInput extends Authoriz
 export interface AuthorizeCacheSecurityGroupIngressCommandOutput extends AuthorizeCacheSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
- * <p>Allows network ingress to a cache security group. Applications using ElastiCache must
- *             be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization
- *             mechanism.</p>
- *          <note>
- *             <p>You cannot authorize ingress from an Amazon EC2 security group in one region to an
- *                 ElastiCache cluster in another region.</p>
- *          </note>
+ * Allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.
+ *
+ * > **Note:** You cannot authorize ingress from an Amazon EC2 security group in one region to an ElastiCache cluster in another region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,25 +70,28 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput extends Authori
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
- *  <p>The specified Amazon EC2 security group is already authorized for the specified cache
- *             security group.</p>
+ *
+ * The specified Amazon EC2 security group is already authorized for the specified cache security group.
  *
  * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
- *  <p>The requested cache security group name does not refer to an existing cache security
- *             group.</p>
+ *
+ * The requested cache security group name does not refer to an existing cache security group.
  *
  * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
- *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * The current state of the cache security group does not allow deletion.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example AuthorizeCacheCacheSecurityGroupIngress
  * ```javascript

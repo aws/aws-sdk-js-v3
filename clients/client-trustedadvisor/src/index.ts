@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>TrustedAdvisor Public API</p>
+ * TrustedAdvisor Public API
  *
  * @packageDocumentation
  */

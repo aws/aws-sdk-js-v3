@@ -23,7 +23,8 @@ export interface PutBackupPolicyCommandInput extends PutBackupPolicyRequest {}
 export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
- * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
+ * Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,25 +56,28 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
- *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * Returned if the file system's lifecycle state is not "available".
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ *
+ * Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @public
  */

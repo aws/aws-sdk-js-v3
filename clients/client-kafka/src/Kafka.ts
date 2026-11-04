@@ -1681,7 +1681,8 @@ export interface Kafka {
 }
 
 /**
- * <p>The operations for managing an Amazon MSK cluster.</p>
+ * The operations for managing an Amazon MSK cluster.
+ *
  * @public
  */
 export class Kafka extends KafkaClient implements Kafka {}

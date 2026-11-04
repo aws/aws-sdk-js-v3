@@ -23,10 +23,8 @@ export interface StopRunCommandInput extends StopRunRequest {}
 export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
 
 /**
- * <p>Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices
- *             where tests have not started. You are not billed for these devices. On devices where tests have started
- *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
- *             setup, teardown, and any tests that were in progress or already completed.</p>
+ * Initiates a stop request for the current test run. AWS Device Farm immediately stops the run on devices where tests have not started. You are not billed for these devices. On devices where tests have started executing, setup suite and teardown suite tests run to completion on those devices. You are billed for setup, teardown, and any tests that were in progress or already completed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -182,20 +180,24 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link ServiceAccountException} (client fault)
- *  <p>There was a problem with the service account.</p>
+ *
+ * There was a problem with the service account.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @example To stop a test run
  * ```javascript

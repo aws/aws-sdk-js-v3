@@ -23,9 +23,8 @@ export interface DescribeAddressesCommandInput extends DescribeAddressesRequest 
 export interface DescribeAddressesCommandOutput extends DescribeAddressesResult, __MetadataBearer {}
 
 /**
- * <p>Returns a specified number of <code>ADDRESS</code> objects. Calling this API in one of
- *       the US regions will return addresses from the list of all addresses associated with this
- *       account in all US regions.</p>
+ * Returns a specified number of `ADDRESS` objects. Calling this API in one of the US regions will return addresses from the list of all addresses associated with this account in all US regions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,17 +71,16 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
- *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
- *       again.</p>
+ *
+ * The `NextToken` string was altered unexpectedly, and the operation has stopped. Run the operation without changing the `NextToken` string, and try again.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To describe all the addresses you've created for AWS Snowball
  * ```javascript

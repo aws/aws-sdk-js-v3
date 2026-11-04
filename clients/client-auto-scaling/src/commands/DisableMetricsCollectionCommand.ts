@@ -23,7 +23,8 @@ export interface DisableMetricsCollectionCommandInput extends DisableMetricsColl
 export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables group metrics collection for the specified Auto Scaling group.</p>
+ * Disables group metrics collection for the specified Auto Scaling group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,12 +52,12 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To disable metrics collection for an Auto Scaling group
  * ```javascript

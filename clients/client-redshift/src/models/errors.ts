@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
 /**
- * <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
+ *
  * @public
  */
 export class DependentServiceUnavailableFault extends __BaseException {
@@ -26,7 +26,8 @@ export class DependentServiceUnavailableFault extends __BaseException {
 }
 
 /**
- * <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ * Indicates that the Reserved Node being exchanged is not in an active state.
+ *
  * @public
  */
 export class InvalidReservedNodeStateFault extends __BaseException {
@@ -47,7 +48,8 @@ export class InvalidReservedNodeStateFault extends __BaseException {
 }
 
 /**
- * <p>User already has a reservation with the given identifier.</p>
+ * User already has a reservation with the given identifier.
+ *
  * @public
  */
 export class ReservedNodeAlreadyExistsFault extends __BaseException {
@@ -68,7 +70,8 @@ export class ReservedNodeAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>Indicates that the reserved node has already been exchanged.</p>
+ * Indicates that the reserved node has already been exchanged.
+ *
  * @public
  */
 export class ReservedNodeAlreadyMigratedFault extends __BaseException {
@@ -89,7 +92,8 @@ export class ReservedNodeAlreadyMigratedFault extends __BaseException {
 }
 
 /**
- * <p>The specified reserved compute node not found.</p>
+ * The specified reserved compute node not found.
+ *
  * @public
  */
 export class ReservedNodeNotFoundFault extends __BaseException {
@@ -110,7 +114,8 @@ export class ReservedNodeNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>Specified offering does not exist.</p>
+ * Specified offering does not exist.
+ *
  * @public
  */
 export class ReservedNodeOfferingNotFoundFault extends __BaseException {
@@ -131,7 +136,8 @@ export class ReservedNodeOfferingNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The requested operation isn't supported.</p>
+ * The requested operation isn't supported.
+ *
  * @public
  */
 export class UnsupportedOperationFault extends __BaseException {
@@ -152,7 +158,8 @@ export class UnsupportedOperationFault extends __BaseException {
 }
 
 /**
- * <p>You are not authorized to access the cluster.</p>
+ * You are not authorized to access the cluster.
+ *
  * @public
  */
 export class AccessToClusterDeniedFault extends __BaseException {
@@ -173,8 +180,8 @@ export class AccessToClusterDeniedFault extends __BaseException {
 }
 
 /**
- * <p>The owner of the specified snapshot has not authorized your account to access the
- *             snapshot.</p>
+ * The owner of the specified snapshot has not authorized your account to access the snapshot.
+ *
  * @public
  */
 export class AccessToSnapshotDeniedFault extends __BaseException {
@@ -195,8 +202,8 @@ export class AccessToSnapshotDeniedFault extends __BaseException {
 }
 
 /**
- * <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
+ *
  * @public
  */
 export class ClusterNotFoundFault extends __BaseException {
@@ -217,7 +224,8 @@ export class ClusterNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The name of the partner was not found.</p>
+ * The name of the partner was not found.
+ *
  * @public
  */
 export class PartnerNotFoundFault extends __BaseException {
@@ -238,7 +246,8 @@ export class PartnerNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The partner integration is not authorized.</p>
+ * The partner integration is not authorized.
+ *
  * @public
  */
 export class UnauthorizedPartnerIntegrationFault extends __BaseException {
@@ -259,7 +268,8 @@ export class UnauthorizedPartnerIntegrationFault extends __BaseException {
 }
 
 /**
- * <p>There is an error with the datashare.</p>
+ * There is an error with the datashare.
+ *
  * @public
  */
 export class InvalidDataShareFault extends __BaseException {
@@ -280,7 +290,8 @@ export class InvalidDataShareFault extends __BaseException {
 }
 
 /**
- * <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ * The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
+ *
  * @public
  */
 export class InvalidNamespaceFault extends __BaseException {
@@ -301,7 +312,8 @@ export class InvalidNamespaceFault extends __BaseException {
 }
 
 /**
- * <p>The authentication profile already exists.</p>
+ * The authentication profile already exists.
+ *
  * @public
  */
 export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
@@ -322,7 +334,8 @@ export class AuthenticationProfileAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The authentication profile can't be found.</p>
+ * The authentication profile can't be found.
+ *
  * @public
  */
 export class AuthenticationProfileNotFoundFault extends __BaseException {
@@ -343,8 +356,8 @@ export class AuthenticationProfileNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The size or number of authentication profiles has exceeded the quota.
- *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+ * The size or number of authentication profiles has exceeded the quota. The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.
+ *
  * @public
  */
 export class AuthenticationProfileQuotaExceededFault extends __BaseException {
@@ -365,8 +378,8 @@ export class AuthenticationProfileQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified CIDR block or EC2 security group is already authorized for the
- *             specified cluster security group.</p>
+ * The specified CIDR block or EC2 security group is already authorized for the specified cluster security group.
+ *
  * @public
  */
 export class AuthorizationAlreadyExistsFault extends __BaseException {
@@ -387,8 +400,8 @@ export class AuthorizationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The specified CIDR IP range or EC2 security group is not authorized for the
- *             specified cluster security group.</p>
+ * The specified CIDR IP range or EC2 security group is not authorized for the specified cluster security group.
+ *
  * @public
  */
 export class AuthorizationNotFoundFault extends __BaseException {
@@ -409,7 +422,8 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The authorization quota for the cluster security group has been reached.</p>
+ * The authorization quota for the cluster security group has been reached.
+ *
  * @public
  */
 export class AuthorizationQuotaExceededFault extends __BaseException {
@@ -430,8 +444,8 @@ export class AuthorizationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ * The cluster security group name does not refer to an existing cluster security group.
+ *
  * @public
  */
 export class ClusterSecurityGroupNotFoundFault extends __BaseException {
@@ -452,7 +466,8 @@ export class ClusterSecurityGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The state of the cluster security group is not <code>available</code>. </p>
+ * The state of the cluster security group is not `available`.
+ *
  * @public
  */
 export class InvalidClusterSecurityGroupStateFault extends __BaseException {
@@ -473,7 +488,8 @@ export class InvalidClusterSecurityGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The authorization already exists for this endpoint.</p>
+ * The authorization already exists for this endpoint.
+ *
  * @public
  */
 export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
@@ -494,7 +510,8 @@ export class EndpointAuthorizationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
+ * The number of endpoint authorizations per cluster has exceeded its limit.
+ *
  * @public
  */
 export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseException {
@@ -515,7 +532,8 @@ export class EndpointAuthorizationsPerClusterLimitExceededFault extends __BaseEx
 }
 
 /**
- * <p>The status of the authorization is not valid.</p>
+ * The status of the authorization is not valid.
+ *
  * @public
  */
 export class InvalidAuthorizationStateFault extends __BaseException {
@@ -536,7 +554,8 @@ export class InvalidAuthorizationStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified cluster is not in the <code>available</code> state. </p>
+ * The specified cluster is not in the `available` state.
+ *
  * @public
  */
 export class InvalidClusterStateFault extends __BaseException {
@@ -557,7 +576,8 @@ export class InvalidClusterStateFault extends __BaseException {
 }
 
 /**
- * <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ * The snapshot identifier does not refer to an existing cluster snapshot.
+ *
  * @public
  */
 export class ClusterSnapshotNotFoundFault extends __BaseException {
@@ -578,8 +598,8 @@ export class ClusterSnapshotNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
+ *
  * @public
  */
 export class DependentServiceRequestThrottlingFault extends __BaseException {
@@ -600,8 +620,8 @@ export class DependentServiceRequestThrottlingFault extends __BaseException {
 }
 
 /**
- * <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
+ *
  * @public
  */
 export class InvalidClusterSnapshotStateFault extends __BaseException {
@@ -622,7 +642,8 @@ export class InvalidClusterSnapshotStateFault extends __BaseException {
 }
 
 /**
- * <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
+ *
  * @public
  */
 export class LimitExceededFault extends __BaseException {
@@ -643,8 +664,8 @@ export class LimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>The maximum number for a batch delete of snapshots has been reached. The limit is
- *             100. </p>
+ * The maximum number for a batch delete of snapshots has been reached. The limit is 100.
+ *
  * @public
  */
 export class BatchDeleteRequestSizeExceededFault extends __BaseException {
@@ -665,8 +686,8 @@ export class BatchDeleteRequestSizeExceededFault extends __BaseException {
 }
 
 /**
- * <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
- *         </p>
+ * The maximum number for snapshot identifiers has been reached. The limit is 100.
+ *
  * @public
  */
 export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseException {
@@ -687,8 +708,10 @@ export class BatchModifyClusterSnapshotsLimitExceededFault extends __BaseExcepti
 }
 
 /**
- * <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
+ *
  * @public
  */
 export class InvalidRetentionPeriodFault extends __BaseException {
@@ -709,7 +732,8 @@ export class InvalidRetentionPeriodFault extends __BaseException {
 }
 
 /**
- * <p>Could not find the specified S3 bucket.</p>
+ * Could not find the specified S3 bucket.
+ *
  * @public
  */
 export class BucketNotFoundFault extends __BaseException {
@@ -730,7 +754,8 @@ export class BucketNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>A resize operation for the specified cluster is not found.</p>
+ * A resize operation for the specified cluster is not found.
+ *
  * @public
  */
 export class ResizeNotFoundFault extends __BaseException {
@@ -751,7 +776,8 @@ export class ResizeNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The account already has a cluster with the given identifier.</p>
+ * The account already has a cluster with the given identifier.
+ *
  * @public
  */
 export class ClusterAlreadyExistsFault extends __BaseException {
@@ -772,7 +798,8 @@ export class ClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>Cluster is already on the latest database revision.</p>
+ * Cluster is already on the latest database revision.
+ *
  * @public
  */
 export class ClusterOnLatestRevisionFault extends __BaseException {
@@ -793,7 +820,8 @@ export class ClusterOnLatestRevisionFault extends __BaseException {
 }
 
 /**
- * <p>A cluster parameter group with the same name already exists.</p>
+ * A cluster parameter group with the same name already exists.
+ *
  * @public
  */
 export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
@@ -814,7 +842,8 @@ export class ClusterParameterGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The parameter group name does not refer to an existing parameter group.</p>
+ * The parameter group name does not refer to an existing parameter group.
+ *
  * @public
  */
 export class ClusterParameterGroupNotFoundFault extends __BaseException {
@@ -835,11 +864,8 @@ export class ClusterParameterGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of cluster
- *             parameter groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would result in the user exceeding the allowed number of cluster parameter groups. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
@@ -860,11 +886,8 @@ export class ClusterParameterGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request would exceed the allowed number of cluster instances for this account.
+ * The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
  * @public
  */
 export class ClusterQuotaExceededFault extends __BaseException {
@@ -885,7 +908,8 @@ export class ClusterQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>A cluster security group with the same name already exists.</p>
+ * A cluster security group with the same name already exists.
+ *
  * @public
  */
 export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
@@ -906,11 +930,8 @@ export class ClusterSecurityGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of cluster
- *             security groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would result in the user exceeding the allowed number of cluster security groups. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
@@ -931,8 +952,8 @@ export class ClusterSecurityGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The value specified as a snapshot identifier is already used by an existing
- *             snapshot.</p>
+ * The value specified as a snapshot identifier is already used by an existing snapshot.
+ *
  * @public
  */
 export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
@@ -953,8 +974,8 @@ export class ClusterSnapshotAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in the user exceeding the allowed number of cluster
- *             snapshots.</p>
+ * The request would result in the user exceeding the allowed number of cluster snapshots.
+ *
  * @public
  */
 export class ClusterSnapshotQuotaExceededFault extends __BaseException {
@@ -975,8 +996,8 @@ export class ClusterSnapshotQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>A <i>ClusterSubnetGroupName</i> is already used by an existing
- *             cluster subnet group. </p>
+ * A *ClusterSubnetGroupName* is already used by an existing cluster subnet group.
+ *
  * @public
  */
 export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
@@ -997,8 +1018,8 @@ export class ClusterSubnetGroupAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
+ *
  * @public
  */
 export class ClusterSubnetGroupNotFoundFault extends __BaseException {
@@ -1019,11 +1040,8 @@ export class ClusterSubnetGroupNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in user exceeding the allowed number of cluster subnet
- *             groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would result in user exceeding the allowed number of cluster subnet groups. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
@@ -1044,11 +1062,8 @@ export class ClusterSubnetGroupQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request would result in user exceeding the allowed number of subnets in a
- *             cluster subnet groups.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would result in user exceeding the allowed number of subnets in a cluster subnet groups. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class ClusterSubnetQuotaExceededFault extends __BaseException {
@@ -1069,7 +1084,8 @@ export class ClusterSubnetQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>There is a conflict while updating the resource policy.</p>
+ * There is a conflict while updating the resource policy.
+ *
  * @public
  */
 export class ConflictPolicyUpdateFault extends __BaseException {
@@ -1090,8 +1106,8 @@ export class ConflictPolicyUpdateFault extends __BaseException {
 }
 
 /**
- * <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
+ * Cross-region snapshot copy was temporarily disabled. Try your request again.
+ *
  * @public
  */
 export class CopyToRegionDisabledFault extends __BaseException {
@@ -1112,8 +1128,8 @@ export class CopyToRegionDisabledFault extends __BaseException {
 }
 
 /**
- * <p>The authentication profile request is not valid. The profile name can't be null or empty.
- *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ * The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.
+ *
  * @public
  */
 export class InvalidAuthenticationProfileRequestFault extends __BaseException {
@@ -1134,7 +1150,8 @@ export class InvalidAuthenticationProfileRequestFault extends __BaseException {
 }
 
 /**
- * <p>A dependent service denied access for the integration.</p>
+ * A dependent service denied access for the integration.
+ *
  * @public
  */
 export class DependentServiceAccessDeniedFault extends __BaseException {
@@ -1155,8 +1172,8 @@ export class DependentServiceAccessDeniedFault extends __BaseException {
 }
 
 /**
- * <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ * There is no Amazon Redshift HSM client certificate with the specified identifier.
+ *
  * @public
  */
 export class HsmClientCertificateNotFoundFault extends __BaseException {
@@ -1177,7 +1194,8 @@ export class HsmClientCertificateNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ * There is no Amazon Redshift HSM configuration with the specified identifier.
+ *
  * @public
  */
 export class HsmConfigurationNotFoundFault extends __BaseException {
@@ -1198,8 +1216,8 @@ export class HsmConfigurationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
+ * The number of nodes specified exceeds the allotted capacity of the cluster.
+ *
  * @public
  */
 export class InsufficientClusterCapacityFault extends __BaseException {
@@ -1220,7 +1238,8 @@ export class InsufficientClusterCapacityFault extends __BaseException {
 }
 
 /**
- * <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ * The cluster subnet group cannot be deleted because it is in use.
+ *
  * @public
  */
 export class InvalidClusterSubnetGroupStateFault extends __BaseException {
@@ -1241,7 +1260,8 @@ export class InvalidClusterSubnetGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The provided cluster track name is not valid.</p>
+ * The provided cluster track name is not valid.
+ *
  * @public
  */
 export class InvalidClusterTrackFault extends __BaseException {
@@ -1262,7 +1282,8 @@ export class InvalidClusterTrackFault extends __BaseException {
 }
 
 /**
- * <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ * The Elastic IP (EIP) is invalid or cannot be found.
+ *
  * @public
  */
 export class InvalidElasticIpFault extends __BaseException {
@@ -1283,8 +1304,8 @@ export class InvalidElasticIpFault extends __BaseException {
 }
 
 /**
- * <p>The requested subnet is not valid, or not all of the subnets are in the same
- *             VPC.</p>
+ * The requested subnet is not valid, or not all of the subnets are in the same VPC.
+ *
  * @public
  */
 export class InvalidSubnet extends __BaseException {
@@ -1305,7 +1326,8 @@ export class InvalidSubnet extends __BaseException {
 }
 
 /**
- * <p>The tag is invalid.</p>
+ * The tag is invalid.
+ *
  * @public
  */
 export class InvalidTagFault extends __BaseException {
@@ -1326,7 +1348,8 @@ export class InvalidTagFault extends __BaseException {
 }
 
 /**
- * <p>The cluster subnet group does not cover all Availability Zones.</p>
+ * The cluster subnet group does not cover all Availability Zones.
+ *
  * @public
  */
 export class InvalidVPCNetworkStateFault extends __BaseException {
@@ -1347,8 +1370,8 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 }
 
 /**
- * <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
- *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ * There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
+ *
  * @public
  */
 export class Ipv6CidrBlockNotFoundFault extends __BaseException {
@@ -1369,7 +1392,8 @@ export class Ipv6CidrBlockNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ * The operation would exceed the number of nodes allowed for a cluster.
+ *
  * @public
  */
 export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
@@ -1390,11 +1414,8 @@ export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>The operation would exceed the number of nodes allotted to the account.
+ * The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
  * @public
  */
 export class NumberOfNodesQuotaExceededFault extends __BaseException {
@@ -1415,7 +1436,8 @@ export class NumberOfNodesQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The application you attempted to find doesn't exist.</p>
+ * The application you attempted to find doesn't exist.
+ *
  * @public
  */
 export class RedshiftIdcApplicationNotExistsFault extends __BaseException {
@@ -1436,7 +1458,8 @@ export class RedshiftIdcApplicationNotExistsFault extends __BaseException {
 }
 
 /**
- * <p>We could not find the specified snapshot schedule. </p>
+ * We could not find the specified snapshot schedule.
+ *
  * @public
  */
 export class SnapshotScheduleNotFoundFault extends __BaseException {
@@ -1457,7 +1480,8 @@ export class SnapshotScheduleNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the number of tags allowed.</p>
+ * You have exceeded the number of tags allowed.
+ *
  * @public
  */
 export class TagLimitExceededFault extends __BaseException {
@@ -1478,7 +1502,8 @@ export class TagLimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>Your account is not authorized to perform the requested operation.</p>
+ * Your account is not authorized to perform the requested operation.
+ *
  * @public
  */
 export class UnauthorizedOperation extends __BaseException {
@@ -1499,7 +1524,8 @@ export class UnauthorizedOperation extends __BaseException {
 }
 
 /**
- * <p>An error occurred when an attempt was made to change the custom domain association.</p>
+ * An error occurred when an attempt was made to change the custom domain association.
+ *
  * @public
  */
 export class CustomCnameAssociationFault extends __BaseException {
@@ -1520,7 +1546,8 @@ export class CustomCnameAssociationFault extends __BaseException {
 }
 
 /**
- * <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
+ * The account already has a Redshift-managed VPC endpoint with the given identifier.
+ *
  * @public
  */
 export class EndpointAlreadyExistsFault extends __BaseException {
@@ -1541,7 +1568,8 @@ export class EndpointAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
+ * The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.
+ *
  * @public
  */
 export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException {
@@ -1562,7 +1590,8 @@ export class EndpointsPerAuthorizationLimitExceededFault extends __BaseException
 }
 
 /**
- * <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
+ * The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.
+ *
  * @public
  */
 export class EndpointsPerClusterLimitExceededFault extends __BaseException {
@@ -1583,11 +1612,8 @@ export class EndpointsPerClusterLimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>The request would exceed the allowed number of event subscriptions for this
- *             account.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would exceed the allowed number of event subscriptions for this account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class EventSubscriptionQuotaExceededFault extends __BaseException {
@@ -1608,8 +1634,8 @@ export class EventSubscriptionQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
- *             topic.</p>
+ * Amazon SNS has responded that there is a problem with the specified Amazon SNS topic.
+ *
  * @public
  */
 export class SNSInvalidTopicFault extends __BaseException {
@@ -1630,7 +1656,8 @@ export class SNSInvalidTopicFault extends __BaseException {
 }
 
 /**
- * <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+ * You do not have permission to publish to the specified Amazon SNS topic.
+ *
  * @public
  */
 export class SNSNoAuthorizationFault extends __BaseException {
@@ -1651,8 +1678,8 @@ export class SNSNoAuthorizationFault extends __BaseException {
 }
 
 /**
- * <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
- *             exist.</p>
+ * An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not exist.
+ *
  * @public
  */
 export class SNSTopicArnNotFoundFault extends __BaseException {
@@ -1673,7 +1700,8 @@ export class SNSTopicArnNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Redshift event source could not be found.</p>
+ * The specified Amazon Redshift event source could not be found.
+ *
  * @public
  */
 export class SourceNotFoundFault extends __BaseException {
@@ -1694,8 +1722,8 @@ export class SourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>There is already an existing event notification subscription with the specified
- *             name.</p>
+ * There is already an existing event notification subscription with the specified name.
+ *
  * @public
  */
 export class SubscriptionAlreadyExistFault extends __BaseException {
@@ -1716,9 +1744,8 @@ export class SubscriptionAlreadyExistFault extends __BaseException {
 }
 
 /**
- * <p>The value specified for the event category was not one of the allowed values, or it
- *             specified a category that does not apply to the specified source type. The allowed
- *             values are Configuration, Management, Monitoring, and Security.</p>
+ * The value specified for the event category was not one of the allowed values, or it specified a category that does not apply to the specified source type. The allowed values are Configuration, Management, Monitoring, and Security.
+ *
  * @public
  */
 export class SubscriptionCategoryNotFoundFault extends __BaseException {
@@ -1739,7 +1766,8 @@ export class SubscriptionCategoryNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+ * An Amazon Redshift event with the specified event ID does not exist.
+ *
  * @public
  */
 export class SubscriptionEventIdNotFoundFault extends __BaseException {
@@ -1760,9 +1788,8 @@ export class SubscriptionEventIdNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The value specified for the event severity was not one of the allowed values, or it
- *             specified a severity that does not apply to the specified source type. The allowed
- *             values are ERROR and INFO.</p>
+ * The value specified for the event severity was not one of the allowed values, or it specified a severity that does not apply to the specified source type. The allowed values are ERROR and INFO.
+ *
  * @public
  */
 export class SubscriptionSeverityNotFoundFault extends __BaseException {
@@ -1783,8 +1810,8 @@ export class SubscriptionSeverityNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>There is already an existing Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ * There is already an existing Amazon Redshift HSM client certificate with the specified identifier.
+ *
  * @public
  */
 export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
@@ -1805,10 +1832,8 @@ export class HsmClientCertificateAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The quota for HSM client certificates has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The quota for HSM client certificates has been reached. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class HsmClientCertificateQuotaExceededFault extends __BaseException {
@@ -1829,8 +1854,8 @@ export class HsmClientCertificateQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>There is already an existing Amazon Redshift HSM configuration with the specified
- *             identifier.</p>
+ * There is already an existing Amazon Redshift HSM configuration with the specified identifier.
+ *
  * @public
  */
 export class HsmConfigurationAlreadyExistsFault extends __BaseException {
@@ -1851,10 +1876,8 @@ export class HsmConfigurationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The quota for HSM configurations has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The quota for HSM configurations has been reached. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class HsmConfigurationQuotaExceededFault extends __BaseException {
@@ -1875,7 +1898,8 @@ export class HsmConfigurationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The integration you are trying to create already exists.</p>
+ * The integration you are trying to create already exists.
+ *
  * @public
  */
 export class IntegrationAlreadyExistsFault extends __BaseException {
@@ -1896,9 +1920,8 @@ export class IntegrationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>A conflicting conditional operation is currently in progress against this resource.
- *             This typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
+ * A conflicting conditional operation is currently in progress against this resource. This typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.
+ *
  * @public
  */
 export class IntegrationConflictOperationFault extends __BaseException {
@@ -1919,7 +1942,8 @@ export class IntegrationConflictOperationFault extends __BaseException {
 }
 
 /**
- * <p>You can't create any more zero-ETL or S3 event integrations because the quota has been reached.</p>
+ * You can't create any more zero-ETL or S3 event integrations because the quota has been reached.
+ *
  * @public
  */
 export class IntegrationQuotaExceededFault extends __BaseException {
@@ -1940,7 +1964,8 @@ export class IntegrationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The specified integration source can't be found.</p>
+ * The specified integration source can't be found.
+ *
  * @public
  */
 export class IntegrationSourceNotFoundFault extends __BaseException {
@@ -1961,7 +1986,8 @@ export class IntegrationSourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified integration target can't be found.</p>
+ * The specified integration target can't be found.
+ *
  * @public
  */
 export class IntegrationTargetNotFoundFault extends __BaseException {
@@ -1982,7 +2008,8 @@ export class IntegrationTargetNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The Amazon Redshift Query Editor (QEV2) IAM Identity Center application already exists. Use a different application name or describe existing applications to find the ARN.</p>
+ * The Amazon Redshift Query Editor (QEV2) IAM Identity Center application already exists. Use a different application name or describe existing applications to find the ARN.
+ *
  * @public
  */
 export class Qev2IdcApplicationAlreadyExistsFault extends __BaseException {
@@ -2003,7 +2030,8 @@ export class Qev2IdcApplicationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The application you attempted to add already exists.</p>
+ * The application you attempted to add already exists.
+ *
  * @public
  */
 export class RedshiftIdcApplicationAlreadyExistsFault extends __BaseException {
@@ -2024,7 +2052,8 @@ export class RedshiftIdcApplicationAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The maximum number of Redshift IAM Identity Center applications was exceeded.</p>
+ * The maximum number of Redshift IAM Identity Center applications was exceeded.
+ *
  * @public
  */
 export class RedshiftIdcApplicationQuotaExceededFault extends __BaseException {
@@ -2045,7 +2074,8 @@ export class RedshiftIdcApplicationQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The scheduled action is not valid. </p>
+ * The scheduled action is not valid.
+ *
  * @public
  */
 export class InvalidScheduledActionFault extends __BaseException {
@@ -2066,7 +2096,8 @@ export class InvalidScheduledActionFault extends __BaseException {
 }
 
 /**
- * <p>The schedule you submitted isn't valid.</p>
+ * The schedule you submitted isn't valid.
+ *
  * @public
  */
 export class InvalidScheduleFault extends __BaseException {
@@ -2087,7 +2118,8 @@ export class InvalidScheduleFault extends __BaseException {
 }
 
 /**
- * <p>The scheduled action already exists. </p>
+ * The scheduled action already exists.
+ *
  * @public
  */
 export class ScheduledActionAlreadyExistsFault extends __BaseException {
@@ -2108,7 +2140,8 @@ export class ScheduledActionAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The quota for scheduled actions exceeded. </p>
+ * The quota for scheduled actions exceeded.
+ *
  * @public
  */
 export class ScheduledActionQuotaExceededFault extends __BaseException {
@@ -2129,7 +2162,8 @@ export class ScheduledActionQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The action type specified for a scheduled action is not supported. </p>
+ * The action type specified for a scheduled action is not supported.
+ *
  * @public
  */
 export class ScheduledActionTypeUnsupportedFault extends __BaseException {
@@ -2150,8 +2184,8 @@ export class ScheduledActionTypeUnsupportedFault extends __BaseException {
 }
 
 /**
- * <p>The snapshot copy grant can't be created because a grant with the same name already
- *             exists.</p>
+ * The snapshot copy grant can't be created because a grant with the same name already exists.
+ *
  * @public
  */
 export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
@@ -2172,8 +2206,8 @@ export class SnapshotCopyGrantAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this
- *             region.</p>
+ * The Amazon Web Services account has exceeded the maximum number of snapshot copy grants in this region.
+ *
  * @public
  */
 export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
@@ -2194,7 +2228,8 @@ export class SnapshotCopyGrantQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The definition you submitted is not supported.</p>
+ * The definition you submitted is not supported.
+ *
  * @public
  */
 export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
@@ -2215,7 +2250,8 @@ export class ScheduleDefinitionTypeUnsupportedFault extends __BaseException {
 }
 
 /**
- * <p>The specified snapshot schedule already exists. </p>
+ * The specified snapshot schedule already exists.
+ *
  * @public
  */
 export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
@@ -2236,7 +2272,8 @@ export class SnapshotScheduleAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the quota of snapshot schedules. </p>
+ * You have exceeded the quota of snapshot schedules.
+ *
  * @public
  */
 export class SnapshotScheduleQuotaExceededFault extends __BaseException {
@@ -2257,7 +2294,8 @@ export class SnapshotScheduleQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found.</p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundFault extends __BaseException {
@@ -2278,7 +2316,8 @@ export class ResourceNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The usage limit is not valid.</p>
+ * The usage limit is not valid.
+ *
  * @public
  */
 export class InvalidUsageLimitFault extends __BaseException {
@@ -2299,7 +2338,8 @@ export class InvalidUsageLimitFault extends __BaseException {
 }
 
 /**
- * <p>The usage limit already exists. </p>
+ * The usage limit already exists.
+ *
  * @public
  */
 export class UsageLimitAlreadyExistsFault extends __BaseException {
@@ -2320,7 +2360,8 @@ export class UsageLimitAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>An error occurred. The custom domain name couldn't be found.</p>
+ * An error occurred. The custom domain name couldn't be found.
+ *
  * @public
  */
 export class CustomDomainAssociationNotFoundFault extends __BaseException {
@@ -2341,9 +2382,8 @@ export class CustomDomainAssociationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The cluster parameter group action can not be completed because another task is in
- *             progress that involves the parameter group. Wait a few moments and try the operation
- *             again.</p>
+ * The cluster parameter group action can not be completed because another task is in progress that involves the parameter group. Wait a few moments and try the operation again.
+ *
  * @public
  */
 export class InvalidClusterParameterGroupStateFault extends __BaseException {
@@ -2364,7 +2404,8 @@ export class InvalidClusterParameterGroupStateFault extends __BaseException {
 }
 
 /**
- * <p>The state of the subnet is invalid.</p>
+ * The state of the subnet is invalid.
+ *
  * @public
  */
 export class InvalidClusterSubnetStateFault extends __BaseException {
@@ -2385,7 +2426,8 @@ export class InvalidClusterSubnetStateFault extends __BaseException {
 }
 
 /**
- * <p>The endpoint name doesn't refer to an existing endpoint.</p>
+ * The endpoint name doesn't refer to an existing endpoint.
+ *
  * @public
  */
 export class EndpointNotFoundFault extends __BaseException {
@@ -2406,7 +2448,8 @@ export class EndpointNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The status of the endpoint is not valid.</p>
+ * The status of the endpoint is not valid.
+ *
  * @public
  */
 export class InvalidEndpointStateFault extends __BaseException {
@@ -2427,8 +2470,8 @@ export class InvalidEndpointStateFault extends __BaseException {
 }
 
 /**
- * <p>The subscription request is invalid because it is a duplicate request. This
- *             subscription request is already in progress.</p>
+ * The subscription request is invalid because it is a duplicate request. This subscription request is already in progress.
+ *
  * @public
  */
 export class InvalidSubscriptionStateFault extends __BaseException {
@@ -2449,8 +2492,8 @@ export class InvalidSubscriptionStateFault extends __BaseException {
 }
 
 /**
- * <p>An Amazon Redshift event notification subscription with the specified name does not
- *             exist.</p>
+ * An Amazon Redshift event notification subscription with the specified name does not exist.
+ *
  * @public
  */
 export class SubscriptionNotFoundFault extends __BaseException {
@@ -2471,8 +2514,8 @@ export class SubscriptionNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified HSM client certificate is not in the <code>available</code> state, or
- *             it is still in use by one or more Amazon Redshift clusters.</p>
+ * The specified HSM client certificate is not in the `available` state, or it is still in use by one or more Amazon Redshift clusters.
+ *
  * @public
  */
 export class InvalidHsmClientCertificateStateFault extends __BaseException {
@@ -2493,8 +2536,8 @@ export class InvalidHsmClientCertificateStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified HSM configuration is not in the <code>available</code> state, or it
- *             is still in use by one or more Amazon Redshift clusters.</p>
+ * The specified HSM configuration is not in the `available` state, or it is still in use by one or more Amazon Redshift clusters.
+ *
  * @public
  */
 export class InvalidHsmConfigurationStateFault extends __BaseException {
@@ -2515,7 +2558,8 @@ export class InvalidHsmConfigurationStateFault extends __BaseException {
 }
 
 /**
- * <p>The integration is in an invalid state and can't perform the requested operation.</p>
+ * The integration is in an invalid state and can't perform the requested operation.
+ *
  * @public
  */
 export class IntegrationConflictStateFault extends __BaseException {
@@ -2536,7 +2580,8 @@ export class IntegrationConflictStateFault extends __BaseException {
 }
 
 /**
- * <p>The integration can't be found.</p>
+ * The integration can't be found.
+ *
  * @public
  */
 export class IntegrationNotFoundFault extends __BaseException {
@@ -2557,7 +2602,8 @@ export class IntegrationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.</p>
+ * The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.
+ *
  * @public
  */
 export class Qev2IdcApplicationNotExistsFault extends __BaseException {
@@ -2578,7 +2624,8 @@ export class Qev2IdcApplicationNotExistsFault extends __BaseException {
 }
 
 /**
- * <p>The scheduled action cannot be found. </p>
+ * The scheduled action cannot be found.
+ *
  * @public
  */
 export class ScheduledActionNotFoundFault extends __BaseException {
@@ -2599,8 +2646,8 @@ export class ScheduledActionNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The snapshot copy grant can't be deleted because it is used by one or more
- *             clusters.</p>
+ * The snapshot copy grant can't be deleted because it is used by one or more clusters.
+ *
  * @public
  */
 export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
@@ -2621,8 +2668,8 @@ export class InvalidSnapshotCopyGrantStateFault extends __BaseException {
 }
 
 /**
- * <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
- *             correctly and that the grant exists in the destination region.</p>
+ * The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.
+ *
  * @public
  */
 export class SnapshotCopyGrantNotFoundFault extends __BaseException {
@@ -2643,7 +2690,8 @@ export class SnapshotCopyGrantNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The cluster snapshot schedule state is not valid.</p>
+ * The cluster snapshot schedule state is not valid.
+ *
  * @public
  */
 export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
@@ -2664,7 +2712,8 @@ export class InvalidClusterSnapshotScheduleStateFault extends __BaseException {
 }
 
 /**
- * <p>The usage limit identifier can't be found.</p>
+ * The usage limit identifier can't be found.
+ *
  * @public
  */
 export class UsageLimitNotFoundFault extends __BaseException {
@@ -2685,7 +2734,8 @@ export class UsageLimitNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The reserved-node exchange status wasn't found.</p>
+ * The reserved-node exchange status wasn't found.
+ *
  * @public
  */
 export class ReservedNodeExchangeNotFoundFault extends __BaseException {
@@ -2706,7 +2756,8 @@ export class ReservedNodeExchangeNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
+ * The specified `TableRestoreRequestId` value was not found.
+ *
  * @public
  */
 export class TableRestoreNotFoundFault extends __BaseException {
@@ -2727,7 +2778,8 @@ export class TableRestoreNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The cluster already has cross-region snapshot copy disabled.</p>
+ * The cluster already has cross-region snapshot copy disabled.
+ *
  * @public
  */
 export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
@@ -2748,8 +2800,8 @@ export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
 }
 
 /**
- * <p>The cluster does not have read bucket or put object permissions on the S3 bucket
- *             specified when enabling logging.</p>
+ * The cluster does not have read bucket or put object permissions on the S3 bucket specified when enabling logging.
+ *
  * @public
  */
 export class InsufficientS3BucketPolicyFault extends __BaseException {
@@ -2770,10 +2822,8 @@ export class InsufficientS3BucketPolicyFault extends __BaseException {
 }
 
 /**
- * <p>The S3 bucket name is invalid. For more information about naming rules, go to
- *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket
- *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
- *             Developer Guide.</p>
+ * The S3 bucket name is invalid. For more information about naming rules, go to [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html) in the Amazon Simple Storage Service (S3) Developer Guide.
+ *
  * @public
  */
 export class InvalidS3BucketNameFault extends __BaseException {
@@ -2794,8 +2844,8 @@ export class InvalidS3BucketNameFault extends __BaseException {
 }
 
 /**
- * <p>The string specified for the logging S3 key prefix does not comply with the
- *             documented constraints.</p>
+ * The string specified for the logging S3 key prefix does not comply with the documented constraints.
+ *
  * @public
  */
 export class InvalidS3KeyPrefixFault extends __BaseException {
@@ -2816,7 +2866,8 @@ export class InvalidS3KeyPrefixFault extends __BaseException {
 }
 
 /**
- * <p>The specified options are incompatible.</p>
+ * The specified options are incompatible.
+ *
  * @public
  */
 export class IncompatibleOrderableOptions extends __BaseException {
@@ -2837,7 +2888,8 @@ export class IncompatibleOrderableOptions extends __BaseException {
 }
 
 /**
- * <p>The cluster already has cross-region snapshot copy enabled.</p>
+ * The cluster already has cross-region snapshot copy enabled.
+ *
  * @public
  */
 export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
@@ -2858,7 +2910,8 @@ export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
 }
 
 /**
- * <p>The specified region is incorrect or does not exist.</p>
+ * The specified region is incorrect or does not exist.
+ *
  * @public
  */
 export class UnknownSnapshotCopyRegionFault extends __BaseException {
@@ -2879,7 +2932,8 @@ export class UnknownSnapshotCopyRegionFault extends __BaseException {
 }
 
 /**
- * <p>The authorization for this endpoint can't be found.</p>
+ * The authorization for this endpoint can't be found.
+ *
  * @public
  */
 export class EndpointAuthorizationNotFoundFault extends __BaseException {
@@ -2900,10 +2954,8 @@ export class EndpointAuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
- * <p>The request contains one or more invalid parameters.
- *             This error occurs when required parameters are missing,
- *             parameter values are outside acceptable ranges,
- *             or parameter formats are incorrect.</p>
+ * The request contains one or more invalid parameters. This error occurs when required parameters are missing, parameter values are outside acceptable ranges, or parameter formats are incorrect.
+ *
  * @public
  */
 export class RedshiftInvalidParameterFault extends __BaseException {
@@ -2924,7 +2976,8 @@ export class RedshiftInvalidParameterFault extends __BaseException {
 }
 
 /**
- * <p>The resource policy isn't valid.</p>
+ * The resource policy isn't valid.
+ *
  * @public
  */
 export class InvalidPolicyFault extends __BaseException {
@@ -2945,8 +2998,8 @@ export class InvalidPolicyFault extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the allowed number of table restore requests. Wait for your
- *             current table restore requests to complete before making a new request.</p>
+ * You have exceeded the allowed number of table restore requests. Wait for your current table restore requests to complete before making a new request.
+ *
  * @public
  */
 export class InProgressTableRestoreQuotaExceededFault extends __BaseException {
@@ -2967,7 +3020,8 @@ export class InProgressTableRestoreQuotaExceededFault extends __BaseException {
 }
 
 /**
- * <p>The restore is invalid.</p>
+ * The restore is invalid.
+ *
  * @public
  */
 export class InvalidRestoreFault extends __BaseException {
@@ -2988,9 +3042,8 @@ export class InvalidRestoreFault extends __BaseException {
 }
 
 /**
- * <p>The value specified for the <code>sourceDatabaseName</code>,
- *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
- *             combination of these, doesn't exist in the snapshot.</p>
+ * The value specified for the `sourceDatabaseName`, `sourceSchemaName`, or `sourceTableName` parameter, or a combination of these, doesn't exist in the snapshot.
+ *
  * @public
  */
 export class InvalidTableRestoreArgumentFault extends __BaseException {
@@ -3011,8 +3064,8 @@ export class InvalidTableRestoreArgumentFault extends __BaseException {
 }
 
 /**
- * <p>The number of tables in the cluster exceeds the limit for the requested new cluster
- *             node type. </p>
+ * The number of tables in the cluster exceeds the limit for the requested new cluster node type.
+ *
  * @public
  */
 export class TableLimitExceededFault extends __BaseException {
@@ -3033,7 +3086,8 @@ export class TableLimitExceededFault extends __BaseException {
 }
 
 /**
- * <p>A request option was specified that is not supported.</p>
+ * A request option was specified that is not supported.
+ *
  * @public
  */
 export class UnsupportedOptionFault extends __BaseException {
@@ -3054,7 +3108,8 @@ export class UnsupportedOptionFault extends __BaseException {
 }
 
 /**
- * <p>A specified subnet is already in use by another cluster.</p>
+ * A specified subnet is already in use by another cluster.
+ *
  * @public
  */
 export class SubnetAlreadyInUse extends __BaseException {
@@ -3075,8 +3130,8 @@ export class SubnetAlreadyInUse extends __BaseException {
 }
 
 /**
- * <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
+ * Cross-region snapshot copy was temporarily disabled. Try your request again.
+ *
  * @public
  */
 export class SnapshotCopyDisabledFault extends __BaseException {
@@ -3097,7 +3152,8 @@ export class SnapshotCopyDisabledFault extends __BaseException {
 }
 
 /**
- * <p>The specified snapshot schedule is already being updated.</p>
+ * The specified snapshot schedule is already being updated.
+ *
  * @public
  */
 export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
@@ -3118,10 +3174,8 @@ export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
 }
 
 /**
- * <p>Request would exceed the user's compute node quota.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * Request would exceed the user's compute node quota. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @public
  */
 export class ReservedNodeQuotaExceededFault extends __BaseException {

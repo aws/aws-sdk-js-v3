@@ -486,7 +486,8 @@ export interface LicenseManagerUserSubscriptions {
 }
 
 /**
- * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.</p>
+ * With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.
+ *
  * @public
  */
 export class LicenseManagerUserSubscriptions extends LicenseManagerUserSubscriptionsClient implements LicenseManagerUserSubscriptions {}

@@ -23,17 +23,16 @@ export interface PutAggregationAuthorizationCommandInput extends PutAggregationA
 export interface PutAggregationAuthorizationCommandOutput extends PutAggregationAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Authorizes the aggregator account and region to collect data
- * 			from the source account and region. </p>
- *          <note>
- *             <p>
- *                <b>Tags are added at creation and cannot be updated with this operation</b>
- *             </p>
- *             <p>
- *                <code>PutAggregationAuthorization</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
- * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
- *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
- *          </note>
+ * Authorizes the aggregator account and region to collect data from the source account and region.
+ *
+ * > **Note:**
+ * >
+ * > **Tags are added at creation and cannot be updated with this operation**
+ * >
+ * > `PutAggregationAuthorization` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
+ * >
+ * > Use [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html) to update tags after creation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,12 +71,12 @@ export interface PutAggregationAuthorizationCommandOutput extends PutAggregation
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

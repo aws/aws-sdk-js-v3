@@ -23,10 +23,8 @@ export interface ResetServiceSpecificCredentialCommandInput extends ResetService
 export interface ResetServiceSpecificCredentialCommandOutput extends ResetServiceSpecificCredentialResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the password for a service-specific credential. The new password is Amazon Web Services
- *             generated and cryptographically strong. It cannot be configured by the user. Resetting
- *             the password immediately invalidates the previous password associated with this
- *             user.</p>
+ * Resets the password for a service-specific credential. The new password is Amazon Web Services generated and cryptographically strong. It cannot be configured by the user. Resetting the password immediately invalidates the previous password associated with this user.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,12 +63,12 @@ export interface ResetServiceSpecificCredentialCommandOutput extends ResetServic
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

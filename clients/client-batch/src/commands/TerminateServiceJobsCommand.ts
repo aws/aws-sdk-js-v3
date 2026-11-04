@@ -23,14 +23,12 @@ export interface TerminateServiceJobsCommandInput extends TerminateServiceJobsRe
 export interface TerminateServiceJobsCommandOutput extends TerminateServiceJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Terminates up to 50 service jobs in a job queue. This is a bulk version of <a>TerminateServiceJob</a>.</p>
- *          <p>Batch reports the result for each service job individually in the response. Service jobs that were processed successfully are reported in the <code>successful</code> list. Service jobs that encountered errors are reported in the <code>errors</code> list. The response returns an HTTP status code of <code>200</code> even when some service jobs encountered errors, so check the <code>errors</code> list. Service jobs that can't be found are treated as successfully processed.</p>
- *          <important>
- *             <p>This operation requires <code>batch:TerminateServiceJob</code> permission for each service job in the
- *             request. There is no separate <code>batch:TerminateServiceJobs</code> IAM action. If a caller's IAM
- *             policy grants <code>batch:TerminateServiceJob</code>, they can use both the singular
- *             <code>TerminateServiceJob</code> and bulk <code>TerminateServiceJobs</code> operations.</p>
- *          </important>
+ * Terminates up to 50 service jobs in a job queue. This is a bulk version of TerminateServiceJob.
+ *
+ * Batch reports the result for each service job individually in the response. Service jobs that were processed successfully are reported in the `successful` list. Service jobs that encountered errors are reported in the `errors` list. The response returns an HTTP status code of `200` even when some service jobs encountered errors, so check the `errors` list. Service jobs that can't be found are treated as successfully processed.
+ *
+ * > **Important:** This operation requires `batch:TerminateServiceJob` permission for each service job in the request. There is no separate `batch:TerminateServiceJobs` IAM action. If a caller's IAM policy grants `batch:TerminateServiceJob`, they can use both the singular `TerminateServiceJob` and bulk `TerminateServiceJobs` operations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,16 +67,16 @@ export interface TerminateServiceJobsCommandOutput extends TerminateServiceJobsR
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To terminate multiple service jobs
  * ```javascript

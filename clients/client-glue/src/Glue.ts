@@ -7760,8 +7760,10 @@ export interface Glue {
 }
 
 /**
- * <fullname>Glue</fullname>
- *          <p>Defines the public endpoint for the Glue service.</p>
+ * Glue
+ *
+ * Defines the public endpoint for the Glue service.
+ *
  * @public
  */
 export class Glue extends GlueClient implements Glue {}

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ServiceDiscoveryServiceException as __BaseException } from "./ServiceDiscoveryServiceException";
 
 /**
- * <p>The operation is already in progress.</p>
+ * The operation is already in progress.
+ *
  * @public
  */
 export class DuplicateRequest extends __BaseException {
@@ -13,7 +14,8 @@ export class DuplicateRequest extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The ID of the operation that's already in progress.</p>
+   * The ID of the operation that's already in progress.
+   *
    * @public
    */
   DuplicateOperationId?: string | undefined;
@@ -33,9 +35,8 @@ export class DuplicateRequest extends __BaseException {
 }
 
 /**
- * <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
+ *
  * @public
  */
 export class InvalidInput extends __BaseException {
@@ -58,7 +59,8 @@ export class InvalidInput extends __BaseException {
 }
 
 /**
- * <p>The namespace that you're trying to create already exists.</p>
+ * The namespace that you're trying to create already exists.
+ *
  * @public
  */
 export class NamespaceAlreadyExists extends __BaseException {
@@ -67,13 +69,15 @@ export class NamespaceAlreadyExists extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The <code>CreatorRequestId</code> that was used to create the namespace.</p>
+   * The `CreatorRequestId` that was used to create the namespace.
+   *
    * @public
    */
   CreatorRequestId?: string | undefined;
 
   /**
-   * <p>The ID of the existing namespace.</p>
+   * The ID of the existing namespace.
+   *
    * @public
    */
   NamespaceId?: string | undefined;
@@ -94,8 +98,8 @@ export class NamespaceAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The resource can't be created because you've reached the quota on the number of
- *    resources.</p>
+ * The resource can't be created because you've reached the quota on the number of resources.
+ *
  * @public
  */
 export class ResourceLimitExceeded extends __BaseException {
@@ -118,8 +122,8 @@ export class ResourceLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
- *    applied to a resource is 50.</p>
+ * The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -128,7 +132,8 @@ export class TooManyTagsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   ResourceName?: string | undefined;
@@ -148,7 +153,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>No namespace exists with the specified ID.</p>
+ * No namespace exists with the specified ID.
+ *
  * @public
  */
 export class NamespaceNotFound extends __BaseException {
@@ -171,7 +177,8 @@ export class NamespaceNotFound extends __BaseException {
 }
 
 /**
- * <p>The service can't be created because a service with the same name already exists.</p>
+ * The service can't be created because a service with the same name already exists.
+ *
  * @public
  */
 export class ServiceAlreadyExists extends __BaseException {
@@ -180,19 +187,22 @@ export class ServiceAlreadyExists extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The <code>CreatorRequestId</code> that was used to create the service.</p>
+   * The `CreatorRequestId` that was used to create the service.
+   *
    * @public
    */
   CreatorRequestId?: string | undefined;
 
   /**
-   * <p>The ID of the existing service.</p>
+   * The ID of the existing service.
+   *
    * @public
    */
   ServiceId?: string | undefined;
 
   /**
-   * <p>The ARN of the existing service.</p>
+   * The ARN of the existing service.
+   *
    * @public
    */
   ServiceArn?: string | undefined;
@@ -214,8 +224,8 @@ export class ServiceAlreadyExists extends __BaseException {
 }
 
 /**
- * <p>The health check for the instance that's specified by <code>ServiceId</code> and
- *     <code>InstanceId</code> isn't a custom health check. </p>
+ * The health check for the instance that's specified by `ServiceId` and `InstanceId` isn't a custom health check.
+ *
  * @public
  */
 export class CustomHealthNotFound extends __BaseException {
@@ -238,8 +248,8 @@ export class CustomHealthNotFound extends __BaseException {
 }
 
 /**
- * <p>The specified resource can't be deleted because it contains other resources. For example,
- *    you can't delete a service that contains any instances.</p>
+ * The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that contains any instances.
+ *
  * @public
  */
 export class ResourceInUse extends __BaseException {
@@ -262,7 +272,8 @@ export class ResourceInUse extends __BaseException {
 }
 
 /**
- * <p>No service exists with the specified ID.</p>
+ * No service exists with the specified ID.
+ *
  * @public
  */
 export class ServiceNotFound extends __BaseException {
@@ -285,8 +296,8 @@ export class ServiceNotFound extends __BaseException {
 }
 
 /**
- * <p>No instance exists with the specified ID, or the instance was recently registered, and
- *    information about the instance hasn't propagated yet.</p>
+ * No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.
+ *
  * @public
  */
 export class InstanceNotFound extends __BaseException {
@@ -309,9 +320,8 @@ export class InstanceNotFound extends __BaseException {
 }
 
 /**
- * <p>The operation can't be completed because you've reached the quota for the number of
- *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
+ * The operation can't be completed because you've reached the quota for the number of requests. For more information, see [Cloud Map API request throttling quota](https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html) in the *Cloud Map Developer Guide*.
+ *
  * @public
  */
 export class RequestLimitExceeded extends __BaseException {
@@ -334,7 +344,8 @@ export class RequestLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>No operation exists with the specified ID.</p>
+ * No operation exists with the specified ID.
+ *
  * @public
  */
 export class OperationNotFound extends __BaseException {
@@ -357,7 +368,8 @@ export class OperationNotFound extends __BaseException {
 }
 
 /**
- * <p>The operation can't be completed because the resource was not found.</p>
+ * The operation can't be completed because the resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -380,8 +392,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The attribute can't be added to the service because you've exceeded the quota for the number
- *    of attributes you can add to a service.</p>
+ * The attribute can't be added to the service because you've exceeded the quota for the number of attributes you can add to a service.
+ *
  * @public
  */
 export class ServiceAttributesLimitExceededException extends __BaseException {

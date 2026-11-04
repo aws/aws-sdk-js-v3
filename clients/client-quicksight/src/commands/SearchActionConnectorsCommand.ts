@@ -23,7 +23,8 @@ export interface SearchActionConnectorsCommandInput extends SearchActionConnecto
 export interface SearchActionConnectorsCommandOutput extends SearchActionConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for action connectors in the specified Amazon Web Services account using filters. You can search by connector name, type, or user permissions.</p>
+ * Searches for action connectors in the specified Amazon Web Services account using filters. You can search by connector name, type, or user permissions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,23 +77,24 @@ export interface SearchActionConnectorsCommandOutput extends SearchActionConnect
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access to this item. The provided credentials couldn't be
- * 			validated. You might not be authorized to carry out the request. Make sure that your
- * 			account is authorized to use the Amazon Quick Sight service, that your policies have the
- * 			correct permissions, and that you are using the correct credentials.</p>
+ *
+ * You don't have access to this item. The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service, that your policies have the correct permissions, and that you are using the correct credentials.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The <code>NextToken</code> value isn't valid.</p>
+ *
+ * The `NextToken` value isn't valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more parameters has a value that isn't valid.</p>
+ *
+ * One or more parameters has a value that isn't valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Access is throttled.</p>
+ *
+ * Access is throttled.
  *
  * @throws {@link QuickSightServiceException}
- * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ * Base exception class for all service exceptions from QuickSight service.
  *
  * @public
  */

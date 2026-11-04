@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { RedshiftServerlessServiceException as __BaseException } from "./RedshiftServerlessServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The submitted action has conflicts.</p>
+ * The submitted action has conflicts.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -48,7 +50,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -70,7 +73,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found.</p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -78,7 +82,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource that could not be found.</p>
+   * The name of the resource that could not be found.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -98,7 +103,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service limit was exceeded.</p>
+ * The service limit was exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -119,7 +125,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded the number of tags allowed for a resource.</p>
+ * The request exceeded the number of tags allowed for a resource.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -127,7 +134,8 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The name of the resource that exceeded the number of tags allowed for a resource.</p>
+   * The name of the resource that exceeded the number of tags allowed for a resource.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -147,7 +155,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -168,7 +177,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -192,7 +202,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>There is an insufficient capacity to perform the action.</p>
+ * There is an insufficient capacity to perform the action.
+ *
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -214,7 +225,8 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
- * <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ * There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
+ *
  * @public
  */
 export class Ipv6CidrBlockNotFoundException extends __BaseException {
@@ -235,7 +247,8 @@ export class Ipv6CidrBlockNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the request was successful, but dry run was enabled so no action was taken.</p>
+ * This exception is thrown when the request was successful, but dry run was enabled so no action was taken.
+ *
  * @public
  */
 export class DryRunException extends __BaseException {
@@ -256,7 +269,8 @@ export class DryRunException extends __BaseException {
 }
 
 /**
- * <p>The provided pagination token is invalid.</p>
+ * The provided pagination token is invalid.
+ *
  * @public
  */
 export class InvalidPaginationException extends __BaseException {

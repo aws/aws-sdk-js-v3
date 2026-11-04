@@ -23,7 +23,8 @@ export interface GetChannelCommandInput extends GetChannelRequest {}
 export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
+ * Gets the channel configuration for the specified channel ARN. See also BatchGetChannel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +78,20 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *
+ * Request references a resource which does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IvsServiceException}
- * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ * Base exception class for all service exceptions from Ivs service.
  *
  * @public
  */

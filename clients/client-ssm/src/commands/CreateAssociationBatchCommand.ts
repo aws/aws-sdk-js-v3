@@ -23,13 +23,12 @@ export interface CreateAssociationBatchCommandInput extends CreateAssociationBat
 export interface CreateAssociationBatchCommandOutput extends CreateAssociationBatchResult, __MetadataBearer {}
 
 /**
- * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
- *    or targets.</p>
- *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
- *    Agent (SSM Agent) running on the managed node processes the document and configures the node as
- *    specified.</p>
- *          <p>If you associate a document with a managed node that already has an associated document, the
- *    system returns the AssociationAlreadyExists exception.</p>
+ * Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes or targets.
+ *
+ * When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager Agent (SSM Agent) running on the managed node processes the document and configures the node as specified.
+ *
+ * If you associate a document with a managed node that already has an associated document, the system returns the AssociationAlreadyExists exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -331,64 +330,61 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AssociationLimitExceeded} (client fault)
- *  <p>You can have at most 2,000 active associations.</p>
+ *
+ * You can have at most 2,000 active associations.
  *
  * @throws {@link DuplicateInstanceId} (client fault)
- *  <p>You can't specify a managed node ID in more than one association.</p>
+ *
+ * You can't specify a managed node ID in more than one association.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link InvalidInstanceId} (client fault)
- *  <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
  *
  * @throws {@link InvalidOutputLocation} (client fault)
- *  <p>The output location isn't valid or doesn't exist.</p>
+ *
+ * The output location isn't valid or doesn't exist.
  *
  * @throws {@link InvalidParameters} (client fault)
- *  <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
- *    document). You can only supply values to parameters defined in the SSM document.</p>
+ *
+ * You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.
  *
  * @throws {@link InvalidSchedule} (client fault)
- *  <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+ *
+ * The schedule is invalid. Verify your cron or rate expression and try again.
  *
  * @throws {@link InvalidTarget} (client fault)
- *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
- *    not have permission to perform the operation.</p>
+ *
+ * The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.
  *
  * @throws {@link InvalidTargetMaps} (client fault)
- *  <p>TargetMap parameter isn't valid.</p>
+ *
+ * TargetMap parameter isn't valid.
  *
  * @throws {@link UnsupportedPlatformType} (client fault)
- *  <p>The document doesn't support the platform type of the given managed node IDs. For example,
- *    you sent an document for a Windows managed node to a Linux node.</p>
+ *
+ * The document doesn't support the platform type of the given managed node IDs. For example, you sent an document for a Windows managed node to a Linux node.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

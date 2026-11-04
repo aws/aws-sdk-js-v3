@@ -23,14 +23,10 @@ export interface ListTapePoolsCommandInput extends ListTapePoolsInput {}
 export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
- *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
- *          the operation lists all custom tape pools.</p>
- *          <p>This operation supports pagination. You can optionally specify the <code>Limit</code>
- *          parameter in the body to limit the number of tape pools in the response. If the number of
- *          tape pools returned in the response is truncated, the response includes a
- *             <code>Marker</code> element that you can use in your subsequent request to retrieve the
- *          next set of tape pools.</p>
+ * Lists custom tape pools. You specify custom tape pools to list by specifying one or more custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN, the operation lists all custom tape pools.
+ *
+ * This operation supports pagination. You can optionally specify the `Limit` parameter in the body to limit the number of tape pools in the response. If the number of tape pools returned in the response is truncated, the response includes a `Marker` element that you can use in your subsequent request to retrieve the next set of tape pools.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,16 +67,16 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

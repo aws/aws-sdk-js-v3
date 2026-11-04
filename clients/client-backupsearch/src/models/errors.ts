@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BackupSearchServiceException as __BaseException } from "./BackupSearchServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when a conflict with a previous successful operation is detected. This generally occurs when the previous operation did not have time to propagate to the host serving the current request.</p> <p>A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+ * This exception occurs when a conflict with a previous successful operation is detected. This generally occurs when the previous operation did not have time to propagate to the host serving the current request.
+ *
+ * A retry (with appropriate backoff logic) is the recommended response to this exception.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -60,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Retry your request.</p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +76,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>Retry the call after number of seconds.</p>
+   * Retry the call after number of seconds.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -89,7 +97,10 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource was not found for this request.</p> <p>Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.</p>
+ * The resource was not found for this request.
+ *
+ * Confirm the resource information, such as the ARN or type is correct and exists, then retry the request.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -97,13 +108,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Hypothetical identifier of the resource affected.</p>
+   * Hypothetical identifier of the resource affected.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Hypothetical type of the resource affected.</p>
+   * Hypothetical type of the resource affected.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -124,7 +137,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -135,19 +149,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>This is the code unique to the originating service.</p>
+   * This is the code unique to the originating service.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>This is the code unique to the originating service with the quota.</p>
+   * This is the code unique to the originating service with the quota.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>Retry the call after number of seconds.</p>
+   * Retry the call after number of seconds.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -169,7 +186,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by a service.</p>
+ * The input fails to satisfy the constraints specified by a service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -190,7 +208,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request denied due to exceeding the quota limits permitted.</p>
+ * The request denied due to exceeding the quota limits permitted.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -198,25 +217,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Identifier of the resource.</p>
+   * Identifier of the resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>Type of resource.</p>
+   * Type of resource.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>This is the code unique to the originating service with the quota.</p>
+   * This is the code unique to the originating service with the quota.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>This is the code specific to the quota type.</p>
+   * This is the code specific to the quota type.
+   *
    * @public
    */
   quotaCode: string | undefined;

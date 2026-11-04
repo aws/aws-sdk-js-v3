@@ -23,8 +23,8 @@ export interface DescribeConnectorEntityCommandInput extends DescribeConnectorEn
 export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorEntityResponse, __MetadataBearer {}
 
 /**
- * <p> Provides details regarding the entity used with the connector, with a description of the
- *       data model for each field in that entity. </p>
+ * Provides details regarding the entity used with the connector, with a description of the data model for each field in that entity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,25 +103,28 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  * @throws {@link ConnectorAuthenticationException} (client fault)
- *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * An error occurred when authenticating with the connector endpoint.
  *
  * @throws {@link ConnectorServerException} (client fault)
- *  <p> An error occurred when retrieving data from the connector endpoint. </p>
+ *
+ * An error occurred when retrieving data from the connector endpoint.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *       later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource specified in the request (such as the source or destination connector
- *       profile) is not found. </p>
+ *
+ * The resource specified in the request (such as the source or destination connector profile) is not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AppflowServiceException}
- * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ * Base exception class for all service exceptions from Appflow service.
  *
  * @public
  */

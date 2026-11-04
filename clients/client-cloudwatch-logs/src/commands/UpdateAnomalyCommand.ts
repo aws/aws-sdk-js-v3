@@ -23,16 +23,12 @@ export interface UpdateAnomalyCommandInput extends UpdateAnomalyRequest {}
 export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Use this operation to <i>suppress</i> anomaly detection for a specified
- *       anomaly or pattern. If you suppress an anomaly, CloudWatch Logs won't report new
- *       occurrences of that anomaly and won't update that anomaly with new data. If you suppress a
- *       pattern, CloudWatch Logs won't report any anomalies related to that pattern.</p>
- *          <p>You must specify either <code>anomalyId</code> or <code>patternId</code>, but you can't
- *       specify both parameters in the same operation.</p>
- *          <p>If you have previously used this operation to suppress detection of a pattern or anomaly,
- *       you can use it again to cause CloudWatch Logs to end the suppression. To do this, use this
- *       operation and specify the anomaly or pattern to stop suppressing, and omit the
- *         <code>suppressionType</code> and <code>suppressionPeriod</code> parameters.</p>
+ * Use this operation to *suppress* anomaly detection for a specified anomaly or pattern. If you suppress an anomaly, CloudWatch Logs won't report new occurrences of that anomaly and won't update that anomaly with new data. If you suppress a pattern, CloudWatch Logs won't report any anomalies related to that pattern.
+ *
+ * You must specify either `anomalyId` or `patternId`, but you can't specify both parameters in the same operation.
+ *
+ * If you have previously used this operation to suppress detection of a pattern or anomaly, you can use it again to cause CloudWatch Logs to end the suppression. To do this, use this operation and specify the anomaly or pattern to stop suppressing, and omit the `suppressionType` and `suppressionPeriod` parameters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,20 +61,24 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

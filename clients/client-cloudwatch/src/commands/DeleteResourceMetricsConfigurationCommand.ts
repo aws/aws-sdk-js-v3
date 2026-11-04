@@ -26,17 +26,12 @@ export interface DeleteResourceMetricsConfigurationCommandInput extends DeleteRe
 export interface DeleteResourceMetricsConfigurationCommandOutput extends DeleteResourceMetricsConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the resource metrics configuration for an Amazon Web Services resource. After
- *             you delete the configuration, Amazon CloudWatch stops collecting detailed metrics
- *             for the resource. Metric data that Amazon CloudWatch already collected for the
- *             resource is not deleted.</p>
- *          <p>This operation returns a <code>ResourceNotFoundException</code> if no resource metrics
- *             configuration exists for the specified resource ARN. Verify that the resource ARN is
- *             correct.</p>
- *          <p>To delete a resource metrics configuration, you must have the
- *                 <code>cloudwatch:DeleteResourceMetricsConfiguration</code> permission. For information about scoping
- *             this permission to specific resources, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html">Condition keys for resource metrics configuration access</a> in the
- *                 <i>Amazon CloudWatch User Guide</i>.</p>
+ * Deletes the resource metrics configuration for an Amazon Web Services resource. After you delete the configuration, Amazon CloudWatch stops collecting detailed metrics for the resource. Metric data that Amazon CloudWatch already collected for the resource is not deleted.
+ *
+ * This operation returns a `ResourceNotFoundException` if no resource metrics configuration exists for the specified resource ARN. Verify that the resource ARN is correct.
+ *
+ * To delete a resource metrics configuration, you must have the `cloudwatch:DeleteResourceMetricsConfiguration` permission. For information about scoping this permission to specific resources, see [Condition keys for resource metrics configuration access](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html) in the *Amazon CloudWatch User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,11 +56,12 @@ export interface DeleteResourceMetricsConfigurationCommandOutput extends DeleteR
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

@@ -23,43 +23,25 @@ export interface StartAssessmentFrameworkShareCommandInput extends StartAssessme
 export interface StartAssessmentFrameworkShareCommandOutput extends StartAssessmentFrameworkShareResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a share request for a custom framework in Audit Manager. </p>
- *          <p>The share request specifies a recipient and notifies them that a custom framework is
- *          available. Recipients have 120 days to accept or decline the request. If no action is
- *          taken, the share request expires.</p>
- *          <p>When you create a share request, Audit Manager stores a snapshot of your custom
- *          framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also
- *          stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.</p>
- *          <p>Audit Manager deletes the snapshot and the backup snapshot when one of the following
- *          events occurs:</p>
- *          <ul>
- *             <li>
- *                <p>The sender revokes the share request.</p>
- *             </li>
- *             <li>
- *                <p>The recipient declines the share request.</p>
- *             </li>
- *             <li>
- *                <p>The recipient encounters an error and doesn't successfully accept the share
- *                request.</p>
- *             </li>
- *             <li>
- *                <p>The share request expires before the recipient responds to the request.</p>
- *             </li>
- *          </ul>
- *          <p>When a sender <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend">resends a share request</a>, the snapshot is replaced with an updated version that
- *          corresponds with the latest version of the custom framework. </p>
- *          <p>When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share
- *          request. </p>
- *          <important>
- *             <p>When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about to
- *             share a custom framework with another Amazon Web Services account. You may not share a
- *             custom framework that is derived from a standard framework if the standard framework is
- *             designated as not eligible for sharing by Amazon Web Services, unless you have obtained
- *             permission to do so from the owner of the standard framework. To learn more about which
- *             standard frameworks are eligible for sharing, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility">Framework sharing eligibility</a> in the <i>Audit Manager User
- *                Guide</i>.</p>
- *          </important>
+ * Creates a share request for a custom framework in Audit Manager.
+ *
+ * The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires.
+ *
+ * When you create a share request, Audit Manager stores a snapshot of your custom framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.
+ *
+ * Audit Manager deletes the snapshot and the backup snapshot when one of the following events occurs:
+ *
+ * - The sender revokes the share request.
+ * - The recipient declines the share request.
+ * - The recipient encounters an error and doesn't successfully accept the share request.
+ * - The share request expires before the recipient responds to the request.
+ *
+ * When a sender [resends a share request](https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend), the snapshot is replaced with an updated version that corresponds with the latest version of the custom framework.
+ *
+ * When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share request.
+ *
+ * > **Important:** When you invoke the `StartAssessmentFrameworkShare` API, you are about to share a custom framework with another Amazon Web Services account. You may not share a custom framework that is derived from a standard framework if the standard framework is designated as not eligible for sharing by Amazon Web Services, unless you have obtained permission to do so from the owner of the standard framework. To learn more about which standard frameworks are eligible for sharing, see [Framework sharing eligibility](https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility) in the *Audit Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,22 +87,24 @@ export interface StartAssessmentFrameworkShareCommandOutput extends StartAssessm
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * The resource that's specified in the request can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

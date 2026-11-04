@@ -23,11 +23,10 @@ export interface RegisterDefaultPatchBaselineCommandInput extends RegisterDefaul
 export interface RegisterDefaultPatchBaselineCommandOutput extends RegisterDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
- * <p>Defines the default patch baseline for the relevant operating system.</p>
- *          <p>To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline
- *    Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify
- *     <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed</code> instead of
- *     <code>pb-0574b43a65ea646ed</code>.</p>
+ * Defines the default patch baseline for the relevant operating system.
+ *
+ * To reset the Amazon Web Services-predefined patch baseline as the default, specify the full patch baseline Amazon Resource Name (ARN) as the baseline ID value. For example, for CentOS, specify `arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed` instead of `pb-0574b43a65ea646ed`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +53,22 @@ export interface RegisterDefaultPatchBaselineCommandOutput extends RegisterDefau
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DoesNotExistException} (client fault)
- *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
- *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.
+ *
+ * For information about resource quotas in Amazon Web Services Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidResourceId} (client fault)
- *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

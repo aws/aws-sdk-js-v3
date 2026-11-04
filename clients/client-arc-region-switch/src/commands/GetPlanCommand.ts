@@ -23,7 +23,8 @@ export interface GetPlanCommandInput extends GetPlanRequest {}
 export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves detailed information about a Region switch plan. You must specify the ARN of the plan.</p>
+ * Retrieves detailed information about a Region switch plan. You must specify the ARN of the plan.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -613,11 +614,14 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
  * @see {@link ARCRegionSwitchClientResolvedConfig | config} for ARCRegionSwitchClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p> <p>HTTP Status Code: 404</p>
+ *
+ * The specified resource was not found.
+ *
+ * HTTP Status Code: 404
  *
  * @throws {@link ARCRegionSwitchServiceException}
- * <p>Base exception class for all service exceptions from ARCRegionSwitch service.</p>
  *
+ * Base exception class for all service exceptions from ARCRegionSwitch service.
  *
  * @public
  */

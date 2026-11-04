@@ -23,24 +23,15 @@ export interface ListQueueEmailAddressesCommandInput extends ListQueueEmailAddre
 export interface ListQueueEmailAddressesCommandOutput extends ListQueueEmailAddressesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all email addresses that are currently associated with a specific queue, providing details about which "From" email addresses agents can select when handling email contacts. This helps administrators manage agent email address options and understand the available choices for different brands and business units.</p>
- *          <p>
- *             <b>Important things to know</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>The response includes metadata about each email address available for agent selection, including whether it's configured as the default outbound email.</p>
- *             </li>
- *             <li>
- *                <p>Agents can select from these email addresses when replying to inbound contacts or initiating outbound contacts in this queue.</p>
- *             </li>
- *             <li>
- *                <p>The list includes both explicitly associated email addresses and any default outbound email address configured for the queue.</p>
- *             </li>
- *             <li>
- *                <p>Results are paginated to handle queues with many associated email addresses (up to 50 per queue).</p>
- *             </li>
- *          </ul>
+ * Lists all email addresses that are currently associated with a specific queue, providing details about which "From" email addresses agents can select when handling email contacts. This helps administrators manage agent email address options and understand the available choices for different brands and business units.
+ *
+ * **Important things to know**
+ *
+ * - The response includes metadata about each email address available for agent selection, including whether it's configured as the default outbound email.
+ * - Agents can select from these email addresses when replying to inbound contacts or initiating outbound contacts in this queue.
+ * - The list includes both explicitly associated email addresses and any default outbound email address configured for the queue.
+ * - Results are paginated to handle queues with many associated email addresses (up to 50 per queue).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +70,32 @@ export interface ListQueueEmailAddressesCommandOutput extends ListQueueEmailAddr
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

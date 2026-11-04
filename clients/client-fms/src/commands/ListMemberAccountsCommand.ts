@@ -23,9 +23,10 @@ export interface ListMemberAccountsCommandInput extends ListMemberAccountsReques
 export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the
- *       administrator's Amazon Web Services organization.</p>
- *          <p>Either an Firewall Manager administrator or the organization's management account can make this request.</p>
+ * Returns a `MemberAccounts` object that lists the member accounts in the administrator's Amazon Web Services organization.
+ *
+ * Either an Firewall Manager administrator or the organization's management account can make this request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,15 +57,16 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

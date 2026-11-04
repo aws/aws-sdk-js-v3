@@ -23,7 +23,8 @@ export interface DisassociateBudgetFromResourceCommandInput extends Disassociate
 export interface DisassociateBudgetFromResourceCommandOutput extends DisassociateBudgetFromResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Disassociates the specified budget from the specified resource.</p>
+ * Disassociates the specified budget from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,11 +50,12 @@ export interface DisassociateBudgetFromResourceCommandOutput extends Disassociat
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

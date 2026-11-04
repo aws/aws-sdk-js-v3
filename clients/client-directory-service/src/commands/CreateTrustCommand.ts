@@ -23,13 +23,10 @@ export interface CreateTrustCommandInput extends CreateTrustRequest {}
 export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataBearer {}
 
 /**
- * <p>Directory Service for Microsoft Active Directory allows you to configure trust relationships. For
- *       example, you can establish a trust between your Managed Microsoft AD directory, and your existing
- *       self-managed Microsoft Active Directory. This would allow you to provide users and groups
- *       access to resources in either domain, with a single set of credentials.</p>
- *          <p>This action initiates the creation of the Amazon Web Services side of a trust relationship between an
- *       Managed Microsoft AD directory and an external domain. You can create either a forest trust or an
- *       external trust.</p>
+ * Directory Service for Microsoft Active Directory allows you to configure trust relationships. For example, you can establish a trust between your Managed Microsoft AD directory, and your existing self-managed Microsoft Active Directory. This would allow you to provide users and groups access to resources in either domain, with a single set of credentials.
+ *
+ * This action initiates the creation of the Amazon Web Services side of a trust relationship between an Managed Microsoft AD directory and an external domain. You can create either a forest trust or an external trust.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,26 +64,32 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
- *  <p>The specified entity already exists.</p>
+ *
+ * The specified entity already exists.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To create a trust
  * ```javascript

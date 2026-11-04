@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ComprehendMedicalServiceException as __BaseException } from "./ComprehendMedicalServiceException";
 
 /**
- * <p> An internal server error occurred. Retry your request. </p>
+ * An internal server error occurred. Retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -27,8 +28,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request.</p>
+ * The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -51,8 +52,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
- *       the ARN and try your request again.</p>
+ * The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -75,9 +76,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again. Contact customer support for more information about a service
- *       limit increase. </p>
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -100,8 +100,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
- *       request.</p>
+ * The input text was not in valid UTF-8 character encoding. Check your text then retry your request.
+ *
  * @public
  */
 export class InvalidEncodingException extends __BaseException {
@@ -124,8 +124,8 @@ export class InvalidEncodingException extends __BaseException {
 }
 
 /**
- * <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
- *     </p>
+ * The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -148,8 +148,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
- *       use a smaller document and then retry your request. </p>
+ * The size of the text you submitted exceeds the size limit. Reduce the size of the text or use a smaller document and then retry your request.
+ *
  * @public
  */
 export class TextSizeLimitExceededException extends __BaseException {
@@ -172,8 +172,8 @@ export class TextSizeLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The filter that you specified for the operation is invalid. Check the filter values that
- *       you entered and try your request again.</p>
+ * The filter that you specified for the operation is invalid. Check the filter values that you entered and try your request again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

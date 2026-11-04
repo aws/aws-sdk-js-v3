@@ -23,7 +23,8 @@ export interface ListMembershipsCommandInput extends ListMembershipsInput {}
 export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all memberships resources within the caller's account.</p>
+ * Lists all memberships resources within the caller's account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,20 +94,24 @@ export interface ListMembershipsCommandOutput extends ListMembershipsOutput, __M
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Caller does not have sufficient access to perform this action.</p>
+ *
+ * Caller does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
+ *
+ * Request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CleanRoomsServiceException}
- * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ * Base exception class for all service exceptions from CleanRooms service.
  *
  * @public
  */

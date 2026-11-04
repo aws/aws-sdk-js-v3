@@ -23,12 +23,14 @@ export interface CreateTrafficMirrorTargetCommandInput extends CreateTrafficMirr
 export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMirrorTargetResult, __MetadataBearer {}
 
 /**
- * <p>Creates a target for your Traffic Mirror session.</p>
- *          <p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and
- *          the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in
- *          different VPCs connected via VPC peering or a transit gateway.</p>
- *          <p>A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.</p>
- *          <p>To use the target in a Traffic Mirror session, use  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
+ * Creates a target for your Traffic Mirror session.
+ *
+ * A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.
+ *
+ * A Traffic Mirror target can be a network interface, a Network Load Balancer, or a Gateway Load Balancer endpoint.
+ *
+ * To use the target in a Traffic Mirror session, use [CreateTrafficMirrorSession](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,8 +88,8 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

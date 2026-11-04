@@ -23,9 +23,8 @@ export interface DescribeVpcPeeringConnectionsCommandInput extends DescribeVpcPe
 export interface DescribeVpcPeeringConnectionsCommandOutput extends DescribeVpcPeeringConnectionsResult, __MetadataBearer {}
 
 /**
- * <p>Describes your VPC peering connections. The default is to describe all your VPC peering connections.
- *           Alternatively, you can specify specific VPC peering connection IDs or filter the results to
- *           include only the VPC peering connections that match specific criteria.</p>
+ * Describes your VPC peering connections. The default is to describe all your VPC peering connections. Alternatively, you can specify specific VPC peering connection IDs or filter the results to include only the VPC peering connections that match specific criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,8 +122,8 @@ export interface DescribeVpcPeeringConnectionsCommandOutput extends DescribeVpcP
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

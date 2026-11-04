@@ -23,38 +23,21 @@ export interface CreateMembersCommandInput extends CreateMembersRequest {}
 export interface CreateMembersCommandOutput extends CreateMembersResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>CreateMembers</code> is used to send invitations to accounts. For the organization
- *          behavior graph, the Detective administrator account uses
- *          <code>CreateMembers</code> to enable organization accounts as member accounts.</p>
- *          <p>For invited accounts, <code>CreateMembers</code> sends a request to invite the specified
- *          Amazon Web Services accounts to be member accounts in the behavior graph. This operation
- *          can only be called by the administrator account for a behavior graph. </p>
- *          <p>
- *             <code>CreateMembers</code> verifies the accounts and then invites the verified accounts.
- *          The administrator can optionally specify to not send invitation emails to the member
- *          accounts. This would be used when the administrator manages their member accounts
- *          centrally.</p>
- *          <p>For organization accounts in the organization behavior graph, <code>CreateMembers</code>
- *          attempts to enable the accounts. The organization accounts do not receive
- *          invitations.</p>
- *          <p>The request provides the behavior graph ARN and the list of accounts to invite or to
- *          enable.</p>
- *          <p>The response separates the requested accounts into two lists:</p>
- *          <ul>
- *             <li>
- *                <p>The accounts that <code>CreateMembers</code> was able to process. For invited
- *                accounts, includes member accounts that are being verified, that have passed
- *                verification and are to be invited, and that have failed verification. For
- *                organization accounts in the organization behavior graph, includes accounts that can
- *                be enabled and that cannot be enabled.</p>
- *             </li>
- *             <li>
- *                <p>The accounts that <code>CreateMembers</code> was unable to process. This list
- *                includes accounts that were already invited to be member accounts in the behavior
- *                graph.</p>
- *             </li>
- *          </ul>
+ * `CreateMembers` is used to send invitations to accounts. For the organization behavior graph, the Detective administrator account uses `CreateMembers` to enable organization accounts as member accounts.
+ *
+ * For invited accounts, `CreateMembers` sends a request to invite the specified Amazon Web Services accounts to be member accounts in the behavior graph. This operation can only be called by the administrator account for a behavior graph.
+ *
+ * `CreateMembers` verifies the accounts and then invites the verified accounts. The administrator can optionally specify to not send invitation emails to the member accounts. This would be used when the administrator manages their member accounts centrally.
+ *
+ * For organization accounts in the organization behavior graph, `CreateMembers` attempts to enable the accounts. The organization accounts do not receive invitations.
+ *
+ * The request provides the behavior graph ARN and the list of accounts to invite or to enable.
+ *
+ * The response separates the requested accounts into two lists:
+ *
+ * - The accounts that `CreateMembers` was able to process. For invited accounts, includes member accounts that are being verified, that have passed verification and are to be invited, and that have failed verification. For organization accounts in the organization behavior graph, includes accounts that can be enabled and that cannot be enabled.
+ * - The accounts that `CreateMembers` was unable to process. This list includes accounts that were already invited to be member accounts in the behavior graph.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,34 +104,31 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * The request refers to a nonexistent resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request cannot be completed for one of the following reasons.</p>
- *          <ul>
- *             <li>
- *                <p>This request cannot be completed if it would cause the number of member accounts in the
- *             behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200
- *             member accounts.</p>
- *             </li>
- *             <li>
- *                <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p>
- *             </li>
- *          </ul>
+ *
+ * This request cannot be completed for one of the following reasons.
+ *
+ * - This request cannot be completed if it would cause the number of member accounts in the behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200 member accounts.
+ * - This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

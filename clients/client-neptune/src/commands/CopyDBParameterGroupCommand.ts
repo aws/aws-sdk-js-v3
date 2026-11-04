@@ -23,7 +23,8 @@ export interface CopyDBParameterGroupCommandInput extends CopyDBParameterGroupMe
 export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupResult, __MetadataBearer {}
 
 /**
- * <p>Copies the specified DB parameter group.</p>
+ * Copies the specified DB parameter group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,19 +64,20 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
- *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * A DB parameter group with the same name exists.
  *
  * @throws {@link DBParameterGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBParameterGroupName</i> does not refer to an
- *       existing DB parameter group.</p>
+ *
+ * *DBParameterGroupName* does not refer to an existing DB parameter group.
  *
  * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
- *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ *
+ * Request would result in user exceeding the allowed number of DB parameter groups.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

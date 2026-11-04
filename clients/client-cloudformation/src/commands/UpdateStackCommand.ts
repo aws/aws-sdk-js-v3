@@ -23,13 +23,12 @@ export interface UpdateStackCommandInput extends UpdateStackInput {}
 export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a stack as specified in the template. After the call completes successfully, the
- *       stack update starts. You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
- *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a> action.</p>
- *          <p>For more information about updating a stack and monitoring the progress of the update, see
- *         <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Managing
- *         Amazon Web Services resources as a single unit with CloudFormation stacks</a> in the
- *         <i>CloudFormation User Guide</i>.</p>
+ * Updates a stack as specified in the template. After the call completes successfully, the stack update starts. You can check the status of the stack through the DescribeStacks action.
+ *
+ * To get a copy of the template for an existing stack, you can use the GetTemplate action.
+ *
+ * For more information about updating a stack and monitoring the progress of the update, see [Managing Amazon Web Services resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *CloudFormation User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,14 +104,16 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link InsufficientCapabilitiesException} (client fault)
- *  <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+ *
+ * The template contains resources with capabilities that weren't specified in the Capabilities parameter.
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
- *  <p>A client request token already exists.</p>
+ *
+ * A client request token already exists.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

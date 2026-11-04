@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DLMServiceException as __BaseException } from "./DLMServiceException";
 
 /**
- * <p>The service failed in an unexpected way.</p>
+ * The service failed in an unexpected way.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -29,8 +30,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Bad request. The request is missing required parameters or has invalid
- * 			parameters.</p>
+ * Bad request. The request is missing required parameters or has invalid parameters.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -40,13 +41,15 @@ export class InvalidRequestException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>The request omitted one or more required parameters.</p>
+   * The request omitted one or more required parameters.
+   *
    * @public
    */
   RequiredParameters?: string[] | undefined;
 
   /**
-   * <p>The request included parameters that cannot be provided together.</p>
+   * The request included parameters that cannot be provided together.
+   *
    * @public
    */
   MutuallyExclusiveParameters?: string[] | undefined;
@@ -68,7 +71,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The request failed because a limit was exceeded.</p>
+ * The request failed because a limit was exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -78,7 +82,8 @@ export class LimitExceededException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>Value is the type of resource for which a limit was exceeded.</p>
+   * Value is the type of resource for which a limit was exceeded.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -99,7 +104,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A requested resource was not found.</p>
+ * A requested resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,13 +115,15 @@ export class ResourceNotFoundException extends __BaseException {
   Message?: string | undefined;
   Code?: string | undefined;
   /**
-   * <p>Value is the type of resource that was not found.</p>
+   * Value is the type of resource that was not found.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>Value is a list of resource IDs that were not found.</p>
+   * Value is a list of resource IDs that were not found.
+   *
    * @public
    */
   ResourceIds?: string[] | undefined;

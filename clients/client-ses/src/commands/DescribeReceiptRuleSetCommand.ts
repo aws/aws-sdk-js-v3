@@ -23,10 +23,12 @@ export interface DescribeReceiptRuleSetCommandInput extends DescribeReceiptRuleS
 export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of the specified receipt rule set.</p>
- *          <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Returns the details of the specified receipt rule set.
+ *
+ * For information about managing receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,11 +112,12 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link RuleSetDoesNotExistException} (client fault)
- *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ * Indicates that the provided receipt rule set does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example DescribeReceiptRuleSet
  * ```javascript

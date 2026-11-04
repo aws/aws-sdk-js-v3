@@ -23,7 +23,8 @@ export interface DescribeLiveSourceCommandInput extends DescribeLiveSourceReques
 export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceResponse, __MetadataBearer {}
 
 /**
- * <p>The live source to describe.</p>
+ * The live source to describe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +66,8 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

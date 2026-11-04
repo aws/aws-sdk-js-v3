@@ -23,10 +23,10 @@ export interface ListOrganizationPortfolioAccessCommandInput extends ListOrganiz
 export interface ListOrganizationPortfolioAccessCommandOutput extends ListOrganizationPortfolioAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the organization nodes that have access to the specified portfolio. This API can
- *          only be called by the management account in the organization or by a delegated
- *          admin.</p>
- *          <p>If a delegated admin is de-registered, they can no longer perform this operation.</p>
+ * Lists the organization nodes that have access to the specified portfolio. This API can only be called by the management account in the organization or by a delegated admin.
+ *
+ * If a delegated admin is de-registered, they can no longer perform this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +63,20 @@ export interface ListOrganizationPortfolioAccessCommandOutput extends ListOrgani
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

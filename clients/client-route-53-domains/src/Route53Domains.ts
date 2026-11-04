@@ -887,8 +887,8 @@ export interface Route53Domains {
 }
 
 /**
- * <p>Amazon Route 53 API actions let you register domain names and perform related
- * 			operations.</p>
+ * Amazon Route 53 API actions let you register domain names and perform related operations.
+ *
  * @public
  */
 export class Route53Domains extends Route53DomainsClient implements Route53Domains {}

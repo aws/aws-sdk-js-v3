@@ -23,102 +23,44 @@ export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLi
 export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketLifecycleConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the lifecycle configuration information set on the bucket. For information about lifecycle
- *       configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>.</p>
- *          <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an object key name
- *       prefix, one or more object tags, object size, or any combination of these. Accordingly, this section
- *       describes the latest API, which is compatible with the new functionality. The previous version of the
- *       API supported filtering based only on an object key name prefix, which is supported for general purpose
- *       buckets for backward compatibility. For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>.</p>
- *          <note>
- *             <p>Lifecyle configurations for directory buckets only support expiring objects and cancelling
- *         multipart uploads. Expiring of versioned objects, transitions and tag filters are not
- *         supported.</p>
- *          </note>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>General purpose bucket permissions</b> - By default, all Amazon S3
- *                 resources are private, including buckets, objects, and related subresources (for example,
- *                 lifecycle configuration and website configuration). Only the resource owner (that is, the
- *                 Amazon Web Services account that created it) can access the resource. The resource owner can optionally
- *                 grant access permissions to others by writing an access policy. For this operation, a user
- *                 must have the <code>s3:GetLifecycleConfiguration</code> permission.</p>
- *                      <p>For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your
- *                   Amazon S3 Resources</a>.</p>
- *                   </li>
- *                </ul>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>Directory bucket permissions</b> - You must have the
- *                   <code>s3express:GetLifecycleConfiguration</code> permission in an IAM identity-based policy
- *                 to use this operation. Cross-account access to this API operation isn't supported. The
- *                 resource owner can optionally grant access permissions to others by creating a role or user
- *                 for them as long as they are within the same account as the owner and resource.</p>
- *                      <p>For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Authorizing Regional endpoint APIs with IAM</a> in the <i>Amazon S3 User
- *                   Guide</i>.</p>
- *                      <note>
- *                         <p>
- *                            <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
- *                            </code>. Virtual-hosted-style requests aren't supported.
- * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
- *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
- *     <i>Amazon S3 User Guide</i>.</p>
- *                      </note>
- *                   </li>
- *                </ul>
- *             </dd>
- *             <dt>HTTP Host header syntax</dt>
- *             <dd>
- *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is
- *                 <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
- *             </dd>
- *          </dl>
- *          <p>
- *             <code>GetBucketLifecycleConfiguration</code> has the following special error:</p>
- *          <ul>
- *             <li>
- *                <p>Error code: <code>NoSuchLifecycleConfiguration</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: The lifecycle configuration does not exist.</p>
- *                   </li>
- *                   <li>
- *                      <p>HTTP Status Code: 404 Not Found</p>
- *                   </li>
- *                   <li>
- *                      <p>SOAP Fault Code Prefix: Client</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p>The following operations are related to <code>GetBucketLifecycleConfiguration</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * Returns the lifecycle configuration information set on the bucket. For information about lifecycle configuration, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html).
+ *
+ * Bucket lifecycle configuration now supports specifying a lifecycle rule using an object key name prefix, one or more object tags, object size, or any combination of these. Accordingly, this section describes the latest API, which is compatible with the new functionality. The previous version of the API supported filtering based only on an object key name prefix, which is supported for general purpose buckets for backward compatibility. For the related API description, see [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html).
+ *
+ * > **Note:** Lifecyle configurations for directory buckets only support expiring objects and cancelling multipart uploads. Expiring of versioned objects, transitions and tag filters are not supported.
+ *
+ * - **Permissions**
+ *
+ *   - **General purpose bucket permissions** - By default, all Amazon S3 resources are private, including buckets, objects, and related subresources (for example, lifecycle configuration and website configuration). Only the resource owner (that is, the Amazon Web Services account that created it) can access the resource. The resource owner can optionally grant access permissions to others by writing an access policy. For this operation, a user must have the `s3:GetLifecycleConfiguration` permission.
+ *
+ *     For more information about permissions, see [Managing Access Permissions to Your Amazon S3 Resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html).
+ *
+ *   - **Directory bucket permissions** - You must have the `s3express:GetLifecycleConfiguration` permission in an IAM identity-based policy to use this operation. Cross-account access to this API operation isn't supported. The resource owner can optionally grant access permissions to others by creating a role or user for them as long as they are within the same account as the owner and resource.
+ *
+ *     For more information about directory bucket policies and permissions, see [Authorizing Regional endpoint APIs with IAM](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html) in the *Amazon S3 User Guide*.
+ *
+ *     > **Note:** **Directory buckets** - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format `https://s3express-control.region-code.amazonaws.com/bucket-name`. Virtual-hosted-style requests aren't supported. For more information about endpoints in Availability Zones, see [Regional and Zonal endpoints for directory buckets in Availability Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html) in the *Amazon S3 User Guide*. For more information about endpoints in Local Zones, see [Concepts for directory buckets in Local Zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html) in the *Amazon S3 User Guide*.
+ *
+ * - **HTTP Host header syntax**
+ *
+ *   **Directory buckets** - The HTTP Host header syntax is `s3express-control.region.amazonaws.com`.
+ *
+ * `GetBucketLifecycleConfiguration` has the following special error:
+ *
+ * - Error code: `NoSuchLifecycleConfiguration`
+ *
+ *   - Description: The lifecycle configuration does not exist.
+ *   - HTTP Status Code: 404 Not Found
+ *   - SOAP Fault Code Prefix: Client
+ *
+ * The following operations are related to `GetBucketLifecycleConfiguration`:
+ *
+ * - [GetBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html)
+ * - [PutBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html)
+ * - [DeleteBucketLifecycle](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -199,8 +141,8 @@ export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketL
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To get lifecycle configuration on a bucket
  * ```javascript

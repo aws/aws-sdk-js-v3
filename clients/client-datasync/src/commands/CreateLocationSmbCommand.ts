@@ -23,11 +23,10 @@ export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest 
 export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for a Server Message Block (SMB) file
- *       server. DataSync can use this location as a source or destination for
- *       transferring data.</p>
- *          <p>Before you begin, make sure that you understand how DataSync accesses SMB
- *       file servers. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">Providing DataSync access to SMB file servers</a>.</p>
+ * Creates a transfer *location* for a Server Message Block (SMB) file server. DataSync can use this location as a source or destination for transferring data.
+ *
+ * Before you begin, make sure that you understand how DataSync accesses SMB file servers. For more information, see [Providing DataSync access to SMB file servers](https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,15 +84,16 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

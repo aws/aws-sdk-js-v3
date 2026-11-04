@@ -23,8 +23,8 @@ export interface ImportSourceCredentialsCommandInput extends ImportSourceCredent
 export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**
- * <p> Imports the source repository credentials for an CodeBuild project that has its
- *             source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository. </p>
+ * Imports the source repository credentials for an CodeBuild project that has its source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,18 +55,20 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link AccountLimitExceededException} (client fault)
- *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same
- *             settings already exists.</p>
+ *
+ * The specified Amazon Web Services resource cannot be created, because an Amazon Web Services resource with the same settings already exists.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

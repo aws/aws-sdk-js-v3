@@ -23,8 +23,8 @@ export interface ListVerifiedEmailAddressesCommandInput {}
 export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEmailAddressesResponse, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
- *             and domains associated with your account.</p>
+ * Deprecated. Use the `ListIdentities` operation to list the email addresses and domains associated with your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +51,8 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example ListVerifiedEmailAddresses
  * ```javascript

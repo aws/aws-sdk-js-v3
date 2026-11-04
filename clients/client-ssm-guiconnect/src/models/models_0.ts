@@ -1,47 +1,55 @@
 // smithy-typescript generated code
 /**
- * <p>The S3 bucket where RDP connection recordings are stored.</p>
+ * The S3 bucket where RDP connection recordings are stored.
+ *
  * @public
  */
 export interface S3Bucket {
   /**
-   * <p>The Amazon Web Services account number that owns the S3 bucket.</p>
+   * The Amazon Web Services account number that owns the S3 bucket.
+   *
    * @public
    */
   BucketOwner: string | undefined;
 
   /**
-   * <p>The name of the S3 bucket where RDP connection recordings are stored.</p>
+   * The name of the S3 bucket where RDP connection recordings are stored.
+   *
    * @public
    */
   BucketName: string | undefined;
 }
 
 /**
- * <p>Determines where recordings of RDP connections are stored.</p>
+ * Determines where recordings of RDP connections are stored.
+ *
  * @public
  */
 export interface RecordingDestinations {
   /**
-   * <p>The S3 bucket where RDP connection recordings are stored.</p>
+   * The S3 bucket where RDP connection recordings are stored.
+   *
    * @public
    */
   S3Buckets: S3Bucket[] | undefined;
 }
 
 /**
- * <p>The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.</p>
+ * The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.
+ *
  * @public
  */
 export interface ConnectionRecordingPreferences {
   /**
-   * <p>Determines where recordings of RDP connections are stored.</p>
+   * Determines where recordings of RDP connections are stored.
+   *
    * @public
    */
   RecordingDestinations: RecordingDestinations | undefined;
 
   /**
-   * <p>The ARN of a KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same Amazon Web Services Region as the node you start an RDP connection to.</p>
+   * The ARN of a KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same Amazon Web Services Region as the node you start an RDP connection to.
+   *
    * @public
    */
   KMSKeyArn: string | undefined;
@@ -52,7 +60,8 @@ export interface ConnectionRecordingPreferences {
  */
 export interface DeleteConnectionRecordingPreferencesRequest {
   /**
-   * <p>User-provided idempotency token.</p>
+   * User-provided idempotency token.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -63,7 +72,8 @@ export interface DeleteConnectionRecordingPreferencesRequest {
  */
 export interface DeleteConnectionRecordingPreferencesResponse {
   /**
-   * <p>Service-provided idempotency token.</p>
+   * Service-provided idempotency token.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -74,13 +84,15 @@ export interface DeleteConnectionRecordingPreferencesResponse {
  */
 export interface GetConnectionRecordingPreferencesResponse {
   /**
-   * <p>Service-provided idempotency token.</p>
+   * Service-provided idempotency token.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.</p>
+   * The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.
+   *
    * @public
    */
   ConnectionRecordingPreferences?: ConnectionRecordingPreferences | undefined;
@@ -91,13 +103,15 @@ export interface GetConnectionRecordingPreferencesResponse {
  */
 export interface UpdateConnectionRecordingPreferencesRequest {
   /**
-   * <p>The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.</p>
+   * The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.
+   *
    * @public
    */
   ConnectionRecordingPreferences: ConnectionRecordingPreferences | undefined;
 
   /**
-   * <p>User-provided idempotency token.</p>
+   * User-provided idempotency token.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -108,13 +122,15 @@ export interface UpdateConnectionRecordingPreferencesRequest {
  */
 export interface UpdateConnectionRecordingPreferencesResponse {
   /**
-   * <p>Service-provided idempotency token.</p>
+   * Service-provided idempotency token.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.</p>
+   * The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.
+   *
    * @public
    */
   ConnectionRecordingPreferences?: ConnectionRecordingPreferences | undefined;

@@ -23,29 +23,26 @@ export interface PutConfigurationAggregatorCommandInput extends PutConfiguration
 export interface PutConfigurationAggregatorCommandOutput extends PutConfigurationAggregatorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and updates the configuration aggregator with the
- * 			selected source accounts and regions. The source account can be
- * 			individual account(s) or an organization.</p>
- *          <p>
- *             <code>accountIds</code> that are passed will be replaced with existing accounts.
- * 			If you want to add additional accounts into the aggregator, call <code>DescribeConfigurationAggregators</code> to get the previous accounts and then append new ones.</p>
- *          <note>
- *             <p>Config should be enabled in source accounts and regions
- * 				you want to aggregate.</p>
- *             <p>If your source type is an organization, you must be signed in to the management account or a registered delegated administrator and all the features must be enabled in your organization.
- * 				If the caller is a management account, Config calls <code>EnableAwsServiceAccess</code> API to enable integration between Config and Organizations.
- * 				If the caller is a registered delegated administrator, Config calls <code>ListDelegatedAdministrators</code> API to verify whether the caller is a valid delegated administrator.</p>
- *             <p>To register a delegated administrator, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli">Register a Delegated Administrator</a> in the <i>Config developer guide</i>. </p>
- *          </note>
- *          <note>
- *             <p>
- *                <b>Tags are added at creation and cannot be updated with this operation</b>
- *             </p>
- *             <p>
- *                <code>PutConfigurationAggregator</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
- * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
- *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
- *          </note>
+ * Creates and updates the configuration aggregator with the selected source accounts and regions. The source account can be individual account(s) or an organization.
+ *
+ * `accountIds` that are passed will be replaced with existing accounts. If you want to add additional accounts into the aggregator, call `DescribeConfigurationAggregators` to get the previous accounts and then append new ones.
+ *
+ * > **Note:**
+ * >
+ * > Config should be enabled in source accounts and regions you want to aggregate.
+ * >
+ * > If your source type is an organization, you must be signed in to the management account or a registered delegated administrator and all the features must be enabled in your organization. If the caller is a management account, Config calls `EnableAwsServiceAccess` API to enable integration between Config and Organizations. If the caller is a registered delegated administrator, Config calls `ListDelegatedAdministrators` API to verify whether the caller is a valid delegated administrator.
+ * >
+ * > To register a delegated administrator, see [Register a Delegated Administrator](https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli) in the *Config developer guide*.
+ *
+ * > **Note:**
+ * >
+ * > **Tags are added at creation and cannot be updated with this operation**
+ * >
+ * > `PutConfigurationAggregator` is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different `tags` values, Config will ignore these differences and treat it as an idempotent request of the previous. In this case, `tags` will not be updated, even if they are different.
+ * >
+ * > Use [TagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html) and [UntagResource](https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html) to update tags after creation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,52 +145,43 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
+ *
+ * You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception
- * 			is thrown if the number of service-linked roles in the account exceeds the limit.</p>
- *          <p>For <code>StartConfigRulesEvaluation</code> API, this exception
- * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
- * 			minute.</p>
- *          <p>For <code>PutConfigurationAggregator</code> API, this exception
- * 			is thrown if the number of accounts and aggregators exceeds the
- * 			limit.</p>
+ *
+ * For `PutServiceLinkedConfigurationRecorder` API, this exception is thrown if the number of service-linked roles in the account exceeds the limit.
+ *
+ * For `StartConfigRulesEvaluation` API, this exception is thrown if an evaluation is in progress or if you call the StartConfigRulesEvaluation API more than once per minute.
+ *
+ * For `PutConfigurationAggregator` API, this exception is thrown if the number of accounts and aggregators exceeds the limit.
  *
  * @throws {@link NoAvailableOrganizationException} (client fault)
- *  <p>Organization is no longer available.</p>
+ *
+ * Organization is no longer available.
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
- *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
- *             </li>
- *             <li>
- *                <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed.
- * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
- *             </li>
- *             <li>
- *                <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization.
- * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
- *             </li>
- *             <li>
- *                <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API.
- * 			Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p>
- *             </li>
- *          </ul>
- *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *
+ * For `PutConfigurationAggregator` API, you can see this exception for the following reasons:
+ *
+ * - No permission to call `EnableAWSServiceAccess` API
+ * - The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed. Delete this aggregator and create a new one with the current Amazon Web Services Organization.
+ * - The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization. Delete this aggregator and create a new one with the current Amazon Web Services Organization.
+ * - You are not a registered delegated administrator for Config with permissions to call `ListDelegatedAdministrators` API. Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.
+ *
+ * For all `OrganizationConfigRule` and `OrganizationConformancePack` APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.
  *
  * @throws {@link OrganizationAllFeaturesNotEnabledException} (client fault)
- *  <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+ *
+ * Config resource cannot be created because your organization does not have all features enabled.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

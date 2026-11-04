@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for a support permit resource.</p>
+ * Adds or overwrites one or more tags for a support permit resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link SupportAuthZClientResolvedConfig | config} for SupportAuthZClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this operation.</p>
+ *
+ * You don't have sufficient permissions to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Try again later.</p>
+ *
+ * An internal service error occurred. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeded the allowed limit. Try again later.</p>
+ *
+ * The request rate exceeded the allowed limit. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link SupportAuthZServiceException}
- * <p>Base exception class for all service exceptions from SupportAuthZ service.</p>
  *
+ * Base exception class for all service exceptions from SupportAuthZ service.
  *
  * @public
  */

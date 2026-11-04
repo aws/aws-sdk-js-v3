@@ -26,7 +26,12 @@ export interface GetTableRecordExpirationJobStatusCommandInput extends GetTableR
 export interface GetTableRecordExpirationJobStatusCommandOutput extends GetTableRecordExpirationJobStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the status, metrics, and details of the latest record expiration job for a table. This includes when the job ran, and whether it succeeded or failed. If the job ran successfully, this also includes statistics about the records that were removed.</p> <dl> <dt>Permissions</dt> <dd> <p>You must have the <code>s3tables:GetTableRecordExpirationJobStatus</code> permission to use this operation.</p> </dd> </dl>
+ * Retrieves the status, metrics, and details of the latest record expiration job for a table. This includes when the job ran, and whether it succeeded or failed. If the job ran successfully, this also includes statistics about the records that were removed.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3tables:GetTableRecordExpirationJobStatus` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,26 +65,32 @@ export interface GetTableRecordExpirationJobStatusCommandOutput extends GetTable
  * @see {@link S3TablesClientResolvedConfig | config} for S3TablesClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is invalid or malformed.</p>
+ *
+ * The request is invalid or malformed.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * The caller isn't authorized to make the request.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The requested operation is not allowed on this resource. This may occur when attempting to modify a resource that is managed by a service or has restrictions that prevent the operation.</p>
+ *
+ * The requested operation is not allowed on this resource. This may occur when attempting to modify a resource that is managed by a service or has restrictions that prevent the operation.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource could not be found.</p>
+ *
+ * The request was rejected because the specified resource could not be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link S3TablesServiceException}
- * <p>Base exception class for all service exceptions from S3Tables service.</p>
  *
+ * Base exception class for all service exceptions from S3Tables service.
  *
  * @public
  */

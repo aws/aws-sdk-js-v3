@@ -23,7 +23,8 @@ export interface ListAppMonitorsCommandInput extends ListAppMonitorsRequest {}
 export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the Amazon CloudWatch RUM app monitors in the account.</p>
+ * Returns a list of the Amazon CloudWatch RUM app monitors in the account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,20 +62,24 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

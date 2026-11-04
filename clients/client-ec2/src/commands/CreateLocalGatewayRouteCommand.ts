@@ -23,20 +23,11 @@ export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayR
 export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
- * <p>Creates a static route for the specified local gateway route table. You must specify one of the
- *          following targets: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>LocalGatewayVirtualInterfaceGroupId</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>NetworkInterfaceId</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates a static route for the specified local gateway route table. You must specify one of the following targets:
+ *
+ * - `LocalGatewayVirtualInterfaceGroupId`
+ * - `NetworkInterfaceId`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +71,8 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

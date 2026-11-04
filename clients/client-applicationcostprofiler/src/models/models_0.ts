@@ -6,7 +6,8 @@ import type { Format, ReportFrequency, S3BucketRegion } from "./enums";
  */
 export interface DeleteReportDefinitionRequest {
   /**
-   * <p>Required. ID of the report to delete.</p>
+   * Required. ID of the report to delete.
+   *
    * @public
    */
   reportId: string | undefined;
@@ -17,7 +18,8 @@ export interface DeleteReportDefinitionRequest {
  */
 export interface DeleteReportDefinitionResult {
   /**
-   * <p>ID of the report that was deleted.</p>
+   * ID of the report that was deleted.
+   *
    * @public
    */
   reportId?: string | undefined;
@@ -28,26 +30,29 @@ export interface DeleteReportDefinitionResult {
  */
 export interface GetReportDefinitionRequest {
   /**
-   * <p>ID of the report to retrieve.</p>
+   * ID of the report to retrieve.
+   *
    * @public
    */
   reportId: string | undefined;
 }
 
 /**
- * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where AWS Application Cost Profiler
- *       reports are generated and then written to.</p>
+ * Represents the Amazon Simple Storage Service (Amazon S3) location where AWS Application Cost Profiler reports are generated and then written to.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p>Name of the S3 bucket.</p>
+   * Name of the S3 bucket.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>Prefix for the location to write to.</p>
+   * Prefix for the location to write to.
+   *
    * @public
    */
   prefix: string | undefined;
@@ -58,70 +63,78 @@ export interface S3Location {
  */
 export interface GetReportDefinitionResult {
   /**
-   * <p>ID of the report retrieved.</p>
+   * ID of the report retrieved.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Description of the report.</p>
+   * Description of the report.
+   *
    * @public
    */
   reportDescription: string | undefined;
 
   /**
-   * <p>Cadence used to generate the report.</p>
+   * Cadence used to generate the report.
+   *
    * @public
    */
   reportFrequency: ReportFrequency | undefined;
 
   /**
-   * <p>Format of the generated report.</p>
+   * Format of the generated report.
+   *
    * @public
    */
   format: Format | undefined;
 
   /**
-   * <p>Amazon Simple Storage Service (Amazon S3) location where the report is uploaded.</p>
+   * Amazon Simple Storage Service (Amazon S3) location where the report is uploaded.
+   *
    * @public
    */
   destinationS3Location: S3Location | undefined;
 
   /**
-   * <p>Timestamp (milliseconds) when this report definition was created.</p>
+   * Timestamp (milliseconds) when this report definition was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
+   * Timestamp (milliseconds) when this report definition was last updated.
+   *
    * @public
    */
   lastUpdated: Date | undefined;
 }
 
 /**
- * <p>Represents the Amazon Simple Storage Service (Amazon S3) location where usage data is read
- *       from.</p>
+ * Represents the Amazon Simple Storage Service (Amazon S3) location where usage data is read from.
+ *
  * @public
  */
 export interface SourceS3Location {
   /**
-   * <p>Name of the bucket.</p>
+   * Name of the bucket.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>Key of the object.</p>
+   * Key of the object.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>Region of the bucket. Only required for Regions that are disabled by default.
-   *         For more infomration about Regions that are disabled by default, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">
-   *           Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>
+   * Region of the bucket. Only required for Regions that are disabled by default. For more infomration about Regions that are disabled by default, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *AWS General Reference guide*.
+   *
    * @public
    */
   region?: S3BucketRegion | undefined;
@@ -132,7 +145,8 @@ export interface SourceS3Location {
  */
 export interface ImportApplicationUsageRequest {
   /**
-   * <p>Amazon S3 location to import application usage data from.</p>
+   * Amazon S3 location to import application usage data from.
+   *
    * @public
    */
   sourceS3Location: SourceS3Location | undefined;
@@ -143,7 +157,8 @@ export interface ImportApplicationUsageRequest {
  */
 export interface ImportApplicationUsageResult {
   /**
-   * <p>ID of the import request.</p>
+   * ID of the import request.
+   *
    * @public
    */
   importId: string | undefined;
@@ -154,61 +169,71 @@ export interface ImportApplicationUsageResult {
  */
 export interface ListReportDefinitionsRequest {
   /**
-   * <p>The token value from a previous call to access the next page of results.</p>
+   * The token value from a previous call to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The configuration of a report in AWS Application Cost Profiler.</p>
+ * The configuration of a report in AWS Application Cost Profiler.
+ *
  * @public
  */
 export interface ReportDefinition {
   /**
-   * <p>The ID of the report.</p>
+   * The ID of the report.
+   *
    * @public
    */
   reportId?: string | undefined;
 
   /**
-   * <p>Description of the report</p>
+   * Description of the report
+   *
    * @public
    */
   reportDescription?: string | undefined;
 
   /**
-   * <p>The cadence at which the report is generated.</p>
+   * The cadence at which the report is generated.
+   *
    * @public
    */
   reportFrequency?: ReportFrequency | undefined;
 
   /**
-   * <p>The format used for the generated reports.</p>
+   * The format used for the generated reports.
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.</p>
+   * The location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.
+   *
    * @public
    */
   destinationS3Location?: S3Location | undefined;
 
   /**
-   * <p>Timestamp (milliseconds) when this report definition was created.</p>
+   * Timestamp (milliseconds) when this report definition was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
+   * Timestamp (milliseconds) when this report definition was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -219,13 +244,15 @@ export interface ReportDefinition {
  */
 export interface ListReportDefinitionsResult {
   /**
-   * <p>The retrieved reports.</p>
+   * The retrieved reports.
+   *
    * @public
    */
   reportDefinitions?: ReportDefinition[] | undefined;
 
   /**
-   * <p>The value of the next token, if it exists. Null if there are no more results.</p>
+   * The value of the next token, if it exists. Null if there are no more results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -236,33 +263,36 @@ export interface ListReportDefinitionsResult {
  */
 export interface PutReportDefinitionRequest {
   /**
-   * <p>Required. ID of the report. You can choose any valid string matching the pattern for the
-   *       ID.</p>
+   * Required. ID of the report. You can choose any valid string matching the pattern for the ID.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Required. Description of the report.</p>
+   * Required. Description of the report.
+   *
    * @public
    */
   reportDescription: string | undefined;
 
   /**
-   * <p>Required. The cadence to generate the report.</p>
+   * Required. The cadence to generate the report.
+   *
    * @public
    */
   reportFrequency: ReportFrequency | undefined;
 
   /**
-   * <p>Required. The format to use for the generated report.</p>
+   * Required. The format to use for the generated report.
+   *
    * @public
    */
   format: Format | undefined;
 
   /**
-   * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
-   *       report.</p>
+   * Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the report.
+   *
    * @public
    */
   destinationS3Location: S3Location | undefined;
@@ -273,7 +303,8 @@ export interface PutReportDefinitionRequest {
  */
 export interface PutReportDefinitionResult {
   /**
-   * <p>ID of the report.</p>
+   * ID of the report.
+   *
    * @public
    */
   reportId?: string | undefined;
@@ -284,32 +315,36 @@ export interface PutReportDefinitionResult {
  */
 export interface UpdateReportDefinitionRequest {
   /**
-   * <p>Required. ID of the report to update.</p>
+   * Required. ID of the report to update.
+   *
    * @public
    */
   reportId: string | undefined;
 
   /**
-   * <p>Required. Description of the report.</p>
+   * Required. Description of the report.
+   *
    * @public
    */
   reportDescription: string | undefined;
 
   /**
-   * <p>Required. The cadence to generate the report.</p>
+   * Required. The cadence to generate the report.
+   *
    * @public
    */
   reportFrequency: ReportFrequency | undefined;
 
   /**
-   * <p>Required. The format to use for the generated report.</p>
+   * Required. The format to use for the generated report.
+   *
    * @public
    */
   format: Format | undefined;
 
   /**
-   * <p>Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the
-   *       report.</p>
+   * Required. Amazon Simple Storage Service (Amazon S3) location where Application Cost Profiler uploads the report.
+   *
    * @public
    */
   destinationS3Location: S3Location | undefined;
@@ -320,7 +355,8 @@ export interface UpdateReportDefinitionRequest {
  */
 export interface UpdateReportDefinitionResult {
   /**
-   * <p>ID of the report.</p>
+   * ID of the report.
+   *
    * @public
    */
   reportId?: string | undefined;

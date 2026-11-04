@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
 
 /**
- * <p>The user is not authorized to access a resource.</p>
+ * The user is not authorized to access a resource.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The <code>TargetAccountId</code> is already linked or invited.</p>
+ * The `TargetAccountId` is already linked or invited.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Unexpected server error occured.</p>
+ * Unexpected server error occured.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found.</p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -75,7 +79,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that could not be found.</p>
+   * The ID of the resource that could not be found.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -95,8 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You either haven't provided a <code>TargetAccountId</code> or
- *          are using the same value for <code>TargetAccountId</code> and <code>SourceAccountId</code>.</p>
+ * You either haven't provided a `TargetAccountId` or are using the same value for `TargetAccountId` and `SourceAccountId`.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -117,7 +122,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified application is not supported.</p>
+ * The specified application is not supported.
+ *
  * @public
  */
 export class ApplicationNotSupportedException extends __BaseException {
@@ -138,7 +144,8 @@ export class ApplicationNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>One or more parameter values are not valid.</p>
+ * One or more parameter values are not valid.
+ *
  * @public
  */
 export class InvalidParameterValuesException extends __BaseException {
@@ -159,7 +166,8 @@ export class InvalidParameterValuesException extends __BaseException {
 }
 
 /**
- * <p>The state of the resource is not valid for this operation.</p>
+ * The state of the resource is not valid for this operation.
+ *
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
@@ -180,7 +188,8 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
- * <p>This operation is not supported.</p>
+ * This operation is not supported.
+ *
  * @public
  */
 export class OperationNotSupportedException extends __BaseException {
@@ -188,7 +197,8 @@ export class OperationNotSupportedException extends __BaseException {
   readonly name = "OperationNotSupportedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception error reason.</p>
+   * The exception error reason.
+   *
    * @public
    */
   reason?: string | undefined;
@@ -208,7 +218,8 @@ export class OperationNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The resource is associated with a directory.</p>
+ * The resource is associated with a directory.
+ *
  * @public
  */
 export class ResourceAssociatedException extends __BaseException {
@@ -229,7 +240,8 @@ export class ResourceAssociatedException extends __BaseException {
 }
 
 /**
- * <p>Your resource limits have been exceeded.</p>
+ * Your resource limits have been exceeded.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -250,7 +262,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The compute type of the WorkSpace is not compatible with the application.</p>
+ * The compute type of the WorkSpace is not compatible with the application.
+ *
  * @public
  */
 export class ComputeNotCompatibleException extends __BaseException {
@@ -271,7 +284,8 @@ export class ComputeNotCompatibleException extends __BaseException {
 }
 
 /**
- * <p>The specified application is not compatible with the resource.</p>
+ * The specified application is not compatible with the resource.
+ *
  * @public
  */
 export class IncompatibleApplicationsException extends __BaseException {
@@ -292,7 +306,8 @@ export class IncompatibleApplicationsException extends __BaseException {
 }
 
 /**
- * <p>The operating system of the WorkSpace is not compatible with the application.</p>
+ * The operating system of the WorkSpace is not compatible with the application.
+ *
  * @public
  */
 export class OperatingSystemNotCompatibleException extends __BaseException {
@@ -313,7 +328,8 @@ export class OperatingSystemNotCompatibleException extends __BaseException {
 }
 
 /**
- * <p>The specified resource already exists.</p>
+ * The specified resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -334,7 +350,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is currently in use.</p>
+ * The specified resource is currently in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -342,7 +359,8 @@ export class ResourceInUseException extends __BaseException {
   readonly name = "ResourceInUseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource that is in use.</p>
+   * The ID of the resource that is in use.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -362,7 +380,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is not available.</p>
+ * The specified resource is not available.
+ *
  * @public
  */
 export class ResourceUnavailableException extends __BaseException {
@@ -370,7 +389,8 @@ export class ResourceUnavailableException extends __BaseException {
   readonly name = "ResourceUnavailableException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that is not available.</p>
+   * The identifier of the resource that is not available.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -390,7 +410,8 @@ export class ResourceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be created.</p>
+ * The resource could not be created.
+ *
  * @public
  */
 export class ResourceCreationFailedException extends __BaseException {
@@ -411,7 +432,8 @@ export class ResourceCreationFailedException extends __BaseException {
 }
 
 /**
- * <p>Two or more of the selected parameter values cannot be used together.</p>
+ * Two or more of the selected parameter values cannot be used together.
+ *
  * @public
  */
 export class InvalidParameterCombinationException extends __BaseException {
@@ -432,7 +454,8 @@ export class InvalidParameterCombinationException extends __BaseException {
 }
 
 /**
- * <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
+ * The properties of this WorkSpace are currently being modified. Try again in a moment.
+ *
  * @public
  */
 export class OperationInProgressException extends __BaseException {
@@ -453,9 +476,8 @@ export class OperationInProgressException extends __BaseException {
 }
 
 /**
- * <p>The configuration of this WorkSpace is not supported for this operation. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
- *             Configuration and Service Components for WorkSpaces </a>.</p>
+ * The configuration of this WorkSpace is not supported for this operation. For more information, see [Required Configuration and Service Components for WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html).
+ *
  * @public
  */
 export class UnsupportedWorkspaceConfigurationException extends __BaseException {
@@ -476,10 +498,8 @@ export class UnsupportedWorkspaceConfigurationException extends __BaseException 
 }
 
 /**
- * <p>The configuration of this network is not supported for this operation, or your network configuration
- *          conflicts with the Amazon WorkSpaces management network IP range. For more information, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
- *             Configure a VPC for Amazon WorkSpaces</a>.</p>
+ * The configuration of this network is not supported for this operation, or your network configuration conflicts with the Amazon WorkSpaces management network IP range. For more information, see [Configure a VPC for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html).
+ *
  * @public
  */
 export class UnsupportedNetworkConfigurationException extends __BaseException {
@@ -500,8 +520,8 @@ export class UnsupportedNetworkConfigurationException extends __BaseException {
 }
 
 /**
- * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
- *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
+ * The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see [Creating the workspaces_DefaultRole Role](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role).
+ *
  * @public
  */
 export class WorkspacesDefaultRoleNotFoundException extends __BaseException {

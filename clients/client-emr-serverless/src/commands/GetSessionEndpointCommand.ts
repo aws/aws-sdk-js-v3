@@ -23,7 +23,8 @@ export interface GetSessionEndpointCommandInput extends GetSessionEndpointReques
 export interface GetSessionEndpointCommandOutput extends GetSessionEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the session endpoint URL and a time-limited authentication token for the specified session. Use the endpoint and token to connect a client to the session. Call this operation again when the authentication token expires to obtain a new token.</p>
+ * Returns the session endpoint URL and a time-limited authentication token for the specified session. Use the endpoint and token to connect a client to the session. Call this operation again when the authentication token expires to obtain a new token.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,17 +56,20 @@ export interface GetSessionEndpointCommandOutput extends GetSessionEndpointRespo
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link EMRServerlessServiceException}
- * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
+ * Base exception class for all service exceptions from EMRServerless service.
  *
  * @public
  */

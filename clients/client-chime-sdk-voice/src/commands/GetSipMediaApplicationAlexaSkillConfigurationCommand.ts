@@ -26,11 +26,9 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationCommandInput exten
 export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput extends GetSipMediaApplicationAlexaSkillConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the Alexa Skill configuration for the SIP media application.</p>
- *          <important>
- *             <p>Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to
- *          the <a href="https://developer.amazon.com/en-US/alexa/alexasmartproperties">Alexa Smart Properties</a> page.</p>
- *          </important>
+ * Gets the Alexa Skill configuration for the SIP media application.
+ *
+ * > **Important:** Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the [Alexa Smart Properties](https://developer.amazon.com/en-US/alexa/alexasmartproperties) page.
  *
  * @deprecated Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the Alexa Smart Properties page(https://developer.amazon.com/en-US/alexa/alexasmartproperties).
  * @example
@@ -64,32 +62,40 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput exte
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link GoneException} (client fault)
- *  <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+ *
+ * Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource couldn't be found.</p>
+ *
+ * The requested resource couldn't be found.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * The client isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKVoiceServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKVoice service.
  *
  * @public
  */

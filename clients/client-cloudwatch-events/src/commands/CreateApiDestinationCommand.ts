@@ -23,8 +23,8 @@ export interface CreateApiDestinationCommandInput extends CreateApiDestinationRe
 export interface CreateApiDestinationCommandOutput extends CreateApiDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
- *       for events.</p>
+ * Creates an API destination, which is an HTTP invocation endpoint configured as a target for events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,21 +59,24 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
+ *
+ * The request failed because it attempted to create resource beyond the allowed service quota.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource you are trying to create already exists.</p>
+ *
+ * The resource you are trying to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

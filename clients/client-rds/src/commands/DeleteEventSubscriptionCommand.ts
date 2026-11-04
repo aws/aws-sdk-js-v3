@@ -23,7 +23,8 @@ export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscrip
 export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an RDS event notification subscription.</p>
+ * Deletes an RDS event notification subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link InvalidEventSubscriptionStateFault} (client fault)
- *  <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>
+ *
+ * This error can occur if someone else is modifying a subscription. You should retry the action.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The subscription name does not exist.</p>
+ *
+ * The subscription name does not exist.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To delete an event subscription
  * ```javascript

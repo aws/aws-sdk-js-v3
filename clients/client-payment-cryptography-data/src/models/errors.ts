@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { PaymentCryptographyDataServiceException as __BaseException } from "./PaymentCryptographyDataServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -52,7 +54,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to an invalid resource error.</p>
+ * The request was denied due to an invalid resource error.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -60,7 +63,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource that is missing.</p>
+   * The resource that is missing.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -79,7 +83,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -102,7 +107,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to an invalid request error.</p>
+ * The request was denied due to an invalid request error.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -110,7 +116,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The request was denied due to an invalid request error.</p>
+   * The request was denied due to an invalid request error.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -130,7 +137,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>This request failed verification.</p>
+ * This request failed verification.
+ *
  * @public
  */
 export class VerificationFailedException extends __BaseException {
@@ -138,7 +146,8 @@ export class VerificationFailedException extends __BaseException {
   readonly name = "VerificationFailedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason: VerificationFailedReason | undefined;

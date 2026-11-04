@@ -23,9 +23,8 @@ export interface UpdateSafetyLeverStateCommandInput extends UpdateSafetyLeverSta
 export interface UpdateSafetyLeverStateCommandOutput extends UpdateSafetyLeverStateResponse, __MetadataBearer {}
 
 /**
- * <p>
- *         Updates the specified safety lever state.
- *       </p>
+ * Updates the specified safety lever state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,17 +62,20 @@ export interface UpdateSafetyLeverStateCommandOutput extends UpdateSafetyLeverSt
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict.</p>
+ *
+ * The request could not be processed because of a conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

@@ -23,16 +23,12 @@ export interface CreateStorediSCSIVolumeCommandInput extends CreateStorediSCSIVo
 export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a volume on a specified gateway. This operation is only supported in the stored
- *          volume gateway type.</p>
- *          <p>The size of the volume to create is inferred from the disk size. You can choose to
- *          preserve existing data on the disk, create volume from an existing snapshot, or create an
- *          empty volume. If you choose to create an empty gateway volume, then any existing data on
- *          the disk is erased.</p>
- *          <p>In the request, you must specify the gateway and the disk information on which you are
- *          creating the volume. In response, the gateway creates the volume and returns volume
- *          information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target
- *          ARN that initiators can use to connect to the volume target.</p>
+ * Creates a volume on a specified gateway. This operation is only supported in the stored volume gateway type.
+ *
+ * The size of the volume to create is inferred from the disk size. You can choose to preserve existing data on the disk, create volume from an existing snapshot, or create an empty volume. If you choose to create an empty gateway volume, then any existing data on the disk is erased.
+ *
+ * In the request, you must specify the gateway and the disk information on which you are creating the volume. In response, the gateway creates the volume and returns volume information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target ARN that initiators can use to connect to the volume target.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,16 +70,16 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To create a stored iSCSI volume
  * ```javascript

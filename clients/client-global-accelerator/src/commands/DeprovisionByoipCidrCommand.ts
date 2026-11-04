@@ -23,13 +23,12 @@ export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRe
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResponse, __MetadataBearer {}
 
 /**
- * <p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources
- * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p>
- *          <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
- * 			any accelerators that are using static IP addresses allocated from its address range.
- * 		</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
- * 			your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+ * Releases the specified address range that you provisioned to use with your Amazon Web Services resources through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.
+ *
+ * Before you can release an address range, you must stop advertising it by using [WithdrawByoipCidr](https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html) and you must not have any accelerators that are using static IP addresses allocated from its address range.
+ *
+ * For more information, see [Bring your own IP addresses (BYOIP)](https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html) in the *Global Accelerator Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,24 +64,28 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have access permission.</p>
+ *
+ * You don't have access permission.
  *
  * @throws {@link ByoipCidrNotFoundException} (client fault)
- *  <p>The CIDR that you specified was not found or is incorrect.</p>
+ *
+ * The CIDR that you specified was not found or is incorrect.
  *
  * @throws {@link IncorrectCidrStateException} (client fault)
- *  <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
- * 		incorrect for this action.</p>
+ *
+ * The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

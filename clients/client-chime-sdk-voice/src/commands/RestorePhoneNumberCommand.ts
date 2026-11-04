@@ -23,7 +23,8 @@ export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberReques
 export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Restores a deleted phone number.</p>
+ * Restores a deleted phone number.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,32 +81,40 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource couldn't be found.</p>
+ *
+ * The requested resource couldn't be found.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * The client isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKVoiceServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKVoice service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteMlflowAppCommandInput extends DeleteMlflowAppRequest {}
 export interface DeleteMlflowAppCommandOutput extends DeleteMlflowAppResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an MLflow App.</p>
+ * Deletes an MLflow App.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,11 +51,12 @@ export interface DeleteMlflowAppCommandOutput extends DeleteMlflowAppResponse, _
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

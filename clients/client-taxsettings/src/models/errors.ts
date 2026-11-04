@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
 
 /**
- * <p>The access is denied for the Amazon Web Services Support API. </p>
+ * The access is denied for the Amazon Web Services Support API.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Failed to upload the tax exemption document to Amazon Web Services Support case. </p>
+ * Failed to upload the tax exemption document to Amazon Web Services Support case.
+ *
  * @public
  */
 export class AttachmentUploadException extends __BaseException {
@@ -48,7 +50,8 @@ export class AttachmentUploadException extends __BaseException {
 }
 
 /**
- * <p>The exception when the input is creating conflict with the given state.</p>
+ * The exception when the input is creating conflict with the given state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -56,7 +59,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>409</p>
+   * 409
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -76,7 +80,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ * The exception thrown when an unexpected error occurs when processing a request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -84,7 +89,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>500</p>
+   * 500
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -104,7 +110,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -112,13 +119,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>400</p>
+   * 400
+   *
    * @public
    */
   errorCode: ValidationExceptionErrorCode | undefined;
 
   /**
-   * <p>400</p>
+   * 400
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -139,7 +148,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ * The exception thrown when the input doesn't have a resource associated to it.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -147,7 +157,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>404</p>
+   * 404
+   *
    * @public
    */
   errorCode: string | undefined;
@@ -167,7 +178,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You've exceeded the Amazon Web Services Support case creation limit for your account. </p>
+ * You've exceeded the Amazon Web Services Support case creation limit for your account.
+ *
  * @public
  */
 export class CaseCreationLimitExceededException extends __BaseException {

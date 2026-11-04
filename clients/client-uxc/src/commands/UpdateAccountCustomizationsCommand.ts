@@ -23,7 +23,10 @@ export interface UpdateAccountCustomizationsCommandInput extends UpdateAccountCu
 export interface UpdateAccountCustomizationsCommandOutput extends UpdateAccountCustomizationsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates one or more account customization settings. You can update account color, visible services, and visible Regions in a single request. Only the settings that you include in the request body are modified. Omitted settings remain unchanged. To reset a setting to its default behavior, set the value to <code>null</code> for visible Regions and visible services, or <code>none</code> for account color. This operation is idempotent.</p> <note> <p>The <code>visibleServices</code> and <code>visibleRegions</code> settings control only the appearance of services and Regions in the Amazon Web Services Management Console. They do not restrict access through the CLI, SDKs, or other APIs.</p> </note>
+ * Updates one or more account customization settings. You can update account color, visible services, and visible Regions in a single request. Only the settings that you include in the request body are modified. Omitted settings remain unchanged. To reset a setting to its default behavior, set the value to `null` for visible Regions and visible services, or `none` for account color. This operation is idempotent.
+ *
+ * > **Note:** The `visibleServices` and `visibleRegions` settings control only the appearance of services and Regions in the Amazon Web Services Management Console. They do not restrict access through the CLI, SDKs, or other APIs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +65,24 @@ export interface UpdateAccountCustomizationsCommandOutput extends UpdateAccountC
  * @see {@link UxcClientResolvedConfig | config} for UxcClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required <code>uxc:</code> permissions for the operation that you are calling. For more information on IAM permissions, see <a href="https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html">Amazon Web Services managed policies for Amazon Web Services Management Console</a>.</p>
+ *
+ * You don't have sufficient access to perform this operation. Verify that your IAM policy includes the required `uxc:` permissions for the operation that you are calling. For more information on IAM permissions, see [Amazon Web Services managed policies for Amazon Web Services Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/security-iam-awsmanpol.html).
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an internal error. Try your request again later.</p>
+ *
+ * The service encountered an internal error. Try your request again later.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling. Reduce the frequency of your requests.</p>
+ *
+ * The request was denied because of request throttling. Reduce the frequency of your requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link UxcServiceException}
- * <p>Base exception class for all service exceptions from Uxc service.</p>
  *
+ * Base exception class for all service exceptions from Uxc service.
  *
  * @example Update account customizations
  * ```javascript

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { TimestreamQueryServiceException as __BaseException } from "./TimestreamQueryServiceException";
 
 /**
- * <p>You do not have the necessary permissions to access the account settings.</p>
+ * You do not have the necessary permissions to access the account settings.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred while processing the request.</p>
+ * An internal server error occurred while processing the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested endpoint is invalid.</p>
+ * The requested endpoint is invalid.
+ *
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
@@ -73,7 +76,8 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled due to excessive requests.</p>
+ * The request was throttled due to excessive requests.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -96,7 +100,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> Invalid or malformed request. </p>
+ * Invalid or malformed request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -119,7 +124,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p> Unable to poll results for a cancelled query. </p>
+ * Unable to poll results for a cancelled query.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -142,7 +148,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the service quota.</p>
+ * You have exceeded the service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -165,7 +172,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found.</p>
+ * The requested resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -174,7 +182,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The ARN of the scheduled query.</p>
+   * The ARN of the scheduled query.
+   *
    * @public
    */
   ScheduledQueryArn?: string | undefined;
@@ -194,8 +203,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *             Timestream was unable to run the query successfully. </p>
+ * Timestream was unable to run the query successfully.
+ *
  * @public
  */
 export class QueryExecutionException extends __BaseException {

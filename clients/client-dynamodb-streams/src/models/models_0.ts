@@ -2,491 +2,448 @@
 import type { KeyType, OperationType, ShardFilterType, ShardIteratorType, StreamStatus, StreamViewType } from "./enums";
 
 /**
- * <p>This optional field contains the filter
- *             definition for the <code>DescribeStream</code> API.</p>
+ * This optional field contains the filter definition for the `DescribeStream` API.
+ *
  * @public
  */
 export interface ShardFilter {
   /**
-   * <p>Contains the type of filter to be applied on the <code>DescribeStream</code> API.
-   *             Currently, the only value this parameter accepts is <code>CHILD_SHARDS</code>.</p>
+   * Contains the type of filter to be applied on the `DescribeStream` API. Currently, the only value this parameter accepts is `CHILD_SHARDS`.
+   *
    * @public
    */
   Type?: ShardFilterType | undefined;
 
   /**
-   * <p>Contains the <code>shardId</code> of the parent shard for which you are requesting child shards.</p>
-   *          <p>
-   *             <i>Sample request:</i>
-   *          </p>
+   * Contains the `shardId` of the parent shard for which you are requesting child shards.
+   *
+   * *Sample request:*
+   *
    * @public
    */
   ShardId?: string | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>DescribeStream</code> operation.</p>
+ * Represents the input of a `DescribeStream` operation.
+ *
  * @public
  */
 export interface DescribeStreamInput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * The Amazon Resource Name (ARN) for the stream.
+   *
    * @public
    */
   StreamArn: string | undefined;
 
   /**
-   * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
+   * The maximum number of shard objects to return. The upper limit is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
-   *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
+   * The shard ID of the first item that this operation will evaluate. Use the value that was returned for `LastEvaluatedShardId` in the previous operation.
+   *
    * @public
    */
   ExclusiveStartShardId?: string | undefined;
 
   /**
-   * <p>This optional field contains the filter definition for the
-   *             <code>DescribeStream</code> API.</p>
+   * This optional field contains the filter definition for the `DescribeStream` API.
+   *
    * @public
    */
   ShardFilter?: ShardFilter | undefined;
 }
 
 /**
- * <p>Represents <i>a single element</i> of a key schema. A key schema specifies
- *             the attributes that make up the primary key of a table, or the key attributes of an
- *             index.</p>
- *          <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For
- *             example, a simple primary key would be represented by one <code>KeySchemaElement</code>
- *             (for the partition key). A composite primary key would require one
- *                 <code>KeySchemaElement</code> for the partition key, and another
- *                 <code>KeySchemaElement</code> for the sort key.</p>
- *          <p>A <code>KeySchemaElement</code> must be a scalar, top-level attribute (not a nested
- *             attribute). The data type must be one of String, Number, or Binary. The attribute cannot
- *             be nested within a List or a Map.</p>
+ * Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+ *
+ * A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+ *
+ * A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+ *
  * @public
  */
 export interface KeySchemaElement {
   /**
-   * <p>The name of a key attribute.</p>
+   * The name of a key attribute.
+   *
    * @public
    */
   AttributeName: string | undefined;
 
   /**
-   * <p>The role that this key attribute will assume:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>HASH</code> - partition key</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RANGE</code> - sort key</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The partition key of an item is also known as its <i>hash
-   *                     attribute</i>. The term "hash attribute" derives from DynamoDB's usage of
-   *                 an internal hash function to evenly distribute data items across partitions, based
-   *                 on their partition key values.</p>
-   *             <p>The sort key of an item is also known as its <i>range
-   *                 attribute</i>. The term "range attribute" derives from the way DynamoDB
-   *                 stores items with the same partition key physically close together, in sorted order
-   *                 by the sort key value.</p>
-   *          </note>
+   * The role that this key attribute will assume:
+   *
+   * - `HASH` - partition key
+   * - `RANGE` - sort key
+   *
+   * > **Note:**
+   * >
+   * > The partition key of an item is also known as its *hash attribute*. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+   * >
+   * > The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
+   *
    * @public
    */
   KeyType: KeyType | undefined;
 }
 
 /**
- * <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
+ * The beginning and ending sequence numbers for the stream records contained within a shard.
+ *
  * @public
  */
 export interface SequenceNumberRange {
   /**
-   * <p>The first sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
+   * The first sequence number for the stream records contained within a shard. String contains numeric characters only.
+   *
    * @public
    */
   StartingSequenceNumber?: string | undefined;
 
   /**
-   * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
+   * The last sequence number for the stream records contained within a shard. String contains numeric characters only.
+   *
    * @public
    */
   EndingSequenceNumber?: string | undefined;
 }
 
 /**
- * <p>A uniquely identified group of stream records within a stream.</p>
+ * A uniquely identified group of stream records within a stream.
+ *
  * @public
  */
 export interface Shard {
   /**
-   * <p>The system-generated identifier for this shard.</p>
+   * The system-generated identifier for this shard.
+   *
    * @public
    */
   ShardId?: string | undefined;
 
   /**
-   * <p>The range of possible sequence numbers for the shard.</p>
+   * The range of possible sequence numbers for the shard.
+   *
    * @public
    */
   SequenceNumberRange?: SequenceNumberRange | undefined;
 
   /**
-   * <p>The shard ID of the current shard's parent.</p>
+   * The shard ID of the current shard's parent.
+   *
    * @public
    */
   ParentShardId?: string | undefined;
 }
 
 /**
- * <p>Represents all of the data describing a particular stream.</p>
+ * Represents all of the data describing a particular stream.
+ *
  * @public
  */
 export interface StreamDescription {
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * The Amazon Resource Name (ARN) for the stream.
+   *
    * @public
    */
   StreamArn?: string | undefined;
 
   /**
-   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
-   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
-   *       possible that a stream from another table might have the same timestamp. However, the
-   *       combination of the following three elements is guaranteed to be unique:</p>
-   *          <ul>
-   *             <li>
-   *                <p>the Amazon Web Services customer ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>the table name</p>
-   *             </li>
-   *             <li>
-   *                <p>the <code>StreamLabel</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * A timestamp, in ISO 8601 format, for this stream.
+   *
+   * Note that `LatestStreamLabel` is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
+   *
+   * - the Amazon Web Services customer ID.
+   * - the table name
+   * - the `StreamLabel`
+   *
    * @public
    */
   StreamLabel?: string | undefined;
 
   /**
-   * <p>Indicates the current status of the stream:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - the stream is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - the stream is disabled.</p>
-   *             </li>
-   *          </ul>
+   * Indicates the current status of the stream:
+   *
+   * - `ENABLING` - Streams is currently being enabled on the DynamoDB table.
+   * - `ENABLED` - the stream is enabled.
+   * - `DISABLING` - Streams is currently being disabled on the DynamoDB table.
+   * - `DISABLED` - the stream is disabled.
+   *
    * @public
    */
   StreamStatus?: StreamStatus | undefined;
 
   /**
-   * <p>Indicates the format of the records within this stream:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>KEYS_ONLY</code> - only the key attributes of items that were modified in the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_IMAGE</code> - entire items from the table, as they appeared after they were modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OLD_IMAGE</code> - entire items from the table, as they appeared before they were modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_AND_OLD_IMAGES</code> - both the new and the old images of the items from the table.</p>
-   *             </li>
-   *          </ul>
+   * Indicates the format of the records within this stream:
+   *
+   * - `KEYS_ONLY` - only the key attributes of items that were modified in the DynamoDB table.
+   * - `NEW_IMAGE` - entire items from the table, as they appeared after they were modified.
+   * - `OLD_IMAGE` - entire items from the table, as they appeared before they were modified.
+   * - `NEW_AND_OLD_IMAGES` - both the new and the old images of the items from the table.
+   *
    * @public
    */
   StreamViewType?: StreamViewType | undefined;
 
   /**
-   * <p>The date and time when the request to create this stream was issued.</p>
+   * The date and time when the request to create this stream was issued.
+   *
    * @public
    */
   CreationRequestDateTime?: Date | undefined;
 
   /**
-   * <p>The DynamoDB table with which the stream is associated.</p>
+   * The DynamoDB table with which the stream is associated.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The key attribute(s) of the stream's DynamoDB table.</p>
+   * The key attribute(s) of the stream's DynamoDB table.
+   *
    * @public
    */
   KeySchema?: KeySchemaElement[] | undefined;
 
   /**
-   * <p>The shards that comprise the stream.</p>
+   * The shards that comprise the stream.
+   *
    * @public
    */
   Shards?: Shard[] | undefined;
 
   /**
-   * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
-   *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
-   *       processed and there is currently no more data to be retrieved.</p>
-   *          <p>If <code>LastEvaluatedShardId</code> is not empty, it does not necessarily mean that there is
-   *       more data in the result set. The only way to know when you have reached the end of the result
-   *       set is when <code>LastEvaluatedShardId</code> is empty.</p>
+   * The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
+   *
+   * If `LastEvaluatedShardId` is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved.
+   *
+   * If `LastEvaluatedShardId` is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when `LastEvaluatedShardId` is empty.
+   *
    * @public
    */
   LastEvaluatedShardId?: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
+ * Represents the output of a `DescribeStream` operation.
+ *
  * @public
  */
 export interface DescribeStreamOutput {
   /**
-   * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
+   * A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.
+   *
    * @public
    */
   StreamDescription?: StreamDescription | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>GetRecords</code> operation.</p>
+ * Represents the input of a `GetRecords` operation.
+ *
  * @public
  */
 export interface GetRecordsInput {
   /**
-   * <p>A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.</p>
+   * A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.
+   *
    * @public
    */
   ShardIterator: string | undefined;
 
   /**
-   * <p>The maximum number of records to return from the shard. The upper limit is 1000.</p>
+   * The maximum number of records to return from the shard. The upper limit is 1000.
+   *
    * @public
    */
   Limit?: number | undefined;
 }
 
 /**
- * <p>Contains details about the type of identity that made the request.</p>
+ * Contains details about the type of identity that made the request.
+ *
  * @public
  */
 export interface Identity {
   /**
-   * <p>A unique identifier for the entity that made the call. For Time To Live, the
-   *       principalId is "dynamodb.amazonaws.com".</p>
+   * A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
+   *
    * @public
    */
   PrincipalId?: string | undefined;
 
   /**
-   * <p>The type of the identity. For Time To Live, the type is "Service".</p>
+   * The type of the identity. For Time To Live, the type is "Service".
+   *
    * @public
    */
   Type?: string | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
+ * Represents the input of a `GetShardIterator` operation.
+ *
  * @public
  */
 export interface GetShardIteratorInput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * The Amazon Resource Name (ARN) for the stream.
+   *
    * @public
    */
   StreamArn: string | undefined;
 
   /**
-   * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
+   * The identifier of the shard. The iterator will be returned for this shard ID.
+   *
    * @public
    */
   ShardId: string | undefined;
 
   /**
-   * <p>Determines how the shard iterator is used to start reading stream records from the shard:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the position denoted by a
-   *           specific sequence number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the position denoted by a
-   *           specific sequence number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TRIM_HORIZON</code> - Start reading at the last (untrimmed) stream record, which is
-   *           the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention.
-   *           Stream records whose age exceeds this limit are subject to removal (trimming) from the
-   *           stream.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LATEST</code> - Start reading just after the most recent stream record in the
-   *           shard, so that you always read the most recent data in the shard.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AT_TIMESTAMP</code> - Start reading from the position denoted by a specific timestamp, provided in the parameter <code>Timestamp</code>.</p>
-   *             </li>
-   *          </ul>
+   * Determines how the shard iterator is used to start reading stream records from the shard:
+   *
+   * - `AT_SEQUENCE_NUMBER` - Start reading exactly from the position denoted by a specific sequence number.
+   * - `AFTER_SEQUENCE_NUMBER` - Start reading right after the position denoted by a specific sequence number.
+   * - `TRIM_HORIZON` - Start reading at the last (untrimmed) stream record, which is the oldest record in the shard. In DynamoDB Streams, there is a 24 hour limit on data retention. Stream records whose age exceeds this limit are subject to removal (trimming) from the stream.
+   * - `LATEST` - Start reading just after the most recent stream record in the shard, so that you always read the most recent data in the shard.
+   * - `AT_TIMESTAMP` - Start reading from the position denoted by a specific timestamp, provided in the parameter `Timestamp`.
+   *
    * @public
    */
   ShardIteratorType: ShardIteratorType | undefined;
 
   /**
-   * <p>The sequence number of a stream record in the shard from which to start reading.</p>
+   * The sequence number of a stream record in the shard from which to start reading.
+   *
    * @public
    */
   SequenceNumber?: string | undefined;
 
   /**
-   * <p>The timestamp of the stream record from which to start reading. Used with shard
-   *       iterator type <code>AT_TIMESTAMP</code>. A timestamp is the Unix epoch date with precision in
-   *       milliseconds. For example, <code>1791316726.480</code>. The iterator points to the first stream record whose
-   *       <code>ApproximateCreationDateTime</code> is at or after the specified timestamp. If no record
-   *       with that exact timestamp exists, the iterator points to the next (later) record. If the
-   *       timestamp is older than the current trim horizon, the iterator points to the oldest
-   *       untrimmed stream record (<code>TRIM_HORIZON</code>). If the timestamp is in the future,
-   *       the request returns a <code>ValidationException</code>.</p>
+   * The timestamp of the stream record from which to start reading. Used with shard iterator type `AT_TIMESTAMP`. A timestamp is the Unix epoch date with precision in milliseconds. For example, `1791316726.480`. The iterator points to the first stream record whose `ApproximateCreationDateTime` is at or after the specified timestamp. If no record with that exact timestamp exists, the iterator points to the next (later) record. If the timestamp is older than the current trim horizon, the iterator points to the oldest untrimmed stream record (`TRIM_HORIZON`). If the timestamp is in the future, the request returns a `ValidationException`.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
+ * Represents the output of a `GetShardIterator` operation.
+ *
  * @public
  */
 export interface GetShardIteratorOutput {
   /**
-   * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
+   * The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.
+   *
    * @public
    */
   ShardIterator?: string | undefined;
 }
 
 /**
- * <p>Represents the input of a <code>ListStreams</code> operation.</p>
+ * Represents the input of a `ListStreams` operation.
+ *
  * @public
  */
 export interface ListStreamsInput {
   /**
-   * <p>If this parameter is provided, then only the streams associated with this table name are returned.</p>
+   * If this parameter is provided, then only the streams associated with this table name are returned.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>The maximum number of streams to return. The upper limit is 100.</p>
+   * The maximum number of streams to return. The upper limit is 100.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the
-   *       value that was returned for <code>LastEvaluatedStreamArn</code> in the previous operation.
-   *     </p>
+   * The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for `LastEvaluatedStreamArn` in the previous operation.
+   *
    * @public
    */
   ExclusiveStartStreamArn?: string | undefined;
 }
 
 /**
- * <p>Represents all of the data describing a particular stream.</p>
+ * Represents all of the data describing a particular stream.
+ *
  * @public
  */
 export interface _Stream {
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * The Amazon Resource Name (ARN) for the stream.
+   *
    * @public
    */
   StreamArn?: string | undefined;
 
   /**
-   * <p>The DynamoDB table with which the stream is associated.</p>
+   * The DynamoDB table with which the stream is associated.
+   *
    * @public
    */
   TableName?: string | undefined;
 
   /**
-   * <p>A timestamp, in ISO 8601 format, for this stream.</p>
-   *          <p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is
-   *       possible that a stream from another table might have the same timestamp. However, the
-   *       combination of the following three elements is guaranteed to be unique:</p>
-   *          <ul>
-   *             <li>
-   *                <p>the Amazon Web Services customer ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>the table name</p>
-   *             </li>
-   *             <li>
-   *                <p>the <code>StreamLabel</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * A timestamp, in ISO 8601 format, for this stream.
+   *
+   * Note that `LatestStreamLabel` is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
+   *
+   * - the Amazon Web Services customer ID.
+   * - the table name
+   * - the `StreamLabel`
+   *
    * @public
    */
   StreamLabel?: string | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>ListStreams</code> operation.</p>
+ * Represents the output of a `ListStreams` operation.
+ *
  * @public
  */
 export interface ListStreamsOutput {
   /**
-   * <p>A list of stream descriptors associated with the current account and endpoint.</p>
+   * A list of stream descriptors associated with the current account and endpoint.
+   *
    * @public
    */
   Streams?: _Stream[] | undefined;
 
   /**
-   * <p>The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
-   *          <p>If <code>LastEvaluatedStreamArn</code> is empty, then the "last page" of results has been
-   *       processed and there is no more data to be retrieved.</p>
-   *          <p>If <code>LastEvaluatedStreamArn</code> is not empty, it does not necessarily mean that there
-   *       is more data in the result set. The only way to know when you have reached the end of the
-   *       result set is when <code>LastEvaluatedStreamArn</code> is empty.</p>
+   * The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
+   *
+   * If `LastEvaluatedStreamArn` is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
+   *
+   * If `LastEvaluatedStreamArn` is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when `LastEvaluatedStreamArn` is empty.
+   *
    * @public
    */
   LastEvaluatedStreamArn?: string | undefined;
 }
 
 /**
- * <p>Represents the data for an attribute.</p>
- *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
- *                              <i>Amazon DynamoDB Developer Guide</i>.</p>
+ * Represents the data for an attribute.
+ *
+ * Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.
+ *
+ * For more information, see [Data Types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes) in the *Amazon DynamoDB Developer Guide*.
+ *
  * @public
  */
 export type AttributeValue =
@@ -507,10 +464,10 @@ export type AttributeValue =
  */
 export namespace AttributeValue {
   /**
-   * <p>An attribute of type  String. For example:</p>
-   *          <p>
-   *             <code>"S": "Hello"</code>
-   *          </p>
+   * An attribute of type String. For example:
+   *
+   * `"S": "Hello"`
+   *
    * @public
    */
   export interface SMember {
@@ -528,11 +485,12 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Number. For example:</p>
-   *          <p>
-   *             <code>"N": "123.45"</code>
-   *          </p>
-   *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
+   * An attribute of type Number. For example:
+   *
+   * `"N": "123.45"`
+   *
+   * Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+   *
    * @public
    */
   export interface NMember {
@@ -550,10 +508,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Binary.  For example:</p>
-   *          <p>
-   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
-   *          </p>
+   * An attribute of type Binary. For example:
+   *
+   * `"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"`
+   *
    * @public
    */
   export interface BMember {
@@ -571,10 +529,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type String Set.  For example:</p>
-   *          <p>
-   *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
-   *          </p>
+   * An attribute of type String Set. For example:
+   *
+   * `"SS": ["Giraffe", "Hippo" ,"Zebra"]`
+   *
    * @public
    */
   export interface SSMember {
@@ -592,11 +550,12 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Number Set.  For example:</p>
-   *          <p>
-   *             <code>"NS": ["42.2", "-19", "7.5", "3.14"]</code>
-   *          </p>
-   *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
+   * An attribute of type Number Set. For example:
+   *
+   * `"NS": ["42.2", "-19", "7.5", "3.14"]`
+   *
+   * Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.
+   *
    * @public
    */
   export interface NSMember {
@@ -614,10 +573,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Binary Set.  For example:</p>
-   *          <p>
-   *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
-   *          </p>
+   * An attribute of type Binary Set. For example:
+   *
+   * `"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]`
+   *
    * @public
    */
   export interface BSMember {
@@ -635,10 +594,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Map.  For example:</p>
-   *          <p>
-   *             <code>"M": \{"Name": \{"S": "Joe"\}, "Age": \{"N": "35"\}\}</code>
-   *          </p>
+   * An attribute of type Map. For example:
+   *
+   * `"M": \{"Name": \{"S": "Joe"\}, "Age": \{"N": "35"\}\}`
+   *
    * @public
    */
   export interface MMember {
@@ -656,10 +615,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type List.  For example:</p>
-   *          <p>
-   *             <code>"L": [ \{"S": "Cookies"\} , \{"S": "Coffee"\}, \{"N": "3.14159"\}]</code>
-   *          </p>
+   * An attribute of type List. For example:
+   *
+   * `"L": [ \{"S": "Cookies"\} , \{"S": "Coffee"\}, \{"N": "3.14159"\}]`
+   *
    * @public
    */
   export interface LMember {
@@ -677,10 +636,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Null.  For example:</p>
-   *          <p>
-   *             <code>"NULL": true</code>
-   *          </p>
+   * An attribute of type Null. For example:
+   *
+   * `"NULL": true`
+   *
    * @public
    */
   export interface NULLMember {
@@ -698,10 +657,10 @@ export namespace AttributeValue {
   }
 
   /**
-   * <p>An attribute of type Boolean.  For example:</p>
-   *          <p>
-   *             <code>"BOOL": true</code>
-   *          </p>
+   * An attribute of type Boolean. For example:
+   *
+   * `"BOOL": true`
+   *
    * @public
    */
   export interface BOOLMember {
@@ -755,162 +714,151 @@ export namespace AttributeValue {
 }
 
 /**
- * <p>A description of a single data modification that was performed on an item in a DynamoDB table.</p>
+ * A description of a single data modification that was performed on an item in a DynamoDB table.
+ *
  * @public
  */
 export interface StreamRecord {
   /**
-   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format and rounded down to the closest second.
-   *             Some tools and SDKs may convert this value to a different format, such as <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>.</p>
+   * The approximate date and time when the stream record was created, in [UNIX epoch time](http://www.epochconverter.com/) format and rounded down to the closest second. Some tools and SDKs may convert this value to a different format, such as [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html).
+   *
    * @public
    */
   ApproximateCreationDateTime?: Date | undefined;
 
   /**
-   * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
+   * The primary key attribute(s) for the DynamoDB item that was modified.
+   *
    * @public
    */
   Keys?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
+   * The item in the DynamoDB table as it appeared after it was modified.
+   *
    * @public
    */
   NewImage?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
+   * The item in the DynamoDB table as it appeared before it was modified.
+   *
    * @public
    */
   OldImage?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>The sequence number of the stream record.</p>
+   * The sequence number of the stream record.
+   *
    * @public
    */
   SequenceNumber?: string | undefined;
 
   /**
-   * <p>The size of the stream record, in bytes.</p>
+   * The size of the stream record, in bytes.
+   *
    * @public
    */
   SizeBytes?: number | undefined;
 
   /**
-   * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>KEYS_ONLY</code> - only the key attributes of the modified item.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_IMAGE</code> - the entire item, as it appeared after it was modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OLD_IMAGE</code> - the entire item, as it appeared before it was modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_AND_OLD_IMAGES</code> - both the new and the old item images of the item.</p>
-   *             </li>
-   *          </ul>
+   * The type of data from the modified DynamoDB item that was captured in this stream record:
+   *
+   * - `KEYS_ONLY` - only the key attributes of the modified item.
+   * - `NEW_IMAGE` - the entire item, as it appeared after it was modified.
+   * - `OLD_IMAGE` - the entire item, as it appeared before it was modified.
+   * - `NEW_AND_OLD_IMAGES` - both the new and the old item images of the item.
+   *
    * @public
    */
   StreamViewType?: StreamViewType | undefined;
 }
 
 /**
- * <p>A description of a unique event within a stream.</p>
+ * A description of a unique event within a stream.
+ *
  * @public
  */
 export interface _Record {
   /**
-   * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
+   * A globally unique identifier for the event that was recorded in this stream record.
+   *
    * @public
    */
   eventID?: string | undefined;
 
   /**
-   * <p>The type of data modification that was performed on the DynamoDB table:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INSERT</code> - a new item was added to the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MODIFY</code> - one or more of an existing item's attributes were modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REMOVE</code> - the item was deleted from the table</p>
-   *             </li>
-   *          </ul>
+   * The type of data modification that was performed on the DynamoDB table:
+   *
+   * - `INSERT` - a new item was added to the table.
+   * - `MODIFY` - one or more of an existing item's attributes were modified.
+   * - `REMOVE` - the item was deleted from the table
+   *
    * @public
    */
   eventName?: OperationType | undefined;
 
   /**
-   * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
-   *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
-   *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
-   *       only increase as the low-level DynamoDB Streams API evolves.</p>
+   * The version number of the stream record format. This number is updated whenever the structure of `Record` is modified.
+   *
+   * Client applications must not assume that `eventVersion` will remain at a particular value, as this number is subject to change at any time. In general, `eventVersion` will only increase as the low-level DynamoDB Streams API evolves.
+   *
    * @public
    */
   eventVersion?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services service from which the stream record originated. For DynamoDB Streams, this is <code>aws:dynamodb</code>.</p>
+   * The Amazon Web Services service from which the stream record originated. For DynamoDB Streams, this is `aws:dynamodb`.
+   *
    * @public
    */
   eventSource?: string | undefined;
 
   /**
-   * <p>The region in which the <code>GetRecords</code> request was received.</p>
+   * The region in which the `GetRecords` request was received.
+   *
    * @public
    */
   awsRegion?: string | undefined;
 
   /**
-   * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
+   * The main body of the stream record, containing all of the DynamoDB-specific fields.
+   *
    * @public
    */
   dynamodb?: StreamRecord | undefined;
 
   /**
-   * <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Records[].userIdentity.type</p>
-   *                <p>"Service"</p>
-   *             </li>
-   *             <li>
-   *                <p>Records[].userIdentity.principalId</p>
-   *                <p>"dynamodb.amazonaws.com"</p>
-   *             </li>
-   *          </ul>
+   * Items that are deleted by the Time to Live process after expiration have the following fields:
+   *
+   * - Records[].userIdentity.type
+   *
+   *   "Service"
+   * - Records[].userIdentity.principalId
+   *
+   *   "dynamodb.amazonaws.com"
+   *
    * @public
    */
   userIdentity?: Identity | undefined;
 }
 
 /**
- * <p>Represents the output of a <code>GetRecords</code> operation.</p>
+ * Represents the output of a `GetRecords` operation.
+ *
  * @public
  */
 export interface GetRecordsOutput {
   /**
-   * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
+   * The stream records from the shard, which were retrieved using the shard iterator.
+   *
    * @public
    */
   Records?: _Record[] | undefined;
 
   /**
-   * <p>The next position in the shard from which to start sequentially reading stream records. If
-   *       set to <code>null</code>, the shard has been closed and the requested iterator will not return
-   *       any more data.</p>
+   * The next position in the shard from which to start sequentially reading stream records. If set to `null`, the shard has been closed and the requested iterator will not return any more data.
+   *
    * @public
    */
   NextShardIterator?: string | undefined;

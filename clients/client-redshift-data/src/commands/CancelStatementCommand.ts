@@ -23,7 +23,10 @@ export interface CancelStatementCommandInput extends CancelStatementRequest {}
 export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a running query. To be canceled, a query must be running. </p> <p>For more information about the Amazon Redshift Data API and CLI usage examples, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. </p>
+ * Cancels a running query. To be canceled, a query must be running.
+ *
+ * For more information about the Amazon Redshift Data API and CLI usage examples, see [Using the Amazon Redshift Data API](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html) in the *Amazon Redshift Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +53,28 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  * @throws {@link DatabaseConnectionException} (server fault)
- *  <p>Connection to a database failed.</p>
+ *
+ * Connection to a database failed.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link QueryTimeoutException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to timeout.</p>
+ *
+ * The Amazon Redshift Data API operation failed due to timeout.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to a missing resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ * The Amazon Redshift Data API operation failed due to invalid input.
  *
  * @throws {@link RedshiftDataServiceException}
- * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ * Base exception class for all service exceptions from RedshiftData service.
  *
  * @public
  */

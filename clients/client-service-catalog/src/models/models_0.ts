@@ -44,46 +44,31 @@ import type {
  */
 export interface AcceptPortfolioShareInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The type of shared portfolios to accept. The default is to accept imported portfolios.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_ORGANIZATIONS</code> - Accept portfolios shared by the management account of your
-   *                organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IMPORTED</code> - Accept imported portfolios.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, <code>aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code>
-   *          </p>
+   * The type of shared portfolios to accept. The default is to accept imported portfolios.
+   *
+   * - `AWS_ORGANIZATIONS` - Accept portfolios shared by the management account of your organization.
+   * - `IMPORTED` - Accept imported portfolios.
+   * - `AWS_SERVICECATALOG` - Not supported. (Throws ResourceNotFoundException.)
+   *
+   * For example, `aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS`
+   *
    * @public
    */
   PortfolioShareType?: PortfolioShareType | undefined;
@@ -95,51 +80,46 @@ export interface AcceptPortfolioShareInput {
 export interface AcceptPortfolioShareOutput {}
 
 /**
- * <p>The access level to use to filter results.</p>
+ * The access level to use to filter results.
+ *
  * @public
  */
 export interface AccessLevelFilter {
   /**
-   * <p>The access level.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Account</code> - Filter results based on the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Role</code> - Filter results based on the federated role of the specified user.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>User</code> - Filter results based on the specified user.</p>
-   *             </li>
-   *          </ul>
+   * The access level.
+   *
+   * - `Account` - Filter results based on the account.
+   * - `Role` - Filter results based on the federated role of the specified user.
+   * - `User` - Filter results based on the specified user.
+   *
    * @public
    */
   Key?: AccessLevelFilterKey | undefined;
 
   /**
-   * <p>The user to which the access level applies. The only supported value is <code>self</code>.</p>
+   * The user to which the access level applies. The only supported value is `self`.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Information about a tag. A tag is a key-value pair. Tags are propagated
- *          to the resources created when provisioning a product.</p>
+ * Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The tag key.</p>
+   * The tag key.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value for this key.</p>
+   * The value for this key.
+   *
    * @public
    */
   Value: string | undefined;
@@ -150,13 +130,15 @@ export interface Tag {
  */
 export interface AssociateBudgetWithResourceInput {
   /**
-   * <p>The name of the budget you want to associate.</p>
+   * The name of the budget you want to associate.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p> The resource identifier. Either a portfolio-id or a product-id.</p>
+   * The resource identifier. Either a portfolio-id or a product-id.
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -172,90 +154,58 @@ export interface AssociateBudgetWithResourceOutput {}
  */
 export interface AssociatePrincipalWithPortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (user, role, or group). If the <code>PrincipalType</code> is <code>IAM</code>, the supported value is a
-   *          fully defined
-   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM Amazon Resource Name (ARN)</a>.
-   *          If the <code>PrincipalType</code> is <code>IAM_PATTERN</code>,
-   *          the supported value is an <code>IAM</code> ARN <i>without an AccountID</i> in the following format:</p>
-   *          <p>
-   *             <i>arn:partition:iam:::resource-type/resource-id</i>
-   *          </p>
-   *          <p>The ARN resource-id can be either:</p>
-   *          <ul>
-   *             <li>
-   *                <p>A fully formed resource-id. For example, <i>arn:aws:iam:::role/resource-name</i> or
-   *             <i>arn:aws:iam:::role/resource-path/resource-name</i>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>A wildcard ARN. The wildcard ARN accepts <code>IAM_PATTERN</code> values with a
-   *                "*" or "?" in the resource-id segment of the ARN. For example <i>arn:partition:service:::resource-type/resource-path/resource-name</i>.
-   *                The new symbols are exclusive to the <b>resource-path</b> and <b>resource-name</b>
-   *                and cannot replace the <b>resource-type</b> or other
-   *             ARN values. </p>
-   *                <p>The ARN path and principal name allow unlimited wildcard characters.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Examples of an <b>acceptable</b> wildcard ARN:</p>
-   *          <ul>
-   *             <li>
-   *                <p>arn:aws:iam:::role/ResourceName_*</p>
-   *             </li>
-   *             <li>
-   *                <p>arn:aws:iam:::role/*\/ResourceName_?</p>
-   *             </li>
-   *          </ul>
-   *          <p>Examples of an <b>unacceptable</b> wildcard ARN:</p>
-   *          <ul>
-   *             <li>
-   *                <p>arn:aws:iam:::*\/ResourceName</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can associate multiple <code>IAM_PATTERN</code>s even if the account has no principal
-   *          with that name. </p>
-   *          <p>The "?" wildcard character matches zero or one of any character. This is similar to ".?" in regular
-   *                   regex context. The "*" wildcard character matches any number of any characters.
-   *                   This is similar to ".*" in regular regex context.</p>
-   *          <p>In the IAM Principal ARN format (<i>arn:partition:iam:::resource-type/resource-path/resource-name</i>),
-   *          valid resource-type values include <b>user/</b>, <b>group/</b>,
-   *             or <b>role/</b>.  The "?" and "*" characters
-   *                   are allowed only after the resource-type in the resource-id segment.
-   *                   You can use special characters anywhere within the resource-id. </p>
-   *          <p>The "*" character also matches the "/" character, allowing paths to be formed <i>within</i> the
-   *                   resource-id. For example, <i>arn:aws:iam:::role/<b>*</b>/ResourceName_?</i>
-   *                   matches both <i>arn:aws:iam:::role/pathA/pathB/ResourceName_1</i>
-   *                   and
-   *                   <i>arn:aws:iam:::role/pathA/ResourceName_1</i>. </p>
+   * The ARN of the principal (user, role, or group). If the `PrincipalType` is `IAM`, the supported value is a fully defined [IAM Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns). If the `PrincipalType` is `IAM_PATTERN`, the supported value is an `IAM` ARN *without an AccountID* in the following format:
+   *
+   * *arn:partition:iam:::resource-type/resource-id*
+   *
+   * The ARN resource-id can be either:
+   *
+   * - A fully formed resource-id. For example, *arn:aws:iam:::role/resource-name* or *arn:aws:iam:::role/resource-path/resource-name*
+   * - A wildcard ARN. The wildcard ARN accepts `IAM_PATTERN` values with a "*" or "?" in the resource-id segment of the ARN. For example *arn:partition:service:::resource-type/resource-path/resource-name*. The new symbols are exclusive to the **resource-path** and **resource-name** and cannot replace the **resource-type** or other ARN values.
+   *
+   *   The ARN path and principal name allow unlimited wildcard characters.
+   *
+   * Examples of an **acceptable** wildcard ARN:
+   *
+   * - arn:aws:iam:::role/ResourceName_*
+   * - arn:aws:iam:::role/*\/ResourceName_?
+   *
+   * Examples of an **unacceptable** wildcard ARN:
+   *
+   * - arn:aws:iam:::*\/ResourceName
+   *
+   * You can associate multiple `IAM_PATTERN`s even if the account has no principal with that name.
+   *
+   * The "?" wildcard character matches zero or one of any character. This is similar to ".?" in regular regex context. The "*" wildcard character matches any number of any characters. This is similar to ".*" in regular regex context.
+   *
+   * In the IAM Principal ARN format (*arn:partition:iam:::resource-type/resource-path/resource-name*), valid resource-type values include **user/**, **group/**, or **role/**. The "?" and "*" characters are allowed only after the resource-type in the resource-id segment. You can use special characters anywhere within the resource-id.
+   *
+   * The "*" character also matches the "/" character, allowing paths to be formed *within* the resource-id. For example, *arn:aws:iam:::role/*****\/ResourceName_?* matches both *arn:aws:iam:::role/pathA/pathB/ResourceName_1* and *arn:aws:iam:::role/pathA/ResourceName_1*.
+   *
    * @public
    */
   PrincipalARN: string | undefined;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined Amazon Resource Name
-   *          (ARN), or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>,
-   *          with or without wildcard characters. </p>
+   * The principal type. The supported value is `IAM` if you use a fully defined Amazon Resource Name (ARN), or `IAM_PATTERN` if you use an ARN with no `accountID`, with or without wildcard characters.
+   *
    * @public
    */
   PrincipalType: PrincipalType | undefined;
@@ -271,35 +221,32 @@ export interface AssociatePrincipalWithPortfolioOutput {}
  */
 export interface AssociateProductWithPortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The identifier of the source portfolio.</p>
+   * The identifier of the source portfolio.
+   *
    * @public
    */
   SourcePortfolioId?: string | undefined;
@@ -315,41 +262,39 @@ export interface AssociateProductWithPortfolioOutput {}
  */
 export interface AssociateServiceActionWithProvisioningArtifactInput {
   /**
-   * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+   * The product identifier. For example, `prod-abcdzk7xy33qa`.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
+   * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   ServiceActionId: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -365,13 +310,15 @@ export interface AssociateServiceActionWithProvisioningArtifactOutput {}
  */
 export interface AssociateTagOptionWithResourceInput {
   /**
-   * <p>The resource identifier.</p>
+   * The resource identifier.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   TagOptionId: string | undefined;
@@ -383,24 +330,28 @@ export interface AssociateTagOptionWithResourceInput {
 export interface AssociateTagOptionWithResourceOutput {}
 
 /**
- * <p>A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
+ * A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+ *
  * @public
  */
 export interface ServiceActionAssociation {
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   ServiceActionId: string | undefined;
 
   /**
-   * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+   * The product identifier. For example, `prod-abcdzk7xy33qa`.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
+   * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
@@ -411,59 +362,60 @@ export interface ServiceActionAssociation {
  */
 export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
   /**
-   * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
+   * One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+   *
    * @public
    */
   ServiceActionAssociations: ServiceActionAssociation[] | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 }
 
 /**
- * <p>An object containing information about the error, along with identifying information about the self-service action and its associations.</p>
+ * An object containing information about the error, along with identifying information about the self-service action and its associations.
+ *
  * @public
  */
 export interface FailedServiceActionAssociation {
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   ServiceActionId?: string | undefined;
 
   /**
-   * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+   * The product identifier. For example, `prod-abcdzk7xy33qa`.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
+   * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The error code. Valid values are listed below.</p>
+   * The error code. Valid values are listed below.
+   *
    * @public
    */
   ErrorCode?: ServiceActionAssociationErrorCode | undefined;
 
   /**
-   * <p>A text description of the error.</p>
+   * A text description of the error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
@@ -474,7 +426,8 @@ export interface FailedServiceActionAssociation {
  */
 export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
   /**
-   * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
+   * An object that contains a list of errors, along with information to help you identify the self-service action.
+   *
    * @public
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[] | undefined;
@@ -485,23 +438,18 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
  */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
   /**
-   * <p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>
+   * One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
+   *
    * @public
    */
   ServiceActionAssociations: ServiceActionAssociation[] | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
@@ -512,7 +460,8 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
  */
 export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
   /**
-   * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
+   * An object that contains a list of errors, along with information to help you identify the self-service action.
+   *
    * @public
    */
   FailedServiceActionAssociations?: FailedServiceActionAssociation[] | undefined;
@@ -523,56 +472,53 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
  */
 export interface CopyProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source product.</p>
+   * The Amazon Resource Name (ARN) of the source product.
+   *
    * @public
    */
   SourceProductArn: string | undefined;
 
   /**
-   * <p>The identifier of the target product. By default, a new product is created.</p>
+   * The identifier of the target product. By default, a new product is created.
+   *
    * @public
    */
   TargetProductId?: string | undefined;
 
   /**
-   * <p>A name for the target product. The default is the name of the source product.</p>
+   * A name for the target product. The default is the name of the source product.
+   *
    * @public
    */
   TargetProductName?: string | undefined;
 
   /**
-   * <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy.
-   *          By default, all provisioning artifacts are copied.</p>
+   * The identifiers of the provisioning artifacts (also known as versions) of the product to copy. By default, all provisioning artifacts are copied.
+   *
    * @public
    */
   SourceProvisioningArtifactIdentifiers?: Partial<Record<ProvisioningArtifactPropertyName, string>>[] | undefined;
 
   /**
-   * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
-   *          product are copied to the target product.</p>
+   * The copy options. If the value is `CopyTags`, the tags from the source product are copied to the target product.
+   *
    * @public
    */
   CopyOptions?: CopyOption[] | undefined;
 
   /**
-   * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request. </p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -583,7 +529,8 @@ export interface CopyProductInput {
  */
 export interface CopyProductOutput {
   /**
-   * <p>The token to use to track the progress of the operation.</p>
+   * The token to use to track the progress of the operation.
+   *
    * @public
    */
   CopyProductToken?: string | undefined;
@@ -594,194 +541,163 @@ export interface CopyProductOutput {
  */
 export interface CreateConstraintInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
-   *          <dl>
-   *             <dt>LAUNCH</dt>
-   *             <dd>
-   *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
-   *                <p>Specify the <code>RoleArn</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
-   *                </p>
-   *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
-   *                </p>
-   *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
-   *                account-agnostic so the administrator can create fewer resources per shared account.</p>
-   *                <note>
-   *                   <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p>
-   *                </note>
-   *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-   *                <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p>
-   *             </dd>
-   *             <dt>NOTIFICATION</dt>
-   *             <dd>
-   *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>RESOURCE_UPDATE</dt>
-   *             <dd>
-   *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
-   *                </p>
-   *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
-   *             </dd>
-   *             <dt>STACKSET</dt>
-   *             <dd>
-   *                <p>Specify the <code>Parameters</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
-   *                </p>
-   *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-   *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-   *                <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
-   *             </dd>
-   *             <dt>TEMPLATE</dt>
-   *             <dd>
-   *                <p>Specify the <code>Rules</code> property. For more information, see
-   *                   <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p>
-   *             </dd>
-   *          </dl>
+   * The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
+   *
+   * - **LAUNCH**
+   *
+   *   You are required to specify either the `RoleArn` or the `LocalRoleName` but can't use both.
+   *
+   *   Specify the `RoleArn` property as follows:
+   *
+   *   `\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}`
+   *
+   *   Specify the `LocalRoleName` property as follows:
+   *
+   *   `\{"LocalRoleName": "SCBasicLaunchRole"\}`
+   *
+   *   If you specify the `LocalRoleName` property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
+   *
+   *   > **Note:** The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.
+   *
+   *   You cannot have both a `LAUNCH` and a `STACKSET` constraint.
+   *
+   *   You also cannot have more than one `LAUNCH` constraint on a product and portfolio.
+   *
+   * - **NOTIFICATION**
+   *
+   *   Specify the `NotificationArns` property as follows:
+   *
+   *   `\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}`
+   *
+   * - **RESOURCE_UPDATE**
+   *
+   *   Specify the `TagUpdatesOnProvisionedProduct` property as follows:
+   *
+   *   `\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}`
+   *
+   *   The `TagUpdatesOnProvisionedProduct` property accepts a string value of `ALLOWED` or `NOT_ALLOWED`.
+   *
+   * - **STACKSET**
+   *
+   *   Specify the `Parameters` property as follows:
+   *
+   *   `\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}`
+   *
+   *   You cannot have both a `LAUNCH` and a `STACKSET` constraint.
+   *
+   *   You also cannot have more than one `STACKSET` constraint on a product and portfolio.
+   *
+   *   Products with a `STACKSET` constraint will launch an CloudFormation stack set.
+   *
+   * - **TEMPLATE**
+   *
+   *   Specify the `Rules` property. For more information, see [Template Constraint Rules](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html).
+   *
    * @public
    */
   Parameters: string | undefined;
 
   /**
-   * <p>The type of constraint.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LAUNCH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFICATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESOURCE_UPDATE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STACKSET</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEMPLATE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The type of constraint.
+   *
+   * - `LAUNCH`
+   * - `NOTIFICATION`
+   * - `RESOURCE_UPDATE`
+   * - `STACKSET`
+   * - `TEMPLATE`
+   *
    * @public
    */
   Type: string | undefined;
 
   /**
-   * <p>The description of the constraint.</p>
+   * The description of the constraint.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 }
 
 /**
- * <p>Information about a constraint.</p>
+ * Information about a constraint.
+ *
  * @public
  */
 export interface ConstraintDetail {
   /**
-   * <p>The identifier of the constraint.</p>
+   * The identifier of the constraint.
+   *
    * @public
    */
   ConstraintId?: string | undefined;
 
   /**
-   * <p>The type of constraint.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LAUNCH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFICATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>STACKSET</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEMPLATE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The type of constraint.
+   *
+   * - `LAUNCH`
+   * - `NOTIFICATION`
+   * - STACKSET
+   * - `TEMPLATE`
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The description of the constraint.</p>
+   * The description of the constraint.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The owner of the constraint.</p>
+   * The owner of the constraint.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.</p>
+   * The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.</p>
+   * The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
+   *
    * @public
    */
   PortfolioId?: string | undefined;
@@ -792,19 +708,22 @@ export interface ConstraintDetail {
  */
 export interface CreateConstraintOutput {
   /**
-   * <p>Information about the constraint.</p>
+   * Information about the constraint.
+   *
    * @public
    */
   ConstraintDetail?: ConstraintDetail | undefined;
 
   /**
-   * <p>The constraint parameters.</p>
+   * The constraint parameters.
+   *
    * @public
    */
   ConstraintParameters?: string | undefined;
 
   /**
-   * <p>The status of the current request.</p>
+   * The status of the current request.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -815,90 +734,95 @@ export interface CreateConstraintOutput {
  */
 export interface CreatePortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The name to use for display purposes.</p>
+   * The name to use for display purposes.
+   *
    * @public
    */
   DisplayName: string | undefined;
 
   /**
-   * <p>The description of the portfolio.</p>
+   * The description of the portfolio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the portfolio provider.</p>
+   * The name of the portfolio provider.
+   *
    * @public
    */
   ProviderName: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 }
 
 /**
- * <p>Information about a portfolio.</p>
+ * Information about a portfolio.
+ *
  * @public
  */
 export interface PortfolioDetail {
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The ARN assigned to the portfolio.</p>
+   * The ARN assigned to the portfolio.
+   *
    * @public
    */
   ARN?: string | undefined;
 
   /**
-   * <p>The name to use for display purposes.</p>
+   * The name to use for display purposes.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The description of the portfolio.</p>
+   * The description of the portfolio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The name of the portfolio provider.</p>
+   * The name of the portfolio provider.
+   *
    * @public
    */
   ProviderName?: string | undefined;
@@ -909,31 +833,36 @@ export interface PortfolioDetail {
  */
 export interface CreatePortfolioOutput {
   /**
-   * <p>Information about the portfolio.</p>
+   * Information about the portfolio.
+   *
    * @public
    */
   PortfolioDetail?: PortfolioDetail | undefined;
 
   /**
-   * <p>Information about the tags associated with the portfolio.</p>
+   * Information about the tags associated with the portfolio.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Information about the organization node.</p>
+ * Information about the organization node.
+ *
  * @public
  */
 export interface OrganizationNode {
   /**
-   * <p>The organization node type.</p>
+   * The organization node type.
+   *
    * @public
    */
   Type?: OrganizationNodeType | undefined;
 
   /**
-   * <p>The identifier of the organization node.</p>
+   * The identifier of the organization node.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -944,58 +873,50 @@ export interface OrganizationNode {
  */
 export interface CreatePortfolioShareInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID. For example, <code>123456789012</code>.</p>
+   * The Amazon Web Services account ID. For example, `123456789012`.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The organization node to whom you are going to share. When you pass <code>OrganizationNode</code>, it creates <code>PortfolioShare</code> for all of the Amazon Web Services accounts that are associated to the <code>OrganizationNode</code>.
-   *       The output returns a <code>PortfolioShareToken</code>, which enables the administrator to monitor the status of the <code>PortfolioShare</code> creation process.</p>
+   * The organization node to whom you are going to share. When you pass `OrganizationNode`, it creates `PortfolioShare` for all of the Amazon Web Services accounts that are associated to the `OrganizationNode`. The output returns a `PortfolioShareToken`, which enables the administrator to monitor the status of the `PortfolioShare` creation process.
+   *
    * @public
    */
   OrganizationNode?: OrganizationNode | undefined;
 
   /**
-   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not
-   *          provided, TagOptions sharing is disabled.</p>
+   * Enables or disables `TagOptions` sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.
+   *
    * @public
    */
   ShareTagOptions?: boolean | undefined;
 
   /**
-   * <p>This parameter is only supported for portfolios with an <b>OrganizationalNode</b>
-   *       Type of <code>ORGANIZATION</code> or <code>ORGANIZATIONAL_UNIT</code>. </p>
-   *          <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If you do
-   *          <b>not</b> provide this flag, principal sharing is disabled. </p>
-   *          <p>When you enable Principal Name Sharing for a portfolio share, the share recipient
-   *          account end users with a principal that matches any of the associated IAM
-   *          patterns can provision products from the portfolio. Once
-   *          shared, the share recipient can view associations of <code>PrincipalType</code>:
-   *          <code>IAM_PATTERN</code> on their portfolio. You can create the principals in the recipient account before or
-   *          after creating the share. </p>
+   * This parameter is only supported for portfolios with an **OrganizationalNode** Type of `ORGANIZATION` or `ORGANIZATIONAL_UNIT`.
+   *
+   * Enables or disables `Principal` sharing when creating the portfolio share. If you do **not** provide this flag, principal sharing is disabled.
+   *
+   * When you enable Principal Name Sharing for a portfolio share, the share recipient account end users with a principal that matches any of the associated IAM patterns can provision products from the portfolio. Once shared, the share recipient can view associations of `PrincipalType`: `IAM_PATTERN` on their portfolio. You can create the principals in the recipient account before or after creating the share.
+   *
    * @public
    */
   SharePrincipals?: boolean | undefined;
@@ -1006,139 +927,133 @@ export interface CreatePortfolioShareInput {
  */
 export interface CreatePortfolioShareOutput {
   /**
-   * <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
+   * The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.
+   *
    * @public
    */
   PortfolioShareToken?: string | undefined;
 }
 
 /**
- * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
+ * Information about a provisioning artifact (also known as a version) for a product.
+ *
  * @public
  */
 export interface ProvisioningArtifactProperties {
   /**
-   * <p>The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.</p>
+   * The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the provisioning artifact, including how it differs from the previous provisioning artifact.</p>
+   * The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Specify the template source with one of the following options, but not both.
-   *          Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
-   *        Specify the URL in JSON format as follows:</p>
-   *          <p>
-   *             <code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code>
-   *          </p>
-   *          <p>
-   *             <code>ImportFromPhysicalId</code>: The physical id of the resource that contains the
-   *          template. Currently only supports CloudFormation stack arn. Specify the physical id in JSON
-   *          format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>
-   *          </p>
+   * Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL`, `ImportFromPhysicalId` ]
+   *
+   * The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. Specify the URL in JSON format as follows:
+   *
+   * `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
+   *
+   * `ImportFromPhysicalId`: The physical id of the resource that contains the template. Currently only supports CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
+   *
    * @public
    */
   Info?: Record<string, string> | undefined;
 
   /**
-   * <p>The type of provisioning artifact.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform Open Source configuration file</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERRAFORM_CLOUD</code> - Terraform Cloud configuration file</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXTERNAL</code> - External configuration file</p>
-   *             </li>
-   *          </ul>
+   * The type of provisioning artifact.
+   *
+   * - `CLOUD_FORMATION_TEMPLATE` - CloudFormation template
+   * - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
+   * - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
+   * - `EXTERNAL` - External configuration file
+   *
    * @public
    */
   Type?: ProvisioningArtifactType | undefined;
 
   /**
-   * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid. </p>
-   *          <p>Service Catalog does not support template validation for the <code>TERRAFORM_OS</code> product type. </p>
+   * If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid.
+   *
+   * Service Catalog does not support template validation for the `TERRAFORM_OS` product type.
+   *
    * @public
    */
   DisableTemplateValidation?: boolean | undefined;
 }
 
 /**
- * <p>The subtype containing details about the Codestar connection <code>Type</code>. </p>
+ * The subtype containing details about the Codestar connection `Type`.
+ *
  * @public
  */
 export interface CodeStarParameters {
   /**
-   * <p>The CodeStar ARN, which is the connection between Service Catalog and the external repository.</p>
+   * The CodeStar ARN, which is the connection between Service Catalog and the external repository.
+   *
    * @public
    */
   ConnectionArn: string | undefined;
 
   /**
-   * <p>The specific repository where the product’s artifact-to-be-synced resides, formatted as
-   *          "Account/Repo." </p>
+   * The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
+   *
    * @public
    */
   Repository: string | undefined;
 
   /**
-   * <p>The specific branch where the artifact resides. </p>
+   * The specific branch where the artifact resides.
+   *
    * @public
    */
   Branch: string | undefined;
 
   /**
-   * <p>The absolute path wehre the artifact resides within the repo and branch, formatted as
-   *          "folder/file.json." </p>
+   * The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
+   *
    * @public
    */
   ArtifactPath: string | undefined;
 }
 
 /**
- * <p>Provides connection details.</p>
+ * Provides connection details.
+ *
  * @public
  */
 export interface SourceConnectionParameters {
   /**
-   * <p>Provides <code>ConnectionType</code> details.</p>
+   * Provides `ConnectionType` details.
+   *
    * @public
    */
   CodeStar?: CodeStarParameters | undefined;
 }
 
 /**
- * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
- *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
- *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
- *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
- *          addition of the <code>LastSync</code> response.</p>
+ * A top level `ProductViewDetail` response containing details about the product’s connection. Service Catalog returns this field for the `CreateProduct`, `UpdateProduct`, `DescribeProductAsAdmin`, and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
+ *
  * @public
  */
 export interface SourceConnection {
   /**
-   * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
+   * The only supported `SourceConnection` type is Codestar.
+   *
    * @public
    */
   Type?: SourceType | undefined;
 
   /**
-   * <p>The connection details based on the connection <code>Type</code>. </p>
+   * The connection details based on the connection `Type`.
+   *
    * @public
    */
   ConnectionParameters: SourceConnectionParameters | undefined;
@@ -1149,431 +1064,382 @@ export interface SourceConnection {
  */
 export interface CreateProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The name of the product.</p>
+   * The name of the product.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The owner of the product.</p>
+   * The owner of the product.
+   *
    * @public
    */
   Owner: string | undefined;
 
   /**
-   * <p>The description of the product.</p>
+   * The description of the product.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The distributor of the product.</p>
+   * The distributor of the product.
+   *
    * @public
    */
   Distributor?: string | undefined;
 
   /**
-   * <p>The support information about the product.</p>
+   * The support information about the product.
+   *
    * @public
    */
   SupportDescription?: string | undefined;
 
   /**
-   * <p>The contact email for product support.</p>
+   * The contact email for product support.
+   *
    * @public
    */
   SupportEmail?: string | undefined;
 
   /**
-   * <p>The contact URL for product support.</p>
-   *          <p>
-   *             <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>
+   * The contact URL for product support.
+   *
+   * `^https?:\/\//`/ is the pattern used to validate SupportUrl.
+   *
    * @public
    */
   SupportUrl?: string | undefined;
 
   /**
-   * <p>The type of product.</p>
+   * The type of product.
+   *
    * @public
    */
   ProductType: ProductType | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The configuration of the provisioning artifact. </p>
+   * The configuration of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactParameters?: ProvisioningArtifactProperties | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>Specifies connection details for the created product and syncs the product to the connection source
-   *          artifact. This automatically manages the product's artifacts based on changes to the source.
-   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConnectionParamters</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Specifies connection details for the created product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The `SourceConnection` parameter consists of the following sub-fields.
+   *
+   * - `Type`
+   * - `ConnectionParamters`
+   *
    * @public
    */
   SourceConnection?: SourceConnection | undefined;
 }
 
 /**
- * <p>Summary information about a product view.</p>
+ * Summary information about a product view.
+ *
  * @public
  */
 export interface ProductViewSummary {
   /**
-   * <p>The product view identifier.</p>
+   * The product view identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The name of the product.</p>
+   * The name of the product.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The owner of the product. Contact the product administrator for the significance of
-   *          this value.</p>
+   * The owner of the product. Contact the product administrator for the significance of this value.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>Short description of the product.</p>
+   * Short description of the product.
+   *
    * @public
    */
   ShortDescription?: string | undefined;
 
   /**
-   * <p>The product type. Contact the product administrator for the significance of this
-   *          value. If this value is <code>MARKETPLACE</code>, the product was created by Amazon Web Services Marketplace.</p>
+   * The product type. Contact the product administrator for the significance of this value. If this value is `MARKETPLACE`, the product was created by Amazon Web Services Marketplace.
+   *
    * @public
    */
   Type?: ProductType | undefined;
 
   /**
-   * <p>The distributor of the product. Contact the product administrator for the
-   *          significance of this value.</p>
+   * The distributor of the product. Contact the product administrator for the significance of this value.
+   *
    * @public
    */
   Distributor?: string | undefined;
 
   /**
-   * <p>Indicates whether the product has a default path.
-   *          If the product does not have a default path, call <a>ListLaunchPaths</a>
-   *          to disambiguate between paths. Otherwise, <a>ListLaunchPaths</a> is not
-   *          required, and the output of <a>ProductViewSummary</a> can be used directly with
-   *          <a>DescribeProvisioningParameters</a>.</p>
+   * Indicates whether the product has a default path. If the product does not have a default path, call ListLaunchPaths to disambiguate between paths. Otherwise, ListLaunchPaths is not required, and the output of ProductViewSummary can be used directly with DescribeProvisioningParameters.
+   *
    * @public
    */
   HasDefaultPath?: boolean | undefined;
 
   /**
-   * <p>The email contact information to obtain support for this Product.</p>
+   * The email contact information to obtain support for this Product.
+   *
    * @public
    */
   SupportEmail?: string | undefined;
 
   /**
-   * <p>The description of the support for this Product.</p>
+   * The description of the support for this Product.
+   *
    * @public
    */
   SupportDescription?: string | undefined;
 
   /**
-   * <p>The URL information to obtain support for this Product.</p>
+   * The URL information to obtain support for this Product.
+   *
    * @public
    */
   SupportUrl?: string | undefined;
 }
 
 /**
- * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>LastSyncTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastSyncStatus</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastSyncStatusMessage</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastSuccessfulSyncTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Provides details about the product's connection sync and contains the following sub-fields.
+ *
+ * - `LastSyncTime`
+ * - `LastSyncStatus`
+ * - `LastSyncStatusMessage`
+ * - `LastSuccessfulSyncTime`
+ * - `LastSuccessfulSyncProvisioningArtifactID`
+ *
  * @public
  */
 export interface LastSync {
   /**
-   * <p>The time of the last attempted sync from the repository to the Service Catalog product. </p>
+   * The time of the last attempted sync from the repository to the Service Catalog product.
+   *
    * @public
    */
   LastSyncTime?: Date | undefined;
 
   /**
-   * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
+   * The current status of the sync. Responses include `SUCCEEDED` or `FAILED`.
+   *
    * @public
    */
   LastSyncStatus?: LastSyncStatus | undefined;
 
   /**
-   * <p>The sync's status message. </p>
+   * The sync's status message.
+   *
    * @public
    */
   LastSyncStatusMessage?: string | undefined;
 
   /**
-   * <p>The time of the latest successful sync from the source repo artifact to the Service Catalog product.</p>
+   * The time of the latest successful sync from the source repo artifact to the Service Catalog product.
+   *
    * @public
    */
   LastSuccessfulSyncTime?: Date | undefined;
 
   /**
-   * <p>The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync. </p>
+   * The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync.
+   *
    * @public
    */
   LastSuccessfulSyncProvisioningArtifactId?: string | undefined;
 }
 
 /**
- * <p>Provides details about the configured <code>SourceConnection</code>. </p>
+ * Provides details about the configured `SourceConnection`.
+ *
  * @public
  */
 export interface SourceConnectionDetail {
   /**
-   * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
+   * The only supported `SourceConnection` type is Codestar.
+   *
    * @public
    */
   Type?: SourceType | undefined;
 
   /**
-   * <p>The connection details based on the connection <code>Type</code>.</p>
+   * The connection details based on the connection `Type`.
+   *
    * @public
    */
   ConnectionParameters?: SourceConnectionParameters | undefined;
 
   /**
-   * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LastSyncTime</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LastSyncStatus</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LastSyncStatusMessage</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LastSuccessfulSyncTime</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Provides details about the product's connection sync and contains the following sub-fields.
+   *
+   * - `LastSyncTime`
+   * - `LastSyncStatus`
+   * - `LastSyncStatusMessage`
+   * - `LastSuccessfulSyncTime`
+   * - `LastSuccessfulSyncProvisioningArtifactID`
+   *
    * @public
    */
   LastSync?: LastSync | undefined;
 }
 
 /**
- * <p>Information about a product view.</p>
+ * Information about a product view.
+ *
  * @public
  */
 export interface ProductViewDetail {
   /**
-   * <p>Summary information about the product view.</p>
+   * Summary information about the product view.
+   *
    * @public
    */
   ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
-   * <p>The status of the product.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - The product is ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATING</code> - Product creation has started; the product is not ready for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - An action failed.</p>
-   *             </li>
-   *          </ul>
+   * The status of the product.
+   *
+   * - `AVAILABLE` - The product is ready for use.
+   * - `CREATING` - Product creation has started; the product is not ready for use.
+   * - `FAILED` - An action failed.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>The ARN of the product.</p>
+   * The ARN of the product.
+   *
    * @public
    */
   ProductARN?: string | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
-   *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
-   *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
-   *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
-   *          addition of the <code>LastSync</code> response.</p>
+   * A top level `ProductViewDetail` response containing details about the product’s connection. Service Catalog returns this field for the `CreateProduct`, `UpdateProduct`, `DescribeProductAsAdmin`, and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
+   *
    * @public
    */
   SourceConnection?: SourceConnectionDetail | undefined;
 }
 
 /**
- * <p>Information about a provisioning artifact (also known as a version) for a product.</p>
+ * Information about a provisioning artifact (also known as a version) for a product.
+ *
  * @public
  */
 export interface ProvisioningArtifactDetail {
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact.</p>
+   * The name of the provisioning artifact.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the provisioning artifact.</p>
+   * The description of the provisioning artifact.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The type of provisioning artifact.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform Open Source configuration file</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERRAFORM_CLOUD</code> - Terraform Cloud configuration file</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXTERNAL</code> - External configuration file</p>
-   *             </li>
-   *          </ul>
+   * The type of provisioning artifact.
+   *
+   * - `CLOUD_FORMATION_TEMPLATE` - CloudFormation template
+   * - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
+   * - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
+   * - `EXTERNAL` - External configuration file
+   *
    * @public
    */
   Type?: ProvisioningArtifactType | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>Indicates whether the product version is active.</p>
+   * Indicates whether the product version is active.
+   *
    * @public
    */
   Active?: boolean | undefined;
 
   /**
-   * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
+   * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+   *
    * @public
    */
   Guidance?: ProvisioningArtifactGuidance | undefined;
 
   /**
-   * <p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product
-   *          and create the provisioning artifact. Service Catalog includes this response parameter as a high level
-   *          field to the existing <code>ProvisioningArtifactDetail</code> type, which is returned as part of the
-   *          response for <code>CreateProduct</code>, <code>UpdateProduct</code>, <code>DescribeProductAsAdmin</code>,
-   *          <code>DescribeProvisioningArtifact</code>, <code>ListProvisioningArtifact</code>,
-   *          and <code>UpdateProvisioningArticat</code> APIs. </p>
-   *          <p>This field only exists for Repo-Synced products. </p>
+   * Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product and create the provisioning artifact. Service Catalog includes this response parameter as a high level field to the existing `ProvisioningArtifactDetail` type, which is returned as part of the response for `CreateProduct`, `UpdateProduct`, `DescribeProductAsAdmin`, `DescribeProvisioningArtifact`, `ListProvisioningArtifact`, and `UpdateProvisioningArticat` APIs.
+   *
+   * This field only exists for Repo-Synced products.
+   *
    * @public
    */
   SourceRevision?: string | undefined;
@@ -1584,43 +1450,50 @@ export interface ProvisioningArtifactDetail {
  */
 export interface CreateProductOutput {
   /**
-   * <p>Information about the product view.</p>
+   * Information about the product view.
+   *
    * @public
    */
   ProductViewDetail?: ProductViewDetail | undefined;
 
   /**
-   * <p>Information about the provisioning artifact. </p>
+   * Information about the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
-   * <p>Information about the tags associated with the product.</p>
+   * Information about the tags associated with the product.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>The parameter key-value pair used to update a provisioned product.</p>
+ * The parameter key-value pair used to update a provisioned product.
+ *
  * @public
  */
 export interface UpdateProvisioningParameter {
   /**
-   * <p>The parameter key.</p>
+   * The parameter key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The parameter value.</p>
+   * The parameter value.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>If set to true, <code>Value</code> is ignored and the previous parameter value is kept.</p>
+   * If set to true, `Value` is ignored and the previous parameter value is kept.
+   *
    * @public
    */
   UsePreviousValue?: boolean | undefined;
@@ -1631,84 +1504,83 @@ export interface UpdateProvisioningParameter {
  */
 export interface CreateProvisionedProductPlanInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The name of the plan.</p>
+   * The name of the plan.
+   *
    * @public
    */
   PlanName: string | undefined;
 
   /**
-   * <p>The plan type.</p>
+   * The plan type.
+   *
    * @public
    */
   PlanType: ProvisionedProductPlanType | undefined;
 
   /**
-   * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
-   *          events.</p>
+   * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+   *
    * @public
    */
   NotificationArns?: string[] | undefined;
 
   /**
-   * <p>The path identifier of the product. This value is optional if the product
-   *          has a default path, and required if the product has more than one path.
-   *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
+   * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths.
+   *
    * @public
    */
   PathId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the Amazon Web Services account and cannot be updated after the product is provisioned.</p>
+   * A user-friendly name for the provisioned product. This value must be unique for the Amazon Web Services account and cannot be updated after the product is provisioned.
+   *
    * @public
    */
   ProvisionedProductName: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>Parameters specified by the administrator that are required for provisioning the
-   *          product.</p>
+   * Parameters specified by the administrator that are required for provisioning the product.
+   *
    * @public
    */
   ProvisioningParameters?: UpdateProvisioningParameter[] | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
-   *          <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
+   * One or more tags.
+   *
+   * If the plan is for an existing provisioned product, the product must have a `RESOURCE_UPDATE` constraint with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1719,31 +1591,36 @@ export interface CreateProvisionedProductPlanInput {
  */
 export interface CreateProvisionedProductPlanOutput {
   /**
-   * <p>The name of the plan.</p>
+   * The name of the plan.
+   *
    * @public
    */
   PlanName?: string | undefined;
 
   /**
-   * <p>The plan identifier.</p>
+   * The plan identifier.
+   *
    * @public
    */
   PlanId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProvisionProductId?: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product.</p>
+   * The user-friendly name of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
@@ -1754,36 +1631,32 @@ export interface CreateProvisionedProductPlanOutput {
  */
 export interface CreateProvisioningArtifactInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The configuration for the provisioning artifact.</p>
+   * The configuration for the provisioning artifact.
+   *
    * @public
    */
   Parameters: ProvisioningArtifactProperties | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -1794,29 +1667,32 @@ export interface CreateProvisioningArtifactInput {
  */
 export interface CreateProvisioningArtifactOutput {
   /**
-   * <p>Information about the provisioning artifact.</p>
+   * Information about the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
-   * <p>Specify the template source with one of the following options, but not both. Keys
-   *          accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>
-   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. </p>
-   *          <p>
-   *             <code>LoadTemplateFromURL</code>
-   *          </p>
-   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
-   *          <p>
-   *             <code>ImportFromPhysicalId</code>
-   *          </p>
-   *          <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>
+   * Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL`, `ImportFromPhysicalId` ].
+   *
+   * Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
+   *
+   * `LoadTemplateFromURL`
+   *
+   * Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
+   *
+   * `ImportFromPhysicalId`
+   *
+   * Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.
+   *
    * @public
    */
   Info?: Record<string, string> | undefined;
 
   /**
-   * <p>The status of the current request.</p>
+   * The status of the current request.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -1827,118 +1703,124 @@ export interface CreateProvisioningArtifactOutput {
  */
 export interface CreateServiceActionInput {
   /**
-   * <p>The self-service action name.</p>
+   * The self-service action name.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
+   * The service action definition type. For example, `SSM_AUTOMATION`.
+   *
    * @public
    */
   DefinitionType: ServiceActionDefinitionType | undefined;
 
   /**
-   * <p>The self-service action definition. Can be one of the following:</p>
-   *          <dl>
-   *             <dt>Name</dt>
-   *             <dd>
-   *                <p>The name of the Amazon Web Services Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</p>
-   *                <p>If you are using a shared SSM document, you must provide the ARN instead of the name.</p>
-   *             </dd>
-   *             <dt>Version</dt>
-   *             <dd>
-   *                <p>The Amazon Web Services Systems Manager automation document version. For example, <code>"Version": "1"</code>
-   *                </p>
-   *             </dd>
-   *             <dt>AssumeRole</dt>
-   *             <dd>
-   *                <p>The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p>
-   *                <p>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</p>
-   *             </dd>
-   *             <dt>Parameters</dt>
-   *             <dd>
-   *                <p>The list of parameters in JSON format.</p>
-   *                <p>For example: <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"\}]</code> or <code>[\{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"\}]</code>.</p>
-   *             </dd>
-   *          </dl>
+   * The self-service action definition. Can be one of the following:
+   *
+   * - **Name**
+   *
+   *   The name of the Amazon Web Services Systems Manager document (SSM document). For example, `AWS-RestartEC2Instance`.
+   *
+   *   If you are using a shared SSM document, you must provide the ARN instead of the name.
+   *
+   * - **Version**
+   *
+   *   The Amazon Web Services Systems Manager automation document version. For example, `"Version": "1"`
+   *
+   * - **AssumeRole**
+   *
+   *   The Amazon Resource Name (ARN) of the role that performs the self-service actions on your behalf. For example, `"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"`.
+   *
+   *   To reuse the provisioned product launch role, set to `"AssumeRole": "LAUNCH_ROLE"`.
+   *
+   * - **Parameters**
+   *
+   *   The list of parameters in JSON format.
+   *
+   *   For example: `[\{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"\}]` or `[\{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"\}]`.
+   *
    * @public
    */
   Definition: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
 
   /**
-   * <p>The self-service action description.</p>
+   * The self-service action description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 }
 
 /**
- * <p>Detailed information about the self-service action.</p>
+ * Detailed information about the self-service action.
+ *
  * @public
  */
 export interface ServiceActionSummary {
   /**
-   * <p>The self-service action identifier.</p>
+   * The self-service action identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The self-service action name.</p>
+   * The self-service action name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The self-service action description.</p>
+   * The self-service action description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The self-service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
+   * The self-service action definition type. For example, `SSM_AUTOMATION`.
+   *
    * @public
    */
   DefinitionType?: ServiceActionDefinitionType | undefined;
 }
 
 /**
- * <p>An object containing detailed information about the self-service action.</p>
+ * An object containing detailed information about the self-service action.
+ *
  * @public
  */
 export interface ServiceActionDetail {
   /**
-   * <p>Summary information about the self-service action.</p>
+   * Summary information about the self-service action.
+   *
    * @public
    */
   ServiceActionSummary?: ServiceActionSummary | undefined;
 
   /**
-   * <p>A map that defines the self-service action.</p>
+   * A map that defines the self-service action.
+   *
    * @public
    */
   Definition?: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
@@ -1949,7 +1831,8 @@ export interface ServiceActionDetail {
  */
 export interface CreateServiceActionOutput {
   /**
-   * <p>An object containing information about the self-service action.</p>
+   * An object containing information about the self-service action.
+   *
    * @public
    */
   ServiceActionDetail?: ServiceActionDetail | undefined;
@@ -1960,49 +1843,57 @@ export interface CreateServiceActionOutput {
  */
 export interface CreateTagOptionInput {
   /**
-   * <p>The TagOption key.</p>
+   * The TagOption key.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The TagOption value.</p>
+   * The TagOption value.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>Information about a TagOption.</p>
+ * Information about a TagOption.
+ *
  * @public
  */
 export interface TagOptionDetail {
   /**
-   * <p>The TagOption key.</p>
+   * The TagOption key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The TagOption value.</p>
+   * The TagOption value.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The TagOption active state.</p>
+   * The TagOption active state.
+   *
    * @public
    */
   Active?: boolean | undefined;
 
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account Id of the owner account that created the TagOption.</p>
+   * The Amazon Web Services account Id of the owner account that created the TagOption.
+   *
    * @public
    */
   Owner?: string | undefined;
@@ -2013,7 +1904,8 @@ export interface TagOptionDetail {
  */
 export interface CreateTagOptionOutput {
   /**
-   * <p>Information about the TagOption.</p>
+   * Information about the TagOption.
+   *
    * @public
    */
   TagOptionDetail?: TagOptionDetail | undefined;
@@ -2024,23 +1916,18 @@ export interface CreateTagOptionOutput {
  */
 export interface DeleteConstraintInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the constraint.</p>
+   * The identifier of the constraint.
+   *
    * @public
    */
   Id: string | undefined;
@@ -2056,23 +1943,18 @@ export interface DeleteConstraintOutput {}
  */
 export interface DeletePortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   Id: string | undefined;
@@ -2088,35 +1970,32 @@ export interface DeletePortfolioOutput {}
  */
 export interface DeletePortfolioShareInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID.</p>
+   * The Amazon Web Services account ID.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The organization node to whom you are going to stop sharing.</p>
+   * The organization node to whom you are going to stop sharing.
+   *
    * @public
    */
   OrganizationNode?: OrganizationNode | undefined;
@@ -2127,7 +2006,8 @@ export interface DeletePortfolioShareInput {
  */
 export interface DeletePortfolioShareOutput {
   /**
-   * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
+   * The portfolio share unique identifier. This will only be returned if delete is made to an organization node.
+   *
    * @public
    */
   PortfolioShareToken?: string | undefined;
@@ -2138,23 +2018,18 @@ export interface DeletePortfolioShareOutput {
  */
 export interface DeleteProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   Id: string | undefined;
@@ -2170,30 +2045,25 @@ export interface DeleteProductOutput {}
  */
 export interface DeleteProvisionedProductPlanInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The plan identifier.</p>
+   * The plan identifier.
+   *
    * @public
    */
   PlanId: string | undefined;
 
   /**
-   * <p>If set to true, Service Catalog stops managing the specified provisioned product even
-   *          if it cannot delete the underlying resources.</p>
+   * If set to true, Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
+   *
    * @public
    */
   IgnoreErrors?: boolean | undefined;
@@ -2209,29 +2079,25 @@ export interface DeleteProvisionedProductPlanOutput {}
  */
 export interface DeleteProvisioningArtifactInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
@@ -2247,29 +2113,25 @@ export interface DeleteProvisioningArtifactOutput {}
  */
 export interface DeleteServiceActionInput {
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -2285,7 +2147,8 @@ export interface DeleteServiceActionOutput {}
  */
 export interface DeleteTagOptionInput {
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   Id: string | undefined;
@@ -2301,23 +2164,18 @@ export interface DeleteTagOptionOutput {}
  */
 export interface DescribeConstraintInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the constraint.</p>
+   * The identifier of the constraint.
+   *
    * @public
    */
   Id: string | undefined;
@@ -2328,19 +2186,22 @@ export interface DescribeConstraintInput {
  */
 export interface DescribeConstraintOutput {
   /**
-   * <p>Information about the constraint.</p>
+   * Information about the constraint.
+   *
    * @public
    */
   ConstraintDetail?: ConstraintDetail | undefined;
 
   /**
-   * <p>The constraint parameters.</p>
+   * The constraint parameters.
+   *
    * @public
    */
   ConstraintParameters?: string | undefined;
 
   /**
-   * <p>The status of the current request.</p>
+   * The status of the current request.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -2351,23 +2212,18 @@ export interface DescribeConstraintOutput {
  */
 export interface DescribeCopyProductStatusInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The token for the copy product operation. This token is returned by <a>CopyProduct</a>.</p>
+   * The token for the copy product operation. This token is returned by CopyProduct.
+   *
    * @public
    */
   CopyProductToken: string | undefined;
@@ -2378,19 +2234,22 @@ export interface DescribeCopyProductStatusInput {
  */
 export interface DescribeCopyProductStatusOutput {
   /**
-   * <p>The status of the copy product operation.</p>
+   * The status of the copy product operation.
+   *
    * @public
    */
   CopyProductStatus?: CopyProductStatus | undefined;
 
   /**
-   * <p>The identifier of the copied product.</p>
+   * The identifier of the copied product.
+   *
    * @public
    */
   TargetProductId?: string | undefined;
 
   /**
-   * <p>The status message.</p>
+   * The status message.
+   *
    * @public
    */
   StatusDetail?: string | undefined;
@@ -2401,35 +2260,32 @@ export interface DescribeCopyProductStatusOutput {
  */
 export interface DescribePortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   Id: string | undefined;
 }
 
 /**
- * <p>Information about a budget.</p>
+ * Information about a budget.
+ *
  * @public
  */
 export interface BudgetDetail {
   /**
-   * <p>Name of the associated budget.</p>
+   * Name of the associated budget.
+   *
    * @public
    */
   BudgetName?: string | undefined;
@@ -2440,25 +2296,29 @@ export interface BudgetDetail {
  */
 export interface DescribePortfolioOutput {
   /**
-   * <p>Information about the portfolio.</p>
+   * Information about the portfolio.
+   *
    * @public
    */
   PortfolioDetail?: PortfolioDetail | undefined;
 
   /**
-   * <p>Information about the tags associated with the portfolio.</p>
+   * Information about the tags associated with the portfolio.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Information about the TagOptions associated with the portfolio.</p>
+   * Information about the TagOptions associated with the portfolio.
+   *
    * @public
    */
   TagOptions?: TagOptionDetail[] | undefined;
 
   /**
-   * <p>Information about the associated budgets.</p>
+   * Information about the associated budgets.
+   *
    * @public
    */
   Budgets?: BudgetDetail[] | undefined;
@@ -2469,70 +2329,87 @@ export interface DescribePortfolioOutput {
  */
 export interface DescribePortfolioSharesInput {
   /**
-   * <p>The unique identifier of the portfolio for which shares will be retrieved.</p>
+   * The unique identifier of the portfolio for which shares will be retrieved.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The type of portfolio share to summarize. This field acts as a filter on the type of portfolio share, which can be one of the following:</p>
-   *          <p>1. <code>ACCOUNT</code> - Represents an external account to account share.</p>
-   *          <p>2. <code>ORGANIZATION</code> - Represents a share to an organization. This share is available to every account in the organization.</p>
-   *          <p>3. <code>ORGANIZATIONAL_UNIT</code> - Represents a share to an organizational unit.</p>
-   *          <p>4. <code>ORGANIZATION_MEMBER_ACCOUNT</code> - Represents a share to an account in the organization.</p>
+   * The type of portfolio share to summarize. This field acts as a filter on the type of portfolio share, which can be one of the following:
+   *
+   * 1. `ACCOUNT` - Represents an external account to account share.
+   *
+   * 2. `ORGANIZATION` - Represents a share to an organization. This share is available to every account in the organization.
+   *
+   * 3. `ORGANIZATIONAL_UNIT` - Represents a share to an organizational unit.
+   *
+   * 4. `ORGANIZATION_MEMBER_ACCOUNT` - Represents a share to an account in the organization.
+   *
    * @public
    */
   Type: DescribePortfolioShareType | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 }
 
 /**
- * <p>Information about the portfolio share.</p>
+ * Information about the portfolio share.
+ *
  * @public
  */
 export interface PortfolioShareDetail {
   /**
-   * <p>The identifier of the recipient entity that received the portfolio share.
-   *          The recipient entity can be one of the following:</p>
-   *          <p>1. An external account.</p>
-   *          <p>2. An organziation member account.</p>
-   *          <p>3. An organzational unit (OU).</p>
-   *          <p>4. The organization itself. (This shares with every account in the organization).</p>
+   * The identifier of the recipient entity that received the portfolio share. The recipient entity can be one of the following:
+   *
+   * 1. An external account.
+   *
+   * 2. An organziation member account.
+   *
+   * 3. An organzational unit (OU).
+   *
+   * 4. The organization itself. (This shares with every account in the organization).
+   *
    * @public
    */
   PrincipalId?: string | undefined;
 
   /**
-   * <p>The type of the portfolio share.</p>
+   * The type of the portfolio share.
+   *
    * @public
    */
   Type?: DescribePortfolioShareType | undefined;
 
   /**
-   * <p>Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.</p>
+   * Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.
+   *
    * @public
    */
   Accepted?: boolean | undefined;
 
   /**
-   * <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
+   * Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.
+   *
    * @public
    */
   ShareTagOptions?: boolean | undefined;
 
   /**
-   * <p>Indicates if <code>Principal</code> sharing is enabled or disabled for the portfolio share. </p>
+   * Indicates if `Principal` sharing is enabled or disabled for the portfolio share.
+   *
    * @public
    */
   SharePrincipals?: boolean | undefined;
@@ -2543,13 +2420,15 @@ export interface PortfolioShareDetail {
  */
 export interface DescribePortfolioSharesOutput {
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
 
   /**
-   * <p>Summaries about each of the portfolio shares.</p>
+   * Summaries about each of the portfolio shares.
+   *
    * @public
    */
   PortfolioShareDetails?: PortfolioShareDetail[] | undefined;
@@ -2560,49 +2439,57 @@ export interface DescribePortfolioSharesOutput {
  */
 export interface DescribePortfolioShareStatusInput {
   /**
-   * <p>The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.</p>
+   * The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.
+   *
    * @public
    */
   PortfolioShareToken: string | undefined;
 }
 
 /**
- * <p>Errors that occurred during the portfolio share operation.</p>
+ * Errors that occurred during the portfolio share operation.
+ *
  * @public
  */
 export interface ShareError {
   /**
-   * <p>List of accounts impacted by the error.</p>
+   * List of accounts impacted by the error.
+   *
    * @public
    */
   Accounts?: string[] | undefined;
 
   /**
-   * <p>Information about the error.</p>
+   * Information about the error.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Error type that happened when processing the operation.</p>
+   * Error type that happened when processing the operation.
+   *
    * @public
    */
   Error?: string | undefined;
 }
 
 /**
- * <p>Information about the portfolio share operation.</p>
+ * Information about the portfolio share operation.
+ *
  * @public
  */
 export interface ShareDetails {
   /**
-   * <p>List of accounts for whom the operation succeeded.</p>
+   * List of accounts for whom the operation succeeded.
+   *
    * @public
    */
   SuccessfulShares?: string[] | undefined;
 
   /**
-   * <p>List of errors.</p>
+   * List of errors.
+   *
    * @public
    */
   ShareErrors?: ShareError[] | undefined;
@@ -2613,31 +2500,36 @@ export interface ShareDetails {
  */
 export interface DescribePortfolioShareStatusOutput {
   /**
-   * <p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>
+   * The token for the portfolio share operation. For example, `share-6v24abcdefghi`.
+   *
    * @public
    */
   PortfolioShareToken?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId?: string | undefined;
 
   /**
-   * <p>Organization node identifier. It can be either account id, organizational unit id or organization id.</p>
+   * Organization node identifier. It can be either account id, organizational unit id or organization id.
+   *
    * @public
    */
   OrganizationNodeValue?: string | undefined;
 
   /**
-   * <p>Status of the portfolio share operation.</p>
+   * Status of the portfolio share operation.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
 
   /**
-   * <p>Information about the portfolio share operation.</p>
+   * Information about the portfolio share operation.
+   *
    * @public
    */
   ShareDetails?: ShareDetails | undefined;
@@ -2648,83 +2540,88 @@ export interface DescribePortfolioShareStatusOutput {
  */
 export interface DescribeProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The product name.</p>
+   * The product name.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>A launch path object.</p>
+ * A launch path object.
+ *
  * @public
  */
 export interface LaunchPath {
   /**
-   * <p>The identifier of the launch path.</p>
+   * The identifier of the launch path.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the launch path.</p>
+   * The name of the launch path.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
+ * Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+ *
  * @public
  */
 export interface ProvisioningArtifact {
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact.</p>
+   * The name of the provisioning artifact.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the provisioning artifact.</p>
+   * The description of the provisioning artifact.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
+   * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+   *
    * @public
    */
   Guidance?: ProvisioningArtifactGuidance | undefined;
@@ -2735,25 +2632,29 @@ export interface ProvisioningArtifact {
  */
 export interface DescribeProductOutput {
   /**
-   * <p>Summary information about the product view.</p>
+   * Summary information about the product view.
+   *
    * @public
    */
   ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
-   * <p>Information about the provisioning artifacts for the specified product.</p>
+   * Information about the provisioning artifacts for the specified product.
+   *
    * @public
    */
   ProvisioningArtifacts?: ProvisioningArtifact[] | undefined;
 
   /**
-   * <p>Information about the associated budgets.</p>
+   * Information about the associated budgets.
+   *
    * @public
    */
   Budgets?: BudgetDetail[] | undefined;
 
   /**
-   * <p>Information about the associated launch paths.</p>
+   * Information about the associated launch paths.
+   *
    * @public
    */
   LaunchPaths?: LaunchPath[] | undefined;
@@ -2764,76 +2665,76 @@ export interface DescribeProductOutput {
  */
 export interface DescribeProductAsAdminInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The product name.</p>
+   * The product name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The unique identifier of the shared portfolio that the specified product is associated
-   *          with.</p>
-   *          <p>You can provide this parameter to retrieve the shared TagOptions associated with the
-   *          product. If this parameter is provided and if TagOptions sharing is enabled in the
-   *          portfolio share, the API returns both local and shared TagOptions associated with the
-   *          product. Otherwise only local TagOptions will be returned. </p>
+   * The unique identifier of the shared portfolio that the specified product is associated with.
+   *
+   * You can provide this parameter to retrieve the shared TagOptions associated with the product. If this parameter is provided and if TagOptions sharing is enabled in the portfolio share, the API returns both local and shared TagOptions associated with the product. Otherwise only local TagOptions will be returned.
+   *
    * @public
    */
   SourcePortfolioId?: string | undefined;
 }
 
 /**
- * <p>Summary information about a provisioning artifact (also known as a version) for a product.</p>
+ * Summary information about a provisioning artifact (also known as a version) for a product.
+ *
  * @public
  */
 export interface ProvisioningArtifactSummary {
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact.</p>
+   * The name of the provisioning artifact.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the provisioning artifact.</p>
+   * The description of the provisioning artifact.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The metadata for the provisioning artifact. This is used with Amazon Web Services Marketplace products.</p>
+   * The metadata for the provisioning artifact. This is used with Amazon Web Services Marketplace products.
+   *
    * @public
    */
   ProvisioningArtifactMetadata?: Record<string, string> | undefined;
@@ -2844,31 +2745,36 @@ export interface ProvisioningArtifactSummary {
  */
 export interface DescribeProductAsAdminOutput {
   /**
-   * <p>Information about the product view.</p>
+   * Information about the product view.
+   *
    * @public
    */
   ProductViewDetail?: ProductViewDetail | undefined;
 
   /**
-   * <p>Information about the provisioning artifacts (also known as versions) for the specified product.</p>
+   * Information about the provisioning artifacts (also known as versions) for the specified product.
+   *
    * @public
    */
   ProvisioningArtifactSummaries?: ProvisioningArtifactSummary[] | undefined;
 
   /**
-   * <p>Information about the tags associated with the product.</p>
+   * Information about the tags associated with the product.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Information about the TagOptions associated with the product.</p>
+   * Information about the TagOptions associated with the product.
+   *
    * @public
    */
   TagOptions?: TagOptionDetail[] | undefined;
 
   /**
-   * <p>Information about the associated budgets.</p>
+   * Information about the associated budgets.
+   *
    * @public
    */
   Budgets?: BudgetDetail[] | undefined;
@@ -2879,23 +2785,18 @@ export interface DescribeProductAsAdminOutput {
  */
 export interface DescribeProductViewInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product view identifier.</p>
+   * The product view identifier.
+   *
    * @public
    */
   Id: string | undefined;
@@ -2906,13 +2807,15 @@ export interface DescribeProductViewInput {
  */
 export interface DescribeProductViewOutput {
   /**
-   * <p>Summary information about the product.</p>
+   * Summary information about the product.
+   *
    * @public
    */
   ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
-   * <p>Information about the provisioning artifacts for the product.</p>
+   * Information about the provisioning artifacts for the product.
+   *
    * @public
    */
   ProvisioningArtifacts?: ProvisioningArtifact[] | undefined;
@@ -2933,208 +2836,164 @@ export interface DescribeProductViewOutput {
  */
 export interface DescribeProvisionedProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The provisioned product identifier. You must provide the name or ID, but not both.</p>
-   *          <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
+   * The provisioned product identifier. You must provide the name or ID, but not both.
+   *
+   * If you do not provide a name or ID, or you provide both name and ID, an `InvalidParametersException` will occur.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the provisioned product. You must provide the name or ID, but not both.</p>
-   *          <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
+   * The name of the provisioned product. You must provide the name or ID, but not both.
+   *
+   * If you do not provide a name or ID, or you provide both name and ID, an `InvalidParametersException` will occur.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Information about a CloudWatch dashboard.</p>
+ * Information about a CloudWatch dashboard.
+ *
  * @public
  */
 export interface CloudWatchDashboard {
   /**
-   * <p>The name of the CloudWatch dashboard.</p>
+   * The name of the CloudWatch dashboard.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Information about a provisioned product.</p>
+ * Information about a provisioned product.
+ *
  * @public
  */
 export interface ProvisionedProductDetail {
   /**
-   * <p>The user-friendly name of the provisioned product.</p>
+   * The user-friendly name of the provisioned product.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of the provisioned product.</p>
+   * The ARN of the provisioned product.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of provisioned product.
-   *          The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>, <code>TERRAFORM_OPEN_SOURCE</code>,
-   *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
+   * The type of provisioned product. The supported values are `CFN_STACK`, `CFN_STACKSET`, `TERRAFORM_OPEN_SOURCE`, `TERRAFORM_CLOUD`, and `EXTERNAL`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The current status of the provisioned product.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most
-   *                recent operation succeeded and completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results.
-   *                Wait for an <code>AVAILABLE</code> status before performing operations.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has
-   *                completed the requested operation but is not exactly what was requested. For example, a
-   *                request to update to a new version failed and the stack rolled back to the current version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running.
-   *                For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product,
-   *                but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an <code>AVAILABLE</code> status before performing operations.</p>
-   *             </li>
-   *          </ul>
+   * The current status of the provisioned product.
+   *
+   * - `AVAILABLE` - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+   * - `UNDER_CHANGE` - Transitive state. Operations performed might not have valid results. Wait for an `AVAILABLE` status before performing operations.
+   * - `TAINTED` - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+   * - `ERROR` - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+   * - `PLAN_IN_PROGRESS` - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an `AVAILABLE` status before performing operations.
+   *
    * @public
    */
   Status?: ProvisionedProductStatus | undefined;
 
   /**
-   * <p>The current status message of the provisioned product.</p>
+   * The current status message of the provisioned product.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>The record identifier of the last request performed on this provisioned product.</p>
+   * The record identifier of the last request performed on this provisioned product.
+   *
    * @public
    */
   LastRecordId?: string | undefined;
 
   /**
-   * <p>The record identifier of the last request performed on this provisioned product of the following types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                ProvisionProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                UpdateProvisionedProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                ExecuteProvisionedProductPlan
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                TerminateProvisionedProduct
-   *             </p>
-   *             </li>
-   *          </ul>
+   * The record identifier of the last request performed on this provisioned product of the following types:
+   *
+   * - ProvisionProduct
+   * - UpdateProvisionedProduct
+   * - ExecuteProvisionedProductPlan
+   * - TerminateProvisionedProduct
+   *
    * @public
    */
   LastProvisioningRecordId?: string | undefined;
 
   /**
-   * <p>The record identifier of the last successful request performed on this provisioned product of the following types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                ProvisionProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                UpdateProvisionedProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                ExecuteProvisionedProductPlan
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                TerminateProvisionedProduct
-   *             </p>
-   *             </li>
-   *          </ul>
+   * The record identifier of the last successful request performed on this provisioned product of the following types:
+   *
+   * - ProvisionProduct
+   * - UpdateProvisionedProduct
+   * - ExecuteProvisionedProductPlan
+   * - TerminateProvisionedProduct
+   *
    * @public
    */
   LastSuccessfulProvisioningRecordId?: string | undefined;
 
   /**
-   * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+   * The product identifier. For example, `prod-abcdzk7xy33qa`.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
+   * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The ARN of the launch role associated with the provisioned product.</p>
+   * The ARN of the launch role associated with the provisioned product.
+   *
    * @public
    */
   LaunchRoleArn?: string | undefined;
@@ -3145,13 +3004,15 @@ export interface ProvisionedProductDetail {
  */
 export interface DescribeProvisionedProductOutput {
   /**
-   * <p>Information about the provisioned product.</p>
+   * Information about the provisioned product.
+   *
    * @public
    */
   ProvisionedProductDetail?: ProvisionedProductDetail | undefined;
 
   /**
-   * <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
+   * Any CloudWatch dashboards that were created when provisioning the product.
+   *
    * @public
    */
   CloudWatchDashboards?: CloudWatchDashboard[] | undefined;
@@ -3162,235 +3023,256 @@ export interface DescribeProvisionedProductOutput {
  */
 export interface DescribeProvisionedProductPlanInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The plan identifier.</p>
+   * The plan identifier.
+   *
    * @public
    */
   PlanId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>Information about a plan.</p>
+ * Information about a plan.
+ *
  * @public
  */
 export interface ProvisionedProductPlanDetails {
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The path identifier of the product. This value is optional if the product
-   *          has a default path, and required if the product has more than one path.
-   *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
+   * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths.
+   *
    * @public
    */
   PathId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The name of the plan.</p>
+   * The name of the plan.
+   *
    * @public
    */
   PlanName?: string | undefined;
 
   /**
-   * <p>The plan identifier.</p>
+   * The plan identifier.
+   *
    * @public
    */
   PlanId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProvisionProductId?: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product.</p>
+   * The user-friendly name of the provisioned product.
+   *
    * @public
    */
   ProvisionProductName?: string | undefined;
 
   /**
-   * <p>The plan type.</p>
+   * The plan type.
+   *
    * @public
    */
   PlanType?: ProvisionedProductPlanType | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   Status?: ProvisionedProductPlanStatus | undefined;
 
   /**
-   * <p>The UTC time stamp when the plan was last updated.</p>
+   * The UTC time stamp when the plan was last updated.
+   *
    * @public
    */
   UpdatedTime?: Date | undefined;
 
   /**
-   * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
-   *          events.</p>
+   * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+   *
    * @public
    */
   NotificationArns?: string[] | undefined;
 
   /**
-   * <p>Parameters specified by the administrator that are required for provisioning the
-   *          product.</p>
+   * Parameters specified by the administrator that are required for provisioning the product.
+   *
    * @public
    */
   ProvisioningParameters?: UpdateProvisioningParameter[] | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The status message.</p>
+   * The status message.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 }
 
 /**
- * <p>Information about a change to a resource attribute.</p>
+ * Information about a change to a resource attribute.
+ *
  * @public
  */
 export interface ResourceTargetDefinition {
   /**
-   * <p>The attribute to be changed.</p>
+   * The attribute to be changed.
+   *
    * @public
    */
   Attribute?: ResourceAttribute | undefined;
 
   /**
-   * <p>If the attribute is <code>Properties</code>, the value is the name of the property.
-   *          Otherwise, the value is null.</p>
+   * If the attribute is `Properties`, the value is the name of the property. Otherwise, the value is null.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>If the attribute is <code>Properties</code>, indicates whether a change to this property
-   *          causes the resource to be re-created.</p>
+   * If the attribute is `Properties`, indicates whether a change to this property causes the resource to be re-created.
+   *
    * @public
    */
   RequiresRecreation?: RequiresRecreation | undefined;
 }
 
 /**
- * <p>Information about a change to a resource attribute.</p>
+ * Information about a change to a resource attribute.
+ *
  * @public
  */
 export interface ResourceChangeDetail {
   /**
-   * <p>Information about the resource attribute to be modified.</p>
+   * Information about the resource attribute to be modified.
+   *
    * @public
    */
   Target?: ResourceTargetDefinition | undefined;
 
   /**
-   * <p>For static evaluations, the value of the resource attribute will change and the new value is known.
-   *          For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.</p>
+   * For static evaluations, the value of the resource attribute will change and the new value is known. For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.
+   *
    * @public
    */
   Evaluation?: EvaluationType | undefined;
 
   /**
-   * <p>The ID of the entity that caused the change.</p>
+   * The ID of the entity that caused the change.
+   *
    * @public
    */
   CausingEntity?: string | undefined;
 }
 
 /**
- * <p>Information about a resource change that will occur when a plan is executed.</p>
+ * Information about a resource change that will occur when a plan is executed.
+ *
  * @public
  */
 export interface ResourceChange {
   /**
-   * <p>The change action.</p>
+   * The change action.
+   *
    * @public
    */
   Action?: ChangeAction | undefined;
 
   /**
-   * <p>The ID of the resource, as defined in the CloudFormation template.</p>
+   * The ID of the resource, as defined in the CloudFormation template.
+   *
    * @public
    */
   LogicalResourceId?: string | undefined;
 
   /**
-   * <p>The ID of the resource, if it was already created.</p>
+   * The ID of the resource, if it was already created.
+   *
    * @public
    */
   PhysicalResourceId?: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>If the change type is <code>Modify</code>, indicates whether the existing resource
-   *          is deleted and replaced with a new one.</p>
+   * If the change type is `Modify`, indicates whether the existing resource is deleted and replaced with a new one.
+   *
    * @public
    */
   Replacement?: Replacement | undefined;
 
   /**
-   * <p>The change scope.</p>
+   * The change scope.
+   *
    * @public
    */
   Scope?: ResourceAttribute[] | undefined;
 
   /**
-   * <p>Information about the resource changes.</p>
+   * Information about the resource changes.
+   *
    * @public
    */
   Details?: ResourceChangeDetail[] | undefined;
@@ -3401,19 +3283,22 @@ export interface ResourceChange {
  */
 export interface DescribeProvisionedProductPlanOutput {
   /**
-   * <p>Information about the plan.</p>
+   * Information about the plan.
+   *
    * @public
    */
   ProvisionedProductPlanDetails?: ProvisionedProductPlanDetails | undefined;
 
   /**
-   * <p>Information about the resource changes that will occur when the plan is executed.</p>
+   * Information about the resource changes that will occur when the plan is executed.
+   *
    * @public
    */
   ResourceChanges?: ResourceChange[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -3424,151 +3309,164 @@ export interface DescribeProvisionedProductPlanOutput {
  */
 export interface DescribeProvisioningArtifactInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The provisioning artifact name.</p>
+   * The provisioning artifact name.
+   *
    * @public
    */
   ProvisioningArtifactName?: string | undefined;
 
   /**
-   * <p>The product name.</p>
+   * The product name.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>Indicates whether a verbose level of detail is enabled.</p>
+   * Indicates whether a verbose level of detail is enabled.
+   *
    * @public
    */
   Verbose?: boolean | undefined;
 
   /**
-   * <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
+   * Indicates if the API call response does or does not include additional details about the provisioning parameters.
+   *
    * @public
    */
   IncludeProvisioningArtifactParameters?: boolean | undefined;
 }
 
 /**
- * <p>The constraints that the administrator has put on the parameter.</p>
+ * The constraints that the administrator has put on the parameter.
+ *
  * @public
  */
 export interface ParameterConstraints {
   /**
-   * <p>The values that the administrator has allowed for the parameter.</p>
+   * The values that the administrator has allowed for the parameter.
+   *
    * @public
    */
   AllowedValues?: string[] | undefined;
 
   /**
-   * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
+   * A regular expression that represents the patterns that allow for `String` types. The pattern must match the entire parameter value provided.
+   *
    * @public
    */
   AllowedPattern?: string | undefined;
 
   /**
-   * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
-   *          <p>
-   *             <code>Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+</code>
-   *          </p>
-   *          <p>By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:</p>
-   *          <p>
-   *             <code>Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.</code>
-   *          </p>
+   * A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of `[A-Za-z0-9]+` displays the following error message when the user specifies an invalid value:
+   *
+   * `Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+`
+   *
+   * By adding a constraint description, such as must only contain letters (uppercase and lowercase) and numbers, you can display the following customized error message:
+   *
+   * `Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.`
+   *
    * @public
    */
   ConstraintDescription?: string | undefined;
 
   /**
-   * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
+   * An integer value that determines the largest number of characters you want to allow for `String` types.
+   *
    * @public
    */
   MaxLength?: string | undefined;
 
   /**
-   * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
+   * An integer value that determines the smallest number of characters you want to allow for `String` types.
+   *
    * @public
    */
   MinLength?: string | undefined;
 
   /**
-   * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
+   * A numeric value that determines the largest numeric value you want to allow for `Number` types.
+   *
    * @public
    */
   MaxValue?: string | undefined;
 
   /**
-   * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
+   * A numeric value that determines the smallest numeric value you want to allow for `Number` types.
+   *
    * @public
    */
   MinValue?: string | undefined;
 }
 
 /**
- * <p>Information about a parameter used to provision a product.</p>
+ * Information about a parameter used to provision a product.
+ *
  * @public
  */
 export interface ProvisioningArtifactParameter {
   /**
-   * <p>The parameter key.</p>
+   * The parameter key.
+   *
    * @public
    */
   ParameterKey?: string | undefined;
 
   /**
-   * <p>The default value.</p>
+   * The default value.
+   *
    * @public
    */
   DefaultValue?: string | undefined;
 
   /**
-   * <p>The parameter type.</p>
+   * The parameter type.
+   *
    * @public
    */
   ParameterType?: string | undefined;
 
   /**
-   * <p>If this value is true, the value for this parameter is obfuscated from view when the
-   *          parameter is retrieved. This parameter is used to hide sensitive information.</p>
+   * If this value is true, the value for this parameter is obfuscated from view when the parameter is retrieved. This parameter is used to hide sensitive information.
+   *
    * @public
    */
   IsNoEcho?: boolean | undefined;
 
   /**
-   * <p>The description of the parameter.</p>
+   * The description of the parameter.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Constraints that the administrator has put on a parameter.</p>
+   * Constraints that the administrator has put on a parameter.
+   *
    * @public
    */
   ParameterConstraints?: ParameterConstraints | undefined;
@@ -3579,25 +3477,29 @@ export interface ProvisioningArtifactParameter {
  */
 export interface DescribeProvisioningArtifactOutput {
   /**
-   * <p>Information about the provisioning artifact.</p>
+   * Information about the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
+   * The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
+   *
    * @public
    */
   Info?: Record<string, string> | undefined;
 
   /**
-   * <p>The status of the current request.</p>
+   * The status of the current request.
+   *
    * @public
    */
   Status?: Status | undefined;
 
   /**
-   * <p>Information about the parameters used to provision the product.  </p>
+   * Information about the parameters used to provision the product.
+   *
    * @public
    */
   ProvisioningArtifactParameters?: ProvisioningArtifactParameter[] | undefined;
@@ -3608,168 +3510,169 @@ export interface DescribeProvisioningArtifactOutput {
  */
 export interface DescribeProvisioningParametersInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier. You must provide the product name or ID, but not both.</p>
+   * The product identifier. You must provide the product name or ID, but not both.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The name of the product. You must provide the name or ID, but not both.</p>
+   * The name of the product. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
+   * The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
+   * The name of the provisioning artifact. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProvisioningArtifactName?: string | undefined;
 
   /**
-   * <p>The path identifier of the product. This value is optional if the product
-   *          has a default path, and required if the product has more than one path.
-   *          To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
+   * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths. You must provide the name or ID, but not both.
+   *
    * @public
    */
   PathId?: string | undefined;
 
   /**
-   * <p>The name of the path. You must provide the name or ID, but not both.</p>
+   * The name of the path. You must provide the name or ID, but not both.
+   *
    * @public
    */
   PathName?: string | undefined;
 }
 
 /**
- * <p>Summary information about a constraint.</p>
+ * Summary information about a constraint.
+ *
  * @public
  */
 export interface ConstraintSummary {
   /**
-   * <p>The type of constraint.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LAUNCH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOTIFICATION</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>STACKSET</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEMPLATE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The type of constraint.
+   *
+   * - `LAUNCH`
+   * - `NOTIFICATION`
+   * - STACKSET
+   * - `TEMPLATE`
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The description of the constraint.</p>
+   * The description of the constraint.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Provisioning artifact output.</p>
+ * Provisioning artifact output.
+ *
  * @public
  */
 export interface ProvisioningArtifactOutput {
   /**
-   * <p>The provisioning artifact output key.</p>
+   * The provisioning artifact output key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>Description of the provisioning artifact output key.</p>
+   * Description of the provisioning artifact output key.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>The user-defined preferences that will be applied during product provisioning, unless overridden by <code>ProvisioningPreferences</code> or <code>UpdateProvisioningPreferences</code>.</p>
- *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a> in the <i>CloudFormation User Guide</i>.</p>
+ * The user-defined preferences that will be applied during product provisioning, unless overridden by `ProvisioningPreferences` or `UpdateProvisioningPreferences`.
+ *
+ * For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) in the *CloudFormation User Guide*.
+ *
  * @public
  */
 export interface ProvisioningArtifactPreferences {
   /**
-   * <p>One or more Amazon Web Services accounts where stack instances are deployed from the stack set. These accounts can be scoped in <code>ProvisioningPreferences$StackSetAccounts</code> and <code>UpdateProvisioningPreferences$StackSetAccounts</code>.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
+   * One or more Amazon Web Services accounts where stack instances are deployed from the stack set. These accounts can be scoped in `ProvisioningPreferences$StackSetAccounts` and `UpdateProvisioningPreferences$StackSetAccounts`.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
    * @public
    */
   StackSetAccounts?: string[] | undefined;
 
   /**
-   * <p>One or more Amazon Web Services Regions where stack instances are deployed from the stack set. These Regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
+   * One or more Amazon Web Services Regions where stack instances are deployed from the stack set. These Regions can be scoped in `ProvisioningPreferences$StackSetRegions` and `UpdateProvisioningPreferences$StackSetRegions`.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
    * @public
    */
   StackSetRegions?: string[] | undefined;
 }
 
 /**
- * <p>Summary information about a TagOption.</p>
+ * Summary information about a TagOption.
+ *
  * @public
  */
 export interface TagOptionSummary {
   /**
-   * <p>The TagOption key.</p>
+   * The TagOption key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The TagOption value.</p>
+   * The TagOption value.
+   *
    * @public
    */
   Values?: string[] | undefined;
 }
 
 /**
- * <p>Additional information provided by the administrator.</p>
+ * Additional information provided by the administrator.
+ *
  * @public
  */
 export interface UsageInstruction {
   /**
-   * <p>The usage instruction type for the value.</p>
+   * The usage instruction type for the value.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The usage instruction value for this type.</p>
+   * The usage instruction value for this type.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -3780,38 +3683,42 @@ export interface UsageInstruction {
  */
 export interface DescribeProvisioningParametersOutput {
   /**
-   * <p>Information about the parameters used to provision the product.</p>
+   * Information about the parameters used to provision the product.
+   *
    * @public
    */
   ProvisioningArtifactParameters?: ProvisioningArtifactParameter[] | undefined;
 
   /**
-   * <p>Information about the constraints used to provision the product.</p>
+   * Information about the constraints used to provision the product.
+   *
    * @public
    */
   ConstraintSummaries?: ConstraintSummary[] | undefined;
 
   /**
-   * <p>Any additional metadata specifically related to the provisioning of the product. For
-   *          example, see the <code>Version</code> field of the CloudFormation template.</p>
+   * Any additional metadata specifically related to the provisioning of the product. For example, see the `Version` field of the CloudFormation template.
+   *
    * @public
    */
   UsageInstructions?: UsageInstruction[] | undefined;
 
   /**
-   * <p>Information about the TagOptions associated with the resource.</p>
+   * Information about the TagOptions associated with the resource.
+   *
    * @public
    */
   TagOptions?: TagOptionSummary[] | undefined;
 
   /**
-   * <p>An object that contains information about preferences, such as Regions and accounts, for the provisioning artifact.</p>
+   * An object that contains information about preferences, such as Regions and accounts, for the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences | undefined;
 
   /**
-   * <p>The output of the provisioning artifact.</p>
+   * The output of the provisioning artifact.
    *
    * @deprecated This property is deprecated and returns the Id and Description of the Provisioning Artifact. Use ProvisioningArtifactOutputKeys instead to get the Keys and Descriptions of the outputs.
    * @public
@@ -3819,7 +3726,8 @@ export interface DescribeProvisioningParametersOutput {
   ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[] | undefined;
 
   /**
-   * <p>A list of the keys and descriptions of the outputs. These outputs can be referenced from a provisioned product launched from this provisioning artifact.</p>
+   * A list of the keys and descriptions of the outputs. These outputs can be referenced from a provisioned product launched from this provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[] | undefined;
@@ -3830,229 +3738,217 @@ export interface DescribeProvisioningParametersOutput {
  */
 export interface DescribeRecordInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The record identifier of the provisioned product. This identifier is returned by the
-   *          request operation.</p>
+   * The record identifier of the provisioned product. This identifier is returned by the request operation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 }
 
 /**
- * <p>The error code and description resulting from an operation.</p>
+ * The error code and description resulting from an operation.
+ *
  * @public
  */
 export interface RecordError {
   /**
-   * <p>The numeric value of the error.</p>
+   * The numeric value of the error.
+   *
    * @public
    */
   Code?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Description?: string | undefined;
 }
 
 /**
- * <p>Information about a tag, which is a key-value pair.</p>
+ * Information about a tag, which is a key-value pair.
+ *
  * @public
  */
 export interface RecordTag {
   /**
-   * <p>The key for this tag.</p>
+   * The key for this tag.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The value for this tag.</p>
+   * The value for this tag.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Information about a request operation.</p>
+ * Information about a request operation.
+ *
  * @public
  */
 export interface RecordDetail {
   /**
-   * <p>The identifier of the record.</p>
+   * The identifier of the record.
+   *
    * @public
    */
   RecordId?: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product.</p>
+   * The user-friendly name of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductName?: string | undefined;
 
   /**
-   * <p>The status of the provisioned product.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATED</code> - The request was created but the operation has not started.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS</code> - The requested operation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_PROGRESS_IN_ERROR</code> - The provisioned product is under change but the
-   *             requested operation failed and some remediation is occurring. For example, a rollback.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code> - The requested operation has successfully completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The requested operation has unsuccessfully completed.
-   *             Investigate using the error messages returned.</p>
-   *             </li>
-   *          </ul>
+   * The status of the provisioned product.
+   *
+   * - `CREATED` - The request was created but the operation has not started.
+   * - `IN_PROGRESS` - The requested operation is in progress.
+   * - `IN_PROGRESS_IN_ERROR` - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback.
+   * - `SUCCEEDED` - The requested operation has successfully completed.
+   * - `FAILED` - The requested operation has unsuccessfully completed. Investigate using the error messages returned.
+   *
    * @public
    */
   Status?: RecordStatus | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The time when the record was last updated.</p>
+   * The time when the record was last updated.
+   *
    * @public
    */
   UpdatedTime?: Date | undefined;
 
   /**
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>,
-   *          <code>TERRAFORM_OPEN_SOURCE</code>, <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
+   * The type of provisioned product. The supported values are `CFN_STACK`, `CFN_STACKSET`, `TERRAFORM_OPEN_SOURCE`, `TERRAFORM_CLOUD`, and `EXTERNAL`.
+   *
    * @public
    */
   ProvisionedProductType?: string | undefined;
 
   /**
-   * <p>The record type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISION_PRODUCT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_PROVISIONED_PRODUCT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATE_PROVISIONED_PRODUCT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The record type.
+   *
+   * - `PROVISION_PRODUCT`
+   * - `UPDATE_PROVISIONED_PRODUCT`
+   * - `TERMINATE_PROVISIONED_PRODUCT`
+   *
    * @public
    */
   RecordType?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The path identifier.</p>
+   * The path identifier.
+   *
    * @public
    */
   PathId?: string | undefined;
 
   /**
-   * <p>The errors that occurred.</p>
+   * The errors that occurred.
+   *
    * @public
    */
   RecordErrors?: RecordError[] | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   RecordTags?: RecordTag[] | undefined;
 
   /**
-   * <p>The ARN of the launch role associated with the provisioned product.</p>
+   * The ARN of the launch role associated with the provisioned product.
+   *
    * @public
    */
   LaunchRoleArn?: string | undefined;
 }
 
 /**
- * <p>The output for the product created as the result of a request. For example, the output for
- *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
+ * The output for the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
+ *
  * @public
  */
 export interface RecordOutput {
   /**
-   * <p>The output key.</p>
+   * The output key.
+   *
    * @public
    */
   OutputKey?: string | undefined;
 
   /**
-   * <p>The output value.</p>
+   * The output value.
+   *
    * @public
    */
   OutputValue?: string | undefined;
 
   /**
-   * <p>The description of the output.</p>
+   * The description of the output.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -4063,20 +3959,22 @@ export interface RecordOutput {
  */
 export interface DescribeRecordOutput {
   /**
-   * <p>Information about the product.</p>
+   * Information about the product.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
 
   /**
-   * <p>Information about the product created as the result of a request. For example, the output for
-   *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
+   * Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
+   *
    * @public
    */
   RecordOutputs?: RecordOutput[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -4087,23 +3985,18 @@ export interface DescribeRecordOutput {
  */
 export interface DescribeServiceActionInput {
   /**
-   * <p>The self-service action identifier.</p>
+   * The self-service action identifier.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
@@ -4114,7 +4007,8 @@ export interface DescribeServiceActionInput {
  */
 export interface DescribeServiceActionOutput {
   /**
-   * <p>Detailed information about the self-service action.</p>
+   * Detailed information about the self-service action.
+   *
    * @public
    */
   ServiceActionDetail?: ServiceActionDetail | undefined;
@@ -4125,53 +4019,53 @@ export interface DescribeServiceActionOutput {
  */
 export interface DescribeServiceActionExecutionParametersInput {
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductId: string | undefined;
 
   /**
-   * <p>The self-service action identifier.</p>
+   * The self-service action identifier.
+   *
    * @public
    */
   ServiceActionId: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 }
 
 /**
- * <p>Details of an execution parameter value that is passed to a self-service action when executed on a provisioned product.</p>
+ * Details of an execution parameter value that is passed to a self-service action when executed on a provisioned product.
+ *
  * @public
  */
 export interface ExecutionParameter {
   /**
-   * <p>The name of the execution parameter.</p>
+   * The name of the execution parameter.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The execution parameter type.</p>
+   * The execution parameter type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The default values for the execution parameter.</p>
+   * The default values for the execution parameter.
+   *
    * @public
    */
   DefaultValues?: string[] | undefined;
@@ -4182,7 +4076,8 @@ export interface ExecutionParameter {
  */
 export interface DescribeServiceActionExecutionParametersOutput {
   /**
-   * <p>The parameters of the self-service action.</p>
+   * The parameters of the self-service action.
+   *
    * @public
    */
   ServiceActionParameters?: ExecutionParameter[] | undefined;
@@ -4193,7 +4088,8 @@ export interface DescribeServiceActionExecutionParametersOutput {
  */
 export interface DescribeTagOptionInput {
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   Id: string | undefined;
@@ -4204,7 +4100,8 @@ export interface DescribeTagOptionInput {
  */
 export interface DescribeTagOptionOutput {
   /**
-   * <p>Information about the TagOption.</p>
+   * Information about the TagOption.
+   *
    * @public
    */
   TagOptionDetail?: TagOptionDetail | undefined;
@@ -4225,13 +4122,15 @@ export interface DisableAWSOrganizationsAccessOutput {}
  */
 export interface DisassociateBudgetFromResourceInput {
   /**
-   * <p>The name of the budget you want to disassociate.</p>
+   * The name of the budget you want to disassociate.
+   *
    * @public
    */
   BudgetName: string | undefined;
 
   /**
-   * <p>The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.</p>
+   * The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -4247,37 +4146,32 @@ export interface DisassociateBudgetFromResourceOutput {}
  */
 export interface DisassociatePrincipalFromPortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (user, role, or group). This field allows an ARN with no <code>accountID</code> with or without wildcard characters if
-   *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
+   * The ARN of the principal (user, role, or group). This field allows an ARN with no `accountID` with or without wildcard characters if `PrincipalType` is `IAM_PATTERN`.
+   *
    * @public
    */
   PrincipalARN: string | undefined;
 
   /**
-   * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
-   *          if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard characters. </p>
+   * The supported value is `IAM` if you use a fully defined ARN, or `IAM_PATTERN` if you specify an `IAM` ARN with no AccountId, with or without wildcard characters.
+   *
    * @public
    */
   PrincipalType?: PrincipalType | undefined;
@@ -4293,29 +4187,25 @@ export interface DisassociatePrincipalFromPortfolioOutput {}
  */
 export interface DisassociateProductFromPortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
@@ -4331,41 +4221,39 @@ export interface DisassociateProductFromPortfolioOutput {}
  */
 export interface DisassociateServiceActionFromProvisioningArtifactInput {
   /**
-   * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+   * The product identifier. For example, `prod-abcdzk7xy33qa`.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
+   * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   ServiceActionId: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -4381,13 +4269,15 @@ export interface DisassociateServiceActionFromProvisioningArtifactOutput {}
  */
 export interface DisassociateTagOptionFromResourceInput {
   /**
-   * <p>The resource identifier.</p>
+   * The resource identifier.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   TagOptionId: string | undefined;
@@ -4413,30 +4303,25 @@ export interface EnableAWSOrganizationsAccessOutput {}
  */
 export interface ExecuteProvisionedProductPlanInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The plan identifier.</p>
+   * The plan identifier.
+   *
    * @public
    */
   PlanId: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -4447,7 +4332,8 @@ export interface ExecuteProvisionedProductPlanInput {
  */
 export interface ExecuteProvisionedProductPlanOutput {
   /**
-   * <p>Information about the result of provisioning the product.</p>
+   * Information about the result of provisioning the product.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
@@ -4458,43 +4344,39 @@ export interface ExecuteProvisionedProductPlanOutput {
  */
 export interface ExecuteProvisionedProductServiceActionInput {
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductId: string | undefined;
 
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   ServiceActionId: string | undefined;
 
   /**
-   * <p>An idempotency token that uniquely identifies the execute request.</p>
+   * An idempotency token that uniquely identifies the execute request.
+   *
    * @public
    */
   ExecuteToken?: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as <code>TARGET</code>, the provided value will
-   *             override the default value generated by Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for
-   *             any special parameters such as <code>TARGET</code>.</p>
+   * A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as `TARGET`, the provided value will override the default value generated by Service Catalog. If the parameters field is not provided, no additional parameters are passed and default values will be used for any special parameters such as `TARGET`.
+   *
    * @public
    */
   Parameters?: Record<string, string[]> | undefined;
@@ -4505,7 +4387,8 @@ export interface ExecuteProvisionedProductServiceActionInput {
  */
 export interface ExecuteProvisionedProductServiceActionOutput {
   /**
-   * <p>An object containing detailed information about the result of provisioning the product.</p>
+   * An object containing detailed information about the result of provisioning the product.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
@@ -4521,7 +4404,8 @@ export interface GetAWSOrganizationsAccessStatusInput {}
  */
 export interface GetAWSOrganizationsAccessStatusOutput {
   /**
-   * <p>The status of the portfolio share feature.</p>
+   * The status of the portfolio share feature.
+   *
    * @public
    */
   AccessStatus?: AccessStatus | undefined;
@@ -4532,47 +4416,46 @@ export interface GetAWSOrganizationsAccessStatusOutput {
  */
 export interface GetProvisionedProductOutputsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product that you want the outputs from.</p>
+   * The identifier of the provisioned product that you want the outputs from.
+   *
    * @public
    */
   ProvisionedProductId?: string | undefined;
 
   /**
-   * <p>The name of the provisioned product that you want the outputs from.</p>
+   * The name of the provisioned product that you want the outputs from.
+   *
    * @public
    */
   ProvisionedProductName?: string | undefined;
 
   /**
-   * <p>The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.</p>
+   * The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.
+   *
    * @public
    */
   OutputKeys?: string[] | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -4583,14 +4466,15 @@ export interface GetProvisionedProductOutputsInput {
  */
 export interface GetProvisionedProductOutputsOutput {
   /**
-   * <p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
-   *       </p>
+   * Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.
+   *
    * @public
    */
   Outputs?: RecordOutput[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -4601,50 +4485,46 @@ export interface GetProvisionedProductOutputsOutput {
  */
 export interface ImportAsProvisionedProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account.
-   *          The name cannot be updated after the product is provisioned. </p>
+   * The user-friendly name of the provisioned product. The value must be unique for the Amazon Web Services account. The name cannot be updated after the product is provisioned.
+   *
    * @public
    */
   ProvisionedProductName: string | undefined;
 
   /**
-   * <p>The unique identifier of the resource to be imported. It only currently supports
-   *          CloudFormation stack IDs.</p>
+   * The unique identifier of the resource to be imported. It only currently supports CloudFormation stack IDs.
+   *
    * @public
    */
   PhysicalId: string | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -4655,7 +4535,8 @@ export interface ImportAsProvisionedProductInput {
  */
 export interface ImportAsProvisionedProductOutput {
   /**
-   * <p>Information about a request operation.</p>
+   * Information about a request operation.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
@@ -4666,50 +4547,36 @@ export interface ImportAsProvisionedProductOutput {
  */
 export interface ListAcceptedPortfolioSharesInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The type of shared portfolios to list. The default is to list imported portfolios.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_ORGANIZATIONS</code> - List portfolios accepted and shared via organizational sharing by the management account or delegated administrator of your organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SERVICECATALOG</code> - Deprecated type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IMPORTED</code> - List imported portfolios that have been accepted and
-   *                shared through account-to-account sharing.</p>
-   *             </li>
-   *          </ul>
+   * The type of shared portfolios to list. The default is to list imported portfolios.
+   *
+   * - `AWS_ORGANIZATIONS` - List portfolios accepted and shared via organizational sharing by the management account or delegated administrator of your organization.
+   * - `AWS_SERVICECATALOG` - Deprecated type.
+   * - `IMPORTED` - List imported portfolios that have been accepted and shared through account-to-account sharing.
+   *
    * @public
    */
   PortfolioShareType?: PortfolioShareType | undefined;
@@ -4720,13 +4587,15 @@ export interface ListAcceptedPortfolioSharesInput {
  */
 export interface ListAcceptedPortfolioSharesOutput {
   /**
-   * <p>Information about the portfolios.</p>
+   * Information about the portfolios.
+   *
    * @public
    */
   PortfolioDetails?: PortfolioDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -4737,35 +4606,32 @@ export interface ListAcceptedPortfolioSharesOutput {
  */
 export interface ListBudgetsForResourceInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The resource identifier.</p>
+   * The resource identifier.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -4776,13 +4642,15 @@ export interface ListBudgetsForResourceInput {
  */
 export interface ListBudgetsForResourceOutput {
   /**
-   * <p>Information about the associated budgets.</p>
+   * Information about the associated budgets.
+   *
    * @public
    */
   Budgets?: BudgetDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -4793,41 +4661,39 @@ export interface ListBudgetsForResourceOutput {
  */
 export interface ListConstraintsForPortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -4838,13 +4704,15 @@ export interface ListConstraintsForPortfolioInput {
  */
 export interface ListConstraintsForPortfolioOutput {
   /**
-   * <p>Information about the constraints.</p>
+   * Information about the constraints.
+   *
    * @public
    */
   ConstraintDetails?: ConstraintDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -4855,65 +4723,67 @@ export interface ListConstraintsForPortfolioOutput {
  */
 export interface ListLaunchPathsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a product path for a user.</p>
+ * Summary information about a product path for a user.
+ *
  * @public
  */
 export interface LaunchPathSummary {
   /**
-   * <p>The identifier of the product path.</p>
+   * The identifier of the product path.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The constraints on the portfolio-product relationship.</p>
+   * The constraints on the portfolio-product relationship.
+   *
    * @public
    */
   ConstraintSummaries?: ConstraintSummary[] | undefined;
 
   /**
-   * <p>The tags associated with this product path.</p>
+   * The tags associated with this product path.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The name of the portfolio that contains the product. </p>
+   * The name of the portfolio that contains the product.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -4924,13 +4794,15 @@ export interface LaunchPathSummary {
  */
 export interface ListLaunchPathsOutput {
   /**
-   * <p>Information about the launch path.</p>
+   * Information about the launch path.
+   *
    * @public
    */
   LaunchPathSummaries?: LaunchPathSummary[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -4941,55 +4813,43 @@ export interface ListLaunchPathsOutput {
  */
 export interface ListOrganizationPortfolioAccessInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</p>
+   * The portfolio identifier. For example, `port-2abcdext3y5fk`.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The organization node type that will be returned in the output.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ORGANIZATION</code> - Organization that has access to the portfolio. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ORGANIZATIONAL_UNIT</code> - Organizational unit that has access to the portfolio within your organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACCOUNT</code> - Account that has access to the portfolio within your organization.</p>
-   *             </li>
-   *          </ul>
+   * The organization node type that will be returned in the output.
+   *
+   * - `ORGANIZATION` - Organization that has access to the portfolio.
+   * - `ORGANIZATIONAL_UNIT` - Organizational unit that has access to the portfolio within your organization.
+   * - `ACCOUNT` - Account that has access to the portfolio within your organization.
+   *
    * @public
    */
   OrganizationNodeType: OrganizationNodeType | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -5000,13 +4860,15 @@ export interface ListOrganizationPortfolioAccessInput {
  */
 export interface ListOrganizationPortfolioAccessOutput {
   /**
-   * <p>Displays information about the organization nodes.</p>
+   * Displays information about the organization nodes.
+   *
    * @public
    */
   OrganizationNodes?: OrganizationNode[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5017,41 +4879,39 @@ export interface ListOrganizationPortfolioAccessOutput {
  */
 export interface ListPortfolioAccessInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.</p>
+   * The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.
+   *
    * @public
    */
   OrganizationParentId?: string | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -5062,13 +4922,15 @@ export interface ListPortfolioAccessInput {
  */
 export interface ListPortfolioAccessOutput {
   /**
-   * <p>Information about the Amazon Web Services accounts with access to the portfolio.</p>
+   * Information about the Amazon Web Services accounts with access to the portfolio.
+   *
    * @public
    */
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5079,29 +4941,25 @@ export interface ListPortfolioAccessOutput {
  */
 export interface ListPortfoliosInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -5112,13 +4970,15 @@ export interface ListPortfoliosInput {
  */
 export interface ListPortfoliosOutput {
   /**
-   * <p>Information about the portfolios.</p>
+   * Information about the portfolios.
+   *
    * @public
    */
   PortfolioDetails?: PortfolioDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5129,35 +4989,32 @@ export interface ListPortfoliosOutput {
  */
 export interface ListPortfoliosForProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
@@ -5168,13 +5025,15 @@ export interface ListPortfoliosForProductInput {
  */
 export interface ListPortfoliosForProductOutput {
   /**
-   * <p>Information about the portfolios.</p>
+   * Information about the portfolios.
+   *
    * @public
    */
   PortfolioDetails?: PortfolioDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5185,57 +5044,55 @@ export interface ListPortfoliosForProductOutput {
  */
 export interface ListPrincipalsForPortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>Information about a principal.</p>
+ * Information about a principal.
+ *
  * @public
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (user, role, or group). This field allows for an ARN with no <code>accountID</code>, with or without wildcard characters if the
-   *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
-   *          <p>For more information, review <a href="https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options">associate-principal-with-portfolio</a>
-   *       in the Amazon Web Services CLI Command Reference. </p>
+   * The ARN of the principal (user, role, or group). This field allows for an ARN with no `accountID`, with or without wildcard characters if the `PrincipalType` is an `IAM_PATTERN`.
+   *
+   * For more information, review [associate-principal-with-portfolio](https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options) in the Amazon Web Services CLI Command Reference.
+   *
    * @public
    */
   PrincipalARN?: string | undefined;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
-   *          <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
+   * The principal type. The supported value is `IAM` if you use a fully defined ARN, or `IAM_PATTERN` if you use an ARN with no `accountID`, with or without wildcard characters.
+   *
    * @public
    */
   PrincipalType?: PrincipalType | undefined;
@@ -5246,13 +5103,15 @@ export interface Principal {
  */
 export interface ListPrincipalsForPortfolioOutput {
   /**
-   * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
+   * The `PrincipalARN`s and corresponding `PrincipalType`s associated with the portfolio.
+   *
    * @public
    */
   Principals?: Principal[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5263,83 +5122,88 @@ export interface ListPrincipalsForPortfolioOutput {
  */
 export interface ListProvisionedProductPlansInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProvisionProductId?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
+   * The access level to use to obtain results. The default is `User`.
+   *
    * @public
    */
   AccessLevelFilter?: AccessLevelFilter | undefined;
 }
 
 /**
- * <p>Summary information about a plan.</p>
+ * Summary information about a plan.
+ *
  * @public
  */
 export interface ProvisionedProductPlanSummary {
   /**
-   * <p>The name of the plan.</p>
+   * The name of the plan.
+   *
    * @public
    */
   PlanName?: string | undefined;
 
   /**
-   * <p>The plan identifier.</p>
+   * The plan identifier.
+   *
    * @public
    */
   PlanId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProvisionProductId?: string | undefined;
 
   /**
-   * <p>The user-friendly name of the provisioned product.</p>
+   * The user-friendly name of the provisioned product.
+   *
    * @public
    */
   ProvisionProductName?: string | undefined;
 
   /**
-   * <p>The plan type.</p>
+   * The plan type.
+   *
    * @public
    */
   PlanType?: ProvisionedProductPlanType | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
@@ -5350,13 +5214,15 @@ export interface ProvisionedProductPlanSummary {
  */
 export interface ListProvisionedProductPlansOutput {
   /**
-   * <p>Information about the plans.</p>
+   * Information about the plans.
+   *
    * @public
    */
   ProvisionedProductPlans?: ProvisionedProductPlanSummary[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5367,23 +5233,18 @@ export interface ListProvisionedProductPlansOutput {
  */
 export interface ListProvisioningArtifactsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
@@ -5394,13 +5255,15 @@ export interface ListProvisioningArtifactsInput {
  */
 export interface ListProvisioningArtifactsOutput {
   /**
-   * <p>Information about the provisioning artifacts.</p>
+   * Information about the provisioning artifacts.
+   *
    * @public
    */
   ProvisioningArtifactDetails?: ProvisioningArtifactDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5411,53 +5274,53 @@ export interface ListProvisioningArtifactsOutput {
  */
 export interface ListProvisioningArtifactsForServiceActionInput {
   /**
-   * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
+   * The self-service action identifier. For example, `act-fs7abcd89wxyz`.
+   *
    * @public
    */
   ServiceActionId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 }
 
 /**
- * <p>An object that contains summary information about a product view and a provisioning artifact.</p>
+ * An object that contains summary information about a product view and a provisioning artifact.
+ *
  * @public
  */
 export interface ProvisioningArtifactView {
   /**
-   * <p>Summary information about a product view.</p>
+   * Summary information about a product view.
+   *
    * @public
    */
   ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
-   * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
+   * Information about a provisioning artifact. A provisioning artifact is also known as a product version.
+   *
    * @public
    */
   ProvisioningArtifact?: ProvisioningArtifact | undefined;
@@ -5468,41 +5331,39 @@ export interface ProvisioningArtifactView {
  */
 export interface ListProvisioningArtifactsForServiceActionOutput {
   /**
-   * <p>An array of objects with information about product views and provisioning artifacts.</p>
+   * An array of objects with information about product views and provisioning artifacts.
+   *
    * @public
    */
   ProvisioningArtifactViews?: ProvisioningArtifactView[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
 }
 
 /**
- * <p>The search filter to use when listing history records.</p>
+ * The search filter to use when listing history records.
+ *
  * @public
  */
 export interface ListRecordHistorySearchFilter {
   /**
-   * <p>The filter key.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>product</code> - Filter results based on the specified product identifier.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>provisionedproduct</code> - Filter results based on the provisioned product identifier.</p>
-   *             </li>
-   *          </ul>
+   * The filter key.
+   *
+   * - `product` - Filter results based on the specified product identifier.
+   * - `provisionedproduct` - Filter results based on the provisioned product identifier.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The filter value.</p>
+   * The filter value.
+   *
    * @public
    */
   Value?: string | undefined;
@@ -5513,41 +5374,39 @@ export interface ListRecordHistorySearchFilter {
  */
 export interface ListRecordHistoryInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
+   * The access level to use to obtain results. The default is `User`.
+   *
    * @public
    */
   AccessLevelFilter?: AccessLevelFilter | undefined;
 
   /**
-   * <p>The search filter to scope the results.</p>
+   * The search filter to scope the results.
+   *
    * @public
    */
   SearchFilter?: ListRecordHistorySearchFilter | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -5558,13 +5417,15 @@ export interface ListRecordHistoryInput {
  */
 export interface ListRecordHistoryOutput {
   /**
-   * <p>The records, in reverse chronological order.</p>
+   * The records, in reverse chronological order.
+   *
    * @public
    */
   RecordDetails?: RecordDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5575,73 +5436,74 @@ export interface ListRecordHistoryOutput {
  */
 export interface ListResourcesForTagOptionInput {
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   TagOptionId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Portfolio</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Product</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * The resource type.
+   *
+   * - `Portfolio`
+   * - `Product`
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>Information about a resource.</p>
+ * Information about a resource.
+ *
  * @public
  */
 export interface ResourceDetail {
   /**
-   * <p>The identifier of the resource.</p>
+   * The identifier of the resource.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   ARN?: string | undefined;
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the resource.</p>
+   * The description of the resource.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The creation time of the resource.</p>
+   * The creation time of the resource.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
@@ -5652,13 +5514,15 @@ export interface ResourceDetail {
  */
 export interface ListResourcesForTagOptionOutput {
   /**
-   * <p>Information about the resources.</p>
+   * Information about the resources.
+   *
    * @public
    */
   ResourceDetails?: ResourceDetail[] | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -5669,29 +5533,25 @@ export interface ListResourcesForTagOptionOutput {
  */
 export interface ListServiceActionsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -5702,13 +5562,15 @@ export interface ListServiceActionsInput {
  */
 export interface ListServiceActionsOutput {
   /**
-   * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
+   * An object containing information about the service actions associated with the provisioning artifact.
+   *
    * @public
    */
   ServiceActionSummaries?: ServiceActionSummary[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5719,41 +5581,39 @@ export interface ListServiceActionsOutput {
  */
 export interface ListServiceActionsForProvisioningArtifactInput {
   /**
-   * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+   * The product identifier. For example, `prod-abcdzk7xy33qa`.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
+   * The identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
@@ -5764,13 +5624,15 @@ export interface ListServiceActionsForProvisioningArtifactInput {
  */
 export interface ListServiceActionsForProvisioningArtifactOutput {
   /**
-   * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
+   * An object containing information about the self-service actions associated with the provisioning artifact.
+   *
    * @public
    */
   ServiceActionSummaries?: ServiceActionSummary[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5781,75 +5643,64 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
  */
 export interface ListStackInstancesForProvisionedProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductId: string | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 }
 
 /**
- * <p>An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status. </p>
+ * An CloudFormation stack, in a specific account and Region, that's part of a stack set operation. A stack instance is a reference to an attempted or actual stack in a given account within a given Region. A stack instance can exist without a stack—for example, if the stack couldn't be created for some reason. A stack instance is associated with only one stack set. Each stack instance contains the ID of its associated stack set, as well as the ID of the actual stack and the stack status.
+ *
  * @public
  */
 export interface StackInstance {
   /**
-   * <p>The name of the Amazon Web Services account that the stack instance is associated with.</p>
+   * The name of the Amazon Web Services account that the stack instance is associated with.
+   *
    * @public
    */
   Account?: string | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services Region that the stack instance is associated with.</p>
+   * The name of the Amazon Web Services Region that the stack instance is associated with.
+   *
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The status of the stack instance, in terms of its synchronization with its associated stack set. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>INOPERABLE</code>: A <code>DeleteStackInstances</code> operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further <code>UpdateStackSet</code> operations. You might need to perform a <code>DeleteStackInstances</code> operation, with <code>RetainStacks</code> set to true, to delete the stack instance, and then delete the stack manually. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OUTDATED</code>: The stack isn't currently up to date with the stack set because either
-   *             the associated stack failed during a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation,
-   *             or the stack was part of a <code>CreateStackSet</code> or <code>UpdateStackSet</code> operation that failed or was stopped before the stack was created or updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CURRENT</code>: The stack is currently up to date with the stack set.</p>
-   *             </li>
-   *          </ul>
+   * The status of the stack instance, in terms of its synchronization with its associated stack set.
+   *
+   * - `INOPERABLE`: A `DeleteStackInstances` operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further `UpdateStackSet` operations. You might need to perform a `DeleteStackInstances` operation, with `RetainStacks` set to true, to delete the stack instance, and then delete the stack manually.
+   * - `OUTDATED`: The stack isn't currently up to date with the stack set because either the associated stack failed during a `CreateStackSet` or `UpdateStackSet` operation, or the stack was part of a `CreateStackSet` or `UpdateStackSet` operation that failed or was stopped before the stack was created or updated.
+   * - `CURRENT`: The stack is currently up to date with the stack set.
+   *
    * @public
    */
   StackInstanceStatus?: StackInstanceStatus | undefined;
@@ -5860,37 +5711,43 @@ export interface StackInstance {
  */
 export interface ListStackInstancesForProvisionedProductOutput {
   /**
-   * <p>List of stack instances.</p>
+   * List of stack instances.
+   *
    * @public
    */
   StackInstances?: StackInstance[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
 }
 
 /**
- * <p>Filters to use when listing TagOptions.</p>
+ * Filters to use when listing TagOptions.
+ *
  * @public
  */
 export interface ListTagOptionsFilters {
   /**
-   * <p>The TagOption key.</p>
+   * The TagOption key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The TagOption value.</p>
+   * The TagOption value.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The active state.</p>
+   * The active state.
+   *
    * @public
    */
   Active?: boolean | undefined;
@@ -5901,19 +5758,22 @@ export interface ListTagOptionsFilters {
  */
 export interface ListTagOptionsInput {
   /**
-   * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
+   * The search filters. If no search filters are specified, the output includes all TagOptions.
+   *
    * @public
    */
   Filters?: ListTagOptionsFilters | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -5924,64 +5784,50 @@ export interface ListTagOptionsInput {
  */
 export interface ListTagOptionsOutput {
   /**
-   * <p>Information about the TagOptions.</p>
+   * Information about the TagOptions.
+   *
    * @public
    */
   TagOptionDetails?: TagOptionDetail[] | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>
- *          The unique key-value pair
- *          for a tag
- *          that identifies provisioned product resources.
- *       </p>
+ * The unique key-value pair for a tag that identifies provisioned product resources.
+ *
  * @public
  */
 export interface UniqueTagResourceIdentifier {
   /**
-   * <p>
-   *          A unique key
-   *          that's attached
-   *          to a resource.
-   *       </p>
+   * A unique key that's attached to a resource.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>
-   *          A unique value
-   *          that's attached
-   *          to a resource.
-   *       </p>
+   * A unique value that's attached to a resource.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>
- *          The ID
- *          for the provisioned product resources
- *          that are part
- *          of a resource group.
- *       </p>
+ * The ID for the provisioned product resources that are part of a resource group.
+ *
  * @public
  */
 export interface EngineWorkflowResourceIdentifier {
   /**
-   * <p>
-   *          The unique key-value pair
-   *          for a tag
-   *          that identifies provisioned product resources.
-   *       </p>
+   * The unique key-value pair for a tag that identifies provisioned product resources.
+   *
    * @public
    */
   UniqueTag?: UniqueTagResourceIdentifier | undefined;
@@ -5992,68 +5838,50 @@ export interface EngineWorkflowResourceIdentifier {
  */
 export interface NotifyProvisionProductEngineWorkflowResultInput {
   /**
-   * <p>
-   *          The encrypted contents
-   *          of the provisioning engine execution payload
-   *          that Service Catalog sends
-   *          after the Terraform product provisioning workflow starts.
-   *       </p>
+   * The encrypted contents of the provisioning engine execution payload that Service Catalog sends after the Terraform product provisioning workflow starts.
+   *
    * @public
    */
   WorkflowToken: string | undefined;
 
   /**
-   * <p>
-   *          The identifier
-   *          of the record.
-   *       </p>
+   * The identifier of the record.
+   *
    * @public
    */
   RecordId: string | undefined;
 
   /**
-   * <p>
-   *          The status
-   *          of the provisioning engine execution.
-   *       </p>
+   * The status of the provisioning engine execution.
+   *
    * @public
    */
   Status: EngineWorkflowStatus | undefined;
 
   /**
-   * <p>
-   *          The reason
-   *          why the provisioning engine execution failed.
-   *       </p>
+   * The reason why the provisioning engine execution failed.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>
-   *          The ID
-   *          for the provisioned product resources
-   *          that are part
-   *          of a resource group.
-   *       </p>
+   * The ID for the provisioned product resources that are part of a resource group.
+   *
    * @public
    */
   ResourceIdentifier?: EngineWorkflowResourceIdentifier | undefined;
 
   /**
-   * <p>
-   *          The output
-   *          of the provisioning engine execution.
-   *       </p>
+   * The output of the provisioning engine execution.
+   *
    * @public
    */
   Outputs?: RecordOutput[] | undefined;
 
   /**
-   * <p>
-   *          The idempotency token
-   *          that identifies the provisioning engine execution.
-   *       </p>
+   * The idempotency token that identifies the provisioning engine execution.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -6069,48 +5897,36 @@ export interface NotifyProvisionProductEngineWorkflowResultOutput {}
  */
 export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
   /**
-   * <p>
-   *          The encrypted contents
-   *          of the terminate engine execution payload
-   *          that Service Catalog sends
-   *          after the Terraform product terminate workflow starts.
-   *       </p>
+   * The encrypted contents of the terminate engine execution payload that Service Catalog sends after the Terraform product terminate workflow starts.
+   *
    * @public
    */
   WorkflowToken: string | undefined;
 
   /**
-   * <p>
-   *          The identifier
-   *          of the record.
-   *       </p>
+   * The identifier of the record.
+   *
    * @public
    */
   RecordId: string | undefined;
 
   /**
-   * <p>
-   *          The status
-   *          of the terminate engine execution.
-   *       </p>
+   * The status of the terminate engine execution.
+   *
    * @public
    */
   Status: EngineWorkflowStatus | undefined;
 
   /**
-   * <p>
-   *          The reason
-   *          why the terminate engine execution failed.
-   *       </p>
+   * The reason why the terminate engine execution failed.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>
-   *          The idempotency token
-   *          that identifies the terminate engine execution.
-   *       </p>
+   * The idempotency token that identifies the terminate engine execution.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -6126,57 +5942,43 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultOutput {}
  */
 export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
   /**
-   * <p>
-   *          The encrypted contents
-   *          of the update engine execution payload
-   *          that Service Catalog sends
-   *          after the Terraform product update workflow starts.
-   *       </p>
+   * The encrypted contents of the update engine execution payload that Service Catalog sends after the Terraform product update workflow starts.
+   *
    * @public
    */
   WorkflowToken: string | undefined;
 
   /**
-   * <p>
-   *          The identifier
-   *          of the record.
-   *       </p>
+   * The identifier of the record.
+   *
    * @public
    */
   RecordId: string | undefined;
 
   /**
-   * <p>
-   *          The status
-   *          of the update engine execution.
-   *       </p>
+   * The status of the update engine execution.
+   *
    * @public
    */
   Status: EngineWorkflowStatus | undefined;
 
   /**
-   * <p>
-   *          The reason
-   *          why the update engine execution failed.
-   *       </p>
+   * The reason why the update engine execution failed.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>
-   *          The output
-   *          of the update engine execution.
-   *       </p>
+   * The output of the update engine execution.
+   *
    * @public
    */
   Outputs?: RecordOutput[] | undefined;
 
   /**
-   * <p>
-   *          The idempotency token
-   *          that identifies the update engine execution.
-   *       </p>
+   * The idempotency token that identifies the update engine execution.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -6188,88 +5990,116 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
 export interface NotifyUpdateProvisionedProductEngineWorkflowResultOutput {}
 
 /**
- * <p>Information about a parameter used to provision a product.</p>
+ * Information about a parameter used to provision a product.
+ *
  * @public
  */
 export interface ProvisioningParameter {
   /**
-   * <p>The parameter key.</p>
+   * The parameter key.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The parameter value.</p>
+   * The parameter value.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>The user-defined preferences that will be applied when updating a provisioned
- *          product. Not all preferences are applicable to all provisioned product type</p>
- *          <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
- *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
- *          <p>The Amazon Web Services accounts specified should be within the list of accounts in the
- *             <code>STACKSET</code> constraint. To get the list of accounts in the
- *             <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code>
- *          operation.</p>
- *          <p>If no values are specified, the default value is all accounts from the
- *             <code>STACKSET</code> constraint.</p>
+ * The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+ *
+ * One or more Amazon Web Services accounts that will have access to the provisioned product.
+ *
+ * Applicable only to a `CFN_STACKSET` provisioned product type.
+ *
+ * The Amazon Web Services accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+ *
+ * If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+ *
  * @public
  */
 export interface ProvisioningPreferences {
   /**
-   * <p>One or more Amazon Web Services accounts where the provisioned product will be available.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified accounts should be within the list of accounts from the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all acounts from the <code>STACKSET</code> constraint.</p>
+   * One or more Amazon Web Services accounts where the provisioned product will be available.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * The specified accounts should be within the list of accounts from the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+   *
+   * If no values are specified, the default value is all acounts from the `STACKSET` constraint.
+   *
    * @public
    */
   StackSetAccounts?: string[] | undefined;
 
   /**
-   * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified Regions should be within the list of Regions from the <code>STACKSET</code> constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
+   * One or more Amazon Web Services Regions where the provisioned product will be available.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+   *
+   * If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+   *
    * @public
    */
   StackSetRegions?: string[] | undefined;
 
   /**
-   * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
-   *          <p>The default value is <code>0</code> if no value is specified.</p>
+   * The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage`, but not both.
+   *
+   * The default value is `0` if no value is specified.
+   *
    * @public
    */
   StackSetFailureToleranceCount?: number | undefined;
 
   /**
-   * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
+   * The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.
+   *
+   * When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage`, but not both.
+   *
    * @public
    */
   StackSetFailureTolerancePercentage?: number | undefined;
 
   /**
-   * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p>
-   *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
+   * The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount`. `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount`.
+   *
+   * Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage`, but not both.
+   *
    * @public
    */
   StackSetMaxConcurrencyCount?: number | undefined;
 
   /**
-   * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as <code>1</code> instead.</p>
-   *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
+   * The maximum percentage of accounts in which to perform this operation at one time.
+   *
+   * When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as `1` instead.
+   *
+   * Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage`, but not both.
+   *
    * @public
    */
   StackSetMaxConcurrencyPercentage?: number | undefined;
@@ -6280,94 +6110,95 @@ export interface ProvisioningPreferences {
  */
 export interface ProvisionProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier. You must provide the name or ID, but not both.</p>
+   * The product identifier. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The name of the product. You must provide the name or ID, but not both.</p>
+   * The name of the product. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
+   * The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
+   * The name of the provisioning artifact. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProvisioningArtifactName?: string | undefined;
 
   /**
-   * <p>The path identifier of the product. This value is optional if the product
-   *          has a default path, and required if the product has more than one path.
-   *          To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
+   * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use ListLaunchPaths. You must provide the name or ID, but not both.
+   *
    * @public
    */
   PathId?: string | undefined;
 
   /**
-   * <p>The name of the path. You must provide the name or ID, but not both.</p>
+   * The name of the path. You must provide the name or ID, but not both.
+   *
    * @public
    */
   PathName?: string | undefined;
 
   /**
-   * <p>A user-friendly name for the provisioned product. This value must be
-   *          unique for the Amazon Web Services account and cannot be updated after the product is provisioned.</p>
+   * A user-friendly name for the provisioned product. This value must be unique for the Amazon Web Services account and cannot be updated after the product is provisioned.
+   *
    * @public
    */
   ProvisionedProductName: string | undefined;
 
   /**
-   * <p>Parameters specified by the administrator that are required for provisioning the
-   *          product.</p>
+   * Parameters specified by the administrator that are required for provisioning the product.
+   *
    * @public
    */
   ProvisioningParameters?: ProvisioningParameter[] | undefined;
 
   /**
-   * <p>An object that contains information about the provisioning preferences for a stack set.</p>
+   * An object that contains information about the provisioning preferences for a stack set.
+   *
    * @public
    */
   ProvisioningPreferences?: ProvisioningPreferences | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
-   *          events.</p>
+   * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+   *
    * @public
    */
   NotificationArns?: string[] | undefined;
 
   /**
-   * <p>An idempotency token that uniquely identifies the provisioning request.</p>
+   * An idempotency token that uniquely identifies the provisioning request.
+   *
    * @public
    */
   ProvisionToken?: string | undefined;
@@ -6378,7 +6209,8 @@ export interface ProvisionProductInput {
  */
 export interface ProvisionProductOutput {
   /**
-   * <p>Information about the result of provisioning the product.</p>
+   * Information about the result of provisioning the product.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
@@ -6389,46 +6221,31 @@ export interface ProvisionProductOutput {
  */
 export interface RejectPortfolioShareInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The type of shared portfolios to reject. The default is to reject imported portfolios.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_ORGANIZATIONS</code> - Reject portfolios shared by the management account of your
-   *                organization.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IMPORTED</code> - Reject imported portfolios.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code>
-   *          </p>
+   * The type of shared portfolios to reject. The default is to reject imported portfolios.
+   *
+   * - `AWS_ORGANIZATIONS` - Reject portfolios shared by the management account of your organization.
+   * - `IMPORTED` - Reject imported portfolios.
+   * - `AWS_SERVICECATALOG` - Not supported. (Throws ResourceNotFoundException.)
+   *
+   * For example, `aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS`
+   *
    * @public
    */
   PortfolioShareType?: PortfolioShareType | undefined;
@@ -6444,35 +6261,32 @@ export interface RejectPortfolioShareOutput {}
  */
 export interface ScanProvisionedProductsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
+   * The access level to use to obtain results. The default is `User`.
+   *
    * @public
    */
   AccessLevelFilter?: AccessLevelFilter | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
@@ -6483,13 +6297,15 @@ export interface ScanProvisionedProductsInput {
  */
 export interface ScanProvisionedProductsOutput {
   /**
-   * <p>Information about the provisioned products.</p>
+   * Information about the provisioned products.
+   *
    * @public
    */
   ProvisionedProducts?: ProvisionedProductDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -6500,67 +6316,67 @@ export interface ScanProvisionedProductsOutput {
  */
 export interface SearchProductsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The search filters. If no search filters are specified, the output includes
-   *          all products to which the caller has access.</p>
+   * The search filters. If no search filters are specified, the output includes all products to which the caller has access.
+   *
    * @public
    */
   Filters?: Partial<Record<ProductViewFilterBy, string[]>> | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The sort field. If no value is specified, the results are not sorted.</p>
+   * The sort field. If no value is specified, the results are not sorted.
+   *
    * @public
    */
   SortBy?: ProductViewSortBy | undefined;
 
   /**
-   * <p>The sort order. If no value is specified, the results are not sorted.</p>
+   * The sort order. If no value is specified, the results are not sorted.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>A single product view aggregation value/count pair, containing metadata about each
- *          product to which the calling user has access.</p>
+ * A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
+ *
  * @public
  */
 export interface ProductViewAggregationValue {
   /**
-   * <p>The value of the product view aggregation.</p>
+   * The value of the product view aggregation.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>An approximate count of the products that match the value.</p>
+   * An approximate count of the products that match the value.
+   *
    * @public
    */
   ApproximateCount?: number | undefined;
@@ -6571,19 +6387,22 @@ export interface ProductViewAggregationValue {
  */
 export interface SearchProductsOutput {
   /**
-   * <p>Information about the product views.</p>
+   * Information about the product views.
+   *
    * @public
    */
   ProductViewSummaries?: ProductViewSummary[] | undefined;
 
   /**
-   * <p>The product view aggregations.</p>
+   * The product view aggregations.
+   *
    * @public
    */
   ProductViewAggregations?: Record<string, ProductViewAggregationValue[]> | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -6594,60 +6413,60 @@ export interface SearchProductsOutput {
  */
 export interface SearchProductsAsAdminInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   PortfolioId?: string | undefined;
 
   /**
-   * <p>The search filters. If no search filters are specified, the output includes all products
-   *          to which the administrator has access.</p>
+   * The search filters. If no search filters are specified, the output includes all products to which the administrator has access.
+   *
    * @public
    */
   Filters?: Partial<Record<ProductViewFilterBy, string[]>> | undefined;
 
   /**
-   * <p>The sort field. If no value is specified, the results are not sorted.</p>
+   * The sort field. If no value is specified, the results are not sorted.
+   *
    * @public
    */
   SortBy?: ProductViewSortBy | undefined;
 
   /**
-   * <p>The sort order. If no value is specified, the results are not sorted.</p>
+   * The sort order. If no value is specified, the results are not sorted.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>Access level of the source of the product.</p>
+   * Access level of the source of the product.
+   *
    * @public
    */
   ProductSource?: ProductSource | undefined;
@@ -6658,13 +6477,15 @@ export interface SearchProductsAsAdminInput {
  */
 export interface SearchProductsAsAdminOutput {
   /**
-   * <p>Information about the product views.</p>
+   * Information about the product views.
+   *
    * @public
    */
   ProductViewDetails?: ProductViewDetail[] | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -6675,258 +6496,213 @@ export interface SearchProductsAsAdminOutput {
  */
 export interface SearchProvisionedProductsInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The access level to use to obtain results. The default is
-   *          <code>Account</code>.</p>
+   * The access level to use to obtain results. The default is `Account`.
+   *
    * @public
    */
   AccessLevelFilter?: AccessLevelFilter | undefined;
 
   /**
-   * <p>The search filters.</p>
-   *          <p>When the key is <code>SearchQuery</code>, the searchable fields are <code>arn</code>,
-   *          <code>createdTime</code>, <code>id</code>, <code>lastRecordId</code>,
-   *          <code>idempotencyToken</code>, <code>name</code>, <code>physicalId</code>, <code>productId</code>,
-   *          <code>provisioningArtifactId</code>, <code>type</code>, <code>status</code>,
-   *          <code>tags</code>, <code>userArn</code>, <code>userArnSession</code>, <code>lastProvisioningRecordId</code>, <code>lastSuccessfulProvisioningRecordId</code>,
-   *          <code>productName</code>, and <code>provisioningArtifactName</code>.</p>
-   *          <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code>
-   *          </p>
+   * The search filters.
+   *
+   * When the key is `SearchQuery`, the searchable fields are `arn`, `createdTime`, `id`, `lastRecordId`, `idempotencyToken`, `name`, `physicalId`, `productId`, `provisioningArtifactId`, `type`, `status`, `tags`, `userArn`, `userArnSession`, `lastProvisioningRecordId`, `lastSuccessfulProvisioningRecordId`, `productName`, and `provisioningArtifactName`.
+   *
+   * Example: `"SearchQuery":["status:AVAILABLE"]`
+   *
    * @public
    */
   Filters?: Partial<Record<ProvisionedProductViewFilterBy, string[]>> | undefined;
 
   /**
-   * <p>The sort field. If no value is specified, the results are not sorted. The valid values are <code>arn</code>, <code>id</code>, <code>name</code>,
-   *          and <code>lastRecordId</code>.</p>
+   * The sort field. If no value is specified, the results are not sorted. The valid values are `arn`, `id`, `name`, and `lastRecordId`.
+   *
    * @public
    */
   SortBy?: string | undefined;
 
   /**
-   * <p>The sort order. If no value is specified, the results are not sorted.</p>
+   * The sort order. If no value is specified, the results are not sorted.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
+   * The page token for the next set of results. To retrieve the first set of results, use null.
+   *
    * @public
    */
   PageToken?: string | undefined;
 }
 
 /**
- * <p>Information about a provisioned product.</p>
+ * Information about a provisioned product.
+ *
  * @public
  */
 export interface ProvisionedProductAttribute {
   /**
-   * <p>The user-friendly name of the provisioned product.</p>
+   * The user-friendly name of the provisioned product.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ARN of the provisioned product.</p>
+   * The ARN of the provisioned product.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The type of provisioned product.
-   *          The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>, <code>TERRAFORM_OPEN_SOURCE</code>,
-   *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
+   * The type of provisioned product. The supported values are `CFN_STACK`, `CFN_STACKSET`, `TERRAFORM_OPEN_SOURCE`, `TERRAFORM_CLOUD`, and `EXTERNAL`.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The current status of the provisioned product.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most
-   *                recent operation succeeded and completed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results.
-   *                Wait for an <code>AVAILABLE</code> status before performing operations.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has
-   *                completed the requested operation but is not exactly what was requested. For example, a
-   *                request to update to a new version failed and the stack rolled back to the current version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running.
-   *                For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product,
-   *                 but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an <code>AVAILABLE</code> status before performing operations.</p>
-   *             </li>
-   *          </ul>
+   * The current status of the provisioned product.
+   *
+   * - `AVAILABLE` - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+   * - `UNDER_CHANGE` - Transitive state. Operations performed might not have valid results. Wait for an `AVAILABLE` status before performing operations.
+   * - `TAINTED` - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+   * - `ERROR` - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+   * - `PLAN_IN_PROGRESS` - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an `AVAILABLE` status before performing operations.
+   *
    * @public
    */
   Status?: ProvisionedProductStatus | undefined;
 
   /**
-   * <p>The current status message of the provisioned product.</p>
+   * The current status message of the provisioned product.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The UTC time stamp of the creation time.</p>
+   * The UTC time stamp of the creation time.
+   *
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
-   *   the same response is returned for each repeated request.</p>
+   * A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>The record identifier of the last request performed on this provisioned product.</p>
+   * The record identifier of the last request performed on this provisioned product.
+   *
    * @public
    */
   LastRecordId?: string | undefined;
 
   /**
-   * <p>The record identifier of the last request performed on this provisioned product of the following types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                ProvisionProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                UpdateProvisionedProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                ExecuteProvisionedProductPlan
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                TerminateProvisionedProduct
-   *             </p>
-   *             </li>
-   *          </ul>
+   * The record identifier of the last request performed on this provisioned product of the following types:
+   *
+   * - ProvisionProduct
+   * - UpdateProvisionedProduct
+   * - ExecuteProvisionedProductPlan
+   * - TerminateProvisionedProduct
+   *
    * @public
    */
   LastProvisioningRecordId?: string | undefined;
 
   /**
-   * <p>The record identifier of the last successful request performed on this provisioned product of the following types:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                ProvisionProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                UpdateProvisionedProduct
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                ExecuteProvisionedProductPlan
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                TerminateProvisionedProduct
-   *             </p>
-   *             </li>
-   *          </ul>
+   * The record identifier of the last successful request performed on this provisioned product of the following types:
+   *
+   * - ProvisionProduct
+   * - UpdateProvisionedProduct
+   * - ExecuteProvisionedProductPlan
+   * - TerminateProvisionedProduct
+   *
    * @public
    */
   LastSuccessfulProvisioningRecordId?: string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * One or more tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.</p>
+   * The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
+   *
    * @public
    */
   PhysicalId?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The name of the product.</p>
+   * The name of the product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact.</p>
+   * The name of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user.</p>
+   * The Amazon Resource Name (ARN) of the user.
+   *
    * @public
    */
   UserArn?: string | undefined;
 
   /**
-   * <p>The ARN of the user in the session. This ARN might contain a session ID.</p>
+   * The ARN of the user in the session. This ARN might contain a session ID.
+   *
    * @public
    */
   UserArnSession?: string | undefined;
@@ -6937,19 +6713,22 @@ export interface ProvisionedProductAttribute {
  */
 export interface SearchProvisionedProductsOutput {
   /**
-   * <p>Information about the provisioned products.</p>
+   * Information about the provisioned products.
+   *
    * @public
    */
   ProvisionedProducts?: ProvisionedProductAttribute[] | undefined;
 
   /**
-   * <p>The number of provisioned products found.</p>
+   * The number of provisioned products found.
+   *
    * @public
    */
   TotalResultsCount?: number | undefined;
 
   /**
-   * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
+   * The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+   *
    * @public
    */
   NextPageToken?: string | undefined;
@@ -6960,56 +6739,46 @@ export interface SearchProvisionedProductsOutput {
  */
 export interface TerminateProvisionedProductInput {
   /**
-   * <p>The name of the provisioned product. You cannot specify both
-   *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
+   * The name of the provisioned product. You cannot specify both `ProvisionedProductName` and `ProvisionedProductId`.
+   *
    * @public
    */
   ProvisionedProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product. You cannot specify both
-   *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
+   * The identifier of the provisioned product. You cannot specify both `ProvisionedProductName` and `ProvisionedProductId`.
+   *
    * @public
    */
   ProvisionedProductId?: string | undefined;
 
   /**
-   * <p>An idempotency token that uniquely identifies the termination request. This token is
-   *          only valid during the termination process. After the provisioned product is terminated,
-   *          subsequent requests to terminate the same provisioned product always return
-   *          <b>ResourceNotFound</b>.</p>
+   * An idempotency token that uniquely identifies the termination request. This token is only valid during the termination process. After the provisioned product is terminated, subsequent requests to terminate the same provisioned product always return **ResourceNotFound**.
+   *
    * @public
    */
   TerminateToken?: string | undefined;
 
   /**
-   * <p>If set to true, Service Catalog stops managing the specified provisioned product even
-   *          if it cannot delete the underlying resources.</p>
+   * If set to true, Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources.
+   *
    * @public
    */
   IgnoreErrors?: boolean | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code> API deletes
-   *          the Service Catalog provisioned product. However, it does not remove the CloudFormation
-   *          stack, stack set, or the underlying resources of the deleted provisioned product. The
-   *          default value is false.</p>
+   * When this boolean parameter is set to true, the `TerminateProvisionedProduct` API deletes the Service Catalog provisioned product. However, it does not remove the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is false.
+   *
    * @public
    */
   RetainPhysicalResources?: boolean | undefined;
@@ -7020,7 +6789,8 @@ export interface TerminateProvisionedProductInput {
  */
 export interface TerminateProvisionedProductOutput {
   /**
-   * <p>Information about the result of this request.</p>
+   * Information about the result of this request.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
@@ -7031,86 +6801,82 @@ export interface TerminateProvisionedProductOutput {
  */
 export interface UpdateConstraintInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the constraint.</p>
+   * The identifier of the constraint.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The updated description of the constraint.</p>
+   * The updated description of the constraint.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
-   *          <dl>
-   *             <dt>LAUNCH</dt>
-   *             <dd>
-   *                <p>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code> but can't use both.</p>
-   *                <p>Specify the <code>RoleArn</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}</code>
-   *                </p>
-   *                <p>Specify the <code>LocalRoleName</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"LocalRoleName": "SCBasicLaunchRole"\}</code>
-   *                </p>
-   *                <p>If you specify the <code>LocalRoleName</code> property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be
-   *                   account-agnostic so the administrator can create fewer resources per shared account.</p>
-   *                <note>
-   *                   <p>The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.</p>
-   *                </note>
-   *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-   *                <p>You also cannot have more than one <code>LAUNCH</code> constraint on a product and portfolio.</p>
-   *             </dd>
-   *             <dt>NOTIFICATION</dt>
-   *             <dd>
-   *                <p>Specify the <code>NotificationArns</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}</code>
-   *                </p>
-   *             </dd>
-   *             <dt>RESOURCE_UPDATE</dt>
-   *             <dd>
-   *                <p>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}</code>
-   *                </p>
-   *                <p>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</p>
-   *             </dd>
-   *             <dt>STACKSET</dt>
-   *             <dd>
-   *                <p>Specify the <code>Parameters</code> property as follows:</p>
-   *                <p>
-   *                   <code>\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}</code>
-   *                </p>
-   *                <p>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</p>
-   *                <p>You also cannot have more than one <code>STACKSET</code> constraint on a product and portfolio.</p>
-   *                <p>Products with a <code>STACKSET</code> constraint will launch an CloudFormation stack set.</p>
-   *             </dd>
-   *             <dt>TEMPLATE</dt>
-   *             <dd>
-   *                <p>Specify the <code>Rules</code> property. For more information, see
-   *                   <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template Constraint Rules</a>.</p>
-   *             </dd>
-   *          </dl>
+   * The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
+   *
+   * - **LAUNCH**
+   *
+   *   You are required to specify either the `RoleArn` or the `LocalRoleName` but can't use both.
+   *
+   *   Specify the `RoleArn` property as follows:
+   *
+   *   `\{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"\}`
+   *
+   *   Specify the `LocalRoleName` property as follows:
+   *
+   *   `\{"LocalRoleName": "SCBasicLaunchRole"\}`
+   *
+   *   If you specify the `LocalRoleName` property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
+   *
+   *   > **Note:** The given role name must exist in the account used to create the launch constraint and the account of the user who launches a product with this launch constraint.
+   *
+   *   You cannot have both a `LAUNCH` and a `STACKSET` constraint.
+   *
+   *   You also cannot have more than one `LAUNCH` constraint on a product and portfolio.
+   *
+   * - **NOTIFICATION**
+   *
+   *   Specify the `NotificationArns` property as follows:
+   *
+   *   `\{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]\}`
+   *
+   * - **RESOURCE_UPDATE**
+   *
+   *   Specify the `TagUpdatesOnProvisionedProduct` property as follows:
+   *
+   *   `\{"Version":"2.0","Properties":\{"TagUpdateOnProvisionedProduct":"String"\}\}`
+   *
+   *   The `TagUpdatesOnProvisionedProduct` property accepts a string value of `ALLOWED` or `NOT_ALLOWED`.
+   *
+   * - **STACKSET**
+   *
+   *   Specify the `Parameters` property as follows:
+   *
+   *   `\{"Version": "String", "Properties": \{"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"\}\}`
+   *
+   *   You cannot have both a `LAUNCH` and a `STACKSET` constraint.
+   *
+   *   You also cannot have more than one `STACKSET` constraint on a product and portfolio.
+   *
+   *   Products with a `STACKSET` constraint will launch an CloudFormation stack set.
+   *
+   * - **TEMPLATE**
+   *
+   *   Specify the `Rules` property. For more information, see [Template Constraint Rules](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html).
+   *
    * @public
    */
   Parameters?: string | undefined;
@@ -7121,19 +6887,22 @@ export interface UpdateConstraintInput {
  */
 export interface UpdateConstraintOutput {
   /**
-   * <p>Information about the constraint.</p>
+   * Information about the constraint.
+   *
    * @public
    */
   ConstraintDetail?: ConstraintDetail | undefined;
 
   /**
-   * <p>The constraint parameters.</p>
+   * The constraint parameters.
+   *
    * @public
    */
   ConstraintParameters?: string | undefined;
 
   /**
-   * <p>The status of the current request.</p>
+   * The status of the current request.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -7144,53 +6913,53 @@ export interface UpdateConstraintOutput {
  */
 export interface UpdatePortfolioInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The portfolio identifier.</p>
+   * The portfolio identifier.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The name to use for display purposes.</p>
+   * The name to use for display purposes.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The updated description of the portfolio.</p>
+   * The updated description of the portfolio.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The updated name of the portfolio provider.</p>
+   * The updated name of the portfolio provider.
+   *
    * @public
    */
   ProviderName?: string | undefined;
 
   /**
-   * <p>The tags to add.</p>
+   * The tags to add.
+   *
    * @public
    */
   AddTags?: Tag[] | undefined;
 
   /**
-   * <p>The tags to remove.</p>
+   * The tags to remove.
+   *
    * @public
    */
   RemoveTags?: string[] | undefined;
@@ -7201,13 +6970,15 @@ export interface UpdatePortfolioInput {
  */
 export interface UpdatePortfolioOutput {
   /**
-   * <p>Information about the portfolio.</p>
+   * Information about the portfolio.
+   *
    * @public
    */
   PortfolioDetail?: PortfolioDetail | undefined;
 
   /**
-   * <p>Information about the tags associated with the portfolio.</p>
+   * Information about the tags associated with the portfolio.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -7218,49 +6989,46 @@ export interface UpdatePortfolioOutput {
  */
 export interface UpdatePortfolioShareInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The unique identifier of the portfolio for which the share will be updated.</p>
+   * The unique identifier of the portfolio for which the share will be updated.
+   *
    * @public
    */
   PortfolioId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
+   * The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>Information about the organization node.</p>
+   * Information about the organization node.
+   *
    * @public
    */
   OrganizationNode?: OrganizationNode | undefined;
 
   /**
-   * <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of
-   *          TagOptions sharing on the portfolio share will not be modified.</p>
+   * Enables or disables `TagOptions` sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.
+   *
    * @public
    */
   ShareTagOptions?: boolean | undefined;
 
   /**
-   * <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided,
-   *          the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
+   * A flag to enables or disables `Principals` sharing in the portfolio. If this field is not provided, the current state of the `Principals` sharing on the portfolio share will not be modified.
+   *
    * @public
    */
   SharePrincipals?: boolean | undefined;
@@ -7271,15 +7039,15 @@ export interface UpdatePortfolioShareInput {
  */
 export interface UpdatePortfolioShareOutput {
   /**
-   * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
+   * The token that tracks the status of the `UpdatePortfolioShare` operation for external account to account or organizational type sharing.
+   *
    * @public
    */
   PortfolioShareToken?: string | undefined;
 
   /**
-   * <p>The status of <code>UpdatePortfolioShare</code> operation.
-   *          You can also obtain the operation status using <code>DescribePortfolioShareStatus</code> API.
-   *       </p>
+   * The status of `UpdatePortfolioShare` operation. You can also obtain the operation status using `DescribePortfolioShareStatus` API.
+   *
    * @public
    */
   Status?: ShareStatus | undefined;
@@ -7290,97 +7058,91 @@ export interface UpdatePortfolioShareOutput {
  */
 export interface UpdateProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The updated product name.</p>
+   * The updated product name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The updated owner of the product.</p>
+   * The updated owner of the product.
+   *
    * @public
    */
   Owner?: string | undefined;
 
   /**
-   * <p>The updated description of the product.</p>
+   * The updated description of the product.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The updated distributor of the product.</p>
+   * The updated distributor of the product.
+   *
    * @public
    */
   Distributor?: string | undefined;
 
   /**
-   * <p>The updated support description for the product.</p>
+   * The updated support description for the product.
+   *
    * @public
    */
   SupportDescription?: string | undefined;
 
   /**
-   * <p>The updated support email for the product.</p>
+   * The updated support email for the product.
+   *
    * @public
    */
   SupportEmail?: string | undefined;
 
   /**
-   * <p>The updated support URL for the product.</p>
+   * The updated support URL for the product.
+   *
    * @public
    */
   SupportUrl?: string | undefined;
 
   /**
-   * <p>The tags to add to the product.</p>
+   * The tags to add to the product.
+   *
    * @public
    */
   AddTags?: Tag[] | undefined;
 
   /**
-   * <p>The tags to remove from the product.</p>
+   * The tags to remove from the product.
+   *
    * @public
    */
   RemoveTags?: string[] | undefined;
 
   /**
-   * <p>Specifies connection details for the updated product and syncs the product to the connection source
-   *          artifact. This automatically manages the product's artifacts based on changes to the source.
-   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Type</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ConnectionParamters</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   * Specifies connection details for the updated product and syncs the product to the connection source artifact. This automatically manages the product's artifacts based on changes to the source. The `SourceConnection` parameter consists of the following sub-fields.
+   *
+   * - `Type`
+   * - `ConnectionParamters`
+   *
    * @public
    */
   SourceConnection?: SourceConnection | undefined;
@@ -7391,95 +7153,123 @@ export interface UpdateProductInput {
  */
 export interface UpdateProductOutput {
   /**
-   * <p>Information about the product view.</p>
+   * Information about the product view.
+   *
    * @public
    */
   ProductViewDetail?: ProductViewDetail | undefined;
 
   /**
-   * <p>Information about the tags associated with the product.</p>
+   * Information about the tags associated with the product.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
+ * The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.
+ *
  * @public
  */
 export interface UpdateProvisioningPreferences {
   /**
-   * <p>One or more Amazon Web Services accounts that will have access to the provisioned product.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The Amazon Web Services accounts specified should be within the list of accounts in the <code>STACKSET</code> constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
+   * One or more Amazon Web Services accounts that will have access to the provisioned product.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * The Amazon Web Services accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+   *
+   * If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+   *
    * @public
    */
   StackSetAccounts?: string[] | undefined;
 
   /**
-   * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>The specified Regions should be within the list of Regions from the <code>STACKSET</code> constraint. To get the list of Regions in the <code>STACKSET</code> constraint, use the <code>DescribeProvisioningParameters</code> operation.</p>
-   *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
+   * One or more Amazon Web Services Regions where the provisioned product will be available.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * The specified Regions should be within the list of Regions from the `STACKSET` constraint. To get the list of Regions in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
+   *
+   * If no values are specified, the default value is all Regions from the `STACKSET` constraint.
+   *
    * @public
    */
   StackSetRegions?: string[] | undefined;
 
   /**
-   * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
-   *          <p>The default value is <code>0</code> if no value is specified.</p>
+   * The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage`, but not both.
+   *
+   * The default value is `0` if no value is specified.
+   *
    * @public
    */
   StackSetFailureToleranceCount?: number | undefined;
 
   /**
-   * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
+   * The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.
+   *
+   * When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage`, but not both.
+   *
    * @public
    */
   StackSetFailureTolerancePercentage?: number | undefined;
 
   /**
-   * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p>
-   *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
+   * The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount`. `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount`.
+   *
+   * Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage`, but not both.
+   *
    * @public
    */
   StackSetMaxConcurrencyCount?: number | undefined;
 
   /**
-   * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as <code>1</code> instead.</p>
-   *          <p>Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
+   * The maximum percentage of accounts in which to perform this operation at one time.
+   *
+   * When calculating the number of accounts based on the specified percentage, Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, Service Catalog sets the number as `1` instead.
+   *
+   * Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage`, but not both.
+   *
    * @public
    */
   StackSetMaxConcurrencyPercentage?: number | undefined;
 
   /**
-   * <p>Determines what action Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p>
-   *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
-   *          <dl>
-   *             <dt>CREATE</dt>
-   *             <dd>
-   *                <p>Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.</p>
-   *             </dd>
-   *             <dt>UPDATE</dt>
-   *             <dd>
-   *                <p>Updates the stack set represented by the provisioned product and also its stack instances.</p>
-   *             </dd>
-   *             <dt>DELETE</dt>
-   *             <dd>
-   *                <p>Deletes a stack instance in the stack set represented by the provisioned product.</p>
-   *             </dd>
-   *          </dl>
+   * Determines what action Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
+   *
+   * Applicable only to a `CFN_STACKSET` provisioned product type.
+   *
+   * - **CREATE**
+   *
+   *   Creates a new stack instance in the stack set represented by the provisioned product. In this case, only new stack instances are created based on accounts and Regions; if new ProductId or ProvisioningArtifactID are passed, they will be ignored.
+   *
+   * - **UPDATE**
+   *
+   *   Updates the stack set represented by the provisioned product and also its stack instances.
+   *
+   * - **DELETE**
+   *
+   *   Deletes a stack instance in the stack set represented by the provisioned product.
+   *
    * @public
    */
   StackSetOperationType?: StackSetOperationType | undefined;
@@ -7490,91 +7280,95 @@ export interface UpdateProvisioningPreferences {
  */
 export interface UpdateProvisionedProductInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The name of the provisioned product. You cannot specify both
-   *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
+   * The name of the provisioned product. You cannot specify both `ProvisionedProductName` and `ProvisionedProductId`.
+   *
    * @public
    */
   ProvisionedProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product. You must provide the name or ID, but not both.</p>
+   * The identifier of the provisioned product. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProvisionedProductId?: string | undefined;
 
   /**
-   * <p>The identifier of the product. You must provide the name or ID, but not both.</p>
+   * The identifier of the product. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The name of the product. You must provide the name or ID, but not both.</p>
+   * The name of the product. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId?: string | undefined;
 
   /**
-   * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
+   * The name of the provisioning artifact. You must provide the name or ID, but not both.
+   *
    * @public
    */
   ProvisioningArtifactName?: string | undefined;
 
   /**
-   * <p>The path identifier. This value is optional if the product
-   *          has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.</p>
+   * The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.
+   *
    * @public
    */
   PathId?: string | undefined;
 
   /**
-   * <p>The name of the path. You must provide the name or ID, but not both.</p>
+   * The name of the path. You must provide the name or ID, but not both.
+   *
    * @public
    */
   PathName?: string | undefined;
 
   /**
-   * <p>The new parameters.</p>
+   * The new parameters.
+   *
    * @public
    */
   ProvisioningParameters?: UpdateProvisioningParameter[] | undefined;
 
   /**
-   * <p>An object that contains information about the provisioning preferences for a stack set.</p>
+   * An object that contains information about the provisioning preferences for a stack set.
+   *
    * @public
    */
   ProvisioningPreferences?: UpdateProvisioningPreferences | undefined;
 
   /**
-   * <p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
+   * One or more tags. Requires the product to have `RESOURCE_UPDATE` constraint with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The idempotency token that uniquely identifies the provisioning update request.</p>
+   * The idempotency token that uniquely identifies the provisioning update request.
+   *
    * @public
    */
   UpdateToken?: string | undefined;
@@ -7585,7 +7379,8 @@ export interface UpdateProvisionedProductInput {
  */
 export interface UpdateProvisionedProductOutput {
   /**
-   * <p>Information about the result of the request.</p>
+   * Information about the result of the request.
+   *
    * @public
    */
   RecordDetail?: RecordDetail | undefined;
@@ -7596,54 +7391,40 @@ export interface UpdateProvisionedProductOutput {
  */
 export interface UpdateProvisionedProductPropertiesInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The identifier of the provisioned product.</p>
+   * The identifier of the provisioned product.
+   *
    * @public
    */
   ProvisionedProductId: string | undefined;
 
   /**
-   * <p>A map that contains the provisioned product properties to be updated.</p>
-   *          <p>The <code>LAUNCH_ROLE</code> key accepts role ARNs. This key allows an
-   *          administrator to call <code>UpdateProvisionedProductProperties</code> to update the launch
-   *          role that is associated with a provisioned product. This role is used when an end user
-   *          calls a provisioning operation such as <code>UpdateProvisionedProduct</code>,
-   *             <code>TerminateProvisionedProduct</code>, or
-   *             <code>ExecuteProvisionedProductServiceAction</code>. Only a role ARN is valid. A user ARN is invalid. </p>
-   *          <p>The <code>OWNER</code> key accepts user ARNs, IAM role ARNs, and STS
-   *          assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and
-   *          execute service actions in the provisioned product.</p>
-   *          <p>The administrator can change the owner of a provisioned product to another IAM or STS entity within the
-   *          same account. Both end user owners and administrators can see ownership history of the provisioned
-   *          product using the <code>ListRecordHistory</code> API. The new owner can describe all past records
-   *          for the provisioned product using the <code>DescribeRecord</code> API. The previous owner can no
-   *          longer use <code>DescribeRecord</code>, but can still see the product's history from when he was
-   *          an owner using <code>ListRecordHistory</code>.</p>
-   *          <p>If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or
-   *          Service Catalog console such as update, terminate, and execute service actions.
-   *          If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through
-   *          API or the Service Catalog console on that provisioned product.</p>
+   * A map that contains the provisioned product properties to be updated.
+   *
+   * The `LAUNCH_ROLE` key accepts role ARNs. This key allows an administrator to call `UpdateProvisionedProductProperties` to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as `UpdateProvisionedProduct`, `TerminateProvisionedProduct`, or `ExecuteProvisionedProductServiceAction`. Only a role ARN is valid. A user ARN is invalid.
+   *
+   * The `OWNER` key accepts user ARNs, IAM role ARNs, and STS assumed-role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
+   *
+   * The administrator can change the owner of a provisioned product to another IAM or STS entity within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the `ListRecordHistory` API. The new owner can describe all past records for the provisioned product using the `DescribeRecord` API. The previous owner can no longer use `DescribeRecord`, but can still see the product's history from when he was an owner using `ListRecordHistory`.
+   *
+   * If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
+   *
    * @public
    */
   ProvisionedProductProperties: Partial<Record<PropertyKey, string>> | undefined;
 
   /**
-   * <p>The idempotency token that uniquely identifies the provisioning product update request.</p>
+   * The idempotency token that uniquely identifies the provisioning product update request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
@@ -7654,25 +7435,29 @@ export interface UpdateProvisionedProductPropertiesInput {
  */
 export interface UpdateProvisionedProductPropertiesOutput {
   /**
-   * <p>The provisioned product identifier.</p>
+   * The provisioned product identifier.
+   *
    * @public
    */
   ProvisionedProductId?: string | undefined;
 
   /**
-   * <p>A map that contains the properties updated.</p>
+   * A map that contains the properties updated.
+   *
    * @public
    */
   ProvisionedProductProperties?: Partial<Record<PropertyKey, string>> | undefined;
 
   /**
-   * <p>The identifier of the record.</p>
+   * The identifier of the record.
+   *
    * @public
    */
   RecordId?: string | undefined;
 
   /**
-   * <p>The status of the request.</p>
+   * The status of the request.
+   *
    * @public
    */
   Status?: RecordStatus | undefined;
@@ -7683,58 +7468,59 @@ export interface UpdateProvisionedProductPropertiesOutput {
  */
 export interface UpdateProvisioningArtifactInput {
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
 
   /**
-   * <p>The product identifier.</p>
+   * The product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the provisioning artifact.</p>
+   * The identifier of the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactId: string | undefined;
 
   /**
-   * <p>The updated name of the provisioning artifact.</p>
+   * The updated name of the provisioning artifact.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The updated description of the provisioning artifact.</p>
+   * The updated description of the provisioning artifact.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Indicates whether the product version is active.</p>
-   *          <p>Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.</p>
+   * Indicates whether the product version is active.
+   *
+   * Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
+   *
    * @public
    */
   Active?: boolean | undefined;
 
   /**
-   * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
-   *          <p>The <code>DEFAULT</code> value indicates that the product version is active.</p>
-   *          <p>The administrator can set the guidance to <code>DEPRECATED</code> to inform
-   *           users that the product version is deprecated. Users are able to make updates to a provisioned product
-   *           of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>
+   * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+   *
+   * The `DEFAULT` value indicates that the product version is active.
+   *
+   * The administrator can set the guidance to `DEPRECATED` to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
+   *
    * @public
    */
   Guidance?: ProvisioningArtifactGuidance | undefined;
@@ -7745,19 +7531,22 @@ export interface UpdateProvisioningArtifactInput {
  */
 export interface UpdateProvisioningArtifactOutput {
   /**
-   * <p>Information about the provisioning artifact.</p>
+   * Information about the provisioning artifact.
+   *
    * @public
    */
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
+   * The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
+   *
    * @public
    */
   Info?: Record<string, string> | undefined;
 
   /**
-   * <p>The status of the current request.</p>
+   * The status of the current request.
+   *
    * @public
    */
   Status?: Status | undefined;
@@ -7768,41 +7557,39 @@ export interface UpdateProvisioningArtifactOutput {
  */
 export interface UpdateServiceActionInput {
   /**
-   * <p>The self-service action identifier.</p>
+   * The self-service action identifier.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The self-service action name.</p>
+   * The self-service action name.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A map that defines the self-service action.</p>
+   * A map that defines the self-service action.
+   *
    * @public
    */
   Definition?: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
 
   /**
-   * <p>The self-service action description.</p>
+   * The self-service action description.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The language code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>jp</code> - Japanese</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zh</code> - Chinese</p>
-   *             </li>
-   *          </ul>
+   * The language code.
+   *
+   * - `jp` - Japanese
+   * - `zh` - Chinese
+   *
    * @public
    */
   AcceptLanguage?: string | undefined;
@@ -7813,7 +7600,8 @@ export interface UpdateServiceActionInput {
  */
 export interface UpdateServiceActionOutput {
   /**
-   * <p>Detailed information about the self-service action.</p>
+   * Detailed information about the self-service action.
+   *
    * @public
    */
   ServiceActionDetail?: ServiceActionDetail | undefined;
@@ -7824,19 +7612,22 @@ export interface UpdateServiceActionOutput {
  */
 export interface UpdateTagOptionInput {
   /**
-   * <p>The TagOption identifier.</p>
+   * The TagOption identifier.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The updated value.</p>
+   * The updated value.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The updated active state.</p>
+   * The updated active state.
+   *
    * @public
    */
   Active?: boolean | undefined;
@@ -7847,7 +7638,8 @@ export interface UpdateTagOptionInput {
  */
 export interface UpdateTagOptionOutput {
   /**
-   * <p>Information about the TagOption.</p>
+   * Information about the TagOption.
+   *
    * @public
    */
   TagOptionDetail?: TagOptionDetail | undefined;

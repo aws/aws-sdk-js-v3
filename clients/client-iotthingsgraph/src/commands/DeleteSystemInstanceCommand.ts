@@ -23,9 +23,9 @@ export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRe
 export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a system instance.
- *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
- *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>
+ * Deletes a system instance. Only system instances that have never been deployed, or that have been undeployed can be deleted.
+ *
+ * Users can create a new system instance that has the same ID as a deleted system instance.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -52,20 +52,16 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

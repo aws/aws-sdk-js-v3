@@ -23,7 +23,8 @@ export interface CreateAnalyzerCommandInput extends CreateAnalyzerRequest {}
 export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an analyzer for your account.</p>
+ * Creates an analyzer for your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,26 +111,32 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict exception error.</p>
+ *
+ * A conflict exception error.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Service quote met error.</p>
+ *
+ * Service quote met error.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @public
  */

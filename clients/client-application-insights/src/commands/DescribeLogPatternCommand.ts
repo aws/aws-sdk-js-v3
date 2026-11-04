@@ -23,7 +23,8 @@ export interface DescribeLogPatternCommandInput extends DescribeLogPatternReques
 export interface DescribeLogPatternCommandOutput extends DescribeLogPatternResponse, __MetadataBearer {}
 
 /**
- * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
+ * Describe a specific log pattern from a `LogPatternSet`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +61,20 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource does not exist in the customer account.</p>
+ *
+ * The resource does not exist in the customer account.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The parameter is not valid.</p>
+ *
+ * The parameter is not valid.
  *
  * @throws {@link ApplicationInsightsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationInsights service.
  *
  * @public
  */

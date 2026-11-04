@@ -23,13 +23,12 @@ export interface GetStorageLensGroupCommandInput extends GetStorageLensGroupRequ
 export interface GetStorageLensGroupCommandOutput extends GetStorageLensGroupResult, __MetadataBearer {}
 
 /**
- * <p>
- * Retrieves the Storage Lens group configuration details.</p>
- *          <p>To use this operation, you must have the permission to perform the
- *       <code>s3:GetStorageLensGroup</code> action. For more information about the required Storage Lens
- *       Groups permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions">Setting account permissions to use S3 Storage Lens groups</a>.</p>
- *          <p>For information about Storage Lens groups errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList">List of Amazon S3 Storage
- *       Lens error codes</a>.</p>
+ * Retrieves the Storage Lens group configuration details.
+ *
+ * To use this operation, you must have the permission to perform the `s3:GetStorageLensGroup` action. For more information about the required Storage Lens Groups permissions, see [Setting account permissions to use S3 Storage Lens groups](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_iam_permissions.html#storage_lens_groups_permissions).
+ *
+ * For information about Storage Lens groups errors, see [List of Amazon S3 Storage Lens error codes](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#S3LensErrorCodeList).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,8 +125,8 @@ export interface GetStorageLensGroupCommandOutput extends GetStorageLensGroupRes
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

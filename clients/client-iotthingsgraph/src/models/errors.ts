@@ -4,7 +4,6 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTThingsGraphServiceException as __BaseException } from "./IoTThingsGraphServiceException";
 
 /**
- * <p></p>
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -25,7 +24,6 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -46,7 +44,6 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +64,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -88,7 +84,6 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -109,7 +104,6 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -130,7 +124,6 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p></p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {

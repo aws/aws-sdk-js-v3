@@ -23,9 +23,10 @@ export interface ConfirmConnectionCommandInput extends ConfirmConnectionRequest 
 export interface ConfirmConnectionCommandOutput extends ConfirmConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>
- *          <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and
- *       remains in this state until the owner confirms creation of the hosted connection.</p>
+ * Confirms the creation of the specified hosted connection on an interconnect.
+ *
+ * Upon creation, the hosted connection is initially in the `Ordering` state, and remains in this state until the owner confirms creation of the hosted connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +53,16 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

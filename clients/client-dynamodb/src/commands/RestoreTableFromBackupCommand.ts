@@ -23,31 +23,19 @@ export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBack
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new table from an existing backup. Any number of users can execute up to 50
- *             concurrent restores (any type of restore) in a given account. </p>
- *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
- *             second.</p>
- *          <p>You must manually set up the following on the restored table:</p>
- *          <ul>
- *             <li>
- *                <p>Auto scaling policies</p>
- *             </li>
- *             <li>
- *                <p>IAM policies</p>
- *             </li>
- *             <li>
- *                <p>Amazon CloudWatch metrics and alarms</p>
- *             </li>
- *             <li>
- *                <p>Tags</p>
- *             </li>
- *             <li>
- *                <p>Stream settings</p>
- *             </li>
- *             <li>
- *                <p>Time to Live (TTL) settings</p>
- *             </li>
- *          </ul>
+ * Creates a new table from an existing backup. Any number of users can execute up to 50 concurrent restores (any type of restore) in a given account.
+ *
+ * You can call `RestoreTableFromBackup` at a maximum rate of 10 times per second.
+ *
+ * You must manually set up the following on the restored table:
+ *
+ * - Auto scaling policies
+ * - IAM policies
+ * - Amazon CloudWatch metrics and alarms
+ * - Tags
+ * - Stream settings
+ * - Time to Live (TTL) settings
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -363,45 +351,46 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link BackupInUseException} (client fault)
- *  <p>There is another ongoing conflicting backup control plane operation on the table.
- *             The backup is either being created, deleted or restored to a table.</p>
+ *
+ * There is another ongoing conflicting backup control plane operation on the table. The backup is either being created, deleted or restored to a table.
  *
  * @throws {@link BackupNotFoundException} (client fault)
- *  <p>Backup not found for the given BackupARN. </p>
+ *
+ * Backup not found for the given BackupARN.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account.
- *             These operations include <code>CreateTable</code>, <code>UpdateTable</code>,
- *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
- *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>When you are creating a table with one or more secondary indexes, you can have up
- *             to 250 such requests running at a time. However, if the table or index specifications
- *             are complex, then DynamoDB might temporarily reduce the number of concurrent
- *             operations.</p>
- *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are
- *             allowed per account.</p>
- *          <p>There is a soft account quota of 2,500 tables.</p>
- *          <p>GetRecords was called with a value of more than 1000 for the limit request
- *             parameter.</p>
- *          <p>More than 2 processes are reading from the same streams shard at the same time.
- *             Exceeding this limit may result in request throttling.</p>
+ *
+ * There is no limit to the number of daily on-demand backups that can be taken.
+ *
+ * For most purposes, up to 500 simultaneous table operations are allowed per account. These operations include `CreateTable`, `UpdateTable`, `DeleteTable`,`UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.
+ *
+ * When you are creating a table with one or more secondary indexes, you can have up to 250 such requests running at a time. However, if the table or index specifications are complex, then DynamoDB might temporarily reduce the number of concurrent operations.
+ *
+ * When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.
+ *
+ * There is a soft account quota of 2,500 tables.
+ *
+ * GetRecords was called with a value of more than 1000 for the limit request parameter.
+ *
+ * More than 2 processes are reading from the same streams shard at the same time. Exceeding this limit may result in request throttling.
  *
  * @throws {@link TableAlreadyExistsException} (client fault)
- *  <p>A target table with the specified name already exists. </p>
+ *
+ * A target table with the specified name already exists.
  *
  * @throws {@link TableInUseException} (client fault)
- *  <p>A target table with the specified name is either being created or deleted.
- *         </p>
+ *
+ * A target table with the specified name is either being created or deleted.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @public
  */

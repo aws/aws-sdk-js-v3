@@ -23,12 +23,10 @@ export interface GetMLTaskRunsCommandInput extends GetMLTaskRunsRequest {}
 export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of runs for a machine learning transform. Machine learning task runs are
- *       asynchronous tasks that Glue runs on your behalf as part of various machine learning
- *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
- *         <code>GetMLTaskRuns</code> with their parent transform's <code>TransformID</code> and other
- *       optional parameters as documented in this section.</p>
- *          <p>This operation returns a list of historic runs and must be paginated.</p>
+ * Gets a list of runs for a machine learning transform. Machine learning task runs are asynchronous tasks that Glue runs on your behalf as part of various machine learning workflows. You can get a sortable, filterable list of machine learning task runs by calling `GetMLTaskRuns` with their parent transform's `TransformID` and other optional parameters as documented in this section.
+ *
+ * This operation returns a list of historic runs and must be paginated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,20 +96,24 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

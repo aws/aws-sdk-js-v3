@@ -24,7 +24,10 @@ export interface ModifyDBClusterEndpointCommandInput extends ModifyDBClusterEndp
 export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint, __MetadataBearer {}
 
 /**
- * <p>Modifies the properties of an endpoint in an Amazon Aurora DB cluster.</p> <note> <p>This operation only applies to Aurora DB clusters.</p> </note>
+ * Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
+ *
+ * > **Note:** This operation only applies to Aurora DB clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,23 +74,28 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterEndpointNotFoundFault} (client fault)
- *  <p>The specified custom endpoint doesn't exist.</p>
+ *
+ * The specified custom endpoint doesn't exist.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
- *  <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * The requested operation can't be performed on the endpoint while the endpoint is in this state.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To modify a custom DB cluster endpoint
  * ```javascript

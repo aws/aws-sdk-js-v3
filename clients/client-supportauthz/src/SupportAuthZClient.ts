@@ -318,7 +318,10 @@ export type SupportAuthZClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface SupportAuthZClientResolvedConfig extends SupportAuthZClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Support Authorization</fullname> <p>AWS SupportAuthZ enables you to control and authorize the actions that AWS support operators can perform on your resources. You create cryptographically signed support permits specifying which actions operators can perform, on which resources, and under what time-window conditions. Permits are signed using a customer-managed AWS KMS key (ECC_NIST_P384, SIGN_VERIFY) to ensure non-repudiation.</p>
+ * AWS Support Authorization
+ *
+ * AWS SupportAuthZ enables you to control and authorize the actions that AWS support operators can perform on your resources. You create cryptographically signed support permits specifying which actions operators can perform, on which resources, and under what time-window conditions. Permits are signed using a customer-managed AWS KMS key (ECC_NIST_P384, SIGN_VERIFY) to ensure non-repudiation.
+ *
  * @public
  */
 export class SupportAuthZClient extends __Client<

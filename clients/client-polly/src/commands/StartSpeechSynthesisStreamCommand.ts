@@ -23,17 +23,12 @@ export interface StartSpeechSynthesisStreamCommandInput extends StartSpeechSynth
 export interface StartSpeechSynthesisStreamCommandOutput extends StartSpeechSynthesisStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming connection.
- *       Specify synthesis parameters in HTTP/2 headers, send text incrementally as events on the input stream,
- *        and receive synthesized audio as it becomes available.</p>
- *          <p>This operation serves as a bidirectional counterpart to <code>SynthesizeSpeech</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html">SynthesizeSpeech</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Synthesizes UTF-8 input, plain text, or SSML over a bidirectional streaming connection. Specify synthesis parameters in HTTP/2 headers, send text incrementally as events on the input stream, and receive synthesized audio as it becomes available.
+ *
+ * This operation serves as a bidirectional counterpart to `SynthesizeSpeech`:
+ *
+ * - [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,20 +106,24 @@ export interface StartSpeechSynthesisStreamCommandOutput extends StartSpeechSynt
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * An unknown condition has caused a service failure.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
+ *
+ * The request would cause a service quota to be exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because of request throttling.</p>
+ *
+ * The request was denied because of request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link PollyServiceException}
- * <p>Base exception class for all service exceptions from Polly service.</p>
  *
+ * Base exception class for all service exceptions from Polly service.
  *
  * @public
  */

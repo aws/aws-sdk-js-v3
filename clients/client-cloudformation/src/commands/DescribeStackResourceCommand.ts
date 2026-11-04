@@ -23,9 +23,10 @@ export interface DescribeStackResourceCommandInput extends DescribeStackResource
 export interface DescribeStackResourceCommandOutput extends DescribeStackResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a description of the specified resource in the specified stack.</p>
- *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days
- *       after the stack has been deleted.</p>
+ * Returns a description of the specified resource in the specified stack.
+ *
+ * For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has been deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +73,8 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

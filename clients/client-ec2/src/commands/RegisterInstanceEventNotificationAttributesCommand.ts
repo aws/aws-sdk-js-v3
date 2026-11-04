@@ -26,10 +26,10 @@ export interface RegisterInstanceEventNotificationAttributesCommandInput extends
 export interface RegisterInstanceEventNotificationAttributesCommandOutput extends RegisterInstanceEventNotificationAttributesResult, __MetadataBearer {}
 
 /**
- * <p>Registers a set of tag keys to include in scheduled event notifications for your
- *          resources.
- *          </p>
- *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
+ * Registers a set of tag keys to include in scheduled event notifications for your resources.
+ *
+ * To remove tags, use [DeregisterInstanceEventNotificationAttributes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +67,8 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput extend
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

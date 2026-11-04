@@ -23,11 +23,10 @@ export interface SubmitContactEvaluationCommandInput extends SubmitContactEvalua
 export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a contact evaluation in the specified Connect Customer instance. Answers included in the request are
- *    merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted
- *    with the existing answers and notes. You can delete an answer or note by passing an empty object (<code>\{\}</code>) to
- *    the question identifier. </p>
- *          <p>If a contact evaluation is already in submitted state, this operation will trigger a resubmission.</p>
+ * Submits a contact evaluation in the specified Connect Customer instance. Answers included in the request are merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted with the existing answers and notes. You can delete an answer or note by passing an empty object (`\{\}`) to the question identifier.
+ *
+ * If a contact evaluation is already in submitted state, this operation will trigger a resubmission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +76,28 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

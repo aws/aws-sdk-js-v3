@@ -23,12 +23,10 @@ export interface ListReplicationBackfillsCommandInput extends ListReplicationBac
 export interface ListReplicationBackfillsCommandOutput extends ListReplicationBackfillsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the replication backfills for a registry, including their status and
- *             progress.</p>
- *          <note>
- *             <p>Replication backfills that have reached a terminal status are retained for 90 days
- *                 after they end, after which they are no longer returned.</p>
- *          </note>
+ * Lists the replication backfills for a registry, including their status and progress.
+ *
+ * > **Note:** Replication backfills that have reached a terminal status are retained for 90 days after they end, after which they are no longer returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,18 +77,20 @@ export interface ListReplicationBackfillsCommandOutput extends ListReplicationBa
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

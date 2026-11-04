@@ -23,24 +23,16 @@ export interface ListBucketsCommandInput extends ListBucketsRequest {}
 export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Returns a list of all buckets owned by the authenticated sender of the request. To grant IAM
- *       permission to use this operation, you must add the <code>s3:ListAllMyBuckets</code> policy action. </p>
- *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and working with Amazon S3
- *         buckets</a>.</p>
- *          <important>
- *             <p>We strongly recommend using only paginated <code>ListBuckets</code> requests. Unpaginated
- *           <code>ListBuckets</code> requests are only supported for Amazon Web Services accounts set to the default general
- *         purpose bucket quota of 10,000. If you have an approved general purpose bucket quota above 10,000, you
- *         must send paginated <code>ListBuckets</code> requests to list your account’s buckets. All unpaginated
- *           <code>ListBuckets</code> requests will be rejected for Amazon Web Services accounts with a general purpose bucket
- *         quota greater than 10,000. </p>
- *          </important>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Returns a list of all buckets owned by the authenticated sender of the request. To grant IAM permission to use this operation, you must add the `s3:ListAllMyBuckets` policy action.
+ *
+ * For information about Amazon S3 buckets, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
+ *
+ * > **Important:** We strongly recommend using only paginated `ListBuckets` requests. Unpaginated `ListBuckets` requests are only supported for Amazon Web Services accounts set to the default general purpose bucket quota of 10,000. If you have an approved general purpose bucket quota above 10,000, you must send paginated `ListBuckets` requests to list your account’s buckets. All unpaginated `ListBuckets` requests will be rejected for Amazon Web Services accounts with a general purpose bucket quota greater than 10,000.
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,8 +75,8 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To list all buckets
  * ```javascript

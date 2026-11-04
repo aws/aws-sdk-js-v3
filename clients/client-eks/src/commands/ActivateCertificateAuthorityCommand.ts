@@ -23,24 +23,12 @@ export interface ActivateCertificateAuthorityCommandInput extends ActivateCertif
 export interface ActivateCertificateAuthorityCommandOutput extends ActivateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Activates a successor certificate authority (CA) as the signing certificate authority
- *             for your cluster, completing a CA rotation.</p>
- *          <p>When you activate a successor CA, Amazon EKS promotes it to be the cluster's signer (its
- *                 <code>signingStatus</code> becomes <code>IN_USE</code>) and the outgoing CA is
- *             retired (<code>NOT_USED</code>). The outgoing CA remains in the cluster's trust bundle but
- *             no longer signs certificates. The successor CA you activate must already be present on
- *             the cluster and fully distributed (its <code>distributionStatus</code> must be
- *                 <code>COMPLETE</code>). This is an asynchronous operation that returns an
- *                 <code>update</code> object you can track with <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html">
- *                <code>DescribeUpdate</code>
- *             </a>.</p>
- *          <p>Before you activate the successor CA, make sure the worker nodes you manage and your
- *             external clients have been updated to trust it, so they maintain connectivity to the API
- *             server after activation. For a limited period after activation, CA rollback is available
- *             to revert to the outgoing CA if needed. If you don't activate the successor CA yourself,
- *             Amazon EKS activates it automatically as the expiration deadline approaches. For more
- *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html">Rotate the Amazon EKS
- *                 cluster certificate authority</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * Activates a successor certificate authority (CA) as the signing certificate authority for your cluster, completing a CA rotation.
+ *
+ * When you activate a successor CA, Amazon EKS promotes it to be the cluster's signer (its `signingStatus` becomes `IN_USE`) and the outgoing CA is retired (`NOT_USED`). The outgoing CA remains in the cluster's trust bundle but no longer signs certificates. The successor CA you activate must already be present on the cluster and fully distributed (its `distributionStatus` must be `COMPLETE`). This is an asynchronous operation that returns an `update` object you can track with [`DescribeUpdate`](https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html).
+ *
+ * Before you activate the successor CA, make sure the worker nodes you manage and your external clients have been updated to trust it, so they maintain connectivity to the API server after activation. For a limited period after activation, CA rollback is available to revert to the outgoing CA if needed. If you don't activate the successor CA yourself, Amazon EKS activates it automatically as the expiration deadline approaches. For more information, see [Rotate the Amazon EKS cluster certificate authority](https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html) in the *Amazon EKS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,24 +90,24 @@ export interface ActivateCertificateAuthorityCommandOutput extends ActivateCerti
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
- *             specific.</p>
+ *
+ * The specified resource could not be found. You can view your available clusters with `ListClusters`. You can view your available managed node groups with `ListNodegroups`. Amazon EKS clusters and node groups are Amazon Web Services Region specific.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * The service is unavailable. Back off and retry the operation.
  *
  * @throws {@link EKSServiceException}
- * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ * Base exception class for all service exceptions from EKS service.
  *
  * @public
  */

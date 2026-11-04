@@ -26,7 +26,8 @@ export interface GetCloudFrontOriginAccessIdentityCommandInput extends GetCloudF
 export interface GetCloudFrontOriginAccessIdentityCommandOutput extends GetCloudFrontOriginAccessIdentityResult, __MetadataBearer {}
 
 /**
- * <p>Get the information about an origin access identity.</p>
+ * Get the information about an origin access identity.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +62,16 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput extends GetCloud
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
- *  <p>The specified origin access identity does not exist.</p>
+ *
+ * The specified origin access identity does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

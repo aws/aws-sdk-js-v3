@@ -26,10 +26,8 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandInput extends Get
 export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput extends GetAssociatedEnclaveCertificateIamRolesResult, __MetadataBearer {}
 
 /**
- * <p>Returns the IAM roles that are associated with the specified ACM (ACM) certificate.
- * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate,
- * 			certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key
- * 			that's used to encrypt the private key.</p>
+ * Returns the IAM roles that are associated with the specified ACM (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored, and the ARN of the KMS key that's used to encrypt the private key.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +62,8 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput extends Ge
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

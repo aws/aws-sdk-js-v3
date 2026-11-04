@@ -23,97 +23,46 @@ export interface DeriveSharedSecretCommandInput extends DeriveSharedSecretReques
 export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Derives a shared secret using a key agreement algorithm.</p>
- *          <note>
- *             <p>You must use an asymmetric NIST-standard elliptic curve (ECC) or SM2 (China Regions
- *         only) KMS key pair with a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code> to call
- *         DeriveSharedSecret.</p>
- *          </note>
- *          <p>DeriveSharedSecret uses the <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60">Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive</a> (ECDH) to establish a
- *       key agreement between two peers by deriving a shared secret from their elliptic curve
- *       public-private key pairs. You can use the raw shared secret that DeriveSharedSecret returns to
- *       derive a symmetric key that can encrypt and decrypt data that is sent between the two peers,
- *       or that can generate and verify HMACs. KMS recommends that you follow <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Cr2.pdf">NIST
- *         recommendations for key derivation</a> when using the raw shared secret to derive a
- *       symmetric key.</p>
- *          <p>The following workflow demonstrates how to establish key agreement over an insecure
- *       communication channel using DeriveSharedSecret.</p>
- *          <ol>
- *             <li>
- *                <p>
- *                   <b>Alice</b> calls <a>CreateKey</a> to create an
- *           asymmetric KMS key pair with a <code>KeyUsage</code> value of
- *           <code>KEY_AGREEMENT</code>.</p>
- *                <p>The asymmetric KMS key must use a NIST-standard elliptic curve (ECC) or SM2 (China
- *           Regions only) key spec.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Bob</b> creates an elliptic curve key pair.</p>
- *                <p>Bob can call <a>CreateKey</a> to create an asymmetric KMS key pair or
- *           generate a key pair outside of KMS. Bob's key pair must use the same NIST-standard
- *           elliptic curve (ECC) or SM2 (China Regions ony) curve as Alice.</p>
- *             </li>
- *             <li>
- *                <p>Alice and Bob <b>exchange their public keys</b> through an
- *           insecure communication channel (like the internet).</p>
- *                <p>Use <a>GetPublicKey</a> to download the public key of your asymmetric KMS
- *           key pair.</p>
- *                <note>
- *                   <p>KMS strongly recommends verifying that the public key you receive came from the
- *             expected party before using it to derive a shared secret.</p>
- *                </note>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Alice</b> calls DeriveSharedSecret.</p>
- *                <p>KMS uses the private key from the KMS key pair generated in <b>Step 1</b>, Bob's public key, and the Elliptic Curve Cryptography Cofactor
- *           Diffie-Hellman Primitive to derive the shared secret. The private key in your KMS key pair
- *           never leaves KMS unencrypted. DeriveSharedSecret returns the raw shared secret.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Bob</b> uses the Elliptic Curve Cryptography Cofactor
- *           Diffie-Hellman Primitive to calculate the same raw secret using his private key and
- *           Alice's public key.</p>
- *             </li>
- *          </ol>
- *          <p>To derive a shared secret you must provide a key agreement algorithm, the private key of
- *       the caller's asymmetric NIST-standard elliptic curve or SM2 (China Regions only) KMS key
- *       pair, and the public key from your peer's NIST-standard elliptic curve or SM2 (China
- *       Regions only) key pair. The public key can be from another asymmetric KMS key pair or from a
- *       key pair generated outside of KMS, but both key pairs must be on the same elliptic
- *       curve.</p>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
- *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DeriveSharedSecret</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetPublicKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DescribeKey</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Derives a shared secret using a key agreement algorithm.
+ *
+ * > **Note:** You must use an asymmetric NIST-standard elliptic curve (ECC) or SM2 (China Regions only) KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT` to call DeriveSharedSecret.
+ *
+ * DeriveSharedSecret uses the [Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60) (ECDH) to establish a key agreement between two peers by deriving a shared secret from their elliptic curve public-private key pairs. You can use the raw shared secret that DeriveSharedSecret returns to derive a symmetric key that can encrypt and decrypt data that is sent between the two peers, or that can generate and verify HMACs. KMS recommends that you follow [NIST recommendations for key derivation](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Cr2.pdf) when using the raw shared secret to derive a symmetric key.
+ *
+ * The following workflow demonstrates how to establish key agreement over an insecure communication channel using DeriveSharedSecret.
+ *
+ * 1. **Alice** calls CreateKey to create an asymmetric KMS key pair with a `KeyUsage` value of `KEY_AGREEMENT`.
+ *
+ *    The asymmetric KMS key must use a NIST-standard elliptic curve (ECC) or SM2 (China Regions only) key spec.
+ * 2. **Bob** creates an elliptic curve key pair.
+ *
+ *    Bob can call CreateKey to create an asymmetric KMS key pair or generate a key pair outside of KMS. Bob's key pair must use the same NIST-standard elliptic curve (ECC) or SM2 (China Regions ony) curve as Alice.
+ * 3. Alice and Bob **exchange their public keys** through an insecure communication channel (like the internet).
+ *
+ *    Use GetPublicKey to download the public key of your asymmetric KMS key pair.
+ *
+ *    > **Note:** KMS strongly recommends verifying that the public key you receive came from the expected party before using it to derive a shared secret.
+ * 4. **Alice** calls DeriveSharedSecret.
+ *
+ *    KMS uses the private key from the KMS key pair generated in **Step 1**, Bob's public key, and the Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive to derive the shared secret. The private key in your KMS key pair never leaves KMS unencrypted. DeriveSharedSecret returns the raw shared secret.
+ * 5. **Bob** uses the Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive to calculate the same raw secret using his private key and Alice's public key.
+ *
+ * To derive a shared secret you must provide a key agreement algorithm, the private key of the caller's asymmetric NIST-standard elliptic curve or SM2 (China Regions only) KMS key pair, and the public key from your peer's NIST-standard elliptic curve or SM2 (China Regions only) key pair. The public key can be from another asymmetric KMS key pair or from a key pair generated outside of KMS, but both key pairs must be on the same elliptic curve.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN in the value of the `KeyId` parameter.
+ *
+ * **Required permissions**: [kms:DeriveSharedSecret](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - CreateKey
+ * - GetPublicKey
+ * - DescribeKey
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,76 +103,58 @@ export interface DeriveSharedSecretCommandOutput extends DeriveSharedSecretRespo
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link DisabledException} (client fault)
- *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * The request was rejected because the specified KMS key is not enabled.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p> The request was rejected because the DryRun parameter was specified. </p>
+ *
+ * The request was rejected because the DryRun parameter was specified.
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
- *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * The request was rejected because the specified grant token is not valid.
  *
  * @throws {@link InvalidKeyUsageException} (client fault)
- *  <p>The request was rejected for one of the following reasons: </p>
- *          <ul>
- *             <li>
- *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
- *           operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
- *             </li>
- *          </ul>
- *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
- *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
- *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
- *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
- *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
- *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
- *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key `(KeySpec`).
+ *
+ * For encrypting, decrypting, re-encrypting, and generating data keys, the `KeyUsage` must be `ENCRYPT_DECRYPT`. For signing and verifying messages, the `KeyUsage` must be `SIGN_VERIFY`. For generating and verifying message authentication codes (MACs), the `KeyUsage` must be `GENERATE_VERIFY_MAC`. For deriving key agreement secrets, the `KeyUsage` must be `KEY_AGREEMENT`. For encapsulating and decapsulating shared secrets, the `KeyUsage` must be `ENCAPSULATE_DECAPSULATE`. To find the `KeyUsage` of a KMS key, use the DescribeKey operation.
+ *
+ * To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.
  *
  * @throws {@link KeyUnavailableException} (server fault)
- *  <p>The request was rejected because the specified KMS key was not available. You can retry
- *       the request.</p>
+ *
+ * The request was rejected because the specified KMS key was not available. You can retry the request.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To derive a shared secret
  * ```javascript

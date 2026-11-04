@@ -23,41 +23,21 @@ export interface PutSubscriptionFilterCommandInput extends PutSubscriptionFilter
 export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates a subscription filter and associates it with the specified log
- *       group. With subscription filters, you can subscribe to a real-time stream of log events
- *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
- *       and have them delivered to a specific destination. When log events are sent to the receiving
- *       service, they are Base64 encoded and compressed with the GZIP format.</p>
- *          <p>The following destinations are supported for subscription filters:</p>
- *          <ul>
- *             <li>
- *                <p>An Amazon Kinesis data stream belonging to the same account as the subscription
- *           filter, for same-account delivery.</p>
- *             </li>
- *             <li>
- *                <p>A logical destination created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a> that belongs to a different account, for cross-account delivery.
- *           We currently support Kinesis Data Streams and Firehose as logical
- *           destinations.</p>
- *             </li>
- *             <li>
- *                <p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as
- *           the subscription filter, for same-account delivery.</p>
- *             </li>
- *             <li>
- *                <p>An Lambda function that belongs to the same account as the
- *           subscription filter, for same-account delivery.</p>
- *             </li>
- *          </ul>
- *          <p>Each log group can have up to two subscription filters associated with it. If you are
- *       updating an existing filter, you must specify the correct name in <code>filterName</code>. </p>
- *          <p>Using regular expressions in filter patterns is supported. For these filters, there is a
- *       quotas of quota of two regular expression patterns within a single filter pattern. There is
- *       also a quota of five regular expression patterns per log group. For more information about
- *       using regular expressions in filter patterns, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html"> Filter pattern syntax for
- *         metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
- *          <p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a
- *         Lambda function, you must also have the <code>iam:PassRole</code>
- *       permission.</p>
+ * Creates or updates a subscription filter and associates it with the specified log group. With subscription filters, you can subscribe to a real-time stream of log events ingested through [PutLogEvents](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html) and have them delivered to a specific destination. When log events are sent to the receiving service, they are Base64 encoded and compressed with the GZIP format.
+ *
+ * The following destinations are supported for subscription filters:
+ *
+ * - An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.
+ * - A logical destination created with [PutDestination](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html) that belongs to a different account, for cross-account delivery. We currently support Kinesis Data Streams and Firehose as logical destinations.
+ * - An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.
+ * - An Lambda function that belongs to the same account as the subscription filter, for same-account delivery.
+ *
+ * Each log group can have up to two subscription filters associated with it. If you are updating an existing filter, you must specify the correct name in `filterName`.
+ *
+ * Using regular expressions in filter patterns is supported. For these filters, there is a quotas of quota of two regular expression patterns within a single filter pattern. There is also a quota of five regular expression patterns per log group. For more information about using regular expressions in filter patterns, see [Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+ *
+ * To perform a `PutSubscriptionFilter` operation for any destination except a Lambda function, you must also have the `iam:PassRole` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,26 +72,32 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>The operation is not valid on the specified resource.</p>
+ *
+ * The operation is not valid on the specified resource.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link OperationAbortedException} (client fault)
- *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * Multiple concurrent requests to update the same resource were in conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

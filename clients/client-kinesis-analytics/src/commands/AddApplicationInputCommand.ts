@@ -23,23 +23,18 @@ export interface AddApplicationInputCommandInput extends AddApplicationInputRequ
 export interface AddApplicationInputCommandOutput extends AddApplicationInputResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
- *          </note>
- *         <p>
- *             Adds a streaming source to your Amazon Kinesis application.
- *             For conceptual information,
- *             see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
- *         </p>
- *         <p>You can add a streaming source either when you create an application or you can use
- *             this operation to add a streaming source after you create an application. For more information, see
- *            <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_CreateApplication.html">CreateApplication</a>.</p>
- *         <p>Any configuration update, including adding a streaming source using this operation,
- *             results in a new version of the application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a> operation
- *             to find the current application version.
- *         </p>
- *         <p>This operation requires permissions to perform the
- *             <code>kinesisanalytics:AddApplicationInput</code> action.</p>
+ * > **Note:** This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see [Amazon Kinesis Data Analytics API V2 Documentation](/kinesisanalytics/latest/apiv2/Welcome.html).
+ *
+ *
+ *
+ * Adds a streaming source to your Amazon Kinesis application. For conceptual information, see [Configuring Application Input](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html).
+ *
+ * You can add a streaming source either when you create an application or you can use this operation to add a streaming source after you create an application. For more information, see [CreateApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_CreateApplication.html).
+ *
+ * Any configuration update, including adding a streaming source using this operation, results in a new version of the application. You can use the [DescribeApplication](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html) operation to find the current application version.
+ *
+ * This operation requires permissions to perform the `kinesisanalytics:AddApplicationInput` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,26 +102,32 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  * @throws {@link CodeValidationException} (client fault)
- *  <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+ *
+ * User-provided application code (query) is invalid. This can be a simple syntax error.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ *
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Specified input parameter value is invalid.</p>
+ *
+ * Specified input parameter value is invalid.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>Application is not available for this operation.</p>
+ *
+ * Application is not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Specified application can't be found.</p>
+ *
+ * Specified application can't be found.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KinesisAnalyticsServiceException}
- * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ * Base exception class for all service exceptions from KinesisAnalytics service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface ListAttacksCommandInput extends ListAttacksRequest {}
 export interface ListAttacksCommandOutput extends ListAttacksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
- *          period.</p>
+ * Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,17 +76,20 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link InvalidOperationException} (client fault)
- *  <p>Exception that indicates that the operation would not cause any change to occur.</p>
+ *
+ * Exception that indicates that the operation would not cause any change to occur.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception that indicates that the parameters passed to the API are invalid. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

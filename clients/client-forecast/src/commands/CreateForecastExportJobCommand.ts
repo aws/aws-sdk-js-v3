@@ -23,20 +23,20 @@ export interface CreateForecastExportJobCommandInput extends CreateForecastExpor
 export interface CreateForecastExportJobCommandOutput extends CreateForecastExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Exports a forecast created by the <a>CreateForecast</a> operation to your
- *       Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:</p>
- *          <p><ForecastExportJobName>_<ExportTimestamp>_<PartNumber></p>
- *          <p>where the <ExportTimestamp> component is in Java SimpleDateFormat
- *       (yyyy-MM-ddTHH-mm-ssZ).</p>
- *          <p>You must specify a <a>DataDestination</a> object that includes an Identity and Access Management
- *       (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see
- *         <a>aws-forecast-iam-roles</a>.</p>
- *          <p>For more information, see <a>howitworks-forecast</a>.</p>
- *          <p>To get a list of all your forecast export jobs, use the <a>ListForecastExportJobs</a> operation.</p>
- *          <note>
- *             <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
- *         you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
- *          </note>
+ * Exports a forecast created by the CreateForecast operation to your Amazon Simple Storage Service (Amazon S3) bucket. The forecast file name will match the following conventions:
+ *
+ * <ForecastExportJobName>_<ExportTimestamp>_<PartNumber>
+ *
+ * where the <ExportTimestamp> component is in Java SimpleDateFormat (yyyy-MM-ddTHH-mm-ssZ).
+ *
+ * You must specify a DataDestination object that includes an Identity and Access Management (IAM) role that Amazon Forecast can assume to access the Amazon S3 bucket. For more information, see aws-forecast-iam-roles.
+ *
+ * For more information, see howitworks-forecast.
+ *
+ * To get a list of all your forecast export jobs, use the ListForecastExportJobs operation.
+ *
+ * > **Note:** The `Status` of the forecast export job must be `ACTIVE` before you can access the forecast in your Amazon S3 bucket. To get the status, use the DescribeForecastExportJob operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,25 +78,28 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

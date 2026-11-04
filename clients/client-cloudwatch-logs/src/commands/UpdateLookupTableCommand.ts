@@ -23,11 +23,10 @@ export interface UpdateLookupTableCommandInput extends UpdateLookupTableRequest 
 export interface UpdateLookupTableCommandOutput extends UpdateLookupTableResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing lookup table by replacing all of its content with new CSV data or
- *       CloudWatch Logs query results. After the update completes, queries that use this table
- *       use the new data.</p>
- *          <p>This is a full replacement operation. All existing content is replaced. You must specify
- *       either <code>tableBody</code> or <code>queryId</code>, but not both.</p>
+ * Updates an existing lookup table by replacing all of its content with new CSV data or CloudWatch Logs query results. After the update completes, queries that use this table use the new data.
+ *
+ * This is a full replacement operation. All existing content is replaced. You must specify either `tableBody` or `queryId`, but not both.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +58,28 @@ export interface UpdateLookupTableCommandOutput extends UpdateLookupTableRespons
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

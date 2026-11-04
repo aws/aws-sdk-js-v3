@@ -26,9 +26,8 @@ export interface CreateInterruptibleCapacityReservationAllocationCommandInput ex
 export interface CreateInterruptibleCapacityReservationAllocationCommandOutput extends CreateInterruptibleCapacityReservationAllocationResult, __MetadataBearer {}
 
 /**
- * <p>
- * 			Creates an interruptible Capacity Reservation by specifying the number of unused instances you want to allocate from your source reservation. This helps you make unused capacity available for other workloads within your account while maintaining control to reclaim it.
- * 		</p>
+ * Creates an interruptible Capacity Reservation by specifying the number of unused instances you want to allocate from your source reservation. This helps you make unused capacity available for other workloads within your account while maintaining control to reclaim it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +72,8 @@ export interface CreateInterruptibleCapacityReservationAllocationCommandOutput e
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

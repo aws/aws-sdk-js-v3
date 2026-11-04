@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MPAServiceException as __BaseException } from "./MPAServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action. Check your permissions, and try again.</p>
+ * You do not have sufficient access to perform this action. Check your permissions, and try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -12,7 +13,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>AccessDeniedException</code> error.</p>
+   * Message for the `AccessDeniedException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -31,7 +33,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request cannot be completed because it conflicts with the current state of a resource.</p>
+ * The request cannot be completed because it conflicts with the current state of a resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -39,7 +42,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>ConflictException</code> error.</p>
+   * Message for the `ConflictException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -58,7 +62,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.</p>
+ * The service encountered an internal error. Try your request again. If the problem persists, contact Amazon Web Services Support.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +72,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>Message for the <code>InternalServerException</code> error.</p>
+   * Message for the `InternalServerException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -86,7 +92,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the service quota for your account. Request a quota increase or reduce your request size.</p>
+ * The request exceeds the service quota for your account. Request a quota increase or reduce your request size.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -94,7 +101,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>ServiceQuotaExceededException</code> error.</p>
+   * Message for the `ServiceQuotaExceededException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -113,7 +121,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -121,7 +130,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>ThrottlingException</code> error.</p>
+   * Message for the `ThrottlingException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -140,7 +150,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -148,7 +159,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>ValidationException</code> error.</p>
+   * Message for the `ValidationException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -167,7 +179,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist. Check the resource ID, and try again.</p>
+ * The specified resource doesn't exist. Check the resource ID, and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -175,7 +188,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>ResourceNotFoundException</code> error.</p>
+   * Message for the `ResourceNotFoundException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -194,7 +208,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request contains an invalid parameter value.</p>
+ * The request contains an invalid parameter value.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -202,7 +217,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>InvalidParameterException</code> error.</p>
+   * Message for the `InvalidParameterException` error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -221,7 +237,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The request exceeds the maximum number of tags allowed for this resource. Remove some tags, and try again.</p>
+ * The request exceeds the maximum number of tags allowed for this resource. Remove some tags, and try again.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -229,13 +246,15 @@ export class TooManyTagsException extends __BaseException {
   readonly name = "TooManyTagsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Message for the <code>TooManyTagsException</code> error.</p>
+   * Message for the `TooManyTagsException` error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Name of the resource for the <code>TooManyTagsException</code> error.</p>
+   * Name of the resource for the `TooManyTagsException` error.
+   *
    * @public
    */
   ResourceName?: string | undefined;

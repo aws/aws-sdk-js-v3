@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { S3OutpostsServiceException as __BaseException } from "./S3OutpostsServiceException";
 
 /**
- * <p>Access was denied for this action.</p>
+ * Access was denied for this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>There was a conflict with this action, and it could not be completed.</p>
+ * There was a conflict with this action, and it could not be completed.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>There was an exception with the internal server.</p>
+ * There was an exception with the internal server.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
+ * The service link connection to your Outposts home Region is down. Check your connection and try again.
+ *
  * @public
  */
 export class OutpostOfflineException extends __BaseException {
@@ -96,7 +100,8 @@ export class OutpostOfflineException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found.</p>
+ * The requested resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -119,7 +124,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -142,7 +148,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>There was an exception validating this data.</p>
+ * There was an exception validating this data.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

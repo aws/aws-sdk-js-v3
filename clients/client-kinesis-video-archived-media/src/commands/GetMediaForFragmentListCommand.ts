@@ -25,40 +25,23 @@ export interface GetMediaForFragmentListCommandOutput extends Omit<GetMediaForFr
 }
 
 /**
- * <p>Gets media for a list of fragments (specified by fragment number) from the archived
- *             data in an Amazon Kinesis video stream.</p>
- *          <note>
- *             <p>You must first call the <code>GetDataEndpoint</code> API to get an endpoint.
- *                 Then send the <code>GetMediaForFragmentList</code> requests to this endpoint using
- *                 the <a href="https://docs.aws.amazon.com/cli/latest/reference/">--endpoint-url
- *                     parameter</a>. </p>
- *          </note>
- *          <p>For limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
- *          <important>
- *             <p>If an error is thrown after invoking a Kinesis Video Streams archived media API,
- *                 in addition to the HTTP status code and the response body, it includes the following
- *                 pieces of information: </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>x-amz-ErrorType</code> HTTP header – contains a more specific error
- *                         type in addition to what the HTTP status code provides. </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>x-amz-RequestId</code> HTTP header – if you want to report an issue to
- *                         Amazon Web Services, the support team can better diagnose the problem if given the Request
- *                         Id.</p>
- *                </li>
- *             </ul>
- *             <p>Both the HTTP status code and the ErrorType header can be utilized to make
- *                 programmatic decisions about whether errors are retry-able and under what
- *                 conditions, as well as provide information on what actions the client programmer
- *                 might need to take in order to successfully try again.</p>
- *             <p>For more information, see the <b>Errors</b> section at
- *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
- *             </p>
- *          </important>
+ * Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.
+ *
+ * > **Note:** You must first call the `GetDataEndpoint` API to get an endpoint. Then send the `GetMediaForFragmentList` requests to this endpoint using the [--endpoint-url parameter](https://docs.aws.amazon.com/cli/latest/reference/).
+ *
+ * For limits, see [Kinesis Video Streams Limits](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html).
+ *
+ * > **Important:**
+ * >
+ * > If an error is thrown after invoking a Kinesis Video Streams archived media API, in addition to the HTTP status code and the response body, it includes the following pieces of information:
+ * >
+ * > - `x-amz-ErrorType` HTTP header – contains a more specific error type in addition to what the HTTP status code provides.
+ * > - `x-amz-RequestId` HTTP header – if you want to report an issue to Amazon Web Services, the support team can better diagnose the problem if given the Request Id.
+ * >
+ * > Both the HTTP status code and the ErrorType header can be utilized to make programmatic decisions about whether errors are retry-able and under what conditions, as well as provide information on what actions the client programmer might need to take in order to successfully try again.
+ * >
+ * > For more information, see the **Errors** section at the bottom of this topic, as well as [Common Errors](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,31 +78,26 @@ export interface GetMediaForFragmentListCommandOutput extends Omit<GetMediaForFr
  * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for KinesisVideoArchivedMediaClient's `config` shape.
  *
  * @throws {@link ClientLimitExceededException} (client fault)
- *  <p>Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p>
+ *
+ * Kinesis Video Streams has throttled the request because you have exceeded a limit. Try making the call later. For information about limits, see [Kinesis Video Streams Limits](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html).
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be
- *             used.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Status Code: 403, The caller is not authorized to perform an operation on the given
- *             stream, or the token has expired.</p>
+ *
+ * Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *             <code>GetImages</code> will throw this error when Kinesis Video Streams can't find the stream
- *             that you specified.</p>
- *          <p>
- *             <code>GetHLSStreamingSessionURL</code> and <code>GetDASHStreamingSessionURL</code> throw
- *             this error if a session with a <code>PlaybackMode</code> of <code>ON_DEMAND</code> or
- *                 <code>LIVE_REPLAY</code>is requested for a stream that has no fragments within the
- *             requested time range, or if a session with a <code>PlaybackMode</code> of
- *                 <code>LIVE</code> is requested for a stream that has no fragments within the last 30
- *             seconds.</p>
+ *
+ * `GetImages` will throw this error when Kinesis Video Streams can't find the stream that you specified.
+ *
+ * `GetHLSStreamingSessionURL` and `GetDASHStreamingSessionURL` throw this error if a session with a `PlaybackMode` of `ON_DEMAND` or `LIVE_REPLAY`is requested for a stream that has no fragments within the requested time range, or if a session with a `PlaybackMode` of `LIVE` is requested for a stream that has no fragments within the last 30 seconds.
  *
  * @throws {@link KinesisVideoArchivedMediaServiceException}
- * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ * Base exception class for all service exceptions from KinesisVideoArchivedMedia service.
  *
  * @public
  */

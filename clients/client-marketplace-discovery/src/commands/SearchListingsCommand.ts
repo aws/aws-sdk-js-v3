@@ -23,7 +23,8 @@ export interface SearchListingsCommandInput extends SearchListingsInput {}
 export interface SearchListingsCommandOutput extends SearchListingsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of product listings based on search criteria and filters. You can search by keyword, filter by category, pricing model, fulfillment type, and other attributes, and sort results by relevance or customer rating.</p>
+ * Returns a list of product listings based on search criteria and filters. You can search by keyword, filter by category, pricing model, fulfillment type, and other attributes, and sort results by relevance or customer rating.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,20 +131,24 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of the request.</p>
+ *
+ * Unexpected error during processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceDiscovery service.
  *
  * @example Search for machine learning listings
  * ```javascript

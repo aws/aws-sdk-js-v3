@@ -24,53 +24,24 @@ export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
 export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a flow to start a new task contact. For more information about task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html">Concepts: Tasks in Connect Customer</a> in the
- *      <i>Connect Customer Administrator Guide</i>. </p>
- *          <p>When using <code>PreviousContactId</code> and <code>RelatedContactId</code> input parameters, note the
- *    following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>PreviousContactId</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Any updates to user-defined task contact attributes on any contact linked through the same
- *         <code>PreviousContactId</code> will affect every contact in the chain.</p>
- *                   </li>
- *                   <li>
- *                      <p>There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that
- *        share the same <code>PreviousContactId</code>.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RelatedContactId</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Copies contact attributes from the related task contact to the new contact.</p>
- *                   </li>
- *                   <li>
- *                      <p>Any update on attributes in a new task contact does not update attributes on previous contact.</p>
- *                   </li>
- *                   <li>
- *                      <p>There’s no limit on the number of task contacts that can be created that use the same
- *         <code>RelatedContactId</code>.</p>
- *                   </li>
- *                </ul>
- *             </li>
- *          </ul>
- *          <p>In addition, when calling StartTaskContact include only one of these parameters: <code>ContactFlowID</code>,
- *     <code>QuickConnectID</code>, or <code>TaskTemplateID</code>. Only one parameter is required as long as the task
- *    template has a flow configured to run it. If more than one parameter is specified, or only the
- *     <code>TaskTemplateID</code> is specified but it does not have a flow configured, the request returns an error
- *    because Connect Customer cannot identify the unique flow to run when the task is created.</p>
- *          <p>A <code>ServiceQuotaExceededException</code> occurs when the number of open tasks exceeds the active tasks quota
- *    or there are already 12 tasks referencing the same <code>PreviousContactId</code>. For more information about service
- *    quotas for task contacts, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Connect Customer service quotas</a> in the
- *      <i>Connect Customer Administrator Guide</i>. </p>
+ * Initiates a flow to start a new task contact. For more information about task contacts, see [Concepts: Tasks in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html) in the *Connect Customer Administrator Guide*.
+ *
+ * When using `PreviousContactId` and `RelatedContactId` input parameters, note the following:
+ *
+ * - `PreviousContactId`
+ *
+ *   - Any updates to user-defined task contact attributes on any contact linked through the same `PreviousContactId` will affect every contact in the chain.
+ *   - There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts can be created that share the same `PreviousContactId`.
+ * - `RelatedContactId`
+ *
+ *   - Copies contact attributes from the related task contact to the new contact.
+ *   - Any update on attributes in a new task contact does not update attributes on previous contact.
+ *   - There’s no limit on the number of task contacts that can be created that use the same `RelatedContactId`.
+ *
+ * In addition, when calling StartTaskContact include only one of these parameters: `ContactFlowID`, `QuickConnectID`, or `TaskTemplateID`. Only one parameter is required as long as the task template has a flow configured to run it. If more than one parameter is specified, or only the `TaskTemplateID` is specified but it does not have a flow configured, the request returns an error because Connect Customer cannot identify the unique flow to run when the task is created.
+ *
+ * A `ServiceQuotaExceededException` occurs when the number of open tasks exceeds the active tasks quota or there are already 12 tasks referencing the same `PreviousContactId`. For more information about service quotas for task contacts, see [Connect Customer service quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html) in the *Connect Customer Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,26 +118,32 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

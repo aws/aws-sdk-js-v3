@@ -23,16 +23,16 @@ export interface StopGameSessionPlacementCommandInput extends StopGameSessionPla
 export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Cancels a game session placement that's in <code>PENDING</code> status. To stop a
- *             placement, provide the placement ID value. </p>
- *          <p>Results</p>
- *          <p>If successful, this operation removes the placement request from the queue and moves
- *             the <code>GameSessionPlacement</code> to <code>CANCELLED</code> status.</p>
- *          <p>This operation results in an <code>InvalidRequestException</code> (400) error if a
- *             game session has already been created for this placement. You can clean up an unneeded
- *             game session by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TerminateGameSession">TerminateGameSession</a>.</p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Cancels a game session placement that's in `PENDING` status. To stop a placement, provide the placement ID value.
+ *
+ * Results
+ *
+ * If successful, this operation removes the placement request from the queue and moves the `GameSessionPlacement` to `CANCELLED` status.
+ *
+ * This operation results in an `InvalidRequestException` (400) error if a game session has already been created for this placement. You can clean up an unneeded game session by calling [TerminateGameSession](https://docs.aws.amazon.com/gamelift/latest/apireference/API_TerminateGameSession).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,22 +101,24 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

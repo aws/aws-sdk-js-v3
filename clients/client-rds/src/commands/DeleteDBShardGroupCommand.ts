@@ -23,7 +23,8 @@ export interface DeleteDBShardGroupCommandInput extends DeleteDBShardGroupMessag
 export interface DeleteDBShardGroupCommandOutput extends DBShardGroup, __MetadataBearer {}
 
 /**
- * <p>Deletes an Aurora Limitless Database DB shard group.</p>
+ * Deletes an Aurora Limitless Database DB shard group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,17 +66,20 @@ export interface DeleteDBShardGroupCommandOutput extends DBShardGroup, __Metadat
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBShardGroupNotFoundFault} (client fault)
- *  <p>The specified DB shard group name wasn't found.</p>
+ *
+ * The specified DB shard group name wasn't found.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * The requested operation can't be performed while the cluster is in this state.
  *
  * @throws {@link InvalidDBShardGroupStateFault} (client fault)
- *  <p>The DB shard group must be in the available state.</p>
+ *
+ * The DB shard group must be in the available state.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @public
  */

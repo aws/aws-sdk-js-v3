@@ -23,7 +23,8 @@ export interface StartPipeCommandInput extends StartPipeRequest {}
 export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBearer {}
 
 /**
- * <p>Start an existing pipe.</p>
+ * Start an existing pipe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +56,28 @@ export interface StartPipeCommandOutput extends StartPipeResponse, __MetadataBea
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An action you attempted resulted in an exception.</p>
+ *
+ * An action you attempted resulted in an exception.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An action was throttled.</p>
+ *
+ * An action was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
+ * Indicates that an error has occurred while performing a validate operation.
  *
  * @throws {@link PipesServiceException}
- * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * Base exception class for all service exceptions from Pipes service.
  *
  * @public
  */

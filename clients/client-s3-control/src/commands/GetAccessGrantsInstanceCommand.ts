@@ -23,17 +23,14 @@ export interface GetAccessGrantsInstanceCommandInput extends GetAccessGrantsInst
 export interface GetAccessGrantsInstanceCommandOutput extends GetAccessGrantsInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the S3 Access Grants instance for a Region in your account. </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:GetAccessGrantsInstance</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
- *          <note>
- *             <p>
- *                <code>GetAccessGrantsInstance</code> is not supported for cross-account access. You can only call the API from the account that owns the S3 Access Grants instance.</p>
- *          </note>
+ * Retrieves the S3 Access Grants instance for a Region in your account.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:GetAccessGrantsInstance` permission to use this operation.
+ *
+ * > **Note:** `GetAccessGrantsInstance` is not supported for cross-account access. You can only call the API from the account that owns the S3 Access Grants instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,8 +62,8 @@ export interface GetAccessGrantsInstanceCommandOutput extends GetAccessGrantsIns
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

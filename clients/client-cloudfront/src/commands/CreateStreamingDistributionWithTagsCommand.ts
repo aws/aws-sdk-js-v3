@@ -26,7 +26,8 @@ export interface CreateStreamingDistributionWithTagsCommandInput extends CreateS
 export interface CreateStreamingDistributionWithTagsCommandOutput extends CreateStreamingDistributionWithTagsResult, __MetadataBearer {}
 
 /**
- * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
+ * This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, [read the announcement](http://forums.aws.amazon.com/ann.jspa?annID=7356) on the Amazon CloudFront discussion forum.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,50 +142,64 @@ export interface CreateStreamingDistributionWithTagsCommandOutput extends Create
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link CNAMEAlreadyExists} (client fault)
- *  <p>The CNAME specified is already defined for CloudFront.</p>
+ *
+ * The CNAME specified is already defined for CloudFront.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link InvalidOrigin} (client fault)
- *  <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
+ *
+ * The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.
  *
  * @throws {@link InvalidOriginAccessControl} (client fault)
- *  <p>The origin access control is not valid.</p>
+ *
+ * The origin access control is not valid.
  *
  * @throws {@link InvalidOriginAccessIdentity} (client fault)
- *  <p>The origin access identity is not valid or doesn't exist.</p>
+ *
+ * The origin access identity is not valid or doesn't exist.
  *
  * @throws {@link InvalidTagging} (client fault)
- *  <p>The tagging specified is not valid.</p>
+ *
+ * The tagging specified is not valid.
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ *
+ * This operation requires a body. Ensure that the body is present and the `Content-Type` header is set.
  *
  * @throws {@link StreamingDistributionAlreadyExists} (client fault)
- *  <p>The caller reference you attempted to create the streaming distribution with is associated with another distribution</p>
+ *
+ * The caller reference you attempted to create the streaming distribution with is associated with another distribution
  *
  * @throws {@link TooManyStreamingDistributionCNAMEs} (client fault)
- *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ *
+ * Your request contains more CNAMEs than are allowed per distribution.
  *
  * @throws {@link TooManyStreamingDistributions} (client fault)
- *  <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+ *
+ * Processing your request would cause you to exceed the maximum number of streaming distributions allowed.
  *
  * @throws {@link TooManyTrustedSigners} (client fault)
- *  <p>Your request contains more trusted signers than are allowed per distribution.</p>
+ *
+ * Your request contains more trusted signers than are allowed per distribution.
  *
  * @throws {@link TrustedSignerDoesNotExist} (client fault)
- *  <p>One or more of your trusted signers don't exist.</p>
+ *
+ * One or more of your trusted signers don't exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

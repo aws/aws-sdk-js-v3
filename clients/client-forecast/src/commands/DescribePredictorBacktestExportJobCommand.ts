@@ -26,31 +26,15 @@ export interface DescribePredictorBacktestExportJobCommandInput extends Describe
 export interface DescribePredictorBacktestExportJobCommandOutput extends DescribePredictorBacktestExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a predictor backtest export job created using the <a>CreatePredictorBacktestExportJob</a> operation.</p>
- *          <p>In addition to listing the properties provided by the user in the
- *                 <code>CreatePredictorBacktestExportJob</code> request, this operation lists the
- *             following properties:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CreationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>LastModificationTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Status</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Message</code> (if an error occurred)</p>
- *             </li>
- *          </ul>
+ * Describes a predictor backtest export job created using the CreatePredictorBacktestExportJob operation.
+ *
+ * In addition to listing the properties provided by the user in the `CreatePredictorBacktestExportJob` request, this operation lists the following properties:
+ *
+ * - `CreationTime`
+ * - `LastModificationTime`
+ * - `Status`
+ * - `Message` (if an error occurred)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,16 +75,16 @@ export interface DescribePredictorBacktestExportJobCommandOutput extends Describ
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

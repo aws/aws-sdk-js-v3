@@ -23,9 +23,8 @@ export interface PutItemsCommandInput extends PutItemsRequest {}
 export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds one or more items to an Items dataset. For more information see
- *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing items individually</a>.
- *      </p>
+ * Adds one or more items to an Items dataset. For more information see [Importing items individually](https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +55,20 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * @see {@link PersonalizeEventsClientResolvedConfig | config} for PersonalizeEventsClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeEventsServiceException}
- * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ * Base exception class for all service exceptions from PersonalizeEvents service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetDeploymentConfigCommandInput extends GetDeploymentConfigInpu
 export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about a deployment configuration.</p>
+ * Gets information about a deployment configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,20 +79,24 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The deployment configuration does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link DeploymentConfigNameRequiredException} (client fault)
- *  <p>The deployment configuration name was not specified.</p>
+ *
+ * The deployment configuration name was not specified.
  *
  * @throws {@link InvalidComputePlatformException} (client fault)
- *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * The computePlatform is invalid. The computePlatform should be `Lambda`, `Server`, or `ECS`.
  *
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
- *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * The deployment configuration name was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

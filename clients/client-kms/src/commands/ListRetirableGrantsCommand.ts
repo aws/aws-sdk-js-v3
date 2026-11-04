@@ -23,64 +23,31 @@ export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequ
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all grants in the Amazon Web Services account and Region that have the
- *       specified retiring principal or retiring service principal. </p>
- *          <p>You can specify any principal in your Amazon Web Services account. The grants that are returned include
- *       grants for KMS keys in your Amazon Web Services account and other Amazon Web Services accounts. You might use this
- *       operation to determine which grants you may retire. To retire a grant, use the <a>RetireGrant</a> operation.</p>
- *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
- *         <i>
- *                <i>Key Management Service Developer Guide</i>
- *             </i>. For examples of creating grants in several
- *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
- *          <p>
- *             <b>Cross-account use</b>: You must specify a principal in your
- *       Amazon Web Services account. This operation returns a list of grants where the retiring principal specified
- *       in the <code>ListRetirableGrants</code> request is the same retiring principal on the grant.
- *       This can include grants on KMS keys owned by other Amazon Web Services accounts, but you do not need
- *         <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
- *       Amazon Web Services account other than your own.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your
- *       Amazon Web Services account.</p>
- *          <note>
- *             <p>When listing retirable grants by <code>RetiringPrincipal</code>, KMS authorizes
- *         <code>ListRetirableGrants</code> requests by evaluating the caller
- *         account's kms:ListRetirableGrants permissions. The authorized resource in
- *         <code>ListRetirableGrants</code> calls is the retiring principal specified in the request.
- *         KMS does not evaluate the caller's permissions to verify their access to any KMS keys or
- *         grants that might be returned by the <code>ListRetirableGrants</code> call.</p>
- *             <p>The <code>RetiringServicePrincipal</code> filter is only usable by callers in a
- *         service principal.</p>
- *          </note>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateGrant</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListGrants</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RetireGrant</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>RevokeGrant</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Returns information about all grants in the Amazon Web Services account and Region that have the specified retiring principal or retiring service principal.
+ *
+ * You can specify any principal in your Amazon Web Services account. The grants that are returned include grants for KMS keys in your Amazon Web Services account and other Amazon Web Services accounts. You might use this operation to determine which grants you may retire. To retire a grant, use the RetireGrant operation.
+ *
+ * For detailed information about grants, including grant terminology, see [Grants in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the **Key Management Service Developer Guide** . For examples of creating grants in several programming languages, see [Use CreateGrant with an Amazon Web Services SDK or CLI](https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html).
+ *
+ * **Cross-account use**: You must specify a principal in your Amazon Web Services account. This operation returns a list of grants where the retiring principal specified in the `ListRetirableGrants` request is the same retiring principal on the grant. This can include grants on KMS keys owned by other Amazon Web Services accounts, but you do not need `kms:ListRetirableGrants` permission (or any other additional permission) in any Amazon Web Services account other than your own.
+ *
+ * **Required permissions**: [kms:ListRetirableGrants](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy) in your Amazon Web Services account.
+ *
+ * > **Note:**
+ * >
+ * > When listing retirable grants by `RetiringPrincipal`, KMS authorizes `ListRetirableGrants` requests by evaluating the caller account's kms:ListRetirableGrants permissions. The authorized resource in `ListRetirableGrants` calls is the retiring principal specified in the request. KMS does not evaluate the caller's permissions to verify their access to any KMS keys or grants that might be returned by the `ListRetirableGrants` call.
+ * >
+ * > The `RetiringServicePrincipal` filter is only usable by callers in a service principal.
+ *
+ * **Related operations:**
+ *
+ * - CreateGrant
+ * - ListGrants
+ * - RetireGrant
+ * - RevokeGrant
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,28 +103,28 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link InvalidMarkerException} (client fault)
- *  <p>The request was rejected because the marker that specifies where pagination should next
- *       begin is not valid.</p>
+ *
+ * The request was rejected because the marker that specifies where pagination should next begin is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @public
  */

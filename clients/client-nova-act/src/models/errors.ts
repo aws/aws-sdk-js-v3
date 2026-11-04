@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { NovaActServiceException as __BaseException } from "./NovaActServiceException";
 
 /**
- * <p>You don't have sufficient permissions to perform this action.</p>
+ * You don't have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ * The request could not be completed due to a conflict with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that caused the conflict.</p>
+   * The identifier of the resource that caused the conflict.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that caused the conflict.</p>
+   * The type of resource that caused the conflict.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. Please try again later.</p>
+ * An internal server error occurred. Please try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -71,13 +76,15 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
 
   /**
-   * <p>The reason for the internal server error.</p>
+   * The reason for the internal server error.
+   *
    * @public
    */
   reason?: InternalServerExceptionReason | undefined;
@@ -98,7 +105,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found.</p>
+ * The requested resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -106,13 +114,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that wasn't found.</p>
+   * The identifier of the resource that wasn't found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that wasn't found.</p>
+   * The type of resource that wasn't found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -133,7 +143,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota limit.</p>
+ * The request would exceed a service quota limit.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -141,25 +152,29 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that exceeded the quota.</p>
+   * The identifier of the resource that exceeded the quota.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that exceeded the quota.</p>
+   * The type of resource that exceeded the quota.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service code for the quota that was exceeded.</p>
+   * The service code for the quota that was exceeded.
+   *
    * @public
    */
   serviceCode: string | undefined;
 
   /**
-   * <p>The code for the specific quota that was exceeded.</p>
+   * The code for the specific quota that was exceeded.
+   *
    * @public
    */
   quotaCode: string | undefined;
@@ -182,7 +197,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled due to too many requests. Please try again later.</p>
+ * The request was throttled due to too many requests. Please try again later.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -193,19 +209,22 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The service code where throttling occurred.</p>
+   * The service code where throttling occurred.
+   *
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code related to the throttling.</p>
+   * The quota code related to the throttling.
+   *
    * @public
    */
   quotaCode?: string | undefined;
 
   /**
-   * <p>The number of seconds to wait before retrying the throttled request.</p>
+   * The number of seconds to wait before retrying the throttled request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -227,7 +246,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input parameters for the request are invalid.</p>
+ * The input parameters for the request are invalid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -235,13 +255,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation failure.</p>
+   * The reason for the validation failure.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that failed validation.</p>
+   * The list of fields that failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;

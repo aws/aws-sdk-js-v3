@@ -23,12 +23,8 @@ export interface DeleteIntegrationCommandInput extends DeleteIntegrationRequest 
 export interface DeleteIntegrationCommandOutput extends DeleteIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the integration between CloudWatch Logs and OpenSearch Service. If your
- *       integration has active vended logs dashboards, you must specify <code>true</code> for the
- *         <code>force</code> parameter, otherwise the operation will fail. If you delete the
- *       integration by setting <code>force</code> to <code>true</code>, all your vended logs
- *       dashboards powered by OpenSearch Service will be deleted and the data that was on them will no
- *       longer be accessible.</p>
+ * Deletes the integration between CloudWatch Logs and OpenSearch Service. If your integration has active vended logs dashboards, you must specify `true` for the `force` parameter, otherwise the operation will fail. If you delete the integration by setting `force` to `true`, all your vended logs dashboards powered by OpenSearch Service will be deleted and the data that was on them will no longer be accessible.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +50,24 @@ export interface DeleteIntegrationCommandOutput extends DeleteIntegrationRespons
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface UpdateApplicationResourceLifecycleCommandInput extends UpdateAp
 export interface UpdateApplicationResourceLifecycleCommandOutput extends ApplicationResourceLifecycleDescriptionMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies lifecycle settings for an application.</p>
+ * Modifies lifecycle settings for an application.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,11 +84,12 @@ export interface UpdateApplicationResourceLifecycleCommandOutput extends Applica
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
+ *
+ * The specified account does not have sufficient privileges for one or more Amazon Web Services services.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @public
  */

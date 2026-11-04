@@ -26,7 +26,8 @@ export interface GetIpamDiscoveredPublicAddressesCommandInput extends GetIpamDis
 export interface GetIpamDiscoveredPublicAddressesCommandOutput extends GetIpamDiscoveredPublicAddressesResult, __MetadataBearer {}
 
 /**
- * <p>Gets the public IP addresses that have been discovered by IPAM.</p>
+ * Gets the public IP addresses that have been discovered by IPAM.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,8 +102,8 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput extends GetIpamDi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

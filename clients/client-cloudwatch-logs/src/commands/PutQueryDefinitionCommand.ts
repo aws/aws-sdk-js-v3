@@ -23,17 +23,12 @@ export interface PutQueryDefinitionCommandInput extends PutQueryDefinitionReques
 export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates a query definition for CloudWatch Logs Insights. For more information,
- *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html">Analyzing Log Data with CloudWatch Logs Insights</a>.</p>
- *          <p>To update a query definition, specify its <code>queryDefinitionId</code> in your request.
- *       The values of <code>name</code>, <code>queryString</code>, and <code>logGroupNames</code> are
- *       changed to the values that you specify in your update operation. No current values are
- *       retained from the current query definition. For example, imagine updating a current query
- *       definition that includes log groups. If you don't specify the <code>logGroupNames</code>
- *       parameter in your update operation, the query definition changes to contain no log
- *       groups.</p>
- *          <p>You must have the <code>logs:PutQueryDefinition</code> permission to be able to perform
- *       this operation.</p>
+ * Creates or updates a query definition for CloudWatch Logs Insights. For more information, see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
+ *
+ * To update a query definition, specify its `queryDefinitionId` in your request. The values of `name`, `queryString`, and `logGroupNames` are changed to the values that you specify in your update operation. No current values are retained from the current query definition. For example, imagine updating a current query definition that includes log groups. If you don't specify the `logGroupNames` parameter in your update operation, the query definition changes to contain no log groups.
+ *
+ * You must have the `logs:PutQueryDefinition` permission to be able to perform this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,20 +69,24 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have reached the maximum number of resources that can be created.</p>
+ *
+ * You have reached the maximum number of resources that can be created.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

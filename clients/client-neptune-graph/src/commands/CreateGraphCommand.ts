@@ -23,7 +23,8 @@ export interface CreateGraphCommandInput extends CreateGraphInput {}
 export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Neptune Analytics graph.</p>
+ * Creates a new Neptune Analytics graph.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,23 +78,28 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Raised when a conflict is encountered.</p>
+ *
+ * Raised when a conflict is encountered.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>A failure occurred on the server.</p>
+ *
+ * A failure occurred on the server.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service quota was exceeded.</p>
+ *
+ * A service quota was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The exception was interrupted by throttling.</p>
+ *
+ * The exception was interrupted by throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A resource could not be validated.</p>
+ *
+ * A resource could not be validated.
  *
  * @throws {@link NeptuneGraphServiceException}
- * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ * Base exception class for all service exceptions from NeptuneGraph service.
  *
  * @public
  */

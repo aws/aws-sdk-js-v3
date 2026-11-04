@@ -23,7 +23,8 @@ export interface GetCellReadinessSummaryCommandInput extends GetCellReadinessSum
 export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Gets readiness for a cell. Aggregates the readiness of all the resources that are associated with the cell into a single value.</p>
+ * Gets readiness for a cell. Aggregates the readiness of all the resources that are associated with the cell into a single value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +75,8 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

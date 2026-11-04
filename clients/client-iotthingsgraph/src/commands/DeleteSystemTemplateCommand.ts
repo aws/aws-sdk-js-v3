@@ -23,8 +23,7 @@ export interface DeleteSystemTemplateCommandInput extends DeleteSystemTemplateRe
 export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a system. New deployments can't contain the system after its deletion.
- *       Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>
+ * Deletes a system. New deployments can't contain the system after its deletion. Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -51,20 +50,16 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

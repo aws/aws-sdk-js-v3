@@ -23,17 +23,16 @@ export interface DeleteAlarmMuteRuleCommandInput extends DeleteAlarmMuteRuleInpu
 export interface DeleteAlarmMuteRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a specific alarm mute rule.</p>
- *          <p>When you delete a mute rule, any alarms that are currently being muted by that rule
- *             are immediately unmuted. If those alarms are in an ALARM state, their configured actions
- *             will trigger.</p>
- *          <p>This operation is idempotent. If you delete a mute rule that does not exist, the
- *             operation succeeds without returning an error.</p>
- *          <p>
- *             <b>Permissions</b>
- *          </p>
- *          <p>To delete a mute rule, you need the <code>cloudwatch:DeleteAlarmMuteRule</code>
- *             permission on the alarm mute rule resource.</p>
+ * Deletes a specific alarm mute rule.
+ *
+ * When you delete a mute rule, any alarms that are currently being muted by that rule are immediately unmuted. If those alarms are in an ALARM state, their configured actions will trigger.
+ *
+ * This operation is idempotent. If you delete a mute rule that does not exist, the operation succeeds without returning an error.
+ *
+ * **Permissions**
+ *
+ * To delete a mute rule, you need the `cloudwatch:DeleteAlarmMuteRule` permission on the alarm mute rule resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,8 @@ export interface DeleteAlarmMuteRuleCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

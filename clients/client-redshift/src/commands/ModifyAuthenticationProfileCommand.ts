@@ -23,7 +23,8 @@ export interface ModifyAuthenticationProfileCommandInput extends ModifyAuthentic
 export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenticationProfileResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an authentication profile.</p>
+ * Modifies an authentication profile.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,19 +53,20 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AuthenticationProfileNotFoundFault} (client fault)
- *  <p>The authentication profile can't be found.</p>
+ *
+ * The authentication profile can't be found.
  *
  * @throws {@link AuthenticationProfileQuotaExceededFault} (client fault)
- *  <p>The size or number of authentication profiles has exceeded the quota.
- *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+ *
+ * The size or number of authentication profiles has exceeded the quota. The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.
  *
  * @throws {@link InvalidAuthenticationProfileRequestFault} (client fault)
- *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
- *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ *
+ * The authentication profile request is not valid. The profile name can't be null or empty. The authentication profile API operation must be available in the Amazon Web Services Region.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

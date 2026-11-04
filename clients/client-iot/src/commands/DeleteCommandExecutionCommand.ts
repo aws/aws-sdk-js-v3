@@ -23,11 +23,10 @@ export interface DeleteCommandExecutionCommandInput extends DeleteCommandExecuti
 export interface DeleteCommandExecutionCommandOutput extends DeleteCommandExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Delete a command execution.</p>
- *          <note>
- *             <p>Only command executions that enter a terminal state can be deleted from
- *         your account.</p>
- *          </note>
+ * Delete a command execution.
+ *
+ * > **Note:** Only command executions that enter a terminal state can be deleted from your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,21 +52,24 @@ export interface DeleteCommandExecutionCommandOutput extends DeleteCommandExecut
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

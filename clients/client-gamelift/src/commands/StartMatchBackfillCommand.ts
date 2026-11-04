@@ -23,46 +23,26 @@ export interface StartMatchBackfillCommandInput extends StartMatchBackfillInput 
 export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Finds new players to fill open slots in currently running game sessions. The backfill
- *             match process is essentially identical to the process of forming new matches. Backfill
- *             requests use the same matchmaker that was used to make the original match, and they
- *             provide matchmaking data for all players currently in the game session. FlexMatch uses
- *             this information to select new players so that the backfilled match continues to meet the
- *             original match requirements. </p>
- *          <p>When using FlexMatch with Amazon GameLift Servers managed hosting, you can request a backfill match from
- *             a client service by calling this operation with a <code>GameSessions</code> ID. You also
- *             have the option of making backfill requests directly from your game server. In response
- *             to a request, FlexMatch creates player sessions for the new players, updates the
- *                 <code>GameSession</code> resource, and sends updated matchmaking data to the game
- *             server. You can request a backfill match at any point after a game session is started.
- *             Each game session can have only one active backfill request at a time; a subsequent
- *             request automatically replaces the earlier request.</p>
- *          <p>When using FlexMatch as a standalone component, request a backfill match by calling this
- *             operation without a game session identifier. As with newly formed matches, matchmaking
- *             results are returned in a matchmaking event so that your game can update the game
- *             session that is being backfilled.</p>
- *          <p>To request a backfill match, specify a unique ticket ID, the original matchmaking
- *             configuration, and matchmaking data for all current players in the game session being
- *             backfilled. Optionally, specify the <code>GameSession</code> ARN. If successful, a match
- *             backfill ticket is created and returned with status set to QUEUED. Track the status of
- *             backfill tickets using the same method for tracking tickets for new matches.</p>
- *          <p>Only game sessions created by FlexMatch are supported for match backfill.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
- *                 Backfill existing games with FlexMatch</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
- *                 Matchmaking events</a> (reference)</p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *                 How Amazon GameLift Servers FlexMatch works</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Finds new players to fill open slots in currently running game sessions. The backfill match process is essentially identical to the process of forming new matches. Backfill requests use the same matchmaker that was used to make the original match, and they provide matchmaking data for all players currently in the game session. FlexMatch uses this information to select new players so that the backfilled match continues to meet the original match requirements.
+ *
+ * When using FlexMatch with Amazon GameLift Servers managed hosting, you can request a backfill match from a client service by calling this operation with a `GameSessions` ID. You also have the option of making backfill requests directly from your game server. In response to a request, FlexMatch creates player sessions for the new players, updates the `GameSession` resource, and sends updated matchmaking data to the game server. You can request a backfill match at any point after a game session is started. Each game session can have only one active backfill request at a time; a subsequent request automatically replaces the earlier request.
+ *
+ * When using FlexMatch as a standalone component, request a backfill match by calling this operation without a game session identifier. As with newly formed matches, matchmaking results are returned in a matchmaking event so that your game can update the game session that is being backfilled.
+ *
+ * To request a backfill match, specify a unique ticket ID, the original matchmaking configuration, and matchmaking data for all current players in the game session being backfilled. Optionally, specify the `GameSession` ARN. If successful, a match backfill ticket is created and returned with status set to QUEUED. Track the status of backfill tickets using the same method for tracking tickets for new matches.
+ *
+ * Only game sessions created by FlexMatch are supported for match backfill.
+ *
+ * **Learn more**
+ *
+ * [Backfill existing games with FlexMatch](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html)
+ *
+ * [Matchmaking events](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html) (reference)
+ *
+ * [How Amazon GameLift Servers FlexMatch works](https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,22 +136,24 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

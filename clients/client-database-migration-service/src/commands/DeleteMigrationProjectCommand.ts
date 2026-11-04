@@ -23,14 +23,12 @@ export interface DeleteMigrationProjectCommandInput extends DeleteMigrationProje
 export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified migration project.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:DeleteMigrationProject</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
- *          <note>
- *             <p>The migration project must be closed before you can delete it.</p>
- *          </note>
+ * Deletes the specified migration project.
+ *
+ * **Required permissions:** `dms:DeleteMigrationProject`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
+ * > **Note:** The migration project must be closed before you can delete it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,21 +83,24 @@ export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProj
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Delete a migration project
  * ```javascript

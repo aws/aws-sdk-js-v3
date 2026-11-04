@@ -23,7 +23,8 @@ export interface GetDataLakePrincipalCommandInput extends GetDataLakePrincipalRe
 export interface GetDataLakePrincipalCommandOutput extends GetDataLakePrincipalResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the identity of the invoking principal.</p>
+ * Returns the identity of the invoking principal.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,17 +49,20 @@ export interface GetDataLakePrincipalCommandOutput extends GetDataLakePrincipalR
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DescribeICD10CMInferenceJobCommandInput extends DescribeICD10CM
 export interface DescribeICD10CMInferenceJobCommandOutput extends DescribeICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
- *       status of an inference job.</p>
+ * Gets the properties associated with an InferICD10CM job. Use this operation to get the status of an inference job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,24 +72,24 @@ export interface DescribeICD10CMInferenceJobCommandOutput extends DescribeICD10C
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p> The request that you made is invalid. Check your request to determine why it's invalid
- *       and then retry the request.</p>
+ *
+ * The request that you made is invalid. Check your request to determine why it's invalid and then retry the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check
- *       the ARN and try your request again.</p>
+ *
+ * The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the ARN and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p> You have made too many requests within a short period of time. Wait for a short time and
- *       then try your request again. Contact customer support for more information about a service
- *       limit increase. </p>
+ *
+ * You have made too many requests within a short period of time. Wait for a short time and then try your request again. Contact customer support for more information about a service limit increase.
  *
  * @throws {@link ComprehendMedicalServiceException}
- * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ * Base exception class for all service exceptions from ComprehendMedical service.
  *
  * @public
  */

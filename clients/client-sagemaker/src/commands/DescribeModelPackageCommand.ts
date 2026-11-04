@@ -23,7 +23,12 @@ export interface DescribeModelPackageCommandInput extends DescribeModelPackageIn
 export interface DescribeModelPackageCommandOutput extends DescribeModelPackageOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a description of the specified model package, which is used to create SageMaker models or list them on Amazon Web Services Marketplace.</p> <important> <p>If you provided a KMS Key ID when you created your model package, you will see the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html">KMS Decrypt</a> API call in your CloudTrail logs when you use this API. To call this operation without requiring <code>kms:Decrypt</code> permission on the customer-managed key, set <code>IncludedData</code> to <code>MetadataOnly</code>; the response is returned with the embedded <code>ModelCard.ModelCardContent</code> field sanitized.</p> </important> <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services Marketplace.</p>
+ * Returns a description of the specified model package, which is used to create SageMaker models or list them on Amazon Web Services Marketplace.
+ *
+ * > **Important:** If you provided a KMS Key ID when you created your model package, you will see the [KMS Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API call in your CloudTrail logs when you use this API. To call this operation without requiring `kms:Decrypt` permission on the customer-managed key, set `IncludedData` to `MetadataOnly`; the response is returned with the embedded `ModelCard.ModelCardContent` field sanitized.
+ *
+ * To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services Marketplace.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -405,8 +410,8 @@ export interface DescribeModelPackageCommandOutput extends DescribeModelPackageO
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

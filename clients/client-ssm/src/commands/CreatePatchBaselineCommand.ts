@@ -23,11 +23,10 @@ export interface CreatePatchBaselineCommandInput extends CreatePatchBaselineRequ
 export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineResult, __MetadataBearer {}
 
 /**
- * <p>Creates a patch baseline.</p>
- *          <note>
- *             <p>For information about valid key-value pairs in <code>PatchFilters</code> for each supported
- *     operating system type, see <a>PatchFilter</a>.</p>
- *          </note>
+ * Creates a patch baseline.
+ *
+ * > **Note:** For information about valid key-value pairs in `PatchFilters` for each supported operating system type, see PatchFilter.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,21 +111,22 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatch} (client fault)
- *  <p>Error returned when an idempotent operation is retried and the parameters don't match the
- *    original call to the API with the same idempotency token. </p>
+ *
+ * Error returned when an idempotent operation is retried and the parameters don't match the original call to the API with the same idempotency token.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>Error returned when the caller has exceeded the default resource quotas. For example, too
- *    many maintenance windows or patch baselines have been created.</p>
- *          <p>For information about resource quotas in Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the caller has exceeded the default resource quotas. For example, too many maintenance windows or patch baselines have been created.
+ *
+ * For information about resource quotas in Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

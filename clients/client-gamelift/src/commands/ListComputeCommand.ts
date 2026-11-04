@@ -23,41 +23,22 @@ export interface ListComputeCommandInput extends ListComputeInput {}
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves information on the compute resources in an Amazon GameLift Servers fleet. Use the pagination
- *             parameters to retrieve results in a set of sequential pages.</p>
- *          <p>
- *             <b>Request options</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Retrieve a list of all computes in a fleet. Specify a fleet ID. </p>
- *             </li>
- *             <li>
- *                <p>Retrieve a list of all computes in a specific fleet location. Specify a fleet
- *                     ID and location.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results</b>
- *          </p>
- *          <p>If successful, this operation returns information on a set of computes. Depending on
- *             the type of fleet, the result includes the following information: </p>
- *          <ul>
- *             <li>
- *                <p>For a managed EC2 fleet (compute type <code>EC2</code>), this operation
- *                     returns information about the EC2 instance. Compute names are EC2 instance
- *                     IDs.</p>
- *             </li>
- *             <li>
- *                <p>For an Anywhere fleet (compute type <code>ANYWHERE</code>), this operation
- *                     returns compute names and details from when the compute was registered with
- *                         <code>RegisterCompute</code>. This includes
- *                         <code>GameLiftServiceSdkEndpoint</code> or
- *                         <code>GameLiftAgentEndpoint</code>.</p>
- *             </li>
- *          </ul>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves information on the compute resources in an Amazon GameLift Servers fleet. Use the pagination parameters to retrieve results in a set of sequential pages.
+ *
+ * **Request options**
+ *
+ * - Retrieve a list of all computes in a fleet. Specify a fleet ID.
+ * - Retrieve a list of all computes in a specific fleet location. Specify a fleet ID and location.
+ *
+ * **Results**
+ *
+ * If successful, this operation returns information on a set of computes. Depending on the type of fleet, the result includes the following information:
+ *
+ * - For a managed EC2 fleet (compute type `EC2`), this operation returns information about the EC2 instance. Compute names are EC2 instance IDs.
+ * - For an Anywhere fleet (compute type `ANYWHERE`), this operation returns compute names and details from when the compute was registered with `RegisterCompute`. This includes `GameLiftServiceSdkEndpoint` or `GameLiftAgentEndpoint`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,22 +95,24 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { InterconnectServiceException as __BaseException } from "./InterconnectServiceException";
 
 /**
- * <p>The calling principal is not allowed to access the specified resource, or the resource does not exist.</p>
+ * The calling principal is not allowed to access the specified resource, or the resource does not exist.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to incorrect client supplied parameters.</p>
+ * The request was denied due to incorrect client supplied parameters.
+ *
  * @public
  */
 export class InterconnectClientException extends __BaseException {
@@ -46,7 +48,8 @@ export class InterconnectClientException extends __BaseException {
 }
 
 /**
- * <p>The request resulted in an exception internal to the service.</p>
+ * The request resulted in an exception internal to the service.
+ *
  * @public
  */
 export class InterconnectServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InterconnectServerException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified.</p>
+ * The input fails to satisfy the constraints specified.
+ *
  * @public
  */
 export class InterconnectValidationException extends __BaseException {
@@ -88,7 +92,8 @@ export class InterconnectValidationException extends __BaseException {
 }
 
 /**
- * <p>The request specifies a resource that does not exist on the server.</p>
+ * The request specifies a resource that does not exist on the server.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would result in the calling principal exceeding their allotted quota.</p>
+ * The requested operation would result in the calling principal exceeding their allotted quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -130,7 +136,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {

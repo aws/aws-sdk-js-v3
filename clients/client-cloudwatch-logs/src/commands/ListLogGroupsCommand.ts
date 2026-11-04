@@ -23,16 +23,12 @@ export interface ListLogGroupsCommandInput extends ListLogGroupsRequest {}
 export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of log groups in the Region in your account. If you are performing this
- *       action in a monitoring account, you can choose to also return log groups from source accounts
- *       that are linked to the monitoring account. For more information about using cross-account
- *       observability to set up monitoring accounts and source accounts, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">
- *         CloudWatch cross-account observability</a>.</p>
- *          <p>You can optionally filter the results by log group class, log group name pattern,
- *       field indexes, data sources, field index names, or log group tags. If you specify more than
- *       one filter type, the results include log groups that satisfy all filters.</p>
- *          <p>This operation is paginated. By default, your first use of this operation returns 50
- *       results, and includes a token to use in a subsequent operation to return more results.</p>
+ * Returns a list of log groups in the Region in your account. If you are performing this action in a monitoring account, you can choose to also return log groups from source accounts that are linked to the monitoring account. For more information about using cross-account observability to set up monitoring accounts and source accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+ *
+ * You can optionally filter the results by log group class, log group name pattern, field indexes, data sources, field index names, or log group tags. If you specify more than one filter type, the results include log groups that satisfy all filters.
+ *
+ * This operation is paginated. By default, your first use of this operation returns 50 results, and includes a token to use in a subsequent operation to return more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,14 +86,16 @@ export interface ListLogGroupsCommandOutput extends ListLogGroupsResponse, __Met
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

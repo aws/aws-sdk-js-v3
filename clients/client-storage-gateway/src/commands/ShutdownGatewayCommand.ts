@@ -23,29 +23,20 @@ export interface ShutdownGatewayCommandInput extends ShutdownGatewayInput {}
 export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use
- *          the Amazon Resource Name (ARN) of the gateway in the body of your request.</p>
- *          <note>
- *             <p>This API action cannot be used to shut down S3 File Gateway or FSx File
- *             Gateway.</p>
- *          </note>
- *          <p>The operation shuts down the gateway service component running in the gateway's
- *          virtual machine (VM) and not the host VM.</p>
- *          <note>
- *             <p>If you want to shut down the VM, it is recommended that you first shut down the
- *             gateway component in the VM to avoid unpredictable conditions.</p>
- *          </note>
- *          <p>After the gateway is shutdown, you cannot call any other API except <a>StartGateway</a>, <a>DescribeGatewayInformation</a>, and <a>ListGateways</a>. For more information, see <a>ActivateGateway</a>.
- *          Your applications cannot read from or write to the gateway's storage volumes, and
- *          there are no snapshots taken.</p>
- *          <note>
- *             <p>When you make a shutdown request, you will get a <code>200 OK</code> success response
- *             immediately. However, it might take some time for the gateway to shut down. You can call
- *             the <a>DescribeGatewayInformation</a> API to check the status. For more
- *             information, see <a>ActivateGateway</a>.</p>
- *          </note>
- *          <p>If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>) to no longer pay software charges associated with the
- *          gateway.</p>
+ * Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use the Amazon Resource Name (ARN) of the gateway in the body of your request.
+ *
+ * > **Note:** This API action cannot be used to shut down S3 File Gateway or FSx File Gateway.
+ *
+ * The operation shuts down the gateway service component running in the gateway's virtual machine (VM) and not the host VM.
+ *
+ * > **Note:** If you want to shut down the VM, it is recommended that you first shut down the gateway component in the VM to avoid unpredictable conditions.
+ *
+ * After the gateway is shutdown, you cannot call any other API except StartGateway, DescribeGatewayInformation, and ListGateways. For more information, see ActivateGateway. Your applications cannot read from or write to the gateway's storage volumes, and there are no snapshots taken.
+ *
+ * > **Note:** When you make a shutdown request, you will get a `200 OK` success response immediately. However, it might take some time for the gateway to shut down. You can call the DescribeGatewayInformation API to check the status. For more information, see ActivateGateway.
+ *
+ * If do not intend to use the gateway again, you must delete the gateway (using DeleteGateway) to no longer pay software charges associated with the gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,16 +63,16 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To shut down a gateway service
  * ```javascript

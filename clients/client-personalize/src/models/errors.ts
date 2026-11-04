@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PersonalizeServiceException as __BaseException } from "./PersonalizeServiceException";
 
 /**
- * <p>Provide a valid value for the field or parameter.</p>
+ * Provide a valid value for the field or parameter.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second has been exceeded.</p>
+ * The limit on the number of requests per second has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -46,7 +48,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource already exists.</p>
+ * The specified resource already exists.
+ *
  * @public
  */
 export class ResourceAlreadyExistsException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceAlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use.</p>
+ * The specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -88,7 +92,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Could not find the specified resource.</p>
+ * Could not find the specified resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ * You have exceeded the maximum number of tags you can apply to this resource.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -130,7 +136,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The token is not valid.</p>
+ * The token is not valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -151,7 +158,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
+ * The request contains more tag keys than can be associated with a resource (50 tag keys per resource).
+ *
  * @public
  */
 export class TooManyTagKeysException extends __BaseException {

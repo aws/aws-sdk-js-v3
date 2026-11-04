@@ -26,14 +26,12 @@ export interface ExportECSServiceRecommendationsCommandInput extends ExportECSSe
 export interface ExportECSServiceRecommendationsCommandOutput extends ExportECSServiceRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Exports optimization recommendations for Amazon ECS services on Fargate.
- *         </p>
- *          <p>Recommendations are exported in a CSV file, and its metadata
- *             in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
- *                 Recommendations</a> in the <i>Compute Optimizer User
- *                     Guide</i>.</p>
- *          <p>You can only have one Amazon ECS service export job in progress per Amazon Web Services Region.</p>
+ * Exports optimization recommendations for Amazon ECS services on Fargate.
+ *
+ * Recommendations are exported in a CSV file, and its metadata in a JSON file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see [Exporting Recommendations](https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html) in the *Compute Optimizer User Guide*.
+ *
+ * You can only have one Amazon ECS service export job in progress per Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,33 +82,40 @@ export interface ExportECSServiceRecommendationsCommandOutput extends ExportECSS
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * An internal error has occurred. Try your call again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * The value supplied for the input parameter is out of range or not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds a limit of the service.</p>
+ *
+ * The request exceeds a limit of the service.
  *
  * @throws {@link MissingAuthenticationToken} (client fault)
- *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ *
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
  *
  * @throws {@link OptInRequiredException} (client fault)
- *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * The account is not opted in to Compute Optimizer.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizer service.
  *
  * @public
  */

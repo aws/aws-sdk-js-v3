@@ -23,26 +23,23 @@ export interface EnableSecurityHubCommandInput extends EnableSecurityHubRequest 
 export interface EnableSecurityHubCommandOutput extends EnableSecurityHubResponse, __MetadataBearer {}
 
 /**
- * <p>Enables Security Hub CSPM for your account in the current Region or the Region you specify in the
- *          request.</p>
- *          <p>When you enable Security Hub CSPM, you grant to Security Hub CSPM the permissions necessary to gather findings
- *          from other services that are integrated with Security Hub CSPM.</p>
- *          <p>When you use the <code>EnableSecurityHub</code> operation to enable Security Hub CSPM, you also
- *          automatically enable the following standards:</p>
- *          <ul>
- *             <li>
- *                <p>Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Foundational Security Best Practices</p>
- *             </li>
- *          </ul>
- *          <p>Other standards are not automatically enabled. </p>
- *          <p>To opt out of automatically enabled standards, set
- *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
- *          <p>After you enable Security Hub CSPM, to enable a standard, use the <code>BatchEnableStandards</code> operation. To disable a standard, use the
- *                <code>BatchDisableStandards</code> operation.</p>
- *          <p>To learn more, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">setup information</a> in the <i>Security Hub CSPM User Guide</i>.</p>
+ * Enables Security Hub CSPM for your account in the current Region or the Region you specify in the request.
+ *
+ * When you enable Security Hub CSPM, you grant to Security Hub CSPM the permissions necessary to gather findings from other services that are integrated with Security Hub CSPM.
+ *
+ * When you use the `EnableSecurityHub` operation to enable Security Hub CSPM, you also automatically enable the following standards:
+ *
+ * - Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0
+ * - Amazon Web Services Foundational Security Best Practices
+ *
+ * Other standards are not automatically enabled.
+ *
+ * To opt out of automatically enabled standards, set `EnableDefaultStandards` to `false`.
+ *
+ * After you enable Security Hub CSPM, to enable a standard, use the `BatchEnableStandards` operation. To disable a standard, use the `BatchDisableStandards` operation.
+ *
+ * To learn more, see the [setup information](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html) in the *Security Hub CSPM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,24 +68,28 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource specified in the request conflicts with an existing resource.</p>
+ *
+ * The resource specified in the request conflicts with an existing resource.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To activate Security Hub
  * ```javascript

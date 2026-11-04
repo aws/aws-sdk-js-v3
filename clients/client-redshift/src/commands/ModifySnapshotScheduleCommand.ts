@@ -24,8 +24,8 @@ export interface ModifySnapshotScheduleCommandInput extends ModifySnapshotSchedu
 export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, __MetadataBearer {}
 
 /**
- * <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
- *             asynchronously.</p>
+ * Modifies a snapshot schedule. Any schedule associated with a cluster is modified asynchronously.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,17 +75,20 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidScheduleFault} (client fault)
- *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * The schedule you submitted isn't valid.
  *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
- *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * We could not find the specified snapshot schedule.
  *
  * @throws {@link SnapshotScheduleUpdateInProgressFault} (client fault)
- *  <p>The specified snapshot schedule is already being updated.</p>
+ *
+ * The specified snapshot schedule is already being updated.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

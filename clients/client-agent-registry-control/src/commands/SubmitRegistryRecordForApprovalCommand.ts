@@ -26,7 +26,8 @@ export interface SubmitRegistryRecordForApprovalCommandInput extends SubmitRegis
 export interface SubmitRegistryRecordForApprovalCommandOutput extends SubmitRegistryRecordForApprovalResponse, __MetadataBearer {}
 
 /**
- * <p>Submits a DRAFT registry record for approval, moving it into the registry's approval workflow. Depending on the registry's approval configuration, the record is either auto-approved or set to PENDING_APPROVAL for a curator to approve or reject.</p>
+ * Submits a DRAFT registry record for approval, moving it into the registry's approval workflow. Depending on the registry's approval configuration, the record is either auto-approved or set to PENDING_APPROVAL for a curator to approve or reject.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +59,32 @@ export interface SubmitRegistryRecordForApprovalCommandOutput extends SubmitRegi
  * @see {@link AgentRegistryControlClientResolvedConfig | config} for AgentRegistryControlClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller is not authorized to perform the requested action.</p>
+ *
+ * The caller is not authorized to perform the requested action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ *
+ * The request failed due to an unexpected internal error; the caller may retry.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ *
+ * The request was denied due to request throttling; the caller may retry after a delay.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation of one or more input fields.</p>
+ *
+ * The request failed validation of one or more input fields.
  *
  * @throws {@link AgentRegistryControlServiceException}
- * <p>Base exception class for all service exceptions from AgentRegistryControl service.</p>
  *
+ * Base exception class for all service exceptions from AgentRegistryControl service.
  *
  * @public
  */

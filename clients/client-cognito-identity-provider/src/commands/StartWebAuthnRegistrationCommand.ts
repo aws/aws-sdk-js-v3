@@ -23,11 +23,10 @@ export interface StartWebAuthnRegistrationCommandInput extends StartWebAuthnRegi
 export interface StartWebAuthnRegistrationCommandOutput extends StartWebAuthnRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Requests credential creation options from your user pool for the currently signed-in
- *             user. Returns information about the user pool, the user profile, and authentication
- *             requirements. Users must provide this information in their request to enroll your
- *             application with their passkey provider.</p>
- *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+ * Requests credential creation options from your user pool for the currently signed-in user. Returns information about the user pool, the user profile, and authentication requirements. Users must provide this information in their request to enroll your application with their passkey provider.
+ *
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,44 +53,48 @@ export interface StartWebAuthnRegistrationCommandOutput extends StartWebAuthnReg
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web
- *             ACL that's associated with your user pool.</p>
+ *
+ * This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ *
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link PasswordResetRequiredException} (client fault)
- *  <p>This exception is thrown when a password reset is required.</p>
+ *
+ * This exception is thrown when a password reset is required.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link WebAuthnConfigurationMissingException} (client fault)
- *  <p>This exception is thrown when a user pool doesn't have a configured relying party
- *             id or a user pool domain.</p>
+ *
+ * This exception is thrown when a user pool doesn't have a configured relying party id or a user pool domain.
  *
  * @throws {@link WebAuthnNotEnabledException} (client fault)
- *  <p>This exception is thrown when the passkey feature isn't enabled for the user
- *             pool.</p>
+ *
+ * This exception is thrown when the passkey feature isn't enabled for the user pool.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

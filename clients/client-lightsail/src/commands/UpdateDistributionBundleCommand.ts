@@ -23,15 +23,14 @@ export interface UpdateDistributionBundleCommandInput extends UpdateDistribution
 export interface UpdateDistributionBundleCommandOutput extends UpdateDistributionBundleResult, __MetadataBearer {}
 
 /**
- * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
- *       distribution.</p>
- *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
- *       your distribution.</p>
- *          <p>Update your distribution's bundle if your distribution is going over its monthly network
- *       transfer quota and is incurring an overage fee.</p>
- *          <p>You can update your distribution's bundle only one time within your monthly Amazon Web Services billing cycle. To determine if you can update your distribution's bundle, use the
- *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the
- *       result will indicate whether you can currently update your distribution's bundle.</p>
+ * Updates the bundle of your Amazon Lightsail content delivery network (CDN) distribution.
+ *
+ * A distribution bundle specifies the monthly network transfer quota and monthly cost of your distribution.
+ *
+ * Update your distribution's bundle if your distribution is going over its monthly network transfer quota and is incurring an overage fee.
+ *
+ * You can update your distribution's bundle only one time within your monthly Amazon Web Services billing cycle. To determine if you can update your distribution's bundle, use the `GetDistributions` action. The `ableToUpdateBundle` parameter in the result will indicate whether you can currently update your distribution's bundle.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,34 +74,34 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
- *       credentials to access a resource.</p>
+ *
+ * Lightsail throws this exception when the user cannot be authenticated or uses invalid credentials to access a resource.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Lightsail throws this exception when user input does not conform to the validation rules
- *       of an input field.</p>
- *          <note>
- *             <p>Domain and distribution APIs are only available in the N. Virginia
- *           (<code>us-east-1</code>) Amazon Web Services Region. Please set your Amazon Web Services
- *         Region configuration to <code>us-east-1</code> to create, view, or edit these
- *         resources.</p>
- *          </note>
+ *
+ * Lightsail throws this exception when user input does not conform to the validation rules of an input field.
+ *
+ * > **Note:** Domain and distribution APIs are only available in the N. Virginia (`us-east-1`) Amazon Web Services Region. Please set your Amazon Web Services Region configuration to `us-east-1` to create, view, or edit these resources.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>Lightsail throws this exception when it cannot find a resource.</p>
+ *
+ * Lightsail throws this exception when it cannot find a resource.
  *
  * @throws {@link OperationFailureException} (client fault)
- *  <p>Lightsail throws this exception when an operation fails to execute.</p>
+ *
+ * Lightsail throws this exception when an operation fails to execute.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>A general service exception.</p>
+ *
+ * A general service exception.
  *
  * @throws {@link UnauthenticatedException} (client fault)
- *  <p>Lightsail throws this exception when the user has not been authenticated.</p>
+ *
+ * Lightsail throws this exception when the user has not been authenticated.
  *
  * @throws {@link LightsailServiceException}
- * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ * Base exception class for all service exceptions from Lightsail service.
  *
  * @public
  */

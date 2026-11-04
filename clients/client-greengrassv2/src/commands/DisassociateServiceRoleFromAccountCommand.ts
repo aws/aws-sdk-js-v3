@@ -26,10 +26,8 @@ export interface DisassociateServiceRoleFromAccountCommandInput extends Disassoc
 export interface DisassociateServiceRoleFromAccountCommandOutput extends DisassociateServiceRoleFromAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
- *       Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device
- *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
- *       the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+ * Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device connectivity information. For more information, see [Greengrass service role](https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html) in the *IoT Greengrass Version 2 Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +52,12 @@ export interface DisassociateServiceRoleFromAccountCommandOutput extends Disasso
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * IoT Greengrass can't process your request right now. Try again later.
  *
  * @throws {@link GreengrassV2ServiceException}
- * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ * Base exception class for all service exceptions from GreengrassV2 service.
  *
  * @public
  */

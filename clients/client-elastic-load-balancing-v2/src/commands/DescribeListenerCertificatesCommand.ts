@@ -23,14 +23,12 @@ export interface DescribeListenerCertificatesCommandInput extends DescribeListen
 export interface DescribeListenerCertificatesCommandOutput extends DescribeListenerCertificatesOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS
- *       listener.</p>
- *          <p>If the default certificate is also in the certificate list, it appears twice in the
- *       results (once with <code>IsDefault</code> set to true and once with <code>IsDefault</code> set
- *       to false).</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or
- *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html">Server certificates</a> in the <i>Network Load Balancers
- *       Guide</i>.</p>
+ * Describes the default certificate and the certificate list for the specified HTTPS or TLS listener.
+ *
+ * If the default certificate is also in the certificate list, it appears twice in the results (once with `IsDefault` set to true and once with `IsDefault` set to false).
+ *
+ * For more information, see [SSL certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html) in the *Application Load Balancers Guide* or [Server certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html) in the *Network Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,11 +63,12 @@ export interface DescribeListenerCertificatesCommandOutput extends DescribeListe
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

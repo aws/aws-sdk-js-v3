@@ -26,9 +26,8 @@ export interface PutConfigurationSetArchivingOptionsCommandInput extends PutConf
 export interface PutConfigurationSetArchivingOptionsCommandOutput extends PutConfigurationSetArchivingOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Associate the configuration set with a MailManager archive. When you send email using the
- *         <code>SendEmail</code> or <code>SendBulkEmail</code> operations the message as it will be given
- *         to the receiving SMTP server will be archived, along with the recipient information.</p>
+ * Associate the configuration set with a MailManager archive. When you send email using the `SendEmail` or `SendBulkEmail` operations the message as it will be given to the receiving SMTP server will be archived, along with the recipient information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,17 +53,20 @@ export interface PutConfigurationSetArchivingOptionsCommandOutput extends PutCon
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @example Used to associate an MailManager archive with a ConfigurationSet.
  * ```javascript

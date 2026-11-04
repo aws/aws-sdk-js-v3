@@ -23,10 +23,8 @@ export interface GetComplianceDetailsByResourceCommandInput extends GetComplianc
 export interface GetComplianceDetailsByResourceCommandOutput extends GetComplianceDetailsByResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the evaluation results for the specified Amazon Web Services resource.
- * 			The results indicate which Config rules were used to evaluate
- * 			the resource, when each rule was last invoked, and whether the resource
- * 			complies with each rule.</p>
+ * Returns the evaluation results for the specified Amazon Web Services resource. The results indicate which Config rules were used to evaluate the resource, when each rule was last invoked, and whether the resource complies with each rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,12 +76,12 @@ export interface GetComplianceDetailsByResourceCommandOutput extends GetComplian
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

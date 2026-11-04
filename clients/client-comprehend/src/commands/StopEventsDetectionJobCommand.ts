@@ -23,7 +23,8 @@ export interface StopEventsDetectionJobCommandInput extends StopEventsDetectionJ
 export interface StopEventsDetectionJobCommandOutput extends StopEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an events detection job in progress.</p>
+ * Stops an events detection job in progress.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link JobNotFoundException} (client fault)
- *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ * The specified job was not found. Check the job ID and try again.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

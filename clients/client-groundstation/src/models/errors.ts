@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
 /**
- * <p>Dependency encountered an error.</p>
+ * Dependency encountered an error.
+ *
  * @public
  */
 export class DependencyException extends __BaseException {
@@ -12,7 +13,8 @@ export class DependencyException extends __BaseException {
   readonly name = "DependencyException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Name of the parameter that caused the exception.</p>
+   * Name of the parameter that caused the exception.
+   *
    * @public
    */
   parameterName?: string | undefined;
@@ -32,7 +34,8 @@ export class DependencyException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters are not valid.</p>
+ * One or more parameters are not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -40,7 +43,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Name of the invalid parameter.</p>
+   * Name of the invalid parameter.
+   *
    * @public
    */
   parameterName?: string | undefined;
@@ -60,7 +64,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Resource was not found.</p>
+ * Resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -81,7 +86,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Account limits for this resource have been exceeded.</p>
+ * Account limits for this resource have been exceeded.
+ *
  * @public
  */
 export class ResourceLimitExceededException extends __BaseException {
@@ -89,7 +95,8 @@ export class ResourceLimitExceededException extends __BaseException {
   readonly name = "ResourceLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Name of the parameter that exceeded the resource limit.</p>
+   * Name of the parameter that exceeded the resource limit.
+   *
    * @public
    */
   parameterName?: string | undefined;
@@ -109,7 +116,8 @@ export class ResourceLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Request would cause a service quota to be exceeded.</p>
+ * Request would cause a service quota to be exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -117,7 +125,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Parameter name that caused the exception</p>
+   * Parameter name that caused the exception
+   *
    * @public
    */
   parameterName?: string | undefined;
@@ -137,7 +146,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use by non-terminal state contacts and cannot be modified or deleted.</p>
+ * The specified resource is in use by non-terminal state contacts and cannot be modified or deleted.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {

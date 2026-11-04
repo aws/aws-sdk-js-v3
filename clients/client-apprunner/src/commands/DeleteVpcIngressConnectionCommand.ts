@@ -23,30 +23,13 @@ export interface DeleteVpcIngressConnectionCommandInput extends DeleteVpcIngress
 export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngressConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
- *     </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AVAILABLE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FAILED_CREATION</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FAILED_UPDATE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FAILED_DELETION</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Delete an App Runner VPC Ingress Connection resource that's associated with an App Runner service. The VPC Ingress Connection must be in one of the following states to be deleted:
+ *
+ * - `AVAILABLE`
+ * - `FAILED_CREATION`
+ * - `FAILED_UPDATE`
+ * - `FAILED_DELETION`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,20 +69,24 @@ export interface DeleteVpcIngressConnectionCommandOutput extends DeleteVpcIngres
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
+ * You can't perform this action when the resource is in its current state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

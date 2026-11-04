@@ -23,7 +23,8 @@ export interface UpdateMembershipCommandInput extends UpdateMembershipRequest {}
 export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Updates membership configuration.</p>
+ * Updates membership configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,38 +76,28 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse,
  * @see {@link SecurityIRClientResolvedConfig | config} for SecurityIRClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIncidentResponseNotActiveException} (client fault)
- *  <p/>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link SecurityIRServiceException}
- * <p>Base exception class for all service exceptions from SecurityIR service.</p>
  *
+ * Base exception class for all service exceptions from SecurityIR service.
  *
- * @example Invoke UpdateMembership
- * ```javascript
+ * @example Invoke UpdateMembership```javascript
  * //
  * const input = {
  *   incidentResponseTeam: [

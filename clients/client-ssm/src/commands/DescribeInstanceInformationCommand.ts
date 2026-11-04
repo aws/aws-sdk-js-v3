@@ -23,17 +23,12 @@ export interface DescribeInstanceInformationCommandInput extends DescribeInstanc
 export interface DescribeInstanceInformationCommandOutput extends DescribeInstanceInformationResult, __MetadataBearer {}
 
 /**
- * <p>Provides information about one or more of your managed nodes, including the operating system
- *    platform, SSM Agent version, association status, and IP address. This operation does not return
- *    information for nodes that are either Stopped or Terminated.</p>
- *          <p>If you specify one or more node IDs, the operation returns information for those managed
- *    nodes. If you don't specify node IDs, it returns information for all your managed nodes. If you
- *    specify a node ID that isn't valid or a node that you don't own, you receive an error.</p>
- *          <note>
- *             <p>The <code>IamRole</code> field returned for this API operation is the role assigned to an
- *     Amazon EC2 instance configured with a Systems Manager Quick Setup host management configuration or
- *     the role assigned to an on-premises managed node.</p>
- *          </note>
+ * Provides information about one or more of your managed nodes, including the operating system platform, SSM Agent version, association status, and IP address. This operation does not return information for nodes that are either Stopped or Terminated.
+ *
+ * If you specify one or more node IDs, the operation returns information for those managed nodes. If you don't specify node IDs, it returns information for all your managed nodes. If you specify a node ID that isn't valid or a node that you don't own, you receive an error.
+ *
+ * > **Note:** The `IamRole` field returned for this API operation is the role assigned to an Amazon EC2 instance configured with a Systems Manager Quick Setup host management configuration or the role assigned to an on-premises managed node.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,40 +103,33 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilterKey} (client fault)
- *  <p>The specified key isn't valid.</p>
+ *
+ * The specified key isn't valid.
  *
  * @throws {@link InvalidInstanceId} (client fault)
- *  <p>The following problems can cause this exception:</p>
- *          <ul>
- *             <li>
- *                <p>You don't have permission to access the managed node.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
- *      running.</p>
- *             </li>
- *             <li>
- *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
- *             </li>
- *             <li>
- *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
- *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
- *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
- *             </li>
- *          </ul>
+ *
+ * The following problems can cause this exception:
+ *
+ * - You don't have permission to access the managed node.
+ * - Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is running.
+ * - SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.
+ * - The managed node isn't in a valid state. Valid states are: `Running`, `Pending`, `Stopped`, and `Stopping`. Invalid states are: `Shutting-down` and `Terminated`.
  *
  * @throws {@link InvalidInstanceInformationFilterValue} (client fault)
- *  <p>The specified filter value isn't valid.</p>
+ *
+ * The specified filter value isn't valid.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

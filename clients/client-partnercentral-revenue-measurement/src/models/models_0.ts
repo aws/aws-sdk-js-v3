@@ -16,126 +16,147 @@ import type {
 } from "./enums";
 
 /**
- * <p>Read-time AWS Marketplace product attributes returned in revenue attribution responses, including service-resolved fields.</p>
+ * Read-time AWS Marketplace product attributes returned in revenue attribution responses, including service-resolved fields.
+ *
  * @public
  */
 export interface MarketplaceProductSummary {
   /**
-   * <p>The product identifier provided at attribution creation.</p>
+   * The product identifier provided at attribution creation.
+   *
    * @public
    */
   ProductId?: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product code resolved using the product identifier.</p>
+   * The AWS Marketplace product code resolved using the product identifier.
+   *
    * @public
    */
   ProductCode?: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 }
 
 /**
- * <p>Summary representation of a revenue attribution returned in list operations.</p>
+ * Summary representation of a revenue attribution returned in list operations.
+ *
  * @public
  */
 export interface AttributionSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the revenue attribution.</p>
+   * The Amazon Resource Name (ARN) of the revenue attribution.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the revenue attribution.</p>
+   * The unique identifier of the revenue attribution.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The catalog that the revenue attribution belongs to.</p>
+   * The catalog that the revenue attribution belongs to.
+   *
    * @public
    */
   Catalog?: CatalogName | undefined;
 
   /**
-   * <p>The display name of the revenue attribution.</p>
+   * The display name of the revenue attribution.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The tenancy model for this revenue attribution.</p>
+   * The tenancy model for this revenue attribution.
+   *
    * @public
    */
   TenancyModel: TenancyModel | undefined;
 
   /**
-   * <p>The AWS Marketplace product attributes associated with this attribution, if set.</p>
+   * The AWS Marketplace product attributes associated with this attribution, if set.
+   *
    * @public
    */
   MarketplaceProduct?: MarketplaceProductSummary | undefined;
 
   /**
-   * <p>The date when the revenue attribution was created.</p>
+   * The date when the revenue attribution was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the revenue attribution was last modified.</p>
+   * The date when the revenue attribution was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The latest revision of the revenue attribution resource.</p>
+   * The latest revision of the revenue attribution resource.
+   *
    * @public
    */
   LatestRevision?: string | undefined;
 
   /**
-   * <p>The date from which this revenue attribution is effective, derived from the earliest allocation start date (YYYY-MM-DD).</p>
+   * The date from which this revenue attribution is effective, derived from the earliest allocation start date (YYYY-MM-DD).
+   *
    * @public
    */
   EffectiveFrom?: string | undefined;
 
   /**
-   * <p>The date until which this revenue attribution is effective, derived from the latest allocation end date (YYYY-MM-DD).</p>
+   * The date until which this revenue attribution is effective, derived from the latest allocation end date (YYYY-MM-DD).
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The total number of allocations under this revenue attribution whose Status is ACTIVE.</p>
+   * The total number of allocations under this revenue attribution whose Status is ACTIVE.
+   *
    * @public
    */
   TotalActiveRevenueAttributionAllocationCount?: number | undefined;
 
   /**
-   * <p>The total number of allocations under this revenue attribution, counting both ACTIVE and INACTIVE.</p>
+   * The total number of allocations under this revenue attribution, counting both ACTIVE and INACTIVE.
+   *
    * @public
    */
   TotalRevenueAttributionAllocationCount?: number | undefined;
 }
 
 /**
- * <p>A key-value pair used for organizing and managing resources through metadata tags.</p>
+ * A key-value pair used for organizing and managing resources through metadata tags.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key portion of the tag.</p>
+   * The key portion of the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value portion of the tag.</p>
+   * The value portion of the tag.
+   *
    * @public
    */
   Value: string | undefined;
@@ -146,25 +167,29 @@ export interface Tag {
  */
 export interface CreateMarketplaceRevenueShareInput {
   /**
-   * <p>The catalog in which to create the marketplace revenue share.</p>
+   * The catalog in which to create the marketplace revenue share.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>A unique token to ensure idempotency of the create request.</p>
+   * A unique token to ensure idempotency of the create request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier for this revenue share.</p>
+   * The AWS Marketplace product identifier for this revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>Tags to associate with the marketplace revenue share upon creation.</p>
+   * Tags to associate with the marketplace revenue share upon creation.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -175,73 +200,85 @@ export interface CreateMarketplaceRevenueShareInput {
  */
 export interface CreateMarketplaceRevenueShareOutput {
   /**
-   * <p>The AWS Marketplace product identifier of the newly created revenue share.</p>
+   * The AWS Marketplace product identifier of the newly created revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the newly created marketplace revenue share.</p>
+   * The Amazon Resource Name (ARN) of the newly created marketplace revenue share.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The catalog that the marketplace revenue share belongs to.</p>
+   * The catalog that the marketplace revenue share belongs to.
+   *
    * @public
    */
   Catalog?: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product code.</p>
+   * The AWS Marketplace product code.
+   *
    * @public
    */
   ProductCode?: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The date when the marketplace revenue share was created.</p>
+   * The date when the marketplace revenue share was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the marketplace revenue share was last modified.</p>
+   * The date when the marketplace revenue share was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The revision number of the newly created marketplace revenue share.</p>
+   * The revision number of the newly created marketplace revenue share.
+   *
    * @public
    */
   Revision?: number | undefined;
 }
 
 /**
- * <p>Details about a specific field that failed validation.</p>
+ * Details about a specific field that failed validation.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A human-readable message describing why the field validation failed.</p>
+   * A human-readable message describing why the field validation failed.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The specific validation error code indicating the type of validation failure.</p>
+   * The specific validation error code indicating the type of validation failure.
+   *
    * @public
    */
   Code: FieldValidationCode | undefined;
@@ -252,37 +289,43 @@ export interface ValidationExceptionField {
  */
 export interface CreateMarketplaceRevenueShareAllocationInput {
   /**
-   * <p>The catalog in which to create the allocation.</p>
+   * The catalog in which to create the allocation.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier for the parent revenue share.</p>
+   * The AWS Marketplace product identifier for the parent revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>A unique token to ensure idempotency of the create request.</p>
+   * A unique token to ensure idempotency of the create request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The effective start date for the allocation. Must be the first day of a month.</p>
+   * The effective start date for the allocation. Must be the first day of a month.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The effective end date for the allocation. Must be the last day of a month (YYYY-MM-DD). Omit for open-ended allocations.</p>
+   * The effective end date for the allocation. Must be the last day of a month (YYYY-MM-DD). Omit for open-ended allocations.
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The revenue share percentage for this allocation.</p>
+   * The revenue share percentage for this allocation.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
@@ -293,67 +336,78 @@ export interface CreateMarketplaceRevenueShareAllocationInput {
  */
 export interface CreateMarketplaceRevenueShareAllocationOutput {
   /**
-   * <p>The unique identifier of the newly created allocation.</p>
+   * The unique identifier of the newly created allocation.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationId: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier.</p>
+   * The AWS Marketplace product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the allocation.</p>
+   * The Amazon Resource Name (ARN) of the allocation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The effective start date of the allocation.</p>
+   * The effective start date of the allocation.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The effective end date of the allocation, or null if open-ended.</p>
+   * The effective end date of the allocation, or null if open-ended.
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The revenue share percentage.</p>
+   * The revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>The status of the allocation.</p>
+   * The status of the allocation.
+   *
    * @public
    */
   Status: AllocationStatus | undefined;
 
   /**
-   * <p>The date when the allocation was created.</p>
+   * The date when the allocation was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the allocation was last modified.</p>
+   * The date when the allocation was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The latest revision of the parent marketplace revenue share.</p>
+   * The latest revision of the parent marketplace revenue share.
+   *
    * @public
    */
   LatestMarketplaceRevenueShareRevision?: string | undefined;
@@ -364,19 +418,22 @@ export interface CreateMarketplaceRevenueShareAllocationOutput {
  */
 export interface GetMarketplaceRevenueShareInput {
   /**
-   * <p>The catalog that the marketplace revenue share belongs to.</p>
+   * The catalog that the marketplace revenue share belongs to.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier of the revenue share to retrieve.</p>
+   * The AWS Marketplace product identifier of the revenue share to retrieve.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The revision of the marketplace revenue share to retrieve. Omit to return the latest revision.</p>
+   * The revision of the marketplace revenue share to retrieve. Omit to return the latest revision.
+   *
    * @public
    */
   Revision?: number | undefined;
@@ -387,67 +444,78 @@ export interface GetMarketplaceRevenueShareInput {
  */
 export interface GetMarketplaceRevenueShareOutput {
   /**
-   * <p>The AWS Marketplace product identifier of the revenue share.</p>
+   * The AWS Marketplace product identifier of the revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the marketplace revenue share.</p>
+   * The Amazon Resource Name (ARN) of the marketplace revenue share.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The catalog that the marketplace revenue share belongs to.</p>
+   * The catalog that the marketplace revenue share belongs to.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product code.</p>
+   * The AWS Marketplace product code.
+   *
    * @public
    */
   ProductCode?: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The date when the marketplace revenue share was created.</p>
+   * The date when the marketplace revenue share was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the marketplace revenue share was last modified.</p>
+   * The date when the marketplace revenue share was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The revision number of the retrieved marketplace revenue share.</p>
+   * The revision number of the retrieved marketplace revenue share.
+   *
    * @public
    */
   Revision?: number | undefined;
 
   /**
-   * <p>The latest revision number of the marketplace revenue share.</p>
+   * The latest revision number of the marketplace revenue share.
+   *
    * @public
    */
   LatestRevision?: number | undefined;
 
   /**
-   * <p>The number of active allocations under this marketplace revenue share.</p>
+   * The number of active allocations under this marketplace revenue share.
+   *
    * @public
    */
   TotalActiveMarketplaceRevenueShareAllocationCount?: number | undefined;
 
   /**
-   * <p>The total number of allocations under this marketplace revenue share.</p>
+   * The total number of allocations under this marketplace revenue share.
+   *
    * @public
    */
   TotalMarketplaceRevenueShareAllocationCount?: number | undefined;
@@ -458,25 +526,29 @@ export interface GetMarketplaceRevenueShareOutput {
  */
 export interface GetMarketplaceRevenueShareAllocationInput {
   /**
-   * <p>The catalog that the allocation belongs to.</p>
+   * The catalog that the allocation belongs to.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier of the parent revenue share.</p>
+   * The AWS Marketplace product identifier of the parent revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The unique identifier of the allocation to retrieve.</p>
+   * The unique identifier of the allocation to retrieve.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationId: string | undefined;
 
   /**
-   * <p>The revision of the parent marketplace revenue share at which to retrieve the allocation. Omit to return the latest.</p>
+   * The revision of the parent marketplace revenue share at which to retrieve the allocation. Omit to return the latest.
+   *
    * @public
    */
   MarketplaceRevenueShareRevision?: string | undefined;
@@ -487,67 +559,78 @@ export interface GetMarketplaceRevenueShareAllocationInput {
  */
 export interface GetMarketplaceRevenueShareAllocationOutput {
   /**
-   * <p>The unique identifier of the allocation.</p>
+   * The unique identifier of the allocation.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationId: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier.</p>
+   * The AWS Marketplace product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the allocation.</p>
+   * The Amazon Resource Name (ARN) of the allocation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The effective start date of the allocation.</p>
+   * The effective start date of the allocation.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The effective end date of the allocation, or null if open-ended.</p>
+   * The effective end date of the allocation, or null if open-ended.
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The revenue share percentage.</p>
+   * The revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>The status of the allocation.</p>
+   * The status of the allocation.
+   *
    * @public
    */
   Status: AllocationStatus | undefined;
 
   /**
-   * <p>The date when the allocation was created.</p>
+   * The date when the allocation was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the allocation was last modified.</p>
+   * The date when the allocation was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The latest revision of the parent marketplace revenue share.</p>
+   * The latest revision of the parent marketplace revenue share.
+   *
    * @public
    */
   LatestMarketplaceRevenueShareRevision?: string | undefined;
@@ -558,127 +641,148 @@ export interface GetMarketplaceRevenueShareAllocationOutput {
  */
 export interface ListMarketplaceRevenueShareAllocationsInput {
   /**
-   * <p>The catalog containing the allocations.</p>
+   * The catalog containing the allocations.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier for the parent revenue share.</p>
+   * The AWS Marketplace product identifier for the parent revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>Filter by allocation status.</p>
+   * Filter by allocation status.
+   *
    * @public
    */
   Status?: AllocationStatus | undefined;
 
   /**
-   * <p>Inclusive lower bound for EffectiveFrom date filter.</p>
+   * Inclusive lower bound for EffectiveFrom date filter.
+   *
    * @public
    */
   AfterEffectiveFrom?: string | undefined;
 
   /**
-   * <p>Exclusive upper bound for EffectiveFrom date filter (half-open range).</p>
+   * Exclusive upper bound for EffectiveFrom date filter (half-open range).
+   *
    * @public
    */
   BeforeEffectiveFrom?: string | undefined;
 
   /**
-   * <p>The field to sort marketplace revenue share allocations by.</p>
+   * The field to sort marketplace revenue share allocations by.
+   *
    * @public
    */
   SortBy?: MarketplaceRevenueShareAllocationSortField | undefined;
 
   /**
-   * <p>The direction to sort results. Defaults to DESCENDING.</p>
+   * The direction to sort results. Defaults to DESCENDING.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>Maximum number of results per page.</p>
+   * Maximum number of results per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token from a previous response.</p>
+   * Pagination token from a previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional share revision for historical list. Returns allocations as they existed at this revision.</p>
+   * Optional share revision for historical list. Returns allocations as they existed at this revision.
+   *
    * @public
    */
   MarketplaceRevenueShareRevision?: string | undefined;
 }
 
 /**
- * <p>Summary information about a marketplace revenue share allocation.</p>
+ * Summary information about a marketplace revenue share allocation.
+ *
  * @public
  */
 export interface MarketplaceRevenueShareAllocationSummary {
   /**
-   * <p>The unique identifier of the allocation.</p>
+   * The unique identifier of the allocation.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationId: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier.</p>
+   * The AWS Marketplace product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the parent marketplace revenue share.</p>
+   * The Amazon Resource Name (ARN) of the parent marketplace revenue share.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The effective start date of the allocation.</p>
+   * The effective start date of the allocation.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The effective end date of the allocation, or null if open-ended.</p>
+   * The effective end date of the allocation, or null if open-ended.
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The revenue share percentage.</p>
+   * The revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>The status of the allocation.</p>
+   * The status of the allocation.
+   *
    * @public
    */
   Status: AllocationStatus | undefined;
 
   /**
-   * <p>The date when the allocation was created.</p>
+   * The date when the allocation was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the allocation was last modified.</p>
+   * The date when the allocation was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
@@ -689,13 +793,15 @@ export interface MarketplaceRevenueShareAllocationSummary {
  */
 export interface ListMarketplaceRevenueShareAllocationsOutput {
   /**
-   * <p>The list of allocation summaries for the current page.</p>
+   * The list of allocation summaries for the current page.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationSummaries: MarketplaceRevenueShareAllocationSummary[] | undefined;
 
   /**
-   * <p>Pagination token for the next page. Absent if no more results.</p>
+   * Pagination token for the next page. Absent if no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -706,121 +812,141 @@ export interface ListMarketplaceRevenueShareAllocationsOutput {
  */
 export interface ListMarketplaceRevenueSharesInput {
   /**
-   * <p>The catalog to list marketplace revenue shares from.</p>
+   * The catalog to list marketplace revenue shares from.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>Filter results to only include shares with these product identifiers.</p>
+   * Filter results to only include shares with these product identifiers.
+   *
    * @public
    */
   ProductIds?: string[] | undefined;
 
   /**
-   * <p>Filter results to only include shares with these product codes.</p>
+   * Filter results to only include shares with these product codes.
+   *
    * @public
    */
   ProductCodes?: string[] | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination. Use the value returned in the previous response to retrieve the next page.</p>
+   * Token for pagination. Use the value returned in the previous response to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The field to sort marketplace revenue shares by.</p>
+   * The field to sort marketplace revenue shares by.
+   *
    * @public
    */
   SortBy?: MarketplaceRevenueShareSortBy | undefined;
 
   /**
-   * <p>The direction to sort results.</p>
+   * The direction to sort results.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>Filter results to only include marketplace revenue shares created after this timestamp.</p>
+   * Filter results to only include marketplace revenue shares created after this timestamp.
+   *
    * @public
    */
   CreatedAfter?: Date | undefined;
 
   /**
-   * <p>Filter results to only include marketplace revenue shares created before this timestamp.</p>
+   * Filter results to only include marketplace revenue shares created before this timestamp.
+   *
    * @public
    */
   CreatedBefore?: Date | undefined;
 }
 
 /**
- * <p>Summary information about a marketplace revenue share.</p>
+ * Summary information about a marketplace revenue share.
+ *
  * @public
  */
 export interface MarketplaceRevenueShareSummary {
   /**
-   * <p>The AWS Marketplace product identifier.</p>
+   * The AWS Marketplace product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the marketplace revenue share.</p>
+   * The Amazon Resource Name (ARN) of the marketplace revenue share.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The catalog that the marketplace revenue share belongs to.</p>
+   * The catalog that the marketplace revenue share belongs to.
+   *
    * @public
    */
   Catalog?: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product code.</p>
+   * The AWS Marketplace product code.
+   *
    * @public
    */
   ProductCode?: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The date when the marketplace revenue share was created.</p>
+   * The date when the marketplace revenue share was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the marketplace revenue share was last modified.</p>
+   * The date when the marketplace revenue share was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The latest revision number of the marketplace revenue share.</p>
+   * The latest revision number of the marketplace revenue share.
+   *
    * @public
    */
   LatestRevision?: number | undefined;
 
   /**
-   * <p>The number of active allocations under this share.</p>
+   * The number of active allocations under this share.
+   *
    * @public
    */
   TotalActiveMarketplaceRevenueShareAllocationCount?: number | undefined;
 
   /**
-   * <p>The total number of allocations under this share.</p>
+   * The total number of allocations under this share.
+   *
    * @public
    */
   TotalMarketplaceRevenueShareAllocationCount?: number | undefined;
@@ -831,13 +957,15 @@ export interface MarketplaceRevenueShareSummary {
  */
 export interface ListMarketplaceRevenueSharesOutput {
   /**
-   * <p>The list of marketplace revenue share summaries.</p>
+   * The list of marketplace revenue share summaries.
+   *
    * @public
    */
   MarketplaceRevenueShareSummaries: MarketplaceRevenueShareSummary[] | undefined;
 
   /**
-   * <p>Token for pagination. Present if there are more results available.</p>
+   * Token for pagination. Present if there are more results available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -848,55 +976,64 @@ export interface ListMarketplaceRevenueSharesOutput {
  */
 export interface UpdateMarketplaceRevenueShareAllocationInput {
   /**
-   * <p>The catalog containing the allocation.</p>
+   * The catalog containing the allocation.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier for the parent revenue share.</p>
+   * The AWS Marketplace product identifier for the parent revenue share.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The identifier of the allocation to update.</p>
+   * The identifier of the allocation to update.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationId: string | undefined;
 
   /**
-   * <p>The current revision of the parent share. Must match for optimistic concurrency control.</p>
+   * The current revision of the parent share. Must match for optimistic concurrency control.
+   *
    * @public
    */
   MarketplaceRevenueShareRevision: string | undefined;
 
   /**
-   * <p>A unique token to ensure idempotency of the update request.</p>
+   * A unique token to ensure idempotency of the update request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The new effective start date. Must be the first day of a month. Only modifiable on future-dated allocations.</p>
+   * The new effective start date. Must be the first day of a month. Only modifiable on future-dated allocations.
+   *
    * @public
    */
   EffectiveFrom?: string | undefined;
 
   /**
-   * <p>The new effective end date. Must be the last day of a month and on or after today.</p>
+   * The new effective end date. Must be the last day of a month and on or after today.
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The new revenue share percentage. Only modifiable on future-dated allocations.</p>
+   * The new revenue share percentage. Only modifiable on future-dated allocations.
+   *
    * @public
    */
   RevenueSharePercent?: string | undefined;
 
   /**
-   * <p>The new status. Set to INACTIVE for soft-delete. Only modifiable on future-dated allocations.</p>
+   * The new status. Set to INACTIVE for soft-delete. Only modifiable on future-dated allocations.
+   *
    * @public
    */
   Status?: AllocationStatus | undefined;
@@ -907,67 +1044,78 @@ export interface UpdateMarketplaceRevenueShareAllocationInput {
  */
 export interface UpdateMarketplaceRevenueShareAllocationOutput {
   /**
-   * <p>The unique identifier of the updated allocation.</p>
+   * The unique identifier of the updated allocation.
+   *
    * @public
    */
   MarketplaceRevenueShareAllocationId: string | undefined;
 
   /**
-   * <p>The AWS Marketplace product identifier.</p>
+   * The AWS Marketplace product identifier.
+   *
    * @public
    */
   ProductId: string | undefined;
 
   /**
-   * <p>The display name of the AWS Marketplace product.</p>
+   * The display name of the AWS Marketplace product.
+   *
    * @public
    */
   ProductName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the parent marketplace revenue share.</p>
+   * The Amazon Resource Name (ARN) of the parent marketplace revenue share.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The effective start date of the allocation.</p>
+   * The effective start date of the allocation.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The effective end date of the allocation, or null if open-ended.</p>
+   * The effective end date of the allocation, or null if open-ended.
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The revenue share percentage.</p>
+   * The revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>The status of the allocation.</p>
+   * The status of the allocation.
+   *
    * @public
    */
   Status: AllocationStatus | undefined;
 
   /**
-   * <p>The date when the allocation was created.</p>
+   * The date when the allocation was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the allocation was last modified.</p>
+   * The date when the allocation was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The latest revision of the parent marketplace revenue share after the update.</p>
+   * The latest revision of the parent marketplace revenue share after the update.
+   *
    * @public
    */
   LatestMarketplaceRevenueShareRevision?: string | undefined;
@@ -978,43 +1126,50 @@ export interface UpdateMarketplaceRevenueShareAllocationOutput {
  */
 export interface CreateRevenueAttributionInput {
   /**
-   * <p>The catalog in which to create the revenue attribution.</p>
+   * The catalog in which to create the revenue attribution.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>A unique token to ensure idempotency of the create request.</p>
+   * A unique token to ensure idempotency of the create request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The name of the revenue attribution. Must be unique within the catalog and the partner's account.</p>
+   * The name of the revenue attribution. Must be unique within the catalog and the partner's account.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A description of the revenue attribution.</p>
+   * A description of the revenue attribution.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The tenancy model for this revenue attribution.</p>
+   * The tenancy model for this revenue attribution.
+   *
    * @public
    */
   TenancyModel: TenancyModel | undefined;
 
   /**
-   * <p>The unique product identifier in AWS Marketplace. Accepts a product entity ID (e.g., prod-abc123def4567) or a product ARN.</p>
+   * The unique product identifier in AWS Marketplace. Accepts a product entity ID (e.g., prod-abc123def4567) or a product ARN.
+   *
    * @public
    */
   ProductIdentifier?: string | undefined;
 
   /**
-   * <p>Tags to associate with the revenue attribution upon creation.</p>
+   * Tags to associate with the revenue attribution upon creation.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1025,43 +1180,50 @@ export interface CreateRevenueAttributionInput {
  */
 export interface CreateRevenueAttributionOutput {
   /**
-   * <p>The unique identifier of the newly created revenue attribution.</p>
+   * The unique identifier of the newly created revenue attribution.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the newly created revenue attribution.</p>
+   * The Amazon Resource Name (ARN) of the newly created revenue attribution.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The name of the revenue attribution.</p>
+   * The name of the revenue attribution.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The description of the revenue attribution.</p>
+   * The description of the revenue attribution.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The tenancy model for this revenue attribution.</p>
+   * The tenancy model for this revenue attribution.
+   *
    * @public
    */
   TenancyModel: TenancyModel | undefined;
 
   /**
-   * <p>The associated AWS Marketplace product listing, if set at creation.</p>
+   * The associated AWS Marketplace product listing, if set at creation.
+   *
    * @public
    */
   MarketplaceProduct?: MarketplaceProductSummary | undefined;
 
   /**
-   * <p>The revision of the newly created attribution resource.</p>
+   * The revision of the newly created attribution resource.
+   *
    * @public
    */
   Revision?: string | undefined;
@@ -1072,19 +1234,22 @@ export interface CreateRevenueAttributionOutput {
  */
 export interface GetRevenueAttributionInput {
   /**
-   * <p>The catalog that the revenue attribution belongs to.</p>
+   * The catalog that the revenue attribution belongs to.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The unique identifier of the revenue attribution to retrieve. Accepts a direct ID or ARN.</p>
+   * The unique identifier of the revenue attribution to retrieve. Accepts a direct ID or ARN.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The revision of the attribution to retrieve. Omit to return the latest revision.</p>
+   * The revision of the attribution to retrieve. Omit to return the latest revision.
+   *
    * @public
    */
   Revision?: string | undefined;
@@ -1095,91 +1260,106 @@ export interface GetRevenueAttributionInput {
  */
 export interface GetRevenueAttributionOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the revenue attribution.</p>
+   * The Amazon Resource Name (ARN) of the revenue attribution.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the revenue attribution.</p>
+   * The unique identifier of the revenue attribution.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The catalog that the revenue attribution belongs to.</p>
+   * The catalog that the revenue attribution belongs to.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The display name of the revenue attribution.</p>
+   * The display name of the revenue attribution.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of the revenue attribution.</p>
+   * A description of the revenue attribution.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The tenancy model for this revenue attribution.</p>
+   * The tenancy model for this revenue attribution.
+   *
    * @public
    */
   TenancyModel: TenancyModel | undefined;
 
   /**
-   * <p>The associated AWS Marketplace product listing, if set.</p>
+   * The associated AWS Marketplace product listing, if set.
+   *
    * @public
    */
   MarketplaceProduct?: MarketplaceProductSummary | undefined;
 
   /**
-   * <p>The date when the revenue attribution was created.</p>
+   * The date when the revenue attribution was created.
+   *
    * @public
    */
   CreatedDate?: Date | undefined;
 
   /**
-   * <p>The date when the revenue attribution was last modified.</p>
+   * The date when the revenue attribution was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The revision of the retrieved attribution.</p>
+   * The revision of the retrieved attribution.
+   *
    * @public
    */
   Revision?: string | undefined;
 
   /**
-   * <p>The latest revision of the attribution.</p>
+   * The latest revision of the attribution.
+   *
    * @public
    */
   LatestRevision?: string | undefined;
 
   /**
-   * <p>The date from which this revenue attribution is effective, derived from the earliest allocation start date (YYYY-MM-DD).</p>
+   * The date from which this revenue attribution is effective, derived from the earliest allocation start date (YYYY-MM-DD).
+   *
    * @public
    */
   EffectiveFrom?: string | undefined;
 
   /**
-   * <p>The date until which this revenue attribution is effective, derived from the latest allocation end date (YYYY-MM-DD).</p>
+   * The date until which this revenue attribution is effective, derived from the latest allocation end date (YYYY-MM-DD).
+   *
    * @public
    */
   EffectiveUntil?: string | undefined;
 
   /**
-   * <p>The total number of allocations under this revenue attribution whose Status is ACTIVE.</p>
+   * The total number of allocations under this revenue attribution whose Status is ACTIVE.
+   *
    * @public
    */
   TotalActiveRevenueAttributionAllocationCount?: number | undefined;
 
   /**
-   * <p>The total number of allocations under this revenue attribution, counting both ACTIVE and INACTIVE.</p>
+   * The total number of allocations under this revenue attribution, counting both ACTIVE and INACTIVE.
+   *
    * @public
    */
   TotalRevenueAttributionAllocationCount?: number | undefined;
@@ -1190,25 +1370,29 @@ export interface GetRevenueAttributionOutput {
  */
 export interface GetRevenueAttributionAllocationInput {
   /**
-   * <p>The catalog that contains the resource.</p>
+   * The catalog that contains the resource.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The revenue attribution identifier.</p>
+   * The revenue attribution identifier.
+   *
    * @public
    */
   RevenueAttributionIdentifier: string | undefined;
 
   /**
-   * <p>The allocation identifier.</p>
+   * The allocation identifier.
+   *
    * @public
    */
   RevenueAttributionAllocationId: string | undefined;
 
   /**
-   * <p>Point-in-time revision number to query.</p>
+   * Point-in-time revision number to query.
+   *
    * @public
    */
   RevenueAttributionRevision?: string | undefined;
@@ -1219,85 +1403,99 @@ export interface GetRevenueAttributionAllocationInput {
  */
 export interface GetRevenueAttributionAllocationOutput {
   /**
-   * <p>Unique allocation identifier.</p>
+   * Unique allocation identifier.
+   *
    * @public
    */
   RevenueAttributionAllocationId: string | undefined;
 
   /**
-   * <p>The revenue attribution identifier.</p>
+   * The revenue attribution identifier.
+   *
    * @public
    */
   RevenueAttributionIdentifier: string | undefined;
 
   /**
-   * <p>The type of the associated deal entity.</p>
+   * The type of the associated deal entity.
+   *
    * @public
    */
   EntityType: EntityType | undefined;
 
   /**
-   * <p>The unique identifier of the associated deal entity.</p>
+   * The unique identifier of the associated deal entity.
+   *
    * @public
    */
   EntityIdentifier: string | undefined;
 
   /**
-   * <p>The display name of the associated deal entity.</p>
+   * The display name of the associated deal entity.
+   *
    * @public
    */
   EntityName?: string | undefined;
 
   /**
-   * <p>The customer AWS account ID for this associated deal entity.</p>
+   * The customer AWS account ID for this associated deal entity.
+   *
    * @public
    */
   CustomerAwsAccountId: string | undefined;
 
   /**
-   * <p>Revenue share percentage.</p>
+   * Revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>First day of the effective month.</p>
+   * First day of the effective month.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>Last day of the effective month.</p>
+   * Last day of the effective month.
+   *
    * @public
    */
   EffectiveUntil: string | undefined;
 
   /**
-   * <p>Current allocation status.</p>
+   * Current allocation status.
+   *
    * @public
    */
   Status: AllocationStatus | undefined;
 
   /**
-   * <p>When the allocation was first created.</p>
+   * When the allocation was first created.
+   *
    * @public
    */
   CreatedDate: Date | undefined;
 
   /**
-   * <p>When the allocation was last modified.</p>
+   * When the allocation was last modified.
+   *
    * @public
    */
   LastModifiedDate: Date | undefined;
 
   /**
-   * <p>The revision of this allocation version.</p>
+   * The revision of this allocation version.
+   *
    * @public
    */
   RevenueAttributionRevision: string | undefined;
 
   /**
-   * <p>The latest committed revision.</p>
+   * The latest committed revision.
+   *
    * @public
    */
   RevenueAttributionLatestRevision: string | undefined;
@@ -1308,73 +1506,85 @@ export interface GetRevenueAttributionAllocationOutput {
  */
 export interface GetRevenueAttributionAllocationsTaskInput {
   /**
-   * <p>The catalog that contains the resource.</p>
+   * The catalog that contains the resource.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The revenue attribution identifier.</p>
+   * The revenue attribution identifier.
+   *
    * @public
    */
   RevenueAttributionIdentifier: string | undefined;
 }
 
 /**
- * <p>Details of a validation error for a single revenue attribution allocation record.</p>
+ * Details of a validation error for a single revenue attribution allocation record.
+ *
  * @public
  */
 export interface RevenueAttributionAllocationErrorDetail {
   /**
-   * <p>The allocation identifier. Present for UPDATE actions; absent for CREATE actions.</p>
+   * The allocation identifier. Present for UPDATE actions; absent for CREATE actions.
+   *
    * @public
    */
   RevenueAttributionAllocationId?: string | undefined;
 
   /**
-   * <p>The deal entity type of the failing record.</p>
+   * The deal entity type of the failing record.
+   *
    * @public
    */
   EntityType: EntityType | undefined;
 
   /**
-   * <p>The deal entity identifier of the failing record.</p>
+   * The deal entity identifier of the failing record.
+   *
    * @public
    */
   EntityId: string | undefined;
 
   /**
-   * <p>The customer AWS account ID of the failing record.</p>
+   * The customer AWS account ID of the failing record.
+   *
    * @public
    */
   CustomerAwsAccountId: string | undefined;
 
   /**
-   * <p>Effective start date of the failing record.</p>
+   * Effective start date of the failing record.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>Effective end date of the failing record.</p>
+   * Effective end date of the failing record.
+   *
    * @public
    */
   EffectiveUntil: string | undefined;
 
   /**
-   * <p>The action that was attempted.</p>
+   * The action that was attempted.
+   *
    * @public
    */
   Action: RevenueAttributionAllocationAction | undefined;
 
   /**
-   * <p>Machine-readable error code.</p>
+   * Machine-readable error code.
+   *
    * @public
    */
   ErrorCode: RevenueAttributionAllocationErrorCode | undefined;
 
   /**
-   * <p>Human-readable error description.</p>
+   * Human-readable error description.
+   *
    * @public
    */
   ErrorMessage: string | undefined;
@@ -1385,61 +1595,71 @@ export interface RevenueAttributionAllocationErrorDetail {
  */
 export interface GetRevenueAttributionAllocationsTaskOutput {
   /**
-   * <p>The unique identifier for the asynchronous task.</p>
+   * The unique identifier for the asynchronous task.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>Current task status.</p>
+   * Current task status.
+   *
    * @public
    */
   Status: RevenueAttributionAllocationTaskStatus | undefined;
 
   /**
-   * <p>The catalog used for this task.</p>
+   * The catalog used for this task.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>ARN of the revenue attribution resource.</p>
+   * ARN of the revenue attribution resource.
+   *
    * @public
    */
   RevenueAttributionArn: string | undefined;
 
   /**
-   * <p>When processing started.</p>
+   * When processing started.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>When processing ended. Only present when COMPLETE or FAILED.</p>
+   * When processing ended. Only present when COMPLETE or FAILED.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 
   /**
-   * <p>Total revenue attribution allocation records in the batch.</p>
+   * Total revenue attribution allocation records in the batch.
+   *
    * @public
    */
   TotalRevenueAttributionAllocationRecords: number | undefined;
 
   /**
-   * <p>Human-readable description, if provided at creation.</p>
+   * Human-readable description, if provided at creation.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The revision number assigned to this batch. Only present when COMPLETE.</p>
+   * The revision number assigned to this batch. Only present when COMPLETE.
+   *
    * @public
    */
   RevenueAttributionLatestRevision?: string | undefined;
 
   /**
-   * <p>All errors discovered during async processing. Only present when FAILED.</p>
+   * All errors discovered during async processing. Only present when FAILED.
+   *
    * @public
    */
   ErrorDetailList?: RevenueAttributionAllocationErrorDetail[] | undefined;
@@ -1450,157 +1670,183 @@ export interface GetRevenueAttributionAllocationsTaskOutput {
  */
 export interface ListRevenueAttributionAllocationsInput {
   /**
-   * <p>The catalog that contains the resource.</p>
+   * The catalog that contains the resource.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The revenue attribution identifier to query.</p>
+   * The revenue attribution identifier to query.
+   *
    * @public
    */
   RevenueAttributionIdentifier: string | undefined;
 
   /**
-   * <p>Filter by deal entity types.</p>
+   * Filter by deal entity types.
+   *
    * @public
    */
   EntityTypeFilters?: EntityType[] | undefined;
 
   /**
-   * <p>Filter by deal entity identifiers.</p>
+   * Filter by deal entity identifiers.
+   *
    * @public
    */
   EntityIdentifierFilters?: string[] | undefined;
 
   /**
-   * <p>Filter by customer AWS account IDs for associated deal entities.</p>
+   * Filter by customer AWS account IDs for associated deal entities.
+   *
    * @public
    */
   CustomerAwsAccountIdFilters?: string[] | undefined;
 
   /**
-   * <p>Filter by allocation status.</p>
+   * Filter by allocation status.
+   *
    * @public
    */
   StatusFilter?: AllocationStatus | undefined;
 
   /**
-   * <p>Inclusive lower bound for EffectiveFrom date filter.</p>
+   * Inclusive lower bound for EffectiveFrom date filter.
+   *
    * @public
    */
   AfterEffectiveFrom?: string | undefined;
 
   /**
-   * <p>Exclusive upper bound for EffectiveFrom date filter (half-open range).</p>
+   * Exclusive upper bound for EffectiveFrom date filter (half-open range).
+   *
    * @public
    */
   BeforeEffectiveFrom?: string | undefined;
 
   /**
-   * <p>Inclusive lower bound for EffectiveUntil date filter.</p>
+   * Inclusive lower bound for EffectiveUntil date filter.
+   *
    * @public
    */
   AfterEffectiveUntil?: string | undefined;
 
   /**
-   * <p>Exclusive upper bound for EffectiveUntil date filter (half-open range).</p>
+   * Exclusive upper bound for EffectiveUntil date filter (half-open range).
+   *
    * @public
    */
   BeforeEffectiveUntil?: string | undefined;
 
   /**
-   * <p>Field to sort by.</p>
+   * Field to sort by.
+   *
    * @public
    */
   SortBy?: RevenueAttributionAllocationSortField | undefined;
 
   /**
-   * <p>Sort direction. Defaults to ASCENDING.</p>
+   * Sort direction. Defaults to ASCENDING.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>Point-in-time revision number to query.</p>
+   * Point-in-time revision number to query.
+   *
    * @public
    */
   RevenueAttributionRevision?: string | undefined;
 
   /**
-   * <p>Maximum results per page.</p>
+   * Maximum results per page.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token from previous response.</p>
+   * Pagination token from previous response.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a revenue attribution allocation.</p>
+ * Summary information about a revenue attribution allocation.
+ *
  * @public
  */
 export interface RevenueAttributionAllocationSummary {
   /**
-   * <p>Unique allocation identifier.</p>
+   * Unique allocation identifier.
+   *
    * @public
    */
   RevenueAttributionAllocationId: string | undefined;
 
   /**
-   * <p>The revenue attribution identifier.</p>
+   * The revenue attribution identifier.
+   *
    * @public
    */
   RevenueAttributionIdentifier: string | undefined;
 
   /**
-   * <p>The type of the associated deal entity.</p>
+   * The type of the associated deal entity.
+   *
    * @public
    */
   EntityType: EntityType | undefined;
 
   /**
-   * <p>The unique identifier of the associated deal entity.</p>
+   * The unique identifier of the associated deal entity.
+   *
    * @public
    */
   EntityIdentifier: string | undefined;
 
   /**
-   * <p>The display name of the associated deal entity.</p>
+   * The display name of the associated deal entity.
+   *
    * @public
    */
   EntityName?: string | undefined;
 
   /**
-   * <p>The customer AWS account ID for this associated deal entity.</p>
+   * The customer AWS account ID for this associated deal entity.
+   *
    * @public
    */
   CustomerAwsAccountId: string | undefined;
 
   /**
-   * <p>Revenue share percentage.</p>
+   * Revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>First day of the effective month.</p>
+   * First day of the effective month.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>Last day of the effective month.</p>
+   * Last day of the effective month.
+   *
    * @public
    */
   EffectiveUntil: string | undefined;
 
   /**
-   * <p>Current allocation status.</p>
+   * Current allocation status.
+   *
    * @public
    */
   Status: AllocationStatus | undefined;
@@ -1611,13 +1857,15 @@ export interface RevenueAttributionAllocationSummary {
  */
 export interface ListRevenueAttributionAllocationsOutput {
   /**
-   * <p>Paginated list of allocations matching filters.</p>
+   * Paginated list of allocations matching filters.
+   *
    * @public
    */
   RevenueAttributionAllocationSummaries: RevenueAttributionAllocationSummary[] | undefined;
 
   /**
-   * <p>Token for next page. Absent if no more results.</p>
+   * Token for next page. Absent if no more results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1628,49 +1876,57 @@ export interface ListRevenueAttributionAllocationsOutput {
  */
 export interface ListRevenueAttributionsInput {
   /**
-   * <p>The catalog to list revenue attributions from.</p>
+   * The catalog to list revenue attributions from.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>Filter results to only include revenue attributions with the specified identifiers.</p>
+   * Filter results to only include revenue attributions with the specified identifiers.
+   *
    * @public
    */
   Identifiers?: string[] | undefined;
 
   /**
-   * <p>Filter results to only include revenue attributions created after this timestamp.</p>
+   * Filter results to only include revenue attributions created after this timestamp.
+   *
    * @public
    */
   CreatedAfter?: Date | undefined;
 
   /**
-   * <p>Filter results to only include revenue attributions created before this timestamp.</p>
+   * Filter results to only include revenue attributions created before this timestamp.
+   *
    * @public
    */
   CreatedBefore?: Date | undefined;
 
   /**
-   * <p>The field to sort revenue attributions by.</p>
+   * The field to sort revenue attributions by.
+   *
    * @public
    */
   SortBy?: AttributionSortBy | undefined;
 
   /**
-   * <p>The direction to sort results.</p>
+   * The direction to sort results.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Token for pagination. Use the value returned in the previous response to retrieve the next page.</p>
+   * Token for pagination. Use the value returned in the previous response to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1681,73 +1937,85 @@ export interface ListRevenueAttributionsInput {
  */
 export interface ListRevenueAttributionsOutput {
   /**
-   * <p>The list of revenue attribution summaries.</p>
+   * The list of revenue attribution summaries.
+   *
    * @public
    */
   RevenueAttributionSummaries?: AttributionSummary[] | undefined;
 
   /**
-   * <p>Token for pagination. Present if there are more results available.</p>
+   * Token for pagination. Present if there are more results available.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A single allocation change within a batch request.</p>
+ * A single allocation change within a batch request.
+ *
  * @public
  */
 export interface RevenueShareAllocation {
   /**
-   * <p>The operation type: CREATE or UPDATE.</p>
+   * The operation type: CREATE or UPDATE.
+   *
    * @public
    */
   Action: RevenueAttributionAllocationAction | undefined;
 
   /**
-   * <p>The allocation to update. Required when Action is UPDATE.</p>
+   * The allocation to update. Required when Action is UPDATE.
+   *
    * @public
    */
   RevenueAttributionAllocationId?: string | undefined;
 
   /**
-   * <p>The type of the associated deal entity.</p>
+   * The type of the associated deal entity.
+   *
    * @public
    */
   EntityType: EntityType | undefined;
 
   /**
-   * <p>The unique identifier of the associated deal entity.</p>
+   * The unique identifier of the associated deal entity.
+   *
    * @public
    */
   EntityIdentifier: string | undefined;
 
   /**
-   * <p>The customer AWS account ID for this associated deal entity.</p>
+   * The customer AWS account ID for this associated deal entity.
+   *
    * @public
    */
   CustomerAwsAccountId: string | undefined;
 
   /**
-   * <p>Revenue share percentage.</p>
+   * Revenue share percentage.
+   *
    * @public
    */
   RevenueSharePercent: string | undefined;
 
   /**
-   * <p>The effective start date for this allocation.</p>
+   * The effective start date for this allocation.
+   *
    * @public
    */
   EffectiveFrom: string | undefined;
 
   /**
-   * <p>The effective end date for this allocation.</p>
+   * The effective end date for this allocation.
+   *
    * @public
    */
   EffectiveUntil: string | undefined;
 
   /**
-   * <p>Allocation status. Defaults to ACTIVE on CREATE.</p>
+   * Allocation status. Defaults to ACTIVE on CREATE.
+   *
    * @public
    */
   Status?: AllocationStatus | undefined;
@@ -1758,37 +2026,43 @@ export interface RevenueShareAllocation {
  */
 export interface StartRevenueAttributionAllocationsTaskInput {
   /**
-   * <p>The catalog context for this operation.</p>
+   * The catalog context for this operation.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The revenue attribution identifier.</p>
+   * The revenue attribution identifier.
+   *
    * @public
    */
   RevenueAttributionIdentifier: string | undefined;
 
   /**
-   * <p>Current revision of the revenue attribution for optimistic locking.</p>
+   * Current revision of the revenue attribution for optimistic locking.
+   *
    * @public
    */
   RevenueAttributionRevision: string | undefined;
 
   /**
-   * <p>The list of allocation changes to process in this batch.</p>
+   * The list of allocation changes to process in this batch.
+   *
    * @public
    */
   RevenueShareAllocations: RevenueShareAllocation[] | undefined;
 
   /**
-   * <p>Idempotency token for deduplication and retry.</p>
+   * Idempotency token for deduplication and retry.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Human-readable description of the batch.</p>
+   * Human-readable description of the batch.
+   *
    * @public
    */
   Description?: string | undefined;
@@ -1799,37 +2073,43 @@ export interface StartRevenueAttributionAllocationsTaskInput {
  */
 export interface StartRevenueAttributionAllocationsTaskOutput {
   /**
-   * <p>Unique identifier for the submitted task.</p>
+   * Unique identifier for the submitted task.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>Initial task status. Always IN_PROGRESS on successful submission.</p>
+   * Initial task status. Always IN_PROGRESS on successful submission.
+   *
    * @public
    */
   Status: RevenueAttributionAllocationTaskStatus | undefined;
 
   /**
-   * <p>The catalog used for this task.</p>
+   * The catalog used for this task.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>ARN of the revenue attribution resource.</p>
+   * ARN of the revenue attribution resource.
+   *
    * @public
    */
   RevenueAttributionArn: string | undefined;
 
   /**
-   * <p>When processing started.</p>
+   * When processing started.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>Total revenue attribution allocation records in the batch.</p>
+   * Total revenue attribution allocation records in the batch.
+   *
    * @public
    */
   TotalRevenueAttributionAllocationRecords: number | undefined;
@@ -1840,31 +2120,36 @@ export interface StartRevenueAttributionAllocationsTaskOutput {
  */
 export interface UpdateRevenueAttributionInput {
   /**
-   * <p>The catalog that the revenue attribution belongs to.</p>
+   * The catalog that the revenue attribution belongs to.
+   *
    * @public
    */
   Catalog: CatalogName | undefined;
 
   /**
-   * <p>The unique identifier of the revenue attribution to update. Accepts a direct ID or ARN.</p>
+   * The unique identifier of the revenue attribution to update. Accepts a direct ID or ARN.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique token to ensure idempotency of the update request.</p>
+   * A unique token to ensure idempotency of the update request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The updated description of the revenue attribution.</p>
+   * The updated description of the revenue attribution.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The current revision of the revenue attribution. Must match the server's current value.</p>
+   * The current revision of the revenue attribution. Must match the server's current value.
+   *
    * @public
    */
   Revision: string | undefined;
@@ -1875,31 +2160,36 @@ export interface UpdateRevenueAttributionInput {
  */
 export interface UpdateRevenueAttributionOutput {
   /**
-   * <p>The unique identifier of the updated revenue attribution.</p>
+   * The unique identifier of the updated revenue attribution.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated revenue attribution.</p>
+   * The Amazon Resource Name (ARN) of the updated revenue attribution.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The updated description of the revenue attribution.</p>
+   * The updated description of the revenue attribution.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The date when the attribution was last modified.</p>
+   * The date when the attribution was last modified.
+   *
    * @public
    */
   LastModifiedDate: Date | undefined;
 
   /**
-   * <p>The latest revision of the attribution after the update.</p>
+   * The latest revision of the attribution after the update.
+   *
    * @public
    */
   LatestRevision?: string | undefined;
@@ -1910,7 +2200,8 @@ export interface UpdateRevenueAttributionOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+   * The Amazon Resource Name (ARN) of the resource to list tags for.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1921,7 +2212,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1932,13 +2224,15 @@ export interface ListTagsForResourceOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource.</p>
+   * The tags to add to the resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -1949,13 +2243,15 @@ export interface TagResourceInput {
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the resource to remove tags from.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys to remove from the resource.</p>
+   * The tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

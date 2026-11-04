@@ -23,11 +23,10 @@ export interface StopDBClusterCommandInput extends StopDBClusterMessage {}
 export interface StopDBClusterCommandOutput extends StopDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
- *       retains the DB cluster's metadata, including its endpoints and DB parameter
- *       groups.</p>
- *          <p>Neptune also retains the transaction logs so you can do a point-in-time
- *       restore if necessary.</p>
+ * Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune retains the DB cluster's metadata, including its endpoints and DB parameter groups.
+ *
+ * Neptune also retains the transaction logs so you can do a point-in-time restore if necessary.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -150,18 +149,20 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

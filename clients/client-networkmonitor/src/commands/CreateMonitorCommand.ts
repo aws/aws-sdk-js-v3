@@ -23,39 +23,17 @@ export interface CreateMonitorCommandInput extends CreateMonitorInput {}
 export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a monitor between a source subnet and destination IP address. Within a monitor you'll create one or more probes that monitor network traffic between your source Amazon Web Services VPC subnets and your destination IP addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch.</p>
- *          <p>You can also create a monitor with probes using this command. For each probe, you
- *             define the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>source</code>—The subnet IDs where the probes will be created.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>destination</code>— The target destination IP address for the
- *                     probe.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>destinationPort</code>—Required only if the protocol is
- *                     <code>TCP</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>protocol</code>—The communication protocol between the source and
- *                     destination. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>packetSize</code>—The size of the packets. This must be a number between
- *                         <code>56</code> and <code>8500</code>.</p>
- *             </li>
- *             <li>
- *                <p>(Optional) <code>tags</code> —Key-value pairs created and assigned to the
- *                     probe.</p>
- *             </li>
- *          </ul>
+ * Creates a monitor between a source subnet and destination IP address. Within a monitor you'll create one or more probes that monitor network traffic between your source Amazon Web Services VPC subnets and your destination IP addresses. Each probe then aggregates and sends metrics to Amazon CloudWatch.
+ *
+ * You can also create a monitor with probes using this command. For each probe, you define the following:
+ *
+ * - `source`—The subnet IDs where the probes will be created.
+ * - `destination`— The target destination IP address for the probe.
+ * - `destinationPort`—Required only if the protocol is `TCP`.
+ * - `protocol`—The communication protocol between the source and destination. This will be either `TCP` or `ICMP`.
+ * - `packetSize`—The size of the packets. This must be a number between `56` and `8500`.
+ * - (Optional) `tags` —Key-value pairs created and assigned to the probe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,26 +83,32 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  * @see {@link NetworkMonitorClientResolvedConfig | config} for NetworkMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling</p>
+ *
+ * The request was denied due to request throttling
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link NetworkMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkMonitor service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateIngressPointCommandInput extends UpdateIngressPointReques
 export interface UpdateIngressPointCommandOutput extends UpdateIngressPointResponse, __MetadataBearer {}
 
 /**
- * <p>Update attributes of a provisioned ingress endpoint resource.</p>
+ * Update attributes of a provisioned ingress endpoint resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +65,20 @@ export interface UpdateIngressPointCommandOutput extends UpdateIngressPointRespo
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when a requested resource is not found.</p>
+ *
+ * Occurs when a requested resource is not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @example Update Open/Auth IngressPoint with new Name
  * ```javascript

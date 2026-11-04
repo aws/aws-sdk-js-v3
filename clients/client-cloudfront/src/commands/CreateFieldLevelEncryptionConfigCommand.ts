@@ -26,7 +26,8 @@ export interface CreateFieldLevelEncryptionConfigCommandInput extends CreateFiel
 export interface CreateFieldLevelEncryptionConfigCommandOutput extends CreateFieldLevelEncryptionConfigResult, __MetadataBearer {}
 
 /**
- * <p>Create a new field-level encryption configuration.</p>
+ * Create a new field-level encryption configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,32 +116,40 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput extends CreateFie
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link FieldLevelEncryptionConfigAlreadyExists} (client fault)
- *  <p>The specified configuration for field-level encryption already exists.</p>
+ *
+ * The specified configuration for field-level encryption already exists.
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
+ *
+ * The value of `Quantity` and the size of `Items` don't match.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
- *  <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ * The specified profile for field-level encryption doesn't exist.
  *
  * @throws {@link QueryArgProfileEmpty} (client fault)
- *  <p>No profile specified for the field-level encryption query argument.</p>
+ *
+ * No profile specified for the field-level encryption query argument.
  *
  * @throws {@link TooManyFieldLevelEncryptionConfigs} (client fault)
- *  <p>The maximum number of configurations for field-level encryption have been created.</p>
+ *
+ * The maximum number of configurations for field-level encryption have been created.
  *
  * @throws {@link TooManyFieldLevelEncryptionContentTypeProfiles} (client fault)
- *  <p>The maximum number of content type profiles for field-level encryption have been created.</p>
+ *
+ * The maximum number of content type profiles for field-level encryption have been created.
  *
  * @throws {@link TooManyFieldLevelEncryptionQueryArgProfiles} (client fault)
- *  <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
+ *
+ * The maximum number of query arg profiles for field-level encryption have been created.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

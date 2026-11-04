@@ -23,11 +23,8 @@ export interface CreateProbeCommandInput extends CreateProbeInput {}
 export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataBearer {}
 
 /**
- * <p>Create a probe within a monitor. Once you create a probe, and it begins monitoring your
- *             network traffic, you'll incur billing charges for that probe. This action requires the
- *                 <code>monitorName</code> parameter. Run <code>ListMonitors</code> to get a list of
- *             monitor names. Note the name of the <code>monitorName</code> you want to create the
- *             probe for.</p>
+ * Create a probe within a monitor. Once you create a probe, and it begins monitoring your network traffic, you'll incur billing charges for that probe. This action requires the `monitorName` parameter. Run `ListMonitors` to get a list of monitor names. Note the name of the `monitorName` you want to create the probe for.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,26 +79,32 @@ export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataB
  * @see {@link NetworkMonitorClientResolvedConfig | config} for NetworkMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling</p>
+ *
+ * The request was denied due to request throttling
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link NetworkMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkMonitor service.
  *
  * @public
  */

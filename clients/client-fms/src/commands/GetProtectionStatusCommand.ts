@@ -23,8 +23,8 @@ export interface GetProtectionStatusCommandInput extends GetProtectionStatusRequ
 export interface GetProtectionStatusCommandOutput extends GetProtectionStatusResponse, __MetadataBearer {}
 
 /**
- * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
- *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
+ * If you created a Shield Advanced policy, returns policy-level attack summary information in the event of a potential DDoS attack. Other policy types are currently unsupported.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,18 +59,20 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (client fault)
- *  <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ *
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The parameters of the request were invalid.</p>
+ *
+ * The parameters of the request were invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link FMSServiceException}
- * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ * Base exception class for all service exceptions from FMS service.
  *
  * @public
  */

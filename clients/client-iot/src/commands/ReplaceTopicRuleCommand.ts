@@ -23,10 +23,10 @@ export interface ReplaceTopicRuleCommandInput extends ReplaceTopicRuleRequest {}
 export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Replaces the rule. You must specify all parameters for the new rule. Creating rules
- *          is an administrator-level action. Any user who has permission to create rules will be able
- *          to access data processed by the rule.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ReplaceTopicRule</a> action.</p>
+ * Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
+ *
+ * Requires permission to access the [ReplaceTopicRule](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -519,27 +519,32 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictingResourceUpdateException} (client fault)
- *  <p>A conflicting resource update exception. This exception is thrown when two pending
- *          updates cause a conflict.</p>
+ *
+ * A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link SqlParseException} (client fault)
- *  <p>The Rule-SQL expression can't be parsed correctly.</p>
+ *
+ * The Rule-SQL expression can't be parsed correctly.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

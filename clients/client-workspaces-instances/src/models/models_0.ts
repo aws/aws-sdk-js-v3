@@ -26,1627 +26,1898 @@ import type {
 } from "./enums";
 
 /**
- * <p>Specifies volume attachment parameters.</p>
+ * Specifies volume attachment parameters.
+ *
  * @public
  */
 export interface AssociateVolumeRequest {
   /**
-   * <p>WorkSpace Instance to attach volume to.</p>
+   * WorkSpace Instance to attach volume to.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 
   /**
-   * <p>Volume to be attached.</p>
+   * Volume to be attached.
+   *
    * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * <p>Device path for volume attachment.</p>
+   * Device path for volume attachment.
+   *
    * @public
    */
   Device: string | undefined;
 }
 
 /**
- * <p>Confirms volume attachment.</p>
+ * Confirms volume attachment.
+ *
  * @public
  */
 export interface AssociateVolumeResponse {}
 
 /**
- * <p>Represents a validation error field in an API request.</p>
+ * Represents a validation error field in an API request.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>Name of the field that failed validation.</p>
+   * Name of the field that failed validation.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Reason for the validation failure.</p>
+   * Reason for the validation failure.
+   *
    * @public
    */
   Reason: string | undefined;
 
   /**
-   * <p>Detailed error message describing the validation issue.</p>
+   * Detailed error message describing the validation issue.
+   *
    * @public
    */
   Message: string | undefined;
 }
 
 /**
- * <p>Defines billing configuration settings for WorkSpace Instances, containing the billing mode selection.</p>
+ * Defines billing configuration settings for WorkSpace Instances, containing the billing mode selection.
+ *
  * @public
  */
 export interface BillingConfiguration {
   /**
-   * <p>Specifies the billing mode for WorkSpace Instances. MONTHLY provides fixed monthly rates for predictable budgeting, while HOURLY enables pay-per-second billing for actual usage.</p>
+   * Specifies the billing mode for WorkSpace Instances. MONTHLY provides fixed monthly rates for predictable budgeting, while HOURLY enables pay-per-second billing for actual usage.
+   *
    * @public
    */
   BillingMode: BillingMode | undefined;
 }
 
 /**
- * <p>Defines configuration for an Elastic Block Store volume.</p>
+ * Defines configuration for an Elastic Block Store volume.
+ *
  * @public
  */
 export interface EbsBlockDevice {
   /**
-   * <p>Type of EBS volume (e.g., gp2, io1).</p>
+   * Type of EBS volume (e.g., gp2, io1).
+   *
    * @public
    */
   VolumeType?: VolumeTypeEnum | undefined;
 
   /**
-   * <p>Indicates if the volume is encrypted.</p>
+   * Indicates if the volume is encrypted.
+   *
    * @public
    */
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>KMS key used for volume encryption.</p>
+   * KMS key used for volume encryption.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>Input/output operations per second for the volume.</p>
+   * Input/output operations per second for the volume.
+   *
    * @public
    */
   Iops?: number | undefined;
 
   /**
-   * <p>Volume data transfer rate.</p>
+   * Volume data transfer rate.
+   *
    * @public
    */
   Throughput?: number | undefined;
 
   /**
-   * <p>Size of the EBS volume in gigabytes.</p>
+   * Size of the EBS volume in gigabytes.
+   *
    * @public
    */
   VolumeSize?: number | undefined;
 }
 
 /**
- * <p>Defines device mapping for WorkSpace Instance storage.</p>
+ * Defines device mapping for WorkSpace Instance storage.
+ *
  * @public
  */
 export interface BlockDeviceMappingRequest {
   /**
-   * <p>Name of the device for storage mapping.</p>
+   * Name of the device for storage mapping.
+   *
    * @public
    */
   DeviceName?: string | undefined;
 
   /**
-   * <p>EBS volume configuration for the device.</p>
+   * EBS volume configuration for the device.
+   *
    * @public
    */
   Ebs?: EbsBlockDevice | undefined;
 
   /**
-   * <p>Indicates device should not be mapped.</p>
+   * Indicates device should not be mapped.
+   *
    * @public
    */
   NoDevice?: string | undefined;
 
   /**
-   * <p>Virtual device name for ephemeral storage.</p>
+   * Virtual device name for ephemeral storage.
+   *
    * @public
    */
   VirtualName?: string | undefined;
 }
 
 /**
- * <p>Identifies a specific capacity reservation.</p>
+ * Identifies a specific capacity reservation.
+ *
  * @public
  */
 export interface CapacityReservationTarget {
   /**
-   * <p>Unique identifier for the capacity reservation.</p>
+   * Unique identifier for the capacity reservation.
+   *
    * @public
    */
   CapacityReservationId?: string | undefined;
 
   /**
-   * <p>ARN of the capacity reservation resource group.</p>
+   * ARN of the capacity reservation resource group.
+   *
    * @public
    */
   CapacityReservationResourceGroupArn?: string | undefined;
 }
 
 /**
- * <p>Specifies capacity reservation preferences.</p>
+ * Specifies capacity reservation preferences.
+ *
  * @public
  */
 export interface CapacityReservationSpecification {
   /**
-   * <p>Preference for using capacity reservation.</p>
+   * Preference for using capacity reservation.
+   *
    * @public
    */
   CapacityReservationPreference?: CapacityReservationPreferenceEnum | undefined;
 
   /**
-   * <p>Specific capacity reservation target.</p>
+   * Specific capacity reservation target.
+   *
    * @public
    */
   CapacityReservationTarget?: CapacityReservationTarget | undefined;
 }
 
 /**
- * <p>Defines connection tracking parameters for network interfaces.</p>
+ * Defines connection tracking parameters for network interfaces.
+ *
  * @public
  */
 export interface ConnectionTrackingSpecificationRequest {
   /**
-   * <p>Timeout for established TCP connections.</p>
+   * Timeout for established TCP connections.
+   *
    * @public
    */
   TcpEstablishedTimeout?: number | undefined;
 
   /**
-   * <p>Timeout for UDP stream connections.</p>
+   * Timeout for UDP stream connections.
+   *
    * @public
    */
   UdpStreamTimeout?: number | undefined;
 
   /**
-   * <p>General timeout for UDP connections.</p>
+   * General timeout for UDP connections.
+   *
    * @public
    */
   UdpTimeout?: number | undefined;
 }
 
 /**
- * <p>Configures CPU-specific settings for WorkSpace Instance.</p>
+ * Configures CPU-specific settings for WorkSpace Instance.
+ *
  * @public
  */
 export interface CpuOptionsRequest {
   /**
-   * <p>AMD Secure Encrypted Virtualization configuration.</p>
+   * AMD Secure Encrypted Virtualization configuration.
+   *
    * @public
    */
   AmdSevSnp?: AmdSevSnpEnum | undefined;
 
   /**
-   * <p>Number of CPU cores to allocate.</p>
+   * Number of CPU cores to allocate.
+   *
    * @public
    */
   CoreCount?: number | undefined;
 
   /**
-   * <p>Number of threads per CPU core.</p>
+   * Number of threads per CPU core.
+   *
    * @public
    */
   ThreadsPerCore?: number | undefined;
 
   /**
-   * <p>Specifies whether to enable or disable nested virtualization.</p>
+   * Specifies whether to enable or disable nested virtualization.
+   *
    * @public
    */
   NestedVirtualization?: NestedVirtualizationEnum | undefined;
 }
 
 /**
- * <p>Represents a key-value metadata tag.</p>
+ * Represents a key-value metadata tag.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>Unique identifier for the tag.</p>
+   * Unique identifier for the tag.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>Value associated with the tag key.</p>
+   * Value associated with the tag key.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Defines tagging configuration for a resource.</p>
+ * Defines tagging configuration for a resource.
+ *
  * @public
  */
 export interface TagSpecification {
   /**
-   * <p>Type of resource being tagged.</p>
+   * Type of resource being tagged.
+   *
    * @public
    */
   ResourceType?: ResourceTypeEnum | undefined;
 
   /**
-   * <p>Collection of tags for the specified resource.</p>
+   * Collection of tags for the specified resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Specifies volume creation parameters.</p>
+ * Specifies volume creation parameters.
+ *
  * @public
  */
 export interface CreateVolumeRequest {
   /**
-   * <p>Availability zone for the volume.</p>
+   * Availability zone for the volume.
+   *
    * @public
    */
   AvailabilityZone: string | undefined;
 
   /**
-   * <p>Unique token to prevent duplicate volume creation.</p>
+   * Unique token to prevent duplicate volume creation.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Indicates if the volume should be encrypted.</p>
+   * Indicates if the volume should be encrypted.
+   *
    * @public
    */
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>Input/output operations per second for the volume.</p>
+   * Input/output operations per second for the volume.
+   *
    * @public
    */
   Iops?: number | undefined;
 
   /**
-   * <p>KMS key for volume encryption.</p>
+   * KMS key for volume encryption.
+   *
    * @public
    */
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>Volume size in gigabytes.</p>
+   * Volume size in gigabytes.
+   *
    * @public
    */
   SizeInGB?: number | undefined;
 
   /**
-   * <p>Source snapshot for volume creation.</p>
+   * Source snapshot for volume creation.
+   *
    * @public
    */
   SnapshotId?: string | undefined;
 
   /**
-   * <p>Metadata tags for the volume.</p>
+   * Metadata tags for the volume.
+   *
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
-   * <p>Volume throughput performance.</p>
+   * Volume throughput performance.
+   *
    * @public
    */
   Throughput?: number | undefined;
 
   /**
-   * <p>Type of EBS volume.</p>
+   * Type of EBS volume.
+   *
    * @public
    */
   VolumeType?: VolumeTypeEnum | undefined;
 }
 
 /**
- * <p>Returns the created volume identifier.</p>
+ * Returns the created volume identifier.
+ *
  * @public
  */
 export interface CreateVolumeResponse {
   /**
-   * <p>Unique identifier for the new volume.</p>
+   * Unique identifier for the new volume.
+   *
    * @public
    */
   VolumeId?: string | undefined;
 }
 
 /**
- * <p>Defines CPU credit configuration for burstable instances.</p>
+ * Defines CPU credit configuration for burstable instances.
+ *
  * @public
  */
 export interface CreditSpecificationRequest {
   /**
-   * <p>CPU credit specification mode.</p>
+   * CPU credit specification mode.
+   *
    * @public
    */
   CpuCredits?: CpuCreditsEnum | undefined;
 }
 
 /**
- * <p>Configures AWS Nitro Enclave options for the WorkSpace Instance.</p>
+ * Configures AWS Nitro Enclave options for the WorkSpace Instance.
+ *
  * @public
  */
 export interface EnclaveOptionsRequest {
   /**
-   * <p>Enables or disables AWS Nitro Enclaves for enhanced security.</p>
+   * Enables or disables AWS Nitro Enclaves for enhanced security.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>Defines hibernation configuration for the WorkSpace Instance.</p>
+ * Defines hibernation configuration for the WorkSpace Instance.
+ *
  * @public
  */
 export interface HibernationOptionsRequest {
   /**
-   * <p>Enables or disables instance hibernation capability.</p>
+   * Enables or disables instance hibernation capability.
+   *
    * @public
    */
   Configured?: boolean | undefined;
 }
 
 /**
- * <p>Defines IAM instance profile configuration for WorkSpace Instance.</p>
+ * Defines IAM instance profile configuration for WorkSpace Instance.
+ *
  * @public
  */
 export interface IamInstanceProfileSpecification {
   /**
-   * <p>Amazon Resource Name (ARN) of the IAM instance profile.</p>
+   * Amazon Resource Name (ARN) of the IAM instance profile.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>Name of the IAM instance profile.</p>
+   * Name of the IAM instance profile.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Defines configuration for spot instance deployment.</p>
+ * Defines configuration for spot instance deployment.
+ *
  * @public
  */
 export interface SpotMarketOptions {
   /**
-   * <p>Duration of spot instance block reservation.</p>
+   * Duration of spot instance block reservation.
+   *
    * @public
    */
   BlockDurationMinutes?: number | undefined;
 
   /**
-   * <p>Specifies behavior when spot instance is interrupted.</p>
+   * Specifies behavior when spot instance is interrupted.
+   *
    * @public
    */
   InstanceInterruptionBehavior?: InstanceInterruptionBehaviorEnum | undefined;
 
   /**
-   * <p>Maximum hourly price for spot instance.</p>
+   * Maximum hourly price for spot instance.
+   *
    * @public
    */
   MaxPrice?: string | undefined;
 
   /**
-   * <p>Defines the type of spot instance request.</p>
+   * Defines the type of spot instance request.
+   *
    * @public
    */
   SpotInstanceType?: SpotInstanceTypeEnum | undefined;
 
   /**
-   * <p>Timestamp until which spot instance request is valid.</p>
+   * Timestamp until which spot instance request is valid.
+   *
    * @public
    */
   ValidUntilUtc?: Date | undefined;
 }
 
 /**
- * <p>Configures marketplace-specific instance deployment options.</p>
+ * Configures marketplace-specific instance deployment options.
+ *
  * @public
  */
 export interface InstanceMarketOptionsRequest {
   /**
-   * <p>Specifies the type of marketplace for instance deployment.</p>
+   * Specifies the type of marketplace for instance deployment.
+   *
    * @public
    */
   MarketType?: MarketTypeEnum | undefined;
 
   /**
-   * <p>Configuration options for spot instance deployment.</p>
+   * Configuration options for spot instance deployment.
+   *
    * @public
    */
   SpotOptions?: SpotMarketOptions | undefined;
 }
 
 /**
- * <p>Represents an IPv6 address configuration for a WorkSpace Instance.</p>
+ * Represents an IPv6 address configuration for a WorkSpace Instance.
+ *
  * @public
  */
 export interface InstanceIpv6Address {
   /**
-   * <p>Specific IPv6 address assigned to the instance.</p>
+   * Specific IPv6 address assigned to the instance.
+   *
    * @public
    */
   Ipv6Address?: string | undefined;
 
   /**
-   * <p>Indicates if this is the primary IPv6 address for the instance.</p>
+   * Indicates if this is the primary IPv6 address for the instance.
+   *
    * @public
    */
   IsPrimaryIpv6?: boolean | undefined;
 }
 
 /**
- * <p>Specifies license configuration for WorkSpace Instance.</p>
+ * Specifies license configuration for WorkSpace Instance.
+ *
  * @public
  */
 export interface LicenseConfigurationRequest {
   /**
-   * <p>ARN of the license configuration for the WorkSpace Instance.</p>
+   * ARN of the license configuration for the WorkSpace Instance.
+   *
    * @public
    */
   LicenseConfigurationArn?: string | undefined;
 }
 
 /**
- * <p>Configures automatic maintenance settings for WorkSpace Instance.</p>
+ * Configures automatic maintenance settings for WorkSpace Instance.
+ *
  * @public
  */
 export interface InstanceMaintenanceOptionsRequest {
   /**
-   * <p>Enables or disables automatic instance recovery.</p>
+   * Enables or disables automatic instance recovery.
+   *
    * @public
    */
   AutoRecovery?: AutoRecoveryEnum | undefined;
 }
 
 /**
- * <p>Defines instance metadata service configuration.</p>
+ * Defines instance metadata service configuration.
+ *
  * @public
  */
 export interface InstanceMetadataOptionsRequest {
   /**
-   * <p>Enables or disables HTTP endpoint for instance metadata.</p>
+   * Enables or disables HTTP endpoint for instance metadata.
+   *
    * @public
    */
   HttpEndpoint?: HttpEndpointEnum | undefined;
 
   /**
-   * <p>Configures IPv6 support for instance metadata HTTP protocol.</p>
+   * Configures IPv6 support for instance metadata HTTP protocol.
+   *
    * @public
    */
   HttpProtocolIpv6?: HttpProtocolIpv6Enum | undefined;
 
   /**
-   * <p>Sets maximum number of network hops for metadata PUT responses.</p>
+   * Sets maximum number of network hops for metadata PUT responses.
+   *
    * @public
    */
   HttpPutResponseHopLimit?: number | undefined;
 
   /**
-   * <p>Configures token requirement for instance metadata retrieval.</p>
+   * Configures token requirement for instance metadata retrieval.
+   *
    * @public
    */
   HttpTokens?: HttpTokensEnum | undefined;
 
   /**
-   * <p>Enables or disables instance metadata tags retrieval.</p>
+   * Enables or disables instance metadata tags retrieval.
+   *
    * @public
    */
   InstanceMetadataTags?: InstanceMetadataTagsEnum | undefined;
 }
 
 /**
- * <p>Configures detailed monitoring for WorkSpace Instance.</p>
+ * Configures detailed monitoring for WorkSpace Instance.
+ *
  * @public
  */
 export interface RunInstancesMonitoringEnabled {
   /**
-   * <p>Enables or disables detailed instance monitoring.</p>
+   * Enables or disables detailed instance monitoring.
+   *
    * @public
    */
   Enabled?: boolean | undefined;
 }
 
 /**
- * <p>Specifies UDP configuration for ENA SRD.</p>
+ * Specifies UDP configuration for ENA SRD.
+ *
  * @public
  */
 export interface EnaSrdUdpSpecificationRequest {
   /**
-   * <p>Enables or disables ENA SRD for UDP traffic.</p>
+   * Enables or disables ENA SRD for UDP traffic.
+   *
    * @public
    */
   EnaSrdUdpEnabled?: boolean | undefined;
 }
 
 /**
- * <p>Defines Elastic Network Adapter (ENA) Scalable Reliable Datagram (SRD) configuration.</p>
+ * Defines Elastic Network Adapter (ENA) Scalable Reliable Datagram (SRD) configuration.
+ *
  * @public
  */
 export interface EnaSrdSpecificationRequest {
   /**
-   * <p>Enables or disables ENA SRD for network performance.</p>
+   * Enables or disables ENA SRD for network performance.
+   *
    * @public
    */
   EnaSrdEnabled?: boolean | undefined;
 
   /**
-   * <p>Configures UDP-specific ENA SRD settings.</p>
+   * Configures UDP-specific ENA SRD settings.
+   *
    * @public
    */
   EnaSrdUdpSpecification?: EnaSrdUdpSpecificationRequest | undefined;
 }
 
 /**
- * <p>Specifies IPv4 prefix configuration for network interfaces.</p>
+ * Specifies IPv4 prefix configuration for network interfaces.
+ *
  * @public
  */
 export interface Ipv4PrefixSpecificationRequest {
   /**
-   * <p>Specific IPv4 prefix for network interface configuration.</p>
+   * Specific IPv4 prefix for network interface configuration.
+   *
    * @public
    */
   Ipv4Prefix?: string | undefined;
 }
 
 /**
- * <p>Specifies IPv6 prefix configuration for network interfaces.</p>
+ * Specifies IPv6 prefix configuration for network interfaces.
+ *
  * @public
  */
 export interface Ipv6PrefixSpecificationRequest {
   /**
-   * <p>Specific IPv6 prefix for network interface configuration.</p>
+   * Specific IPv6 prefix for network interface configuration.
+   *
    * @public
    */
   Ipv6Prefix?: string | undefined;
 }
 
 /**
- * <p>Defines private IP address configuration for network interface.</p>
+ * Defines private IP address configuration for network interface.
+ *
  * @public
  */
 export interface PrivateIpAddressSpecification {
   /**
-   * <p>Indicates if this is the primary private IP address.</p>
+   * Indicates if this is the primary private IP address.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>Specific private IP address for the network interface.</p>
+   * Specific private IP address for the network interface.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 }
 
 /**
- * <p>Defines network interface configuration for WorkSpace Instance.</p>
+ * Defines network interface configuration for WorkSpace Instance.
+ *
  * @public
  */
 export interface InstanceNetworkInterfaceSpecification {
   /**
-   * <p>Enables carrier IP address association.</p>
+   * Enables carrier IP address association.
+   *
    * @public
    */
   AssociateCarrierIpAddress?: boolean | undefined;
 
   /**
-   * <p>Enables public IP address assignment.</p>
+   * Enables public IP address assignment.
+   *
    * @public
    */
   AssociatePublicIpAddress?: boolean | undefined;
 
   /**
-   * <p>Configures network connection tracking parameters.</p>
+   * Configures network connection tracking parameters.
+   *
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
 
   /**
-   * <p>Descriptive text for the network interface.</p>
+   * Descriptive text for the network interface.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>Unique index for the network interface.</p>
+   * Unique index for the network interface.
+   *
    * @public
    */
   DeviceIndex?: number | undefined;
 
   /**
-   * <p>Configures Elastic Network Adapter Scalable Reliable Datagram settings.</p>
+   * Configures Elastic Network Adapter Scalable Reliable Datagram settings.
+   *
    * @public
    */
   EnaSrdSpecification?: EnaSrdSpecificationRequest | undefined;
 
   /**
-   * <p>Specifies the type of network interface.</p>
+   * Specifies the type of network interface.
+   *
    * @public
    */
   InterfaceType?: InterfaceTypeEnum | undefined;
 
   /**
-   * <p>IPv4 prefix configurations for the interface.</p>
+   * IPv4 prefix configurations for the interface.
+   *
    * @public
    */
   Ipv4Prefixes?: Ipv4PrefixSpecificationRequest[] | undefined;
 
   /**
-   * <p>Number of IPv4 prefixes to assign.</p>
+   * Number of IPv4 prefixes to assign.
+   *
    * @public
    */
   Ipv4PrefixCount?: number | undefined;
 
   /**
-   * <p>Number of IPv6 addresses to assign.</p>
+   * Number of IPv6 addresses to assign.
+   *
    * @public
    */
   Ipv6AddressCount?: number | undefined;
 
   /**
-   * <p>Specific IPv6 addresses for the interface.</p>
+   * Specific IPv6 addresses for the interface.
+   *
    * @public
    */
   Ipv6Addresses?: InstanceIpv6Address[] | undefined;
 
   /**
-   * <p>IPv6 prefix configurations for the interface.</p>
+   * IPv6 prefix configurations for the interface.
+   *
    * @public
    */
   Ipv6Prefixes?: Ipv6PrefixSpecificationRequest[] | undefined;
 
   /**
-   * <p>Number of IPv6 prefixes to assign.</p>
+   * Number of IPv6 prefixes to assign.
+   *
    * @public
    */
   Ipv6PrefixCount?: number | undefined;
 
   /**
-   * <p>Index of the network card for multiple network interfaces.</p>
+   * Index of the network card for multiple network interfaces.
+   *
    * @public
    */
   NetworkCardIndex?: number | undefined;
 
   /**
-   * <p>Unique identifier for the network interface.</p>
+   * Unique identifier for the network interface.
+   *
    * @public
    */
   NetworkInterfaceId?: string | undefined;
 
   /**
-   * <p>Indicates the primary IPv6 configuration.</p>
+   * Indicates the primary IPv6 configuration.
+   *
    * @public
    */
   PrimaryIpv6?: boolean | undefined;
 
   /**
-   * <p>Primary private IP address for the interface.</p>
+   * Primary private IP address for the interface.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>List of private IP addresses for the interface.</p>
+   * List of private IP addresses for the interface.
+   *
    * @public
    */
   PrivateIpAddresses?: PrivateIpAddressSpecification[] | undefined;
 
   /**
-   * <p>Number of additional private IP addresses to assign.</p>
+   * Number of additional private IP addresses to assign.
+   *
    * @public
    */
   SecondaryPrivateIpAddressCount?: number | undefined;
 
   /**
-   * <p>Security groups associated with the network interface.</p>
+   * Security groups associated with the network interface.
+   *
    * @public
    */
   Groups?: string[] | undefined;
 
   /**
-   * <p>Subnet identifier for the network interface.</p>
+   * Subnet identifier for the network interface.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 }
 
 /**
- * <p>Configures network performance settings for WorkSpace Instance.</p>
+ * Configures network performance settings for WorkSpace Instance.
+ *
  * @public
  */
 export interface InstanceNetworkPerformanceOptionsRequest {
   /**
-   * <p>Defines bandwidth allocation strategy for network interfaces.</p>
+   * Defines bandwidth allocation strategy for network interfaces.
+   *
    * @public
    */
   BandwidthWeighting?: BandwidthWeightingEnum | undefined;
 }
 
 /**
- * <p>Defines instance placement configuration for WorkSpace Instance.</p>
+ * Defines instance placement configuration for WorkSpace Instance.
+ *
  * @public
  */
 export interface Placement {
   /**
-   * <p>Specifies host affinity for dedicated instances.</p>
+   * Specifies host affinity for dedicated instances.
+   *
    * @public
    */
   Affinity?: string | undefined;
 
   /**
-   * <p>Identifies the specific AWS availability zone.</p>
+   * Identifies the specific AWS availability zone.
+   *
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>Unique identifier for placement group.</p>
+   * Unique identifier for placement group.
+   *
    * @public
    */
   GroupId?: string | undefined;
 
   /**
-   * <p>Name of the placement group.</p>
+   * Name of the placement group.
+   *
    * @public
    */
   GroupName?: string | undefined;
 
   /**
-   * <p>Identifies the specific dedicated host.</p>
+   * Identifies the specific dedicated host.
+   *
    * @public
    */
   HostId?: string | undefined;
 
   /**
-   * <p>ARN of the host resource group.</p>
+   * ARN of the host resource group.
+   *
    * @public
    */
   HostResourceGroupArn?: string | undefined;
 
   /**
-   * <p>Specifies partition number for partition placement groups.</p>
+   * Specifies partition number for partition placement groups.
+   *
    * @public
    */
   PartitionNumber?: number | undefined;
 
   /**
-   * <p>Defines instance tenancy configuration.</p>
+   * Defines instance tenancy configuration.
+   *
    * @public
    */
   Tenancy?: TenancyEnum | undefined;
 }
 
 /**
- * <p>Configures private DNS name settings for WorkSpace Instance.</p>
+ * Configures private DNS name settings for WorkSpace Instance.
+ *
  * @public
  */
 export interface PrivateDnsNameOptionsRequest {
   /**
-   * <p>Specifies the type of hostname configuration.</p>
+   * Specifies the type of hostname configuration.
+   *
    * @public
    */
   HostnameType?: HostnameTypeEnum | undefined;
 
   /**
-   * <p>Enables DNS A record for resource name resolution.</p>
+   * Enables DNS A record for resource name resolution.
+   *
    * @public
    */
   EnableResourceNameDnsARecord?: boolean | undefined;
 
   /**
-   * <p>Enables DNS AAAA record for resource name resolution.</p>
+   * Enables DNS AAAA record for resource name resolution.
+   *
    * @public
    */
   EnableResourceNameDnsAAAARecord?: boolean | undefined;
 }
 
 /**
- * <p>Defines comprehensive configuration for a managed WorkSpace Instance.</p>
+ * Defines comprehensive configuration for a managed WorkSpace Instance.
+ *
  * @public
  */
 export interface ManagedInstanceRequest {
   /**
-   * <p>Configures block device mappings for storage.</p>
+   * Configures block device mappings for storage.
+   *
    * @public
    */
   BlockDeviceMappings?: BlockDeviceMappingRequest[] | undefined;
 
   /**
-   * <p>Specifies capacity reservation preferences.</p>
+   * Specifies capacity reservation preferences.
+   *
    * @public
    */
   CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
 
   /**
-   * <p>Configures CPU-specific settings.</p>
+   * Configures CPU-specific settings.
+   *
    * @public
    */
   CpuOptions?: CpuOptionsRequest | undefined;
 
   /**
-   * <p>Defines CPU credit configuration for burstable instances.</p>
+   * Defines CPU credit configuration for burstable instances.
+   *
    * @public
    */
   CreditSpecification?: CreditSpecificationRequest | undefined;
 
   /**
-   * <p>Prevents API-initiated instance stop.</p>
+   * Prevents API-initiated instance stop.
+   *
    * @public
    */
   DisableApiStop?: boolean | undefined;
 
   /**
-   * <p>Enables optimized EBS performance.</p>
+   * Enables optimized EBS performance.
+   *
    * @public
    */
   EbsOptimized?: boolean | undefined;
 
   /**
-   * <p>Enables primary IPv6 address configuration.</p>
+   * Enables primary IPv6 address configuration.
+   *
    * @public
    */
   EnablePrimaryIpv6?: boolean | undefined;
 
   /**
-   * <p>Configures AWS Nitro Enclave settings.</p>
+   * Configures AWS Nitro Enclave settings.
+   *
    * @public
    */
   EnclaveOptions?: EnclaveOptionsRequest | undefined;
 
   /**
-   * <p>Configures instance hibernation capabilities.</p>
+   * Configures instance hibernation capabilities.
+   *
    * @public
    */
   HibernationOptions?: HibernationOptionsRequest | undefined;
 
   /**
-   * <p>Specifies IAM instance profile configuration.</p>
+   * Specifies IAM instance profile configuration.
+   *
    * @public
    */
   IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
 
   /**
-   * <p>Identifies the Amazon Machine Image (AMI) for the instance.</p>
+   * Identifies the Amazon Machine Image (AMI) for the instance.
+   *
    * @public
    */
   ImageId?: string | undefined;
 
   /**
-   * <p>Configures marketplace-specific deployment options.</p>
+   * Configures marketplace-specific deployment options.
+   *
    * @public
    */
   InstanceMarketOptions?: InstanceMarketOptionsRequest | undefined;
 
   /**
-   * <p>Specifies the WorkSpace Instance type.</p>
+   * Specifies the WorkSpace Instance type.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>Configures specific IPv6 addresses.</p>
+   * Configures specific IPv6 addresses.
+   *
    * @public
    */
   Ipv6Addresses?: InstanceIpv6Address[] | undefined;
 
   /**
-   * <p>Specifies number of IPv6 addresses to assign.</p>
+   * Specifies number of IPv6 addresses to assign.
+   *
    * @public
    */
   Ipv6AddressCount?: number | undefined;
 
   /**
-   * <p>Identifies the kernel for the instance.</p>
+   * Identifies the kernel for the instance.
+   *
    * @public
    */
   KernelId?: string | undefined;
 
   /**
-   * <p>Specifies the key pair for instance access.</p>
+   * Specifies the key pair for instance access.
+   *
    * @public
    */
   KeyName?: string | undefined;
 
   /**
-   * <p>Configures license-related settings.</p>
+   * Configures license-related settings.
+   *
    * @public
    */
   LicenseSpecifications?: LicenseConfigurationRequest[] | undefined;
 
   /**
-   * <p>Defines automatic maintenance settings.</p>
+   * Defines automatic maintenance settings.
+   *
    * @public
    */
   MaintenanceOptions?: InstanceMaintenanceOptionsRequest | undefined;
 
   /**
-   * <p>Configures instance metadata service settings.</p>
+   * Configures instance metadata service settings.
+   *
    * @public
    */
   MetadataOptions?: InstanceMetadataOptionsRequest | undefined;
 
   /**
-   * <p>Enables or disables detailed instance monitoring.</p>
+   * Enables or disables detailed instance monitoring.
+   *
    * @public
    */
   Monitoring?: RunInstancesMonitoringEnabled | undefined;
 
   /**
-   * <p>Configures network interface settings.</p>
+   * Configures network interface settings.
+   *
    * @public
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
 
   /**
-   * <p>Defines network performance configuration.</p>
+   * Defines network performance configuration.
+   *
    * @public
    */
   NetworkPerformanceOptions?: InstanceNetworkPerformanceOptionsRequest | undefined;
 
   /**
-   * <p>Specifies instance placement preferences.</p>
+   * Specifies instance placement preferences.
+   *
    * @public
    */
   Placement?: Placement | undefined;
 
   /**
-   * <p>Configures private DNS name settings.</p>
+   * Configures private DNS name settings.
+   *
    * @public
    */
   PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest | undefined;
 
   /**
-   * <p>Specifies the primary private IP address.</p>
+   * Specifies the primary private IP address.
+   *
    * @public
    */
   PrivateIpAddress?: string | undefined;
 
   /**
-   * <p>Identifies the ramdisk for the instance.</p>
+   * Identifies the ramdisk for the instance.
+   *
    * @public
    */
   RamdiskId?: string | undefined;
 
   /**
-   * <p>Specifies security group identifiers.</p>
+   * Specifies security group identifiers.
+   *
    * @public
    */
   SecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Configures security group settings.</p>
+   * Configures security group settings.
+   *
    * @public
    */
   SecurityGroups?: string[] | undefined;
 
   /**
-   * <p>Identifies the subnet for the instance.</p>
+   * Identifies the subnet for the instance.
+   *
    * @public
    */
   SubnetId?: string | undefined;
 
   /**
-   * <p>Configures resource tagging specifications.</p>
+   * Configures resource tagging specifications.
+   *
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
-   * <p>Provides custom initialization data for the instance.</p>
+   * Provides custom initialization data for the instance.
+   *
    * @public
    */
   UserData?: string | undefined;
 }
 
 /**
- * <p>Defines the configuration parameters for creating a new WorkSpaces Instance.</p>
+ * Defines the configuration parameters for creating a new WorkSpaces Instance.
+ *
  * @public
  */
 export interface CreateWorkspaceInstanceRequest {
   /**
-   * <p>Unique token to ensure idempotent instance creation, preventing duplicate workspace launches.</p>
+   * Unique token to ensure idempotent instance creation, preventing duplicate workspace launches.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Optional metadata tags for categorizing and managing WorkSpaces Instances.</p>
+   * Optional metadata tags for categorizing and managing WorkSpaces Instances.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Comprehensive configuration settings for the WorkSpaces Instance, including network, compute, and storage parameters.</p>
+   * Comprehensive configuration settings for the WorkSpaces Instance, including network, compute, and storage parameters.
+   *
    * @public
    */
   ManagedInstance: ManagedInstanceRequest | undefined;
 
   /**
-   * <p>Optional billing configuration for the WorkSpace Instance. Allows customers to specify their preferred billing mode when creating a new instance. Defaults to hourly billing if not specified.</p>
+   * Optional billing configuration for the WorkSpace Instance. Allows customers to specify their preferred billing mode when creating a new instance. Defaults to hourly billing if not specified.
+   *
    * @public
    */
   BillingConfiguration?: BillingConfiguration | undefined;
 }
 
 /**
- * <p>Returns the unique identifier for the newly created WorkSpaces Instance.</p>
+ * Returns the unique identifier for the newly created WorkSpaces Instance.
+ *
  * @public
  */
 export interface CreateWorkspaceInstanceResponse {
   /**
-   * <p>Unique identifier assigned to the newly created WorkSpaces Instance.</p>
+   * Unique identifier assigned to the newly created WorkSpaces Instance.
+   *
    * @public
    */
   WorkspaceInstanceId?: string | undefined;
 }
 
 /**
- * <p>Specifies the volume to delete.</p>
+ * Specifies the volume to delete.
+ *
  * @public
  */
 export interface DeleteVolumeRequest {
   /**
-   * <p>Identifier of the volume to delete.</p>
+   * Identifier of the volume to delete.
+   *
    * @public
    */
   VolumeId: string | undefined;
 }
 
 /**
- * <p>Confirms volume deletion.</p>
+ * Confirms volume deletion.
+ *
  * @public
  */
 export interface DeleteVolumeResponse {}
 
 /**
- * <p>The WorkSpace to delete</p>
+ * The WorkSpace to delete
+ *
  * @public
  */
 export interface DeleteWorkspaceInstanceRequest {
   /**
-   * <p>Unique identifier of the WorkSpaces Instance targeted for deletion.</p>
+   * Unique identifier of the WorkSpaces Instance targeted for deletion.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 }
 
 /**
- * <p>Confirms the successful deletion of the specified WorkSpace Instance.</p>
+ * Confirms the successful deletion of the specified WorkSpace Instance.
+ *
  * @public
  */
 export interface DeleteWorkspaceInstanceResponse {}
 
 /**
- * <p>Specifies volume detachment parameters.</p>
+ * Specifies volume detachment parameters.
+ *
  * @public
  */
 export interface DisassociateVolumeRequest {
   /**
-   * <p>WorkSpace Instance to detach volume from.</p>
+   * WorkSpace Instance to detach volume from.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 
   /**
-   * <p>Volume to be detached.</p>
+   * Volume to be detached.
+   *
    * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * <p>Device path of volume to detach.</p>
+   * Device path of volume to detach.
+   *
    * @public
    */
   Device?: string | undefined;
 
   /**
-   * <p>Mode for volume detachment.</p>
+   * Mode for volume detachment.
+   *
    * @public
    */
   DisassociateMode?: DisassociateModeEnum | undefined;
 }
 
 /**
- * <p>Confirms volume detachment.</p>
+ * Confirms volume detachment.
+ *
  * @public
  */
 export interface DisassociateVolumeResponse {}
 
 /**
- * <p>Captures detailed error information for EC2 instance operations.</p>
+ * Captures detailed error information for EC2 instance operations.
+ *
  * @public
  */
 export interface EC2InstanceError {
   /**
-   * <p>Unique error code identifying the specific EC2 instance error.</p>
+   * Unique error code identifying the specific EC2 instance error.
+   *
    * @public
    */
   EC2ErrorCode?: string | undefined;
 
   /**
-   * <p>Type of exception encountered during EC2 instance operation.</p>
+   * Type of exception encountered during EC2 instance operation.
+   *
    * @public
    */
   EC2ExceptionType?: string | undefined;
 
   /**
-   * <p>Detailed description of the EC2 instance error.</p>
+   * Detailed description of the EC2 instance error.
+   *
    * @public
    */
   EC2ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Represents an EC2 instance managed by WorkSpaces.</p>
+ * Represents an EC2 instance managed by WorkSpaces.
+ *
  * @public
  */
 export interface EC2ManagedInstance {
   /**
-   * <p>Unique identifier of the managed EC2 instance.</p>
+   * Unique identifier of the managed EC2 instance.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 }
 
 /**
- * <p>Identifies the WorkSpaces Instance to retrieve detailed information for.</p>
+ * Identifies the WorkSpaces Instance to retrieve detailed information for.
+ *
  * @public
  */
 export interface GetWorkspaceInstanceRequest {
   /**
-   * <p>Unique identifier of the WorkSpace Instance to retrieve.</p>
+   * Unique identifier of the WorkSpace Instance to retrieve.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 }
 
 /**
- * <p>Captures errors specific to WorkSpace Instance operations.</p>
+ * Captures errors specific to WorkSpace Instance operations.
+ *
  * @public
  */
 export interface WorkspaceInstanceError {
   /**
-   * <p>Unique error code for the WorkSpace Instance error.</p>
+   * Unique error code for the WorkSpace Instance error.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>Detailed description of the WorkSpace Instance error.</p>
+   * Detailed description of the WorkSpace Instance error.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 }
 
 /**
- * <p>Provides comprehensive details about the requested WorkSpaces Instance.</p>
+ * Provides comprehensive details about the requested WorkSpaces Instance.
+ *
  * @public
  */
 export interface GetWorkspaceInstanceResponse {
   /**
-   * <p>Captures any errors specific to the WorkSpace Instance lifecycle.</p>
+   * Captures any errors specific to the WorkSpace Instance lifecycle.
+   *
    * @public
    */
   WorkspaceInstanceErrors?: WorkspaceInstanceError[] | undefined;
 
   /**
-   * <p>Includes any underlying EC2 instance errors encountered.</p>
+   * Includes any underlying EC2 instance errors encountered.
+   *
    * @public
    */
   EC2InstanceErrors?: EC2InstanceError[] | undefined;
 
   /**
-   * <p>Current provisioning state of the WorkSpaces Instance.</p>
+   * Current provisioning state of the WorkSpaces Instance.
+   *
    * @public
    */
   ProvisionState?: ProvisionStateEnum | undefined;
 
   /**
-   * <p>Unique identifier of the retrieved WorkSpaces Instance.</p>
+   * Unique identifier of the retrieved WorkSpaces Instance.
+   *
    * @public
    */
   WorkspaceInstanceId?: string | undefined;
 
   /**
-   * <p>Details of the associated EC2 managed instance.</p>
+   * Details of the associated EC2 managed instance.
+   *
    * @public
    */
   EC2ManagedInstance?: EC2ManagedInstance | undefined;
 
   /**
-   * <p>Returns the current billing configuration for the WorkSpace Instance, indicating the active billing mode.</p>
+   * Returns the current billing configuration for the WorkSpace Instance, indicating the active billing mode.
+   *
    * @public
    */
   BillingConfiguration?: BillingConfiguration | undefined;
 }
 
 /**
- * <p>Defines filtering criteria for WorkSpace Instance type searches. Combines multiple filter conditions including billing mode, platform type, and tenancy to help customers find instance types that meet their specific requirements.</p>
+ * Defines filtering criteria for WorkSpace Instance type searches. Combines multiple filter conditions including billing mode, platform type, and tenancy to help customers find instance types that meet their specific requirements.
+ *
  * @public
  */
 export interface InstanceConfigurationFilter {
   /**
-   * <p>Filters WorkSpace Instance types based on supported billing modes. Allows customers to search for instance types that support their preferred billing model, such as HOURLY or MONTHLY billing.</p>
+   * Filters WorkSpace Instance types based on supported billing modes. Allows customers to search for instance types that support their preferred billing model, such as HOURLY or MONTHLY billing.
+   *
    * @public
    */
   BillingMode: BillingMode | undefined;
 
   /**
-   * <p>Filters WorkSpace Instance types by operating system platform. Allows customers to find instances that support their desired OS, such as Windows, Linux/UNIX, Ubuntu Pro, RHEL, or SUSE.</p>
+   * Filters WorkSpace Instance types by operating system platform. Allows customers to find instances that support their desired OS, such as Windows, Linux/UNIX, Ubuntu Pro, RHEL, or SUSE.
+   *
    * @public
    */
   PlatformType: PlatformTypeEnum | undefined;
 
   /**
-   * <p>Filters WorkSpace Instance types by tenancy model. Allows customers to find instances that match their tenancy requirements, such as SHARED or DEDICATED.</p>
+   * Filters WorkSpace Instance types by tenancy model. Allows customers to find instances that match their tenancy requirements, such as SHARED or DEDICATED.
+   *
    * @public
    */
   Tenancy: InstanceConfigurationTenancyEnum | undefined;
 }
 
 /**
- * <p>Defines input parameters for retrieving supported WorkSpaces Instances instance types.</p>
+ * Defines input parameters for retrieving supported WorkSpaces Instances instance types.
+ *
  * @public
  */
 export interface ListInstanceTypesRequest {
   /**
-   * <p>Maximum number of instance types to return in a single API call. Enables pagination of instance type results.</p>
+   * Maximum number of instance types to return in a single API call. Enables pagination of instance type results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token for retrieving subsequent pages of instance type results.</p>
+   * Pagination token for retrieving subsequent pages of instance type results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optional filter to narrow instance type results based on configuration requirements. Only returns instance types that support the specified combination of tenancy, platform type, and billing mode.</p>
+   * Optional filter to narrow instance type results based on configuration requirements. Only returns instance types that support the specified combination of tenancy, platform type, and billing mode.
+   *
    * @public
    */
   InstanceConfigurationFilter?: InstanceConfigurationFilter | undefined;
 }
 
 /**
- * <p>Represents a single valid configuration combination that an instance type supports, combining tenancy, platform type, and billing mode into one complete configuration specification.</p>
+ * Represents a single valid configuration combination that an instance type supports, combining tenancy, platform type, and billing mode into one complete configuration specification.
+ *
  * @public
  */
 export interface SupportedInstanceConfiguration {
   /**
-   * <p>Specifies the billing mode supported in this configuration combination.</p>
+   * Specifies the billing mode supported in this configuration combination.
+   *
    * @public
    */
   BillingMode?: BillingMode | undefined;
 
   /**
-   * <p>Specifies the operating system platform supported in this configuration combination.</p>
+   * Specifies the operating system platform supported in this configuration combination.
+   *
    * @public
    */
   PlatformType?: PlatformTypeEnum | undefined;
 
   /**
-   * <p>Specifies the tenancy model supported in this configuration combination.</p>
+   * Specifies the tenancy model supported in this configuration combination.
+   *
    * @public
    */
   Tenancy?: InstanceConfigurationTenancyEnum | undefined;
 }
 
 /**
- * <p>Provides details about a specific WorkSpace Instance type.</p>
+ * Provides details about a specific WorkSpace Instance type.
+ *
  * @public
  */
 export interface InstanceTypeInfo {
   /**
-   * <p>Unique identifier for the WorkSpace Instance type.</p>
+   * Unique identifier for the WorkSpace Instance type.
+   *
    * @public
    */
   InstanceType?: string | undefined;
 
   /**
-   * <p>Lists all valid combinations of tenancy, platform type, and billing mode supported for the specific WorkSpace Instance type. Contains the complete set of configuration options available for this instance type.</p>
+   * Lists all valid combinations of tenancy, platform type, and billing mode supported for the specific WorkSpace Instance type. Contains the complete set of configuration options available for this instance type.
+   *
    * @public
    */
   SupportedInstanceConfigurations?: SupportedInstanceConfiguration[] | undefined;
 }
 
 /**
- * <p>Contains the list of instance types supported by WorkSpaces Instances.</p>
+ * Contains the list of instance types supported by WorkSpaces Instances.
+ *
  * @public
  */
 export interface ListInstanceTypesResponse {
   /**
-   * <p>Collection of supported instance types for WorkSpaces Instances.</p>
+   * Collection of supported instance types for WorkSpaces Instances.
+   *
    * @public
    */
   InstanceTypes: InstanceTypeInfo[] | undefined;
 
   /**
-   * <p>Token for retrieving additional instance types if the result set is paginated.</p>
+   * Token for retrieving additional instance types if the result set is paginated.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Defines input parameters for retrieving supported WorkSpaces Instances regions.</p>
+ * Defines input parameters for retrieving supported WorkSpaces Instances regions.
+ *
  * @public
  */
 export interface ListRegionsRequest {
   /**
-   * <p>Maximum number of regions to return in a single API call. Enables pagination of region results.</p>
+   * Maximum number of regions to return in a single API call. Enables pagination of region results.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token for retrieving subsequent pages of region results.</p>
+   * Pagination token for retrieving subsequent pages of region results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents an AWS region supported by WorkSpaces Instances.</p>
+ * Represents an AWS region supported by WorkSpaces Instances.
+ *
  * @public
  */
 export interface Region {
   /**
-   * <p>Name of the AWS region.</p>
+   * Name of the AWS region.
+   *
    * @public
    */
   RegionName?: string | undefined;
 }
 
 /**
- * <p>Contains the list of supported AWS regions for WorkSpaces Instances.</p>
+ * Contains the list of supported AWS regions for WorkSpaces Instances.
+ *
  * @public
  */
 export interface ListRegionsResponse {
   /**
-   * <p>Collection of AWS regions supported by WorkSpaces Instances.</p>
+   * Collection of AWS regions supported by WorkSpaces Instances.
+   *
    * @public
    */
   Regions: Region[] | undefined;
 
   /**
-   * <p>Token for retrieving additional regions if the result set is paginated.</p>
+   * Token for retrieving additional regions if the result set is paginated.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies the WorkSpace Instance to retrieve tags for.</p>
+ * Specifies the WorkSpace Instance to retrieve tags for.
+ *
  * @public
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Unique identifier of the WorkSpace Instance.</p>
+   * Unique identifier of the WorkSpace Instance.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 }
 
 /**
- * <p>Returns the list of tags for the specified WorkSpace Instance.</p>
+ * Returns the list of tags for the specified WorkSpace Instance.
+ *
  * @public
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Collection of tags associated with the WorkSpace Instance.</p>
+   * Collection of tags associated with the WorkSpace Instance.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Defines filters and pagination parameters for retrieving WorkSpaces Instances.</p>
+ * Defines filters and pagination parameters for retrieving WorkSpaces Instances.
+ *
  * @public
  */
 export interface ListWorkspaceInstancesRequest {
   /**
-   * <p>Filter WorkSpaces Instances by their current provisioning states.</p>
+   * Filter WorkSpaces Instances by their current provisioning states.
+   *
    * @public
    */
   ProvisionStates?: ProvisionStateEnum[] | undefined;
 
   /**
-   * <p>Maximum number of WorkSpaces Instances to return in a single response.</p>
+   * Maximum number of WorkSpaces Instances to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Pagination token for retrieving subsequent pages of WorkSpaces Instances.</p>
+   * Pagination token for retrieving subsequent pages of WorkSpaces Instances.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a single WorkSpace Instance.</p>
+ * Represents a single WorkSpace Instance.
+ *
  * @public
  */
 export interface WorkspaceInstance {
   /**
-   * <p>Current provisioning state of the WorkSpace Instance.</p>
+   * Current provisioning state of the WorkSpace Instance.
+   *
    * @public
    */
   ProvisionState?: ProvisionStateEnum | undefined;
 
   /**
-   * <p>Unique identifier for the WorkSpace Instance.</p>
+   * Unique identifier for the WorkSpace Instance.
+   *
    * @public
    */
   WorkspaceInstanceId?: string | undefined;
 
   /**
-   * <p>Details of the associated EC2 managed instance.</p>
+   * Details of the associated EC2 managed instance.
+   *
    * @public
    */
   EC2ManagedInstance?: EC2ManagedInstance | undefined;
 }
 
 /**
- * <p>Contains the list of WorkSpaces Instances matching the specified criteria.</p>
+ * Contains the list of WorkSpaces Instances matching the specified criteria.
+ *
  * @public
  */
 export interface ListWorkspaceInstancesResponse {
   /**
-   * <p>Collection of WorkSpaces Instances returned by the query.</p>
+   * Collection of WorkSpaces Instances returned by the query.
+   *
    * @public
    */
   WorkspaceInstances: WorkspaceInstance[] | undefined;
 
   /**
-   * <p>Token for retrieving additional WorkSpaces Instances if the result set is paginated.</p>
+   * Token for retrieving additional WorkSpaces Instances if the result set is paginated.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains the parameters for modifying a volume, including the target size, volume type, IOPS, or throughput.</p>
+ * Contains the parameters for modifying a volume, including the target size, volume type, IOPS, or throughput.
+ *
  * @public
  */
 export interface ModifyVolumeRequest {
   /**
-   * <p>Specifies the identifier of the volume to modify.</p>
+   * Specifies the identifier of the volume to modify.
+   *
    * @public
    */
   VolumeId: string | undefined;
 
   /**
-   * <p>Specifies the target size of the volume, in GiB. The target size must be greater than or equal to the current size of the volume. If you don't specify a size, the current size is retained.</p>
+   * Specifies the target size of the volume, in GiB. The target size must be greater than or equal to the current size of the volume. If you don't specify a size, the current size is retained.
+   *
    * @public
    */
   SizeInGB?: number | undefined;
 
   /**
-   * <p>Specifies the target Amazon Elastic Block Store (Amazon EBS) volume type. If you don't specify a volume type, the current volume type is retained.</p>
+   * Specifies the target Amazon Elastic Block Store (Amazon EBS) volume type. If you don't specify a volume type, the current volume type is retained.
+   *
    * @public
    */
   VolumeType?: VolumeTypeEnum | undefined;
 
   /**
-   * <p>Specifies the target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes. If you don't specify IOPS and keep the same volume type, the current IOPS rate is retained.</p>
+   * Specifies the target IOPS rate of the volume. This parameter is valid only for `gp3`, `io1`, and `io2` volumes. If you don't specify IOPS and keep the same volume type, the current IOPS rate is retained.
+   *
    * @public
    */
   Iops?: number | undefined;
 
   /**
-   * <p>Specifies the target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes. If you don't specify throughput and the volume remains <code>gp3</code>, the current throughput is retained.</p>
+   * Specifies the target throughput of the volume, in MiB/s. This parameter is valid only for `gp3` volumes. If you don't specify throughput and the volume remains `gp3`, the current throughput is retained.
+   *
    * @public
    */
   Throughput?: number | undefined;
 
   /**
-   * <p>Unique token to ensure idempotent volume modification, preventing duplicate volume modifications.</p>
+   * Unique token to ensure idempotent volume modification, preventing duplicate volume modifications.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 }
 
 /**
- * <p>Contains the target configuration of the volume after the modification, including the size, volume type, IOPS, and throughput where applicable.</p>
+ * Contains the target configuration of the volume after the modification, including the size, volume type, IOPS, and throughput where applicable.
+ *
  * @public
  */
 export interface ModifyVolumeResponse {
   /**
-   * <p>Specifies the identifier of the modified volume.</p>
+   * Specifies the identifier of the modified volume.
+   *
    * @public
    */
   VolumeId?: string | undefined;
 
   /**
-   * <p>Specifies the target size of the volume, in GiB.</p>
+   * Specifies the target size of the volume, in GiB.
+   *
    * @public
    */
   TargetSize?: number | undefined;
 
   /**
-   * <p>Specifies the target Amazon EBS volume type.</p>
+   * Specifies the target Amazon EBS volume type.
+   *
    * @public
    */
   TargetVolumeType?: VolumeTypeEnum | undefined;
 
   /**
-   * <p>Specifies the target IOPS rate of the volume.</p>
+   * Specifies the target IOPS rate of the volume.
+   *
    * @public
    */
   TargetIops?: number | undefined;
 
   /**
-   * <p>Specifies the target throughput of the volume, in MiB/s.</p>
+   * Specifies the target throughput of the volume, in MiB/s.
+   *
    * @public
    */
   TargetThroughput?: number | undefined;
 }
 
 /**
- * <p>Specifies tags to add to a WorkSpace Instance.</p>
+ * Specifies tags to add to a WorkSpace Instance.
+ *
  * @public
  */
 export interface TagResourceRequest {
   /**
-   * <p>Unique identifier of the WorkSpace Instance to tag.</p>
+   * Unique identifier of the WorkSpace Instance to tag.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 
   /**
-   * <p>Tags to be added to the WorkSpace Instance.</p>
+   * Tags to be added to the WorkSpace Instance.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
 }
 
 /**
- * <p>Confirms successful tag addition.</p>
+ * Confirms successful tag addition.
+ *
  * @public
  */
 export interface TagResourceResponse {}
 
 /**
- * <p>Specifies tags to remove from a WorkSpace Instance.</p>
+ * Specifies tags to remove from a WorkSpace Instance.
+ *
  * @public
  */
 export interface UntagResourceRequest {
   /**
-   * <p>Unique identifier of the WorkSpace Instance to untag.</p>
+   * Unique identifier of the WorkSpace Instance to untag.
+   *
    * @public
    */
   WorkspaceInstanceId: string | undefined;
 
   /**
-   * <p>Keys of tags to be removed.</p>
+   * Keys of tags to be removed.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
 }
 
 /**
- * <p>Confirms successful tag removal.</p>
+ * Confirms successful tag removal.
+ *
  * @public
  */
 export interface UntagResourceResponse {}

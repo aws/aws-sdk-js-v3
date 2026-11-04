@@ -23,26 +23,12 @@ export interface UpdateAssociationCommandInput extends UpdateAssociationRequest 
 export interface UpdateAssociationCommandOutput extends UpdateAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Updates an association. You can update the association name and version, the document
- *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
- *    call <code>UpdateAssociation</code>, the system removes all optional parameters from the request
- *    and overwrites the association with null values for those parameters. This is by design. You must
- *    specify all optional parameters in the call, even if you are not changing the parameters. This
- *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
- *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
- *    parameters required for your <code>UpdateAssociation</code> call.</p>
- *          <p>In order to call this API operation, a user, group, or role must be granted permission to
- *    call the <a>DescribeAssociation</a> API operation. If you don't have permission to
- *    call <code>DescribeAssociation</code>, then you receive the following error: <code>An error
- *     occurred (AccessDeniedException) when calling the UpdateAssociation operation: User:
- *     <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource:
- *     <resource_arn></code>
- *          </p>
- *          <important>
- *             <p>When you update an association, the association immediately runs against the specified
- *     targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the association
- *     during the next schedule run.</p>
- *          </important>
+ * Updates an association. You can update the association name and version, the document version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you call `UpdateAssociation`, the system removes all optional parameters from the request and overwrites the association with null values for those parameters. This is by design. You must specify all optional parameters in the call, even if you are not changing the parameters. This includes the `Name` parameter. Before calling this API action, we recommend that you call the DescribeAssociation API operation and make a note of all optional parameters required for your `UpdateAssociation` call.
+ *
+ * In order to call this API operation, a user, group, or role must be granted permission to call the DescribeAssociation API operation. If you don't have permission to call `DescribeAssociation`, then you receive the following error: `An error occurred (AccessDeniedException) when calling the UpdateAssociation operation: User: <user_arn> isn't authorized to perform: ssm:DescribeAssociation on resource: <resource_arn>`
+ *
+ * > **Important:** When you update an association, the association immediately runs against the specified targets. You can add the `ApplyOnlyAtCronInterval` parameter to run the association during the next schedule run.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -269,52 +255,60 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link AssociationDoesNotExist} (client fault)
- *  <p>The specified association doesn't exist.</p>
+ *
+ * The specified association doesn't exist.
  *
  * @throws {@link AssociationVersionLimitExceeded} (client fault)
- *  <p>You have reached the maximum number versions allowed for an association. Each association
- *    has a limit of 1,000 versions. </p>
+ *
+ * You have reached the maximum number versions allowed for an association. Each association has a limit of 1,000 versions.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidAssociationVersion} (client fault)
- *  <p>The version you specified isn't valid. Use ListAssociationVersions to view all versions of
- *    an association according to the association ID. Or, use the <code>$LATEST</code> parameter to
- *    view the latest version of the association.</p>
+ *
+ * The version you specified isn't valid. Use ListAssociationVersions to view all versions of an association according to the association ID. Or, use the `$LATEST` parameter to view the latest version of the association.
  *
  * @throws {@link InvalidDocument} (client fault)
- *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * The specified SSM document doesn't exist.
  *
  * @throws {@link InvalidDocumentVersion} (client fault)
- *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * The document version isn't valid or doesn't exist.
  *
  * @throws {@link InvalidOutputLocation} (client fault)
- *  <p>The output location isn't valid or doesn't exist.</p>
+ *
+ * The output location isn't valid or doesn't exist.
  *
  * @throws {@link InvalidParameters} (client fault)
- *  <p>You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM
- *    document). You can only supply values to parameters defined in the SSM document.</p>
+ *
+ * You must specify values for all required parameters in the Amazon Web Services Systems Manager document (SSM document). You can only supply values to parameters defined in the SSM document.
  *
  * @throws {@link InvalidSchedule} (client fault)
- *  <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
+ *
+ * The schedule is invalid. Verify your cron or rate expression and try again.
  *
  * @throws {@link InvalidTarget} (client fault)
- *  <p>The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might
- *    not have permission to perform the operation.</p>
+ *
+ * The target isn't valid or doesn't exist. It might not be configured for Systems Manager or you might not have permission to perform the operation.
  *
  * @throws {@link InvalidTargetMaps} (client fault)
- *  <p>TargetMap parameter isn't valid.</p>
+ *
+ * TargetMap parameter isn't valid.
  *
  * @throws {@link InvalidUpdate} (client fault)
- *  <p>The update isn't valid.</p>
+ *
+ * The update isn't valid.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

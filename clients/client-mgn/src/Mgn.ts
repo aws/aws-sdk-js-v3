@@ -2597,7 +2597,8 @@ export interface Mgn {
 }
 
 /**
- * <p>Application Migration Service.</p>
+ * Application Migration Service.
+ *
  * @public
  */
 export class Mgn extends MgnClient implements Mgn {}

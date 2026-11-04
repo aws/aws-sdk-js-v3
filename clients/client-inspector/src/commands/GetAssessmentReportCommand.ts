@@ -23,8 +23,8 @@ export interface GetAssessmentReportCommandInput extends GetAssessmentReportRequ
 export interface GetAssessmentReportCommandOutput extends GetAssessmentReportResponse, __MetadataBearer {}
 
 /**
- * <p>Produces an assessment report that includes detailed and comprehensive results of a
- *          specified assessment run. </p>
+ * Produces an assessment report that includes detailed and comprehensive results of a specified assessment run.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,36 +54,36 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link AssessmentRunInProgressException} (client fault)
- *  <p>You cannot perform a specified action if an assessment run is currently in
- *          progress.</p>
+ *
+ * You cannot perform a specified action if an assessment run is currently in progress.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced an entity that does not exist. The
- *          error code describes the entity.</p>
+ *
+ * The request was rejected because it referenced an entity that does not exist. The error code describes the entity.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
- *  <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
- *          because you tried to generate a report for an assessment run that existed before reporting
- *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
- *          took place or will take place after generating reports in Amazon Inspector became
- *          available.</p>
+ *
+ * Used by the GetAssessmentReport API. The request was rejected because you tried to generate a report for an assessment run that existed before reporting was supported in Amazon Inspector. You can only generate reports for assessment runs that took place or will take place after generating reports in Amazon Inspector became available.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @public
  */

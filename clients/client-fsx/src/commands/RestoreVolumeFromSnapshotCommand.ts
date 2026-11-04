@@ -23,8 +23,8 @@ export interface RestoreVolumeFromSnapshotCommandInput extends RestoreVolumeFrom
 export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFromSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
- *             snapshot.</p>
+ * Returns an Amazon FSx for OpenZFS volume to the state saved by the specified snapshot.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -685,17 +685,20 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link VolumeNotFound} (client fault)
- *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ * No Amazon FSx volumes were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

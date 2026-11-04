@@ -23,7 +23,8 @@ export interface DescribeIntegrationsCommandInput extends DescribeIntegrationsMe
 export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsResponse, __MetadataBearer {}
 
 /**
- * <p>Describe one or more zero-ETL integrations with Amazon Redshift.</p>
+ * Describe one or more zero-ETL integrations with Amazon Redshift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,11 +89,12 @@ export interface DescribeIntegrationsCommandOutput extends DescribeIntegrationsR
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The specified integration could not be found.</p>
+ *
+ * The specified integration could not be found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe a zero-ETL integration
  * ```javascript

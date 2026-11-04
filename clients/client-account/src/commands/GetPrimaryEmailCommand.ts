@@ -23,7 +23,8 @@ export interface GetPrimaryEmailCommandInput extends GetPrimaryEmailRequest {}
 export interface GetPrimaryEmailCommandOutput extends GetPrimaryEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the primary email address for the specified account.</p>
+ * Retrieves the primary email address for the specified account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +51,28 @@ export interface GetPrimaryEmailCommandOutput extends GetPrimaryEmailResponse, _
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
+ *
+ * The operation failed because the calling identity doesn't have the minimum required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
+ *
+ * The operation failed because of an error internal to Amazon Web Services. Try your operation again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation failed because it specified a resource that can't be found.</p>
+ *
+ * The operation failed because it specified a resource that can't be found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
+ *
+ * The operation failed because it was called too frequently and exceeded a throttle limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ * The operation failed because one of the input parameters was invalid.
  *
  * @throws {@link AccountServiceException}
- * <p>Base exception class for all service exceptions from Account service.</p>
  *
+ * Base exception class for all service exceptions from Account service.
  *
  * @public
  */

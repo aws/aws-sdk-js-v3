@@ -23,7 +23,8 @@ export interface DeleteOptimizationJobCommandInput extends DeleteOptimizationJob
 export interface DeleteOptimizationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an optimization job.</p>
+ * Deletes an optimization job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +49,12 @@ export interface DeleteOptimizationJobCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

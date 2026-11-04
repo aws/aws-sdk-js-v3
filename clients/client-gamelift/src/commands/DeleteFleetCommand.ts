@@ -23,26 +23,18 @@ export interface DeleteFleetCommandInput extends DeleteFleetInput {}
 export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
- *          <p>Deletes all resources and information related to a fleet and shuts down any currently
- *             running fleet instances, including those in remote locations.</p>
- *          <note>
- *             <p>If the fleet being deleted has a VPC peering connection, you first need to get a
- *                 valid authorization (good for 24 hours) by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>. You don't need to explicitly delete the
- *                 VPC peering connection.</p>
- *          </note>
- *          <p>To delete a fleet, specify the fleet ID to be terminated. During the deletion process,
- *             the fleet status is changed to <code>DELETING</code>. When completed, the status
- *             switches to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is
- *             emitted.</p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
- *                 Fleets</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere
+ *
+ * Deletes all resources and information related to a fleet and shuts down any currently running fleet instances, including those in remote locations.
+ *
+ * > **Note:** If the fleet being deleted has a VPC peering connection, you first need to get a valid authorization (good for 24 hours) by calling [CreateVpcPeeringAuthorization](https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html). You don't need to explicitly delete the VPC peering connection.
+ *
+ * To delete a fleet, specify the fleet ID to be terminated. During the deletion process, the fleet status is changed to `DELETING`. When completed, the status switches to `TERMINATED` and the fleet event `FLEET_DELETED` is emitted.
+ *
+ * **Learn more**
+ *
+ * [Setting up Amazon GameLift Servers Fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,32 +59,32 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidFleetStatusException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a resource
- *             associated with the request and/or the fleet. Resolve the conflict before
- *             retrying.</p>
+ *
+ * The requested operation would cause a conflict with the current state of a resource associated with the request and/or the fleet. Resolve the conflict before retrying.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link TaggingFailedException} (client fault)
- *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before
- *             retrying.</p>
+ *
+ * The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

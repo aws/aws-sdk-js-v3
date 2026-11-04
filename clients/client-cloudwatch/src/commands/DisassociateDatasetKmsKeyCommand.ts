@@ -23,39 +23,18 @@ export interface DisassociateDatasetKmsKeyCommandInput extends DisassociateDatas
 export interface DisassociateDatasetKmsKeyCommandOutput extends DisassociateDatasetKmsKeyOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the customer managed Amazon Web Services Key Management Service
- *             (Amazon Web Services KMS) key association from the specified dataset. After this
- *             operation completes, data that you publish to the dataset is encrypted at rest using
- *             an Amazon Web Services owned key managed by Amazon CloudWatch.</p>
- *          <p>Only the <code>default</code> dataset is supported. To call this operation, the
- *             dataset must currently have a customer managed KMS key associated with it. If the
- *             dataset has no associated KMS key, the operation fails with
- *             <code>ResourceNotFoundException</code>.</p>
- *          <p>Amazon CloudWatch performs a dry-run <code>kms:Decrypt</code> call on the
- *             currently associated key as part of this operation. The caller must have
- *             <code>kms:Decrypt</code> permission on the currently associated key. If the key is
- *             accessible but the caller lacks <code>kms:Decrypt</code> permission, the operation
- *             fails with <code>AccessDeniedException</code>.</p>
- *          <note>
- *             <p>If the currently associated key has been deleted, is scheduled for deletion,
- *                 is pending import, is unavailable, or has been disabled, Amazon CloudWatch
- *                 does not require <code>kms:Decrypt</code> permission on that key and the
- *                 disassociation proceeds. If the key was only disabled, consider re-enabling it
- *                 instead of disassociating, because re-enabling allows Amazon CloudWatch to
- *                 resume decrypting your existing metric data.</p>
- *          </note>
- *          <important>
- *             <p>Disassociating a KMS key from a dataset does not immediately remove the
- *                 <code>kms:Decrypt</code> requirement on data plane operations. For up to three
- *                 hours after disassociation, callers must continue to have
- *                 <code>kms:Decrypt</code> permission on the previously associated key. Some data
- *                 might still be encrypted with that key during this window. After this enforcement
- *                 window elapses, the <code>kms:Decrypt</code> requirement is lifted.</p>
- *          </important>
- *          <p>For more information about using customer managed keys with Amazon CloudWatch,
- *             see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cmk-encryption.html">Encryption at rest
- *                 with customer managed keys</a> in the <i>Amazon CloudWatch User
- *                 Guide</i>.</p>
+ * Removes the customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key association from the specified dataset. After this operation completes, data that you publish to the dataset is encrypted at rest using an Amazon Web Services owned key managed by Amazon CloudWatch.
+ *
+ * Only the `default` dataset is supported. To call this operation, the dataset must currently have a customer managed KMS key associated with it. If the dataset has no associated KMS key, the operation fails with `ResourceNotFoundException`.
+ *
+ * Amazon CloudWatch performs a dry-run `kms:Decrypt` call on the currently associated key as part of this operation. The caller must have `kms:Decrypt` permission on the currently associated key. If the key is accessible but the caller lacks `kms:Decrypt` permission, the operation fails with `AccessDeniedException`.
+ *
+ * > **Note:** If the currently associated key has been deleted, is scheduled for deletion, is pending import, is unavailable, or has been disabled, Amazon CloudWatch does not require `kms:Decrypt` permission on that key and the disassociation proceeds. If the key was only disabled, consider re-enabling it instead of disassociating, because re-enabling allows Amazon CloudWatch to resume decrypting your existing metric data.
+ *
+ * > **Important:** Disassociating a KMS key from a dataset does not immediately remove the `kms:Decrypt` requirement on data plane operations. For up to three hours after disassociation, callers must continue to have `kms:Decrypt` permission on the previously associated key. Some data might still be encrypted with that key during this window. After this enforcement window elapses, the `kms:Decrypt` requirement is lifted.
+ *
+ * For more information about using customer managed keys with Amazon CloudWatch, see [Encryption at rest with customer managed keys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cmk-encryption.html) in the *Amazon CloudWatch User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,14 +59,16 @@ export interface DisassociateDatasetKmsKeyCommandOutput extends DisassociateData
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This operation attempted to create a resource that already exists.</p>
+ *
+ * This operation attempted to create a resource that already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

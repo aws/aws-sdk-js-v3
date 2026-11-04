@@ -23,8 +23,8 @@ export interface PurchaseCapacityBlockExtensionCommandInput extends PurchaseCapa
 export interface PurchaseCapacityBlockExtensionCommandOutput extends PurchaseCapacityBlockExtensionResult, __MetadataBearer {}
 
 /**
- * <p>Purchase the Capacity Block extension for use with your account. You must specify the
- * 			ID of the Capacity Block extension offering you are purchasing.</p>
+ * Purchase the Capacity Block extension for use with your account. You must specify the ID of the Capacity Block extension offering you are purchasing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,8 @@ export interface PurchaseCapacityBlockExtensionCommandOutput extends PurchaseCap
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

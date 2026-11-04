@@ -23,17 +23,12 @@ export interface StartGatewayCommandInput extends StartGatewayInput {}
 export interface StartGatewayCommandOutput extends StartGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>).
- *          After the gateway starts, you can then make other API calls, your applications can read
- *          from or write to the gateway's storage volumes and you will be able to take snapshot
- *          backups.</p>
- *          <note>
- *             <p>When you make a request, you will get a 200 OK success response immediately. However,
- *             it might take some time for the gateway to be ready. You should call <a>DescribeGatewayInformation</a> and check the status before making any
- *             additional API calls. For more information, see <a>ActivateGateway</a>.</p>
- *          </note>
- *          <p>To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in
- *          your request.</p>
+ * Starts a gateway that you previously shut down (see ShutdownGateway). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway's storage volumes and you will be able to take snapshot backups.
+ *
+ * > **Note:** When you make a request, you will get a 200 OK success response immediately. However, it might take some time for the gateway to be ready. You should call DescribeGatewayInformation and check the status before making any additional API calls. For more information, see ActivateGateway.
+ *
+ * To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in your request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,16 +55,16 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To start a gateway service
  * ```javascript

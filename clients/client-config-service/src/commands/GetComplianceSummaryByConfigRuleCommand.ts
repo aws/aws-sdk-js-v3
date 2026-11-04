@@ -23,8 +23,8 @@ export interface GetComplianceSummaryByConfigRuleCommandInput {}
 export interface GetComplianceSummaryByConfigRuleCommandOutput extends GetComplianceSummaryByConfigRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the number of Config rules that are compliant and
- * 			noncompliant, up to a maximum of 25 for each.</p>
+ * Returns the number of Config rules that are compliant and noncompliant, up to a maximum of 25 for each.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +59,8 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput extends GetCompli
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SocialMessagingServiceException as __BaseException } from "./SocialMessagingServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedByMetaException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedByMetaException extends __BaseException {
 }
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -46,7 +48,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Thrown when performing an action because a dependency would be broken.</p>
+ * Thrown when performing an action because a dependency would be broken.
+ *
  * @public
  */
 export class DependencyException extends __BaseException {
@@ -68,7 +71,8 @@ export class DependencyException extends __BaseException {
 }
 
 /**
- * <p>One or more parameters provided to the action are not valid.</p>
+ * One or more parameters provided to the action are not valid.
+ *
  * @public
  */
 export class InvalidParametersException extends __BaseException {
@@ -89,7 +93,8 @@ export class InvalidParametersException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because it would exceed one or more service quotas or limits.</p>
+ * The request was denied because it would exceed one or more service quotas or limits.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -110,7 +115,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottledRequestException extends __BaseException {
@@ -132,7 +138,8 @@ export class ThrottledRequestException extends __BaseException {
 }
 
 /**
- * <p>The request contains an invalid parameter value. </p>
+ * The request contains an invalid parameter value.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -153,7 +160,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
+ * Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -174,8 +182,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -197,7 +205,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>The resource was not found.</p>
+ * The resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

@@ -23,18 +23,12 @@ export interface DescribeApplicationStatusCommandInput extends DescribeApplicati
 export interface DescribeApplicationStatusCommandOutput extends DescribeApplicationStatusResult, __MetadataBearer {}
 
 /**
- * <p>Describes the aggregated application health status for the specified instances. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>The instance-level status is derived from all application status checks with the aggregation setting set to <code>included</code>.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>DescribeApplicationStatusChecks</code> to view the configuration of individual checks.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>EnableApplicationStatusCheckSuppression</code> to temporarily suppress health check results from affecting the instance-level status.</p>
- *             </li>
- *          </ul>
+ * Describes the aggregated application health status for the specified instances. The following rules apply:
+ *
+ * - The instance-level status is derived from all application status checks with the aggregation setting set to `included`.
+ * - Use `DescribeApplicationStatusChecks` to view the configuration of individual checks.
+ * - Use `EnableApplicationStatusCheckSuppression` to temporarily suppress health check results from affecting the instance-level status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,8 +104,8 @@ export interface DescribeApplicationStatusCommandOutput extends DescribeApplicat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe application status for instances
  * ```javascript

@@ -753,7 +753,8 @@ export type MgnClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface MgnClientResolvedConfig extends MgnClientResolvedConfigType {}
 
 /**
- * <p>Application Migration Service.</p>
+ * Application Migration Service.
+ *
  * @public
  */
 export class MgnClient extends __Client<

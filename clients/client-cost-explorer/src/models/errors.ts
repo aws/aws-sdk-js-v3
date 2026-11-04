@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CostExplorerServiceException as __BaseException } from "./CostExplorerServiceException";
 
 /**
- * <p>The requested analysis can't be found.</p>
+ * The requested analysis can't be found.
+ *
  * @public
  */
 export class AnalysisNotFoundException extends __BaseException {
@@ -27,7 +28,8 @@ export class AnalysisNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You made too many calls in a short period of time. Try again later.</p>
+ * You made too many calls in a short period of time. Try again later.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -50,7 +52,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The cost anomaly monitor does not exist for the account. </p>
+ * The cost anomaly monitor does not exist for the account.
+ *
  * @public
  */
 export class UnknownMonitorException extends __BaseException {
@@ -73,8 +76,8 @@ export class UnknownMonitorException extends __BaseException {
 }
 
 /**
- * <p> You've reached the limit on the number of resources you can create, or exceeded the
- *             size of an individual resource. </p>
+ * You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -97,7 +100,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The cost anomaly subscription does not exist for the account. </p>
+ * The cost anomaly subscription does not exist for the account.
+ *
  * @public
  */
 export class UnknownSubscriptionException extends __BaseException {
@@ -120,7 +124,8 @@ export class UnknownSubscriptionException extends __BaseException {
 }
 
 /**
- * <p> The specified ARN in the request doesn't exist. </p>
+ * The specified ARN in the request doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -145,7 +150,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The pagination token is invalid. Try again without a pagination token.</p>
+ * The pagination token is invalid. Try again without a pagination token.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -168,7 +174,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The requested data is unavailable.</p>
+ * The requested data is unavailable.
+ *
  * @public
  */
 export class DataUnavailableException extends __BaseException {
@@ -191,7 +198,8 @@ export class DataUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The requested report expired. Update the date interval and try again.</p>
+ * The requested report expired. Update the date interval and try again.
+ *
  * @public
  */
 export class BillExpirationException extends __BaseException {
@@ -214,9 +222,8 @@ export class BillExpirationException extends __BaseException {
 }
 
 /**
- * <p>
- *             The billing view status must be <code>HEALTHY</code> to perform this action. Try again when the status is <code>HEALTHY</code>.
- *         </p>
+ * The billing view status must be `HEALTHY` to perform this action. Try again when the status is `HEALTHY`.
+ *
  * @public
  */
 export class BillingViewHealthStatusException extends __BaseException {
@@ -239,8 +246,8 @@ export class BillingViewHealthStatusException extends __BaseException {
 }
 
 /**
- * <p>Your request parameters changed between pages. Try again with the old parameters or
- *             without a pagination token.</p>
+ * Your request parameters changed between pages. Try again with the old parameters or without a pagination token.
+ *
  * @public
  */
 export class RequestChangedException extends __BaseException {
@@ -263,9 +270,8 @@ export class RequestChangedException extends __BaseException {
 }
 
 /**
- * <p>Cost Explorer was unable to identify the usage unit. Provide
- *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
- *             for example: <code>hours</code>.</p>
+ * Cost Explorer was unable to identify the usage unit. Provide `UsageType/UsageTypeGroup` filter selections that contain matching units, for example: `hours`.
+ *
  * @public
  */
 export class UnresolvableUsageUnitException extends __BaseException {
@@ -288,7 +294,8 @@ export class UnresolvableUsageUnitException extends __BaseException {
 }
 
 /**
- * <p>A request to generate a recommendation or analysis is already in progress.</p>
+ * A request to generate a recommendation or analysis is already in progress.
+ *
  * @public
  */
 export class GenerationExistsException extends __BaseException {
@@ -311,9 +318,8 @@ export class GenerationExistsException extends __BaseException {
 }
 
 /**
- * <p>
- *             A request to backfill is already in progress. Once the previous request is complete, you can create another request.
- *         </p>
+ * A request to backfill is already in progress. Once the previous request is complete, you can create another request.
+ *
  * @public
  */
 export class BackfillLimitExceededException extends __BaseException {
@@ -336,8 +342,8 @@ export class BackfillLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50
- *             user tags per resource.</p>
+ * Can occur if you specify a number of tags for a resource greater than the maximum 50 user tags per resource.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {

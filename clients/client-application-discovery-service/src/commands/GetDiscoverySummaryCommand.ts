@@ -23,9 +23,10 @@ export interface GetDiscoverySummaryCommandInput extends GetDiscoverySummaryRequ
 export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a short summary of discovered assets.</p>
- *          <p>This API operation takes no request parameters and is called as is at the command
- *       prompt as shown in the example.</p>
+ * Retrieves a short summary of discovered assets.
+ *
+ * This API operation takes no request parameters and is called as is at the command prompt as shown in the example.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,25 +90,28 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>The user does not have permission to perform the action. Check the IAM
- *       policy associated with this user.</p>
+ *
+ * The user does not have permission to perform the action. Check the IAM policy associated with this user.
  *
  * @throws {@link HomeRegionNotSetException} (client fault)
- *  <p>The home Region is not set. Set the home Region to continue.</p>
+ *
+ * The home Region is not set. Set the home Region to continue.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
+ * One or more parameters are not valid. Verify the parameters and try again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value of one or more parameters are either invalid or out of range. Verify the
- *       parameter values and try again.</p>
+ *
+ * The value of one or more parameters are either invalid or out of range. Verify the parameter values and try again.
  *
  * @throws {@link ServerInternalErrorException} (server fault)
- *  <p>The server experienced an internal error. Try again.</p>
+ *
+ * The server experienced an internal error. Try again.
  *
  * @throws {@link ApplicationDiscoveryServiceServiceException}
- * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationDiscoveryService service.
  *
  * @public
  */

@@ -23,20 +23,16 @@ export interface CreateRouteServerPeerCommandInput extends CreateRouteServerPeer
 export interface CreateRouteServerPeerCommandOutput extends CreateRouteServerPeerResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new BGP peer for a specified route server endpoint.</p>
- *          <p>A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:</p>
- *          <ul>
- *             <li>
- *                <p>Have an elastic network interface in the VPC</p>
- *             </li>
- *             <li>
- *                <p>Support BGP (Border Gateway Protocol)</p>
- *             </li>
- *             <li>
- *                <p>Can initiate BGP sessions</p>
- *             </li>
- *          </ul>
- *          <p>For more information see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html">Dynamic routing in your VPC with VPC Route Server</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Creates a new BGP peer for a specified route server endpoint.
+ *
+ * A route server peer is a session between a route server endpoint and the device deployed in Amazon Web Services (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:
+ *
+ * - Have an elastic network interface in the VPC
+ * - Support BGP (Border Gateway Protocol)
+ * - Can initiate BGP sessions
+ *
+ * For more information see [Dynamic routing in your VPC with VPC Route Server](https://docs.aws.amazon.com/vpc/latest/userguide/dynamic-routing-route-server.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,8 +103,8 @@ export interface CreateRouteServerPeerCommandOutput extends CreateRouteServerPee
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,16 +23,10 @@ export interface ListEventLogsCommandInput extends ListEventLogsRequest {}
 export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of events that occurred during a specific time in a space. You can
- *       use these events to audit user and system activity in a space. For more information, see
- *         <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html">Monitoring</a> in the <i>Amazon CodeCatalyst User Guide</i>.</p>
- *          <note>
- *             <p>ListEventLogs guarantees events for the last 30 days in a given space. You can also
- *         view and retrieve a list of management events over the last 90 days for Amazon CodeCatalyst in the
- *           CloudTrail console by viewing Event history, or by creating a trail to create
- *         and maintain a record of events that extends past 90 days. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html">Working with CloudTrail Event History</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html">Working with
- *           CloudTrail trails</a>.</p>
- *          </note>
+ * Retrieves a list of events that occurred during a specific time in a space. You can use these events to audit user and system activity in a space. For more information, see [Monitoring](https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-monitoring.html) in the *Amazon CodeCatalyst User Guide*.
+ *
+ * > **Note:** ListEventLogs guarantees events for the last 30 days in a given space. You can also view and retrieve a list of management events over the last 90 days for Amazon CodeCatalyst in the CloudTrail console by viewing Event history, or by creating a trail to create and maintain a record of events that extends past 90 days. For more information, see [Working with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) and [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,28 +91,32 @@ export interface ListEventLogsCommandOutput extends ListEventLogsResponse, __Met
  * @see {@link CodeCatalystClientResolvedConfig | config} for CodeCatalystClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient access to perform this action. Verify that you are a member of a role that allows this action.</p>
+ *
+ * The request was denied because you don't have sufficient access to perform this action. Verify that you are a member of a role that allows this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request was denied because the requested operation would cause a conflict with the current state of a service resource associated with the request.
- *        Another user might have updated the resource. Reload, make sure you have the latest data, and then try again.</p>
+ *
+ * The request was denied because the requested operation would cause a conflict with the current state of a service resource associated with the request. Another user might have updated the resource. Reload, make sure you have the latest data, and then try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.</p>
+ *
+ * The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was denied because one or more resources has reached its limits for the tier the space belongs to. Either reduce
- *       the number of resources, or change the tier if applicable.</p>
+ *
+ * The request was denied because one or more resources has reached its limits for the tier the space belongs to. Either reduce the number of resources, or change the tier if applicable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
+ *
+ * The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.
  *
  * @throws {@link CodeCatalystServiceException}
- * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ * Base exception class for all service exceptions from CodeCatalyst service.
  *
  * @public
  */

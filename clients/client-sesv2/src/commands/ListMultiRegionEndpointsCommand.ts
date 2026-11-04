@@ -23,9 +23,10 @@ export interface ListMultiRegionEndpointsCommandInput extends ListMultiRegionEnd
 export interface ListMultiRegionEndpointsCommandOutput extends ListMultiRegionEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>List the multi-region endpoints (global-endpoints).</p>
- *          <p>Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region
- *             where operation is executed will be listed.</p>
+ * List the multi-region endpoints (global-endpoints).
+ *
+ * Only multi-region endpoints (global-endpoints) whose primary region is the AWS-Region where operation is executed will be listed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,14 +66,16 @@ export interface ListMultiRegionEndpointsCommandOutput extends ListMultiRegionEn
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

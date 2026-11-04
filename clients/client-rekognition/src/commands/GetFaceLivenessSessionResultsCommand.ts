@@ -23,18 +23,12 @@ export interface GetFaceLivenessSessionResultsCommandInput extends GetFaceLivene
 export interface GetFaceLivenessSessionResultsCommandOutput extends GetFaceLivenessSessionResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the results of a specific Face Liveness session. It requires the
- *         <code>sessionId</code> as input, which was created using
- *         <code>CreateFaceLivenessSession</code>. Returns the corresponding Face Liveness confidence
- *       score, a reference image that includes a face bounding box, and audit images that also contain
- *       face bounding boxes. The Face Liveness confidence score ranges from 0 to 100. </p>
- *          <p>The number of audit images returned by <code>GetFaceLivenessSessionResults</code> is
- *       defined by the <code>AuditImagesLimit</code> paramater when calling
- *         <code>CreateFaceLivenessSession</code>. Reference images are always returned when
- *       possible.</p>
- *          <p>For a session that has completed, the response can also include a <code>Feedback</code>
- *       list describing conditions that were detected in the selfie-video, such as low lighting or an
- *       obstructed face, and <code>Metadata</code> about the client that streamed the session.</p>
+ * Retrieves the results of a specific Face Liveness session. It requires the `sessionId` as input, which was created using `CreateFaceLivenessSession`. Returns the corresponding Face Liveness confidence score, a reference image that includes a face bounding box, and audit images that also contain face bounding boxes. The Face Liveness confidence score ranges from 0 to 100.
+ *
+ * The number of audit images returned by `GetFaceLivenessSessionResults` is defined by the `AuditImagesLimit` paramater when calling `CreateFaceLivenessSession`. Reference images are always returned when possible.
+ *
+ * For a session that has completed, the response can also include a `Feedback` list describing conditions that were detected in the selfie-video, such as low lighting or an obstructed face, and `Metadata` about the client that streamed the session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,28 +100,32 @@ export interface GetFaceLivenessSessionResultsCommandOutput extends GetFaceLiven
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link SessionNotFoundException} (client fault)
- *  <p>Occurs when a given sessionId is not found.</p>
+ *
+ * Occurs when a given sessionId is not found.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

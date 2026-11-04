@@ -26,8 +26,8 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandInput extends De
 export interface DescribeInstancePatchStatesForPatchGroupCommandOutput extends DescribeInstancePatchStatesForPatchGroupResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
- *    group.</p>
+ * Retrieves the high-level patch state for the managed nodes in the specified patch group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,17 +92,20 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput extends D
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
+ *
+ * The filter name isn't valid. Verify that you entered the correct name and try again.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The specified token isn't valid.</p>
+ *
+ * The specified token isn't valid.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

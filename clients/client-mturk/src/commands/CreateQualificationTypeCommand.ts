@@ -23,13 +23,8 @@ export interface CreateQualificationTypeCommandInput extends CreateQualification
 export interface CreateQualificationTypeCommandOutput extends CreateQualificationTypeResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>CreateQualificationType</code>
- *             operation creates a new Qualification type, which is represented by a
- *             <code>QualificationType</code>
- *             data structure.
- *         </p>
+ * The `CreateQualificationType` operation creates a new Qualification type, which is represented by a `QualificationType` data structure.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,14 +74,16 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

@@ -23,22 +23,14 @@ export interface CreateFaceLivenessSessionCommandInput extends CreateFaceLivenes
 export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivenessSessionResponse, __MetadataBearer {}
 
 /**
- * <p>This API operation initiates a Face Liveness session. It returns a <code>SessionId</code>,
- *       which you can use to start streaming Face Liveness video and get the results for a Face
- *       Liveness session. </p>
- *          <p>You can use the <code>OutputConfig</code> option in the Settings parameter to provide an
- *       Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. If no Amazon S3
- *       bucket is defined, raw bytes are sent instead. </p>
- *          <p>You can use <code>AuditImagesLimit</code> to limit the number of audit images returned
- *       when <code>GetFaceLivenessSessionResults</code> is called. This number is between 0 and 4. By
- *       default, it is set to 0. The limit is best effort and based on the duration of the
- *       selfie-video. </p>
- *          <p>You can use the <code>ChallengePreferences</code> option in the <code>Settings</code> parameter to choose between the
- *       'FaceMovementAndLightChallenge' or FaceMovementChallenge' settings. See the
- *       <a href="https://docs.aws.amazon.com/rekognition/latest/dg/face-liveness-shared-responsibility-model.html">Shared Responsibility</a>
- *       page for details on guidance for which setting to choose between these two settings depending on
- *       your use case and preferences. This parameter is optional and if no parameter is provided, then
- *       the 'FaceMovementAndLightChallenge' settings is applied by default.</p>
+ * This API operation initiates a Face Liveness session. It returns a `SessionId`, which you can use to start streaming Face Liveness video and get the results for a Face Liveness session.
+ *
+ * You can use the `OutputConfig` option in the Settings parameter to provide an Amazon S3 bucket location. The Amazon S3 bucket stores reference images and audit images. If no Amazon S3 bucket is defined, raw bytes are sent instead.
+ *
+ * You can use `AuditImagesLimit` to limit the number of audit images returned when `GetFaceLivenessSessionResults` is called. This number is between 0 and 4. By default, it is set to 0. The limit is best effort and based on the duration of the selfie-video.
+ *
+ * You can use the `ChallengePreferences` option in the `Settings` parameter to choose between the 'FaceMovementAndLightChallenge' or FaceMovementChallenge' settings. See the [Shared Responsibility](https://docs.aws.amazon.com/rekognition/latest/dg/face-liveness-shared-responsibility-model.html) page for details on guidance for which setting to choose between these two settings depending on your use case and preferences. This parameter is optional and if no parameter is provided, then the 'FaceMovementAndLightChallenge' settings is applied by default.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,25 +74,28 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

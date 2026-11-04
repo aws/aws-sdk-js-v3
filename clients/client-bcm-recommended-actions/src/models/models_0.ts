@@ -2,36 +2,42 @@
 import type { ActionType, Feature, FilterName, MatchOption, Severity } from "./enums";
 
 /**
- * <p>Describes a filter that returns a more specific list of recommended actions.</p>
+ * Describes a filter that returns a more specific list of recommended actions.
+ *
  * @public
  */
 export interface ActionFilter {
   /**
-   * <p>The category to filter on. Valid values are <code>FEATURE</code> for feature type, <code>SEVERITY</code> for severity level, and <code>TYPE</code> for recommendation type.</p>
+   * The category to filter on. Valid values are `FEATURE` for feature type, `SEVERITY` for severity level, and `TYPE` for recommendation type.
+   *
    * @public
    */
   key: FilterName | undefined;
 
   /**
-   * <p>Specifies how to apply the filter. Use <code>EQUALS</code> to include matching results or <code>NOT_EQUALS</code> to exclude matching results.</p>
+   * Specifies how to apply the filter. Use `EQUALS` to include matching results or `NOT_EQUALS` to exclude matching results.
+   *
    * @public
    */
   matchOption: MatchOption | undefined;
 
   /**
-   * <p>One or more values to match against the specified key.</p>
+   * One or more values to match against the specified key.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Enables filtering of results based on specified action criteria. You can define multiple action filters to refine results using combinations of feature type, severity level, and recommendation type.</p>
+ * Enables filtering of results based on specified action criteria. You can define multiple action filters to refine results using combinations of feature type, severity level, and recommendation type.
+ *
  * @public
  */
 export interface RequestFilter {
   /**
-   * <p>A list of action filters that define criteria for filtering results. Each filter specifies a key, match option, and corresponding values to filter on.</p>
+   * A list of action filters that define criteria for filtering results. Each filter specifies a key, match option, and corresponding values to filter on.
+   *
    * @public
    */
   actions?: ActionFilter[] | undefined;
@@ -42,73 +48,85 @@ export interface RequestFilter {
  */
 export interface ListRecommendedActionsRequest {
   /**
-   * <p>The criteria that you want all returned recommended actions to match.</p>
+   * The criteria that you want all returned recommended actions to match.
+   *
    * @public
    */
   filter?: RequestFilter | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * The pagination token that indicates the next set of results that you want to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes a specific recommended action.</p>
+ * Describes a specific recommended action.
+ *
  * @public
  */
 export interface RecommendedAction {
   /**
-   * <p>The ID for the recommended action.</p>
+   * The ID for the recommended action.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The type of action you can take by adopting the recommended action.</p>
+   * The type of action you can take by adopting the recommended action.
+   *
    * @public
    */
   type?: ActionType | undefined;
 
   /**
-   * <p>The account that the recommended action is for.</p>
+   * The account that the recommended action is for.
+   *
    * @public
    */
   accountId?: string | undefined;
 
   /**
-   * <p>The severity associated with the recommended action.</p>
+   * The severity associated with the recommended action.
+   *
    * @public
    */
   severity?: Severity | undefined;
 
   /**
-   * <p>The feature associated with the recommended action.</p>
+   * The feature associated with the recommended action.
+   *
    * @public
    */
   feature?: Feature | undefined;
 
   /**
-   * <p>Context that applies to the recommended action.</p>
+   * Context that applies to the recommended action.
+   *
    * @public
    */
   context?: Record<string, string> | undefined;
 
   /**
-   * <p>The possible next steps to execute the recommended action.</p>
+   * The possible next steps to execute the recommended action.
+   *
    * @public
    */
   nextSteps?: string[] | undefined;
 
   /**
-   * <p>The time when the recommended action status was last updated.</p>
+   * The time when the recommended action status was last updated.
+   *
    * @public
    */
   lastUpdatedTimeStamp?: string | undefined;
@@ -119,31 +137,36 @@ export interface RecommendedAction {
  */
 export interface ListRecommendedActionsResponse {
   /**
-   * <p>The list of recommended actions that satisfy the filter criteria.</p>
+   * The list of recommended actions that satisfy the filter criteria.
+   *
    * @public
    */
   recommendedActions: RecommendedAction[] | undefined;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * The pagination token that indicates the next set of results that you want to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Provides specific details about why a particular field failed validation.</p>
+ * Provides specific details about why a particular field failed validation.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>Provides the name of the field that failed validation.</p>
+   * Provides the name of the field that failed validation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Provides a message explaining why the field failed validation.</p>
+   * Provides a message explaining why the field failed validation.
+   *
    * @public
    */
   message: string | undefined;

@@ -23,11 +23,8 @@ export interface CancelSchemaExtensionCommandInput extends CancelSchemaExtension
 export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensionResult, __MetadataBearer {}
 
 /**
- * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema
- *       extension has started replicating to all domain controllers, the task can no longer be
- *       canceled. A schema extension can be canceled during any of the following states;
- *         <code>Initializing</code>, <code>CreatingSnapshot</code>, and
- *       <code>UpdatingSchema</code>.</p>
+ * Cancels an in-progress schema extension to a Microsoft AD directory. Once a schema extension has started replicating to all domain controllers, the task can no longer be canceled. A schema extension can be canceled during any of the following states; `Initializing`, `CreatingSnapshot`, and `UpdatingSchema`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +50,20 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To cancel a Microsoft AD schema extension that is in progress
  * ```javascript

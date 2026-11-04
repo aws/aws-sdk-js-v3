@@ -23,12 +23,10 @@ export interface ModifyCapacityReservationFleetCommandInput extends ModifyCapaci
 export interface ModifyCapacityReservationFleetCommandOutput extends ModifyCapacityReservationFleetResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a Capacity Reservation Fleet.</p>
- *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet
- * 			automatically creates new Capacity Reservations, or modifies or cancels existing
- * 			Capacity Reservations in the Fleet to meet the new total target capacity. When you
- * 			modify the end date for the Fleet, the end dates for all of the individual Capacity
- * 			Reservations in the Fleet are updated accordingly.</p>
+ * Modifies a Capacity Reservation Fleet.
+ *
+ * When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for all of the individual Capacity Reservations in the Fleet are updated accordingly.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +57,8 @@ export interface ModifyCapacityReservationFleetCommandOutput extends ModifyCapac
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

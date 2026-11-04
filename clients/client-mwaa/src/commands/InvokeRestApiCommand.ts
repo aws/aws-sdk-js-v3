@@ -23,7 +23,8 @@ export interface InvokeRestApiCommandInput extends InvokeRestApiRequest {}
 export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __MetadataBearer {}
 
 /**
- * <p>Invokes the Apache Airflow REST API on the webserver with the specified inputs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html">Using the Apache Airflow REST API</a> </p>
+ * Invokes the Apache Airflow REST API on the webserver with the specified inputs. To learn more, see [Using the Apache Airflow REST API](https://docs.aws.amazon.com/mwaa/latest/userguide/access-mwaa-apache-airflow-rest-api.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +56,32 @@ export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __Met
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html">Accessing an Amazon MWAA environment</a>.</p>
+ *
+ * Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see [Accessing an Amazon MWAA environment](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html).
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * InternalServerException: An internal error has occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ * ResourceNotFoundException: The resource is not available.
  *
  * @throws {@link RestApiClientException} (client fault)
- *  <p>An exception indicating that a client-side error occurred during the Apache Airflow REST API call.</p>
+ *
+ * An exception indicating that a client-side error occurred during the Apache Airflow REST API call.
  *
  * @throws {@link RestApiServerException} (client fault)
- *  <p>An exception indicating that a server-side error occurred during the Apache Airflow REST API call.</p>
+ *
+ * An exception indicating that a server-side error occurred during the Apache Airflow REST API call.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ * ValidationException: The provided input is not valid.
  *
  * @throws {@link MWAAServiceException}
- * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ * Base exception class for all service exceptions from MWAA service.
  *
  * @example Listing Airflow variables.
  * ```javascript

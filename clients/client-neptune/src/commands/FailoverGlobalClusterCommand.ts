@@ -23,20 +23,12 @@ export interface FailoverGlobalClusterCommandInput extends FailoverGlobalCluster
 export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalClusterResult, __MetadataBearer {}
 
 /**
- * <p>Initiates the failover process for a Neptune global database.</p>
- *          <p>A failover for a Neptune global database promotes one of secondary
- *       read-only DB clusters to be the primary DB cluster and demotes the
- *       primary DB cluster to being a secondary (read-only) DB cluster. In other
- *       words, the role of the current primary DB cluster and the selected
- *       target secondary DB cluster are switched. The selected secondary DB cluster
- *       assumes full read/write capabilities for the Neptune global database.</p>
- *          <note>
- *             <p>This action applies <b>only</b> to
- *       Neptune global databases. This action is only intended for use on healthy
- *       Neptune global databases with healthy Neptune DB clusters and no region-wide
- *       outages, to test disaster recovery scenarios or to reconfigure the global
- *       database topology.</p>
- *          </note>
+ * Initiates the failover process for a Neptune global database.
+ *
+ * A failover for a Neptune global database promotes one of secondary read-only DB clusters to be the primary DB cluster and demotes the primary DB cluster to being a secondary (read-only) DB cluster. In other words, the role of the current primary DB cluster and the selected target secondary DB cluster are switched. The selected secondary DB cluster assumes full read/write capabilities for the Neptune global database.
+ *
+ * > **Note:** This action applies **only** to Neptune global databases. This action is only intended for use on healthy Neptune global databases with healthy Neptune DB clusters and no region-wide outages, to test disaster recovery scenarios or to reconfigure the global database topology.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,21 +89,24 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
+ *
+ * The `GlobalClusterIdentifier` doesn't refer to an existing global database cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidGlobalClusterStateFault} (client fault)
- *  <p>The global cluster is in an invalid state and can't perform the requested operation. </p>
+ *
+ * The global cluster is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

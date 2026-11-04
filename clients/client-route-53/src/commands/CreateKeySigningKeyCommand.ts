@@ -23,8 +23,8 @@ export interface CreateKeySigningKeyCommandInput extends CreateKeySigningKeyRequ
 export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have
- * 			two KSKs per hosted zone.</p>
+ * Creates a new key-signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,43 +79,48 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>Parameter name is not valid.</p>
+ *
+ * Parameter name is not valid.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidKeySigningKeyName} (client fault)
- *  <p>The key-signing key (KSK) name that you specified isn't a valid name.</p>
+ *
+ * The key-signing key (KSK) name that you specified isn't a valid name.
  *
  * @throws {@link InvalidKeySigningKeyStatus} (client fault)
- *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
- * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * The key-signing key (KSK) status isn't valid or another KSK has the status `INTERNAL_FAILURE`.
  *
  * @throws {@link InvalidKMSArn} (client fault)
- *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
- * 			signing.</p>
+ *
+ * The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC signing.
  *
  * @throws {@link InvalidSigningStatus} (client fault)
- *  <p>Your hosted zone status isn't valid for this operation. In the hosted zone, change the
- * 			status to enable <code>DNSSEC</code> or disable <code>DNSSEC</code>.</p>
+ *
+ * Your hosted zone status isn't valid for this operation. In the hosted zone, change the status to enable `DNSSEC` or disable `DNSSEC`.
  *
  * @throws {@link KeySigningKeyAlreadyExists} (client fault)
- *  <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
+ *
+ * You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.
  *
  * @throws {@link NoSuchHostedZone} (client fault)
- *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * No hosted zone exists with the ID that you specified.
  *
  * @throws {@link TooManyKeySigningKeys} (client fault)
- *  <p>You've reached the limit for the number of key-signing keys (KSKs). Remove at least
- * 			one KSK, and then try again.</p>
+ *
+ * You've reached the limit for the number of key-signing keys (KSKs). Remove at least one KSK, and then try again.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

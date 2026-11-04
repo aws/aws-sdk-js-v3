@@ -26,7 +26,8 @@ export interface SearchTransitGatewayMulticastGroupsCommandInput extends SearchT
 export interface SearchTransitGatewayMulticastGroupsCommandOutput extends SearchTransitGatewayMulticastGroupsResult, __MetadataBearer {}
 
 /**
- * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
+ * Searches one or more transit gateway multicast groups and returns the group membership information.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +80,8 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput extends Search
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

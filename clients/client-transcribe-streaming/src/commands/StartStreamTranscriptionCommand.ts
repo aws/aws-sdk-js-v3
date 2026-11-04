@@ -23,27 +23,16 @@ export interface StartStreamTranscriptionCommandInput extends StartStreamTranscr
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
- *       Amazon Transcribe and the transcription results are streamed to your application.</p>
- *          <p>The following parameters are required:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>language-code</code> or <code>identify-language</code> or <code>identify-multiple-language</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>media-encoding</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>sample-rate</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
+ * Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to Amazon Transcribe and the transcription results are streamed to your application.
+ *
+ * The following parameters are required:
+ *
+ * - `language-code` or `identify-language` or `identify-multiple-language`
+ * - `media-encoding`
+ * - `sample-rate`
+ *
+ * For more information on streaming with Amazon Transcribe, see [Transcribing streaming audio](https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -200,31 +189,28 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>One or more arguments to the <code>StartStreamTranscription</code>,
- *       <code>StartMedicalStreamTranscription</code>, or <code>StartCallAnalyticsStreamTranscription</code>
- *       operation was not valid. For example, <code>MediaEncoding</code> or <code>LanguageCode</code>
- *       used unsupported values. Check the specified parameters and try your request again.</p>
+ *
+ * One or more arguments to the `StartStreamTranscription`, `StartMedicalStreamTranscription`, or `StartCallAnalyticsStreamTranscription` operation was not valid. For example, `MediaEncoding` or `LanguageCode` used unsupported values. Check the specified parameters and try your request again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A new stream started with the same session ID. The current stream has been terminated.</p>
+ *
+ * A new stream started with the same session ID. The current stream has been terminated.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>A problem occurred while processing the audio. Amazon Transcribe terminated
- *       processing.</p>
+ *
+ * A problem occurred while processing the audio. Amazon Transcribe terminated processing.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
- *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
- *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
- *       Reduce your number of concurrent streams and try your request again using an exponential backoff
- *       strategy.</p>
+ *
+ * Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream service quota. This error can also occur if a stream exceeds the maximum session duration. In rare cases, this error can also occur if you increase your number of concurrent streams too quickly. Reduce your number of concurrent streams and try your request again using an exponential backoff strategy.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable. Try your request later.</p>
+ *
+ * The service is currently unavailable. Try your request later.
  *
  * @throws {@link TranscribeStreamingServiceException}
- * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
+ * Base exception class for all service exceptions from TranscribeStreaming service.
  *
  * @public
  */

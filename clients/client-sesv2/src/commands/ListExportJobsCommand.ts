@@ -23,7 +23,8 @@ export interface ListExportJobsCommandInput extends ListExportJobsRequest {}
 export interface ListExportJobsCommandOutput extends ListExportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the export jobs.</p>
+ * Lists all of the export jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,14 +63,16 @@ export interface ListExportJobsCommandOutput extends ListExportJobsResponse, __M
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

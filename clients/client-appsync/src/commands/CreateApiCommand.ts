@@ -23,9 +23,8 @@ export interface CreateApiCommandInput extends CreateApiRequest {}
 export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an <code>Api</code> object. Use this operation to create an AppSync
- *          API with your preferred configuration, such as an Event API that provides real-time message
- *          publishing and message subscriptions over WebSockets.</p>
+ * Creates an `Api` object. Use this operation to create an AppSync API with your preferred configuration, such as an Event API that provides real-time message publishing and message subscriptions over WebSockets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,25 +153,28 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is
- *          missing. Check the field values, and then try again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and then try again.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can
- *          make your change.</p>
+ *
+ * Another modification is in progress at this time and it must complete before you can make your change.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * An internal AppSync error occurred. Try your request again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource.</p>
+ *
+ * The operation exceeded the service quota for this resource.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You aren't authorized to perform this operation.</p>
+ *
+ * You aren't authorized to perform this operation.
  *
  * @throws {@link AppSyncServiceException}
- * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ * Base exception class for all service exceptions from AppSync service.
  *
  * @public
  */

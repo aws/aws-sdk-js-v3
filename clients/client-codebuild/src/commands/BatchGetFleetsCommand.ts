@@ -23,7 +23,8 @@ export interface BatchGetFleetsCommandInput extends BatchGetFleetsInput {}
 export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about one or more compute fleets.</p>
+ * Gets information about one or more compute fleets.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,11 +120,12 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

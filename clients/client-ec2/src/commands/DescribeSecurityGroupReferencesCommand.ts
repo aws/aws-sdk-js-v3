@@ -23,7 +23,8 @@ export interface DescribeSecurityGroupReferencesCommandInput extends DescribeSec
 export interface DescribeSecurityGroupReferencesCommandOutput extends DescribeSecurityGroupReferencesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the VPCs on the other side of a VPC peering or Transit Gateway connection that are referencing the security groups you've specified in this request.</p>
+ * Describes the VPCs on the other side of a VPC peering or Transit Gateway connection that are referencing the security groups you've specified in this request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface DescribeSecurityGroupReferencesCommandOutput extends DescribeSe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe security group references
  * ```javascript

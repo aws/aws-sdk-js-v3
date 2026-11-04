@@ -23,16 +23,12 @@ export interface ListEmailIdentityCertificatesCommandInput extends ListEmailIden
 export interface ListEmailIdentityCertificatesCommandOutput extends ListEmailIdentityCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the S/MIME certificates that are associated with the specified email identity.
- *             The results include certificates in all states, such as <code>PROVISIONING</code>,
- *             <code>ACTIVE</code>, <code>INACTIVE</code>, <code>DEPROVISIONING</code>, and
- *             <code>FAILED</code>.</p>
- *          <p>If a certificate has passed its expiration time, it's returned with a status of
- *             <code>FAILED</code>.</p>
- *          <p>We recommend using pagination to ensure that the operation returns quickly and
- *             successfully. When there are more results than fit in a single response, the response
- *             includes a <code>NextToken</code> value that you use in a subsequent call to retrieve
- *             the next set of results.</p>
+ * Lists the S/MIME certificates that are associated with the specified email identity. The results include certificates in all states, such as `PROVISIONING`, `ACTIVE`, `INACTIVE`, `DEPROVISIONING`, and `FAILED`.
+ *
+ * If a certificate has passed its expiration time, it's returned with a status of `FAILED`.
+ *
+ * We recommend using pagination to ensure that the operation returns quickly and successfully. When there are more results than fit in a single response, the response includes a `NextToken` value that you use in a subsequent call to retrieve the next set of results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,17 +65,20 @@ export interface ListEmailIdentityCertificatesCommandOutput extends ListEmailIde
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

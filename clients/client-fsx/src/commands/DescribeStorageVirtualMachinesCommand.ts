@@ -23,7 +23,8 @@ export interface DescribeStorageVirtualMachinesCommandInput extends DescribeStor
 export interface DescribeStorageVirtualMachinesCommandOutput extends DescribeStorageVirtualMachinesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).</p>
+ * Describes one or more Amazon FSx for NetApp ONTAP storage virtual machines (SVMs).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -129,17 +130,20 @@ export interface DescribeStorageVirtualMachinesCommandOutput extends DescribeSto
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link StorageVirtualMachineNotFound} (client fault)
- *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+ *
+ * No FSx for ONTAP SVMs were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AutoScalingPlansServiceException as __BaseException } from "./AutoScalingPlansServiceException";
 
 /**
- * <p>Concurrent updates caused an exception, for example, if you request an update to a
- *          scaling plan that already has a pending update.</p>
+ * Concurrent updates caused an exception, for example, if you request an update to a scaling plan that already has a pending update.
+ *
  * @public
  */
 export class ConcurrentUpdateException extends __BaseException {
@@ -28,7 +28,8 @@ export class ConcurrentUpdateException extends __BaseException {
 }
 
 /**
- * <p>The service encountered an internal error.</p>
+ * The service encountered an internal error.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -51,8 +52,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>Your account exceeded a limit. This exception is thrown when a per-account resource
- *          limit is exceeded.</p>
+ * Your account exceeded a limit. This exception is thrown when a per-account resource limit is exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -75,7 +76,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ * An exception was thrown for a validation issue. Review the parameters provided.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -98,7 +100,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified object could not be found.</p>
+ * The specified object could not be found.
+ *
  * @public
  */
 export class ObjectNotFoundException extends __BaseException {
@@ -121,7 +124,8 @@ export class ObjectNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The token provided is not valid.</p>
+ * The token provided is not valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

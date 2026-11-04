@@ -23,7 +23,8 @@ export interface CreateUserSettingsCommandInput extends CreateUserSettingsReques
 export interface CreateUserSettingsCommandOutput extends CreateUserSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user settings resource that can be associated with a web portal. Once associated with a web portal, user settings control how users can transfer data between a streaming session and the their local devices. </p>
+ * Creates a user settings resource that can be associated with a web portal. Once associated with a web portal, user settings control how users can transfer data between a streaming session and the their local devices.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,29 +122,36 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * @see {@link WorkSpacesWebClientResolvedConfig | config} for WorkSpacesWebClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
+ *
+ * Access is denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There is a conflict.</p>
+ *
+ * There is a conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There is an internal server error.</p>
+ *
+ * There is an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource cannot be found.</p>
+ *
+ * The resource cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>There is a throttling error.</p>
+ *
+ * There is a throttling error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There is a validation error.</p>
+ *
+ * There is a validation error.
  *
  * @throws {@link WorkSpacesWebServiceException}
- * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpacesWeb service.
  *
  * @public
  */

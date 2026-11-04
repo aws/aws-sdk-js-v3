@@ -23,7 +23,8 @@ export interface UpdateRecipeJobCommandInput extends UpdateRecipeJobRequest {}
 export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the definition of an existing DataBrew recipe job.</p>
+ * Modifies the definition of an existing DataBrew recipe job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,17 +116,20 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the specified resource was denied.</p>
+ *
+ * Access to the specified resource was denied.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One or more resources can't be found.</p>
+ *
+ * One or more resources can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

@@ -26,13 +26,8 @@ export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySna
 export interface ModifySnapshotCopyRetentionPeriodCommandOutput extends ModifySnapshotCopyRetentionPeriodResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after
- *             they are copied from the source Amazon Web Services Region. By default, this operation only changes the
- *             retention period of copied automated snapshots. The retention periods for both new and
- *             existing copied automated snapshots are updated with the new retention period. You can
- *             set the manual option to change only the retention periods of copied manual snapshots.
- *             If you set this option, only newly copied manual snapshots have the new retention
- *             period. </p>
+ * Modifies the number of days to retain snapshots in the destination Amazon Web Services Region after they are copied from the source Amazon Web Services Region. By default, this operation only changes the retention period of copied automated snapshots. The retention periods for both new and existing copied automated snapshots are updated with the new retention period. You can set the manual option to change only the retention periods of copied manual snapshots. If you set this option, only newly copied manual snapshots have the new retention period.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -265,26 +260,30 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput extends ModifySn
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link SnapshotCopyDisabledFault} (client fault)
- *  <p>Cross-region snapshot copy was temporarily disabled. Try your request
- *             again.</p>
+ *
+ * Cross-region snapshot copy was temporarily disabled. Try your request again.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

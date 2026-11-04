@@ -23,8 +23,8 @@ export interface DeleteTagsCommandInput extends DeleteTagsMessage {}
 export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes tags from a resource. You must provide the ARN of the resource
- *             from which you want to delete the tag or tags.</p>
+ * Deletes tags from a resource. You must provide the ARN of the resource from which you want to delete the tag or tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,14 +52,16 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

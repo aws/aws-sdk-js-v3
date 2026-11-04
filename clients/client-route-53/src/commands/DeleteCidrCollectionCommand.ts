@@ -23,8 +23,8 @@ export interface DeleteCidrCollectionCommandInput extends DeleteCidrCollectionRe
 export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a CIDR collection in the current Amazon Web Services account. The collection
- * 			must be empty before it can be deleted.</p>
+ * Deletes a CIDR collection in the current Amazon Web Services account. The collection must be empty before it can be deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,21 +49,24 @@ export interface DeleteCidrCollectionCommandOutput extends DeleteCidrCollectionR
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link CidrCollectionInUseException} (client fault)
- *  <p>This CIDR collection is in use, and isn't empty.</p>
+ *
+ * This CIDR collection is in use, and isn't empty.
  *
  * @throws {@link ConcurrentModification} (client fault)
- *  <p>Another user submitted a request to create, update, or delete the object at the same
- * 			time that you did. Retry the request. </p>
+ *
+ * Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchCidrCollectionException} (client fault)
- *  <p>The CIDR collection you specified, doesn't exist.</p>
+ *
+ * The CIDR collection you specified, doesn't exist.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

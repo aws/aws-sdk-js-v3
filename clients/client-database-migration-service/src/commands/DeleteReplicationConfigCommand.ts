@@ -23,10 +23,8 @@ export interface DeleteReplicationConfigCommandInput extends DeleteReplicationCo
 export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any
- *          and all replications that use this configuration. You can't delete the configuration for an
- *          DMS Serverless replication that is ongoing. You can delete the configuration when the
- *          replication is in a non-RUNNING and non-STARTING state.</p>
+ * Deletes an DMS Serverless replication configuration. This effectively deprovisions any and all replications that use this configuration. You can't delete the configuration for an DMS Serverless replication that is ongoing. You can delete the configuration when the replication is in a non-RUNNING and non-STARTING state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,18 +76,20 @@ export interface DeleteReplicationConfigCommandOutput extends DeleteReplicationC
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

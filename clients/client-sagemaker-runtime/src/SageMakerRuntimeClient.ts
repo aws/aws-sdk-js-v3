@@ -295,7 +295,8 @@ export type SageMakerRuntimeClientResolvedConfigType = __SmithyResolvedConfigura
 export interface SageMakerRuntimeClientResolvedConfig extends SageMakerRuntimeClientResolvedConfigType {}
 
 /**
- * <p> The Amazon SageMaker AI runtime API. </p>
+ * The Amazon SageMaker AI runtime API.
+ *
  * @public
  */
 export class SageMakerRuntimeClient extends __Client<

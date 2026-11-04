@@ -23,39 +23,18 @@ export interface GetRecommendationSummariesCommandInput extends GetRecommendatio
 export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the optimization findings for an account.</p>
- *          <p>It returns the number of:</p>
- *          <ul>
- *             <li>
- *                <p>Amazon EC2 instances in an account that are
- *                         <code>Underprovisioned</code>, <code>Overprovisioned</code>, or
- *                         <code>Optimized</code>.</p>
- *             </li>
- *             <li>
- *                <p>EC2Auto Scaling groups in an account that are <code>NotOptimized</code>, or
- *                         <code>Optimized</code>.</p>
- *             </li>
- *             <li>
- *                <p>Amazon EBS volumes in an account that are <code>NotOptimized</code>,
- *                     or <code>Optimized</code>.</p>
- *             </li>
- *             <li>
- *                <p>Lambda functions in an account that are <code>NotOptimized</code>,
- *                     or <code>Optimized</code>.</p>
- *             </li>
- *             <li>
- *                <p>Amazon ECS services in an account that are <code>Underprovisioned</code>,
- *                     <code>Overprovisioned</code>, or <code>Optimized</code>.</p>
- *             </li>
- *             <li>
- *                <p>Commercial software licenses in an account that are <code>InsufficientMetrics</code>,
- *                     <code>NotOptimized</code> or <code>Optimized</code>.</p>
- *             </li>
- *             <li>
- *                <p>Amazon Aurora and Amazon RDS databases in an account that are <code>Underprovisioned</code>,
- *                     <code>Overprovisioned</code>, <code>Optimized</code>, or <code>NotOptimized</code>.</p>
- *             </li>
- *          </ul>
+ * Returns the optimization findings for an account.
+ *
+ * It returns the number of:
+ *
+ * - Amazon EC2 instances in an account that are `Underprovisioned`, `Overprovisioned`, or `Optimized`.
+ * - EC2Auto Scaling groups in an account that are `NotOptimized`, or `Optimized`.
+ * - Amazon EBS volumes in an account that are `NotOptimized`, or `Optimized`.
+ * - Lambda functions in an account that are `NotOptimized`, or `Optimized`.
+ * - Amazon ECS services in an account that are `Underprovisioned`, `Overprovisioned`, or `Optimized`.
+ * - Commercial software licenses in an account that are `InsufficientMetrics`, `NotOptimized` or `Optimized`.
+ * - Amazon Aurora and Amazon RDS databases in an account that are `Underprovisioned`, `Overprovisioned`, `Optimized`, or `NotOptimized`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -148,30 +127,36 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred. Try your call again.</p>
+ *
+ * An internal error has occurred. Try your call again.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value supplied for the input parameter is out of range or not valid.</p>
+ *
+ * The value supplied for the input parameter is out of range or not valid.
  *
  * @throws {@link MissingAuthenticationToken} (client fault)
- *  <p>The request must contain either a valid (registered) Amazon Web Services access key ID
- *             or X.509 certificate.</p>
+ *
+ * The request must contain either a valid (registered) Amazon Web Services access key ID or X.509 certificate.
  *
  * @throws {@link OptInRequiredException} (client fault)
- *  <p>The account is not opted in to Compute Optimizer.</p>
+ *
+ * The account is not opted in to Compute Optimizer.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ComputeOptimizerServiceException}
- * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ * Base exception class for all service exceptions from ComputeOptimizer service.
  *
  * @public
  */

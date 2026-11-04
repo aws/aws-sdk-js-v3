@@ -23,15 +23,14 @@ export interface RebuildWorkspacesCommandInput extends RebuildWorkspacesRequest 
 export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p>Rebuilds the specified WorkSpace.</p>
- *          <p>You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>,
- *             <code>ERROR</code>, <code>UNHEALTHY</code>, <code>STOPPED</code>, or
- *             <code>REBOOTING</code>.</p>
- *          <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss
- *          of data. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html">Rebuild a
- *          WorkSpace</a>.</p>
- *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
- *          rebuilt.</p>
+ * Rebuilds the specified WorkSpace.
+ *
+ * You cannot rebuild a WorkSpace unless its state is `AVAILABLE`, `ERROR`, `UNHEALTHY`, `STOPPED`, or `REBOOTING`.
+ *
+ * Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. For more information, see [Rebuild a WorkSpace](https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html).
+ *
+ * This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +67,12 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface GetOpsMetadataCommandInput extends GetOpsMetadataRequest {}
 export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __MetadataBearer {}
 
 /**
- * <p>View operational metadata related to an application in Application Manager.</p>
+ * View operational metadata related to an application in Application Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +59,20 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
- *  <p>One of the arguments passed is invalid. </p>
+ *
+ * One of the arguments passed is invalid.
  *
  * @throws {@link OpsMetadataNotFoundException} (client fault)
- *  <p>The OpsMetadata object doesn't exist. </p>
+ *
+ * The OpsMetadata object doesn't exist.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

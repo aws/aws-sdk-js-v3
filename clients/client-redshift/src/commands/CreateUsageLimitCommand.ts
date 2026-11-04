@@ -23,8 +23,8 @@ export interface CreateUsageLimitCommandInput extends CreateUsageLimitMessage {}
 export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
- * <p>Creates a usage limit for a specified Amazon Redshift feature on a cluster.
- *             The usage limit is identified by the returned usage limit identifier.</p>
+ * Creates a usage limit for a specified Amazon Redshift feature on a cluster. The usage limit is identified by the returned usage limit identifier.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,30 +74,36 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidUsageLimitFault} (client fault)
- *  <p>The usage limit is not valid.</p>
+ *
+ * The usage limit is not valid.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link UsageLimitAlreadyExistsFault} (client fault)
- *  <p>The usage limit already exists. </p>
+ *
+ * The usage limit already exists.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

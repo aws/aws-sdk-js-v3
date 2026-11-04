@@ -23,7 +23,8 @@ export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
 export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the type of IP addresses used by the subnets of the specified load balancer.</p>
+ * Sets the type of IP addresses used by the subnets of the specified load balancer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,17 +52,20 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link InvalidSubnetException} (client fault)
- *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * The specified subnet is out of available addresses.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @public
  */

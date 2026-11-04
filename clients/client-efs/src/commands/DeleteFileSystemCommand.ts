@@ -23,26 +23,18 @@ export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a file system, permanently severing access to its contents. Upon return, the
- *       file system no longer exists and you can't access any contents of the deleted file
- *       system.</p>
- *          <p>You need to manually delete mount targets attached to a file system before you can delete
- *     an EFS file system. This step is performed for you when you use the Amazon Web Services console
- *     to delete a file system.</p>
- *          <note>
- *             <p>You cannot delete a file system that is part of an EFS replication configuration.
- *       You need to delete the replication configuration first.</p>
- *          </note>
- *          <p> You can't delete a file system that is in use. That is, if the file system has
- *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
- *          <note>
- *             <p>The <code>DeleteFileSystem</code> call returns while the file system state is still
- *           <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
- *         account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code>
- *         error.</p>
- *          </note>
- *          <p>This operation requires permissions for the
- *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
+ * Deletes a file system, permanently severing access to its contents. Upon return, the file system no longer exists and you can't access any contents of the deleted file system.
+ *
+ * You need to manually delete mount targets attached to a file system before you can delete an EFS file system. This step is performed for you when you use the Amazon Web Services console to delete a file system.
+ *
+ * > **Note:** You cannot delete a file system that is part of an EFS replication configuration. You need to delete the replication configuration first.
+ *
+ * You can't delete a file system that is in use. That is, if the file system has any mount targets, you must first delete them. For more information, see DescribeMountTargets and DeleteMountTarget.
+ *
+ * > **Note:** The `DeleteFileSystem` call returns while the file system state is still `deleting`. You can check the file system deletion status by calling the DescribeFileSystems operation, which returns a list of file systems in your account. If you pass file system ID or creation token for the deleted file system, the DescribeFileSystems returns a `404 FileSystemNotFound` error.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DeleteFileSystem` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,22 +59,24 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemInUse} (client fault)
- *  <p>Returned if a file system has mount targets.</p>
+ *
+ * Returned if a file system has mount targets.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To delete a file system
  * ```javascript

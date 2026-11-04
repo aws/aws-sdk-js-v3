@@ -23,7 +23,8 @@ export interface ListCodeReviewJobTasksCommandInput extends ListCodeReviewJobTas
 export interface ListCodeReviewJobTasksCommandOutput extends ListCodeReviewJobTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of task summaries for the specified code review job, optionally filtered by step name or category.</p>
+ * Returns a paginated list of task summaries for the specified code review job, optionally filtered by step name or category.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface ListCodeReviewJobTasksCommandOutput extends ListCodeReviewJobTa
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

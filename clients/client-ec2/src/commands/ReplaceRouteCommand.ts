@@ -23,12 +23,12 @@ export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
 export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Replaces an existing route within a route table in a VPC.</p>
- *          <p>You must specify either a destination CIDR block or a prefix list ID. You must also specify
- *            exactly one of the resources from the parameter list, or reset the local route to its default
- *            target.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
- *                 <i>Amazon VPC User Guide</i>.</p>
+ * Replaces an existing route within a route table in a VPC.
+ *
+ * You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the resources from the parameter list, or reset the local route to its default target.
+ *
+ * For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +70,8 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To replace a route
  * ```javascript

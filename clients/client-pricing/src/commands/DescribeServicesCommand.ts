@@ -23,7 +23,8 @@ export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
 export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the metadata for one service or a list of the metadata for all services. Use this without a service code to get the service codes for all services. Use it with a service code, such as <code>AmazonEC2</code>, to get information specific to that service, such as the attribute names available for that service. For example, some of the attribute names available for EC2 are <code>volumeType</code>, <code>maxIopsVolume</code>, <code>operation</code>, <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.</p>
+ * Returns the metadata for one service or a list of the metadata for all services. Use this without a service code to get the service codes for all services. Use it with a service code, such as `AmazonEC2`, to get information specific to that service, such as the attribute names available for that service. For example, some of the attribute names available for EC2 are `volumeType`, `maxIopsVolume`, `operation`, `locationType`, and `instanceCapacity10xlarge`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,29 +63,36 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>General authentication failure. The request wasn't signed correctly.</p>
+ *
+ * General authentication failure. The request wasn't signed correctly.
  *
  * @throws {@link ExpiredNextTokenException} (client fault)
- *  <p>The pagination token expired. Try again without a pagination token.</p>
+ *
+ * The pagination token expired. Try again without a pagination token.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * The pagination token is invalid. Try again without a pagination token.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters had an invalid value.</p>
+ *
+ * One or more parameters had an invalid value.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
+ *
+ * The requested resource can't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You've made too many requests exceeding service quotas. </p>
+ *
+ * You've made too many requests exceeding service quotas.
  *
  * @throws {@link PricingServiceException}
- * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ * Base exception class for all service exceptions from Pricing service.
  *
  * @example To retrieve a list of services and service codes
  * ```javascript

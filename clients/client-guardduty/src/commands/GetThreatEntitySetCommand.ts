@@ -23,7 +23,8 @@ export interface GetThreatEntitySetCommandInput extends GetThreatEntitySetReques
 export interface GetThreatEntitySetCommandOutput extends GetThreatEntitySetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the threat entity set associated with the specified <code>threatEntitySetId</code>.</p>
+ * Retrieves the threat entity set associated with the specified `threatEntitySetId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +62,16 @@ export interface GetThreatEntitySetCommandOutput extends GetThreatEntitySetRespo
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>A bad request exception object.</p>
+ *
+ * A bad request exception object.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error exception object.</p>
+ *
+ * An internal server error exception object.
  *
  * @throws {@link GuardDutyServiceException}
- * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ * Base exception class for all service exceptions from GuardDuty service.
  *
  * @public
  */

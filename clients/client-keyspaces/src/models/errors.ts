@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KeyspacesServiceException as __BaseException } from "./KeyspacesServiceException";
 
 /**
- * <p>You don't have sufficient access permissions to perform this action. </p>
+ * You don't have sufficient access permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
+ * Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ * Amazon Keyspaces was unable to fully process this request because of an internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ * The operation exceeded the service quota for this resource. For more information on service quotas, see [Quotas](https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html) in the *Amazon Keyspaces Developer Guide*.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -88,7 +92,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation failed due to an invalid or malformed request.</p>
+ * The operation failed due to an invalid or malformed request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -109,7 +114,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ * The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be `ACTIVE`.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -117,7 +123,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource couldn't be found.</p>
+   * The unique identifier in the format of Amazon Resource Name (ARN) for the resource couldn't be found.
+   *
    * @public
    */
   resourceArn?: string | undefined;

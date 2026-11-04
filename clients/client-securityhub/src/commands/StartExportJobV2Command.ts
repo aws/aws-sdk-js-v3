@@ -23,12 +23,18 @@ export interface StartExportJobV2CommandInput extends StartExportJobV2Request {}
 export interface StartExportJobV2CommandOutput extends StartExportJobV2Response, __MetadataBearer {}
 
 /**
- * <p>Starts an ad hoc export job that writes Security Hub findings to an Amazon Simple Storage Service (Amazon S3) bucket that you own. Because the export runs asynchronously, this operation returns only the <code>ExportJobId</code> of the new job; it doesn't wait for the export to finish. Use <code>GetExportJobV2</code> to poll the job, and <code>ListExportJobsV2</code> to view the export jobs in your account.</p>
- *          <p>Security Hub allows only one export job in the <code>RUNNING</code> state per account at a time. If an export job is already running, this operation returns a <code>ServiceQuotaExceededException</code>. Wait for the running job to finish, or cancel it with <code>CancelExportJobV2</code>, before you start a new one.</p>
- *          <p>Specify the destination bucket and Amazon Web Services Key Management Service (Amazon Web Services KMS) key in the <code>Destination</code> parameter, and the output format (<code>CSV</code> or <code>OCSF_JSON</code>), optional filters, and field selection in the <code>OutputConfiguration</code> parameter. Before you call this operation, you must grant Security Hub permission to write to your bucket and use your Amazon Web Services KMS key by adding the bucket policy and key policy statements shown in the Examples section.</p>
- *          <p>Two identities use your Amazon Web Services KMS key, and each needs its own permission. Security Hub uses the key when it writes the export objects to your bucket. The IAM principal that calls <code>StartExportJobV2</code> must also have <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions on the key. The Examples section shows both grants.</p>
- *          <p>A delegated administrator can use the optional <code>Scopes</code> parameter to export findings for specific organizations or organizational units (OUs).</p>
- *          <p>To make the request idempotent, provide a <code>ClientToken</code>. If you retry a <code>StartExportJobV2</code> request with the same <code>ClientToken</code> and the same request parameters, Security Hub returns the <code>ExportJobId</code> of the original job instead of starting a new one. If you reuse a <code>ClientToken</code> with different request parameters, this operation returns a <code>ConflictException</code>.</p>
+ * Starts an ad hoc export job that writes Security Hub findings to an Amazon Simple Storage Service (Amazon S3) bucket that you own. Because the export runs asynchronously, this operation returns only the `ExportJobId` of the new job; it doesn't wait for the export to finish. Use `GetExportJobV2` to poll the job, and `ListExportJobsV2` to view the export jobs in your account.
+ *
+ * Security Hub allows only one export job in the `RUNNING` state per account at a time. If an export job is already running, this operation returns a `ServiceQuotaExceededException`. Wait for the running job to finish, or cancel it with `CancelExportJobV2`, before you start a new one.
+ *
+ * Specify the destination bucket and Amazon Web Services Key Management Service (Amazon Web Services KMS) key in the `Destination` parameter, and the output format (`CSV` or `OCSF_JSON`), optional filters, and field selection in the `OutputConfiguration` parameter. Before you call this operation, you must grant Security Hub permission to write to your bucket and use your Amazon Web Services KMS key by adding the bucket policy and key policy statements shown in the Examples section.
+ *
+ * Two identities use your Amazon Web Services KMS key, and each needs its own permission. Security Hub uses the key when it writes the export objects to your bucket. The IAM principal that calls `StartExportJobV2` must also have `kms:GenerateDataKey` and `kms:Decrypt` permissions on the key. The Examples section shows both grants.
+ *
+ * A delegated administrator can use the optional `Scopes` parameter to export findings for specific organizations or organizational units (OUs).
+ *
+ * To make the request idempotent, provide a `ClientToken`. If you retry a `StartExportJobV2` request with the same `ClientToken` and the same request parameters, Security Hub returns the `ExportJobId` of the original job instead of starting a new one. If you reuse a `ClientToken` with different request parameters, this operation returns a `ConflictException`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -215,36 +221,40 @@ export interface StartExportJobV2CommandOutput extends StartExportJobV2Response,
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permission to perform the action specified in the request.</p>
+ *
+ * You don't have permission to perform the action specified in the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request causes conflict with the current state of the service resource.</p>
+ *
+ * The request causes conflict with the current state of the service resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *          The request has failed due to an internal failure of the service.
- *       </p>
+ *
+ * The request has failed due to an internal failure of the service.
  *
  * @throws {@link OrganizationalUnitNotFoundException} (client fault)
- *  <p>The request failed because one or more organizational units specified in the request don't exist within the caller's organization.</p>
+ *
+ * The request failed because one or more organizational units specified in the request don't exist within the caller's organization.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.</p>
+ *
+ * The request failed because one or more organizations specified in the request don't exist or don't belong to the caller's organization.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it would exceed the service quota limit.</p>
+ *
+ * The request was rejected because it would exceed the service quota limit.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *          The limit on the number of requests per second was exceeded.
- *       </p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has failed validation because it's missing required fields or has invalid inputs.</p>
+ *
+ * The request has failed validation because it's missing required fields or has invalid inputs.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example Example – Starting a CSV export of critical findings
  * ```javascript

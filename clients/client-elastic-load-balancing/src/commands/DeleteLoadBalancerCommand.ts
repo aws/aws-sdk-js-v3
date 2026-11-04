@@ -23,10 +23,12 @@ export interface DeleteLoadBalancerCommandInput extends DeleteAccessPointInput {
 export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified load balancer.</p>
- *         <p>If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.</p>
- *         <p>If the load balancer does not exist or has already been deleted, the call to
- *             <code>DeleteLoadBalancer</code> still succeeds.</p>
+ * Deletes the specified load balancer.
+ *
+ * If you are attempting to recreate a load balancer, you must reconfigure all settings. The DNS name associated with a deleted load balancer are no longer usable. The name and associated DNS record of the deleted load balancer no longer exist and traffic sent to any of its IP addresses is no longer delivered to your instances.
+ *
+ * If the load balancer does not exist or has already been deleted, the call to `DeleteLoadBalancer` still succeeds.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +53,8 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To delete a load balancer
  * ```javascript

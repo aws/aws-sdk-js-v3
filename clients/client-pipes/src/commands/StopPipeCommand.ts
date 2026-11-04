@@ -23,7 +23,8 @@ export interface StopPipeCommandInput extends StopPipeRequest {}
 export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBearer {}
 
 /**
- * <p>Stop an existing pipe.</p>
+ * Stop an existing pipe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +56,28 @@ export interface StopPipeCommandOutput extends StopPipeResponse, __MetadataBeare
  * @see {@link PipesClientResolvedConfig | config} for PipesClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An action you attempted resulted in an exception.</p>
+ *
+ * An action you attempted resulted in an exception.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An action was throttled.</p>
+ *
+ * An action was throttled.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Indicates that an error has occurred while performing a validate operation.</p>
+ *
+ * Indicates that an error has occurred while performing a validate operation.
  *
  * @throws {@link PipesServiceException}
- * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ * Base exception class for all service exceptions from Pipes service.
  *
  * @public
  */

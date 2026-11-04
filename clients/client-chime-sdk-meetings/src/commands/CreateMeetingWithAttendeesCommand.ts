@@ -23,27 +23,15 @@ export interface CreateMeetingWithAttendeesCommandInput extends CreateMeetingWit
 export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWithAttendeesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *            Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see
- *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions">Available Regions</a> and
- *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Using meeting Regions</a>, both
- *            in the <i>Amazon Chime SDK Developer Guide</i>. For more information about the Amazon Chime SDK, see
- *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
- *            in the
- *            <i>Amazon Chime SDK Developer Guide</i>.
- *        </p>
- *          <note>
- *             <p>If you use this API in conjuction with the  and  APIs, and you don't specify the
- *            <code>MeetingFeatures.Content.MaxResolution</code> or <code>MeetingFeatures.Video.MaxResolution</code> parameters, the following defaults are used:</p>
- *             <ul>
- *                <li>
- *                   <p>Content.MaxResolution: FHD</p>
- *                </li>
- *                <li>
- *                   <p>Video.MaxResolution: HD</p>
- *                </li>
- *             </ul>
- *          </note>
+ * Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see [Available Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions) and [Using meeting Regions](https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html), both in the *Amazon Chime SDK Developer Guide*. For more information about the Amazon Chime SDK, see [Using the Amazon Chime SDK](https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html) in the *Amazon Chime SDK Developer Guide*.
+ *
+ * > **Note:**
+ * >
+ * > If you use this API in conjuction with the and APIs, and you don't specify the `MeetingFeatures.Content.MaxResolution` or `MeetingFeatures.Video.MaxResolution` parameters, the following defaults are used:
+ * >
+ * > - Content.MaxResolution: FHD
+ * > - Video.MaxResolution: HD
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,32 +154,40 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Multiple instances of the same request have been made simultaneously.</p>
+ *
+ * Multiple instances of the same request have been made simultaneously.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The user isn't authorized to request a resource.</p>
+ *
+ * The user isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKMeetingsServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMeetings service.
  *
  * @public
  */

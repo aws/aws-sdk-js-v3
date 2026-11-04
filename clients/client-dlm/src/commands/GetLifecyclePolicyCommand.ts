@@ -23,7 +23,8 @@ export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyReques
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets detailed information about the specified lifecycle policy.</p>
+ * Gets detailed information about the specified lifecycle policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -228,17 +229,20 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service failed in an unexpected way.</p>
+ *
+ * The service failed in an unexpected way.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because a limit was exceeded.</p>
+ *
+ * The request failed because a limit was exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource was not found.</p>
+ *
+ * A requested resource was not found.
  *
  * @throws {@link DLMServiceException}
- * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * Base exception class for all service exceptions from DLM service.
  *
  * @public
  */

@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { FMSServiceException as __BaseException } from "./FMSServiceException";
 
 /**
- * <p>The operation failed because of a system problem, even though the request was valid. Retry
- *       your request.</p>
+ * The operation failed because of a system problem, even though the request was valid. Retry your request.
+ *
  * @public
  */
 export class InternalErrorException extends __BaseException {
@@ -28,7 +28,8 @@ export class InternalErrorException extends __BaseException {
 }
 
 /**
- * <p>The parameters of the request were invalid.</p>
+ * The parameters of the request were invalid.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -51,11 +52,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have
- *         submitted an <code>AssociateAdminAccount</code> request for an account ID that
- *             was already set as the Firewall Manager administrator. Or you might have tried to access a Region
- *   that's disabled by default, and that you need to enable for the Firewall Manager
- *   administrator account and for Organizations before you can access it.</p>
+ * The operation failed because there was nothing to do or the operation wasn't possible. For example, you might have submitted an `AssociateAdminAccount` request for an account ID that was already set as the Firewall Manager administrator. Or you might have tried to access a Region that's disabled by default, and that you need to enable for the Firewall Manager administrator account and for Organizations before you can access it.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -78,10 +76,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>The operation exceeds a resource limit, for example, the maximum number of
- *         <code>policy</code> objects that you can create for an Amazon Web Services account. For more information,
- *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
- *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
+ * The operation exceeds a resource limit, for example, the maximum number of `policy` objects that you can create for an Amazon Web Services account. For more information, see [Firewall Manager Limits](https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html) in the *WAF Developer Guide*.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -104,7 +100,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -127,7 +124,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The value of the <code>Type</code> parameter is invalid.</p>
+ * The value of the `Type` parameter is invalid.
+ *
  * @public
  */
 export class InvalidTypeException extends __BaseException {

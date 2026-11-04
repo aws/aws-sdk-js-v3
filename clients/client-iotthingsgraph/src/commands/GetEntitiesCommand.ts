@@ -23,38 +23,19 @@ export interface GetEntitiesCommandInput extends GetEntitiesRequest {}
 export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
- *       following TDM entities.</p>
- *          <ul>
- *             <li>
- *                <p>Properties</p>
- *             </li>
- *             <li>
- *                <p>States</p>
- *             </li>
- *             <li>
- *                <p>Events</p>
- *             </li>
- *             <li>
- *                <p>Actions</p>
- *             </li>
- *             <li>
- *                <p>Capabilities</p>
- *             </li>
- *             <li>
- *                <p>Mappings</p>
- *             </li>
- *             <li>
- *                <p>Devices</p>
- *             </li>
- *             <li>
- *                <p>Device Models</p>
- *             </li>
- *             <li>
- *                <p>Services</p>
- *             </li>
- *          </ul>
- *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
+ * Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the following TDM entities.
+ *
+ * - Properties
+ * - States
+ * - Events
+ * - Actions
+ * - Capabilities
+ * - Mappings
+ * - Devices
+ * - Device Models
+ * - Services
+ *
+ * This action doesn't return definitions for systems, flows, and deployments.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -97,20 +78,16 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

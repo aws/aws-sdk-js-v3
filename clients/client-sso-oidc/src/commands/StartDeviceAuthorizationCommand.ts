@@ -23,8 +23,8 @@ export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthori
 export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates device authorization by requesting a pair of verification codes from the
- *       authorization service.</p>
+ * Initiates device authorization by requesting a pair of verification codes from the authorization service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,29 +58,28 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates that an error from the service occurred while trying to process a
- *       request.</p>
+ *
+ * Indicates that an error from the service occurred while trying to process a request.
  *
  * @throws {@link InvalidClientException} (client fault)
- *  <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
- *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
- *       an expired <code>clientSecret</code>.</p>
+ *
+ * Indicates that the `clientId` or `clientSecret` in the request is invalid. For example, this can occur when a client sends an incorrect `clientId` or an expired `clientSecret`.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a required
- *       parameter might be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter might be missing or out of range.
  *
  * @throws {@link SlowDownException} (client fault)
- *  <p>Indicates that the client is making the request too frequently and is more than the
- *       service can handle. </p>
+ *
+ * Indicates that the client is making the request too frequently and is more than the service can handle.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>Indicates that the client is not currently authorized to make the request. This can happen
- *       when a <code>clientId</code> is not issued for a public client.</p>
+ *
+ * Indicates that the client is not currently authorized to make the request. This can happen when a `clientId` is not issued for a public client.
  *
  * @throws {@link SSOOIDCServiceException}
- * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * Base exception class for all service exceptions from SSOOIDC service.
  *
  * @example Call OAuth/OIDC /start-device-authorization endpoint
  * ```javascript

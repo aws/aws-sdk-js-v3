@@ -23,17 +23,12 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds tags to an Cloud9 development environment.</p>
- *          <important>
- *             <p>Cloud9 is no longer available to new customers. Existing customers of
- *         Cloud9 can continue to use the service as normal.
- *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
- *             </p>
- *          </important>
- *          <important>
- *             <p>Tags that you add to an Cloud9 environment by using this method will NOT be
- *         automatically propagated to underlying resources.</p>
- *          </important>
+ * Adds tags to an Cloud9 development environment.
+ *
+ * > **Important:** Cloud9 is no longer available to new customers. Existing customers of Cloud9 can continue to use the service as normal. [Learn more"](http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/)
+ *
+ * > **Important:** Tags that you add to an Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,20 +59,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The target request is invalid.</p>
+ *
+ * The target request is invalid.
  *
  * @throws {@link ConcurrentAccessException} (client fault)
- *  <p>A concurrent access issue occurred.</p>
+ *
+ * A concurrent access issue occurred.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal server error occurred.</p>
+ *
+ * An internal server error occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The target resource cannot be found.</p>
+ *
+ * The target resource cannot be found.
  *
  * @throws {@link Cloud9ServiceException}
- * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ * Base exception class for all service exceptions from Cloud9 service.
  *
  * @public
  */

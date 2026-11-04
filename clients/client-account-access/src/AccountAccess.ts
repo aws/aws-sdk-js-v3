@@ -320,7 +320,8 @@ export interface AccountAccess {
 }
 
 /**
- * <p>Account access manager enables you to manage applications and entitlements that grant IAM Identity Center principals access to IAM roles across accounts.</p>
+ * Account access manager enables you to manage applications and entitlements that grant IAM Identity Center principals access to IAM roles across accounts.
+ *
  * @public
  */
 export class AccountAccess extends AccountAccessClient implements AccountAccess {}

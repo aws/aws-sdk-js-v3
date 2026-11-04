@@ -23,30 +23,18 @@ export interface CreateVirtualNodeCommandInput extends CreateVirtualNodeInput {}
 export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a virtual node within a service mesh.</p>
- *          <p> A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can
- *          specify the service discovery information for your task group, and whether the proxy
- *          running in a task group will communicate with other proxies using Transport Layer Security
- *          (TLS).</p>
- *          <p>You define a <code>listener</code> for any inbound traffic that your virtual node
- *          expects. Any virtual service that your virtual node expects to communicate to is specified
- *          as a <code>backend</code>.</p>
- *          <p>The response metadata for your new virtual node contains the <code>arn</code> that is
- *          associated with the virtual node. Set this value to the full ARN; for example,
- *             <code>arn:aws:appmesh:us-west-2:123456789012:myMesh/default/virtualNode/myApp</code>)
- *          as the <code>APPMESH_RESOURCE_ARN</code> environment variable for your task group's Envoy
- *          proxy container in your task definition or pod spec. This is then mapped to the
- *             <code>node.id</code> and <code>node.cluster</code> Envoy parameters.</p>
- *          <note>
- *             <p>By default, App Mesh uses the name of the resource you specified in
- *                <code>APPMESH_RESOURCE_ARN</code> when Envoy is referring to itself in metrics and
- *             traces. You can override this behavior by setting the
- *                <code>APPMESH_RESOURCE_CLUSTER</code> environment variable with your own name.</p>
- *          </note>
- *          <p>For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when
- *          setting these variables. For more information aboutApp Mesh Envoy variables, see
- *             <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy
- *             image</a> in the App Mesh User Guide.</p>
+ * Creates a virtual node within a service mesh.
+ *
+ * A virtual node acts as a logical pointer to a particular task group, such as an Amazon ECS service or a Kubernetes deployment. When you create a virtual node, you can specify the service discovery information for your task group, and whether the proxy running in a task group will communicate with other proxies using Transport Layer Security (TLS).
+ *
+ * You define a `listener` for any inbound traffic that your virtual node expects. Any virtual service that your virtual node expects to communicate to is specified as a `backend`.
+ *
+ * The response metadata for your new virtual node contains the `arn` that is associated with the virtual node. Set this value to the full ARN; for example, `arn:aws:appmesh:us-west-2:123456789012:myMesh/default/virtualNode/myApp`) as the `APPMESH_RESOURCE_ARN` environment variable for your task group's Envoy proxy container in your task definition or pod spec. This is then mapped to the `node.id` and `node.cluster` Envoy parameters.
+ *
+ * > **Note:** By default, App Mesh uses the name of the resource you specified in `APPMESH_RESOURCE_ARN` when Envoy is referring to itself in metrics and traces. You can override this behavior by setting the `APPMESH_RESOURCE_CLUSTER` environment variable with your own name.
+ *
+ * For more information about virtual nodes, see [Virtual nodes](https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html). You must be using `1.15.0` or later of the Envoy image when setting these variables. For more information aboutApp Mesh Envoy variables, see [Envoy image](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html) in the App Mesh User Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -547,37 +535,40 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request syntax was malformed. Check your request syntax and try again.</p>
+ *
+ * The request syntax was malformed. Check your request syntax and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request contains a client token that was used for a previous update resource call
- *          with different specifications. Try the request again with a new client token.</p>
+ *
+ * The request contains a client token that was used for a previous update resource call with different specifications. Try the request again with a new client token.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You don't have permissions to perform this action.</p>
+ *
+ * You don't have permissions to perform this action.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or
- *          failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception, or failure.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You have exceeded a service limit for your account. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html">Service
- *             Limits</a> in the <i>App Mesh User Guide</i>.</p>
+ *
+ * You have exceeded a service limit for your account. For more information, see [Service Limits](https://docs.aws.amazon.com/app-mesh/latest/userguide/service-quotas.html) in the *App Mesh User Guide*.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
+ *
+ * The specified resource doesn't exist. Check your request syntax and try again.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request has failed due to a temporary failure of the service.</p>
+ *
+ * The request has failed due to a temporary failure of the service.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The maximum request rate permitted by the App Mesh APIs has been exceeded for
- *          your account. For best results, use an increasing or variable sleep interval between
- *          requests.</p>
+ *
+ * The maximum request rate permitted by the App Mesh APIs has been exceeded for your account. For best results, use an increasing or variable sleep interval between requests.
  *
  * @throws {@link AppMeshServiceException}
- * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ * Base exception class for all service exceptions from AppMesh service.
  *
  * @public
  */

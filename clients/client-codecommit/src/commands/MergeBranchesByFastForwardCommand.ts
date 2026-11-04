@@ -23,7 +23,8 @@ export interface MergeBranchesByFastForwardCommandInput extends MergeBranchesByF
 export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesByFastForwardOutput, __MetadataBearer {}
 
 /**
- * <p>Merges two branches using the fast-forward merge strategy.</p>
+ * Merges two branches using the fast-forward merge strategy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,72 +55,86 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link BranchDoesNotExistException} (client fault)
- *  <p>The specified branch does not exist.</p>
+ *
+ * The specified branch does not exist.
  *
  * @throws {@link BranchNameIsTagNameException} (client fault)
- *  <p>The specified branch name is not valid because it is a tag name. Enter the name of a
- *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+ *
+ * The specified branch name is not valid because it is a tag name. Enter the name of a branch in the repository. For a list of valid branch names, use ListBranches.
  *
  * @throws {@link BranchNameRequiredException} (client fault)
- *  <p>A branch name is required, but was not specified.</p>
+ *
+ * A branch name is required, but was not specified.
  *
  * @throws {@link CommitDoesNotExistException} (client fault)
- *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
  *
  * @throws {@link CommitRequiredException} (client fault)
- *  <p>A commit was not specified.</p>
+ *
+ * A commit was not specified.
  *
  * @throws {@link ConcurrentReferenceUpdateException} (client fault)
- *  <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+ *
+ * The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidBranchNameException} (client fault)
- *  <p>The specified reference name is not valid.</p>
+ *
+ * The specified reference name is not valid.
  *
  * @throws {@link InvalidCommitException} (client fault)
- *  <p>The specified commit is not valid.</p>
+ *
+ * The specified commit is not valid.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link InvalidTargetBranchException} (client fault)
- *  <p>The specified target branch is not valid.</p>
+ *
+ * The specified target branch is not valid.
  *
  * @throws {@link ManualMergeRequiredException} (client fault)
- *  <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+ *
+ * The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link TipsDivergenceExceededException} (client fault)
- *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
- *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ *
+ * The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using `git diff` or a diff tool.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

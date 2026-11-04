@@ -23,13 +23,14 @@ export interface GetRetainedMessageCommandInput extends GetRetainedMessageReques
 export interface GetRetainedMessageCommandOutput extends GetRetainedMessageResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the details of a single retained message for the specified topic.</p>
- *          <p>This action returns the message payload of the retained message, which can
- *       incur messaging costs. To list only the topic names of the retained messages, call
- *       <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html">ListRetainedMessages</a>.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html">GetRetainedMessage</a> action.</p>
- *          <p>For more information about messaging costs, see <a href="http://aws.amazon.com/iot-core/pricing/#Messaging">Amazon Web Services IoT Core
- *       pricing - Messaging</a>.</p>
+ * Gets the details of a single retained message for the specified topic.
+ *
+ * This action returns the message payload of the retained message, which can incur messaging costs. To list only the topic names of the retained messages, call [ListRetainedMessages](https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html).
+ *
+ * Requires permission to access the [GetRetainedMessage](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html) action.
+ *
+ * For more information about messaging costs, see [Amazon Web Services IoT Core pricing - Messaging](http://aws.amazon.com/iot-core/pricing/#Messaging).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,29 +61,36 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The specified combination of HTTP verb and URI is not supported.</p>
+ *
+ * The specified combination of HTTP verb and URI is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to perform this operation.</p>
+ *
+ * You are not authorized to perform this operation.
  *
  * @throws {@link IoTDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTDataPlane service.
  *
  * @public
  */

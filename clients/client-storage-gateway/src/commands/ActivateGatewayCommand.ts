@@ -23,14 +23,10 @@ export interface ActivateGatewayCommandInput extends ActivateGatewayInput {}
 export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Activates the gateway you previously deployed on your host. In the activation process,
- *          you specify information such as the Amazon Web Services Region that you want to use for
- *          storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot
- *          schedule window, an activation key, and a name for your gateway. The activation process
- *          also associates your gateway with your account. For more information, see <a>UpdateGatewayInformation</a>.</p>
- *          <note>
- *             <p>You must turn on the gateway VM before you can activate your gateway.</p>
- *          </note>
+ * Activates the gateway you previously deployed on your host. In the activation process, you specify information such as the Amazon Web Services Region that you want to use for storing snapshots or tapes, the time zone for scheduled snapshots the gateway snapshot schedule window, an activation key, and a name for your gateway. The activation process also associates your gateway with your account. For more information, see UpdateGatewayInformation.
+ *
+ * > **Note:** You must turn on the gateway VM before you can activate your gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,16 +65,16 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To activate the gateway
  * ```javascript

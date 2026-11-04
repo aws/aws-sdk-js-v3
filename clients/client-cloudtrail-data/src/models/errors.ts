@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudTrailDataServiceException as __BaseException } from "./CloudTrailDataServiceException";
 
 /**
- * <p>The caller's account ID must be the same as the channel owner's account ID.</p>
+ * The caller's account ID must be the same as the channel owner's account ID.
+ *
  * @public
  */
 export class ChannelInsufficientPermission extends __BaseException {
@@ -25,7 +26,8 @@ export class ChannelInsufficientPermission extends __BaseException {
 }
 
 /**
- * <p>The channel could not be found.</p>
+ * The channel could not be found.
+ *
  * @public
  */
 export class ChannelNotFound extends __BaseException {
@@ -46,7 +48,8 @@ export class ChannelNotFound extends __BaseException {
 }
 
 /**
- * <p>The schema type of the event is not supported.</p>
+ * The schema type of the event is not supported.
+ *
  * @public
  */
 export class ChannelUnsupportedSchema extends __BaseException {
@@ -67,7 +70,8 @@ export class ChannelUnsupportedSchema extends __BaseException {
 }
 
 /**
- * <p>Two or more entries in the request have the same event ID.</p>
+ * Two or more entries in the request have the same event ID.
+ *
  * @public
  */
 export class DuplicatedAuditEventId extends __BaseException {
@@ -88,8 +92,8 @@ export class DuplicatedAuditEventId extends __BaseException {
 }
 
 /**
- * <p>The specified channel ARN is not a valid
- *          channel ARN.</p>
+ * The specified channel ARN is not a valid channel ARN.
+ *
  * @public
  */
 export class InvalidChannelARN extends __BaseException {
@@ -110,7 +114,8 @@ export class InvalidChannelARN extends __BaseException {
 }
 
 /**
- * <p>The operation requested is not supported in this region or account.</p>
+ * The operation requested is not supported in this region or account.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {

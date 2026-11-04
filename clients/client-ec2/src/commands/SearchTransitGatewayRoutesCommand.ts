@@ -23,7 +23,8 @@ export interface SearchTransitGatewayRoutesCommandInput extends SearchTransitGat
 export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
- * <p>Searches for routes in the specified transit gateway route table.</p>
+ * Searches for routes in the specified transit gateway route table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,8 +79,8 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

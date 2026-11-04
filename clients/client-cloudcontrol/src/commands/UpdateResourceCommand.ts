@@ -23,18 +23,16 @@ export interface UpdateResourceCommandInput extends UpdateResourceInput {}
 export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified property values in the resource.</p>
- *          <p>You specify your resource property updates as a list of patch operations contained in a
- *       JSON patch document that adheres to the <a href="https://datatracker.ietf.org/doc/html/rfc6902">
- *                <i>RFC 6902 - JavaScript Object
- *           Notation (JSON) Patch</i>
- *             </a> standard.</p>
- *          <p>For details on how Cloud Control API performs resource update operations, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html">Updating a resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
- *          <p>After you have initiated a resource update request, you can monitor the progress of your
- *       request by calling <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html">GetResourceRequestStatus</a> using the <code>RequestToken</code> of the
- *         <code>ProgressEvent</code> returned by <code>UpdateResource</code>.</p>
- *          <p>For more information about the properties of a specific resource, refer to the related
- *       topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
+ * Updates the specified property values in the resource.
+ *
+ * You specify your resource property updates as a list of patch operations contained in a JSON patch document that adheres to the [*RFC 6902 - JavaScript Object Notation (JSON) Patch*](https://datatracker.ietf.org/doc/html/rfc6902) standard.
+ *
+ * For details on how Cloud Control API performs resource update operations, see [Updating a resource](https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-update.html) in the *Amazon Web Services Cloud Control API User Guide*.
+ *
+ * After you have initiated a resource update request, you can monitor the progress of your request by calling [GetResourceRequestStatus](https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_GetResourceRequestStatus.html) using the `RequestToken` of the `ProgressEvent` returned by `UpdateResource`.
+ *
+ * For more information about the properties of a specific resource, refer to the related topic for the resource in the [Resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *CloudFormation Users Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,81 +76,86 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource with the name requested already exists.</p>
+ *
+ * The resource with the name requested already exists.
  *
  * @throws {@link ClientTokenConflictException} (client fault)
- *  <p>The specified client token has already been used in another resource request.</p>
- *          <p>It's best practice for client tokens to be unique for each resource operation request.
- *       However, client token expire after 36 hours.</p>
+ *
+ * The specified client token has already been used in another resource request.
+ *
+ * It's best practice for client tokens to be unique for each resource operation request. However, client token expire after 36 hours.
  *
  * @throws {@link ConcurrentOperationException} (client fault)
- *  <p>Another resource operation is currently being performed on this resource.</p>
+ *
+ * Another resource operation is currently being performed on this resource.
  *
  * @throws {@link GeneralServiceException} (client fault)
- *  <p>The resource handler has returned that the downstream service generated an error that
- *       doesn't map to any other handler error code.</p>
+ *
+ * The resource handler has returned that the downstream service generated an error that doesn't map to any other handler error code.
  *
  * @throws {@link HandlerFailureException} (server fault)
- *  <p>The resource handler has failed without a returning a more specific error code. This can
- *       include timeouts.</p>
+ *
+ * The resource handler has failed without a returning a more specific error code. This can include timeouts.
  *
  * @throws {@link HandlerInternalFailureException} (server fault)
- *  <p>The resource handler has returned that an unexpected error occurred within the resource
- *       handler.</p>
+ *
+ * The resource handler has returned that an unexpected error occurred within the resource handler.
  *
  * @throws {@link InvalidCredentialsException} (client fault)
- *  <p>The resource handler has returned that the credentials provided by the user are
- *       invalid.</p>
+ *
+ * The resource handler has returned that the credentials provided by the user are invalid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The resource handler has returned that invalid input from the user has generated a generic
- *       exception.</p>
+ *
+ * The resource handler has returned that invalid input from the user has generated a generic exception.
  *
  * @throws {@link NetworkFailureException} (server fault)
- *  <p>The resource handler has returned that the request couldn't be completed due to networking
- *       issues, such as a failure to receive a response from the server.</p>
+ *
+ * The resource handler has returned that the request couldn't be completed due to networking issues, such as a failure to receive a response from the server.
  *
  * @throws {@link NotStabilizedException} (client fault)
- *  <p>The resource handler has returned that the downstream resource failed to complete all of
- *       its ready-state checks.</p>
+ *
+ * The resource handler has returned that the downstream resource failed to complete all of its ready-state checks.
  *
  * @throws {@link NotUpdatableException} (client fault)
- *  <p>One or more properties included in this resource operation are defined as create-only, and
- *       therefore can't be updated.</p>
+ *
+ * One or more properties included in this resource operation are defined as create-only, and therefore can't be updated.
  *
  * @throws {@link PrivateTypeException} (client fault)
- *  <p>Cloud Control API hasn't received a valid response from the resource handler, due to a configuration
- *       error. This includes issues such as the resource handler returning an invalid response, or
- *       timing out.</p>
+ *
+ * Cloud Control API hasn't received a valid response from the resource handler, due to a configuration error. This includes issues such as the resource handler returning an invalid response, or timing out.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>The resource is temporarily unavailable to be acted upon. For example, if the resource is
- *       currently undergoing an operation and can't be acted upon until that operation is
- *       finished.</p>
+ *
+ * The resource is temporarily unavailable to be acted upon. For example, if the resource is currently undergoing an operation and can't be acted upon until that operation is finished.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource with the specified identifier can't be found.</p>
+ *
+ * A resource with the specified identifier can't be found.
  *
  * @throws {@link ServiceInternalErrorException} (server fault)
- *  <p>The resource handler has returned that the downstream service returned an internal error,
- *       typically with a <code>5XX HTTP</code> status code.</p>
+ *
+ * The resource handler has returned that the downstream service returned an internal error, typically with a `5XX HTTP` status code.
  *
  * @throws {@link ServiceLimitExceededException} (client fault)
- *  <p>The resource handler has returned that a non-transient resource limit was reached on the
- *       service side.</p>
+ *
+ * The resource handler has returned that a non-transient resource limit was reached on the service side.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link TypeNotFoundException} (client fault)
- *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
+ * The specified extension doesn't exist in the CloudFormation registry.
  *
  * @throws {@link UnsupportedActionException} (client fault)
- *  <p>The specified resource doesn't support this resource operation.</p>
+ *
+ * The specified resource doesn't support this resource operation.
  *
  * @throws {@link CloudControlServiceException}
- * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ * Base exception class for all service exceptions from CloudControl service.
  *
  * @public
  */

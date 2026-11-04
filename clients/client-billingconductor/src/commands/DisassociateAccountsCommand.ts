@@ -23,7 +23,8 @@ export interface DisassociateAccountsCommandInput extends DisassociateAccountsIn
 export interface DisassociateAccountsCommandOutput extends DisassociateAccountsOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified list of account IDs from the given billing group. </p>
+ * Removes the specified list of account IDs from the given billing group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,26 +54,32 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsO
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You can cause an inconsistent state by updating or deleting a resource. </p>
+ *
+ * You can cause an inconsistent state by updating or deleting a resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing a request. </p>
+ *
+ * An unexpected error occurred while processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist. </p>
+ *
+ * The request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't match with the constraints specified by Amazon Web Services services.</p>
+ *
+ * The input doesn't match with the constraints specified by Amazon Web Services services.
  *
  * @throws {@link BillingconductorServiceException}
- * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ * Base exception class for all service exceptions from Billingconductor service.
  *
  * @public
  */

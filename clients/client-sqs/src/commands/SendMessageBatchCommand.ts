@@ -23,25 +23,22 @@ export interface SendMessageBatchCommandInput extends SendMessageBatchRequest {}
 export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, __MetadataBearer {}
 
 /**
- * <p>You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified
- *             queue by assigning either identical or different values to each message (or by not
- *             assigning values at all). This is a batch version of <code>
- *                <a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch are enqueued
- *             in the order they are sent.</p>
- *          <p>The result of sending each message is reported individually in the response.
- *             Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
- *          <p>The maximum allowed individual message size and the maximum total payload size (the
- *             sum of the individual lengths of all of the batched messages) are both 1 MiB
- *             1,048,576 bytes.</p>
- *          <important>
- *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
- *             <p>
- *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
- *             </p>
- *             <p>If a message contains characters outside the allowed set, Amazon SQS rejects the message and returns an InvalidMessageContents error. Ensure that your message body includes only valid characters to avoid this exception.</p>
- *          </important>
- *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses
- *             the default value for the queue.</p>
+ * You can use `SendMessageBatch` to send up to 10 messages to the specified queue by assigning either identical or different values to each message (or by not assigning values at all). This is a batch version of `SendMessage.` For a FIFO queue, multiple messages within a single batch are enqueued in the order they are sent.
+ *
+ * The result of sending each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of `200`.
+ *
+ * The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 1 MiB 1,048,576 bytes.
+ *
+ * > **Important:**
+ * >
+ * > A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the [W3C specification for characters](http://www.w3.org/TR/REC-xml/#charsets).
+ * >
+ * > `#x9` | `#xA` | `#xD` | `#x20` to `#xD7FF` | `#xE000` to `#xFFFD` | `#x10000` to `#x10FFFF`
+ * >
+ * > If a message contains characters outside the allowed set, Amazon SQS rejects the message and returns an InvalidMessageContents error. Ensure that your message body includes only valid characters to avoid this exception.
+ *
+ * If you don't specify the `DelaySeconds` parameter for an entry, Amazon SQS uses the default value for the queue.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -120,86 +117,82 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link BatchEntryIdsNotDistinct} (client fault)
- *  <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ *
+ * Two or more batch entries in the request have the same `Id`.
  *
  * @throws {@link BatchRequestTooLong} (client fault)
- *  <p>The length of all the messages put together is more than the limit.</p>
+ *
+ * The length of all the messages put together is more than the limit.
  *
  * @throws {@link EmptyBatchRequest} (client fault)
- *  <p>The batch request doesn't contain any entries.</p>
+ *
+ * The batch request doesn't contain any entries.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The specified ID is invalid.</p>
+ *
+ * The specified ID is invalid.
  *
  * @throws {@link InvalidBatchEntryId} (client fault)
- *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
- *             specification.</p>
+ *
+ * The `Id` of a batch entry in a batch request doesn't abide by the specification.
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ *
+ * The request was not made over HTTPS or did not use SigV4 for signing.
  *
  * @throws {@link KmsAccessDenied} (client fault)
- *  <p>The caller doesn't have the required KMS access.</p>
+ *
+ * The caller doesn't have the required KMS access.
  *
  * @throws {@link KmsDisabled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link KmsInvalidKeyUsage} (client fault)
- *  <p>The request was rejected for one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>The KeyUsage value of the KMS key is incompatible with the API
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *                     incompatible with the type of key material in the KMS key (KeySpec).</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The KeyUsage value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (KeySpec).
  *
  * @throws {@link KmsInvalidState} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for
- *             this request.</p>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
  *
  * @throws {@link KmsNotFound} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be found.
- *         </p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KmsOptInRequired} (client fault)
- *  <p>The request was rejected because the specified key policy isn't syntactically or
- *             semantically correct.</p>
+ *
+ * The request was rejected because the specified key policy isn't syntactically or semantically correct.
  *
  * @throws {@link KmsThrottled} (client fault)
- *  <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
+ *
+ * Amazon Web Services KMS throttles requests for the following conditions.
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ *
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
  *
  * @throws {@link RequestThrottled} (client fault)
- *  <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
  *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
- *  <p>The batch request contains more entries than permissible. For Amazon SQS, the
- *             maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
+ *
+ * The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single [SendMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html), [DeleteMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html), or [ChangeMessageVisibilityBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html) request is 10.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>Error code 400. Unsupported operation.</p>
+ *
+ * Error code 400. Unsupported operation.
  *
  * @throws {@link SQSServiceException}
- * <p>Base exception class for all service exceptions from SQS service.</p>
  *
+ * Base exception class for all service exceptions from SQS service.
  *
  * @public
  */

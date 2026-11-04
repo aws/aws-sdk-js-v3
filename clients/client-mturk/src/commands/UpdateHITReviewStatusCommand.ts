@@ -23,11 +23,8 @@ export interface UpdateHITReviewStatusCommandInput extends UpdateHITReviewStatus
 export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatusResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>UpdateHITReviewStatus</code> operation updates the status of a HIT.
- *             If the status is Reviewable, this operation can update the status to Reviewing,
- *             or it can revert a Reviewing HIT back to the Reviewable status.
- *         </p>
+ * The `UpdateHITReviewStatus` operation updates the status of a HIT. If the status is Reviewable, this operation can update the status to Reviewing, or it can revert a Reviewing HIT back to the Reviewable status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,14 +50,16 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

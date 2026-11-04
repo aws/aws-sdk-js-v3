@@ -23,13 +23,10 @@ export interface PutContainerPolicyCommandInput extends PutContainerPolicyInput 
 export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an access policy for the specified container to restrict the users and
- *          clients that can access it. For information about the data that is included in an access
- *          policy, see the <a href="https://aws.amazon.com/documentation/iam/">AWS Identity and
- *             Access Management User Guide</a>.</p>
- *          <p>For this release of the REST API, you can create only one policy for a container. If
- *          you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing
- *          policy. </p>
+ * Creates an access policy for the specified container to restrict the users and clients that can access it. For information about the data that is included in an access policy, see the [AWS Identity and Access Management User Guide](https://aws.amazon.com/documentation/iam/).
+ *
+ * For this release of the REST API, you can create only one policy for a container. If you enter `PutContainerPolicy` twice, the second command modifies the existing policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,18 +52,20 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

@@ -5,11 +5,11 @@
  */
 export const GithubRepoOwnerType = {
   /**
-   * <p>Repository owned by a GitHub organization.</p>
+   * Repository owned by a GitHub organization.
    */
   ORGANIZATION: "organization",
   /**
-   * <p>Repository owned by an individual GitHub user.</p>
+   * Repository owned by an individual GitHub user.
    */
   USER: "user",
 } as const;
@@ -24,11 +24,11 @@ export type GithubRepoOwnerType = (typeof GithubRepoOwnerType)[keyof typeof Gith
  */
 export const GitLabTokenType = {
   /**
-   * <p>Group access token</p>
+   * Group access token
    */
   GROUP: "group",
   /**
-   * <p>Personal access token</p>
+   * Personal access token
    */
   PERSONAL: "personal",
 } as const;
@@ -43,20 +43,20 @@ export type GitLabTokenType = (typeof GitLabTokenType)[keyof typeof GitLabTokenT
  */
 export const MCPServerAuthorizationMethod = {
   /**
-   * <p>API key-based authentication.</p>
+   * API key-based authentication.
    */
   API_KEY: "api-key",
   /**
-   * <p>Bearer token authentication (RFC 6750).</p>
+   * Bearer token authentication (RFC 6750).
    */
   BEARER_TOKEN: "bearer-token",
   CUSTOM_HEADERS: "custom-headers",
   /**
-   * <p>OAuth 2.0 three-legged authorization flow.</p>
+   * OAuth 2.0 three-legged authorization flow.
    */
   OAUTH_3LO: "oauth-3lo",
   /**
-   * <p>OAuth 2.0 client credentials flow.</p>
+   * OAuth 2.0 client credentials flow.
    */
   OAUTH_CLIENT_CREDENTIALS: "oauth-client-credentials",
 } as const;
@@ -72,12 +72,12 @@ export type MCPServerAuthorizationMethod =
  */
 export const NewRelicRegion = {
   /**
-   * <p>EU region</p>
+   * EU region
    */
   EU: "EU",
   JP: "JP",
   /**
-   * <p>US region</p>
+   * US region
    */
   US: "US",
 } as const;
@@ -92,15 +92,15 @@ export type NewRelicRegion = (typeof NewRelicRegion)[keyof typeof NewRelicRegion
  */
 export const RemoteAgentAuthorizationMethod = {
   /**
-   * <p>API key-based authentication.</p>
+   * API key-based authentication.
    */
   API_KEY: "api-key",
   /**
-   * <p>Bearer token authentication (RFC 6750).</p>
+   * Bearer token authentication (RFC 6750).
    */
   BEARER_TOKEN: "bearer-token",
   /**
-   * <p>OAuth 2.0 client credentials flow.</p>
+   * OAuth 2.0 client credentials flow.
    */
   OAUTH_CLIENT_CREDENTIALS: "oauth-client-credentials",
 } as const;
@@ -128,11 +128,11 @@ export type AgentSpacePreferenceKey = (typeof AgentSpacePreferenceKey)[keyof typ
  */
 export const CapabilityType = {
   /**
-   * <p>Release readiness review auto-trigger capability.</p>
+   * Release readiness review auto-trigger capability.
    */
   RELEASE_READINESS_REVIEW: "RELEASE_READINESS_REVIEW",
   /**
-   * <p>Release readiness review automated testing capability.</p>
+   * Release readiness review automated testing capability.
    */
   RELEASE_READINESS_REVIEW_AUTOMATED_TESTING: "RELEASE_READINESS_REVIEW_AUTOMATED_TESTING",
 } as const;
@@ -147,11 +147,11 @@ export type CapabilityType = (typeof CapabilityType)[keyof typeof CapabilityType
  */
 export const TriggerEvent = {
   /**
-   * <p>A change request is created or updated while in draft state.</p>
+   * A change request is created or updated while in draft state.
    */
   PULL_REQUEST_DRAFT: "PULL_REQUEST_DRAFT",
   /**
-   * <p>A change request is created, updated, or marked ready for review while in a non-draft state.</p>
+   * A change request is created, updated, or marked ready for review while in a non-draft state.
    */
   PULL_REQUEST_READY_FOR_REVIEW: "PULL_REQUEST_READY_FOR_REVIEW",
 } as const;
@@ -178,15 +178,15 @@ export type MonitorAccountType = (typeof MonitorAccountType)[keyof typeof Monito
  */
 export const ValidationStatus = {
   /**
-   * <p>The association has failed validation and requires attention.</p>
+   * The association has failed validation and requires attention.
    */
   INVALID: "invalid",
   /**
-   * <p>The association is awaiting user confirmation before validation can be completed.</p>
+   * The association is awaiting user confirmation before validation can be completed.
    */
   PENDING_CONFIRMATION: "pending-confirmation",
   /**
-   * <p>The association has been validated and is functioning correctly.</p>
+   * The association has been validated and is functioning correctly.
    */
   VALID: "valid",
 } as const;
@@ -227,19 +227,19 @@ export type SourceAccountType = (typeof SourceAccountType)[keyof typeof SourceAc
  */
 export const WebhookType = {
   /**
-   * <p>API key-based webhook authentication</p>
+   * API key-based webhook authentication
    */
   API_KEY: "apikey",
   /**
-   * <p>GitLab-specific webhook authentication</p>
+   * GitLab-specific webhook authentication
    */
   GITLAB: "gitlab",
   /**
-   * <p>HMAC-based webhook authentication</p>
+   * HMAC-based webhook authentication
    */
   HMAC: "hmac",
   /**
-   * <p>pagerduty-specific webhook authentication</p>
+   * pagerduty-specific webhook authentication
    */
   PAGERDUTY: "pagerduty",
 } as const;
@@ -254,15 +254,15 @@ export type WebhookType = (typeof WebhookType)[keyof typeof WebhookType];
  */
 export const AuthFlow = {
   /**
-   * <p>IAM-based authentication flow</p>
+   * IAM-based authentication flow
    */
   IAM: "iam",
   /**
-   * <p>Identity Center (IdC) authentication flow</p>
+   * Identity Center (IdC) authentication flow
    */
   IDC: "idc",
   /**
-   * <p>Identity Provider (IdP) authentication flow</p>
+   * Identity Provider (IdP) authentication flow
    */
   IDP: "idp",
 } as const;
@@ -290,11 +290,11 @@ export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
  */
 export const ApprovalActionType = {
   /**
-   * <p>The agent's tool invocation is approved; finalPattern and ttlSeconds carry the finalized scope and lifetime.</p>
+   * The agent's tool invocation is approved; finalPattern and ttlSeconds carry the finalized scope and lifetime.
    */
   APPROVED: "APPROVED",
   /**
-   * <p>The agent's tool invocation is rejected; reason optionally carries a free-text rationale.</p>
+   * The agent's tool invocation is rejected; reason optionally carries a free-text rationale.
    */
   REJECTED: "REJECTED",
 } as const;
@@ -309,23 +309,23 @@ export type ApprovalActionType = (typeof ApprovalActionType)[keyof typeof Approv
  */
 export const ApprovalStatus = {
   /**
-   * <p>The action was APPROVED; the approval request is live and may be redeemed via a credential mint until it is revoked or fully redeemed.</p>
+   * The action was APPROVED; the approval request is live and may be redeemed via a credential mint until it is revoked or fully redeemed.
    */
   APPROVED: "APPROVED",
   /**
-   * <p>The approval request is awaiting a decision.</p>
+   * The approval request is awaiting a decision.
    */
   PENDING: "PENDING",
   /**
-   * <p>The approval was consumed by a credential mint at least once. Non-single-use approvals stay re-redeemable until expiry; single-use approvals are terminal.</p>
+   * The approval was consumed by a credential mint at least once. Non-single-use approvals stay re-redeemable until expiry; single-use approvals are terminal.
    */
   REDEEMED: "REDEEMED",
   /**
-   * <p>The action was REJECTED; no further redemption is possible.</p>
+   * The action was REJECTED; no further redemption is possible.
    */
   REJECTED: "REJECTED",
   /**
-   * <p>The approval was administratively invalidated; no further redemption is possible.</p>
+   * The approval was administratively invalidated; no further redemption is possible.
    */
   REVOKED: "REVOKED",
 } as const;
@@ -340,23 +340,23 @@ export type ApprovalStatus = (typeof ApprovalStatus)[keyof typeof ApprovalStatus
  */
 export const Priority = {
   /**
-   * <p>Highest priority</p>
+   * Highest priority
    */
   CRITICAL: "CRITICAL",
   /**
-   * <p>High priority</p>
+   * High priority
    */
   HIGH: "HIGH",
   /**
-   * <p>Low priority</p>
+   * Low priority
    */
   LOW: "LOW",
   /**
-   * <p>Medium priority</p>
+   * Medium priority
    */
   MEDIUM: "MEDIUM",
   /**
-   * <p>Minimal priority</p>
+   * Minimal priority
    */
   MINIMAL: "MINIMAL",
 } as const;
@@ -371,19 +371,19 @@ export type Priority = (typeof Priority)[keyof typeof Priority];
  */
 export const TaskType = {
   /**
-   * <p>Task for evaluating options or solutions (not in use)</p>
+   * Task for evaluating options or solutions (not in use)
    */
   EVALUATION: "EVALUATION",
   /**
-   * <p>Task for investigating issues or requirements</p>
+   * Task for investigating issues or requirements
    */
   INVESTIGATION: "INVESTIGATION",
   /**
-   * <p>Task for reviewing changes for production readiness</p>
+   * Task for reviewing changes for production readiness
    */
   RELEASE_READINESS_REVIEW: "RELEASE_READINESS_REVIEW",
   /**
-   * <p>Task for automated release testing</p>
+   * Task for automated release testing
    */
   RELEASE_TESTING: "RELEASE_TESTING",
 } as const;
@@ -398,43 +398,43 @@ export type TaskType = (typeof TaskType)[keyof typeof TaskType];
  */
 export const TaskStatus = {
   /**
-   * <p>Task has been canceled</p>
+   * Task has been canceled
    */
   CANCELED: "CANCELED",
   /**
-   * <p>Task has been completed successfully</p>
+   * Task has been completed successfully
    */
   COMPLETED: "COMPLETED",
   /**
-   * <p>Task has failed</p>
+   * Task has failed
    */
   FAILED: "FAILED",
   /**
-   * <p>Task is currently being worked on</p>
+   * Task is currently being worked on
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * <p>Task has been linked to another task</p>
+   * Task has been linked to another task
    */
   LINKED: "LINKED",
   /**
-   * <p>Task is completed but awaiting customer approval (not in use)</p>
+   * Task is completed but awaiting customer approval (not in use)
    */
   PENDING_CUSTOMER_APPROVAL: "PENDING_CUSTOMER_APPROVAL",
   /**
-   * <p>Task is created but not yet started</p>
+   * Task is created but not yet started
    */
   PENDING_START: "PENDING_START",
   /**
-   * <p>Task is awaiting triage analysis</p>
+   * Task is awaiting triage analysis
    */
   PENDING_TRIAGE: "PENDING_TRIAGE",
   /**
-   * <p>Task has been skipped by triage</p>
+   * Task has been skipped by triage
    */
   SKIPPED: "SKIPPED",
   /**
-   * <p>Task has exceeded its time limit</p>
+   * Task has exceeded its time limit
    */
   TIMED_OUT: "TIMED_OUT",
   WAITING: "WAITING",
@@ -450,15 +450,15 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  */
 export const UserType = {
   /**
-   * <p>AWS IAM user type</p>
+   * AWS IAM user type
    */
   IAM: "IAM",
   /**
-   * <p>AWS IAM Identity Center user type</p>
+   * AWS IAM Identity Center user type
    */
   IDC: "IDC",
   /**
-   * <p>External Identity Provider user type</p>
+   * External Identity Provider user type
    */
   IDP: "IDP",
 } as const;
@@ -473,11 +473,11 @@ export type UserType = (typeof UserType)[keyof typeof UserType];
  */
 export const ResourceConfigDnsResolution = {
   /**
-   * <p>Enable private DNS resolution within VPC for resources behind this resource gateway.</p>
+   * Enable private DNS resolution within VPC for resources behind this resource gateway.
    */
   IN_VPC: "IN_VPC",
   /**
-   * <p>Use public DNS resolution for resources behind this resource gateway.</p>
+   * Use public DNS resolution for resources behind this resource gateway.
    */
   PUBLIC: "PUBLIC",
 } as const;
@@ -554,15 +554,15 @@ export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
  */
 export const RecommendationPriority = {
   /**
-   * <p>High priority recommendation requiring immediate attention</p>
+   * High priority recommendation requiring immediate attention
    */
   HIGH: "HIGH",
   /**
-   * <p>Low priority recommendation that can be addressed later</p>
+   * Low priority recommendation that can be addressed later
    */
   LOW: "LOW",
   /**
-   * <p>Medium priority recommendation for normal processing</p>
+   * Medium priority recommendation for normal processing
    */
   MEDIUM: "MEDIUM",
 } as const;
@@ -577,27 +577,27 @@ export type RecommendationPriority = (typeof RecommendationPriority)[keyof typeo
  */
 export const RecommendationStatus = {
   /**
-   * <p>Recommendation has been accepted by the user</p>
+   * Recommendation has been accepted by the user
    */
   ACCEPTED: "ACCEPTED",
   /**
-   * <p>Recommendation has been closed and is no longer relevant</p>
+   * Recommendation has been closed and is no longer relevant
    */
   CLOSED: "CLOSED",
   /**
-   * <p>Recommendation has been completed by the user</p>
+   * Recommendation has been completed by the user
    */
   COMPLETED: "COMPLETED",
   /**
-   * <p>Recommendation has been generated but not yet acted upon</p>
+   * Recommendation has been generated but not yet acted upon
    */
   PROPOSED: "PROPOSED",
   /**
-   * <p>Recommendation has been rejected by the user</p>
+   * Recommendation has been rejected by the user
    */
   REJECTED: "REJECTED",
   /**
-   * <p>Recommendation is being actively updated</p>
+   * Recommendation is being actively updated
    */
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
@@ -612,11 +612,11 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
  */
 export const TaskSortOrder = {
   /**
-   * <p>Ascending order</p>
+   * Ascending order
    */
   ASC: "ASC",
   /**
-   * <p>Descending order</p>
+   * Descending order
    */
   DESC: "DESC",
 } as const;
@@ -631,11 +631,11 @@ export type TaskSortOrder = (typeof TaskSortOrder)[keyof typeof TaskSortOrder];
  */
 export const TaskSortField = {
   /**
-   * <p>Sort by task creation timestamp</p>
+   * Sort by task creation timestamp
    */
   CREATED_AT: "CREATED_AT",
   /**
-   * <p>Sort by task priority level</p>
+   * Sort by task priority level
    */
   PRIORITY: "PRIORITY",
 } as const;
@@ -650,23 +650,23 @@ export type TaskSortField = (typeof TaskSortField)[keyof typeof TaskSortField];
  */
 export const ExecutionStatus = {
   /**
-   * <p>Execution has been canceled</p>
+   * Execution has been canceled
    */
   CANCELED: "CANCELED",
   /**
-   * <p>Execution has failed</p>
+   * Execution has failed
    */
   FAILED: "FAILED",
   /**
-   * <p>Execution is currently running</p>
+   * Execution is currently running
    */
   RUNNING: "RUNNING",
   /**
-   * <p>Execution has been stopped</p>
+   * Execution has been stopped
    */
   STOPPED: "STOPPED",
   /**
-   * <p>Unlike in the case of user-initiated Cancelation, a customer won't be billed</p>
+   * Unlike in the case of user-initiated Cancelation, a customer won't be billed
    */
   TIMED_OUT: "TIMED_OUT",
   WAITING: "WAITING",
@@ -682,11 +682,11 @@ export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionSta
  */
 export const GoalType = {
   /**
-   * <p>Goal defined by customer</p>
+   * Goal defined by customer
    */
   CUSTOMER_DEFINED: "CUSTOMER_DEFINED",
   /**
-   * <p>Goal related to on-call reporting activities</p>
+   * Goal related to on-call reporting activities
    */
   ONCALL_REPORT: "ONCALL_REPORT",
 } as const;
@@ -701,15 +701,15 @@ export type GoalType = (typeof GoalType)[keyof typeof GoalType];
  */
 export const GoalStatus = {
   /**
-   * <p>Goal is active and being evaluated according to schedule</p>
+   * Goal is active and being evaluated according to schedule
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>Goal has been marked as completed</p>
+   * Goal has been marked as completed
    */
   COMPLETE: "COMPLETE",
   /**
-   * <p>Goal evaluations are temporarily paused</p>
+   * Goal evaluations are temporarily paused
    */
   PAUSED: "PAUSED",
 } as const;
@@ -724,11 +724,11 @@ export type GoalStatus = (typeof GoalStatus)[keyof typeof GoalStatus];
  */
 export const SchedulerState = {
   /**
-   * <p>Schedule is disabled and will not trigger goal evaluations</p>
+   * Schedule is disabled and will not trigger goal evaluations
    */
   DISABLED: "DISABLED",
   /**
-   * <p>Schedule is enabled and will trigger goal evaluations</p>
+   * Schedule is enabled and will trigger goal evaluations
    */
   ENABLED: "ENABLED",
 } as const;
@@ -743,11 +743,11 @@ export type SchedulerState = (typeof SchedulerState)[keyof typeof SchedulerState
  */
 export const OrderType = {
   /**
-   * <p>Ascending order</p>
+   * Ascending order
    */
   ASC: "ASC",
   /**
-   * <p>Descending order</p>
+   * Descending order
    */
   DESC: "DESC",
 } as const;
@@ -764,7 +764,7 @@ export const Service = {
   AZURE: "azure",
   AZURE_DEVOPS: "azuredevops",
   /**
-   * <p>Azure Service with AWS Outbound Identity Federation.</p>
+   * Azure Service with AWS Outbound Identity Federation.
    */
   AZURE_IDENTITY: "azureidentity",
   DYNATRACE: "dynatrace",
@@ -772,37 +772,37 @@ export const Service = {
   GITHUB: "github",
   GITLAB: "gitlab",
   /**
-   * <p>Model Context Protocol server.</p>
+   * Model Context Protocol server.
    */
   MCP_SERVER: "mcpserver",
   /**
-   * <p>Datadog MCP server.</p>
+   * Datadog MCP server.
    */
   MCP_SERVER_DATADOG: "mcpserverdatadog",
   /**
-   * <p>Grafana MCP server.</p>
+   * Grafana MCP server.
    */
   MCP_SERVER_GRAFANA: "mcpservergrafana",
   /**
-   * <p>NewRelic MCP server.</p>
+   * NewRelic MCP server.
    */
   MCP_SERVER_NEWRELIC: "mcpservernewrelic",
   /**
-   * <p>SigV4-authenticated MCP server.</p>
+   * SigV4-authenticated MCP server.
    */
   MCP_SERVER_SIGV4: "mcpserversigv4",
   /**
-   * <p>Splunk MCP server.</p>
+   * Splunk MCP server.
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
   MS_TEAMS: "msteams",
   PAGERDUTY: "pagerduty",
   /**
-   * <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>
+   * Remote A2A agent with token-based authentication (API key or OAuth).
    */
   REMOTE_AGENT: "remoteagent",
   /**
-   * <p>Remote A2A agent with SigV4 authentication.</p>
+   * Remote A2A agent with SigV4 authentication.
    */
   REMOTE_AGENT_SIGV4: "remoteagentsigv4",
   SERVICENOW: "servicenow",
@@ -819,43 +819,43 @@ export type Service = (typeof Service)[keyof typeof Service];
  */
 export const PostRegisterServiceSupportedService = {
   /**
-   * <p>Azure Service with AWS Outbound Identity Federation.</p>
+   * Azure Service with AWS Outbound Identity Federation.
    */
   AZURE_IDENTITY: "azureidentity",
   DYNATRACE: "dynatrace",
   EVENTCHANNEL: "eventChannel",
   GITLAB: "gitlab",
   /**
-   * <p>Model Context Protocol server.</p>
+   * Model Context Protocol server.
    */
   MCP_SERVER: "mcpserver",
   /**
-   * <p>Datadog MCP server.</p>
+   * Datadog MCP server.
    */
   MCP_SERVER_DATADOG: "mcpserverdatadog",
   /**
-   * <p>Grafana MCP server.</p>
+   * Grafana MCP server.
    */
   MCP_SERVER_GRAFANA: "mcpservergrafana",
   /**
-   * <p>NewRelic MCP server.</p>
+   * NewRelic MCP server.
    */
   MCP_SERVER_NEWRELIC: "mcpservernewrelic",
   /**
-   * <p>SigV4-authenticated MCP server.</p>
+   * SigV4-authenticated MCP server.
    */
   MCP_SERVER_SIGV4: "mcpserversigv4",
   /**
-   * <p>Splunk MCP server.</p>
+   * Splunk MCP server.
    */
   MCP_SERVER_SPLUNK: "mcpserversplunk",
   PAGERDUTY: "pagerduty",
   /**
-   * <p>Remote A2A agent with token-based authentication (API key or OAuth).</p>
+   * Remote A2A agent with token-based authentication (API key or OAuth).
    */
   REMOTE_AGENT: "remoteagent",
   /**
-   * <p>Remote A2A agent with SigV4 authentication.</p>
+   * Remote A2A agent with SigV4 authentication.
    */
   REMOTE_AGENT_SIGV4: "remoteagentsigv4",
   SERVICENOW: "servicenow",
@@ -872,7 +872,7 @@ export type PostRegisterServiceSupportedService =
  */
 export const EventChannelType = {
   /**
-   * <p>Webhook-based event channel</p>
+   * Webhook-based event channel
    */
   WEBHOOK: "webhook",
 } as const;

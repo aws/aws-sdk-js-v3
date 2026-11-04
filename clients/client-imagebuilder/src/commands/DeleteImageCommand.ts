@@ -23,32 +23,14 @@ export interface DeleteImageCommandInput extends DeleteImageRequest {}
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container
- * 			images that are created during the image build process. You must clean those up
- * 			separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI
- * 			commands.</p>
- *          <p>The request fails with <code>ResourceDependencyException</code> if the image
- * 			is shared with other accounts, or if other resources depend on it. It also
- * 			fails while the image build is still running. Cancel an in-progress build
- * 			with <a>CancelImageCreation</a> before you delete the image.</p>
- *          <ul>
- *             <li>
- *                <p>To deregister an EC2 Linux AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister your
- * 						Linux AMI</a> in the <i>
- *                      <i>Amazon EC2 User Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>To deregister an EC2 Windows AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html">Deregister your
- * 						Windows AMI</a> in the <i>
- *                      <i>Amazon EC2 Windows Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>To delete a container image from Amazon ECR, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html">Deleting
- * 						an image</a> in the <i>Amazon ECR User Guide</i>.</p>
- *             </li>
- *          </ul>
+ * Deletes an Image Builder image resource. This does not delete any EC2 AMIs or ECR container images that are created during the image build process. You must clean those up separately, using the appropriate Amazon EC2 or Amazon ECR console actions, or API or CLI commands.
+ *
+ * The request fails with `ResourceDependencyException` if the image is shared with other accounts, or if other resources depend on it. It also fails while the image build is still running. Cancel an in-progress build with CancelImageCreation before you delete the image.
+ *
+ * - To deregister an EC2 Linux AMI, see [Deregister your Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html) in the **Amazon EC2 User Guide** .
+ * - To deregister an EC2 Windows AMI, see [Deregister your Windows AMI](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/deregister-ami.html) in the **Amazon EC2 Windows Guide** .
+ * - To delete a container image from Amazon ECR, see [Deleting an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/delete_image.html) in the *Amazon ECR User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,36 +58,36 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
- *  <p>You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder
- * 			calls on your behalf. Retry with an increasing or variable delay between
- * 			requests.</p>
+ *
+ * You have exceeded the permitted request rate for the Amazon EC2 APIs that Image Builder calls on your behalf. Retry with an increasing or variable delay between requests.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A generic client error. This error usually indicates that the request
- * 			failed a validation check, such as when a downstream service rejects a
- * 			configured value.</p>
+ *
+ * A generic client error. This error usually indicates that the request failed a validation check, such as when a downstream service rejects a configured value.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * You are not authorized to perform the requested operation.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is malformed or otherwise invalid. Verify the request and try
- * 			again.</p>
+ *
+ * The request is malformed or otherwise invalid. Verify the request and try again.
  *
  * @throws {@link ResourceDependencyException} (client fault)
- *  <p>You have attempted to mutate or delete a resource with a dependency that prohibits
- * 			this action. See the error message for more details.</p>
+ *
+ * You have attempted to mutate or delete a resource with a dependency that prohibits this action. See the error message for more details.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An internal server error occurred while Image Builder processed the request.
- * 			Retrying the request may succeed.</p>
+ *
+ * An internal server error occurred while Image Builder processed the request. Retrying the request may succeed.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unable to process your request at this time.</p>
+ *
+ * The service is unable to process your request at this time.
  *
  * @throws {@link ImagebuilderServiceException}
- * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ * Base exception class for all service exceptions from Imagebuilder service.
  *
  * @example Delete an image build version
  * ```javascript

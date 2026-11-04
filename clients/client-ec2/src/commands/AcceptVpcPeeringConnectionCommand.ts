@@ -23,12 +23,10 @@ export interface AcceptVpcPeeringConnectionCommandInput extends AcceptVpcPeering
 export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * <p>Accept a VPC peering connection request. To accept a request, the VPC peering connection must
- *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
- *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
- *       peering connection requests.</p>
- *          <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
- *       connection in the Region of the accepter VPC.</p>
+ * Accept a VPC peering connection request. To accept a request, the VPC peering connection must be in the `pending-acceptance` state, and you must be the owner of the peer VPC. Use DescribeVpcPeeringConnections to view your outstanding VPC peering connection requests.
+ *
+ * For an inter-Region VPC peering connection request, you must accept the VPC peering connection in the Region of the accepter VPC.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,8 +109,8 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

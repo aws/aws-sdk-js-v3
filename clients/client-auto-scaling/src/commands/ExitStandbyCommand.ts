@@ -23,12 +23,12 @@ export interface ExitStandbyCommandInput extends ExitStandbyQuery {}
 export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataBearer {}
 
 /**
- * <p>Moves the specified instances out of the standby state.</p>
- *          <p>After you put the instances back in service, the desired capacity is
- *             incremented.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
- *                 instances from your Auto Scaling group</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Moves the specified instances out of the standby state.
+ *
+ * After you put the instances back in service, the desired capacity is incremented.
+ *
+ * For more information, see [Temporarily removing instances from your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,12 +73,12 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To move instances out of standby mode
  * ```javascript

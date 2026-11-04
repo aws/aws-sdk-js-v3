@@ -23,10 +23,10 @@ export interface DeleteDBSubnetGroupCommandInput extends DeleteDBSubnetGroupMess
 export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a DB subnet group.</p>
- *          <note>
- *             <p>The specified database subnet group must not be associated with any DB instances.</p>
- *          </note>
+ * Deletes a DB subnet group.
+ *
+ * > **Note:** The specified database subnet group must not be associated with any DB instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,19 +51,20 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
- *  <p>
- *             <i>DBSubnetGroupName</i> does not refer to an
- *       existing DB subnet group.</p>
+ *
+ * *DBSubnetGroupName* does not refer to an existing DB subnet group.
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
- *  <p>The DB subnet group cannot be deleted because it is in use.</p>
+ *
+ * The DB subnet group cannot be deleted because it is in use.
  *
  * @throws {@link InvalidDBSubnetStateFault} (client fault)
- *  <p>The DB subnet is not in the <i>available</i> state.</p>
+ *
+ * The DB subnet is not in the *available* state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

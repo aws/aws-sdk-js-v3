@@ -23,20 +23,17 @@ export interface StopSolutionVersionCreationCommandInput extends StopSolutionVer
 export interface StopSolutionVersionCreationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
- *       </p>
- *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
- *          <ul>
- *             <li>
- *                <p>CREATE_PENDING > CREATE_STOPPED</p>
- *                <p>or</p>
- *             </li>
- *             <li>
- *                <p>CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED</p>
- *             </li>
- *          </ul>
- *          <p>You are billed for all of the training completed up
- *       until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.</p>
+ * Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
+ *
+ * Depending on the current state of the solution version, the solution version state changes as follows:
+ *
+ * - CREATE_PENDING > CREATE_STOPPED
+ *
+ *   or
+ * - CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED
+ *
+ * You are billed for all of the training completed up until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,17 +58,20 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

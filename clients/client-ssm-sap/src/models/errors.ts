@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SsmSapServiceException as __BaseException } from "./SsmSapServiceException";
 
 /**
- * <p>A conflict has occurred.</p>
+ * A conflict has occurred.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -27,7 +28,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal error has occurred.</p>
+ * An internal error has occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -50,7 +52,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource is not available.</p>
+ * The resource is not available.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -73,7 +76,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service. </p>
+ * The input fails to satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -96,7 +100,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request is not authorized.</p>
+ * The request is not authorized.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {

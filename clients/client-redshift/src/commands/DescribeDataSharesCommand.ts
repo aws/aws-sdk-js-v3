@@ -23,8 +23,8 @@ export interface DescribeDataSharesCommandInput extends DescribeDataSharesMessag
 export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResult, __MetadataBearer {}
 
 /**
- * <p>Shows the status of any inbound or outbound datashares available in the specified
- *             account.</p>
+ * Shows the status of any inbound or outbound datashares available in the specified account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,11 +73,12 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidDataShareFault} (client fault)
- *  <p>There is an error with the datashare.</p>
+ *
+ * There is an error with the datashare.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

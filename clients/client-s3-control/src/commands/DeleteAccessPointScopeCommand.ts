@@ -23,14 +23,14 @@ export interface DeleteAccessPointScopeCommandInput extends DeleteAccessPointSco
 export interface DeleteAccessPointScopeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *          Deletes an existing access point scope for a directory bucket.</p>
- *          <note>
- *             <p>When you delete the scope of an access point, all prefixes and permissions are deleted.</p>
- *          </note>
- *          <p>To use this operation, you must have the permission to perform the
- *          <code>s3express:DeleteAccessPointScope</code> action.</p>
- *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
+ * Deletes an existing access point scope for a directory bucket.
+ *
+ * > **Note:** When you delete the scope of an access point, all prefixes and permissions are deleted.
+ *
+ * To use this operation, you must have the permission to perform the `s3express:DeleteAccessPointScope` action.
+ *
+ * For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +56,8 @@ export interface DeleteAccessPointScopeCommandOutput extends __MetadataBearer {}
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

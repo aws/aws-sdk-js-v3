@@ -23,14 +23,12 @@ export interface DescribeTypeCommandInput extends DescribeTypeInput {}
 export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about an extension from the CloudFormation registry in your
- *       current account and Region.</p>
- *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
- *       about that specific extension version. Otherwise, it returns information about the default
- *       extension version.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html">Edit configuration
- *         data for extensions in your account</a> in the
- *       <i>CloudFormation User Guide</i>.</p>
+ * Returns detailed information about an extension from the CloudFormation registry in your current account and Region.
+ *
+ * If you specify a `VersionId`, `DescribeType` returns information about that specific extension version. Otherwise, it returns information about the default extension version.
+ *
+ * For more information, see [Edit configuration data for extensions in your account](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-set-configuration.html) in the *CloudFormation User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,14 +98,16 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CFNRegistryException} (client fault)
- *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * An error occurred during a CloudFormation registry operation.
  *
  * @throws {@link TypeNotFoundException} (client fault)
- *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
+ * The specified extension doesn't exist in the CloudFormation registry.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

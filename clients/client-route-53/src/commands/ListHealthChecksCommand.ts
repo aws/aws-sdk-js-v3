@@ -23,7 +23,8 @@ export interface ListHealthChecksCommandInput extends ListHealthChecksRequest {}
 export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve a list of the health checks that are associated with the current Amazon Web Services account. </p>
+ * Retrieve a list of the health checks that are associated with the current Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,15 +108,16 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link IncompatibleVersion} (client fault)
- *  <p>The resource you're trying to access is unsupported on this Amazon Route 53
- * 			endpoint.</p>
+ *
+ * The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

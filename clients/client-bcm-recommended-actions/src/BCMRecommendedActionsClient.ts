@@ -273,7 +273,12 @@ export type BCMRecommendedActionsClientResolvedConfigType = __SmithyResolvedConf
 export interface BCMRecommendedActionsClientResolvedConfig extends BCMRecommendedActionsClientResolvedConfigType {}
 
 /**
- * <p>You can use the Billing and Cost Management Recommended Actions API to programmatically query your best practices and recommendations to optimize your costs.</p> <p>The Billing and Cost Management Recommended Actions API provides the following endpoint:</p> <ul> <li> <p> https://bcm-recommended-actions.us-east-1.api.aws</p> </li> </ul>
+ * You can use the Billing and Cost Management Recommended Actions API to programmatically query your best practices and recommendations to optimize your costs.
+ *
+ * The Billing and Cost Management Recommended Actions API provides the following endpoint:
+ *
+ * - https://bcm-recommended-actions.us-east-1.api.aws
+ *
  * @public
  */
 export class BCMRecommendedActionsClient extends __Client<

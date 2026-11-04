@@ -23,9 +23,10 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends CreateConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a connection. A connection defines the authorization type and credentials to use
- *       for authorization with an API destination HTTP endpoint.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html">Connections for endpoint targets</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+ * Creates a connection. A connection defines the authorization type and credentials to use for authorization with an API destination HTTP endpoint.
+ *
+ * For more information, see [Connections for endpoint targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html) in the *Amazon EventBridge User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,27 +133,32 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have the necessary permissions for this action.</p>
+ *
+ * You do not have the necessary permissions for this action.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because it attempted to create resource beyond the allowed service
- *       quota.</p>
+ *
+ * The request failed because it attempted to create resource beyond the allowed service quota.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The resource you are trying to create already exists.</p>
+ *
+ * The resource you are trying to create already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An entity that you specified does not exist.</p>
+ *
+ * An entity that you specified does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This request cannot be completed due to throttling issues.</p>
+ *
+ * This request cannot be completed due to throttling issues.
  *
  * @throws {@link EventBridgeServiceException}
- * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ * Base exception class for all service exceptions from EventBridge service.
  *
  * @public
  */

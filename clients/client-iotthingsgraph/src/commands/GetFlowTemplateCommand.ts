@@ -23,7 +23,7 @@ export interface GetFlowTemplateCommandInput extends GetFlowTemplateRequest {}
 export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
+ * Gets the latest version of the `DefinitionDocument` and `FlowTemplateSummary` for the specified workflow.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -65,20 +65,16 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

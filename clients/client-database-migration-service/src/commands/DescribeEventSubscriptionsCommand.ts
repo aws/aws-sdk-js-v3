@@ -23,12 +23,10 @@ export interface DescribeEventSubscriptionsCommandInput extends DescribeEventSub
 export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the event subscriptions for a customer account. The description of a
- *          subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>,
- *             <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>,
- *             <code>CreationTime</code>, and <code>Status</code>. </p>
- *          <p>If you specify <code>SubscriptionName</code>, this action lists the description for that
- *          subscription.</p>
+ * Lists all the event subscriptions for a customer account. The description of a subscription includes `SubscriptionName`, `SNSTopicARN`, `CustomerID`, `SourceType`, `SourceID`, `CreationTime`, and `Status`.
+ *
+ * If you specify `SubscriptionName`, this action lists the description for that subscription.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +80,12 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

@@ -23,34 +23,18 @@ export interface RegisterTargetsCommandInput extends RegisterTargetsInput {}
 export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __MetadataBearer {}
 
 /**
- * <p>Registers the specified targets with the specified target group.</p>
- *          <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you
- *       register it.</p>
- *          <p>By default, the load balancer routes requests to registered targets using the protocol and
- *       port for the target group. Alternatively, you can override the port for a target when you
- *       register it. You can register each EC2 instance or IP address with the same target group
- *       multiple times using different ports.</p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-register-targets.html">Register
- *           targets for your Application Load Balancer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html">Register targets
- *           for your Network Load Balancer</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-group-register-targets.html">Register targets for your
- *           Gateway Load Balancer</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Registers the specified targets with the specified target group.
+ *
+ * If the target is an EC2 instance, it must be in the `running` state when you register it.
+ *
+ * By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports.
+ *
+ * For more information, see the following:
+ *
+ * - [Register targets for your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-register-targets.html)
+ * - [Register targets for your Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html)
+ * - [Register targets for your Gateway Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-group-register-targets.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,22 +67,24 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidTargetException} (client fault)
- *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
- *       unsupported instance type.</p>
+ *
+ * The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
  *
  * @throws {@link TargetGroupNotFoundException} (client fault)
- *  <p>The specified target group does not exist.</p>
+ *
+ * The specified target group does not exist.
  *
  * @throws {@link TooManyRegistrationsForTargetIdException} (client fault)
- *  <p>You've reached the limit on the number of times a target can be registered with a load
- *       balancer.</p>
+ *
+ * You've reached the limit on the number of times a target can be registered with a load balancer.
  *
  * @throws {@link TooManyTargetsException} (client fault)
- *  <p>You've reached the limit on the number of targets.</p>
+ *
+ * You've reached the limit on the number of targets.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To register targets with a target group
  * ```javascript

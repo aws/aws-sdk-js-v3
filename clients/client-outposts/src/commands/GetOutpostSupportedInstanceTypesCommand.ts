@@ -23,9 +23,8 @@ export interface GetOutpostSupportedInstanceTypesCommandInput extends GetOutpost
 export interface GetOutpostSupportedInstanceTypesCommandOutput extends GetOutpostSupportedInstanceTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the instance types that an Outpost can support in <code>InstanceTypeCapacity</code>.
- *       This will generally include instance types that are not currently configured and therefore
- *       cannot be launched with the current Outpost capacity configuration.</p>
+ * Gets the instance types that an Outpost can support in `InstanceTypeCapacity`. This will generally include instance types that are not currently configured and therefore cannot be launched with the current Outpost capacity configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +61,24 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput extends GetOutpos
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

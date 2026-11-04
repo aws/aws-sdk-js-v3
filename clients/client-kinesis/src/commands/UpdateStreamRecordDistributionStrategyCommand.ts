@@ -23,38 +23,19 @@ export interface UpdateStreamRecordDistributionStrategyCommandInput extends Upda
 export interface UpdateStreamRecordDistributionStrategyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the record distribution strategy for the specified Amazon Kinesis Data Streams
- *             on-demand data stream. The record distribution strategy determines how Amazon Kinesis
- *             Data Streams distributes records across the shards in a stream.</p>
- *          <note>
- *             <p>You must specify the stream using the <code>StreamARN</code> parameter.</p>
- *          </note>
- *          <p>The record distribution strategy is a stream-level setting. You can switch between the
- *             following strategies at any time, and the change takes effect immediately without
- *             downtime, data loss, or disruption to producer or consumer applications:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>AUTO</code> – Amazon Kinesis Data Streams distributes records evenly
- *                     across shards using service-managed algorithms, and ignores any partition key
- *                     and <code>ExplicitHashKey</code> that a producer provides. Use this strategy for
- *                     stateless workloads that do not require partition-key ordering.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>USER_PARTITION_KEY</code> – Producers must provide a partition key, and
- *                     Amazon Kinesis Data Streams uses the partition key to determine shard placement.
- *                     Records that share a partition key are sent to the same shard. This is the
- *                     default strategy.</p>
- *             </li>
- *          </ul>
- *          <p>This operation is only supported for data streams that use the on-demand capacity
- *             mode. Provisioned capacity mode streams do not support the record distribution strategy
- *             setting. Attempting to set <code>AUTO</code> on a provisioned stream results in an
- *             <code>InvalidArgumentException</code>.</p>
- *          <p>New records that arrive after the change are distributed according to the new
- *             strategy. Records already in the stream keep their original shard assignments and are
- *             not redistributed.</p>
+ * Updates the record distribution strategy for the specified Amazon Kinesis Data Streams on-demand data stream. The record distribution strategy determines how Amazon Kinesis Data Streams distributes records across the shards in a stream.
+ *
+ * > **Note:** You must specify the stream using the `StreamARN` parameter.
+ *
+ * The record distribution strategy is a stream-level setting. You can switch between the following strategies at any time, and the change takes effect immediately without downtime, data loss, or disruption to producer or consumer applications:
+ *
+ * - `AUTO` – Amazon Kinesis Data Streams distributes records evenly across shards using service-managed algorithms, and ignores any partition key and `ExplicitHashKey` that a producer provides. Use this strategy for stateless workloads that do not require partition-key ordering.
+ * - `USER_PARTITION_KEY` – Producers must provide a partition key, and Amazon Kinesis Data Streams uses the partition key to determine shard placement. Records that share a partition key are sent to the same shard. This is the default strategy.
+ *
+ * This operation is only supported for data streams that use the on-demand capacity mode. Provisioned capacity mode streams do not support the record distribution strategy setting. Attempting to set `AUTO` on a provisioned stream results in an `InvalidArgumentException`.
+ *
+ * New records that arrive after the change are distributed according to the new strategy. Records already in the stream keep their original shard assignments and are not redistributed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,33 +62,32 @@ export interface UpdateStreamRecordDistributionStrategyCommandOutput extends __M
  * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Specifies that you do not have the permissions required to perform this
- *             operation.</p>
+ *
+ * Specifies that you do not have the permissions required to perform this operation.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
- *             For more information, see the returned message.</p>
+ *
+ * A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
- *             stream requests exceeds the maximum number allowed. </p>
+ *
+ * The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is not available for this operation. For successful operation, the
- *             resource must be in the <code>ACTIVE</code> state.</p>
+ *
+ * The resource is not available for this operation. For successful operation, the resource must be in the `ACTIVE` state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found. The stream might not be specified
- *             correctly.</p>
+ *
+ * The requested resource could not be found. The stream might not be specified correctly.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
+ *
+ * Specifies that you tried to invoke this API for a data stream with the on-demand capacity mode. This API is only supported for data streams with the provisioned capacity mode.
  *
  * @throws {@link KinesisServiceException}
- * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ * Base exception class for all service exceptions from Kinesis service.
  *
  * @public
  */

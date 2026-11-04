@@ -23,19 +23,12 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the tags assigned to the resource, such as a target recovery point, backup plan,
- *          or backup vault.</p>
- *          <p>This operation returns results depending on the resource type used in the value for
- *             <code>resourceArn</code>. For example, recovery points of Amazon DynamoDB with
- *          Advanced Settings have an ARN (Amazon Resource Name) that begins with
- *             <code>arn:aws:backup</code>. Recovery points (backups) of DynamoDB without
- *          Advanced Settings enabled have an ARN that begins with
- *          <code>arn:aws:dynamodb</code>.</p>
- *          <p>When this operation is called and when you include values of <code>resourceArn</code>
- *          that have an ARN other than <code>arn:aws:backup</code>, it may return one of the
- *          exceptions listed below. To prevent this exception, include only values representing
- *          resource types that are fully managed by Backup. These have an ARN that begins
- *             <code>arn:aws:backup</code> and they are noted in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a> table.</p>
+ * Returns the tags assigned to the resource, such as a target recovery point, backup plan, or backup vault.
+ *
+ * This operation returns results depending on the resource type used in the value for `resourceArn`. For example, recovery points of Amazon DynamoDB with Advanced Settings have an ARN (Amazon Resource Name) that begins with `arn:aws:backup`. Recovery points (backups) of DynamoDB without Advanced Settings enabled have an ARN that begins with `arn:aws:dynamodb`.
+ *
+ * When this operation is called and when you include values of `resourceArn` that have an ARN other than `arn:aws:backup`, it may return one of the exceptions listed below. To prevent this exception, include only values representing resource types that are fully managed by Backup. These have an ARN that begins `arn:aws:backup` and they are noted in the [Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource) table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,21 +60,24 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * A resource that is required for the action doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

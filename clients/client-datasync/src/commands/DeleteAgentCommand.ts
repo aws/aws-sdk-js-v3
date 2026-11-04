@@ -23,11 +23,10 @@ export interface DeleteAgentCommandInput extends DeleteAgentRequest {}
 export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Removes an DataSync agent resource from your Amazon Web Services account.</p>
- *          <p>Keep in mind that this operation (which can't be undone) doesn't remove the agent's
- *       virtual machine (VM) or Amazon EC2 instance from your storage environment. For next
- *       steps, you can delete the VM or instance from your storage environment or reuse it to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html">activate a new
- *         agent</a>.</p>
+ * Removes an DataSync agent resource from your Amazon Web Services account.
+ *
+ * Keep in mind that this operation (which can't be undone) doesn't remove the agent's virtual machine (VM) or Amazon EC2 instance from your storage environment. For next steps, you can delete the VM or instance from your storage environment or reuse it to [activate a new agent](https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,15 +51,16 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

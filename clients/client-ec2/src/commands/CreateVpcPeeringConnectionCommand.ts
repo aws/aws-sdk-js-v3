@@ -23,19 +23,14 @@ export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeering
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionResult, __MetadataBearer {}
 
 /**
- * <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
- * 		  an accepter VPC with which to create the connection. The accepter VPC can belong to
- * 		  another Amazon Web Services account and can be in a different Region to the requester VPC.
- *           The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p>
- *          <note>
- *             <p>Limitations and rules apply to a VPC peering connection. For more information, see
- *           the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">VPC peering limitations</a> in the <i>VPC Peering Guide</i>.</p>
- *          </note>
- *          <p>The owner of the accepter VPC must accept the peering request to activate the peering
- *             connection. The VPC peering connection request expires after 7 days, after which it
- *             cannot be accepted or rejected.</p>
- *          <p>If you create a VPC peering connection request between VPCs with overlapping CIDR
- *             blocks, the VPC peering connection has a status of <code>failed</code>.</p>
+ * Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another Amazon Web Services account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.
+ *
+ * > **Note:** Limitations and rules apply to a VPC peering connection. For more information, see the [VPC peering limitations](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations) in the *VPC Peering Guide*.
+ *
+ * The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.
+ *
+ * If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of `failed`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,8 +127,8 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

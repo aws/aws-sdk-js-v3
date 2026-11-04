@@ -23,15 +23,11 @@ export interface DeleteApplicationStatusCheckCommandInput extends DeleteApplicat
 export interface DeleteApplicationStatusCheckCommandOutput extends DeleteApplicationStatusCheckResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an application status check. The following rules apply:</p>
- *          <ul>
- *             <li>
- *                <p>Deleting a check automatically removes all of its associations.</p>
- *             </li>
- *             <li>
- *                <p>Use <code>DescribeApplicationStatusChecks</code> to view existing checks before deleting.</p>
- *             </li>
- *          </ul>
+ * Deletes an application status check. The following rules apply:
+ *
+ * - Deleting a check automatically removes all of its associations.
+ * - Use `DescribeApplicationStatusChecks` to view existing checks before deleting.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,8 +101,8 @@ export interface DeleteApplicationStatusCheckCommandOutput extends DeleteApplica
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete an application status check
  * ```javascript

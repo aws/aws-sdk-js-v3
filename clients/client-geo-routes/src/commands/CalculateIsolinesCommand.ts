@@ -23,7 +23,18 @@ export interface CalculateIsolinesCommandInput extends CalculateIsolinesRequest 
 export interface CalculateIsolinesCommandOutput extends CalculateIsolinesResponse, __MetadataBearer {}
 
 /**
- * <p>Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.</p> <p>Isolines (also known as isochrones for time-based calculations) are useful for various applications including:</p> <ul> <li> <p>Service area visualization - Show customers the area you can serve within promised delivery times</p> </li> <li> <p>Site selection - Analyze potential business locations based on population within travel distance</p> </li> <li> <p>Site selection - Determine areas that can be reached within specified response times</p> </li> </ul> <note> <p>Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.</p> </note> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html">Calculate isolines</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * Calculates areas that can be reached within specified time or distance thresholds from a given point. For example, you can use this operation to determine the area within a 30-minute drive of a store location, find neighborhoods within walking distance of a school, or identify delivery zones based on drive time.
+ *
+ * Isolines (also known as isochrones for time-based calculations) are useful for various applications including:
+ *
+ * - Service area visualization - Show customers the area you can serve within promised delivery times
+ * - Site selection - Analyze potential business locations based on population within travel distance
+ * - Site selection - Determine areas that can be reached within specified response times
+ *
+ * > **Note:** Route preferences such as avoiding toll roads or ferries are treated as preferences rather than absolute restrictions. If a viable route cannot be calculated while honoring all preferences, some may be ignored.
+ *
+ * For more information, see [Calculate isolines](https://docs.aws.amazon.com/location/latest/developerguide/calculate-isolines.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -281,20 +292,24 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  * @see {@link GeoRoutesClientResolvedConfig | config} for GeoRoutesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link GeoRoutesServiceException}
- * <p>Base exception class for all service exceptions from GeoRoutes service.</p>
  *
+ * Base exception class for all service exceptions from GeoRoutes service.
  *
  * @public
  */

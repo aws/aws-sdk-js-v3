@@ -23,12 +23,10 @@ export interface CreateIpamCommandInput extends CreateIpamRequest {}
 export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBearer {}
 
 /**
- * <p>Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use
- *          to automate your IP address management workflows including assigning, tracking,
- *          troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts
- *          throughout your Amazon Web Services Organization.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
+ * Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization.
+ *
+ * For more information, see [Create an IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,8 +102,8 @@ export interface CreateIpamCommandOutput extends CreateIpamResult, __MetadataBea
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,110 +23,50 @@ export interface CreateFleetCommandInput extends CreateFleetInput {}
 export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Creates a fleet of compute resources to host your game servers. Use this operation to
- *             set up a fleet for the following compute types: </p>
- *          <p>
- *             <b>Managed EC2 fleet</b>
- *          </p>
- *          <p>An EC2 fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your game server build is
- *             deployed to each fleet instance. Amazon GameLift Servers manages the fleet's instances and controls the
- *             lifecycle of game server processes, which host game sessions for players. EC2 fleets can
- *             have instances in multiple locations. Each instance in the fleet is designated a
- *                 <code>Compute</code>.</p>
- *          <p>To create an EC2 fleet, provide these required parameters:</p>
- *          <ul>
- *             <li>
- *                <p>Either <code>BuildId</code> or <code>ScriptId</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ComputeType</code> set to <code>EC2</code> (the default value)</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EC2InboundPermissions</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EC2InstanceType</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>FleetType</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Name</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RuntimeConfiguration</code> with at least one <code>ServerProcesses</code>
- *                     configuration</p>
- *             </li>
- *          </ul>
- *          <p>If successful, this operation creates a new fleet resource and places it in
- *                 <code>NEW</code> status while Amazon GameLift Servers initiates the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation workflow</a>. To debug your fleet, fetch logs, view performance
- *             metrics or other actions on the fleet, create a development fleet with port 22/3389
- *             open. As a best practice, we recommend opening ports for remote access only when you
- *             need them and closing them when you're finished. </p>
- *          <p>When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling
- *             on/off for each location.</p>
- *          <note>
- *             <p>A managed fleet's runtime environment depends on the Amazon Machine Image (AMI)
- *                 version it uses. When a new fleet is created, Amazon GameLift Servers assigns the
- *                 latest available AMI version to the fleet, and all compute instances in that fleet
- *                 are deployed with that version. To update the AMI version, you must create a new
- *                 fleet. As a best practice, we recommend replacing your managed fleets every 30
- *                 days to maintain a secure and up-to-date runtime environment for your hosted game
- *                 servers. For guidance, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html">
- *                     Security best practices for Amazon GameLift Servers</a>.</p>
- *          </note>
- *          <p>
- *             <b>Anywhere fleet</b>
- *          </p>
- *          <p>An Anywhere fleet represents compute resources that are not owned or managed by
- *             Amazon GameLift Servers. You might create an Anywhere fleet with your local machine for testing, or use
- *             one to host game servers with on-premises hardware or other game hosting solutions. </p>
- *          <p>To create an Anywhere fleet, provide these required parameters:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ComputeType</code> set to <code>ANYWHERE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Locations</code> specifying a custom location</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Name</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>If successful, this operation creates a new fleet resource and places it in
- *                 <code>ACTIVE</code> status. You can register computes with a fleet in
- *                 <code>ACTIVE</code> status. </p>
- *          <p>
- *             <b>Learn more</b>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up
- *             fleets</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug fleet creation issues</a>
- *          </p>
- *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location fleets</a>
- *          </p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Creates a fleet of compute resources to host your game servers. Use this operation to set up a fleet for the following compute types:
+ *
+ * **Managed EC2 fleet**
+ *
+ * An EC2 fleet is a set of Amazon Elastic Compute Cloud (Amazon EC2) instances. Your game server build is deployed to each fleet instance. Amazon GameLift Servers manages the fleet's instances and controls the lifecycle of game server processes, which host game sessions for players. EC2 fleets can have instances in multiple locations. Each instance in the fleet is designated a `Compute`.
+ *
+ * To create an EC2 fleet, provide these required parameters:
+ *
+ * - Either `BuildId` or `ScriptId`
+ * - `ComputeType` set to `EC2` (the default value)
+ * - `EC2InboundPermissions`
+ * - `EC2InstanceType`
+ * - `FleetType`
+ * - `Name`
+ * - `RuntimeConfiguration` with at least one `ServerProcesses` configuration
+ *
+ * If successful, this operation creates a new fleet resource and places it in `NEW` status while Amazon GameLift Servers initiates the [fleet creation workflow](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow). To debug your fleet, fetch logs, view performance metrics or other actions on the fleet, create a development fleet with port 22/3389 open. As a best practice, we recommend opening ports for remote access only when you need them and closing them when you're finished.
+ *
+ * When the fleet status is ACTIVE, you can adjust capacity settings and turn autoscaling on/off for each location.
+ *
+ * > **Note:** A managed fleet's runtime environment depends on the Amazon Machine Image (AMI) version it uses. When a new fleet is created, Amazon GameLift Servers assigns the latest available AMI version to the fleet, and all compute instances in that fleet are deployed with that version. To update the AMI version, you must create a new fleet. As a best practice, we recommend replacing your managed fleets every 30 days to maintain a secure and up-to-date runtime environment for your hosted game servers. For guidance, see [Security best practices for Amazon GameLift Servers](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/security-best-practices.html).
+ *
+ * **Anywhere fleet**
+ *
+ * An Anywhere fleet represents compute resources that are not owned or managed by Amazon GameLift Servers. You might create an Anywhere fleet with your local machine for testing, or use one to host game servers with on-premises hardware or other game hosting solutions.
+ *
+ * To create an Anywhere fleet, provide these required parameters:
+ *
+ * - `ComputeType` set to `ANYWHERE`
+ * - `Locations` specifying a custom location
+ * - `Name`
+ *
+ * If successful, this operation creates a new fleet resource and places it in `ACTIVE` status. You can register computes with a fleet in `ACTIVE` status.
+ *
+ * **Learn more**
+ *
+ * [Setting up fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
+ * [Debug fleet creation issues](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation)
+ *
+ * [Multi-location fleets](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -267,45 +207,44 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
- *          <p></p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link NotReadyException} (client fault)
- *  <p> The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We
- *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
- *                 backoffs and jitter</a>. </p>
+ *
+ * The operation failed because Amazon GameLift Servers has not yet finished validating this compute. We recommend attempting 8 to 10 retries over 3 to 5 minutes with [exponential backoffs and jitter](http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/).
  *
  * @throws {@link TaggingFailedException} (client fault)
- *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
- *             or the maximum tag limit may have been exceeded. Resolve the issue before
- *             retrying.</p>
+ *
+ * The requested tagging operation did not succeed. This may be due to invalid tag format or the maximum tag limit may have been exceeded. Resolve the issue before retrying.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

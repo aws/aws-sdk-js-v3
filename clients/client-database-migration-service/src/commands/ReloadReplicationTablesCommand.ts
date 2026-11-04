@@ -23,10 +23,10 @@ export interface ReloadReplicationTablesCommandInput extends ReloadReplicationTa
 export interface ReloadReplicationTablesCommandOutput extends ReloadReplicationTablesResponse, __MetadataBearer {}
 
 /**
- * <p>Reloads the target database table with the source data for a given DMS Serverless
- *          replication configuration.</p>
- *          <p>You can only use this operation with a task in the RUNNING state, otherwise the service
- *          will throw an <code>InvalidResourceStateFault</code> exception.</p>
+ * Reloads the target database table with the source data for a given DMS Serverless replication configuration.
+ *
+ * You can only use this operation with a task in the RUNNING state, otherwise the service will throw an `InvalidResourceStateFault` exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +60,16 @@ export interface ReloadReplicationTablesCommandOutput extends ReloadReplicationT
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @public
  */

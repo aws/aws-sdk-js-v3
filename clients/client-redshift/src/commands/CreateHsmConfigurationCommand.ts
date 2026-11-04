@@ -23,13 +23,10 @@ export interface CreateHsmConfigurationCommandInput extends CreateHsmConfigurati
 export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Creates an HSM configuration that contains the information required by an Amazon Redshift
- *             cluster to store and use database encryption keys in a Hardware Security Module (HSM).
- *             After creating the HSM configuration, you can specify it as a parameter when creating a
- *             cluster. The cluster will then store its encryption keys in the HSM.</p>
- *          <p>In addition to creating an HSM configuration, you must also create an HSM client
- *             certificate. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
- *             in the Amazon Redshift Cluster Management Guide.</p>
+ * Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM). After creating the HSM configuration, you can specify it as a parameter when creating a cluster. The cluster will then store its encryption keys in the HSM.
+ *
+ * In addition to creating an HSM configuration, you must also create an HSM client certificate. For more information, go to [Hardware Security Modules](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html) in the Amazon Redshift Cluster Management Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,24 +75,24 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link HsmConfigurationAlreadyExistsFault} (client fault)
- *  <p>There is already an existing Amazon Redshift HSM configuration with the specified
- *             identifier.</p>
+ *
+ * There is already an existing Amazon Redshift HSM configuration with the specified identifier.
  *
  * @throws {@link HsmConfigurationQuotaExceededFault} (client fault)
- *  <p>The quota for HSM configurations has been reached.
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ *
+ * The quota for HSM configurations has been reached. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

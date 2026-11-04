@@ -23,10 +23,10 @@ export interface AssociateInstanceEventWindowCommandInput extends AssociateInsta
 export interface AssociateInstanceEventWindowCommandOutput extends AssociateInstanceEventWindowResult, __MetadataBearer {}
 
 /**
- * <p>Associates one or more targets with an event window. Only one type of target (instance
- *          IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
- *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.
+ *
+ * For more information, see [Define event windows for scheduled events](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,8 +101,8 @@ export interface AssociateInstanceEventWindowCommandOutput extends AssociateInst
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface DeleteAppCommandInput extends DeleteAppRequest {}
 export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Resilience Hub application. This is a destructive action that can't be
- *       undone.</p>
+ * Deletes an Resilience Hub application. This is a destructive action that can't be undone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,27 +53,28 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @see {@link ResiliencehubClientResolvedConfig | config} for ResiliencehubClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
+ *
+ * This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Resilience Hub service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception occurs when the specified resource could not be found.</p>
+ *
+ * This exception occurs when the specified resource could not be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ *
+ * This exception occurs when you have exceeded the limit on the number of requests per second.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>This exception occurs when a request is not valid.</p>
+ *
+ * This exception occurs when a request is not valid.
  *
  * @throws {@link ResiliencehubServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehub service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface RegisterNamespaceCommandInput extends RegisterNamespaceInputMes
 export interface RegisterNamespaceCommandOutput extends RegisterNamespaceOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Registers a cluster or serverless namespace to the Amazon Web Services Glue Data Catalog.</p>
+ * Registers a cluster or serverless namespace to the Amazon Web Services Glue Data Catalog.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,18 +62,20 @@ export interface RegisterNamespaceCommandOutput extends RegisterNamespaceOutputM
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link InvalidNamespaceFault} (client fault)
- *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
+ * The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

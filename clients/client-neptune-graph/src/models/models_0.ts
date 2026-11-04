@@ -25,13 +25,15 @@ import type {
  */
 export interface CancelQueryInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the query to cancel.</p>
+   * The unique identifier of the query to cancel.
+   *
    * @public
    */
   queryId: string | undefined;
@@ -42,43 +44,50 @@ export interface CancelQueryInput {
  */
 export interface ExecuteQueryInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The query string to be executed.</p>
+   * The query string to be executed.
+   *
    * @public
    */
   queryString: string | undefined;
 
   /**
-   * <p>The query language the query is written in. Currently only openCypher is supported.</p>
+   * The query language the query is written in. Currently only openCypher is supported.
+   *
    * @public
    */
   language: QueryLanguage | undefined;
 
   /**
-   * <p>The data parameters the query can use in JSON format. For example: \{"name": "john", "age": 20\}. (optional) </p>
+   * The data parameters the query can use in JSON format. For example: \{"name": "john", "age": 20\}. (optional)
+   *
    * @public
    */
   parameters?: Record<string, __DocumentType> | undefined;
 
   /**
-   * <p>Query plan cache is a feature that saves the query plan and reuses it on successive executions of the same query. This reduces query latency, and works for both <code>READ</code> and <code>UPDATE</code> queries. The plan cache is an LRU cache with a 5 minute TTL and a capacity of 1000.</p>
+   * Query plan cache is a feature that saves the query plan and reuses it on successive executions of the same query. This reduces query latency, and works for both `READ` and `UPDATE` queries. The plan cache is an LRU cache with a 5 minute TTL and a capacity of 1000.
+   *
    * @public
    */
   planCache?: PlanCacheType | undefined;
 
   /**
-   * <p>The explain mode parameter returns a query explain instead of the actual query results. A query explain can be used to gather insights about the query execution such as planning decisions, time spent on each operator, solutions flowing etc.</p>
+   * The explain mode parameter returns a query explain instead of the actual query results. A query explain can be used to gather insights about the query execution such as planning decisions, time spent on each operator, solutions flowing etc.
+   *
    * @public
    */
   explainMode?: ExplainMode | undefined;
 
   /**
-   * <p>Specifies the query timeout duration, in milliseconds. (optional)</p>
+   * Specifies the query timeout duration, in milliseconds. (optional)
+   *
    * @public
    */
   queryTimeoutMilliseconds?: number | undefined;
@@ -89,7 +98,8 @@ export interface ExecuteQueryInput {
  */
 export interface ExecuteQueryOutput {
   /**
-   * <p>The query results.</p>
+   * The query results.
+   *
    * @public
    */
   payload: StreamingBlobTypes | undefined;
@@ -100,145 +110,169 @@ export interface ExecuteQueryOutput {
  */
 export interface GetGraphSummaryInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The summary mode can take one of two values: <code>basic</code> (the default), and <code>detailed</code>.</p>
+   * The summary mode can take one of two values: `basic` (the default), and `detailed`.
+   *
    * @public
    */
   mode?: GraphSummaryMode | undefined;
 }
 
 /**
- * <p>Contains information about an edge in a Neptune Analytics graph.</p>
+ * Contains information about an edge in a Neptune Analytics graph.
+ *
  * @public
  */
 export interface EdgeStructure {
   /**
-   * <p>The number of instances of the edge in the graph.</p>
+   * The number of instances of the edge in the graph.
+   *
    * @public
    */
   count?: number | undefined;
 
   /**
-   * <p>A list of the properties associated with the edge.</p>
+   * A list of the properties associated with the edge.
+   *
    * @public
    */
   edgeProperties?: string[] | undefined;
 }
 
 /**
- * <p>Information about a node.</p>
+ * Information about a node.
+ *
  * @public
  */
 export interface NodeStructure {
   /**
-   * <p>The number of instances of this node.</p>
+   * The number of instances of this node.
+   *
    * @public
    */
   count?: number | undefined;
 
   /**
-   * <p>Properties associated with this node.</p>
+   * Properties associated with this node.
+   *
    * @public
    */
   nodeProperties?: string[] | undefined;
 
   /**
-   * <p>The outgoing edge labels associated with this node.</p>
+   * The outgoing edge labels associated with this node.
+   *
    * @public
    */
   distinctOutgoingEdgeLabels?: string[] | undefined;
 }
 
 /**
- * <p>Summary information about the graph.</p>
+ * Summary information about the graph.
+ *
  * @public
  */
 export interface GraphDataSummary {
   /**
-   * <p>The number of nodes in the graph.</p>
+   * The number of nodes in the graph.
+   *
    * @public
    */
   numNodes?: number | undefined;
 
   /**
-   * <p>The number of edges in the graph.</p>
+   * The number of edges in the graph.
+   *
    * @public
    */
   numEdges?: number | undefined;
 
   /**
-   * <p>The number of distinct node labels in the graph.</p>
+   * The number of distinct node labels in the graph.
+   *
    * @public
    */
   numNodeLabels?: number | undefined;
 
   /**
-   * <p>The number of unique edge labels in the graph.</p>
+   * The number of unique edge labels in the graph.
+   *
    * @public
    */
   numEdgeLabels?: number | undefined;
 
   /**
-   * <p>A list of distinct node labels in the graph.</p>
+   * A list of distinct node labels in the graph.
+   *
    * @public
    */
   nodeLabels?: string[] | undefined;
 
   /**
-   * <p>A list of the edge labels in the graph.</p>
+   * A list of the edge labels in the graph.
+   *
    * @public
    */
   edgeLabels?: string[] | undefined;
 
   /**
-   * <p>The number of distinct node properties in the graph.</p>
+   * The number of distinct node properties in the graph.
+   *
    * @public
    */
   numNodeProperties?: number | undefined;
 
   /**
-   * <p>The number of edge properties in the graph.</p>
+   * The number of edge properties in the graph.
+   *
    * @public
    */
   numEdgeProperties?: number | undefined;
 
   /**
-   * <p>A list of the distinct node properties in the graph, along with the count of nodes where each property is used.</p>
+   * A list of the distinct node properties in the graph, along with the count of nodes where each property is used.
+   *
    * @public
    */
   nodeProperties?: Record<string, number>[] | undefined;
 
   /**
-   * <p>A list of the distinct edge properties in the graph, along with the count of edges where each property is used.</p>
+   * A list of the distinct edge properties in the graph, along with the count of edges where each property is used.
+   *
    * @public
    */
   edgeProperties?: Record<string, number>[] | undefined;
 
   /**
-   * <p>The total number of usages of all node properties.</p>
+   * The total number of usages of all node properties.
+   *
    * @public
    */
   totalNodePropertyValues?: number | undefined;
 
   /**
-   * <p>The total number of usages of all edge properties.</p>
+   * The total number of usages of all edge properties.
+   *
    * @public
    */
   totalEdgePropertyValues?: number | undefined;
 
   /**
-   * <p>This field is only present when the requested mode is DETAILED. It contains a list of node structures.</p>
+   * This field is only present when the requested mode is DETAILED. It contains a list of node structures.
+   *
    * @public
    */
   nodeStructures?: NodeStructure[] | undefined;
 
   /**
-   * <p>This field is only present when the requested mode is DETAILED. It contains a list of edge structures.</p>
+   * This field is only present when the requested mode is DETAILED. It contains a list of edge structures.
+   *
    * @public
    */
   edgeStructures?: EdgeStructure[] | undefined;
@@ -249,19 +283,22 @@ export interface GraphDataSummary {
  */
 export interface GetGraphSummaryOutput {
   /**
-   * <p>Display the version of this tool.</p>
+   * Display the version of this tool.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The timestamp, in ISO 8601 format, of the time at which Neptune Analytics last computed statistics.</p>
+   * The timestamp, in ISO 8601 format, of the time at which Neptune Analytics last computed statistics.
+   *
    * @public
    */
   lastStatisticsComputationTime?: Date | undefined;
 
   /**
-   * <p>The graph summary.</p>
+   * The graph summary.
+   *
    * @public
    */
   graphSummary?: GraphDataSummary | undefined;
@@ -272,13 +309,15 @@ export interface GetGraphSummaryOutput {
  */
 export interface GetQueryInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the query in question.</p>
+   * The ID of the query in question.
+   *
    * @public
    */
   queryId: string | undefined;
@@ -289,43 +328,50 @@ export interface GetQueryInput {
  */
 export interface GetQueryOutput {
   /**
-   * <p>The ID of the query in question.</p>
+   * The ID of the query in question.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The query in question.</p>
+   * The query in question.
+   *
    * @public
    */
   queryString?: string | undefined;
 
   /**
-   * <p>Indicates how long the query waited, in milliseconds.</p>
+   * Indicates how long the query waited, in milliseconds.
+   *
    * @public
    */
   waited?: number | undefined;
 
   /**
-   * <p>The number of milliseconds the query has been running.</p>
+   * The number of milliseconds the query has been running.
+   *
    * @public
    */
   elapsed?: number | undefined;
 
   /**
-   * <p>State of the query.</p>
+   * State of the query.
+   *
    * @public
    */
   state?: QueryState | undefined;
 }
 
 /**
- * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+ * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+ *
  * @public
  */
 export interface VectorSearchConfiguration {
   /**
-   * <p>The number of dimensions.</p>
+   * The number of dimensions.
+   *
    * @public
    */
   dimension: number | undefined;
@@ -336,49 +382,61 @@ export interface VectorSearchConfiguration {
  */
 export interface CreateGraphInput {
   /**
-   * <p>A name for the new Neptune Analytics graph to be created.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * A name for the new Neptune Analytics graph to be created.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   graphName: string | undefined;
 
   /**
-   * <p>Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.</p>
+   * Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (<code>true</code> to enable, or <code>false</code> to disable.</p>
+   * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (`true` to enable, or `false` to disable.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies a KMS key to use to encrypt data in the new graph.</p>
+   * Specifies a KMS key to use to encrypt data in the new graph.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings that will be loaded into the graph. The value is specified as <code>dimension=</code>value. Max = 65,535</p>
+   * Specifies the number of dimensions for vector embeddings that will be loaded into the graph. The value is specified as `dimension=`value. Max = 65,535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas in other AZs. Min =0, Max = 2, Default = 1.</p> <important> <p> Additional charges equivalent to the m-NCUs selected for the graph apply for each replica. </p> </important>
+   * The number of replicas in other AZs. Min =0, Max = 2, Default = 1.
+   *
+   * > **Important:** Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (<code>true</code> or <code>false</code>).</p>
+   * Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (`true` or `false`).
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16</p>
+   * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16
+   *
    * @public
    */
   provisionedMemory: number | undefined;
@@ -389,91 +447,114 @@ export interface CreateGraphInput {
  */
 export interface CreateGraphOutput {
   /**
-   * <p>The ID of the graph.</p>
+   * The ID of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The graph name. For example: <code>my-graph-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * The graph name. For example: `my-graph-1`.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the graph.</p>
+   * The ARN of the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of the graph.</p>
+   * The current status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason the status was given.</p>
+   * The reason the status was given.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time when the graph was created.</p>
+   * The time when the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p>
+   * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+   *
+   * Min = 16
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.</p> <note> <p>If enabling public connectivity for the first time, there will be a delay while it is enabled.</p> </note>
+   * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
+   *
+   * > **Note:** If enabling public connectivity for the first time, there will be a delay while it is enabled.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
+   * The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas in other AZs.</p> <p>Default: If not specified, the default value is 1.</p>
+   * The number of replicas in other AZs.
+   *
+   * Default: If not specified, the default value is 1.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>Specifies the KMS key used to encrypt data in the new graph.</p>
+   * Specifies the KMS key used to encrypt data in the new graph.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the source graph.</p>
+   * The ID of the source graph.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.</p>
+   * A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph software.</p>
+   * The build number of the graph software.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -484,13 +565,15 @@ export interface CreateGraphOutput {
  */
 export interface DeleteGraphInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>Determines whether a final graph snapshot is created before the graph is deleted. If <code>true</code> is specified, no graph snapshot is created. If <code>false</code> is specified, a graph snapshot is created before the graph is deleted.</p>
+   * Determines whether a final graph snapshot is created before the graph is deleted. If `true` is specified, no graph snapshot is created. If `false` is specified, a graph snapshot is created before the graph is deleted.
+   *
    * @public
    */
   skipSnapshot: boolean | undefined;
@@ -501,91 +584,106 @@ export interface DeleteGraphInput {
  */
 export interface DeleteGraphOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason for the status of the graph.</p>
+   * The reason for the status of the graph.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if the graph was recovered from a snapshot.</p>
+   * The ID of the snapshot from which the graph was created, if the graph was recovered from a snapshot.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection was enabled for the graph.</p>
+   * If `true`, deletion protection was enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number associated with the graph.</p>
+   * The build number associated with the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -596,7 +694,8 @@ export interface DeleteGraphOutput {
  */
 export interface GetGraphInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
@@ -607,91 +706,106 @@ export interface GetGraphInput {
  */
 export interface GetGraphOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason that the graph has this status.</p>
+   * The reason that the graph has this status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if it was created from a snapshot.</p>
+   * The ID of the snapshot from which the graph was created, if it was created from a snapshot.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph.</p>
+   * The build number of the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -702,79 +816,96 @@ export interface GetGraphOutput {
  */
 export interface ListGraphsInput {
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+   * The total number of records to return in the command's output.
+   *
+   * If the total number of records available is more than the value specified, `nextToken` is provided in the command's output. To resume pagination, provide the `nextToken` output value in the `nextToken` argument of a subsequent command. Do not use the `nextToken` response element directly outside of the Amazon CLI.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary details about a graph.</p>
+ * Summary details about a graph.
+ *
  * @public
  */
 export interface GraphSummary {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
@@ -785,13 +916,17 @@ export interface GraphSummary {
  */
 export interface ListGraphsOutput {
   /**
-   * <p>A list of the graphs.</p>
+   * A list of the graphs.
+   *
    * @public
    */
   graphs: GraphSummary[] | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -802,13 +937,15 @@ export interface ListGraphsOutput {
  */
 export interface ResetGraphInput {
   /**
-   * <p>ID of the graph to reset.</p>
+   * ID of the graph to reset.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>Determines whether a final graph snapshot is created before the graph data is deleted. If set to <code>true</code>, no graph snapshot is created. If set to <code>false</code>, a graph snapshot is created before the data is deleted.</p>
+   * Determines whether a final graph snapshot is created before the graph data is deleted. If set to `true`, no graph snapshot is created. If set to `false`, a graph snapshot is created before the data is deleted.
+   *
    * @public
    */
   skipSnapshot: boolean | undefined;
@@ -819,91 +956,106 @@ export interface ResetGraphInput {
  */
 export interface ResetGraphOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason that the graph has this status.</p>
+   * The reason that the graph has this status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if any.</p>
+   * The ID of the snapshot from which the graph was created, if any.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph.</p>
+   * The build number of the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -914,43 +1066,56 @@ export interface ResetGraphOutput {
  */
 export interface RestoreGraphFromSnapshotInput {
   /**
-   * <p>The ID of the snapshot in question.</p>
+   * The ID of the snapshot in question.
+   *
    * @public
    */
   snapshotIdentifier: string | undefined;
 
   /**
-   * <p>A name for the new Neptune Analytics graph to be created from the snapshot.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * A name for the new Neptune Analytics graph to be created from the snapshot.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   graphName: string | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p>
+   * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+   *
+   * Min = 16
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.</p>
+   * A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>Adds metadata tags to the snapshot. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.</p>
+   * Adds metadata tags to the snapshot. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The number of replicas in other AZs. Min =0, Max = 2, Default =1</p> <important> <p> Additional charges equivalent to the m-NCUs selected for the graph apply for each replica. </p> </important>
+   * The number of replicas in other AZs. Min =0, Max = 2, Default =1
+   *
+   * > **Important:** Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (<code>true</code> to enable, or <code>false</code> to disable).</p>
+   * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (`true` to enable, or `false` to disable).
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
@@ -961,91 +1126,106 @@ export interface RestoreGraphFromSnapshotInput {
  */
 export interface RestoreGraphFromSnapshotOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason that the graph has this status.</p>
+   * The reason that the graph has this status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if any.</p>
+   * The ID of the snapshot from which the graph was created, if any.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph.</p>
+   * The build number of the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -1056,7 +1236,8 @@ export interface RestoreGraphFromSnapshotOutput {
  */
 export interface StartGraphInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
@@ -1067,91 +1248,106 @@ export interface StartGraphInput {
  */
 export interface StartGraphOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason that the graph has this status.</p>
+   * The reason that the graph has this status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if it was created from a snapshot.</p>
+   * The ID of the snapshot from which the graph was created, if it was created from a snapshot.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph.</p>
+   * The build number of the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -1162,7 +1358,8 @@ export interface StartGraphOutput {
  */
 export interface StopGraphInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
@@ -1173,91 +1370,106 @@ export interface StopGraphInput {
  */
 export interface StopGraphOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason that the graph has this status.</p>
+   * The reason that the graph has this status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If true, the graph has a public endpoint, otherwise not.</p>
+   * If true, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if it was created from a snapshot.</p>
+   * The ID of the snapshot from which the graph was created, if it was created from a snapshot.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph.</p>
+   * The build number of the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -1268,25 +1480,31 @@ export interface StopGraphOutput {
  */
 export interface UpdateGraphInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (<code>true</code> to enable, or <code>false</code> to disable.</p>
+   * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (`true` to enable, or `false` to disable.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p>
+   * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
+   *
+   * Min = 16
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.</p>
+   * A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
@@ -1297,91 +1515,106 @@ export interface UpdateGraphInput {
  */
 export interface UpdateGraphOutput {
   /**
-   * <p>The unique identifier of the graph.</p>
+   * The unique identifier of the graph.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the graph.</p>
+   * The name of the graph.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN associated with the graph.</p>
+   * The ARN associated with the graph.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the graph.</p>
+   * The status of the graph.
+   *
    * @public
    */
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The reason that the graph has this status.</p>
+   * The reason that the graph has this status.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The time at which the graph was created.</p>
+   * The time at which the graph was created.
+   *
    * @public
    */
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.
+   *
    * @public
    */
   provisionedMemory?: number | undefined;
 
   /**
-   * <p>The graph endpoint.</p>
+   * The graph endpoint.
+   *
    * @public
    */
   endpoint?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the graph has a public endpoint, otherwise not.</p>
+   * If `true`, the graph has a public endpoint, otherwise not.
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas for the graph.</p>
+   * The number of replicas for the graph.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>The ID of the snapshot from which the graph was created, if any.</p>
+   * The ID of the snapshot from which the graph was created, if any.
+   *
    * @public
    */
   sourceSnapshotId?: string | undefined;
 
   /**
-   * <p>If <code>true</code>, deletion protection is enabled for the graph.</p>
+   * If `true`, deletion protection is enabled for the graph.
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The build number of the graph.</p>
+   * The build number of the graph.
+   *
    * @public
    */
   buildNumber?: string | undefined;
@@ -1392,55 +1625,64 @@ export interface UpdateGraphOutput {
  */
 export interface ListQueriesInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of results to be fetched by the API.</p>
+   * The maximum number of results to be fetched by the API.
+   *
    * @public
    */
   maxResults: number | undefined;
 
   /**
-   * <p>Filtered list of queries based on state.</p>
+   * Filtered list of queries based on state.
+   *
    * @public
    */
   state?: QueryStateInput | undefined;
 }
 
 /**
- * <p>Details of the query listed.</p>
+ * Details of the query listed.
+ *
  * @public
  */
 export interface QuerySummary {
   /**
-   * <p>A string representation of the id of the query.</p>
+   * A string representation of the id of the query.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The actual query text. The <code>queryString</code> may be truncated if the actual query string is too long.</p>
+   * The actual query text. The `queryString` may be truncated if the actual query string is too long.
+   *
    * @public
    */
   queryString?: string | undefined;
 
   /**
-   * <p>The amount of time, in milliseconds, the query has waited in the queue before being picked up by a worker thread.</p>
+   * The amount of time, in milliseconds, the query has waited in the queue before being picked up by a worker thread.
+   *
    * @public
    */
   waited?: number | undefined;
 
   /**
-   * <p>The running time of the query, in milliseconds.</p>
+   * The running time of the query, in milliseconds.
+   *
    * @public
    */
   elapsed?: number | undefined;
 
   /**
-   * <p>State of the query.</p>
+   * State of the query.
+   *
    * @public
    */
   state?: QueryState | undefined;
@@ -1451,7 +1693,8 @@ export interface QuerySummary {
  */
 export interface ListQueriesOutput {
   /**
-   * <p>A list of current openCypher queries.</p>
+   * A list of current openCypher queries.
+   *
    * @public
    */
   queries: QuerySummary[] | undefined;
@@ -1462,7 +1705,8 @@ export interface ListQueriesOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource.</p>
+   * The ARN of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1473,7 +1717,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The list of metadata tags associated with the resource.</p>
+   * The list of metadata tags associated with the resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1484,25 +1729,29 @@ export interface ListTagsForResourceOutput {
  */
 export interface CreatePrivateGraphEndpointInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p> The VPC in which the private graph endpoint needs to be created.</p>
+   * The VPC in which the private graph endpoint needs to be created.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>Subnets in which private graph endpoint ENIs are created.</p>
+   * Subnets in which private graph endpoint ENIs are created.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>Security groups to be attached to the private graph endpoint.</p>
+   * Security groups to be attached to the private graph endpoint.
+   *
    * @public
    */
   vpcSecurityGroupIds?: string[] | undefined;
@@ -1513,25 +1762,29 @@ export interface CreatePrivateGraphEndpointInput {
  */
 export interface CreatePrivateGraphEndpointOutput {
   /**
-   * <p>VPC in which the private graph endpoint is created.</p>
+   * VPC in which the private graph endpoint is created.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>Subnets in which the private graph endpoint ENIs are created. </p>
+   * Subnets in which the private graph endpoint ENIs are created.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>Status of the private graph endpoint.</p>
+   * Status of the private graph endpoint.
+   *
    * @public
    */
   status: PrivateGraphEndpointStatus | undefined;
 
   /**
-   * <p>Endpoint ID of the private graph endpoint.</p>
+   * Endpoint ID of the private graph endpoint.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
@@ -1542,13 +1795,15 @@ export interface CreatePrivateGraphEndpointOutput {
  */
 export interface DeletePrivateGraphEndpointInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the VPC where the private endpoint is located.</p>
+   * The ID of the VPC where the private endpoint is located.
+   *
    * @public
    */
   vpcId: string | undefined;
@@ -1559,25 +1814,29 @@ export interface DeletePrivateGraphEndpointInput {
  */
 export interface DeletePrivateGraphEndpointOutput {
   /**
-   * <p>The ID of the VPC where the private endpoint was deleted.</p>
+   * The ID of the VPC where the private endpoint was deleted.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnet IDs involved.</p>
+   * The subnet IDs involved.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The status of the delete operation.</p>
+   * The status of the delete operation.
+   *
    * @public
    */
   status: PrivateGraphEndpointStatus | undefined;
 
   /**
-   * <p>The ID of the VPC endpoint that was deleted.</p>
+   * The ID of the VPC endpoint that was deleted.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
@@ -1588,13 +1847,15 @@ export interface DeletePrivateGraphEndpointOutput {
  */
 export interface GetPrivateGraphEndpointInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the VPC where the private endpoint is located.</p>
+   * The ID of the VPC where the private endpoint is located.
+   *
    * @public
    */
   vpcId: string | undefined;
@@ -1605,25 +1866,29 @@ export interface GetPrivateGraphEndpointInput {
  */
 export interface GetPrivateGraphEndpointOutput {
   /**
-   * <p>The ID of the VPC where the private endpoint is located.</p>
+   * The ID of the VPC where the private endpoint is located.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnet IDs involved.</p>
+   * The subnet IDs involved.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The current status of the private endpoint.</p>
+   * The current status of the private endpoint.
+   *
    * @public
    */
   status: PrivateGraphEndpointStatus | undefined;
 
   /**
-   * <p>The ID of the private endpoint.</p>
+   * The ID of the private endpoint.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
@@ -1634,49 +1899,61 @@ export interface GetPrivateGraphEndpointOutput {
  */
 export interface ListPrivateGraphEndpointsInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+   * The total number of records to return in the command's output.
+   *
+   * If the total number of records available is more than the value specified, `nextToken` is provided in the command's output. To resume pagination, provide the `nextToken` output value in the `nextToken` argument of a subsequent command. Do not use the `nextToken` response element directly outside of the Amazon CLI.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Details about a private graph endpoint.</p>
+ * Details about a private graph endpoint.
+ *
  * @public
  */
 export interface PrivateGraphEndpointSummary {
   /**
-   * <p>The ID of the VPC in which the private graph endpoint is located.</p>
+   * The ID of the VPC in which the private graph endpoint is located.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The subnet IDs associated with the private graph endpoint.</p>
+   * The subnet IDs associated with the private graph endpoint.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The status of the private graph endpoint.</p>
+   * The status of the private graph endpoint.
+   *
    * @public
    */
   status: PrivateGraphEndpointStatus | undefined;
 
   /**
-   * <p>The ID of the VPC endpoint.</p>
+   * The ID of the VPC endpoint.
+   *
    * @public
    */
   vpcEndpointId?: string | undefined;
@@ -1687,13 +1964,17 @@ export interface PrivateGraphEndpointSummary {
  */
 export interface ListPrivateGraphEndpointsOutput {
   /**
-   * <p>A list of private endpoints for the specified Neptune Analytics graph.</p>
+   * A list of private endpoints for the specified Neptune Analytics graph.
+   *
    * @public
    */
   privateGraphEndpoints: PrivateGraphEndpointSummary[] | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1704,19 +1985,24 @@ export interface ListPrivateGraphEndpointsOutput {
  */
 export interface CreateGraphSnapshotInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * The snapshot name. For example: `my-snapshot-1`.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   snapshotName: string | undefined;
 
   /**
-   * <p>Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.</p>
+   * Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1727,43 +2013,50 @@ export interface CreateGraphSnapshotInput {
  */
 export interface CreateGraphSnapshotOutput {
   /**
-   * <p>The ID of the snapshot created.</p>
+   * The ID of the snapshot created.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the snapshot created.</p>
+   * The name of the snapshot created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the snapshot created.</p>
+   * The ARN of the snapshot created.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The Id of the Neptune Analytics graph from which the snapshot is created.</p>
+   * The Id of the Neptune Analytics graph from which the snapshot is created.
+   *
    * @public
    */
   sourceGraphId?: string | undefined;
 
   /**
-   * <p>The snapshot creation time</p>
+   * The snapshot creation time
+   *
    * @public
    */
   snapshotCreateTime?: Date | undefined;
 
   /**
-   * <p>The current state of the snapshot.</p>
+   * The current state of the snapshot.
+   *
    * @public
    */
   status?: SnapshotStatus | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt graph data.</p>
+   * The ID of the KMS key used to encrypt and decrypt graph data.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -1774,7 +2067,8 @@ export interface CreateGraphSnapshotOutput {
  */
 export interface DeleteGraphSnapshotInput {
   /**
-   * <p>ID of the graph snapshot to be deleted.</p>
+   * ID of the graph snapshot to be deleted.
+   *
    * @public
    */
   snapshotIdentifier: string | undefined;
@@ -1785,43 +2079,52 @@ export interface DeleteGraphSnapshotInput {
  */
 export interface DeleteGraphSnapshotOutput {
   /**
-   * <p>The unique identifier of the graph snapshot.</p>
+   * The unique identifier of the graph snapshot.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * The snapshot name. For example: `my-snapshot-1`.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the graph snapshot.</p>
+   * The ARN of the graph snapshot.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The graph identifier for the graph from which the snapshot was created.</p>
+   * The graph identifier for the graph from which the snapshot was created.
+   *
    * @public
    */
   sourceGraphId?: string | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   snapshotCreateTime?: Date | undefined;
 
   /**
-   * <p>The status of the graph snapshot.</p>
+   * The status of the graph snapshot.
+   *
    * @public
    */
   status?: SnapshotStatus | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt the snapshot.</p>
+   * The ID of the KMS key used to encrypt and decrypt the snapshot.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -1832,7 +2135,8 @@ export interface DeleteGraphSnapshotOutput {
  */
 export interface GetGraphSnapshotInput {
   /**
-   * <p>The ID of the snapshot to retrieve.</p>
+   * The ID of the snapshot to retrieve.
+   *
    * @public
    */
   snapshotIdentifier: string | undefined;
@@ -1843,43 +2147,52 @@ export interface GetGraphSnapshotInput {
  */
 export interface GetGraphSnapshotOutput {
   /**
-   * <p>The unique identifier of the graph snapshot.</p>
+   * The unique identifier of the graph snapshot.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * The snapshot name. For example: `my-snapshot-1`.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the graph snapshot.</p>
+   * The ARN of the graph snapshot.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The graph identifier for the graph for which a snapshot is to be created.</p>
+   * The graph identifier for the graph for which a snapshot is to be created.
+   *
    * @public
    */
   sourceGraphId?: string | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   snapshotCreateTime?: Date | undefined;
 
   /**
-   * <p>The status of the graph snapshot.</p>
+   * The status of the graph snapshot.
+   *
    * @public
    */
   status?: SnapshotStatus | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt the snapshot.</p>
+   * The ID of the KMS key used to encrypt and decrypt the snapshot.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -1890,67 +2203,84 @@ export interface GetGraphSnapshotOutput {
  */
 export interface ListGraphSnapshotsInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier?: string | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+   * The total number of records to return in the command's output.
+   *
+   * If the total number of records available is more than the value specified, `nextToken` is provided in the command's output. To resume pagination, provide the `nextToken` output value in the `nextToken` argument of a subsequent command. Do not use the `nextToken` response element directly outside of the Amazon CLI.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Details about a graph snapshot.</p>
+ * Details about a graph snapshot.
+ *
  * @public
  */
 export interface GraphSnapshotSummary {
   /**
-   * <p>The unique identifier of the graph snapshot.</p>
+   * The unique identifier of the graph snapshot.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The snapshot name. For example: <code>my-snapshot-1</code>.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * The snapshot name. For example: `my-snapshot-1`.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the graph snapshot.</p>
+   * The ARN of the graph snapshot.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The graph identifier for the graph for which a snapshot is to be created.</p>
+   * The graph identifier for the graph for which a snapshot is to be created.
+   *
    * @public
    */
   sourceGraphId?: string | undefined;
 
   /**
-   * <p>The time when the snapshot was created.</p>
+   * The time when the snapshot was created.
+   *
    * @public
    */
   snapshotCreateTime?: Date | undefined;
 
   /**
-   * <p>The status of the graph snapshot.</p>
+   * The status of the graph snapshot.
+   *
    * @public
    */
   status?: SnapshotStatus | undefined;
 
   /**
-   * <p>The ID of the KMS key used to encrypt and decrypt the snapshot.</p>
+   * The ID of the KMS key used to encrypt and decrypt the snapshot.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
@@ -1961,13 +2291,17 @@ export interface GraphSnapshotSummary {
  */
 export interface ListGraphSnapshotsOutput {
   /**
-   * <p>The requested list of snapshots.</p>
+   * The requested list of snapshots.
+   *
    * @public
    */
   graphSnapshots: GraphSnapshotSummary[] | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1978,13 +2312,21 @@ export interface ListGraphSnapshotsOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>ARN of the resource for which tags need to be added.</p>
+   * ARN of the resource for which tags need to be added.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to be assigned to the Neptune Analytics resource.</p> <p>The tags are metadata that are specified as a list of key-value pairs:</p> <p> <b>Key</b> (string)   –   A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length. It can't be prefixed with <code>aws:</code> and can only contain the set of Unicode characters specified by this Java regular expression: <code>"^([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-]*)$")</code>.</p> <p> <b>Value</b> (string)   –   A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length. It can't be prefixed with <code>aws:</code> and can only contain the set of Unicode characters specified by this Java regular expression: <code>"^([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-]*)$")</code>.</p>
+   * The tags to be assigned to the Neptune Analytics resource.
+   *
+   * The tags are metadata that are specified as a list of key-value pairs:
+   *
+   * **Key** (string)   –   A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length. It can't be prefixed with `aws:` and can only contain the set of Unicode characters specified by this Java regular expression: `"^([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-]*)$")`.
+   *
+   * **Value** (string)   –   A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length. It can't be prefixed with `aws:` and can only contain the set of Unicode characters specified by this Java regular expression: `"^([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-]*)$")`.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -2000,7 +2342,8 @@ export interface TagResourceOutput {}
  */
 export interface CancelExportTaskInput {
   /**
-   * <p>The unique identifier of the export task.</p>
+   * The unique identifier of the export task.
+   *
    * @public
    */
   taskIdentifier: string | undefined;
@@ -2011,55 +2354,64 @@ export interface CancelExportTaskInput {
  */
 export interface CancelExportTaskOutput {
   /**
-   * <p>The source graph identifier of the cancelled export task.</p>
+   * The source graph identifier of the cancelled export task.
+   *
    * @public
    */
   graphId: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow the exporting of data to the destination.</p>
+   * The ARN of the IAM role that will allow the exporting of data to the destination.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the export task.</p>
+   * The unique identifier of the export task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The current status of the export task. The status is <code>CANCELLING</code> when the export task is cancelled.</p>
+   * The current status of the export task. The status is `CANCELLING` when the export task is cancelled.
+   *
    * @public
    */
   status: ExportTaskStatus | undefined;
 
   /**
-   * <p>The format of the cancelled export task.</p>
+   * The format of the cancelled export task.
+   *
    * @public
    */
   format: ExportFormat | undefined;
 
   /**
-   * <p>The Amazon S3 URI of the cancelled export task where data will be exported to.</p>
+   * The Amazon S3 URI of the cancelled export task where data will be exported to.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The KMS key identifier of the cancelled export task.</p>
+   * The KMS key identifier of the cancelled export task.
+   *
    * @public
    */
   kmsKeyIdentifier: string | undefined;
 
   /**
-   * <p>The parquet type of the cancelled export task.</p>
+   * The parquet type of the cancelled export task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The reason that the export task has this status value.</p>
+   * The reason that the export task has this status value.
+   *
    * @public
    */
   statusReason?: string | undefined;
@@ -2070,7 +2422,8 @@ export interface CancelExportTaskOutput {
  */
 export interface CancelImportTaskInput {
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskIdentifier: string | undefined;
@@ -2081,80 +2434,93 @@ export interface CancelImportTaskInput {
  */
 export interface CancelImportTaskOutput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.</p>
+   * A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
+   * Specifies the format of S3 data to be imported. Valid values are `CSV`, which identifies the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html) or `OPENCYPHER`, which identifies the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the cancelled import task.</p>
+   * The parquet type of the cancelled import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Current status of the task. Status is CANCELLING when the import task is cancelled.</p>
+   * Current status of the task. Status is CANCELLING when the import task is cancelled.
+   *
    * @public
    */
   status: ImportTaskStatus | undefined;
 }
 
 /**
- * <p>Options for how to import Neptune data.</p>
+ * Options for how to import Neptune data.
+ *
  * @public
  */
 export interface NeptuneImportOptions {
   /**
-   * <p>The path to an S3 bucket from which to import data.</p>
+   * The path to an S3 bucket from which to import data.
+   *
    * @public
    */
   s3ExportPath: string | undefined;
 
   /**
-   * <p>The KMS key to use to encrypt data in the S3 bucket where the graph data is exported</p>
+   * The KMS key to use to encrypt data in the S3 bucket where the graph data is exported
+   *
    * @public
    */
   s3ExportKmsKeyId: string | undefined;
 
   /**
-   * <p>Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting <i>preserveDefaultVertexLabels</i> to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.</p>
+   * Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting *preserveDefaultVertexLabels* to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+   *
    * @public
    */
   preserveDefaultVertexLabels?: boolean | undefined;
 
   /**
-   * <p>Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if <i>preserveEdgeIds</i> is set to true, and ids are stored as properties on the relationships with the property name <i>neptuneEdgeId</i>.</p>
+   * Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if *preserveEdgeIds* is set to true, and ids are stored as properties on the relationships with the property name *neptuneEdgeId*.
+   *
    * @public
    */
   preserveEdgeIds?: boolean | undefined;
 }
 
 /**
- * <p>Options for how to perform an import.</p>
+ * Options for how to perform an import.
+ *
  * @public
  */
 export type ImportOptions =
@@ -2166,7 +2532,8 @@ export type ImportOptions =
  */
 export namespace ImportOptions {
   /**
-   * <p>Options for importing data from a Neptune database.</p>
+   * Options for importing data from a Neptune database.
+   *
    * @public
    */
   export interface NeptuneMember {
@@ -2197,97 +2564,119 @@ export namespace ImportOptions {
  */
 export interface CreateGraphUsingImportTaskInput {
   /**
-   * <p>A name for the new Neptune Analytics graph to be created.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>
+   * A name for the new Neptune Analytics graph to be created.
+   *
+   * The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.
+   *
    * @public
    */
   graphName: string | undefined;
 
   /**
-   * <p>Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.</p>
+   * Adds metadata tags to the new graph. These tags can also be used with cost allocation reporting, or used in a Condition statement in an IAM policy.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (<code>true</code> to enable, or <code>false</code> to disable).</p>
+   * Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated. (`true` to enable, or `false` to disable).
+   *
    * @public
    */
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies a KMS key to use to encrypt data imported into the new graph.</p>
+   * Specifies a KMS key to use to encrypt data imported into the new graph.
+   *
    * @public
    */
   kmsKeyIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings that will be loaded into the graph. The value is specified as <code>dimension=</code>value. Max = 65,535 </p>
+   * Specifies the number of dimensions for vector embeddings that will be loaded into the graph. The value is specified as `dimension=`value. Max = 65,535
+   *
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
 
   /**
-   * <p>The number of replicas in other AZs to provision on the new graph after import. Default = 1, Min = 0, Max = 2.</p> <important> <p> Additional charges equivalent to the m-NCUs selected for the graph apply for each replica. </p> </important>
+   * The number of replicas in other AZs to provision on the new graph after import. Default = 1, Min = 0, Max = 2.
+   *
+   * > **Important:** Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.
+   *
    * @public
    */
   replicaCount?: number | undefined;
 
   /**
-   * <p>Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (<code>true</code> or <code>false</code>).</p>
+   * Indicates whether or not to enable deletion protection on the graph. The graph can’t be deleted when deletion protection is enabled. (`true` or `false`).
+   *
    * @public
    */
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>Contains options for controlling the import process. For example, if the <code>failOnError</code> key is set to <code>false</code>, the import skips problem data and attempts to continue (whereas if set to <code>true</code>, the default, or if omitted, the import operation halts immediately when an error is encountered.</p>
+   * Contains options for controlling the import process. For example, if the `failOnError` key is set to `false`, the import skips problem data and attempts to continue (whereas if set to `true`, the default, or if omitted, the import operation halts immediately when an error is encountered.
+   *
    * @public
    */
   importOptions?: ImportOptions | undefined;
 
   /**
-   * <p>The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account.</p> <p> If both the minimum and maximum values are specified, the final <code>provisioned-memory</code> will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.</p>
+   * The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account.
+   *
+   * If both the minimum and maximum values are specified, the final `provisioned-memory` will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+   *
    * @public
    */
   maxProvisionedMemory?: number | undefined;
 
   /**
-   * <p>The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16</p>
+   * The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+   *
    * @public
    */
   minProvisionedMemory?: number | undefined;
 
   /**
-   * <p>If set to <code>true</code>, the task halts when an import error is encountered. If set to <code>false</code>, the task skips the data that caused the error and continues if possible.</p>
+   * If set to `true`, the task halts when an import error is encountered. If set to `false`, the task skips the data that caused the error and continues if possible.
+   *
    * @public
    */
   failOnError?: boolean | undefined;
 
   /**
-   * <p>A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.</p>
+   * A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a>, <code>OPEN_CYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>, or <code>ntriples</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html">RDF n-triples</a> format.</p>
+   * Specifies the format of S3 data to be imported. Valid values are `CSV`, which identifies the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html), `OPEN_CYPHER`, which identifies the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html), or `ntriples`, which identifies the [RDF n-triples](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html) format.
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the import task.</p>
+   * The parquet type of the import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling">Handling RDF values</a>.</p>
+   * The method to handle blank nodes in the dataset. Currently, only `convertToIri` is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is `ntriples`. For more information, see [Handling RDF values](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling).
+   *
    * @public
    */
   blankNodeHandling?: BlankNodeHandling | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
@@ -2298,49 +2687,57 @@ export interface CreateGraphUsingImportTaskInput {
  */
 export interface CreateGraphUsingImportTaskOutput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.</p>
+   * A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a>, <code>OPENCYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>, or <code>ntriples</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html">RDF n-triples</a> format.</p>
+   * Specifies the format of S3 data to be imported. Valid values are `CSV`, which identifies the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html), `OPENCYPHER`, which identifies the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html), or `ntriples`, which identifies the [RDF n-triples](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html) format.
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the import task.</p>
+   * The parquet type of the import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The status of the import task.</p>
+   * The status of the import task.
+   *
    * @public
    */
   status: ImportTaskStatus | undefined;
 
   /**
-   * <p>Contains options for controlling the import process. For example, if the <code>failOnError</code> key is set to <code>false</code>, the import skips problem data and attempts to continue (whereas if set to <code>true</code>, the default, or if omitted, the import operation halts immediately when an error is encountered.</p>
+   * Contains options for controlling the import process. For example, if the `failOnError` key is set to `false`, the import skips problem data and attempts to continue (whereas if set to `true`, the default, or if omitted, the import operation halts immediately when an error is encountered.
+   *
    * @public
    */
   importOptions?: ImportOptions | undefined;
@@ -2351,97 +2748,113 @@ export interface CreateGraphUsingImportTaskOutput {
  */
 export interface GetExportTaskInput {
   /**
-   * <p>The unique identifier of the export task.</p>
+   * The unique identifier of the export task.
+   *
    * @public
    */
   taskIdentifier: string | undefined;
 }
 
 /**
- * <p>A structure representing a property's attributes. It is a map object of outputType, sourcePropertyName and multiValueHandling.</p>
+ * A structure representing a property's attributes. It is a map object of outputType, sourcePropertyName and multiValueHandling.
+ *
  * @public
  */
 export interface ExportFilterPropertyAttributes {
   /**
-   * <p>Specifies the data type to use for the property in the exported data (e.g. "String", "Int", "Float"). If a type is not provided, the export process will determine the type. If a given property is present as multiple types (e.g. one vertex has "height" stored as a double, and another edge has it stored as a string), the type will be of Any type, otherwise, it will be the type of the property as present in vertices.</p>
+   * Specifies the data type to use for the property in the exported data (e.g. "String", "Int", "Float"). If a type is not provided, the export process will determine the type. If a given property is present as multiple types (e.g. one vertex has "height" stored as a double, and another edge has it stored as a string), the type will be of Any type, otherwise, it will be the type of the property as present in vertices.
+   *
    * @public
    */
   outputType?: string | undefined;
 
   /**
-   * <p>The name of the property as it exists in the original graph data. If not provided, it is assumed that the key matches the desired sourcePropertyName.</p>
+   * The name of the property as it exists in the original graph data. If not provided, it is assumed that the key matches the desired sourcePropertyName.
+   *
    * @public
    */
   sourcePropertyName?: string | undefined;
 
   /**
-   * <p>Specifies how to handle properties that have multiple values. Can be either <code>TO_LIST</code> to export all values as a list, or <code>PICK_FIRST</code> to export the first value encountered. If not specified, the default value is <code>PICK_FIRST</code>.</p>
+   * Specifies how to handle properties that have multiple values. Can be either `TO_LIST` to export all values as a list, or `PICK_FIRST` to export the first value encountered. If not specified, the default value is `PICK_FIRST`.
+   *
    * @public
    */
   multiValueHandling?: MultiValueHandlingType | undefined;
 }
 
 /**
- * <p>Specifies which properties of that label should be included in the export.</p>
+ * Specifies which properties of that label should be included in the export.
+ *
  * @public
  */
 export interface ExportFilterElement {
   /**
-   * <p>Each property is defined by a key-value pair, where the key is the desired output property name (e.g. "name"), and the value is an object.</p>
+   * Each property is defined by a key-value pair, where the key is the desired output property name (e.g. "name"), and the value is an object.
+   *
    * @public
    */
   properties?: Record<string, ExportFilterPropertyAttributes> | undefined;
 }
 
 /**
- * <p>This is the top-level field for specifying vertex or edge filters. If the ExportFilter is not provided, then all properties for all labels will be exported. If the ExportFilter is provided but is an empty object, then no data will be exported.</p>
+ * This is the top-level field for specifying vertex or edge filters. If the ExportFilter is not provided, then all properties for all labels will be exported. If the ExportFilter is provided but is an empty object, then no data will be exported.
+ *
  * @public
  */
 export interface ExportFilter {
   /**
-   * <p>Used to specify filters on a per-label basis for vertices. This allows you to control which vertex labels and properties are included in the export.</p>
+   * Used to specify filters on a per-label basis for vertices. This allows you to control which vertex labels and properties are included in the export.
+   *
    * @public
    */
   vertexFilter?: Record<string, ExportFilterElement> | undefined;
 
   /**
-   * <p>Used to specify filters on a per-label basis for edges. This allows you to control which edge labels and properties are included in the export.</p>
+   * Used to specify filters on a per-label basis for edges. This allows you to control which edge labels and properties are included in the export.
+   *
    * @public
    */
   edgeFilter?: Record<string, ExportFilterElement> | undefined;
 }
 
 /**
- * <p>Contains details about the specified export task.</p>
+ * Contains details about the specified export task.
+ *
  * @public
  */
 export interface ExportTaskDetails {
   /**
-   * <p>The start time of the export task.</p>
+   * The start time of the export task.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The time elapsed, in seconds, since the start time of the export task.</p>
+   * The time elapsed, in seconds, since the start time of the export task.
+   *
    * @public
    */
   timeElapsedSeconds: number | undefined;
 
   /**
-   * <p>The number of progress percentage of the export task.</p>
+   * The number of progress percentage of the export task.
+   *
    * @public
    */
   progressPercentage: number | undefined;
 
   /**
-   * <p>The number of exported vertices.</p>
+   * The number of exported vertices.
+   *
    * @public
    */
   numVerticesWritten?: number | undefined;
 
   /**
-   * <p>The number of exported edges.</p>
+   * The number of exported edges.
+   *
    * @public
    */
   numEdgesWritten?: number | undefined;
@@ -2452,67 +2865,78 @@ export interface ExportTaskDetails {
  */
 export interface GetExportTaskOutput {
   /**
-   * <p>The source graph identifier of the export task.</p>
+   * The source graph identifier of the export task.
+   *
    * @public
    */
   graphId: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow data to be exported to the destination.</p>
+   * The ARN of the IAM role that will allow data to be exported to the destination.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the export task.</p>
+   * The unique identifier of the export task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The current status of the export task.</p>
+   * The current status of the export task.
+   *
    * @public
    */
   status: ExportTaskStatus | undefined;
 
   /**
-   * <p>The format of the export task.</p>
+   * The format of the export task.
+   *
    * @public
    */
   format: ExportFormat | undefined;
 
   /**
-   * <p>The Amazon S3 URI of the export task where data will be exported.</p>
+   * The Amazon S3 URI of the export task where data will be exported.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The KMS key identifier of the export task.</p>
+   * The KMS key identifier of the export task.
+   *
    * @public
    */
   kmsKeyIdentifier: string | undefined;
 
   /**
-   * <p>The parquet type of the export task.</p>
+   * The parquet type of the export task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The reason that the export task has this status value.</p>
+   * The reason that the export task has this status value.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The details of the export task.</p>
+   * The details of the export task.
+   *
    * @public
    */
   exportTaskDetails?: ExportTaskDetails | undefined;
 
   /**
-   * <p>The export filter of the export task.</p>
+   * The export filter of the export task.
+   *
    * @public
    */
   exportFilter?: ExportFilter | undefined;
@@ -2523,61 +2947,71 @@ export interface GetExportTaskOutput {
  */
 export interface GetImportTaskInput {
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskIdentifier: string | undefined;
 }
 
 /**
- * <p>Contains details about an import task.</p>
+ * Contains details about an import task.
+ *
  * @public
  */
 export interface ImportTaskDetails {
   /**
-   * <p>Status of the import task.</p>
+   * Status of the import task.
+   *
    * @public
    */
   status: string | undefined;
 
   /**
-   * <p>Time at which the import task started.</p>
+   * Time at which the import task started.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>Seconds elapsed since the import task started.</p>
+   * Seconds elapsed since the import task started.
+   *
    * @public
    */
   timeElapsedSeconds: number | undefined;
 
   /**
-   * <p>The percentage progress so far.</p>
+   * The percentage progress so far.
+   *
    * @public
    */
   progressPercentage: number | undefined;
 
   /**
-   * <p>The number of errors encountered so far.</p>
+   * The number of errors encountered so far.
+   *
    * @public
    */
   errorCount: number | undefined;
 
   /**
-   * <p>Details about the errors that have been encountered.</p>
+   * Details about the errors that have been encountered.
+   *
    * @public
    */
   errorDetails?: string | undefined;
 
   /**
-   * <p>The number of statements in the import task.</p>
+   * The number of statements in the import task.
+   *
    * @public
    */
   statementCount: number | undefined;
 
   /**
-   * <p>The number of dictionary entries in the import task.</p>
+   * The number of dictionary entries in the import task.
+   *
    * @public
    */
   dictionaryEntryCount: number | undefined;
@@ -2588,67 +3022,89 @@ export interface ImportTaskDetails {
  */
 export interface GetImportTaskOutput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot</p>
+   * A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
+   * Specifies the format of S3 data to be imported. Valid values are `CSV`, which identifies the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html) or `OPENCYPHER`, which identifies the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the import task.</p>
+   * The parquet type of the import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The status of the import task:</p> <ul> <li> <p> <b>INITIALIZING</b>   –   The necessary resources needed to create the graph are being prepared.</p> </li> <li> <p> <b>ANALYZING_DATA</b>   –   The data is being analyzed to determine the optimal infrastructure configuration for the new graph.</p> </li> <li> <p> <b>RE_PROVISIONING</b>   –   The data did not fit into the provisioned graph, so it is being re-provisioned with more capacity.</p> </li> <li> <p> <b>IMPORTING</b>   –   The data is being loaded.</p> </li> <li> <p> <b>ERROR_ENCOUNTERED</b>   –   An error has been encountered while trying to create the graph and import the data.</p> </li> <li> <p> <b>ERROR_ENCOUNTERED_ROLLING_BACK</b>   –   Because of the error that was encountered, the graph is being rolled back and all its resources released.</p> </li> <li> <p> <b>SUCCEEDED</b>   –   Graph creation and data loading succeeded.</p> </li> <li> <p> <b>FAILED</b>   –   Graph creation or data loading failed. When the status is <code>FAILED</code>, you can use <code>get-graphs</code> to get more information about the state of the graph.</p> </li> <li> <p> <b>CANCELLING</b>   –   Because you cancelled the import task, cancellation is in progress.</p> </li> <li> <p> <b>CANCELLED</b>   –   You have successfully cancelled the import task.</p> </li> </ul>
+   * The status of the import task:
+   *
+   * - **INITIALIZING**   –   The necessary resources needed to create the graph are being prepared.
+   * - **ANALYZING_DATA**   –   The data is being analyzed to determine the optimal infrastructure configuration for the new graph.
+   * - **RE_PROVISIONING**   –   The data did not fit into the provisioned graph, so it is being re-provisioned with more capacity.
+   * - **IMPORTING**   –   The data is being loaded.
+   * - **ERROR_ENCOUNTERED**   –   An error has been encountered while trying to create the graph and import the data.
+   * - **ERROR_ENCOUNTERED_ROLLING_BACK**   –   Because of the error that was encountered, the graph is being rolled back and all its resources released.
+   * - **SUCCEEDED**   –   Graph creation and data loading succeeded.
+   * - **FAILED**   –   Graph creation or data loading failed. When the status is `FAILED`, you can use `get-graphs` to get more information about the state of the graph.
+   * - **CANCELLING**   –   Because you cancelled the import task, cancellation is in progress.
+   * - **CANCELLED**   –   You have successfully cancelled the import task.
+   *
    * @public
    */
   status: ImportTaskStatus | undefined;
 
   /**
-   * <p>Contains options for controlling the import process. For example, if the <code>failOnError</code> key is set to <code>false</code>, the import skips problem data and attempts to continue (whereas if set to <code>true</code>, the default, or if omitted, the import operation halts immediately when an error is encountered.</p>
+   * Contains options for controlling the import process. For example, if the `failOnError` key is set to `false`, the import skips problem data and attempts to continue (whereas if set to `true`, the default, or if omitted, the import operation halts immediately when an error is encountered.
+   *
    * @public
    */
   importOptions?: ImportOptions | undefined;
 
   /**
-   * <p>Contains details about the specified import task.</p>
+   * Contains details about the specified import task.
+   *
    * @public
    */
   importTaskDetails?: ImportTaskDetails | undefined;
 
   /**
-   * <p>The number of the current attempts to execute the import task.</p>
+   * The number of the current attempts to execute the import task.
+   *
    * @public
    */
   attemptNumber?: number | undefined;
 
   /**
-   * <p>The reason that the import task has this status value.</p>
+   * The reason that the import task has this status value.
+   *
    * @public
    */
   statusReason?: string | undefined;
@@ -2659,79 +3115,92 @@ export interface GetImportTaskOutput {
  */
 export interface ListExportTasksInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier?: string | undefined;
 
   /**
-   * <p>Pagination token used to paginate input.</p>
+   * Pagination token used to paginate input.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of export tasks to return.</p>
+   * The maximum number of export tasks to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Provides details about an export task.</p>
+ * Provides details about an export task.
+ *
  * @public
  */
 export interface ExportTaskSummary {
   /**
-   * <p>The source graph identifier of the export task.</p>
+   * The source graph identifier of the export task.
+   *
    * @public
    */
   graphId: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow the data to be exported to the destination.</p>
+   * The ARN of the IAM role that will allow the data to be exported to the destination.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the export task.</p>
+   * The unique identifier of the export task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The current status of the export task.</p>
+   * The current status of the export task.
+   *
    * @public
    */
   status: ExportTaskStatus | undefined;
 
   /**
-   * <p>The format of the export task.</p>
+   * The format of the export task.
+   *
    * @public
    */
   format: ExportFormat | undefined;
 
   /**
-   * <p>The Amazon S3 URI of the export task where data will be exported to.</p>
+   * The Amazon S3 URI of the export task where data will be exported to.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The KMS key identifier of the export task.</p>
+   * The KMS key identifier of the export task.
+   *
    * @public
    */
   kmsKeyIdentifier: string | undefined;
 
   /**
-   * <p>The parquet type of the export task.</p>
+   * The parquet type of the export task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The reason that the export task has this status value.</p>
+   * The reason that the export task has this status value.
+   *
    * @public
    */
   statusReason?: string | undefined;
@@ -2742,13 +3211,15 @@ export interface ExportTaskSummary {
  */
 export interface ListExportTasksOutput {
   /**
-   * <p>The requested list of export tasks.</p>
+   * The requested list of export tasks.
+   *
    * @public
    */
   tasks: ExportTaskSummary[] | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p>
+   * Pagination token used to paginate output.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2759,67 +3230,82 @@ export interface ListExportTasksOutput {
  */
 export interface ListImportTasksInput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph. When provided, the service returns only import tasks associated with this graph. If not specified, the service returns all import tasks.</p>
+   * The unique identifier of the Neptune Analytics graph. When provided, the service returns only import tasks associated with this graph. If not specified, the service returns all import tasks.
+   *
    * @public
    */
   graphIdentifier?: string | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The total number of records to return in the command's output.</p> <p>If the total number of records available is more than the value specified, <code>nextToken</code> is provided in the command's output. To resume pagination, provide the <code>nextToken</code> output value in the <code>nextToken</code> argument of a subsequent command. Do not use the <code>nextToken</code> response element directly outside of the Amazon CLI.</p>
+   * The total number of records to return in the command's output.
+   *
+   * If the total number of records available is more than the value specified, `nextToken` is provided in the command's output. To resume pagination, provide the `nextToken` output value in the `nextToken` argument of a subsequent command. Do not use the `nextToken` response element directly outside of the Amazon CLI.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Details about an import task.</p>
+ * Details about an import task.
+ *
  * @public
  */
 export interface ImportTaskSummary {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot</p>
+   * A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of S3 data to be imported. Valid values are <code>CSV</code>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin CSV format</a> or <code>OPENCYPHER</code>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher load format</a>.</p>
+   * Specifies the format of S3 data to be imported. Valid values are `CSV`, which identifies the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html) or `OPENCYPHER`, which identies the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the import task.</p>
+   * The parquet type of the import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>Status of the import task.</p>
+   * Status of the import task.
+   *
    * @public
    */
   status: ImportTaskStatus | undefined;
@@ -2830,13 +3316,17 @@ export interface ImportTaskSummary {
  */
 export interface ListImportTasksOutput {
   /**
-   * <p>The requested list of import tasks.</p>
+   * The requested list of import tasks.
+   *
    * @public
    */
   tasks: ImportTaskSummary[] | undefined;
 
   /**
-   * <p>Pagination token used to paginate output.</p> <p>When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.</p>
+   * Pagination token used to paginate output.
+   *
+   * When this value is provided as input, the service returns results from where the previous response left off. When this value is present in output, it indicates that there are more results to retrieve.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2847,49 +3337,57 @@ export interface ListImportTasksOutput {
  */
 export interface StartExportTaskInput {
   /**
-   * <p>The source graph identifier of the export task.</p>
+   * The source graph identifier of the export task.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow data to be exported to the destination.</p>
+   * The ARN of the IAM role that will allow data to be exported to the destination.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The format of the export task.</p>
+   * The format of the export task.
+   *
    * @public
    */
   format: ExportFormat | undefined;
 
   /**
-   * <p>The Amazon S3 URI where data will be exported to.</p>
+   * The Amazon S3 URI where data will be exported to.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The KMS key identifier of the export task.</p>
+   * The KMS key identifier of the export task.
+   *
    * @public
    */
   kmsKeyIdentifier: string | undefined;
 
   /**
-   * <p>The parquet type of the export task.</p>
+   * The parquet type of the export task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The export filter of the export task.</p>
+   * The export filter of the export task.
+   *
    * @public
    */
   exportFilter?: ExportFilter | undefined;
 
   /**
-   * <p>Tags to be applied to the export task.</p>
+   * Tags to be applied to the export task.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -2900,61 +3398,71 @@ export interface StartExportTaskInput {
  */
 export interface StartExportTaskOutput {
   /**
-   * <p>The source graph identifier of the export task.</p>
+   * The source graph identifier of the export task.
+   *
    * @public
    */
   graphId: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow data to be exported to the destination.</p>
+   * The ARN of the IAM role that will allow data to be exported to the destination.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the export task.</p>
+   * The unique identifier of the export task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>The current status of the export task.</p>
+   * The current status of the export task.
+   *
    * @public
    */
   status: ExportTaskStatus | undefined;
 
   /**
-   * <p>The format of the export task.</p>
+   * The format of the export task.
+   *
    * @public
    */
   format: ExportFormat | undefined;
 
   /**
-   * <p>The Amazon S3 URI of the export task where data will be exported to.</p>
+   * The Amazon S3 URI of the export task where data will be exported to.
+   *
    * @public
    */
   destination: string | undefined;
 
   /**
-   * <p>The KMS key identifier of the export task.</p>
+   * The KMS key identifier of the export task.
+   *
    * @public
    */
   kmsKeyIdentifier: string | undefined;
 
   /**
-   * <p>The parquet type of the export task.</p>
+   * The parquet type of the export task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The reason that the export task has this status value.</p>
+   * The reason that the export task has this status value.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The export filter of the export task.</p>
+   * The export filter of the export task.
+   *
    * @public
    */
   exportFilter?: ExportFilter | undefined;
@@ -2965,49 +3473,57 @@ export interface StartExportTaskOutput {
  */
 export interface StartImportTaskInput {
   /**
-   * <p>Options for how to perform an import.</p>
+   * Options for how to perform an import.
+   *
    * @public
    */
   importOptions?: ImportOptions | undefined;
 
   /**
-   * <p>If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.</p>
+   * If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+   *
    * @public
    */
   failOnError?: boolean | undefined;
 
   /**
-   * <p>A URL identifying the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.</p>
+   * A URL identifying the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format.</p>
+   * Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format.
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the import task.</p>
+   * The parquet type of the import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>. For more information, see <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling">Handling RDF values</a>.</p>
+   * The method to handle blank nodes in the dataset. Currently, only `convertToIri` is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is `ntriples`. For more information, see [Handling RDF values](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling).
+   *
    * @public
    */
   blankNodeHandling?: BlankNodeHandling | undefined;
 
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
@@ -3018,49 +3534,57 @@ export interface StartImportTaskInput {
  */
 export interface StartImportTaskOutput {
   /**
-   * <p>The unique identifier of the Neptune Analytics graph.</p>
+   * The unique identifier of the Neptune Analytics graph.
+   *
    * @public
    */
   graphId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the import task.</p>
+   * The unique identifier of the import task.
+   *
    * @public
    */
   taskId: string | undefined;
 
   /**
-   * <p>A URL identifying the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.</p>
+   * A URL identifying the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+   *
    * @public
    */
   source: string | undefined;
 
   /**
-   * <p>Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format.</p>
+   * Specifies the format of Amazon S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format or OPENCYPHER, which identifies the openCypher load format.
+   *
    * @public
    */
   format?: Format | undefined;
 
   /**
-   * <p>The parquet type of the import task.</p>
+   * The parquet type of the import task.
+   *
    * @public
    */
   parquetType?: ParquetType | undefined;
 
   /**
-   * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
+   * The ARN of the IAM role that will allow access to the data that is to be imported.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The status of the import task.</p>
+   * The status of the import task.
+   *
    * @public
    */
   status: ImportTaskStatus | undefined;
 
   /**
-   * <p>Options for how to perform an import.</p>
+   * Options for how to perform an import.
+   *
    * @public
    */
   importOptions?: ImportOptions | undefined;
@@ -3071,13 +3595,15 @@ export interface StartImportTaskOutput {
  */
 export interface UntagResourceInput {
   /**
-   * <p>ARN of the resource whose tag needs to be removed.</p>
+   * ARN of the resource whose tag needs to be removed.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Tag keys for the tags to be removed.</p>
+   * Tag keys for the tags to be removed.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

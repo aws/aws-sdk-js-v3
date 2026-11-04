@@ -55,67 +55,78 @@ import type {
  */
 export interface CreatePaymentManagerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created payment manager.</p>
+   * The Amazon Resource Name (ARN) of the created payment manager.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the created payment manager.</p>
+   * The unique identifier of the created payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the created payment manager.</p>
+   * The name of the created payment manager.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of authorizer for the created payment manager.</p>
+   * The type of authorizer for the created payment manager.
+   *
    * @public
    */
   authorizerType: PaymentsAuthorizerType | undefined;
 
   /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * Represents inbound authorization configuration options used to authenticate incoming requests.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the created payment manager.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the created payment manager.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The information about the workload identity.</p>
+   * The information about the workload identity.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The timestamp when the payment manager was created.</p>
+   * The timestamp when the payment manager was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment manager. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentManagerStatus | undefined;
 
   /**
-   * <p>The tags associated with the created payment manager.</p>
+   * The tags associated with the created payment manager.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -126,13 +137,15 @@ export interface CreatePaymentManagerResponse {
  */
 export interface DeletePaymentManagerRequest {
   /**
-   * <p>The unique identifier of the payment manager to delete.</p>
+   * The unique identifier of the payment manager to delete.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -143,13 +156,15 @@ export interface DeletePaymentManagerRequest {
  */
 export interface DeletePaymentManagerResponse {
   /**
-   * <p>The current status of the payment manager, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment manager, set to `DELETING` when deletion is initiated. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentManagerStatus | undefined;
 
   /**
-   * <p>The unique identifier of the deleted payment manager.</p>
+   * The unique identifier of the deleted payment manager.
+   *
    * @public
    */
   paymentManagerId?: string | undefined;
@@ -160,7 +175,8 @@ export interface DeletePaymentManagerResponse {
  */
 export interface GetPaymentManagerRequest {
   /**
-   * <p>The unique identifier of the payment manager to retrieve.</p>
+   * The unique identifier of the payment manager to retrieve.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
@@ -171,79 +187,95 @@ export interface GetPaymentManagerRequest {
  */
 export interface GetPaymentManagerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the payment manager.</p>
+   * The Amazon Resource Name (ARN) of the payment manager.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the payment manager.</p>
+   * The unique identifier of the payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the payment manager.</p>
+   * The name of the payment manager.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the payment manager.</p>
+   * The description of the payment manager.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of authorizer used by the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer used by the payment manager.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType: PaymentsAuthorizerType | undefined;
 
   /**
-   * <p>Represents inbound authorization configuration options used to authenticate incoming requests. </p>
+   * Represents inbound authorization configuration options used to authenticate incoming requests.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the payment manager.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the payment manager.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The information about the workload identity.</p>
+   * The information about the workload identity.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The timestamp when the payment manager was created.</p>
+   * The timestamp when the payment manager was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment manager was last updated.</p>
+   * The timestamp when the payment manager was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment manager. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentManagerStatus | undefined;
 
   /**
-   * <p>The tags associated with the payment manager.</p>
+   * The tags associated with the payment manager.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -254,79 +286,95 @@ export interface GetPaymentManagerResponse {
  */
 export interface ListPaymentManagersRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a payment manager.</p>
+ * Contains summary information about a payment manager.
+ *
  * @public
  */
 export interface PaymentManagerSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the payment manager.</p>
+   * The Amazon Resource Name (ARN) of the payment manager.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the payment manager.</p>
+   * The unique identifier of the payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the payment manager.</p>
+   * The name of the payment manager.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the payment manager.</p>
+   * The description of the payment manager.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of authorizer used by the payment manager.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer used by the payment manager.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType: PaymentsAuthorizerType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the payment manager.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the payment manager.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The current status of the payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment manager. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentManagerStatus | undefined;
 
   /**
-   * <p>The timestamp when the payment manager was created.</p>
+   * The timestamp when the payment manager was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment manager was last updated.</p>
+   * The timestamp when the payment manager was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -337,32 +385,37 @@ export interface PaymentManagerSummary {
  */
 export interface ListPaymentManagersResponse {
   /**
-   * <p>The list of payment manager summaries. For details about the fields in each summary, see the <code>PaymentManagerSummary</code> data type.</p>
+   * The list of payment manager summaries. For details about the fields in each summary, see the `PaymentManagerSummary` data type.
+   *
    * @public
    */
   paymentManagers: PaymentManagerSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Configuration for a payment credential provider that stores authentication credentials for a payment provider.</p>
+ * Configuration for a payment credential provider that stores authentication credentials for a payment provider.
+ *
  * @public
  */
 export interface PaymentCredentialProviderConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the credential provider that stores the authentication credentials for the payment provider.</p>
+   * The Amazon Resource Name (ARN) of the credential provider that stores the authentication credentials for the payment provider.
+   *
    * @public
    */
   credentialProviderArn: string | undefined;
 }
 
 /**
- * <p>The credential provider configuration for a payment connector. Specifies the payment provider type and its associated credential provider.</p>
+ * The credential provider configuration for a payment connector. Specifies the payment provider type and its associated credential provider.
+ *
  * @public
  */
 export type CredentialsProviderConfiguration =
@@ -375,7 +428,8 @@ export type CredentialsProviderConfiguration =
  */
 export namespace CredentialsProviderConfiguration {
   /**
-   * <p>The credential provider configuration for a Coinbase CDP payment connector.</p>
+   * The credential provider configuration for a Coinbase CDP payment connector.
+   *
    * @public
    */
   export interface CoinbaseCDPMember {
@@ -385,7 +439,8 @@ export namespace CredentialsProviderConfiguration {
   }
 
   /**
-   * <p>The credential provider configuration for a Stripe Privy payment connector.</p>
+   * The credential provider configuration for a Stripe Privy payment connector.
+   *
    * @public
    */
   export interface StripePrivyMember {
@@ -419,43 +474,53 @@ export namespace CredentialsProviderConfiguration {
  */
 export interface CreatePaymentConnectorRequest {
   /**
-   * <p>The unique identifier of the payment manager to create the connector for.</p>
+   * The unique identifier of the payment manager to create the connector for.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the payment connector.</p>
+   * The name of the payment connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the payment connector.</p>
+   * A description of the payment connector.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of payment connector, which determines the payment provider integration.</p>
+   * The type of payment connector, which determines the payment provider integration.
+   *
    * @public
    */
   type: PaymentConnectorType | undefined;
 
   /**
-   * <p>The credential provider configurations for the payment connector. These configurations specify how the connector authenticates with the payment provider.</p>
+   * The credential provider configurations for the payment connector. These configurations specify how the connector authenticates with the payment provider.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
 
   /**
-   * <p>The provision mode for creating the payment connector. If you don't specify a value, the default is <code>MANUAL</code>.</p> <ul> <li> <p> <code>MANUAL</code> - You provide the credential provider configurations directly.</p> </li> <li> <p> <code>QUICK_CREATE</code> - The service orchestrates OAuth consent and provisions the credential provider for you.</p> </li> </ul>
+   * The provision mode for creating the payment connector. If you don't specify a value, the default is `MANUAL`.
+   *
+   * - `MANUAL` - You provide the credential provider configurations directly.
+   * - `QUICK_CREATE` - The service orchestrates OAuth consent and provisions the credential provider for you.
+   *
    * @public
    */
   provisionMode?: PaymentConnectorProvisionMode | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -466,49 +531,57 @@ export interface CreatePaymentConnectorRequest {
  */
 export interface CreatePaymentConnectorResponse {
   /**
-   * <p>The unique identifier of the created payment connector.</p>
+   * The unique identifier of the created payment connector.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the created payment connector.</p>
+   * The name of the created payment connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the created payment connector.</p>
+   * The type of the created payment connector.
+   *
    * @public
    */
   type: PaymentConnectorType | undefined;
 
   /**
-   * <p>The credential provider configurations for the created payment connector.</p>
+   * The credential provider configurations for the created payment connector.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp when the payment connector was created.</p>
+   * The timestamp when the payment connector was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The current status of the payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment connector. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentConnectorStatus | undefined;
 
   /**
-   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is `PENDING_AUTHENTICATION`.
+   *
    * @public
    */
   authorizationUrl?: string | undefined;
@@ -519,19 +592,22 @@ export interface CreatePaymentConnectorResponse {
  */
 export interface DeletePaymentConnectorRequest {
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The unique identifier of the payment connector to delete.</p>
+   * The unique identifier of the payment connector to delete.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -542,13 +618,15 @@ export interface DeletePaymentConnectorRequest {
  */
 export interface DeletePaymentConnectorResponse {
   /**
-   * <p>The current status of the payment connector, set to <code>DELETING</code> when deletion is initiated. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment connector, set to `DELETING` when deletion is initiated. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentConnectorStatus | undefined;
 
   /**
-   * <p>The unique identifier of the deleted payment connector.</p>
+   * The unique identifier of the deleted payment connector.
+   *
    * @public
    */
   paymentConnectorId?: string | undefined;
@@ -559,13 +637,15 @@ export interface DeletePaymentConnectorResponse {
  */
 export interface GetPaymentConnectorRequest {
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The unique identifier of the payment connector to retrieve.</p>
+   * The unique identifier of the payment connector to retrieve.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
@@ -576,67 +656,81 @@ export interface GetPaymentConnectorRequest {
  */
 export interface GetPaymentConnectorResponse {
   /**
-   * <p>The unique identifier of the payment connector.</p>
+   * The unique identifier of the payment connector.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The name of the payment connector.</p>
+   * The name of the payment connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the payment connector.</p>
+   * The description of the payment connector.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of the payment connector, which determines the payment provider integration.</p>
+   * The type of the payment connector, which determines the payment provider integration.
+   *
    * @public
    */
   type: PaymentConnectorType | undefined;
 
   /**
-   * <p>Specifies how the payment connector was provisioned. Payment connectors that were created before this field was available return <code>MANUAL</code>.</p> <ul> <li> <p> <code>MANUAL</code> - You provided the credential provider configurations, so you own the credentials. Rotate them with the payment provider, then call <code>UpdatePaymentCredentialProvider</code>.</p> </li> <li> <p> <code>QUICK_CREATE</code> - AgentCore provisioned the credential provider for you, so the credentials are service-managed. You can rotate them with <code>RotatePaymentConnectorCredentials</code>.</p> </li> </ul>
+   * Specifies how the payment connector was provisioned. Payment connectors that were created before this field was available return `MANUAL`.
+   *
+   * - `MANUAL` - You provided the credential provider configurations, so you own the credentials. Rotate them with the payment provider, then call `UpdatePaymentCredentialProvider`.
+   * - `QUICK_CREATE` - AgentCore provisioned the credential provider for you, so the credentials are service-managed. You can rotate them with `RotatePaymentConnectorCredentials`.
+   *
    * @public
    */
   provisionMode?: PaymentConnectorProvisionMode | undefined;
 
   /**
-   * <p>The credential provider configurations for the payment connector.</p>
+   * The credential provider configurations for the payment connector.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp when the payment connector was created.</p>
+   * The timestamp when the payment connector was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the payment connector was last updated.</p>
+   * The timestamp when the payment connector was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment connector. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentConnectorStatus | undefined;
 
   /**
-   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is `PENDING_AUTHENTICATION`.
+   *
    * @public
    */
   authorizationUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the payment connector's current service-managed credentials took effect. It is first set when the credentials are provisioned and is updated by each rotation. This field is present only for payment connectors with a <code>provisionMode</code> of <code>QUICK_CREATE</code>.</p>
+   * The timestamp when the payment connector's current service-managed credentials took effect. It is first set when the credentials are provisioned and is updated by each rotation. This field is present only for payment connectors with a `provisionMode` of `QUICK_CREATE`.
+   *
    * @public
    */
   credentialsUpdatedAt?: Date | undefined;
@@ -647,61 +741,74 @@ export interface GetPaymentConnectorResponse {
  */
 export interface ListPaymentConnectorsRequest {
   /**
-   * <p>The unique identifier of the payment manager whose connectors to list.</p>
+   * The unique identifier of the payment manager whose connectors to list.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a payment connector.</p>
+ * Contains summary information about a payment connector.
+ *
  * @public
  */
 export interface PaymentConnectorSummary {
   /**
-   * <p>The unique identifier of the payment connector.</p>
+   * The unique identifier of the payment connector.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The name of the payment connector.</p>
+   * The name of the payment connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the payment connector, which determines the payment provider integration.</p>
+   * The type of the payment connector, which determines the payment provider integration.
+   *
    * @public
    */
   type: PaymentConnectorType | undefined;
 
   /**
-   * <p>Specifies how the payment connector was provisioned. Payment connectors that were created before this field was available return <code>MANUAL</code>.</p> <ul> <li> <p> <code>MANUAL</code> - You provided the credential provider configurations, so you own the credentials.</p> </li> <li> <p> <code>QUICK_CREATE</code> - AgentCore provisioned the credential provider for you, so the credentials are service-managed and you can rotate them with <code>RotatePaymentConnectorCredentials</code>.</p> </li> </ul>
+   * Specifies how the payment connector was provisioned. Payment connectors that were created before this field was available return `MANUAL`.
+   *
+   * - `MANUAL` - You provided the credential provider configurations, so you own the credentials.
+   * - `QUICK_CREATE` - AgentCore provisioned the credential provider for you, so the credentials are service-managed and you can rotate them with `RotatePaymentConnectorCredentials`.
+   *
    * @public
    */
   provisionMode?: PaymentConnectorProvisionMode | undefined;
 
   /**
-   * <p>The current status of the payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the payment connector. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentConnectorStatus | undefined;
 
   /**
-   * <p>The timestamp when the payment connector was last updated.</p>
+   * The timestamp when the payment connector was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -712,32 +819,40 @@ export interface PaymentConnectorSummary {
  */
 export interface ListPaymentConnectorsResponse {
   /**
-   * <p>The list of payment connector summaries. For details about the fields in each summary, see the <code>PaymentConnectorSummary</code> data type.</p>
+   * The list of payment connector summaries. For details about the fields in each summary, see the `PaymentConnectorSummary` data type.
+   *
    * @public
    */
   paymentConnectors: PaymentConnectorSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Specifies the service-managed Coinbase CDP secrets to rotate.</p>
+ * Specifies the service-managed Coinbase CDP secrets to rotate.
+ *
  * @public
  */
 export interface CoinbaseCdpRotationTargets {
   /**
-   * <p>The secrets to rotate. Specify at least one value. Each secret that you specify is rotated independently.</p> <ul> <li> <p> <code>API_KEY</code> - The API key that the payment connector uses to call Coinbase CDP. Rotate it as routine maintenance, or if you suspect that it is compromised.</p> </li> <li> <p> <code>WALLET_SECRET</code> - The wallet secret that signs transactions. Rotate it only if it is lost or compromised. Coinbase CDP allows one wallet secret per project, so it is replaced in place and signing can be briefly interrupted.</p> </li> </ul>
+   * The secrets to rotate. Specify at least one value. Each secret that you specify is rotated independently.
+   *
+   * - `API_KEY` - The API key that the payment connector uses to call Coinbase CDP. Rotate it as routine maintenance, or if you suspect that it is compromised.
+   * - `WALLET_SECRET` - The wallet secret that signs transactions. Rotate it only if it is lost or compromised. Coinbase CDP allows one wallet secret per project, so it is replaced in place and signing can be briefly interrupted.
+   *
    * @public
    */
   secrets: CoinbaseCdpSecret[] | undefined;
 }
 
 /**
- * <p>Specifies the service-managed credentials to rotate. Provide the member that matches the payment connector's <code>type</code>.</p>
+ * Specifies the service-managed credentials to rotate. Provide the member that matches the payment connector's `type`.
+ *
  * @public
  */
 export type CredentialRotationConfig =
@@ -749,7 +864,8 @@ export type CredentialRotationConfig =
  */
 export namespace CredentialRotationConfig {
   /**
-   * <p>The credentials to rotate for a Coinbase CDP payment connector.</p>
+   * The credentials to rotate for a Coinbase CDP payment connector.
+   *
    * @public
    */
   export interface CoinbaseCDPMember {
@@ -780,25 +896,29 @@ export namespace CredentialRotationConfig {
  */
 export interface RotatePaymentConnectorCredentialsRequest {
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The unique identifier of the payment connector whose credentials you want to rotate.</p>
+   * The unique identifier of the payment connector whose credentials you want to rotate.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The credentials to rotate. Specify the member that matches the payment connector's <code>type</code>. Each credential that you select is rotated independently.</p>
+   * The credentials to rotate. Specify the member that matches the payment connector's `type`. Each credential that you select is rotated independently.
+   *
    * @public
    */
   credentialsToRotate: CredentialRotationConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -809,25 +929,29 @@ export interface RotatePaymentConnectorCredentialsRequest {
  */
 export interface RotatePaymentConnectorCredentialsResponse {
   /**
-   * <p>The unique identifier of the payment connector.</p>
+   * The unique identifier of the payment connector.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The timestamp when the payment connector was last updated, which is when the rotation completed.</p>
+   * The timestamp when the payment connector was last updated, which is when the rotation completed.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the payment connector, which is <code>READY</code> after a successful rotation.</p>
+   * The current status of the payment connector, which is `READY` after a successful rotation.
+   *
    * @public
    */
   status: PaymentConnectorStatus | undefined;
@@ -838,37 +962,43 @@ export interface RotatePaymentConnectorCredentialsResponse {
  */
 export interface UpdatePaymentConnectorRequest {
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The unique identifier of the payment connector to update.</p>
+   * The unique identifier of the payment connector to update.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The updated description of the payment connector.</p>
+   * The updated description of the payment connector.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated type of the payment connector.</p>
+   * The updated type of the payment connector.
+   *
    * @public
    */
   type?: PaymentConnectorType | undefined;
 
   /**
-   * <p>The updated credential provider configurations for the payment connector.</p>
+   * The updated credential provider configurations for the payment connector.
+   *
    * @public
    */
   credentialProviderConfigurations?: CredentialsProviderConfiguration[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -879,49 +1009,57 @@ export interface UpdatePaymentConnectorRequest {
  */
 export interface UpdatePaymentConnectorResponse {
   /**
-   * <p>The unique identifier of the updated payment connector.</p>
+   * The unique identifier of the updated payment connector.
+   *
    * @public
    */
   paymentConnectorId: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent payment manager.</p>
+   * The unique identifier of the parent payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the updated payment connector.</p>
+   * The name of the updated payment connector.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the updated payment connector.</p>
+   * The type of the updated payment connector.
+   *
    * @public
    */
   type: PaymentConnectorType | undefined;
 
   /**
-   * <p>The credential provider configurations for the updated payment connector.</p>
+   * The credential provider configurations for the updated payment connector.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
 
   /**
-   * <p>The timestamp when the payment connector was last updated.</p>
+   * The timestamp when the payment connector was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the updated payment connector. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentConnectorStatus | undefined;
 
   /**
-   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is `PENDING_AUTHENTICATION`.
+   *
    * @public
    */
   authorizationUrl?: string | undefined;
@@ -932,43 +1070,50 @@ export interface UpdatePaymentConnectorResponse {
  */
 export interface UpdatePaymentManagerRequest {
   /**
-   * <p>The unique identifier of the payment manager to update.</p>
+   * The unique identifier of the payment manager to update.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The updated description of the payment manager.</p>
+   * The updated description of the payment manager.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated authorizer type for the payment manager.</p>
+   * The updated authorizer type for the payment manager.
+   *
    * @public
    */
   authorizerType?: PaymentsAuthorizerType | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the payment manager.</p>
+   * The updated authorizer configuration for the payment manager.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated Amazon Resource Name (ARN) of the IAM role for the payment manager.</p>
+   * The updated Amazon Resource Name (ARN) of the IAM role for the payment manager.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The updated Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt sensitive payment manager data at rest.</p>
+   * The updated Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt sensitive payment manager data at rest.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -979,55 +1124,64 @@ export interface UpdatePaymentManagerRequest {
  */
 export interface UpdatePaymentManagerResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated payment manager.</p>
+   * The Amazon Resource Name (ARN) of the updated payment manager.
+   *
    * @public
    */
   paymentManagerArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated payment manager.</p>
+   * The unique identifier of the updated payment manager.
+   *
    * @public
    */
   paymentManagerId: string | undefined;
 
   /**
-   * <p>The name of the updated payment manager.</p>
+   * The name of the updated payment manager.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of authorizer for the updated payment manager.</p>
+   * The type of authorizer for the updated payment manager.
+   *
    * @public
    */
   authorizerType: PaymentsAuthorizerType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the updated payment manager.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the updated payment manager.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The information about the workload identity.</p>
+   * The information about the workload identity.
+   *
    * @public
    */
   workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
 
   /**
-   * <p>The timestamp when the payment manager was last updated.</p>
+   * The timestamp when the payment manager was last updated.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the updated payment manager. Possible values include `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: PaymentManagerStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1038,31 +1192,36 @@ export interface UpdatePaymentManagerResponse {
  */
 export interface CreatePolicyEngineRequest {
   /**
-   * <p>The customer-assigned immutable name for the policy engine. This name identifies the policy engine and cannot be changed after creation.</p>
+   * The customer-assigned immutable name for the policy engine. This name identifies the policy engine and cannot be changed after creation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A human-readable description of the policy engine's purpose and scope (1-4,096 characters). This helps administrators understand the policy engine's role in the overall governance strategy. Document which Gateway this engine will be associated with, what types of tools or workflows it governs, and the team or service responsible for maintaining it. Clear descriptions are essential when managing multiple policy engines across different services or environments.</p>
+   * A human-readable description of the policy engine's purpose and scope (1-4,096 characters). This helps administrators understand the policy engine's role in the overall governance strategy. Document which Gateway this engine will be associated with, what types of tools or workflows it governs, and the team or service responsible for maintaining it. Clear descriptions are essential when managing multiple policy engines across different services or environments.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy engine.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy engine.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to an AgentCore Policy. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to an AgentCore Policy. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1073,55 +1232,64 @@ export interface CreatePolicyEngineRequest {
  */
 export interface CreatePolicyEngineResponse {
   /**
-   * <p>The unique identifier for the created policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and is used for all subsequent policy engine operations.</p>
+   * The unique identifier for the created policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and is used for all subsequent policy engine operations.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the created policy engine. This matches the name provided in the request and serves as the human-readable identifier.</p>
+   * The customer-assigned name of the created policy engine. This matches the name provided in the request and serves as the human-readable identifier.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was last updated. For newly created policy engines, this matches the <code>createdAt</code> timestamp.</p>
+   * The timestamp when the policy engine was last updated. For newly created policy engines, this matches the `createdAt` timestamp.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * The Amazon Resource Name (ARN) of the created policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The current status of the policy engine. A status of <code>ACTIVE</code> indicates the policy engine is ready for use.</p>
+   * The current status of the policy engine. A status of `ACTIVE` indicates the policy engine is ready for use.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A human-readable description of the policy engine's purpose.</p>
+   * A human-readable description of the policy engine's purpose.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
+   * Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -1132,7 +1300,8 @@ export interface CreatePolicyEngineResponse {
  */
 export interface DeletePolicyEngineRequest {
   /**
-   * <p>The unique identifier of the policy engine to be deleted. This must be a valid policy engine ID that exists within the account.</p>
+   * The unique identifier of the policy engine to be deleted. This must be a valid policy engine ID that exists within the account.
+   *
    * @public
    */
   policyEngineId: string | undefined;
@@ -1143,55 +1312,64 @@ export interface DeletePolicyEngineRequest {
  */
 export interface DeletePolicyEngineResponse {
   /**
-   * <p>The unique identifier of the policy engine being deleted. This confirms which policy engine the deletion operation targets.</p>
+   * The unique identifier of the policy engine being deleted. This confirms which policy engine the deletion operation targets.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the deleted policy engine.</p>
+   * The customer-assigned name of the deleted policy engine.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the deleted policy engine was originally created.</p>
+   * The timestamp when the deleted policy engine was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the deleted policy engine was last modified before deletion. This tracks the final state of the policy engine before it was removed from the system.</p>
+   * The timestamp when the deleted policy engine was last modified before deletion. This tracks the final state of the policy engine before it was removed from the system.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted policy engine. This globally unique identifier confirms which policy engine resource was successfully removed.</p>
+   * The Amazon Resource Name (ARN) of the deleted policy engine. This globally unique identifier confirms which policy engine resource was successfully removed.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The status of the policy engine deletion operation. This provides status about any issues that occurred during the deletion process.</p>
+   * The status of the policy engine deletion operation. This provides status about any issues that occurred during the deletion process.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The human-readable description of the deleted policy engine.</p>
+   * The human-readable description of the deleted policy engine.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
+   * Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -1202,7 +1380,8 @@ export interface DeletePolicyEngineResponse {
  */
 export interface GetPolicyEngineRequest {
   /**
-   * <p>The unique identifier of the policy engine to be retrieved. This must be a valid policy engine ID that exists within the account.</p>
+   * The unique identifier of the policy engine to be retrieved. This must be a valid policy engine ID that exists within the account.
+   *
    * @public
    */
   policyEngineId: string | undefined;
@@ -1213,55 +1392,64 @@ export interface GetPolicyEngineRequest {
  */
 export interface GetPolicyEngineResponse {
   /**
-   * <p>The unique identifier of the retrieved policy engine. This matches the policy engine ID provided in the request and serves as the system identifier.</p>
+   * The unique identifier of the retrieved policy engine. This matches the policy engine ID provided in the request and serves as the system identifier.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the policy engine. This is the human-readable identifier that was specified when the policy engine was created.</p>
+   * The customer-assigned name of the policy engine. This is the human-readable identifier that was specified when the policy engine was created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was originally created.</p>
+   * The timestamp when the policy engine was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration.</p>
+   * The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The current status of the policy engine.</p>
+   * The current status of the policy engine.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
+   * The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.</p>
+   * Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -1272,7 +1460,8 @@ export interface GetPolicyEngineResponse {
  */
 export interface GetPolicyEngineSummaryRequest {
   /**
-   * <p>The unique identifier of the policy engine to retrieve the summary for. This must be a valid policy engine ID that exists within the account.</p>
+   * The unique identifier of the policy engine to retrieve the summary for. This must be a valid policy engine ID that exists within the account.
+   *
    * @public
    */
   policyEngineId: string | undefined;
@@ -1283,43 +1472,50 @@ export interface GetPolicyEngineSummaryRequest {
  */
 export interface GetPolicyEngineSummaryResponse {
   /**
-   * <p>The unique identifier of the policy engine.</p>
+   * The unique identifier of the policy engine.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the policy engine.</p>
+   * The customer-assigned name of the policy engine.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was originally created.</p>
+   * The timestamp when the policy engine was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was last modified.</p>
+   * The timestamp when the policy engine was last modified.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
+   * The Amazon Resource Name (ARN) of the policy engine.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The current status of the policy engine.</p>
+   * The current status of the policy engine.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
@@ -1330,73 +1526,85 @@ export interface GetPolicyEngineSummaryResponse {
  */
 export interface ListPolicyEnginesRequest {
   /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * A pagination token returned from a previous [ListPolicyEngines](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html) call. Use this token to retrieve the next page of results when the response is paginated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policy engines to return in a single response. If not specified, the default is 10 policy engines per page, with a maximum of 100 per page.</p>
+   * The maximum number of policy engines to return in a single response. If not specified, the default is 10 policy engines per page, with a maximum of 100 per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Represents a policy engine resource within the AgentCore Policy system. Policy engines serve as containers for grouping related policies and provide the execution context for policy evaluation and management. Each policy engine can be associated with one Gateway (one engine per Gateway), where it intercepts all agent tool calls and evaluates them against the contained policies before allowing tools to execute. The policy engine maintains the Cedar schema generated from the Gateway's tool manifest, ensuring that policies are validated against the actual tools and parameters available. Policy engines support two enforcement modes that can be configured when associating with a Gateway: log-only mode for testing (evaluates decisions without blocking) and enforce mode for production (actively allows or denies based on policy evaluation).</p>
+ * Represents a policy engine resource within the AgentCore Policy system. Policy engines serve as containers for grouping related policies and provide the execution context for policy evaluation and management. Each policy engine can be associated with one Gateway (one engine per Gateway), where it intercepts all agent tool calls and evaluates them against the contained policies before allowing tools to execute. The policy engine maintains the Cedar schema generated from the Gateway's tool manifest, ensuring that policies are validated against the actual tools and parameters available. Policy engines support two enforcement modes that can be configured when associating with a Gateway: log-only mode for testing (evaluates decisions without blocking) and enforce mode for production (actively allows or denies based on policy evaluation).
+ *
  * @public
  */
 export interface PolicyEngine {
   /**
-   * <p>The unique identifier for the policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy engine operations.</p>
+   * The unique identifier for the policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy engine operations.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The customer-assigned immutable name for the policy engine. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
+   * The customer-assigned immutable name for the policy engine. This human-readable identifier must be unique within the account and cannot exceed 48 characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration or metadata.</p>
+   * The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration or metadata.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The current status of the policy engine.</p>
+   * The current status of the policy engine.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
+   * A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
+   * Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -1407,13 +1615,15 @@ export interface PolicyEngine {
  */
 export interface ListPolicyEnginesResponse {
   /**
-   * <p>An array of policy engine objects that exist in the account. Each policy engine object contains the engine metadata, status, and key identifiers for further operations.</p>
+   * An array of policy engine objects that exist in the account. Each policy engine object contains the engine metadata, status, and key identifiers for further operations.
+   *
    * @public
    */
   policyEngines: PolicyEngine[] | undefined;
 
   /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> calls to retrieve additional results. This token is only present when there are more results available. </p>
+   * A pagination token that can be used in subsequent [ListPolicyEngines](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html) calls to retrieve additional results. This token is only present when there are more results available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1424,61 +1634,71 @@ export interface ListPolicyEnginesResponse {
  */
 export interface ListPolicyEngineSummariesRequest {
   /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * A pagination token returned from a previous [ListPolicyEngineSummaries](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html) call. Use this token to retrieve the next page of results when the response is paginated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policy engine summaries to return in a single response.</p>
+   * The maximum number of policy engine summaries to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Represents a metadata-only summary of a policy engine resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as description or status reasons. Policy engine summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * Represents a metadata-only summary of a policy engine resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as description or status reasons. Policy engine summaries are returned by operations that do not require access to the customer's KMS key.
+ *
  * @public
  */
 export interface PolicyEngineSummary {
   /**
-   * <p>The unique identifier for the policy engine.</p>
+   * The unique identifier for the policy engine.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the policy engine.</p>
+   * The customer-assigned name of the policy engine.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was originally created.</p>
+   * The timestamp when the policy engine was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was last modified.</p>
+   * The timestamp when the policy engine was last modified.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
+   * The Amazon Resource Name (ARN) of the policy engine.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The current status of the policy engine.</p>
+   * The current status of the policy engine.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
@@ -1489,13 +1709,15 @@ export interface PolicyEngineSummary {
  */
 export interface ListPolicyEngineSummariesResponse {
   /**
-   * <p>An array of policy engine summary objects that exist in the account. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
+   * An array of policy engine summary objects that exist in the account. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.
+   *
    * @public
    */
   policyEngines: PolicyEngineSummary[] | undefined;
 
   /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
+   * A pagination token that can be used in subsequent [ListPolicyEngineSummaries](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html) calls to retrieve additional results. This token is only present when there are more results available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1506,13 +1728,15 @@ export interface ListPolicyEngineSummariesResponse {
  */
 export interface UpdatePolicyEngineRequest {
   /**
-   * <p>The unique identifier of the policy engine to be updated.</p>
+   * The unique identifier of the policy engine to be updated.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The new description for the policy engine.</p>
+   * The new description for the policy engine.
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
@@ -1523,55 +1747,64 @@ export interface UpdatePolicyEngineRequest {
  */
 export interface UpdatePolicyEngineResponse {
   /**
-   * <p>The unique identifier of the updated policy engine.</p>
+   * The unique identifier of the updated policy engine.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The name of the updated policy engine.</p>
+   * The name of the updated policy engine.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The original creation timestamp of the policy engine.</p>
+   * The original creation timestamp of the policy engine.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy engine was last updated.</p>
+   * The timestamp when the policy engine was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The ARN of the updated policy engine.</p>
+   * The ARN of the updated policy engine.
+   *
    * @public
    */
   policyEngineArn: string | undefined;
 
   /**
-   * <p>The current status of the updated policy engine.</p>
+   * The current status of the updated policy engine.
+   *
    * @public
    */
   status: PolicyEngineStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The updated description of the policy engine.</p>
+   * The updated description of the policy engine.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the update status.</p>
+   * Additional information about the update status.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -1582,20 +1815,23 @@ export interface UpdatePolicyEngineResponse {
  */
 export interface GetPolicyGenerationRequest {
   /**
-   * <p>The unique identifier of the policy generation request to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call.</p>
+   * The unique identifier of the policy generation request to be retrieved. This must be a valid generation ID from a previous [StartPolicyGeneration](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html) call.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and schema validation.</p>
+   * The identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and schema validation.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 }
 
 /**
- * <p>Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.</p>
+ * Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.
+ *
  * @public
  */
 export type Resource =
@@ -1607,7 +1843,8 @@ export type Resource =
  */
 export namespace Resource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. This globally unique identifier specifies the exact resource that policies will be evaluated against for access control decisions. </p>
+   * The Amazon Resource Name (ARN) of the resource. This globally unique identifier specifies the exact resource that policies will be evaluated against for access control decisions.
+   *
    * @public
    */
   export interface ArnMember {
@@ -1638,61 +1875,71 @@ export namespace Resource {
  */
 export interface GetPolicyGenerationResponse {
   /**
-   * <p>The identifier of the policy engine associated with this policy generation. This confirms the policy engine context for the generation operation.</p>
+   * The identifier of the policy engine associated with this policy generation. This confirms the policy engine context for the generation operation.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy generation request. This matches the generation ID provided in the request and serves as the tracking identifier.</p>
+   * The unique identifier of the policy generation request. This matches the generation ID provided in the request and serves as the tracking identifier.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The customer-assigned name for the policy generation request. This helps identify and track generation operations across multiple requests.</p>
+   * The customer-assigned name for the policy generation request. This helps identify and track generation operations across multiple requests.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy generation. This globally unique identifier can be used for tracking, auditing, and cross-service references.</p>
+   * The Amazon Resource Name (ARN) of the policy generation. This globally unique identifier can be used for tracking, auditing, and cross-service references.
+   *
    * @public
    */
   policyGenerationArn: string | undefined;
 
   /**
-   * <p>The resource information associated with the policy generation. This provides context about the target resources for which the policies are being generated.</p>
+   * The resource information associated with the policy generation. This provides context about the target resources for which the policies are being generated.
+   *
    * @public
    */
   resource: Resource | undefined;
 
   /**
-   * <p>The timestamp when the policy generation request was created. This is used for tracking and auditing generation operations and their lifecycle.</p>
+   * The timestamp when the policy generation request was created. This is used for tracking and auditing generation operations and their lifecycle.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy generation was last updated. This tracks the progress of the generation process and any status changes.</p>
+   * The timestamp when the policy generation was last updated. This tracks the progress of the generation process and any status changes.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the policy generation. This indicates whether the generation is in progress, completed successfully, or failed during processing.</p>
+   * The current status of the policy generation. This indicates whether the generation is in progress, completed successfully, or failed during processing.
+   *
    * @public
    */
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>The findings and results from the policy generation process. This includes any issues, recommendations, validation results, or insights from the generated policies.</p>
+   * The findings and results from the policy generation process. This includes any issues, recommendations, validation results, or insights from the generated policies.
+   *
    * @public
    */
   findings?: string | undefined;
 
   /**
-   * <p>Additional information about the generation status. This provides details about any failures, warnings, or the current state of the generation process.</p>
+   * Additional information about the generation status. This provides details about any failures, warnings, or the current state of the generation process.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -1703,13 +1950,15 @@ export interface GetPolicyGenerationResponse {
  */
 export interface GetPolicyGenerationSummaryRequest {
   /**
-   * <p>The unique identifier of the policy generation request to retrieve the summary for.</p>
+   * The unique identifier of the policy generation request to retrieve the summary for.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine associated with the policy generation request.</p>
+   * The identifier of the policy engine associated with the policy generation request.
+   *
    * @public
    */
   policyEngineId: string | undefined;
@@ -1720,55 +1969,64 @@ export interface GetPolicyGenerationSummaryRequest {
  */
 export interface GetPolicyGenerationSummaryResponse {
   /**
-   * <p>The identifier of the policy engine associated with this policy generation.</p>
+   * The identifier of the policy engine associated with this policy generation.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy generation request.</p>
+   * The unique identifier of the policy generation request.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The customer-assigned name for the policy generation request.</p>
+   * The customer-assigned name for the policy generation request.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy generation request.</p>
+   * The Amazon Resource Name (ARN) of the policy generation request.
+   *
    * @public
    */
   policyGenerationArn: string | undefined;
 
   /**
-   * <p>The resource information associated with the policy generation.</p>
+   * The resource information associated with the policy generation.
+   *
    * @public
    */
   resource: Resource | undefined;
 
   /**
-   * <p>The timestamp when the policy generation request was created.</p>
+   * The timestamp when the policy generation request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy generation was last updated.</p>
+   * The timestamp when the policy generation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the policy generation request.</p>
+   * The current status of the policy generation request.
+   *
    * @public
    */
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>The findings from the policy generation process, if available.</p>
+   * The findings from the policy generation process, if available.
+   *
    * @public
    */
   findings?: string | undefined;
@@ -1779,74 +2037,86 @@ export interface GetPolicyGenerationSummaryResponse {
  */
 export interface ListPolicyGenerationAssetsRequest {
   /**
-   * <p>The unique identifier of the policy generation request whose assets are to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call that has completed processing.</p>
+   * The unique identifier of the policy generation request whose assets are to be retrieved. This must be a valid generation ID from a previous [StartPolicyGeneration](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html) call that has completed processing.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and ensures assets are retrieved from the correct policy engine.</p>
+   * The unique identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and ensures assets are retrieved from the correct policy engine.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> call. Use this token to retrieve the next page of assets when the response is paginated due to large numbers of generated policy options.</p>
+   * A pagination token returned from a previous [ListPolicyGenerationAssets](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html) call. Use this token to retrieve the next page of assets when the response is paginated due to large numbers of generated policy options.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policy generation assets to return in a single response. If not specified, the default is 10 assets per page, with a maximum of 100 per page. This helps control response size when dealing with policy generations that produce many alternative policy options.</p>
+   * The maximum number of policy generation assets to return in a single response. If not specified, the default is 10 assets per page, with a maximum of 100 per page. This helps control response size when dealing with policy generations that produce many alternative policy options.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Represents a Cedar policy statement within the AgentCore Policy system. Cedar is a policy language designed for authorization that provides human-readable, analyzable, and high-performance policy evaluation for controlling agent behavior and access decisions. </p>
+ * Represents a Cedar policy statement within the AgentCore Policy system. Cedar is a policy language designed for authorization that provides human-readable, analyzable, and high-performance policy evaluation for controlling agent behavior and access decisions.
+ *
  * @public
  */
 export interface CedarPolicy {
   /**
-   * <p>The Cedar policy statement that defines the authorization logic. This statement follows Cedar syntax and specifies principals, actions, resources, and conditions that determine when access should be allowed or denied.</p>
+   * The Cedar policy statement that defines the authorization logic. This statement follows Cedar syntax and specifies principals, actions, resources, and conditions that determine when access should be allowed or denied.
+   *
    * @public
    */
   statement: string | undefined;
 }
 
 /**
- * <p>An AgentCore Cedar or Dogwood policy statement, which supports plain Cedar policies, temporal policies, and guardrails definitions.</p>
+ * An AgentCore Cedar or Dogwood policy statement, which supports plain Cedar policies, temporal policies, and guardrails definitions.
+ *
  * @public
  */
 export interface PolicyStatement {
   /**
-   * <p>The body of the AgentCore Cedar or Dogwood policy statement. Contains the policy logic, which can be a Cedar policy, a temporal policy, or a guardrails definition.</p>
+   * The body of the AgentCore Cedar or Dogwood policy statement. Contains the policy logic, which can be a Cedar policy, a temporal policy, or a guardrails definition.
+   *
    * @public
    */
   statement: string | undefined;
 }
 
 /**
- * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+ * Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.
+ *
  * @public
  */
 export interface PolicyGenerationDetails {
   /**
-   * <p>The unique identifier for this policy generation request.</p>
+   * The unique identifier for this policy generation request.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The unique identifier for this generated policy asset within the policy generation request.</p>
+   * The unique identifier for this generated policy asset within the policy generation request.
+   *
    * @public
    */
   policyGenerationAssetId: string | undefined;
 }
 
 /**
- * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
+ * Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.
+ *
  * @public
  */
 export type PolicyDefinition =
@@ -1860,7 +2130,8 @@ export type PolicyDefinition =
  */
 export namespace PolicyDefinition {
   /**
-   * <p>The Cedar policy definition within the policy definition structure. This contains the Cedar policy statement that defines the authorization logic using Cedar's human-readable, analyzable policy language. Cedar policies specify principals (who can access), actions (what operations are allowed), resources (what can be accessed), and optional conditions for fine-grained control. Cedar provides a formal policy language designed for authorization with deterministic evaluation, making policies testable, reviewable, and auditable. All Cedar policies follow a default-deny model where actions are denied unless explicitly permitted, and forbid policies always override permit policies.</p>
+   * The Cedar policy definition within the policy definition structure. This contains the Cedar policy statement that defines the authorization logic using Cedar's human-readable, analyzable policy language. Cedar policies specify principals (who can access), actions (what operations are allowed), resources (what can be accessed), and optional conditions for fine-grained control. Cedar provides a formal policy language designed for authorization with deterministic evaluation, making policies testable, reviewable, and auditable. All Cedar policies follow a default-deny model where actions are denied unless explicitly permitted, and forbid policies always override permit policies.
+   *
    * @public
    */
   export interface CedarMember {
@@ -1871,7 +2142,8 @@ export namespace PolicyDefinition {
   }
 
   /**
-   * <p>The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+   * The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.
+   *
    * @public
    */
   export interface PolicyGenerationMember {
@@ -1882,7 +2154,8 @@ export namespace PolicyDefinition {
   }
 
   /**
-   * <p>The Dogwood policy statement that defines the access control rules. This policy definition can include Dogwood policies and supports temporal conditions and information providers such as guardrails.</p>
+   * The Dogwood policy statement that defines the access control rules. This policy definition can include Dogwood policies and supports temporal conditions and information providers such as guardrails.
+   *
    * @public
    */
   export interface PolicyMember {
@@ -1915,48 +2188,56 @@ export namespace PolicyDefinition {
 }
 
 /**
- * <p>Represents a finding or issue discovered during policy generation or validation. Findings provide insights about potential problems, recommendations, or validation results from policy analysis operations. Finding types include: VALID (policy is ready to use), INVALID (policy has validation errors that must be fixed), NOT_TRANSLATABLE (input couldn't be converted to policy), ALLOW_ALL (policy would allow all actions, potential security risk), ALLOW_NONE (policy would allow no actions, unusable), DENY_ALL (policy would deny all actions, may be too restrictive), and DENY_NONE (policy would deny no actions, ineffective). Review all findings before creating policies from generated assets to ensure they match your security requirements.</p>
+ * Represents a finding or issue discovered during policy generation or validation. Findings provide insights about potential problems, recommendations, or validation results from policy analysis operations. Finding types include: VALID (policy is ready to use), INVALID (policy has validation errors that must be fixed), NOT_TRANSLATABLE (input couldn't be converted to policy), ALLOW_ALL (policy would allow all actions, potential security risk), ALLOW_NONE (policy would allow no actions, unusable), DENY_ALL (policy would deny all actions, may be too restrictive), and DENY_NONE (policy would deny no actions, ineffective). Review all findings before creating policies from generated assets to ensure they match your security requirements.
+ *
  * @public
  */
 export interface Finding {
   /**
-   * <p>The type or category of the finding. This classifies the finding as an error, warning, recommendation, or informational message to help users understand the severity and nature of the issue.</p>
+   * The type or category of the finding. This classifies the finding as an error, warning, recommendation, or informational message to help users understand the severity and nature of the issue.
+   *
    * @public
    */
   type?: FindingType | undefined;
 
   /**
-   * <p>A human-readable description of the finding. This provides detailed information about the issue, recommendation, or validation result to help users understand and address the finding. </p>
+   * A human-readable description of the finding. This provides detailed information about the issue, recommendation, or validation result to help users understand and address the finding.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Represents a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+ * Represents a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.
+ *
  * @public
  */
 export interface PolicyGenerationAsset {
   /**
-   * <p>The unique identifier for this generated policy asset within the policy generation request. This ID can be used to reference specific generated policy options when creating actual policies from the generation results.</p>
+   * The unique identifier for this generated policy asset within the policy generation request. This ID can be used to reference specific generated policy options when creating actual policies from the generation results.
+   *
    * @public
    */
   policyGenerationAssetId: string | undefined;
 
   /**
-   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
+   * Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.
+   *
    * @public
    */
   definition?: PolicyDefinition | undefined;
 
   /**
-   * <p>The portion of the original natural language input that this generated policy asset addresses. This helps users understand which part of their policy description was translated into this specific Dogwood policy statement, enabling better policy selection and refinement. When a single natural language input describes multiple authorization requirements, the generation process creates separate policy assets for each requirement, with each asset's rawTextFragment showing which requirement it addresses. Use this mapping to verify that all parts of your natural language input were correctly translated into Dogwood policies.</p>
+   * The portion of the original natural language input that this generated policy asset addresses. This helps users understand which part of their policy description was translated into this specific Dogwood policy statement, enabling better policy selection and refinement. When a single natural language input describes multiple authorization requirements, the generation process creates separate policy assets for each requirement, with each asset's rawTextFragment showing which requirement it addresses. Use this mapping to verify that all parts of your natural language input were correctly translated into Dogwood policies.
+   *
    * @public
    */
   rawTextFragment: string | undefined;
 
   /**
-   * <p>Analysis findings and insights related to this specific generated policy asset. These findings may include validation results, potential issues, or recommendations for improvement to help users evaluate the quality and appropriateness of the generated policy.</p>
+   * Analysis findings and insights related to this specific generated policy asset. These findings may include validation results, potential issues, or recommendations for improvement to help users evaluate the quality and appropriateness of the generated policy.
+   *
    * @public
    */
   findings: Finding[] | undefined;
@@ -1967,13 +2248,15 @@ export interface PolicyGenerationAsset {
  */
 export interface ListPolicyGenerationAssetsResponse {
   /**
-   * <p>An array of generated policy assets including Dogwood policies and related artifacts from the AI-powered policy generation process. Each asset represents a different policy option or variation generated from the original natural language input.</p>
+   * An array of generated policy assets including Dogwood policies and related artifacts from the AI-powered policy generation process. Each asset represents a different policy option or variation generated from the original natural language input.
+   *
    * @public
    */
   policyGenerationAssets?: PolicyGenerationAsset[] | undefined;
 
   /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> calls to retrieve additional assets. This token is only present when there are more generated policy assets available beyond the current response.</p>
+   * A pagination token that can be used in subsequent [ListPolicyGenerationAssets](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html) calls to retrieve additional assets. This token is only present when there are more generated policy assets available beyond the current response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1984,85 +2267,99 @@ export interface ListPolicyGenerationAssetsResponse {
  */
 export interface ListPolicyGenerationsRequest {
   /**
-   * <p>A pagination token for retrieving additional policy generations when results are paginated.</p>
+   * A pagination token for retrieving additional policy generations when results are paginated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policy generations to return in a single response.</p>
+   * The maximum number of policy generations to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the policy engine whose policy generations to retrieve.</p>
+   * The identifier of the policy engine whose policy generations to retrieve.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 }
 
 /**
- * <p>Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Dogwood policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.</p>
+ * Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Dogwood policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.
+ *
  * @public
  */
 export interface PolicyGeneration {
   /**
-   * <p>The identifier of the policy engine associated with this generation request.</p>
+   * The identifier of the policy engine associated with this generation request.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier for this policy generation request.</p>
+   * The unique identifier for this policy generation request.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The customer-assigned name for this policy generation request.</p>
+   * The customer-assigned name for this policy generation request.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of this policy generation request.</p>
+   * The ARN of this policy generation request.
+   *
    * @public
    */
   policyGenerationArn: string | undefined;
 
   /**
-   * <p>The resource information associated with this policy generation.</p>
+   * The resource information associated with this policy generation.
+   *
    * @public
    */
   resource: Resource | undefined;
 
   /**
-   * <p>The timestamp when this policy generation request was created.</p>
+   * The timestamp when this policy generation request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when this policy generation was last updated.</p>
+   * The timestamp when this policy generation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of this policy generation request.</p>
+   * The current status of this policy generation request.
+   *
    * @public
    */
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>Findings and insights from this policy generation process.</p>
+   * Findings and insights from this policy generation process.
+   *
    * @public
    */
   findings?: string | undefined;
 
   /**
-   * <p>Additional information about the generation status.</p>
+   * Additional information about the generation status.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -2073,13 +2370,15 @@ export interface PolicyGeneration {
  */
 export interface ListPolicyGenerationsResponse {
   /**
-   * <p>An array of policy generation objects that match the specified criteria.</p>
+   * An array of policy generation objects that match the specified criteria.
+   *
    * @public
    */
   policyGenerations: PolicyGeneration[] | undefined;
 
   /**
-   * <p>A pagination token for retrieving additional policy generations if more results are available.</p>
+   * A pagination token for retrieving additional policy generations if more results are available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2090,79 +2389,92 @@ export interface ListPolicyGenerationsResponse {
  */
 export interface ListPolicyGenerationSummariesRequest {
   /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html">ListPolicyGenerationSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * A pagination token returned from a previous [ListPolicyGenerationSummaries](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html) call. Use this token to retrieve the next page of results when the response is paginated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policy generation summaries to return in a single response.</p>
+   * The maximum number of policy generation summaries to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the policy engine whose policy generation summaries to retrieve.</p>
+   * The identifier of the policy engine whose policy generation summaries to retrieve.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 }
 
 /**
- * <p>Represents a metadata-only summary of a policy generation resource. This structure contains resource identifiers, status, timestamps, and findings without customer-encrypted fields such as status reasons. Policy generation summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * Represents a metadata-only summary of a policy generation resource. This structure contains resource identifiers, status, timestamps, and findings without customer-encrypted fields such as status reasons. Policy generation summaries are returned by operations that do not require access to the customer's KMS key.
+ *
  * @public
  */
 export interface PolicyGenerationSummary {
   /**
-   * <p>The identifier of the policy engine associated with this generation request.</p>
+   * The identifier of the policy engine associated with this generation request.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier for this policy generation request.</p>
+   * The unique identifier for this policy generation request.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The customer-assigned name for this policy generation request.</p>
+   * The customer-assigned name for this policy generation request.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of this policy generation request.</p>
+   * The ARN of this policy generation request.
+   *
    * @public
    */
   policyGenerationArn: string | undefined;
 
   /**
-   * <p>The resource information associated with this policy generation.</p>
+   * The resource information associated with this policy generation.
+   *
    * @public
    */
   resource: Resource | undefined;
 
   /**
-   * <p>The timestamp when this policy generation request was created.</p>
+   * The timestamp when this policy generation request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when this policy generation was last updated.</p>
+   * The timestamp when this policy generation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of this policy generation request.</p>
+   * The current status of this policy generation request.
+   *
    * @public
    */
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>Findings and insights from this policy generation process.</p>
+   * Findings and insights from this policy generation process.
+   *
    * @public
    */
   findings?: string | undefined;
@@ -2173,20 +2485,23 @@ export interface PolicyGenerationSummary {
  */
 export interface ListPolicyGenerationSummariesResponse {
   /**
-   * <p>An array of policy generation summary objects that match the specified criteria. Each summary contains resource identifiers, status, timestamps, and findings without customer-encrypted content.</p>
+   * An array of policy generation summary objects that match the specified criteria. Each summary contains resource identifiers, status, timestamps, and findings without customer-encrypted content.
+   *
    * @public
    */
   policyGenerations: PolicyGenerationSummary[] | undefined;
 
   /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html">ListPolicyGenerationSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
+   * A pagination token that can be used in subsequent [ListPolicyGenerationSummaries](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html) calls to retrieve additional results. This token is only present when there are more results available.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents content input for policy generation operations. This structure encapsulates the natural language descriptions or other content formats that are used as input for AI-powered policy generation.</p>
+ * Represents content input for policy generation operations. This structure encapsulates the natural language descriptions or other content formats that are used as input for AI-powered policy generation.
+ *
  * @public
  */
 export type Content =
@@ -2198,7 +2513,8 @@ export type Content =
  */
 export namespace Content {
   /**
-   * <p>The raw text content containing natural language descriptions of desired policy behavior. This text is processed by AI to generate corresponding Dogwood policy statements that match the described intent.</p>
+   * The raw text content containing natural language descriptions of desired policy behavior. This text is processed by AI to generate corresponding Dogwood policy statements that match the described intent.
+   *
    * @public
    */
   export interface RawTextMember {
@@ -2229,31 +2545,36 @@ export namespace Content {
  */
 export interface StartPolicyGenerationRequest {
   /**
-   * <p>The identifier of the policy engine that provides the context for policy generation. This engine's schema and tool context are used to ensure generated policies are valid and applicable.</p>
+   * The identifier of the policy engine that provides the context for policy generation. This engine's schema and tool context are used to ensure generated policies are valid and applicable.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The resource information that provides context for policy generation. This helps the AI understand the target resources and generate appropriate access control rules.</p>
+   * The resource information that provides context for policy generation. This helps the AI understand the target resources and generate appropriate access control rules.
+   *
    * @public
    */
   resource: Resource | undefined;
 
   /**
-   * <p>The natural language description of the desired policy behavior. This content is processed by AI to generate corresponding Dogwood policy statements that match the described intent.</p>
+   * The natural language description of the desired policy behavior. This content is processed by AI to generate corresponding Dogwood policy statements that match the described intent.
+   *
    * @public
    */
   content: Content | undefined;
 
   /**
-   * <p>A customer-assigned name for the policy generation request. This helps track and identify generation operations, especially when running multiple generations simultaneously.</p>
+   * A customer-assigned name for the policy generation request. This helps track and identify generation operations, especially when running multiple generations simultaneously.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The Amazon Web Services SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without starting a duplicate generation.</p>
+   * A unique, case-sensitive identifier to ensure the idempotency of the request. The Amazon Web Services SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without starting a duplicate generation.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2264,61 +2585,71 @@ export interface StartPolicyGenerationRequest {
  */
 export interface StartPolicyGenerationResponse {
   /**
-   * <p>The identifier of the policy engine associated with the started policy generation. </p>
+   * The identifier of the policy engine associated with the started policy generation.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier assigned to the policy generation request for tracking progress. </p>
+   * The unique identifier assigned to the policy generation request for tracking progress.
+   *
    * @public
    */
   policyGenerationId: string | undefined;
 
   /**
-   * <p>The customer-assigned name for the policy generation request.</p>
+   * The customer-assigned name for the policy generation request.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ARN of the created policy generation request.</p>
+   * The ARN of the created policy generation request.
+   *
    * @public
    */
   policyGenerationArn: string | undefined;
 
   /**
-   * <p>The resource information associated with the policy generation request.</p>
+   * The resource information associated with the policy generation request.
+   *
    * @public
    */
   resource: Resource | undefined;
 
   /**
-   * <p>The timestamp when the policy generation request was created.</p>
+   * The timestamp when the policy generation request was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy generation was last updated.</p>
+   * The timestamp when the policy generation was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The initial status of the policy generation request.</p>
+   * The initial status of the policy generation request.
+   *
    * @public
    */
   status: PolicyGenerationStatus | undefined;
 
   /**
-   * <p>Initial findings from the policy generation process.</p>
+   * Initial findings from the policy generation process.
+   *
    * @public
    */
   findings?: string | undefined;
 
   /**
-   * <p>Additional information about the generation status.</p>
+   * Additional information about the generation status.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -2329,43 +2660,50 @@ export interface StartPolicyGenerationResponse {
  */
 export interface CreatePolicyRequest {
   /**
-   * <p>The customer-assigned immutable name for the policy. Must be unique within the account. This name is used for policy identification and cannot be changed after creation.</p>
+   * The customer-assigned immutable name for the policy. Must be unique within the account. This name is used for policy identification and cannot be changed after creation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic written in Cedar or Dogwood, specifying effect (permit or forbid), principals, actions, resources, and conditions for agent behavior control.</p>
+   * The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic written in Cedar or Dogwood, specifying effect (permit or forbid), principals, actions, resources, and conditions for agent behavior control.
+   *
    * @public
    */
   definition: PolicyDefinition | undefined;
 
   /**
-   * <p>A human-readable description of the policy's purpose and functionality (1-4,096 characters). This helps policy administrators understand the policy's intent, business rules, and operational scope. Use this field to document why the policy exists, what business requirement it addresses, and any special considerations for maintenance. Clear descriptions are essential for policy governance, auditing, and troubleshooting.</p>
+   * A human-readable description of the policy's purpose and functionality (1-4,096 characters). This helps policy administrators understand the policy's intent, business rules, and operational scope. Use this field to document why the policy exists, what business requirement it addresses, and any special considerations for maintenance. Clear descriptions are essential for policy governance, auditing, and troubleshooting.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The validation mode for the policy creation. Determines how Cedar analyzer validation results are handled during policy creation. FAIL_ON_ANY_FINDINGS (default) runs the Cedar analyzer to validate the policy against the Cedar schema and tool context, failing creation if the analyzer detects any validation issues to ensure strict conformance. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows policy creation even if validation issues are detected, useful for testing or when the policy schema is evolving. Use FAIL_ON_ANY_FINDINGS for production policies to ensure correctness, and IGNORE_ALL_FINDINGS only when you understand and accept the analyzer findings.</p>
+   * The validation mode for the policy creation. Determines how Cedar analyzer validation results are handled during policy creation. FAIL_ON_ANY_FINDINGS (default) runs the Cedar analyzer to validate the policy against the Cedar schema and tool context, failing creation if the analyzer detects any validation issues to ensure strict conformance. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows policy creation even if validation issues are detected, useful for testing or when the policy schema is evolving. Use FAIL_ON_ANY_FINDINGS for production policies to ensure correctness, and IGNORE_ALL_FINDINGS only when you understand and accept the analyzer findings.
+   *
    * @public
    */
   validationMode?: PolicyValidationMode | undefined;
 
   /**
-   * <p>The enforcement mode for the policy. Run this policy in <code>LOG_ONLY</code> mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to <code>ACTIVE</code>. Defaults to <code>ACTIVE</code>.</p>
+   * The enforcement mode for the policy. Run this policy in `LOG_ONLY` mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to `ACTIVE`. Defaults to `ACTIVE`.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The identifier of the policy engine which contains this policy. Policy engines group related policies and provide the execution context for policy evaluation.</p>
+   * The identifier of the policy engine which contains this policy. Policy engines group related policies and provide the execution context for policy evaluation.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The Amazon Web Services SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy.</p>
+   * A unique, case-sensitive identifier to ensure the idempotency of the request. The Amazon Web Services SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2376,67 +2714,78 @@ export interface CreatePolicyRequest {
  */
 export interface CreatePolicyResponse {
   /**
-   * <p>The unique identifier for the created policy. This is a system-generated identifier consisting of the user name plus a 10-character generated suffix, used for all subsequent policy operations.</p>
+   * The unique identifier for the created policy. This is a system-generated identifier consisting of the user name plus a 10-character generated suffix, used for all subsequent policy operations.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the created policy. This matches the name provided in the request and serves as the human-readable identifier for the policy.</p>
+   * The customer-assigned name of the created policy. This matches the name provided in the request and serves as the human-readable identifier for the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine that manages this policy. This confirms the policy engine assignment and is used for policy evaluation routing.</p>
+   * The identifier of the policy engine that manages this policy. This confirms the policy engine assignment and is used for policy evaluation routing.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * The timestamp when the policy was created. This is automatically set by the service and used for auditing and lifecycle management.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last updated. For newly created policies, this matches the createdAt timestamp.</p>
+   * The timestamp when the policy was last updated. For newly created policies, this matches the createdAt timestamp.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * The Amazon Resource Name (ARN) of the created policy. This globally unique identifier can be used for cross-service references and IAM policy statements.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The current status of the policy. A status of <code>ACTIVE</code> indicates the policy is ready for use.</p>
+   * The current status of the policy. A status of `ACTIVE` indicates the policy is ready for use.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The enforcement mode of the created policy.</p>
+   * The enforcement mode of the created policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The Cedar or Dogwood policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
+   * The Cedar or Dogwood policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.
+   *
    * @public
    */
   definition: PolicyDefinition | undefined;
 
   /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
+   * The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy creation process.</p>
+   * Additional information about the policy status. This provides details about any failures or the current state of the policy creation process.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -2447,13 +2796,15 @@ export interface CreatePolicyResponse {
  */
 export interface DeletePolicyRequest {
   /**
-   * <p>The identifier of the policy engine that manages the policy to be deleted. This ensures the policy is deleted from the correct policy engine context.</p>
+   * The identifier of the policy engine that manages the policy to be deleted. This ensures the policy is deleted from the correct policy engine context.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy to be deleted. This must be a valid policy ID that exists within the specified policy engine.</p>
+   * The unique identifier of the policy to be deleted. This must be a valid policy ID that exists within the specified policy engine.
+   *
    * @public
    */
   policyId: string | undefined;
@@ -2464,67 +2815,78 @@ export interface DeletePolicyRequest {
  */
 export interface DeletePolicyResponse {
   /**
-   * <p>The unique identifier of the policy being deleted. This confirms which policy the deletion operation targets.</p>
+   * The unique identifier of the policy being deleted. This confirms which policy the deletion operation targets.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the deleted policy. This confirms which policy was successfully removed from the system and matches the name that was originally assigned during policy creation.</p>
+   * The customer-assigned name of the deleted policy. This confirms which policy was successfully removed from the system and matches the name that was originally assigned during policy creation.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine from which the policy was deleted. This confirms the policy engine context for the deletion operation.</p>
+   * The identifier of the policy engine from which the policy was deleted. This confirms the policy engine context for the deletion operation.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The timestamp when the deleted policy was originally created.</p>
+   * The timestamp when the deleted policy was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the deleted policy was last modified before deletion. This tracks the final state of the policy before it was removed from the system.</p>
+   * The timestamp when the deleted policy was last modified before deletion. This tracks the final state of the policy before it was removed from the system.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the deleted policy. This globally unique identifier confirms which policy resource was successfully removed.</p>
+   * The Amazon Resource Name (ARN) of the deleted policy. This globally unique identifier confirms which policy resource was successfully removed.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The status of the policy deletion operation. This provides information about any issues that occurred during the deletion process.</p>
+   * The status of the policy deletion operation. This provides information about any issues that occurred during the deletion process.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The enforcement mode of the deleted policy.</p>
+   * The enforcement mode of the deleted policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
+   * Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.
+   *
    * @public
    */
   definition: PolicyDefinition | undefined;
 
   /**
-   * <p>The human-readable description of the deleted policy.</p>
+   * The human-readable description of the deleted policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
+   * Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -2535,13 +2897,15 @@ export interface DeletePolicyResponse {
  */
 export interface GetPolicyRequest {
   /**
-   * <p>The identifier of the policy engine that manages the policy to be retrieved.</p>
+   * The identifier of the policy engine that manages the policy to be retrieved.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy to be retrieved. This must be a valid policy ID that exists within the specified policy engine.</p>
+   * The unique identifier of the policy to be retrieved. This must be a valid policy ID that exists within the specified policy engine.
+   *
    * @public
    */
   policyId: string | undefined;
@@ -2552,67 +2916,78 @@ export interface GetPolicyRequest {
  */
 export interface GetPolicyResponse {
   /**
-   * <p>The unique identifier of the retrieved policy. This matches the policy ID provided in the request and serves as the system identifier for the policy.</p>
+   * The unique identifier of the retrieved policy. This matches the policy ID provided in the request and serves as the system identifier for the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the policy. This is the human-readable identifier that was specified when the policy was created.</p>
+   * The customer-assigned name of the policy. This is the human-readable identifier that was specified when the policy was created.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine that manages this policy. This confirms the policy engine context for the retrieved policy.</p>
+   * The identifier of the policy engine that manages this policy. This confirms the policy engine context for the retrieved policy.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was originally created.</p>
+   * The timestamp when the policy was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration.</p>
+   * The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The current status of the policy.</p>
+   * The current status of the policy.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The current enforcement mode of the policy.</p>
+   * The current enforcement mode of the policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
+   * The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.
+   *
    * @public
    */
   definition: PolicyDefinition | undefined;
 
   /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
+   * The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy.</p>
+   * Additional information about the policy status. This provides details about any failures or the current state of the policy.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -2623,13 +2998,15 @@ export interface GetPolicyResponse {
  */
 export interface GetPolicySummaryRequest {
   /**
-   * <p>The identifier of the policy engine that manages the policy to retrieve the summary for.</p>
+   * The identifier of the policy engine that manages the policy to retrieve the summary for.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy to retrieve the summary for. This must be a valid policy ID that exists within the specified policy engine.</p>
+   * The unique identifier of the policy to retrieve the summary for. This must be a valid policy ID that exists within the specified policy engine.
+   *
    * @public
    */
   policyId: string | undefined;
@@ -2640,49 +3017,57 @@ export interface GetPolicySummaryRequest {
  */
 export interface GetPolicySummaryResponse {
   /**
-   * <p>The unique identifier of the policy.</p>
+   * The unique identifier of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the policy.</p>
+   * The customer-assigned name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine that manages this policy.</p>
+   * The identifier of the policy engine that manages this policy.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was originally created.</p>
+   * The timestamp when the policy was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last modified.</p>
+   * The timestamp when the policy was last modified.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The current status of the policy.</p>
+   * The current status of the policy.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The current enforcement mode of the policy.</p>
+   * The current enforcement mode of the policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
@@ -2693,97 +3078,113 @@ export interface GetPolicySummaryResponse {
  */
 export interface ListPoliciesRequest {
   /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">ListPolicies</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * A pagination token returned from a previous [ListPolicies](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html) call. Use this token to retrieve the next page of results when the response is paginated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policies to return in a single response. If not specified, the default is 10 policies per page, with a maximum of 100 per page.</p>
+   * The maximum number of policies to return in a single response. If not specified, the default is 10 policies per page, with a maximum of 100 per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the policy engine whose policies to retrieve.</p>
+   * The identifier of the policy engine whose policies to retrieve.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>Optional filter to list policies that apply to a specific resource scope or resource type. This helps narrow down policy results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
+   * Optional filter to list policies that apply to a specific resource scope or resource type. This helps narrow down policy results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.
+   *
    * @public
    */
   targetResourceScope?: string | undefined;
 }
 
 /**
- * <p>Represents a complete policy resource within the AgentCore Policy system. Policies are ARN-able resources that contain Cedar or Dogwood policy statements and associated metadata for controlling agent behavior and access decisions. Each policy belongs to a policy engine and defines fine-grained authorization rules that are evaluated in real-time as agents interact with tools through Gateway. Policies use Cedar or Dogwood to specify who (principals based on OAuth claims like username, role, or scope) can perform what actions (tool calls) on which resources (Gateways), with optional conditions for attribute-based access control. Multiple policies can apply to a single request, with forbid-wins semantics ensuring that security restrictions are never accidentally overridden.</p>
+ * Represents a complete policy resource within the AgentCore Policy system. Policies are ARN-able resources that contain Cedar or Dogwood policy statements and associated metadata for controlling agent behavior and access decisions. Each policy belongs to a policy engine and defines fine-grained authorization rules that are evaluated in real-time as agents interact with tools through Gateway. Policies use Cedar or Dogwood to specify who (principals based on OAuth claims like username, role, or scope) can perform what actions (tool calls) on which resources (Gateways), with optional conditions for attribute-based access control. Multiple policies can apply to a single request, with forbid-wins semantics ensuring that security restrictions are never accidentally overridden.
+ *
  * @public
  */
 export interface Policy {
   /**
-   * <p>The unique identifier for the policy. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy operations.</p>
+   * The unique identifier for the policy. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy operations.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The customer-assigned immutable name for the policy. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
+   * The customer-assigned immutable name for the policy. This human-readable identifier must be unique within the account and cannot exceed 48 characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine that manages this policy. This establishes the policy engine context for policy evaluation and management.</p>
+   * The identifier of the policy engine that manages this policy. This establishes the policy engine context for policy evaluation and management.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * The timestamp when the policy was originally created. This is automatically set by the service and used for auditing and lifecycle management.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration or metadata.</p>
+   * The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration or metadata.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The current status of the policy.</p>
+   * The current status of the policy.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The current enforcement mode of the policy.</p>
+   * The current enforcement mode of the policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
+   * The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.
+   *
    * @public
    */
   definition: PolicyDefinition | undefined;
 
   /**
-   * <p>A human-readable description of the policy's purpose and functionality. Limited to 4,096 characters, this helps administrators understand and manage the policy.</p>
+   * A human-readable description of the policy's purpose and functionality. Limited to 4,096 characters, this helps administrators understand and manage the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy lifecycle.</p>
+   * Additional information about the policy status. This provides details about any failures or the current state of the policy lifecycle.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -2794,13 +3195,15 @@ export interface Policy {
  */
 export interface ListPoliciesResponse {
   /**
-   * <p>An array of policy objects that match the specified criteria. Each policy object contains the policy metadata, status, and key identifiers for further operations.</p>
+   * An array of policy objects that match the specified criteria. Each policy object contains the policy metadata, status, and key identifiers for further operations.
+   *
    * @public
    */
   policies: Policy[] | undefined;
 
   /**
-   * <p>A pagination token that can be used in subsequent ListPolicies calls to retrieve additional results. This token is only present when there are more results available.</p>
+   * A pagination token that can be used in subsequent ListPolicies calls to retrieve additional results. This token is only present when there are more results available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2811,79 +3214,92 @@ export interface ListPoliciesResponse {
  */
 export interface ListPolicySummariesRequest {
   /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html">ListPolicySummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * A pagination token returned from a previous [ListPolicySummaries](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html) call. Use this token to retrieve the next page of results when the response is paginated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policy summaries to return in a single response.</p>
+   * The maximum number of policy summaries to return in a single response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The identifier of the policy engine whose policy summaries to retrieve.</p>
+   * The identifier of the policy engine whose policy summaries to retrieve.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>Optional filter to list policy summaries that apply to a specific resource scope or resource type. This helps narrow down results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
+   * Optional filter to list policy summaries that apply to a specific resource scope or resource type. This helps narrow down results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.
+   *
    * @public
    */
   targetResourceScope?: string | undefined;
 }
 
 /**
- * <p>Represents a metadata-only summary of a policy resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as definition, description, or status reasons. Policy summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * Represents a metadata-only summary of a policy resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as definition, description, or status reasons. Policy summaries are returned by operations that do not require access to the customer's KMS key.
+ *
  * @public
  */
 export interface PolicySummary {
   /**
-   * <p>The unique identifier for the policy.</p>
+   * The unique identifier for the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The customer-assigned name of the policy.</p>
+   * The customer-assigned name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine that manages this policy.</p>
+   * The identifier of the policy engine that manages this policy.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was originally created.</p>
+   * The timestamp when the policy was originally created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last modified.</p>
+   * The timestamp when the policy was last modified.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The current status of the policy.</p>
+   * The current status of the policy.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The current enforcement mode of the policy.</p>
+   * The current enforcement mode of the policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
@@ -2894,13 +3310,15 @@ export interface PolicySummary {
  */
 export interface ListPolicySummariesResponse {
   /**
-   * <p>An array of policy summary objects that match the specified criteria. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
+   * An array of policy summary objects that match the specified criteria. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.
+   *
    * @public
    */
   policies: PolicySummary[] | undefined;
 
   /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html">ListPolicySummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
+   * A pagination token that can be used in subsequent [ListPolicySummaries](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html) calls to retrieve additional results. This token is only present when there are more results available.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -2911,37 +3329,43 @@ export interface ListPolicySummariesResponse {
  */
 export interface UpdatePolicyRequest {
   /**
-   * <p>The identifier of the policy engine that manages the policy to be updated. This ensures the policy is updated within the correct policy engine context.</p>
+   * The identifier of the policy engine that manages the policy to be updated. This ensures the policy is updated within the correct policy engine context.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy to be updated. This must be a valid policy ID that exists within the specified policy engine.</p>
+   * The unique identifier of the policy to be updated. This must be a valid policy ID that exists within the specified policy engine.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The new human-readable description for the policy. This optional field allows updating the policy's documentation while keeping the same policy logic.</p>
+   * The new human-readable description for the policy. This optional field allows updating the policy's documentation while keeping the same policy logic.
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>The new Cedar or Dogwood policy statement that defines the access control rules. This replaces the existing policy definition with new logic while maintaining the policy's identity.</p>
+   * The new Cedar or Dogwood policy statement that defines the access control rules. This replaces the existing policy definition with new logic while maintaining the policy's identity.
+   *
    * @public
    */
   definition?: PolicyDefinition | undefined;
 
   /**
-   * <p>The validation mode for the policy update. Determines how Cedar analyzer validation results are handled during policy updates. FAIL_ON_ANY_FINDINGS runs the Cedar analyzer and fails the update if validation issues are detected, ensuring the policy conforms to the Cedar schema and tool context. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows updates despite validation warnings. Use FAIL_ON_ANY_FINDINGS to ensure policy correctness during updates, especially when modifying policy logic or conditions.</p>
+   * The validation mode for the policy update. Determines how Cedar analyzer validation results are handled during policy updates. FAIL_ON_ANY_FINDINGS runs the Cedar analyzer and fails the update if validation issues are detected, ensuring the policy conforms to the Cedar schema and tool context. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows updates despite validation warnings. Use FAIL_ON_ANY_FINDINGS to ensure policy correctness during updates, especially when modifying policy logic or conditions.
+   *
    * @public
    */
   validationMode?: PolicyValidationMode | undefined;
 
   /**
-   * <p>The enforcement mode for the policy. Run this policy in <code>LOG_ONLY</code> mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to <code>ACTIVE</code>. If you omit this field, the policy's existing enforcement mode is unchanged.</p>
+   * The enforcement mode for the policy. Run this policy in `LOG_ONLY` mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to `ACTIVE`. If you omit this field, the policy's existing enforcement mode is unchanged.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
@@ -2952,67 +3376,78 @@ export interface UpdatePolicyRequest {
  */
 export interface UpdatePolicyResponse {
   /**
-   * <p>The unique identifier of the updated policy.</p>
+   * The unique identifier of the updated policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The name of the updated policy.</p>
+   * The name of the updated policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier of the policy engine managing the updated policy.</p>
+   * The identifier of the policy engine managing the updated policy.
+   *
    * @public
    */
   policyEngineId: string | undefined;
 
   /**
-   * <p>The original creation timestamp of the policy.</p>
+   * The original creation timestamp of the policy.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last updated.</p>
+   * The timestamp when the policy was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The ARN of the updated policy.</p>
+   * The ARN of the updated policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The current status of the updated policy.</p>
+   * The current status of the updated policy.
+   *
    * @public
    */
   status: PolicyStatus | undefined;
 
   /**
-   * <p>The current enforcement mode of the updated policy.</p>
+   * The current enforcement mode of the updated policy.
+   *
    * @public
    */
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The updated Cedar or Dogwood policy statement.</p>
+   * The updated Cedar or Dogwood policy statement.
+   *
    * @public
    */
   definition: PolicyDefinition | undefined;
 
   /**
-   * <p>The updated description of the policy.</p>
+   * The updated description of the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Additional information about the update status.</p>
+   * Additional information about the update status.
+   *
    * @public
    */
   statusReasons: string[] | undefined;
@@ -3023,13 +3458,15 @@ export interface UpdatePolicyResponse {
  */
 export interface PutResourcePolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.</p>
+   * The Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The resource policy to create or update.</p>
+   * The resource policy to create or update.
+   *
    * @public
    */
   policy: string | undefined;
@@ -3040,164 +3477,191 @@ export interface PutResourcePolicyRequest {
  */
 export interface PutResourcePolicyResponse {
   /**
-   * <p>The resource policy that was created or updated.</p>
+   * The resource policy that was created or updated.
+   *
    * @public
    */
   policy: string | undefined;
 }
 
 /**
- * <p>A custom descriptor for a registry record. Use this for resources such as APIs, Lambda functions, or servers that do not conform to a standard protocol like MCP or A2A.</p>
+ * A custom descriptor for a registry record. Use this for resources such as APIs, Lambda functions, or servers that do not conform to a standard protocol like MCP or A2A.
+ *
  * @public
  */
 export interface CustomDescriptor {
   /**
-   * <p>The custom descriptor content as a valid JSON document. You can define any custom schema that describes your resource.</p>
+   * The custom descriptor content as a valid JSON document. You can define any custom schema that describes your resource.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p>The server definition for an MCP descriptor. Contains the schema version and inline content for the MCP server configuration.</p>
+ * The server definition for an MCP descriptor. Contains the schema version and inline content for the MCP server configuration.
+ *
  * @public
  */
 export interface ServerDefinition {
   /**
-   * <p>The schema version of the server definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.</p>
+   * The schema version of the server definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.
+   *
    * @public
    */
   schemaVersion?: string | undefined;
 
   /**
-   * <p>The JSON content containing the MCP server definition, conforming to the MCP protocol specification.</p>
+   * The JSON content containing the MCP server definition, conforming to the MCP protocol specification.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p>The tools definition for an MCP descriptor. Contains the protocol version and inline content describing the available tools.</p>
+ * The tools definition for an MCP descriptor. Contains the protocol version and inline content describing the available tools.
+ *
  * @public
  */
 export interface ToolsDefinition {
   /**
-   * <p>The protocol version of the tools definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.</p>
+   * The protocol version of the tools definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.
+   *
    * @public
    */
   protocolVersion?: string | undefined;
 
   /**
-   * <p>The JSON content containing the MCP tools definition, conforming to the MCP protocol specification.</p>
+   * The JSON content containing the MCP tools definition, conforming to the MCP protocol specification.
+   *
    * @public
    */
   inlineContent?: string | undefined;
 }
 
 /**
- * <p>The Model Context Protocol (MCP) descriptor for a registry record. Contains the server definition and tools definition for an MCP-compatible server. The schema is validated against the MCP protocol specification.</p>
+ * The Model Context Protocol (MCP) descriptor for a registry record. Contains the server definition and tools definition for an MCP-compatible server. The schema is validated against the MCP protocol specification.
+ *
  * @public
  */
 export interface McpDescriptor {
   /**
-   * <p>The MCP server definition, containing the server configuration and schema as defined by the MCP protocol specification.</p>
+   * The MCP server definition, containing the server configuration and schema as defined by the MCP protocol specification.
+   *
    * @public
    */
   server?: ServerDefinition | undefined;
 
   /**
-   * <p>The MCP tools definition, containing the tools available on the MCP server as defined by the MCP protocol specification.</p>
+   * The MCP tools definition, containing the tools available on the MCP server as defined by the MCP protocol specification.
+   *
    * @public
    */
   tools?: ToolsDefinition | undefined;
 }
 
 /**
- * <p>Contains descriptor-type-specific configurations for a registry record. Only the descriptor matching the record's <code>descriptorType</code> should be populated.</p>
+ * Contains descriptor-type-specific configurations for a registry record. Only the descriptor matching the record's `descriptorType` should be populated.
+ *
  * @public
  */
 export interface Descriptors {
   /**
-   * <p>The Model Context Protocol (MCP) descriptor configuration. Use this when the <code>descriptorType</code> is <code>MCP</code>.</p>
+   * The Model Context Protocol (MCP) descriptor configuration. Use this when the `descriptorType` is `MCP`.
+   *
    * @public
    */
   mcp?: McpDescriptor | undefined;
 
   /**
-   * <p>The Agent-to-Agent (A2A) protocol descriptor configuration. Use this when the <code>descriptorType</code> is <code>A2A</code>.</p>
+   * The Agent-to-Agent (A2A) protocol descriptor configuration. Use this when the `descriptorType` is `A2A`.
+   *
    * @public
    */
   a2a?: A2aDescriptor | undefined;
 
   /**
-   * <p>The custom descriptor configuration. Use this when the <code>descriptorType</code> is <code>CUSTOM</code>.</p>
+   * The custom descriptor configuration. Use this when the `descriptorType` is `CUSTOM`.
+   *
    * @public
    */
   custom?: CustomDescriptor | undefined;
 
   /**
-   * <p>The agent skills descriptor configuration. Use this when the <code>descriptorType</code> is <code>AGENT_SKILLS</code>.</p>
+   * The agent skills descriptor configuration. Use this when the `descriptorType` is `AGENT_SKILLS`.
+   *
    * @public
    */
   agentSkills?: AgentSkillsDescriptor | undefined;
 }
 
 /**
- * <p>IAM credential provider configuration for authenticating with an external source using SigV4 signing during synchronization.</p>
+ * IAM credential provider configuration for authenticating with an external source using SigV4 signing during synchronization.
+ *
  * @public
  */
 export interface RegistryRecordIamCredentialProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for SigV4 signing.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to assume for SigV4 signing.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The SigV4 signing service name (for example, <code>execute-api</code> or <code>bedrock-agentcore</code>).</p>
+   * The SigV4 signing service name (for example, `execute-api` or `bedrock-agentcore`).
+   *
    * @public
    */
   service?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services region for SigV4 signing (for example, <code>us-west-2</code>). If not specified, the region is extracted from the MCP server URL hostname, with fallback to the service's own region.</p>
+   * The Amazon Web Services region for SigV4 signing (for example, `us-west-2`). If not specified, the region is extracted from the MCP server URL hostname, with fallback to the service's own region.
+   *
    * @public
    */
   region?: string | undefined;
 }
 
 /**
- * <p>OAuth credential provider configuration for authenticating with an external source during synchronization.</p>
+ * OAuth credential provider configuration for authenticating with an external source during synchronization.
+ *
  * @public
  */
 export interface RegistryRecordOAuthCredentialProvider {
   /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth credential provider resource.</p>
+   * The Amazon Resource Name (ARN) of the OAuth credential provider resource.
+   *
    * @public
    */
   providerArn: string | undefined;
 
   /**
-   * <p>The OAuth grant type. Currently only <code>CLIENT_CREDENTIALS</code> is supported.</p>
+   * The OAuth grant type. Currently only `CLIENT_CREDENTIALS` is supported.
+   *
    * @public
    */
   grantType?: RegistryRecordOAuthGrantType | undefined;
 
   /**
-   * <p>The OAuth scopes to request during authentication.</p>
+   * The OAuth scopes to request during authentication.
+   *
    * @public
    */
   scopes?: string[] | undefined;
 
   /**
-   * <p>Additional custom parameters for the OAuth flow.</p>
+   * Additional custom parameters for the OAuth flow.
+   *
    * @public
    */
   customParameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Union of supported credential provider types for registry record synchronization.</p>
+ * Union of supported credential provider types for registry record synchronization.
+ *
  * @public
  */
 export type RegistryRecordCredentialProviderUnion =
@@ -3210,7 +3674,8 @@ export type RegistryRecordCredentialProviderUnion =
  */
 export namespace RegistryRecordCredentialProviderUnion {
   /**
-   * <p>The OAuth credential provider configuration for authenticating with the external source.</p>
+   * The OAuth credential provider configuration for authenticating with the external source.
+   *
    * @public
    */
   export interface OauthCredentialProviderMember {
@@ -3220,7 +3685,8 @@ export namespace RegistryRecordCredentialProviderUnion {
   }
 
   /**
-   * <p>The IAM credential provider configuration for authenticating with the external source using SigV4 signing.</p>
+   * The IAM credential provider configuration for authenticating with the external source using SigV4 signing.
+   *
    * @public
    */
   export interface IamCredentialProviderMember {
@@ -3250,48 +3716,59 @@ export namespace RegistryRecordCredentialProviderUnion {
 }
 
 /**
- * <p>A pairing of a credential provider type with its corresponding provider details for authenticating with external sources.</p>
+ * A pairing of a credential provider type with its corresponding provider details for authenticating with external sources.
+ *
  * @public
  */
 export interface RegistryRecordCredentialProviderConfiguration {
   /**
-   * <p>The type of credential provider.</p> <ul> <li> <p> <code>OAUTH</code> - OAuth-based authentication.</p> </li> <li> <p> <code>IAM</code> - Amazon Web Services IAM-based authentication using SigV4 signing.</p> </li> </ul>
+   * The type of credential provider.
+   *
+   * - `OAUTH` - OAuth-based authentication.
+   * - `IAM` - Amazon Web Services IAM-based authentication using SigV4 signing.
+   *
    * @public
    */
   credentialProviderType: RegistryRecordCredentialProviderType | undefined;
 
   /**
-   * <p>The credential provider configuration details. The structure depends on the <code>credentialProviderType</code>.</p>
+   * The credential provider configuration details. The structure depends on the `credentialProviderType`.
+   *
    * @public
    */
   credentialProvider: RegistryRecordCredentialProviderUnion | undefined;
 }
 
 /**
- * <p>Configuration for synchronizing from a URL-based MCP server.</p>
+ * Configuration for synchronizing from a URL-based MCP server.
+ *
  * @public
  */
 export interface FromUrlSynchronizationConfiguration {
   /**
-   * <p>The HTTPS URL of the MCP server to synchronize from.</p>
+   * The HTTPS URL of the MCP server to synchronize from.
+   *
    * @public
    */
   url: string | undefined;
 
   /**
-   * <p>Optional list of credential provider configurations for authenticating with the MCP server. At most one credential provider configuration can be specified.</p>
+   * Optional list of credential provider configurations for authenticating with the MCP server. At most one credential provider configuration can be specified.
+   *
    * @public
    */
   credentialProviderConfigurations?: RegistryRecordCredentialProviderConfiguration[] | undefined;
 }
 
 /**
- * <p>Configuration for synchronizing registry record metadata from an external source.</p>
+ * Configuration for synchronizing registry record metadata from an external source.
+ *
  * @public
  */
 export interface SynchronizationConfiguration {
   /**
-   * <p>Configuration for synchronizing from a URL-based source.</p>
+   * Configuration for synchronizing from a URL-based source.
+   *
    * @public
    */
   fromUrl?: FromUrlSynchronizationConfiguration | undefined;
@@ -3302,55 +3779,69 @@ export interface SynchronizationConfiguration {
  */
 export interface CreateRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry where the record will be created. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry where the record will be created. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The name of the registry record.</p>
+   * The name of the registry record.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the registry record.</p>
+   * A description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The descriptor type of the registry record.</p> <ul> <li> <p> <code>MCP</code> - Model Context Protocol descriptor for MCP-compatible servers and tools.</p> </li> <li> <p> <code>A2A</code> - Agent-to-Agent protocol descriptor.</p> </li> <li> <p> <code>CUSTOM</code> - Custom descriptor type for resources such as APIs, Lambda functions, or servers not conforming to a standard protocol.</p> </li> <li> <p> <code>AGENT_SKILLS</code> - Agent skills descriptor for defining agent skill definitions.</p> </li> </ul>
+   * The descriptor type of the registry record.
+   *
+   * - `MCP` - Model Context Protocol descriptor for MCP-compatible servers and tools.
+   * - `A2A` - Agent-to-Agent protocol descriptor.
+   * - `CUSTOM` - Custom descriptor type for resources such as APIs, Lambda functions, or servers not conforming to a standard protocol.
+   * - `AGENT_SKILLS` - Agent skills descriptor for defining agent skill definitions.
+   *
    * @public
    */
   descriptorType: DescriptorType | undefined;
 
   /**
-   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. The structure of this field depends on the <code>descriptorType</code> you specify.</p>
+   * The descriptor-type-specific configuration containing the resource schema and metadata. The structure of this field depends on the `descriptorType` you specify.
+   *
    * @public
    */
   descriptors?: Descriptors | undefined;
 
   /**
-   * <p>The version of the registry record. Use this to track different versions of the record's content.</p>
+   * The version of the registry record. Use this to track different versions of the record's content.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The type of synchronization to use for keeping the record metadata up to date from an external source. Possible values include <code>FROM_URL</code> and <code>NONE</code>.</p>
+   * The type of synchronization to use for keeping the record metadata up to date from an external source. Possible values include `FROM_URL` and `NONE`.
+   *
    * @public
    */
   synchronizationType?: SynchronizationType | undefined;
 
   /**
-   * <p>The configuration for synchronizing registry record metadata from an external source, such as a URL-based MCP server.</p>
+   * The configuration for synchronizing registry record metadata from an external source, such as a URL-based MCP server.
+   *
    * @public
    */
   synchronizationConfiguration?: SynchronizationConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3361,13 +3852,15 @@ export interface CreateRegistryRecordRequest {
  */
 export interface CreateRegistryRecordResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created registry record.</p>
+   * The Amazon Resource Name (ARN) of the created registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The status of the registry record. Set to <code>CREATING</code> while the asynchronous workflow is in progress.</p>
+   * The status of the registry record. Set to `CREATING` while the asynchronous workflow is in progress.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
@@ -3378,13 +3871,15 @@ export interface CreateRegistryRecordResponse {
  */
 export interface DeleteRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * The identifier of the registry record to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the record.
+   *
    * @public
    */
   recordId: string | undefined;
@@ -3400,13 +3895,15 @@ export interface DeleteRegistryRecordResponse {}
  */
 export interface GetRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * The identifier of the registry record to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the record.
+   *
    * @public
    */
   recordId: string | undefined;
@@ -3417,85 +3914,99 @@ export interface GetRegistryRecordRequest {
  */
 export interface GetRegistryRecordResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * The Amazon Resource Name (ARN) of the registry that contains the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The name of the registry record.</p>
+   * The name of the registry record.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry record.</p>
+   * The description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * The descriptor type of the registry record. Possible values are `MCP`, `A2A`, `CUSTOM`, and `AGENT_SKILLS`.
+   *
    * @public
    */
   descriptorType: DescriptorType | undefined;
 
   /**
-   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. For details, see the <code>Descriptors</code> data type.</p>
+   * The descriptor-type-specific configuration containing the resource schema and metadata. For details, see the `Descriptors` data type.
+   *
    * @public
    */
   descriptors: Descriptors | undefined;
 
   /**
-   * <p>The version of the registry record.</p>
+   * The version of the registry record.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>. A record transitions from <code>CREATING</code> to <code>DRAFT</code>, then to <code>PENDING_APPROVAL</code> (via <code>SubmitRegistryRecordForApproval</code>), and finally to <code>APPROVED</code> upon approval.</p>
+   * The current status of the registry record. Possible values include `CREATING`, `DRAFT`, `APPROVED`, `PENDING_APPROVAL`, `REJECTED`, `DEPRECATED`, `UPDATING`, `CREATE_FAILED`, and `UPDATE_FAILED`. A record transitions from `CREATING` to `DRAFT`, then to `PENDING_APPROVAL` (via `SubmitRegistryRecordForApproval`), and finally to `APPROVED` upon approval.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the registry record was created.</p>
+   * The timestamp when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry record was last updated.</p>
+   * The timestamp when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * The reason for the current status, typically set when the status is a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The type of synchronization used for this record.</p>
+   * The type of synchronization used for this record.
+   *
    * @public
    */
   synchronizationType?: SynchronizationType | undefined;
 
   /**
-   * <p>The configuration for synchronizing registry record metadata from an external source.</p>
+   * The configuration for synchronizing registry record metadata from an external source.
+   *
    * @public
    */
   synchronizationConfiguration?: SynchronizationConfiguration | undefined;
@@ -3506,103 +4017,120 @@ export interface GetRegistryRecordResponse {
  */
 export interface ListRegistryRecordsRequest {
   /**
-   * <p>The identifier of the registry to list records from. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry to list records from. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter registry records by name.</p>
+   * Filter registry records by name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Filter registry records by their current status. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * Filter registry records by their current status. Possible values include `CREATING`, `DRAFT`, `APPROVED`, `PENDING_APPROVAL`, `REJECTED`, `DEPRECATED`, `UPDATING`, `CREATE_FAILED`, and `UPDATE_FAILED`.
+   *
    * @public
    */
   status?: RegistryRecordStatus | undefined;
 
   /**
-   * <p>Filter registry records by their descriptor type. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * Filter registry records by their descriptor type. Possible values are `MCP`, `A2A`, `CUSTOM`, and `AGENT_SKILLS`.
+   *
    * @public
    */
   descriptorType?: DescriptorType | undefined;
 }
 
 /**
- * <p>Contains summary information about a registry record.</p>
+ * Contains summary information about a registry record.
+ *
  * @public
  */
 export interface RegistryRecordSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * The Amazon Resource Name (ARN) of the registry that contains the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The name of the registry record.</p>
+   * The name of the registry record.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry record.</p>
+   * The description of the registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * The descriptor type of the registry record. Possible values are `MCP`, `A2A`, `CUSTOM`, and `AGENT_SKILLS`.
+   *
    * @public
    */
   descriptorType: DescriptorType | undefined;
 
   /**
-   * <p>The version of the registry record.</p>
+   * The version of the registry record.
+   *
    * @public
    */
   recordVersion: string | undefined;
 
   /**
-   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * The current status of the registry record. Possible values include `CREATING`, `DRAFT`, `APPROVED`, `PENDING_APPROVAL`, `REJECTED`, `DEPRECATED`, `UPDATING`, `CREATE_FAILED`, and `UPDATE_FAILED`.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the registry record was created.</p>
+   * The timestamp when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry record was last updated.</p>
+   * The timestamp when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3613,13 +4141,15 @@ export interface RegistryRecordSummary {
  */
 export interface ListRegistryRecordsResponse {
   /**
-   * <p>The list of registry record summaries. For details about the fields in each summary, see the <code>RegistryRecordSummary</code> data type.</p>
+   * The list of registry record summaries. For details about the fields in each summary, see the `RegistryRecordSummary` data type.
+   *
    * @public
    */
   registryRecords: RegistryRecordSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3630,13 +4160,15 @@ export interface ListRegistryRecordsResponse {
  */
 export interface SubmitRegistryRecordForApprovalRequest {
   /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to submit for approval. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * The identifier of the registry record to submit for approval. You can specify either the Amazon Resource Name (ARN) or the ID of the record.
+   *
    * @public
    */
   recordId: string | undefined;
@@ -3647,229 +4179,267 @@ export interface SubmitRegistryRecordForApprovalRequest {
  */
 export interface SubmitRegistryRecordForApprovalResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * The Amazon Resource Name (ARN) of the registry that contains the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The resulting status of the registry record after submission.</p>
+   * The resulting status of the registry record after submission.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the record was last updated.</p>
+   * The timestamp when the record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Wrapper for updating an A2A descriptor with PATCH semantics. When present, the A2A descriptor is replaced with the provided value. When absent, the A2A descriptor is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * Wrapper for updating an A2A descriptor with PATCH semantics. When present, the A2A descriptor is replaced with the provided value. When absent, the A2A descriptor is left unchanged. To unset, include the wrapper with the value set to null.
+ *
  * @public
  */
 export interface UpdatedA2aDescriptor {
   /**
-   * <p>The updated A2A descriptor value.</p>
+   * The updated A2A descriptor value.
+   *
    * @public
    */
   optionalValue?: A2aDescriptor | undefined;
 }
 
 /**
- * <p>Wrapper for updating a skill definition with PATCH semantics.</p>
+ * Wrapper for updating a skill definition with PATCH semantics.
+ *
  * @public
  */
 export interface UpdatedSkillDefinition {
   /**
-   * <p>The updated skill definition value.</p>
+   * The updated skill definition value.
+   *
    * @public
    */
   optionalValue?: SkillDefinition | undefined;
 }
 
 /**
- * <p>Wrapper for updating a skill markdown definition with PATCH semantics.</p>
+ * Wrapper for updating a skill markdown definition with PATCH semantics.
+ *
  * @public
  */
 export interface UpdatedSkillMdDefinition {
   /**
-   * <p>The updated skill markdown definition value.</p>
+   * The updated skill markdown definition value.
+   *
    * @public
    */
   optionalValue?: SkillMdDefinition | undefined;
 }
 
 /**
- * <p>Individual agent skills descriptor fields that can be updated independently.</p>
+ * Individual agent skills descriptor fields that can be updated independently.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsDescriptorFields {
   /**
-   * <p>The updated skill markdown definition.</p>
+   * The updated skill markdown definition.
+   *
    * @public
    */
   skillMd?: UpdatedSkillMdDefinition | undefined;
 
   /**
-   * <p>The updated skill definition.</p>
+   * The updated skill definition.
+   *
    * @public
    */
   skillDefinition?: UpdatedSkillDefinition | undefined;
 }
 
 /**
- * <p>Wrapper for updating an agent skills descriptor with PATCH semantics. When present with a value, individual fields can be updated independently. When present with a null value, the entire agent skills descriptor is unset. When absent, the agent skills descriptor is left unchanged.</p>
+ * Wrapper for updating an agent skills descriptor with PATCH semantics. When present with a value, individual fields can be updated independently. When present with a null value, the entire agent skills descriptor is unset. When absent, the agent skills descriptor is left unchanged.
+ *
  * @public
  */
 export interface UpdatedAgentSkillsDescriptor {
   /**
-   * <p>The updated agent skills descriptor fields.</p>
+   * The updated agent skills descriptor fields.
+   *
    * @public
    */
   optionalValue?: UpdatedAgentSkillsDescriptorFields | undefined;
 }
 
 /**
- * <p>Wrapper for updating a custom descriptor with PATCH semantics. When present, the custom descriptor is replaced with the provided value. When absent, the custom descriptor is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * Wrapper for updating a custom descriptor with PATCH semantics. When present, the custom descriptor is replaced with the provided value. When absent, the custom descriptor is left unchanged. To unset, include the wrapper with the value set to null.
+ *
  * @public
  */
 export interface UpdatedCustomDescriptor {
   /**
-   * <p>The updated custom descriptor value.</p>
+   * The updated custom descriptor value.
+   *
    * @public
    */
   optionalValue?: CustomDescriptor | undefined;
 }
 
 /**
- * <p>Wrapper for updating a server definition with PATCH semantics. When present, the server definition is replaced with the provided value. When absent, the server definition is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * Wrapper for updating a server definition with PATCH semantics. When present, the server definition is replaced with the provided value. When absent, the server definition is left unchanged. To unset, include the wrapper with the value set to null.
+ *
  * @public
  */
 export interface UpdatedServerDefinition {
   /**
-   * <p>The updated server definition value.</p>
+   * The updated server definition value.
+   *
    * @public
    */
   optionalValue?: ServerDefinition | undefined;
 }
 
 /**
- * <p>Wrapper for updating a tools definition with PATCH semantics. When present, the tools definition is replaced with the provided value. When absent, the tools definition is left unchanged. To unset, include the wrapper with the value set to null.</p>
+ * Wrapper for updating a tools definition with PATCH semantics. When present, the tools definition is replaced with the provided value. When absent, the tools definition is left unchanged. To unset, include the wrapper with the value set to null.
+ *
  * @public
  */
 export interface UpdatedToolsDefinition {
   /**
-   * <p>The updated tools definition value.</p>
+   * The updated tools definition value.
+   *
    * @public
    */
   optionalValue?: ToolsDefinition | undefined;
 }
 
 /**
- * <p>Individual MCP descriptor fields that can be updated independently.</p>
+ * Individual MCP descriptor fields that can be updated independently.
+ *
  * @public
  */
 export interface UpdatedMcpDescriptorFields {
   /**
-   * <p>The updated server definition for the MCP descriptor.</p>
+   * The updated server definition for the MCP descriptor.
+   *
    * @public
    */
   server?: UpdatedServerDefinition | undefined;
 
   /**
-   * <p>The updated tools definition for the MCP descriptor.</p>
+   * The updated tools definition for the MCP descriptor.
+   *
    * @public
    */
   tools?: UpdatedToolsDefinition | undefined;
 }
 
 /**
- * <p>Wrapper for updating an MCP descriptor with PATCH semantics. When present with a value, individual MCP fields can be updated independently. When present with a null value, the entire MCP descriptor is unset. When absent, the MCP descriptor is left unchanged.</p>
+ * Wrapper for updating an MCP descriptor with PATCH semantics. When present with a value, individual MCP fields can be updated independently. When present with a null value, the entire MCP descriptor is unset. When absent, the MCP descriptor is left unchanged.
+ *
  * @public
  */
 export interface UpdatedMcpDescriptor {
   /**
-   * <p>The updated MCP descriptor fields.</p>
+   * The updated MCP descriptor fields.
+   *
    * @public
    */
   optionalValue?: UpdatedMcpDescriptorFields | undefined;
 }
 
 /**
- * <p>Contains per-descriptor-type wrappers for updating descriptors. Each descriptor type can be updated independently.</p>
+ * Contains per-descriptor-type wrappers for updating descriptors. Each descriptor type can be updated independently.
+ *
  * @public
  */
 export interface UpdatedDescriptorsUnion {
   /**
-   * <p>The updated MCP descriptor.</p>
+   * The updated MCP descriptor.
+   *
    * @public
    */
   mcp?: UpdatedMcpDescriptor | undefined;
 
   /**
-   * <p>The updated A2A descriptor.</p>
+   * The updated A2A descriptor.
+   *
    * @public
    */
   a2a?: UpdatedA2aDescriptor | undefined;
 
   /**
-   * <p>The updated custom descriptor.</p>
+   * The updated custom descriptor.
+   *
    * @public
    */
   custom?: UpdatedCustomDescriptor | undefined;
 
   /**
-   * <p>The updated agent skills descriptor.</p>
+   * The updated agent skills descriptor.
+   *
    * @public
    */
   agentSkills?: UpdatedAgentSkillsDescriptor | undefined;
 }
 
 /**
- * <p>Wrapper for updating an optional descriptors field with PATCH semantics. When present with a value, individual descriptors can be updated. When present with a null value, all descriptors are unset. When absent, descriptors are left unchanged.</p>
+ * Wrapper for updating an optional descriptors field with PATCH semantics. When present with a value, individual descriptors can be updated. When present with a null value, all descriptors are unset. When absent, descriptors are left unchanged.
+ *
  * @public
  */
 export interface UpdatedDescriptors {
   /**
-   * <p>The updated descriptors value. Contains per-descriptor-type wrappers that are each independently updatable.</p>
+   * The updated descriptors value. Contains per-descriptor-type wrappers that are each independently updatable.
+   *
    * @public
    */
   optionalValue?: UpdatedDescriptorsUnion | undefined;
 }
 
 /**
- * <p>Wrapper for updating the synchronization configuration with PATCH semantics. Must be matched with <code>UpdatedSynchronizationType</code>.</p>
+ * Wrapper for updating the synchronization configuration with PATCH semantics. Must be matched with `UpdatedSynchronizationType`.
+ *
  * @public
  */
 export interface UpdatedSynchronizationConfiguration {
   /**
-   * <p>The updated synchronization configuration value.</p>
+   * The updated synchronization configuration value.
+   *
    * @public
    */
   optionalValue?: SynchronizationConfiguration | undefined;
 }
 
 /**
- * <p>Wrapper for updating the synchronization type with PATCH semantics. Must be matched with <code>UpdatedSynchronizationConfiguration</code>.</p>
+ * Wrapper for updating the synchronization type with PATCH semantics. Must be matched with `UpdatedSynchronizationConfiguration`.
+ *
  * @public
  */
 export interface UpdatedSynchronizationType {
   /**
-   * <p>The updated synchronization type value.</p>
+   * The updated synchronization type value.
+   *
    * @public
    */
   optionalValue?: SynchronizationType | undefined;
@@ -3880,61 +4450,71 @@ export interface UpdatedSynchronizationType {
  */
 export interface UpdateRegistryRecordRequest {
   /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to update. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * The identifier of the registry record to update. You can specify either the Amazon Resource Name (ARN) or the ID of the record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The updated name for the registry record.</p>
+   * The updated name for the registry record.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description for the registry record. To clear the description, include the <code>UpdatedDescription</code> wrapper with <code>optionalValue</code> not specified.</p>
+   * The updated description for the registry record. To clear the description, include the `UpdatedDescription` wrapper with `optionalValue` not specified.
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>The updated descriptor type for the registry record. Changing the descriptor type may require updating the <code>descriptors</code> field to match the new type's schema requirements.</p>
+   * The updated descriptor type for the registry record. Changing the descriptor type may require updating the `descriptors` field to match the new type's schema requirements.
+   *
    * @public
    */
   descriptorType?: DescriptorType | undefined;
 
   /**
-   * <p>The updated descriptor-type-specific configuration containing the resource schema and metadata. Uses PATCH semantics where individual descriptor fields can be updated independently.</p>
+   * The updated descriptor-type-specific configuration containing the resource schema and metadata. Uses PATCH semantics where individual descriptor fields can be updated independently.
+   *
    * @public
    */
   descriptors?: UpdatedDescriptors | undefined;
 
   /**
-   * <p>The version of the registry record for optimistic locking. If provided, it must match the current version of the record. The service automatically increments the version after a successful update.</p>
+   * The version of the registry record for optimistic locking. If provided, it must match the current version of the record. The service automatically increments the version after a successful update.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The updated synchronization type for the registry record.</p>
+   * The updated synchronization type for the registry record.
+   *
    * @public
    */
   synchronizationType?: UpdatedSynchronizationType | undefined;
 
   /**
-   * <p>The updated synchronization configuration for the registry record.</p>
+   * The updated synchronization configuration for the registry record.
+   *
    * @public
    */
   synchronizationConfiguration?: UpdatedSynchronizationConfiguration | undefined;
 
   /**
-   * <p>Whether to trigger synchronization using the stored or provided configuration. When set to <code>true</code>, the service will synchronize the record metadata from the configured external source.</p>
+   * Whether to trigger synchronization using the stored or provided configuration. When set to `true`, the service will synchronize the record metadata from the configured external source.
+   *
    * @public
    */
   triggerSynchronization?: boolean | undefined;
@@ -3945,85 +4525,99 @@ export interface UpdateRegistryRecordRequest {
  */
 export interface UpdateRegistryRecordResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the updated record.</p>
+   * The Amazon Resource Name (ARN) of the registry that contains the updated record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated registry record.</p>
+   * The Amazon Resource Name (ARN) of the updated registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated registry record.</p>
+   * The unique identifier of the updated registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The name of the updated registry record.</p>
+   * The name of the updated registry record.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the updated registry record.</p>
+   * The description of the updated registry record.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The descriptor type of the updated registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * The descriptor type of the updated registry record. Possible values are `MCP`, `A2A`, `CUSTOM`, and `AGENT_SKILLS`.
+   *
    * @public
    */
   descriptorType: DescriptorType | undefined;
 
   /**
-   * <p>The descriptor-type-specific configuration of the updated registry record. For details, see the <code>Descriptors</code> data type.</p>
+   * The descriptor-type-specific configuration of the updated registry record. For details, see the `Descriptors` data type.
+   *
    * @public
    */
   descriptors: Descriptors | undefined;
 
   /**
-   * <p>The version of the updated registry record.</p>
+   * The version of the updated registry record.
+   *
    * @public
    */
   recordVersion?: string | undefined;
 
   /**
-   * <p>The current status of the updated registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * The current status of the updated registry record. Possible values include `CREATING`, `DRAFT`, `APPROVED`, `PENDING_APPROVAL`, `REJECTED`, `DEPRECATED`, `UPDATING`, `CREATE_FAILED`, and `UPDATE_FAILED`.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The timestamp when the registry record was created.</p>
+   * The timestamp when the registry record was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry record was last updated.</p>
+   * The timestamp when the registry record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The reason for the current status of the updated registry record.</p>
+   * The reason for the current status of the updated registry record.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The synchronization type of the updated registry record.</p>
+   * The synchronization type of the updated registry record.
+   *
    * @public
    */
   synchronizationType?: SynchronizationType | undefined;
 
   /**
-   * <p>The synchronization configuration of the updated registry record.</p>
+   * The synchronization configuration of the updated registry record.
+   *
    * @public
    */
   synchronizationConfiguration?: SynchronizationConfiguration | undefined;
@@ -4034,25 +4628,29 @@ export interface UpdateRegistryRecordResponse {
  */
 export interface UpdateRegistryRecordStatusRequest {
   /**
-   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The identifier of the registry record to update the status for. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * The identifier of the registry record to update the status for. You can specify either the Amazon Resource Name (ARN) or the ID of the record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The target status for the registry record.</p>
+   * The target status for the registry record.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The reason for the status change, such as why the record was approved or rejected.</p>
+   * The reason for the status change, such as why the record was approved or rejected.
+   *
    * @public
    */
   statusReason: string | undefined;
@@ -4063,49 +4661,57 @@ export interface UpdateRegistryRecordStatusRequest {
  */
 export interface UpdateRegistryRecordStatusResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * The Amazon Resource Name (ARN) of the registry that contains the record.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * The Amazon Resource Name (ARN) of the registry record.
+   *
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry record.</p>
+   * The unique identifier of the registry record.
+   *
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>The resulting status of the registry record.</p>
+   * The resulting status of the registry record.
+   *
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>The reason for the status change.</p>
+   * The reason for the status change.
+   *
    * @public
    */
   statusReason: string | undefined;
 
   /**
-   * <p>The timestamp when the record was last updated.</p>
+   * The timestamp when the record was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Configuration for the registry record approval workflow. Controls whether records added to the registry require explicit approval before becoming active.</p>
+ * Configuration for the registry record approval workflow. Controls whether records added to the registry require explicit approval before becoming active.
+ *
  * @public
  */
 export interface ApprovalConfiguration {
   /**
-   * <p>Whether registry records are auto-approved. When set to <code>true</code>, records are automatically approved upon creation. When set to <code>false</code> (the default), records require explicit approval for security purposes.</p>
+   * Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval for security purposes.
+   *
    * @public
    */
   autoApproval?: boolean | undefined;
@@ -4116,37 +4722,46 @@ export interface ApprovalConfiguration {
  */
 export interface CreateRegistryRequest {
   /**
-   * <p>The name of the registry. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>
+   * The name of the registry. The name must be unique within your account and can contain alphanumeric characters and underscores.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the registry.</p>
+   * A description of the registry.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of authorizer to use for the registry. This controls the authorization method for the Search and Invoke APIs used by consumers, and does not affect the standard CRUDL APIs for registry and registry record management used by administrators.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer to use for the registry. This controls the authorization method for the Search and Invoke APIs used by consumers, and does not affect the standard CRUDL APIs for registry and registry record management used by administrators.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType?: RegistryAuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the registry. Required if <code>authorizerType</code> is <code>CUSTOM_JWT</code>. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
+   * The authorizer configuration for the registry. Required if `authorizerType` is `CUSTOM_JWT`. For details, see the `AuthorizerConfiguration` data type.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The approval configuration for registry records. Controls whether records require explicit approval before becoming active. See the <code>ApprovalConfiguration</code> data type for supported configuration options.</p>
+   * The approval configuration for registry records. Controls whether records require explicit approval before becoming active. See the `ApprovalConfiguration` data type for supported configuration options.
+   *
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
@@ -4157,7 +4772,8 @@ export interface CreateRegistryRequest {
  */
 export interface CreateRegistryResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created registry.</p>
+   * The Amazon Resource Name (ARN) of the created registry.
+   *
    * @public
    */
   registryArn: string | undefined;
@@ -4168,7 +4784,8 @@ export interface CreateRegistryResponse {
  */
 export interface DeleteRegistryRequest {
   /**
-   * <p>The identifier of the registry to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
@@ -4179,7 +4796,8 @@ export interface DeleteRegistryRequest {
  */
 export interface DeleteRegistryResponse {
   /**
-   * <p>The current status of the registry, set to <code>DELETING</code> when deletion is initiated. For a list of all possible registry statuses, see the <code>RegistryStatus</code> data type.</p>
+   * The current status of the registry, set to `DELETING` when deletion is initiated. For a list of all possible registry statuses, see the `RegistryStatus` data type.
+   *
    * @public
    */
   status: RegistryStatus | undefined;
@@ -4190,7 +4808,8 @@ export interface DeleteRegistryResponse {
  */
 export interface GetRegistryRequest {
   /**
-   * <p>The identifier of the registry to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
@@ -4201,67 +4820,81 @@ export interface GetRegistryRequest {
  */
 export interface GetRegistryResponse {
   /**
-   * <p>The name of the registry.</p>
+   * The name of the registry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry.</p>
+   * The description of the registry.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry.</p>
+   * The unique identifier of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   * The Amazon Resource Name (ARN) of the registry.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType?: RegistryAuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the registry. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
+   * The authorizer configuration for the registry. For details, see the `AuthorizerConfiguration` data type.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The approval configuration for registry records. For details, see the <code>ApprovalConfiguration</code> data type.</p>
+   * The approval configuration for registry records. For details, see the `ApprovalConfiguration` data type.
+   *
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
 
   /**
-   * <p>The current status of the registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the registry. Possible values include `CREATING`, `READY`, `UPDATING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETING`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 
   /**
-   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * The reason for the current status, typically set when the status is a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the registry was created.</p>
+   * The timestamp when the registry was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry was last updated.</p>
+   * The timestamp when the registry was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4272,85 +4905,102 @@ export interface GetRegistryResponse {
  */
 export interface ListRegistriesRequest {
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filter registries by their current status. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * Filter registries by their current status. Possible values include `CREATING`, `READY`, `UPDATING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETING`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status?: RegistryStatus | undefined;
 
   /**
-   * <p>Filter registries by their authorizer type. Possible values are <code>CUSTOM_JWT</code> and <code>AWS_IAM</code>. For more information about authorizer types, see the <code>RegistryAuthorizerType</code> enum.</p>
+   * Filter registries by their authorizer type. Possible values are `CUSTOM_JWT` and `AWS_IAM`. For more information about authorizer types, see the `RegistryAuthorizerType` enum.
+   *
    * @public
    */
   authorizerType?: RegistryAuthorizerType | undefined;
 }
 
 /**
- * <p>Contains summary information about a registry.</p>
+ * Contains summary information about a registry.
+ *
  * @public
  */
 export interface RegistrySummary {
   /**
-   * <p>The name of the registry.</p>
+   * The name of the registry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the registry.</p>
+   * The description of the registry.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the registry.</p>
+   * The unique identifier of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the registry.</p>
+   * The Amazon Resource Name (ARN) of the registry.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer used by the registry. This controls the authorization method for the Search and Invoke APIs used by consumers.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType?: RegistryAuthorizerType | undefined;
 
   /**
-   * <p>The current status of the registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the registry. Possible values include `CREATING`, `READY`, `UPDATING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETING`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 
   /**
-   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * The reason for the current status, typically set when the status is a failure state.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the registry was created.</p>
+   * The timestamp when the registry was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry was last updated.</p>
+   * The timestamp when the registry was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4361,25 +5011,29 @@ export interface RegistrySummary {
  */
 export interface ListRegistriesResponse {
   /**
-   * <p>The list of registry summaries. For details about the fields in each summary, see the <code>RegistrySummary</code> data type.</p>
+   * The list of registry summaries. For details about the fields in each summary, see the `RegistrySummary` data type.
+   *
    * @public
    */
   registries: RegistrySummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Wrapper for updating an optional approval configuration field with PATCH semantics. When present in an update request, the approval configuration is replaced with the provided value. When absent, the approval configuration is left unchanged.</p>
+ * Wrapper for updating an optional approval configuration field with PATCH semantics. When present in an update request, the approval configuration is replaced with the provided value. When absent, the approval configuration is left unchanged.
+ *
  * @public
  */
 export interface UpdatedApprovalConfiguration {
   /**
-   * <p>The updated approval configuration value. Set to <code>null</code> to unset the approval configuration.</p>
+   * The updated approval configuration value. Set to `null` to unset the approval configuration.
+   *
    * @public
    */
   optionalValue?: ApprovalConfiguration | undefined;
@@ -4390,31 +5044,36 @@ export interface UpdatedApprovalConfiguration {
  */
 export interface UpdateRegistryRequest {
   /**
-   * <p>The identifier of the registry to update. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * The identifier of the registry to update. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The updated name of the registry.</p>
+   * The updated name of the registry.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description of the registry. To clear the description, include the <code>UpdatedDescription</code> wrapper with <code>optionalValue</code> not specified.</p>
+   * The updated description of the registry. To clear the description, include the `UpdatedDescription` wrapper with `optionalValue` not specified.
+   *
    * @public
    */
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>The updated authorizer configuration for the registry. Changing the authorizer configuration can break existing consumers of the registry who are using the authorization type prior to the update.</p>
+   * The updated authorizer configuration for the registry. Changing the authorizer configuration can break existing consumers of the registry who are using the authorization type prior to the update.
+   *
    * @public
    */
   authorizerConfiguration?: UpdatedAuthorizerConfiguration | undefined;
 
   /**
-   * <p>The updated approval configuration for registry records. The updated configuration only affects new records that move to <code>PENDING_APPROVAL</code> status after the change. Existing records already in <code>PENDING_APPROVAL</code> status are not affected.</p>
+   * The updated approval configuration for registry records. The updated configuration only affects new records that move to `PENDING_APPROVAL` status after the change. Existing records already in `PENDING_APPROVAL` status are not affected.
+   *
    * @public
    */
   approvalConfiguration?: UpdatedApprovalConfiguration | undefined;
@@ -4425,67 +5084,81 @@ export interface UpdateRegistryRequest {
  */
 export interface UpdateRegistryResponse {
   /**
-   * <p>The name of the updated registry.</p>
+   * The name of the updated registry.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the updated registry.</p>
+   * The description of the updated registry.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated registry.</p>
+   * The unique identifier of the updated registry.
+   *
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated registry.</p>
+   * The Amazon Resource Name (ARN) of the updated registry.
+   *
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>The type of authorizer used by the updated registry. This controls the authorization method for the Search and Invoke APIs used by consumers.</p> <ul> <li> <p> <code>CUSTOM_JWT</code> - Authorize with a bearer token.</p> </li> <li> <p> <code>AWS_IAM</code> - Authorize with your Amazon Web Services IAM credentials.</p> </li> </ul>
+   * The type of authorizer used by the updated registry. This controls the authorization method for the Search and Invoke APIs used by consumers.
+   *
+   * - `CUSTOM_JWT` - Authorize with a bearer token.
+   * - `AWS_IAM` - Authorize with your Amazon Web Services IAM credentials.
+   *
    * @public
    */
   authorizerType?: RegistryAuthorizerType | undefined;
 
   /**
-   * <p>The authorizer configuration for the updated registry. For details, see the <code>AuthorizerConfiguration</code> data type.</p>
+   * The authorizer configuration for the updated registry. For details, see the `AuthorizerConfiguration` data type.
+   *
    * @public
    */
   authorizerConfiguration?: AuthorizerConfiguration | undefined;
 
   /**
-   * <p>The approval configuration for the updated registry. For details, see the <code>ApprovalConfiguration</code> data type.</p>
+   * The approval configuration for the updated registry. For details, see the `ApprovalConfiguration` data type.
+   *
    * @public
    */
   approvalConfiguration?: ApprovalConfiguration | undefined;
 
   /**
-   * <p>The current status of the updated registry. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
+   * The current status of the updated registry. Possible values include `CREATING`, `READY`, `UPDATING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETING`, and `DELETE_FAILED`.
+   *
    * @public
    */
   status: RegistryStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the updated registry.</p>
+   * The reason for the current status of the updated registry.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The timestamp when the registry was created.</p>
+   * The timestamp when the registry was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the registry was last updated.</p>
+   * The timestamp when the registry was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4496,7 +5169,8 @@ export interface UpdateRegistryResponse {
  */
 export interface ResetTokenVaultKeyMaterialRequest {
   /**
-   * <p>The unique identifier of the token vault to reset. To reset your account's default token vault, specify <code>default</code>.</p>
+   * The unique identifier of the token vault to reset. To reset your account's default token vault, specify `default`.
+   *
    * @public
    */
   tokenVaultId: string | undefined;
@@ -4507,19 +5181,22 @@ export interface ResetTokenVaultKeyMaterialRequest {
  */
 export interface ResetTokenVaultKeyMaterialResponse {
   /**
-   * <p>The ID of the token vault.</p>
+   * The ID of the token vault.
+   *
    * @public
    */
   tokenVaultId: string | undefined;
 
   /**
-   * <p>The KMS configuration for the token vault after the reset. The token vault uses an Amazon Web Services managed key.</p>
+   * The KMS configuration for the token vault after the reset. The token vault uses an Amazon Web Services managed key.
+   *
    * @public
    */
   kmsConfiguration: KmsConfiguration | undefined;
 
   /**
-   * <p>The timestamp when the token vault was last modified.</p>
+   * The timestamp when the token vault was last modified.
+   *
    * @public
    */
   lastModifiedDate: Date | undefined;
@@ -4530,13 +5207,15 @@ export interface ResetTokenVaultKeyMaterialResponse {
  */
 export interface SetTokenVaultCMKRequest {
   /**
-   * <p>The unique identifier of the token vault to update.</p>
+   * The unique identifier of the token vault to update.
+   *
    * @public
    */
   tokenVaultId?: string | undefined;
 
   /**
-   * <p>The KMS configuration for the token vault, including the key type and KMS key ARN.</p>
+   * The KMS configuration for the token vault, including the key type and KMS key ARN.
+   *
    * @public
    */
   kmsConfiguration: KmsConfiguration | undefined;
@@ -4547,19 +5226,22 @@ export interface SetTokenVaultCMKRequest {
  */
 export interface SetTokenVaultCMKResponse {
   /**
-   * <p>The ID of the token vault.</p>
+   * The ID of the token vault.
+   *
    * @public
    */
   tokenVaultId: string | undefined;
 
   /**
-   * <p>The KMS configuration for the token vault.</p>
+   * The KMS configuration for the token vault.
+   *
    * @public
    */
   kmsConfiguration: KmsConfiguration | undefined;
 
   /**
-   * <p>The timestamp when the token vault was last modified.</p>
+   * The timestamp when the token vault was last modified.
+   *
    * @public
    */
   lastModifiedDate: Date | undefined;
@@ -4570,13 +5252,15 @@ export interface SetTokenVaultCMKResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags to add to the resource. A tag is a key-value pair.</p>
+   * The tags to add to the resource. A tag is a key-value pair.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -4592,13 +5276,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
+   * The Amazon Resource Name (ARN) of the resource that you want to untag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag keys of the tags to remove from the resource.</p>
+   * The tag keys of the tags to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -4614,19 +5300,22 @@ export interface UntagResourceResponse {}
  */
 export interface CreateWorkloadIdentityRequest {
   /**
-   * <p>The name of the workload identity. The name must be unique within your account.</p>
+   * The name of the workload identity. The name must be unique within your account.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * The list of allowed OAuth2 return URLs for resources associated with this workload identity.
+   *
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
 
   /**
-   * <p>A map of tag keys and values to assign to the workload identity. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * A map of tag keys and values to assign to the workload identity. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -4637,19 +5326,22 @@ export interface CreateWorkloadIdentityRequest {
  */
 export interface CreateWorkloadIdentityResponse {
   /**
-   * <p>The name of the workload identity.</p>
+   * The name of the workload identity.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
+   * The Amazon Resource Name (ARN) of the workload identity.
+   *
    * @public
    */
   workloadIdentityArn: string | undefined;
 
   /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * The list of allowed OAuth2 return URLs for resources associated with this workload identity.
+   *
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
@@ -4660,7 +5352,8 @@ export interface CreateWorkloadIdentityResponse {
  */
 export interface DeleteWorkloadIdentityRequest {
   /**
-   * <p>The name of the workload identity to delete.</p>
+   * The name of the workload identity to delete.
+   *
    * @public
    */
   name: string | undefined;
@@ -4676,7 +5369,8 @@ export interface DeleteWorkloadIdentityResponse {}
  */
 export interface GetWorkloadIdentityRequest {
   /**
-   * <p>The name of the workload identity to retrieve.</p>
+   * The name of the workload identity to retrieve.
+   *
    * @public
    */
   name: string | undefined;
@@ -4687,31 +5381,36 @@ export interface GetWorkloadIdentityRequest {
  */
 export interface GetWorkloadIdentityResponse {
   /**
-   * <p>The name of the workload identity.</p>
+   * The name of the workload identity.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
+   * The Amazon Resource Name (ARN) of the workload identity.
+   *
    * @public
    */
   workloadIdentityArn: string | undefined;
 
   /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * The list of allowed OAuth2 return URLs for resources associated with this workload identity.
+   *
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
 
   /**
-   * <p>The timestamp when the workload identity was created.</p>
+   * The timestamp when the workload identity was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the workload identity was last updated.</p>
+   * The timestamp when the workload identity was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
@@ -4722,31 +5421,36 @@ export interface GetWorkloadIdentityResponse {
  */
 export interface ListWorkloadIdentitiesRequest {
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results to return.</p>
+   * Maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains information about a workload identity.</p>
+ * Contains information about a workload identity.
+ *
  * @public
  */
 export interface WorkloadIdentityType {
   /**
-   * <p>The name of the workload identity.</p>
+   * The name of the workload identity.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
+   * The Amazon Resource Name (ARN) of the workload identity.
+   *
    * @public
    */
   workloadIdentityArn: string | undefined;
@@ -4757,13 +5461,15 @@ export interface WorkloadIdentityType {
  */
 export interface ListWorkloadIdentitiesResponse {
   /**
-   * <p>The list of workload identities.</p>
+   * The list of workload identities.
+   *
    * @public
    */
   workloadIdentities: WorkloadIdentityType[] | undefined;
 
   /**
-   * <p>Pagination token for the next page of results.</p>
+   * Pagination token for the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4774,13 +5480,15 @@ export interface ListWorkloadIdentitiesResponse {
  */
 export interface UpdateWorkloadIdentityRequest {
   /**
-   * <p>The name of the workload identity to update.</p>
+   * The name of the workload identity to update.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new list of allowed OAuth2 return URLs for resources associated with this workload identity. This list replaces the existing list.</p>
+   * The new list of allowed OAuth2 return URLs for resources associated with this workload identity. This list replaces the existing list.
+   *
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
@@ -4791,104 +5499,121 @@ export interface UpdateWorkloadIdentityRequest {
  */
 export interface UpdateWorkloadIdentityResponse {
   /**
-   * <p>The name of the workload identity.</p>
+   * The name of the workload identity.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the workload identity.</p>
+   * The Amazon Resource Name (ARN) of the workload identity.
+   *
    * @public
    */
   workloadIdentityArn: string | undefined;
 
   /**
-   * <p>The list of allowed OAuth2 return URLs for resources associated with this workload identity.</p>
+   * The list of allowed OAuth2 return URLs for resources associated with this workload identity.
+   *
    * @public
    */
   allowedResourceOauth2ReturnUrls?: string[] | undefined;
 
   /**
-   * <p>The timestamp when the workload identity was created.</p>
+   * The timestamp when the workload identity was created.
+   *
    * @public
    */
   createdTime: Date | undefined;
 
   /**
-   * <p>The timestamp when the workload identity was last updated.</p>
+   * The timestamp when the workload identity was last updated.
+   *
    * @public
    */
   lastUpdatedTime: Date | undefined;
 }
 
 /**
- * <p>A schema definition for a gateway target. This structure defines the structure of the API that the target exposes.</p>
+ * A schema definition for a gateway target. This structure defines the structure of the API that the target exposes.
+ *
  * @public
  */
 export interface SchemaDefinition {
   /**
-   * <p>The type of the schema definition. This field specifies the data type of the schema.</p>
+   * The type of the schema definition. This field specifies the data type of the schema.
+   *
    * @public
    */
   type: SchemaType | undefined;
 
   /**
-   * <p>The properties of the schema definition. These properties define the fields in the schema.</p>
+   * The properties of the schema definition. These properties define the fields in the schema.
+   *
    * @public
    */
   properties?: Record<string, SchemaDefinition> | undefined;
 
   /**
-   * <p>The required fields in the schema definition. These fields must be provided when using the schema.</p>
+   * The required fields in the schema definition. These fields must be provided when using the schema.
+   *
    * @public
    */
   required?: string[] | undefined;
 
   /**
-   * <p>The items in the schema definition. This field is used for array types to define the structure of the array elements.</p>
+   * The items in the schema definition. This field is used for array types to define the structure of the array elements.
+   *
    * @public
    */
   items?: SchemaDefinition | undefined;
 
   /**
-   * <p>The description of the schema definition. This description provides information about the purpose and usage of the schema.</p>
+   * The description of the schema definition. This description provides information about the purpose and usage of the schema.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>A tool definition for a gateway target. This structure defines a tool that the target exposes through the Model Context Protocol.</p>
+ * A tool definition for a gateway target. This structure defines a tool that the target exposes through the Model Context Protocol.
+ *
  * @public
  */
 export interface ToolDefinition {
   /**
-   * <p>The name of the tool. This name identifies the tool in the Model Context Protocol.</p>
+   * The name of the tool. This name identifies the tool in the Model Context Protocol.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the tool. This description provides information about the purpose and usage of the tool.</p>
+   * The description of the tool. This description provides information about the purpose and usage of the tool.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The input schema for the tool. This schema defines the structure of the input that the tool accepts.</p>
+   * The input schema for the tool. This schema defines the structure of the input that the tool accepts.
+   *
    * @public
    */
   inputSchema: SchemaDefinition | undefined;
 
   /**
-   * <p>The output schema for the tool. This schema defines the structure of the output that the tool produces.</p>
+   * The output schema for the tool. This schema defines the structure of the output that the tool produces.
+   *
    * @public
    */
   outputSchema?: SchemaDefinition | undefined;
 }
 
 /**
- * <p>A tool schema for a gateway target. This structure defines the schema for a tool that the target exposes through the Model Context Protocol.</p>
+ * A tool schema for a gateway target. This structure defines the schema for a tool that the target exposes through the Model Context Protocol.
+ *
  * @public
  */
 export type ToolSchema =
@@ -4901,7 +5626,8 @@ export type ToolSchema =
  */
 export namespace ToolSchema {
   /**
-   * <p>The Amazon S3 location of the tool schema. This location contains the schema definition file.</p>
+   * The Amazon S3 location of the tool schema. This location contains the schema definition file.
+   *
    * @public
    */
   export interface S3Member {
@@ -4911,7 +5637,8 @@ export namespace ToolSchema {
   }
 
   /**
-   * <p>The inline payload of the tool schema. This payload contains the schema definition directly in the request.</p>
+   * The inline payload of the tool schema. This payload contains the schema definition directly in the request.
+   *
    * @public
    */
   export interface InlinePayloadMember {
@@ -4941,25 +5668,29 @@ export namespace ToolSchema {
 }
 
 /**
- * <p>The Lambda configuration for a Model Context Protocol target. This structure defines how the gateway uses a Lambda function to communicate with the target.</p>
+ * The Lambda configuration for a Model Context Protocol target. This structure defines how the gateway uses a Lambda function to communicate with the target.
+ *
  * @public
  */
 export interface McpLambdaTargetConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to communicate with the target.</p>
+   * The Amazon Resource Name (ARN) of the Lambda function. This function is invoked by the gateway to communicate with the target.
+   *
    * @public
    */
   lambdaArn: string | undefined;
 
   /**
-   * <p>The tool schema for the Lambda function. This schema defines the structure of the tools that the Lambda function provides.</p>
+   * The tool schema for the Lambda function. This schema defines the structure of the tools that the Lambda function provides.
+   *
    * @public
    */
   toolSchema: ToolSchema | undefined;
 }
 
 /**
- * <p>The Model Context Protocol (MCP) configuration for a target. This structure defines how the gateway uses MCP to communicate with the target.</p>
+ * The Model Context Protocol (MCP) configuration for a target. This structure defines how the gateway uses MCP to communicate with the target.
+ *
  * @public
  */
 export type McpTargetConfiguration =
@@ -4976,7 +5707,8 @@ export type McpTargetConfiguration =
  */
 export namespace McpTargetConfiguration {
   /**
-   * <p>The OpenAPI schema for the Model Context Protocol target. This schema defines the API structure of the target.</p>
+   * The OpenAPI schema for the Model Context Protocol target. This schema defines the API structure of the target.
+   *
    * @public
    */
   export interface OpenApiSchemaMember {
@@ -4990,7 +5722,8 @@ export namespace McpTargetConfiguration {
   }
 
   /**
-   * <p>The Smithy model for the Model Context Protocol target. This model defines the API structure of the target using the Smithy specification.</p>
+   * The Smithy model for the Model Context Protocol target. This model defines the API structure of the target using the Smithy specification.
+   *
    * @public
    */
   export interface SmithyModelMember {
@@ -5004,7 +5737,8 @@ export namespace McpTargetConfiguration {
   }
 
   /**
-   * <p>The Lambda configuration for the Model Context Protocol target. This configuration defines how the gateway uses a Lambda function to communicate with the target.</p>
+   * The Lambda configuration for the Model Context Protocol target. This configuration defines how the gateway uses a Lambda function to communicate with the target.
+   *
    * @public
    */
   export interface LambdaMember {
@@ -5018,7 +5752,8 @@ export namespace McpTargetConfiguration {
   }
 
   /**
-   * <p>The MCP server specified as the gateway target.</p>
+   * The MCP server specified as the gateway target.
+   *
    * @public
    */
   export interface McpServerMember {
@@ -5032,7 +5767,8 @@ export namespace McpTargetConfiguration {
   }
 
   /**
-   * <p>The configuration for an Amazon API Gateway target.</p>
+   * The configuration for an Amazon API Gateway target.
+   *
    * @public
    */
   export interface ApiGatewayMember {
@@ -5046,7 +5782,8 @@ export namespace McpTargetConfiguration {
   }
 
   /**
-   * <p>The connector integration configuration for the Model Context Protocol target. This configuration defines how the gateway uses a pre-built connector to communicate with the target.</p>
+   * The connector integration configuration for the Model Context Protocol target. This configuration defines how the gateway uses a pre-built connector to communicate with the target.
+   *
    * @public
    */
   export interface ConnectorMember {
@@ -5088,7 +5825,8 @@ export namespace McpTargetConfiguration {
 }
 
 /**
- * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
+ * The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.
+ *
  * @public
  */
 export type TargetConfiguration =
@@ -5102,7 +5840,8 @@ export type TargetConfiguration =
  */
 export namespace TargetConfiguration {
   /**
-   * <p>The Model Context Protocol (MCP) configuration for the target. This configuration defines how the gateway uses MCP to communicate with the target.</p>
+   * The Model Context Protocol (MCP) configuration for the target. This configuration defines how the gateway uses MCP to communicate with the target.
+   *
    * @public
    */
   export interface McpMember {
@@ -5113,7 +5852,8 @@ export namespace TargetConfiguration {
   }
 
   /**
-   * <p>The HTTP target configuration. Use this to route gateway requests to an HTTP-based endpoint such as an AgentCore Runtime.</p>
+   * The HTTP target configuration. Use this to route gateway requests to an HTTP-based endpoint such as an AgentCore Runtime.
+   *
    * @public
    */
   export interface HttpMember {
@@ -5124,7 +5864,8 @@ export namespace TargetConfiguration {
   }
 
   /**
-   * <p>The inference configuration for the target. This configuration routes requests to a large language model (LLM) provider.</p>
+   * The inference configuration for the target. This configuration routes requests to a large language model (LLM) provider.
+   *
    * @public
    */
   export interface InferenceMember {
@@ -5161,55 +5902,64 @@ export namespace TargetConfiguration {
  */
 export interface CreateGatewayTargetRequest {
   /**
-   * <p>The identifier of the gateway to create a target for.</p>
+   * The identifier of the gateway to create a target for.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The name of the gateway target. The name must be unique within the gateway.</p>
+   * The name of the gateway target. The name must be unique within the gateway.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the gateway target.</p>
+   * The description of the gateway target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The configuration settings for the target, including endpoint information and schema definitions.</p>
+   * The configuration settings for the target, including endpoint information and schema definitions.
+   *
    * @public
    */
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The credential provider configurations for the target. These configurations specify how the gateway authenticates with the target endpoint.</p>
+   * The credential provider configurations for the target. These configurations specify how the gateway authenticates with the target endpoint.
+   *
    * @public
    */
   credentialProviderConfigurations?: CredentialProviderConfiguration[] | undefined;
 
   /**
-   * <p>Optional configuration for HTTP header and query parameter propagation to and from the gateway target.</p>
+   * Optional configuration for HTTP header and query parameter propagation to and from the gateway target.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The private endpoint configuration for the gateway target. Use this to connect the gateway to private resources in your VPC.</p>
+   * The private endpoint configuration for the gateway target. Use this to connect the gateway to private resources in your VPC.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The private certificate authority (CA) configurations for the gateway target. Use this to have the gateway trust a private CA when it establishes TLS connections to the target endpoint. Provide each certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can specify only one certificate authority configuration in this list.</p>
+   * The private certificate authority (CA) configurations for the gateway target. Use this to have the gateway trust a private CA when it establishes TLS connections to the target endpoint. Provide each certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can specify only one certificate authority configuration in this list.
+   *
    * @public
    */
   certificateConfigurations?: CertificateConfiguration[] | undefined;
@@ -5220,211 +5970,246 @@ export interface CreateGatewayTargetRequest {
  */
 export interface CreateGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the created target.</p>
+   * The unique identifier of the created target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The timestamp when the target was created.</p>
+   * The timestamp when the target was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the target was last updated.</p>
+   * The timestamp when the target was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the target.</p>
+   * The current status of the target.
+   *
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the target.</p>
+   * The reasons for the current status of the target.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the target.</p>
+   * The name of the target.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the target.</p>
+   * The description of the target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration settings for the target.</p>
+   * The configuration settings for the target.
+   *
    * @public
    */
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The credential provider configurations for the target.</p>
+   * The credential provider configurations for the target.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
 
   /**
-   * <p>The last synchronization of the target.</p>
+   * The last synchronization of the target.
+   *
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
 
   /**
-   * <p>The metadata configuration that was applied to the created gateway target.</p>
+   * The metadata configuration that was applied to the created gateway target.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The private endpoint configuration for the gateway target.</p>
+   * The private endpoint configuration for the gateway target.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The managed resources created by the gateway for private endpoint connectivity.</p>
+   * The managed resources created by the gateway for private endpoint connectivity.
+   *
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the created gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * OAuth2 authorization data for the created gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.
+   *
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
 
   /**
-   * <p>The protocol type of the created gateway target.</p>
+   * The protocol type of the created gateway target.
+   *
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
 
   /**
-   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * The private certificate authority (CA) configurations for the gateway target.
+   *
    * @public
    */
   certificateConfigurations?: CertificateConfiguration[] | undefined;
 }
 
 /**
- * <p>The gateway target.</p>
+ * The gateway target.
+ *
  * @public
  */
 export interface GatewayTarget {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway target.</p>
+   * The Amazon Resource Name (ARN) of the gateway target.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The target ID.</p>
+   * The target ID.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The date and time at which the target was created.</p>
+   * The date and time at which the target was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The date and time at which the target was updated.</p>
+   * The date and time at which the target was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The status of the gateway target.</p>
+   * The status of the gateway target.
+   *
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The status reasons for the target status.</p>
+   * The status reasons for the target status.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the gateway target.</p>
+   * The name of the gateway target.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description for the gateway target.</p>
+   * The description for the gateway target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
+   * The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.
+   *
    * @public
    */
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The provider configurations.</p>
+   * The provider configurations.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
 
   /**
-   * <p>The last synchronization time.</p>
+   * The last synchronization time.
+   *
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
 
   /**
-   * <p>The metadata configuration for HTTP header and query parameter propagation to and from this gateway target.</p>
+   * The metadata configuration for HTTP header and query parameter propagation to and from this gateway target.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.</p>
+   * The private endpoint configuration for a gateway target. Defines how the gateway connects to private resources in your VPC.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>A list of managed resources created by the gateway for private endpoint connectivity. These resources are created in your account when you use a managed VPC Lattice resource configuration.</p>
+   * A list of managed resources created by the gateway for private endpoint connectivity. These resources are created in your account when you use a managed VPC Lattice resource configuration.
+   *
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * OAuth2 authorization data for the gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.
+   *
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
 
   /**
-   * <p>The protocol type of the gateway target.</p>
+   * The protocol type of the gateway target.
+   *
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
 
   /**
-   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * The private certificate authority (CA) configurations for the gateway target.
+   *
    * @public
    */
   certificateConfigurations?: CertificateConfiguration[] | undefined;
@@ -5435,103 +6220,120 @@ export interface GatewayTarget {
  */
 export interface GetGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway target.</p>
+   * The unique identifier of the gateway target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The timestamp when the gateway target was created.</p>
+   * The timestamp when the gateway target was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the gateway target was last updated.</p>
+   * The timestamp when the gateway target was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the gateway target.</p>
+   * The current status of the gateway target.
+   *
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the gateway target.</p>
+   * The reasons for the current status of the gateway target.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The name of the gateway target.</p>
+   * The name of the gateway target.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the gateway target.</p>
+   * The description of the gateway target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
+   * The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.
+   *
    * @public
    */
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The credential provider configurations for the gateway target.</p>
+   * The credential provider configurations for the gateway target.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
 
   /**
-   * <p>The last synchronization of the target.</p>
+   * The last synchronization of the target.
+   *
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
 
   /**
-   * <p>The metadata configuration for HTTP header and query parameter propagation for the retrieved gateway target.</p>
+   * The metadata configuration for HTTP header and query parameter propagation for the retrieved gateway target.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The private endpoint configuration for the gateway target.</p>
+   * The private endpoint configuration for the gateway target.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The managed resources created by the gateway for private endpoint connectivity.</p>
+   * The managed resources created by the gateway for private endpoint connectivity.
+   *
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * OAuth2 authorization data for the gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.
+   *
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
 
   /**
-   * <p>The protocol type of the gateway target.</p>
+   * The protocol type of the gateway target.
+   *
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
 
   /**
-   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * The private certificate authority (CA) configurations for the gateway target.
+   *
    * @public
    */
   certificateConfigurations?: CertificateConfiguration[] | undefined;
@@ -5542,55 +6344,64 @@ export interface GetGatewayTargetResponse {
  */
 export interface UpdateGatewayTargetRequest {
   /**
-   * <p>The unique identifier of the gateway associated with the target.</p>
+   * The unique identifier of the gateway associated with the target.
+   *
    * @public
    */
   gatewayIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the gateway target to update.</p>
+   * The unique identifier of the gateway target to update.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The updated name for the gateway target.</p>
+   * The updated name for the gateway target.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description for the gateway target.</p>
+   * The updated description for the gateway target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
+   * The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.
+   *
    * @public
    */
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The updated credential provider configurations for the gateway target.</p>
+   * The updated credential provider configurations for the gateway target.
+   *
    * @public
    */
   credentialProviderConfigurations?: CredentialProviderConfiguration[] | undefined;
 
   /**
-   * <p>Configuration for HTTP header and query parameter propagation to the gateway target.</p>
+   * Configuration for HTTP header and query parameter propagation to the gateway target.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The private endpoint configuration for the gateway target. Use this to connect the gateway to private resources in your VPC.</p>
+   * The private endpoint configuration for the gateway target. Use this to connect the gateway to private resources in your VPC.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The private certificate authority (CA) configurations for the gateway target. Use this to have the gateway trust a private CA when it establishes TLS connections to the target endpoint. Provide each certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can specify only one certificate authority configuration in this list. To remove a previously configured certificate authority, omit this field on update.</p>
+   * The private certificate authority (CA) configurations for the gateway target. Use this to have the gateway trust a private CA when it establishes TLS connections to the target endpoint. Provide each certificate by reference to an Amazon S3 object or an Amazon Web Services Secrets Manager secret. You can specify only one certificate authority configuration in this list. To remove a previously configured certificate authority, omit this field on update.
+   *
    * @public
    */
   certificateConfigurations?: CertificateConfiguration[] | undefined;
@@ -5601,103 +6412,120 @@ export interface UpdateGatewayTargetRequest {
  */
 export interface UpdateGatewayTargetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * The Amazon Resource Name (ARN) of the gateway.
+   *
    * @public
    */
   gatewayArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated gateway target.</p>
+   * The unique identifier of the updated gateway target.
+   *
    * @public
    */
   targetId: string | undefined;
 
   /**
-   * <p>The timestamp when the gateway target was created.</p>
+   * The timestamp when the gateway target was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the gateway target was last updated.</p>
+   * The timestamp when the gateway target was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The current status of the updated gateway target.</p>
+   * The current status of the updated gateway target.
+   *
    * @public
    */
   status: TargetStatus | undefined;
 
   /**
-   * <p>The reasons for the current status of the updated gateway target.</p>
+   * The reasons for the current status of the updated gateway target.
+   *
    * @public
    */
   statusReasons?: string[] | undefined;
 
   /**
-   * <p>The updated name of the gateway target.</p>
+   * The updated name of the gateway target.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The updated description of the gateway target.</p>
+   * The updated description of the gateway target.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.</p>
+   * The configuration for a gateway target. This structure defines how the gateway connects to and interacts with the target endpoint.
+   *
    * @public
    */
   targetConfiguration: TargetConfiguration | undefined;
 
   /**
-   * <p>The updated credential provider configurations for the gateway target.</p>
+   * The updated credential provider configurations for the gateway target.
+   *
    * @public
    */
   credentialProviderConfigurations: CredentialProviderConfiguration[] | undefined;
 
   /**
-   * <p>The date and time at which the targets were last synchronized.</p>
+   * The date and time at which the targets were last synchronized.
+   *
    * @public
    */
   lastSynchronizedAt?: Date | undefined;
 
   /**
-   * <p>The metadata configuration that was applied to the gateway target.</p>
+   * The metadata configuration that was applied to the gateway target.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfiguration | undefined;
 
   /**
-   * <p>The private endpoint configuration for the gateway target.</p>
+   * The private endpoint configuration for the gateway target.
+   *
    * @public
    */
   privateEndpoint?: PrivateEndpoint | undefined;
 
   /**
-   * <p>The managed resources created by the gateway for private endpoint connectivity.</p>
+   * The managed resources created by the gateway for private endpoint connectivity.
+   *
    * @public
    */
   privateEndpointManagedResources?: ManagedResourceDetails[] | undefined;
 
   /**
-   * <p>OAuth2 authorization data for the updated gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * OAuth2 authorization data for the updated gateway target. This data is returned when a target is configured with a credential provider with authorization code grant type and requires user federation.
+   *
    * @public
    */
   authorizationData?: AuthorizationData | undefined;
 
   /**
-   * <p>The protocol type of the updated gateway target.</p>
+   * The protocol type of the updated gateway target.
+   *
    * @public
    */
   protocolType?: TargetProtocolType | undefined;
 
   /**
-   * <p>The private certificate authority (CA) configurations for the gateway target.</p>
+   * The private certificate authority (CA) configurations for the gateway target.
+   *
    * @public
    */
   certificateConfigurations?: CertificateConfiguration[] | undefined;
@@ -5708,7 +6536,8 @@ export interface UpdateGatewayTargetResponse {
  */
 export interface SynchronizeGatewayTargetsResponse {
   /**
-   * <p>The gateway targets for synchronization.</p>
+   * The gateway targets for synchronization.
+   *
    * @public
    */
   targets?: GatewayTarget[] | undefined;

@@ -23,7 +23,8 @@ export interface BatchDescribeMergeConflictsCommandInput extends BatchDescribeMe
 export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>
+ * Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,77 +127,94 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  * @throws {@link CommitDoesNotExistException} (client fault)
- *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * The specified commit does not exist or no commit was specified, and the specified repository has no default branch.
  *
  * @throws {@link CommitRequiredException} (client fault)
- *  <p>A commit was not specified.</p>
+ *
+ * A commit was not specified.
  *
  * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
- *  <p>An encryption integrity check failed.</p>
+ *
+ * An encryption integrity check failed.
  *
  * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
- *  <p>An encryption key could not be accessed.</p>
+ *
+ * An encryption key could not be accessed.
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
- *  <p>The encryption key is disabled.</p>
+ *
+ * The encryption key is disabled.
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
- *  <p>No encryption key was found.</p>
+ *
+ * No encryption key was found.
  *
  * @throws {@link EncryptionKeyUnavailableException} (client fault)
- *  <p>The encryption key is not available.</p>
+ *
+ * The encryption key is not available.
  *
  * @throws {@link InvalidCommitException} (client fault)
- *  <p>The specified commit is not valid.</p>
+ *
+ * The specified commit is not valid.
  *
  * @throws {@link InvalidConflictDetailLevelException} (client fault)
- *  <p>The specified conflict detail level is not valid.</p>
+ *
+ * The specified conflict detail level is not valid.
  *
  * @throws {@link InvalidConflictResolutionStrategyException} (client fault)
- *  <p>The specified conflict resolution strategy is not valid.</p>
+ *
+ * The specified conflict resolution strategy is not valid.
  *
  * @throws {@link InvalidContinuationTokenException} (client fault)
- *  <p>The specified continuation token is not valid.</p>
+ *
+ * The specified continuation token is not valid.
  *
  * @throws {@link InvalidMaxConflictFilesException} (client fault)
- *  <p>The specified value for the number of conflict files to return is not valid.</p>
+ *
+ * The specified value for the number of conflict files to return is not valid.
  *
  * @throws {@link InvalidMaxMergeHunksException} (client fault)
- *  <p>The specified value for the number of merge hunks to return is not valid.</p>
+ *
+ * The specified value for the number of merge hunks to return is not valid.
  *
  * @throws {@link InvalidMergeOptionException} (client fault)
- *  <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+ *
+ * The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.
  *
  * @throws {@link InvalidRepositoryNameException} (client fault)
- *  <p>A specified repository name is not valid.</p>
- *          <note>
- *             <p>This exception occurs only when a specified repository name is not valid. Other
- *                 exceptions occur when a required repository parameter is missing, or when a
- *                 specified repository does not exist.</p>
- *          </note>
+ *
+ * A specified repository name is not valid.
+ *
+ * > **Note:** This exception occurs only when a specified repository name is not valid. Other exceptions occur when a required repository parameter is missing, or when a specified repository does not exist.
  *
  * @throws {@link MaximumFileContentToLoadExceededException} (client fault)
- *  <p>The number of files to load exceeds the allowed limit.</p>
+ *
+ * The number of files to load exceeds the allowed limit.
  *
  * @throws {@link MaximumItemsToCompareExceededException} (client fault)
- *  <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+ *
+ * The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.
  *
  * @throws {@link MergeOptionRequiredException} (client fault)
- *  <p>A merge option or stategy is required, and none was provided.</p>
+ *
+ * A merge option or stategy is required, and none was provided.
  *
  * @throws {@link RepositoryDoesNotExistException} (client fault)
- *  <p>The specified repository does not exist.</p>
+ *
+ * The specified repository does not exist.
  *
  * @throws {@link RepositoryNameRequiredException} (client fault)
- *  <p>A repository name is required, but was not specified.</p>
+ *
+ * A repository name is required, but was not specified.
  *
  * @throws {@link TipsDivergenceExceededException} (client fault)
- *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
- *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ *
+ * The divergence between the tips of the provided commit specifiers is too great to determine whether there might be any merge conflicts. Locally compare the specifiers using `git diff` or a diff tool.
  *
  * @throws {@link CodeCommitServiceException}
- * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ * Base exception class for all service exceptions from CodeCommit service.
  *
  * @public
  */

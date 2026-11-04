@@ -23,11 +23,8 @@ export interface ModifySnapshotTierCommandInput extends ModifySnapshotTierReques
 export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResult, __MetadataBearer {}
 
 /**
- * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
- *       snapshot that includes all of the blocks of data that were written to the volume at the
- *       time the snapshot was created, and moved from the standard tier to the archive
- *       tier. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html">Archive Amazon EBS snapshots</a>
- *       in the <i>Amazon EBS User Guide</i>.</p>
+ * Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full snapshot that includes all of the blocks of data that were written to the volume at the time the snapshot was created, and moved from the standard tier to the archive tier. For more information, see [Archive Amazon EBS snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +54,8 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

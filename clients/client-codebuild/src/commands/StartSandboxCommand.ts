@@ -23,7 +23,8 @@ export interface StartSandboxCommandInput extends StartSandboxInput {}
 export interface StartSandboxCommandOutput extends StartSandboxOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a sandbox.</p>
+ * Starts a sandbox.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -229,17 +230,20 @@ export interface StartSandboxCommandOutput extends StartSandboxOutput, __Metadat
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link AccountSuspendedException} (client fault)
- *  <p>The CodeBuild access has been suspended for the calling Amazon Web Services account.</p>
+ *
+ * The CodeBuild access has been suspended for the calling Amazon Web Services account.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * The specified Amazon Web Services resource cannot be found.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

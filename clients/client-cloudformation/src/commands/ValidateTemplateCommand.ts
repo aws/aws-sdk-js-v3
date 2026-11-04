@@ -23,9 +23,8 @@ export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
 export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Validates a specified template. CloudFormation first checks if the template is valid JSON. If
- *       it isn't, CloudFormation checks if the template is valid YAML. If both these checks fail,
- *       CloudFormation returns a template validation error.</p>
+ * Validates a specified template. CloudFormation first checks if the template is valid JSON. If it isn't, CloudFormation checks if the template is valid YAML. If both these checks fail, CloudFormation returns a template validation error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +67,8 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

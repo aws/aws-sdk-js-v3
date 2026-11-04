@@ -23,7 +23,8 @@ export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsReques
 export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
+ * This operation lists a revision's assets sorted alphabetically in descending order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,20 +137,24 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found.</p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was invalid.</p>
+ *
+ * The request was invalid.
  *
  * @throws {@link DataExchangeServiceException}
- * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * Base exception class for all service exceptions from DataExchange service.
  *
  * @public
  */

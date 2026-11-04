@@ -23,9 +23,8 @@ export interface CreateTrafficPolicyCommandInput extends CreateTrafficPolicyRequ
 export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets
- * 			for one domain name (such as example.com) or one subdomain name (such as
- * 			www.example.com).</p>
+ * Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or one subdomain name (such as www.example.com).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +61,30 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link InvalidTrafficPolicyDocument} (client fault)
- *  <p>The format of the traffic policy document that you specified in the
- * 				<code>Document</code> element is not valid.</p>
+ *
+ * The format of the traffic policy document that you specified in the `Document` element is not valid.
  *
  * @throws {@link TooManyTrafficPolicies} (client fault)
- *  <p>This traffic policy can't be created because the current account has reached the limit
- * 			on the number of traffic policies.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>To get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. </p>
- *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
- * 				case</a> with the Amazon Web Services Support Center.</p>
+ *
+ * This traffic policy can't be created because the current account has reached the limit on the number of traffic policies.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * To get the current limit for an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html).
+ *
+ * To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
  *
  * @throws {@link TrafficPolicyAlreadyExists} (client fault)
- *  <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
+ *
+ * A traffic policy that has the same value for `Name` already exists.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

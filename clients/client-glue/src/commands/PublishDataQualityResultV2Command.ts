@@ -23,10 +23,10 @@ export interface PublishDataQualityResultV2CommandInput extends PublishDataQuali
 export interface PublishDataQualityResultV2CommandOutput extends PublishDataQualityResultV2Response, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is intended for internal use. Do not call it directly.</p>
- *          </note>
- *          <p>AWS Glue Data Quality uses this operation to publish a data quality result.</p>
+ * > **Note:** This operation is intended for internal use. Do not call it directly.
+ *
+ * AWS Glue Data Quality uses this operation to publish a data quality result.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -183,23 +183,28 @@ export interface PublishDataQualityResultV2CommandOutput extends PublishDataQual
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link IdempotentParameterMismatchException} (client fault)
- *  <p>The same unique identifier was associated with two different records.</p>
+ *
+ * The same unique identifier was associated with two different records.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

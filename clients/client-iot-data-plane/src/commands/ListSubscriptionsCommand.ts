@@ -23,8 +23,10 @@ export interface ListSubscriptionsCommandInput extends ListSubscriptionsRequest 
 export interface ListSubscriptionsCommandOutput extends ListSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all subscriptions for MQTT clients with active sessions, including offline clients with persistent sessions.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSubscriptions</a> action.</p>
+ * Returns a list of all subscriptions for MQTT clients with active sessions, including offline clients with persistent sessions.
+ *
+ * Requires permission to access the [ListSubscriptions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,23 +61,28 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request.</p>
+ *
+ * The caller isn't authorized to make the request.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An unexpected error has occurred.</p>
+ *
+ * An unexpected error has occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link IoTDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTDataPlane service.
  *
  * @public
  */

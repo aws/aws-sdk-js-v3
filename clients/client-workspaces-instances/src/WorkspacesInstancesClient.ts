@@ -330,7 +330,8 @@ export type WorkspacesInstancesClientResolvedConfigType = __SmithyResolvedConfig
 export interface WorkspacesInstancesClientResolvedConfig extends WorkspacesInstancesClientResolvedConfigType {}
 
 /**
- * <p>Amazon WorkSpaces Instances provides an API framework for managing virtual workspace environments across multiple AWS regions, enabling programmatic creation and configuration of desktop infrastructure.</p>
+ * Amazon WorkSpaces Instances provides an API framework for managing virtual workspace environments across multiple AWS regions, enabling programmatic creation and configuration of desktop infrastructure.
+ *
  * @public
  */
 export class WorkspacesInstancesClient extends __Client<

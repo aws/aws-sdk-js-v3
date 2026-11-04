@@ -24,11 +24,12 @@ export interface CreateNetworkInterfaceCommandInput extends CreateNetworkInterfa
 export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterfaceResult, __MetadataBearer {}
 
 /**
- * <p>Creates a network interface in the specified subnet.</p>
- *          <p>The number of IP addresses you can assign to a network interface varies by instance
- *             type.</p>
- *          <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ * Creates a network interface in the specified subnet.
+ *
+ * The number of IP addresses you can assign to a network interface varies by instance type.
+ *
+ * For more information about network interfaces, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -221,8 +222,8 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

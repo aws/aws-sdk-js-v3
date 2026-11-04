@@ -23,14 +23,10 @@ export interface SearchRecommendationsCommandInput extends SearchRecommendations
 export interface SearchRecommendationsCommandOutput extends SearchRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves recommendations for a profile in a specific domain. The profile is identified
- *          using a search key, which consists of a <code>KeyName</code> and a <code>KeyValues</code> list.
- *          The <code>KeyName</code> can be a predefined key (for example, <code>_profileId</code>,
- *          <code>_phone</code>, <code>_email</code>) or a custom-defined key.</p>
- *          <p>The search key must match exactly one profile. If no profile matches the search key, the
- *          operation returns a <code>ResourceNotFoundException</code>. If more than one profile matches
- *          the search key, the operation returns a <code>BadRequestException</code>. You can use the
- *          SearchProfiles API to review the matching profiles.</p>
+ * Retrieves recommendations for a profile in a specific domain. The profile is identified using a search key, which consists of a `KeyName` and a `KeyValues` list. The `KeyName` can be a predefined key (for example, `_profileId`, `_phone`, `_email`) or a custom-defined key.
+ *
+ * The search key must match exactly one profile. If no profile matches the search key, the operation returns a `ResourceNotFoundException`. If more than one profile matches the search key, the operation returns a `BadRequestException`. You can use the SearchProfiles API to review the matching profiles.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,23 +118,28 @@ export interface SearchRecommendationsCommandOutput extends SearchRecommendation
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource does not exist, or access was denied.</p>
+ *
+ * The requested resource does not exist, or access was denied.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>You exceeded the maximum number of requests.</p>
+ *
+ * You exceeded the maximum number of requests.
  *
  * @throws {@link CustomerProfilesServiceException}
- * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ * Base exception class for all service exceptions from CustomerProfiles service.
  *
  * @public
  */

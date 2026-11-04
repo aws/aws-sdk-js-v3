@@ -23,7 +23,8 @@ export interface PurchaseReservedNodesOfferingCommandInput extends PurchaseReser
 export interface PurchaseReservedNodesOfferingCommandOutput extends PurchaseReservedNodesOfferingResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to purchase a reserved  node offering. Reserved nodes are not eligible for cancellation and are non-refundable.</p>
+ * Allows you to purchase a reserved node offering. Reserved nodes are not eligible for cancellation and are non-refundable.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,31 +76,36 @@ export interface PurchaseReservedNodesOfferingCommandOutput extends PurchaseRese
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
- *  <p>You already have a reservation with the given identifier.</p>
+ *
+ * You already have a reservation with the given identifier.
  *
  * @throws {@link ReservedNodeQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the user's node quota.</p>
+ *
+ * The request cannot be processed because it would exceed the user's node quota.
  *
  * @throws {@link ReservedNodesOfferingNotFoundFault} (client fault)
- *  <p>The requested node offering does not exist.
  *
- *       </p>
+ * The requested node offering does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link TagQuotaPerResourceExceeded} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of tags allowed per resource.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of tags allowed per resource.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
 export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**
- * <p>Update a listener. </p>
+ * Update a listener.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +69,28 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * There was an internal error for Global Accelerator.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>An argument that you specified is invalid.</p>
+ *
+ * An argument that you specified is invalid.
  *
  * @throws {@link InvalidPortRangeException} (client fault)
- *  <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ *
+ * The port numbers that you specified are not valid numbers or are not unique for this accelerator.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * Processing your request would cause you to exceed an Global Accelerator limit.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The listener that you specified doesn't exist.</p>
+ *
+ * The listener that you specified doesn't exist.
  *
  * @throws {@link GlobalAcceleratorServiceException}
- * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ * Base exception class for all service exceptions from GlobalAccelerator service.
  *
  * @public
  */

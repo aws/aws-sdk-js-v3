@@ -23,7 +23,8 @@ export interface ListColumnStatisticsTaskRunsCommandInput extends ListColumnStat
 export interface ListColumnStatisticsTaskRunsCommandOutput extends ListColumnStatisticsTaskRunsResponse, __MetadataBearer {}
 
 /**
- * <p>List all task runs for a particular account.</p>
+ * List all task runs for a particular account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,11 +55,12 @@ export interface ListColumnStatisticsTaskRunsCommandOutput extends ListColumnSta
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

@@ -26,7 +26,8 @@ export interface DeleteLocalGatewayVirtualInterfaceGroupCommandInput extends Del
 export interface DeleteLocalGatewayVirtualInterfaceGroupCommandOutput extends DeleteLocalGatewayVirtualInterfaceGroupResult, __MetadataBearer {}
 
 /**
- * <p>Delete the specified local gateway interface group.</p>
+ * Delete the specified local gateway interface group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface DeleteLocalGatewayVirtualInterfaceGroupCommandOutput extends De
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

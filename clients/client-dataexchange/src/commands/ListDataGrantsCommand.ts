@@ -23,7 +23,8 @@ export interface ListDataGrantsCommandInput extends ListDataGrantsRequest {}
 export interface ListDataGrantsCommandOutput extends ListDataGrantsResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns information about all data grants.</p>
+ * This operation returns information about all data grants.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,23 +68,28 @@ export interface ListDataGrantsCommandOutput extends ListDataGrantsResponse, __M
  * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the resource is denied.</p>
+ *
+ * Access to the resource is denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An exception occurred with the service.</p>
+ *
+ * An exception occurred with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found.</p>
+ *
+ * The resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The limit on the number of requests per second was exceeded.</p>
+ *
+ * The limit on the number of requests per second was exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request was invalid.</p>
+ *
+ * The request was invalid.
  *
  * @throws {@link DataExchangeServiceException}
- * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ * Base exception class for all service exceptions from DataExchange service.
  *
  * @public
  */

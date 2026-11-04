@@ -23,8 +23,8 @@ export interface CreateAccessorCommandInput extends CreateAccessorInput {}
 export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access.
- *          The accessor contains information required for token based access.</p>
+ * Creates a new accessor for use with Amazon Managed Blockchain service that supports token based access. The accessor contains information required for token based access.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,33 +58,34 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>A resource request is issued for a resource that already exists.</p>
+ *
+ * A resource request is issued for a resource that already exists.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The maximum number of resources of that type already exist. Ensure the resources requested
- *          are within the boundaries of the service edition and your account limits.</p>
+ *
+ * The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p></p>
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

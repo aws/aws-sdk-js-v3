@@ -23,8 +23,8 @@ export interface CreateRulesetCommandInput extends CreateRulesetRequest {}
 export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new ruleset that can be used in a profile job to validate
- *             the data quality of a dataset.</p>
+ * Creates a new ruleset that can be used in a profile job to validate the data quality of a dataset.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,17 +77,20 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service quota is exceeded.</p>
+ *
+ * A service quota is exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input parameters for this request failed validation.</p>
+ *
+ * The input parameters for this request failed validation.
  *
  * @throws {@link DataBrewServiceException}
- * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ * Base exception class for all service exceptions from DataBrew service.
  *
  * @public
  */

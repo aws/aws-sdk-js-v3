@@ -23,10 +23,8 @@ export interface ListCacheReportsCommandInput extends ListCacheReportsInput {}
 export interface ListCacheReportsCommandOutput extends ListCacheReportsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of existing cache reports for all file shares associated with your
- *             Amazon Web Services account. This list includes all information provided by the
- *             <code>DescribeCacheReport</code> action, such as report name, status, completion
- *          progress, start time, end time, filters, and tags.</p>
+ * Returns a list of existing cache reports for all file shares associated with your Amazon Web Services account. This list includes all information provided by the `DescribeCacheReport` action, such as report name, status, completion progress, start time, end time, filters, and tags.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,16 +86,16 @@ export interface ListCacheReportsCommandOutput extends ListCacheReportsOutput, _
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

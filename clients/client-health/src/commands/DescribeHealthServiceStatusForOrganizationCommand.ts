@@ -23,9 +23,8 @@ export interface DescribeHealthServiceStatusForOrganizationCommandInput {}
 export interface DescribeHealthServiceStatusForOrganizationCommandOutput extends DescribeHealthServiceStatusForOrganizationResponse, __MetadataBearer {}
 
 /**
- * <p>This operation provides status information on enabling or disabling Health to work
- *          with your organization. To call this operation, you must use the organization's
- *          management account.</p>
+ * This operation provides status information on enabling or disabling Health to work with your organization. To call this operation, you must use the organization's management account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +49,8 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput extends
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

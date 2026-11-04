@@ -23,7 +23,8 @@ export interface DescribeRefreshSchemasStatusCommandInput extends DescribeRefres
 export interface DescribeRefreshSchemasStatusCommandOutput extends DescribeRefreshSchemasStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the status of the RefreshSchemas operation.</p>
+ * Returns the status of the RefreshSchemas operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,14 +57,16 @@ export interface DescribeRefreshSchemasStatusCommandOutput extends DescribeRefre
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Describe refresh schema status
  * ```javascript

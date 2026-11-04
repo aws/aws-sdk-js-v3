@@ -26,7 +26,8 @@ export interface GetTransitGatewayAttachmentNatConfigurationCommandInput extends
 export interface GetTransitGatewayAttachmentNatConfigurationCommandOutput extends GetTransitGatewayAttachmentNatConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Describes the NAT configuration for the specified transit gateway attachment. Only the owner of the transit gateway can describe the NAT configuration.</p>
+ * Describes the NAT configuration for the specified transit gateway attachment. Only the owner of the transit gateway can describe the NAT configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +65,8 @@ export interface GetTransitGatewayAttachmentNatConfigurationCommandOutput extend
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

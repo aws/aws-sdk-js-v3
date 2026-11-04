@@ -23,8 +23,8 @@ export interface DescribeReservedCacheNodesCommandInput extends DescribeReserved
 export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNodeMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about reserved cache nodes for this account, or about a specified
- *             reserved cache node.</p>
+ * Returns information about reserved cache nodes for this account, or about a specified reserved cache node.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,17 +80,20 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
- *  <p>The requested reserved cache node was not found.</p>
+ *
+ * The requested reserved cache node was not found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeReservedCacheNodes
  * ```javascript

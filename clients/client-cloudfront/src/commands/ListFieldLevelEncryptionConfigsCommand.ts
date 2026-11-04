@@ -23,7 +23,8 @@ export interface ListFieldLevelEncryptionConfigsCommandInput extends ListFieldLe
 export interface ListFieldLevelEncryptionConfigsCommandOutput extends ListFieldLevelEncryptionConfigsResult, __MetadataBearer {}
 
 /**
- * <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
+ * List all field-level encryption configurations that have been created in CloudFront for this account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,11 +88,12 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput extends ListFieldL
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

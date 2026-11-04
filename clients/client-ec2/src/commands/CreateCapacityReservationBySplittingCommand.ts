@@ -26,10 +26,8 @@ export interface CreateCapacityReservationBySplittingCommandInput extends Create
 export interface CreateCapacityReservationBySplittingCommandOutput extends CreateCapacityReservationBySplittingResult, __MetadataBearer {}
 
 /**
- * <p> Create a new Capacity Reservation by splitting the capacity of the source Capacity
- * 			Reservation. The new Capacity Reservation will have the same attributes as the source
- * 			Capacity Reservation except for tags. The source Capacity Reservation must be
- * 				<code>active</code> and owned by your Amazon Web Services account. </p>
+ * Create a new Capacity Reservation by splitting the capacity of the source Capacity Reservation. The new Capacity Reservation will have the same attributes as the source Capacity Reservation except for tags. The source Capacity Reservation must be `active` and owned by your Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -218,8 +216,8 @@ export interface CreateCapacityReservationBySplittingCommandOutput extends Creat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

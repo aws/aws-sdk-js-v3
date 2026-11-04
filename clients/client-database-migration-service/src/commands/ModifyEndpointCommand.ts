@@ -23,15 +23,10 @@ export interface ModifyEndpointCommandInput extends ModifyEndpointMessage {}
 export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified endpoint.</p>
- *          <note>
- *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
- *             the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API
- *             call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates
- *             all the task tables to this single database. For MySQL endpoints, you specify the
- *             database only when you specify the schema in the table-mapping rules of the DMS
- *             task.</p>
- *          </note>
+ * Modifies the specified endpoint.
+ *
+ * > **Note:** For a MySQL source or target endpoint, don't explicitly specify the database using the `DatabaseName` request parameter on the `ModifyEndpoint` API call. Specifying `DatabaseName` when you modify a MySQL endpoint replicates all the task tables to this single database. For MySQL endpoints, you specify the database only when you specify the schema in the table-mapping rules of the DMS task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -776,24 +771,28 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>DMS cannot access the KMS key.</p>
+ *
+ * DMS cannot access the KMS key.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Modify endpoint
  * ```javascript

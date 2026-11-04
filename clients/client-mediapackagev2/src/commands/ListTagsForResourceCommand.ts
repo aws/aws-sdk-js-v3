@@ -23,7 +23,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags assigned to a resource.</p>
+ * Lists the tags assigned to a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,11 +53,12 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service.</p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link MediaPackageV2ServiceException}
- * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackageV2 service.
  *
  * @example List all tags for a resource
  * ```javascript

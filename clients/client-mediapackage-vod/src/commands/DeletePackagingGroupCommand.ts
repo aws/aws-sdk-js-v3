@@ -66,8 +66,8 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
  *  The parameters sent in the request are not valid.
  *
  * @throws {@link MediaPackageVodServiceException}
- * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackageVod service.
  *
  * @public
  */

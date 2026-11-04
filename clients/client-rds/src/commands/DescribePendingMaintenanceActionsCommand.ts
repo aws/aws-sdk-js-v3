@@ -23,7 +23,10 @@ export interface DescribePendingMaintenanceActionsCommandInput extends DescribeP
 export interface DescribePendingMaintenanceActionsCommandOutput extends PendingMaintenanceActionsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p> <p>This API follows an eventual consistency model. This means that the result of the <code>DescribePendingMaintenanceActions</code> command might not be immediately visible to all subsequent RDS commands. Keep this in mind when you use <code>DescribePendingMaintenanceActions</code> immediately after using a previous API command such as <code>ApplyPendingMaintenanceActions</code>.</p>
+ * Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.
+ *
+ * This API follows an eventual consistency model. This means that the result of the `DescribePendingMaintenanceActions` command might not be immediately visible to all subsequent RDS commands. Keep this in mind when you use `DescribePendingMaintenanceActions` immediately after using a previous API command such as `ApplyPendingMaintenanceActions`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,11 +78,12 @@ export interface DescribePendingMaintenanceActionsCommandOutput extends PendingM
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The specified resource ID was not found.</p>
+ *
+ * The specified resource ID was not found.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To list resources with at least one pending maintenance action
  * ```javascript

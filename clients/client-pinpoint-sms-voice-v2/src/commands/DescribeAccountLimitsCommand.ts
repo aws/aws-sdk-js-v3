@@ -23,7 +23,10 @@ export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimits
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the current End User Messaging SMS SMS Voice V2 resource quotas for your account. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.</p> <p>When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of configuration sets, opt-out lists, phone numbers, and pools that you can create in a given Region. For more information see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas </a> in the <i>End User Messaging SMS User Guide</i>.</p>
+ * Describes the current End User Messaging SMS SMS Voice V2 resource quotas for your account. The description for a quota includes the quota name, current usage toward that quota, and the quota's maximum value.
+ *
+ * When you establish an Amazon Web Services account, the account has initial quotas on the maximum number of configuration sets, opt-out lists, phone numbers, and pools that you can create in a given Region. For more information see [Quotas](https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html) in the *End User Messaging SMS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +61,24 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+ *
+ * The request was denied because you don't have sufficient permissions to access the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+ *
+ * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * An error that occurred because too many requests were sent during a certain amount of time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation exception for a field.</p>
+ *
+ * A validation exception for a field.
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
- * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * Base exception class for all service exceptions from PinpointSMSVoiceV2 service.
  *
  * @public
  */

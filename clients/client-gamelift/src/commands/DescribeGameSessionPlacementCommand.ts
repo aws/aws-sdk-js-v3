@@ -23,18 +23,14 @@ export interface DescribeGameSessionPlacementCommandInput extends DescribeGameSe
 export interface DescribeGameSessionPlacementCommandOutput extends DescribeGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves information, including current status, about a game session placement
- *             request. </p>
- *          <p>To get game session placement details, specify the placement ID.</p>
- *          <p>This operation is not designed to be continually called to track game session status.
- *             This practice can cause you to exceed your API limit, which results in errors. Instead,
- *             you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
- *             queues. Continuously polling with <code>DescribeGameSessionPlacement</code> should only
- *             be used for games in development with low game session usage. For a reference
- *             implementation of event-based game session placement tracking, see <a href="https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement">
- *                 Event-based game session placement guidance</a> in the Amazon GameLift Toolkit.</p>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves information, including current status, about a game session placement request.
+ *
+ * To get game session placement details, specify the placement ID.
+ *
+ * This operation is not designed to be continually called to track game session status. This practice can cause you to exceed your API limit, which results in errors. Instead, you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling with `DescribeGameSessionPlacement` should only be used for games in development with low game session usage. For a reference implementation of event-based game session placement tracking, see [Event-based game session placement guidance](https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement) in the Amazon GameLift Toolkit.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,22 +99,24 @@ export interface DescribeGameSessionPlacementCommandOutput extends DescribeGameS
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

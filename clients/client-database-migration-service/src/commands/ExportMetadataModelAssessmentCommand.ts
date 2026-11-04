@@ -23,12 +23,10 @@ export interface ExportMetadataModelAssessmentCommandInput extends ExportMetadat
 export interface ExportMetadataModelAssessmentCommandOutput extends ExportMetadataModelAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can
- *          save your assessment report as a comma-separated value (CSV) or a PDF file. </p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:ExportMetadataModelAssessment</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can save your assessment report as a comma-separated value (CSV) or a PDF file.
+ *
+ * **Required permissions:** `dms:ExportMetadataModelAssessment`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,11 +65,12 @@ export interface ExportMetadataModelAssessmentCommandOutput extends ExportMetada
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Export a conversion assessment report
  * ```javascript

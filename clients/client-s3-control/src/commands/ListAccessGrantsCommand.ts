@@ -23,13 +23,12 @@ export interface ListAccessGrantsCommandInput extends ListAccessGrantsRequest {}
 export interface ListAccessGrantsCommandOutput extends ListAccessGrantsResult, __MetadataBearer {}
 
 /**
- * <p>Returns the list of access grants in your S3 Access Grants instance.</p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:ListAccessGrants</code> permission to use this operation. </p>
- *             </dd>
- *          </dl>
+ * Returns the list of access grants in your S3 Access Grants instance.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:ListAccessGrants` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +80,8 @@ export interface ListAccessGrantsCommandOutput extends ListAccessGrantsResult, _
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

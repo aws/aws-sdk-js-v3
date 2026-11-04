@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { APIGatewayServiceException as __BaseException } from "./APIGatewayServiceException";
 
 /**
- * <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ * The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -25,7 +26,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ * The request configuration has conflicts. For details, see the accompanying error message.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded the rate limit. Retry after the specified time period.</p>
+ * The request exceeded the rate limit. Retry after the specified time period.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -69,7 +72,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The requested resource is not found. Make sure that the request URI is correct.</p>
+ * The requested resource is not found. Make sure that the request URI is correct.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -90,7 +94,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request has reached its throttling limit. Retry after the specified time period.</p>
+ * The request has reached its throttling limit. Retry after the specified time period.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -113,7 +118,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The request is denied because the caller has insufficient permissions.</p>
+ * The request is denied because the caller has insufficient permissions.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -134,7 +140,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
+ * The requested service is not available. For details see the accompanying error message. Retry after the specified time period.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {

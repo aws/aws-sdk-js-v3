@@ -23,7 +23,8 @@ export interface DeleteDBInstanceAutomatedBackupCommandInput extends DeleteDBIns
 export interface DeleteDBInstanceAutomatedBackupCommandOutput extends DeleteDBInstanceAutomatedBackupResult, __MetadataBearer {}
 
 /**
- * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
+ * Deletes automated backups using the `DbiResourceId` value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,14 +109,16 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput extends DeleteDBIn
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceAutomatedBackupNotFoundFault} (client fault)
- *  <p>No automated backup for this DB instance was found.</p>
+ *
+ * No automated backup for this DB instance was found.
  *
  * @throws {@link InvalidDBInstanceAutomatedBackupStateFault} (client fault)
- *  <p>The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.</p>
+ *
+ * The automated backup is in an invalid state. For example, this automated backup is associated with an active instance.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To delete a replicated automated backup from a Region
  * ```javascript

@@ -23,7 +23,8 @@ export interface GetDependencyInsightsCommandInput extends GetDependencyInsights
 export interface GetDependencyInsightsCommandOutput extends GetDependencyInsightsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the dependency insights generated for a service. The response reports the current generation status; insights are populated once generation has completed. If generation failed, the response includes an error code, whose possible values are listed under the response's errorCode field, and a message describing the cause. To use this operation, you must have the <code>resiliencehub:GetDependencyInsights</code> permission on the service.</p>
+ * Retrieves the dependency insights generated for a service. The response reports the current generation status; insights are populated once generation has completed. If generation failed, the response includes an error code, whose possible values are listed under the response's errorCode field, and a message describing the cause. To use this operation, you must have the `resiliencehub:GetDependencyInsights` permission on the service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,23 +61,28 @@ export interface GetDependencyInsightsCommandOutput extends GetDependencyInsight
  * @see {@link Resiliencehubv2ClientResolvedConfig | config} for Resiliencehubv2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied — caller lacks required permissions.</p>
+ *
+ * Access denied — caller lacks required permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service error.</p>
+ *
+ * Internal service error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests — rate limit exceeded.</p>
+ *
+ * Too many requests — rate limit exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation error — invalid input parameters.</p>
+ *
+ * Validation error — invalid input parameters.
  *
  * @throws {@link Resiliencehubv2ServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehubv2 service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehubv2 service.
  *
  * @public
  */

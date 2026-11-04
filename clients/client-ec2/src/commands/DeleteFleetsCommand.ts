@@ -23,53 +23,31 @@ export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified EC2 Fleet request.</p>
- *          <p>After you delete an EC2 Fleet request, it launches no new instances.</p>
- *          <p>You must also specify whether a deleted EC2 Fleet request should terminate its instances. If
- *          you choose to terminate the instances, the EC2 Fleet request enters the
- *             <code>deleted_terminating</code> state. Otherwise, it enters the
- *             <code>deleted_running</code> state, and the instances continue to run until they are
- *          interrupted or you terminate them manually.</p>
- *          <p>A deleted <code>instant</code> fleet with running instances is not supported. When you
- *          delete an <code>instant</code> fleet, Amazon EC2 automatically terminates all its instances. For
- *          fleets with more than 1000 instances, the deletion request might fail. If your fleet has
- *          more than 1000 instances, first terminate most of the instances manually, leaving 1000 or
- *          fewer. Then delete the fleet, and the remaining instances will be terminated automatically.</p>
- *          <important>
- *             <p>
- *                <b>Terminating an instance is permanent and irreversible.</b>
- *             </p>
- *             <p>After you terminate an instance, you can no longer connect to it, and it can't be recovered.
- *             All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
- *             deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
- *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html">
- *                How instance termination works</a>.</p>
- *             <p>Before you terminate an instance, ensure that you have backed up all data that you need to
- *             retain after the termination to persistent storage.</p>
- *          </important>
- *          <p class="title">
- *             <b>Restrictions</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>You can delete up to 25 fleets of type <code>instant</code> in a single
- *                request.</p>
- *             </li>
- *             <li>
- *                <p>You can delete up to 100 fleets of type <code>maintain</code> or
- *                   <code>request</code> in a single request.</p>
- *             </li>
- *             <li>
- *                <p>You can delete up to 125 fleets in a single request, provided you do not exceed
- *                the quota for each fleet type, as specified above.</p>
- *             </li>
- *             <li>
- *                <p>If you exceed the specified number of fleets to delete, no fleets are
- *                deleted.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html">Delete an EC2 Fleet request and the instances
- *             in the fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Deletes the specified EC2 Fleet request.
+ *
+ * After you delete an EC2 Fleet request, it launches no new instances.
+ *
+ * You must also specify whether a deleted EC2 Fleet request should terminate its instances. If you choose to terminate the instances, the EC2 Fleet request enters the `deleted_terminating` state. Otherwise, it enters the `deleted_running` state, and the instances continue to run until they are interrupted or you terminate them manually.
+ *
+ * A deleted `instant` fleet with running instances is not supported. When you delete an `instant` fleet, Amazon EC2 automatically terminates all its instances. For fleets with more than 1000 instances, the deletion request might fail. If your fleet has more than 1000 instances, first terminate most of the instances manually, leaving 1000 or fewer. Then delete the fleet, and the remaining instances will be terminated automatically.
+ *
+ * > **Important:**
+ * >
+ * > **Terminating an instance is permanent and irreversible.**
+ * >
+ * > After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see [How instance termination works](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-ec2-instance-termination-works.html).
+ * >
+ * > Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage.
+ *
+ * **Restrictions**
+ *
+ * - You can delete up to 25 fleets of type `instant` in a single request.
+ * - You can delete up to 100 fleets of type `maintain` or `request` in a single request.
+ * - You can delete up to 125 fleets in a single request, provided you do not exceed the quota for each fleet type, as specified above.
+ * - If you exceed the specified number of fleets to delete, no fleets are deleted.
+ *
+ * For more information, see [Delete an EC2 Fleet request and the instances in the fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,8 +93,8 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

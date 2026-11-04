@@ -36,109 +36,129 @@ import type {
 } from "./enums";
 
 /**
- * <p>Contains ACM-specific metadata about a certificate.</p>
+ * Contains ACM-specific metadata about a certificate.
+ *
  * @public
  */
 export interface AcmCertificateMetadata {
   /**
-   * <p>The time at which the certificate was requested.</p>
+   * The time at which the certificate was requested.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>Indicates whether the certificate has been exported.</p>
+   * Indicates whether the certificate has been exported.
+   *
    * @public
    */
   Exported?: boolean | undefined;
 
   /**
-   * <p>The date and time when the certificate was imported. This value exists only when the certificate type is <code>IMPORTED</code>. </p>
+   * The date and time when the certificate was imported. This value exists only when the certificate type is `IMPORTED`.
+   *
    * @public
    */
   ImportedAt?: Date | undefined;
 
   /**
-   * <p>Indicates whether the certificate is currently in use by an Amazon Web Services service.</p>
+   * Indicates whether the certificate is currently in use by an Amazon Web Services service.
+   *
    * @public
    */
   InUse?: boolean | undefined;
 
   /**
-   * <p>The time at which the certificate was issued. This value exists only when the certificate type is <code>AMAZON_ISSUED</code>. </p>
+   * The time at which the certificate was issued. This value exists only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   IssuedAt?: Date | undefined;
 
   /**
-   * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the <a>RenewCertificate</a> command.</p>
+   * Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the RenewCertificate command.
+   *
    * @public
    */
   RenewalEligibility?: RenewalEligibility | undefined;
 
   /**
-   * <p>The time at which the certificate was revoked. This value exists only when the certificate status is <code>REVOKED</code>. </p>
+   * The time at which the certificate was revoked. This value exists only when the certificate status is `REVOKED`.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
 
   /**
-   * <p>The status of the certificate.</p> <p>A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html">Certificate request fails</a>. ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and try again. If validation succeeds, the certificate enters status ISSUED. </p>
+   * The status of the certificate.
+   *
+   * A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic [Certificate request fails](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html). ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with [DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html) or [Email validation](https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html), and try again. If validation succeeds, the certificate enters status ISSUED.
+   *
    * @public
    */
   Status?: CertificateStatus | undefined;
 
   /**
-   * <p>The renewal status of the certificate.</p>
+   * The renewal status of the certificate.
+   *
    * @public
    */
   RenewalStatus?: RenewalStatus | undefined;
 
   /**
-   * <p>The source of the certificate. For certificates provided by ACM, this value is <code>AMAZON_ISSUED</code>. For certificates that you imported with <a>ImportCertificate</a>, this value is <code>IMPORTED</code>. ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
+   * The source of the certificate. For certificates provided by ACM, this value is `AMAZON_ISSUED`. For certificates that you imported with ImportCertificate, this value is `IMPORTED`. ACM does not provide [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see [Importing Certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide*.
+   *
    * @public
    */
   Type?: CertificateType | undefined;
 
   /**
-   * <p>Indicates whether the certificate can be exported.</p>
+   * Indicates whether the certificate can be exported.
+   *
    * @public
    */
   ExportOption?: CertificateExport | undefined;
 
   /**
-   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * Identifies the Amazon Web Services service that manages the certificate issued by ACM.
+   *
    * @public
    */
   ManagedBy?: CertificateManagedBy | undefined;
 
   /**
-   * <p>Specifies the domain validation method.</p>
+   * Specifies the domain validation method.
+   *
    * @public
    */
   ValidationMethod?: ValidationMethod | undefined;
 
   /**
-   * <p>The origin of the certificate's key pair.</p>
+   * The origin of the certificate's key pair.
+   *
    * @public
    */
   CertificateKeyPairOrigin?: CertificateKeyPairOrigin | undefined;
 
   /**
-   * <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+   * The ARN of the ACME endpoint used to issue the certificate.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The ACME account identifier associated with the certificate.</p>
+   * The ACME account identifier associated with the certificate.
+   *
    * @public
    */
   AcmeAccountId?: string | undefined;
 }
 
 /**
- * <p>Filters certificates by ACM metadata.</p>
+ * Filters certificates by ACM metadata.
+ *
  * @public
  */
 export type AcmCertificateMetadataFilter =
@@ -160,7 +180,8 @@ export type AcmCertificateMetadataFilter =
  */
 export namespace AcmCertificateMetadataFilter {
   /**
-   * <p>Filter by certificate status.</p>
+   * Filter by certificate status.
+   *
    * @public
    */
   export interface StatusMember {
@@ -179,7 +200,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by certificate renewal status.</p>
+   * Filter by certificate renewal status.
+   *
    * @public
    */
   export interface RenewalStatusMember {
@@ -198,7 +220,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by certificate type.</p>
+   * Filter by certificate type.
+   *
    * @public
    */
   export interface TypeMember {
@@ -217,7 +240,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by whether the certificate is in use.</p>
+   * Filter by whether the certificate is in use.
+   *
    * @public
    */
   export interface InUseMember {
@@ -236,7 +260,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by whether the certificate has been exported.</p>
+   * Filter by whether the certificate has been exported.
+   *
    * @public
    */
   export interface ExportedMember {
@@ -255,7 +280,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by certificate export option.</p>
+   * Filter by certificate export option.
+   *
    * @public
    */
   export interface ExportOptionMember {
@@ -274,7 +300,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by the entity that manages the certificate.</p>
+   * Filter by the entity that manages the certificate.
+   *
    * @public
    */
   export interface ManagedByMember {
@@ -293,7 +320,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by validation method.</p>
+   * Filter by validation method.
+   *
    * @public
    */
   export interface ValidationMethodMember {
@@ -312,7 +340,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by certificate key pair origin.</p>
+   * Filter by certificate key pair origin.
+   *
    * @public
    */
   export interface CertificateKeyPairOriginMember {
@@ -331,7 +360,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by ACME endpoint ARN.</p>
+   * Filter by ACME endpoint ARN.
+   *
    * @public
    */
   export interface AcmeEndpointArnMember {
@@ -350,7 +380,8 @@ export namespace AcmCertificateMetadataFilter {
   }
 
   /**
-   * <p>Filter by ACME account identifier.</p>
+   * Filter by ACME account identifier.
+   *
    * @public
    */
   export interface AcmeAccountIdMember {
@@ -407,181 +438,211 @@ export namespace AcmCertificateMetadataFilter {
 }
 
 /**
- * <p>Contains detailed information about an ACME account.</p>
+ * Contains detailed information about an ACME account.
+ *
  * @public
  */
 export interface AcmeAccount {
   /**
-   * <p>The URL of the ACME account.</p>
+   * The URL of the ACME account.
+   *
    * @public
    */
   AccountUrl?: string | undefined;
 
   /**
-   * <p>The thumbprint of the public key associated with the ACME account.</p>
+   * The thumbprint of the public key associated with the ACME account.
+   *
    * @public
    */
   PublicKeyThumbprint?: string | undefined;
 
   /**
-   * <p>The status of the ACME account.</p>
+   * The status of the ACME account.
+   *
    * @public
    */
   Status?: AcmeAccountStatus | undefined;
 
   /**
-   * <p>The time at which the ACME account was created.</p>
+   * The time at which the ACME account was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the external account binding associated with this ACME account.</p>
+   * The Amazon Resource Name (ARN) of the external account binding associated with this ACME account.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn?: string | undefined;
 
   /**
-   * <p>The contact information for the ACME account.</p>
+   * The contact information for the ACME account.
+   *
    * @public
    */
   Contacts?: string[] | undefined;
 }
 
 /**
- * <p>Contains summary information about an ACME account.</p>
+ * Contains summary information about an ACME account.
+ *
  * @public
  */
 export interface AcmeAccountSummary {
   /**
-   * <p>The URL of the ACME account.</p>
+   * The URL of the ACME account.
+   *
    * @public
    */
   AccountUrl?: string | undefined;
 
   /**
-   * <p>The thumbprint of the public key associated with the ACME account.</p>
+   * The thumbprint of the public key associated with the ACME account.
+   *
    * @public
    */
   PublicKeyThumbprint?: string | undefined;
 
   /**
-   * <p>The status of the ACME account.</p>
+   * The status of the ACME account.
+   *
    * @public
    */
   Status?: AcmeAccountStatus | undefined;
 
   /**
-   * <p>The time at which the ACME account was created.</p>
+   * The time at which the ACME account was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the external account binding associated with this ACME account.</p>
+   * The Amazon Resource Name (ARN) of the external account binding associated with this ACME account.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn?: string | undefined;
 
   /**
-   * <p>The contact information for the ACME account.</p>
+   * The contact information for the ACME account.
+   *
    * @public
    */
   Contacts?: string[] | undefined;
 }
 
 /**
- * <p>Contains details about a failure.</p>
+ * Contains details about a failure.
+ *
  * @public
  */
 export interface FailureDetails {
   /**
-   * <p>The reason for the failure.</p>
+   * The reason for the failure.
+   *
    * @public
    */
   Reason?: AcmeDomainValidationFailureReason | undefined;
 
   /**
-   * <p>A message describing the failure.</p>
+   * A message describing the failure.
+   *
    * @public
    */
   Message?: string | undefined;
 }
 
 /**
- * <p>Specifies the scope of domain validation.</p>
+ * Specifies the scope of domain validation.
+ *
  * @public
  */
 export interface DomainScope {
   /**
-   * <p>Whether validation applies to the exact domain.</p>
+   * Whether validation applies to the exact domain.
+   *
    * @public
    */
   ExactDomain?: DomainScopeOption | undefined;
 
   /**
-   * <p>Whether validation applies to subdomains.</p>
+   * Whether validation applies to subdomains.
+   *
    * @public
    */
   Subdomains?: DomainScopeOption | undefined;
 
   /**
-   * <p>Whether validation applies to wildcard domains.</p>
+   * Whether validation applies to wildcard domains.
+   *
    * @public
    */
   Wildcards?: DomainScopeOption | undefined;
 }
 
 /**
- * <p>Contains a DNS record value that you can use to validate ownership or control of a domain. This is used by the <a>DescribeCertificate</a> action. </p>
+ * Contains a DNS record value that you can use to validate ownership or control of a domain. This is used by the DescribeCertificate action.
+ *
  * @public
  */
 export interface ResourceRecord {
   /**
-   * <p>The name of the DNS record to create in your domain. This is supplied by ACM.</p>
+   * The name of the DNS record to create in your domain. This is supplied by ACM.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of DNS record. Currently this can be <code>CNAME</code>.</p>
+   * The type of DNS record. Currently this can be `CNAME`.
+   *
    * @public
    */
   Type: RecordType | undefined;
 
   /**
-   * <p>The value of the CNAME record to add to your DNS database. This is supplied by ACM.</p>
+   * The value of the CNAME record to add to your DNS database. This is supplied by ACM.
+   *
    * @public
    */
   Value: string | undefined;
 }
 
 /**
- * <p>DNS prevalidation details including the resource record for validation.</p>
+ * DNS prevalidation details including the resource record for validation.
+ *
  * @public
  */
 export interface DnsPrevalidationDetails {
   /**
-   * <p>The scope of domains covered by this prevalidation.</p>
+   * The scope of domains covered by this prevalidation.
+   *
    * @public
    */
   DomainScope?: DomainScope | undefined;
 
   /**
-   * <p>The Route 53 hosted zone ID for DNS validation.</p>
+   * The Route 53 hosted zone ID for DNS validation.
+   *
    * @public
    */
   HostedZoneId?: string | undefined;
 
   /**
-   * <p>The DNS resource record to create for domain validation.</p>
+   * The DNS resource record to create for domain validation.
+   *
    * @public
    */
   ResourceRecord?: ResourceRecord | undefined;
 }
 
 /**
- * <p>Contains details about the prevalidation configuration.</p>
+ * Contains details about the prevalidation configuration.
+ *
  * @public
  */
 export type PrevalidationDetails =
@@ -593,7 +654,8 @@ export type PrevalidationDetails =
  */
 export namespace PrevalidationDetails {
   /**
-   * <p>DNS-based prevalidation details.</p>
+   * DNS-based prevalidation details.
+   *
    * @public
    */
   export interface DnsPrevalidationMember {
@@ -620,139 +682,162 @@ export namespace PrevalidationDetails {
 }
 
 /**
- * <p>Contains detailed information about an ACME domain validation.</p>
+ * Contains detailed information about an ACME domain validation.
+ *
  * @public
  */
 export interface AcmeDomainValidation {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME domain validation.</p>
+   * The Amazon Resource Name (ARN) of the ACME domain validation.
+   *
    * @public
    */
   AcmeDomainValidationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The domain name being validated.</p>
+   * The domain name being validated.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>The type of prevalidation used.</p>
+   * The type of prevalidation used.
+   *
    * @public
    */
   PrevalidationType?: PrevalidationType | undefined;
 
   /**
-   * <p>Details about the prevalidation configuration.</p>
+   * Details about the prevalidation configuration.
+   *
    * @public
    */
   PrevalidationDetails?: PrevalidationDetails | undefined;
 
   /**
-   * <p>The status of the domain validation.</p>
+   * The status of the domain validation.
+   *
    * @public
    */
   Status?: AcmeDomainValidationStatus | undefined;
 
   /**
-   * <p>Details about the failure, if the validation failed.</p>
+   * Details about the failure, if the validation failed.
+   *
    * @public
    */
   FailureDetails?: FailureDetails | undefined;
 
   /**
-   * <p>The time at which the domain validation was created.</p>
+   * The time at which the domain validation was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the domain validation was last updated.</p>
+   * The time at which the domain validation was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about an ACME domain validation.</p>
+ * Contains summary information about an ACME domain validation.
+ *
  * @public
  */
 export interface AcmeDomainValidationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME domain validation.</p>
+   * The Amazon Resource Name (ARN) of the ACME domain validation.
+   *
    * @public
    */
   AcmeDomainValidationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The domain name being validated.</p>
+   * The domain name being validated.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>The type of prevalidation used.</p>
+   * The type of prevalidation used.
+   *
    * @public
    */
   PrevalidationType?: PrevalidationType | undefined;
 
   /**
-   * <p>Details about the prevalidation configuration.</p>
+   * Details about the prevalidation configuration.
+   *
    * @public
    */
   PrevalidationDetails?: PrevalidationDetails | undefined;
 
   /**
-   * <p>The status of the domain validation.</p>
+   * The status of the domain validation.
+   *
    * @public
    */
   Status?: AcmeDomainValidationStatus | undefined;
 
   /**
-   * <p>Details about the failure, if the validation failed.</p>
+   * Details about the failure, if the validation failed.
+   *
    * @public
    */
   FailureDetails?: FailureDetails | undefined;
 
   /**
-   * <p>The time at which the domain validation was created.</p>
+   * The time at which the domain validation was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the domain validation was last updated.</p>
+   * The time at which the domain validation was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Configuration for a public certificate authority.</p>
+ * Configuration for a public certificate authority.
+ *
  * @public
  */
 export interface PublicCertificateAuthority {
   /**
-   * <p>The key algorithms allowed for certificates issued by this certificate authority.</p>
+   * The key algorithms allowed for certificates issued by this certificate authority.
+   *
    * @public
    */
   AllowedKeyAlgorithms?: PublicKeyAlgorithm[] | undefined;
 }
 
 /**
- * <p>Defines the certificate authority to use for an ACME endpoint.</p>
+ * Defines the certificate authority to use for an ACME endpoint.
+ *
  * @public
  */
 export type CertificateAuthority =
@@ -764,7 +849,8 @@ export type CertificateAuthority =
  */
 export namespace CertificateAuthority {
   /**
-   * <p>Configuration for using a public certificate authority.</p>
+   * Configuration for using a public certificate authority.
+   *
    * @public
    */
   export interface PublicCertificateAuthorityMember {
@@ -791,258 +877,301 @@ export namespace CertificateAuthority {
 }
 
 /**
- * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
+ * A key-value pair that identifies or specifies metadata about an ACM resource.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about an ACME endpoint.</p>
+ * Contains detailed information about an ACME endpoint.
+ *
  * @public
  */
 export interface AcmeEndpoint {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The URL of the ACME endpoint.</p>
+   * The URL of the ACME endpoint.
+   *
    * @public
    */
   EndpointUrl?: string | undefined;
 
   /**
-   * <p>The status of the ACME endpoint.</p>
+   * The status of the ACME endpoint.
+   *
    * @public
    */
   Status?: AcmeEndpointStatus | undefined;
 
   /**
-   * <p>The reason the ACME endpoint failed, if applicable.</p>
+   * The reason the ACME endpoint failed, if applicable.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>The authorization behavior of the ACME endpoint.</p>
+   * The authorization behavior of the ACME endpoint.
+   *
    * @public
    */
   AuthorizationBehavior?: AcmeAuthorizationBehavior | undefined;
 
   /**
-   * <p>Whether ACME clients must provide contact information during account registration.</p>
+   * Whether ACME clients must provide contact information during account registration.
+   *
    * @public
    */
   Contact?: AcmeContact | undefined;
 
   /**
-   * <p>The certificate authority configuration for the ACME endpoint.</p>
+   * The certificate authority configuration for the ACME endpoint.
+   *
    * @public
    */
   CertificateAuthority?: CertificateAuthority | undefined;
 
   /**
-   * <p>Tags applied to certificates issued through this ACME endpoint.</p>
+   * Tags applied to certificates issued through this ACME endpoint.
+   *
    * @public
    */
   CertificateTags?: Tag[] | undefined;
 
   /**
-   * <p>The time at which the ACME endpoint was created.</p>
+   * The time at which the ACME endpoint was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the ACME endpoint was last updated.</p>
+   * The time at which the ACME endpoint was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about an ACME endpoint.</p>
+ * Contains summary information about an ACME endpoint.
+ *
  * @public
  */
 export interface AcmeEndpointSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The URL of the ACME endpoint.</p>
+   * The URL of the ACME endpoint.
+   *
    * @public
    */
   EndpointUrl?: string | undefined;
 
   /**
-   * <p>The status of the ACME endpoint.</p>
+   * The status of the ACME endpoint.
+   *
    * @public
    */
   Status?: AcmeEndpointStatus | undefined;
 
   /**
-   * <p>The reason the ACME endpoint failed, if applicable.</p>
+   * The reason the ACME endpoint failed, if applicable.
+   *
    * @public
    */
   FailureReason?: string | undefined;
 
   /**
-   * <p>The authorization behavior of the ACME endpoint.</p>
+   * The authorization behavior of the ACME endpoint.
+   *
    * @public
    */
   AuthorizationBehavior?: AcmeAuthorizationBehavior | undefined;
 
   /**
-   * <p>Whether ACME clients must provide contact information during account registration.</p>
+   * Whether ACME clients must provide contact information during account registration.
+   *
    * @public
    */
   Contact?: AcmeContact | undefined;
 
   /**
-   * <p>The certificate authority configuration for the ACME endpoint.</p>
+   * The certificate authority configuration for the ACME endpoint.
+   *
    * @public
    */
   CertificateAuthority?: CertificateAuthority | undefined;
 
   /**
-   * <p>Tags applied to certificates issued through this ACME endpoint.</p>
+   * Tags applied to certificates issued through this ACME endpoint.
+   *
    * @public
    */
   CertificateTags?: Tag[] | undefined;
 
   /**
-   * <p>The time at which the ACME endpoint was created.</p>
+   * The time at which the ACME endpoint was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the ACME endpoint was last updated.</p>
+   * The time at which the ACME endpoint was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains detailed information about an ACME external account binding.</p>
+ * Contains detailed information about an ACME external account binding.
+ *
  * @public
  */
 export interface AcmeExternalAccountBinding {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME external account binding.</p>
+   * The Amazon Resource Name (ARN) of the ACME external account binding.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the external account binding.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the external account binding.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The time at which the external account binding expires.</p>
+   * The time at which the external account binding expires.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was revoked.</p>
+   * The time at which the external account binding was revoked.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was last used.</p>
+   * The time at which the external account binding was last used.
+   *
    * @public
    */
   LastUsedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was created.</p>
+   * The time at which the external account binding was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was last updated.</p>
+   * The time at which the external account binding was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains summary information about an ACME external account binding.</p>
+ * Contains summary information about an ACME external account binding.
+ *
  * @public
  */
 export interface AcmeExternalAccountBindingSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME external account binding.</p>
+   * The Amazon Resource Name (ARN) of the ACME external account binding.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the external account binding.</p>
+   * The Amazon Resource Name (ARN) of the IAM role associated with the external account binding.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The time at which the external account binding expires.</p>
+   * The time at which the external account binding expires.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was revoked.</p>
+   * The time at which the external account binding was revoked.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was last used.</p>
+   * The time at which the external account binding was last used.
+   *
    * @public
    */
   LastUsedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was created.</p>
+   * The time at which the external account binding was created.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the external account binding was last updated.</p>
+   * The time at which the external account binding was last updated.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -1053,139 +1182,185 @@ export interface AcmeExternalAccountBindingSummary {
  */
 export interface AddTagsToCertificateRequest {
   /**
-   * <p>String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>The key-value pair that defines the tag. The tag value is optional.</p>
+   * The key-value pair that defines the tag. The tag value is optional.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
 }
 
 /**
- * <p>A description of why a request was throttled.</p>
+ * A description of why a request was throttled.
+ *
  * @public
  */
 export interface ThrottlingReason {
   /**
-   * <p>A description of why a request was throttled.</p>
+   * A description of why a request was throttled.
+   *
    * @public
    */
   reason?: string | undefined;
 
   /**
-   * <p>The resource that causes the request to be throttled.</p>
+   * The resource that causes the request to be throttled.
+   *
    * @public
    */
   resource?: string | undefined;
 }
 
 /**
- * <p>Contains information for HTTP-based domain validation of certificates requested through Amazon CloudFront and issued by ACM. This field exists only when the certificate type is <code>AMAZON_ISSUED</code> and the validation method is <code>HTTP</code>.</p>
+ * Contains information for HTTP-based domain validation of certificates requested through Amazon CloudFront and issued by ACM. This field exists only when the certificate type is `AMAZON_ISSUED` and the validation method is `HTTP`.
+ *
  * @public
  */
 export interface HttpRedirect {
   /**
-   * <p>The URL including the domain to be validated. The certificate authority sends <code>GET</code> requests here during validation.</p>
+   * The URL including the domain to be validated. The certificate authority sends `GET` requests here during validation.
+   *
    * @public
    */
   RedirectFrom?: string | undefined;
 
   /**
-   * <p>The URL hosting the validation token. <code>RedirectFrom</code> must return this content or redirect here.</p>
+   * The URL hosting the validation token. `RedirectFrom` must return this content or redirect here.
+   *
    * @public
    */
   RedirectTo?: string | undefined;
 }
 
 /**
- * <p>Contains information about the validation of each domain name in the certificate.</p>
+ * Contains information about the validation of each domain name in the certificate.
+ *
  * @public
  */
 export interface DomainValidation {
   /**
-   * <p>A fully qualified domain name (FQDN) in the certificate. For example, <code>www.example.com</code> or <code>example.com</code>. </p>
+   * A fully qualified domain name (FQDN) in the certificate. For example, `www.example.com` or `example.com`.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>A list of email addresses that ACM used to send domain validation emails.</p>
+   * A list of email addresses that ACM used to send domain validation emails.
+   *
    * @public
    */
   ValidationEmails?: string[] | undefined;
 
   /**
-   * <p>The domain name that ACM used to send domain validation emails.</p>
+   * The domain name that ACM used to send domain validation emails.
+   *
    * @public
    */
   ValidationDomain?: string | undefined;
 
   /**
-   * <p>The validation status of the domain name. This can be one of the following values:</p> <ul> <li> <p> <code>PENDING_VALIDATION</code> </p> </li> <li> <p> <code/>SUCCESS</p> </li> <li> <p> <code/>FAILED</p> </li> </ul>
+   * The validation status of the domain name. This can be one of the following values:
+   *
+   * - `PENDING_VALIDATION`
+   * - `SUCCESS`
+   * - `FAILED`
+   *
    * @public
    */
   ValidationStatus?: DomainStatus | undefined;
 
   /**
-   * <p>Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use DNS to Validate Domain Ownership</a>.</p> <note> <p>The CNAME information that you need does not include the name of your domain. If you include your domain name in the DNS database CNAME record, validation fails. For example, if the name is <code>_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com</code>, only <code>_a79865eb4cd1a6ab990a45779b4e0b96</code> must be used.</p> </note>
+   * Contains the CNAME record that you add to your DNS database for domain validation. For more information, see [Use DNS to Validate Domain Ownership](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html).
+   *
+   * > **Note:** The CNAME information that you need does not include the name of your domain. If you include your domain name in the DNS database CNAME record, validation fails. For example, if the name is `_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com`, only `_a79865eb4cd1a6ab990a45779b4e0b96` must be used.
+   *
    * @public
    */
   ResourceRecord?: ResourceRecord | undefined;
 
   /**
-   * <p>Contains information for HTTP-based domain validation of certificates requested through Amazon CloudFront and issued by ACM. This field exists only when the certificate type is <code>AMAZON_ISSUED</code> and the validation method is <code>HTTP</code>.</p>
+   * Contains information for HTTP-based domain validation of certificates requested through Amazon CloudFront and issued by ACM. This field exists only when the certificate type is `AMAZON_ISSUED` and the validation method is `HTTP`.
+   *
    * @public
    */
   HttpRedirect?: HttpRedirect | undefined;
 
   /**
-   * <p>Specifies the domain validation method.</p>
+   * Specifies the domain validation method.
+   *
    * @public
    */
   ValidationMethod?: ValidationMethod | undefined;
 }
 
 /**
- * <p>The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension. </p>
+ * The Extended Key Usage X.509 v3 extension defines one or more purposes for which the public key can be used. This is in addition to or in place of the basic purposes specified by the Key Usage extension.
+ *
  * @public
  */
 export interface ExtendedKeyUsage {
   /**
-   * <p>The name of an Extended Key Usage value.</p>
+   * The name of an Extended Key Usage value.
+   *
    * @public
    */
   Name?: ExtendedKeyUsageName | undefined;
 
   /**
-   * <p>An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280. </p> <ul> <li> <p> <code>1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.3 (CODE_SIGNING)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.8 (TIME_STAMPING)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)</code> </p> </li> <li> <p> <code>1.3.6.1.5.5.7.3.7 (IPSEC_USER)</code> </p> </li> </ul>
+   * An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280.
+   *
+   * - `1.3.6.1.5.5.7.3.1 (TLS_WEB_SERVER_AUTHENTICATION)`
+   * - `1.3.6.1.5.5.7.3.2 (TLS_WEB_CLIENT_AUTHENTICATION)`
+   * - `1.3.6.1.5.5.7.3.3 (CODE_SIGNING)`
+   * - `1.3.6.1.5.5.7.3.4 (EMAIL_PROTECTION)`
+   * - `1.3.6.1.5.5.7.3.8 (TIME_STAMPING)`
+   * - `1.3.6.1.5.5.7.3.9 (OCSP_SIGNING)`
+   * - `1.3.6.1.5.5.7.3.5 (IPSEC_END_SYSTEM)`
+   * - `1.3.6.1.5.5.7.3.6 (IPSEC_TUNNEL)`
+   * - `1.3.6.1.5.5.7.3.7 (IPSEC_USER)`
+   *
    * @public
    */
   OID?: string | undefined;
 }
 
 /**
- * <p>The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate.</p>
+ * The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate.
+ *
  * @public
  */
 export interface KeyUsage {
   /**
-   * <p>A string value that contains a Key Usage extension name.</p>
+   * A string value that contains a Key Usage extension name.
+   *
    * @public
    */
   Name?: KeyUsageName | undefined;
 }
 
 /**
- * <p>Structure that contains options for your certificate. You can use this structure to change the domain validation method or specify whether to export your certificate.</p> <p>All public certificates are recorded in a certificate transparency log. For general information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>.</p> <p>You can export public ACM certificates to use with Amazon Web Services services as well as outside Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager exportable public certificate</a>.</p>
+ * Structure that contains options for your certificate. You can use this structure to change the domain validation method or specify whether to export your certificate.
+ *
+ * All public certificates are recorded in a certificate transparency log. For general information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency).
+ *
+ * You can export public ACM certificates to use with Amazon Web Services services as well as outside Amazon Web Services Cloud. For more information, see [Certificate Manager exportable public certificate](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html).
+ *
  * @public
  */
 export interface CertificateOptions {
   /**
-   * <p>This parameter has been deprecated. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
+   * This parameter has been deprecated. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.
    *
    * @deprecated (since 12th June 2026) Certificate transparency logging opt-out is no longer available.
    * @public
@@ -1193,332 +1368,397 @@ export interface CertificateOptions {
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | undefined;
 
   /**
-   * <p>You can opt in to allow the export of your certificates by specifying <code>ENABLED</code>. You cannot update the value of <code>Export</code> after the the certificate is created.</p>
+   * You can opt in to allow the export of your certificates by specifying `ENABLED`. You cannot update the value of `Export` after the the certificate is created.
+   *
    * @public
    */
   Export?: CertificateExport | undefined;
 
   /**
-   * <p>The domain validation method for the certificate. To migrate from email to DNS validation, specify <code>DNS</code>.</p>
+   * The domain validation method for the certificate. To migrate from email to DNS validation, specify `DNS`.
+   *
    * @public
    */
   ValidationMethod?: ValidationMethod | undefined;
 }
 
 /**
- * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This structure exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
+ * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate. This structure exists only when the certificate type is `AMAZON_ISSUED`.
+ *
  * @public
  */
 export interface RenewalSummary {
   /**
-   * <p>The status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> of the certificate.</p>
+   * The status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) of the certificate.
+   *
    * @public
    */
   RenewalStatus: RenewalStatus | undefined;
 
   /**
-   * <p>Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a>. This is different from the initial validation that occurs as a result of the <a>RequestCertificate</a> request. This field exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
+   * Contains information about the validation of each domain name in the certificate, as it pertains to ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html). This is different from the initial validation that occurs as a result of the RequestCertificate request. This field exists only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   DomainValidationOptions: DomainValidation[] | undefined;
 
   /**
-   * <p>The reason that a renewal request was unsuccessful.</p>
+   * The reason that a renewal request was unsuccessful.
+   *
    * @public
    */
   RenewalStatusReason?: FailureReason | undefined;
 
   /**
-   * <p>The time at which the renewal summary was last updated.</p>
+   * The time at which the renewal summary was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 }
 
 /**
- * <p>Contains information about a domain validation method migration, including the previous validation method and the target validation method.</p>
+ * Contains information about a domain validation method migration, including the previous validation method and the target validation method.
+ *
  * @public
  */
 export interface DomainValidationMethodUpdateSummary {
   /**
-   * <p>The validation method that the certificate was using before the update.</p>
+   * The validation method that the certificate was using before the update.
+   *
    * @public
    */
   From?: ValidationMethod | undefined;
 
   /**
-   * <p>The target validation method for the update.</p>
+   * The target validation method for the update.
+   *
    * @public
    */
   To?: ValidationMethod | undefined;
 }
 
 /**
- * <p>Contains information about the most recent certificate update, such as a domain validation method migration. This structure is returned as part of the <a>CertificateDetail</a> response from <a>DescribeCertificate</a>.</p>
+ * Contains information about the most recent certificate update, such as a domain validation method migration. This structure is returned as part of the CertificateDetail response from DescribeCertificate.
+ *
  * @public
  */
 export interface UpdateSummary {
   /**
-   * <p>The status of the certificate update. The following are valid values:</p> <ul> <li> <p> <code>PENDING_DOMAIN_VALIDATION</code> – The certificate update is waiting for domain ownership validation to complete.</p> </li> <li> <p> <code>SUCCESS</code> – The certificate was updated successfully.</p> </li> <li> <p> <code>FAILED</code> – The certificate update failed.</p> </li> </ul>
+   * The status of the certificate update. The following are valid values:
+   *
+   * - `PENDING_DOMAIN_VALIDATION` – The certificate update is waiting for domain ownership validation to complete.
+   * - `SUCCESS` – The certificate was updated successfully.
+   * - `FAILED` – The certificate update failed.
+   *
    * @public
    */
   Status?: UpdateStatus | undefined;
 
   /**
-   * <p>The type of update that was requested for the certificate. The following are valid values:</p> <ul> <li> <p> <code>DOMAIN_VALIDATION_METHOD</code> – The update changes the domain validation method for the certificate.</p> </li> </ul>
+   * The type of update that was requested for the certificate. The following are valid values:
+   *
+   * - `DOMAIN_VALIDATION_METHOD` – The update changes the domain validation method for the certificate.
+   *
    * @public
    */
   Type?: UpdateType | undefined;
 
   /**
-   * <p>Contains information about a domain validation method migration, including the previous and target validation methods.</p>
+   * Contains information about a domain validation method migration, including the previous and target validation methods.
+   *
    * @public
    */
   DomainValidationMethodUpdateSummary?: DomainValidationMethodUpdateSummary | undefined;
 
   /**
-   * <p>The time at which the certificate update was requested.</p>
+   * The time at which the certificate update was requested.
+   *
    * @public
    */
   RequestedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the certificate update status was last changed.</p>
+   * The time at which the certificate update status was last changed.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
 }
 
 /**
- * <p>Contains metadata about an ACM certificate. This structure is returned in the response to a <a>DescribeCertificate</a> request. </p>
+ * Contains metadata about an ACM certificate. This structure is returned in the response to a DescribeCertificate request.
+ *
  * @public
  */
 export interface CertificateDetail {
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>The fully qualified domain name for the certificate, such as www.example.com or example.com.</p>
+   * The fully qualified domain name for the certificate, such as www.example.com or example.com.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. </p>
+   * One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+   *
    * @public
    */
   SubjectAlternativeNames?: string[] | undefined;
 
   /**
-   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * Identifies the Amazon Web Services service that manages the certificate issued by ACM.
+   *
    * @public
    */
   ManagedBy?: CertificateManagedBy | undefined;
 
   /**
-   * <p>Contains information about the initial validation of each domain name that occurs as a result of the <a>RequestCertificate</a> request. This field exists only when the certificate type is <code>AMAZON_ISSUED</code>. </p>
+   * Contains information about the initial validation of each domain name that occurs as a result of the RequestCertificate request. This field exists only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   DomainValidationOptions?: DomainValidation[] | undefined;
 
   /**
-   * <p>The serial number of the certificate.</p>
+   * The serial number of the certificate.
+   *
    * @public
    */
   Serial?: string | undefined;
 
   /**
-   * <p>The name of the entity that is associated with the public key contained in the certificate.</p>
+   * The name of the entity that is associated with the public key contained in the certificate.
+   *
    * @public
    */
   Subject?: string | undefined;
 
   /**
-   * <p>The name of the certificate authority that issued and signed the certificate.</p>
+   * The name of the certificate authority that issued and signed the certificate.
+   *
    * @public
    */
   Issuer?: string | undefined;
 
   /**
-   * <p>The time at which the certificate was requested.</p>
+   * The time at which the certificate was requested.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the certificate was issued. This value exists only when the certificate type is <code>AMAZON_ISSUED</code>. </p>
+   * The time at which the certificate was issued. This value exists only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   IssuedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the certificate was imported. This value exists only when the certificate type is <code>IMPORTED</code>. </p>
+   * The date and time when the certificate was imported. This value exists only when the certificate type is `IMPORTED`.
+   *
    * @public
    */
   ImportedAt?: Date | undefined;
 
   /**
-   * <p>The status of the certificate.</p> <p>A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html">Certificate request fails</a>. ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and try again. If validation succeeds, the certificate enters status ISSUED. </p>
+   * The status of the certificate.
+   *
+   * A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic [Certificate request fails](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html). ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with [DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html) or [Email validation](https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html), and try again. If validation succeeds, the certificate enters status ISSUED.
+   *
    * @public
    */
   Status?: CertificateStatus | undefined;
 
   /**
-   * <p>The time at which the certificate was revoked. This value exists only when the certificate status is <code>REVOKED</code>. </p>
+   * The time at which the certificate was revoked. This value exists only when the certificate status is `REVOKED`.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
 
   /**
-   * <p>The reason the certificate was revoked. This value exists only when the certificate status is <code>REVOKED</code>. </p>
+   * The reason the certificate was revoked. This value exists only when the certificate status is `REVOKED`.
+   *
    * @public
    */
   RevocationReason?: RevocationReason | undefined;
 
   /**
-   * <p>The time before which the certificate is not valid.</p>
+   * The time before which the certificate is not valid.
+   *
    * @public
    */
   NotBefore?: Date | undefined;
 
   /**
-   * <p>The time after which the certificate is not valid.</p>
+   * The time after which the certificate is not valid.
+   *
    * @public
    */
   NotAfter?: Date | undefined;
 
   /**
-   * <p>The algorithm that was used to generate the public-private key pair.</p>
+   * The algorithm that was used to generate the public-private key pair.
+   *
    * @public
    */
   KeyAlgorithm?: KeyAlgorithm | undefined;
 
   /**
-   * <p>The algorithm that was used to sign the certificate.</p>
+   * The algorithm that was used to sign the certificate.
+   *
    * @public
    */
   SignatureAlgorithm?: string | undefined;
 
   /**
-   * <p>A list of ARNs for the Amazon Web Services resources that are using the certificate. A certificate can be used by multiple Amazon Web Services resources. </p>
+   * A list of ARNs for the Amazon Web Services resources that are using the certificate. A certificate can be used by multiple Amazon Web Services resources.
+   *
    * @public
    */
   InUseBy?: string[] | undefined;
 
   /**
-   * <p>The reason the certificate request failed. This value exists only when the certificate status is <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed">Certificate Request Failed</a> in the <i>Certificate Manager User Guide</i>. </p>
+   * The reason the certificate request failed. This value exists only when the certificate status is `FAILED`. For more information, see [Certificate Request Failed](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed) in the *Certificate Manager User Guide*.
+   *
    * @public
    */
   FailureReason?: FailureReason | undefined;
 
   /**
-   * <p>The source of the certificate. For certificates provided by ACM, this value is <code>AMAZON_ISSUED</code>. For certificates that you imported with <a>ImportCertificate</a>, this value is <code>IMPORTED</code>. ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
+   * The source of the certificate. For certificates provided by ACM, this value is `AMAZON_ISSUED`. For certificates that you imported with ImportCertificate, this value is `IMPORTED`. ACM does not provide [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see [Importing Certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide*.
+   *
    * @public
    */
   Type?: CertificateType | undefined;
 
   /**
-   * <p>Contains information about the status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for the certificate. This field exists only when the certificate type is <code>AMAZON_ISSUED</code>.</p>
+   * Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate. This field exists only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   RenewalSummary?: RenewalSummary | undefined;
 
   /**
-   * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
+   * A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
+   *
    * @public
    */
   KeyUsages?: KeyUsage[] | undefined;
 
   /**
-   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID). </p>
+   * Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+   *
    * @public
    */
   ExtendedKeyUsages?: ExtendedKeyUsage[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that issued the certificate. This has the following format: </p> <p> <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code> </p>
+   * The Amazon Resource Name (ARN) of the private certificate authority (CA) that issued the certificate. This has the following format:
+   *
+   * `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateAuthorityArn?: string | undefined;
 
   /**
-   * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the <a>RenewCertificate</a> command.</p>
+   * Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the RenewCertificate command.
+   *
    * @public
    */
   RenewalEligibility?: RenewalEligibility | undefined;
 
   /**
-   * <p>Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.</p>
+   * Contains the certificate options. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log.
+   *
    * @public
    */
   Options?: CertificateOptions | undefined;
 
   /**
-   * <p>Contains information about the most recent update to the certificate. This field exists only when the certificate type is <code>AMAZON_ISSUED</code> and a certificate update has been requested.</p>
+   * Contains information about the most recent update to the certificate. This field exists only when the certificate type is `AMAZON_ISSUED` and a certificate update has been requested.
+   *
    * @public
    */
   UpdateSummary?: UpdateSummary | undefined;
 
   /**
-   * <p>The origin of the certificate's key pair.</p>
+   * The origin of the certificate's key pair.
+   *
    * @public
    */
   CertificateKeyPairOrigin?: CertificateKeyPairOrigin | undefined;
 
   /**
-   * <p>The ARN of the ACME endpoint used to issue the certificate.</p>
+   * The ARN of the ACME endpoint used to issue the certificate.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 
   /**
-   * <p>The ACME account identifier associated with the certificate.</p>
+   * The ACME account identifier associated with the certificate.
+   *
    * @public
    */
   AcmeAccountId?: string | undefined;
 }
 
 /**
- * <p>Specifies a time range for filtering certificates.</p>
+ * Specifies a time range for filtering certificates.
+ *
  * @public
  */
 export interface TimestampRange {
   /**
-   * <p>The start of the time range. This value is inclusive.</p>
+   * The start of the time range. This value is inclusive.
+   *
    * @public
    */
   Start?: Date | undefined;
 
   /**
-   * <p>The end of the time range. This value is inclusive.</p>
+   * The end of the time range. This value is inclusive.
+   *
    * @public
    */
   End?: Date | undefined;
 }
 
 /**
- * <p>Filters certificates by common name.</p>
+ * Filters certificates by common name.
+ *
  * @public
  */
 export interface CommonNameFilter {
   /**
-   * <p>The value to match against.</p>
+   * The value to match against.
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>The comparison operator to use.</p>
+   * The comparison operator to use.
+   *
    * @public
    */
   ComparisonOperator: ComparisonOperator | undefined;
 }
 
 /**
- * <p>Filters certificates by subject attributes.</p>
+ * Filters certificates by subject attributes.
+ *
  * @public
  */
 export type SubjectFilter =
@@ -1530,7 +1770,8 @@ export type SubjectFilter =
  */
 export namespace SubjectFilter {
   /**
-   * <p>Filter by common name in the subject.</p>
+   * Filter by common name in the subject.
+   *
    * @public
    */
   export interface CommonNameMember {
@@ -1557,25 +1798,29 @@ export namespace SubjectFilter {
 }
 
 /**
- * <p>Filters certificates by DNS name.</p>
+ * Filters certificates by DNS name.
+ *
  * @public
  */
 export interface DnsNameFilter {
   /**
-   * <p>The DNS name value to match against.</p>
+   * The DNS name value to match against.
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>The comparison operator to use.</p>
+   * The comparison operator to use.
+   *
    * @public
    */
   ComparisonOperator: ComparisonOperator | undefined;
 }
 
 /**
- * <p>Filters certificates by subject alternative name attributes.</p>
+ * Filters certificates by subject alternative name attributes.
+ *
  * @public
  */
 export type SubjectAlternativeNameFilter =
@@ -1587,7 +1832,8 @@ export type SubjectAlternativeNameFilter =
  */
 export namespace SubjectAlternativeNameFilter {
   /**
-   * <p>Filter by DNS name in subject alternative names.</p>
+   * Filter by DNS name in subject alternative names.
+   *
    * @public
    */
   export interface DnsNameMember {
@@ -1614,7 +1860,8 @@ export namespace SubjectAlternativeNameFilter {
 }
 
 /**
- * <p>Filters certificates by X.509 attributes.</p>
+ * Filters certificates by X.509 attributes.
+ *
  * @public
  */
 export type X509AttributeFilter =
@@ -1633,7 +1880,8 @@ export type X509AttributeFilter =
  */
 export namespace X509AttributeFilter {
   /**
-   * <p>Filter by certificate subject.</p>
+   * Filter by certificate subject.
+   *
    * @public
    */
   export interface SubjectMember {
@@ -1649,7 +1897,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by subject alternative names.</p>
+   * Filter by subject alternative names.
+   *
    * @public
    */
   export interface SubjectAlternativeNameMember {
@@ -1665,7 +1914,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by extended key usage.</p>
+   * Filter by extended key usage.
+   *
    * @public
    */
   export interface ExtendedKeyUsageMember {
@@ -1681,7 +1931,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by key usage.</p>
+   * Filter by key usage.
+   *
    * @public
    */
   export interface KeyUsageMember {
@@ -1697,7 +1948,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by key algorithm.</p>
+   * Filter by key algorithm.
+   *
    * @public
    */
   export interface KeyAlgorithmMember {
@@ -1713,7 +1965,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by serial number.</p>
+   * Filter by serial number.
+   *
    * @public
    */
   export interface SerialNumberMember {
@@ -1729,7 +1982,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by certificate expiration date. The start date is inclusive.</p>
+   * Filter by certificate expiration date. The start date is inclusive.
+   *
    * @public
    */
   export interface NotAfterMember {
@@ -1745,7 +1999,8 @@ export namespace X509AttributeFilter {
   }
 
   /**
-   * <p>Filter by certificate validity start date. The start date is inclusive.</p>
+   * Filter by certificate validity start date. The start date is inclusive.
+   *
    * @public
    */
   export interface NotBeforeMember {
@@ -1793,7 +2048,8 @@ export namespace X509AttributeFilter {
 }
 
 /**
- * <p>Defines a filter for searching certificates by ARN, X.509 attributes, or ACM metadata.</p>
+ * Defines a filter for searching certificates by ARN, X.509 attributes, or ACM metadata.
+ *
  * @public
  */
 export type CertificateFilter =
@@ -1807,7 +2063,8 @@ export type CertificateFilter =
  */
 export namespace CertificateFilter {
   /**
-   * <p>Filter by certificate ARN.</p>
+   * Filter by certificate ARN.
+   *
    * @public
    */
   export interface CertificateArnMember {
@@ -1818,7 +2075,8 @@ export namespace CertificateFilter {
   }
 
   /**
-   * <p>Filter by X.509 certificate attributes.</p>
+   * Filter by X.509 certificate attributes.
+   *
    * @public
    */
   export interface X509AttributeFilterMember {
@@ -1829,7 +2087,8 @@ export namespace CertificateFilter {
   }
 
   /**
-   * <p>Filter by ACM certificate metadata.</p>
+   * Filter by ACM certificate metadata.
+   *
    * @public
    */
   export interface AcmCertificateMetadataFilterMember {
@@ -1862,25 +2121,29 @@ export namespace CertificateFilter {
 }
 
 /**
- * <p>DNS prevalidation options for domain validation.</p>
+ * DNS prevalidation options for domain validation.
+ *
  * @public
  */
 export interface DnsPrevalidationOptions {
   /**
-   * <p>The scope of domains covered by this prevalidation.</p>
+   * The scope of domains covered by this prevalidation.
+   *
    * @public
    */
   DomainScope?: DomainScope | undefined;
 
   /**
-   * <p>The Route 53 hosted zone ID for DNS validation.</p>
+   * The Route 53 hosted zone ID for DNS validation.
+   *
    * @public
    */
   HostedZoneId?: string | undefined;
 }
 
 /**
- * <p>Specifies prevalidation options for domain validation.</p>
+ * Specifies prevalidation options for domain validation.
+ *
  * @public
  */
 export type PrevalidationOptions =
@@ -1892,7 +2155,8 @@ export type PrevalidationOptions =
  */
 export namespace PrevalidationOptions {
   /**
-   * <p>DNS-based prevalidation options.</p>
+   * DNS-based prevalidation options.
+   *
    * @public
    */
   export interface DnsPrevalidationMember {
@@ -1923,31 +2187,36 @@ export namespace PrevalidationOptions {
  */
 export interface CreateAcmeDomainValidationRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
 
   /**
-   * <p>The domain name to validate.</p>
+   * The domain name to validate.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The prevalidation options for the domain.</p>
+   * The prevalidation options for the domain.
+   *
    * @public
    */
   PrevalidationOptions: PrevalidationOptions | undefined;
 
   /**
-   * <p>One or more tags to associate with the domain validation.</p>
+   * One or more tags to associate with the domain validation.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -1958,7 +2227,8 @@ export interface CreateAcmeDomainValidationRequest {
  */
 export interface CreateAcmeDomainValidationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created domain validation.</p>
+   * The Amazon Resource Name (ARN) of the created domain validation.
+   *
    * @public
    */
   AcmeDomainValidationArn: string | undefined;
@@ -1969,37 +2239,43 @@ export interface CreateAcmeDomainValidationResponse {
  */
 export interface CreateAcmeEndpointRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>The authorization behavior for the ACME endpoint.</p>
+   * The authorization behavior for the ACME endpoint.
+   *
    * @public
    */
   AuthorizationBehavior: AcmeAuthorizationBehavior | undefined;
 
   /**
-   * <p>Specifies whether ACME clients must provide contact information during account registration.</p>
+   * Specifies whether ACME clients must provide contact information during account registration.
+   *
    * @public
    */
   Contact?: AcmeContact | undefined;
 
   /**
-   * <p>The type of certificate authority to use for issuing certificates through this ACME endpoint.</p>
+   * The type of certificate authority to use for issuing certificates through this ACME endpoint.
+   *
    * @public
    */
   CertificateAuthority: CertificateAuthority | undefined;
 
   /**
-   * <p>One or more tags to associate with the ACME endpoint.</p>
+   * One or more tags to associate with the ACME endpoint.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Tags to apply to certificates issued through this ACME endpoint.</p>
+   * Tags to apply to certificates issued through this ACME endpoint.
+   *
    * @public
    */
   CertificateTags?: Tag[] | undefined;
@@ -2010,25 +2286,29 @@ export interface CreateAcmeEndpointRequest {
  */
 export interface CreateAcmeEndpointResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the created ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn?: string | undefined;
 }
 
 /**
- * <p>Specifies an expiration configuration.</p>
+ * Specifies an expiration configuration.
+ *
  * @public
  */
 export interface Expiration {
   /**
-   * <p>The numeric value of the expiration.</p>
+   * The numeric value of the expiration.
+   *
    * @public
    */
   Value: number | undefined;
 
   /**
-   * <p>The time unit for the expiration value.</p>
+   * The time unit for the expiration value.
+   *
    * @public
    */
   Type: TimeType | undefined;
@@ -2039,31 +2319,36 @@ export interface Expiration {
  */
 export interface CreateAcmeExternalAccountBindingRequest {
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the external account binding.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to associate with the external account binding.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The expiration configuration for the external account binding.</p>
+   * The expiration configuration for the external account binding.
+   *
    * @public
    */
   Expiration?: Expiration | undefined;
 
   /**
-   * <p>One or more tags to associate with the external account binding.</p>
+   * One or more tags to associate with the external account binding.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2074,7 +2359,8 @@ export interface CreateAcmeExternalAccountBindingRequest {
  */
 export interface CreateAcmeExternalAccountBindingResponse {
   /**
-   * <p>The created external account binding.</p>
+   * The created external account binding.
+   *
    * @public
    */
   ExternalAccountBinding?: AcmeExternalAccountBinding | undefined;
@@ -2085,7 +2371,8 @@ export interface CreateAcmeExternalAccountBindingResponse {
  */
 export interface DeleteAcmeDomainValidationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME domain validation to delete.</p>
+   * The Amazon Resource Name (ARN) of the ACME domain validation to delete.
+   *
    * @public
    */
   AcmeDomainValidationArn: string | undefined;
@@ -2096,7 +2383,8 @@ export interface DeleteAcmeDomainValidationRequest {
  */
 export interface DeleteAcmeEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint to delete.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint to delete.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
@@ -2107,7 +2395,8 @@ export interface DeleteAcmeEndpointRequest {
  */
 export interface DeleteAcmeExternalAccountBindingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME external account binding to delete.</p>
+   * The Amazon Resource Name (ARN) of the ACME external account binding to delete.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn: string | undefined;
@@ -2118,7 +2407,12 @@ export interface DeleteAcmeExternalAccountBindingRequest {
  */
 export interface DeleteCertificateRequest {
   /**
-   * <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * String that contains the ARN of the ACM certificate to be deleted. This must be of the form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
@@ -2129,13 +2423,15 @@ export interface DeleteCertificateRequest {
  */
 export interface DescribeAcmeAccountRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
 
   /**
-   * <p>The URL of the ACME account.</p>
+   * The URL of the ACME account.
+   *
    * @public
    */
   AccountUrl: string | undefined;
@@ -2146,7 +2442,8 @@ export interface DescribeAcmeAccountRequest {
  */
 export interface DescribeAcmeAccountResponse {
   /**
-   * <p>The ACME account details.</p>
+   * The ACME account details.
+   *
    * @public
    */
   AcmeAccount?: AcmeAccount | undefined;
@@ -2157,7 +2454,8 @@ export interface DescribeAcmeAccountResponse {
  */
 export interface DescribeAcmeDomainValidationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME domain validation.</p>
+   * The Amazon Resource Name (ARN) of the ACME domain validation.
+   *
    * @public
    */
   AcmeDomainValidationArn: string | undefined;
@@ -2168,7 +2466,8 @@ export interface DescribeAcmeDomainValidationRequest {
  */
 export interface DescribeAcmeDomainValidationResponse {
   /**
-   * <p>The ACME domain validation details.</p>
+   * The ACME domain validation details.
+   *
    * @public
    */
   AcmeDomainValidation?: AcmeDomainValidation | undefined;
@@ -2179,7 +2478,8 @@ export interface DescribeAcmeDomainValidationResponse {
  */
 export interface DescribeAcmeEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
@@ -2190,7 +2490,8 @@ export interface DescribeAcmeEndpointRequest {
  */
 export interface DescribeAcmeEndpointResponse {
   /**
-   * <p>The ACME endpoint details.</p>
+   * The ACME endpoint details.
+   *
    * @public
    */
   AcmeEndpoint?: AcmeEndpoint | undefined;
@@ -2201,7 +2502,8 @@ export interface DescribeAcmeEndpointResponse {
  */
 export interface DescribeAcmeExternalAccountBindingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME external account binding.</p>
+   * The Amazon Resource Name (ARN) of the ACME external account binding.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn: string | undefined;
@@ -2212,7 +2514,8 @@ export interface DescribeAcmeExternalAccountBindingRequest {
  */
 export interface DescribeAcmeExternalAccountBindingResponse {
   /**
-   * <p>The external account binding details.</p>
+   * The external account binding details.
+   *
    * @public
    */
   ExternalAccountBinding?: AcmeExternalAccountBinding | undefined;
@@ -2223,7 +2526,12 @@ export interface DescribeAcmeExternalAccountBindingResponse {
  */
 export interface DescribeCertificateRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
@@ -2234,7 +2542,8 @@ export interface DescribeCertificateRequest {
  */
 export interface DescribeCertificateResponse {
   /**
-   * <p>Metadata about an ACM certificate.</p>
+   * Metadata about an ACM certificate.
+   *
    * @public
    */
   Certificate?: CertificateDetail | undefined;
@@ -2245,13 +2554,23 @@ export interface DescribeCertificateResponse {
  */
 export interface ExportCertificateRequest {
   /**
-   * <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</p> <p> <code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code> </p>
+   * An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
+   *
+   * `arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>Passphrase to associate with the encrypted exported private key. </p> <note> <p>When creating your passphrase, you can use any ASCII character except #, $, or %.</p> </note> <p>If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key. After entering the command, you are prompted for the passphrase.</p> <p> <code>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</code> </p>
+   * Passphrase to associate with the encrypted exported private key.
+   *
+   * > **Note:** When creating your passphrase, you can use any ASCII character except #, $, or %.
+   *
+   * If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key. After entering the command, you are prompted for the passphrase.
+   *
+   * `openssl rsa -in encrypted_key.pem -out decrypted_key.pem`
+   *
    * @public
    */
   Passphrase: Uint8Array | undefined;
@@ -2262,31 +2581,36 @@ export interface ExportCertificateRequest {
  */
 export interface ExportCertificateResponse {
   /**
-   * <p>The base64 PEM-encoded certificate.</p>
+   * The base64 PEM-encoded certificate.
+   *
    * @public
    */
   Certificate?: string | undefined;
 
   /**
-   * <p>The base64 PEM-encoded certificate chain. This does not include the certificate that you are exporting.</p>
+   * The base64 PEM-encoded certificate chain. This does not include the certificate that you are exporting.
+   *
    * @public
    */
   CertificateChain?: string | undefined;
 
   /**
-   * <p>The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded. </p>
+   * The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
+   *
    * @public
    */
   PrivateKey?: string | undefined;
 }
 
 /**
- * <p>Object containing expiration events options associated with an Amazon Web Services account.</p>
+ * Object containing expiration events options associated with an Amazon Web Services account.
+ *
  * @public
  */
 export interface ExpiryEventsConfiguration {
   /**
-   * <p>Specifies the number of days prior to certificate expiration when ACM starts generating <code>EventBridge</code> events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.</p>
+   * Specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
+   *
    * @public
    */
   DaysBeforeExpiry?: number | undefined;
@@ -2297,7 +2621,8 @@ export interface ExpiryEventsConfiguration {
  */
 export interface GetAccountConfigurationResponse {
   /**
-   * <p>Expiration events configuration options associated with the Amazon Web Services account.</p>
+   * Expiration events configuration options associated with the Amazon Web Services account.
+   *
    * @public
    */
   ExpiryEvents?: ExpiryEventsConfiguration | undefined;
@@ -2308,7 +2633,8 @@ export interface GetAccountConfigurationResponse {
  */
 export interface GetAcmeExternalAccountBindingCredentialsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME external account binding.</p>
+   * The Amazon Resource Name (ARN) of the ACME external account binding.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn: string | undefined;
@@ -2319,13 +2645,15 @@ export interface GetAcmeExternalAccountBindingCredentialsRequest {
  */
 export interface GetAcmeExternalAccountBindingCredentialsResponse {
   /**
-   * <p>The key identifier for the external account binding credentials.</p>
+   * The key identifier for the external account binding credentials.
+   *
    * @public
    */
   KeyId?: string | undefined;
 
   /**
-   * <p>The MAC key for the external account binding credentials.</p>
+   * The MAC key for the external account binding credentials.
+   *
    * @public
    */
   MacKey?: string | undefined;
@@ -2336,7 +2664,12 @@ export interface GetAcmeExternalAccountBindingCredentialsResponse {
  */
 export interface GetCertificateRequest {
   /**
-   * <p>String that contains a certificate ARN in the following format:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * String that contains a certificate ARN in the following format:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
@@ -2347,13 +2680,15 @@ export interface GetCertificateRequest {
  */
 export interface GetCertificateResponse {
   /**
-   * <p>The ACM-issued certificate corresponding to the ARN specified as input.</p>
+   * The ACM-issued certificate corresponding to the ARN specified as input.
+   *
    * @public
    */
   Certificate?: string | undefined;
 
   /**
-   * <p>Certificates forming the requested certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs. </p>
+   * Certificates forming the requested certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+   *
    * @public
    */
   CertificateChain?: string | undefined;
@@ -2364,31 +2699,38 @@ export interface GetCertificateResponse {
  */
 export interface ImportCertificateRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an imported certificate to replace. To import a new certificate, omit this field. </p>
+   * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of an imported certificate to replace. To import a new certificate, omit this field.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>The certificate to import.</p>
+   * The certificate to import.
+   *
    * @public
    */
   Certificate: Uint8Array | undefined;
 
   /**
-   * <p>The private key that matches the public key in the certificate.</p>
+   * The private key that matches the public key in the certificate.
+   *
    * @public
    */
   PrivateKey: Uint8Array | undefined;
 
   /**
-   * <p>The PEM encoded certificate chain.</p>
+   * The PEM encoded certificate chain.
+   *
    * @public
    */
   CertificateChain?: Uint8Array | undefined;
 
   /**
-   * <p>One or more resource tags to associate with the imported certificate. </p> <p>Note: You cannot apply tags when reimporting a certificate.</p>
+   * One or more resource tags to associate with the imported certificate.
+   *
+   * Note: You cannot apply tags when reimporting a certificate.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2399,7 +2741,8 @@ export interface ImportCertificateRequest {
  */
 export interface ImportCertificateResponse {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the imported certificate.</p>
+   * The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the imported certificate.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
@@ -2410,19 +2753,22 @@ export interface ImportCertificateResponse {
  */
 export interface ListAcmeAccountsRequest {
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
@@ -2433,13 +2779,15 @@ export interface ListAcmeAccountsRequest {
  */
 export interface ListAcmeAccountsResponse {
   /**
-   * <p>The list of ACME accounts.</p>
+   * The list of ACME accounts.
+   *
    * @public
    */
   AcmeAccounts?: AcmeAccountSummary[] | undefined;
 
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2450,19 +2798,22 @@ export interface ListAcmeAccountsResponse {
  */
 export interface ListAcmeDomainValidationsRequest {
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
@@ -2473,13 +2824,15 @@ export interface ListAcmeDomainValidationsRequest {
  */
 export interface ListAcmeDomainValidationsResponse {
   /**
-   * <p>The list of domain validations.</p>
+   * The list of domain validations.
+   *
    * @public
    */
   AcmeDomainValidations?: AcmeDomainValidationSummary[] | undefined;
 
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2490,13 +2843,15 @@ export interface ListAcmeDomainValidationsResponse {
  */
 export interface ListAcmeEndpointsRequest {
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -2507,13 +2862,15 @@ export interface ListAcmeEndpointsRequest {
  */
 export interface ListAcmeEndpointsResponse {
   /**
-   * <p>The list of ACME endpoints.</p>
+   * The list of ACME endpoints.
+   *
    * @public
    */
   AcmeEndpoints?: AcmeEndpointSummary[] | undefined;
 
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2524,19 +2881,22 @@ export interface ListAcmeEndpointsResponse {
  */
 export interface ListAcmeExternalAccountBindingsRequest {
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
@@ -2547,13 +2907,15 @@ export interface ListAcmeExternalAccountBindingsRequest {
  */
 export interface ListAcmeExternalAccountBindingsResponse {
   /**
-   * <p>The list of external account bindings.</p>
+   * The list of external account bindings.
+   *
    * @public
    */
   ExternalAccountBindings?: AcmeExternalAccountBindingSummary[] | undefined;
 
   /**
-   * <p>A token for pagination.</p>
+   * A token for pagination.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2564,56 +2926,65 @@ export interface ListAcmeExternalAccountBindingsResponse {
  */
 export interface ListCertificateDomainValidationsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate for which to list domain validation summaries.</p>
+   * The Amazon Resource Name (ARN) of the certificate for which to list domain validation summaries.
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>A token returned by a previous call to <code>ListCertificateDomainValidations</code>. If the number of results exceeds <code>MaxItems</code>, use this token to retrieve the next page of results.</p>
+   * A token returned by a previous call to `ListCertificateDomainValidations`. If the number of results exceeds `MaxItems`, use this token to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of domain validation summaries to return. If you don't specify a value, the default is 1000.</p>
+   * The maximum number of domain validation summaries to return. If you don't specify a value, the default is 1000.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
- * <p>Contains the CNAME record that you must add to your DNS configuration to validate domain ownership using DNS validation.</p>
+ * Contains the CNAME record that you must add to your DNS configuration to validate domain ownership using DNS validation.
+ *
  * @public
  */
 export interface DnsValidationChallenge {
   /**
-   * <p>The CNAME record that ACM creates for DNS validation. Add this record to your DNS configuration to prove that you own or control the domain.</p>
+   * The CNAME record that ACM creates for DNS validation. Add this record to your DNS configuration to prove that you own or control the domain.
+   *
    * @public
    */
   ResourceRecord?: ResourceRecord | undefined;
 }
 
 /**
- * <p>Contains the email addresses used for email-based domain validation.</p>
+ * Contains the email addresses used for email-based domain validation.
+ *
  * @public
  */
 export interface EmailValidationChallenge {
   /**
-   * <p>A list of email addresses that ACM uses to send domain validation emails.</p>
+   * A list of email addresses that ACM uses to send domain validation emails.
+   *
    * @public
    */
   ValidationEmails?: string[] | undefined;
 
   /**
-   * <p>The domain name that ACM uses to send validation emails.</p>
+   * The domain name that ACM uses to send validation emails.
+   *
    * @public
    */
   ValidationDomain?: string | undefined;
 }
 
 /**
- * <p>Contains the challenge details that you use to prove domain ownership. Only one member is set, depending on the validation method.</p>
+ * Contains the challenge details that you use to prove domain ownership. Only one member is set, depending on the validation method.
+ *
  * @public
  */
 export type ValidationChallenge =
@@ -2626,7 +2997,8 @@ export type ValidationChallenge =
  */
 export namespace ValidationChallenge {
   /**
-   * <p>Contains the email addresses used for email-based domain validation.</p>
+   * Contains the email addresses used for email-based domain validation.
+   *
    * @public
    */
   export interface EmailValidationChallengeMember {
@@ -2636,7 +3008,8 @@ export namespace ValidationChallenge {
   }
 
   /**
-   * <p>Contains the CNAME record that you must add to your DNS configuration to validate domain ownership using DNS validation.</p>
+   * Contains the CNAME record that you must add to your DNS configuration to validate domain ownership using DNS validation.
+   *
    * @public
    */
   export interface DnsValidationChallengeMember {
@@ -2666,48 +3039,64 @@ export namespace ValidationChallenge {
 }
 
 /**
- * <p>Contains the validation method, validation status, and validation challenge details for a domain. This structure appears in <a>DomainValidationSummary</a> as both the active and requested validation configuration.</p>
+ * Contains the validation method, validation status, and validation challenge details for a domain. This structure appears in DomainValidationSummary as both the active and requested validation configuration.
+ *
  * @public
  */
 export interface ValidationConfiguration {
   /**
-   * <p>The validation method for this configuration. Valid values:</p> <ul> <li> <p> <code>DNS</code> – Validation using a CNAME record added to your DNS configuration.</p> </li> <li> <p> <code>EMAIL</code> – Validation using an approval email sent to domain contacts.</p> </li> <li> <p> <code>HTTP</code> – Validation using an HTTP resource placed on your web server.</p> </li> </ul>
+   * The validation method for this configuration. Valid values:
+   *
+   * - `DNS` – Validation using a CNAME record added to your DNS configuration.
+   * - `EMAIL` – Validation using an approval email sent to domain contacts.
+   * - `HTTP` – Validation using an HTTP resource placed on your web server.
+   *
    * @public
    */
   ValidationMethod?: ValidationMethod | undefined;
 
   /**
-   * <p>The validation challenge details for this configuration. The structure varies by validation method: for DNS validation, contains a <code>DnsValidationChallenge</code> with the CNAME record to add; for email validation, contains an <code>EmailValidationChallenge</code> with the validation email addresses.</p>
+   * The validation challenge details for this configuration. The structure varies by validation method: for DNS validation, contains a `DnsValidationChallenge` with the CNAME record to add; for email validation, contains an `EmailValidationChallenge` with the validation email addresses.
+   *
    * @public
    */
   ValidationChallenge?: ValidationChallenge | undefined;
 
   /**
-   * <p>The validation status for this domain. Valid values:</p> <ul> <li> <p> <code>PENDING_VALIDATION</code> – The domain is waiting for validation to complete.</p> </li> <li> <p> <code>SUCCESS</code> – Validation completed successfully.</p> </li> <li> <p> <code>FAILED</code> – Validation failed.</p> </li> </ul>
+   * The validation status for this domain. Valid values:
+   *
+   * - `PENDING_VALIDATION` – The domain is waiting for validation to complete.
+   * - `SUCCESS` – Validation completed successfully.
+   * - `FAILED` – Validation failed.
+   *
    * @public
    */
   ValidationStatus?: DomainStatus | undefined;
 }
 
 /**
- * <p>Contains per-domain validation information for a certificate. This structure is returned as a member of the <a>ListCertificateDomainValidations</a> response.</p>
+ * Contains per-domain validation information for a certificate. This structure is returned as a member of the ListCertificateDomainValidations response.
+ *
  * @public
  */
 export interface DomainValidationSummary {
   /**
-   * <p>The fully qualified domain name (FQDN) in the certificate for which this validation summary applies.</p>
+   * The fully qualified domain name (FQDN) in the certificate for which this validation summary applies.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The validation configuration currently in effect for this domain. This reflects the validation method that ACM is currently using to validate domain ownership (for example, email or DNS).</p>
+   * The validation configuration currently in effect for this domain. This reflects the validation method that ACM is currently using to validate domain ownership (for example, email or DNS).
+   *
    * @public
    */
   ActiveValidationConfiguration?: ValidationConfiguration | undefined;
 
   /**
-   * <p>The validation configuration for a pending validation method migration. This field is present only when a migration is in progress (for example, from email to DNS validation). It contains the target validation method, the current validation status, and the validation challenge details (such as the CNAME record to add to your DNS configuration).</p>
+   * The validation configuration for a pending validation method migration. This field is present only when a migration is in progress (for example, from email to DNS validation). It contains the target validation method, the current validation status, and the validation challenge details (such as the CNAME record to add to your DNS configuration).
+   *
    * @public
    */
   RequestedValidationConfiguration?: ValidationConfiguration | undefined;
@@ -2718,49 +3107,59 @@ export interface DomainValidationSummary {
  */
 export interface ListCertificateDomainValidationsResponse {
   /**
-   * <p>A list of <a>DomainValidationSummary</a> objects, one for each domain on the certificate. Each object contains the domain name and its active and requested validation configurations.</p>
+   * A list of DomainValidationSummary objects, one for each domain on the certificate. Each object contains the domain name and its active and requested validation configurations.
+   *
    * @public
    */
   DomainValidationSummaryList?: DomainValidationSummary[] | undefined;
 
   /**
-   * <p>If the number of results exceeds <code>MaxItems</code>, this token is included in the response. Use this token in a subsequent <code>ListCertificateDomainValidations</code> request to retrieve the next page of results.</p>
+   * If the number of results exceeds `MaxItems`, this token is included in the response. Use this token in a subsequent `ListCertificateDomainValidations` request to retrieve the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>This structure can be used in the <a>ListCertificates</a> action to filter the output of the certificate list. </p>
+ * This structure can be used in the ListCertificates action to filter the output of the certificate list.
+ *
  * @public
  */
 export interface Filters {
   /**
-   * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
+   * Specify one or more ExtendedKeyUsage extension values.
+   *
    * @public
    */
   extendedKeyUsage?: ExtendedKeyUsageName[] | undefined;
 
   /**
-   * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
+   * Specify one or more KeyUsage extension values.
+   *
    * @public
    */
   keyUsage?: KeyUsageName[] | undefined;
 
   /**
-   * <p>Specify one or more algorithms that can be used to generate key pairs.</p> <p>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code> certificates that have at least one domain. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, <code>"keyTypes": ["RSA_2048","RSA_4096"]</code> returns both <code>RSA_2048</code> and <code>RSA_4096</code> certificates.</p>
+   * Specify one or more algorithms that can be used to generate key pairs.
+   *
+   * Default filtering returns only `RSA_1024` and `RSA_2048` certificates that have at least one domain. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, `"keyTypes": ["RSA_2048","RSA_4096"]` returns both `RSA_2048` and `RSA_4096` certificates.
+   *
    * @public
    */
   keyTypes?: KeyAlgorithm[] | undefined;
 
   /**
-   * <p>Specify <code>ENABLED</code> or <code>DISABLED</code> to identify certificates that can be exported.</p>
+   * Specify `ENABLED` or `DISABLED` to identify certificates that can be exported.
+   *
    * @public
    */
   exportOption?: CertificateExport | undefined;
 
   /**
-   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * Identifies the Amazon Web Services service that manages the certificate issued by ACM.
+   *
    * @public
    */
   managedBy?: CertificateManagedBy | undefined;
@@ -2771,175 +3170,212 @@ export interface Filters {
  */
 export interface ListCertificatesRequest {
   /**
-   * <p>Filter the certificate list by status value.</p>
+   * Filter the certificate list by status value.
+   *
    * @public
    */
   CertificateStatuses?: CertificateStatus[] | undefined;
 
   /**
-   * <p>Filter the certificate list by certificate key pair origin. Specify one or more <code>CertificateKeyPairOrigin</code> values. Default filtering returns only certificates with key pair origin of <code>AWS_MANAGED</code> and <code>CUSTOMER_PROVIDED</code>.</p>
+   * Filter the certificate list by certificate key pair origin. Specify one or more `CertificateKeyPairOrigin` values. Default filtering returns only certificates with key pair origin of `AWS_MANAGED` and `CUSTOMER_PROVIDED`.
+   *
    * @public
    */
   CertificateKeyPairOrigins?: CertificateKeyPairOrigin[] | undefined;
 
   /**
-   * <p>Filter the certificate list. For more information, see the <a>Filters</a> structure.</p>
+   * Filter the certificate list. For more information, see the Filters structure.
+   *
    * @public
    */
   Includes?: Filters | undefined;
 
   /**
-   * <p>Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the response you just received.</p>
+   * Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of `NextToken` from the response you just received.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>
+   * Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the `NextToken` element is sent in the response. Use this `NextToken` value in a subsequent request to retrieve additional items.
+   *
    * @public
    */
   MaxItems?: number | undefined;
 
   /**
-   * <p>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must also specify <code>SortOrder</code>.</p>
+   * Specifies the field to sort results by. If you specify `SortBy`, you must also specify `SortOrder`.
+   *
    * @public
    */
   SortBy?: SortBy | undefined;
 
   /**
-   * <p>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you must also specify <code>SortBy</code>.</p>
+   * Specifies the order of sorted results. If you specify `SortOrder`, you must also specify `SortBy`.
+   *
    * @public
    */
   SortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>This structure is returned in the response object of <a>ListCertificates</a> action. </p>
+ * This structure is returned in the response object of ListCertificates action.
+ *
  * @public
  */
 export interface CertificateSummary {
   /**
-   * <p>Amazon Resource Name (ARN) of the certificate. This is of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * Amazon Resource Name (ARN) of the certificate. This is of the form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.</p>
+   * Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
+   *
    * @public
    */
   DomainName?: string | undefined;
 
   /**
-   * <p>One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. </p> <p>When called by <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html">ListCertificates</a>, this parameter will only return the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
+   * One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+   *
+   * When called by [ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html), this parameter will only return the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html).
+   *
    * @public
    */
   SubjectAlternativeNameSummaries?: string[] | undefined;
 
   /**
-   * <p>When called by <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html">ListCertificates</a>, indicates whether the full list of subject alternative names has been included in the response. If false, the response includes all of the subject alternative names included in the certificate. If true, the response only includes the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>.</p>
+   * When called by [ListCertificates](https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html), indicates whether the full list of subject alternative names has been included in the response. If false, the response includes all of the subject alternative names included in the certificate. If true, the response only includes the first 100 subject alternative names included in the certificate. To display the full list of subject alternative names, use [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html).
+   *
    * @public
    */
   HasAdditionalSubjectAlternativeNames?: boolean | undefined;
 
   /**
-   * <p>The status of the certificate.</p> <p>A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html">Certificate request fails</a>. ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and try again. If validation succeeds, the certificate enters status ISSUED. </p>
+   * The status of the certificate.
+   *
+   * A certificate enters status PENDING_VALIDATION upon being requested, unless it fails for any of the reasons given in the troubleshooting topic [Certificate request fails](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-failed.html). ACM makes repeated attempts to validate a certificate for 72 hours and then times out. If a certificate shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with [DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html) or [Email validation](https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html), and try again. If validation succeeds, the certificate enters status ISSUED.
+   *
    * @public
    */
   Status?: CertificateStatus | undefined;
 
   /**
-   * <p>The source of the certificate. For certificates provided by ACM, this value is <code>AMAZON_ISSUED</code>. For certificates that you imported with <a>ImportCertificate</a>, this value is <code>IMPORTED</code>. ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
+   * The source of the certificate. For certificates provided by ACM, this value is `AMAZON_ISSUED`. For certificates that you imported with ImportCertificate, this value is `IMPORTED`. ACM does not provide [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see [Importing Certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *Certificate Manager User Guide*.
+   *
    * @public
    */
   Type?: CertificateType | undefined;
 
   /**
-   * <p>The algorithm that was used to generate the public-private key pair.</p>
+   * The algorithm that was used to generate the public-private key pair.
+   *
    * @public
    */
   KeyAlgorithm?: KeyAlgorithm | undefined;
 
   /**
-   * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
+   * A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
+   *
    * @public
    */
   KeyUsages?: KeyUsageName[] | undefined;
 
   /**
-   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID). </p>
+   * Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+   *
    * @public
    */
   ExtendedKeyUsages?: ExtendedKeyUsageName[] | undefined;
 
   /**
-   * <p>Indicates if export is enabled for the certificate.</p>
+   * Indicates if export is enabled for the certificate.
+   *
    * @public
    */
   ExportOption?: CertificateExport | undefined;
 
   /**
-   * <p>Indicates whether the certificate is currently in use by any Amazon Web Services resources.</p>
+   * Indicates whether the certificate is currently in use by any Amazon Web Services resources.
+   *
    * @public
    */
   InUse?: boolean | undefined;
 
   /**
-   * <p>Indicates whether the certificate has been exported.</p>
+   * Indicates whether the certificate has been exported.
+   *
    * @public
    */
   Exported?: boolean | undefined;
 
   /**
-   * <p>Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the <a>RenewCertificate</a> command.</p>
+   * Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the RenewCertificate command.
+   *
    * @public
    */
   RenewalEligibility?: RenewalEligibility | undefined;
 
   /**
-   * <p>The time before which the certificate is not valid.</p>
+   * The time before which the certificate is not valid.
+   *
    * @public
    */
   NotBefore?: Date | undefined;
 
   /**
-   * <p>The time after which the certificate is not valid.</p>
+   * The time after which the certificate is not valid.
+   *
    * @public
    */
   NotAfter?: Date | undefined;
 
   /**
-   * <p>The time at which the certificate was requested.</p>
+   * The time at which the certificate was requested.
+   *
    * @public
    */
   CreatedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the certificate was issued. This value exists only when the certificate type is <code>AMAZON_ISSUED</code>. </p>
+   * The time at which the certificate was issued. This value exists only when the certificate type is `AMAZON_ISSUED`.
+   *
    * @public
    */
   IssuedAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the certificate was imported. This value exists only when the certificate type is <code>IMPORTED</code>. </p>
+   * The date and time when the certificate was imported. This value exists only when the certificate type is `IMPORTED`.
+   *
    * @public
    */
   ImportedAt?: Date | undefined;
 
   /**
-   * <p>The time at which the certificate was revoked. This value exists only when the certificate status is <code>REVOKED</code>. </p>
+   * The time at which the certificate was revoked. This value exists only when the certificate status is `REVOKED`.
+   *
    * @public
    */
   RevokedAt?: Date | undefined;
 
   /**
-   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * Identifies the Amazon Web Services service that manages the certificate issued by ACM.
+   *
    * @public
    */
   ManagedBy?: CertificateManagedBy | undefined;
 
   /**
-   * <p>The origin of the certificate's key pair.</p>
+   * The origin of the certificate's key pair.
+   *
    * @public
    */
   CertificateKeyPairOrigin?: CertificateKeyPairOrigin | undefined;
@@ -2950,13 +3386,15 @@ export interface CertificateSummary {
  */
 export interface ListCertificatesResponse {
   /**
-   * <p>When the list is truncated, this value is present and contains the value to use for the <code>NextToken</code> parameter in a subsequent pagination request.</p>
+   * When the list is truncated, this value is present and contains the value to use for the `NextToken` parameter in a subsequent pagination request.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of ACM certificates.</p>
+   * A list of ACM certificates.
+   *
    * @public
    */
   CertificateSummaryList?: CertificateSummary[] | undefined;
@@ -2967,7 +3405,12 @@ export interface ListCertificatesResponse {
  */
 export interface ListTagsForCertificateRequest {
   /**
-   * <p>String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
@@ -2978,7 +3421,8 @@ export interface ListTagsForCertificateRequest {
  */
 export interface ListTagsForCertificateResponse {
   /**
-   * <p>The key-value pairs that define the applied tags.</p>
+   * The key-value pairs that define the applied tags.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2989,7 +3433,8 @@ export interface ListTagsForCertificateResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the ACM resource for which to list tags.</p>
+   * The ARN of the ACM resource for which to list tags.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -3000,7 +3445,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -3011,13 +3457,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutAccountConfigurationRequest {
   /**
-   * <p>Specifies expiration events associated with an account.</p>
+   * Specifies expiration events associated with an account.
+   *
    * @public
    */
   ExpiryEvents?: ExpiryEventsConfiguration | undefined;
 
   /**
-   * <p>Customer-chosen string used to distinguish between calls to <code>PutAccountConfiguration</code>. Idempotency tokens time out after one hour. If you call <code>PutAccountConfiguration</code> multiple times with the same unexpired idempotency token, ACM treats it as the same request and returns the original result. If you change the idempotency token for each call, ACM treats each call as a new request.</p>
+   * Customer-chosen string used to distinguish between calls to `PutAccountConfiguration`. Idempotency tokens time out after one hour. If you call `PutAccountConfiguration` multiple times with the same unexpired idempotency token, ACM treats it as the same request and returns the original result. If you change the idempotency token for each call, ACM treats each call as a new request.
+   *
    * @public
    */
   IdempotencyToken: string | undefined;
@@ -3028,13 +3476,19 @@ export interface PutAccountConfigurationRequest {
  */
 export interface RemoveTagsFromCertificateRequest {
   /**
-   * <p>String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>The key-value pair that defines the tag to remove.</p>
+   * The key-value pair that defines the tag to remove.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3045,25 +3499,39 @@ export interface RemoveTagsFromCertificateRequest {
  */
 export interface RenewCertificateRequest {
   /**
-   * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the form:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
+   * String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
+   *
+   * `arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
+   * For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+   *
    * @public
    */
   CertificateArn: string | undefined;
 }
 
 /**
- * <p>Contains information about the domain names that you want ACM to use to send you emails that enable you to validate domain ownership.</p>
+ * Contains information about the domain names that you want ACM to use to send you emails that enable you to validate domain ownership.
+ *
  * @public
  */
 export interface DomainValidationOption {
   /**
-   * <p>A fully qualified domain name (FQDN) in the certificate request.</p>
+   * A fully qualified domain name (FQDN) in the certificate request.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the <code>DomainName</code> value or a superdomain of the <code>DomainName</code> value. For example, if you request a certificate for <code>testing.example.com</code>, you can specify <code>example.com</code> for this value. In that case, ACM sends domain validation emails to the following five addresses:</p> <ul> <li> <p>admin@example.com</p> </li> <li> <p>administrator@example.com</p> </li> <li> <p>hostmaster@example.com</p> </li> <li> <p>postmaster@example.com</p> </li> <li> <p>webmaster@example.com</p> </li> </ul>
+   * The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `DomainName` value or a superdomain of the `DomainName` value. For example, if you request a certificate for `testing.example.com`, you can specify `example.com` for this value. In that case, ACM sends domain validation emails to the following five addresses:
+   *
+   * - admin@example.com
+   * - administrator@example.com
+   * - hostmaster@example.com
+   * - postmaster@example.com
+   * - webmaster@example.com
+   *
    * @public
    */
   ValidationDomain: string | undefined;
@@ -3074,61 +3542,99 @@ export interface DomainValidationOption {
  */
 export interface RequestCertificateRequest {
   /**
-   * <p>Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com. </p> <p>In compliance with <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>, the length of the domain name (technically, the Common Name) that you provide cannot exceed 64 octets (characters), including periods. To add a longer domain name, specify it in the Subject Alternative Name field, which supports names up to 253 octets in length. </p>
+   * Fully qualified domain name (FQDN), such as www.example.com, that you want to secure with an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.
+   *
+   * In compliance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280), the length of the domain name (technically, the Common Name) that you provide cannot exceed 64 octets (characters), including periods. To add a longer domain name, specify it in the Subject Alternative Name field, which supports names up to 253 octets in length.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The method you want to use if you are requesting a public certificate to validate that you own or control domain. You can <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate with DNS</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate with email</a>. We recommend that you use DNS validation. </p>
+   * The method you want to use if you are requesting a public certificate to validate that you own or control domain. You can [validate with DNS](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html) or [validate with email](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html). We recommend that you use DNS validation.
+   *
    * @public
    */
   ValidationMethod?: ValidationMethod | undefined;
 
   /**
-   * <p>Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, add the name www.example.net to a certificate for which the <code>DomainName</code> field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM certificate is 100. However, the initial quota is 10 domain names. If you need more than 10 names, you must request a quota increase. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Quotas</a>.</p> <p> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples: </p> <ul> <li> <p> <code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</p> </li> <li> <p> <code>(64 octets).(63 octets).(63 octets).(61 octets)</code> is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.</p> </li> <li> <p> <code>(63 octets).(63 octets).(63 octets).(62 octets)</code> is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.</p> </li> </ul>
+   * Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, add the name www.example.net to a certificate for which the `DomainName` field is www.example.com if users can reach your site by using either name. The maximum number of domain names that you can add to an ACM certificate is 100. However, the initial quota is 10 domain names. If you need more than 10 names, you must request a quota increase. For more information, see [Quotas](https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html).
+   *
+   * The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple labels separated by periods. No label can be longer than 63 octets. Consider the following examples:
+   *
+   * - `(63 octets).(63 octets).(63 octets).(61 octets)` is legal because the total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.
+   * - `(64 octets).(63 octets).(63 octets).(61 octets)` is not legal because the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds 63 octets.
+   * - `(63 octets).(63 octets).(63 octets).(62 octets)` is not legal because the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.
+   *
    * @public
    */
   SubjectAlternativeNames?: string[] | undefined;
 
   /**
-   * <p>Customer chosen string that can be used to distinguish between calls to <code>RequestCertificate</code>. Idempotency tokens time out after one hour. Therefore, if you call <code>RequestCertificate</code> multiple times with the same idempotency token within one hour, ACM recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, ACM recognizes that you are requesting multiple certificates.</p>
+   * Customer chosen string that can be used to distinguish between calls to `RequestCertificate`. Idempotency tokens time out after one hour. Therefore, if you call `RequestCertificate` multiple times with the same idempotency token within one hour, ACM recognizes that you are requesting only one certificate and will issue only one. If you change the idempotency token for each call, ACM recognizes that you are requesting multiple certificates.
+   *
    * @public
    */
   IdempotencyToken?: string | undefined;
 
   /**
-   * <p>The domain name that you want ACM to use to send you emails so that you can validate domain ownership.</p>
+   * The domain name that you want ACM to use to send you emails so that you can validate domain ownership.
+   *
    * @public
    */
   DomainValidationOptions?: DomainValidationOption[] | undefined;
 
   /**
-   * <p>You can use this parameter to specify whether to export your certificate.</p> <p>Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>.</p> <p>You can export public ACM certificates to use with Amazon Web Services services as well as outside the Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager exportable public certificate</a>.</p>
+   * You can use this parameter to specify whether to export your certificate.
+   *
+   * Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log. For more information, see [Certificate Transparency Logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency).
+   *
+   * You can export public ACM certificates to use with Amazon Web Services services as well as outside the Amazon Web Services Cloud. For more information, see [Certificate Manager exportable public certificate](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html).
+   *
    * @public
    */
   Options?: CertificateOptions | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html">Amazon Web Services Private Certificate Authority</a> user guide. The ARN must have the following form: </p> <p> <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code> </p>
+   * The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [Amazon Web Services Private Certificate Authority](https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:
+   *
+   * `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateAuthorityArn?: string | undefined;
 
   /**
-   * <p>One or more resource tags to associate with the certificate.</p>
+   * One or more resource tags to associate with the certificate.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but with greater computing efficiency. However, ECDSA is not supported by all network clients. Some Amazon Web Services services may require RSA keys, or only support ECDSA keys of a particular size, while others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken. Check the requirements for the Amazon Web Services service where you plan to deploy your certificate. For more information about selecting an algorithm, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html#algorithms-term">Key algorithms</a>.</p> <note> <p>Algorithms supported for an ACM certificate request include: </p> <ul> <li> <p> <code>RSA_2048</code> </p> </li> <li> <p> <code>EC_prime256v1</code> </p> </li> <li> <p> <code>EC_secp384r1</code> </p> </li> </ul> <p>Other listed algorithms are for imported certificates only. </p> </note> <note> <p>When you request a private PKI certificate signed by a CA from Amazon Web Services Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.</p> </note> <p>Default: RSA_2048</p>
+   * Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but with greater computing efficiency. However, ECDSA is not supported by all network clients. Some Amazon Web Services services may require RSA keys, or only support ECDSA keys of a particular size, while others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken. Check the requirements for the Amazon Web Services service where you plan to deploy your certificate. For more information about selecting an algorithm, see [Key algorithms](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate-characteristics.html#algorithms-term).
+   *
+   * > **Note:**
+   * >
+   * > Algorithms supported for an ACM certificate request include:
+   * >
+   * > - `RSA_2048`
+   * > - `EC_prime256v1`
+   * > - `EC_secp384r1`
+   * >
+   * > Other listed algorithms are for imported certificates only.
+   *
+   * > **Note:** When you request a private PKI certificate signed by a CA from Amazon Web Services Private CA, the specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
+   *
+   * Default: RSA_2048
+   *
    * @public
    */
   KeyAlgorithm?: KeyAlgorithm | undefined;
 
   /**
-   * <p>Identifies the Amazon Web Services service that manages the certificate issued by ACM.</p>
+   * Identifies the Amazon Web Services service that manages the certificate issued by ACM.
+   *
    * @public
    */
   ManagedBy?: CertificateManagedBy | undefined;
@@ -3139,7 +3645,10 @@ export interface RequestCertificateRequest {
  */
 export interface RequestCertificateResponse {
   /**
-   * <p>String that contains the ARN of the issued certificate. This must be of the form:</p> <p> <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p>
+   * String that contains the ARN of the issued certificate. This must be of the form:
+   *
+   * `arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateArn?: string | undefined;
@@ -3150,19 +3659,30 @@ export interface RequestCertificateResponse {
  */
 export interface ResendValidationEmailRequest {
   /**
-   * <p>String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the <a>RequestCertificate</a> action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form: </p> <p> <code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p>
+   * String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the RequestCertificate action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form:
+   *
+   * `arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>The fully qualified domain name (FQDN) of the certificate that needs to be validated.</p>
+   * The fully qualified domain name (FQDN) of the certificate that needs to be validated.
+   *
    * @public
    */
   Domain: string | undefined;
 
   /**
-   * <p>The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the <code>Domain</code> value or a superdomain of the <code>Domain</code> value. For example, if you requested a certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b> of <code>subdomain.example.com</code>, ACM sends email to the the following five addresses:</p> <ul> <li> <p>admin@subdomain.example.com</p> </li> <li> <p>administrator@subdomain.example.com</p> </li> <li> <p>hostmaster@subdomain.example.com</p> </li> <li> <p>postmaster@subdomain.example.com</p> </li> <li> <p>webmaster@subdomain.example.com</p> </li> </ul>
+   * The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the `Domain` value or a superdomain of the `Domain` value. For example, if you requested a certificate for `site.subdomain.example.com` and specify a **ValidationDomain** of `subdomain.example.com`, ACM sends email to the the following five addresses:
+   *
+   * - admin@subdomain.example.com
+   * - administrator@subdomain.example.com
+   * - hostmaster@subdomain.example.com
+   * - postmaster@subdomain.example.com
+   * - webmaster@subdomain.example.com
+   *
    * @public
    */
   ValidationDomain: string | undefined;
@@ -3173,13 +3693,15 @@ export interface ResendValidationEmailRequest {
  */
 export interface RevokeAcmeAccountRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
 
   /**
-   * <p>The URL of the ACME account to revoke.</p>
+   * The URL of the ACME account to revoke.
+   *
    * @public
    */
   AccountUrl: string | undefined;
@@ -3190,7 +3712,8 @@ export interface RevokeAcmeAccountRequest {
  */
 export interface RevokeAcmeExternalAccountBindingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME external account binding to revoke.</p>
+   * The Amazon Resource Name (ARN) of the ACME external account binding to revoke.
+   *
    * @public
    */
   AcmeExternalAccountBindingArn: string | undefined;
@@ -3201,13 +3724,17 @@ export interface RevokeAcmeExternalAccountBindingRequest {
  */
 export interface RevokeCertificateRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the public or private certificate that will be revoked. The ARN must have the following form: </p> <p> <code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code> </p>
+   * The Amazon Resource Name (ARN) of the public or private certificate that will be revoked. The ARN must have the following form:
+   *
+   * `arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>Specifies why you revoked the certificate.</p>
+   * Specifies why you revoked the certificate.
+   *
    * @public
    */
   RevocationReason: RevocationReason | undefined;
@@ -3218,14 +3745,16 @@ export interface RevokeCertificateRequest {
  */
 export interface RevokeCertificateResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the public or private certificate that was revoked.</p>
+   * The Amazon Resource Name (ARN) of the public or private certificate that was revoked.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 }
 
 /**
- * <p>Contains metadata about a certificate. Currently supports ACM certificate metadata.</p>
+ * Contains metadata about a certificate. Currently supports ACM certificate metadata.
+ *
  * @public
  */
 export type CertificateMetadata =
@@ -3237,7 +3766,8 @@ export type CertificateMetadata =
  */
 export namespace CertificateMetadata {
   /**
-   * <p>Metadata for an ACM certificate.</p>
+   * Metadata for an ACM certificate.
+   *
    * @public
    */
   export interface AcmCertificateMetadataMember {
@@ -3264,145 +3794,169 @@ export namespace CertificateMetadata {
 }
 
 /**
- * <p>Defines the X.500 relative distinguished name (RDN).</p>
+ * Defines the X.500 relative distinguished name (RDN).
+ *
  * @public
  */
 export interface CustomAttribute {
   /**
-   * <p>Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).</p>
+   * Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
+   *
    * @public
    */
   ObjectIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies the attribute value of relative distinguished name (RDN).</p>
+   * Specifies the attribute value of relative distinguished name (RDN).
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Contains X.500 distinguished name information.</p>
+ * Contains X.500 distinguished name information.
+ *
  * @public
  */
 export interface DistinguishedName {
   /**
-   * <p>The common name (CN) attribute.</p>
+   * The common name (CN) attribute.
+   *
    * @public
    */
   CommonName?: string | undefined;
 
   /**
-   * <p>The domain component attributes.</p>
+   * The domain component attributes.
+   *
    * @public
    */
   DomainComponents?: string[] | undefined;
 
   /**
-   * <p>The country (C) attribute.</p>
+   * The country (C) attribute.
+   *
    * @public
    */
   Country?: string | undefined;
 
   /**
-   * <p>A list of custom attributes in the distinguished name. Each custom attribute contains an object identifier (OID) and its corresponding value.</p>
+   * A list of custom attributes in the distinguished name. Each custom attribute contains an object identifier (OID) and its corresponding value.
+   *
    * @public
    */
   CustomAttributes?: CustomAttribute[] | undefined;
 
   /**
-   * <p>The distinguished name qualifier attribute.</p>
+   * The distinguished name qualifier attribute.
+   *
    * @public
    */
   DistinguishedNameQualifier?: string | undefined;
 
   /**
-   * <p>The generation qualifier attribute.</p>
+   * The generation qualifier attribute.
+   *
    * @public
    */
   GenerationQualifier?: string | undefined;
 
   /**
-   * <p>The given name attribute.</p>
+   * The given name attribute.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p>The initials attribute.</p>
+   * The initials attribute.
+   *
    * @public
    */
   Initials?: string | undefined;
 
   /**
-   * <p>The locality (L) attribute.</p>
+   * The locality (L) attribute.
+   *
    * @public
    */
   Locality?: string | undefined;
 
   /**
-   * <p>The organization (O) attribute.</p>
+   * The organization (O) attribute.
+   *
    * @public
    */
   Organization?: string | undefined;
 
   /**
-   * <p>The organizational unit (OU) attribute.</p>
+   * The organizational unit (OU) attribute.
+   *
    * @public
    */
   OrganizationalUnit?: string | undefined;
 
   /**
-   * <p>The pseudonym attribute.</p>
+   * The pseudonym attribute.
+   *
    * @public
    */
   Pseudonym?: string | undefined;
 
   /**
-   * <p>The serial number attribute.</p>
+   * The serial number attribute.
+   *
    * @public
    */
   SerialNumber?: string | undefined;
 
   /**
-   * <p>The state or province (ST) attribute.</p>
+   * The state or province (ST) attribute.
+   *
    * @public
    */
   State?: string | undefined;
 
   /**
-   * <p>The surname attribute.</p>
+   * The surname attribute.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p>The title attribute.</p>
+   * The title attribute.
+   *
    * @public
    */
   Title?: string | undefined;
 }
 
 /**
- * <p>Defines a custom ASN.1 X.400 <code>GeneralName</code> using an object identifier (OID) and value. For more information, see NIST's definition of <a href="https://csrc.nist.gov/glossary/term/Object_Identifier">Object Identifier (OID)</a>.</p>
+ * Defines a custom ASN.1 X.400 `GeneralName` using an object identifier (OID) and value. For more information, see NIST's definition of [Object Identifier (OID)](https://csrc.nist.gov/glossary/term/Object_Identifier).
+ *
  * @public
  */
 export interface OtherName {
   /**
-   * <p>Specifies an OID.</p>
+   * Specifies an OID.
+   *
    * @public
    */
   ObjectIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies an OID value.</p>
+   * Specifies an OID value.
+   *
    * @public
    */
   Value?: string | undefined;
 }
 
 /**
- * <p>Describes an ASN.1 X.400 <code>GeneralName</code> as defined in <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>. Only one of the following naming options should be provided.</p>
+ * Describes an ASN.1 X.400 `GeneralName` as defined in [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided.
+ *
  * @public
  */
 export type GeneralName =
@@ -3420,7 +3974,8 @@ export type GeneralName =
  */
 export namespace GeneralName {
   /**
-   * <p>Contains information about the certificate subject. The <code>Subject</code> field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The <code>Subject</code> must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.</p>
+   * Contains information about the certificate subject. The `Subject` field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The `Subject` must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+   *
    * @public
    */
   export interface DirectoryNameMember {
@@ -3435,7 +3990,8 @@ export namespace GeneralName {
   }
 
   /**
-   * <p>Represents <code>GeneralName</code> as a DNS name.</p>
+   * Represents `GeneralName` as a DNS name.
+   *
    * @public
    */
   export interface DnsNameMember {
@@ -3450,7 +4006,8 @@ export namespace GeneralName {
   }
 
   /**
-   * <p>Represents <code>GeneralName</code> as an IPv4 or IPv6 address.</p>
+   * Represents `GeneralName` as an IPv4 or IPv6 address.
+   *
    * @public
    */
   export interface IpAddressMember {
@@ -3465,7 +4022,8 @@ export namespace GeneralName {
   }
 
   /**
-   * <p>Represents <code>GeneralName</code> using an <code>OtherName</code> object.</p>
+   * Represents `GeneralName` using an `OtherName` object.
+   *
    * @public
    */
   export interface OtherNameMember {
@@ -3480,7 +4038,8 @@ export namespace GeneralName {
   }
 
   /**
-   * <p>Represents <code>GeneralName</code> as an object identifier (OID).</p>
+   * Represents `GeneralName` as an object identifier (OID).
+   *
    * @public
    */
   export interface RegisteredIdMember {
@@ -3495,7 +4054,8 @@ export namespace GeneralName {
   }
 
   /**
-   * <p>Represents <code>GeneralName</code> as an <a href="https://datatracker.ietf.org/doc/html/rfc822">RFC 822</a> email address.</p>
+   * Represents `GeneralName` as an [RFC 822](https://datatracker.ietf.org/doc/html/rfc822) email address.
+   *
    * @public
    */
   export interface Rfc822NameMember {
@@ -3510,7 +4070,8 @@ export namespace GeneralName {
   }
 
   /**
-   * <p>Represents <code>GeneralName</code> as a URI.</p>
+   * Represents `GeneralName` as a URI.
+   *
    * @public
    */
   export interface UniformResourceIdentifierMember {
@@ -3555,84 +4116,98 @@ export namespace GeneralName {
 }
 
 /**
- * <p>Contains X.509 certificate attributes extracted from the certificate.</p>
+ * Contains X.509 certificate attributes extracted from the certificate.
+ *
  * @public
  */
 export interface X509Attributes {
   /**
-   * <p>The distinguished name of the certificate issuer.</p>
+   * The distinguished name of the certificate issuer.
+   *
    * @public
    */
   Issuer?: DistinguishedName | undefined;
 
   /**
-   * <p>The distinguished name of the certificate subject.</p>
+   * The distinguished name of the certificate subject.
+   *
    * @public
    */
   Subject?: DistinguishedName | undefined;
 
   /**
-   * <p>One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website. </p>
+   * One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website.
+   *
    * @public
    */
   SubjectAlternativeNames?: GeneralName[] | undefined;
 
   /**
-   * <p>Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID). </p>
+   * Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID).
+   *
    * @public
    */
   ExtendedKeyUsages?: ExtendedKeyUsageName[] | undefined;
 
   /**
-   * <p>The algorithm that was used to generate the public-private key pair.</p>
+   * The algorithm that was used to generate the public-private key pair.
+   *
    * @public
    */
   KeyAlgorithm?: KeyAlgorithm | undefined;
 
   /**
-   * <p>A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
+   * A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
+   *
    * @public
    */
   KeyUsages?: KeyUsageName[] | undefined;
 
   /**
-   * <p>The serial number assigned by the certificate authority.</p>
+   * The serial number assigned by the certificate authority.
+   *
    * @public
    */
   SerialNumber?: string | undefined;
 
   /**
-   * <p>The time after which the certificate is not valid.</p>
+   * The time after which the certificate is not valid.
+   *
    * @public
    */
   NotAfter?: Date | undefined;
 
   /**
-   * <p>The time before which the certificate is not valid.</p>
+   * The time before which the certificate is not valid.
+   *
    * @public
    */
   NotBefore?: Date | undefined;
 }
 
 /**
- * <p>Contains information about a certificate returned by the <a>SearchCertificates</a> action. This structure includes the certificate ARN, X.509 attributes, and ACM metadata.</p>
+ * Contains information about a certificate returned by the SearchCertificates action. This structure includes the certificate ARN, X.509 attributes, and ACM metadata.
+ *
  * @public
  */
 export interface CertificateSearchResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the certificate.</p>
+   * The Amazon Resource Name (ARN) of the certificate.
+   *
    * @public
    */
   CertificateArn?: string | undefined;
 
   /**
-   * <p>X.509 certificate attributes such as subject, issuer, and validity period.</p>
+   * X.509 certificate attributes such as subject, issuer, and validity period.
+   *
    * @public
    */
   X509Attributes?: X509Attributes | undefined;
 
   /**
-   * <p>ACM-specific metadata about the certificate.</p>
+   * ACM-specific metadata about the certificate.
+   *
    * @public
    */
   CertificateMetadata?: CertificateMetadata | undefined;
@@ -3643,13 +4218,15 @@ export interface CertificateSearchResult {
  */
 export interface SearchCertificatesResponse {
   /**
-   * <p>A list of certificate search results containing certificate ARNs, X.509 attributes, and ACM metadata.</p>
+   * A list of certificate search results containing certificate ARNs, X.509 attributes, and ACM metadata.
+   *
    * @public
    */
   Results?: CertificateSearchResult[] | undefined;
 
   /**
-   * <p>When the list is truncated, this value is present and contains the value to use for the <code>NextToken</code> parameter in a subsequent pagination request.</p>
+   * When the list is truncated, this value is present and contains the value to use for the `NextToken` parameter in a subsequent pagination request.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3660,13 +4237,15 @@ export interface SearchCertificatesResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the ACM resource to which the tag is to be applied.</p>
+   * The ARN of the ACM resource to which the tag is to be applied.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The key-value pair that defines the tag to apply.</p>
+   * The key-value pair that defines the tag to apply.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3677,13 +4256,15 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the ACM resource from which the tag is to be removed.</p>
+   * The ARN of the ACM resource from which the tag is to be removed.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The key of each tag to remove.</p>
+   * The key of each tag to remove.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3694,13 +4275,15 @@ export interface UntagResourceRequest {
  */
 export interface UpdateAcmeDomainValidationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME domain validation to update.</p>
+   * The Amazon Resource Name (ARN) of the ACME domain validation to update.
+   *
    * @public
    */
   AcmeDomainValidationArn: string | undefined;
 
   /**
-   * <p>The updated prevalidation options.</p>
+   * The updated prevalidation options.
+   *
    * @public
    */
   PrevalidationOptions?: PrevalidationOptions | undefined;
@@ -3711,25 +4294,29 @@ export interface UpdateAcmeDomainValidationRequest {
  */
 export interface UpdateAcmeEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the ACME endpoint to update.</p>
+   * The Amazon Resource Name (ARN) of the ACME endpoint to update.
+   *
    * @public
    */
   AcmeEndpointArn: string | undefined;
 
   /**
-   * <p>The updated authorization behavior.</p>
+   * The updated authorization behavior.
+   *
    * @public
    */
   AuthorizationBehavior?: AcmeAuthorizationBehavior | undefined;
 
   /**
-   * <p>The updated contact requirement.</p>
+   * The updated contact requirement.
+   *
    * @public
    */
   Contact?: AcmeContact | undefined;
 
   /**
-   * <p>The updated certificate authority configuration.</p>
+   * The updated certificate authority configuration.
+   *
    * @public
    */
   CertificateAuthority?: CertificateAuthority | undefined;
@@ -3740,20 +4327,25 @@ export interface UpdateAcmeEndpointRequest {
  */
 export interface UpdateCertificateOptionsRequest {
   /**
-   * <p>ARN of the requested certificate to update. This must be of the form:</p> <p> <code>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>
+   * ARN of the requested certificate to update. This must be of the form:
+   *
+   * `arn:aws:acm:us-east-1:account:certificate/12345678-1234-1234-1234-123456789012`
+   *
    * @public
    */
   CertificateArn: string | undefined;
 
   /**
-   * <p>Use to update the options for your certificate. Currently, you can change the domain validation method or specify whether to export your certificate. For more information about migrating from email to DNS validation, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html">Migrate from email to DNS validation</a>.</p>
+   * Use to update the options for your certificate. Currently, you can change the domain validation method or specify whether to export your certificate. For more information about migrating from email to DNS validation, see [Migrate from email to DNS validation](https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html).
+   *
    * @public
    */
   Options: CertificateOptions | undefined;
 }
 
 /**
- * <p>A filter statement used to search for certificates. Can contain AND, OR, NOT logical operators or a single filter.</p>
+ * A filter statement used to search for certificates. Can contain AND, OR, NOT logical operators or a single filter.
+ *
  * @public
  */
 export type CertificateFilterStatement =
@@ -3768,7 +4360,8 @@ export type CertificateFilterStatement =
  */
 export namespace CertificateFilterStatement {
   /**
-   * <p>A list of filter statements that must all be true.</p>
+   * A list of filter statements that must all be true.
+   *
    * @public
    */
   export interface AndMember {
@@ -3780,7 +4373,8 @@ export namespace CertificateFilterStatement {
   }
 
   /**
-   * <p>A list of filter statements where at least one must be true.</p>
+   * A list of filter statements where at least one must be true.
+   *
    * @public
    */
   export interface OrMember {
@@ -3792,7 +4386,8 @@ export namespace CertificateFilterStatement {
   }
 
   /**
-   * <p>A filter statement that must not be true.</p>
+   * A filter statement that must not be true.
+   *
    * @public
    */
   export interface NotMember {
@@ -3804,7 +4399,8 @@ export namespace CertificateFilterStatement {
   }
 
   /**
-   * <p>A single certificate filter.</p>
+   * A single certificate filter.
+   *
    * @public
    */
   export interface FilterMember {
@@ -3844,31 +4440,36 @@ export namespace CertificateFilterStatement {
  */
 export interface SearchCertificatesRequest {
   /**
-   * <p>A filter statement that defines the search criteria. You can combine multiple filters using AND, OR, and NOT logical operators to create complex queries.</p>
+   * A filter statement that defines the search criteria. You can combine multiple filters using AND, OR, and NOT logical operators to create complex queries.
+   *
    * @public
    */
   FilterStatement?: CertificateFilterStatement | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. Default is 100.</p>
+   * The maximum number of results to return in the response. Default is 100.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the response you just received.</p>
+   * Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of `NextToken` from the response you just received.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Specifies the field to sort results by. Valid values are CREATED_AT, NOT_AFTER, STATUS, RENEWAL_STATUS, EXPORTED, IN_USE, NOT_BEFORE, KEY_ALGORITHM, TYPE, CERTIFICATE_ARN, COMMON_NAME, REVOKED_AT, RENEWAL_ELIGIBILITY, ISSUED_AT, MANAGED_BY, EXPORT_OPTION, VALIDATION_METHOD, and IMPORTED_AT.</p>
+   * Specifies the field to sort results by. Valid values are CREATED_AT, NOT_AFTER, STATUS, RENEWAL_STATUS, EXPORTED, IN_USE, NOT_BEFORE, KEY_ALGORITHM, TYPE, CERTIFICATE_ARN, COMMON_NAME, REVOKED_AT, RENEWAL_ELIGIBILITY, ISSUED_AT, MANAGED_BY, EXPORT_OPTION, VALIDATION_METHOD, and IMPORTED_AT.
+   *
    * @public
    */
   SortBy?: SearchCertificatesSortBy | undefined;
 
   /**
-   * <p>Specifies the order of sorted results. Valid values are ASCENDING or DESCENDING.</p>
+   * Specifies the order of sorted results. Valid values are ASCENDING or DESCENDING.
+   *
    * @public
    */
   SortOrder?: SearchCertificatesSortOrder | undefined;

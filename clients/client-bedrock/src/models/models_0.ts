@@ -48,96 +48,111 @@ import type {
 } from "./enums";
 
 /**
- * <p>Model-specific information for the enforced guardrail configuration.</p>
+ * Model-specific information for the enforced guardrail configuration.
+ *
  * @public
  */
 export interface ModelEnforcement {
   /**
-   * <p>Models to enforce the guardrail on.</p>
+   * Models to enforce the guardrail on.
+   *
    * @public
    */
   includedModels: string[] | undefined;
 
   /**
-   * <p>Models to exclude from enforcement of the guardrail.</p>
+   * Models to exclude from enforcement of the guardrail.
+   *
    * @public
    */
   excludedModels: string[] | undefined;
 }
 
 /**
- * <p>Selective content guarding controls for enforced guardrails.</p>
+ * Selective content guarding controls for enforced guardrails.
+ *
  * @public
  */
 export interface SelectiveContentGuarding {
   /**
-   * <p>Selective guarding mode for system prompts."</p>
+   * Selective guarding mode for system prompts."
+   *
    * @public
    */
   system?: SelectiveGuardingMode | undefined;
 
   /**
-   * <p>Selective guarding mode for user messages.</p>
+   * Selective guarding mode for user messages.
+   *
    * @public
    */
   messages?: SelectiveGuardingMode | undefined;
 }
 
 /**
- * <p>Account-level enforced guardrail input configuration.</p>
+ * Account-level enforced guardrail input configuration.
+ *
  * @public
  */
 export interface AccountEnforcedGuardrailInferenceInputConfiguration {
   /**
-   * <p>Identifier for the guardrail, could be the ID or the ARN.</p>
+   * Identifier for the guardrail, could be the ID or the ARN.
+   *
    * @public
    */
   guardrailIdentifier: string | undefined;
 
   /**
-   * <p>Numerical guardrail version.</p>
+   * Numerical guardrail version.
+   *
    * @public
    */
   guardrailVersion: string | undefined;
 
   /**
-   * <p>Selective content guarding controls for enforced guardrails.</p>
+   * Selective content guarding controls for enforced guardrails.
+   *
    * @public
    */
   selectiveContentGuarding?: SelectiveContentGuarding | undefined;
 
   /**
-   * <p>Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models</p>
+   * Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models
+   *
    * @public
    */
   modelEnforcement?: ModelEnforcement | undefined;
 }
 
 /**
- * <p>Account enforced guardrail output configuration.</p>
+ * Account enforced guardrail output configuration.
+ *
  * @public
  */
 export interface AccountEnforcedGuardrailOutputConfiguration {
   /**
-   * <p>Unique ID for the account enforced configuration.</p>
+   * Unique ID for the account enforced configuration.
+   *
    * @public
    */
   configId?: string | undefined;
 
   /**
-   * <p>ARN representation for the guardrail.</p>
+   * ARN representation for the guardrail.
+   *
    * @public
    */
   guardrailArn?: string | undefined;
 
   /**
-   * <p>Unique ID for the guardrail.</p>
+   * Unique ID for the guardrail.
+   *
    * @public
    */
   guardrailId?: string | undefined;
 
   /**
-   * <p>Whether to honor or ignore input tags at runtime.</p>
+   * Whether to honor or ignore input tags at runtime.
    *
    * @deprecated (since 2026-04-03) This field is being deprecated and will be removed once customers transition their existing policies to the new schema.
    * @public
@@ -145,487 +160,572 @@ export interface AccountEnforcedGuardrailOutputConfiguration {
   inputTags?: InputTags | undefined;
 
   /**
-   * <p>Selective content guarding controls for enforced guardrails.</p>
+   * Selective content guarding controls for enforced guardrails.
+   *
    * @public
    */
   selectiveContentGuarding?: SelectiveContentGuarding | undefined;
 
   /**
-   * <p>Numerical guardrail version.</p>
+   * Numerical guardrail version.
+   *
    * @public
    */
   guardrailVersion?: string | undefined;
 
   /**
-   * <p>Timestamp.</p>
+   * Timestamp.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the role used to update the configuration.</p>
+   * The ARN of the role used to update the configuration.
+   *
    * @public
    */
   createdBy?: string | undefined;
 
   /**
-   * <p>Timestamp.</p>
+   * Timestamp.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the role used to update the configuration.</p>
+   * The ARN of the role used to update the configuration.
+   *
    * @public
    */
   updatedBy?: string | undefined;
 
   /**
-   * <p>Configuration owner type.</p>
+   * Configuration owner type.
+   *
    * @public
    */
   owner?: ConfigurationOwner | undefined;
 
   /**
-   * <p>Model-specific information for the enforced guardrail configuration.</p>
+   * Model-specific information for the enforced guardrail configuration.
+   *
    * @public
    */
   modelEnforcement?: ModelEnforcement | undefined;
 }
 
 /**
- * <p>Contains the input data configuration for an advanced prompt optimization job.</p>
+ * Contains the input data configuration for an advanced prompt optimization job.
+ *
  * @public
  */
 export interface AdvancedPromptOptimizationInputConfig {
   /**
-   * <p>The S3 URI of the JSONL input file containing prompt templates and evaluation samples.</p>
+   * The S3 URI of the JSONL input file containing prompt templates and evaluation samples.
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p>Batch Delete Advanced Prompt Optimization Jobs Request</p>
+ * Batch Delete Advanced Prompt Optimization Jobs Request
+ *
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobRequest {
   /**
-   * <p>A list of advanced prompt optimization job identifiers (ARNs or IDs) to delete.</p>
+   * A list of advanced prompt optimization job identifiers (ARNs or IDs) to delete.
+   *
    * @public
    */
   jobIdentifiers: string[] | undefined;
 }
 
 /**
- * <p>Contains information about a successfully deleted advanced prompt optimization job.</p>
+ * Contains information about a successfully deleted advanced prompt optimization job.
+ *
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobItem {
   /**
-   * <p>The identifier of the deleted job.</p>
+   * The identifier of the deleted job.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * <p>The status of the deleted job.</p>
+   * The status of the deleted job.
+   *
    * @public
    */
   jobStatus: AdvancedPromptOptimizationJobStatus | undefined;
 }
 
 /**
- * <p>Contains information about an error that occurred when deleting an advanced prompt optimization job.</p>
+ * Contains information about an error that occurred when deleting an advanced prompt optimization job.
+ *
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobError {
   /**
-   * <p>The identifier of the job that could not be deleted.</p>
+   * The identifier of the job that could not be deleted.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * <p>The error code for the deletion failure.</p>
+   * The error code for the deletion failure.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A message describing the error.</p>
+   * A message describing the error.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>Batch Delete Advanced Prompt Optimization Jobs Response</p>
+ * Batch Delete Advanced Prompt Optimization Jobs Response
+ *
  * @public
  */
 export interface BatchDeleteAdvancedPromptOptimizationJobResponse {
   /**
-   * <p>A list of errors encountered during batch deletion.</p>
+   * A list of errors encountered during batch deletion.
+   *
    * @public
    */
   errors: BatchDeleteAdvancedPromptOptimizationJobError[] | undefined;
 
   /**
-   * <p>A list of successfully deleted advanced prompt optimization jobs.</p>
+   * A list of successfully deleted advanced prompt optimization jobs.
+   *
    * @public
    */
   advancedPromptOptimizationJobs: BatchDeleteAdvancedPromptOptimizationJobItem[] | undefined;
 }
 
 /**
- * <p>Base inference parameters to pass to a model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+ * Base inference parameters to pass to a model. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+ *
  * @public
  */
 export interface InferenceConfiguration {
   /**
-   * <p>The maximum number of tokens to allow in the generated response. The default value is the maximum allowed value for the model that you are using.</p>
+   * The maximum number of tokens to allow in the generated response. The default value is the maximum allowed value for the model that you are using.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
+   * The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>The percentage of most-likely candidates that the model considers for the next token. For example, if you choose a value of 0.8 for <code>topP</code>, the model selects from the top 80% of the probability distribution of tokens that could be next in the sequence.</p>
+   * The percentage of most-likely candidates that the model considers for the next token. For example, if you choose a value of 0.8 for `topP`, the model selects from the top 80% of the probability distribution of tokens that could be next in the sequence.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
+   * A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+   *
    * @public
    */
   stopSequences?: string[] | undefined;
 }
 
 /**
- * <p>Contains the configuration for a model used in an advanced prompt optimization job, including the model ID and inference parameters.</p>
+ * Contains the configuration for a model used in an advanced prompt optimization job, including the model ID and inference parameters.
+ *
  * @public
  */
 export interface ModelConfiguration {
   /**
-   * <p>The model to use for optimization. The value depends on the resource that you use:</p> <ul> <li> <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html">Models at a glance</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use a cross-Region (system-defined) inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for inference profiles</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use an application inference profile, specify its full ARN, including the account ID and Region.</p> </li> </ul>
+   * The model to use for optimization. The value depends on the resource that you use:
+   *
+   * - If you use a base model, specify the model ID or its ARN. For a list of model IDs, see [Models at a glance](https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html) in the Amazon Bedrock User Guide.
+   * - If you use a cross-Region (system-defined) inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see [Supported Regions and models for inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html) in the Amazon Bedrock User Guide.
+   * - If you use an application inference profile, specify its full ARN, including the account ID and Region.
+   *
    * @public
    */
   modelId: string | undefined;
 
   /**
-   * <p>The inference configuration for the model, including parameters such as maximum tokens, temperature, and top-p.</p>
+   * The inference configuration for the model, including parameters such as maximum tokens, temperature, and top-p.
+   *
    * @public
    */
   inferenceConfig?: InferenceConfiguration | undefined;
 
   /**
-   * <p>Additional model request fields. Use this to pass model-specific parameters that are not included in the standard inference configuration.</p>
+   * Additional model request fields. Use this to pass model-specific parameters that are not included in the standard inference configuration.
+   *
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
- * <p>Contains the output data configuration for an advanced prompt optimization job.</p>
+ * Contains the output data configuration for an advanced prompt optimization job.
+ *
  * @public
  */
 export interface AdvancedPromptOptimizationOutputConfig {
   /**
-   * <p>The S3 URI prefix where the optimization results will be written.</p>
+   * The S3 URI prefix where the optimization results will be written.
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p>Definition of the key/value pair for a tag.</p>
+ * Definition of the key/value pair for a tag.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>Key for the tag.</p>
+   * Key for the tag.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>Value for the tag.</p>
+   * Value for the tag.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Create Advanced Prompt Optimization Job Request</p>
+ * Create Advanced Prompt Optimization Job Request
+ *
  * @public
  */
 export interface CreateAdvancedPromptOptimizationJobRequest {
   /**
-   * <p>A name for the advanced prompt optimization job.</p>
+   * A name for the advanced prompt optimization job.
+   *
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>A description of the advanced prompt optimization job.</p>
+   * A description of the advanced prompt optimization job.
+   *
    * @public
    */
   jobDescription?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but does not return an error.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies the S3 location of your JSONL input file containing prompt templates and evaluation samples.</p>
+   * Specifies the S3 location of your JSONL input file containing prompt templates and evaluation samples.
+   *
    * @public
    */
   inputConfig: AdvancedPromptOptimizationInputConfig | undefined;
 
   /**
-   * <p>Specifies the S3 location where optimization results will be stored.</p>
+   * Specifies the S3 location where optimization results will be stored.
+   *
    * @public
    */
   outputConfig: AdvancedPromptOptimizationOutputConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used for encrypting the output data. If not specified, the output is encrypted with an Amazon-owned KMS key.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used for encrypting the output data. If not specified, the output is encrypted with an Amazon-owned KMS key.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>Tags to associate with the advanced prompt optimization job.</p>
+   * Tags to associate with the advanced prompt optimization job.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A list of model configurations specifying the target models for prompt optimization. You can specify up to 5 models.</p>
+   * A list of model configurations specifying the target models for prompt optimization. You can specify up to 5 models.
+   *
    * @public
    */
   modelConfigurations: ModelConfiguration[] | undefined;
 }
 
 /**
- * <p>Create Advanced Prompt Optimization Job Response</p>
+ * Create Advanced Prompt Optimization Job Response
+ *
  * @public
  */
 export interface CreateAdvancedPromptOptimizationJobResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the created advanced prompt optimization job.</p>
+   * The Amazon Resource Name (ARN) of the created advanced prompt optimization job.
+   *
    * @public
    */
   jobArn: string | undefined;
 }
 
 /**
- * <p>Get Advanced Prompt Optimization Job Request</p>
+ * Get Advanced Prompt Optimization Job Request
+ *
  * @public
  */
 export interface GetAdvancedPromptOptimizationJobRequest {
   /**
-   * <p>The ARN or ID of the advanced prompt optimization job.</p>
+   * The ARN or ID of the advanced prompt optimization job.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
 }
 
 /**
- * <p>Get Advanced Prompt Optimization Job Response</p>
+ * Get Advanced Prompt Optimization Job Response
+ *
  * @public
  */
 export interface GetAdvancedPromptOptimizationJobResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the advanced prompt optimization job.</p>
+   * The Amazon Resource Name (ARN) of the advanced prompt optimization job.
+   *
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p>The name of the advanced prompt optimization job.</p>
+   * The name of the advanced prompt optimization job.
+   *
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>The description of the advanced prompt optimization job.</p>
+   * The description of the advanced prompt optimization job.
+   *
    * @public
    */
   jobDescription?: string | undefined;
 
   /**
-   * <p>The status of the advanced prompt optimization job.</p>
+   * The status of the advanced prompt optimization job.
+   *
    * @public
    */
   jobStatus: AdvancedPromptOptimizationJobStatus | undefined;
 
   /**
-   * <p>The input data configuration for the optimization job.</p>
+   * The input data configuration for the optimization job.
+   *
    * @public
    */
   inputConfig: AdvancedPromptOptimizationInputConfig | undefined;
 
   /**
-   * <p>The output data configuration for the optimization job.</p>
+   * The output data configuration for the optimization job.
+   *
    * @public
    */
   outputConfig: AdvancedPromptOptimizationOutputConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the output data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the output data.
+   *
    * @public
    */
   encryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The time at which the advanced prompt optimization job was created.</p>
+   * The time at which the advanced prompt optimization job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The time at which the advanced prompt optimization job was last modified.</p>
+   * The time at which the advanced prompt optimization job was last modified.
+   *
    * @public
    */
   lastModifiedTime?: Date | undefined;
 
   /**
-   * <p>If the job failed, a message describing the reason for the failure.</p>
+   * If the job failed, a message describing the reason for the failure.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The model configurations used in the optimization job.</p>
+   * The model configurations used in the optimization job.
+   *
    * @public
    */
   modelConfigurations: ModelConfiguration[] | undefined;
 }
 
 /**
- * <p>List Advanced Prompt Optimization Jobs Request</p>
+ * List Advanced Prompt Optimization Jobs Request
+ *
  * @public
  */
 export interface ListAdvancedPromptOptimizationJobsRequest {
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * The maximum number of results to return in the response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token in a subsequent request to get the next set of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token in a subsequent request to get the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The field to sort the results by.</p>
+   * The field to sort the results by.
+   *
    * @public
    */
   sortBy?: SortJobsBy | undefined;
 
   /**
-   * <p>The sort order for the results.</p>
+   * The sort order for the results.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>Contains a summary of an advanced prompt optimization job.</p>
+ * Contains a summary of an advanced prompt optimization job.
+ *
  * @public
  */
 export interface AdvancedPromptOptimizationJobSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * The Amazon Resource Name (ARN) of the job.
+   *
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p>The name of the job.</p>
+   * The name of the job.
+   *
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>The status of the job.</p>
+   * The status of the job.
+   *
    * @public
    */
   jobStatus: AdvancedPromptOptimizationJobStatus | undefined;
 
   /**
-   * <p>The time at which the job was created.</p>
+   * The time at which the job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The time at which the job was last modified.</p>
+   * The time at which the job was last modified.
+   *
    * @public
    */
   lastModifiedTime?: Date | undefined;
 }
 
 /**
- * <p>List Advanced Prompt Optimization Jobs Response</p>
+ * List Advanced Prompt Optimization Jobs Response
+ *
  * @public
  */
 export interface ListAdvancedPromptOptimizationJobsResponse {
   /**
-   * <p>A list of advanced prompt optimization job summaries.</p>
+   * A list of advanced prompt optimization job summaries.
+   *
    * @public
    */
   jobSummaries?: AdvancedPromptOptimizationJobSummary[] | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token in a subsequent request to get the next set of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token in a subsequent request to get the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Stop Advanced Prompt Optimization Job Request</p>
+ * Stop Advanced Prompt Optimization Job Request
+ *
  * @public
  */
 export interface StopAdvancedPromptOptimizationJobRequest {
   /**
-   * <p>The ARN or ID of the advanced prompt optimization job to stop.</p>
+   * The ARN or ID of the advanced prompt optimization job to stop.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
 }
 
 /**
- * <p>Stop Advanced Prompt Optimization Job Response</p>
+ * Stop Advanced Prompt Optimization Job Response
+ *
  * @public
  */
 export interface StopAdvancedPromptOptimizationJobResponse {}
 
 /**
- * <p>Information about the agreement availability</p>
+ * Information about the agreement availability
+ *
  * @public
  */
 export interface AgreementAvailability {
   /**
-   * <p>Status of the agreement.</p>
+   * Status of the agreement.
+   *
    * @public
    */
   status: AgreementStatus | undefined;
 
   /**
-   * <p>Error message.</p>
+   * Error message.
+   *
    * @public
    */
   errorMessage?: string | undefined;
@@ -641,7 +741,8 @@ export interface GetUseCaseForModelAccessRequest {}
  */
 export interface GetUseCaseForModelAccessResponse {
   /**
-   * <p>Get customer profile Response.</p>
+   * Get customer profile Response.
+   *
    * @public
    */
   formData: Uint8Array | undefined;
@@ -652,7 +753,8 @@ export interface GetUseCaseForModelAccessResponse {
  */
 export interface PutUseCaseForModelAccessRequest {
   /**
-   * <p>Put customer profile Request.</p>
+   * Put customer profile Request.
+   *
    * @public
    */
   formData: Uint8Array | undefined;
@@ -668,13 +770,15 @@ export interface PutUseCaseForModelAccessResponse {}
  */
 export interface CancelAutomatedReasoningPolicyBuildWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow you want to cancel.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow you want to cancel.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow to cancel. You can get this ID from the StartAutomatedReasoningPolicyBuildWorkflow response or by listing build workflows.</p>
+   * The unique identifier of the build workflow to cancel. You can get this ID from the StartAutomatedReasoningPolicyBuildWorkflow response or by listing build workflows.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
@@ -686,120 +790,140 @@ export interface CancelAutomatedReasoningPolicyBuildWorkflowRequest {
 export interface CancelAutomatedReasoningPolicyBuildWorkflowResponse {}
 
 /**
- * <p>Represents a formal logic rule in an Automated Reasoning policy. For example, rules can be expressed as if-then statements that define logical constraints.</p>
+ * Represents a formal logic rule in an Automated Reasoning policy. For example, rules can be expressed as if-then statements that define logical constraints.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinitionRule {
   /**
-   * <p>The unique identifier of the rule within the policy.</p>
+   * The unique identifier of the rule within the policy.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The formal logic expression of the rule.</p>
+   * The formal logic expression of the rule.
+   *
    * @public
    */
   expression: string | undefined;
 
   /**
-   * <p>The human-readable form of the rule expression, often in natural language or simplified notation.</p>
+   * The human-readable form of the rule expression, often in natural language or simplified notation.
+   *
    * @public
    */
   alternateExpression?: string | undefined;
 }
 
 /**
- * <p>Represents a single value within a custom type definition, including its identifier and description.</p>
+ * Represents a single value within a custom type definition, including its identifier and description.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinitionTypeValue {
   /**
-   * <p>The actual value or identifier for this type value.</p>
+   * The actual value or identifier for this type value.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>A human-readable description explaining what this type value represents and when it should be used.</p>
+   * A human-readable description explaining what this type value represents and when it should be used.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Represents a custom user-defined viarble type in an Automated Reasoning policy. Types are enum-based and provide additional context beyond predefined variable types.</p>
+ * Represents a custom user-defined viarble type in an Automated Reasoning policy. Types are enum-based and provide additional context beyond predefined variable types.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinitionType {
   /**
-   * <p>The name of the custom type.</p>
+   * The name of the custom type.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of what the custom type represents.</p>
+   * The description of what the custom type represents.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The possible values for this enum-based type, each with its own description.</p>
+   * The possible values for this enum-based type, each with its own description.
+   *
    * @public
    */
   values: AutomatedReasoningPolicyDefinitionTypeValue[] | undefined;
 }
 
 /**
- * <p>Represents a variable in an Automated Reasoning policy. Variables represent concepts that can have values assigned during natural language translation.</p>
+ * Represents a variable in an Automated Reasoning policy. Variables represent concepts that can have values assigned during natural language translation.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinitionVariable {
   /**
-   * <p>The name of the variable. Use descriptive names that clearly indicate the concept being represented.</p>
+   * The name of the variable. Use descriptive names that clearly indicate the concept being represented.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The data type of the variable. Valid types include bool, int, real, enum, and custom types that you can provide.</p>
+   * The data type of the variable. Valid types include bool, int, real, enum, and custom types that you can provide.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>The description of the variable that explains what it represents and how users might refer to it. Clear and comprehensive descriptions are essential for accurate natural language translation.</p>
+   * The description of the variable that explains what it represents and how users might refer to it. Clear and comprehensive descriptions are essential for accurate natural language translation.
+   *
    * @public
    */
   description: string | undefined;
 }
 
 /**
- * <p>Contains the formal logic rules, variables, and custom variable types that define an Automated Reasoning policy. The policy definition specifies the constraints used to validate foundation model responses for accuracy and logical consistency.</p>
+ * Contains the formal logic rules, variables, and custom variable types that define an Automated Reasoning policy. The policy definition specifies the constraints used to validate foundation model responses for accuracy and logical consistency.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinition {
   /**
-   * <p>The version of the policy definition format.</p>
+   * The version of the policy definition format.
+   *
    * @public
    */
   version?: string | undefined;
 
   /**
-   * <p>The custom user-defined vairable types used in the policy. Types are enum-based variable types that provide additional context beyond the predefined variable types.</p>
+   * The custom user-defined vairable types used in the policy. Types are enum-based variable types that provide additional context beyond the predefined variable types.
+   *
    * @public
    */
   types?: AutomatedReasoningPolicyDefinitionType[] | undefined;
 
   /**
-   * <p>The formal logic rules extracted from the source document. Rules define the logical constraints that determine whether model responses are valid, invalid, or satisfiable.</p>
+   * The formal logic rules extracted from the source document. Rules define the logical constraints that determine whether model responses are valid, invalid, or satisfiable.
+   *
    * @public
    */
   rules?: AutomatedReasoningPolicyDefinitionRule[] | undefined;
 
   /**
-   * <p>The variables that represent concepts in the policy. Variables can have values assigned when translating natural language into formal logic. Their descriptions are crucial for accurate translation.</p>
+   * The variables that represent concepts in the policy. Variables can have values assigned when translating natural language into formal logic. Their descriptions are crucial for accurate translation.
+   *
    * @public
    */
   variables?: AutomatedReasoningPolicyDefinitionVariable[] | undefined;
@@ -810,37 +934,43 @@ export interface AutomatedReasoningPolicyDefinition {
  */
 export interface CreateAutomatedReasoningPolicyRequest {
   /**
-   * <p>A unique name for the Automated Reasoning policy. The name must be between 1 and 63 characters and can contain letters, numbers, hyphens, and underscores.</p>
+   * A unique name for the Automated Reasoning policy. The name must be between 1 and 63 characters and can contain letters, numbers, hyphens, and underscores.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the Automated Reasoning policy. Use this to provide context about the policy's purpose and the types of validations it performs.</p>
+   * A description of the Automated Reasoning policy. Use this to provide context about the policy's purpose and the types of validations it performs.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>The policy definition that contains the formal logic rules, variables, and custom variable types used to validate foundation model responses in your application.</p>
+   * The policy definition that contains the formal logic rules, variables, and custom variable types used to validate foundation model responses in your application.
+   *
    * @public
    */
   policyDefinition?: AutomatedReasoningPolicyDefinition | undefined;
 
   /**
-   * <p>The identifier of the KMS key to use for encrypting the automated reasoning policy and its associated artifacts. If you don't specify a KMS key, Amazon Bedrock uses an KMS managed key for encryption. For enhanced security and control, you can specify a customer managed KMS key.</p>
+   * The identifier of the KMS key to use for encrypting the automated reasoning policy and its associated artifacts. If you don't specify a KMS key, Amazon Bedrock uses an KMS managed key for encryption. For enhanced security and control, you can specify a customer managed KMS key.
+   *
    * @public
    */
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the Automated Reasoning policy. Tags help you organize and manage your policies.</p>
+   * A list of tags to associate with the Automated Reasoning policy. Tags help you organize and manage your policies.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -851,43 +981,50 @@ export interface CreateAutomatedReasoningPolicyRequest {
  */
 export interface CreateAutomatedReasoningPolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy that you created.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy that you created.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The version number of the newly created Automated Reasoning policy. The initial version is always DRAFT.</p>
+   * The version number of the newly created Automated Reasoning policy. The initial version is always DRAFT.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The name of the Automated Reasoning policy.</p>
+   * The name of the Automated Reasoning policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the Automated Reasoning policy.</p>
+   * The description of the Automated Reasoning policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The hash of the policy definition. This is used as a concurrency token for creating policy versions that you can use in your application.</p>
+   * The hash of the policy definition. This is used as a concurrency token for creating policy versions that you can use in your application.
+   *
    * @public
    */
   definitionHash?: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was created.</p>
+   * The timestamp when the policy was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last updated.</p>
+   * The timestamp when the policy was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -898,37 +1035,51 @@ export interface CreateAutomatedReasoningPolicyResponse {
  */
 export interface CreateAutomatedReasoningPolicyTestCaseRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to create the test.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to create the test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The output content that's validated by the Automated Reasoning policy. This represents the foundation model response that will be checked for accuracy.</p>
+   * The output content that's validated by the Automated Reasoning policy. This represents the foundation model response that will be checked for accuracy.
+   *
    * @public
    */
   guardContent: string | undefined;
 
   /**
-   * <p>The input query or prompt that generated the content. This provides context for the validation.</p>
+   * The input query or prompt that generated the content. This provides context for the validation.
+   *
    * @public
    */
   queryContent?: string | undefined;
 
   /**
-   * <p>The expected result of the Automated Reasoning check. Valid values include: , TOO_COMPLEX, and NO_TRANSLATIONS.</p> <ul> <li> <p> <code>VALID</code> - The claims are true. The claims are implied by the premises and the Automated Reasoning policy. Given the Automated Reasoning policy and premises, it is not possible for these claims to be false. In other words, there are no alternative answers that are true that contradict the claims.</p> </li> <li> <p> <code>INVALID</code> - The claims are false. The claims are not implied by the premises and Automated Reasoning policy. Furthermore, there exists different claims that are consistent with the premises and Automated Reasoning policy.</p> </li> <li> <p> <code>SATISFIABLE</code> - The claims can be true or false. It depends on what assumptions are made for the claim to be implied from the premises and Automated Reasoning policy rules. In this situation, different assumptions can make input claims false and alternative claims true.</p> </li> <li> <p> <code>IMPOSSIBLE</code> - Automated Reasoning can’t make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.</p> </li> <li> <p> <code>TRANSLATION_AMBIGUOUS</code> - Detected an ambiguity in the translation meant it would be unsound to continue with validity checking. Additional context or follow-up questions might be needed to get translation to succeed.</p> </li> <li> <p> <code>TOO_COMPLEX</code> - The input contains too much information for Automated Reasoning to process within its latency limits.</p> </li> <li> <p> <code>NO_TRANSLATIONS</code> - Identifies that some or all of the input prompt wasn't translated into logic. This can happen if the input isn't relevant to the Automated Reasoning policy, or if the policy doesn't have variables to model relevant input. If Automated Reasoning can't translate anything, you get a single <code>NO_TRANSLATIONS</code> finding. You might also see a <code>NO_TRANSLATIONS</code> (along with other findings) if some part of the validation isn't translated.</p> </li> </ul>
+   * The expected result of the Automated Reasoning check. Valid values include: , TOO_COMPLEX, and NO_TRANSLATIONS.
+   *
+   * - `VALID` - The claims are true. The claims are implied by the premises and the Automated Reasoning policy. Given the Automated Reasoning policy and premises, it is not possible for these claims to be false. In other words, there are no alternative answers that are true that contradict the claims.
+   * - `INVALID` - The claims are false. The claims are not implied by the premises and Automated Reasoning policy. Furthermore, there exists different claims that are consistent with the premises and Automated Reasoning policy.
+   * - `SATISFIABLE` - The claims can be true or false. It depends on what assumptions are made for the claim to be implied from the premises and Automated Reasoning policy rules. In this situation, different assumptions can make input claims false and alternative claims true.
+   * - `IMPOSSIBLE` - Automated Reasoning can’t make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.
+   * - `TRANSLATION_AMBIGUOUS` - Detected an ambiguity in the translation meant it would be unsound to continue with validity checking. Additional context or follow-up questions might be needed to get translation to succeed.
+   * - `TOO_COMPLEX` - The input contains too much information for Automated Reasoning to process within its latency limits.
+   * - `NO_TRANSLATIONS` - Identifies that some or all of the input prompt wasn't translated into logic. This can happen if the input isn't relevant to the Automated Reasoning policy, or if the policy doesn't have variables to model relevant input. If Automated Reasoning can't translate anything, you get a single `NO_TRANSLATIONS` finding. You might also see a `NO_TRANSLATIONS` (along with other findings) if some part of the validation isn't translated.
+   *
    * @public
    */
   expectedAggregatedFindingsResult: AutomatedReasoningCheckResult | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>The minimum confidence level for logic validation. Content that meets the threshold is considered a high-confidence finding that can be validated.</p>
+   * The minimum confidence level for logic validation. Content that meets the threshold is considered a high-confidence finding that can be validated.
+   *
    * @public
    */
   confidenceThreshold?: number | undefined;
@@ -939,13 +1090,15 @@ export interface CreateAutomatedReasoningPolicyTestCaseRequest {
  */
 export interface CreateAutomatedReasoningPolicyTestCaseResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy for which the test was created.</p>
+   * The Amazon Resource Name (ARN) of the policy for which the test was created.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the created test.</p>
+   * The unique identifier of the created test.
+   *
    * @public
    */
   testCaseId: string | undefined;
@@ -956,25 +1109,29 @@ export interface CreateAutomatedReasoningPolicyTestCaseResponse {
  */
 export interface CreateAutomatedReasoningPolicyVersionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to create a version.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to create a version.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>The hash of the current policy definition used as a concurrency token to ensure the policy hasn't been modified since you last retrieved it.</p>
+   * The hash of the current policy definition used as a concurrency token to ensure the policy hasn't been modified since you last retrieved it.
+   *
    * @public
    */
   lastUpdatedDefinitionHash: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the policy version.</p>
+   * A list of tags to associate with the policy version.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -985,37 +1142,43 @@ export interface CreateAutomatedReasoningPolicyVersionRequest {
  */
 export interface CreateAutomatedReasoningPolicyVersionResponse {
   /**
-   * <p>The versioned Amazon Resource Name (ARN) of the policy version.</p>
+   * The versioned Amazon Resource Name (ARN) of the policy version.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The version number of the policy version.</p>
+   * The version number of the policy version.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The name of the policy version.</p>
+   * The name of the policy version.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the policy version.</p>
+   * The description of the policy version.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The hash of the policy definition for this version.</p>
+   * The hash of the policy definition for this version.
+   *
    * @public
    */
   definitionHash: string | undefined;
 
   /**
-   * <p>The timestamp when the policy version was created.</p>
+   * The timestamp when the policy version was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
@@ -1026,13 +1189,15 @@ export interface CreateAutomatedReasoningPolicyVersionResponse {
  */
 export interface DeleteAutomatedReasoningPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy to delete.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy to delete.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>Specifies whether to force delete the automated reasoning policy even if it has active resources. When <code>false</code>, Amazon Bedrock validates if all artifacts have been deleted (e.g. policy version, test case, test result) for a policy before deletion. When <code>true</code>, Amazon Bedrock will delete the policy and all its artifacts without validation. Default is <code>false</code>. </p>
+   * Specifies whether to force delete the automated reasoning policy even if it has active resources. When `false`, Amazon Bedrock validates if all artifacts have been deleted (e.g. policy version, test case, test result) for a policy before deletion. When `true`, Amazon Bedrock will delete the policy and all its artifacts without validation. Default is `false`.
+   *
    * @public
    */
   force?: boolean | undefined;
@@ -1048,19 +1213,22 @@ export interface DeleteAutomatedReasoningPolicyResponse {}
  */
 export interface DeleteAutomatedReasoningPolicyBuildWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow you want to delete.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow to delete.</p>
+   * The unique identifier of the build workflow to delete.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The timestamp when the build workflow was last updated. This is used for optimistic concurrency control to prevent accidental deletion of workflows that have been modified.</p>
+   * The timestamp when the build workflow was last updated. This is used for optimistic concurrency control to prevent accidental deletion of workflows that have been modified.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -1076,19 +1244,22 @@ export interface DeleteAutomatedReasoningPolicyBuildWorkflowResponse {}
  */
 export interface DeleteAutomatedReasoningPolicyTestCaseRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the test to delete.</p>
+   * The unique identifier of the test to delete.
+   *
    * @public
    */
   testCaseId: string | undefined;
 
   /**
-   * <p>The timestamp when the test was last updated. This is used as a concurrency token to prevent conflicting modifications.</p>
+   * The timestamp when the test was last updated. This is used as a concurrency token to prevent conflicting modifications.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
@@ -1104,7 +1275,8 @@ export interface DeleteAutomatedReasoningPolicyTestCaseResponse {}
  */
 export interface ExportAutomatedReasoningPolicyVersionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy to export. Can be either the unversioned ARN for the draft policy or a versioned ARN for a specific policy version.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy to export. Can be either the unversioned ARN for the draft policy or a versioned ARN for a specific policy version.
+   *
    * @public
    */
   policyArn: string | undefined;
@@ -1115,7 +1287,8 @@ export interface ExportAutomatedReasoningPolicyVersionRequest {
  */
 export interface ExportAutomatedReasoningPolicyVersionResponse {
   /**
-   * <p>The exported policy definition containing the formal logic rules, variables, and custom variable types.</p>
+   * The exported policy definition containing the formal logic rules, variables, and custom variable types.
+   *
    * @public
    */
   policyDefinition: AutomatedReasoningPolicyDefinition | undefined;
@@ -1126,7 +1299,8 @@ export interface ExportAutomatedReasoningPolicyVersionResponse {
  */
 export interface GetAutomatedReasoningPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy to retrieve. Can be either the unversioned ARN for the draft policy or an ARN for a specific policy version.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy to retrieve. Can be either the unversioned ARN for the draft policy or an ARN for a specific policy version.
+   *
    * @public
    */
   policyArn: string | undefined;
@@ -1137,55 +1311,64 @@ export interface GetAutomatedReasoningPolicyRequest {
  */
 export interface GetAutomatedReasoningPolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version of the policy.</p>
+   * The version of the policy.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy.</p>
+   * The unique identifier of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The description of the policy.</p>
+   * The description of the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The hash of the policy definition used as a concurrency token.</p>
+   * The hash of the policy definition used as a concurrency token.
+   *
    * @public
    */
   definitionHash: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the automated reasoning policy and its associated artifacts. If a KMS key is not provided during the initial CreateAutomatedReasoningPolicyRequest, the kmsKeyArn won't be included in the GetAutomatedReasoningPolicyResponse. </p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the automated reasoning policy and its associated artifacts. If a KMS key is not provided during the initial CreateAutomatedReasoningPolicyRequest, the kmsKeyArn won't be included in the GetAutomatedReasoningPolicyResponse.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was created.</p>
+   * The timestamp when the policy was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last updated.</p>
+   * The timestamp when the policy was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1196,254 +1379,296 @@ export interface GetAutomatedReasoningPolicyResponse {
  */
 export interface GetAutomatedReasoningPolicyAnnotationsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose annotations you want to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose annotations you want to retrieve.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow whose annotations you want to retrieve.</p>
+   * The unique identifier of the build workflow whose annotations you want to retrieve.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 }
 
 /**
- * <p>An annotation for adding a new rule to an Automated Reasoning policy using a formal logical expression.</p>
+ * An annotation for adding a new rule to an Automated Reasoning policy using a formal logical expression.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddRuleAnnotation {
   /**
-   * <p>The formal logical expression that defines the rule, using mathematical notation and referencing policy variables and types.</p>
+   * The formal logical expression that defines the rule, using mathematical notation and referencing policy variables and types.
+   *
    * @public
    */
   expression: string | undefined;
 }
 
 /**
- * <p>An annotation for adding a new rule to the policy by converting a natural language description into a formal logical expression.</p>
+ * An annotation for adding a new rule to the policy by converting a natural language description into a formal logical expression.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation {
   /**
-   * <p>The natural language description of the rule that should be converted into a formal logical expression.</p>
+   * The natural language description of the rule that should be converted into a formal logical expression.
+   *
    * @public
    */
   naturalLanguage: string | undefined;
 }
 
 /**
- * <p>An annotation for adding a new custom type to an Automated Reasoning policy, defining a set of possible values for variables.</p>
+ * An annotation for adding a new custom type to an Automated Reasoning policy, defining a set of possible values for variables.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddTypeAnnotation {
   /**
-   * <p>The name of the new custom type. This name will be used to reference the type in variable definitions and rules.</p>
+   * The name of the new custom type. This name will be used to reference the type in variable definitions and rules.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of what the custom type represents and how it should be used in the policy.</p>
+   * A description of what the custom type represents and how it should be used in the policy.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The list of possible values that variables of this type can take, each with its own description and identifier.</p>
+   * The list of possible values that variables of this type can take, each with its own description and identifier.
+   *
    * @public
    */
   values: AutomatedReasoningPolicyDefinitionTypeValue[] | undefined;
 }
 
 /**
- * <p>An annotation for adding a new variable to an Automated Reasoning policy, which can be used in rule expressions.</p>
+ * An annotation for adding a new variable to an Automated Reasoning policy, which can be used in rule expressions.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddVariableAnnotation {
   /**
-   * <p>The name of the new variable. This name will be used to reference the variable in rule expressions.</p>
+   * The name of the new variable. This name will be used to reference the variable in rule expressions.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the variable, which can be a built-in type (like string or number) or a custom type defined in the policy.</p>
+   * The type of the variable, which can be a built-in type (like string or number) or a custom type defined in the policy.
+   *
    * @public
    */
   type: string | undefined;
 
   /**
-   * <p>A description of what the variable represents and how it should be used in rules.</p>
+   * A description of what the variable represents and how it should be used in rules.
+   *
    * @public
    */
   description: string | undefined;
 }
 
 /**
- * <p>An annotation for removing a rule from an Automated Reasoning policy.</p>
+ * An annotation for removing a rule from an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteRuleAnnotation {
   /**
-   * <p>The unique identifier of the rule to delete from the policy.</p>
+   * The unique identifier of the rule to delete from the policy.
+   *
    * @public
    */
   ruleId: string | undefined;
 }
 
 /**
- * <p>An annotation for removing a custom type from an Automated Reasoning policy.</p>
+ * An annotation for removing a custom type from an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteTypeAnnotation {
   /**
-   * <p>The name of the custom type to delete from the policy. The type must not be referenced by any variables or rules.</p>
+   * The name of the custom type to delete from the policy. The type must not be referenced by any variables or rules.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>An annotation for removing a variable from an Automated Reasoning policy.</p>
+ * An annotation for removing a variable from an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteVariableAnnotation {
   /**
-   * <p>The name of the variable to delete from the policy. The variable must not be referenced by any rules.</p>
+   * The name of the variable to delete from the policy. The variable must not be referenced by any rules.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>An annotation for processing and incorporating new content into an Automated Reasoning policy.</p>
+ * An annotation for processing and incorporating new content into an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyIngestContentAnnotation {
   /**
-   * <p>The new content to be analyzed and incorporated into the policy, such as additional documents or rule descriptions.</p>
+   * The new content to be analyzed and incorporated into the policy, such as additional documents or rule descriptions.
+   *
    * @public
    */
   content: string | undefined;
 }
 
 /**
- * <p>An annotation for updating the policy based on feedback about how specific rules performed during testing or real-world usage.</p>
+ * An annotation for updating the policy based on feedback about how specific rules performed during testing or real-world usage.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation {
   /**
-   * <p>The list of rule identifiers that the feedback applies to.</p>
+   * The list of rule identifiers that the feedback applies to.
+   *
    * @public
    */
   ruleIds?: string[] | undefined;
 
   /**
-   * <p>The feedback information about rule performance, including suggestions for improvements or corrections.</p>
+   * The feedback information about rule performance, including suggestions for improvements or corrections.
+   *
    * @public
    */
   feedback: string | undefined;
 }
 
 /**
- * <p>An annotation for updating the policy based on feedback about how it performed on specific test scenarios.</p>
+ * An annotation for updating the policy based on feedback about how it performed on specific test scenarios.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation {
   /**
-   * <p>The list of rule identifiers that were involved in the scenario being evaluated.</p>
+   * The list of rule identifiers that were involved in the scenario being evaluated.
+   *
    * @public
    */
   ruleIds?: string[] | undefined;
 
   /**
-   * <p>The logical expression that defines the test scenario that generated this feedback.</p>
+   * The logical expression that defines the test scenario that generated this feedback.
+   *
    * @public
    */
   scenarioExpression: string | undefined;
 
   /**
-   * <p>The feedback information about scenario performance, including any issues or improvements identified.</p>
+   * The feedback information about scenario performance, including any issues or improvements identified.
+   *
    * @public
    */
   feedback?: string | undefined;
 }
 
 /**
- * <p>An annotation for modifying an existing rule in an Automated Reasoning policy.</p>
+ * An annotation for modifying an existing rule in an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateRuleAnnotation {
   /**
-   * <p>The unique identifier of the rule to update.</p>
+   * The unique identifier of the rule to update.
+   *
    * @public
    */
   ruleId: string | undefined;
 
   /**
-   * <p>The new formal logical expression for the rule, replacing the previous expression.</p>
+   * The new formal logical expression for the rule, replacing the previous expression.
+   *
    * @public
    */
   expression: string | undefined;
 }
 
 /**
- * <p>Represents a single value that can be added to an existing custom type in the policy.</p>
+ * Represents a single value that can be added to an existing custom type in the policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddTypeValue {
   /**
-   * <p>The identifier or name of the new value to add to the type.</p>
+   * The identifier or name of the new value to add to the type.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>A description of what this new type value represents and when it should be used.</p>
+   * A description of what this new type value represents and when it should be used.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Represents a value to be removed from an existing custom type in the policy.</p>
+ * Represents a value to be removed from an existing custom type in the policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteTypeValue {
   /**
-   * <p>The identifier or name of the value to remove from the type.</p>
+   * The identifier or name of the value to remove from the type.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Represents a modification to a value within an existing custom type.</p>
+ * Represents a modification to a value within an existing custom type.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateTypeValue {
   /**
-   * <p>The current identifier or name of the type value to update.</p>
+   * The current identifier or name of the type value to update.
+   *
    * @public
    */
   value: string | undefined;
 
   /**
-   * <p>The new identifier or name for the type value, if you want to rename it.</p>
+   * The new identifier or name for the type value, if you want to rename it.
+   *
    * @public
    */
   newValue?: string | undefined;
 
   /**
-   * <p>The new description for the type value, replacing the previous description.</p>
+   * The new description for the type value, replacing the previous description.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>An annotation for managing values within custom types, including adding, updating, or removing specific type values.</p>
+ * An annotation for managing values within custom types, including adding, updating, or removing specific type values.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyTypeValueAnnotation =
@@ -1457,7 +1682,8 @@ export type AutomatedReasoningPolicyTypeValueAnnotation =
  */
 export namespace AutomatedReasoningPolicyTypeValueAnnotation {
   /**
-   * <p>An operation to add a new value to an existing custom type.</p>
+   * An operation to add a new value to an existing custom type.
+   *
    * @public
    */
   export interface AddTypeValueMember {
@@ -1468,7 +1694,8 @@ export namespace AutomatedReasoningPolicyTypeValueAnnotation {
   }
 
   /**
-   * <p>An operation to modify an existing value within a custom type.</p>
+   * An operation to modify an existing value within a custom type.
+   *
    * @public
    */
   export interface UpdateTypeValueMember {
@@ -1479,7 +1706,8 @@ export namespace AutomatedReasoningPolicyTypeValueAnnotation {
   }
 
   /**
-   * <p>An operation to remove a value from an existing custom type.</p>
+   * An operation to remove a value from an existing custom type.
+   *
    * @public
    */
   export interface DeleteTypeValueMember {
@@ -1512,61 +1740,71 @@ export namespace AutomatedReasoningPolicyTypeValueAnnotation {
 }
 
 /**
- * <p>An annotation for modifying an existing custom type in an Automated Reasoning policy.</p>
+ * An annotation for modifying an existing custom type in an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateTypeAnnotation {
   /**
-   * <p>The current name of the custom type to update.</p>
+   * The current name of the custom type to update.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new name for the custom type, if you want to rename it. If not provided, the name remains unchanged.</p>
+   * The new name for the custom type, if you want to rename it. If not provided, the name remains unchanged.
+   *
    * @public
    */
   newName?: string | undefined;
 
   /**
-   * <p>The new description for the custom type, replacing the previous description.</p>
+   * The new description for the custom type, replacing the previous description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated list of values for the custom type, which can include additions, modifications, or removals.</p>
+   * The updated list of values for the custom type, which can include additions, modifications, or removals.
+   *
    * @public
    */
   values: AutomatedReasoningPolicyTypeValueAnnotation[] | undefined;
 }
 
 /**
- * <p>An annotation for modifying an existing variable in an Automated Reasoning policy.</p>
+ * An annotation for modifying an existing variable in an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateVariableAnnotation {
   /**
-   * <p>The current name of the variable to update.</p>
+   * The current name of the variable to update.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The new name for the variable, if you want to rename it. If not provided, the name remains unchanged.</p>
+   * The new name for the variable, if you want to rename it. If not provided, the name remains unchanged.
+   *
    * @public
    */
   newName?: string | undefined;
 
   /**
-   * <p>The new description for the variable, replacing the previous description.</p>
+   * The new description for the variable, replacing the previous description.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Contains the various operations that can be performed on an Automated Reasoning policy, including adding, updating, and deleting rules, variables, and types.</p>
+ * Contains the various operations that can be performed on an Automated Reasoning policy, including adding, updating, and deleting rules, variables, and types.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyAnnotation =
@@ -1590,7 +1828,8 @@ export type AutomatedReasoningPolicyAnnotation =
  */
 export namespace AutomatedReasoningPolicyAnnotation {
   /**
-   * <p>An operation to add a new custom type to the policy, defining a set of possible values for policy variables.</p>
+   * An operation to add a new custom type to the policy, defining a set of possible values for policy variables.
+   *
    * @public
    */
   export interface AddTypeMember {
@@ -1611,7 +1850,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to modify an existing custom type in the policy, such as changing its name, description, or allowed values.</p>
+   * An operation to modify an existing custom type in the policy, such as changing its name, description, or allowed values.
+   *
    * @public
    */
   export interface UpdateTypeMember {
@@ -1632,7 +1872,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to remove a custom type from the policy. The type must not be referenced by any variables or rules.</p>
+   * An operation to remove a custom type from the policy. The type must not be referenced by any variables or rules.
+   *
    * @public
    */
   export interface DeleteTypeMember {
@@ -1653,7 +1894,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to add a new variable to the policy, which can be used in rule expressions to represent dynamic values.</p>
+   * An operation to add a new variable to the policy, which can be used in rule expressions to represent dynamic values.
+   *
    * @public
    */
   export interface AddVariableMember {
@@ -1674,7 +1916,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to modify an existing variable in the policy, such as changing its name, type, or description.</p>
+   * An operation to modify an existing variable in the policy, such as changing its name, type, or description.
+   *
    * @public
    */
   export interface UpdateVariableMember {
@@ -1695,7 +1938,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to remove a variable from the policy. The variable must not be referenced by any rules.</p>
+   * An operation to remove a variable from the policy. The variable must not be referenced by any rules.
+   *
    * @public
    */
   export interface DeleteVariableMember {
@@ -1716,7 +1960,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to add a new logical rule to the policy using formal mathematical expressions.</p>
+   * An operation to add a new logical rule to the policy using formal mathematical expressions.
+   *
    * @public
    */
   export interface AddRuleMember {
@@ -1737,7 +1982,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to modify an existing rule in the policy, such as changing its logical expression or conditions.</p>
+   * An operation to modify an existing rule in the policy, such as changing its logical expression or conditions.
+   *
    * @public
    */
   export interface UpdateRuleMember {
@@ -1758,7 +2004,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to remove a rule from the policy.</p>
+   * An operation to remove a rule from the policy.
+   *
    * @public
    */
   export interface DeleteRuleMember {
@@ -1779,7 +2026,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to add a new rule by converting natural language descriptions into formal logical expressions.</p>
+   * An operation to add a new rule by converting natural language descriptions into formal logical expressions.
+   *
    * @public
    */
   export interface AddRuleFromNaturalLanguageMember {
@@ -1800,7 +2048,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to update the policy based on feedback about how specific rules performed during testing or validation.</p>
+   * An operation to update the policy based on feedback about how specific rules performed during testing or validation.
+   *
    * @public
    */
   export interface UpdateFromRulesFeedbackMember {
@@ -1821,7 +2070,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to update the policy based on feedback about how it performed on specific test scenarios.</p>
+   * An operation to update the policy based on feedback about how it performed on specific test scenarios.
+   *
    * @public
    */
   export interface UpdateFromScenarioFeedbackMember {
@@ -1842,7 +2092,8 @@ export namespace AutomatedReasoningPolicyAnnotation {
   }
 
   /**
-   * <p>An operation to process and incorporate new content into the policy, extracting additional rules and concepts.</p>
+   * An operation to process and incorporate new content into the policy, extracting additional rules and concepts.
+   *
    * @public
    */
   export interface IngestContentMember {
@@ -1909,37 +2160,43 @@ export namespace AutomatedReasoningPolicyAnnotation {
  */
 export interface GetAutomatedReasoningPolicyAnnotationsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the Automated Reasoning policy.</p>
+   * The name of the Automated Reasoning policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow.</p>
+   * The unique identifier of the build workflow.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The current set of annotations containing rules, variables, and types extracted from the source documents. These can be modified before finalizing the policy.</p>
+   * The current set of annotations containing rules, variables, and types extracted from the source documents. These can be modified before finalizing the policy.
+   *
    * @public
    */
   annotations: AutomatedReasoningPolicyAnnotation[] | undefined;
 
   /**
-   * <p>A hash value representing the current state of the annotations. This is used for optimistic concurrency control when updating annotations.</p>
+   * A hash value representing the current state of the annotations. This is used for optimistic concurrency control when updating annotations.
+   *
    * @public
    */
   annotationSetHash: string | undefined;
 
   /**
-   * <p>The timestamp when the annotations were last updated.</p>
+   * The timestamp when the annotations were last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1950,13 +2207,15 @@ export interface GetAutomatedReasoningPolicyAnnotationsResponse {
  */
 export interface GetAutomatedReasoningPolicyBuildWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow you want to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow you want to retrieve.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow to retrieve.</p>
+   * The unique identifier of the build workflow to retrieve.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
@@ -1967,55 +2226,64 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowRequest {
  */
 export interface GetAutomatedReasoningPolicyBuildWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow.</p>
+   * The unique identifier of the build workflow.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The current status of the build workflow (e.g., RUNNING, COMPLETED, FAILED, CANCELLED).</p>
+   * The current status of the build workflow (e.g., RUNNING, COMPLETED, FAILED, CANCELLED).
+   *
    * @public
    */
   status: AutomatedReasoningPolicyBuildWorkflowStatus | undefined;
 
   /**
-   * <p>The type of build workflow being executed (e.g., DOCUMENT_INGESTION, POLICY_REPAIR).</p>
+   * The type of build workflow being executed (e.g., DOCUMENT_INGESTION, POLICY_REPAIR).
+   *
    * @public
    */
   buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowType | undefined;
 
   /**
-   * <p>The name of the source document used in the build workflow.</p>
+   * The name of the source document used in the build workflow.
+   *
    * @public
    */
   documentName?: string | undefined;
 
   /**
-   * <p>The content type of the source document (e.g., text/plain, application/pdf).</p>
+   * The content type of the source document (e.g., text/plain, application/pdf).
+   *
    * @public
    */
   documentContentType?: AutomatedReasoningPolicyBuildDocumentContentType | undefined;
 
   /**
-   * <p>A detailed description of the document's content and how it should be used in the policy generation process.</p>
+   * A detailed description of the document's content and how it should be used in the policy generation process.
+   *
    * @public
    */
   documentDescription?: string | undefined;
 
   /**
-   * <p>The timestamp when the build workflow was created.</p>
+   * The timestamp when the build workflow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the build workflow was last updated.</p>
+   * The timestamp when the build workflow was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -2026,176 +2294,205 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResponse {
  */
 export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow assets you want to retrieve.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflow assets you want to retrieve.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow whose result assets you want to retrieve.</p>
+   * The unique identifier of the build workflow whose result assets you want to retrieve.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The type of asset to retrieve (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION, GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).</p>
+   * The type of asset to retrieve (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION, GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).
+   *
    * @public
    */
   assetType: AutomatedReasoningPolicyBuildResultAssetType | undefined;
 
   /**
-   * <p>The unique identifier of the specific asset to retrieve when multiple assets of the same type exist. This is required when retrieving SOURCE_DOCUMENT assets, as multiple source documents may have been used in the workflow. The asset ID can be obtained from the asset manifest.</p>
+   * The unique identifier of the specific asset to retrieve when multiple assets of the same type exist. This is required when retrieving SOURCE_DOCUMENT assets, as multiple source documents may have been used in the workflow. The asset ID can be obtained from the asset manifest.
+   *
    * @public
    */
   assetId?: string | undefined;
 }
 
 /**
- * <p>Represents a single entry in the asset manifest, describing one artifact produced by the build workflow.</p>
+ * Represents a single entry in the asset manifest, describing one artifact produced by the build workflow.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildResultAssetManifestEntry {
   /**
-   * <p>The type of asset (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION, GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).</p>
+   * The type of asset (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION, GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).
+   *
    * @public
    */
   assetType: AutomatedReasoningPolicyBuildResultAssetType | undefined;
 
   /**
-   * <p>A human-readable name for the asset, if applicable. This helps identify specific documents or reports within the workflow results.</p>
+   * A human-readable name for the asset, if applicable. This helps identify specific documents or reports within the workflow results.
+   *
    * @public
    */
   assetName?: string | undefined;
 
   /**
-   * <p>A unique identifier for the asset, if applicable. Use this ID when requesting specific assets through the API.</p>
+   * A unique identifier for the asset, if applicable. Use this ID when requesting specific assets through the API.
+   *
    * @public
    */
   assetId?: string | undefined;
 }
 
 /**
- * <p>A catalog of all artifacts produced by a build workflow, providing a comprehensive list of available assets including their types and identifiers.</p>
+ * A catalog of all artifacts produced by a build workflow, providing a comprehensive list of available assets including their types and identifiers.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildResultAssetManifest {
   /**
-   * <p>The list of asset entries in the manifest, each describing an available artifact that can be retrieved.</p>
+   * The list of asset entries in the manifest, each describing an available artifact that can be retrieved.
+   *
    * @public
    */
   entries: AutomatedReasoningPolicyBuildResultAssetManifestEntry[] | undefined;
 }
 
 /**
- * <p>A mutation operation that adds a new rule to the policy definition during the build process.</p>
+ * A mutation operation that adds a new rule to the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddRuleMutation {
   /**
-   * <p>The rule definition that specifies the formal logical expression and metadata for the new rule being added to the policy.</p>
+   * The rule definition that specifies the formal logical expression and metadata for the new rule being added to the policy.
+   *
    * @public
    */
   rule: AutomatedReasoningPolicyDefinitionRule | undefined;
 }
 
 /**
- * <p>A mutation operation that adds a new custom type to the policy definition during the build process.</p>
+ * A mutation operation that adds a new custom type to the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddTypeMutation {
   /**
-   * <p>The type definition that specifies the name, description, and possible values for the new custom type being added to the policy.</p>
+   * The type definition that specifies the name, description, and possible values for the new custom type being added to the policy.
+   *
    * @public
    */
   type: AutomatedReasoningPolicyDefinitionType | undefined;
 }
 
 /**
- * <p>A mutation operation that adds a new variable to the policy definition during the build process.</p>
+ * A mutation operation that adds a new variable to the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAddVariableMutation {
   /**
-   * <p>The variable definition that specifies the name, type, and description for the new variable being added to the policy.</p>
+   * The variable definition that specifies the name, type, and description for the new variable being added to the policy.
+   *
    * @public
    */
   variable: AutomatedReasoningPolicyDefinitionVariable | undefined;
 }
 
 /**
- * <p>A mutation operation that removes a rule from the policy definition during the build process.</p>
+ * A mutation operation that removes a rule from the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteRuleMutation {
   /**
-   * <p>The unique identifier of the rule to delete.</p>
+   * The unique identifier of the rule to delete.
+   *
    * @public
    */
   id: string | undefined;
 }
 
 /**
- * <p>A mutation operation that removes a custom type from the policy definition during the build process.</p>
+ * A mutation operation that removes a custom type from the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteTypeMutation {
   /**
-   * <p>The name of the custom type to delete.</p>
+   * The name of the custom type to delete.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>A mutation operation that removes a variable from the policy definition during the build process.</p>
+ * A mutation operation that removes a variable from the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDeleteVariableMutation {
   /**
-   * <p>The name of the variable to delete.</p>
+   * The name of the variable to delete.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>A mutation operation that modifies an existing rule in the policy definition during the build process.</p>
+ * A mutation operation that modifies an existing rule in the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateRuleMutation {
   /**
-   * <p>The updated rule definition containing the modified formal logical expression and any changed metadata for the existing rule.</p>
+   * The updated rule definition containing the modified formal logical expression and any changed metadata for the existing rule.
+   *
    * @public
    */
   rule: AutomatedReasoningPolicyDefinitionRule | undefined;
 }
 
 /**
- * <p>A mutation operation that modifies an existing custom type in the policy definition during the build process.</p>
+ * A mutation operation that modifies an existing custom type in the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateTypeMutation {
   /**
-   * <p>The updated type definition containing the modified name, description, or values for the existing custom type.</p>
+   * The updated type definition containing the modified name, description, or values for the existing custom type.
+   *
    * @public
    */
   type: AutomatedReasoningPolicyDefinitionType | undefined;
 }
 
 /**
- * <p>A mutation operation that modifies an existing variable in the policy definition during the build process.</p>
+ * A mutation operation that modifies an existing variable in the policy definition during the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyUpdateVariableMutation {
   /**
-   * <p>The updated variable definition containing the modified name, type, or description for the existing variable.</p>
+   * The updated variable definition containing the modified name, type, or description for the existing variable.
+   *
    * @public
    */
   variable: AutomatedReasoningPolicyDefinitionVariable | undefined;
 }
 
 /**
- * <p>A container for various mutation operations that can be applied to an Automated Reasoning policy, including adding, updating, and deleting policy elements.</p>
+ * A container for various mutation operations that can be applied to an Automated Reasoning policy, including adding, updating, and deleting policy elements.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyMutation =
@@ -2215,7 +2512,8 @@ export type AutomatedReasoningPolicyMutation =
  */
 export namespace AutomatedReasoningPolicyMutation {
   /**
-   * <p>A mutation to add a new custom type to the policy.</p>
+   * A mutation to add a new custom type to the policy.
+   *
    * @public
    */
   export interface AddTypeMember {
@@ -2232,7 +2530,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to modify an existing custom type in the policy.</p>
+   * A mutation to modify an existing custom type in the policy.
+   *
    * @public
    */
   export interface UpdateTypeMember {
@@ -2249,7 +2548,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to remove a custom type from the policy.</p>
+   * A mutation to remove a custom type from the policy.
+   *
    * @public
    */
   export interface DeleteTypeMember {
@@ -2266,7 +2566,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to add a new variable to the policy.</p>
+   * A mutation to add a new variable to the policy.
+   *
    * @public
    */
   export interface AddVariableMember {
@@ -2283,7 +2584,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to modify an existing variable in the policy.</p>
+   * A mutation to modify an existing variable in the policy.
+   *
    * @public
    */
   export interface UpdateVariableMember {
@@ -2300,7 +2602,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to remove a variable from the policy.</p>
+   * A mutation to remove a variable from the policy.
+   *
    * @public
    */
   export interface DeleteVariableMember {
@@ -2317,7 +2620,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to add a new rule to the policy.</p>
+   * A mutation to add a new rule to the policy.
+   *
    * @public
    */
   export interface AddRuleMember {
@@ -2334,7 +2638,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to modify an existing rule in the policy.</p>
+   * A mutation to modify an existing rule in the policy.
+   *
    * @public
    */
   export interface UpdateRuleMember {
@@ -2351,7 +2656,8 @@ export namespace AutomatedReasoningPolicyMutation {
   }
 
   /**
-   * <p>A mutation to remove a rule from the policy.</p>
+   * A mutation to remove a rule from the policy.
+   *
    * @public
    */
   export interface DeleteRuleMember {
@@ -2402,13 +2708,15 @@ export namespace AutomatedReasoningPolicyMutation {
 }
 
 /**
- * <p>Represents the planning phase of policy build workflow, where the system analyzes source content and determines what operations to perform.</p>
+ * Represents the planning phase of policy build workflow, where the system analyzes source content and determines what operations to perform.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyPlanning {}
 
 /**
- * <p>Provides context about what type of operation was being performed during a build step.</p>
+ * Provides context about what type of operation was being performed during a build step.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyBuildStepContext =
@@ -2421,7 +2729,8 @@ export type AutomatedReasoningPolicyBuildStepContext =
  */
 export namespace AutomatedReasoningPolicyBuildStepContext {
   /**
-   * <p>Indicates that this build step was part of the planning phase, where the system determines what operations to perform.</p>
+   * Indicates that this build step was part of the planning phase, where the system determines what operations to perform.
+   *
    * @public
    */
   export interface PlanningMember {
@@ -2431,7 +2740,8 @@ export namespace AutomatedReasoningPolicyBuildStepContext {
   }
 
   /**
-   * <p>Indicates that this build step involved modifying the policy structure, such as adding or updating rules, variables, or types.</p>
+   * Indicates that this build step involved modifying the policy structure, such as adding or updating rules, variables, or types.
+   *
    * @public
    */
   export interface MutationMember {
@@ -2461,25 +2771,29 @@ export namespace AutomatedReasoningPolicyBuildStepContext {
 }
 
 /**
- * <p>Represents a message generated during a build step, providing information about what happened or any issues encountered.</p>
+ * Represents a message generated during a build step, providing information about what happened or any issues encountered.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildStepMessage {
   /**
-   * <p>The content of the message, describing what occurred during the build step.</p>
+   * The content of the message, describing what occurred during the build step.
+   *
    * @public
    */
   message: string | undefined;
 
   /**
-   * <p>The type of message (e.g., INFO, WARNING, ERROR) indicating its severity and purpose.</p>
+   * The type of message (e.g., INFO, WARNING, ERROR) indicating its severity and purpose.
+   *
    * @public
    */
   messageType: AutomatedReasoningPolicyBuildMessageType | undefined;
 }
 
 /**
- * <p>Represents a single element in an Automated Reasoning policy definition, such as a rule, variable, or type definition.</p>
+ * Represents a single element in an Automated Reasoning policy definition, such as a rule, variable, or type definition.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyDefinitionElement =
@@ -2493,7 +2807,8 @@ export type AutomatedReasoningPolicyDefinitionElement =
  */
 export namespace AutomatedReasoningPolicyDefinitionElement {
   /**
-   * <p>A variable element within the policy definition that represents a concept used in logical expressions and rules.</p>
+   * A variable element within the policy definition that represents a concept used in logical expressions and rules.
+   *
    * @public
    */
   export interface PolicyDefinitionVariableMember {
@@ -2504,7 +2819,8 @@ export namespace AutomatedReasoningPolicyDefinitionElement {
   }
 
   /**
-   * <p>A custom type element within the policy definition that defines a set of possible values for variables.</p>
+   * A custom type element within the policy definition that defines a set of possible values for variables.
+   *
    * @public
    */
   export interface PolicyDefinitionTypeMember {
@@ -2515,7 +2831,8 @@ export namespace AutomatedReasoningPolicyDefinitionElement {
   }
 
   /**
-   * <p>A rule element within the policy definition that contains a formal logical expression used for validation.</p>
+   * A rule element within the policy definition that contains a formal logical expression used for validation.
+   *
    * @public
    */
   export interface PolicyDefinitionRuleMember {
@@ -2548,157 +2865,183 @@ export namespace AutomatedReasoningPolicyDefinitionElement {
 }
 
 /**
- * <p>Represents a single step in the policy build process, containing context about what was being processed and any messages or results.</p>
+ * Represents a single step in the policy build process, containing context about what was being processed and any messages or results.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildStep {
   /**
-   * <p>Contextual information about what was being processed during this build step, such as the type of operation or the source material being analyzed.</p>
+   * Contextual information about what was being processed during this build step, such as the type of operation or the source material being analyzed.
+   *
    * @public
    */
   context: AutomatedReasoningPolicyBuildStepContext | undefined;
 
   /**
-   * <p>Reference to the previous element or step in the build process, helping to trace the sequence of operations.</p>
+   * Reference to the previous element or step in the build process, helping to trace the sequence of operations.
+   *
    * @public
    */
   priorElement?: AutomatedReasoningPolicyDefinitionElement | undefined;
 
   /**
-   * <p>A list of messages generated during this build step, including informational messages, warnings, and error details.</p>
+   * A list of messages generated during this build step, including informational messages, warnings, and error details.
+   *
    * @public
    */
   messages: AutomatedReasoningPolicyBuildStepMessage[] | undefined;
 }
 
 /**
- * <p>Represents a single entry in the policy build log, containing information about a specific step or event in the build process.</p>
+ * Represents a single entry in the policy build log, containing information about a specific step or event in the build process.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildLogEntry {
   /**
-   * <p>The annotation or operation that was being processed when this log entry was created.</p>
+   * The annotation or operation that was being processed when this log entry was created.
+   *
    * @public
    */
   annotation: AutomatedReasoningPolicyAnnotation | undefined;
 
   /**
-   * <p>The status of the build step (e.g., SUCCESS, FAILED, IN_PROGRESS).</p>
+   * The status of the build step (e.g., SUCCESS, FAILED, IN_PROGRESS).
+   *
    * @public
    */
   status: AutomatedReasoningPolicyAnnotationStatus | undefined;
 
   /**
-   * <p>Detailed information about the specific build steps that were executed, including any sub-operations or transformations.</p>
+   * Detailed information about the specific build steps that were executed, including any sub-operations or transformations.
+   *
    * @public
    */
   buildSteps: AutomatedReasoningPolicyBuildStep[] | undefined;
 }
 
 /**
- * <p>Contains detailed logging information about the policy build process, including steps taken, decisions made, and any issues encountered.</p>
+ * Contains detailed logging information about the policy build process, including steps taken, decisions made, and any issues encountered.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildLog {
   /**
-   * <p>A list of log entries documenting each step in the policy build process, including timestamps, status, and detailed messages.</p>
+   * A list of log entries documenting each step in the policy build process, including timestamps, status, and detailed messages.
+   *
    * @public
    */
   entries: AutomatedReasoningPolicyBuildLogEntry[] | undefined;
 }
 
 /**
- * <p>Represents a source document that was processed during a build workflow. Contains the document content, metadata, and a hash for verification.</p>
+ * Represents a source document that was processed during a build workflow. Contains the document content, metadata, and a hash for verification.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicySourceDocument {
   /**
-   * <p>The raw content of the source document as a binary blob.</p>
+   * The raw content of the source document as a binary blob.
+   *
    * @public
    */
   document: Uint8Array | undefined;
 
   /**
-   * <p>The MIME type of the document (e.g., application/pdf, text/plain).</p>
+   * The MIME type of the document (e.g., application/pdf, text/plain).
+   *
    * @public
    */
   documentContentType: AutomatedReasoningPolicyBuildDocumentContentType | undefined;
 
   /**
-   * <p>The name of the source document for identification purposes.</p>
+   * The name of the source document for identification purposes.
+   *
    * @public
    */
   documentName: string | undefined;
 
   /**
-   * <p>An optional description providing context about the document's content and purpose.</p>
+   * An optional description providing context about the document's content and purpose.
+   *
    * @public
    */
   documentDescription?: string | undefined;
 
   /**
-   * <p>A SHA-256 hash of the document content, used for verification and integrity checking.</p>
+   * A SHA-256 hash of the document content, used for verification and integrity checking.
+   *
    * @public
    */
   documentHash: string | undefined;
 }
 
 /**
- * <p>Describes the location of a statement within a source document using line numbers.</p>
+ * Describes the location of a statement within a source document using line numbers.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyStatementLocation {
   /**
-   * <p>The line numbers in the source document where this statement appears.</p>
+   * The line numbers in the source document where this statement appears.
+   *
    * @public
    */
   lines: number[] | undefined;
 }
 
 /**
- * <p>Represents a single, indivisible statement extracted from a source document. Atomic statements are the fundamental units used to ground policy rules and variables to their source material.</p>
+ * Represents a single, indivisible statement extracted from a source document. Atomic statements are the fundamental units used to ground policy rules and variables to their source material.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAtomicStatement {
   /**
-   * <p>A unique identifier for this atomic statement within the fidelity report.</p>
+   * A unique identifier for this atomic statement within the fidelity report.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The actual text content of the atomic statement as extracted from the source document.</p>
+   * The actual text content of the atomic statement as extracted from the source document.
+   *
    * @public
    */
   text: string | undefined;
 
   /**
-   * <p>Information about where this statement appears in the source document, including line numbers.</p>
+   * Information about where this statement appears in the source document, including line numbers.
+   *
    * @public
    */
   location: AutomatedReasoningPolicyStatementLocation | undefined;
 }
 
 /**
- * <p>Represents a single line of text from a source document, annotated with its line number for precise referencing.</p>
+ * Represents a single line of text from a source document, annotated with its line number for precise referencing.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAnnotatedLine {
   /**
-   * <p>The line number of this text within the source document.</p>
+   * The line number of this text within the source document.
+   *
    * @public
    */
   lineNumber?: number | undefined;
 
   /**
-   * <p>The actual text content of this line from the source document.</p>
+   * The actual text content of this line from the source document.
+   *
    * @public
    */
   lineText?: string | undefined;
 }
 
 /**
- * <p>Represents a content element within an annotated chunk. This union type allows for different types of content elements to be included in document chunks, such as individual lines of text with their line numbers.</p>
+ * Represents a content element within an annotated chunk. This union type allows for different types of content elements to be included in document chunks, such as individual lines of text with their line numbers.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyAnnotatedContent =
@@ -2710,7 +3053,8 @@ export type AutomatedReasoningPolicyAnnotatedContent =
  */
 export namespace AutomatedReasoningPolicyAnnotatedContent {
   /**
-   * <p>An annotated line of text from the source document, including both the line number and the text content.</p>
+   * An annotated line of text from the source document, including both the line number and the text content.
+   *
    * @public
    */
   export interface LineMember {
@@ -2737,355 +3081,419 @@ export namespace AutomatedReasoningPolicyAnnotatedContent {
 }
 
 /**
- * <p>Represents a portion of a source document with line number annotations. Chunks help organize document content for easier navigation and reference.</p>
+ * Represents a portion of a source document with line number annotations. Chunks help organize document content for easier navigation and reference.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyAnnotatedChunk {
   /**
-   * <p>The page number where this chunk begins, if the document is divided into pages.</p>
+   * The page number where this chunk begins, if the document is divided into pages.
+   *
    * @public
    */
   pageNumber?: number | undefined;
 
   /**
-   * <p>The lines of text contained within this chunk, each annotated with its line number.</p>
+   * The lines of text contained within this chunk, each annotated with its line number.
+   *
    * @public
    */
   content: AutomatedReasoningPolicyAnnotatedContent[] | undefined;
 }
 
 /**
- * <p>Represents a source document that was analyzed during fidelity report generation, including the document's metadata and its content broken down into atomic statements.</p>
+ * Represents a source document that was analyzed during fidelity report generation, including the document's metadata and its content broken down into atomic statements.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyReportSourceDocument {
   /**
-   * <p>The name of the source document that was analyzed.</p>
+   * The name of the source document that was analyzed.
+   *
    * @public
    */
   documentName: string | undefined;
 
   /**
-   * <p>A SHA-256 hash of the document content, used for verification and ensuring the document hasn't changed since analysis.</p>
+   * A SHA-256 hash of the document content, used for verification and ensuring the document hasn't changed since analysis.
+   *
    * @public
    */
   documentHash: string | undefined;
 
   /**
-   * <p>A unique identifier for this document within the fidelity report.</p>
+   * A unique identifier for this document within the fidelity report.
+   *
    * @public
    */
   documentId: string | undefined;
 
   /**
-   * <p>The list of atomic statements extracted from this document, representing the fundamental units of meaning used for grounding.</p>
+   * The list of atomic statements extracted from this document, representing the fundamental units of meaning used for grounding.
+   *
    * @public
    */
   atomicStatements: AutomatedReasoningPolicyAtomicStatement[] | undefined;
 
   /**
-   * <p>The document's content organized into annotated chunks with line number information for precise referencing.</p>
+   * The document's content organized into annotated chunks with line number information for precise referencing.
+   *
    * @public
    */
   documentContent: AutomatedReasoningPolicyAnnotatedChunk[] | undefined;
 }
 
 /**
- * <p>References a specific atomic statement within a source document, used to link policy elements back to their source material.</p>
+ * References a specific atomic statement within a source document, used to link policy elements back to their source material.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyStatementReference {
   /**
-   * <p>The unique identifier of the document containing the referenced statement.</p>
+   * The unique identifier of the document containing the referenced statement.
+   *
    * @public
    */
   documentId: string | undefined;
 
   /**
-   * <p>The unique identifier of the specific atomic statement being referenced.</p>
+   * The unique identifier of the specific atomic statement being referenced.
+   *
    * @public
    */
   statementId: string | undefined;
 }
 
 /**
- * <p>Provides detailed fidelity analysis for a specific policy rule, including which source document statements support it and how accurate the rule is.</p>
+ * Provides detailed fidelity analysis for a specific policy rule, including which source document statements support it and how accurate the rule is.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyRuleReport {
   /**
-   * <p>The identifier of the policy rule being analyzed in this report.</p>
+   * The identifier of the policy rule being analyzed in this report.
+   *
    * @public
    */
   rule: string | undefined;
 
   /**
-   * <p>References to statements from the source documents that provide the basis or justification for this rule.</p>
+   * References to statements from the source documents that provide the basis or justification for this rule.
+   *
    * @public
    */
   groundingStatements?: AutomatedReasoningPolicyStatementReference[] | undefined;
 
   /**
-   * <p>Explanations describing how the source statements support and justify this specific rule.</p>
+   * Explanations describing how the source statements support and justify this specific rule.
+   *
    * @public
    */
   groundingJustifications?: string[] | undefined;
 
   /**
-   * <p>A score from 0.0 to 1.0 indicating how accurately this rule represents the source material.</p>
+   * A score from 0.0 to 1.0 indicating how accurately this rule represents the source material.
+   *
    * @public
    */
   accuracyScore?: number | undefined;
 
   /**
-   * <p>A textual explanation of the accuracy score, describing why the rule received this particular accuracy rating.</p>
+   * A textual explanation of the accuracy score, describing why the rule received this particular accuracy rating.
+   *
    * @public
    */
   accuracyJustification?: string | undefined;
 }
 
 /**
- * <p>Provides detailed fidelity analysis for a specific policy variable, including which source document statements support it and how accurate the variable definition is.</p>
+ * Provides detailed fidelity analysis for a specific policy variable, including which source document statements support it and how accurate the variable definition is.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyVariableReport {
   /**
-   * <p>The name of the policy variable being analyzed in this report.</p>
+   * The name of the policy variable being analyzed in this report.
+   *
    * @public
    */
   policyVariable: string | undefined;
 
   /**
-   * <p>References to statements from the source documents that provide the basis or justification for this variable.</p>
+   * References to statements from the source documents that provide the basis or justification for this variable.
+   *
    * @public
    */
   groundingStatements?: AutomatedReasoningPolicyStatementReference[] | undefined;
 
   /**
-   * <p>Explanations describing how the source statements support and justify this specific variable definition.</p>
+   * Explanations describing how the source statements support and justify this specific variable definition.
+   *
    * @public
    */
   groundingJustifications?: string[] | undefined;
 
   /**
-   * <p>A score from 0.0 to 1.0 indicating how accurately this variable represents concepts from the source material.</p>
+   * A score from 0.0 to 1.0 indicating how accurately this variable represents concepts from the source material.
+   *
    * @public
    */
   accuracyScore?: number | undefined;
 
   /**
-   * <p>A textual explanation of the accuracy score, describing why the variable received this particular accuracy rating.</p>
+   * A textual explanation of the accuracy score, describing why the variable received this particular accuracy rating.
+   *
    * @public
    */
   accuracyJustification?: string | undefined;
 }
 
 /**
- * <p>A comprehensive analysis report that measures how accurately a generated policy represents the source documents. The report includes coverage and accuracy scores, detailed grounding information linking policy elements to source statements, and annotated document content.</p>
+ * A comprehensive analysis report that measures how accurately a generated policy represents the source documents. The report includes coverage and accuracy scores, detailed grounding information linking policy elements to source statements, and annotated document content.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyFidelityReport {
   /**
-   * <p>A score from 0.0 to 1.0 indicating how well the policy covers the statements in the source documents. A higher score means more of the source content is represented in the policy.</p>
+   * A score from 0.0 to 1.0 indicating how well the policy covers the statements in the source documents. A higher score means more of the source content is represented in the policy.
+   *
    * @public
    */
   coverageScore: number | undefined;
 
   /**
-   * <p>A score from 0.0 to 1.0 indicating how accurate the policy rules are relative to the source documents. A higher score means the policy rules more faithfully represent the source material.</p>
+   * A score from 0.0 to 1.0 indicating how accurate the policy rules are relative to the source documents. A higher score means the policy rules more faithfully represent the source material.
+   *
    * @public
    */
   accuracyScore: number | undefined;
 
   /**
-   * <p>A mapping from rule identifiers to detailed fidelity reports for each rule, showing which source statements ground each rule and how accurate it is.</p>
+   * A mapping from rule identifiers to detailed fidelity reports for each rule, showing which source statements ground each rule and how accurate it is.
+   *
    * @public
    */
   ruleReports: Record<string, AutomatedReasoningPolicyRuleReport> | undefined;
 
   /**
-   * <p>A mapping from variable names to detailed fidelity reports for each variable, showing which source statements ground each variable and how accurate it is.</p>
+   * A mapping from variable names to detailed fidelity reports for each variable, showing which source statements ground each variable and how accurate it is.
+   *
    * @public
    */
   variableReports: Record<string, AutomatedReasoningPolicyVariableReport> | undefined;
 
   /**
-   * <p>A list of source documents with their content broken down into atomic statements and annotated with line numbers for precise referencing.</p>
+   * A list of source documents with their content broken down into atomic statements and annotated with line numbers for precise referencing.
+   *
    * @public
    */
   documentSources: AutomatedReasoningPolicyReportSourceDocument[] | undefined;
 }
 
 /**
- * <p>Represents a generated test case, consisting of query content, guard content, and expected results.</p>
+ * Represents a generated test case, consisting of query content, guard content, and expected results.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyGeneratedTestCase {
   /**
-   * <p>The input query or prompt that generated the content. This provides context for the validation.</p>
+   * The input query or prompt that generated the content. This provides context for the validation.
+   *
    * @public
    */
   queryContent: string | undefined;
 
   /**
-   * <p>The output content that's validated by the Automated Reasoning policy. This represents the foundation model response that will be checked for accuracy.</p>
+   * The output content that's validated by the Automated Reasoning policy. This represents the foundation model response that will be checked for accuracy.
+   *
    * @public
    */
   guardContent: string | undefined;
 
   /**
-   * <p>The expected results of the generated test case. Possible values include:</p> <ul> <li> <p> <code>VALID</code> - The claims are true. The claims are implied by the premises and the Automated Reasoning policy. Given the Automated Reasoning policy and premises, it is not possible for these claims to be false. In other words, there are no alternative answers that are true that contradict the claims.</p> </li> <li> <p> <code>INVALID</code> - The claims are false. The claims are not implied by the premises and Automated Reasoning policy. Furthermore, there exists different claims that are consistent with the premises and Automated Reasoning policy.</p> </li> <li> <p> <code>SATISFIABLE</code> - The claims can be true or false. It depends on what assumptions are made for the claim to be implied from the premises and Automated Reasoning policy rules. In this situation, different assumptions can make input claims false and alternative claims true.</p> </li> <li> <p> <code>IMPOSSIBLE</code> - Automated Reasoning can’t make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.</p> </li> </ul>
+   * The expected results of the generated test case. Possible values include:
+   *
+   * - `VALID` - The claims are true. The claims are implied by the premises and the Automated Reasoning policy. Given the Automated Reasoning policy and premises, it is not possible for these claims to be false. In other words, there are no alternative answers that are true that contradict the claims.
+   * - `INVALID` - The claims are false. The claims are not implied by the premises and Automated Reasoning policy. Furthermore, there exists different claims that are consistent with the premises and Automated Reasoning policy.
+   * - `SATISFIABLE` - The claims can be true or false. It depends on what assumptions are made for the claim to be implied from the premises and Automated Reasoning policy rules. In this situation, different assumptions can make input claims false and alternative claims true.
+   * - `IMPOSSIBLE` - Automated Reasoning can’t make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.
+   *
    * @public
    */
   expectedAggregatedFindingsResult: AutomatedReasoningCheckResult | undefined;
 }
 
 /**
- * <p>Contains a comprehensive test suite generated by the build workflow, providing validation capabilities for automated reasoning policies.</p>
+ * Contains a comprehensive test suite generated by the build workflow, providing validation capabilities for automated reasoning policies.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyGeneratedTestCases {
   /**
-   * <p>Represents a collection of generated test cases.</p>
+   * Represents a collection of generated test cases.
+   *
    * @public
    */
   generatedTestCases: AutomatedReasoningPolicyGeneratedTestCase[] | undefined;
 }
 
 /**
- * <p>Represents a test scenario used to validate an Automated Reasoning policy, including the test conditions and expected outcomes.</p>
+ * Represents a test scenario used to validate an Automated Reasoning policy, including the test conditions and expected outcomes.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyScenario {
   /**
-   * <p>The logical expression or condition that defines this test scenario.</p>
+   * The logical expression or condition that defines this test scenario.
+   *
    * @public
    */
   expression: string | undefined;
 
   /**
-   * <p>An alternative way to express the same test scenario, used for validation and comparison purposes.</p>
+   * An alternative way to express the same test scenario, used for validation and comparison purposes.
+   *
    * @public
    */
   alternateExpression: string | undefined;
 
   /**
-   * <p>The expected outcome when this scenario is evaluated against the policy (e.g., PASS, FAIL, VIOLATION).</p>
+   * The expected outcome when this scenario is evaluated against the policy (e.g., PASS, FAIL, VIOLATION).
+   *
    * @public
    */
   expectedResult: AutomatedReasoningCheckResult | undefined;
 
   /**
-   * <p>The list of rule identifiers that are expected to be triggered or evaluated by this test scenario.</p>
+   * The list of rule identifiers that are expected to be triggered or evaluated by this test scenario.
+   *
    * @public
    */
   ruleIds: string[] | undefined;
 }
 
 /**
- * <p>Contains a comprehensive entity encompassing all the scenarios generated by the build workflow, which can be used to validate an Automated Reasoning policy.</p>
+ * Contains a comprehensive entity encompassing all the scenarios generated by the build workflow, which can be used to validate an Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyScenarios {
   /**
-   * <p>Represents a collection of generated policy scenarios.</p>
+   * Represents a collection of generated policy scenarios.
+   *
    * @public
    */
   policyScenarios: AutomatedReasoningPolicyScenario[] | undefined;
 }
 
 /**
- * <p>Represents a set of rules that operate on completely separate variables, indicating they address different concerns or domains within the policy.</p>
+ * Represents a set of rules that operate on completely separate variables, indicating they address different concerns or domains within the policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDisjointRuleSet {
   /**
-   * <p>The set of variables that are used by the rules in this disjoint set.</p>
+   * The set of variables that are used by the rules in this disjoint set.
+   *
    * @public
    */
   variables: string[] | undefined;
 
   /**
-   * <p>The list of rules that form this disjoint set, all operating on the same set of variables.</p>
+   * The list of rules that form this disjoint set, all operating on the same set of variables.
+   *
    * @public
    */
   rules: string[] | undefined;
 }
 
 /**
- * <p>Associates a type name with a specific value name, used for referencing type values in rules and other policy elements.</p>
+ * Associates a type name with a specific value name, used for referencing type values in rules and other policy elements.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinitionTypeValuePair {
   /**
-   * <p>The name of the custom type that contains the referenced value.</p>
+   * The name of the custom type that contains the referenced value.
+   *
    * @public
    */
   typeName: string | undefined;
 
   /**
-   * <p>The name of the specific value within the type.</p>
+   * The name of the specific value within the type.
+   *
    * @public
    */
   valueName: string | undefined;
 }
 
 /**
- * <p>Provides a comprehensive analysis of the quality and completeness of an Automated Reasoning policy definition, highlighting potential issues and optimization opportunities.</p>
+ * Provides a comprehensive analysis of the quality and completeness of an Automated Reasoning policy definition, highlighting potential issues and optimization opportunities.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyDefinitionQualityReport {
   /**
-   * <p>The total number of custom types defined in the policy.</p>
+   * The total number of custom types defined in the policy.
+   *
    * @public
    */
   typeCount: number | undefined;
 
   /**
-   * <p>The total number of variables defined in the policy.</p>
+   * The total number of variables defined in the policy.
+   *
    * @public
    */
   variableCount: number | undefined;
 
   /**
-   * <p>The total number of rules defined in the policy.</p>
+   * The total number of rules defined in the policy.
+   *
    * @public
    */
   ruleCount: number | undefined;
 
   /**
-   * <p>A list of custom types that are defined but not referenced by any variables or rules, suggesting they may be unnecessary.</p>
+   * A list of custom types that are defined but not referenced by any variables or rules, suggesting they may be unnecessary.
+   *
    * @public
    */
   unusedTypes: string[] | undefined;
 
   /**
-   * <p>A list of type values that are defined but never used in any rules, indicating potential cleanup opportunities.</p>
+   * A list of type values that are defined but never used in any rules, indicating potential cleanup opportunities.
+   *
    * @public
    */
   unusedTypeValues: AutomatedReasoningPolicyDefinitionTypeValuePair[] | undefined;
 
   /**
-   * <p>A list of variables that are defined but not referenced by any rules, suggesting they may be unnecessary.</p>
+   * A list of variables that are defined but not referenced by any rules, suggesting they may be unnecessary.
+   *
    * @public
    */
   unusedVariables: string[] | undefined;
 
   /**
-   * <p>A list of rules that may conflict with each other, potentially leading to inconsistent policy behavior.</p>
+   * A list of rules that may conflict with each other, potentially leading to inconsistent policy behavior.
+   *
    * @public
    */
   conflictingRules: string[] | undefined;
 
   /**
-   * <p>Groups of rules that operate on completely separate sets of variables, indicating the policy may be addressing multiple unrelated concerns.</p>
+   * Groups of rules that operate on completely separate sets of variables, indicating the policy may be addressing multiple unrelated concerns.
+   *
    * @public
    */
   disjointRuleSets: AutomatedReasoningPolicyDisjointRuleSet[] | undefined;
 }
 
 /**
- * <p>Contains the various assets generated during a policy build workflow, including logs, quality reports, test cases, and the final policy definition.</p>
+ * Contains the various assets generated during a policy build workflow, including logs, quality reports, test cases, and the final policy definition.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyBuildResultAssets =
@@ -3104,7 +3512,8 @@ export type AutomatedReasoningPolicyBuildResultAssets =
  */
 export namespace AutomatedReasoningPolicyBuildResultAssets {
   /**
-   * <p>The complete policy definition generated by the build workflow, containing all rules, variables, and custom types extracted from the source documents.</p>
+   * The complete policy definition generated by the build workflow, containing all rules, variables, and custom types extracted from the source documents.
+   *
    * @public
    */
   export interface PolicyDefinitionMember {
@@ -3120,7 +3529,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>A comprehensive report analyzing the quality of the generated policy, including metrics about rule coverage, potential conflicts, and unused elements.</p>
+   * A comprehensive report analyzing the quality of the generated policy, including metrics about rule coverage, potential conflicts, and unused elements.
+   *
    * @public
    */
   export interface QualityReportMember {
@@ -3136,7 +3546,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>The complete build log containing detailed information about each step in the policy generation process.</p>
+   * The complete build log containing detailed information about each step in the policy generation process.
+   *
    * @public
    */
   export interface BuildLogMember {
@@ -3152,7 +3563,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>A comprehensive test suite generated by the build workflow, providing validation capabilities for automated reasoning policies.</p>
+   * A comprehensive test suite generated by the build workflow, providing validation capabilities for automated reasoning policies.
+   *
    * @public
    */
   export interface GeneratedTestCasesMember {
@@ -3168,7 +3580,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>An entity encompassing all the policy scenarios generated by the build workflow, which can be used to validate an Automated Reasoning policy. </p>
+   * An entity encompassing all the policy scenarios generated by the build workflow, which can be used to validate an Automated Reasoning policy.
+   *
    * @public
    */
   export interface PolicyScenariosMember {
@@ -3184,7 +3597,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>A manifest listing all available artifacts produced by the build workflow. This provides a catalog of all assets that can be retrieved, including their types, names, and identifiers.</p>
+   * A manifest listing all available artifacts produced by the build workflow. This provides a catalog of all assets that can be retrieved, including their types, names, and identifiers.
+   *
    * @public
    */
   export interface AssetManifestMember {
@@ -3200,7 +3614,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>A source document that was used as input during the build workflow. This allows you to retrieve the original documents that were processed to generate the policy.</p>
+   * A source document that was used as input during the build workflow. This allows you to retrieve the original documents that were processed to generate the policy.
+   *
    * @public
    */
   export interface DocumentMember {
@@ -3216,7 +3631,8 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
   }
 
   /**
-   * <p>A comprehensive fidelity report that measures how accurately the generated policy represents the source documents. The report includes coverage and accuracy scores, along with detailed grounding information for rules and variables.</p>
+   * A comprehensive fidelity report that measures how accurately the generated policy represents the source documents. The report includes coverage and accuracy scores, along with detailed grounding information for rules and variables.
+   *
    * @public
    */
   export interface FidelityReportMember {
@@ -3268,19 +3684,22 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
  */
 export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow.</p>
+   * The unique identifier of the build workflow.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The requested build workflow asset. This is a union type that returns only one of the available asset types (logs, reports, or generated artifacts) based on the specific asset type requested in the API call.</p>
+   * The requested build workflow asset. This is a union type that returns only one of the available asset types (logs, reports, or generated artifacts) based on the specific asset type requested in the API call.
+   *
    * @public
    */
   buildWorkflowAssets?: AutomatedReasoningPolicyBuildResultAssets | undefined;
@@ -3291,13 +3710,15 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse {
  */
 export interface GetAutomatedReasoningPolicyNextScenarioRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy for which you want to get the next test scenario.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy for which you want to get the next test scenario.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow associated with the test scenarios.</p>
+   * The unique identifier of the build workflow associated with the test scenarios.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
@@ -3308,13 +3729,15 @@ export interface GetAutomatedReasoningPolicyNextScenarioRequest {
  */
 export interface GetAutomatedReasoningPolicyNextScenarioResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The next test scenario to validate, including the test expression and expected results.</p>
+   * The next test scenario to validate, including the test expression and expected results.
+   *
    * @public
    */
   scenario?: AutomatedReasoningPolicyScenario | undefined;
@@ -3325,61 +3748,71 @@ export interface GetAutomatedReasoningPolicyNextScenarioResponse {
  */
 export interface GetAutomatedReasoningPolicyTestCaseRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the test to retrieve.</p>
+   * The unique identifier of the test to retrieve.
+   *
    * @public
    */
   testCaseId: string | undefined;
 }
 
 /**
- * <p>Represents a test for validating an Automated Reasoning policy. tests contain sample inputs and expected outcomes to verify policy behavior.</p>
+ * Represents a test for validating an Automated Reasoning policy. tests contain sample inputs and expected outcomes to verify policy behavior.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyTestCase {
   /**
-   * <p>The unique identifier of the test.</p>
+   * The unique identifier of the test.
+   *
    * @public
    */
   testCaseId: string | undefined;
 
   /**
-   * <p>The output content to be validated by the policy, typically representing a foundation model response.</p>
+   * The output content to be validated by the policy, typically representing a foundation model response.
+   *
    * @public
    */
   guardContent: string | undefined;
 
   /**
-   * <p>The input query or prompt that generated the content. This provides context for the validation.</p>
+   * The input query or prompt that generated the content. This provides context for the validation.
+   *
    * @public
    */
   queryContent?: string | undefined;
 
   /**
-   * <p>The expected result of the Automated Reasoning check for this test.</p>
+   * The expected result of the Automated Reasoning check for this test.
+   *
    * @public
    */
   expectedAggregatedFindingsResult?: AutomatedReasoningCheckResult | undefined;
 
   /**
-   * <p>The timestamp when the test was created.</p>
+   * The timestamp when the test was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the test was last updated.</p>
+   * The timestamp when the test was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The minimum confidence level for logic validation. Content meeting this threshold is considered high-confidence and can be validated.</p>
+   * The minimum confidence level for logic validation. Content meeting this threshold is considered high-confidence and can be validated.
+   *
    * @public
    */
   confidenceThreshold?: number | undefined;
@@ -3390,13 +3823,15 @@ export interface AutomatedReasoningPolicyTestCase {
  */
 export interface GetAutomatedReasoningPolicyTestCaseResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy that contains the test.</p>
+   * The Amazon Resource Name (ARN) of the policy that contains the test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The test details including the content, query, expected result, and metadata.</p>
+   * The test details including the content, query, expected result, and metadata.
+   *
    * @public
    */
   testCase: AutomatedReasoningPolicyTestCase | undefined;
@@ -3407,296 +3842,345 @@ export interface GetAutomatedReasoningPolicyTestCaseResponse {
  */
 export interface GetAutomatedReasoningPolicyTestResultRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The build workflow identifier. The build workflow must display a <code>COMPLETED</code> status to get results.</p>
+   * The build workflow identifier. The build workflow must display a `COMPLETED` status to get results.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The unique identifier of the test for which to retrieve results.</p>
+   * The unique identifier of the test for which to retrieve results.
+   *
    * @public
    */
   testCaseId: string | undefined;
 }
 
 /**
- * <p>References a specific automated reasoning policy rule that was applied during evaluation.</p>
+ * References a specific automated reasoning policy rule that was applied during evaluation.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckRule {
   /**
-   * <p>The unique identifier of the automated reasoning rule.</p>
+   * The unique identifier of the automated reasoning rule.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The ARN of the automated reasoning policy version that contains this rule.</p>
+   * The ARN of the automated reasoning policy version that contains this rule.
+   *
    * @public
    */
   policyVersionArn?: string | undefined;
 }
 
 /**
- * <p>Represents a logical statement that can be expressed both in formal logic notation and natural language, providing dual representations for better understanding and validation.</p>
+ * Represents a logical statement that can be expressed both in formal logic notation and natural language, providing dual representations for better understanding and validation.
+ *
  * @public
  */
 export interface AutomatedReasoningLogicStatement {
   /**
-   * <p>The formal logic representation of the statement using mathematical notation and logical operators.</p>
+   * The formal logic representation of the statement using mathematical notation and logical operators.
+   *
    * @public
    */
   logic: string | undefined;
 
   /**
-   * <p>The natural language representation of the logical statement, providing a human-readable interpretation of the formal logic.</p>
+   * The natural language representation of the logical statement, providing a human-readable interpretation of the formal logic.
+   *
    * @public
    */
   naturalLanguage?: string | undefined;
 }
 
 /**
- * <p>Identifies logical issues in the translated statements that exist independent of any policy rules, such as statements that are always true or always false.</p>
+ * Identifies logical issues in the translated statements that exist independent of any policy rules, such as statements that are always true or always false.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckLogicWarning {
   /**
-   * <p>The category of the detected logical issue, such as statements that are always true or always false.</p>
+   * The category of the detected logical issue, such as statements that are always true or always false.
+   *
    * @public
    */
   type?: AutomatedReasoningCheckLogicWarningType | undefined;
 
   /**
-   * <p>The logical statements that serve as premises under which the claims are validated.</p>
+   * The logical statements that serve as premises under which the claims are validated.
+   *
    * @public
    */
   premises?: AutomatedReasoningLogicStatement[] | undefined;
 
   /**
-   * <p>The logical statements that are validated while assuming the policy and premises.</p>
+   * The logical statements that are validated while assuming the policy and premises.
+   *
    * @public
    */
   claims?: AutomatedReasoningLogicStatement[] | undefined;
 }
 
 /**
- * <p>References a portion of the original input text that corresponds to logical elements.</p>
+ * References a portion of the original input text that corresponds to logical elements.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckInputTextReference {
   /**
-   * <p>The specific text from the original input that this reference points to.</p>
+   * The specific text from the original input that this reference points to.
+   *
    * @public
    */
   text?: string | undefined;
 }
 
 /**
- * <p>Contains the logical translation of natural language input into formal logical statements, including premises, claims, and confidence scores.</p>
+ * Contains the logical translation of natural language input into formal logical statements, including premises, claims, and confidence scores.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckTranslation {
   /**
-   * <p>The logical statements that serve as the foundation or assumptions for the claims.</p>
+   * The logical statements that serve as the foundation or assumptions for the claims.
+   *
    * @public
    */
   premises?: AutomatedReasoningLogicStatement[] | undefined;
 
   /**
-   * <p>The logical statements that are being validated against the premises and policy rules.</p>
+   * The logical statements that are being validated against the premises and policy rules.
+   *
    * @public
    */
   claims: AutomatedReasoningLogicStatement[] | undefined;
 
   /**
-   * <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
+   * References to portions of the original input text that correspond to the premises but could not be fully translated.
+   *
    * @public
    */
   untranslatedPremises?: AutomatedReasoningCheckInputTextReference[] | undefined;
 
   /**
-   * <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
+   * References to portions of the original input text that correspond to the claims but could not be fully translated.
+   *
    * @public
    */
   untranslatedClaims?: AutomatedReasoningCheckInputTextReference[] | undefined;
 
   /**
-   * <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>
+   * A confidence score between 0 and 1 indicating how certain the system is about the logical translation.
+   *
    * @public
    */
   confidence: number | undefined;
 }
 
 /**
- * <p>Indicates that no valid claims can be made due to logical contradictions in the premises or rules.</p>
+ * Indicates that no valid claims can be made due to logical contradictions in the premises or rules.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckImpossibleFinding {
   /**
-   * <p>The logical translation of the input that this finding evaluates.</p>
+   * The logical translation of the input that this finding evaluates.
+   *
    * @public
    */
   translation?: AutomatedReasoningCheckTranslation | undefined;
 
   /**
-   * <p>The automated reasoning policy rules that contradict the claims and/or premises in the input.</p>
+   * The automated reasoning policy rules that contradict the claims and/or premises in the input.
+   *
    * @public
    */
   contradictingRules?: AutomatedReasoningCheckRule[] | undefined;
 
   /**
-   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.
+   *
    * @public
    */
   logicWarning?: AutomatedReasoningCheckLogicWarning | undefined;
 }
 
 /**
- * <p>Indicates that the claims are logically false and contradictory to the established rules or premises.</p>
+ * Indicates that the claims are logically false and contradictory to the established rules or premises.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckInvalidFinding {
   /**
-   * <p>The logical translation of the input that this finding invalidates.</p>
+   * The logical translation of the input that this finding invalidates.
+   *
    * @public
    */
   translation?: AutomatedReasoningCheckTranslation | undefined;
 
   /**
-   * <p>The automated reasoning policy rules that contradict the claims in the input.</p>
+   * The automated reasoning policy rules that contradict the claims in the input.
+   *
    * @public
    */
   contradictingRules?: AutomatedReasoningCheckRule[] | undefined;
 
   /**
-   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.
+   *
    * @public
    */
   logicWarning?: AutomatedReasoningCheckLogicWarning | undefined;
 }
 
 /**
- * <p>Indicates that no relevant logical information could be extracted from the input for validation.</p>
+ * Indicates that no relevant logical information could be extracted from the input for validation.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckNoTranslationsFinding {}
 
 /**
- * <p>Represents a logical scenario where claims can be evaluated as true or false, containing specific logical assignments.</p>
+ * Represents a logical scenario where claims can be evaluated as true or false, containing specific logical assignments.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckScenario {
   /**
-   * <p>List of logical assignments and statements that define this scenario.</p>
+   * List of logical assignments and statements that define this scenario.
+   *
    * @public
    */
   statements?: AutomatedReasoningLogicStatement[] | undefined;
 }
 
 /**
- * <p>Indicates that the claims could be either true or false depending on additional assumptions not provided in the input.</p>
+ * Indicates that the claims could be either true or false depending on additional assumptions not provided in the input.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckSatisfiableFinding {
   /**
-   * <p>The logical translation of the input that this finding evaluates.</p>
+   * The logical translation of the input that this finding evaluates.
+   *
    * @public
    */
   translation?: AutomatedReasoningCheckTranslation | undefined;
 
   /**
-   * <p>An example scenario demonstrating how the claims could be logically true.</p>
+   * An example scenario demonstrating how the claims could be logically true.
+   *
    * @public
    */
   claimsTrueScenario?: AutomatedReasoningCheckScenario | undefined;
 
   /**
-   * <p>An example scenario demonstrating how the claims could be logically false.</p>
+   * An example scenario demonstrating how the claims could be logically false.
+   *
    * @public
    */
   claimsFalseScenario?: AutomatedReasoningCheckScenario | undefined;
 
   /**
-   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.
+   *
    * @public
    */
   logicWarning?: AutomatedReasoningCheckLogicWarning | undefined;
 }
 
 /**
- * <p>Indicates that the input exceeds the processing capacity due to the volume or complexity of the logical information.</p>
+ * Indicates that the input exceeds the processing capacity due to the volume or complexity of the logical information.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckTooComplexFinding {}
 
 /**
- * <p>Represents one possible logical interpretation of ambiguous input content.</p>
+ * Represents one possible logical interpretation of ambiguous input content.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckTranslationOption {
   /**
-   * <p>Different logical interpretations that were detected during translation of the input.</p>
+   * Different logical interpretations that were detected during translation of the input.
+   *
    * @public
    */
   translations?: AutomatedReasoningCheckTranslation[] | undefined;
 }
 
 /**
- * <p>Indicates that the input has multiple valid logical interpretations, requiring additional context or clarification.</p>
+ * Indicates that the input has multiple valid logical interpretations, requiring additional context or clarification.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckTranslationAmbiguousFinding {
   /**
-   * <p>Different logical interpretations that were detected during translation of the input.</p>
+   * Different logical interpretations that were detected during translation of the input.
+   *
    * @public
    */
   options?: AutomatedReasoningCheckTranslationOption[] | undefined;
 
   /**
-   * <p>Scenarios showing how the different translation options differ in meaning.</p>
+   * Scenarios showing how the different translation options differ in meaning.
+   *
    * @public
    */
   differenceScenarios?: AutomatedReasoningCheckScenario[] | undefined;
 }
 
 /**
- * <p>Indicates that the claims are definitively true and logically implied by the premises, with no possible alternative interpretations.</p>
+ * Indicates that the claims are definitively true and logically implied by the premises, with no possible alternative interpretations.
+ *
  * @public
  */
 export interface AutomatedReasoningCheckValidFinding {
   /**
-   * <p>The logical translation of the input that this finding validates.</p>
+   * The logical translation of the input that this finding validates.
+   *
    * @public
    */
   translation?: AutomatedReasoningCheckTranslation | undefined;
 
   /**
-   * <p>An example scenario demonstrating how the claims are logically true.</p>
+   * An example scenario demonstrating how the claims are logically true.
+   *
    * @public
    */
   claimsTrueScenario?: AutomatedReasoningCheckScenario | undefined;
 
   /**
-   * <p>The automated reasoning policy rules that support why this result is considered valid.</p>
+   * The automated reasoning policy rules that support why this result is considered valid.
+   *
    * @public
    */
   supportingRules?: AutomatedReasoningCheckRule[] | undefined;
 
   /**
-   * <p>Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.</p>
+   * Indication of a logic issue with the translation without needing to consider the automated reasoning policy rules.
+   *
    * @public
    */
   logicWarning?: AutomatedReasoningCheckLogicWarning | undefined;
 }
 
 /**
- * <p>Represents the result of an Automated Reasoning validation check, indicating whether the content is logically valid, invalid, or falls into other categories based on the policy rules.</p>
+ * Represents the result of an Automated Reasoning validation check, indicating whether the content is logically valid, invalid, or falls into other categories based on the policy rules.
+ *
  * @public
  */
 export type AutomatedReasoningCheckFinding =
@@ -3714,7 +4198,8 @@ export type AutomatedReasoningCheckFinding =
  */
 export namespace AutomatedReasoningCheckFinding {
   /**
-   * <p>Indicates that the claims are true. The claims are implied by the premises and the Automated Reasoning policy. Given the Automated Reasoning policy and premises, it is not possible for these claims to be false.</p>
+   * Indicates that the claims are true. The claims are implied by the premises and the Automated Reasoning policy. Given the Automated Reasoning policy and premises, it is not possible for these claims to be false.
+   *
    * @public
    */
   export interface ValidMember {
@@ -3729,7 +4214,8 @@ export namespace AutomatedReasoningCheckFinding {
   }
 
   /**
-   * <p>Indicates that the claims are false. The claims are not implied by the premises and Automated Reasoning policy. Furthermore, there exist different claims that are consistent with the premises and Automated Reasoning policy.</p>
+   * Indicates that the claims are false. The claims are not implied by the premises and Automated Reasoning policy. Furthermore, there exist different claims that are consistent with the premises and Automated Reasoning policy.
+   *
    * @public
    */
   export interface InvalidMember {
@@ -3744,7 +4230,8 @@ export namespace AutomatedReasoningCheckFinding {
   }
 
   /**
-   * <p>Indicates that the claims can be true or false. It depends on what assumptions are made for the claim to be implied from the premises and Automated Reasoning policy rules. In this situation, different assumptions can make input claims false and alternative claims true.</p>
+   * Indicates that the claims can be true or false. It depends on what assumptions are made for the claim to be implied from the premises and Automated Reasoning policy rules. In this situation, different assumptions can make input claims false and alternative claims true.
+   *
    * @public
    */
   export interface SatisfiableMember {
@@ -3759,7 +4246,8 @@ export namespace AutomatedReasoningCheckFinding {
   }
 
   /**
-   * <p>Indicates that Automated Reasoning cannot make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.</p>
+   * Indicates that Automated Reasoning cannot make a statement about the claims. This can happen if the premises are logically incorrect, or if there is a conflict within the Automated Reasoning policy itself.
+   *
    * @public
    */
   export interface ImpossibleMember {
@@ -3774,7 +4262,8 @@ export namespace AutomatedReasoningCheckFinding {
   }
 
   /**
-   * <p>Indicates that an ambiguity was detected in the translation, making it unsound to continue with validity checking. Additional context or follow-up questions might be needed to get translation to succeed.</p>
+   * Indicates that an ambiguity was detected in the translation, making it unsound to continue with validity checking. Additional context or follow-up questions might be needed to get translation to succeed.
+   *
    * @public
    */
   export interface TranslationAmbiguousMember {
@@ -3789,7 +4278,8 @@ export namespace AutomatedReasoningCheckFinding {
   }
 
   /**
-   * <p>Indicates that the input contains too much information for Automated Reasoning to process within its latency limits.</p>
+   * Indicates that the input contains too much information for Automated Reasoning to process within its latency limits.
+   *
    * @public
    */
   export interface TooComplexMember {
@@ -3804,7 +4294,8 @@ export namespace AutomatedReasoningCheckFinding {
   }
 
   /**
-   * <p>Identifies that some or all of the input prompt wasn't translated into logic. This can happen if the input isn't relevant to the Automated Reasoning policy, or if the policy doesn't have variables to model relevant input.</p>
+   * Identifies that some or all of the input prompt wasn't translated into logic. This can happen if the input isn't relevant to the Automated Reasoning policy, or if the policy doesn't have variables to model relevant input.
+   *
    * @public
    */
   export interface NoTranslationsMember {
@@ -3849,48 +4340,56 @@ export namespace AutomatedReasoningCheckFinding {
 }
 
 /**
- * <p>Contains the results of testing an Automated Reasoning policy against various scenarios and validation checks.</p>
+ * Contains the results of testing an Automated Reasoning policy against various scenarios and validation checks.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyTestResult {
   /**
-   * <p>The test case that was executed, including the input content, expected results, and configuration parameters used during validation.</p>
+   * The test case that was executed, including the input content, expected results, and configuration parameters used during validation.
+   *
    * @public
    */
   testCase: AutomatedReasoningPolicyTestCase | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy that was tested.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy that was tested.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The overall status of the test run (e.g., COMPLETED, FAILED, IN_PROGRESS).</p>
+   * The overall status of the test run (e.g., COMPLETED, FAILED, IN_PROGRESS).
+   *
    * @public
    */
   testRunStatus: AutomatedReasoningPolicyTestRunStatus | undefined;
 
   /**
-   * <p>Detailed findings from the test run, including any issues, violations, or unexpected behaviors discovered.</p>
+   * Detailed findings from the test run, including any issues, violations, or unexpected behaviors discovered.
+   *
    * @public
    */
   testFindings?: AutomatedReasoningCheckFinding[] | undefined;
 
   /**
-   * <p>The overall result of the test run, indicating whether the policy passed or failed validation.</p>
+   * The overall result of the test run, indicating whether the policy passed or failed validation.
+   *
    * @public
    */
   testRunResult?: AutomatedReasoningPolicyTestRunResult | undefined;
 
   /**
-   * <p>A summary of all test findings, aggregated to provide an overall assessment of policy quality and correctness.</p>
+   * A summary of all test findings, aggregated to provide an overall assessment of policy quality and correctness.
+   *
    * @public
    */
   aggregatedTestFindingsResult?: AutomatedReasoningCheckResult | undefined;
 
   /**
-   * <p>The timestamp when the test results were last updated.</p>
+   * The timestamp when the test results were last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3901,7 +4400,8 @@ export interface AutomatedReasoningPolicyTestResult {
  */
 export interface GetAutomatedReasoningPolicyTestResultResponse {
   /**
-   * <p>The test result containing validation findings, execution status, and detailed analysis.</p>
+   * The test result containing validation findings, execution status, and detailed analysis.
+   *
    * @public
    */
   testResult: AutomatedReasoningPolicyTestResult | undefined;
@@ -3912,67 +4412,78 @@ export interface GetAutomatedReasoningPolicyTestResultResponse {
  */
 export interface ListAutomatedReasoningPoliciesRequest {
   /**
-   * <p>Optional filter to list only the policy versions with the specified Amazon Resource Name (ARN). If not provided, the DRAFT versions for all policies are listed.</p>
+   * Optional filter to list only the policy versions with the specified Amazon Resource Name (ARN). If not provided, the DRAFT versions for all policies are listed.
+   *
    * @public
    */
   policyArn?: string | undefined;
 
   /**
-   * <p>The pagination token from a previous request to retrieve the next page of results.</p>
+   * The pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of policies to return in a single call.</p>
+   * The maximum number of policies to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about an Automated Reasoning policy, including metadata and timestamps.</p>
+ * Contains summary information about an Automated Reasoning policy, including metadata and timestamps.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicySummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   * The Amazon Resource Name (ARN) of the policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the policy.</p>
+   * The description of the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The version of the policy.</p>
+   * The version of the policy.
+   *
    * @public
    */
   version: string | undefined;
 
   /**
-   * <p>The unique identifier of the policy.</p>
+   * The unique identifier of the policy.
+   *
    * @public
    */
   policyId: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was created.</p>
+   * The timestamp when the policy was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the policy was last updated.</p>
+   * The timestamp when the policy was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -3983,13 +4494,15 @@ export interface AutomatedReasoningPolicySummary {
  */
 export interface ListAutomatedReasoningPoliciesResponse {
   /**
-   * <p>A list of Automated Reasoning policy summaries.</p>
+   * A list of Automated Reasoning policy summaries.
+   *
    * @public
    */
   automatedReasoningPolicySummaries: AutomatedReasoningPolicySummary[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4000,61 +4513,71 @@ export interface ListAutomatedReasoningPoliciesResponse {
  */
 export interface ListAutomatedReasoningPolicyBuildWorkflowsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflows you want to list.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflows you want to list.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>A pagination token from a previous request to continue listing build workflows from where the previous request left off.</p>
+   * A pagination token from a previous request to continue listing build workflows from where the previous request left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of build workflows to return in a single response. Valid range is 1-100.</p>
+   * The maximum number of build workflows to return in a single response. Valid range is 1-100.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Provides a summary of a policy build workflow, including its current status, timing information, and key identifiers.</p>
+ * Provides a summary of a policy build workflow, including its current status, timing information, and key identifiers.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildWorkflowSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy associated with this build workflow.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy associated with this build workflow.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow.</p>
+   * The unique identifier of the build workflow.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The current status of the build workflow (e.g., RUNNING, COMPLETED, FAILED, CANCELLED).</p>
+   * The current status of the build workflow (e.g., RUNNING, COMPLETED, FAILED, CANCELLED).
+   *
    * @public
    */
   status: AutomatedReasoningPolicyBuildWorkflowStatus | undefined;
 
   /**
-   * <p>The type of build workflow (e.g., DOCUMENT_INGESTION, POLICY_REPAIR).</p>
+   * The type of build workflow (e.g., DOCUMENT_INGESTION, POLICY_REPAIR).
+   *
    * @public
    */
   buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowType | undefined;
 
   /**
-   * <p>The timestamp when the build workflow was created.</p>
+   * The timestamp when the build workflow was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the build workflow was last updated.</p>
+   * The timestamp when the build workflow was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4065,13 +4588,15 @@ export interface AutomatedReasoningPolicyBuildWorkflowSummary {
  */
 export interface ListAutomatedReasoningPolicyBuildWorkflowsResponse {
   /**
-   * <p>A list of build workflow summaries, each containing key information about a build workflow including its status and timestamps.</p>
+   * A list of build workflow summaries, each containing key information about a build workflow including its status and timestamps.
+   *
    * @public
    */
   automatedReasoningPolicyBuildWorkflowSummaries: AutomatedReasoningPolicyBuildWorkflowSummary[] | undefined;
 
   /**
-   * <p>A pagination token to use in subsequent requests to retrieve additional build workflows.</p>
+   * A pagination token to use in subsequent requests to retrieve additional build workflows.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4082,19 +4607,22 @@ export interface ListAutomatedReasoningPolicyBuildWorkflowsResponse {
  */
 export interface ListAutomatedReasoningPolicyTestCasesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to list tests.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to list tests.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The pagination token from a previous request to retrieve the next page of results.</p>
+   * The pagination token from a previous request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of tests to return in a single call.</p>
+   * The maximum number of tests to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4105,13 +4633,15 @@ export interface ListAutomatedReasoningPolicyTestCasesRequest {
  */
 export interface ListAutomatedReasoningPolicyTestCasesResponse {
   /**
-   * <p>A list of tests for the specified policy.</p>
+   * A list of tests for the specified policy.
+   *
    * @public
    */
   testCases: AutomatedReasoningPolicyTestCase[] | undefined;
 
   /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results.</p>
+   * The pagination token to use in a subsequent request to retrieve the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4122,25 +4652,29 @@ export interface ListAutomatedReasoningPolicyTestCasesResponse {
  */
 export interface ListAutomatedReasoningPolicyTestResultsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose test results you want to list.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose test results you want to list.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow whose test results you want to list.</p>
+   * The unique identifier of the build workflow whose test results you want to list.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>A pagination token from a previous request to continue listing test results from where the previous request left off.</p>
+   * A pagination token from a previous request to continue listing test results from where the previous request left off.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of test results to return in a single response. Valid range is 1-100.</p>
+   * The maximum number of test results to return in a single response. Valid range is 1-100.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -4151,50 +4685,58 @@ export interface ListAutomatedReasoningPolicyTestResultsRequest {
  */
 export interface ListAutomatedReasoningPolicyTestResultsResponse {
   /**
-   * <p>A list of test results, each containing information about how the policy performed on specific test scenarios.</p>
+   * A list of test results, each containing information about how the policy performed on specific test scenarios.
+   *
    * @public
    */
   testResults: AutomatedReasoningPolicyTestResult[] | undefined;
 
   /**
-   * <p>A pagination token to use in subsequent requests to retrieve additional test results.</p>
+   * A pagination token to use in subsequent requests to retrieve additional test results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a source document used in the policy build workflow, containing the content and metadata needed for policy generation.</p>
+ * Represents a source document used in the policy build workflow, containing the content and metadata needed for policy generation.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildWorkflowDocument {
   /**
-   * <p>The actual content of the source document that will be analyzed to extract policy rules and concepts.</p>
+   * The actual content of the source document that will be analyzed to extract policy rules and concepts.
+   *
    * @public
    */
   document: Uint8Array | undefined;
 
   /**
-   * <p>The MIME type of the document content (e.g., text/plain, application/pdf, text/markdown).</p>
+   * The MIME type of the document content (e.g., text/plain, application/pdf, text/markdown).
+   *
    * @public
    */
   documentContentType: AutomatedReasoningPolicyBuildDocumentContentType | undefined;
 
   /**
-   * <p>A descriptive name for the document that helps identify its purpose and content.</p>
+   * A descriptive name for the document that helps identify its purpose and content.
+   *
    * @public
    */
   documentName: string | undefined;
 
   /**
-   * <p>A detailed description of the document's content and how it should be used in the policy generation process.</p>
+   * A detailed description of the document's content and how it should be used in the policy generation process.
+   *
    * @public
    */
   documentDescription?: string | undefined;
 }
 
 /**
- * <p>Configuration for generating a fidelity report, which can either analyze new documents or update an existing fidelity report with a new policy definition.</p>
+ * Configuration for generating a fidelity report, which can either analyze new documents or update an existing fidelity report with a new policy definition.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyGenerateFidelityReportContent =
@@ -4206,7 +4748,8 @@ export type AutomatedReasoningPolicyGenerateFidelityReportContent =
  */
 export namespace AutomatedReasoningPolicyGenerateFidelityReportContent {
   /**
-   * <p>Source documents to analyze for generating a new fidelity report. The documents will be processed to create atomic statements and grounding information.</p>
+   * Source documents to analyze for generating a new fidelity report. The documents will be processed to create atomic statements and grounding information.
+   *
    * @public
    */
   export interface DocumentsMember {
@@ -4233,37 +4776,43 @@ export namespace AutomatedReasoningPolicyGenerateFidelityReportContent {
 }
 
 /**
- * <p>Configuration for an iterative policy refinement workflow, including source documents to process and optional feedback to guide the refinement.</p>
+ * Configuration for an iterative policy refinement workflow, including source documents to process and optional feedback to guide the refinement.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyIterativeRefinementContent {
   /**
-   * <p>Source documents used for iterative policy refinement. These documents provide context for refining the policy definition.</p>
+   * Source documents used for iterative policy refinement. These documents provide context for refining the policy definition.
+   *
    * @public
    */
   documents: AutomatedReasoningPolicyBuildWorkflowDocument[] | undefined;
 
   /**
-   * <p>Optional feedback to guide the iterative refinement workflow. Provide specific instructions or constraints for policy refinement.</p>
+   * Optional feedback to guide the iterative refinement workflow. Provide specific instructions or constraints for policy refinement.
+   *
    * @public
    */
   feedback?: string | undefined;
 }
 
 /**
- * <p>Contains content and instructions for repairing or improving an existing Automated Reasoning policy.</p>
+ * Contains content and instructions for repairing or improving an existing Automated Reasoning policy.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildWorkflowRepairContent {
   /**
-   * <p>Specific annotations or modifications to apply during the policy repair process, such as rule corrections or variable updates.</p>
+   * Specific annotations or modifications to apply during the policy repair process, such as rule corrections or variable updates.
+   *
    * @public
    */
   annotations: AutomatedReasoningPolicyAnnotation[] | undefined;
 }
 
 /**
- * <p>Defines the content and configuration for different types of policy build workflows.</p>
+ * Defines the content and configuration for different types of policy build workflows.
+ *
  * @public
  */
 export type AutomatedReasoningPolicyWorkflowTypeContent =
@@ -4278,7 +4827,8 @@ export type AutomatedReasoningPolicyWorkflowTypeContent =
  */
 export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   /**
-   * <p>The list of documents to be processed in a document ingestion workflow.</p>
+   * The list of documents to be processed in a document ingestion workflow.
+   *
    * @public
    */
   export interface DocumentsMember {
@@ -4290,7 +4840,8 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   }
 
   /**
-   * <p>The assets and instructions needed for a policy repair workflow, including repair annotations and guidance.</p>
+   * The assets and instructions needed for a policy repair workflow, including repair annotations and guidance.
+   *
    * @public
    */
   export interface PolicyRepairAssetsMember {
@@ -4302,7 +4853,8 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   }
 
   /**
-   * <p>The content configuration for generating a fidelity report workflow. This can include source documents to analyze or an existing fidelity report to update with a new policy definition.</p>
+   * The content configuration for generating a fidelity report workflow. This can include source documents to analyze or an existing fidelity report to update with a new policy definition.
+   *
    * @public
    */
   export interface GenerateFidelityReportContentMember {
@@ -4314,7 +4866,8 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   }
 
   /**
-   * <p>Content configuration to start an iterative policy refinement workflow that uses generative AI to automatically make changes to the policy based on test results and the optional feedback provided.</p>
+   * Content configuration to start an iterative policy refinement workflow that uses generative AI to automatically make changes to the policy based on test results and the optional feedback provided.
+   *
    * @public
    */
   export interface IterativeRefinementContentMember {
@@ -4350,18 +4903,21 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
 }
 
 /**
- * <p>Defines the source content for a policy build workflow, which can include documents, repair instructions, or other input materials.</p>
+ * Defines the source content for a policy build workflow, which can include documents, repair instructions, or other input materials.
+ *
  * @public
  */
 export interface AutomatedReasoningPolicyBuildWorkflowSource {
   /**
-   * <p>An existing policy definition that serves as the starting point for the build workflow, typically used in policy repair or update scenarios.</p>
+   * An existing policy definition that serves as the starting point for the build workflow, typically used in policy repair or update scenarios.
+   *
    * @public
    */
   policyDefinition?: AutomatedReasoningPolicyDefinition | undefined;
 
   /**
-   * <p>The actual content to be processed in the build workflow, such as documents to analyze or repair instructions to apply.</p>
+   * The actual content to be processed in the build workflow, such as documents to analyze or repair instructions to apply.
+   *
    * @public
    */
   workflowContent?: AutomatedReasoningPolicyWorkflowTypeContent | undefined;
@@ -4372,25 +4928,29 @@ export interface AutomatedReasoningPolicyBuildWorkflowSource {
  */
 export interface StartAutomatedReasoningPolicyBuildWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to start the build workflow.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy for which to start the build workflow.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The type of build workflow to start (e.g., DOCUMENT_INGESTION for processing new documents, POLICY_REPAIR for fixing existing policies).</p>
+   * The type of build workflow to start (e.g., DOCUMENT_INGESTION for processing new documents, POLICY_REPAIR for fixing existing policies).
+   *
    * @public
    */
   buildWorkflowType: AutomatedReasoningPolicyBuildWorkflowType | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than once. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>The source content for the build workflow, such as documents to analyze or repair instructions for existing policies.</p>
+   * The source content for the build workflow, such as documents to analyze or repair instructions for existing policies.
+   *
    * @public
    */
   sourceContent: AutomatedReasoningPolicyBuildWorkflowSource | undefined;
@@ -4401,13 +4961,15 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowRequest {
  */
 export interface StartAutomatedReasoningPolicyBuildWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the newly started build workflow. Use this ID to track the workflow's progress and retrieve its results.</p>
+   * The unique identifier of the newly started build workflow. Use this ID to track the workflow's progress and retrieve its results.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
@@ -4418,25 +4980,29 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowResponse {
  */
 export interface StartAutomatedReasoningPolicyTestWorkflowRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy to test.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy to test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The build workflow identifier. The build workflow must show a <code>COMPLETED</code> status before running tests.</p>
+   * The build workflow identifier. The build workflow must show a `COMPLETED` status before running tests.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The list of test identifiers to run. If not provided, all tests for the policy are run.</p>
+   * The list of test identifiers to run. If not provided, all tests for the policy are run.
+   *
    * @public
    */
   testCaseIds?: string[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request but doesn't return an error.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -4447,7 +5013,8 @@ export interface StartAutomatedReasoningPolicyTestWorkflowRequest {
  */
 export interface StartAutomatedReasoningPolicyTestWorkflowResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy for which the test workflow was started.</p>
+   * The Amazon Resource Name (ARN) of the policy for which the test workflow was started.
+   *
    * @public
    */
   policyArn: string | undefined;
@@ -4458,25 +5025,29 @@ export interface StartAutomatedReasoningPolicyTestWorkflowResponse {
  */
 export interface UpdateAutomatedReasoningPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy to update. This must be the ARN of a draft policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy to update. This must be the ARN of a draft policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The updated policy definition containing the formal logic rules, variables, and types.</p>
+   * The updated policy definition containing the formal logic rules, variables, and types.
+   *
    * @public
    */
   policyDefinition: AutomatedReasoningPolicyDefinition | undefined;
 
   /**
-   * <p>The updated name for the Automated Reasoning policy.</p>
+   * The updated name for the Automated Reasoning policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description for the Automated Reasoning policy.</p>
+   * The updated description for the Automated Reasoning policy.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4487,25 +5058,29 @@ export interface UpdateAutomatedReasoningPolicyRequest {
  */
 export interface UpdateAutomatedReasoningPolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated policy.</p>
+   * The Amazon Resource Name (ARN) of the updated policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The updated name of the policy.</p>
+   * The updated name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The hash of the updated policy definition.</p>
+   * The hash of the updated policy definition.
+   *
    * @public
    */
   definitionHash: string | undefined;
 
   /**
-   * <p>The timestamp when the policy was last updated.</p>
+   * The timestamp when the policy was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4516,25 +5091,29 @@ export interface UpdateAutomatedReasoningPolicyResponse {
  */
 export interface UpdateAutomatedReasoningPolicyAnnotationsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose annotations you want to update.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy whose annotations you want to update.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow whose annotations you want to update.</p>
+   * The unique identifier of the build workflow whose annotations you want to update.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The updated annotations containing modified rules, variables, and types for the policy.</p>
+   * The updated annotations containing modified rules, variables, and types for the policy.
+   *
    * @public
    */
   annotations: AutomatedReasoningPolicyAnnotation[] | undefined;
 
   /**
-   * <p>The hash value of the annotation set that you're updating. This is used for optimistic concurrency control to prevent conflicting updates.</p>
+   * The hash value of the annotation set that you're updating. This is used for optimistic concurrency control to prevent conflicting updates.
+   *
    * @public
    */
   lastUpdatedAnnotationSetHash: string | undefined;
@@ -4545,25 +5124,29 @@ export interface UpdateAutomatedReasoningPolicyAnnotationsRequest {
  */
 export interface UpdateAutomatedReasoningPolicyAnnotationsResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the build workflow.</p>
+   * The unique identifier of the build workflow.
+   *
    * @public
    */
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The new hash value representing the updated state of the annotations.</p>
+   * The new hash value representing the updated state of the annotations.
+   *
    * @public
    */
   annotationSetHash: string | undefined;
 
   /**
-   * <p>The timestamp when the annotations were updated.</p>
+   * The timestamp when the annotations were updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4574,49 +5157,57 @@ export interface UpdateAutomatedReasoningPolicyAnnotationsResponse {
  */
 export interface UpdateAutomatedReasoningPolicyTestCaseRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.</p>
+   * The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the test to update.</p>
+   * The unique identifier of the test to update.
+   *
    * @public
    */
   testCaseId: string | undefined;
 
   /**
-   * <p>The updated content to be validated by the Automated Reasoning policy.</p>
+   * The updated content to be validated by the Automated Reasoning policy.
+   *
    * @public
    */
   guardContent: string | undefined;
 
   /**
-   * <p>The updated input query or prompt that generated the content.</p>
+   * The updated input query or prompt that generated the content.
+   *
    * @public
    */
   queryContent?: string | undefined;
 
   /**
-   * <p>The timestamp when the test was last updated. This is used as a concurrency token to prevent conflicting modifications.</p>
+   * The timestamp when the test was last updated. This is used as a concurrency token to prevent conflicting modifications.
+   *
    * @public
    */
   lastUpdatedAt: Date | undefined;
 
   /**
-   * <p>The updated expected result of the Automated Reasoning check.</p>
+   * The updated expected result of the Automated Reasoning check.
+   *
    * @public
    */
   expectedAggregatedFindingsResult: AutomatedReasoningCheckResult | undefined;
 
   /**
-   * <p>The updated minimum confidence level for logic validation. If null is provided, the threshold will be removed.</p>
+   * The updated minimum confidence level for logic validation. If null is provided, the threshold will be removed.
+   *
    * @public
    */
   confidenceThreshold?: number | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -4627,74 +5218,86 @@ export interface UpdateAutomatedReasoningPolicyTestCaseRequest {
  */
 export interface UpdateAutomatedReasoningPolicyTestCaseResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy that contains the updated test.</p>
+   * The Amazon Resource Name (ARN) of the policy that contains the updated test.
+   *
    * @public
    */
   policyArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the updated test.</p>
+   * The unique identifier of the updated test.
+   *
    * @public
    */
   testCaseId: string | undefined;
 }
 
 /**
- * <p>The configuration of a virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html">Protect your data using Amazon Virtual Private Cloud and Amazon Web Services PrivateLink</a>.</p>
+ * The configuration of a virtual private cloud (VPC). For more information, see [Protect your data using Amazon Virtual Private Cloud and Amazon Web Services PrivateLink](https://docs.aws.amazon.com/bedrock/latest/userguide/usingVPC.html).
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>An array of IDs for each subnet in the VPC to use.</p>
+   * An array of IDs for each subnet in the VPC to use.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>An array of IDs for each security group in the VPC to use.</p>
+   * An array of IDs for each security group in the VPC to use.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 }
 
 /**
- * <p>Specifies the configuration for a Amazon SageMaker endpoint.</p>
+ * Specifies the configuration for a Amazon SageMaker endpoint.
+ *
  * @public
  */
 export interface SageMakerEndpoint {
   /**
-   * <p>The number of Amazon EC2 compute instances to deploy for initial endpoint creation.</p>
+   * The number of Amazon EC2 compute instances to deploy for initial endpoint creation.
+   *
    * @public
    */
   initialInstanceCount: number | undefined;
 
   /**
-   * <p>The Amazon EC2 compute instance type to deploy for hosting the model.</p>
+   * The Amazon EC2 compute instance type to deploy for hosting the model.
+   *
    * @public
    */
   instanceType: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on Amazon EC2 compute instances or for batch transform jobs.</p>
+   * The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on Amazon EC2 compute instances or for batch transform jobs.
+   *
    * @public
    */
   executionRole: string | undefined;
 
   /**
-   * <p>The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the Amazon EC2 compute instance that hosts the endpoint.</p>
+   * The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt data on the storage volume attached to the Amazon EC2 compute instance that hosts the endpoint.
+   *
    * @public
    */
   kmsEncryptionKey?: string | undefined;
 
   /**
-   * <p>The VPC configuration for the endpoint.</p>
+   * The VPC configuration for the endpoint.
+   *
    * @public
    */
   vpc?: VpcConfig | undefined;
 }
 
 /**
- * <p>Specifies the configuration for the endpoint.</p>
+ * Specifies the configuration for the endpoint.
+ *
  * @public
  */
 export type EndpointConfig =
@@ -4706,7 +5309,8 @@ export type EndpointConfig =
  */
 export namespace EndpointConfig {
   /**
-   * <p>The configuration specific to Amazon SageMaker for the endpoint.</p>
+   * The configuration specific to Amazon SageMaker for the endpoint.
+   *
    * @public
    */
   export interface SageMakerMember {
@@ -4737,97 +5341,113 @@ export namespace EndpointConfig {
  */
 export interface CreateMarketplaceModelEndpointRequest {
   /**
-   * <p>The ARN of the model from Amazon Bedrock Marketplace that you want to deploy to the endpoint.</p>
+   * The ARN of the model from Amazon Bedrock Marketplace that you want to deploy to the endpoint.
+   *
    * @public
    */
   modelSourceIdentifier: string | undefined;
 
   /**
-   * <p>The configuration for the endpoint, including the number and type of instances to use.</p>
+   * The configuration for the endpoint, including the number and type of instances to use.
+   *
    * @public
    */
   endpointConfig: EndpointConfig | undefined;
 
   /**
-   * <p>Indicates whether you accept the end-user license agreement (EULA) for the model. Set to <code>true</code> to accept the EULA.</p>
+   * Indicates whether you accept the end-user license agreement (EULA) for the model. Set to `true` to accept the EULA.
+   *
    * @public
    */
   acceptEula?: boolean | undefined;
 
   /**
-   * <p>The name of the endpoint. This name must be unique within your Amazon Web Services account and region.</p>
+   * The name of the endpoint. This name must be unique within your Amazon Web Services account and region.
+   *
    * @public
    */
   endpointName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is listed as not required because Amazon Web Services SDKs automatically generate it for you and set this parameter. If you're not using the Amazon Web Services SDK or the CLI, you must provide this token or the action will fail.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is listed as not required because Amazon Web Services SDKs automatically generate it for you and set this parameter. If you're not using the Amazon Web Services SDK or the CLI, you must provide this token or the action will fail.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
 
   /**
-   * <p>An array of key-value pairs to apply to the underlying Amazon SageMaker endpoint. You can use these tags to organize and identify your Amazon Web Services resources.</p>
+   * An array of key-value pairs to apply to the underlying Amazon SageMaker endpoint. You can use these tags to organize and identify your Amazon Web Services resources.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Contains details about an endpoint for a model from Amazon Bedrock Marketplace.</p>
+ * Contains details about an endpoint for a model from Amazon Bedrock Marketplace.
+ *
  * @public
  */
 export interface MarketplaceModelEndpoint {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The ARN of the model from Amazon Bedrock Marketplace that is deployed on this endpoint.</p>
+   * The ARN of the model from Amazon Bedrock Marketplace that is deployed on this endpoint.
+   *
    * @public
    */
   modelSourceIdentifier: string | undefined;
 
   /**
-   * <p>The overall status of the endpoint in Amazon Bedrock Marketplace (e.g., ACTIVE, INACTIVE).</p>
+   * The overall status of the endpoint in Amazon Bedrock Marketplace (e.g., ACTIVE, INACTIVE).
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>Additional information about the overall status, if available.</p>
+   * Additional information about the overall status, if available.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The timestamp when the endpoint was registered.</p>
+   * The timestamp when the endpoint was registered.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the endpoint was last updated.</p>
+   * The timestamp when the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The configuration of the endpoint, including the number and type of instances used.</p>
+   * The configuration of the endpoint, including the number and type of instances used.
+   *
    * @public
    */
   endpointConfig: EndpointConfig | undefined;
 
   /**
-   * <p>The current status of the endpoint (e.g., Creating, InService, Updating, Failed).</p>
+   * The current status of the endpoint (e.g., Creating, InService, Updating, Failed).
+   *
    * @public
    */
   endpointStatus: string | undefined;
 
   /**
-   * <p>Additional information about the endpoint status, if available.</p>
+   * Additional information about the endpoint status, if available.
+   *
    * @public
    */
   endpointStatusMessage?: string | undefined;
@@ -4838,7 +5458,8 @@ export interface MarketplaceModelEndpoint {
  */
 export interface CreateMarketplaceModelEndpointResponse {
   /**
-   * <p>Details about the created endpoint.</p>
+   * Details about the created endpoint.
+   *
    * @public
    */
   marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
@@ -4849,7 +5470,8 @@ export interface CreateMarketplaceModelEndpointResponse {
  */
 export interface DeleteMarketplaceModelEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint you want to delete.</p>
+   * The Amazon Resource Name (ARN) of the endpoint you want to delete.
+   *
    * @public
    */
   endpointArn: string | undefined;
@@ -4865,7 +5487,8 @@ export interface DeleteMarketplaceModelEndpointResponse {}
  */
 export interface DeregisterMarketplaceModelEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint you want to deregister.</p>
+   * The Amazon Resource Name (ARN) of the endpoint you want to deregister.
+   *
    * @public
    */
   endpointArn: string | undefined;
@@ -4881,7 +5504,8 @@ export interface DeregisterMarketplaceModelEndpointResponse {}
  */
 export interface GetMarketplaceModelEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint you want to get information about.</p>
+   * The Amazon Resource Name (ARN) of the endpoint you want to get information about.
+   *
    * @public
    */
   endpointArn: string | undefined;
@@ -4892,7 +5516,8 @@ export interface GetMarketplaceModelEndpointRequest {
  */
 export interface GetMarketplaceModelEndpointResponse {
   /**
-   * <p>Details about the requested endpoint.</p>
+   * Details about the requested endpoint.
+   *
    * @public
    */
   marketplaceModelEndpoint?: MarketplaceModelEndpoint | undefined;
@@ -4903,61 +5528,71 @@ export interface GetMarketplaceModelEndpointResponse {
  */
 export interface ListMarketplaceModelEndpointsRequest {
   /**
-   * <p>The maximum number of results to return in a single call. If more results are available, the operation returns a <code>NextToken</code> value.</p>
+   * The maximum number of results to return in a single call. If more results are available, the operation returns a `NextToken` value.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. You receive this token from a previous <code>ListMarketplaceModelEndpoints</code> call.</p>
+   * The token for the next set of results. You receive this token from a previous `ListMarketplaceModelEndpoints` call.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>If specified, only endpoints for the given model source identifier are returned.</p>
+   * If specified, only endpoints for the given model source identifier are returned.
+   *
    * @public
    */
   modelSourceEquals?: string | undefined;
 }
 
 /**
- * <p>Provides a summary of an endpoint for a model from Amazon Bedrock Marketplace.</p>
+ * Provides a summary of an endpoint for a model from Amazon Bedrock Marketplace.
+ *
  * @public
  */
 export interface MarketplaceModelEndpointSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
+   * The Amazon Resource Name (ARN) of the endpoint.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The ARN of the model from Amazon Bedrock Marketplace that is deployed on this endpoint.</p>
+   * The ARN of the model from Amazon Bedrock Marketplace that is deployed on this endpoint.
+   *
    * @public
    */
   modelSourceIdentifier: string | undefined;
 
   /**
-   * <p>The overall status of the endpoint in Amazon Bedrock Marketplace.</p>
+   * The overall status of the endpoint in Amazon Bedrock Marketplace.
+   *
    * @public
    */
   status?: Status | undefined;
 
   /**
-   * <p>Additional information about the overall status, if available.</p>
+   * Additional information about the overall status, if available.
+   *
    * @public
    */
   statusMessage?: string | undefined;
 
   /**
-   * <p>The timestamp when the endpoint was created.</p>
+   * The timestamp when the endpoint was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the endpoint was last updated.</p>
+   * The timestamp when the endpoint was last updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -4968,13 +5603,15 @@ export interface MarketplaceModelEndpointSummary {
  */
 export interface ListMarketplaceModelEndpointsResponse {
   /**
-   * <p>An array of endpoint summaries.</p>
+   * An array of endpoint summaries.
+   *
    * @public
    */
   marketplaceModelEndpoints?: MarketplaceModelEndpointSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results. Use this token to get the next set of results.</p>
+   * The token for the next set of results. Use this token to get the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4985,13 +5622,15 @@ export interface ListMarketplaceModelEndpointsResponse {
  */
 export interface RegisterMarketplaceModelEndpointRequest {
   /**
-   * <p>The ARN of the Amazon SageMaker endpoint you want to register with Amazon Bedrock Marketplace.</p>
+   * The ARN of the Amazon SageMaker endpoint you want to register with Amazon Bedrock Marketplace.
+   *
    * @public
    */
   endpointIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the model from Amazon Bedrock Marketplace that is deployed on the endpoint.</p>
+   * The ARN of the model from Amazon Bedrock Marketplace that is deployed on the endpoint.
+   *
    * @public
    */
   modelSourceIdentifier: string | undefined;
@@ -5002,7 +5641,8 @@ export interface RegisterMarketplaceModelEndpointRequest {
  */
 export interface RegisterMarketplaceModelEndpointResponse {
   /**
-   * <p>Details about the registered endpoint.</p>
+   * Details about the registered endpoint.
+   *
    * @public
    */
   marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
@@ -5013,19 +5653,22 @@ export interface RegisterMarketplaceModelEndpointResponse {
  */
 export interface UpdateMarketplaceModelEndpointRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the endpoint you want to update.</p>
+   * The Amazon Resource Name (ARN) of the endpoint you want to update.
+   *
    * @public
    */
   endpointArn: string | undefined;
 
   /**
-   * <p>The new configuration for the endpoint, including the number and type of instances to use.</p>
+   * The new configuration for the endpoint, including the number and type of instances to use.
+   *
    * @public
    */
   endpointConfig: EndpointConfig | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is listed as not required because Amazon Web Services SDKs automatically generate it for you and set this parameter. If you're not using the Amazon Web Services SDK or the CLI, you must provide this token or the action will fail.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This token is listed as not required because Amazon Web Services SDKs automatically generate it for you and set this parameter. If you're not using the Amazon Web Services SDK or the CLI, you must provide this token or the action will fail.
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -5036,7 +5679,8 @@ export interface UpdateMarketplaceModelEndpointRequest {
  */
 export interface UpdateMarketplaceModelEndpointResponse {
   /**
-   * <p>Details about the updated endpoint.</p>
+   * Details about the updated endpoint.
+   *
    * @public
    */
   marketplaceModelEndpoint: MarketplaceModelEndpoint | undefined;
@@ -5047,31 +5691,36 @@ export interface UpdateMarketplaceModelEndpointResponse {
  */
 export interface CreateCustomModelDeploymentRequest {
   /**
-   * <p>The name for the custom model deployment. The name must be unique within your Amazon Web Services account and Region.</p>
+   * The name for the custom model deployment. The name must be unique within your Amazon Web Services account and Region.
+   *
    * @public
    */
   modelDeploymentName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model to deploy for on-demand inference. The custom model must be in the <code>Active</code> state.</p>
+   * The Amazon Resource Name (ARN) of the custom model to deploy for on-demand inference. The custom model must be in the `Active` state.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>A description for the custom model deployment to help you identify its purpose.</p>
+   * A description for the custom model deployment to help you identify its purpose.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Tags to assign to the custom model deployment. You can use tags to organize and track your Amazon Web Services resources for cost allocation and management purposes.</p>
+   * Tags to assign to the custom model deployment. You can use tags to organize and track your Amazon Web Services resources for cost allocation and management purposes.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-idempotency.html).
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -5082,7 +5731,8 @@ export interface CreateCustomModelDeploymentRequest {
  */
 export interface CreateCustomModelDeploymentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model deployment. Use this ARN as the <code>modelId</code> parameter when invoking the model with the <code>InvokeModel</code> or <code>Converse</code> operations.</p>
+   * The Amazon Resource Name (ARN) of the custom model deployment. Use this ARN as the `modelId` parameter when invoking the model with the `InvokeModel` or `Converse` operations.
+   *
    * @public
    */
   customModelDeploymentArn: string | undefined;
@@ -5093,7 +5743,8 @@ export interface CreateCustomModelDeploymentResponse {
  */
 export interface DeleteCustomModelDeploymentRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) or name of the custom model deployment to delete.</p>
+   * The Amazon Resource Name (ARN) or name of the custom model deployment to delete.
+   *
    * @public
    */
   customModelDeploymentIdentifier: string | undefined;
@@ -5109,25 +5760,29 @@ export interface DeleteCustomModelDeploymentResponse {}
  */
 export interface GetCustomModelDeploymentRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) or name of the custom model deployment to retrieve information about.</p>
+   * The Amazon Resource Name (ARN) or name of the custom model deployment to retrieve information about.
+   *
    * @public
    */
   customModelDeploymentIdentifier: string | undefined;
 }
 
 /**
- * <p> Details about an update to a custom model deployment, including the new custom model resource ARN and current update status. </p>
+ * Details about an update to a custom model deployment, including the new custom model resource ARN and current update status.
+ *
  * @public
  */
 export interface CustomModelDeploymentUpdateDetails {
   /**
-   * <p> ARN of the new custom model being deployed as part of the update. </p>
+   * ARN of the new custom model being deployed as part of the update.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p> Current status of the deployment update. </p>
+   * Current status of the deployment update.
+   *
    * @public
    */
   updateStatus: CustomModelDeploymentUpdateStatus | undefined;
@@ -5138,55 +5793,68 @@ export interface CustomModelDeploymentUpdateDetails {
  */
 export interface GetCustomModelDeploymentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model deployment.</p>
+   * The Amazon Resource Name (ARN) of the custom model deployment.
+   *
    * @public
    */
   customModelDeploymentArn: string | undefined;
 
   /**
-   * <p>The name of the custom model deployment.</p>
+   * The name of the custom model deployment.
+   *
    * @public
    */
   modelDeploymentName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model associated with this deployment.</p>
+   * The Amazon Resource Name (ARN) of the custom model associated with this deployment.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>The date and time when the custom model deployment was created.</p>
+   * The date and time when the custom model deployment was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The status of the custom model deployment. Possible values are:</p> <ul> <li> <p> <code>CREATING</code> - The deployment is being set up and prepared for inference.</p> </li> <li> <p> <code>ACTIVE</code> - The deployment is ready and available for inference requests.</p> </li> <li> <p> <code>FAILED</code> - The deployment failed to be created or became unavailable.</p> </li> </ul>
+   * The status of the custom model deployment. Possible values are:
+   *
+   * - `CREATING` - The deployment is being set up and prepared for inference.
+   * - `ACTIVE` - The deployment is ready and available for inference requests.
+   * - `FAILED` - The deployment failed to be created or became unavailable.
+   *
    * @public
    */
   status: CustomModelDeploymentStatus | undefined;
 
   /**
-   * <p>The description of the custom model deployment.</p>
+   * The description of the custom model deployment.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> Details about any pending or completed updates to the custom model deployment, including the new model ARN and update status. </p>
+   * Details about any pending or completed updates to the custom model deployment, including the new model ARN and update status.
+   *
    * @public
    */
   updateDetails?: CustomModelDeploymentUpdateDetails | undefined;
 
   /**
-   * <p>If the deployment status is <code>FAILED</code>, this field contains a message describing the failure reason.</p>
+   * If the deployment status is `FAILED`, this field contains a message describing the failure reason.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The date and time when the custom model deployment was last updated.</p>
+   * The date and time when the custom model deployment was last updated.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
@@ -5197,103 +5865,120 @@ export interface GetCustomModelDeploymentResponse {
  */
 export interface ListCustomModelDeploymentsRequest {
   /**
-   * <p>Filters deployments created before the specified date and time.</p>
+   * Filters deployments created before the specified date and time.
+   *
    * @public
    */
   createdBefore?: Date | undefined;
 
   /**
-   * <p>Filters deployments created after the specified date and time.</p>
+   * Filters deployments created after the specified date and time.
+   *
    * @public
    */
   createdAfter?: Date | undefined;
 
   /**
-   * <p>Filters deployments whose names contain the specified string. </p>
+   * Filters deployments whose names contain the specified string.
+   *
    * @public
    */
   nameContains?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * The maximum number of results to return in a single call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of results. Use this token to retrieve additional results when the response is truncated.</p>
+   * The token for the next set of results. Use this token to retrieve additional results when the response is truncated.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The field to sort the results by. The only supported value is <code>CreationTime</code>.</p>
+   * The field to sort the results by. The only supported value is `CreationTime`.
+   *
    * @public
    */
   sortBy?: SortModelsBy | undefined;
 
   /**
-   * <p>The sort order for the results. Valid values are <code>Ascending</code> and <code>Descending</code>. Default is <code>Descending</code>.</p>
+   * The sort order for the results. Valid values are `Ascending` and `Descending`. Default is `Descending`.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>Filters deployments by status. Valid values are <code>CREATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
+   * Filters deployments by status. Valid values are `CREATING`, `ACTIVE`, and `FAILED`.
+   *
    * @public
    */
   statusEquals?: CustomModelDeploymentStatus | undefined;
 
   /**
-   * <p>Filters deployments by the Amazon Resource Name (ARN) of the associated custom model.</p>
+   * Filters deployments by the Amazon Resource Name (ARN) of the associated custom model.
+   *
    * @public
    */
   modelArnEquals?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a custom model deployment, including its ARN, name, status, and associated custom model.</p>
+ * Contains summary information about a custom model deployment, including its ARN, name, status, and associated custom model.
+ *
  * @public
  */
 export interface CustomModelDeploymentSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model deployment.</p>
+   * The Amazon Resource Name (ARN) of the custom model deployment.
+   *
    * @public
    */
   customModelDeploymentArn: string | undefined;
 
   /**
-   * <p>The name of the custom model deployment.</p>
+   * The name of the custom model deployment.
+   *
    * @public
    */
   customModelDeploymentName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model associated with this deployment.</p>
+   * The Amazon Resource Name (ARN) of the custom model associated with this deployment.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>The date and time when the custom model deployment was created.</p>
+   * The date and time when the custom model deployment was created.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The status of the custom model deployment. Possible values are <code>CREATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
+   * The status of the custom model deployment. Possible values are `CREATING`, `ACTIVE`, and `FAILED`.
+   *
    * @public
    */
   status: CustomModelDeploymentStatus | undefined;
 
   /**
-   * <p>The date and time when the custom model deployment was last modified.</p>
+   * The date and time when the custom model deployment was last modified.
+   *
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>If the deployment status is <code>FAILED</code>, this field contains a message describing the failure reason.</p>
+   * If the deployment status is `FAILED`, this field contains a message describing the failure reason.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -5304,13 +5989,15 @@ export interface CustomModelDeploymentSummary {
  */
 export interface ListCustomModelDeploymentsResponse {
   /**
-   * <p>The token for the next set of results. This value is null when there are no more results to return.</p>
+   * The token for the next set of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of custom model deployment summaries.</p>
+   * A list of custom model deployment summaries.
+   *
    * @public
    */
   modelDeploymentSummaries?: CustomModelDeploymentSummary[] | undefined;
@@ -5321,13 +6008,15 @@ export interface ListCustomModelDeploymentsResponse {
  */
 export interface UpdateCustomModelDeploymentRequest {
   /**
-   * <p> ARN of the new custom model to deploy. This replaces the currently deployed model. </p>
+   * ARN of the new custom model to deploy. This replaces the currently deployed model.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p> Identifier of the custom model deployment to update with the new custom model. </p>
+   * Identifier of the custom model deployment to update with the new custom model.
+   *
    * @public
    */
   customModelDeploymentIdentifier: string | undefined;
@@ -5338,26 +6027,34 @@ export interface UpdateCustomModelDeploymentRequest {
  */
 export interface UpdateCustomModelDeploymentResponse {
   /**
-   * <p> ARN of the custom model deployment being updated. </p>
+   * ARN of the custom model deployment being updated.
+   *
    * @public
    */
   customModelDeploymentArn: string | undefined;
 }
 
 /**
- * <p>Contains the Amazon Resource Name (ARN) of a SageMaker AI model package to use as the data source for a custom model.</p>
+ * Contains the Amazon Resource Name (ARN) of a SageMaker AI model package to use as the data source for a custom model.
+ *
  * @public
  */
 export interface ModelPackageArnDataSource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker AI model package. The ARN must be for a model package of <code>restricted</code> type.</p> <p>To use a model package ARN, you must have the <code>sagemaker:DescribeModelPackage</code> and <code>sagemaker:AccessModelPackageData</code> permissions on the model package resource.</p>
+   * The Amazon Resource Name (ARN) of the SageMaker AI model package. The ARN must be for a model package of `restricted` type.
+   *
+   * To use a model package ARN, you must have the `sagemaker:DescribeModelPackage` and `sagemaker:AccessModelPackageData` permissions on the model package resource.
+   *
    * @public
    */
   modelPackageArn: string | undefined;
 }
 
 /**
- * <p>The data source for a custom model. This is a union type that supports the following member:</p> <ul> <li> <p> <code>modelPackageArnDataSource</code> — Specifies a SageMaker AI model package as the data source.</p> </li> </ul>
+ * The data source for a custom model. This is a union type that supports the following member:
+ *
+ * - `modelPackageArnDataSource` — Specifies a SageMaker AI model package as the data source.
+ *
  * @public
  */
 export type CustomModelDataSource =
@@ -5369,7 +6066,8 @@ export type CustomModelDataSource =
  */
 export namespace CustomModelDataSource {
   /**
-   * <p>A SageMaker AI model package ARN as the data source for the custom model. When you specify a model package ARN, Amazon Bedrock resolves the model package to retrieve the model artifacts.</p>
+   * A SageMaker AI model package ARN as the data source for the custom model. When you specify a model package ARN, Amazon Bedrock resolves the model package to retrieve the model artifacts.
+   *
    * @public
    */
   export interface ModelPackageArnDataSourceMember {
@@ -5396,19 +6094,22 @@ export namespace CustomModelDataSource {
 }
 
 /**
- * <p>The Amazon S3 data source of the model to import. </p>
+ * The Amazon S3 data source of the model to import.
+ *
  * @public
  */
 export interface S3DataSource {
   /**
-   * <p>The URI of the Amazon S3 data source.</p>
+   * The URI of the Amazon S3 data source.
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p>The data source of the model to import.</p>
+ * The data source of the model to import.
+ *
  * @public
  */
 export type ModelDataSource =
@@ -5420,7 +6121,8 @@ export type ModelDataSource =
  */
 export namespace ModelDataSource {
   /**
-   * <p>The Amazon S3 data source of the model to import.</p>
+   * The Amazon S3 data source of the model to import.
+   *
    * @public
    */
   export interface S3DataSourceMember {
@@ -5451,43 +6153,58 @@ export namespace ModelDataSource {
  */
 export interface CreateCustomModelRequest {
   /**
-   * <p>A unique name for the custom model.</p>
+   * A unique name for the custom model.
+   *
    * @public
    */
   modelName: string | undefined;
 
   /**
-   * <p>The data source for the model. The Amazon S3 URI in the model source must be for the Amazon-managed Amazon S3 bucket containing your model artifacts.</p>
+   * The data source for the model. The Amazon S3 URI in the model source must be for the Amazon-managed Amazon S3 bucket containing your model artifacts.
+   *
    * @public
    */
   modelSourceConfig?: ModelDataSource | undefined;
 
   /**
-   * <p>The data source for the custom model. Use this field to specify a SageMaker AI model package ARN as the source for your custom model. Amazon Bedrock resolves the model package to retrieve the model artifacts.</p> <p>You can specify either <code>customModelDataSource</code> or <code>modelSourceConfig</code>, but not both.</p>
+   * The data source for the custom model. Use this field to specify a SageMaker AI model package ARN as the source for your custom model. Amazon Bedrock resolves the model package to retrieve the model artifacts.
+   *
+   * You can specify either `customModelDataSource` or `modelSourceConfig`, but not both.
+   *
    * @public
    */
   customModelDataSource?: CustomModelDataSource | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to encrypt the custom model. If you don't provide a KMS key, Amazon Bedrock uses an Amazon Web Services-managed KMS key to encrypt the model. </p> <p>If you provide a customer managed KMS key, your Amazon Bedrock service role must have permissions to use it. For more information see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/encryption-import-model.html">Encryption of imported models</a>. </p>
+   * The Amazon Resource Name (ARN) of the customer managed KMS key to encrypt the custom model. If you don't provide a KMS key, Amazon Bedrock uses an Amazon Web Services-managed KMS key to encrypt the model.
+   *
+   * If you provide a customer managed KMS key, your Amazon Bedrock service role must have permissions to use it. For more information see [Encryption of imported models](https://docs.aws.amazon.com/bedrock/latest/userguide/encryption-import-model.html).
+   *
    * @public
    */
   modelKmsKeyArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock assumes to perform tasks on your behalf. This role must have permissions to access the Amazon S3 bucket containing your model artifacts and the KMS key (if specified). For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-import-iam-role.html">Setting up an IAM service role for importing models</a> in the Amazon Bedrock User Guide.</p> <p>This field is required when you use <code>modelSourceConfig</code> with an Amazon S3 data source. It is not required when you use <code>customModelDataSource</code> with a model package ARN, because Amazon Bedrock uses its own credentials to access the model artifacts.</p>
+   * The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock assumes to perform tasks on your behalf. This role must have permissions to access the Amazon S3 bucket containing your model artifacts and the KMS key (if specified). For more information, see [Setting up an IAM service role for importing models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-import-iam-role.html) in the Amazon Bedrock User Guide.
+   *
+   * This field is required when you use `modelSourceConfig` with an Amazon S3 data source. It is not required when you use `customModelDataSource` with a model package ARN, because Amazon Bedrock uses its own credentials to access the model artifacts.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>A list of key-value pairs to associate with the custom model resource. You can use these tags to organize and identify your resources.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * A list of key-value pairs to associate with the custom model resource. You can use these tags to organize and identify your resources.
+   *
+   * For more information, see [Tagging resources](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html) in the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html).
+   *
    * @public
    */
   modelTags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html).
+   *
    * @public
    */
   clientRequestToken?: string | undefined;
@@ -5498,7 +6215,8 @@ export interface CreateCustomModelRequest {
  */
 export interface CreateCustomModelResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the new custom model.</p>
+   * The Amazon Resource Name (ARN) of the new custom model.
+   *
    * @public
    */
   modelArn: string | undefined;
@@ -5509,7 +6227,8 @@ export interface CreateCustomModelResponse {
  */
 export interface DeleteCustomModelRequest {
   /**
-   * <p>Name of the model to delete.</p>
+   * Name of the model to delete.
+   *
    * @public
    */
   modelIdentifier: string | undefined;
@@ -5525,56 +6244,65 @@ export interface DeleteCustomModelResponse {}
  */
 export interface GetCustomModelRequest {
   /**
-   * <p>Name or Amazon Resource Name (ARN) of the custom model.</p>
+   * Name or Amazon Resource Name (ARN) of the custom model.
+   *
    * @public
    */
   modelIdentifier: string | undefined;
 }
 
 /**
- * <p>Details about a teacher model used for model customization.</p>
+ * Details about a teacher model used for model customization.
+ *
  * @public
  */
 export interface TeacherModelConfig {
   /**
-   * <p>The identifier of the teacher model.</p>
+   * The identifier of the teacher model.
+   *
    * @public
    */
   teacherModelIdentifier: string | undefined;
 
   /**
-   * <p>The maximum number of tokens requested when the customization job invokes the teacher model.</p>
+   * The maximum number of tokens requested when the customization job invokes the teacher model.
+   *
    * @public
    */
   maxResponseLengthForInference?: number | undefined;
 }
 
 /**
- * <p>Settings for distilling a foundation model into a smaller and more efficient model.</p>
+ * Settings for distilling a foundation model into a smaller and more efficient model.
+ *
  * @public
  */
 export interface DistillationConfig {
   /**
-   * <p>The teacher model configuration.</p>
+   * The teacher model configuration.
+   *
    * @public
    */
   teacherModelConfig: TeacherModelConfig | undefined;
 }
 
 /**
- * <p> Configuration for using an AWS Lambda function to grade model responses during reinforcement fine-tuning training. </p>
+ * Configuration for using an AWS Lambda function to grade model responses during reinforcement fine-tuning training.
+ *
  * @public
  */
 export interface LambdaGraderConfig {
   /**
-   * <p> ARN of the AWS Lambda function that will evaluate model responses and return reward scores for RFT training. </p>
+   * ARN of the AWS Lambda function that will evaluate model responses and return reward scores for RFT training.
+   *
    * @public
    */
   lambdaArn: string | undefined;
 }
 
 /**
- * <p> Configuration for the grader used in reinforcement fine-tuning to evaluate model responses and provide reward signals. </p>
+ * Configuration for the grader used in reinforcement fine-tuning to evaluate model responses and provide reward signals.
+ *
  * @public
  */
 export type GraderConfig =
@@ -5586,7 +6314,8 @@ export type GraderConfig =
  */
 export namespace GraderConfig {
   /**
-   * <p> Configuration for using an AWS Lambda function as the grader for evaluating model responses and provide reward signals in reinforcement fine-tuning. </p>
+   * Configuration for using an AWS Lambda function as the grader for evaluating model responses and provide reward signals in reinforcement fine-tuning.
+   *
    * @public
    */
   export interface LambdaGraderMember {
@@ -5613,79 +6342,92 @@ export namespace GraderConfig {
 }
 
 /**
- * <p> Hyperparameters for controlling the reinforcement fine-tuning training process, including learning settings and evaluation intervals. </p>
+ * Hyperparameters for controlling the reinforcement fine-tuning training process, including learning settings and evaluation intervals.
+ *
  * @public
  */
 export interface RFTHyperParameters {
   /**
-   * <p> Number of training epochs to run during reinforcement fine-tuning. Higher values may improve performance but increase training time. </p>
+   * Number of training epochs to run during reinforcement fine-tuning. Higher values may improve performance but increase training time.
+   *
    * @public
    */
   epochCount?: number | undefined;
 
   /**
-   * <p> Number of training samples processed in each batch during reinforcement fine-tuning (RFT) training. Larger batches may improve training stability. </p>
+   * Number of training samples processed in each batch during reinforcement fine-tuning (RFT) training. Larger batches may improve training stability.
+   *
    * @public
    */
   batchSize?: number | undefined;
 
   /**
-   * <p> Learning rate for the reinforcement fine-tuning. Controls how quickly the model adapts to reward signals. </p>
+   * Learning rate for the reinforcement fine-tuning. Controls how quickly the model adapts to reward signals.
+   *
    * @public
    */
   learningRate?: number | undefined;
 
   /**
-   * <p> Maximum length of input prompts during RFT training, measured in tokens. Longer prompts allow more context but increase memory usage and training-time. </p>
+   * Maximum length of input prompts during RFT training, measured in tokens. Longer prompts allow more context but increase memory usage and training-time.
+   *
    * @public
    */
   maxPromptLength?: number | undefined;
 
   /**
-   * <p> Number of response samples generated per prompt during RFT training. More samples provide better reward signal estimation. </p>
+   * Number of response samples generated per prompt during RFT training. More samples provide better reward signal estimation.
+   *
    * @public
    */
   trainingSamplePerPrompt?: number | undefined;
 
   /**
-   * <p> Maximum number of tokens the model can generate in response to each prompt during RFT training. </p>
+   * Maximum number of tokens the model can generate in response to each prompt during RFT training.
+   *
    * @public
    */
   inferenceMaxTokens?: number | undefined;
 
   /**
-   * <p> Level of reasoning effort applied during RFT training. Higher values may improve response quality but increase training time. </p>
+   * Level of reasoning effort applied during RFT training. Higher values may improve response quality but increase training time.
+   *
    * @public
    */
   reasoningEffort?: ReasoningEffort | undefined;
 
   /**
-   * <p> Interval between evaluation runs during RFT training, measured in training steps. More frequent evaluation provides better monitoring. </p>
+   * Interval between evaluation runs during RFT training, measured in training steps. More frequent evaluation provides better monitoring.
+   *
    * @public
    */
   evalInterval?: number | undefined;
 }
 
 /**
- * <p> Configuration settings for reinforcement fine-tuning (RFT), including grader configuration and training hyperparameters. </p>
+ * Configuration settings for reinforcement fine-tuning (RFT), including grader configuration and training hyperparameters.
+ *
  * @public
  */
 export interface RFTConfig {
   /**
-   * <p> Configuration for the grader that evaluates model responses and provides reward signals during RFT training. </p>
+   * Configuration for the grader that evaluates model responses and provides reward signals during RFT training.
+   *
    * @public
    */
   graderConfig?: GraderConfig | undefined;
 
   /**
-   * <p> Hyperparameters that control the reinforcement fine-tuning training process, including learning rate, batch size, and epoch count. </p>
+   * Hyperparameters that control the reinforcement fine-tuning training process, including learning rate, batch size, and epoch count.
+   *
    * @public
    */
   hyperParameters?: RFTHyperParameters | undefined;
 }
 
 /**
- * <p>A model customization configuration</p>
+ * A model customization configuration
+ *
  * @public
  */
 export type CustomizationConfig =
@@ -5698,7 +6440,8 @@ export type CustomizationConfig =
  */
 export namespace CustomizationConfig {
   /**
-   * <p>The Distillation configuration for the custom model.</p>
+   * The Distillation configuration for the custom model.
+   *
    * @public
    */
   export interface DistillationConfigMember {
@@ -5708,7 +6451,8 @@ export namespace CustomizationConfig {
   }
 
   /**
-   * <p> Configuration settings for reinforcement fine-tuning (RFT) model customization, including grader configuration and hyperparameters. </p>
+   * Configuration settings for reinforcement fine-tuning (RFT) model customization, including grader configuration and hyperparameters.
+   *
    * @public
    */
   export interface RftConfigMember {
@@ -5738,19 +6482,22 @@ export namespace CustomizationConfig {
 }
 
 /**
- * <p>S3 Location of the output data.</p>
+ * S3 Location of the output data.
+ *
  * @public
  */
 export interface OutputDataConfig {
   /**
-   * <p>The S3 URI where the output data is stored.</p>
+   * The S3 URI where the output data is stored.
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p>A storage location for invocation logs.</p>
+ * A storage location for invocation logs.
+ *
  * @public
  */
 export type InvocationLogSource =
@@ -5762,7 +6509,8 @@ export type InvocationLogSource =
  */
 export namespace InvocationLogSource {
   /**
-   * <p>The URI of an invocation log in a bucket.</p>
+   * The URI of an invocation log in a bucket.
+   *
    * @public
    */
   export interface S3UriMember {
@@ -5789,25 +6537,29 @@ export namespace InvocationLogSource {
 }
 
 /**
- * <p>A mapping of a metadata key to a value that it should or should not equal.</p>
+ * A mapping of a metadata key to a value that it should or should not equal.
+ *
  * @public
  */
 export interface RequestMetadataBaseFilters {
   /**
-   * <p>Include results where the key equals the value.</p>
+   * Include results where the key equals the value.
+   *
    * @public
    */
   equals?: Record<string, string> | undefined;
 
   /**
-   * <p>Include results where the key does not equal the value.</p>
+   * Include results where the key does not equal the value.
+   *
    * @public
    */
   notEquals?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Rules for filtering invocation logs. A filter can be a mapping of a metadata key to a value that it should or should not equal (a base filter), or a list of base filters that are all applied with <code>AND</code> or <code>OR</code> logical operators</p>
+ * Rules for filtering invocation logs. A filter can be a mapping of a metadata key to a value that it should or should not equal (a base filter), or a list of base filters that are all applied with `AND` or `OR` logical operators
+ *
  * @public
  */
 export type RequestMetadataFilters =
@@ -5822,7 +6574,8 @@ export type RequestMetadataFilters =
  */
 export namespace RequestMetadataFilters {
   /**
-   * <p>Include results where the key equals the value.</p>
+   * Include results where the key equals the value.
+   *
    * @public
    */
   export interface EqualsMember {
@@ -5834,7 +6587,8 @@ export namespace RequestMetadataFilters {
   }
 
   /**
-   * <p>Include results where the key does not equal the value.</p>
+   * Include results where the key does not equal the value.
+   *
    * @public
    */
   export interface NotEqualsMember {
@@ -5846,7 +6600,8 @@ export namespace RequestMetadataFilters {
   }
 
   /**
-   * <p>Include results where all of the based filters match.</p>
+   * Include results where all of the based filters match.
+   *
    * @public
    */
   export interface AndAllMember {
@@ -5858,7 +6613,8 @@ export namespace RequestMetadataFilters {
   }
 
   /**
-   * <p>Include results where any of the base filters match.</p>
+   * Include results where any of the base filters match.
+   *
    * @public
    */
   export interface OrAllMember {
@@ -5894,90 +6650,105 @@ export namespace RequestMetadataFilters {
 }
 
 /**
- * <p>Settings for using invocation logs to customize a model.</p>
+ * Settings for using invocation logs to customize a model.
+ *
  * @public
  */
 export interface InvocationLogsConfig {
   /**
-   * <p>Whether to use the model's response for training, or just the prompt. The default value is <code>False</code>.</p>
+   * Whether to use the model's response for training, or just the prompt. The default value is `False`.
+   *
    * @public
    */
   usePromptResponse?: boolean | undefined;
 
   /**
-   * <p>The source of the invocation logs.</p>
+   * The source of the invocation logs.
+   *
    * @public
    */
   invocationLogSource: InvocationLogSource | undefined;
 
   /**
-   * <p>Rules for filtering invocation logs based on request metadata.</p>
+   * Rules for filtering invocation logs based on request metadata.
+   *
    * @public
    */
   requestMetadataFilters?: RequestMetadataFilters | undefined;
 }
 
 /**
- * <p>S3 Location of the training data.</p>
+ * S3 Location of the training data.
+ *
  * @public
  */
 export interface TrainingDataConfig {
   /**
-   * <p>The S3 URI where the training data is stored.</p>
+   * The S3 URI where the training data is stored.
+   *
    * @public
    */
   s3Uri?: string | undefined;
 
   /**
-   * <p>Settings for using invocation logs to customize a model.</p>
+   * Settings for using invocation logs to customize a model.
+   *
    * @public
    */
   invocationLogsConfig?: InvocationLogsConfig | undefined;
 }
 
 /**
- * <p>Metrics associated with the custom job.</p>
+ * Metrics associated with the custom job.
+ *
  * @public
  */
 export interface TrainingMetrics {
   /**
-   * <p>Loss metric associated with the custom job.</p>
+   * Loss metric associated with the custom job.
+   *
    * @public
    */
   trainingLoss?: number | undefined;
 }
 
 /**
- * <p>Information about a validator.</p>
+ * Information about a validator.
+ *
  * @public
  */
 export interface Validator {
   /**
-   * <p>The S3 URI where the validation data is stored.</p>
+   * The S3 URI where the validation data is stored.
+   *
    * @public
    */
   s3Uri: string | undefined;
 }
 
 /**
- * <p>Array of up to 10 validators.</p>
+ * Array of up to 10 validators.
+ *
  * @public
  */
 export interface ValidationDataConfig {
   /**
-   * <p>Information about the validators.</p>
+   * Information about the validators.
+   *
    * @public
    */
   validators: Validator[] | undefined;
 }
 
 /**
- * <p>The metric for the validator.</p>
+ * The metric for the validator.
+ *
  * @public
  */
 export interface ValidatorMetric {
   /**
-   * <p>The validation loss associated with this validator.</p>
+   * The validation loss associated with this validator.
+   *
    * @public
    */
   validationLoss?: number | undefined;
@@ -5988,103 +6759,124 @@ export interface ValidatorMetric {
  */
 export interface GetCustomModelResponse {
   /**
-   * <p>Amazon Resource Name (ARN) associated with this model.</p>
+   * Amazon Resource Name (ARN) associated with this model.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>Model name associated with this model.</p>
+   * Model name associated with this model.
+   *
    * @public
    */
   modelName: string | undefined;
 
   /**
-   * <p>Job name associated with this model.</p>
+   * Job name associated with this model.
+   *
    * @public
    */
   jobName?: string | undefined;
 
   /**
-   * <p>Job Amazon Resource Name (ARN) associated with this model. For models that you create with the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html">CreateCustomModel</a> API operation, this is <code>NULL</code>.</p>
+   * Job Amazon Resource Name (ARN) associated with this model. For models that you create with the [CreateCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html) API operation, this is `NULL`.
+   *
    * @public
    */
   jobArn?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the base model.</p>
+   * Amazon Resource Name (ARN) of the base model.
+   *
    * @public
    */
   baseModelArn?: string | undefined;
 
   /**
-   * <p>The type of model customization.</p>
+   * The type of model customization.
+   *
    * @public
    */
   customizationType?: CustomizationType | undefined;
 
   /**
-   * <p>The custom model is encrypted at rest using this key.</p>
+   * The custom model is encrypted at rest using this key.
+   *
    * @public
    */
   modelKmsKeyArn?: string | undefined;
 
   /**
-   * <p>Hyperparameter values associated with this model. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
+   * Hyperparameter values associated with this model. For details on the format for different models, see [Custom model hyperparameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html).
+   *
    * @public
    */
   hyperParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>Contains information about the training dataset.</p>
+   * Contains information about the training dataset.
+   *
    * @public
    */
   trainingDataConfig?: TrainingDataConfig | undefined;
 
   /**
-   * <p>Contains information about the validation dataset.</p>
+   * Contains information about the validation dataset.
+   *
    * @public
    */
   validationDataConfig?: ValidationDataConfig | undefined;
 
   /**
-   * <p>Output data configuration associated with this custom model.</p>
+   * Output data configuration associated with this custom model.
+   *
    * @public
    */
   outputDataConfig?: OutputDataConfig | undefined;
 
   /**
-   * <p>Contains training metrics from the job creation.</p>
+   * Contains training metrics from the job creation.
+   *
    * @public
    */
   trainingMetrics?: TrainingMetrics | undefined;
 
   /**
-   * <p>The validation metrics from the job creation.</p>
+   * The validation metrics from the job creation.
+   *
    * @public
    */
   validationMetrics?: ValidatorMetric[] | undefined;
 
   /**
-   * <p>Creation time of the model.</p>
+   * Creation time of the model.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The customization configuration for the custom model.</p>
+   * The customization configuration for the custom model.
+   *
    * @public
    */
   customizationConfig?: CustomizationConfig | undefined;
 
   /**
-   * <p>The current status of the custom model. Possible values include:</p> <ul> <li> <p> <code>Creating</code> - The model is being created and validated.</p> </li> <li> <p> <code>Active</code> - The model has been successfully created and is ready for use.</p> </li> <li> <p> <code>Failed</code> - The model creation process failed. Check the <code>failureMessage</code> field for details.</p> </li> </ul>
+   * The current status of the custom model. Possible values include:
+   *
+   * - `Creating` - The model is being created and validated.
+   * - `Active` - The model has been successfully created and is ready for use.
+   * - `Failed` - The model creation process failed. Check the `failureMessage` field for details.
+   *
    * @public
    */
   modelStatus?: ModelStatus | undefined;
 
   /**
-   * <p>A failure message for any issues that occurred when creating the custom model. This is included for only a failed CreateCustomModel operation.</p>
+   * A failure message for any issues that occurred when creating the custom model. This is included for only a failed CreateCustomModel operation.
+   *
    * @public
    */
   failureMessage?: string | undefined;
@@ -6095,121 +6887,151 @@ export interface GetCustomModelResponse {
  */
 export interface ListCustomModelsRequest {
   /**
-   * <p>Return custom models created before the specified time. </p>
+   * Return custom models created before the specified time.
+   *
    * @public
    */
   creationTimeBefore?: Date | undefined;
 
   /**
-   * <p>Return custom models created after the specified time. </p>
+   * Return custom models created after the specified time.
+   *
    * @public
    */
   creationTimeAfter?: Date | undefined;
 
   /**
-   * <p>Return custom models only if the job name contains these characters.</p>
+   * Return custom models only if the job name contains these characters.
+   *
    * @public
    */
   nameContains?: string | undefined;
 
   /**
-   * <p>Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.</p>
+   * Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.
+   *
    * @public
    */
   baseModelArnEquals?: string | undefined;
 
   /**
-   * <p>Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.</p>
+   * Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.
+   *
    * @public
    */
   foundationModelArnEquals?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the `nextToken` field when making another request to return the next batch of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, enter the token returned in the `nextToken` field in the response in this field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The field to sort by in the returned list of models.</p>
+   * The field to sort by in the returned list of models.
+   *
    * @public
    */
   sortBy?: SortModelsBy | undefined;
 
   /**
-   * <p>The sort order of the results.</p>
+   * The sort order of the results.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 
   /**
-   * <p>Return custom models depending on if the current account owns them (<code>true</code>) or if they were shared with the current account (<code>false</code>).</p>
+   * Return custom models depending on if the current account owns them (`true`) or if they were shared with the current account (`false`).
+   *
    * @public
    */
   isOwned?: boolean | undefined;
 
   /**
-   * <p>The status of them model to filter results by. Possible values include:</p> <ul> <li> <p> <code>Creating</code> - Include only models that are currently being created and validated.</p> </li> <li> <p> <code>Active</code> - Include only models that have been successfully created and are ready for use.</p> </li> <li> <p> <code>Failed</code> - Include only models where the creation process failed.</p> </li> </ul> <p>If you don't specify a status, the API returns models in all states.</p>
+   * The status of them model to filter results by. Possible values include:
+   *
+   * - `Creating` - Include only models that are currently being created and validated.
+   * - `Active` - Include only models that have been successfully created and are ready for use.
+   * - `Failed` - Include only models where the creation process failed.
+   *
+   * If you don't specify a status, the API returns models in all states.
+   *
    * @public
    */
   modelStatus?: ModelStatus | undefined;
 }
 
 /**
- * <p>Summary information for a custom model.</p>
+ * Summary information for a custom model.
+ *
  * @public
  */
 export interface CustomModelSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom model.</p>
+   * The Amazon Resource Name (ARN) of the custom model.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>The name of the custom model.</p>
+   * The name of the custom model.
+   *
    * @public
    */
   modelName: string | undefined;
 
   /**
-   * <p>Creation time of the model.</p>
+   * Creation time of the model.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The base model Amazon Resource Name (ARN).</p>
+   * The base model Amazon Resource Name (ARN).
+   *
    * @public
    */
   baseModelArn: string | undefined;
 
   /**
-   * <p>The base model name.</p>
+   * The base model name.
+   *
    * @public
    */
   baseModelName: string | undefined;
 
   /**
-   * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
+   * Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see [Custom models](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html).
+   *
    * @public
    */
   customizationType?: CustomizationType | undefined;
 
   /**
-   * <p>The unique identifier of the account that owns the model.</p>
+   * The unique identifier of the account that owns the model.
+   *
    * @public
    */
   ownerAccountId?: string | undefined;
 
   /**
-   * <p>The current status of the custom model. Possible values include:</p> <ul> <li> <p> <code>Creating</code> - The model is being created and validated.</p> </li> <li> <p> <code>Active</code> - The model has been successfully created and is ready for use.</p> </li> <li> <p> <code>Failed</code> - The model creation process failed.</p> </li> </ul>
+   * The current status of the custom model. Possible values include:
+   *
+   * - `Creating` - The model is being created and validated.
+   * - `Active` - The model has been successfully created and is ready for use.
+   * - `Failed` - The model creation process failed.
+   *
    * @public
    */
   modelStatus?: ModelStatus | undefined;
@@ -6220,13 +7042,15 @@ export interface CustomModelSummary {
  */
 export interface ListCustomModelsResponse {
   /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * If the total number of results is greater than the `maxResults` value provided in the request, use this token when making another request in the `nextToken` field to return the next batch of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Model summaries.</p>
+   * Model summaries.
+   *
    * @public
    */
   modelSummaries?: CustomModelSummary[] | undefined;
@@ -6242,13 +7066,15 @@ export interface GetAccountDataRetentionRequest {}
  */
 export interface GetAccountDataRetentionResponse {
   /**
-   * <p>The data retention mode configured for the account.</p>
+   * The data retention mode configured for the account.
+   *
    * @public
    */
   mode: DataRetentionMode | undefined;
 
   /**
-   * <p>The time at which the data retention mode was last updated.</p>
+   * The time at which the data retention mode was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -6259,7 +7085,8 @@ export interface GetAccountDataRetentionResponse {
  */
 export interface PutAccountDataRetentionRequest {
   /**
-   * <p>The data retention mode to set for the account.</p>
+   * The data retention mode to set for the account.
+   *
    * @public
    */
   mode: DataRetentionMode | undefined;
@@ -6270,13 +7097,15 @@ export interface PutAccountDataRetentionRequest {
  */
 export interface PutAccountDataRetentionResponse {
   /**
-   * <p>The data retention mode set for the account.</p>
+   * The data retention mode set for the account.
+   *
    * @public
    */
   mode: DataRetentionMode | undefined;
 
   /**
-   * <p>The time at which the data retention mode was last updated.</p>
+   * The time at which the data retention mode was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -6287,7 +7116,8 @@ export interface PutAccountDataRetentionResponse {
  */
 export interface DeleteEnforcedGuardrailConfigurationRequest {
   /**
-   * <p>Unique ID for the account enforced configuration.</p>
+   * Unique ID for the account enforced configuration.
+   *
    * @public
    */
   configId: string | undefined;
@@ -6303,7 +7133,8 @@ export interface DeleteEnforcedGuardrailConfigurationResponse {}
  */
 export interface ListEnforcedGuardrailsConfigurationRequest {
   /**
-   * <p>Opaque continuation token of previous paginated response.</p>
+   * Opaque continuation token of previous paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6314,13 +7145,15 @@ export interface ListEnforcedGuardrailsConfigurationRequest {
  */
 export interface ListEnforcedGuardrailsConfigurationResponse {
   /**
-   * <p>Array of AccountEnforcedGuardrailOutputConfiguration objects.</p>
+   * Array of AccountEnforcedGuardrailOutputConfiguration objects.
+   *
    * @public
    */
   guardrailsConfig: AccountEnforcedGuardrailOutputConfiguration[] | undefined;
 
   /**
-   * <p>Opaque continuation token of previous paginated response.</p>
+   * Opaque continuation token of previous paginated response.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6331,13 +7164,15 @@ export interface ListEnforcedGuardrailsConfigurationResponse {
  */
 export interface PutEnforcedGuardrailConfigurationRequest {
   /**
-   * <p>Unique ID for the account enforced configuration.</p>
+   * Unique ID for the account enforced configuration.
+   *
    * @public
    */
   configId?: string | undefined;
 
   /**
-   * <p>Account-level enforced guardrail input configuration.</p>
+   * Account-level enforced guardrail input configuration.
+   *
    * @public
    */
   guardrailInferenceConfig: AccountEnforcedGuardrailInferenceInputConfiguration | undefined;
@@ -6348,19 +7183,22 @@ export interface PutEnforcedGuardrailConfigurationRequest {
  */
 export interface PutEnforcedGuardrailConfigurationResponse {
   /**
-   * <p>Unique ID for the account enforced configuration.</p>
+   * Unique ID for the account enforced configuration.
+   *
    * @public
    */
   configId?: string | undefined;
 
   /**
-   * <p>Timestamp.</p>
+   * Timestamp.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The ARN of the role used to update the configuration.</p>
+   * The ARN of the role used to update the configuration.
+   *
    * @public
    */
   updatedBy?: string | undefined;
@@ -6371,49 +7209,57 @@ export interface PutEnforcedGuardrailConfigurationResponse {
  */
 export interface BatchDeleteEvaluationJobRequest {
   /**
-   * <p>A list of one or more evaluation job Amazon Resource Names (ARNs) you want to delete.</p>
+   * A list of one or more evaluation job Amazon Resource Names (ARNs) you want to delete.
+   *
    * @public
    */
   jobIdentifiers: string[] | undefined;
 }
 
 /**
- * <p>A JSON array that provides the status of the evaluation jobs being deleted.</p>
+ * A JSON array that provides the status of the evaluation jobs being deleted.
+ *
  * @public
  */
 export interface BatchDeleteEvaluationJobError {
   /**
-   * <p>The ARN of the evaluation job being deleted.</p>
+   * The ARN of the evaluation job being deleted.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * <p>A HTTP status code of the evaluation job being deleted.</p>
+   * A HTTP status code of the evaluation job being deleted.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A status message about the evaluation job deletion.</p>
+   * A status message about the evaluation job deletion.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>An evaluation job for deletion, and it’s current status.</p>
+ * An evaluation job for deletion, and it’s current status.
+ *
  * @public
  */
 export interface BatchDeleteEvaluationJobItem {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job for deletion.</p>
+   * The Amazon Resource Name (ARN) of the evaluation job for deletion.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
 
   /**
-   * <p>The status of the evaluation job for deletion.</p>
+   * The status of the evaluation job for deletion.
+   *
    * @public
    */
   jobStatus: EvaluationJobStatus | undefined;
@@ -6424,20 +7270,23 @@ export interface BatchDeleteEvaluationJobItem {
  */
 export interface BatchDeleteEvaluationJobResponse {
   /**
-   * <p>A JSON object containing the HTTP status codes and the ARNs of evaluation jobs that failed to be deleted.</p>
+   * A JSON object containing the HTTP status codes and the ARNs of evaluation jobs that failed to be deleted.
+   *
    * @public
    */
   errors: BatchDeleteEvaluationJobError[] | undefined;
 
   /**
-   * <p>The list of evaluation jobs for deletion.</p>
+   * The list of evaluation jobs for deletion.
+   *
    * @public
    */
   evaluationJobs: BatchDeleteEvaluationJobItem[] | undefined;
 }
 
 /**
- * <p>Defines the value for one rating in a custom metric rating scale.</p>
+ * Defines the value for one rating in a custom metric rating scale.
+ *
  * @public
  */
 export type RatingScaleItemValue =
@@ -6450,7 +7299,8 @@ export type RatingScaleItemValue =
  */
 export namespace RatingScaleItemValue {
   /**
-   * <p>A string representing the value for a rating in a custom metric rating scale.</p>
+   * A string representing the value for a rating in a custom metric rating scale.
+   *
    * @public
    */
   export interface StringValueMember {
@@ -6460,7 +7310,8 @@ export namespace RatingScaleItemValue {
   }
 
   /**
-   * <p>A floating point number representing the value for a rating in a custom metric rating scale.</p>
+   * A floating point number representing the value for a rating in a custom metric rating scale.
+   *
    * @public
    */
   export interface FloatValueMember {
@@ -6490,49 +7341,59 @@ export namespace RatingScaleItemValue {
 }
 
 /**
- * <p>Defines the value and corresponding definition for one rating in a custom metric rating scale.</p>
+ * Defines the value and corresponding definition for one rating in a custom metric rating scale.
+ *
  * @public
  */
 export interface RatingScaleItem {
   /**
-   * <p>Defines the definition for one rating in a custom metric rating scale.</p>
+   * Defines the definition for one rating in a custom metric rating scale.
+   *
    * @public
    */
   definition: string | undefined;
 
   /**
-   * <p>Defines the value for one rating in a custom metric rating scale.</p>
+   * Defines the value for one rating in a custom metric rating scale.
+   *
    * @public
    */
   value: RatingScaleItemValue | undefined;
 }
 
 /**
- * <p>The definition of a custom metric for use in an Amazon Bedrock evaluation job. A custom metric definition includes a metric name, prompt (instructions) and optionally, a rating scale. Your prompt must include a task description and input variables. The required input variables are different for model-as-a-judge and RAG evaluations.</p> <p>For more information about how to define a custom metric in Amazon Bedrock, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
+ * The definition of a custom metric for use in an Amazon Bedrock evaluation job. A custom metric definition includes a metric name, prompt (instructions) and optionally, a rating scale. Your prompt must include a task description and input variables. The required input variables are different for model-as-a-judge and RAG evaluations.
+ *
+ * For more information about how to define a custom metric in Amazon Bedrock, see [Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html) and [Create a prompt for a custom metrics (RAG evaluations)](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html).
+ *
  * @public
  */
 export interface CustomMetricDefinition {
   /**
-   * <p>The name for a custom metric. Names must be unique in your Amazon Web Services region.</p>
+   * The name for a custom metric. Names must be unique in your Amazon Web Services region.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The prompt for a custom metric that instructs the evaluator model how to rate the model or RAG source under evaluation.</p>
+   * The prompt for a custom metric that instructs the evaluator model how to rate the model or RAG source under evaluation.
+   *
    * @public
    */
   instructions: string | undefined;
 
   /**
-   * <p>Defines the rating scale to be used for a custom metric. We recommend that you always define a ratings scale when creating a custom metric. If you don't define a scale, Amazon Bedrock won't be able to visually display the results of the evaluation in the console or calculate average values of numerical scores. For more information on specifying a rating scale, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html#model-evaluation-custom-metrics-prompt-formats-schema">Specifying an output schema (rating scale)</a>.</p>
+   * Defines the rating scale to be used for a custom metric. We recommend that you always define a ratings scale when creating a custom metric. If you don't define a scale, Amazon Bedrock won't be able to visually display the results of the evaluation in the console or calculate average values of numerical scores. For more information on specifying a rating scale, see [Specifying an output schema (rating scale)](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html#model-evaluation-custom-metrics-prompt-formats-schema).
+   *
    * @public
    */
   ratingScale?: RatingScaleItem[] | undefined;
 }
 
 /**
- * <p>An array item definining a single custom metric for use in an Amazon Bedrock evaluation job.</p>
+ * An array item definining a single custom metric for use in an Amazon Bedrock evaluation job.
+ *
  * @public
  */
 export type AutomatedEvaluationCustomMetricSource =
@@ -6544,7 +7405,8 @@ export type AutomatedEvaluationCustomMetricSource =
  */
 export namespace AutomatedEvaluationCustomMetricSource {
   /**
-   * <p>The definition of a custom metric for use in an Amazon Bedrock evaluation job.</p>
+   * The definition of a custom metric for use in an Amazon Bedrock evaluation job.
+   *
    * @public
    */
   export interface CustomMetricDefinitionMember {
@@ -6571,49 +7433,57 @@ export namespace AutomatedEvaluationCustomMetricSource {
 }
 
 /**
- * <p>Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+ * Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.
+ *
  * @public
  */
 export interface CustomMetricBedrockEvaluatorModel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluator model for custom metrics. For a list of supported evaluator models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html">Evaluate model performance using another LLM as a judge</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html">Evaluate the performance of RAG sources using Amazon Bedrock evaluations</a>.</p>
+   * The Amazon Resource Name (ARN) of the evaluator model for custom metrics. For a list of supported evaluator models, see [Evaluate model performance using another LLM as a judge](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-judge.html) and [Evaluate the performance of RAG sources using Amazon Bedrock evaluations](https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation-kb.html).
+   *
    * @public
    */
   modelIdentifier: string | undefined;
 }
 
 /**
- * <p>Configuration of the evaluator model you want to use to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+ * Configuration of the evaluator model you want to use to evaluate custom metrics in an Amazon Bedrock evaluation job.
+ *
  * @public
  */
 export interface CustomMetricEvaluatorModelConfig {
   /**
-   * <p>Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+   * Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.
+   *
    * @public
    */
   bedrockEvaluatorModels: CustomMetricBedrockEvaluatorModel[] | undefined;
 }
 
 /**
- * <p>Defines the configuration of custom metrics to be used in an evaluation job. To learn more about using custom metrics in Amazon Bedrock evaluation jobs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html">Create a prompt for a custom metrics (RAG evaluations)</a>.</p>
+ * Defines the configuration of custom metrics to be used in an evaluation job. To learn more about using custom metrics in Amazon Bedrock evaluation jobs, see [Create a prompt for a custom metrics (LLM-as-a-judge model evaluations)](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-custom-metrics-prompt-formats.html) and [Create a prompt for a custom metrics (RAG evaluations)](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-evaluation-custom-metrics-prompt-formats.html).
+ *
  * @public
  */
 export interface AutomatedEvaluationCustomMetricConfig {
   /**
-   * <p>Defines a list of custom metrics to be used in an Amazon Bedrock evaluation job.</p>
+   * Defines a list of custom metrics to be used in an Amazon Bedrock evaluation job.
+   *
    * @public
    */
   customMetrics: AutomatedEvaluationCustomMetricSource[] | undefined;
 
   /**
-   * <p>Configuration of the evaluator model you want to use to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>
+   * Configuration of the evaluator model you want to use to evaluate custom metrics in an Amazon Bedrock evaluation job.
+   *
    * @public
    */
   evaluatorModelConfig: CustomMetricEvaluatorModelConfig | undefined;
 }
 
 /**
- * <p>The location in Amazon S3 where your prompt dataset is stored.</p>
+ * The location in Amazon S3 where your prompt dataset is stored.
+ *
  * @public
  */
 export type EvaluationDatasetLocation =
@@ -6625,7 +7495,8 @@ export type EvaluationDatasetLocation =
  */
 export namespace EvaluationDatasetLocation {
   /**
-   * <p>The S3 URI of the S3 bucket specified in the job.</p>
+   * The S3 URI of the S3 bucket specified in the job.
+   *
    * @public
    */
   export interface S3UriMember {
@@ -6652,61 +7523,79 @@ export namespace EvaluationDatasetLocation {
 }
 
 /**
- * <p>Used to specify the name of a built-in prompt dataset and optionally, the Amazon S3 bucket where a custom prompt dataset is saved.</p>
+ * Used to specify the name of a built-in prompt dataset and optionally, the Amazon S3 bucket where a custom prompt dataset is saved.
+ *
  * @public
  */
 export interface EvaluationDataset {
   /**
-   * <p>Used to specify supported built-in prompt datasets. Valid values are <code>Builtin.Bold</code>, <code>Builtin.BoolQ</code>, <code>Builtin.NaturalQuestions</code>, <code>Builtin.Gigaword</code>, <code>Builtin.RealToxicityPrompts</code>, <code>Builtin.TriviaQA</code>, <code>Builtin.T-Rex</code>, <code>Builtin.WomensEcommerceClothingReviews</code> and <code>Builtin.Wikitext2</code>.</p>
+   * Used to specify supported built-in prompt datasets. Valid values are `Builtin.Bold`, `Builtin.BoolQ`, `Builtin.NaturalQuestions`, `Builtin.Gigaword`, `Builtin.RealToxicityPrompts`, `Builtin.TriviaQA`, `Builtin.T-Rex`, `Builtin.WomensEcommerceClothingReviews` and `Builtin.Wikitext2`.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>For custom prompt datasets, you must specify the location in Amazon S3 where the prompt dataset is saved.</p>
+   * For custom prompt datasets, you must specify the location in Amazon S3 where the prompt dataset is saved.
+   *
    * @public
    */
   datasetLocation?: EvaluationDatasetLocation | undefined;
 }
 
 /**
- * <p>Defines the prompt datasets, built-in metric names and custom metric names, and the task type.</p>
+ * Defines the prompt datasets, built-in metric names and custom metric names, and the task type.
+ *
  * @public
  */
 export interface EvaluationDatasetMetricConfig {
   /**
-   * <p>The the type of task you want to evaluate for your evaluation job. This applies only to model evaluation jobs and is ignored for knowledge base evaluation jobs.</p>
+   * The the type of task you want to evaluate for your evaluation job. This applies only to model evaluation jobs and is ignored for knowledge base evaluation jobs.
+   *
    * @public
    */
   taskType: EvaluationTaskType | undefined;
 
   /**
-   * <p>Specifies the prompt dataset.</p>
+   * Specifies the prompt dataset.
+   *
    * @public
    */
   dataset: EvaluationDataset | undefined;
 
   /**
-   * <p>The names of the metrics you want to use for your evaluation job.</p> <p>For knowledge base evaluation jobs that evaluate retrieval only, valid values are "<code>Builtin.ContextRelevance</code>", "<code>Builtin.ContextCoverage</code>".</p> <p>For knowledge base evaluation jobs that evaluate retrieval with response generation, valid values are "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness</code>", "<code>Builtin.Helpfulness</code>", "<code>Builtin.LogicalCoherence</code>", "<code>Builtin.Faithfulness</code>", "<code>Builtin.Harmfulness</code>", "<code>Builtin.Stereotyping</code>", "<code>Builtin.Refusal</code>".</p> <p>For automated model evaluation jobs, valid values are "<code>Builtin.Accuracy</code>", "<code>Builtin.Robustness</code>", and "<code>Builtin.Toxicity</code>". In model evaluation jobs that use a LLM as judge you can specify "<code>Builtin.Correctness</code>", "<code>Builtin.Completeness"</code>, "<code>Builtin.Faithfulness"</code>, "<code>Builtin.Helpfulness</code>", "<code>Builtin.Coherence</code>", "<code>Builtin.Relevance</code>", "<code>Builtin.FollowingInstructions</code>", "<code>Builtin.ProfessionalStyleAndTone</code>", You can also specify the following responsible AI related metrics only for model evaluation job that use a LLM as judge "<code>Builtin.Harmfulness</code>", "<code>Builtin.Stereotyping</code>", and "<code>Builtin.Refusal</code>".</p> <p>For human-based model evaluation jobs, the list of strings must match the <code>name</code> parameter specified in <code>HumanEvaluationCustomMetric</code>.</p>
+   * The names of the metrics you want to use for your evaluation job.
+   *
+   * For knowledge base evaluation jobs that evaluate retrieval only, valid values are "`Builtin.ContextRelevance`", "`Builtin.ContextCoverage`".
+   *
+   * For knowledge base evaluation jobs that evaluate retrieval with response generation, valid values are "`Builtin.Correctness`", "`Builtin.Completeness`", "`Builtin.Helpfulness`", "`Builtin.LogicalCoherence`", "`Builtin.Faithfulness`", "`Builtin.Harmfulness`", "`Builtin.Stereotyping`", "`Builtin.Refusal`".
+   *
+   * For automated model evaluation jobs, valid values are "`Builtin.Accuracy`", "`Builtin.Robustness`", and "`Builtin.Toxicity`". In model evaluation jobs that use a LLM as judge you can specify "`Builtin.Correctness`", "`Builtin.Completeness"`, "`Builtin.Faithfulness"`, "`Builtin.Helpfulness`", "`Builtin.Coherence`", "`Builtin.Relevance`", "`Builtin.FollowingInstructions`", "`Builtin.ProfessionalStyleAndTone`", You can also specify the following responsible AI related metrics only for model evaluation job that use a LLM as judge "`Builtin.Harmfulness`", "`Builtin.Stereotyping`", and "`Builtin.Refusal`".
+   *
+   * For human-based model evaluation jobs, the list of strings must match the `name` parameter specified in `HumanEvaluationCustomMetric`.
+   *
    * @public
    */
   metricNames: string[] | undefined;
 }
 
 /**
- * <p>The evaluator model used in knowledge base evaluation job or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+ * The evaluator model used in knowledge base evaluation job or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.
+ *
  * @public
  */
 export interface BedrockEvaluatorModel {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluator model used used in knowledge base evaluation job or in model evaluation job that use a model as judge.</p>
+   * The Amazon Resource Name (ARN) of the evaluator model used used in knowledge base evaluation job or in model evaluation job that use a model as judge.
+   *
    * @public
    */
   modelIdentifier: string | undefined;
 }
 
 /**
- * <p>Specifies the model configuration for the evaluator model. <code>EvaluatorModelConfig</code> is required for evaluation jobs that use a knowledge base or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+ * Specifies the model configuration for the evaluator model. `EvaluatorModelConfig` is required for evaluation jobs that use a knowledge base or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.
+ *
  * @public
  */
 export type EvaluatorModelConfig =
@@ -6718,7 +7607,8 @@ export type EvaluatorModelConfig =
  */
 export namespace EvaluatorModelConfig {
   /**
-   * <p>The evaluator model used in knowledge base evaluation job or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+   * The evaluator model used in knowledge base evaluation job or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.
+   *
    * @public
    */
   export interface BedrockEvaluatorModelsMember {
@@ -6745,97 +7635,115 @@ export namespace EvaluatorModelConfig {
 }
 
 /**
- * <p>The configuration details of an automated evaluation job. The <code>EvaluationDatasetMetricConfig</code> object is used to specify the prompt datasets, task type, and metric names.</p>
+ * The configuration details of an automated evaluation job. The `EvaluationDatasetMetricConfig` object is used to specify the prompt datasets, task type, and metric names.
+ *
  * @public
  */
 export interface AutomatedEvaluationConfig {
   /**
-   * <p>Configuration details of the prompt datasets and metrics you want to use for your evaluation job.</p>
+   * Configuration details of the prompt datasets and metrics you want to use for your evaluation job.
+   *
    * @public
    */
   datasetMetricConfigs: EvaluationDatasetMetricConfig[] | undefined;
 
   /**
-   * <p>Contains the evaluator model configuration details. <code>EvaluatorModelConfig</code> is required for evaluation jobs that use a knowledge base or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.</p>
+   * Contains the evaluator model configuration details. `EvaluatorModelConfig` is required for evaluation jobs that use a knowledge base or in model evaluation job that use a model as judge. This model computes all evaluation related metrics.
+   *
    * @public
    */
   evaluatorModelConfig?: EvaluatorModelConfig | undefined;
 
   /**
-   * <p>Defines the configuration of custom metrics to be used in an evaluation job.</p>
+   * Defines the configuration of custom metrics to be used in an evaluation job.
+   *
    * @public
    */
   customMetricConfig?: AutomatedEvaluationCustomMetricConfig | undefined;
 }
 
 /**
- * <p>In a model evaluation job that uses human workers you must define the name of the metric, and how you want that metric rated <code>ratingMethod</code>, and an optional description of the metric.</p>
+ * In a model evaluation job that uses human workers you must define the name of the metric, and how you want that metric rated `ratingMethod`, and an optional description of the metric.
+ *
  * @public
  */
 export interface HumanEvaluationCustomMetric {
   /**
-   * <p>The name of the metric. Your human evaluators will see this name in the evaluation UI.</p>
+   * The name of the metric. Your human evaluators will see this name in the evaluation UI.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An optional description of the metric. Use this parameter to provide more details about the metric.</p>
+   * An optional description of the metric. Use this parameter to provide more details about the metric.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Choose how you want your human workers to evaluation your model. Valid values for rating methods are <code>ThumbsUpDown</code>, <code>IndividualLikertScale</code>,<code>ComparisonLikertScale</code>, <code>ComparisonChoice</code>, and <code>ComparisonRank</code> </p>
+   * Choose how you want your human workers to evaluation your model. Valid values for rating methods are `ThumbsUpDown`, `IndividualLikertScale`,`ComparisonLikertScale`, `ComparisonChoice`, and `ComparisonRank`
+   *
    * @public
    */
   ratingMethod: string | undefined;
 }
 
 /**
- * <p>Contains <code>SageMakerFlowDefinition</code> object. The object is used to specify the prompt dataset, task type, rating method and metric names.</p>
+ * Contains `SageMakerFlowDefinition` object. The object is used to specify the prompt dataset, task type, rating method and metric names.
+ *
  * @public
  */
 export interface HumanWorkflowConfig {
   /**
-   * <p>The Amazon Resource Number (ARN) for the flow definition</p>
+   * The Amazon Resource Number (ARN) for the flow definition
+   *
    * @public
    */
   flowDefinitionArn: string | undefined;
 
   /**
-   * <p>Instructions for the flow definition</p>
+   * Instructions for the flow definition
+   *
    * @public
    */
   instructions?: string | undefined;
 }
 
 /**
- * <p>Specifies the custom metrics, how tasks will be rated, the flow definition ARN, and your custom prompt datasets. Model evaluation jobs use human workers <i>only</i> support the use of custom prompt datasets. To learn more about custom prompt datasets and the required format, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-prompt-datasets-custom.html">Custom prompt datasets</a>.</p> <p>When you create custom metrics in <code>HumanEvaluationCustomMetric</code> you must specify the metric's <code>name</code>. The list of <code>names</code> specified in the <code>HumanEvaluationCustomMetric</code> array, must match the <code>metricNames</code> array of strings specified in <code>EvaluationDatasetMetricConfig</code>. For example, if in the <code>HumanEvaluationCustomMetric</code> array your specified the names <code>"accuracy", "toxicity", "readability"</code> as custom metrics <i>then</i> the <code>metricNames</code> array would need to look like the following <code>["accuracy", "toxicity", "readability"]</code> in <code>EvaluationDatasetMetricConfig</code>.</p>
+ * Specifies the custom metrics, how tasks will be rated, the flow definition ARN, and your custom prompt datasets. Model evaluation jobs use human workers *only* support the use of custom prompt datasets. To learn more about custom prompt datasets and the required format, see [Custom prompt datasets](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-prompt-datasets-custom.html).
+ *
+ * When you create custom metrics in `HumanEvaluationCustomMetric` you must specify the metric's `name`. The list of `names` specified in the `HumanEvaluationCustomMetric` array, must match the `metricNames` array of strings specified in `EvaluationDatasetMetricConfig`. For example, if in the `HumanEvaluationCustomMetric` array your specified the names `"accuracy", "toxicity", "readability"` as custom metrics *then* the `metricNames` array would need to look like the following `["accuracy", "toxicity", "readability"]` in `EvaluationDatasetMetricConfig`.
+ *
  * @public
  */
 export interface HumanEvaluationConfig {
   /**
-   * <p>The parameters of the human workflow.</p>
+   * The parameters of the human workflow.
+   *
    * @public
    */
   humanWorkflowConfig?: HumanWorkflowConfig | undefined;
 
   /**
-   * <p>A <code>HumanEvaluationCustomMetric</code> object. It contains the names the metrics, how the metrics are to be evaluated, an optional description.</p>
+   * A `HumanEvaluationCustomMetric` object. It contains the names the metrics, how the metrics are to be evaluated, an optional description.
+   *
    * @public
    */
   customMetrics?: HumanEvaluationCustomMetric[] | undefined;
 
   /**
-   * <p>Use to specify the metrics, task, and prompt dataset to be used in your model evaluation job.</p>
+   * Use to specify the metrics, task, and prompt dataset to be used in your model evaluation job.
+   *
    * @public
    */
   datasetMetricConfigs: EvaluationDatasetMetricConfig[] | undefined;
 }
 
 /**
- * <p>The configuration details of either an automated or human-based evaluation job.</p>
+ * The configuration details of either an automated or human-based evaluation job.
+ *
  * @public
  */
 export type EvaluationConfig =
@@ -6848,7 +7756,8 @@ export type EvaluationConfig =
  */
 export namespace EvaluationConfig {
   /**
-   * <p>Contains the configuration details of an automated evaluation job that computes metrics.</p>
+   * Contains the configuration details of an automated evaluation job that computes metrics.
+   *
    * @public
    */
   export interface AutomatedMember {
@@ -6858,7 +7767,8 @@ export namespace EvaluationConfig {
   }
 
   /**
-   * <p>Contains the configuration details of an evaluation job that uses human workers.</p>
+   * Contains the configuration details of an evaluation job that uses human workers.
+   *
    * @public
    */
   export interface HumanMember {
@@ -6888,55 +7798,66 @@ export namespace EvaluationConfig {
 }
 
 /**
- * <p>Contains performance settings for a model.</p>
+ * Contains performance settings for a model.
+ *
  * @public
  */
 export interface PerformanceConfiguration {
   /**
-   * <p>Specifies whether to use the latency-optimized or standard version of a model or inference profile.</p>
+   * Specifies whether to use the latency-optimized or standard version of a model or inference profile.
+   *
    * @public
    */
   latency?: PerformanceConfigLatency | undefined;
 }
 
 /**
- * <p>Contains the ARN of the Amazon Bedrock model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> specified in your evaluation job. Each Amazon Bedrock model supports different <code>inferenceParams</code>. To learn more about supported inference parameters for Amazon Bedrock models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p> <p>The <code>inferenceParams</code> are specified using JSON. To successfully insert JSON as string make sure that all quotations are properly escaped. For example, <code>"temperature":"0.25"</code> key value pair would need to be formatted as <code>\"temperature\":\"0.25\"</code> to successfully accepted in the request.</p>
+ * Contains the ARN of the Amazon Bedrock model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) specified in your evaluation job. Each Amazon Bedrock model supports different `inferenceParams`. To learn more about supported inference parameters for Amazon Bedrock models, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
+ *
+ * The `inferenceParams` are specified using JSON. To successfully insert JSON as string make sure that all quotations are properly escaped. For example, `"temperature":"0.25"` key value pair would need to be formatted as `\"temperature\":\"0.25\"` to successfully accepted in the request.
+ *
  * @public
  */
 export interface EvaluationBedrockModel {
   /**
-   * <p>The ARN of the Amazon Bedrock model or inference profile specified.</p>
+   * The ARN of the Amazon Bedrock model or inference profile specified.
+   *
    * @public
    */
   modelIdentifier: string | undefined;
 
   /**
-   * <p>Each Amazon Bedrock support different inference parameters that change how the model behaves during inference.</p>
+   * Each Amazon Bedrock support different inference parameters that change how the model behaves during inference.
+   *
    * @public
    */
   inferenceParams?: string | undefined;
 
   /**
-   * <p>Specifies performance settings for the model or inference profile.</p>
+   * Specifies performance settings for the model or inference profile.
+   *
    * @public
    */
   performanceConfig?: PerformanceConfiguration | undefined;
 }
 
 /**
- * <p>A summary of a model used for a model evaluation job where you provide your own inference response data.</p>
+ * A summary of a model used for a model evaluation job where you provide your own inference response data.
+ *
  * @public
  */
 export interface EvaluationPrecomputedInferenceSource {
   /**
-   * <p>A label that identifies a model used in a model evaluation job where you provide your own inference response data.</p>
+   * A label that identifies a model used in a model evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   inferenceSourceIdentifier: string | undefined;
 }
 
 /**
- * <p>Defines the models used in the model evaluation job.</p>
+ * Defines the models used in the model evaluation job.
+ *
  * @public
  */
 export type EvaluationModelConfig =
@@ -6949,7 +7870,8 @@ export type EvaluationModelConfig =
  */
 export namespace EvaluationModelConfig {
   /**
-   * <p>Defines the Amazon Bedrock model or inference profile and inference parameters you want used.</p>
+   * Defines the Amazon Bedrock model or inference profile and inference parameters you want used.
+   *
    * @public
    */
   export interface BedrockModelMember {
@@ -6959,7 +7881,8 @@ export namespace EvaluationModelConfig {
   }
 
   /**
-   * <p>Defines the model used to generate inference response data for a model evaluation job where you provide your own inference response data.</p>
+   * Defines the model used to generate inference response data for a model evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   export interface PrecomputedInferenceSourceMember {
@@ -6989,319 +7912,374 @@ export namespace EvaluationModelConfig {
 }
 
 /**
- * <p>The configuration details for the guardrail.</p>
+ * The configuration details for the guardrail.
+ *
  * @public
  */
 export interface GuardrailConfiguration {
   /**
-   * <p>The unique identifier for the guardrail.</p>
+   * The unique identifier for the guardrail.
+   *
    * @public
    */
   guardrailId: string | undefined;
 
   /**
-   * <p>The version of the guardrail.</p>
+   * The version of the guardrail.
+   *
    * @public
    */
   guardrailVersion: string | undefined;
 }
 
 /**
- * <p>The configuration details for text generation using a language model via the <code>RetrieveAndGenerate</code> function.</p>
+ * The configuration details for text generation using a language model via the `RetrieveAndGenerate` function.
+ *
  * @public
  */
 export interface TextInferenceConfig {
   /**
-   * <p>Controls the random-ness of text generated by the language model, influencing how much the model sticks to the most predictable next words versus exploring more surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more creative or unpredictable.</p>
+   * Controls the random-ness of text generated by the language model, influencing how much the model sticks to the most predictable next words versus exploring more surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more creative or unpredictable.
+   *
    * @public
    */
   temperature?: number | undefined;
 
   /**
-   * <p>A probability distribution threshold which controls what the model considers for the set of possible next tokens. The model will only consider the top p% of the probability distribution when generating the next token.</p>
+   * A probability distribution threshold which controls what the model considers for the set of possible next tokens. The model will only consider the top p% of the probability distribution when generating the next token.
+   *
    * @public
    */
   topP?: number | undefined;
 
   /**
-   * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0 or the maximum of 65536. The limit values described here are arbitrary values, for actual values consult the limits defined by your specific model.</p>
+   * The maximum number of tokens to generate in the output text. Do not use the minimum of 0 or the maximum of 65536. The limit values described here are arbitrary values, for actual values consult the limits defined by your specific model.
+   *
    * @public
    */
   maxTokens?: number | undefined;
 
   /**
-   * <p>A list of sequences of characters that, if generated, will cause the model to stop generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000. The limit values described here are arbitrary values, for actual values consult the limits defined by your specific model.</p>
+   * A list of sequences of characters that, if generated, will cause the model to stop generating further tokens. Do not use a minimum length of 1 or a maximum length of 1000. The limit values described here are arbitrary values, for actual values consult the limits defined by your specific model.
+   *
    * @public
    */
   stopSequences?: string[] | undefined;
 }
 
 /**
- * <p>Contains configuration details of the inference for knowledge base retrieval and response generation.</p>
+ * Contains configuration details of the inference for knowledge base retrieval and response generation.
+ *
  * @public
  */
 export interface KbInferenceConfig {
   /**
-   * <p>Contains configuration details for text generation using a language model via the <code>RetrieveAndGenerate</code> function.</p>
+   * Contains configuration details for text generation using a language model via the `RetrieveAndGenerate` function.
+   *
    * @public
    */
   textInferenceConfig?: TextInferenceConfig | undefined;
 }
 
 /**
- * <p>The template for the prompt that's sent to the model for response generation.</p>
+ * The template for the prompt that's sent to the model for response generation.
+ *
  * @public
  */
 export interface PromptTemplate {
   /**
-   * <p>The template for the prompt that's sent to the model for response generation. You can include prompt placeholders, which become replaced before the prompt is sent to the model to provide instructions and context to the model. In addition, you can include XML tags to delineate meaningful sections of the prompt template.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Knowledge base prompt template</a> and <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags">Use XML tags with Anthropic Claude models</a>.</p>
+   * The template for the prompt that's sent to the model for response generation. You can include prompt placeholders, which become replaced before the prompt is sent to the model to provide instructions and context to the model. In addition, you can include XML tags to delineate meaningful sections of the prompt template.
+   *
+   * For more information, see [Knowledge base prompt template](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html) and [Use XML tags with Anthropic Claude models](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags).
+   *
    * @public
    */
   textPromptTemplate?: string | undefined;
 }
 
 /**
- * <p>The response generation configuration of the external source wrapper object.</p>
+ * The response generation configuration of the external source wrapper object.
+ *
  * @public
  */
 export interface ExternalSourcesGenerationConfiguration {
   /**
-   * <p>Contains the template for the prompt for the external source wrapper object.</p>
+   * Contains the template for the prompt for the external source wrapper object.
+   *
    * @public
    */
   promptTemplate?: PromptTemplate | undefined;
 
   /**
-   * <p>Configuration details for the guardrail.</p>
+   * Configuration details for the guardrail.
+   *
    * @public
    */
   guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
-   * <p>Configuration details for inference when using <code>RetrieveAndGenerate</code> to generate responses while using an external source.</p>
+   * Configuration details for inference when using `RetrieveAndGenerate` to generate responses while using an external source.
+   *
    * @public
    */
   kbInferenceConfig?: KbInferenceConfig | undefined;
 
   /**
-   * <p>Additional model parameters and their corresponding values not included in the text inference configuration for an external source. Takes in custom model parameters specific to the language model being used.</p>
+   * Additional model parameters and their corresponding values not included in the text inference configuration for an external source. Takes in custom model parameters specific to the language model being used.
+   *
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
- * <p>Contains the document contained in the wrapper object, along with its attributes/fields.</p>
+ * Contains the document contained in the wrapper object, along with its attributes/fields.
+ *
  * @public
  */
 export interface ByteContentDoc {
   /**
-   * <p>The file name of the document contained in the wrapper object.</p>
+   * The file name of the document contained in the wrapper object.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The MIME type of the document contained in the wrapper object.</p>
+   * The MIME type of the document contained in the wrapper object.
+   *
    * @public
    */
   contentType: string | undefined;
 
   /**
-   * <p>The byte value of the file to upload, encoded as a Base-64 string.</p>
+   * The byte value of the file to upload, encoded as a Base-64 string.
+   *
    * @public
    */
   data: Uint8Array | undefined;
 }
 
 /**
- * <p>The unique wrapper object of the document from the S3 location.</p>
+ * The unique wrapper object of the document from the S3 location.
+ *
  * @public
  */
 export interface S3ObjectDoc {
   /**
-   * <p>The S3 URI location for the wrapper object of the document.</p>
+   * The S3 URI location for the wrapper object of the document.
+   *
    * @public
    */
   uri: string | undefined;
 }
 
 /**
- * <p>The unique external source of the content contained in the wrapper object.</p>
+ * The unique external source of the content contained in the wrapper object.
+ *
  * @public
  */
 export interface ExternalSource {
   /**
-   * <p>The source type of the external source wrapper object.</p>
+   * The source type of the external source wrapper object.
+   *
    * @public
    */
   sourceType: ExternalSourceType | undefined;
 
   /**
-   * <p>The S3 location of the external source wrapper object.</p>
+   * The S3 location of the external source wrapper object.
+   *
    * @public
    */
   s3Location?: S3ObjectDoc | undefined;
 
   /**
-   * <p>The identifier, content type, and data of the external source wrapper object.</p>
+   * The identifier, content type, and data of the external source wrapper object.
+   *
    * @public
    */
   byteContent?: ByteContentDoc | undefined;
 }
 
 /**
- * <p>The configuration of the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+ * The configuration of the external source wrapper object in the `retrieveAndGenerate` function.
+ *
  * @public
  */
 export interface ExternalSourcesRetrieveAndGenerateConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> used to generate responses. </p>
+   * The Amazon Resource Name (ARN) of the foundation model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) used to generate responses.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>The document for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
+   * The document for the external source wrapper object in the `retrieveAndGenerate` function.
+   *
    * @public
    */
   sources: ExternalSource[] | undefined;
 
   /**
-   * <p>Contains configurations details for response generation based on retrieved text chunks.</p>
+   * Contains configurations details for response generation based on retrieved text chunks.
+   *
    * @public
    */
   generationConfiguration?: ExternalSourcesGenerationConfiguration | undefined;
 }
 
 /**
- * <p>The configuration details for response generation based on retrieved text chunks.</p>
+ * The configuration details for response generation based on retrieved text chunks.
+ *
  * @public
  */
 export interface GenerationConfiguration {
   /**
-   * <p>Contains the template for the prompt that's sent to the model for response generation.</p>
+   * Contains the template for the prompt that's sent to the model for response generation.
+   *
    * @public
    */
   promptTemplate?: PromptTemplate | undefined;
 
   /**
-   * <p>Contains configuration details for the guardrail.</p>
+   * Contains configuration details for the guardrail.
+   *
    * @public
    */
   guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
-   * <p>Contains configuration details for inference for knowledge base retrieval and response generation.</p>
+   * Contains configuration details for inference for knowledge base retrieval and response generation.
+   *
    * @public
    */
   kbInferenceConfig?: KbInferenceConfig | undefined;
 
   /**
-   * <p>Additional model parameters and corresponding values not included in the <code>textInferenceConfig</code> structure for a knowledge base. This allows you to provide custom model parameters specific to the language model being used.</p>
+   * Additional model parameters and corresponding values not included in the `textInferenceConfig` structure for a knowledge base. This allows you to provide custom model parameters specific to the language model being used.
+   *
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
- * <p>The configuration details for transforming the prompt.</p>
+ * The configuration details for transforming the prompt.
+ *
  * @public
  */
 export interface QueryTransformationConfiguration {
   /**
-   * <p>The type of transformation to apply to the prompt.</p>
+   * The type of transformation to apply to the prompt.
+   *
    * @public
    */
   type: QueryTransformationType | undefined;
 }
 
 /**
- * <p>The configuration details for the model to process the prompt prior to retrieval and response generation.</p>
+ * The configuration details for the model to process the prompt prior to retrieval and response generation.
+ *
  * @public
  */
 export interface OrchestrationConfiguration {
   /**
-   * <p>Contains configuration details for transforming the prompt.</p>
+   * Contains configuration details for transforming the prompt.
+   *
    * @public
    */
   queryTransformationConfiguration: QueryTransformationConfiguration | undefined;
 }
 
 /**
- * <p>Specifies the name of the metadata attribute/field to apply filters. You must match the name of the attribute/field in your data source/document metadata.</p>
+ * Specifies the name of the metadata attribute/field to apply filters. You must match the name of the attribute/field in your data source/document metadata.
+ *
  * @public
  */
 export interface FilterAttribute {
   /**
-   * <p>The name of metadata attribute/field, which must match the name in your data source/document metadata.</p>
+   * The name of metadata attribute/field, which must match the name in your data source/document metadata.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the metadata attribute/field.</p>
+   * The value of the metadata attribute/field.
+   *
    * @public
    */
   value: __DocumentType | undefined;
 }
 
 /**
- * <p>Defines the schema for a metadata attribute used in Knowledge Base vector searches. Metadata attributes provide additional context for documents and can be used for filtering and reranking search results.</p>
+ * Defines the schema for a metadata attribute used in Knowledge Base vector searches. Metadata attributes provide additional context for documents and can be used for filtering and reranking search results.
+ *
  * @public
  */
 export interface MetadataAttributeSchema {
   /**
-   * <p>The unique identifier for the metadata attribute. This key is used to reference the attribute in filter expressions and reranking configurations.</p>
+   * The unique identifier for the metadata attribute. This key is used to reference the attribute in filter expressions and reranking configurations.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The data type of the metadata attribute. The type determines how the attribute can be used in filter expressions and reranking.</p>
+   * The data type of the metadata attribute. The type determines how the attribute can be used in filter expressions and reranking.
+   *
    * @public
    */
   type: AttributeType | undefined;
 
   /**
-   * <p>An optional description of the metadata attribute that provides additional context about its purpose and usage.</p>
+   * An optional description of the metadata attribute that provides additional context about its purpose and usage.
+   *
    * @public
    */
   description: string | undefined;
 }
 
 /**
- * <p>Configuration for implicit filtering in Knowledge Base vector searches. Implicit filtering allows you to automatically filter search results based on metadata attributes without requiring explicit filter expressions in each query.</p>
+ * Configuration for implicit filtering in Knowledge Base vector searches. Implicit filtering allows you to automatically filter search results based on metadata attributes without requiring explicit filter expressions in each query.
+ *
  * @public
  */
 export interface ImplicitFilterConfiguration {
   /**
-   * <p>A list of metadata attribute schemas that define the structure and properties of metadata fields used for implicit filtering. Each attribute defines a key, type, and optional description.</p>
+   * A list of metadata attribute schemas that define the structure and properties of metadata fields used for implicit filtering. Each attribute defines a key, type, and optional description.
+   *
    * @public
    */
   metadataAttributes: MetadataAttributeSchema[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model used for implicit filtering. This model processes the query to extract relevant filtering criteria.</p>
+   * The Amazon Resource Name (ARN) of the foundation model used for implicit filtering. This model processes the query to extract relevant filtering criteria.
+   *
    * @public
    */
   modelArn: string | undefined;
 }
 
 /**
- * <p>Specifies a field to be used during the reranking process in a Knowledge Base vector search. This structure identifies metadata fields that should be considered when reordering search results to improve relevance.</p>
+ * Specifies a field to be used during the reranking process in a Knowledge Base vector search. This structure identifies metadata fields that should be considered when reordering search results to improve relevance.
+ *
  * @public
  */
 export interface FieldForReranking {
   /**
-   * <p>The name of the metadata field to be used during the reranking process.</p>
+   * The name of the metadata field to be used during the reranking process.
+   *
    * @public
    */
   fieldName: string | undefined;
 }
 
 /**
- * <p>Configuration for selectively including or excluding metadata fields during the reranking process. This allows you to control which metadata attributes are considered when reordering search results.</p>
+ * Configuration for selectively including or excluding metadata fields during the reranking process. This allows you to control which metadata attributes are considered when reordering search results.
+ *
  * @public
  */
 export type RerankingMetadataSelectiveModeConfiguration =
@@ -7314,7 +8292,8 @@ export type RerankingMetadataSelectiveModeConfiguration =
  */
 export namespace RerankingMetadataSelectiveModeConfiguration {
   /**
-   * <p>A list of metadata field names to explicitly include in the reranking process. Only these fields will be considered when reordering search results. This parameter cannot be used together with fieldsToExclude.</p>
+   * A list of metadata field names to explicitly include in the reranking process. Only these fields will be considered when reordering search results. This parameter cannot be used together with fieldsToExclude.
+   *
    * @public
    */
   export interface FieldsToIncludeMember {
@@ -7324,7 +8303,8 @@ export namespace RerankingMetadataSelectiveModeConfiguration {
   }
 
   /**
-   * <p>A list of metadata field names to explicitly exclude from the reranking process. All metadata fields except these will be considered when reordering search results. This parameter cannot be used together with fieldsToInclude.</p>
+   * A list of metadata field names to explicitly exclude from the reranking process. All metadata fields except these will be considered when reordering search results. This parameter cannot be used together with fieldsToInclude.
+   *
    * @public
    */
   export interface FieldsToExcludeMember {
@@ -7354,109 +8334,127 @@ export namespace RerankingMetadataSelectiveModeConfiguration {
 }
 
 /**
- * <p>Configuration for how metadata should be used during the reranking process in Knowledge Base vector searches. This determines which metadata fields are included or excluded when reordering search results.</p>
+ * Configuration for how metadata should be used during the reranking process in Knowledge Base vector searches. This determines which metadata fields are included or excluded when reordering search results.
+ *
  * @public
  */
 export interface MetadataConfigurationForReranking {
   /**
-   * <p>The mode for selecting which metadata fields to include in the reranking process. Valid values are ALL (use all available metadata fields) or SELECTIVE (use only specified fields).</p>
+   * The mode for selecting which metadata fields to include in the reranking process. Valid values are ALL (use all available metadata fields) or SELECTIVE (use only specified fields).
+   *
    * @public
    */
   selectionMode: RerankingMetadataSelectionMode | undefined;
 
   /**
-   * <p>Configuration for selective mode, which allows you to explicitly include or exclude specific metadata fields during reranking. This is only used when selectionMode is set to SELECTIVE.</p>
+   * Configuration for selective mode, which allows you to explicitly include or exclude specific metadata fields during reranking. This is only used when selectionMode is set to SELECTIVE.
+   *
    * @public
    */
   selectiveModeConfiguration?: RerankingMetadataSelectiveModeConfiguration | undefined;
 }
 
 /**
- * <p>Configuration for the Amazon Bedrock foundation model used for reranking vector search results. This specifies which model to use and any additional parameters required by the model.</p>
+ * Configuration for the Amazon Bedrock foundation model used for reranking vector search results. This specifies which model to use and any additional parameters required by the model.
+ *
  * @public
  */
 export interface VectorSearchBedrockRerankingModelConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the foundation model to use for reranking. This model processes the query and search results to determine a more relevant ordering.</p>
+   * The Amazon Resource Name (ARN) of the foundation model to use for reranking. This model processes the query and search results to determine a more relevant ordering.
+   *
    * @public
    */
   modelArn: string | undefined;
 
   /**
-   * <p>A list of additional fields to include in the model request during reranking. These fields provide extra context or configuration options specific to the selected foundation model.</p>
+   * A list of additional fields to include in the model request during reranking. These fields provide extra context or configuration options specific to the selected foundation model.
+   *
    * @public
    */
   additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
- * <p>Configuration for using Amazon Bedrock foundation models to rerank Knowledge Base vector search results. This enables more sophisticated relevance ranking using large language models.</p>
+ * Configuration for using Amazon Bedrock foundation models to rerank Knowledge Base vector search results. This enables more sophisticated relevance ranking using large language models.
+ *
  * @public
  */
 export interface VectorSearchBedrockRerankingConfiguration {
   /**
-   * <p>Configuration for the Amazon Bedrock foundation model used for reranking. This includes the model ARN and any additional request fields required by the model.</p>
+   * Configuration for the Amazon Bedrock foundation model used for reranking. This includes the model ARN and any additional request fields required by the model.
+   *
    * @public
    */
   modelConfiguration: VectorSearchBedrockRerankingModelConfiguration | undefined;
 
   /**
-   * <p>The maximum number of results to rerank. This limits how many of the initial vector search results will be processed by the reranking model. A smaller number improves performance but may exclude potentially relevant results.</p>
+   * The maximum number of results to rerank. This limits how many of the initial vector search results will be processed by the reranking model. A smaller number improves performance but may exclude potentially relevant results.
+   *
    * @public
    */
   numberOfRerankedResults?: number | undefined;
 
   /**
-   * <p>Configuration for how document metadata should be used during the reranking process. This determines which metadata fields are included when reordering search results.</p>
+   * Configuration for how document metadata should be used during the reranking process. This determines which metadata fields are included when reordering search results.
+   *
    * @public
    */
   metadataConfiguration?: MetadataConfigurationForReranking | undefined;
 }
 
 /**
- * <p>Configuration for reranking vector search results to improve relevance. Reranking applies additional relevance models to reorder the initial vector search results based on more sophisticated criteria.</p>
+ * Configuration for reranking vector search results to improve relevance. Reranking applies additional relevance models to reorder the initial vector search results based on more sophisticated criteria.
+ *
  * @public
  */
 export interface VectorSearchRerankingConfiguration {
   /**
-   * <p>The type of reranking to apply to vector search results. Currently, the only supported value is BEDROCK, which uses Amazon Bedrock foundation models for reranking.</p>
+   * The type of reranking to apply to vector search results. Currently, the only supported value is BEDROCK, which uses Amazon Bedrock foundation models for reranking.
+   *
    * @public
    */
   type: VectorSearchRerankingConfigurationType | undefined;
 
   /**
-   * <p>Configuration for using Amazon Bedrock foundation models to rerank search results. This is required when the reranking type is set to BEDROCK.</p>
+   * Configuration for using Amazon Bedrock foundation models to rerank search results. This is required when the reranking type is set to BEDROCK.
+   *
    * @public
    */
   bedrockRerankingConfiguration?: VectorSearchBedrockRerankingConfiguration | undefined;
 }
 
 /**
- * <p>A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
+ * A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.
+ *
  * @public
  */
 export interface EvaluationPrecomputedRetrieveAndGenerateSourceConfig {
   /**
-   * <p>A label that identifies the RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * A label that identifies the RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   ragSourceIdentifier: string | undefined;
 }
 
 /**
- * <p>A summary of a RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>
+ * A summary of a RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.
+ *
  * @public
  */
 export interface EvaluationPrecomputedRetrieveSourceConfig {
   /**
-   * <p>A label that identifies the RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * A label that identifies the RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   ragSourceIdentifier: string | undefined;
 }
 
 /**
- * <p>A summary of a RAG source used for a Knowledge Base evaluation job where you provide your own inference response data.</p>
+ * A summary of a RAG source used for a Knowledge Base evaluation job where you provide your own inference response data.
+ *
  * @public
  */
 export type EvaluationPrecomputedRagSourceConfig =
@@ -7469,7 +8467,8 @@ export type EvaluationPrecomputedRagSourceConfig =
  */
 export namespace EvaluationPrecomputedRagSourceConfig {
   /**
-   * <p>A summary of a RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * A summary of a RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   export interface RetrieveSourceConfigMember {
@@ -7479,7 +8478,8 @@ export namespace EvaluationPrecomputedRagSourceConfig {
   }
 
   /**
-   * <p>A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * A summary of a RAG source used for a retrieve-and-generate Knowledge Base evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   export interface RetrieveAndGenerateSourceConfigMember {
@@ -7509,12 +8509,14 @@ export namespace EvaluationPrecomputedRagSourceConfig {
 }
 
 /**
- * <p>The Amazon S3 location where the results of your evaluation job are saved.</p>
+ * The Amazon S3 location where the results of your evaluation job are saved.
+ *
  * @public
  */
 export interface EvaluationOutputDataConfig {
   /**
-   * <p>The Amazon S3 URI where the results of the evaluation job are saved.</p>
+   * The Amazon S3 URI where the results of the evaluation job are saved.
+   *
    * @public
    */
   s3Uri: string | undefined;
@@ -7525,7 +8527,8 @@ export interface EvaluationOutputDataConfig {
  */
 export interface CreateEvaluationJobResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
+   * The Amazon Resource Name (ARN) of the evaluation job.
+   *
    * @public
    */
   jobArn: string | undefined;
@@ -7536,7 +8539,8 @@ export interface CreateEvaluationJobResponse {
  */
 export interface GetEvaluationJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job you want get information on.</p>
+   * The Amazon Resource Name (ARN) of the evaluation job you want get information on.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
@@ -7547,157 +8551,182 @@ export interface GetEvaluationJobRequest {
  */
 export interface ListEvaluationJobsRequest {
   /**
-   * <p>A filter to only list evaluation jobs created after a specified time.</p>
+   * A filter to only list evaluation jobs created after a specified time.
+   *
    * @public
    */
   creationTimeAfter?: Date | undefined;
 
   /**
-   * <p>A filter to only list evaluation jobs created before a specified time.</p>
+   * A filter to only list evaluation jobs created before a specified time.
+   *
    * @public
    */
   creationTimeBefore?: Date | undefined;
 
   /**
-   * <p>A filter to only list evaluation jobs that are of a certain status.</p>
+   * A filter to only list evaluation jobs that are of a certain status.
+   *
    * @public
    */
   statusEquals?: EvaluationJobStatus | undefined;
 
   /**
-   * <p>A filter to only list evaluation jobs that are either model evaluations or knowledge base evaluations.</p>
+   * A filter to only list evaluation jobs that are either model evaluations or knowledge base evaluations.
+   *
    * @public
    */
   applicationTypeEquals?: ApplicationType | undefined;
 
   /**
-   * <p>A filter to only list evaluation jobs that contain a specified string in the job name.</p>
+   * A filter to only list evaluation jobs that contain a specified string in the job name.
+   *
    * @public
    */
   nameContains?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * The maximum number of results to return.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Specifies a creation time to sort the list of evaluation jobs by when they were created.</p>
+   * Specifies a creation time to sort the list of evaluation jobs by when they were created.
+   *
    * @public
    */
   sortBy?: SortJobsBy | undefined;
 
   /**
-   * <p>Specifies whether to sort the list of evaluation jobs by either ascending or descending order.</p>
+   * Specifies whether to sort the list of evaluation jobs by either ascending or descending order.
+   *
    * @public
    */
   sortOrder?: SortOrder | undefined;
 }
 
 /**
- * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.
+ *
  * @public
  */
 export interface EvaluationModelConfigSummary {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the models used for the evaluation job.</p>
+   * The Amazon Resource Names (ARNs) of the models used for the evaluation job.
+   *
    * @public
    */
   bedrockModelIdentifiers?: string[] | undefined;
 
   /**
-   * <p>A label that identifies the models used for a model evaluation job where you provide your own inference response data.</p>
+   * A label that identifies the models used for a model evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   precomputedInferenceSourceIdentifiers?: string[] | undefined;
 }
 
 /**
- * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.
+ *
  * @public
  */
 export interface EvaluationRagConfigSummary {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the Knowledge Base resources used for a Knowledge Base evaluation job where Amazon Bedrock invokes the Knowledge Base for you.</p>
+   * The Amazon Resource Names (ARNs) of the Knowledge Base resources used for a Knowledge Base evaluation job where Amazon Bedrock invokes the Knowledge Base for you.
+   *
    * @public
    */
   bedrockKnowledgeBaseIdentifiers?: string[] | undefined;
 
   /**
-   * <p>A label that identifies the RAG sources used for a Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * A label that identifies the RAG sources used for a Knowledge Base evaluation job where you provide your own inference response data.
+   *
    * @public
    */
   precomputedRagSourceIdentifiers?: string[] | undefined;
 }
 
 /**
- * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
+ * Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.
+ *
  * @public
  */
 export interface EvaluationInferenceConfigSummary {
   /**
-   * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.
+   *
    * @public
    */
   modelConfigSummary?: EvaluationModelConfigSummary | undefined;
 
   /**
-   * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.
+   *
    * @public
    */
   ragConfigSummary?: EvaluationRagConfigSummary | undefined;
 }
 
 /**
- * <p>Summary information of an evaluation job.</p>
+ * Summary information of an evaluation job.
+ *
  * @public
  */
 export interface EvaluationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
+   * The Amazon Resource Name (ARN) of the evaluation job.
+   *
    * @public
    */
   jobArn: string | undefined;
 
   /**
-   * <p>The name for the evaluation job.</p>
+   * The name for the evaluation job.
+   *
    * @public
    */
   jobName: string | undefined;
 
   /**
-   * <p>The current status of the evaluation job.</p>
+   * The current status of the evaluation job.
+   *
    * @public
    */
   status: EvaluationJobStatus | undefined;
 
   /**
-   * <p>The time the evaluation job was created.</p>
+   * The time the evaluation job was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>Specifies whether the evaluation job is automated or human-based.</p>
+   * Specifies whether the evaluation job is automated or human-based.
+   *
    * @public
    */
   jobType: EvaluationJobType | undefined;
 
   /**
-   * <p>The type of task for model evaluation.</p>
+   * The type of task for model evaluation.
+   *
    * @public
    */
   evaluationTaskTypes: EvaluationTaskType[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.</p>
+   * The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.
    *
    * @deprecated (since 2025-03-07) Inference identifiers should be retrieved from the inferenceConfigSummary.
    * @public
@@ -7705,7 +8734,7 @@ export interface EvaluationSummary {
   modelIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.</p>
+   * The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.
    *
    * @deprecated (since 2025-03-07) Inference identifiers should be retrieved from the inferenceConfigSummary.
    * @public
@@ -7713,25 +8742,29 @@ export interface EvaluationSummary {
   ragIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the models used to compute the metrics for a knowledge base evaluation job.</p>
+   * The Amazon Resource Names (ARNs) of the models used to compute the metrics for a knowledge base evaluation job.
+   *
    * @public
    */
   evaluatorModelIdentifiers?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the models used to compute custom metrics in an Amazon Bedrock evaluation job.</p>
+   * The Amazon Resource Names (ARNs) of the models used to compute custom metrics in an Amazon Bedrock evaluation job.
+   *
    * @public
    */
   customMetricsEvaluatorModelIdentifiers?: string[] | undefined;
 
   /**
-   * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
+   * Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.
+   *
    * @public
    */
   inferenceConfigSummary?: EvaluationInferenceConfigSummary | undefined;
 
   /**
-   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
+   * Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).
+   *
    * @public
    */
   applicationType?: ApplicationType | undefined;
@@ -7742,13 +8775,15 @@ export interface EvaluationSummary {
  */
 export interface ListEvaluationJobsResponse {
   /**
-   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * Continuation token from the previous response, for Amazon Bedrock to list the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>A list of summaries of the evaluation jobs.</p>
+   * A list of summaries of the evaluation jobs.
+   *
    * @public
    */
   jobSummaries?: EvaluationSummary[] | undefined;
@@ -7759,7 +8794,8 @@ export interface ListEvaluationJobsResponse {
  */
 export interface StopEvaluationJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job you want to stop.</p>
+   * The Amazon Resource Name (ARN) of the evaluation job you want to stop.
+   *
    * @public
    */
   jobIdentifier: string | undefined;
@@ -7771,180 +8807,236 @@ export interface StopEvaluationJobRequest {
 export interface StopEvaluationJobResponse {}
 
 /**
- * <p>Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.</p>
+ * Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.
+ *
  * @public
  */
 export interface GuardrailAutomatedReasoningPolicyConfig {
   /**
-   * <p>The list of Automated Reasoning policy ARNs to include in the guardrail configuration.</p>
+   * The list of Automated Reasoning policy ARNs to include in the guardrail configuration.
+   *
    * @public
    */
   policies: string[] | undefined;
 
   /**
-   * <p>The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.</p>
+   * The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+   *
    * @public
    */
   confidenceThreshold?: number | undefined;
 }
 
 /**
- * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
+ * Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.
+ *
+ * - **Hate** – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).
+ * - **Insults** – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.
+ * - **Sexual** – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.
+ * - **Violence** – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.
+ *
+ * Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as *Hate* with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as *Hate* with HIGH confidence, *Insults* with LOW confidence, *Sexual* with NONE confidence, and *Violence* with MEDIUM confidence.
+ *
+ * For more information, see [Guardrails content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html).
+ *
  * @public
  */
 export interface GuardrailContentFilterConfig {
   /**
-   * <p>The harmful category that the content filter is applied to.</p>
+   * The harmful category that the content filter is applied to.
+   *
    * @public
    */
   type: GuardrailContentFilterType | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+   *
    * @public
    */
   inputStrength: GuardrailFilterStrength | undefined;
 
   /**
-   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.
+   *
    * @public
    */
   outputStrength: GuardrailFilterStrength | undefined;
 
   /**
-   * <p>The input modalities selected for the guardrail content filter configuration.</p>
+   * The input modalities selected for the guardrail content filter configuration.
+   *
    * @public
    */
   inputModalities?: GuardrailModality[] | undefined;
 
   /**
-   * <p>The output modalities selected for the guardrail content filter configuration.</p>
+   * The output modalities selected for the guardrail content filter configuration.
+   *
    * @public
    */
   outputModalities?: GuardrailModality[] | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * Specifies the action to take when harmful content is detected. Supported values include:
+   *
+   * - `BLOCK` – Block the content and replace it with blocked messaging.
+   * - `NONE` – Take no action but return detection information in the trace response.
+   *
    * @public
    */
   inputAction?: GuardrailContentFilterAction | undefined;
 
   /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * Specifies the action to take when harmful content is detected in the output. Supported values include:
+   *
+   * - `BLOCK` – Block the content and replace it with blocked messaging.
+   * - `NONE` – Take no action but return detection information in the trace response.
+   *
    * @public
    */
   outputAction?: GuardrailContentFilterAction | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+   *
    * @public
    */
   inputEnabled?: boolean | undefined;
 
   /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+   *
    * @public
    */
   outputEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The tier that your guardrail uses for content filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
+ * The tier that your guardrail uses for content filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.
+ *
  * @public
  */
 export interface GuardrailContentFiltersTierConfig {
   /**
-   * <p>The tier that your guardrail uses for content filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * The tier that your guardrail uses for content filters. Valid values include:
+   *
+   * - `CLASSIC` tier – Provides established guardrails functionality supporting English, French, and Spanish languages.
+   * - `STANDARD` tier – Provides a more robust solution than the `CLASSIC` tier and has more comprehensive language support. This tier requires that your guardrail use [cross-Region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html).
+   *
    * @public
    */
   tierName: GuardrailContentFiltersTierName | undefined;
 }
 
 /**
- * <p>Contains details about how to handle harmful content.</p>
+ * Contains details about how to handle harmful content.
+ *
  * @public
  */
 export interface GuardrailContentPolicyConfig {
   /**
-   * <p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>
+   * Contains the type of the content filter and how strongly it should apply to prompts and model responses.
+   *
    * @public
    */
   filtersConfig: GuardrailContentFilterConfig[] | undefined;
 
   /**
-   * <p>The tier that your guardrail uses for content filters.</p>
+   * The tier that your guardrail uses for content filters.
+   *
    * @public
    */
   tierConfig?: GuardrailContentFiltersTierConfig | undefined;
 }
 
 /**
- * <p>The filter configuration details for the guardrails contextual grounding filter.</p>
+ * The filter configuration details for the guardrails contextual grounding filter.
+ *
  * @public
  */
 export interface GuardrailContextualGroundingFilterConfig {
   /**
-   * <p>The filter details for the guardrails contextual grounding filter.</p>
+   * The filter details for the guardrails contextual grounding filter.
+   *
    * @public
    */
   type: GuardrailContextualGroundingFilterType | undefined;
 
   /**
-   * <p>The threshold details for the guardrails contextual grounding filter.</p>
+   * The threshold details for the guardrails contextual grounding filter.
+   *
    * @public
    */
   threshold: number | undefined;
 
   /**
-   * <p>Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
+   *
+   * - `BLOCK` – Block the content and replace it with blocked messaging.
+   * - `NONE` – Take no action but return detection information in the trace response.
+   *
    * @public
    */
   action?: GuardrailContextualGroundingAction | undefined;
 
   /**
-   * <p>Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
+   *
    * @public
    */
   enabled?: boolean | undefined;
 }
 
 /**
- * <p>Specifies the tier that your guardrail uses for contextual grounding checks.</p>
+ * Specifies the tier that your guardrail uses for contextual grounding checks.
+ *
  * @public
  */
 export interface GuardrailContextualGroundingTierConfig {
   /**
-   * <p>The tier that your guardrail uses for contextual grounding. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established contextual grounding functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier, with support for reasoning, conversational content and more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * The tier that your guardrail uses for contextual grounding. Valid values include:
+   *
+   * - `CLASSIC` tier – Provides established contextual grounding functionality supporting English, French, and Spanish languages.
+   * - `STANDARD` tier – Provides a more robust solution than the `CLASSIC` tier, with support for reasoning, conversational content and more comprehensive language support. This tier requires that your guardrail use [cross-Region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html).
+   *
    * @public
    */
   tierName: GuardrailContextualGroundingTierName | undefined;
 }
 
 /**
- * <p>The policy configuration details for the guardrails contextual grounding policy.</p>
+ * The policy configuration details for the guardrails contextual grounding policy.
+ *
  * @public
  */
 export interface GuardrailContextualGroundingPolicyConfig {
   /**
-   * <p>The filter configuration details for the guardrails contextual grounding policy.</p>
+   * The filter configuration details for the guardrails contextual grounding policy.
+   *
    * @public
    */
   filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
 
   /**
-   * <p>The tier that your guardrail uses for contextual grounding.</p>
+   * The tier that your guardrail uses for contextual grounding.
+   *
    * @public
    */
   tierConfig?: GuardrailContextualGroundingTierConfig | undefined;
 }
 
 /**
- * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.
+ *
+ * For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html).
+ *
  * @public
  */
 export interface GuardrailCrossRegionConfig {
   /**
-   * <p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
+   * The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the [Amazon Bedrock User Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html).
+   *
    * @public
    */
   guardrailProfileIdentifier: string | undefined;

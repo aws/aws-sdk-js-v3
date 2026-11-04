@@ -26,7 +26,8 @@ export interface DescribeSecurityGroupVpcAssociationsCommandInput extends Descri
 export interface DescribeSecurityGroupVpcAssociationsCommandOutput extends DescribeSecurityGroupVpcAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Describes security group VPC associations made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.</p>
+ * Describes security group VPC associations made with [AssociateSecurityGroupVpc](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +74,8 @@ export interface DescribeSecurityGroupVpcAssociationsCommandOutput extends Descr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

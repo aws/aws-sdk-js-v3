@@ -537,18 +537,14 @@ export type DataSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConfigType {}
 
 /**
- * <fullname>DataSync</fullname>
- *          <p>In addition to the Amazon Web Services Management Console and Amazon Web Services Command Line Interface,
- *       you can use the DataSync API to configure and manage DataSync with the
- *       <a href="http://aws.amazon.com/developer/tools/">Amazon Web Services SDKs</a>.</p>
- *          <p>DataSync is an online data movement service that simplifies data
- *       migration and helps you quickly, easily, and securely transfer your file or object data to,
- *       from, and between Amazon Web Services storage services.</p>
- *          <p>This API interface reference includes documentation for using DataSync
- *       programmatically. For complete information, see the <i>
- *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
- *           Guide</a>
- *             </i>.</p>
+ * DataSync
+ *
+ * In addition to the Amazon Web Services Management Console and Amazon Web Services Command Line Interface, you can use the DataSync API to configure and manage DataSync with the [Amazon Web Services SDKs](http://aws.amazon.com/developer/tools/).
+ *
+ * DataSync is an online data movement service that simplifies data migration and helps you quickly, easily, and securely transfer your file or object data to, from, and between Amazon Web Services storage services.
+ *
+ * This API interface reference includes documentation for using DataSync programmatically. For complete information, see the *[DataSync User Guide](https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html)* .
+ *
  * @public
  */
 export class DataSyncClient extends __Client<

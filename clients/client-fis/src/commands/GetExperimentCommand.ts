@@ -23,7 +23,8 @@ export interface GetExperimentCommandInput extends GetExperimentRequest {}
 export interface GetExperimentCommandOutput extends GetExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the specified experiment.</p>
+ * Gets information about the specified experiment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,14 +169,16 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

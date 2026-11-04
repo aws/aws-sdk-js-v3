@@ -23,30 +23,18 @@ export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicy
 export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:</p>
- *          <ul>
- *             <li>
- *                <p>Custom EBS snapshot policy</p>
- *             </li>
- *             <li>
- *                <p>Custom EBS-backed AMI policy</p>
- *             </li>
- *             <li>
- *                <p>Cross-account copy event policy</p>
- *             </li>
- *             <li>
- *                <p>Default policy for EBS snapshots</p>
- *             </li>
- *             <li>
- *                <p>Default policy for EBS-backed AMIs</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html">
- * 			Default policies vs custom policies</a>.</p>
- *          <important>
- *             <p>If you create a default policy, you can specify the request parameters either in
- * 				the request body, or in the PolicyDetails request structure, but not both.</p>
- *          </important>
+ * Creates an Amazon Data Lifecycle Manager lifecycle policy. Amazon Data Lifecycle Manager supports the following policy types:
+ *
+ * - Custom EBS snapshot policy
+ * - Custom EBS-backed AMI policy
+ * - Cross-account copy event policy
+ * - Default policy for EBS snapshots
+ * - Default policy for EBS-backed AMIs
+ *
+ * For more information, see [Default policies vs custom policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/policy-differences.html).
+ *
+ * > **Important:** If you create a default policy, you can specify the request parameters either in the request body, or in the PolicyDetails request structure, but not both.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -262,18 +250,20 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service failed in an unexpected way.</p>
+ *
+ * The service failed in an unexpected way.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Bad request. The request is missing required parameters or has invalid
- * 			parameters.</p>
+ *
+ * Bad request. The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request failed because a limit was exceeded.</p>
+ *
+ * The request failed because a limit was exceeded.
  *
  * @throws {@link DLMServiceException}
- * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ * Base exception class for all service exceptions from DLM service.
  *
  * @public
  */

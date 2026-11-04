@@ -23,8 +23,8 @@ export interface DescribeRulesCommandInput extends DescribeRulesInput {}
 export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified rules or the rules for the specified listener. You must specify
- *       either a listener or rules.</p>
+ * Describes the specified rules or the rules for the specified listener. You must specify either a listener or rules.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -202,17 +202,20 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link RuleNotFoundException} (client fault)
- *  <p>The specified rule does not exist.</p>
+ *
+ * The specified rule does not exist.
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
- *  <p>The specified protocol is not supported.</p>
+ *
+ * The specified protocol is not supported.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To describe a rule
  * ```javascript

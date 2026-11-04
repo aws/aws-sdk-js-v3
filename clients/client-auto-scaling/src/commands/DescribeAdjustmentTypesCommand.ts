@@ -23,26 +23,14 @@ export interface DescribeAdjustmentTypesCommandInput {}
 export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes the available adjustment types for step scaling and simple scaling
- *             policies.</p>
- *          <p>The following adjustment types are supported:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ChangeInCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ExactCapacity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PercentChangeInCapacity</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Describes the available adjustment types for step scaling and simple scaling policies.
+ *
+ * The following adjustment types are supported:
+ *
+ * - `ChangeInCapacity`
+ * - `ExactCapacity`
+ * - `PercentChangeInCapacity`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,12 +59,12 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To describe the Amazon EC2 Auto Scaling adjustment types
  * ```javascript

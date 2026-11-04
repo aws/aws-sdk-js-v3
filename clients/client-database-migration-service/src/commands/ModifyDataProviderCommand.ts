@@ -23,15 +23,12 @@ export interface ModifyDataProviderCommandInput extends ModifyDataProviderMessag
 export interface ModifyDataProviderCommandOutput extends ModifyDataProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the specified data provider using the provided settings.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:UpdateDataProvider</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
- *          <note>
- *             <p>You must remove the data provider from all migration projects before you can modify
- *             it.</p>
- *          </note>
+ * Modifies the specified data provider using the provided settings.
+ *
+ * **Required permissions:** `dms:UpdateDataProvider`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
+ * > **Note:** You must remove the data provider from all migration projects before you can modify it.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -274,21 +271,24 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Modify a data provider
  * ```javascript

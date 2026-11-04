@@ -23,47 +23,26 @@ export interface GetBucketPolicyCommandInput extends GetBucketPolicyRequest {}
 export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for
- *             an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
- *                <i>Amazon S3 API Reference</i>. </p>
- *          </note>
- *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
- *             Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
- *          bucket, the calling identity must have the <code>GetBucketPolicy</code> permissions on the
- *          specified bucket and belong to the bucket owner's account in order to use this
- *          action.</p>
- *          <p>Only users from Outposts bucket owner account with the right permissions can perform
- *          actions on an Outposts bucket. If you don't have <code>s3-outposts:GetBucketPolicy</code>
- *          permissions or you're not using an identity that belongs to the bucket owner's account,
- *          Amazon S3 returns a <code>403 Access Denied</code> error.</p>
- *          <important>
- *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
- *             always use this action, even if the policy explicitly denies the root user the ability
- *             to perform this action.</p>
- *          </important>
- *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
- *             Policies</a>.</p>
- *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples">Examples</a> section.</p>
- *          <p>The following actions are related to <code>GetBucketPolicy</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html">PutBucketPolicy</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html">DeleteBucketPolicy</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for an S3 bucket, see [GetBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html) in the *Amazon S3 API Reference*.
+ *
+ * Returns the policy of a specified Outposts bucket. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) in the *Amazon S3 User Guide*.
+ *
+ * If you are using an identity other than the root user of the Amazon Web Services account that owns the bucket, the calling identity must have the `GetBucketPolicy` permissions on the specified bucket and belong to the bucket owner's account in order to use this action.
+ *
+ * Only users from Outposts bucket owner account with the right permissions can perform actions on an Outposts bucket. If you don't have `s3-outposts:GetBucketPolicy` permissions or you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a `403 Access Denied` error.
+ *
+ * > **Important:** As a security precaution, the root user of the Amazon Web Services account that owns a bucket can always use this action, even if the policy explicitly denies the root user the ability to perform this action.
+ *
+ * For more information about bucket policies, see [Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html).
+ *
+ * All Amazon S3 on Outposts REST API requests for this action require an additional parameter of `x-amz-outpost-id` to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of `s3-control`. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the `x-amz-outpost-id` derived by using the access point ARN, see the [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples) section.
+ *
+ * The following actions are related to `GetBucketPolicy`:
+ *
+ * - [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html)
+ * - [PutBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html)
+ * - [DeleteBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +70,8 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

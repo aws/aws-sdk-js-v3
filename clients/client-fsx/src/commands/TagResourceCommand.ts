@@ -23,7 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Tags an Amazon FSx resource.</p>
+ * Tags an Amazon FSx resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,24 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link NotServiceResourceError} (client fault)
- *  <p>The resource specified for the tagging operation is not a resource type owned by
- *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
+ *
+ * The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation.
  *
  * @throws {@link ResourceDoesNotSupportTagging} (client fault)
- *  <p>The resource specified does not support tagging. </p>
+ *
+ * The resource specified does not support tagging.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
+ *
+ * The resource specified by the Amazon Resource Name (ARN) can't be found.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @example To tag a resource
  * ```javascript

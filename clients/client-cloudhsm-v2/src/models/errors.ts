@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudHSMV2ServiceException as __BaseException } from "./CloudHSMV2ServiceException";
 
 /**
- * <p>The request was rejected because the requester does not have permission to perform the
- *       requested operation.</p>
+ * The request was rejected because the requester does not have permission to perform the requested operation.
+ *
  * @public
  */
 export class CloudHsmAccessDeniedException extends __BaseException {
@@ -28,8 +28,8 @@ export class CloudHsmAccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because of an CloudHSM internal failure. The request can
- *       be retried.</p>
+ * The request was rejected because of an CloudHSM internal failure. The request can be retried.
+ *
  * @public
  */
 export class CloudHsmInternalFailureException extends __BaseException {
@@ -52,7 +52,8 @@ export class CloudHsmInternalFailureException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it is not a valid request.</p>
+ * The request was rejected because it is not a valid request.
+ *
  * @public
  */
 export class CloudHsmInvalidRequestException extends __BaseException {
@@ -75,8 +76,8 @@ export class CloudHsmInvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it refers to a resource that cannot be
- *       found.</p>
+ * The request was rejected because it refers to a resource that cannot be found.
+ *
  * @public
  */
 export class CloudHsmResourceNotFoundException extends __BaseException {
@@ -99,7 +100,8 @@ export class CloudHsmResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because an error occurred.</p>
+ * The request was rejected because an error occurred.
+ *
  * @public
  */
 export class CloudHsmServiceException extends __BaseException {
@@ -122,7 +124,8 @@ export class CloudHsmServiceException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
+ * The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.
+ *
  * @public
  */
 export class CloudHsmTagException extends __BaseException {
@@ -145,7 +148,8 @@ export class CloudHsmTagException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it exceeds an CloudHSM limit.</p>
+ * The request was rejected because it exceeds an CloudHSM limit.
+ *
  * @public
  */
 export class CloudHsmResourceLimitExceededException extends __BaseException {

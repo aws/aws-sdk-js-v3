@@ -23,7 +23,8 @@ export interface DeleteHsmConfigurationCommandInput extends DeleteHsmConfigurati
 export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Amazon Redshift HSM configuration.</p>
+ * Deletes the specified Amazon Redshift HSM configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,15 +49,16 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link HsmConfigurationNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * There is no Amazon Redshift HSM configuration with the specified identifier.
  *
  * @throws {@link InvalidHsmConfigurationStateFault} (client fault)
- *  <p>The specified HSM configuration is not in the <code>available</code> state, or it
- *             is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ * The specified HSM configuration is not in the `available` state, or it is still in use by one or more Amazon Redshift clusters.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

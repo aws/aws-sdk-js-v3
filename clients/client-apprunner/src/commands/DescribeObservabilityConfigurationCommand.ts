@@ -26,7 +26,8 @@ export interface DescribeObservabilityConfigurationCommandInput extends Describe
 export interface DescribeObservabilityConfigurationCommandOutput extends DescribeObservabilityConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Return a full description of an App Runner observability configuration resource.</p>
+ * Return a full description of an App Runner observability configuration resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,17 +65,20 @@ export interface DescribeObservabilityConfigurationCommandOutput extends Describ
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

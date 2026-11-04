@@ -43,19 +43,22 @@ import type {
  */
 export interface AbortDocumentVersionUploadRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The ID of the version.</p>
+   * The ID of the version.
+   *
    * @public
    */
   VersionId: string | undefined;
@@ -66,145 +69,169 @@ export interface AbortDocumentVersionUploadRequest {
  */
 export interface ActivateUserRequest {
   /**
-   * <p>The ID of the user.</p>
+   * The ID of the user.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 }
 
 /**
- * <p>Describes the storage for a user.</p>
+ * Describes the storage for a user.
+ *
  * @public
  */
 export interface StorageRuleType {
   /**
-   * <p>The amount of storage allocated, in bytes.</p>
+   * The amount of storage allocated, in bytes.
+   *
    * @public
    */
   StorageAllocatedInBytes?: number | undefined;
 
   /**
-   * <p>The type of storage.</p>
+   * The type of storage.
+   *
    * @public
    */
   StorageType?: StorageType | undefined;
 }
 
 /**
- * <p>Describes the storage for a user.</p>
+ * Describes the storage for a user.
+ *
  * @public
  */
 export interface UserStorageMetadata {
   /**
-   * <p>The amount of storage used, in bytes.</p>
+   * The amount of storage used, in bytes.
+   *
    * @public
    */
   StorageUtilizedInBytes?: number | undefined;
 
   /**
-   * <p>The storage for a user.</p>
+   * The storage for a user.
+   *
    * @public
    */
   StorageRule?: StorageRuleType | undefined;
 }
 
 /**
- * <p>Describes a user.</p>
+ * Describes a user.
+ *
  * @public
  */
 export interface User {
   /**
-   * <p>The ID of the user.</p>
+   * The ID of the user.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The login name of the user.</p>
+   * The login name of the user.
+   *
    * @public
    */
   Username?: string | undefined;
 
   /**
-   * <p>The email address of the user.</p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>The given name of the user.</p>
+   * The given name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p>The surname of the user.</p>
+   * The surname of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The ID of the root folder.</p>
+   * The ID of the root folder.
+   *
    * @public
    */
   RootFolderId?: string | undefined;
 
   /**
-   * <p>The ID of the recycle bin folder.</p>
+   * The ID of the recycle bin folder.
+   *
    * @public
    */
   RecycleBinFolderId?: string | undefined;
 
   /**
-   * <p>The status of the user.</p>
+   * The status of the user.
+   *
    * @public
    */
   Status?: UserStatusType | undefined;
 
   /**
-   * <p>The type of user.</p>
+   * The type of user.
+   *
    * @public
    */
   Type?: UserType | undefined;
 
   /**
-   * <p>The time when the user was created.</p>
+   * The time when the user was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time when the user was modified.</p>
+   * The time when the user was modified.
+   *
    * @public
    */
   ModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time zone ID of the user.</p>
+   * The time zone ID of the user.
+   *
    * @public
    */
   TimeZoneId?: string | undefined;
 
   /**
-   * <p>The locale of the user.</p>
+   * The locale of the user.
+   *
    * @public
    */
   Locale?: LocaleType | undefined;
 
   /**
-   * <p>The storage for the user.</p>
+   * The storage for the user.
+   *
    * @public
    */
   Storage?: UserStorageMetadata | undefined;
@@ -215,280 +242,316 @@ export interface User {
  */
 export interface ActivateUserResponse {
   /**
-   * <p>The user information.</p>
+   * The user information.
+   *
    * @public
    */
   User?: User | undefined;
 }
 
 /**
- * <p>Describes the metadata of a comment.</p>
+ * Describes the metadata of a comment.
+ *
  * @public
  */
 export interface CommentMetadata {
   /**
-   * <p>The ID of the comment.</p>
+   * The ID of the comment.
+   *
    * @public
    */
   CommentId?: string | undefined;
 
   /**
-   * <p>The user who made the comment.</p>
+   * The user who made the comment.
+   *
    * @public
    */
   Contributor?: User | undefined;
 
   /**
-   * <p>The timestamp that the comment was created.</p>
+   * The timestamp that the comment was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The status of the comment.</p>
+   * The status of the comment.
+   *
    * @public
    */
   CommentStatus?: CommentStatusType | undefined;
 
   /**
-   * <p>The ID of the user being replied to.</p>
+   * The ID of the user being replied to.
+   *
    * @public
    */
   RecipientId?: string | undefined;
 
   /**
-   * <p>The ID of the user who made the comment.</p>
+   * The ID of the user who made the comment.
+   *
    * @public
    */
   ContributorId?: string | undefined;
 }
 
 /**
- * <p>Describes the metadata of the user.</p>
+ * Describes the metadata of the user.
+ *
  * @public
  */
 export interface UserMetadata {
   /**
-   * <p>The ID of the user.</p>
+   * The ID of the user.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the user.</p>
+   * The name of the user.
+   *
    * @public
    */
   Username?: string | undefined;
 
   /**
-   * <p>The given name of the user before a rename operation.</p>
+   * The given name of the user before a rename operation.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p>The surname of the user.</p>
+   * The surname of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p>The email address of the user.</p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 }
 
 /**
- * <p>Describes the metadata of a resource.</p>
+ * Describes the metadata of a resource.
+ *
  * @public
  */
 export interface ResourceMetadata {
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   Type?: ResourceType | undefined;
 
   /**
-   * <p>The name of the resource.</p>
+   * The name of the resource.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The original name of the resource before a rename operation.</p>
+   * The original name of the resource before a rename operation.
+   *
    * @public
    */
   OriginalName?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The version ID of the resource. This is an optional field and is filled for action
-   *             on document version.</p>
+   * The version ID of the resource. This is an optional field and is filled for action on document version.
+   *
    * @public
    */
   VersionId?: string | undefined;
 
   /**
-   * <p>The owner of the resource.</p>
+   * The owner of the resource.
+   *
    * @public
    */
   Owner?: UserMetadata | undefined;
 
   /**
-   * <p>The parent ID of the resource before a rename operation.</p>
+   * The parent ID of the resource before a rename operation.
+   *
    * @public
    */
   ParentId?: string | undefined;
 }
 
 /**
- * <p>Describes the metadata of a user group.</p>
+ * Describes the metadata of a user group.
+ *
  * @public
  */
 export interface GroupMetadata {
   /**
-   * <p>The ID of the user group.</p>
+   * The ID of the user group.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the group.</p>
+   * The name of the group.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Describes the users or user groups.</p>
+ * Describes the users or user groups.
+ *
  * @public
  */
 export interface Participants {
   /**
-   * <p>The list of users.</p>
+   * The list of users.
+   *
    * @public
    */
   Users?: UserMetadata[] | undefined;
 
   /**
-   * <p>The list of user groups.</p>
+   * The list of user groups.
+   *
    * @public
    */
   Groups?: GroupMetadata[] | undefined;
 }
 
 /**
- * <p>Describes the activity information.</p>
+ * Describes the activity information.
+ *
  * @public
  */
 export interface Activity {
   /**
-   * <p>The activity type.</p>
+   * The activity type.
+   *
    * @public
    */
   Type?: ActivityType | undefined;
 
   /**
-   * <p>The timestamp when the action was performed.</p>
+   * The timestamp when the action was performed.
+   *
    * @public
    */
   TimeStamp?: Date | undefined;
 
   /**
-   * <p>Indicates whether an activity is indirect or direct. An indirect activity results
-   *             from a direct activity performed on a parent resource. For example, sharing a parent
-   *             folder (the direct activity) shares all of the subfolders and documents within the
-   *             parent folder (the indirect activity).</p>
+   * Indicates whether an activity is indirect or direct. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
+   *
    * @public
    */
   IsIndirectActivity?: boolean | undefined;
 
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The user who performed the action.</p>
+   * The user who performed the action.
+   *
    * @public
    */
   Initiator?: UserMetadata | undefined;
 
   /**
-   * <p>The list of users or groups impacted by this action. This is an optional field and
-   *             is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED,
-   *             DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.</p>
+   * The list of users or groups impacted by this action. This is an optional field and is filled for the following sharing activities: DOCUMENT_SHARED, DOCUMENT_SHARED, DOCUMENT_UNSHARED, FOLDER_SHARED, FOLDER_UNSHARED.
+   *
    * @public
    */
   Participants?: Participants | undefined;
 
   /**
-   * <p>The metadata of the resource involved in the user action.</p>
+   * The metadata of the resource involved in the user action.
+   *
    * @public
    */
   ResourceMetadata?: ResourceMetadata | undefined;
 
   /**
-   * <p>The original parent of the resource. This is an optional field and is filled for
-   *             move activities.</p>
+   * The original parent of the resource. This is an optional field and is filled for move activities.
+   *
    * @public
    */
   OriginalParent?: ResourceMetadata | undefined;
 
   /**
-   * <p>Metadata of the commenting activity. This is an optional field and is filled for
-   *             commenting activities.</p>
+   * Metadata of the commenting activity. This is an optional field and is filled for commenting activities.
+   *
    * @public
    */
   CommentMetadata?: CommentMetadata | undefined;
 }
 
 /**
- * <p>Set of options which defines notification preferences of given action.</p>
+ * Set of options which defines notification preferences of given action.
+ *
  * @public
  */
 export interface NotificationOptions {
   /**
-   * <p>Boolean value to indicate an email notification should be sent to the
-   *             recipients.</p>
+   * Boolean value to indicate an email notification should be sent to the recipients.
+   *
    * @public
    */
   SendEmail?: boolean | undefined;
 
   /**
-   * <p>Text value to be included in the email body.</p>
+   * Text value to be included in the email body.
+   *
    * @public
    */
   EmailMessage?: string | undefined;
 }
 
 /**
- * <p>Describes the recipient type and ID, if available.</p>
+ * Describes the recipient type and ID, if available.
+ *
  * @public
  */
 export interface SharePrincipal {
   /**
-   * <p>The ID of the recipient.</p>
+   * The ID of the recipient.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The type of the recipient.</p>
+   * The type of the recipient.
+   *
    * @public
    */
   Type: PrincipalType | undefined;
 
   /**
-   * <p>The role of the recipient.</p>
+   * The role of the recipient.
+   *
    * @public
    */
   Role: RoleType | undefined;
@@ -499,67 +562,78 @@ export interface SharePrincipal {
  */
 export interface AddResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The users, groups, or organization being granted permission.</p>
+   * The users, groups, or organization being granted permission.
+   *
    * @public
    */
   Principals: SharePrincipal[] | undefined;
 
   /**
-   * <p>The notification options.</p>
+   * The notification options.
+   *
    * @public
    */
   NotificationOptions?: NotificationOptions | undefined;
 }
 
 /**
- * <p>Describes the share results of a resource.</p>
+ * Describes the share results of a resource.
+ *
  * @public
  */
 export interface ShareResult {
   /**
-   * <p>The ID of the principal.</p>
+   * The ID of the principal.
+   *
    * @public
    */
   PrincipalId?: string | undefined;
 
   /**
-   * <p>The ID of the invited user.</p>
+   * The ID of the invited user.
+   *
    * @public
    */
   InviteePrincipalId?: string | undefined;
 
   /**
-   * <p>The role.</p>
+   * The role.
+   *
    * @public
    */
   Role?: RoleType | undefined;
 
   /**
-   * <p>The status.</p>
+   * The status.
+   *
    * @public
    */
   Status?: ShareStatusType | undefined;
 
   /**
-   * <p>The ID of the resource that was shared.</p>
+   * The ID of the resource that was shared.
+   *
    * @public
    */
   ShareId?: string | undefined;
 
   /**
-   * <p>The status message.</p>
+   * The status message.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
@@ -570,7 +644,8 @@ export interface ShareResult {
  */
 export interface AddResourcePermissionsResponse {
   /**
-   * <p>The share results.</p>
+   * The share results.
+   *
    * @public
    */
   ShareResults?: ShareResult[] | undefined;
@@ -581,115 +656,127 @@ export interface AddResourcePermissionsResponse {
  */
 export interface CreateCommentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The ID of the document version.</p>
+   * The ID of the document version.
+   *
    * @public
    */
   VersionId: string | undefined;
 
   /**
-   * <p>The ID of the parent comment.</p>
+   * The ID of the parent comment.
+   *
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>The ID of the root comment in the thread.</p>
+   * The ID of the root comment in the thread.
+   *
    * @public
    */
   ThreadId?: string | undefined;
 
   /**
-   * <p>The text of the comment.</p>
+   * The text of the comment.
+   *
    * @public
    */
   Text: string | undefined;
 
   /**
-   * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
-   *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
-   *             the comment is visible to document owners, co-owners, and contributors.</p>
+   * The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+   *
    * @public
    */
   Visibility?: CommentVisibilityType | undefined;
 
   /**
-   * <p>Set this parameter to TRUE to send an email out to the document collaborators after
-   *             the comment is created.</p>
+   * Set this parameter to TRUE to send an email out to the document collaborators after the comment is created.
+   *
    * @public
    */
   NotifyCollaborators?: boolean | undefined;
 }
 
 /**
- * <p>Describes a comment.</p>
+ * Describes a comment.
+ *
  * @public
  */
 export interface Comment {
   /**
-   * <p>The ID of the comment.</p>
+   * The ID of the comment.
+   *
    * @public
    */
   CommentId: string | undefined;
 
   /**
-   * <p>The ID of the parent comment.</p>
+   * The ID of the parent comment.
+   *
    * @public
    */
   ParentId?: string | undefined;
 
   /**
-   * <p>The ID of the root comment in the thread.</p>
+   * The ID of the root comment in the thread.
+   *
    * @public
    */
   ThreadId?: string | undefined;
 
   /**
-   * <p>The text of the comment.</p>
+   * The text of the comment.
+   *
    * @public
    */
   Text?: string | undefined;
 
   /**
-   * <p>The details of the user who made the comment.</p>
+   * The details of the user who made the comment.
+   *
    * @public
    */
   Contributor?: User | undefined;
 
   /**
-   * <p>The time that the comment was created.</p>
+   * The time that the comment was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The status of the comment.</p>
+   * The status of the comment.
+   *
    * @public
    */
   Status?: CommentStatusType | undefined;
 
   /**
-   * <p>The visibility of the comment. Options are either PRIVATE, where the comment is
-   *             visible only to the comment author and document owner and co-owners, or PUBLIC, where
-   *             the comment is visible to document owners, co-owners, and contributors.</p>
+   * The visibility of the comment. Options are either PRIVATE, where the comment is visible only to the comment author and document owner and co-owners, or PUBLIC, where the comment is visible to document owners, co-owners, and contributors.
+   *
    * @public
    */
   Visibility?: CommentVisibilityType | undefined;
 
   /**
-   * <p>If the comment is a reply to another user's comment, this field contains the user
-   *             ID of the user being replied to.</p>
+   * If the comment is a reply to another user's comment, this field contains the user ID of the user being replied to.
+   *
    * @public
    */
   RecipientId?: string | undefined;
@@ -700,7 +787,8 @@ export interface Comment {
  */
 export interface CreateCommentResponse {
   /**
-   * <p>The comment that has been created.</p>
+   * The comment that has been created.
+   *
    * @public
    */
   Comment?: Comment | undefined;
@@ -711,26 +799,29 @@ export interface CreateCommentResponse {
  */
 export interface CreateCustomMetadataRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The ID of the version, if the custom metadata is being added to a document
-   *             version.</p>
+   * The ID of the version, if the custom metadata is being added to a document version.
+   *
    * @public
    */
   VersionId?: string | undefined;
 
   /**
-   * <p>Custom metadata in the form of name-value pairs.</p>
+   * Custom metadata in the form of name-value pairs.
+   *
    * @public
    */
   CustomMetadata: Record<string, string> | undefined;
@@ -746,92 +837,106 @@ export interface CreateCustomMetadataResponse {}
  */
 export interface CreateFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The name of the new folder.</p>
+   * The name of the new folder.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * The ID of the parent folder.
+   *
    * @public
    */
   ParentFolderId: string | undefined;
 }
 
 /**
- * <p>Describes a folder.</p>
+ * Describes a folder.
+ *
  * @public
  */
 export interface FolderMetadata {
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the folder.</p>
+   * The name of the folder.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the creator.</p>
+   * The ID of the creator.
+   *
    * @public
    */
   CreatorId?: string | undefined;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * The ID of the parent folder.
+   *
    * @public
    */
   ParentFolderId?: string | undefined;
 
   /**
-   * <p>The time when the folder was created.</p>
+   * The time when the folder was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time when the folder was updated.</p>
+   * The time when the folder was updated.
+   *
    * @public
    */
   ModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p>The resource state of the folder.</p>
+   * The resource state of the folder.
+   *
    * @public
    */
   ResourceState?: ResourceStateType | undefined;
 
   /**
-   * <p>The unique identifier created from the subfolders and documents of the
-   *             folder.</p>
+   * The unique identifier created from the subfolders and documents of the folder.
+   *
    * @public
    */
   Signature?: string | undefined;
 
   /**
-   * <p>List of labels on the folder.</p>
+   * List of labels on the folder.
+   *
    * @public
    */
   Labels?: string[] | undefined;
 
   /**
-   * <p>The size of the folder metadata.</p>
+   * The size of the folder metadata.
+   *
    * @public
    */
   Size?: number | undefined;
 
   /**
-   * <p>The size of the latest version of the folder metadata.</p>
+   * The size of the latest version of the folder metadata.
+   *
    * @public
    */
   LatestVersionSize?: number | undefined;
@@ -842,7 +947,8 @@ export interface FolderMetadata {
  */
 export interface CreateFolderResponse {
   /**
-   * <p>The metadata of the folder.</p>
+   * The metadata of the folder.
+   *
    * @public
    */
   Metadata?: FolderMetadata | undefined;
@@ -853,19 +959,22 @@ export interface CreateFolderResponse {
  */
 export interface CreateLabelsRequest {
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>List of labels to add to the resource.</p>
+   * List of labels to add to the resource.
+   *
    * @public
    */
   Labels: string[] | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
@@ -881,51 +990,57 @@ export interface CreateLabelsResponse {}
  */
 export interface CreateNotificationSubscriptionRequest {
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint
-   *             is a URL that begins with <code>https</code>.</p>
+   * The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with `https`.
+   *
    * @public
    */
   Endpoint: string | undefined;
 
   /**
-   * <p>The protocol to use. The supported value is https, which delivers JSON-encoded
-   *             messages using HTTPS POST.</p>
+   * The protocol to use. The supported value is https, which delivers JSON-encoded messages using HTTPS POST.
+   *
    * @public
    */
   Protocol: SubscriptionProtocolType | undefined;
 
   /**
-   * <p>The notification type.</p>
+   * The notification type.
+   *
    * @public
    */
   SubscriptionType: SubscriptionType | undefined;
 }
 
 /**
- * <p>Describes a subscription.</p>
+ * Describes a subscription.
+ *
  * @public
  */
 export interface Subscription {
   /**
-   * <p>The ID of the subscription.</p>
+   * The ID of the subscription.
+   *
    * @public
    */
   SubscriptionId?: string | undefined;
 
   /**
-   * <p>The endpoint of the subscription.</p>
+   * The endpoint of the subscription.
+   *
    * @public
    */
   EndPoint?: string | undefined;
 
   /**
-   * <p>The protocol of the subscription.</p>
+   * The protocol of the subscription.
+   *
    * @public
    */
   Protocol?: SubscriptionProtocolType | undefined;
@@ -936,7 +1051,8 @@ export interface Subscription {
  */
 export interface CreateNotificationSubscriptionResponse {
   /**
-   * <p>The subscription.</p>
+   * The subscription.
+   *
    * @public
    */
   Subscription?: Subscription | undefined;
@@ -947,55 +1063,64 @@ export interface CreateNotificationSubscriptionResponse {
  */
 export interface CreateUserRequest {
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The login name of the user.</p>
+   * The login name of the user.
+   *
    * @public
    */
   Username: string | undefined;
 
   /**
-   * <p>The email address of the user.</p>
+   * The email address of the user.
+   *
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p>The given name of the user.</p>
+   * The given name of the user.
+   *
    * @public
    */
   GivenName: string | undefined;
 
   /**
-   * <p>The surname of the user.</p>
+   * The surname of the user.
+   *
    * @public
    */
   Surname: string | undefined;
 
   /**
-   * <p>The password of the user.</p>
+   * The password of the user.
+   *
    * @public
    */
   Password: string | undefined;
 
   /**
-   * <p>The time zone ID of the user.</p>
+   * The time zone ID of the user.
+   *
    * @public
    */
   TimeZoneId?: string | undefined;
 
   /**
-   * <p>The amount of storage for the user.</p>
+   * The amount of storage for the user.
+   *
    * @public
    */
   StorageRule?: StorageRuleType | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
@@ -1006,7 +1131,8 @@ export interface CreateUserRequest {
  */
 export interface CreateUserResponse {
   /**
-   * <p>The user information.</p>
+   * The user information.
+   *
    * @public
    */
   User?: User | undefined;
@@ -1017,13 +1143,15 @@ export interface CreateUserResponse {
  */
 export interface DeactivateUserRequest {
   /**
-   * <p>The ID of the user.</p>
+   * The ID of the user.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
@@ -1034,25 +1162,29 @@ export interface DeactivateUserRequest {
  */
 export interface DeleteCommentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The ID of the document version.</p>
+   * The ID of the document version.
+   *
    * @public
    */
   VersionId: string | undefined;
 
   /**
-   * <p>The ID of the comment.</p>
+   * The ID of the comment.
+   *
    * @public
    */
   CommentId: string | undefined;
@@ -1063,33 +1195,36 @@ export interface DeleteCommentRequest {
  */
 export interface DeleteCustomMetadataRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource, either a document or folder.</p>
+   * The ID of the resource, either a document or folder.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The ID of the version, if the custom metadata is being deleted from a document
-   *             version.</p>
+   * The ID of the version, if the custom metadata is being deleted from a document version.
+   *
    * @public
    */
   VersionId?: string | undefined;
 
   /**
-   * <p>List of properties to remove.</p>
+   * List of properties to remove.
+   *
    * @public
    */
   Keys?: string[] | undefined;
 
   /**
-   * <p>Flag to indicate removal of all custom metadata properties from the specified
-   *             resource.</p>
+   * Flag to indicate removal of all custom metadata properties from the specified resource.
+   *
    * @public
    */
   DeleteAll?: boolean | undefined;
@@ -1105,13 +1240,15 @@ export interface DeleteCustomMetadataResponse {}
  */
 export interface DeleteDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
@@ -1122,25 +1259,29 @@ export interface DeleteDocumentRequest {
  */
 export interface DeleteDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document associated with the version being deleted.</p>
+   * The ID of the document associated with the version being deleted.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The ID of the version being deleted.</p>
+   * The ID of the version being deleted.
+   *
    * @public
    */
   VersionId: string | undefined;
 
   /**
-   * <p>Deletes all versions of a document prior to the current version.</p>
+   * Deletes all versions of a document prior to the current version.
+   *
    * @public
    */
   DeletePriorVersions: boolean | undefined;
@@ -1151,13 +1292,15 @@ export interface DeleteDocumentVersionRequest {
  */
 export interface DeleteFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   FolderId: string | undefined;
@@ -1168,13 +1311,15 @@ export interface DeleteFolderRequest {
  */
 export interface DeleteFolderContentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   FolderId: string | undefined;
@@ -1185,25 +1330,29 @@ export interface DeleteFolderContentsRequest {
  */
 export interface DeleteLabelsRequest {
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>List of labels to delete from the resource.</p>
+   * List of labels to delete from the resource.
+   *
    * @public
    */
   Labels?: string[] | undefined;
 
   /**
-   * <p>Flag to request removal of all labels from the specified resource.</p>
+   * Flag to request removal of all labels from the specified resource.
+   *
    * @public
    */
   DeleteAll?: boolean | undefined;
@@ -1219,13 +1368,15 @@ export interface DeleteLabelsResponse {}
  */
 export interface DeleteNotificationSubscriptionRequest {
   /**
-   * <p>The ID of the subscription.</p>
+   * The ID of the subscription.
+   *
    * @public
    */
   SubscriptionId: string | undefined;
 
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
@@ -1236,14 +1387,15 @@ export interface DeleteNotificationSubscriptionRequest {
  */
 export interface DeleteUserRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Do not set this field when using
-   *             administrative API actions, as in accessing the API using Amazon Web Services credentials.</p>
+   * Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using Amazon Web Services credentials.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the user.</p>
+   * The ID of the user.
+   *
    * @public
    */
   UserId: string | undefined;
@@ -1254,70 +1406,71 @@ export interface DeleteUserRequest {
  */
 export interface DescribeActivitiesRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The timestamp that determines the starting time of the activities. The response
-   *             includes the activities performed after the specified timestamp.</p>
+   * The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The timestamp that determines the end time of the activities. The response includes
-   *             the activities performed before the specified timestamp.</p>
+   * The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The ID of the organization. This is a mandatory parameter when using administrative
-   *             API (SigV4) requests.</p>
+   * The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>Specifies which activity types to include in the response. If this field is left
-   *             empty, all activity types are returned.</p>
+   * Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
+   *
    * @public
    */
   ActivityTypes?: string | undefined;
 
   /**
-   * <p>The document or folder ID for which to describe activity types.</p>
+   * The document or folder ID for which to describe activity types.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The ID of the user who performed the action. The response includes activities
-   *             pertaining to this user. This is an optional parameter and is only applicable for
-   *             administrative API (SigV4) requests.</p>
+   * The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>Includes indirect activities. An indirect activity results from a direct activity
-   *             performed on a parent resource. For example, sharing a parent folder (the direct
-   *             activity) shares all of the subfolders and documents within the parent folder (the
-   *             indirect activity).</p>
+   * Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
+   *
    * @public
    */
   IncludeIndirectActivities?: boolean | undefined;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * The maximum number of items to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results.</p>
+   * The marker for the next set of results.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1328,13 +1481,15 @@ export interface DescribeActivitiesRequest {
  */
 export interface DescribeActivitiesResponse {
   /**
-   * <p>The list of activities for the specified user and time period.</p>
+   * The list of activities for the specified user and time period.
+   *
    * @public
    */
   UserActivities?: Activity[] | undefined;
 
   /**
-   * <p>The marker for the next set of results.</p>
+   * The marker for the next set of results.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1345,32 +1500,36 @@ export interface DescribeActivitiesResponse {
  */
 export interface DescribeCommentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The ID of the document version.</p>
+   * The ID of the document version.
+   *
    * @public
    */
   VersionId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * The maximum number of items to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results. This marker was received from a previous
-   *             call.</p>
+   * The marker for the next set of results. This marker was received from a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1381,14 +1540,15 @@ export interface DescribeCommentsRequest {
  */
 export interface DescribeCommentsResponse {
   /**
-   * <p>The list of comments for the specified document version.</p>
+   * The list of comments for the specified document version.
+   *
    * @public
    */
   Comments?: Comment[] | undefined;
 
   /**
-   * <p>The marker for the next set of results. This marker was received from a previous
-   *             call.</p>
+   * The marker for the next set of results. This marker was received from a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1399,124 +1559,141 @@ export interface DescribeCommentsResponse {
  */
 export interface DescribeDocumentVersionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of versions to return with this call.</p>
+   * The maximum number of versions to return with this call.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>A comma-separated list of values. Specify "INITIALIZED" to include incomplete
-   *             versions.</p>
+   * A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+   *
    * @public
    */
   Include?: string | undefined;
 
   /**
-   * <p>Specify "SOURCE" to include initialized versions and a URL for the source
-   *             document.</p>
+   * Specify "SOURCE" to include initialized versions and a URL for the source document.
+   *
    * @public
    */
   Fields?: string | undefined;
 }
 
 /**
- * <p>Describes a version of a document.</p>
+ * Describes a version of a document.
+ *
  * @public
  */
 export interface DocumentVersionMetadata {
   /**
-   * <p>The ID of the version.</p>
+   * The ID of the version.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the version.</p>
+   * The name of the version.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The content type of the document.</p>
+   * The content type of the document.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The size of the document, in bytes.</p>
+   * The size of the document, in bytes.
+   *
    * @public
    */
   Size?: number | undefined;
 
   /**
-   * <p>The signature of the document.</p>
+   * The signature of the document.
+   *
    * @public
    */
   Signature?: string | undefined;
 
   /**
-   * <p>The status of the document.</p>
+   * The status of the document.
+   *
    * @public
    */
   Status?: DocumentStatusType | undefined;
 
   /**
-   * <p>The timestamp when the document was first uploaded.</p>
+   * The timestamp when the document was first uploaded.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the document was last uploaded.</p>
+   * The timestamp when the document was last uploaded.
+   *
    * @public
    */
   ModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the content of the document was originally created.</p>
+   * The timestamp when the content of the document was originally created.
+   *
    * @public
    */
   ContentCreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the content of the document was modified.</p>
+   * The timestamp when the content of the document was modified.
+   *
    * @public
    */
   ContentModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p>The ID of the creator.</p>
+   * The ID of the creator.
+   *
    * @public
    */
   CreatorId?: string | undefined;
 
   /**
-   * <p>The thumbnail of the document.</p>
+   * The thumbnail of the document.
+   *
    * @public
    */
   Thumbnail?: Partial<Record<DocumentThumbnailType, string>> | undefined;
 
   /**
-   * <p>The source of the document.</p>
+   * The source of the document.
+   *
    * @public
    */
   Source?: Partial<Record<DocumentSourceType, string>> | undefined;
@@ -1527,14 +1704,15 @@ export interface DocumentVersionMetadata {
  */
 export interface DescribeDocumentVersionsResponse {
   /**
-   * <p>The document versions.</p>
+   * The document versions.
+   *
    * @public
    */
   DocumentVersions?: DocumentVersionMetadata[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no
-   *             additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1545,105 +1723,120 @@ export interface DescribeDocumentVersionsResponse {
  */
 export interface DescribeFolderContentsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   FolderId: string | undefined;
 
   /**
-   * <p>The sorting criteria.</p>
+   * The sorting criteria.
+   *
    * @public
    */
   Sort?: ResourceSortType | undefined;
 
   /**
-   * <p>The order for the contents of the folder.</p>
+   * The order for the contents of the folder.
+   *
    * @public
    */
   Order?: OrderType | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results. This marker was received from a previous
-   *             call.</p>
+   * The marker for the next set of results. This marker was received from a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The type of items.</p>
+   * The type of items.
+   *
    * @public
    */
   Type?: FolderContentType | undefined;
 
   /**
-   * <p>The contents to include. Specify "INITIALIZED" to include initialized
-   *             documents.</p>
+   * The contents to include. Specify "INITIALIZED" to include initialized documents.
+   *
    * @public
    */
   Include?: string | undefined;
 }
 
 /**
- * <p>Describes the document.</p>
+ * Describes the document.
+ *
  * @public
  */
 export interface DocumentMetadata {
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The ID of the creator.</p>
+   * The ID of the creator.
+   *
    * @public
    */
   CreatorId?: string | undefined;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * The ID of the parent folder.
+   *
    * @public
    */
   ParentFolderId?: string | undefined;
 
   /**
-   * <p>The time when the document was created.</p>
+   * The time when the document was created.
+   *
    * @public
    */
   CreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The time when the document was updated.</p>
+   * The time when the document was updated.
+   *
    * @public
    */
   ModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p>The latest version of the document.</p>
+   * The latest version of the document.
+   *
    * @public
    */
   LatestVersionMetadata?: DocumentVersionMetadata | undefined;
 
   /**
-   * <p>The resource state.</p>
+   * The resource state.
+   *
    * @public
    */
   ResourceState?: ResourceStateType | undefined;
 
   /**
-   * <p>List of labels on the document.</p>
+   * List of labels on the document.
+   *
    * @public
    */
   Labels?: string[] | undefined;
@@ -1654,20 +1847,22 @@ export interface DocumentMetadata {
  */
 export interface DescribeFolderContentsResponse {
   /**
-   * <p>The subfolders in the specified folder.</p>
+   * The subfolders in the specified folder.
+   *
    * @public
    */
   Folders?: FolderMetadata[] | undefined;
 
   /**
-   * <p>The documents in the specified folder.</p>
+   * The documents in the specified folder.
+   *
    * @public
    */
   Documents?: DocumentMetadata[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no
-   *             additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1678,32 +1873,36 @@ export interface DescribeFolderContentsResponse {
  */
 export interface DescribeGroupsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>A query to describe groups by group name.</p>
+   * A query to describe groups by group name.
+   *
    * @public
    */
   SearchQuery: string | undefined;
 
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   Limit?: number | undefined;
@@ -1714,14 +1913,15 @@ export interface DescribeGroupsRequest {
  */
 export interface DescribeGroupsResponse {
   /**
-   * <p>The list of groups.</p>
+   * The list of groups.
+   *
    * @public
    */
   Groups?: GroupMetadata[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no additional
-   *             results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1732,20 +1932,22 @@ export interface DescribeGroupsResponse {
  */
 export interface DescribeNotificationSubscriptionsRequest {
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   Limit?: number | undefined;
@@ -1756,14 +1958,15 @@ export interface DescribeNotificationSubscriptionsRequest {
  */
 export interface DescribeNotificationSubscriptionsResponse {
   /**
-   * <p>The subscriptions.</p>
+   * The subscriptions.
+   *
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no
-   *             additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1774,74 +1977,85 @@ export interface DescribeNotificationSubscriptionsResponse {
  */
 export interface DescribeResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The ID of the principal to filter permissions by.</p>
+   * The ID of the principal to filter permissions by.
+   *
    * @public
    */
   PrincipalId?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return with this call.</p>
+   * The maximum number of items to return with this call.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call)</p>
+   * The marker for the next set of results. (You received this marker from a previous call)
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Describes the permissions.</p>
+ * Describes the permissions.
+ *
  * @public
  */
 export interface PermissionInfo {
   /**
-   * <p>The role of the user.</p>
+   * The role of the user.
+   *
    * @public
    */
   Role?: RoleType | undefined;
 
   /**
-   * <p>The type of permissions.</p>
+   * The type of permissions.
+   *
    * @public
    */
   Type?: RolePermissionType | undefined;
 }
 
 /**
- * <p>Describes a resource.</p>
+ * Describes a resource.
+ *
  * @public
  */
 export interface Principal {
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   Type?: PrincipalType | undefined;
 
   /**
-   * <p>The permission information for the resource.</p>
+   * The permission information for the resource.
+   *
    * @public
    */
   Roles?: PermissionInfo[] | undefined;
@@ -1852,14 +2066,15 @@ export interface Principal {
  */
 export interface DescribeResourcePermissionsResponse {
   /**
-   * <p>The principals.</p>
+   * The principals.
+   *
    * @public
    */
   Principals?: Principal[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no
-   *             additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1870,20 +2085,22 @@ export interface DescribeResourcePermissionsResponse {
  */
 export interface DescribeRootFoldersRequest {
   /**
-   * <p>Amazon WorkDocs authentication token.</p>
+   * Amazon WorkDocs authentication token.
+   *
    * @public
    */
   AuthenticationToken: string | undefined;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * The maximum number of items to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1894,13 +2111,15 @@ export interface DescribeRootFoldersRequest {
  */
 export interface DescribeRootFoldersResponse {
   /**
-   * <p>The user's special folders.</p>
+   * The user's special folders.
+   *
    * @public
    */
   Folders?: FolderMetadata[] | undefined;
 
   /**
-   * <p>The marker for the next set of results.</p>
+   * The marker for the next set of results.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -1911,80 +2130,76 @@ export interface DescribeRootFoldersResponse {
  */
 export interface DescribeUsersRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the organization.</p>
+   * The ID of the organization.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>The IDs of the users.</p>
+   * The IDs of the users.
+   *
    * @public
    */
   UserIds?: string | undefined;
 
   /**
-   * <p>A query to filter users by user name. Remember the following about the <code>Userids</code> and <code>Query</code> parameters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you don't use either parameter, the API returns a paginated list of all users on the site.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use both parameters, the API ignores the <code>Query</code> parameter.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>Userid</code> parameter only returns user names that match a corresponding user ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>Query</code> parameter runs a "prefix" search for users by the <code>GivenName</code>, <code>SurName</code>, or <code>UserName</code> fields included in a
-   *                 <a href="https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html">CreateUser</a> API call. For example, querying on
-   *                 <code>Ma</code> returns Márcia Oliveira, María García, and Mateo Jackson. If you use multiple characters, the API only returns data that matches all characters. For example, querying on <code>Ma J</code> only
-   *                 returns Mateo Jackson.</p>
-   *             </li>
-   *          </ul>
+   * A query to filter users by user name. Remember the following about the `Userids` and `Query` parameters:
+   *
+   * - If you don't use either parameter, the API returns a paginated list of all users on the site.
+   * - If you use both parameters, the API ignores the `Query` parameter.
+   * - The `Userid` parameter only returns user names that match a corresponding user ID.
+   * - The `Query` parameter runs a "prefix" search for users by the `GivenName`, `SurName`, or `UserName` fields included in a [CreateUser](https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html) API call. For example, querying on `Ma` returns Márcia Oliveira, María García, and Mateo Jackson. If you use multiple characters, the API only returns data that matches all characters. For example, querying on `Ma J` only returns Mateo Jackson.
+   *
    * @public
    */
   Query?: string | undefined;
 
   /**
-   * <p>The state of the users. Specify "ALL" to include inactive users.</p>
+   * The state of the users. Specify "ALL" to include inactive users.
+   *
    * @public
    */
   Include?: UserFilterType | undefined;
 
   /**
-   * <p>The order for the results.</p>
+   * The order for the results.
+   *
    * @public
    */
   Order?: OrderType | undefined;
 
   /**
-   * <p>The sorting criteria.</p>
+   * The sorting criteria.
+   *
    * @public
    */
   Sort?: UserSortType | undefined;
 
   /**
-   * <p>The marker for the next set of results. (You received this marker from a previous
-   *             call.)</p>
+   * The marker for the next set of results. (You received this marker from a previous call.)
+   *
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return.</p>
+   * The maximum number of items to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>A comma-separated list of values. Specify "STORAGE_METADATA" to include the user
-   *             storage quota and utilization information.</p>
+   * A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
+   *
    * @public
    */
   Fields?: string | undefined;
@@ -1995,13 +2210,14 @@ export interface DescribeUsersRequest {
  */
 export interface DescribeUsersResponse {
   /**
-   * <p>The users.</p>
+   * The users.
+   *
    * @public
    */
   Users?: User[] | undefined;
 
   /**
-   * <p>The total number of users included in the results.</p>
+   * The total number of users included in the results.
    *
    * @deprecated deprecated.
    * @public
@@ -2009,8 +2225,8 @@ export interface DescribeUsersResponse {
   TotalNumberOfUsers?: number | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no
-   *             additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -2021,7 +2237,8 @@ export interface DescribeUsersResponse {
  */
 export interface GetCurrentUserRequest {
   /**
-   * <p>Amazon WorkDocs authentication token.</p>
+   * Amazon WorkDocs authentication token.
+   *
    * @public
    */
   AuthenticationToken: string | undefined;
@@ -2032,7 +2249,8 @@ export interface GetCurrentUserRequest {
  */
 export interface GetCurrentUserResponse {
   /**
-   * <p>Metadata of the user.</p>
+   * Metadata of the user.
+   *
    * @public
    */
   User?: User | undefined;
@@ -2043,19 +2261,22 @@ export interface GetCurrentUserResponse {
  */
 export interface GetDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>Set this to <code>TRUE</code> to include custom metadata in the response.</p>
+   * Set this to `TRUE` to include custom metadata in the response.
+   *
    * @public
    */
   IncludeCustomMetadata?: boolean | undefined;
@@ -2066,13 +2287,15 @@ export interface GetDocumentRequest {
  */
 export interface GetDocumentResponse {
   /**
-   * <p>The metadata details of the document.</p>
+   * The metadata details of the document.
+   *
    * @public
    */
   Metadata?: DocumentMetadata | undefined;
 
   /**
-   * <p>The custom metadata on the document.</p>
+   * The custom metadata on the document.
+   *
    * @public
    */
   CustomMetadata?: Record<string, string> | undefined;
@@ -2083,62 +2306,71 @@ export interface GetDocumentResponse {
  */
 export interface GetDocumentPathRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The maximum number of levels in the hierarchy to return.</p>
+   * The maximum number of levels in the hierarchy to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>A comma-separated list of values. Specify <code>NAME</code> to include the names of
-   *             the parent folders.</p>
+   * A comma-separated list of values. Specify `NAME` to include the names of the parent folders.
+   *
    * @public
    */
   Fields?: string | undefined;
 
   /**
-   * <p>This value is not supported.</p>
+   * This value is not supported.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>Describes the resource path.</p>
+ * Describes the resource path.
+ *
  * @public
  */
 export interface ResourcePathComponent {
   /**
-   * <p>The ID of the resource path.</p>
+   * The ID of the resource path.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the resource path.</p>
+   * The name of the resource path.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Describes the path information of a resource.</p>
+ * Describes the path information of a resource.
+ *
  * @public
  */
 export interface ResourcePath {
   /**
-   * <p>The components of the resource path.</p>
+   * The components of the resource path.
+   *
    * @public
    */
   Components?: ResourcePathComponent[] | undefined;
@@ -2149,7 +2381,8 @@ export interface ResourcePath {
  */
 export interface GetDocumentPathResponse {
   /**
-   * <p>The path information.</p>
+   * The path information.
+   *
    * @public
    */
   Path?: ResourcePath | undefined;
@@ -2160,32 +2393,36 @@ export interface GetDocumentPathResponse {
  */
 export interface GetDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The version ID of the document.</p>
+   * The version ID of the document.
+   *
    * @public
    */
   VersionId: string | undefined;
 
   /**
-   * <p>A comma-separated list of values. Specify "SOURCE" to include a URL for the source
-   *             document.</p>
+   * A comma-separated list of values. Specify "SOURCE" to include a URL for the source document.
+   *
    * @public
    */
   Fields?: string | undefined;
 
   /**
-   * <p>Set this to TRUE to include custom metadata in the response.</p>
+   * Set this to TRUE to include custom metadata in the response.
+   *
    * @public
    */
   IncludeCustomMetadata?: boolean | undefined;
@@ -2196,13 +2433,15 @@ export interface GetDocumentVersionRequest {
  */
 export interface GetDocumentVersionResponse {
   /**
-   * <p>The version metadata.</p>
+   * The version metadata.
+   *
    * @public
    */
   Metadata?: DocumentVersionMetadata | undefined;
 
   /**
-   * <p>The custom metadata on the document version.</p>
+   * The custom metadata on the document version.
+   *
    * @public
    */
   CustomMetadata?: Record<string, string> | undefined;
@@ -2213,19 +2452,22 @@ export interface GetDocumentVersionResponse {
  */
 export interface GetFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   FolderId: string | undefined;
 
   /**
-   * <p>Set to TRUE to include custom metadata in the response.</p>
+   * Set to TRUE to include custom metadata in the response.
+   *
    * @public
    */
   IncludeCustomMetadata?: boolean | undefined;
@@ -2236,13 +2478,15 @@ export interface GetFolderRequest {
  */
 export interface GetFolderResponse {
   /**
-   * <p>The metadata of the folder.</p>
+   * The metadata of the folder.
+   *
    * @public
    */
   Metadata?: FolderMetadata | undefined;
 
   /**
-   * <p>The custom metadata on the folder.</p>
+   * The custom metadata on the folder.
+   *
    * @public
    */
   CustomMetadata?: Record<string, string> | undefined;
@@ -2253,32 +2497,36 @@ export interface GetFolderResponse {
  */
 export interface GetFolderPathRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   FolderId: string | undefined;
 
   /**
-   * <p>The maximum number of levels in the hierarchy to return.</p>
+   * The maximum number of levels in the hierarchy to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>A comma-separated list of values. Specify "NAME" to include the names of the parent
-   *             folders.</p>
+   * A comma-separated list of values. Specify "NAME" to include the names of the parent folders.
+   *
    * @public
    */
   Fields?: string | undefined;
 
   /**
-   * <p>This value is not supported.</p>
+   * This value is not supported.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -2289,7 +2537,8 @@ export interface GetFolderPathRequest {
  */
 export interface GetFolderPathResponse {
   /**
-   * <p>The path information.</p>
+   * The path information.
+   *
    * @public
    */
   Path?: ResourcePath | undefined;
@@ -2300,32 +2549,36 @@ export interface GetFolderPathResponse {
  */
 export interface GetResourcesRequest {
   /**
-   * <p>The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * The Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The user ID for the resource collection. This is a required field for accessing the
-   *             API operation using IAM credentials.</p>
+   * The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.
+   *
    * @public
    */
   UserId?: string | undefined;
 
   /**
-   * <p>The collection type.</p>
+   * The collection type.
+   *
    * @public
    */
   CollectionType?: ResourceCollectionType | undefined;
 
   /**
-   * <p>The maximum number of resources to return.</p>
+   * The maximum number of resources to return.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results. This marker was received from a previous call.</p>
+   * The marker for the next set of results. This marker was received from a previous call.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -2336,19 +2589,22 @@ export interface GetResourcesRequest {
  */
 export interface GetResourcesResponse {
   /**
-   * <p>The folders in the specified folder.</p>
+   * The folders in the specified folder.
+   *
    * @public
    */
   Folders?: FolderMetadata[] | undefined;
 
   /**
-   * <p>The documents in the specified collection.</p>
+   * The documents in the specified collection.
+   *
    * @public
    */
   Documents?: DocumentMetadata[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -2359,67 +2615,78 @@ export interface GetResourcesResponse {
  */
 export interface InitiateDocumentVersionUploadRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the document.</p>
+   * The name of the document.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The timestamp when the content of the document was originally created.</p>
+   * The timestamp when the content of the document was originally created.
+   *
    * @public
    */
   ContentCreatedTimestamp?: Date | undefined;
 
   /**
-   * <p>The timestamp when the content of the document was modified.</p>
+   * The timestamp when the content of the document was modified.
+   *
    * @public
    */
   ContentModifiedTimestamp?: Date | undefined;
 
   /**
-   * <p>The content type of the document.</p>
+   * The content type of the document.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The size of the document, in bytes.</p>
+   * The size of the document, in bytes.
+   *
    * @public
    */
   DocumentSizeInBytes?: number | undefined;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * The ID of the parent folder.
+   *
    * @public
    */
   ParentFolderId?: string | undefined;
 }
 
 /**
- * <p>Describes the upload.</p>
+ * Describes the upload.
+ *
  * @public
  */
 export interface UploadMetadata {
   /**
-   * <p>The URL of the upload.</p>
+   * The URL of the upload.
+   *
    * @public
    */
   UploadUrl?: string | undefined;
 
   /**
-   * <p>The signed headers.</p>
+   * The signed headers.
+   *
    * @public
    */
   SignedHeaders?: Record<string, string> | undefined;
@@ -2430,13 +2697,15 @@ export interface UploadMetadata {
  */
 export interface InitiateDocumentVersionUploadResponse {
   /**
-   * <p>The document metadata.</p>
+   * The document metadata.
+   *
    * @public
    */
   Metadata?: DocumentMetadata | undefined;
 
   /**
-   * <p>The upload metadata.</p>
+   * The upload metadata.
+   *
    * @public
    */
   UploadMetadata?: UploadMetadata | undefined;
@@ -2447,13 +2716,15 @@ export interface InitiateDocumentVersionUploadResponse {
  */
 export interface RemoveAllResourcePermissionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -2464,25 +2735,29 @@ export interface RemoveAllResourcePermissionsRequest {
  */
 export interface RemoveResourcePermissionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The principal ID of the resource.</p>
+   * The principal ID of the resource.
+   *
    * @public
    */
   PrincipalId: string | undefined;
 
   /**
-   * <p>The principal type of the resource.</p>
+   * The principal type of the resource.
+   *
    * @public
    */
   PrincipalType?: PrincipalType | undefined;
@@ -2493,151 +2768,176 @@ export interface RemoveResourcePermissionRequest {
  */
 export interface RestoreDocumentVersionsRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 }
 
 /**
- * <p>Filters results based on timestamp range (in epochs).</p>
+ * Filters results based on timestamp range (in epochs).
+ *
  * @public
  */
 export interface DateRangeType {
   /**
-   * <p>Timestamp range start value (in epochs)</p>
+   * Timestamp range start value (in epochs)
+   *
    * @public
    */
   StartValue?: Date | undefined;
 
   /**
-   * <p>Timestamp range end value (in epochs).</p>
+   * Timestamp range end value (in epochs).
+   *
    * @public
    */
   EndValue?: Date | undefined;
 }
 
 /**
- * <p>Filter based on UserIds or GroupIds.</p>
+ * Filter based on UserIds or GroupIds.
+ *
  * @public
  */
 export interface SearchPrincipalType {
   /**
-   * <p>UserIds or GroupIds.</p>
+   * UserIds or GroupIds.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Role of a User or Group.</p>
+   * The Role of a User or Group.
+   *
    * @public
    */
   Roles?: PrincipalRoleType[] | undefined;
 }
 
 /**
- * <p>Filter based on size (in bytes).</p>
+ * Filter based on size (in bytes).
+ *
  * @public
  */
 export interface LongRangeType {
   /**
-   * <p>The size start range (in bytes).</p>
+   * The size start range (in bytes).
+   *
    * @public
    */
   StartValue?: number | undefined;
 
   /**
-   * <p>The size end range (in bytes).</p>
+   * The size end range (in bytes).
+   *
    * @public
    */
   EndValue?: number | undefined;
 }
 
 /**
- * <p>Filters results based on entity metadata.</p>
+ * Filters results based on entity metadata.
+ *
  * @public
  */
 export interface Filters {
   /**
-   * <p>Filters by the locale of the content or comment.</p>
+   * Filters by the locale of the content or comment.
+   *
    * @public
    */
   TextLocales?: LanguageCodeType[] | undefined;
 
   /**
-   * <p>Filters by content category.</p>
+   * Filters by content category.
+   *
    * @public
    */
   ContentCategories?: ContentCategoryType[] | undefined;
 
   /**
-   * <p>Filters based on entity type.</p>
+   * Filters based on entity type.
+   *
    * @public
    */
   ResourceTypes?: SearchResourceType[] | undefined;
 
   /**
-   * <p>Filter by labels using exact match.</p>
+   * Filter by labels using exact match.
+   *
    * @public
    */
   Labels?: string[] | undefined;
 
   /**
-   * <p>Filter based on UserIds or GroupIds.</p>
+   * Filter based on UserIds or GroupIds.
+   *
    * @public
    */
   Principals?: SearchPrincipalType[] | undefined;
 
   /**
-   * <p>Filter based on resource’s path.</p>
+   * Filter based on resource’s path.
+   *
    * @public
    */
   AncestorIds?: string[] | undefined;
 
   /**
-   * <p>Filter based on file groupings.</p>
+   * Filter based on file groupings.
+   *
    * @public
    */
   SearchCollectionTypes?: SearchCollectionType[] | undefined;
 
   /**
-   * <p>Filter based on size (in bytes).</p>
+   * Filter based on size (in bytes).
+   *
    * @public
    */
   SizeRange?: LongRangeType | undefined;
 
   /**
-   * <p>Filter based on resource’s creation timestamp.</p>
+   * Filter based on resource’s creation timestamp.
+   *
    * @public
    */
   CreatedRange?: DateRangeType | undefined;
 
   /**
-   * <p>Filter based on resource’s modified timestamp.</p>
+   * Filter based on resource’s modified timestamp.
+   *
    * @public
    */
   ModifiedRange?: DateRangeType | undefined;
 }
 
 /**
- * <p>The result of the sort operation.</p>
+ * The result of the sort operation.
+ *
  * @public
  */
 export interface SearchSortResult {
   /**
-   * <p>Sort search results based on this field name.</p>
+   * Sort search results based on this field name.
+   *
    * @public
    */
   Field?: OrderByFieldType | undefined;
 
   /**
-   * <p>Sort direction.</p>
+   * Sort direction.
+   *
    * @public
    */
   Order?: SortOrder | undefined;
@@ -2648,98 +2948,113 @@ export interface SearchSortResult {
  */
 export interface SearchResourcesRequest {
   /**
-   * <p>WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The String to search for. Searches across different text fields based on request parameters. Use double quotes around the query string for exact phrase matches.</p>
+   * The String to search for. Searches across different text fields based on request parameters. Use double quotes around the query string for exact phrase matches.
+   *
    * @public
    */
   QueryText?: string | undefined;
 
   /**
-   * <p>Filter based on the text field type. A Folder has only a name and no content. A Comment has only content and no name. A Document or Document Version has a name and content</p>
+   * Filter based on the text field type. A Folder has only a name and no content. A Comment has only content and no name. A Document or Document Version has a name and content
+   *
    * @public
    */
   QueryScopes?: SearchQueryScopeType[] | undefined;
 
   /**
-   * <p>Filters based on the resource owner OrgId. This is a mandatory parameter when using Admin SigV4 credentials.</p>
+   * Filters based on the resource owner OrgId. This is a mandatory parameter when using Admin SigV4 credentials.
+   *
    * @public
    */
   OrganizationId?: string | undefined;
 
   /**
-   * <p>A list of attributes to include in the response. Used to request fields that are not normally
-   *             returned in a standard response.</p>
+   * A list of attributes to include in the response. Used to request fields that are not normally returned in a standard response.
+   *
    * @public
    */
   AdditionalResponseFields?: AdditionalResponseFieldType[] | undefined;
 
   /**
-   * <p>Filters results based on entity metadata.</p>
+   * Filters results based on entity metadata.
+   *
    * @public
    */
   Filters?: Filters | undefined;
 
   /**
-   * <p>Order by results in one or more categories.</p>
+   * Order by results in one or more categories.
+   *
    * @public
    */
   OrderBy?: SearchSortResult[] | undefined;
 
   /**
-   * <p>Max results count per page.</p>
+   * Max results count per page.
+   *
    * @public
    */
   Limit?: number | undefined;
 
   /**
-   * <p>The marker for the next set of results.</p>
+   * The marker for the next set of results.
+   *
    * @public
    */
   Marker?: string | undefined;
 }
 
 /**
- * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
+ * List of Documents, Folders, Comments, and Document Versions matching the query.
+ *
  * @public
  */
 export interface ResponseItem {
   /**
-   * <p>The type of item being returned.</p>
+   * The type of item being returned.
+   *
    * @public
    */
   ResourceType?: ResponseItemType | undefined;
 
   /**
-   * <p>The webUrl of the item being returned.</p>
+   * The webUrl of the item being returned.
+   *
    * @public
    */
   WebUrl?: string | undefined;
 
   /**
-   * <p>The document that matches the query.</p>
+   * The document that matches the query.
+   *
    * @public
    */
   DocumentMetadata?: DocumentMetadata | undefined;
 
   /**
-   * <p>The folder that matches the query.</p>
+   * The folder that matches the query.
+   *
    * @public
    */
   FolderMetadata?: FolderMetadata | undefined;
 
   /**
-   * <p>The comment that matches the query.</p>
+   * The comment that matches the query.
+   *
    * @public
    */
   CommentMetadata?: CommentMetadata | undefined;
 
   /**
-   * <p>The document version that matches the metadata.</p>
+   * The document version that matches the metadata.
+   *
    * @public
    */
   DocumentVersionMetadata?: DocumentVersionMetadata | undefined;
@@ -2750,13 +3065,15 @@ export interface ResponseItem {
  */
 export interface SearchResourcesResponse {
   /**
-   * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
+   * List of Documents, Folders, Comments, and Document Versions matching the query.
+   *
    * @public
    */
   Items?: ResponseItem[] | undefined;
 
   /**
-   * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+   * The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+   *
    * @public
    */
   Marker?: string | undefined;
@@ -2767,32 +3084,36 @@ export interface SearchResourcesResponse {
  */
 export interface UpdateDocumentRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The name of the document.</p>
+   * The name of the document.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * The ID of the parent folder.
+   *
    * @public
    */
   ParentFolderId?: string | undefined;
 
   /**
-   * <p>The resource state of the document. Only ACTIVE and RECYCLED are
-   *             supported.</p>
+   * The resource state of the document. Only ACTIVE and RECYCLED are supported.
+   *
    * @public
    */
   ResourceState?: ResourceStateType | undefined;
@@ -2803,25 +3124,29 @@ export interface UpdateDocumentRequest {
  */
 export interface UpdateDocumentVersionRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the document.</p>
+   * The ID of the document.
+   *
    * @public
    */
   DocumentId: string | undefined;
 
   /**
-   * <p>The version ID of the document.</p>
+   * The version ID of the document.
+   *
    * @public
    */
   VersionId: string | undefined;
 
   /**
-   * <p>The status of the version.</p>
+   * The status of the version.
+   *
    * @public
    */
   VersionStatus?: DocumentVersionStatus | undefined;
@@ -2832,32 +3157,36 @@ export interface UpdateDocumentVersionRequest {
  */
 export interface UpdateFolderRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the folder.</p>
+   * The ID of the folder.
+   *
    * @public
    */
   FolderId: string | undefined;
 
   /**
-   * <p>The name of the folder.</p>
+   * The name of the folder.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The ID of the parent folder.</p>
+   * The ID of the parent folder.
+   *
    * @public
    */
   ParentFolderId?: string | undefined;
 
   /**
-   * <p>The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from
-   *             the API.</p>
+   * The resource state of the folder. Only ACTIVE and RECYCLED are accepted values from the API.
+   *
    * @public
    */
   ResourceState?: ResourceStateType | undefined;
@@ -2868,55 +3197,64 @@ export interface UpdateFolderRequest {
  */
 export interface UpdateUserRequest {
   /**
-   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   * Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.
+   *
    * @public
    */
   AuthenticationToken?: string | undefined;
 
   /**
-   * <p>The ID of the user.</p>
+   * The ID of the user.
+   *
    * @public
    */
   UserId: string | undefined;
 
   /**
-   * <p>The given name of the user.</p>
+   * The given name of the user.
+   *
    * @public
    */
   GivenName?: string | undefined;
 
   /**
-   * <p>The surname of the user.</p>
+   * The surname of the user.
+   *
    * @public
    */
   Surname?: string | undefined;
 
   /**
-   * <p>The type of the user.</p>
+   * The type of the user.
+   *
    * @public
    */
   Type?: UserType | undefined;
 
   /**
-   * <p>The amount of storage for the user.</p>
+   * The amount of storage for the user.
+   *
    * @public
    */
   StorageRule?: StorageRuleType | undefined;
 
   /**
-   * <p>The time zone ID of the user.</p>
+   * The time zone ID of the user.
+   *
    * @public
    */
   TimeZoneId?: string | undefined;
 
   /**
-   * <p>The locale of the user.</p>
+   * The locale of the user.
+   *
    * @public
    */
   Locale?: LocaleType | undefined;
 
   /**
-   * <p>Boolean value to determine whether the user is granted Power user privileges.</p>
+   * Boolean value to determine whether the user is granted Power user privileges.
+   *
    * @public
    */
   GrantPoweruserPrivileges?: BooleanEnumType | undefined;
@@ -2927,7 +3265,8 @@ export interface UpdateUserRequest {
  */
 export interface UpdateUserResponse {
   /**
-   * <p>The user information.</p>
+   * The user information.
+   *
    * @public
    */
   User?: User | undefined;

@@ -26,7 +26,8 @@ export interface GetReadinessCheckResourceStatusCommandInput extends GetReadines
 export interface GetReadinessCheckResourceStatusCommandOutput extends GetReadinessCheckResourceStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.</p>
+ * Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +85,8 @@ export interface GetReadinessCheckResourceStatusCommandOutput extends GetReadine
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

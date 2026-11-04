@@ -23,12 +23,10 @@ export interface UpdateNotificationRuleCommandInput extends UpdateNotificationRu
 export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationRuleResult, __MetadataBearer {}
 
 /**
- * <p>Updates a notification rule for a resource. You can change the events that trigger the
- *             notification rule, the status of the rule, and the targets that receive the
- *             notifications.</p>
- *          <note>
- *             <p>To add or remove tags for a notification rule, you must use <a>TagResource</a> and <a>UntagResource</a>.</p>
- *          </note>
+ * Updates a notification rule for a resource. You can change the events that trigger the notification rule, the status of the rule, and the targets that receive the notifications.
+ *
+ * > **Note:** To add or remove tags for a notification rule, you must use TagResource and UntagResource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,18 +63,20 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  * @throws {@link ConfigurationException} (client fault)
- *  <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
+ *
+ * Some or all of the configuration is incomplete, missing, or not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>
- *             CodeStar Notifications can't find a resource that matches the provided ARN. </p>
+ *
+ * CodeStar Notifications can't find a resource that matches the provided ARN.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link CodestarNotificationsServiceException}
- * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ * Base exception class for all service exceptions from CodestarNotifications service.
  *
  * @public
  */

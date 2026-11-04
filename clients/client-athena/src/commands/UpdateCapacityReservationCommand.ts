@@ -23,8 +23,8 @@ export interface UpdateCapacityReservationCommandInput extends UpdateCapacityRes
 export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityReservationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the number of requested data processing units for the capacity reservation
- *             with the specified name.</p>
+ * Updates the number of requested data processing units for the capacity reservation with the specified name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,16 +50,16 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

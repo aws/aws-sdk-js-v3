@@ -5,12 +5,10 @@ import { DirectoryServiceDataServiceException as __BaseException } from "./Direc
 import type { AccessDeniedReason, DirectoryUnavailableReason, ValidationExceptionReason } from "./enums";
 
 /**
- * <p> You don't have permission to perform the request or access the directory. It can also
- *       occur when the <code>DirectoryId</code> doesn't exist or the user, member, or group might be
- *       outside of your organizational unit (OU). </p>
- *          <p> Make sure that you have the authentication and authorization to perform the action.
- *       Review the directory information in the request, and make sure that the object isn't outside
- *       of your OU. </p>
+ * You don't have permission to perform the request or access the directory. It can also occur when the `DirectoryId` doesn't exist or the user, member, or group might be outside of your organizational unit (OU).
+ *
+ * Make sure that you have the authentication and authorization to perform the action. Review the directory information in the request, and make sure that the object isn't outside of your OU.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -19,7 +17,8 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> Reason the request was unauthorized. </p>
+   * Reason the request was unauthorized.
+   *
    * @public
    */
   Reason?: AccessDeniedReason | undefined;
@@ -39,13 +38,10 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p> This error will occur when you try to create a resource that conflicts with an existing
- *       object. It can also occur when adding a member to a group that the member is already
- *       in.</p>
- *          <p> This error can be caused by a request sent within the 8-hour idempotency window with the
- *       same client token but different input parameters. Client tokens should not be re-used across
- *       different requests. After 8 hours, any request with the same client token is treated as a new
- *       request. </p>
+ * This error will occur when you try to create a resource that conflicts with an existing object. It can also occur when adding a member to a group that the member is already in.
+ *
+ * This error can be caused by a request sent within the 8-hour idempotency window with the same client token but different input parameters. Client tokens should not be re-used across different requests. After 8 hours, any request with the same client token is treated as a new request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -68,8 +64,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p> The request could not be completed due to a problem in the configuration or current state
- *       of the specified directory. </p>
+ * The request could not be completed due to a problem in the configuration or current state of the specified directory.
+ *
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -79,7 +75,8 @@ export class DirectoryUnavailableException extends __BaseException {
   $retryable = {};
   Message?: string | undefined;
   /**
-   * <p> Reason the request failed for the specified directory. </p>
+   * Reason the request failed for the specified directory.
+   *
    * @public
    */
   Reason?: DirectoryUnavailableReason | undefined;
@@ -99,7 +96,8 @@ export class DirectoryUnavailableException extends __BaseException {
 }
 
 /**
- * <p> The operation didn't succeed because an internal error occurred. Try again later. </p>
+ * The operation didn't succeed because an internal error occurred. Try again later.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -123,7 +121,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p> The resource couldn't be found. </p>
+ * The resource couldn't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -146,7 +145,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p> The limit on the number of requests per second has been exceeded. </p>
+ * The limit on the number of requests per second has been exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -158,7 +158,8 @@ export class ThrottlingException extends __BaseException {
   };
   Message: string | undefined;
   /**
-   * <p> The recommended amount of seconds to retry after a throttling exception. </p>
+   * The recommended amount of seconds to retry after a throttling exception.
+   *
    * @public
    */
   RetryAfterSeconds?: number | undefined;
@@ -178,8 +179,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The request isn't valid. Review the details in the error message to update the invalid
- *       parameters or values in your request. </p>
+ * The request isn't valid. Review the details in the error message to update the invalid parameters or values in your request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -188,7 +189,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p> Reason the request failed validation. </p>
+   * Reason the request failed validation.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;

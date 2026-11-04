@@ -23,69 +23,22 @@ export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequ
 export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Used by Security Hub CSPM customers to update information about their investigation into one or more findings.
- *          Requested by administrator accounts or member accounts.
- *          Administrator accounts can update findings for their account and their member accounts.
- *          A member account can update findings only for their own account.
- *          Administrator and member accounts can use this operation to update the following fields and objects for one or more findings:
- *       </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>Confidence</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Criticality</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Note</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>RelatedFindings</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Severity</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Types</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>UserDefinedFields</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>VerificationState</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Workflow</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *          If you use this operation to update a finding, your updates don’t affect the value for the <code>UpdatedAt</code> field of the finding.
- *          Also note that it can take several minutes for Security Hub CSPM to process your request and update each finding specified in the request.
- *       </p>
- *          <p>
- *          You can configure IAM policies to restrict access to fields and field values.
- *          For example, you might not want member accounts to be able to suppress findings or change the finding severity.
- *          For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the <i>Security Hub CSPM User Guide</i>.
- *       </p>
+ * Used by Security Hub CSPM customers to update information about their investigation into one or more findings. Requested by administrator accounts or member accounts. Administrator accounts can update findings for their account and their member accounts. A member account can update findings only for their own account. Administrator and member accounts can use this operation to update the following fields and objects for one or more findings:
+ *
+ * - `Confidence`
+ * - `Criticality`
+ * - `Note`
+ * - `RelatedFindings`
+ * - `Severity`
+ * - `Types`
+ * - `UserDefinedFields`
+ * - `VerificationState`
+ * - `Workflow`
+ *
+ * If you use this operation to update a finding, your updates don’t affect the value for the `UpdatedAt` field of the finding. Also note that it can take several minutes for Security Hub CSPM to process your request and update each finding specified in the request.
+ *
+ * You can configure IAM policies to restrict access to fields and field values. For example, you might not want member accounts to be able to suppress findings or change the finding severity. For more information see [Configuring access to BatchUpdateFindings](https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access) in the *Security Hub CSPM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,22 +112,24 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidAccessException} (client fault)
- *  <p>The account doesn't have permission to perform this action.</p>
+ *
+ * The account doesn't have permission to perform this action.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because you supplied an invalid or out-of-range value for an
- *          input parameter.</p>
+ *
+ * The request was rejected because you supplied an invalid or out-of-range value for an input parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *          account or throttling limits. The error code describes the limit exceeded.</p>
+ *
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account or throttling limits. The error code describes the limit exceeded.
  *
  * @throws {@link SecurityHubServiceException}
- * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ * Base exception class for all service exceptions from SecurityHub service.
  *
  * @example To update Security Hub findings
  * ```javascript

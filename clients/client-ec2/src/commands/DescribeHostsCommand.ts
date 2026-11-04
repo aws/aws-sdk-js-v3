@@ -23,10 +23,10 @@ export interface DescribeHostsCommandInput extends DescribeHostsRequest {}
 export interface DescribeHostsCommandOutput extends DescribeHostsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>
- *          <p>The results describe only the Dedicated Hosts in the Region you're currently using.
- *             All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have
- *             recently been released are listed with the state <code>released</code>.</p>
+ * Describes the specified Dedicated Hosts or all your Dedicated Hosts.
+ *
+ * The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state `released`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,8 +118,8 @@ export interface DescribeHostsCommandOutput extends DescribeHostsResult, __Metad
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -288,7 +288,8 @@ export type CloudFrontKeyValueStoreClientResolvedConfigType = __SmithyResolvedCo
 export interface CloudFrontKeyValueStoreClientResolvedConfig extends CloudFrontKeyValueStoreClientResolvedConfigType {}
 
 /**
- * <p>Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource</p>
+ * Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource
+ *
  * @public
  */
 export class CloudFrontKeyValueStoreClient extends __Client<

@@ -26,18 +26,10 @@ export interface DescribeStackDriftDetectionStatusCommandInput extends DescribeS
 export interface DescribeStackDriftDetectionStatusCommandOutput extends DescribeStackDriftDetectionStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a stack drift detection operation. A stack drift detection
- *       operation detects whether a stack's actual configuration differs, or has
- *         <i>drifted</i>, from its expected configuration, as defined in the stack
- *       template and any values specified as template parameters. A stack is considered to have
- *       drifted if one or more of its resources have drifted. For more information about stack and
- *       resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect unmanaged
- *         configuration changes to stacks and resources with drift detection</a>.</p>
- *          <p>Use <a>DetectStackDrift</a> to initiate a stack drift detection operation.
- *         <code>DetectStackDrift</code> returns a <code>StackDriftDetectionId</code> you can use to
- *       monitor the progress of the operation using <code>DescribeStackDriftDetectionStatus</code>.
- *       Once the drift detection operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift information about the stack and its
- *       resources.</p>
+ * Returns information about a stack drift detection operation. A stack drift detection operation detects whether a stack's actual configuration differs, or has *drifted*, from its expected configuration, as defined in the stack template and any values specified as template parameters. A stack is considered to have drifted if one or more of its resources have drifted. For more information about stack and resource drift, see [Detect unmanaged configuration changes to stacks and resources with drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html).
+ *
+ * Use DetectStackDrift to initiate a stack drift detection operation. `DetectStackDrift` returns a `StackDriftDetectionId` you can use to monitor the progress of the operation using `DescribeStackDriftDetectionStatus`. Once the drift detection operation has completed, use DescribeStackResourceDrifts to return drift information about the stack and its resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +62,8 @@ export interface DescribeStackDriftDetectionStatusCommandOutput extends Describe
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

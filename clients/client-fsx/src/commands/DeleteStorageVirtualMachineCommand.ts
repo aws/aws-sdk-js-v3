@@ -23,8 +23,8 @@ export interface DeleteStorageVirtualMachineCommandInput extends DeleteStorageVi
 export interface DeleteStorageVirtualMachineCommandOutput extends DeleteStorageVirtualMachineResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior
- *         to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.</p>
+ * Deletes an existing Amazon FSx for ONTAP storage virtual machine (SVM). Prior to deleting an SVM, you must delete all non-root volumes in the SVM, otherwise the operation will fail.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,22 +53,24 @@ export interface DeleteStorageVirtualMachineCommandOutput extends DeleteStorageV
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link StorageVirtualMachineNotFound} (client fault)
- *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
+ *
+ * No FSx for ONTAP SVMs were found based upon the supplied parameters.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

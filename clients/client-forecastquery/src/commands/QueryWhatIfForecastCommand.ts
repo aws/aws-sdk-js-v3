@@ -23,7 +23,8 @@ export interface QueryWhatIfForecastCommandInput extends QueryWhatIfForecastRequ
 export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a what-if forecast.</p>
+ * Retrieves a what-if forecast.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,24 +66,28 @@ export interface QueryWhatIfForecastCommandOutput extends QueryWhatIfForecastRes
  * @see {@link ForecastqueryClientResolvedConfig | config} for ForecastqueryClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The value is invalid or is too long.</p>
+ *
+ * The value is invalid or is too long.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * The token is not valid. Tokens expire after 24 hours.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find that resource. Check the information that you've provided and try
- *       again.</p>
+ *
+ * We can't find that resource. Check the information that you've provided and try again.
  *
  * @throws {@link ForecastqueryServiceException}
- * <p>Base exception class for all service exceptions from Forecastquery service.</p>
  *
+ * Base exception class for all service exceptions from Forecastquery service.
  *
  * @public
  */

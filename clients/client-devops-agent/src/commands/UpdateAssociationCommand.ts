@@ -23,7 +23,8 @@ export interface UpdateAssociationCommandInput extends UpdateAssociationInput {}
 export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput, __MetadataBearer {}
 
 /**
- * <p>Partially updates the configuration of an existing service association for an AgentSpace. Present fields are fully replaced; absent fields are left unchanged. Returns 200 OK on success.</p>
+ * Partially updates the configuration of an existing service association for an AgentSpace. Present fields are fully replaced; absent fields are left unchanged. Returns 200 OK on success.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -401,35 +402,44 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * @see {@link DevOpsAgentClientResolvedConfig | config} for DevOpsAgentClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
+ *
+ * This exception is thrown when an unexpected error occurs in the processing of a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource could not be found.</p>
+ *
+ * The requested resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would exceed the service quota limit.</p>
+ *
+ * The request would exceed the service quota limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to the requested resource is denied due to insufficient permissions.</p>
+ *
+ * Access to the requested resource is denied due to insufficient permissions.
  *
  * @throws {@link ContentSizeExceededException} (client fault)
- *  <p>This exception is thrown when the content size exceeds the allowed limit.</p>
+ *
+ * This exception is thrown when the content size exceeds the allowed limit.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters provided in the request are invalid.</p>
+ *
+ * One or more parameters provided in the request are invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
+ *
+ * The request was throttled due to too many requests. Please slow down and try again.
  *
  * @throws {@link DevOpsAgentServiceException}
- * <p>Base exception class for all service exceptions from DevOpsAgent service.</p>
  *
+ * Base exception class for all service exceptions from DevOpsAgent service.
  *
  * @public
  */

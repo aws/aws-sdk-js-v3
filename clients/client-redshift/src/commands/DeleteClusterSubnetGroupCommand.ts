@@ -23,7 +23,8 @@ export interface DeleteClusterSubnetGroupCommandInput extends DeleteClusterSubne
 export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified cluster subnet group.</p>
+ * Deletes the specified cluster subnet group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,18 +49,20 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
- *  <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ *
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
  *
  * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
- *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * The cluster subnet group cannot be deleted because it is in use.
  *
  * @throws {@link InvalidClusterSubnetStateFault} (client fault)
- *  <p>The state of the subnet is invalid.</p>
+ *
+ * The state of the subnet is invalid.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

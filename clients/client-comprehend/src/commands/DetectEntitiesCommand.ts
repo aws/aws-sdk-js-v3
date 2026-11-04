@@ -23,22 +23,16 @@ export interface DetectEntitiesCommandInput extends DetectEntitiesRequest {}
 export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Detects named entities in input text when you use the pre-trained model.
- *       Detects custom entities if you have a custom entity recognition model. </p>
- *          <p>
- *       When detecting named entities using the pre-trained model, use plain text as the input.
- *       For more information about named entities, see
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a> in the Comprehend Developer Guide.</p>
- *          <p>When you use a custom entity recognition model,
- *       you can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
- *          <p>If the system detects errors while processing a page in the input document, the API response
- *        includes an entry in <code>Errors</code> for each error. </p>
- *          <p>If the system detects a document-level error in your input document, the API returns an
- *        <code>InvalidRequestException</code> error response.
- *       For details about this exception, see
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
- *         Errors in semi-structured documents</a> in the Comprehend Developer Guide.
- *     </p>
+ * Detects named entities in input text when you use the pre-trained model. Detects custom entities if you have a custom entity recognition model.
+ *
+ * When detecting named entities using the pre-trained model, use plain text as the input. For more information about named entities, see [Entities](https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html) in the Comprehend Developer Guide.
+ *
+ * When you use a custom entity recognition model, you can input plain text or you can upload a single-page input document (text, PDF, Word, or image).
+ *
+ * If the system detects errors while processing a page in the input document, the API response includes an entry in `Errors` for each error.
+ *
+ * If the system detects a document-level error in your input document, the API returns an `InvalidRequestException` error response. For details about this exception, see [Errors in semi-structured documents](https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html) in the Comprehend Developer Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -149,26 +143,28 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ *
+ * The specified resource is not available. Check the resource and try your request again.
  *
  * @throws {@link TextSizeLimitExceededException} (client fault)
- *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
+ *
+ * The size of the input text exceeds the limit. Use a smaller document.
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
+ *
+ * Amazon Comprehend can't process the language of the input text. For a list of supported languages, [Supported languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html) in the Comprehend Developer Guide.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

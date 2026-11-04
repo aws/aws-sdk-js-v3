@@ -23,43 +23,22 @@ export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
- * <p>Searches an index given an input query.</p>
- *          <note>
- *             <p>If you are working with large language models (LLMs) or implementing retrieval
- *             augmented generation (RAG) systems, you can use Amazon Kendra's <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html">Retrieve</a> API, which can return longer semantically relevant passages. We
- *             recommend using the <code>Retrieve</code> API instead of filing a service limit increase
- *             to increase the <code>Query</code> API document excerpt length.</p>
- *          </note>
- *          <p>You can configure boosting or relevance tuning at the query level to override boosting
- *          at the index level, filter based on document fields/attributes and faceted search, and
- *          filter based on the user or their group access to documents. You can also include certain
- *          fields in the response that might provide useful additional information.</p>
- *          <p>A query response contains three types of results.</p>
- *          <ul>
- *             <li>
- *                <p>Relevant suggested answers. The answers can be either a text excerpt or table
- *                excerpt. The answer can be highlighted in the excerpt.</p>
- *             </li>
- *             <li>
- *                <p>Matching FAQs or questions-answer from your FAQ file.</p>
- *             </li>
- *             <li>
- *                <p>Relevant documents. This result type includes an excerpt of the document with the
- *                document title. The searched terms can be highlighted in the excerpt.</p>
- *             </li>
- *          </ul>
- *          <p>You can specify that the query return only one type of result using the
- *             <code>QueryResultTypeFilter</code> parameter. Each query returns the 100 most relevant
- *          results. If you filter result type to only question-answers, a maximum of four results are
- *          returned. If you filter result type to only answers, a maximum of three results are
- *          returned.</p>
- *          <important>
- *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
- *                <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If you're
- *             using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
- *                <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
- *                <code>ValidationException</code> error.</p>
- *          </important>
+ * Searches an index given an input query.
+ *
+ * > **Note:** If you are working with large language models (LLMs) or implementing retrieval augmented generation (RAG) systems, you can use Amazon Kendra's [Retrieve](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Retrieve.html) API, which can return longer semantically relevant passages. We recommend using the `Retrieve` API instead of filing a service limit increase to increase the `Query` API document excerpt length.
+ *
+ * You can configure boosting or relevance tuning at the query level to override boosting at the index level, filter based on document fields/attributes and faceted search, and filter based on the user or their group access to documents. You can also include certain fields in the response that might provide useful additional information.
+ *
+ * A query response contains three types of results.
+ *
+ * - Relevant suggested answers. The answers can be either a text excerpt or table excerpt. The answer can be highlighted in the excerpt.
+ * - Matching FAQs or questions-answer from your FAQ file.
+ * - Relevant documents. This result type includes an excerpt of the document with the document title. The searched terms can be highlighted in the excerpt.
+ *
+ * You can specify that the query return only one type of result using the `QueryResultTypeFilter` parameter. Each query returns the 100 most relevant results. If you filter result type to only question-answers, a maximum of four results are returned. If you filter result type to only answers, a maximum of three results are returned.
+ *
+ * > **Important:** If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use `ATTRIBUTE_FILTER` to filter search results by user context. If you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use `USER_TOKEN` to configure user context policy, Amazon Kendra returns a `ValidationException` error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -455,38 +434,36 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action. Please ensure you have the
- *             required permission policies and user accounts and try again.</p>
+ *
+ * You don't have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred with the request. Please fix any inconsistences with your
- *             resources and try again.</p>
+ *
+ * A conflict occurred with the request. Please fix any inconsistences with your resources and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Kendra service.
- *             Please wait a few minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Please check you have provided the correct
- *             resource and try again.</p>
+ *
+ * The resource you want to use doesn’t exist. Please check you have provided the correct resource and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded the set limits for your Amazon Kendra service. Please see
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a> for
- *             more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
- *             an increase of limits.</p>
+ *
+ * You have exceeded the set limits for your Amazon Kendra service. Please see [Quotas](https://docs.aws.amazon.com/kendra/latest/dg/quotas.html) for more information, or contact [Support](http://aws.amazon.com/contact-us/) to inquire about an increase of limits.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. Please reduce the number of requests
- *             and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by the Amazon Kendra service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra service. Please provide the correct input and try again.
  *
  * @throws {@link KendraServiceException}
- * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ * Base exception class for all service exceptions from Kendra service.
  *
  * @public
  */

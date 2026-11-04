@@ -23,14 +23,14 @@ export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
 export interface CreateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Creates a connection between a customer network and a specific Direct Connect location.</p>
- *          <p>A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic
- *       cable. One end of the cable is connected to your router, the other to an Direct Connect router.</p>
- *          <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p>
- *          <p>You can automatically add the new connection to a link aggregation group (LAG) by
- *       specifying a LAG ID in the request. This ensures that the new connection is allocated on the
- *       same Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint,
- *       the request fails and no connection is created.</p>
+ * Creates a connection between a customer network and a specific Direct Connect location.
+ *
+ * A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an Direct Connect router.
+ *
+ * To find the locations for your Region, use DescribeLocations.
+ *
+ * You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection is created.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,20 +114,24 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ * You have reached the limit on the number of tags that can be assigned.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

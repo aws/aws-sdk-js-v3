@@ -23,24 +23,18 @@ export interface CreateBatchInferenceJobCommandInput extends CreateBatchInferenc
 export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferenceJobResponse, __MetadataBearer {}
 
 /**
- * <p>Generates batch recommendations based on a list of items or users stored in Amazon S3
- *       and exports the recommendations to an Amazon S3 bucket.</p>
- *          <p>To generate batch recommendations, specify the ARN of a solution version and an Amazon S3 URI for the input and output data.
- *       For user personalization, popular items, and personalized ranking solutions, the batch inference job generates a list of
- *       recommended items for each user ID in the input file. For related items solutions, the job generates a list of recommended
- *       items for each item ID in the input file.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/getting-batch-recommendations.html">Creating a batch inference job
- *     </a>.</p>
- *          <p>
- *       If you use the Similar-Items recipe, Amazon Personalize can add descriptive themes to batch recommendations.
- *       To generate themes, set the job's mode to
- *       <code>THEME_GENERATION</code> and specify the name of the field that contains item names in the
- *       input data.</p>
- *          <p>
- *       For more information about generating themes, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html">Batch recommendations with themes from Content Generator
- *       </a>.
- *     </p>
- *          <p>You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.</p>
+ * Generates batch recommendations based on a list of items or users stored in Amazon S3 and exports the recommendations to an Amazon S3 bucket.
+ *
+ * To generate batch recommendations, specify the ARN of a solution version and an Amazon S3 URI for the input and output data. For user personalization, popular items, and personalized ranking solutions, the batch inference job generates a list of recommended items for each user ID in the input file. For related items solutions, the job generates a list of recommended items for each item ID in the input file.
+ *
+ * For more information, see [Creating a batch inference job](https://docs.aws.amazon.com/personalize/latest/dg/getting-batch-recommendations.html).
+ *
+ * If you use the Similar-Items recipe, Amazon Personalize can add descriptive themes to batch recommendations. To generate themes, set the job's mode to `THEME_GENERATION` and specify the name of the field that contains item names in the input data.
+ *
+ * For more information about generating themes, see [Batch recommendations with themes from Content Generator](https://docs.aws.amazon.com/personalize/latest/dg/themed-batch-recommendations.html).
+ *
+ * You can't get batch recommendations with the Trending-Now or Next-Best-Action recipes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,26 +97,32 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

@@ -26,19 +26,16 @@ export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartML
 export interface StartMLLabelingSetGenerationTaskRunCommandOutput extends StartMLLabelingSetGenerationTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the active learning workflow for your machine learning transform to improve the
- *       transform's quality by generating label sets and adding labels.</p>
- *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
- *       generated a "labeling set" or a set of questions for humans to answer.</p>
- *          <p>In the case of the <code>FindMatches</code> transform, these questions are of the form,
- *       “What is the correct way to group these rows together into groups composed entirely of
- *       matching records?” </p>
- *          <p>After the labeling process is finished, you can upload your labels with a call to
- *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
- *       all future runs of the machine learning transform will use the new and improved labels and
- *       perform a higher-quality transformation.</p>
- *          <p>Note: The role used to write the generated labeling set to the <code>OutputS3Path</code> is the role
- *           associated with the Machine Learning Transform, specified in the <code>CreateMLTransform</code> API.</p>
+ * Starts the active learning workflow for your machine learning transform to improve the transform's quality by generating label sets and adding labels.
+ *
+ * When the `StartMLLabelingSetGenerationTaskRun` finishes, Glue will have generated a "labeling set" or a set of questions for humans to answer.
+ *
+ * In the case of the `FindMatches` transform, these questions are of the form, “What is the correct way to group these rows together into groups composed entirely of matching records?”
+ *
+ * After the labeling process is finished, you can upload your labels with a call to `StartImportLabelsTaskRun`. After `StartImportLabelsTaskRun` finishes, all future runs of the machine learning transform will use the new and improved labels and perform a higher-quality transformation.
+ *
+ * Note: The role used to write the generated labeling set to the `OutputS3Path` is the role associated with the Machine Learning Transform, specified in the `CreateMLTransform` API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,23 +63,28 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput extends StartM
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link ConcurrentRunsExceededException} (client fault)
- *  <p>Too many jobs are being run concurrently.</p>
+ *
+ * Too many jobs are being run concurrently.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

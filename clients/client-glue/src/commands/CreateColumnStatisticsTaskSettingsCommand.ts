@@ -26,7 +26,8 @@ export interface CreateColumnStatisticsTaskSettingsCommandInput extends CreateCo
 export interface CreateColumnStatisticsTaskSettingsCommandOutput extends CreateColumnStatisticsTaskSettingsResponse, __MetadataBearer {}
 
 /**
- * <p>Creates settings for a column statistics task.</p>
+ * Creates settings for a column statistics task.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,29 +64,36 @@ export interface CreateColumnStatisticsTaskSettingsCommandOutput extends CreateC
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>A resource to be created or added already exists.</p>
+ *
+ * A resource to be created or added already exists.
  *
  * @throws {@link ColumnStatisticsTaskRunningException} (client fault)
- *  <p>An exception thrown when you try to start another job while running a column stats generation job.</p>
+ *
+ * An exception thrown when you try to start another job while running a column stats generation job.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

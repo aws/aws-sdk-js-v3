@@ -23,16 +23,10 @@ export interface ListTapesCommandInput extends ListTapesInput {}
 export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
- *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
- *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
- *          your VTL and VTS.</p>
- *          <p>This operation supports pagination. By default, the operation returns a maximum of up to
- *          100 tapes. You can optionally specify the <code>Limit</code> parameter in the body to limit
- *          the number of tapes in the response. If the number of tapes returned in the response is
- *          truncated, the response includes a <code>Marker</code> element that you can use in your
- *          subsequent request to retrieve the next set of tapes. This operation is only supported in
- *          the tape gateway type.</p>
+ * Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both your VTL and VTS.
+ *
+ * This operation supports pagination. By default, the operation returns a maximum of up to 100 tapes. You can optionally specify the `Limit` parameter in the body to limit the number of tapes in the response. If the number of tapes returned in the response is truncated, the response includes a `Marker` element that you can use in your subsequent request to retrieve the next set of tapes. This operation is only supported in the tape gateway type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,16 +69,16 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

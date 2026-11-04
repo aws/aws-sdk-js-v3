@@ -23,13 +23,10 @@ export interface StopQueryCommandInput extends StopQueryRequest {}
 export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already
- *       ended, the operation returns an error indicating that the specified query is not
- *       running.</p>
- *          <p>This operation can be used to cancel both interactive queries and individual scheduled
- *       query executions. When used with scheduled queries, <code>StopQuery</code> cancels only the
- *       specific execution identified by the query ID, not the scheduled query configuration
- *       itself.</p>
+ * Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation returns an error indicating that the specified query is not running.
+ *
+ * This operation can be used to cancel both interactive queries and individual scheduled query executions. When used with scheduled queries, `StopQuery` cancels only the specific execution identified by the query ID, not the scheduled query configuration itself.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,17 +53,20 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

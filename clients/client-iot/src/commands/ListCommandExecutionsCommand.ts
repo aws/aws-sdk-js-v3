@@ -23,27 +23,15 @@ export interface ListCommandExecutionsCommandInput extends ListCommandExecutions
 export interface ListCommandExecutionsCommandOutput extends ListCommandExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>List all command executions.</p>
- *          <important>
- *             <ul>
- *                <li>
- *                   <p>You must provide only the <code>startedTimeFilter</code> or
- *                     the <code>completedTimeFilter</code> information. If you provide
- *                     both time filters, the API will generate an error. You can use
- *                     this information to retrieve a list of command executions
- *                     within a specific timeframe.</p>
- *                </li>
- *                <li>
- *                   <p>You must provide only the <code>commandArn</code> or
- *                     the <code>thingArn</code> information depending on whether you want
- *                     to list executions for a specific command or an IoT thing. If you provide
- *                     both fields, the API will generate an error.</p>
- *                </li>
- *             </ul>
- *             <p>For more information about considerations for using this API, see
- *                 <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-remote-command-execution-start-monitor.html#iot-remote-command-execution-list-cli">List
- *                 command executions in your account (CLI)</a>.</p>
- *          </important>
+ * List all command executions.
+ *
+ * > **Important:**
+ * >
+ * > - You must provide only the `startedTimeFilter` or the `completedTimeFilter` information. If you provide both time filters, the API will generate an error. You can use this information to retrieve a list of command executions within a specific timeframe.
+ * > - You must provide only the `commandArn` or the `thingArn` information depending on whether you want to list executions for a specific command or an IoT thing. If you provide both fields, the API will generate an error.
+ * >
+ * > For more information about considerations for using this API, see [List command executions in your account (CLI)](https://docs.aws.amazon.com/iot/latest/developerguide/iot-remote-command-execution-start-monitor.html#iot-remote-command-execution-list-cli).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,21 +83,24 @@ export interface ListCommandExecutionsCommandOutput extends ListCommandExecution
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal error from the service that indicates an unexpected error or that the service
- *             is unavailable.</p>
+ *
+ * Internal error from the service that indicates an unexpected error or that the service is unavailable.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link IoTServiceException}
- * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ * Base exception class for all service exceptions from IoT service.
  *
  * @public
  */

@@ -23,12 +23,10 @@ export interface CreateDataProviderCommandInput extends CreateDataProviderMessag
 export interface CreateDataProviderCommandOutput extends CreateDataProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data provider using the provided settings. A data provider stores a data store
- *          type and location information about your database. </p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:CreateDataProvider</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Creates a data provider using the provided settings. A data provider stores a data store type and location information about your database.
+ *
+ * **Required permissions:** `dms:CreateDataProvider`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -276,21 +274,24 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Create a Microsoft SQL Server data provider
  * ```javascript

@@ -23,13 +23,10 @@ export interface DescribeLifecycleConfigurationCommandInput extends DescribeLife
 export interface DescribeLifecycleConfigurationCommandOutput extends LifecycleConfigurationDescription, __MetadataBearer {}
 
 /**
- * <p>Returns the current <code>LifecycleConfiguration</code> object for the specified
- *       EFS file system. Lifecycle management uses the <code>LifecycleConfiguration</code>
- *       object to identify when to move files between storage classes. For a file system without a
- *         <code>LifecycleConfiguration</code> object, the call returns an empty array in the
- *       response.</p>
- *          <p>This operation requires permissions for the
- *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
+ * Returns the current `LifecycleConfiguration` object for the specified EFS file system. Lifecycle management uses the `LifecycleConfiguration` object to identify when to move files between storage classes. For a file system without a `LifecycleConfiguration` object, the call returns an empty array in the response.
+ *
+ * This operation requires permissions for the `elasticfilesystem:DescribeLifecycleConfiguration` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,19 +59,20 @@ export interface DescribeLifecycleConfigurationCommandOutput extends LifecycleCo
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To describe the lifecycle configuration for a file system
  * ```javascript

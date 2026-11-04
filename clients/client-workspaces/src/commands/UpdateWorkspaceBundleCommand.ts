@@ -23,14 +23,10 @@ export interface UpdateWorkspaceBundleCommandInput extends UpdateWorkspaceBundle
 export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
- * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see
- *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html">
- *             Update a Custom WorkSpaces Bundle</a>.</p>
- *          <important>
- *             <p>Existing WorkSpaces aren't automatically updated when you update the bundle that they're
- *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
- *             must either rebuild the WorkSpaces or delete and recreate them.</p>
- *          </important>
+ * Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see [Update a Custom WorkSpaces Bundle](https://docs.aws.amazon.com/workspaces/latest/adminguide/update-custom-bundle.html).
+ *
+ * > **Important:** Existing WorkSpaces aren't automatically updated when you update the bundle that they're based on. To update existing WorkSpaces that are based on a bundle that you've updated, you must either rebuild the WorkSpaces or delete and recreate them.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +52,28 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The user is not authorized to access a resource.</p>
+ *
+ * The user is not authorized to access a resource.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available.</p>
+ *
+ * The specified resource is not available.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

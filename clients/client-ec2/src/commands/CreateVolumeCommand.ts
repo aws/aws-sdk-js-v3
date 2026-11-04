@@ -24,17 +24,16 @@ export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
 export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 
 /**
- * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
- *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
- *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
- *          <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that
- *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
- *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
- *       in the <i>Amazon EBS User Guide</i>.</p>
- *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
- *         resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html">Create an Amazon EBS volume</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Creates an EBS volume that can be attached to an instance in the same Availability Zone.
+ *
+ * You can create a new empty volume or restore a volume from an EBS snapshot. Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.
+ *
+ * You can create encrypted volumes. Encrypted volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically encrypted. For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html) in the *Amazon EBS User Guide*.
+ *
+ * You can tag your volumes during creation. For more information, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide*.
+ *
+ * For more information, see [Create an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,8 +130,8 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a new Provisioned IOPS (SSD) volume from a snapshot
  * ```javascript

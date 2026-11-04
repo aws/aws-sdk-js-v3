@@ -23,7 +23,7 @@ export interface BatchGetJobCommandInput extends BatchGetJobRequest {}
 export interface BatchGetJobCommandOutput extends BatchGetJobResponse, __MetadataBearer {}
 
 /**
- * Retrieves multiple jobs in a single request. This is a batch version of the <code>GetJob</code> API.
+ * Retrieves multiple jobs in a single request. This is a batch version of the `GetJob` API.
  *
  * The result of getting each job is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.
  *
@@ -153,8 +153,8 @@ export interface BatchGetJobCommandOutput extends BatchGetJobResponse, __Metadat
  *  The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.
  *
  * @throws {@link DeadlineServiceException}
- * <p>Base exception class for all service exceptions from Deadline service.</p>
  *
+ * Base exception class for all service exceptions from Deadline service.
  *
  * @example Get multiple jobs in a single request
  * ```javascript

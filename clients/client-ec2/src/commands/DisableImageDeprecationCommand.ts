@@ -23,9 +23,10 @@ export interface DisableImageDeprecationCommandInput extends DisableImageDepreca
 export interface DisableImageDeprecationCommandOutput extends DisableImageDeprecationResult, __MetadataBearer {}
 
 /**
- * <p>Cancels the deprecation of the specified AMI.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an Amazon EC2 AMI</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * Cancels the deprecation of the specified AMI.
+ *
+ * For more information, see [Deprecate an Amazon EC2 AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +54,8 @@ export interface DisableImageDeprecationCommandOutput extends DisableImageDeprec
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

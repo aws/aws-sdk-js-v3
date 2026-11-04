@@ -23,46 +23,22 @@ export interface UpdateContactTaskTemplateCommandInput extends UpdateContactTask
 export interface UpdateContactTaskTemplateCommandOutput extends UpdateContactTaskTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the task template association on an existing task contact. You can update the task template on a contact
- *    before assignment to support tasks that are created without a template (for example <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-rules.html">Rules</a> or <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-disconnect-flow.html">disconnect flows</a>) or change the agent interaction
- *    form to represent the latest task data (for example an initial request that was submitted as a refund gets updated to
- *    an account cancellation and requires a new template).</p>
- *          <p>This operation can only be used with task contacts that are in progress and not connected to an agent. A task
- *    template can be updated a maximum of 5 times per contact.</p>
- *          <p>The task's references must be compatible with the fields of the target task template. If the target template has
- *    a required field, the task must have a corresponding reference with a matching name and compatible type. The
- *    following task template field types map to reference types:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>TEXT</code>, <code>TEXT_AREA</code>, <code>BOOLEAN</code>, and <code>SINGLE_SELECT</code> map to
- *      references of type <code>STRING</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>NUMBER</code> maps to references of type <code>NUMBER</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DATE_TIME</code> maps to references of type <code>DATE</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>URL</code> maps to references of type <code>URL</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EMAIL</code> maps to references of type <code>EMAIL</code>.</p>
- *             </li>
- *          </ul>
- *          <p>References corresponding to <code>TEXT</code> fields must be fewer than 512 characters.
- *    <code>TEXT_AREA</code> fields must be fewer than 4,096 characters. <code>BOOLEAN</code> fields must have a value
- *    of <code>true</code> or <code>false</code>.</p>
- *          <p>An <code>InvalidRequestException</code> occurs when <code>UpdateContactTaskTemplate</code> is called on a
- *    connected or terminated task, when it is called on non-task contacts, and when the task contact already uses the
- *    provided task template. A <code>PropertyValidationException</code> occurs when the task's references conflict with
- *    the task template's fields, for example if the task is missing a reference that matches a required field, or if the
- *    task has a reference that matches a required field's name but not its datatype.</p>
+ * Updates the task template association on an existing task contact. You can update the task template on a contact before assignment to support tasks that are created without a template (for example [Rules](https://docs.aws.amazon.com/connect/latest/adminguide/connect-rules.html) or [disconnect flows](https://docs.aws.amazon.com/connect/latest/adminguide/set-disconnect-flow.html)) or change the agent interaction form to represent the latest task data (for example an initial request that was submitted as a refund gets updated to an account cancellation and requires a new template).
+ *
+ * This operation can only be used with task contacts that are in progress and not connected to an agent. A task template can be updated a maximum of 5 times per contact.
+ *
+ * The task's references must be compatible with the fields of the target task template. If the target template has a required field, the task must have a corresponding reference with a matching name and compatible type. The following task template field types map to reference types:
+ *
+ * - `TEXT`, `TEXT_AREA`, `BOOLEAN`, and `SINGLE_SELECT` map to references of type `STRING`.
+ * - `NUMBER` maps to references of type `NUMBER`.
+ * - `DATE_TIME` maps to references of type `DATE`.
+ * - `URL` maps to references of type `URL`.
+ * - `EMAIL` maps to references of type `EMAIL`.
+ *
+ * References corresponding to `TEXT` fields must be fewer than 512 characters. `TEXT_AREA` fields must be fewer than 4,096 characters. `BOOLEAN` fields must have a value of `true` or `false`.
+ *
+ * An `InvalidRequestException` occurs when `UpdateContactTaskTemplate` is called on a connected or terminated task, when it is called on non-task contacts, and when the task contact already uses the provided task template. A `PropertyValidationException` occurs when the task's references conflict with the task template's fields, for example if the task is missing a reference that matches a required field, or if the task has a reference that matches a required field's name but not its datatype.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,29 +65,36 @@ export interface UpdateContactTaskTemplateCommandOutput extends UpdateContactTas
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link PropertyValidationException} (client fault)
- *  <p>The property is not valid.</p>
+ *
+ * The property is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded.</p>
+ *
+ * The service quota has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

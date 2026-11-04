@@ -23,14 +23,12 @@ export interface DescribeLoadBalancerPolicyTypesCommandInput extends DescribeLoa
 export interface DescribeLoadBalancerPolicyTypesCommandOutput extends DescribeLoadBalancerPolicyTypesOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>
- *          <p>The description of each type indicates how it can be used. For example,
- *            some policies can be used only with layer 7 listeners,
- *            some policies can be used only with layer 4 listeners,
- *            and some policies can be used only with your EC2 instances.</p>
- *          <p>You can use <a>CreateLoadBalancerPolicy</a> to create a policy configuration for any of these policy types.
- *            Then, depending on the policy type, use either <a>SetLoadBalancerPoliciesOfListener</a> or
- *            <a>SetLoadBalancerPoliciesForBackendServer</a> to set the policy.</p>
+ * Describes the specified load balancer policy types or all load balancer policy types.
+ *
+ * The description of each type indicates how it can be used. For example, some policies can be used only with layer 7 listeners, some policies can be used only with layer 4 listeners, and some policies can be used only with your EC2 instances.
+ *
+ * You can use CreateLoadBalancerPolicy to create a policy configuration for any of these policy types. Then, depending on the policy type, use either SetLoadBalancerPoliciesOfListener or SetLoadBalancerPoliciesForBackendServer to set the policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,11 +71,12 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput extends DescribeLo
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link PolicyTypeNotFoundException} (client fault)
- *  <p>One or more of the specified policy types do not exist.</p>
+ *
+ * One or more of the specified policy types do not exist.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To describe a load balancer policy type defined by Elastic Load Balancing
  * ```javascript

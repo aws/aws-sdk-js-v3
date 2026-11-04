@@ -26,25 +26,12 @@ export interface DescribeDataRepositoryAssociationsCommandInput extends Describe
 export interface DescribeDataRepositoryAssociationsCommandOutput extends DescribeDataRepositoryAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the description of specific Amazon FSx for Lustre or Amazon File Cache
- *             data repository associations, if one or more <code>AssociationIds</code> values
- *             are provided in the request, or if filters are used in the request. Data repository
- *             associations are supported on Amazon File Cache resources and all FSx for Lustre
- *             2.12 and 2,15 file systems, excluding <code>scratch_1</code> deployment type.</p>
- *          <p>You can use filters to narrow the response to include just data repository
- *             associations for specific file systems (use the <code>file-system-id</code> filter with
- *             the ID of the file system) or caches (use the <code>file-cache-id</code> filter with
- *             the ID of the cache), or data repository associations for a specific repository type
- *             (use the <code>data-repository-type</code> filter with a value of <code>S3</code>
- *             or <code>NFS</code>). If you don't use filters, the response returns all data
- *             repository associations owned by your Amazon Web Services account in the Amazon Web Services Region
- *             of the endpoint that you're calling.</p>
- *          <p>When retrieving all data repository associations, you can paginate the response by using
- *             the optional <code>MaxResults</code> parameter to limit the number of data repository associations
- *             returned in a response. If more data repository associations remain, a
- *             <code>NextToken</code> value is returned in the response. In this case, send a later
- *             request with the <code>NextToken</code> request parameter set to the value of
- *             <code>NextToken</code> from the last response.</p>
+ * Returns the description of specific Amazon FSx for Lustre or Amazon File Cache data repository associations, if one or more `AssociationIds` values are provided in the request, or if filters are used in the request. Data repository associations are supported on Amazon File Cache resources and all FSx for Lustre 2.12 and 2,15 file systems, excluding `scratch_1` deployment type.
+ *
+ * You can use filters to narrow the response to include just data repository associations for specific file systems (use the `file-system-id` filter with the ID of the file system) or caches (use the `file-cache-id` filter with the ID of the cache), or data repository associations for a specific repository type (use the `data-repository-type` filter with a value of `S3` or `NFS`). If you don't use filters, the response returns all data repository associations owned by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.
+ *
+ * When retrieving all data repository associations, you can paginate the response by using the optional `MaxResults` parameter to limit the number of data repository associations returned in a response. If more data repository associations remain, a `NextToken` value is returned in the response. In this case, send a later request with the `NextToken` request parameter set to the value of `NextToken` from the last response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,23 +120,28 @@ export interface DescribeDataRepositoryAssociationsCommandOutput extends Describ
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link DataRepositoryAssociationNotFound} (client fault)
- *  <p>No data repository associations were found based upon the supplied parameters.</p>
+ *
+ * No data repository associations were found based upon the supplied parameters.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link InvalidDataRepositoryType} (client fault)
- *  <p>You have filtered the response to a data repository type that is not supported.</p>
+ *
+ * You have filtered the response to a data repository type that is not supported.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @public
  */

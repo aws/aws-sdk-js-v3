@@ -23,25 +23,18 @@ export interface CreateSecurityGroupCommandInput extends CreateSecurityGroupRequ
 export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a security group.</p>
- *          <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
- *          For more information, see
- * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 security groups</a> in
- * 				the <i>Amazon EC2 User Guide</i> and
- * 				<a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security groups for your VPC</a> in the
- * 				<i>Amazon VPC User Guide</i>.</p>
- *          <p>When you create a security group, you specify a friendly name of your choice.
- *          You can't have two security groups for the same VPC with the same name.</p>
- *          <p>You have a default security group for use in your VPC. If you don't specify a security group
- *          when you launch an instance, the instance is launched into the appropriate default security group.
- *          A default security group includes a default rule that grants instances unrestricted network access
- *          to each other.</p>
- *          <p>You can add or remove rules from your security groups using
- * 					<a>AuthorizeSecurityGroupIngress</a>,
- * 					<a>AuthorizeSecurityGroupEgress</a>,
- * 					<a>RevokeSecurityGroupIngress</a>, and
- * 					<a>RevokeSecurityGroupEgress</a>.</p>
- *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+ * Creates a security group.
+ *
+ * A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see [Amazon EC2 security groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) in the *Amazon EC2 User Guide* and [Security groups for your VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide*.
+ *
+ * When you create a security group, you specify a friendly name of your choice. You can't have two security groups for the same VPC with the same name.
+ *
+ * You have a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.
+ *
+ * You can add or remove rules from your security groups using AuthorizeSecurityGroupIngress, AuthorizeSecurityGroupEgress, RevokeSecurityGroupIngress, and RevokeSecurityGroupEgress.
+ *
+ * For more information about VPC security group limits, see [Amazon VPC Limits](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,8 +82,8 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To create a security group for a VPC
  * ```javascript

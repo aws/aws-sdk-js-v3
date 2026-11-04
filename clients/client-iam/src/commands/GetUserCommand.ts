@@ -23,10 +23,10 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified IAM user, including the user's creation
- *             date, path, unique ID, and ARN.</p>
- *          <p>If you do not specify a user name, IAM determines the user name implicitly based on
- *             the Amazon Web Services access key ID used to sign the request to this operation.</p>
+ * Retrieves information about the specified IAM user, including the user's creation date, path, unique ID, and ARN.
+ *
+ * If you do not specify a user name, IAM determines the user name implicitly based on the Amazon Web Services access key ID used to sign the request to this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,16 +70,16 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To get information about an IAM user
  * ```javascript

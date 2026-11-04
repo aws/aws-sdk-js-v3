@@ -23,13 +23,12 @@ export interface ListReceiptRuleSetsCommandInput extends ListReceiptRuleSetsRequ
 export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the receipt rule sets that exist under your Amazon Web Services account in the current
- *             Amazon Web Services Region. If there are additional receipt rule sets to be retrieved, you receive a
- *                 <code>NextToken</code> that you can provide to the next call to
- *                 <code>ListReceiptRuleSets</code> to retrieve the additional entries.</p>
- *          <p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Lists the receipt rule sets that exist under your Amazon Web Services account in the current Amazon Web Services Region. If there are additional receipt rule sets to be retrieved, you receive a `NextToken` that you can provide to the next call to `ListReceiptRuleSets` to retrieve the additional entries.
+ *
+ * For information about managing receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-receipt-rules-console-walkthrough.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,8 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example ListReceiptRuleSets
  * ```javascript

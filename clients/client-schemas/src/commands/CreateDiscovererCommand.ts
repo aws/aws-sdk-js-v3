@@ -23,7 +23,8 @@ export interface CreateDiscovererCommandInput extends CreateDiscovererRequest {}
 export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a discoverer.</p>
+ * Creates a discoverer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +76,8 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

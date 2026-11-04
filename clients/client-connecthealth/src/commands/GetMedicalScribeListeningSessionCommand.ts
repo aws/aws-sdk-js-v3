@@ -23,7 +23,8 @@ export interface GetMedicalScribeListeningSessionCommandInput extends GetMedical
 export interface GetMedicalScribeListeningSessionCommandOutput extends GetMedicalScribeListeningSessionOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves details about an existing Medical Scribe listening session</p>
+ * Retrieves details about an existing Medical Scribe listening session
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,23 +102,28 @@ export interface GetMedicalScribeListeningSessionCommandOutput extends GetMedica
  * @see {@link ConnectHealthClientResolvedConfig | config} for ConnectHealthClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>This error is thrown when the client does not supply proper credentials to the API.</p>
+ *
+ * This error is thrown when the client does not supply proper credentials to the API.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This error is thrown when a transient error causes our API to fail.</p>
+ *
+ * This error is thrown when a transient error causes our API to fail.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This error is thrown when the requested resource is not found.</p>
+ *
+ * This error is thrown when the requested resource is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota.</p>
+ *
+ * The request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>This error is thrown when the client exceeds the allowed request rate.</p>
+ *
+ * This error is thrown when the client exceeds the allowed request rate.
  *
  * @throws {@link ConnectHealthServiceException}
- * <p>Base exception class for all service exceptions from ConnectHealth service.</p>
  *
+ * Base exception class for all service exceptions from ConnectHealth service.
  *
  * @public
  */

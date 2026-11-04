@@ -23,10 +23,11 @@ export interface SearchThingsCommandInput extends SearchThingsRequest {}
 export interface SearchThingsCommandOutput extends SearchThingsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for things associated with the specified entity. You can search by both device and device model.</p>
- *          <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.
- *          <code>SearchThings(camera2)</code> will return only thing2, but <code>SearchThings(camera)</code> will return both thing1 and thing2.</p>
- *          <p>This action searches for exact matches and doesn't perform partial text matching.</p>
+ * Searches for things associated with the specified entity. You can search by both device and device model.
+ *
+ * For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2. `SearchThings(camera2)` will return only thing2, but `SearchThings(camera)` will return both thing1 and thing2.
+ *
+ * This action searches for exact matches and doesn't perform partial text matching.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -64,20 +65,16 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

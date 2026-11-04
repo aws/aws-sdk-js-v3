@@ -23,7 +23,8 @@ export interface BatchGetRumMetricDefinitionsCommandInput extends BatchGetRumMet
 export interface BatchGetRumMetricDefinitionsCommandOutput extends BatchGetRumMetricDefinitionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.</p>
+ * Retrieves the list of metrics and dimensions that a RUM app monitor is sending to a single destination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,20 +68,24 @@ export interface BatchGetRumMetricDefinitionsCommandOutput extends BatchGetRumMe
  * @see {@link RUMClientResolvedConfig | config} for RUMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service exception.</p>
+ *
+ * Internal service exception.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the arguments for the request is not valid.</p>
+ *
+ * One of the arguments for the request is not valid.
  *
  * @throws {@link RUMServiceException}
- * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ * Base exception class for all service exceptions from RUM service.
  *
  * @public
  */

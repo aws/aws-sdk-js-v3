@@ -26,16 +26,12 @@ export interface PutEmailIdentityFeedbackAttributesCommandInput extends PutEmail
 export interface PutEmailIdentityFeedbackAttributesCommandOutput extends PutEmailIdentityFeedbackAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Used to enable or disable feedback forwarding for an identity. This setting determines
- *             what happens when an identity is used to send an email that results in a bounce or
- *             complaint event.</p>
- *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
- *             complaint events occur. These notifications are sent to the address that you specified
- *             in the <code>Return-Path</code> header of the original email.</p>
- *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
- *             set up another mechanism for receiving bounce or complaint notifications (for example,
- *             by setting up an event destination), you receive an email notification when these events
- *             occur (even if this setting is disabled).</p>
+ * Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+ *
+ * If the value is `true`, you receive email notifications when bounce or complaint events occur. These notifications are sent to the address that you specified in the `Return-Path` header of the original email.
+ *
+ * You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications (for example, by setting up an event destination), you receive an email notification when these events occur (even if this setting is disabled).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,17 +57,20 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput extends PutEmai
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

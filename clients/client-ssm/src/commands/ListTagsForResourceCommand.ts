@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the tags assigned to the specified resource.</p>
- *          <p>For information about the ID format for each supported resource type, see <a>AddTagsToResource</a>.</p>
+ * Returns a list of the tags assigned to the specified resource.
+ *
+ * For information about the ID format for each supported resource type, see AddTagsToResource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,18 +59,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidResourceId} (client fault)
- *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
  *
  * @throws {@link InvalidResourceType} (client fault)
- *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
- *    the instance must be a registered managed node.</p>
+ *
+ * The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

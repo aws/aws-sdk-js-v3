@@ -23,7 +23,8 @@ export interface GetMetricsSummaryCommandInput extends GetMetricsSummaryRequest 
 export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a summary of metrics for an account from a specified date, including number of open findings, the categories with most findings, the scans with most open findings, and scans with most open critical findings. </p>
+ * Returns a summary of metrics for an account from a specified date, including number of open findings, the categories with most findings, the scans with most open findings, and scans with most open critical findings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,20 +78,24 @@ export interface GetMetricsSummaryCommandOutput extends GetMetricsSummaryRespons
  * @see {@link CodeGuruSecurityClientResolvedConfig | config} for CodeGuruSecurityClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CodeGuruSecurityServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruSecurity service.
  *
  * @public
  */

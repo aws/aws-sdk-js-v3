@@ -23,11 +23,12 @@ export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
 export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
- *       (not attached to an instance).</p>
- *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html">Delete an Amazon EBS volume</a> in the
- *         <i>Amazon EBS User Guide</i>.</p>
+ * Deletes the specified EBS volume. The volume must be in the `available` state (not attached to an instance).
+ *
+ * The volume can remain in the `deleting` state for several minutes.
+ *
+ * For more information, see [Delete an Amazon EBS volume](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-deleting-volume.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +54,8 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a volume
  * ```javascript

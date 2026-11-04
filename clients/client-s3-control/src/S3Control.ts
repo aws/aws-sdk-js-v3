@@ -2419,7 +2419,8 @@ export interface S3Control {
 }
 
 /**
- * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
+ * Amazon Web Services S3 Control provides access to Amazon S3 control plane actions.
+ *
  * @public
  */
 export class S3Control extends S3ControlClient implements S3Control {}

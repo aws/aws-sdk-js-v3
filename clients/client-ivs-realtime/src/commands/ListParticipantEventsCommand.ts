@@ -23,7 +23,8 @@ export interface ListParticipantEventsCommandInput extends ListParticipantEvents
 export interface ListParticipantEventsCommandOutput extends ListParticipantEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists events for a specified participant that occurred during a specified stage session.</p>
+ * Lists events for a specified participant that occurred during a specified stage session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,14 +87,16 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.</p>
+ *
+ * User does not have sufficient access to perform this action.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link IVSRealTimeServiceException}
- * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ * Base exception class for all service exceptions from IVSRealTime service.
  *
  * @public
  */

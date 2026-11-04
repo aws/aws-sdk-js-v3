@@ -23,19 +23,16 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all provisioned DAX clusters if no cluster identifier is
- *             specified, or about a specific DAX cluster if a cluster identifier is
- *             supplied.</p>
- *          <p>If the cluster is in the CREATING state, only cluster level information will be
- *             displayed until all of the nodes are successfully provisioned.</p>
- *          <p>If the cluster is in the DELETING state, only cluster level information will be
- *             displayed.</p>
- *          <p>If nodes are currently being added to the DAX cluster, node endpoint information
- *             and creation time for the additional nodes will not be displayed until they are
- *             completely provisioned. When the DAX cluster state is
- *                 <i>available</i>, the cluster is ready for use.</p>
- *          <p>If nodes are currently being removed from the DAX cluster, no
- *             endpoint information for the removed nodes is displayed.</p>
+ * Returns information about all provisioned DAX clusters if no cluster identifier is specified, or about a specific DAX cluster if a cluster identifier is supplied.
+ *
+ * If the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.
+ *
+ * If the cluster is in the DELETING state, only cluster level information will be displayed.
+ *
+ * If nodes are currently being added to the DAX cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the DAX cluster state is *available*, the cluster is ready for use.
+ *
+ * If nodes are currently being removed from the DAX cluster, no endpoint information for the removed nodes is displayed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,21 +121,24 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing DAX
- *             cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing DAX cluster.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link DAXServiceException}
- * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ * Base exception class for all service exceptions from DAX service.
  *
  * @public
  */

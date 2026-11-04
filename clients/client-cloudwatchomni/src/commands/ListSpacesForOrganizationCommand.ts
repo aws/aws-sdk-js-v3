@@ -80,8 +80,8 @@ export interface ListSpacesForOrganizationCommandOutput extends ListSpacesForOrg
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example List spaces across the organization
  * ```javascript

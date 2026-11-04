@@ -23,15 +23,11 @@ export interface DeleteEvaluationFormCommandInput extends DeleteEvaluationFormRe
 export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an evaluation form in the specified Connect Customer instance. </p>
- *          <ul>
- *             <li>
- *                <p>If the version property is provided, only the specified version of the evaluation form is deleted.</p>
- *             </li>
- *             <li>
- *                <p>If no version is provided, then the full form (all versions) is deleted.</p>
- *             </li>
- *          </ul>
+ * Deletes an evaluation form in the specified Connect Customer instance.
+ *
+ * - If the version property is provided, only the specified version of the evaluation form is deleted.
+ * - If no version is provided, then the full form (all versions) is deleted.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,23 +54,28 @@ export interface DeleteEvaluationFormCommandOutput extends __MetadataBearer {}
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link ResourceConflictException} (client fault)
- *  <p>A resource already has that name.</p>
+ *
+ * A resource already has that name.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AmplifyServiceException as __BaseException } from "./AmplifyServiceException";
 
 /**
- * <p>A request contains unexpected data. </p>
+ * A request contains unexpected data.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -25,7 +26,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>An operation failed because a dependent service threw an exception. </p>
+ * An operation failed because a dependent service threw an exception.
+ *
  * @public
  */
 export class DependentServiceFailureException extends __BaseException {
@@ -46,7 +48,8 @@ export class DependentServiceFailureException extends __BaseException {
 }
 
 /**
- * <p>The service failed to perform an operation due to an internal issue. </p>
+ * The service failed to perform an operation due to an internal issue.
+ *
  * @public
  */
 export class InternalFailureException extends __BaseException {
@@ -67,7 +70,8 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>A resource could not be created because service quotas were exceeded. </p>
+ * A resource could not be created because service quotas were exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -88,7 +92,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An operation failed due to a lack of access. </p>
+ * An operation failed due to a lack of access.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -109,7 +114,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>An entity was not found during an operation. </p>
+ * An entity was not found during an operation.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -130,7 +136,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>An operation failed due to a non-existent resource. </p>
+ * An operation failed due to a non-existent resource.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

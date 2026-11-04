@@ -5,7 +5,8 @@ import type { ErrorDetail } from "./models_0";
 import { WickrServiceException as __BaseException } from "./WickrServiceException";
 
 /**
- * <p>The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.</p>
+ * The request was invalid or malformed. This error occurs when the request parameters do not meet the API requirements, such as invalid field values, missing required parameters, or improperly formatted data.
+ *
  * @public
  */
 export class BadRequestError extends __BaseException {
@@ -26,7 +27,8 @@ export class BadRequestError extends __BaseException {
 }
 
 /**
- * <p>Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.</p>
+ * Access to the requested resource is forbidden. This error occurs when the authenticated user does not have the necessary permissions to perform the requested operation, even though they are authenticated.
+ *
  * @public
  */
 export class ForbiddenError extends __BaseException {
@@ -47,7 +49,8 @@ export class ForbiddenError extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.</p>
+ * An unexpected error occurred on the server while processing the request. This indicates a problem with the Wickr service itself rather than with the request. If this error persists, contact Amazon Web Services Support.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.</p>
+ * The request was throttled because too many requests were sent in a short period of time. Wait a moment and retry the request. Consider implementing exponential backoff in your application.
+ *
  * @public
  */
 export class RateLimitError extends __BaseException {
@@ -89,7 +93,8 @@ export class RateLimitError extends __BaseException {
 }
 
 /**
- * <p>The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.</p>
+ * The requested resource could not be found. This error occurs when you try to access or modify a network, user, bot, security group, or other resource that doesn't exist or has been deleted.
+ *
  * @public
  */
 export class ResourceNotFoundError extends __BaseException {
@@ -110,7 +115,8 @@ export class ResourceNotFoundError extends __BaseException {
 }
 
 /**
- * <p>The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.</p>
+ * The request was not authenticated or the authentication credentials were invalid. This error occurs when the request lacks valid authentication credentials or the credentials have expired.
+ *
  * @public
  */
 export class UnauthorizedError extends __BaseException {
@@ -131,7 +137,8 @@ export class UnauthorizedError extends __BaseException {
 }
 
 /**
- * <p>One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.</p>
+ * One or more fields in the request failed validation. This error provides detailed information about which fields were invalid and why, allowing you to correct the request and retry.
+ *
  * @public
  */
 export class ValidationError extends __BaseException {
@@ -139,7 +146,8 @@ export class ValidationError extends __BaseException {
   readonly name = "ValidationError" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A list of validation error details, where each item identifies a specific field that failed validation and explains the reason for the failure.</p>
+   * A list of validation error details, where each item identifies a specific field that failed validation and explains the reason for the failure.
+   *
    * @public
    */
   reasons?: ErrorDetail[] | undefined;

@@ -23,7 +23,8 @@ export interface GetOutboundExternalLinkCommandInput extends GetOutboundExternal
 export interface GetOutboundExternalLinkCommandOutput extends GetOutboundExternalLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about an outbound external link.</p>
+ * Retrieves information about an outbound external link.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -169,23 +170,28 @@ export interface GetOutboundExternalLinkCommandOutput extends GetOutboundExterna
  * @see {@link RTBFabricClientResolvedConfig | config} for RTBFabricClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request could not be completed because you do not have sufficient access to perform this action.</p>
+ *
+ * The request could not be completed because you do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request could not be completed because of an internal server error. Try your call again.</p>
+ *
+ * The request could not be completed because of an internal server error. Try your call again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request could not be completed because the resource does not exist.</p>
+ *
+ * The request could not be completed because the resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request could not be completed because it fails satisfy the constraints specified by the service.</p>
+ *
+ * The request could not be completed because it fails satisfy the constraints specified by the service.
  *
  * @throws {@link RTBFabricServiceException}
- * <p>Base exception class for all service exceptions from RTBFabric service.</p>
  *
+ * Base exception class for all service exceptions from RTBFabric service.
  *
  * @example Get outbound external link details
  * ```javascript

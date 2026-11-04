@@ -23,7 +23,8 @@ export interface GetExecutionCommandInput extends GetExecutionRequest {}
 export interface GetExecutionCommandOutput extends GetExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Exports data based on the source data update.</p>
+ * Exports data based on the source data update.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,20 +89,24 @@ export interface GetExecutionCommandOutput extends GetExecutionResponse, __Metad
  * @see {@link BCMDataExportsClientResolvedConfig | config} for BCMDataExportsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
+ *
+ * The specified Amazon Resource Name (ARN) in the request doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BCMDataExportsServiceException}
- * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
  *
+ * Base exception class for all service exceptions from BCMDataExports service.
  *
  * @public
  */

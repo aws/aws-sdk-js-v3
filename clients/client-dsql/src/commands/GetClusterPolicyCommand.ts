@@ -23,7 +23,8 @@ export interface GetClusterPolicyCommandInput extends GetClusterPolicyInput {}
 export interface GetClusterPolicyCommandOutput extends GetClusterPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource-based policy document attached to a cluster. This policy defines the access permissions and conditions for the cluster.</p>
+ * Retrieves the resource-based policy document attached to a cluster. This policy defines the access permissions and conditions for the cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface GetClusterPolicyCommandOutput extends GetClusterPolicyOutput, _
  * @see {@link DSQLClientResolvedConfig | config} for DSQLClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input failed to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link DSQLServiceException}
- * <p>Base exception class for all service exceptions from DSQL service.</p>
  *
+ * Base exception class for all service exceptions from DSQL service.
  *
  * @public
  */

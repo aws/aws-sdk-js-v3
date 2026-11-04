@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { Route53ProfilesServiceException as __BaseException } from "./Route53ProfilesServiceException";
 
 /**
- * <p>
- *   The current account doesn't have the IAM permissions required to perform the specified operation.
- * </p>
+ * The current account doesn't have the IAM permissions required to perform the specified operation.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,9 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>
  * The request you submitted conflicts with an existing request.
- * </p>
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -54,9 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>
- *   One or more parameters in this request are not valid.
- * </p>
+ * One or more parameters in this request are not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -65,9 +62,8 @@ export class InvalidParameterException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>
-   *       The parameter field name for the invalid parameter exception.
-   *     </p>
+   * The parameter field name for the invalid parameter exception.
+   *
    * @public
    */
   FieldName?: string | undefined;
@@ -87,9 +83,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>
- *   The request caused one or more limits to be exceeded.
- * </p>
+ * The request caused one or more limits to be exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -98,9 +93,8 @@ export class LimitExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       The resource type that caused the limits to be exceeded.
-   *     </p>
+   * The resource type that caused the limits to be exceeded.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -120,9 +114,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>
- *  The resource you are trying to associate, has already been associated.
- * </p>
+ * The resource you are trying to associate, has already been associated.
+ *
  * @public
  */
 export class ResourceExistsException extends __BaseException {
@@ -131,9 +124,8 @@ export class ResourceExistsException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       The resource type that caused the resource exists exception.
-   *     </p>
+   * The resource type that caused the resource exists exception.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -153,9 +145,8 @@ export class ResourceExistsException extends __BaseException {
 }
 
 /**
- * <p>
  * The resource you are associating is not found.
- * </p>
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -164,9 +155,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>
-   *       The resource type that caused the resource not found exception.
-   *     </p>
+   * The resource type that caused the resource not found exception.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -186,9 +176,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>
- *   The request was throttled. Try again in a few minutes.
- * </p>
+ * The request was throttled. Try again in a few minutes.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -211,9 +200,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>
- *   You have provided an invalid command.
- * </p>
+ * You have provided an invalid command.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -236,9 +224,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>
  * An internal server error occured. Retry your request.
- * </p>
+ *
  * @public
  */
 export class InternalServiceErrorException extends __BaseException {
@@ -261,9 +248,8 @@ export class InternalServiceErrorException extends __BaseException {
 }
 
 /**
- * <p>
- * The <code>NextToken</code> you provided isn;t valid.
- * </p>
+ * The `NextToken` you provided isn;t valid.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {

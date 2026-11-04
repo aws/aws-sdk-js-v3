@@ -23,11 +23,12 @@ export interface GetHealthEventCommandInput extends GetHealthEventInput {}
 export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information that Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations,
- * 			and all the information related to the event, by location.</p>
- *          <p>The information returned includes the impact on performance, availability, and round-trip time, information about the network providers (ASNs),
- * 			the event type, and so on.</p>
- *          <p>Information rolled up at the global traffic level is also returned, including the impact type and total traffic impact.</p>
+ * Gets information that Amazon CloudWatch Internet Monitor has created and stored about a health event for a specified monitor. This information includes the impacted locations, and all the information related to the event, by location.
+ *
+ * The information returned includes the impact on performance, availability, and round-trip time, information about the network providers (ASNs), the event type, and so on.
+ *
+ * Information rolled up at the global traffic level is also returned, including the impact type and total traffic impact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,20 +117,24 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

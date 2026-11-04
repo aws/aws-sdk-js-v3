@@ -23,9 +23,8 @@ export interface GetPipelineCommandInput extends GetPipelineInput {}
 export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
- *             return the entire structure of a pipeline in JSON format, which can then be modified and
- *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
+ * Returns the metadata, structure, stages, and actions of a pipeline. Can be used to return the entire structure of a pipeline in JSON format, which can then be modified and used to update the pipeline structure with UpdatePipeline.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -305,18 +304,20 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link PipelineVersionNotFoundException} (client fault)
- *  <p>The pipeline version was specified in an invalid format or cannot be
- *             found.</p>
+ *
+ * The pipeline version was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

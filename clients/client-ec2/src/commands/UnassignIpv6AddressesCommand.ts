@@ -23,8 +23,8 @@ export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6Addresses
 export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}
 
 /**
- * <p>Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a network
- *             interface.</p>
+ * Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a network interface.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +63,8 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

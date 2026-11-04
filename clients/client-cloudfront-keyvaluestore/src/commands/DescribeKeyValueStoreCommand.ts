@@ -23,7 +23,8 @@ export interface DescribeKeyValueStoreCommandInput extends DescribeKeyValueStore
 export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata information about Key Value Store.</p>
+ * Returns metadata information about Key Value Store.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +58,24 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  * @see {@link CloudFrontKeyValueStoreClientResolvedConfig | config} for CloudFrontKeyValueStoreClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Resource is not in expected state.</p>
+ *
+ * Resource is not in expected state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource was not found.</p>
+ *
+ * Resource was not found.
  *
  * @throws {@link CloudFrontKeyValueStoreServiceException}
- * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ * Base exception class for all service exceptions from CloudFrontKeyValueStore service.
  *
  * @example Describe the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
  * ```javascript

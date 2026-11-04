@@ -23,7 +23,8 @@ export interface DeleteDeploymentGroupCommandInput extends DeleteDeploymentGroup
 export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGroupOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a deployment group.</p>
+ * Deletes a deployment group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,25 +58,28 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link DeploymentGroupNameRequiredException} (client fault)
- *  <p>The deployment group name was not specified.</p>
+ *
+ * The deployment group name was not specified.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link InvalidDeploymentGroupNameException} (client fault)
- *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * The deployment group name was specified in an invalid format.
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
- *             group was specified, the specified service role does not grant the appropriate
- *             permissions to Amazon EC2 Auto Scaling.</p>
+ *
+ * The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Amazon EC2 Auto Scaling.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

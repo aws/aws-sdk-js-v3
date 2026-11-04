@@ -23,7 +23,8 @@ export interface GetEmailAddressInsightsCommandInput extends GetEmailAddressInsi
 export interface GetEmailAddressInsightsCommandOutput extends GetEmailAddressInsightsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides validation insights about a specific email address, including syntax validation, DNS record checks, mailbox existence, and other deliverability factors.</p>
+ * Provides validation insights about a specific email address, including syntax validation, DNS record checks, mailbox existence, and other deliverability factors.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +71,16 @@ export interface GetEmailAddressInsightsCommandOutput extends GetEmailAddressIns
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @example Get Email Address Insights
  * ```javascript

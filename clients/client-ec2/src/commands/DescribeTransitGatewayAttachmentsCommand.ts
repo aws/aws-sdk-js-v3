@@ -26,8 +26,8 @@ export interface DescribeTransitGatewayAttachmentsCommandInput extends DescribeT
 export interface DescribeTransitGatewayAttachmentsCommandOutput extends DescribeTransitGatewayAttachmentsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
- *          Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
+ * Describes one or more attachments between resources and transit gateways. By default, all attachments are described. Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +91,8 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput extends Describe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

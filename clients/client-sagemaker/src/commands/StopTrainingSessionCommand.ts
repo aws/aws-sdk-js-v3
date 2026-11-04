@@ -23,7 +23,14 @@ export interface StopTrainingSessionCommandInput extends StopTrainingSessionRequ
 export interface StopTrainingSessionCommandOutput extends StopTrainingSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a running training session and sets the session status to <code>Stopping</code>. After the session stops, the status changes to <code>Stopped</code>. To delete a stopped session, use the <code>DeleteTrainingSession</code> operation.</p> <p>The following operations are related to <code>StopTrainingSession</code>:</p> <ul> <li> <p> <code>CreateTrainingSession</code> </p> </li> <li> <p> <code>DescribeTrainingSession</code> </p> </li> <li> <p> <code>DeleteTrainingSession</code> </p> </li> </ul>
+ * Stops a running training session and sets the session status to `Stopping`. After the session stops, the status changes to `Stopped`. To delete a stopped session, use the `DeleteTrainingSession` operation.
+ *
+ * The following operations are related to `StopTrainingSession`:
+ *
+ * - `CreateTrainingSession`
+ * - `DescribeTrainingSession`
+ * - `DeleteTrainingSession`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,11 +55,12 @@ export interface StopTrainingSessionCommandOutput extends StopTrainingSessionRes
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

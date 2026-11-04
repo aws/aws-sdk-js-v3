@@ -6,7 +6,6 @@ import { IvschatServiceException as __BaseException } from "./IvschatServiceExce
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p/>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +26,6 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class PendingVerification extends __BaseException {
@@ -48,7 +46,6 @@ export class PendingVerification extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -56,13 +53,11 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -83,7 +78,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -91,13 +85,11 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p/>
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -118,7 +110,6 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -126,13 +117,11 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   resourceType: ResourceType | undefined;
@@ -153,7 +142,6 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -161,19 +149,16 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p/>
    * @public
    */
   limit: number | undefined;
@@ -195,7 +180,6 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -203,19 +187,16 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p/>
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p/>
    * @public
    */
   limit: number | undefined;
@@ -237,7 +218,6 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p/>
  * @public
  */
 export class InternalServerException extends __BaseException {

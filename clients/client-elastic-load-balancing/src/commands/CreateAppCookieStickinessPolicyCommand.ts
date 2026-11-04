@@ -23,15 +23,14 @@ export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCo
 export interface CreateAppCookieStickinessPolicyCommandOutput extends CreateAppCookieStickinessPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>
- *         <p>This policy is similar to the policy created by <a>CreateLBCookieStickinessPolicy</a>,
- *             except that the lifetime of the special Elastic Load Balancing cookie, <code>AWSELB</code>,
- *             follows the lifetime of the application-generated cookie specified in the policy configuration.
- *             The load balancer only inserts a new stickiness cookie when the application response
- *             includes a new application cookie.</p>
- *         <p>If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application">Application-Controlled Session Stickiness</a>
- *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.
+ *
+ * This policy is similar to the policy created by CreateLBCookieStickinessPolicy, except that the lifetime of the special Elastic Load Balancing cookie, `AWSELB`, follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer only inserts a new stickiness cookie when the application response includes a new application cookie.
+ *
+ * If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued.
+ *
+ * For more information, see [Application-Controlled Session Stickiness](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-application) in the *Classic Load Balancers Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,20 +57,24 @@ export interface CreateAppCookieStickinessPolicyCommandOutput extends CreateAppC
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  * @throws {@link AccessPointNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link DuplicatePolicyNameException} (client fault)
- *  <p>A policy with the specified name already exists for this load balancer.</p>
+ *
+ * A policy with the specified name already exists for this load balancer.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration change is not valid.</p>
+ *
+ * The requested configuration change is not valid.
  *
  * @throws {@link TooManyPoliciesException} (client fault)
- *  <p>The quota for the number of policies for this load balancer has been reached.</p>
+ *
+ * The quota for the number of policies for this load balancer has been reached.
  *
  * @throws {@link ElasticLoadBalancingServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancing service.
  *
  * @example To generate a stickiness policy for your load balancer
  * ```javascript

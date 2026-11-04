@@ -23,10 +23,8 @@ export interface GetProbeCommandInput extends GetProbeInput {}
 export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details about a probe. This action requires both the
- *                 <code>monitorName</code> and <code>probeId</code> parameters. Run
- *                 <code>ListMonitors</code> to get a list of monitor names. Run
- *                 <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
+ * Returns the details about a probe. This action requires both the `monitorName` and `probeId` parameters. Run `ListMonitors` to get a list of monitor names. Run `GetMonitor` to get a list of probes and probe IDs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,23 +66,28 @@ export interface GetProbeCommandOutput extends GetProbeOutput, __MetadataBearer 
  * @see {@link NetworkMonitorClientResolvedConfig | config} for NetworkMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling</p>
+ *
+ * The request was denied due to request throttling
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link NetworkMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkMonitor service.
  *
  * @public
  */

@@ -23,14 +23,10 @@ export interface ListLocalDisksCommandInput extends ListLocalDisksInput {}
 export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the gateway's local disks. To specify which gateway to describe,
- *          you use the Amazon Resource Name (ARN) of the gateway in the body of the request.</p>
- *          <p>The request returns a list of all disks, specifying which are configured as working
- *          storage, cache storage, or stored volume or not configured at all. The response includes a
- *             <code>DiskStatus</code> field. This field can have a value of present (the disk is
- *          available to use), missing (the disk is no longer connected to the gateway), or mismatch
- *          (the disk node is occupied by a disk that has incorrect metadata or the disk content is
- *          corrupted).</p>
+ * Returns a list of the gateway's local disks. To specify which gateway to describe, you use the Amazon Resource Name (ARN) of the gateway in the body of the request.
+ *
+ * The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all. The response includes a `DiskStatus` field. This field can have a value of present (the disk is available to use), missing (the disk is no longer connected to the gateway), or mismatch (the disk node is occupied by a disk that has incorrect metadata or the disk content is corrupted).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,16 +67,16 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To list the gateway's local disks
  * ```javascript

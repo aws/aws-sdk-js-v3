@@ -23,9 +23,8 @@ export interface CreateLongTermPricingCommandInput extends CreateLongTermPricing
 export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricingResult, __MetadataBearer {}
 
 /**
- * <p>Creates a job with the long-term usage option for a device. The long-term usage is a
- *       1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing.
- *       </p>
+ * Creates a job with the long-term usage option for a device. The long-term usage is a 1-year or 3-year long-term pricing type for the device. You are billed upfront, and Amazon Web Services provides discounts for long-term pricing.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,12 +53,12 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

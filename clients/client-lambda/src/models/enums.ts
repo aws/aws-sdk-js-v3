@@ -136,11 +136,11 @@ export type CapacityProviderPredefinedMetricType =
  */
 export const PropagateTagsMode = {
   /**
-   * <p>Tags specified in <code>ExplicitTags</code> are applied to managed resources at launch.</p>
+   * Tags specified in `ExplicitTags` are applied to managed resources at launch.
    */
   Explicit: "Explicit",
   /**
-   * <p>Tag propagation is disabled. No tags are applied to managed resources.</p>
+   * Tag propagation is disabled. No tags are applied to managed resources.
    */
   None: "None",
 } as const;
@@ -439,11 +439,11 @@ export type EventSourcePosition = (typeof EventSourcePosition)[keyof typeof Even
  */
 export const S3ObjectStorageMode = {
   /**
-   * <p>The default storage mode. Uploads a copy of your deployment package to Lambda.</p>
+   * The default storage mode. Uploads a copy of your deployment package to Lambda.
    */
   Copy: "COPY",
   /**
-   * <p>The reference storage mode. Lambda references the deployment package from the specified Amazon S3 bucket without uploading a copy.</p>
+   * The reference storage mode. Lambda references the deployment package from the specified Amazon S3 bucket without uploading a copy.
    */
   Reference: "REFERENCE",
 } as const;

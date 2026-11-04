@@ -26,7 +26,8 @@ export interface DeleteModelInvocationLoggingConfigurationCommandInput extends D
 export interface DeleteModelInvocationLoggingConfigurationCommandOutput extends DeleteModelInvocationLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Delete the invocation logging. </p>
+ * Delete the invocation logging.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,17 +50,20 @@ export interface DeleteModelInvocationLoggingConfigurationCommandOutput extends 
  * @see {@link BedrockClientResolvedConfig | config} for BedrockClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request is denied because of missing access permissions.</p>
+ *
+ * The request is denied because of missing access permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link BedrockServiceException}
- * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ * Base exception class for all service exceptions from Bedrock service.
  *
  * @public
  */

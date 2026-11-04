@@ -2351,7 +2351,8 @@ export interface ApiGatewayV2 {
 }
 
 /**
- * <p>Amazon API Gateway V2</p>
+ * Amazon API Gateway V2
+ *
  * @public
  */
 export class ApiGatewayV2 extends ApiGatewayV2Client implements ApiGatewayV2 {}

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KafkaServiceException as __BaseException } from "./KafkaServiceException";
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -12,13 +13,15 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -38,7 +41,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -46,13 +50,15 @@ export class ForbiddenException extends __BaseException {
   readonly name = "ForbiddenException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -72,7 +78,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -80,13 +87,15 @@ export class InternalServerErrorException extends __BaseException {
   readonly name = "InternalServerErrorException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -106,7 +115,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -114,13 +124,15 @@ export class NotFoundException extends __BaseException {
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -140,7 +152,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -148,13 +161,15 @@ export class ServiceUnavailableException extends __BaseException {
   readonly name = "ServiceUnavailableException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -174,7 +189,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -182,13 +198,15 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -208,7 +226,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -216,13 +235,15 @@ export class UnauthorizedException extends __BaseException {
   readonly name = "UnauthorizedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -242,7 +263,8 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class ClusterConnectivityException extends __BaseException {
@@ -250,13 +272,15 @@ export class ClusterConnectivityException extends __BaseException {
   readonly name = "ClusterConnectivityException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -276,7 +300,8 @@ export class ClusterConnectivityException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -284,13 +309,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -310,7 +337,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class ControllerMovedException extends __BaseException {
@@ -318,13 +346,15 @@ export class ControllerMovedException extends __BaseException {
   readonly name = "ControllerMovedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -344,7 +374,8 @@ export class ControllerMovedException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class GroupSubscribedToTopicException extends __BaseException {
@@ -352,13 +383,15 @@ export class GroupSubscribedToTopicException extends __BaseException {
   readonly name = "GroupSubscribedToTopicException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -378,7 +411,8 @@ export class GroupSubscribedToTopicException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class KafkaRequestException extends __BaseException {
@@ -386,13 +420,15 @@ export class KafkaRequestException extends __BaseException {
   readonly name = "KafkaRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -412,7 +448,8 @@ export class KafkaRequestException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class KafkaTimeoutException extends __BaseException {
@@ -420,13 +457,15 @@ export class KafkaTimeoutException extends __BaseException {
   readonly name = "KafkaTimeoutException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -446,7 +485,8 @@ export class KafkaTimeoutException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class NotControllerException extends __BaseException {
@@ -454,13 +494,15 @@ export class NotControllerException extends __BaseException {
   readonly name = "NotControllerException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -480,7 +522,8 @@ export class NotControllerException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class ReassignmentInProgressException extends __BaseException {
@@ -488,13 +531,15 @@ export class ReassignmentInProgressException extends __BaseException {
   readonly name = "ReassignmentInProgressException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -514,7 +559,8 @@ export class ReassignmentInProgressException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class TopicExistsException extends __BaseException {
@@ -522,13 +568,15 @@ export class TopicExistsException extends __BaseException {
   readonly name = "TopicExistsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -548,7 +596,8 @@ export class TopicExistsException extends __BaseException {
 }
 
 /**
- * <p>Returns information about an error.</p>
+ * Returns information about an error.
+ *
  * @public
  */
 export class UnknownTopicOrPartitionException extends __BaseException {
@@ -556,13 +605,15 @@ export class UnknownTopicOrPartitionException extends __BaseException {
   readonly name = "UnknownTopicOrPartitionException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The parameter that caused the error.</p>
+   * The parameter that caused the error.
+   *
    * @public
    */
   InvalidParameter?: string | undefined;
 
   /**
-   * <p>The description of the error.</p>
+   * The description of the error.
+   *
    * @public
    */
   Message?: string | undefined;

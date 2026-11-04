@@ -23,7 +23,8 @@ export interface ListAddonSubscriptionsCommandInput extends ListAddonSubscriptio
 export interface ListAddonSubscriptionsCommandOutput extends ListAddonSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all Add On subscriptions in your account.</p>
+ * Lists all Add On subscriptions in your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,11 +60,12 @@ export interface ListAddonSubscriptionsCommandOutput extends ListAddonSubscripti
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

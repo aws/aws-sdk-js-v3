@@ -23,7 +23,8 @@ export interface ListStackRefactorsCommandInput extends ListStackRefactorsInput 
 export interface ListStackRefactorsCommandOutput extends ListStackRefactorsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all account stack refactor operations and their statuses.</p>
+ * Lists all account stack refactor operations and their statuses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +65,8 @@ export interface ListStackRefactorsCommandOutput extends ListStackRefactorsOutpu
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

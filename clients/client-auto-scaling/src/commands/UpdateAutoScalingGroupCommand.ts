@@ -23,50 +23,22 @@ export interface UpdateAutoScalingGroupCommandInput extends UpdateAutoScalingGro
 export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *             <b>We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.</b>
- *          </p>
- *          <p>Updates the configuration for the specified Auto Scaling group.</p>
- *          <p>To update an Auto Scaling group, specify the name of the group and the property that you want
- *             to change. Any properties that you don't specify are not changed by this update request.
- *             The new settings take effect on any scaling activities after this call returns.
- *             </p>
- *          <p>If you associate a new launch configuration or template with an Auto Scaling group, all new
- *             instances will get the updated configuration. Existing instances continue to run with
- *             the configuration that they were originally launched with. When you update a group to
- *             specify a mixed instances policy instead of a launch configuration or template, existing
- *             instances may be replaced to match the new purchasing options that you specified in the
- *             policy. For example, if the group currently has 100% On-Demand capacity and the policy
- *             specifies 50% Spot capacity, this means that half of your instances will be gradually
- *             terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches
- *             new instances before terminating the old ones, so that updating your group does not
- *             compromise the performance or availability of your application.</p>
- *          <p>Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>,
- *             or <code>MinSize</code>:</p>
- *          <ul>
- *             <li>
- *                <p>If a scale-in activity occurs as a result of a new
- *                         <code>DesiredCapacity</code> value that is lower than the current size of
- *                     the group, the Auto Scaling group uses its termination policy to determine which
- *                     instances to terminate.</p>
- *             </li>
- *             <li>
- *                <p>If you specify a new value for <code>MinSize</code> without specifying a value
- *                     for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger
- *                     than the current size of the group, this sets the group's
- *                         <code>DesiredCapacity</code> to the new <code>MinSize</code> value.</p>
- *             </li>
- *             <li>
- *                <p>If you specify a new value for <code>MaxSize</code> without specifying a value
- *                     for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller
- *                     than the current size of the group, this sets the group's
- *                         <code>DesiredCapacity</code> to the new <code>MaxSize</code> value.</p>
- *             </li>
- *          </ul>
- *          <p>To see which properties have been set, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html">DescribeAutoScalingGroups</a> API.
- *             To view the scaling policies for an Auto Scaling
- *             group, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html">DescribePolicies</a> API. If the group has scaling
- *             policies, you can update them by calling the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a> API.</p>
+ * **We strongly recommend that all Auto Scaling groups use launch templates to ensure full functionality for Amazon EC2 Auto Scaling and Amazon EC2.**
+ *
+ * Updates the configuration for the specified Auto Scaling group.
+ *
+ * To update an Auto Scaling group, specify the name of the group and the property that you want to change. Any properties that you don't specify are not changed by this update request. The new settings take effect on any scaling activities after this call returns.
+ *
+ * If you associate a new launch configuration or template with an Auto Scaling group, all new instances will get the updated configuration. Existing instances continue to run with the configuration that they were originally launched with. When you update a group to specify a mixed instances policy instead of a launch configuration or template, existing instances may be replaced to match the new purchasing options that you specified in the policy. For example, if the group currently has 100% On-Demand capacity and the policy specifies 50% Spot capacity, this means that half of your instances will be gradually terminated and relaunched as Spot Instances. When replacing instances, Amazon EC2 Auto Scaling launches new instances before terminating the old ones, so that updating your group does not compromise the performance or availability of your application.
+ *
+ * Note the following about changing `DesiredCapacity`, `MaxSize`, or `MinSize`:
+ *
+ * - If a scale-in activity occurs as a result of a new `DesiredCapacity` value that is lower than the current size of the group, the Auto Scaling group uses its termination policy to determine which instances to terminate.
+ * - If you specify a new value for `MinSize` without specifying a value for `DesiredCapacity`, and the new `MinSize` is larger than the current size of the group, this sets the group's `DesiredCapacity` to the new `MinSize` value.
+ * - If you specify a new value for `MaxSize` without specifying a value for `DesiredCapacity`, and the new `MaxSize` is smaller than the current size of the group, this sets the group's `DesiredCapacity` to the new `MaxSize` value.
+ *
+ * To see which properties have been set, call the [DescribeAutoScalingGroups](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingGroups.html) API. To view the scaling policies for an Auto Scaling group, call the [DescribePolicies](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribePolicies.html) API. If the group has scaling policies, you can update them by calling the [PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html) API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -260,19 +232,20 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ScalingActivityInProgressFault} (client fault)
- *  <p>The operation can't be performed because there are scaling activities in
- *             progress.</p>
+ *
+ * The operation can't be performed because there are scaling activities in progress.
  *
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
- *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ * The service-linked role is not yet ready for use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To update an Auto Scaling group
  * ```javascript

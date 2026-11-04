@@ -23,57 +23,27 @@ export interface UpdateContainerGroupDefinitionCommandInput extends UpdateContai
 export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateContainerGroupDefinitionOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> Container</p>
- *          <p>Updates properties in an existing container group definition. This operation doesn't
- *       replace the definition. Instead, it creates a new version of the definition and saves it
- *       separately. You can access all versions that you choose to retain.</p>
- *          <p>The only property you can't update is the container group type.</p>
- *          <p>
- *             <b>Request options:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>Update based on the latest version of the container group definition. Specify the
- *           container group definition name only, or use an ARN value without a version number.
- *           Provide updated values for the properties that you want to change only. All other values
- *           remain the same as the latest version.</p>
- *             </li>
- *             <li>
- *                <p>Update based on a specific version of the container group definition. Specify the
- *           container group definition name and a source version number, or use an ARN value with a
- *           version number. Provide updated values for the properties that you want to change only.
- *           All other values remain the same as the source version.</p>
- *             </li>
- *             <li>
- *                <p>Change a game server container definition. Provide a complete set of container
- *           definitions, including the updated definition.</p>
- *             </li>
- *             <li>
- *                <p>Add or change a support container definition. Provide a complete set of container
- *           definitions, including the updated definition.</p>
- *             </li>
- *             <li>
- *                <p>Remove a support container definition. Provide a complete set of container
- *           definitions, excluding the definition to remove. If the container group has only one
- *           support container definition, provide an empty set.</p>
- *             </li>
- *             <li>
- *                <p>Remove the total vCPU limit from a game server container group so that its containers
- *           can use up to the instance's available vCPU. Set <code>RemoveAttributes</code> to
- *           <code>TOTAL_VCPU_LIMIT</code>. The game server container must have a <code>Vcpu</code>
- *           value, because a game server container group needs either a total vCPU limit or a game
- *           server <code>Vcpu</code> value.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results:</b>
- *          </p>
- *          <p>If successful, this operation returns the complete properties of the new container group
- *       definition version.</p>
- *          <p>If the container group definition version is used in an active fleet, the update
- *       automatically initiates a new fleet deployment of the new version. You can track a fleet's
- *       deployments using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html">ListFleetDeployments</a>.</p>
+ * **This API works with the following fleet types:** Container
+ *
+ * Updates properties in an existing container group definition. This operation doesn't replace the definition. Instead, it creates a new version of the definition and saves it separately. You can access all versions that you choose to retain.
+ *
+ * The only property you can't update is the container group type.
+ *
+ * **Request options:**
+ *
+ * - Update based on the latest version of the container group definition. Specify the container group definition name only, or use an ARN value without a version number. Provide updated values for the properties that you want to change only. All other values remain the same as the latest version.
+ * - Update based on a specific version of the container group definition. Specify the container group definition name and a source version number, or use an ARN value with a version number. Provide updated values for the properties that you want to change only. All other values remain the same as the source version.
+ * - Change a game server container definition. Provide a complete set of container definitions, including the updated definition.
+ * - Add or change a support container definition. Provide a complete set of container definitions, including the updated definition.
+ * - Remove a support container definition. Provide a complete set of container definitions, excluding the definition to remove. If the container group has only one support container definition, provide an empty set.
+ * - Remove the total vCPU limit from a game server container group so that its containers can use up to the instance's available vCPU. Set `RemoveAttributes` to `TOTAL_VCPU_LIMIT`. The game server container must have a `Vcpu` value, because a game server container group needs either a total vCPU limit or a game server `Vcpu` value.
+ *
+ * **Results:**
+ *
+ * If successful, this operation returns the complete properties of the new container group definition version.
+ *
+ * If the container group definition version is used in an active fleet, the update automatically initiates a new fleet deployment of the new version. You can track a fleet's deployments using [ListFleetDeployments](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -302,29 +272,32 @@ export interface UpdateContainerGroupDefinitionCommandOutput extends UpdateConta
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The requested operation would cause the resource to exceed the allowed service limit.
- *             Resolve the issue before retrying.</p>
+ *
+ * The requested operation would cause the resource to exceed the allowed service limit. Resolve the issue before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

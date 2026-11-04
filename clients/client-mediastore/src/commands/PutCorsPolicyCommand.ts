@@ -23,17 +23,12 @@ export interface PutCorsPolicyCommandInput extends PutCorsPolicyInput {}
 export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Sets the cross-origin resource sharing (CORS) configuration on a container so that
- *          the container can service cross-origin requests. For example, you might want to enable a
- *          request whose origin is http://www.example.com to access your AWS Elemental MediaStore
- *          container at my.example.container.com by using the browser's XMLHttpRequest
- *          capability.</p>
- *          <p>To enable CORS on a container, you attach a CORS policy to the container. In the CORS
- *          policy, you configure rules that identify origins and the HTTP methods that can be executed
- *          on your container. The policy can contain up to 398,000 characters. You can add up to 100
- *          rules to a CORS policy. If more than one rule applies, the service uses the first
- *          applicable rule listed.</p>
- *          <p>To learn more about CORS, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html">Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore</a>.</p>
+ * Sets the cross-origin resource sharing (CORS) configuration on a container so that the container can service cross-origin requests. For example, you might want to enable a request whose origin is http://www.example.com to access your AWS Elemental MediaStore container at my.example.container.com by using the browser's XMLHttpRequest capability.
+ *
+ * To enable CORS on a container, you attach a CORS policy to the container. In the CORS policy, you configure rules that identify origins and the HTTP methods that can be executed on your container. The policy can contain up to 398,000 characters. You can add up to 100 rules to a CORS policy. If more than one rule applies, the service uses the first applicable rule listed.
+ *
+ * To learn more about CORS, see [Cross-Origin Resource Sharing (CORS) in AWS Elemental MediaStore](https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,18 +70,20 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface AddTagsToResourceCommandInput extends AddTagsToResourceRequest 
 export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified directory. Each directory can
- *       have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be
- *       unique to each resource.</p>
+ * Adds or overwrites one or more tags for the specified directory. Each directory can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique to each resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,23 +55,28 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>A client exception has occurred.</p>
+ *
+ * A client exception has occurred.
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
- *  <p>The specified entity could not be found.</p>
+ *
+ * The specified entity could not be found.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * An exception has occurred in Directory Service.
  *
  * @throws {@link TagLimitExceededException} (client fault)
- *  <p>The maximum allowed number of tags was exceeded.</p>
+ *
+ * The maximum allowed number of tags was exceeded.
  *
  * @throws {@link DirectoryServiceServiceException}
- * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ * Base exception class for all service exceptions from DirectoryService service.
  *
  * @example To add tags to a directory
  * ```javascript

@@ -23,7 +23,8 @@ export interface DeleteIntegrationCommandInput extends DeleteIntegrationMessage 
 export interface DeleteIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
- * <p>Deletes a zero-ETL integration or S3 event integration with Amazon Redshift.</p>
+ * Deletes a zero-ETL integration or S3 event integration with Amazon Redshift.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,22 +73,24 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link IntegrationConflictOperationFault} (client fault)
- *  <p>A conflicting conditional operation is currently in progress against this resource.
- *             This typically occurs when there are multiple requests being made to the same resource at the same time,
- *             and these requests conflict with each other.</p>
+ *
+ * A conflicting conditional operation is currently in progress against this resource. This typically occurs when there are multiple requests being made to the same resource at the same time, and these requests conflict with each other.
  *
  * @throws {@link IntegrationConflictStateFault} (client fault)
- *  <p>The integration is in an invalid state and can't perform the requested operation.</p>
+ *
+ * The integration is in an invalid state and can't perform the requested operation.
  *
  * @throws {@link IntegrationNotFoundFault} (client fault)
- *  <p>The integration can't be found.</p>
+ *
+ * The integration can't be found.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

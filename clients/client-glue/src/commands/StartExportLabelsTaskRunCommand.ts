@@ -23,15 +23,8 @@ export interface StartExportLabelsTaskRunCommandInput extends StartExportLabelsT
 export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabelsTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Begins an asynchronous task to export all labeled data for a particular transform. This
- *       task is the only label-related API call that is not part of the typical active learning
- *       workflow. You typically use <code>StartExportLabelsTaskRun</code> when you want to work with
- *       all of your existing labels at the same time, such as when you want to remove or change labels
- *       that were previously submitted as truth. This API operation accepts the
- *         <code>TransformId</code> whose labels you want to export and an Amazon Simple Storage
- *       Service (Amazon S3) path to export the labels to. The operation returns a
- *         <code>TaskRunId</code>. You can check on the status of your task run by calling the
- *         <code>GetMLTaskRun</code> API.</p>
+ * Begins an asynchronous task to export all labeled data for a particular transform. This task is the only label-related API call that is not part of the typical active learning workflow. You typically use `StartExportLabelsTaskRun` when you want to work with all of your existing labels at the same time, such as when you want to remove or change labels that were previously submitted as truth. This API operation accepts the `TransformId` whose labels you want to export and an Amazon Simple Storage Service (Amazon S3) path to export the labels to. The operation returns a `TaskRunId`. You can check on the status of your task run by calling the `GetMLTaskRun` API.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,20 +52,24 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

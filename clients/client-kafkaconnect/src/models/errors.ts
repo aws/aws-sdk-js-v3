@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
 
 /**
- * <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.</p>
+ * HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then retry it.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -25,7 +26,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.</p>
+ * HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your request with another name.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.</p>
+ * HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your request.
+ *
  * @public
  */
 export class ForbiddenException extends __BaseException {
@@ -67,7 +70,8 @@ export class ForbiddenException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.</p>
+ * HTTP Status Code 500: Unexpected internal server error. Retrying your request might resolve the issue.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -88,7 +92,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.</p>
+ * HTTP Status Code 404: Resource not found due to incorrect input. Correct your request and then retry it.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -109,7 +114,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.</p>
+ * HTTP Status Code 503: Service Unavailable. Retrying your request in some time might resolve the issue.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -130,7 +136,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 429: Limit exceeded. Resource limit reached.</p>
+ * HTTP Status Code 429: Limit exceeded. Resource limit reached.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -151,7 +158,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.</p>
+ * HTTP Status Code 401: Unauthorized request. The provided credentials couldn't be validated.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {

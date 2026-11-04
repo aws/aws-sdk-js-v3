@@ -23,10 +23,10 @@ export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPriva
 export interface ConfirmPrivateVirtualInterfaceCommandOutput extends ConfirmPrivateVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts ownership of a private virtual interface created by another Amazon Web Services account.</p>
- *          <p>After the virtual interface owner makes this call, the virtual interface is
- *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
- *       made available to handle traffic.</p>
+ * Accepts ownership of a private virtual interface created by another Amazon Web Services account.
+ *
+ * After the virtual interface owner makes this call, the virtual interface is created and attached to the specified virtual private gateway or Direct Connect gateway, and is made available to handle traffic.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +55,16 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput extends ConfirmPriv
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

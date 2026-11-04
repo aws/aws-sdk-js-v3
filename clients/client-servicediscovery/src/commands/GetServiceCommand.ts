@@ -23,7 +23,8 @@ export interface GetServiceCommandInput extends GetServiceRequest {}
 export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the settings for a specified service.</p>
+ * Gets the settings for a specified service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,16 +81,16 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link ServiceNotFound} (client fault)
- *  <p>No service exists with the specified ID.</p>
+ *
+ * No service exists with the specified ID.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example Get service using service ARN
  * ```javascript

@@ -23,9 +23,12 @@ export interface CreateTieringConfigurationCommandInput extends CreateTieringCon
 export interface CreateTieringConfigurationCommandOutput extends CreateTieringConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a tiering configuration.</p>
- *          <p>A tiering configuration enables automatic movement of backup data to a lower-cost storage tier based on the age of backed-up objects in the backup vault.</p>
- *          <p>Each vault can only have one vault-specific tiering configuration, in addition to any global configuration that applies to all vaults.</p>
+ * Creates a tiering configuration.
+ *
+ * A tiering configuration enables automatic movement of backup data to a lower-cost storage tier based on the age of backed-up objects in the backup vault.
+ *
+ * Each vault can only have one vault-specific tiering configuration, in addition to any global configuration that applies to all vaults.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,29 +73,32 @@ export interface CreateTieringConfigurationCommandOutput extends CreateTieringCo
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The required resource already exists.</p>
+ *
+ * The required resource already exists.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Backup can't perform the action that you requested until it finishes
- *          performing a previous action. Try again later.</p>
+ *
+ * Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ *
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * Indicates that a required parameter is missing.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

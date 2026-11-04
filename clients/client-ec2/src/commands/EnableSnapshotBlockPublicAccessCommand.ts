@@ -23,23 +23,16 @@ export interface EnableSnapshotBlockPublicAccessCommandInput extends EnableSnaps
 export interface EnableSnapshotBlockPublicAccessCommandOutput extends EnableSnapshotBlockPublicAccessResult, __MetadataBearer {}
 
 /**
- * <p>Enables or modifies the <i>block public access for snapshots</i>
- *       setting at the account level for the specified Amazon Web Services Region. After you enable block
- *       public access for snapshots in a Region, users can no longer request public sharing
- *       for snapshots in that Region. Snapshots that are already publicly shared are either
- *       treated as private or they remain publicly shared, depending on the
- *       <b>State</b> that you specify.</p>
- *          <important>
- *             <p>Enabling block public access for snapshots in <i>block all sharing</i>
- *         mode does not change the permissions for snapshots that are already publicly shared.
- *         Instead, it prevents these snapshots from be publicly visible and publicly accessible.
- *         Therefore, the attributes for these snapshots still indicate that they are publicly
- *         shared, even though they are not publicly available.</p>
- *             <p>If you later disable block public access or change the mode to <i>block new
- *         sharing</i>, these snapshots will become publicly available again.</p>
- *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
- *       Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Enables or modifies the *block public access for snapshots* setting at the account level for the specified Amazon Web Services Region. After you enable block public access for snapshots in a Region, users can no longer request public sharing for snapshots in that Region. Snapshots that are already publicly shared are either treated as private or they remain publicly shared, depending on the **State** that you specify.
+ *
+ * > **Important:**
+ * >
+ * > Enabling block public access for snapshots in *block all sharing* mode does not change the permissions for snapshots that are already publicly shared. Instead, it prevents these snapshots from be publicly visible and publicly accessible. Therefore, the attributes for these snapshots still indicate that they are publicly shared, even though they are not publicly available.
+ * >
+ * > If you later disable block public access or change the mode to *block new sharing*, these snapshots will become publicly available again.
+ *
+ * For more information, see [Block public access for snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +60,8 @@ export interface EnableSnapshotBlockPublicAccessCommandOutput extends EnableSnap
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

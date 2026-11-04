@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the tag from the specified resource.</p>
+ * Removes the tag from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found or does not exist.</p>
+ *
+ * The requested resource was not found or does not exist.
  *
  * @throws {@link TimestreamInfluxDBServiceException}
- * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ * Base exception class for all service exceptions from TimestreamInfluxDB service.
  *
  * @public
  */

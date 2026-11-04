@@ -26,7 +26,8 @@ export interface ListSlackWorkspaceConfigurationsCommandInput extends ListSlackW
 export interface ListSlackWorkspaceConfigurationsCommandOutput extends ListSlackWorkspaceConfigurationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists the Slack workspace configurations for an Amazon Web Services account.</p>
+ * Lists the Slack workspace configurations for an Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +61,16 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput extends ListSlack
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ * We can’t process your request right now because of a server issue. Try again later.
  *
  * @throws {@link SupportAppServiceException}
- * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ * Base exception class for all service exceptions from SupportApp service.
  *
  * @public
  */

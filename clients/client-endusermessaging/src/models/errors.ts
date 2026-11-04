@@ -5,7 +5,8 @@ import { EndUserMessagingServiceException as __BaseException } from "./EndUserMe
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -26,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource.</p>
+ * The request conflicts with the current state of the resource.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -34,13 +36,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that the request conflicts with.</p>
+   * The identifier of the resource that the request conflicts with.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that the request conflicts with.</p>
+   * The type of the resource that the request conflicts with.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -61,7 +65,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred during the processing of the request.</p>
+ * An unexpected error occurred during the processing of the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -83,7 +88,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service quota for your account.</p>
+ * The request would exceed a service quota for your account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -104,7 +110,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because it exceeded the allowed request rate.</p>
+ * The request was denied because it exceeded the allowed request rate.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -159,7 +166,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request references a resource that does not exist. Verify that the resource identifier is correct and try your request again.</p>
+ * The request references a resource that does not exist. Verify that the resource identifier is correct and try your request again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -167,13 +175,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that could not be found.</p>
+   * The identifier of the resource that could not be found.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that could not be found.</p>
+   * The type of the resource that could not be found.
+   *
    * @public
    */
   resourceType?: string | undefined;

@@ -23,49 +23,22 @@ export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
 export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a file system. After deletion, the file system no longer exists, and its data
- *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
- *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
- *             volumes and storage virtual machines (SVMs) on the file system. Then provide a
- *                 <code>FileSystemId</code> value to the <code>DeleteFileSystem</code> operation.</p>
- *          <p>Before deleting an Amazon FSx for OpenZFS file system, make sure that there aren't
- *         any Amazon S3 access points attached to any volume. For more information on how to list S3
- *         access points that are attached to volumes, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list.html">Listing S3 access point attachments</a>.
- *         For more information on how to delete S3 access points, see
- *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-access-point.html">Deleting an S3 access point attachment</a>.</p>
- *          <p>By default, when you delete an Amazon FSx for Windows File Server file system,
- *             a final backup is created upon deletion. This final backup isn't subject to the file
- *             system's retention policy, and must be manually deleted.</p>
- *          <p>To delete an Amazon FSx for Lustre file system, first
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html">unmount</a>
- *             it from every connected Amazon EC2 instance, then provide a <code>FileSystemId</code>
- *             value to the <code>DeleteFileSystem</code> operation. By default, Amazon FSx will not
- *             take a final backup when the <code>DeleteFileSystem</code> operation is invoked. On file systems
- *             not linked to an Amazon S3 bucket, set <code>SkipFinalBackup</code> to <code>false</code>
- *             to take a final backup of the file system you are deleting. Backups cannot be enabled on S3-linked
- *             file systems. To ensure all of your data is written back to S3 before deleting your file system,
- *             you can either monitor for the
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/monitoring-cloudwatch.html#auto-import-export-metrics">AgeOfOldestQueuedMessage</a>
- *             metric to be zero (if using automatic export) or you can run an
- *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repo-task-dra.html">export data repository task</a>.
- *             If you have automatic export enabled and want to use an export data repository task, you have
- *             to disable automatic export before executing the export data repository task.</p>
- *          <p>The <code>DeleteFileSystem</code> operation returns while the file system has the
- *                 <code>DELETING</code> status. You can check the file system deletion status by
- *             calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html">DescribeFileSystems</a> operation, which returns a list of file systems in your
- *             account. If you pass the file system ID for a deleted file system, the
- *                 <code>DescribeFileSystems</code> operation returns a <code>FileSystemNotFound</code>
- *             error.</p>
- *          <note>
- *             <p>If a data repository task is in a <code>PENDING</code> or <code>EXECUTING</code> state,
- *                 deleting an Amazon FSx for Lustre file system will fail with an HTTP status
- *                 code 400 (Bad Request).</p>
- *          </note>
- *          <important>
- *             <p>The data in a deleted file system is also deleted and can't be recovered by
- *                 any means.</p>
- *          </important>
+ * Deletes a file system. After deletion, the file system no longer exists, and its data is gone. Any existing automatic backups and snapshots are also deleted.
+ *
+ * To delete an Amazon FSx for NetApp ONTAP file system, first delete all the volumes and storage virtual machines (SVMs) on the file system. Then provide a `FileSystemId` value to the `DeleteFileSystem` operation.
+ *
+ * Before deleting an Amazon FSx for OpenZFS file system, make sure that there aren't any Amazon S3 access points attached to any volume. For more information on how to list S3 access points that are attached to volumes, see [Listing S3 access point attachments](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list.html). For more information on how to delete S3 access points, see [Deleting an S3 access point attachment](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-access-point.html).
+ *
+ * By default, when you delete an Amazon FSx for Windows File Server file system, a final backup is created upon deletion. This final backup isn't subject to the file system's retention policy, and must be manually deleted.
+ *
+ * To delete an Amazon FSx for Lustre file system, first [unmount](https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html) it from every connected Amazon EC2 instance, then provide a `FileSystemId` value to the `DeleteFileSystem` operation. By default, Amazon FSx will not take a final backup when the `DeleteFileSystem` operation is invoked. On file systems not linked to an Amazon S3 bucket, set `SkipFinalBackup` to `false` to take a final backup of the file system you are deleting. Backups cannot be enabled on S3-linked file systems. To ensure all of your data is written back to S3 before deleting your file system, you can either monitor for the [AgeOfOldestQueuedMessage](https://docs.aws.amazon.com/fsx/latest/LustreGuide/monitoring-cloudwatch.html#auto-import-export-metrics) metric to be zero (if using automatic export) or you can run an [export data repository task](https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repo-task-dra.html). If you have automatic export enabled and want to use an export data repository task, you have to disable automatic export before executing the export data repository task.
+ *
+ * The `DeleteFileSystem` operation returns while the file system has the `DELETING` status. You can check the file system deletion status by calling the [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) operation, which returns a list of file systems in your account. If you pass the file system ID for a deleted file system, the `DescribeFileSystems` operation returns a `FileSystemNotFound` error.
+ *
+ * > **Note:** If a data repository task is in a `PENDING` or `EXECUTING` state, deleting an Amazon FSx for Lustre file system will fail with an HTTP status code 400 (Bad Request).
+ *
+ * > **Important:** The data in a deleted file system is also deleted and can't be recovered by any means.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,26 +124,28 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * A generic error indicating a failure with a client request.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
+ *
+ * No Amazon FSx file systems were found based upon supplied parameters.
  *
  * @throws {@link IncompatibleParameterError} (client fault)
- *  <p>The error returned when a second request is received with the same client request
- *             token but different parameters settings. A client request token should always uniquely
- *             identify a single request.</p>
+ *
+ * The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * A generic error indicating a server-side failure.
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
- *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ * An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting Amazon Web Services Support.
  *
  * @throws {@link FSxServiceException}
- * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ * Base exception class for all service exceptions from FSx service.
  *
  * @example To delete a file system
  * ```javascript

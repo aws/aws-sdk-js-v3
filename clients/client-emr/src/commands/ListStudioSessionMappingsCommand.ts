@@ -23,8 +23,8 @@ export interface ListStudioSessionMappingsCommandInput extends ListStudioSession
 export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessionMappingsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio
- *          specified by <code>StudioId</code>.</p>
+ * Returns a list of all user or group session mappings for the Amazon EMR Studio specified by `StudioId`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,15 +63,16 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

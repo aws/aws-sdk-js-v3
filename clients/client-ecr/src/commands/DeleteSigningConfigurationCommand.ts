@@ -23,13 +23,12 @@ export interface DeleteSigningConfigurationCommandInput extends DeleteSigningCon
 export interface DeleteSigningConfigurationCommandOutput extends DeleteSigningConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the registry's signing configuration. Images pushed after deletion of the signing
- *             configuration will no longer be automatically signed.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html">Managed signing</a> in the
- *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
- *          <note>
- *             <p>Deleting the signing configuration does not affect existing image signatures.</p>
- *          </note>
+ * Deletes the registry's signing configuration. Images pushed after deletion of the signing configuration will no longer be automatically signed.
+ *
+ * For more information, see [Managed signing](https://docs.aws.amazon.com/AmazonECR/latest/userguide/managed-signing.html) in the *Amazon Elastic Container Registry User Guide*.
+ *
+ * > **Note:** Deleting the signing configuration does not affect existing image signatures.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,18 +66,20 @@ export interface DeleteSigningConfigurationCommandOutput extends DeleteSigningCo
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link SigningConfigurationNotFoundException} (client fault)
- *  <p>The specified signing configuration was not found. This occurs when
- *             attempting to retrieve or delete a signing configuration that does not exist.</p>
+ *
+ * The specified signing configuration was not found. This occurs when attempting to retrieve or delete a signing configuration that does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There was an exception validating this request.</p>
+ *
+ * There was an exception validating this request.
  *
  * @throws {@link ECRServiceException}
- * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ * Base exception class for all service exceptions from ECR service.
  *
  * @public
  */

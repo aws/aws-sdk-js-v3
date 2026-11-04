@@ -23,8 +23,10 @@ export interface DeleteRuleCommandInput extends DeleteRuleInput {}
 export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified rule.</p>
- *          <p>You can't delete the default rule.</p>
+ * Deletes the specified rule.
+ *
+ * You can't delete the default rule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,14 +51,16 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link RuleNotFoundException} (client fault)
- *  <p>The specified rule does not exist.</p>
+ *
+ * The specified rule does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To delete a rule
  * ```javascript

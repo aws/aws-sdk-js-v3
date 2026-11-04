@@ -23,7 +23,8 @@ export interface GetChannelPolicyCommandInput extends GetChannelPolicyRequest {}
 export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the channel's IAM policy. IAM policies are used to control access to your channel.</p>
+ * Returns the channel's IAM policy. IAM policies are used to control access to your channel.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +51,8 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

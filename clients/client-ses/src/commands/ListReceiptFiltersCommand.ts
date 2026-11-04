@@ -23,11 +23,12 @@ export interface ListReceiptFiltersCommandInput extends ListReceiptFiltersReques
 export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the IP address filters associated with your Amazon Web Services account in the current
- *             Amazon Web Services Region.</p>
- *          <p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Lists the IP address filters associated with your Amazon Web Services account in the current Amazon Web Services Region.
+ *
+ * For information about managing IP address filters, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/receiving-email-ip-filtering-console-walkthrough.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example ListReceiptFilters
  * ```javascript

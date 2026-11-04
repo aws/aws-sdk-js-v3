@@ -23,15 +23,12 @@ export interface CreateLFTagExpressionCommandInput extends CreateLFTagExpression
 export interface CreateLFTagExpressionCommandOutput extends CreateLFTagExpressionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new LF-Tag expression with the provided name, description, catalog ID, and
- *       expression body. This call fails if a LF-Tag expression with the same name already exists in
- *       the caller’s account or if the underlying LF-Tags don't exist. To call this API operation,
- *       caller needs the following Lake Formation permissions:</p>
- *          <p>
- *             <code>CREATE_LF_TAG_EXPRESSION</code> on the root catalog resource.</p>
- *          <p>
- *             <code>GRANT_WITH_LF_TAG_EXPRESSION</code> on all underlying LF-Tag key:value pairs
- *       included in the expression. </p>
+ * Creates a new LF-Tag expression with the provided name, description, catalog ID, and expression body. This call fails if a LF-Tag expression with the same name already exists in the caller’s account or if the underlying LF-Tags don't exist. To call this API operation, caller needs the following Lake Formation permissions:
+ *
+ * `CREATE_LF_TAG_EXPRESSION` on the root catalog resource.
+ *
+ * `GRANT_WITH_LF_TAG_EXPRESSION` on all underlying LF-Tag key:value pairs included in the expression.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,26 +63,32 @@ export interface CreateLFTagExpressionCommandOutput extends CreateLFTagExpressio
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist.</p>
+ *
+ * A specified entity does not exist.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link OperationTimeoutException} (client fault)
- *  <p>The operation timed out.</p>
+ *
+ * The operation timed out.
  *
  * @throws {@link ResourceNumberLimitExceededException} (client fault)
- *  <p>A resource numerical limit was exceeded.</p>
+ *
+ * A resource numerical limit was exceeded.
  *
  * @throws {@link LakeFormationServiceException}
- * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ * Base exception class for all service exceptions from LakeFormation service.
  *
  * @public
  */

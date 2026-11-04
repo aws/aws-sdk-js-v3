@@ -23,7 +23,8 @@ export interface UpdateCustomActionCommandInput extends UpdateCustomActionReques
 export interface UpdateCustomActionCommandOutput extends UpdateCustomActionResult, __MetadataBearer {}
 
 /**
- * <p>Updates a custom action.</p>
+ * Updates a custom action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,20 +71,24 @@ export interface UpdateCustomActionCommandOutput extends UpdateCustomActionResul
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *
+ * Unexpected error during processing of request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ *
+ * Your request input doesn't meet the constraints required by AWS Chatbot.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We were unable to find the resource for your request</p>
+ *
+ * We were unable to find the resource for your request
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+ *
+ * The request was rejected because it doesn't have valid credentials for the target resource.
  *
  * @throws {@link ChatbotServiceException}
- * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
+ * Base exception class for all service exceptions from Chatbot service.
  *
  * @example Update the command definition of an existing action
  * ```javascript

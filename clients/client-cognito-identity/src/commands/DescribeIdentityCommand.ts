@@ -23,10 +23,10 @@ export interface DescribeIdentityCommandInput extends DescribeIdentityInput {}
 export interface DescribeIdentityCommandOutput extends IdentityDescription, __MetadataBearer {}
 
 /**
- * <p>Returns metadata related to the given identity, including when the identity was
- *          created and any associated linked logins.</p>
- *          <p>You must use Amazon Web Services developer credentials to call this
- *          operation.</p>
+ * Returns metadata related to the given identity, including when the identity was created and any associated linked logins.
+ *
+ * You must use Amazon Web Services developer credentials to call this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,24 +58,28 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Thrown when the service encounters an error during processing the request.</p>
+ *
+ * Thrown when the service encounters an error during processing the request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Thrown for missing or bad input parameter(s).</p>
+ *
+ * Thrown for missing or bad input parameter(s).
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>Thrown when a user is not authorized to access the requested resource.</p>
+ *
+ * Thrown when a user is not authorized to access the requested resource.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when the requested resource (for example, a dataset or record) does not
- *          exist.</p>
+ *
+ * Thrown when the requested resource (for example, a dataset or record) does not exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Thrown when a request is throttled.</p>
+ *
+ * Thrown when a request is throttled.
  *
  * @throws {@link CognitoIdentityServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentity service.
  *
  * @public
  */

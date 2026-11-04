@@ -51,8 +51,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link MediaPackageVodClientResolvedConfig | config} for MediaPackageVodClient's `config` shape.
  *
  * @throws {@link MediaPackageVodServiceException}
- * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackageVod service.
  *
  * @public
  */

@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { QBusinessServiceException as __BaseException } from "./QBusinessServiceException";
 
 /**
- * <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
+ * You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+ * You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource affected.</p>
+   * The identifier of the resource affected.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource affected.</p>
+   * The type of the resource affected.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ * An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -83,7 +88,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
+ * The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -91,13 +97,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource affected.</p>
+   * The identifier of the resource affected.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource affected.</p>
+   * The type of the resource affected.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -118,7 +126,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the set limits for your Amazon Q Business service. </p>
+ * You have exceeded the set limits for your Amazon Q Business service.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -126,13 +135,15 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource affected.</p>
+   * The identifier of the resource affected.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource affected.</p>
+   * The type of the resource affected.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -153,7 +164,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
+ * The request was denied due to throttling. Reduce the number of requests and try again.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -174,7 +186,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
+ * The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -182,13 +195,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the <code>ValidationException</code>.</p>
+   * The reason for the `ValidationException`.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The input field(s) that failed validation.</p>
+   * The input field(s) that failed validation.
+   *
    * @public
    */
   fields?: ValidationExceptionField[] | undefined;
@@ -209,7 +224,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An external resource that you configured with your application is returning errors and preventing this operation from succeeding. Fix those errors and try again. </p>
+ * An external resource that you configured with your application is returning errors and preventing this operation from succeeding. Fix those errors and try again.
+ *
  * @public
  */
 export class ExternalResourceException extends __BaseException {
@@ -230,7 +246,8 @@ export class ExternalResourceException extends __BaseException {
 }
 
 /**
- * <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
+ * You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.
+ *
  * @public
  */
 export class LicenseNotFoundException extends __BaseException {
@@ -251,7 +268,8 @@ export class LicenseNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The requested media object is too large to be returned.</p>
+ * The requested media object is too large to be returned.
+ *
  * @public
  */
 export class MediaTooLargeException extends __BaseException {

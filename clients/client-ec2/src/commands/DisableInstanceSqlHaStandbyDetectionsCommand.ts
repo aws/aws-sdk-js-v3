@@ -26,10 +26,8 @@ export interface DisableInstanceSqlHaStandbyDetectionsCommandInput extends Disab
 export interface DisableInstanceSqlHaStandbyDetectionsCommandOutput extends DisableInstanceSqlHaStandbyDetectionsResult, __MetadataBearer {}
 
 /**
- * <p>Disable Amazon EC2 instances running in an SQL Server High Availability cluster from SQL Server High Availability
- *       instance standby detection monitoring. Once disabled, Amazon Web Services no longer monitors the
- *       metadata for the instances to determine whether they are active or standby nodes in the
- *       SQL Server High Availability cluster.</p>
+ * Disable Amazon EC2 instances running in an SQL Server High Availability cluster from SQL Server High Availability instance standby detection monitoring. Once disabled, Amazon Web Services no longer monitors the metadata for the instances to determine whether they are active or standby nodes in the SQL Server High Availability cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,8 +72,8 @@ export interface DisableInstanceSqlHaStandbyDetectionsCommandOutput extends Disa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,10 +23,10 @@ export interface GetEbsEncryptionByDefaultCommandInput extends GetEbsEncryptionB
 export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryptionByDefaultResult, __MetadataBearer {}
 
 /**
- * <p>Describes whether EBS encryption by default is enabled for your account in the current
- *       Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
- *       in the <i>Amazon EBS User Guide</i>.</p>
+ * Describes whether EBS encryption by default is enabled for your account in the current Region.
+ *
+ * For more information, see [Amazon EBS encryption](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,8 +54,8 @@ export interface GetEbsEncryptionByDefaultCommandOutput extends GetEbsEncryption
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

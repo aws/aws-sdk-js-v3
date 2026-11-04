@@ -23,10 +23,8 @@ export interface GetPerformanceAnalysisReportCommandInput extends GetPerformance
 export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanceAnalysisReportResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the report including the report ID, status, time details, and the insights
- *             with recommendations. The report status can be <code>RUNNING</code>,
- *             <code>SUCCEEDED</code>, or <code>FAILED</code>. The insights include the
- *             <code>description</code> and <code>recommendation</code> fields. </p>
+ * Retrieves the report including the report ID, status, time details, and the insights with recommendations. The report status can be `RUNNING`, `SUCCEEDED`, or `FAILED`. The insights include the `description` and `recommendation` fields.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,17 +154,20 @@ export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanc
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>The request failed due to an unknown error.</p>
+ *
+ * The request failed due to an unknown error.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * One of the arguments provided is invalid for this request.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>The user is not authorized to perform this request.</p>
+ *
+ * The user is not authorized to perform this request.
  *
  * @throws {@link PIServiceException}
- * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ * Base exception class for all service exceptions from PI service.
  *
  * @public
  */

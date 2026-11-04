@@ -26,9 +26,8 @@ export interface DescribeEgressOnlyInternetGatewaysCommandInput extends Describe
 export interface DescribeEgressOnlyInternetGatewaysCommandOutput extends DescribeEgressOnlyInternetGatewaysResult, __MetadataBearer {}
 
 /**
- * <p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways.
- *             Alternatively, you can specify specific egress-only internet gateway IDs or filter the results to
- *             include only the egress-only internet gateways that match specific criteria.</p>
+ * Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways. Alternatively, you can specify specific egress-only internet gateway IDs or filter the results to include only the egress-only internet gateways that match specific criteria.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,8 +84,8 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput extends Describ
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,40 +23,21 @@ export interface RestoreFromClusterSnapshotCommandInput extends RestoreFromClust
 export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
- *             cluster with the same configuration as the original cluster from which the snapshot was
- *             created, except that the new cluster is created with the default cluster security and
- *             parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a> API to associate a different security group and different
- *             parameter group with the restored cluster. If you are using a DS node type, you can also
- *             choose to change to another DS node type of the same size during restore.</p>
- *          <p>If you restore a cluster into a VPC, you must provide a cluster subnet group where
- *             you want the cluster restored.</p>
- *          <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
- *             you own in a Region from reaching or being reached from the internet through internet
- *             gateways and egress-only internet gateways. If a subnet group for a
- *             provisioned cluster is in an account with VPC BPA turned on, the following capabilities
- *             are blocked:</p>
- *          <ul>
- *             <li>
- *                <p>Creating a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Restoring a public cluster</p>
- *             </li>
- *             <li>
- *                <p>Modifying a private cluster to be public</p>
- *             </li>
- *             <li>
- *                <p>Adding a subnet with VPC BPA turned on to the subnet group when there's at
- *                     least one public cluster within the group</p>
- *             </li>
- *          </ul>
- *          <p>For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and
- *             subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
- *          <p>
- * For more information about working with snapshots, go to
- * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon Redshift Snapshots</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting cluster with the same configuration as the original cluster from which the snapshot was created, except that the new cluster is created with the default cluster security and parameter groups. After Amazon Redshift creates the cluster, you can use the ModifyCluster API to associate a different security group and different parameter group with the restored cluster. If you are using a DS node type, you can also choose to change to another DS node type of the same size during restore.
+ *
+ * If you restore a cluster into a VPC, you must provide a cluster subnet group where you want the cluster restored.
+ *
+ * VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. If a subnet group for a provisioned cluster is in an account with VPC BPA turned on, the following capabilities are blocked:
+ *
+ * - Creating a public cluster
+ * - Restoring a public cluster
+ * - Modifying a private cluster to be public
+ * - Adding a subnet with VPC BPA turned on to the subnet group when there's at least one public cluster within the group
+ *
+ * For more information about VPC BPA, see [Block public access to VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html) in the *Amazon VPC User Guide*.
+ *
+ * For more information about working with snapshots, go to [Amazon Redshift Snapshots](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html) in the *Amazon Redshift Cluster Management Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -331,131 +312,148 @@ export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClus
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link AccessToSnapshotDeniedFault} (client fault)
- *  <p>The owner of the specified snapshot has not authorized your account to access the
- *             snapshot.</p>
+ *
+ * The owner of the specified snapshot has not authorized your account to access the snapshot.
  *
  * @throws {@link ClusterAlreadyExistsFault} (client fault)
- *  <p>The account already has a cluster with the given identifier.</p>
+ *
+ * The account already has a cluster with the given identifier.
  *
  * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
- *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * The parameter group name does not refer to an existing parameter group.
  *
  * @throws {@link ClusterQuotaExceededFault} (client fault)
- *  <p>The request would exceed the allowed number of cluster instances for this account.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The request would exceed the allowed number of cluster instances for this account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
- *  <p>The cluster security group name does not refer to an existing cluster security
- *             group.</p>
+ *
+ * The cluster security group name does not refer to an existing cluster security group.
  *
  * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
- *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * The snapshot identifier does not refer to an existing cluster snapshot.
  *
  * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
- *  <p>The cluster subnet group name does not refer to an existing cluster subnet
- *             group.</p>
+ *
+ * The cluster subnet group name does not refer to an existing cluster subnet group.
  *
  * @throws {@link DependentServiceAccessDeniedFault} (client fault)
- *  <p>A dependent service denied access for the integration.</p>
+ *
+ * A dependent service denied access for the integration.
  *
  * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
- *  <p>The request cannot be completed because a dependent service is throttling requests
- *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * The request cannot be completed because a dependent service is throttling requests made by Amazon Redshift on your behalf. Wait and retry the request.
  *
  * @throws {@link DependentServiceUnavailableFault} (client fault)
- *  <p>Your request cannot be completed because a dependent internal service is
- *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * Your request cannot be completed because a dependent internal service is temporarily unavailable. Wait 30 to 60 seconds and try again.
  *
  * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ *
+ * There is no Amazon Redshift HSM client certificate with the specified identifier.
  *
  * @throws {@link HsmConfigurationNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * There is no Amazon Redshift HSM configuration with the specified identifier.
  *
  * @throws {@link InsufficientClusterCapacityFault} (client fault)
- *  <p>The number of nodes specified exceeds the allotted capacity of the
- *             cluster.</p>
+ *
+ * The number of nodes specified exceeds the allotted capacity of the cluster.
  *
  * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
- *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
- *             accounts are authorized to access the snapshot. </p>
+ *
+ * The specified cluster snapshot is not in the `available` state, or other accounts are authorized to access the snapshot.
  *
  * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
- *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * The cluster subnet group cannot be deleted because it is in use.
  *
  * @throws {@link InvalidClusterTrackFault} (client fault)
- *  <p>The provided cluster track name is not valid.</p>
+ *
+ * The provided cluster track name is not valid.
  *
  * @throws {@link InvalidElasticIpFault} (client fault)
- *  <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ * The Elastic IP (EIP) is invalid or cannot be found.
  *
  * @throws {@link InvalidReservedNodeStateFault} (client fault)
- *  <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>
+ *
+ * Indicates that the Reserved Node being exchanged is not in an active state.
  *
  * @throws {@link InvalidRestoreFault} (client fault)
- *  <p>The restore is invalid.</p>
+ *
+ * The restore is invalid.
  *
  * @throws {@link InvalidSubnet} (client fault)
- *  <p>The requested subnet is not valid, or not all of the subnets are in the same
- *             VPC.</p>
+ *
+ * The requested subnet is not valid, or not all of the subnets are in the same VPC.
  *
  * @throws {@link InvalidTagFault} (client fault)
- *  <p>The tag is invalid.</p>
+ *
+ * The tag is invalid.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ * The cluster subnet group does not cover all Availability Zones.
  *
  * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
- *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
- *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ *
+ * There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode, associate an IPv6 CIDR block with each subnet in your VPC.
  *
  * @throws {@link LimitExceededFault} (client fault)
- *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * The encryption key has exceeded its grant limit in Amazon Web Services KMS.
  *
  * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * The operation would exceed the number of nodes allowed for a cluster.
  *
  * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
- *  <p>The operation would exceed the number of nodes allotted to the account.
  *
- * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
- * in the <i>Amazon Redshift Cluster Management Guide</i>.
- * </p>
+ * The operation would exceed the number of nodes allotted to the account. For information about increasing your quota, go to [Limits in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html) in the *Amazon Redshift Cluster Management Guide*.
  *
  * @throws {@link RedshiftIdcApplicationNotExistsFault} (client fault)
- *  <p>The application you attempted to find doesn't exist.</p>
+ *
+ * The application you attempted to find doesn't exist.
  *
  * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
- *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * User already has a reservation with the given identifier.
  *
  * @throws {@link ReservedNodeAlreadyMigratedFault} (client fault)
- *  <p>Indicates that the reserved node has already been exchanged.</p>
+ *
+ * Indicates that the reserved node has already been exchanged.
  *
  * @throws {@link ReservedNodeNotFoundFault} (client fault)
- *  <p>The specified reserved compute node not found.</p>
+ *
+ * The specified reserved compute node not found.
  *
  * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
- *  <p>Specified offering does not exist.</p>
+ *
+ * Specified offering does not exist.
  *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
- *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * We could not find the specified snapshot schedule.
  *
  * @throws {@link TagLimitExceededFault} (client fault)
- *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * You have exceeded the number of tags allowed.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

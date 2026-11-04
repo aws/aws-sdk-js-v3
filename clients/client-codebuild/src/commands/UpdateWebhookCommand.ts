@@ -23,11 +23,10 @@ export interface UpdateWebhookCommandInput extends UpdateWebhookInput {}
 export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __MetadataBearer {}
 
 /**
- * <p> Updates the webhook associated with an CodeBuild build project. </p>
- *          <note>
- *             <p> If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored.
- *       </p>
- *          </note>
+ * Updates the webhook associated with an CodeBuild build project.
+ *
+ * > **Note:** If you use Bitbucket for your repository, `rotateSecret` is ignored.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,17 +101,20 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link OAuthProviderException} (client fault)
- *  <p>There was a problem with the underlying OAuth provider.</p>
+ *
+ * There was a problem with the underlying OAuth provider.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ * The specified Amazon Web Services resource cannot be found.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

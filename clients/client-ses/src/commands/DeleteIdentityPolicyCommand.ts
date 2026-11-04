@@ -23,18 +23,14 @@ export interface DeleteIdentityPolicyCommandInput extends DeleteIdentityPolicyRe
 export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified sending authorization policy for the given identity (an email
- *             address or a domain). This operation returns successfully even if a policy with the
- *             specified name does not exist.</p>
- *          <note>
- *             <p>This operation is for the identity owner only. If you have not verified the
- *                 identity, it returns an error.</p>
- *          </note>
- *          <p>Sending authorization is a feature that enables an identity owner to authorize other
- *             senders to use its identities. For information about using sending authorization, see
- *             the <a href="https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html">Amazon SES
- *                 Developer Guide</a>.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Deletes the specified sending authorization policy for the given identity (an email address or a domain). This operation returns successfully even if a policy with the specified name does not exist.
+ *
+ * > **Note:** This operation is for the identity owner only. If you have not verified the identity, it returns an error.
+ *
+ * Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/sending-authorization.html).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +56,8 @@ export interface DeleteIdentityPolicyCommandOutput extends DeleteIdentityPolicyR
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example DeleteIdentityPolicy
  * ```javascript

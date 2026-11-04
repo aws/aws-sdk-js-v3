@@ -23,7 +23,8 @@ export interface ValidateCloudConnectorCommandInput extends ValidateCloudConnect
 export interface ValidateCloudConnectorCommandOutput extends ValidateCloudConnectorResult, __MetadataBearer {}
 
 /**
- * <p>Validates the configuration and connectivity of a cloud connector.</p>
+ * Validates the configuration and connectivity of a cloud connector.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +65,16 @@ export interface ValidateCloudConnectorCommandOutput extends ValidateCloudConnec
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified parameter to be shared could not be found.</p>
+ *
+ * The specified parameter to be shared could not be found.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

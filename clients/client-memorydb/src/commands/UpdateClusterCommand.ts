@@ -23,7 +23,8 @@ export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
 export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a cluster. You can use this operation to change one or more cluster configuration settings by specifying the settings and the new values.</p>
+ * Modifies the settings for a cluster. You can use this operation to change one or more cluster configuration settings by specifying the settings and the new values.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,56 +145,72 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ACLNotFoundFault} (client fault)
- *  <p>The specified ACL does not exist.</p>
+ *
+ * The specified ACL does not exist.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The specified cluster does not exist.</p>
+ *
+ * The specified cluster does not exist.
  *
  * @throws {@link ClusterQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of clusters allowed for this customer.
  *
  * @throws {@link InvalidACLStateFault} (client fault)
- *  <p>The ACL is not in a valid state for the requested operation.</p>
+ *
+ * The ACL is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The cluster is not in a valid state for the requested operation.</p>
+ *
+ * The cluster is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidKMSKeyFault} (client fault)
- *  <p>The specified KMS key is not valid or accessible.</p>
+ *
+ * The specified KMS key is not valid or accessible.
  *
  * @throws {@link InvalidNodeStateFault} (client fault)
- *  <p>The node is not in a valid state for the requested operation.</p>
+ *
+ * The node is not in a valid state for the requested operation.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>The specified parameter combination is not valid.</p>
+ *
+ * The specified parameter combination is not valid.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The specified parameter value is not valid.</p>
+ *
+ * The specified parameter value is not valid.
  *
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
- *  <p>The VPC network is not in a valid state for the requested operation.</p>
+ *
+ * The VPC network is not in a valid state for the requested operation.
  *
  * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of nodes allowed for this cluster.
  *
  * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of nodes allowed for this customer.
  *
  * @throws {@link NoOperationFault} (client fault)
- *  <p>The requested operation would result in no changes.</p>
+ *
+ * The requested operation would result in no changes.
  *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
- *  <p>The specified parameter group does not exist.</p>
+ *
+ * The specified parameter group does not exist.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link ShardsPerClusterQuotaExceededFault} (client fault)
- *  <p>The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.</p>
+ *
+ * The request cannot be processed because it would exceed the maximum number of shards allowed per cluster.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

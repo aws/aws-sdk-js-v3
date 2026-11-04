@@ -23,14 +23,10 @@ export interface UpdateTaskExecutionCommandInput extends UpdateTaskExecutionRequ
 export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a running DataSync task execution.</p>
- *          <note>
- *             <p>Currently, the only <code>Option</code> that you can modify with
- *           <code>UpdateTaskExecution</code> is <code>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
- *                </code>, which throttles bandwidth for a running or queued task
- *         execution.</p>
- *          </note>
+ * Updates the configuration of a running DataSync task execution.
+ *
+ * > **Note:** Currently, the only `Option` that you can modify with `UpdateTaskExecution` is `BytesPerSecond`, which throttles bandwidth for a running or queued task execution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,15 +69,16 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

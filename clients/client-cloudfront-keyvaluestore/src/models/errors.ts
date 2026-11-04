@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CloudFrontKeyValueStoreServiceException as __BaseException } from "./CloudFrontKeyValueStoreServiceException";
 
 /**
- * <p>Access denied.</p>
+ * Access denied.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Resource is not in expected state.</p>
+ * Resource is not in expected state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -50,7 +52,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal server error.</p>
+ * Internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -73,7 +76,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Resource was not found.</p>
+ * Resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -96,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Limit exceeded.</p>
+ * Limit exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -119,7 +124,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Validation failed.</p>
+ * Validation failed.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

@@ -23,52 +23,23 @@ export interface GetTranscriptCommandInput extends GetTranscriptRequest {}
 export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a transcript of the session, including details about any attachments. For
- *             information about accessing past chat contact transcripts for a persistent chat, see
- *                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>. </p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>. </p>
- *          <p>If you have a process that consumes events in the transcript of an chat that has
- *             ended, note that chat transcripts contain the following event content types if the event
- *             has occurred during the chat session:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.participant.invited</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.participant.joined</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.participant.left</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.chat.ended</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.transfer.succeeded</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>application/vnd.amazonaws.connect.event.transfer.failed</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>
- *                <code>ConnectionToken</code> is used for invoking this API instead of
- *                     <code>ParticipantToken</code>.</p>
- *          </note>
- *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
- *                     authentication</a>.</p>
+ * Retrieves a transcript of the session, including details about any attachments. For information about accessing past chat contact transcripts for a persistent chat, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
+ *
+ * For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+ *
+ * If you have a process that consumes events in the transcript of an chat that has ended, note that chat transcripts contain the following event content types if the event has occurred during the chat session:
+ *
+ * - `application/vnd.amazonaws.connect.event.participant.invited`
+ * - `application/vnd.amazonaws.connect.event.participant.joined`
+ * - `application/vnd.amazonaws.connect.event.participant.left`
+ * - `application/vnd.amazonaws.connect.event.chat.ended`
+ * - `application/vnd.amazonaws.connect.event.transfer.succeeded`
+ * - `application/vnd.amazonaws.connect.event.transfer.failed`
+ *
+ * > **Note:** `ConnectionToken` is used for invoking this API instead of `ParticipantToken`.
+ *
+ * The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,20 +110,24 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon Connect service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
+ * The input fails to satisfy the constraints specified by Amazon Connect.
  *
  * @throws {@link ConnectParticipantServiceException}
- * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * Base exception class for all service exceptions from ConnectParticipant service.
  *
  * @public
  */

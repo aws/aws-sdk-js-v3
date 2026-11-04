@@ -23,7 +23,10 @@ export interface SetIdentityPoolConfigurationCommandInput extends SetIdentityPoo
 export interface SetIdentityPoolConfigurationCommandOutput extends SetIdentityPoolConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the necessary configuration for push sync.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ * Sets the necessary configuration for push sync.
+ *
+ * This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
+ *
  *       <examples>
  *          <example>
  *             <name>SetIdentityPoolConfiguration</name>
@@ -122,7 +125,8 @@ export interface SetIdentityPoolConfigurationCommandOutput extends SetIdentityPo
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Thrown if there are parallel requests to modify a resource.</p>
+ *
+ * Thrown if there are parallel requests to modify a resource.
  *
  * @throws {@link InternalErrorException} (server fault)
  *  Indicates an internal service
@@ -145,8 +149,8 @@ export interface SetIdentityPoolConfigurationCommandOutput extends SetIdentityPo
  *       throttled.
  *
  * @throws {@link CognitoSyncServiceException}
- * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ * Base exception class for all service exceptions from CognitoSync service.
  *
  * @public
  */

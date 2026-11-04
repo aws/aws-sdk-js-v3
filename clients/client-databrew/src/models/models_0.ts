@@ -22,14 +22,14 @@ import type {
 } from "./enums";
 
 /**
- * <p>Configuration of statistics that are allowed to be run on columns that
- *             contain detected entities. When undefined, no statistics will be computed
- *             on columns that contain detected entities.</p>
+ * Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
+ *
  * @public
  */
 export interface AllowedStatistics {
   /**
-   * <p>One or more column statistics to allow for columns that contain detected entities.</p>
+   * One or more column statistics to allow for columns that contain detected entities.
+   *
    * @public
    */
   Statistics: string[] | undefined;
@@ -40,40 +40,43 @@ export interface AllowedStatistics {
  */
 export interface BatchDeleteRecipeVersionRequest {
   /**
-   * <p>The name of the recipe whose versions are to be deleted.</p>
+   * The name of the recipe whose versions are to be deleted.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>An array of version identifiers, for the recipe versions to be deleted. You can
-   *             specify numeric versions (<code>X.Y</code>) or <code>LATEST_WORKING</code>.
-   *                 <code>LATEST_PUBLISHED</code> is not supported.</p>
+   * An array of version identifiers, for the recipe versions to be deleted. You can specify numeric versions (`X.Y`) or `LATEST_WORKING`. `LATEST_PUBLISHED` is not supported.
+   *
    * @public
    */
   RecipeVersions: string[] | undefined;
 }
 
 /**
- * <p>Represents any errors encountered when attempting to delete multiple recipe
- *             versions.</p>
+ * Represents any errors encountered when attempting to delete multiple recipe versions.
+ *
  * @public
  */
 export interface RecipeVersionErrorDetail {
   /**
-   * <p>The HTTP status code for the error.</p>
+   * The HTTP status code for the error.
+   *
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>The text of the error message.</p>
+   * The text of the error message.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The identifier for the recipe version associated with this error.</p>
+   * The identifier for the recipe version associated with this error.
+   *
    * @public
    */
   RecipeVersion?: string | undefined;
@@ -84,378 +87,400 @@ export interface RecipeVersionErrorDetail {
  */
 export interface BatchDeleteRecipeVersionResponse {
   /**
-   * <p>The name of the recipe that was modified.</p>
+   * The name of the recipe that was modified.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Errors, if any, that occurred while attempting to delete the recipe versions.</p>
+   * Errors, if any, that occurred while attempting to delete the recipe versions.
+   *
    * @public
    */
   Errors?: RecipeVersionErrorDetail[] | undefined;
 }
 
 /**
- * <p>Represents a set of options that define how DataBrew will read a
- *             comma-separated value (CSV) file when creating a dataset from that file.</p>
+ * Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+ *
  * @public
  */
 export interface CsvOptions {
   /**
-   * <p>A single character that specifies the delimiter being used in the CSV file.</p>
+   * A single character that specifies the delimiter being used in the CSV file.
+   *
    * @public
    */
   Delimiter?: string | undefined;
 
   /**
-   * <p>A variable that specifies whether the first row in the file is parsed as the
-   *             header. If this value is false, column names are auto-generated.</p>
+   * A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+   *
    * @public
    */
   HeaderRow?: boolean | undefined;
 }
 
 /**
- * <p>Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when
- *             creating a dataset from that file.</p>
+ * Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+ *
  * @public
  */
 export interface ExcelOptions {
   /**
-   * <p>One or more named sheets in the Excel file that will be included in the dataset.</p>
+   * One or more named sheets in the Excel file that will be included in the dataset.
+   *
    * @public
    */
   SheetNames?: string[] | undefined;
 
   /**
-   * <p>One or more sheet numbers in the Excel file that will be included in the
-   *             dataset.</p>
+   * One or more sheet numbers in the Excel file that will be included in the dataset.
+   *
    * @public
    */
   SheetIndexes?: number[] | undefined;
 
   /**
-   * <p>A variable that specifies whether the first row in the file is parsed as the
-   *             header. If this value is false, column names are auto-generated.</p>
+   * A variable that specifies whether the first row in the file is parsed as the header. If this value is false, column names are auto-generated.
+   *
    * @public
    */
   HeaderRow?: boolean | undefined;
 }
 
 /**
- * <p>Represents the JSON-specific options that define how input is to be interpreted by Glue DataBrew.</p>
+ * Represents the JSON-specific options that define how input is to be interpreted by Glue DataBrew.
+ *
  * @public
  */
 export interface JsonOptions {
   /**
-   * <p>A value that specifies whether JSON input contains embedded new line
-   *             characters.</p>
+   * A value that specifies whether JSON input contains embedded new line characters.
+   *
    * @public
    */
   MultiLine?: boolean | undefined;
 }
 
 /**
- * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
- *             Excel, or JSON input.</p>
+ * Represents a set of options that define the structure of either comma-separated value (CSV), Excel, or JSON input.
+ *
  * @public
  */
 export interface FormatOptions {
   /**
-   * <p>Options that define how JSON input is to be interpreted by DataBrew.</p>
+   * Options that define how JSON input is to be interpreted by DataBrew.
+   *
    * @public
    */
   Json?: JsonOptions | undefined;
 
   /**
-   * <p>Options that define how Excel input is to be interpreted by DataBrew.</p>
+   * Options that define how Excel input is to be interpreted by DataBrew.
+   *
    * @public
    */
   Excel?: ExcelOptions | undefined;
 
   /**
-   * <p>Options that define how CSV input is to be interpreted by DataBrew.</p>
+   * Options that define how CSV input is to be interpreted by DataBrew.
+   *
    * @public
    */
   Csv?: CsvOptions | undefined;
 }
 
 /**
- * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
- *             input data, or write output from a job.</p>
+ * Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p>The Amazon S3 bucket name.</p>
+   * The Amazon S3 bucket name.
+   *
    * @public
    */
   Bucket: string | undefined;
 
   /**
-   * <p>The unique name of the object in the bucket.</p>
+   * The unique name of the object in the bucket.
+   *
    * @public
    */
   Key?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the bucket owner.</p>
+   * The Amazon Web Services account ID of the bucket owner.
+   *
    * @public
    */
   BucketOwner?: string | undefined;
 }
 
 /**
- * <p>Connection information for dataset input files stored in a database.</p>
+ * Connection information for dataset input files stored in a database.
+ *
  * @public
  */
 export interface DatabaseInputDefinition {
   /**
-   * <p>The Glue Connection that stores the connection information for the target
-   *             database.</p>
+   * The Glue Connection that stores the connection information for the target database.
+   *
    * @public
    */
   GlueConnectionName: string | undefined;
 
   /**
-   * <p>The table within the target database.</p>
+   * The table within the target database.
+   *
    * @public
    */
   DatabaseTableName?: string | undefined;
 
   /**
-   * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
-   *             input data, or write output from a job.</p>
+   * Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+   *
    * @public
    */
   TempDirectory?: S3Location | undefined;
 
   /**
-   * <p>Custom SQL to run against the provided Glue connection. This SQL will be used as
-   *             the input for DataBrew projects and jobs.</p>
+   * Custom SQL to run against the provided Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
+   *
    * @public
    */
   QueryString?: string | undefined;
 }
 
 /**
- * <p>Represents how metadata stored in the Glue Data Catalog is defined in a DataBrew
- *             dataset. </p>
+ * Represents how metadata stored in the Glue Data Catalog is defined in a DataBrew dataset.
+ *
  * @public
  */
 export interface DataCatalogInputDefinition {
   /**
-   * <p>The unique identifier of the Amazon Web Services account that holds the Data Catalog that stores the
-   *             data.</p>
+   * The unique identifier of the Amazon Web Services account that holds the Data Catalog that stores the data.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of a database in the Data Catalog.</p>
+   * The name of a database in the Data Catalog.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of a database table in the Data Catalog. This table corresponds to a DataBrew
-   *             dataset.</p>
+   * The name of a database table in the Data Catalog. This table corresponds to a DataBrew dataset.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>Represents an Amazon location where DataBrew can store intermediate results.</p>
+   * Represents an Amazon location where DataBrew can store intermediate results.
+   *
    * @public
    */
   TempDirectory?: S3Location | undefined;
 }
 
 /**
- * <p>Contains additional resource information needed for specific datasets.</p>
+ * Contains additional resource information needed for specific datasets.
+ *
  * @public
  */
 export interface Metadata {
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the dataset. Currently, DataBrew
-   *             only supports ARNs from Amazon AppFlow.</p>
+   * The Amazon Resource Name (ARN) associated with the dataset. Currently, DataBrew only supports ARNs from Amazon AppFlow.
+   *
    * @public
    */
   SourceArn?: string | undefined;
 }
 
 /**
- * <p>Represents information on how DataBrew can find data, in either the Glue Data Catalog or
- *             Amazon S3.</p>
+ * Represents information on how DataBrew can find data, in either the Glue Data Catalog or Amazon S3.
+ *
  * @public
  */
 export interface Input {
   /**
-   * <p>The Amazon S3 location where the data is stored.</p>
+   * The Amazon S3 location where the data is stored.
+   *
    * @public
    */
   S3InputDefinition?: S3Location | undefined;
 
   /**
-   * <p>The Glue Data Catalog parameters for the data.</p>
+   * The Glue Data Catalog parameters for the data.
+   *
    * @public
    */
   DataCatalogInputDefinition?: DataCatalogInputDefinition | undefined;
 
   /**
-   * <p>Connection information for dataset input files stored in a database.</p>
+   * Connection information for dataset input files stored in a database.
+   *
    * @public
    */
   DatabaseInputDefinition?: DatabaseInputDefinition | undefined;
 
   /**
-   * <p>Contains additional resource information needed for specific datasets.</p>
+   * Contains additional resource information needed for specific datasets.
+   *
    * @public
    */
   Metadata?: Metadata | undefined;
 }
 
 /**
- * <p>Represents a limit imposed on number of Amazon S3 files that should be selected for a
- *             dataset from a connected Amazon S3 path.</p>
+ * Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+ *
  * @public
  */
 export interface FilesLimit {
   /**
-   * <p>The number of Amazon S3 files to select.</p>
+   * The number of Amazon S3 files to select.
+   *
    * @public
    */
   MaxFiles: number | undefined;
 
   /**
-   * <p>A criteria to use for Amazon S3 files sorting before their selection. By default uses LAST_MODIFIED_DATE as
-   *             a sorting criteria. Currently it's the only allowed value.</p>
+   * A criteria to use for Amazon S3 files sorting before their selection. By default uses LAST_MODIFIED_DATE as a sorting criteria. Currently it's the only allowed value.
+   *
    * @public
    */
   OrderedBy?: OrderedBy | undefined;
 
   /**
-   * <p>A criteria to use for Amazon S3 files sorting before their selection. By
-   *             default uses DESCENDING order, i.e. most recent files are selected first. Another
-   *             possible value is ASCENDING.</p>
+   * A criteria to use for Amazon S3 files sorting before their selection. By default uses DESCENDING order, i.e. most recent files are selected first. Another possible value is ASCENDING.
+   *
    * @public
    */
   Order?: Order | undefined;
 }
 
 /**
- * <p>Represents a structure for defining parameter conditions. Supported conditions are described
- *             here: <a href="https://docs.aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets">Supported
- *                 conditions for dynamic datasets</a> in the
- *             <i>
- *                Glue DataBrew Developer Guide</i>.</p>
+ * Represents a structure for defining parameter conditions. Supported conditions are described here: [Supported conditions for dynamic datasets](https://docs.aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets) in the *Glue DataBrew Developer Guide*.
+ *
  * @public
  */
 export interface FilterExpression {
   /**
-   * <p>The expression which includes condition names followed by substitution variables, possibly grouped
-   *             and combined with other conditions. For example, "(starts_with :prefix1 or starts_with :prefix2) and
-   *             (ends_with :suffix1 or ends_with :suffix2)". Substitution variables should start with ':' symbol.</p>
+   * The expression which includes condition names followed by substitution variables, possibly grouped and combined with other conditions. For example, "(starts_with :prefix1 or starts_with :prefix2) and (ends_with :suffix1 or ends_with :suffix2)". Substitution variables should start with ':' symbol.
+   *
    * @public
    */
   Expression: string | undefined;
 
   /**
-   * <p>The map of substitution variable names to their values used in this filter expression.</p>
+   * The map of substitution variable names to their values used in this filter expression.
+   *
    * @public
    */
   ValuesMap: Record<string, string> | undefined;
 }
 
 /**
- * <p>Represents additional options for correct interpretation of datetime parameters used in
- *             the Amazon S3 path of a dataset.</p>
+ * Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+ *
  * @public
  */
 export interface DatetimeOptions {
   /**
-   * <p>Required option, that defines the datetime format used for a date parameter in the
-   *             Amazon S3 path. Should use only supported datetime specifiers and separation characters, all
-   *             literal a-z or A-Z characters should be escaped with single quotes. E.g. "MM.dd.yyyy-'at'-HH:mm".</p>
+   * Required option, that defines the datetime format used for a date parameter in the Amazon S3 path. Should use only supported datetime specifiers and separation characters, all literal a-z or A-Z characters should be escaped with single quotes. E.g. "MM.dd.yyyy-'at'-HH:mm".
+   *
    * @public
    */
   Format: string | undefined;
 
   /**
-   * <p>Optional value for a timezone offset of the datetime parameter value in the Amazon S3
-   *             path. Shouldn't be used if Format for this parameter includes timezone fields.
-   *             If no offset specified, UTC is assumed.</p>
+   * Optional value for a timezone offset of the datetime parameter value in the Amazon S3 path. Shouldn't be used if Format for this parameter includes timezone fields. If no offset specified, UTC is assumed.
+   *
    * @public
    */
   TimezoneOffset?: string | undefined;
 
   /**
-   * <p>Optional value for a non-US locale code, needed for correct interpretation of some date formats.</p>
+   * Optional value for a non-US locale code, needed for correct interpretation of some date formats.
+   *
    * @public
    */
   LocaleCode?: string | undefined;
 }
 
 /**
- * <p>Represents a dataset parameter that defines type and conditions for a parameter in the
- *                 Amazon S3 path of the dataset.</p>
+ * Represents a dataset parameter that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+ *
  * @public
  */
 export interface DatasetParameter {
   /**
-   * <p>The name of the parameter that is used in the dataset's Amazon S3 path.</p>
+   * The name of the parameter that is used in the dataset's Amazon S3 path.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The type of the dataset parameter, can be one of a 'String', 'Number' or 'Datetime'.</p>
+   * The type of the dataset parameter, can be one of a 'String', 'Number' or 'Datetime'.
+   *
    * @public
    */
   Type: ParameterType | undefined;
 
   /**
-   * <p>Additional parameter options such as a format and a timezone. Required for datetime parameters.</p>
+   * Additional parameter options such as a format and a timezone. Required for datetime parameters.
+   *
    * @public
    */
   DatetimeOptions?: DatetimeOptions | undefined;
 
   /**
-   * <p>Optional boolean value that defines whether the captured value of this parameter
-   *             should be used to create a new column in a dataset.</p>
+   * Optional boolean value that defines whether the captured value of this parameter should be used to create a new column in a dataset.
+   *
    * @public
    */
   CreateColumn?: boolean | undefined;
 
   /**
-   * <p>The optional filter expression structure to apply additional matching criteria to the parameter.</p>
+   * The optional filter expression structure to apply additional matching criteria to the parameter.
+   *
    * @public
    */
   Filter?: FilterExpression | undefined;
 }
 
 /**
- * <p>Represents a set of options that define how DataBrew selects files for a given Amazon S3
- *             path in a dataset.</p>
+ * Represents a set of options that define how DataBrew selects files for a given Amazon S3 path in a dataset.
+ *
  * @public
  */
 export interface PathOptions {
   /**
-   * <p>If provided, this structure defines a date range for matching Amazon S3 objects based on their
-   *             LastModifiedDate attribute in Amazon S3.</p>
+   * If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3.
+   *
    * @public
    */
   LastModifiedDateCondition?: FilterExpression | undefined;
 
   /**
-   * <p>If provided, this structure imposes a limit on a number of files that should be selected.</p>
+   * If provided, this structure imposes a limit on a number of files that should be selected.
+   *
    * @public
    */
   FilesLimit?: FilesLimit | undefined;
 
   /**
-   * <p>A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.</p>
+   * A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
+   *
    * @public
    */
   Parameters?: Record<string, DatasetParameter> | undefined;
@@ -466,40 +491,43 @@ export interface PathOptions {
  */
 export interface CreateDatasetRequest {
   /**
-   * <p>The name of the dataset to be created. Valid characters are alphanumeric (A-Z, a-z,
-   *             0-9), hyphen (-), period (.), and space.</p>
+   * The name of the dataset to be created. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
+   * The file format of a dataset that is created from an Amazon S3 file or folder.
+   *
    * @public
    */
   Format?: InputFormat | undefined;
 
   /**
-   * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
-   *             Excel, or JSON input.</p>
+   * Represents a set of options that define the structure of either comma-separated value (CSV), Excel, or JSON input.
+   *
    * @public
    */
   FormatOptions?: FormatOptions | undefined;
 
   /**
-   * <p>Represents information on how DataBrew can find data, in either the Glue Data Catalog or
-   *             Amazon S3.</p>
+   * Represents information on how DataBrew can find data, in either the Glue Data Catalog or Amazon S3.
+   *
    * @public
    */
   Input: Input | undefined;
 
   /**
-   * <p>A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.</p>
+   * A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
+   *
    * @public
    */
   PathOptions?: PathOptions | undefined;
 
   /**
-   * <p>Metadata tags to apply to this dataset.</p>
+   * Metadata tags to apply to this dataset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -510,270 +538,217 @@ export interface CreateDatasetRequest {
  */
 export interface CreateDatasetResponse {
   /**
-   * <p>The name of the dataset that you created.</p>
+   * The name of the dataset that you created.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Selector of a column from a dataset for profile job configuration.
- *             One selector includes either a column name or a regular expression.</p>
+ * Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+ *
  * @public
  */
 export interface ColumnSelector {
   /**
-   * <p>A regular expression for selecting a column from a dataset.</p>
+   * A regular expression for selecting a column from a dataset.
+   *
    * @public
    */
   Regex?: string | undefined;
 
   /**
-   * <p>The name of a column from a dataset.</p>
+   * The name of a column from a dataset.
+   *
    * @public
    */
   Name?: string | undefined;
 }
 
 /**
- * <p>Override of a particular evaluation for a profile job. </p>
+ * Override of a particular evaluation for a profile job.
+ *
  * @public
  */
 export interface StatisticOverride {
   /**
-   * <p>The name of an evaluation</p>
+   * The name of an evaluation
+   *
    * @public
    */
   Statistic: string | undefined;
 
   /**
-   * <p>A map that includes overrides of an evaluation’s parameters.</p>
+   * A map that includes overrides of an evaluation’s parameters.
+   *
    * @public
    */
   Parameters: Record<string, string> | undefined;
 }
 
 /**
- * <p>Configuration of evaluations for a profile job. This configuration can be used to select
- *             evaluations and override the parameters of selected evaluations.
- *         </p>
+ * Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+ *
  * @public
  */
 export interface StatisticsConfiguration {
   /**
-   * <p>List of included evaluations. When the list is undefined, all supported
-   *             evaluations will be included.</p>
+   * List of included evaluations. When the list is undefined, all supported evaluations will be included.
+   *
    * @public
    */
   IncludedStatistics?: string[] | undefined;
 
   /**
-   * <p>List of overrides for evaluations.</p>
+   * List of overrides for evaluations.
+   *
    * @public
    */
   Overrides?: StatisticOverride[] | undefined;
 }
 
 /**
- * <p>Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select
- *             evaluations and override parameters of evaluations for particular columns.
- *         </p>
+ * Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+ *
  * @public
  */
 export interface ColumnStatisticsConfiguration {
   /**
-   * <p>List of column selectors. Selectors can be used to select columns from the dataset.
-   *             When selectors are undefined, configuration will be applied to all supported columns.
-   *         </p>
+   * List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
+   *
    * @public
    */
   Selectors?: ColumnSelector[] | undefined;
 
   /**
-   * <p>Configuration for evaluations. Statistics can be used to select evaluations and override
-   *             parameters of evaluations.
-   *         </p>
+   * Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
+   *
    * @public
    */
   Statistics: StatisticsConfiguration | undefined;
 }
 
 /**
- * <p>Configuration of entity detection for a profile job. When undefined, entity
- *             detection is disabled.</p>
+ * Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
+ *
  * @public
  */
 export interface EntityDetectorConfiguration {
   /**
-   * <p>Entity types to detect. Can be any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>USA_SSN</p>
-   *             </li>
-   *             <li>
-   *                <p>EMAIL</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_ITIN</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_PASSPORT_NUMBER</p>
-   *             </li>
-   *             <li>
-   *                <p>PHONE_NUMBER</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_DRIVING_LICENSE</p>
-   *             </li>
-   *             <li>
-   *                <p>BANK_ACCOUNT</p>
-   *             </li>
-   *             <li>
-   *                <p>CREDIT_CARD</p>
-   *             </li>
-   *             <li>
-   *                <p>IP_ADDRESS</p>
-   *             </li>
-   *             <li>
-   *                <p>MAC_ADDRESS</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_DEA_NUMBER</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_HCPCS_CODE</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_NATIONAL_PROVIDER_IDENTIFIER</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_NATIONAL_DRUG_CODE</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_HEALTH_INSURANCE_CLAIM_NUMBER</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_MEDICARE_BENEFICIARY_IDENTIFIER</p>
-   *             </li>
-   *             <li>
-   *                <p>USA_CPT_CODE</p>
-   *             </li>
-   *             <li>
-   *                <p>PERSON_NAME</p>
-   *             </li>
-   *             <li>
-   *                <p>DATE</p>
-   *             </li>
-   *          </ul>
-   *          <p>The Entity type group USA_ALL is also supported, and includes all of the
-   *             above entity types except PERSON_NAME and DATE.</p>
+   * Entity types to detect. Can be any of the following:
+   *
+   * - USA_SSN
+   * - EMAIL
+   * - USA_ITIN
+   * - USA_PASSPORT_NUMBER
+   * - PHONE_NUMBER
+   * - USA_DRIVING_LICENSE
+   * - BANK_ACCOUNT
+   * - CREDIT_CARD
+   * - IP_ADDRESS
+   * - MAC_ADDRESS
+   * - USA_DEA_NUMBER
+   * - USA_HCPCS_CODE
+   * - USA_NATIONAL_PROVIDER_IDENTIFIER
+   * - USA_NATIONAL_DRUG_CODE
+   * - USA_HEALTH_INSURANCE_CLAIM_NUMBER
+   * - USA_MEDICARE_BENEFICIARY_IDENTIFIER
+   * - USA_CPT_CODE
+   * - PERSON_NAME
+   * - DATE
+   *
+   * The Entity type group USA_ALL is also supported, and includes all of the above entity types except PERSON_NAME and DATE.
+   *
    * @public
    */
   EntityTypes: string[] | undefined;
 
   /**
-   * <p>Configuration of statistics that are allowed to be run on columns that
-   *             contain detected entities. When undefined, no statistics will be computed
-   *             on columns that contain detected entities.</p>
+   * Configuration of statistics that are allowed to be run on columns that contain detected entities. When undefined, no statistics will be computed on columns that contain detected entities.
+   *
    * @public
    */
   AllowedStatistics?: AllowedStatistics[] | undefined;
 }
 
 /**
- * <p>Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default
- *             parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all
- *             supported columns.
- *         </p>
+ * Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.
+ *
  * @public
  */
 export interface ProfileConfiguration {
   /**
-   * <p>Configuration for inter-column evaluations. Configuration can be used to select evaluations and override
-   *             parameters of evaluations. When configuration is undefined, the profile job will run all supported
-   *             inter-column evaluations.
-   *         </p>
+   * Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
+   *
    * @public
    */
   DatasetStatisticsConfiguration?: StatisticsConfiguration | undefined;
 
   /**
-   * <p>List of column selectors. ProfileColumns can be used to select columns from the dataset. When
-   *             ProfileColumns is undefined, the profile job will profile all supported columns.
-   *         </p>
+   * List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
+   *
    * @public
    */
   ProfileColumns?: ColumnSelector[] | undefined;
 
   /**
-   * <p>List of configurations for column evaluations. ColumnStatisticsConfigurations are used to
-   *             select evaluations and override parameters of evaluations for particular columns. When
-   *             ColumnStatisticsConfigurations is undefined,  the profile job will profile all supported columns
-   *             and run all supported  evaluations.
-   *         </p>
+   * List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
+   *
    * @public
    */
   ColumnStatisticsConfigurations?: ColumnStatisticsConfiguration[] | undefined;
 
   /**
-   * <p>Configuration of entity detection for a profile job. When undefined, entity detection is disabled.</p>
+   * Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
+   *
    * @public
    */
   EntityDetectorConfiguration?: EntityDetectorConfiguration | undefined;
 }
 
 /**
- * <p>A sample configuration for profile jobs only, which determines the number of rows on which the
- *             profile job is run. If a <code>JobSample</code> value isn't provided, the
- *             default is used. The default value is CUSTOM_ROWS for the mode parameter and
- *             20,000 for the size parameter.</p>
+ * A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run. If a `JobSample` value isn't provided, the default is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
+ *
  * @public
  */
 export interface JobSample {
   /**
-   * <p>A value that determines whether the profile job is run on the entire dataset or a
-   *             specified number of rows. This value must be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>FULL_DATASET - The profile job is run on the entire dataset.</p>
-   *             </li>
-   *             <li>
-   *                <p>CUSTOM_ROWS - The profile job is run on the number of rows specified in the
-   *                     <code>Size</code> parameter.</p>
-   *             </li>
-   *          </ul>
+   * A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:
+   *
+   * - FULL_DATASET - The profile job is run on the entire dataset.
+   * - CUSTOM_ROWS - The profile job is run on the number of rows specified in the `Size` parameter.
+   *
    * @public
    */
   Mode?: SampleMode | undefined;
 
   /**
-   * <p>The <code>Size</code> parameter is only required when the mode is CUSTOM_ROWS. The
-   *             profile job is run on the specified number of rows. The maximum value for size is
-   *             Long.MAX_VALUE.</p>
-   *          <p>Long.MAX_VALUE = 9223372036854775807</p>
+   * The `Size` parameter is only required when the mode is CUSTOM_ROWS. The profile job is run on the specified number of rows. The maximum value for size is Long.MAX_VALUE.
+   *
+   * Long.MAX_VALUE = 9223372036854775807
+   *
    * @public
    */
   Size?: number | undefined;
 }
 
 /**
- * <p>Configuration for data quality validation. Used to select the Rulesets and Validation Mode
- *             to be used in the profile job. When ValidationConfiguration is null, the profile
- *             job will run without data quality validation.</p>
+ * Configuration for data quality validation. Used to select the Rulesets and Validation Mode to be used in the profile job. When ValidationConfiguration is null, the profile job will run without data quality validation.
+ *
  * @public
  */
 export interface ValidationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) for the ruleset to be validated in the profile job.
-   *             The TargetArn of the selected ruleset should be the same as the Amazon Resource Name (ARN) of
-   *             the dataset that is associated with the profile job.</p>
+   * The Amazon Resource Name (ARN) for the ruleset to be validated in the profile job. The TargetArn of the selected ruleset should be the same as the Amazon Resource Name (ARN) of the dataset that is associated with the profile job.
+   *
    * @public
    */
   RulesetArn: string | undefined;
 
   /**
-   * <p>Mode of data quality validation. Default mode is “CHECK_ALL” which verifies all rules
-   *             defined in the selected ruleset.</p>
+   * Mode of data quality validation. Default mode is “CHECK_ALL” which verifies all rules defined in the selected ruleset.
+   *
    * @public
    */
   ValidationMode?: ValidationMode | undefined;
@@ -784,107 +759,102 @@ export interface ValidationConfiguration {
  */
 export interface CreateProfileJobRequest {
   /**
-   * <p>The name of the dataset that this job is to act upon.</p>
+   * The name of the dataset that this job is to act upon.
+   *
    * @public
    */
   DatasetName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
-   *             job.</p>
+   * The Amazon Resource Name (ARN) of an encryption key that is used to protect the job.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The encryption mode for the job, which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-KMS</code> - <code>SSE-KMS</code> - Server-side encryption with
-   *                     KMS-managed keys.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
-   *             </li>
-   *          </ul>
+   * The encryption mode for the job, which can be one of the following:
+   *
+   * - `SSE-KMS` - `SSE-KMS` - Server-side encryption with KMS-managed keys.
+   * - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+   *
    * @public
    */
   EncryptionMode?: EncryptionMode | undefined;
 
   /**
-   * <p>The name of the job to be created. Valid characters are alphanumeric (A-Z, a-z, 0-9),
-   *             hyphen (-), period (.), and space.</p>
+   * The name of the job to be created. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
-   *             CloudWatch writes one log stream for each job run.</p>
+   * Enables or disables Amazon CloudWatch logging for the job. If logging is enabled, CloudWatch writes one log stream for each job run.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The maximum number of nodes that DataBrew can use when the job processes data.</p>
+   * The maximum number of nodes that DataBrew can use when the job processes data.
+   *
    * @public
    */
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The maximum number of times to retry the job after a job run fails.</p>
+   * The maximum number of times to retry the job after a job run fails.
+   *
    * @public
    */
   MaxRetries?: number | undefined;
 
   /**
-   * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
-   *             input data, or write output from a job.</p>
+   * Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+   *
    * @public
    */
   OutputLocation: S3Location | undefined;
 
   /**
-   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
-   *             and override default parameters of evaluations. When configuration is null, the
-   *             profile job will run with default settings.</p>
+   * Configuration for profile jobs. Used to select columns, do evaluations, and override default parameters of evaluations. When configuration is null, the profile job will run with default settings.
+   *
    * @public
    */
   Configuration?: ProfileConfiguration | undefined;
 
   /**
-   * <p>List of validation configurations that are applied to the profile job.</p>
+   * List of validation configurations that are applied to the profile job.
+   *
    * @public
    */
   ValidationConfigurations?: ValidationConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
-   *             be assumed when DataBrew runs the job.</p>
+   * The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>Metadata tags to apply to this job.</p>
+   * Metadata tags to apply to this job.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
-   *             period ends with a status of <code>TIMEOUT</code>.</p>
+   * The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>Sample configuration for profile jobs only. Determines the number of rows on which the
-   *             profile job will be executed. If a JobSample value is not provided, the default value
-   *             will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the
-   *             size parameter.</p>
+   * Sample configuration for profile jobs only. Determines the number of rows on which the profile job will be executed. If a JobSample value is not provided, the default value will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+   *
    * @public
    */
   JobSample?: JobSample | undefined;
@@ -895,26 +865,29 @@ export interface CreateProfileJobRequest {
  */
 export interface CreateProfileJobResponse {
   /**
-   * <p>The name of the job that was created.</p>
+   * The name of the job that was created.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
- *             analysis.</p>
+ * Represents the sample size and sampling type for DataBrew to use for interactive data analysis.
+ *
  * @public
  */
 export interface Sample {
   /**
-   * <p>The number of rows in the sample.</p>
+   * The number of rows in the sample.
+   *
    * @public
    */
   Size?: number | undefined;
 
   /**
-   * <p>The way in which DataBrew obtains rows from a dataset.</p>
+   * The way in which DataBrew obtains rows from a dataset.
+   *
    * @public
    */
   Type: SampleType | undefined;
@@ -925,40 +898,43 @@ export interface Sample {
  */
 export interface CreateProjectRequest {
   /**
-   * <p>The name of an existing dataset to associate this project with.</p>
+   * The name of an existing dataset to associate this project with.
+   *
    * @public
    */
   DatasetName: string | undefined;
 
   /**
-   * <p>A unique name for the new project. Valid characters are alphanumeric (A-Z, a-z, 0-9),
-   *             hyphen (-), period (.), and space.</p>
+   * A unique name for the new project. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of an existing recipe to associate with the project.</p>
+   * The name of an existing recipe to associate with the project.
+   *
    * @public
    */
   RecipeName: string | undefined;
 
   /**
-   * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
-   *             analysis.</p>
+   * Represents the sample size and sampling type for DataBrew to use for interactive data analysis.
+   *
    * @public
    */
   Sample?: Sample | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
-   *             be assumed for this request.</p>
+   * The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed for this request.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>Metadata tags to apply to this project.</p>
+   * Metadata tags to apply to this project.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -969,81 +945,84 @@ export interface CreateProjectRequest {
  */
 export interface CreateProjectResponse {
   /**
-   * <p>The name of the project that you created.</p>
+   * The name of the project that you created.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Represents a transformation and associated parameters that are used to apply a change
- *             to a DataBrew dataset. For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/recipe-actions-reference.html">Recipe
- *                 actions reference</a>.</p>
+ * Represents a transformation and associated parameters that are used to apply a change to a DataBrew dataset. For more information, see [Recipe actions reference](https://docs.aws.amazon.com/databrew/latest/dg/recipe-actions-reference.html).
+ *
  * @public
  */
 export interface RecipeAction {
   /**
-   * <p>The name of a valid DataBrew transformation to be performed on the data.</p>
+   * The name of a valid DataBrew transformation to be performed on the data.
+   *
    * @public
    */
   Operation: string | undefined;
 
   /**
-   * <p>Contextual parameters for the transformation.</p>
+   * Contextual parameters for the transformation.
+   *
    * @public
    */
   Parameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Represents an individual condition that evaluates to true or false.</p>
- *          <p>Conditions are used with recipe actions. The action is only performed for column values where the
- *             condition evaluates to true.</p>
- *          <p>If a recipe requires more than one condition, then the recipe must specify multiple
- *             <code>ConditionExpression</code> elements. Each condition is applied to the rows in a dataset first, before
- *             the recipe action is performed.</p>
+ * Represents an individual condition that evaluates to true or false.
+ *
+ * Conditions are used with recipe actions. The action is only performed for column values where the condition evaluates to true.
+ *
+ * If a recipe requires more than one condition, then the recipe must specify multiple `ConditionExpression` elements. Each condition is applied to the rows in a dataset first, before the recipe action is performed.
+ *
  * @public
  */
 export interface ConditionExpression {
   /**
-   * <p>A specific condition to apply to a recipe action. For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/recipes.html#recipes.structure">Recipe
-   *             structure</a> in the <i>
-   *                Glue DataBrew Developer
-   *             Guide</i>.</p>
+   * A specific condition to apply to a recipe action. For more information, see [Recipe structure](https://docs.aws.amazon.com/databrew/latest/dg/recipes.html#recipes.structure) in the *Glue DataBrew Developer Guide*.
+   *
    * @public
    */
   Condition: string | undefined;
 
   /**
-   * <p>A value that the condition must evaluate to for the condition to succeed.</p>
+   * A value that the condition must evaluate to for the condition to succeed.
+   *
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>A column to apply this condition to.</p>
+   * A column to apply this condition to.
+   *
    * @public
    */
   TargetColumn: string | undefined;
 }
 
 /**
- * <p>Represents a single step from a DataBrew recipe to be performed.</p>
+ * Represents a single step from a DataBrew recipe to be performed.
+ *
  * @public
  */
 export interface RecipeStep {
   /**
-   * <p>The particular action to be performed in the recipe step.</p>
+   * The particular action to be performed in the recipe step.
+   *
    * @public
    */
   Action: RecipeAction | undefined;
 
   /**
-   * <p>One or more conditions that must be met for the recipe step to succeed.</p>
-   *          <note>
-   *             <p>All of the conditions in the array must be met. In other words, all of the
-   *                 conditions must be combined using a logical AND operation.</p>
-   *          </note>
+   * One or more conditions that must be met for the recipe step to succeed.
+   *
+   * > **Note:** All of the conditions in the array must be met. In other words, all of the conditions must be combined using a logical AND operation.
+   *
    * @public
    */
   ConditionExpressions?: ConditionExpression[] | undefined;
@@ -1054,27 +1033,29 @@ export interface RecipeStep {
  */
 export interface CreateRecipeRequest {
   /**
-   * <p>A description for the recipe.</p>
+   * A description for the recipe.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A unique name for the recipe. Valid characters are alphanumeric (A-Z, a-z, 0-9),
-   *             hyphen (-), period (.), and space.</p>
+   * A unique name for the recipe. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>An array containing the steps to be performed by the recipe. Each recipe step consists
-   *             of one recipe action and (optionally) an array of condition expressions.</p>
+   * An array containing the steps to be performed by the recipe. Each recipe step consists of one recipe action and (optionally) an array of condition expressions.
+   *
    * @public
    */
   Steps: RecipeStep[] | undefined;
 
   /**
-   * <p>Metadata tags to apply to this recipe.</p>
+   * Metadata tags to apply to this recipe.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1085,212 +1066,225 @@ export interface CreateRecipeRequest {
  */
 export interface CreateRecipeResponse {
   /**
-   * <p>The name of the recipe that you created.</p>
+   * The name of the recipe that you created.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Represents options that specify how and where DataBrew writes the database
- *             output generated by recipe jobs.</p>
+ * Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
+ *
  * @public
  */
 export interface DatabaseTableOutputOptions {
   /**
-   * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can store
-   *             intermediate results.</p>
+   * Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
+   *
    * @public
    */
   TempDirectory?: S3Location | undefined;
 
   /**
-   * <p>A prefix for the name of a table DataBrew will create in the database.</p>
+   * A prefix for the name of a table DataBrew will create in the database.
+   *
    * @public
    */
   TableName: string | undefined;
 }
 
 /**
- * <p>Represents a JDBC database output object which defines the output destination for
- *             a DataBrew recipe job to write into.</p>
+ * Represents a JDBC database output object which defines the output destination for a DataBrew recipe job to write into.
+ *
  * @public
  */
 export interface DatabaseOutput {
   /**
-   * <p>The Glue connection that stores the connection information for the
-   *             target database.</p>
+   * The Glue connection that stores the connection information for the target database.
+   *
    * @public
    */
   GlueConnectionName: string | undefined;
 
   /**
-   * <p>Represents options that specify how and where DataBrew writes the database output
-   *             generated by recipe jobs.</p>
+   * Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
+   *
    * @public
    */
   DatabaseOptions: DatabaseTableOutputOptions | undefined;
 
   /**
-   * <p>The output mode to write into the database. Currently supported option: NEW_TABLE.</p>
+   * The output mode to write into the database. Currently supported option: NEW_TABLE.
+   *
    * @public
    */
   DatabaseOutputMode?: DatabaseOutputMode | undefined;
 }
 
 /**
- * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output
- *             generated by recipe jobs.</p>
+ * Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
+ *
  * @public
  */
 export interface S3TableOutputOptions {
   /**
-   * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output
-   *             from a job.</p>
+   * Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
+   *
    * @public
    */
   Location: S3Location | undefined;
 }
 
 /**
- * <p>Represents options that specify how and where in the Glue Data Catalog
- *             DataBrew
- *             writes the output generated by recipe jobs.</p>
+ * Represents options that specify how and where in the Glue Data Catalog DataBrew writes the output generated by recipe jobs.
+ *
  * @public
  */
 export interface DataCatalogOutput {
   /**
-   * <p>The unique identifier of the Amazon Web Services account that holds the Data Catalog that
-   *             stores the data.</p>
+   * The unique identifier of the Amazon Web Services account that holds the Data Catalog that stores the data.
+   *
    * @public
    */
   CatalogId?: string | undefined;
 
   /**
-   * <p>The name of a database in the Data Catalog.</p>
+   * The name of a database in the Data Catalog.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of a table in the Data Catalog.</p>
+   * The name of a table in the Data Catalog.
+   *
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>Represents options that specify how and where DataBrew writes the Amazon S3
-   *             output generated by recipe jobs.</p>
+   * Represents options that specify how and where DataBrew writes the Amazon S3 output generated by recipe jobs.
+   *
    * @public
    */
   S3Options?: S3TableOutputOptions | undefined;
 
   /**
-   * <p>Represents options that specify how and where DataBrew writes the database output
-   *             generated by recipe jobs.</p>
+   * Represents options that specify how and where DataBrew writes the database output generated by recipe jobs.
+   *
    * @public
    */
   DatabaseOptions?: DatabaseTableOutputOptions | undefined;
 
   /**
-   * <p>A value that, if true, means that any data in the location specified for output
-   *             is overwritten with new output. Not supported with DatabaseOptions.</p>
+   * A value that, if true, means that any data in the location specified for output is overwritten with new output. Not supported with DatabaseOptions.
+   *
    * @public
    */
   Overwrite?: boolean | undefined;
 }
 
 /**
- * <p>Represents a set of options that define how DataBrew will write a
- *             comma-separated value (CSV) file.</p>
+ * Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+ *
  * @public
  */
 export interface CsvOutputOptions {
   /**
-   * <p>A single character that specifies the delimiter used to create CSV job output.</p>
+   * A single character that specifies the delimiter used to create CSV job output.
+   *
    * @public
    */
   Delimiter?: string | undefined;
 }
 
 /**
- * <p>Represents a set of options that define the structure of comma-separated (CSV) job output.</p>
+ * Represents a set of options that define the structure of comma-separated (CSV) job output.
+ *
  * @public
  */
 export interface OutputFormatOptions {
   /**
-   * <p>Represents a set of options that define the structure of comma-separated value (CSV)
-   *             job output.</p>
+   * Represents a set of options that define the structure of comma-separated value (CSV) job output.
+   *
    * @public
    */
   Csv?: CsvOutputOptions | undefined;
 }
 
 /**
- * <p>Represents options that specify how and where in Amazon S3
- *             DataBrew writes the output generated by
- *             recipe jobs or profile jobs.</p>
+ * Represents options that specify how and where in Amazon S3 DataBrew writes the output generated by recipe jobs or profile jobs.
+ *
  * @public
  */
 export interface Output {
   /**
-   * <p>The compression algorithm used to compress the output text of the job.</p>
+   * The compression algorithm used to compress the output text of the job.
+   *
    * @public
    */
   CompressionFormat?: CompressionFormat | undefined;
 
   /**
-   * <p>The data format of the output of the job.</p>
+   * The data format of the output of the job.
+   *
    * @public
    */
   Format?: OutputFormat | undefined;
 
   /**
-   * <p>The names of one or more partition columns for the output of the job.</p>
+   * The names of one or more partition columns for the output of the job.
+   *
    * @public
    */
   PartitionColumns?: string[] | undefined;
 
   /**
-   * <p>The location in Amazon S3 where the job writes its output.</p>
+   * The location in Amazon S3 where the job writes its output.
+   *
    * @public
    */
   Location: S3Location | undefined;
 
   /**
-   * <p>A value that, if true, means that any data in the location specified for output is
-   *             overwritten with new output.</p>
+   * A value that, if true, means that any data in the location specified for output is overwritten with new output.
+   *
    * @public
    */
   Overwrite?: boolean | undefined;
 
   /**
-   * <p>Represents options that define how DataBrew formats job output files.</p>
+   * Represents options that define how DataBrew formats job output files.
+   *
    * @public
    */
   FormatOptions?: OutputFormatOptions | undefined;
 
   /**
-   * <p>Maximum number of files to be generated by the job and written to the output folder. For output partitioned
-   *             by column(s), the MaxOutputFiles value is the maximum number of files per partition.</p>
+   * Maximum number of files to be generated by the job and written to the output folder. For output partitioned by column(s), the MaxOutputFiles value is the maximum number of files per partition.
+   *
    * @public
    */
   MaxOutputFiles?: number | undefined;
 }
 
 /**
- * <p>Represents the name and version of a DataBrew recipe.</p>
+ * Represents the name and version of a DataBrew recipe.
+ *
  * @public
  */
 export interface RecipeReference {
   /**
-   * <p>The name of the recipe.</p>
+   * The name of the recipe.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The identifier for the version for the recipe. </p>
+   * The identifier for the version for the recipe.
+   *
    * @public
    */
   RecipeVersion?: string | undefined;
@@ -1301,109 +1295,109 @@ export interface RecipeReference {
  */
 export interface CreateRecipeJobRequest {
   /**
-   * <p>The name of the dataset that this job processes.</p>
+   * The name of the dataset that this job processes.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
-   *             job.</p>
+   * The Amazon Resource Name (ARN) of an encryption key that is used to protect the job.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The encryption mode for the job, which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
-   *             </li>
-   *          </ul>
+   * The encryption mode for the job, which can be one of the following:
+   *
+   * - `SSE-KMS` - Server-side encryption with keys managed by KMS.
+   * - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+   *
    * @public
    */
   EncryptionMode?: EncryptionMode | undefined;
 
   /**
-   * <p>A unique name for the job. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen
-   *             (-), period (.), and space.</p>
+   * A unique name for the job. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
-   *             CloudWatch writes one log stream for each job run.</p>
+   * Enables or disables Amazon CloudWatch logging for the job. If logging is enabled, CloudWatch writes one log stream for each job run.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The maximum number of nodes that DataBrew can consume when the job processes
-   *             data.</p>
+   * The maximum number of nodes that DataBrew can consume when the job processes data.
+   *
    * @public
    */
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The maximum number of times to retry the job after a job run fails.</p>
+   * The maximum number of times to retry the job after a job run fails.
+   *
    * @public
    */
   MaxRetries?: number | undefined;
 
   /**
-   * <p>One or more artifacts that represent the output from running the job.</p>
+   * One or more artifacts that represent the output from running the job.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
 
   /**
-   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
+   * One or more artifacts that represent the Glue Data Catalog output from running the job.
+   *
    * @public
    */
   DataCatalogOutputs?: DataCatalogOutput[] | undefined;
 
   /**
-   * <p>Represents a list of JDBC database output objects which defines the output destination for
-   *             a DataBrew recipe job to write to. </p>
+   * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write to.
+   *
    * @public
    */
   DatabaseOutputs?: DatabaseOutput[] | undefined;
 
   /**
-   * <p>Either the name of an existing project, or a combination of a recipe and a dataset to
-   *             associate with the recipe.</p>
+   * Either the name of an existing project, or a combination of a recipe and a dataset to associate with the recipe.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 
   /**
-   * <p>Represents the name and version of a DataBrew recipe.</p>
+   * Represents the name and version of a DataBrew recipe.
+   *
    * @public
    */
   RecipeReference?: RecipeReference | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
-   *             be assumed when DataBrew runs the job.</p>
+   * The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>Metadata tags to apply to this job.</p>
+   * Metadata tags to apply to this job.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
-   *             period ends with a status of <code>TIMEOUT</code>.</p>
+   * The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.
+   *
    * @public
    */
   Timeout?: number | undefined;
@@ -1414,98 +1408,87 @@ export interface CreateRecipeJobRequest {
  */
 export interface CreateRecipeJobResponse {
   /**
-   * <p>The name of the job that you created.</p>
+   * The name of the job that you created.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>The threshold used with a non-aggregate check expression. The non-aggregate check expression
- *             will be applied to each row in a specific column. Then the threshold will be used to determine
- *             whether the validation succeeds.</p>
+ * The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+ *
  * @public
  */
 export interface Threshold {
   /**
-   * <p>The value of a threshold.</p>
+   * The value of a threshold.
+   *
    * @public
    */
   Value: number | undefined;
 
   /**
-   * <p>The type of a threshold. Used for comparison of an actual count of rows that satisfy the
-   *             rule to the threshold value.</p>
+   * The type of a threshold. Used for comparison of an actual count of rows that satisfy the rule to the threshold value.
+   *
    * @public
    */
   Type?: ThresholdType | undefined;
 
   /**
-   * <p>Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size
-   *             used for validation.</p>
+   * Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size used for validation.
+   *
    * @public
    */
   Unit?: ThresholdUnit | undefined;
 }
 
 /**
- * <p>Represents a single data quality requirement that should be validated in the
- *             scope of this dataset.</p>
+ * Represents a single data quality requirement that should be validated in the scope of this dataset.
+ *
  * @public
  */
 export interface Rule {
   /**
-   * <p>The name of the rule.</p>
+   * The name of the rule.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A value that specifies whether the rule is disabled. Once a rule is
-   *             disabled, a profile job will not validate it during a job run. Default
-   *             value is false.</p>
+   * A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
+   *
    * @public
    */
   Disabled?: boolean | undefined;
 
   /**
-   * <p>The expression which includes column references, condition names followed by variable
-   *             references, possibly grouped and combined with other conditions. For example,
-   *                 <code>(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1
-   *                 ends_with :suffix1 or :col1 ends_with :suffix2)</code>. Column and value references
-   *             are substitution variables that should start with the ':' symbol. Depending on the
-   *             context, substitution variables' values can be either an actual value or a column name.
-   *             These values are defined in the SubstitutionMap. If a CheckExpression starts with a
-   *             column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors
-   *             has been defined, then there should be no column reference in the left side of a
-   *             condition, for example, <code>is_between :val1 and :val2</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
-   *          </p>
+   * The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)`. Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no column reference in the left side of a condition, for example, `is_between :val1 and :val2`.
+   *
+   * For more information, see [Available checks](https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html)
+   *
    * @public
    */
   CheckExpression: string | undefined;
 
   /**
-   * <p>The map of substitution variable names to their values used in a check
-   *             expression. Variable names should start with a ':' (colon).  Variable values can either
-   *             be actual values or column names. To differentiate between the two, column names
-   *             should be enclosed in backticks, for example, <code>":col1": "`Column A`".</code>
-   *          </p>
+   * The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, ``":col1": "`Column A`".``
+   *
    * @public
    */
   SubstitutionMap?: Record<string, string> | undefined;
 
   /**
-   * <p>The threshold used with a non-aggregate check expression. Non-aggregate check expressions
-   *             will be applied to each row in a specific column, and the threshold will be used to determine
-   *             whether the validation succeeds.</p>
+   * The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
+   *
    * @public
    */
   Threshold?: Threshold | undefined;
 
   /**
-   * <p>List of column selectors. Selectors can be used to select columns using a name or regular
-   *             expression from the dataset. Rule will be applied to selected columns.</p>
+   * List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
+   *
    * @public
    */
   ColumnSelectors?: ColumnSelector[] | undefined;
@@ -1516,34 +1499,36 @@ export interface Rule {
  */
 export interface CreateRulesetRequest {
   /**
-   * <p>The name of the ruleset to be created. Valid characters are alphanumeric
-   *             (A-Z, a-z, 0-9), hyphen (-), period (.), and space.</p>
+   * The name of the ruleset to be created. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the ruleset.</p>
+   * The description of the ruleset.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the
-   *             ruleset is associated with.</p>
+   * The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.
+   *
    * @public
    */
   TargetArn: string | undefined;
 
   /**
-   * <p>A list of rules that are defined with the ruleset. A rule includes
-   *             one or more checks to be validated on a DataBrew dataset.</p>
+   * A list of rules that are defined with the ruleset. A rule includes one or more checks to be validated on a DataBrew dataset.
+   *
    * @public
    */
   Rules: Rule[] | undefined;
 
   /**
-   * <p>Metadata tags to apply to the ruleset.</p>
+   * Metadata tags to apply to the ruleset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -1554,7 +1539,8 @@ export interface CreateRulesetRequest {
  */
 export interface CreateRulesetResponse {
   /**
-   * <p>The unique name of the created ruleset.</p>
+   * The unique name of the created ruleset.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1565,30 +1551,29 @@ export interface CreateRulesetResponse {
  */
 export interface CreateScheduleRequest {
   /**
-   * <p>The name or names of one or more jobs to be run.</p>
+   * The name or names of one or more jobs to be run.
+   *
    * @public
    */
   JobNames?: string[] | undefined;
 
   /**
-   * <p>The date or dates and time or times when the jobs are to be run. For more information,
-   *             see <a href="https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html">Cron
-   *                 expressions</a> in the <i>
-   *                Glue DataBrew Developer
-   *             Guide</i>.</p>
+   * The date or dates and time or times when the jobs are to be run. For more information, see [Cron expressions](https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html) in the *Glue DataBrew Developer Guide*.
+   *
    * @public
    */
   CronExpression: string | undefined;
 
   /**
-   * <p>Metadata tags to apply to this schedule.</p>
+   * Metadata tags to apply to this schedule.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique name for the schedule. Valid characters are alphanumeric (A-Z, a-z, 0-9),
-   *             hyphen (-), period (.), and space.</p>
+   * A unique name for the schedule. Valid characters are alphanumeric (A-Z, a-z, 0-9), hyphen (-), period (.), and space.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1599,7 +1584,8 @@ export interface CreateScheduleRequest {
  */
 export interface CreateScheduleResponse {
   /**
-   * <p>The name of the schedule that was created.</p>
+   * The name of the schedule that was created.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1610,7 +1596,8 @@ export interface CreateScheduleResponse {
  */
 export interface DeleteDatasetRequest {
   /**
-   * <p>The name of the dataset to be deleted.</p>
+   * The name of the dataset to be deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1621,7 +1608,8 @@ export interface DeleteDatasetRequest {
  */
 export interface DeleteDatasetResponse {
   /**
-   * <p>The name of the dataset that you deleted.</p>
+   * The name of the dataset that you deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1632,7 +1620,8 @@ export interface DeleteDatasetResponse {
  */
 export interface DeleteJobRequest {
   /**
-   * <p>The name of the job to be deleted.</p>
+   * The name of the job to be deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1643,7 +1632,8 @@ export interface DeleteJobRequest {
  */
 export interface DeleteJobResponse {
   /**
-   * <p>The name of the job that you deleted.</p>
+   * The name of the job that you deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1654,7 +1644,8 @@ export interface DeleteJobResponse {
  */
 export interface DeleteProjectRequest {
   /**
-   * <p>The name of the project to be deleted.</p>
+   * The name of the project to be deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1665,7 +1656,8 @@ export interface DeleteProjectRequest {
  */
 export interface DeleteProjectResponse {
   /**
-   * <p>The name of the project that you deleted.</p>
+   * The name of the project that you deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1676,15 +1668,15 @@ export interface DeleteProjectResponse {
  */
 export interface DeleteRecipeVersionRequest {
   /**
-   * <p>The name of the recipe.</p>
+   * The name of the recipe.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The version of the recipe to be deleted. You can specify a numeric versions
-   *                 (<code>X.Y</code>) or <code>LATEST_WORKING</code>. <code>LATEST_PUBLISHED</code> is
-   *             not supported.</p>
+   * The version of the recipe to be deleted. You can specify a numeric versions (`X.Y`) or `LATEST_WORKING`. `LATEST_PUBLISHED` is not supported.
+   *
    * @public
    */
   RecipeVersion: string | undefined;
@@ -1695,13 +1687,15 @@ export interface DeleteRecipeVersionRequest {
  */
 export interface DeleteRecipeVersionResponse {
   /**
-   * <p>The name of the recipe that was deleted.</p>
+   * The name of the recipe that was deleted.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The version of the recipe that was deleted.</p>
+   * The version of the recipe that was deleted.
+   *
    * @public
    */
   RecipeVersion: string | undefined;
@@ -1712,7 +1706,8 @@ export interface DeleteRecipeVersionResponse {
  */
 export interface DeleteRulesetRequest {
   /**
-   * <p>The name of the ruleset to be deleted.</p>
+   * The name of the ruleset to be deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1723,7 +1718,8 @@ export interface DeleteRulesetRequest {
  */
 export interface DeleteRulesetResponse {
   /**
-   * <p>The name of the deleted ruleset.</p>
+   * The name of the deleted ruleset.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1734,7 +1730,8 @@ export interface DeleteRulesetResponse {
  */
 export interface DeleteScheduleRequest {
   /**
-   * <p>The name of the schedule to be deleted.</p>
+   * The name of the schedule to be deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1745,7 +1742,8 @@ export interface DeleteScheduleRequest {
  */
 export interface DeleteScheduleResponse {
   /**
-   * <p>The name of the schedule that was deleted.</p>
+   * The name of the schedule that was deleted.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1756,7 +1754,8 @@ export interface DeleteScheduleResponse {
  */
 export interface DescribeDatasetRequest {
   /**
-   * <p>The name of the dataset to be described.</p>
+   * The name of the dataset to be described.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1767,78 +1766,85 @@ export interface DescribeDatasetRequest {
  */
 export interface DescribeDatasetResponse {
   /**
-   * <p>The identifier (user name) of the user who created the dataset.</p>
+   * The identifier (user name) of the user who created the dataset.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the dataset was created.</p>
+   * The date and time that the dataset was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The name of the dataset.</p>
+   * The name of the dataset.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The file format of a dataset that is created from an Amazon S3 file
-   *             or folder.</p>
+   * The file format of a dataset that is created from an Amazon S3 file or folder.
+   *
    * @public
    */
   Format?: InputFormat | undefined;
 
   /**
-   * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
-   *             Excel, or JSON input.</p>
+   * Represents a set of options that define the structure of either comma-separated value (CSV), Excel, or JSON input.
+   *
    * @public
    */
   FormatOptions?: FormatOptions | undefined;
 
   /**
-   * <p>Represents information on how DataBrew can find data, in either the Glue Data Catalog or
-   *             Amazon S3.</p>
+   * Represents information on how DataBrew can find data, in either the Glue Data Catalog or Amazon S3.
+   *
    * @public
    */
   Input: Input | undefined;
 
   /**
-   * <p>The date and time that the dataset was last modified.</p>
+   * The date and time that the dataset was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who last modified the dataset.</p>
+   * The identifier (user name) of the user who last modified the dataset.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The location of the data for this dataset, Amazon S3 or the
-   *             Glue Data Catalog.</p>
+   * The location of the data for this dataset, Amazon S3 or the Glue Data Catalog.
+   *
    * @public
    */
   Source?: Source | undefined;
 
   /**
-   * <p>A set of options that defines how DataBrew interprets an Amazon S3
-   *             path of the dataset.</p>
+   * A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
+   *
    * @public
    */
   PathOptions?: PathOptions | undefined;
 
   /**
-   * <p>Metadata tags associated with this dataset.</p>
+   * Metadata tags associated with this dataset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * The Amazon Resource Name (ARN) of the dataset.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
@@ -1849,7 +1855,8 @@ export interface DescribeDatasetResponse {
  */
 export interface DescribeJobRequest {
   /**
-   * <p>The name of the job to be described.</p>
+   * The name of the job to be described.
+   *
    * @public
    */
   Name: string | undefined;
@@ -1860,176 +1867,175 @@ export interface DescribeJobRequest {
  */
 export interface DescribeJobResponse {
   /**
-   * <p>The date and time that the job was created.</p>
+   * The date and time that the job was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The identifier (user name) of the user associated with the creation of the job.</p>
+   * The identifier (user name) of the user associated with the creation of the job.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The dataset that the job acts upon.</p>
+   * The dataset that the job acts upon.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
-   *             job.</p>
+   * The Amazon Resource Name (ARN) of an encryption key that is used to protect the job.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The encryption mode for the job, which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon
-   *                     S3.</p>
-   *             </li>
-   *          </ul>
+   * The encryption mode for the job, which can be one of the following:
+   *
+   * - `SSE-KMS` - Server-side encryption with keys managed by KMS.
+   * - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+   *
    * @public
    */
   EncryptionMode?: EncryptionMode | undefined;
 
   /**
-   * <p>The name of the job.</p>
+   * The name of the job.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The job type, which must be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PROFILE</code> - The job analyzes the dataset to determine its size,
-   *                     data types, data distribution, and more.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RECIPE</code> - The job applies one or more transformations to a
-   *                     dataset.</p>
-   *             </li>
-   *          </ul>
+   * The job type, which must be one of the following:
+   *
+   * - `PROFILE` - The job analyzes the dataset to determine its size, data types, data distribution, and more.
+   * - `RECIPE` - The job applies one or more transformations to a dataset.
+   *
    * @public
    */
   Type?: JobType | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who last modified the job.</p>
+   * The identifier (user name) of the user who last modified the job.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the job was last modified.</p>
+   * The date and time that the job was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>Indicates whether Amazon CloudWatch logging is enabled for this job.</p>
+   * Indicates whether Amazon CloudWatch logging is enabled for this job.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The maximum number of compute nodes that DataBrew can consume when the job processes
-   *             data.</p>
+   * The maximum number of compute nodes that DataBrew can consume when the job processes data.
+   *
    * @public
    */
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The maximum number of times to retry the job after a job run fails.</p>
+   * The maximum number of times to retry the job after a job run fails.
+   *
    * @public
    */
   MaxRetries?: number | undefined;
 
   /**
-   * <p>One or more artifacts that represent the output from running the job.</p>
+   * One or more artifacts that represent the output from running the job.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
 
   /**
-   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
+   * One or more artifacts that represent the Glue Data Catalog output from running the job.
+   *
    * @public
    */
   DataCatalogOutputs?: DataCatalogOutput[] | undefined;
 
   /**
-   * <p>Represents a list of JDBC database output objects which defines the output
-   *             destination for a DataBrew recipe job to write into.</p>
+   * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+   *
    * @public
    */
   DatabaseOutputs?: DatabaseOutput[] | undefined;
 
   /**
-   * <p>The DataBrew project associated with this job.</p>
+   * The DataBrew project associated with this job.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 
   /**
-   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
-   *             and override default parameters of evaluations. When configuration is null, the
-   *             profile job will run with default settings.</p>
+   * Configuration for profile jobs. Used to select columns, do evaluations, and override default parameters of evaluations. When configuration is null, the profile job will run with default settings.
+   *
    * @public
    */
   ProfileConfiguration?: ProfileConfiguration | undefined;
 
   /**
-   * <p>List of validation configurations that are applied to the profile job.</p>
+   * List of validation configurations that are applied to the profile job.
+   *
    * @public
    */
   ValidationConfigurations?: ValidationConfiguration[] | undefined;
 
   /**
-   * <p>Represents the name and version of a DataBrew recipe.</p>
+   * Represents the name and version of a DataBrew recipe.
+   *
    * @public
    */
   RecipeReference?: RecipeReference | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   * The Amazon Resource Name (ARN) of the job.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The ARN of the Identity and Access Management (IAM) role to be assumed when
-   *             DataBrew runs the job.</p>
+   * The ARN of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>Metadata tags associated with this job.</p>
+   * Metadata tags associated with this job.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
-   *             period ends with a status of <code>TIMEOUT</code>.</p>
+   * The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>Sample configuration for profile jobs only. Determines the number of rows on which the
-   *             profile job will be executed.</p>
+   * Sample configuration for profile jobs only. Determines the number of rows on which the profile job will be executed.
+   *
    * @public
    */
   JobSample?: JobSample | undefined;
@@ -2040,13 +2046,15 @@ export interface DescribeJobResponse {
  */
 export interface DescribeJobRunRequest {
   /**
-   * <p>The name of the job being processed during this run.</p>
+   * The name of the job being processed during this run.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The unique identifier of the job run.</p>
+   * The unique identifier of the job run.
+   *
    * @public
    */
   RunId: string | undefined;
@@ -2057,122 +2065,134 @@ export interface DescribeJobRunRequest {
  */
 export interface DescribeJobRunResponse {
   /**
-   * <p>The number of times that DataBrew has attempted to run the job.</p>
+   * The number of times that DataBrew has attempted to run the job.
+   *
    * @public
    */
   Attempt?: number | undefined;
 
   /**
-   * <p>The date and time when the job completed processing.</p>
+   * The date and time when the job completed processing.
+   *
    * @public
    */
   CompletedOn?: Date | undefined;
 
   /**
-   * <p>The name of the dataset for the job to process.</p>
+   * The name of the dataset for the job to process.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>A message indicating an error (if any) that was encountered when the job ran.</p>
+   * A message indicating an error (if any) that was encountered when the job ran.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, during which the job run consumed resources.</p>
+   * The amount of time, in seconds, during which the job run consumed resources.
+   *
    * @public
    */
   ExecutionTime?: number | undefined;
 
   /**
-   * <p>The name of the job being processed during this run.</p>
+   * The name of the job being processed during this run.
+   *
    * @public
    */
   JobName: string | undefined;
 
   /**
-   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
-   *             and override default parameters of evaluations. When configuration is null, the
-   *             profile job will run with default settings.</p>
+   * Configuration for profile jobs. Used to select columns, do evaluations, and override default parameters of evaluations. When configuration is null, the profile job will run with default settings.
+   *
    * @public
    */
   ProfileConfiguration?: ProfileConfiguration | undefined;
 
   /**
-   * <p>List of validation configurations that are applied to the profile job.</p>
+   * List of validation configurations that are applied to the profile job.
+   *
    * @public
    */
   ValidationConfigurations?: ValidationConfiguration[] | undefined;
 
   /**
-   * <p>The unique identifier of the job run.</p>
+   * The unique identifier of the job run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The current state of the job run entity itself.</p>
+   * The current state of the job run entity itself.
+   *
    * @public
    */
   State?: JobRunState | undefined;
 
   /**
-   * <p>The current status of Amazon CloudWatch logging for the job run.</p>
+   * The current status of Amazon CloudWatch logging for the job run.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The name of an Amazon CloudWatch log group, where the job writes diagnostic messages
-   *             when it runs.</p>
+   * The name of an Amazon CloudWatch log group, where the job writes diagnostic messages when it runs.
+   *
    * @public
    */
   LogGroupName?: string | undefined;
 
   /**
-   * <p>One or more output artifacts from a job run.</p>
+   * One or more output artifacts from a job run.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
 
   /**
-   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
+   * One or more artifacts that represent the Glue Data Catalog output from running the job.
+   *
    * @public
    */
   DataCatalogOutputs?: DataCatalogOutput[] | undefined;
 
   /**
-   * <p>Represents a list of JDBC database output objects which defines the output
-   *             destination for a DataBrew recipe job to write into.</p>
+   * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+   *
    * @public
    */
   DatabaseOutputs?: DatabaseOutput[] | undefined;
 
   /**
-   * <p>Represents the name and version of a DataBrew recipe.</p>
+   * Represents the name and version of a DataBrew recipe.
+   *
    * @public
    */
   RecipeReference?: RecipeReference | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who started the job run.</p>
+   * The Amazon Resource Name (ARN) of the user who started the job run.
+   *
    * @public
    */
   StartedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the job run began.</p>
+   * The date and time when the job run began.
+   *
    * @public
    */
   StartedOn?: Date | undefined;
 
   /**
-   * <p>Sample configuration for profile jobs only. Determines the number of rows on which the
-   *             profile job will be executed. If a JobSample value is not provided, the default value
-   *             will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the
-   *             size parameter.</p>
+   * Sample configuration for profile jobs only. Determines the number of rows on which the profile job will be executed. If a JobSample value is not provided, the default value will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+   *
    * @public
    */
   JobSample?: JobSample | undefined;
@@ -2183,7 +2203,8 @@ export interface DescribeJobRunResponse {
  */
 export interface DescribeProjectRequest {
   /**
-   * <p>The name of the project to be described.</p>
+   * The name of the project to be described.
+   *
    * @public
    */
   Name: string | undefined;
@@ -2194,101 +2215,103 @@ export interface DescribeProjectRequest {
  */
 export interface DescribeProjectResponse {
   /**
-   * <p>The date and time that the project was created.</p>
+   * The date and time that the project was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who created the project.</p>
+   * The identifier (user name) of the user who created the project.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The dataset associated with the project.</p>
+   * The dataset associated with the project.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>The date and time that the project was last modified.</p>
+   * The date and time that the project was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who last modified the project.</p>
+   * The identifier (user name) of the user who last modified the project.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The name of the project.</p>
+   * The name of the project.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The recipe associated with this job.</p>
+   * The recipe associated with this job.
+   *
    * @public
    */
   RecipeName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * The Amazon Resource Name (ARN) of the project.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
-   *             analysis.</p>
+   * Represents the sample size and sampling type for DataBrew to use for interactive data analysis.
+   *
    * @public
    */
   Sample?: Sample | undefined;
 
   /**
-   * <p>The ARN of the Identity and Access Management (IAM) role to be assumed when
-   *             DataBrew runs the job.</p>
+   * The ARN of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>Metadata tags associated with this project.</p>
+   * Metadata tags associated with this project.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Describes the current state of the session:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISIONING</code> - allocating resources for the session.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INITIALIZING</code> - getting the session ready for first use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSIGNED</code> - the session is ready for use.</p>
-   *             </li>
-   *          </ul>
+   * Describes the current state of the session:
+   *
+   * - `PROVISIONING` - allocating resources for the session.
+   * - `INITIALIZING` - getting the session ready for first use.
+   * - `ASSIGNED` - the session is ready for use.
+   *
    * @public
    */
   SessionStatus?: SessionStatus | undefined;
 
   /**
-   * <p>The identifier (user name) of the user that opened the project for use. </p>
+   * The identifier (user name) of the user that opened the project for use.
+   *
    * @public
    */
   OpenedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the project was opened. </p>
+   * The date and time when the project was opened.
+   *
    * @public
    */
   OpenDate?: Date | undefined;
@@ -2299,14 +2322,15 @@ export interface DescribeProjectResponse {
  */
 export interface DescribeRecipeRequest {
   /**
-   * <p>The name of the recipe to be described.</p>
+   * The name of the recipe to be described.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The recipe version identifier. If this parameter isn't specified, then the latest
-   *             published version is returned.</p>
+   * The recipe version identifier. If this parameter isn't specified, then the latest published version is returned.
+   *
    * @public
    */
   RecipeVersion?: string | undefined;
@@ -2317,80 +2341,92 @@ export interface DescribeRecipeRequest {
  */
 export interface DescribeRecipeResponse {
   /**
-   * <p>The identifier (user name) of the user who created the recipe.</p>
+   * The identifier (user name) of the user who created the recipe.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the recipe was created.</p>
+   * The date and time that the recipe was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who last modified the recipe.</p>
+   * The identifier (user name) of the user who last modified the recipe.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the recipe was last modified.</p>
+   * The date and time that the recipe was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The name of the project associated with this recipe.</p>
+   * The name of the project associated with this recipe.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who last published the recipe.</p>
+   * The identifier (user name) of the user who last published the recipe.
+   *
    * @public
    */
   PublishedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the recipe was last published.</p>
+   * The date and time when the recipe was last published.
+   *
    * @public
    */
   PublishedDate?: Date | undefined;
 
   /**
-   * <p>The description of the recipe.</p>
+   * The description of the recipe.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the recipe.</p>
+   * The name of the recipe.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>One or more steps to be performed by the recipe. Each step consists of an action, and
-   *             the conditions under which the action should succeed.</p>
+   * One or more steps to be performed by the recipe. Each step consists of an action, and the conditions under which the action should succeed.
+   *
    * @public
    */
   Steps?: RecipeStep[] | undefined;
 
   /**
-   * <p>Metadata tags associated with this project.</p>
+   * Metadata tags associated with this project.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The ARN of the recipe.</p>
+   * The ARN of the recipe.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The recipe version identifier.</p>
+   * The recipe version identifier.
+   *
    * @public
    */
   RecipeVersion?: string | undefined;
@@ -2401,7 +2437,8 @@ export interface DescribeRecipeResponse {
  */
 export interface DescribeRulesetRequest {
   /**
-   * <p>The name of the ruleset to be described.</p>
+   * The name of the ruleset to be described.
+   *
    * @public
    */
   Name: string | undefined;
@@ -2412,63 +2449,71 @@ export interface DescribeRulesetRequest {
  */
 export interface DescribeRulesetResponse {
   /**
-   * <p>The name of the ruleset.</p>
+   * The name of the ruleset.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the ruleset.</p>
+   * The description of the ruleset.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is
-   *             associated with.</p>
+   * The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.
+   *
    * @public
    */
   TargetArn?: string | undefined;
 
   /**
-   * <p>A list of rules that are defined with the ruleset. A rule includes one
-   *             or more checks to be validated on a DataBrew dataset.</p>
+   * A list of rules that are defined with the ruleset. A rule includes one or more checks to be validated on a DataBrew dataset.
+   *
    * @public
    */
   Rules?: Rule[] | undefined;
 
   /**
-   * <p>The date and time that the ruleset was created.</p>
+   * The date and time that the ruleset was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the ruleset.</p>
+   * The Amazon Resource Name (ARN) of the user who created the ruleset.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the ruleset.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the ruleset.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The modification date and time of the ruleset.</p>
+   * The modification date and time of the ruleset.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the ruleset.</p>
+   * The Amazon Resource Name (ARN) for the ruleset.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the ruleset.</p>
+   * Metadata tags that have been applied to the ruleset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2479,7 +2524,8 @@ export interface DescribeRulesetResponse {
  */
 export interface DescribeScheduleRequest {
   /**
-   * <p>The name of the schedule to be described.</p>
+   * The name of the schedule to be described.
+   *
    * @public
    */
   Name: string | undefined;
@@ -2490,58 +2536,64 @@ export interface DescribeScheduleRequest {
  */
 export interface DescribeScheduleResponse {
   /**
-   * <p>The date and time that the schedule was created.</p>
+   * The date and time that the schedule was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who created the schedule. </p>
+   * The identifier (user name) of the user who created the schedule.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The name or names of one or more jobs to be run by using the schedule.</p>
+   * The name or names of one or more jobs to be run by using the schedule.
+   *
    * @public
    */
   JobNames?: string[] | undefined;
 
   /**
-   * <p>The identifier (user name) of the user who last modified the schedule.</p>
+   * The identifier (user name) of the user who last modified the schedule.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the schedule was last modified.</p>
+   * The date and time that the schedule was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the schedule.</p>
+   * The Amazon Resource Name (ARN) of the schedule.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The date or dates and time or times when the jobs are to be run for the schedule. For
-   *             more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html">Cron expressions</a> in the
-   *             <i>
-   *                Glue DataBrew Developer Guide</i>.</p>
+   * The date or dates and time or times when the jobs are to be run for the schedule. For more information, see [Cron expressions](https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html) in the *Glue DataBrew Developer Guide*.
+   *
    * @public
    */
   CronExpression?: string | undefined;
 
   /**
-   * <p>Metadata tags associated with this schedule.</p>
+   * Metadata tags associated with this schedule.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the schedule.</p>
+   * The name of the schedule.
+   *
    * @public
    */
   Name: string | undefined;
@@ -2552,99 +2604,113 @@ export interface DescribeScheduleResponse {
  */
 export interface ListDatasetsRequest {
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * The token returned by a previous call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a dataset that can be processed by DataBrew.</p>
+ * Represents a dataset that can be processed by DataBrew.
+ *
  * @public
  */
 export interface Dataset {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the dataset.</p>
+   * The ID of the Amazon Web Services account that owns the dataset.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the dataset.</p>
+   * The Amazon Resource Name (ARN) of the user who created the dataset.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the dataset was created.</p>
+   * The date and time that the dataset was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The unique name of the dataset.</p>
+   * The unique name of the dataset.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
+   * The file format of a dataset that is created from an Amazon S3 file or folder.
+   *
    * @public
    */
   Format?: InputFormat | undefined;
 
   /**
-   * <p>A set of options that define how DataBrew interprets the data in the dataset.</p>
+   * A set of options that define how DataBrew interprets the data in the dataset.
+   *
    * @public
    */
   FormatOptions?: FormatOptions | undefined;
 
   /**
-   * <p>Information on how DataBrew can find the dataset, in either the Glue Data Catalog
-   *             or Amazon S3.</p>
+   * Information on how DataBrew can find the dataset, in either the Glue Data Catalog or Amazon S3.
+   *
    * @public
    */
   Input: Input | undefined;
 
   /**
-   * <p>The last modification date and time of the dataset.</p>
+   * The last modification date and time of the dataset.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the dataset.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the dataset.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The location of the data for the dataset, either Amazon S3 or the Glue Data Catalog.</p>
+   * The location of the data for the dataset, either Amazon S3 or the Glue Data Catalog.
+   *
    * @public
    */
   Source?: Source | undefined;
 
   /**
-   * <p>A set of options that defines how DataBrew interprets an Amazon S3
-   *             path of the dataset.</p>
+   * A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
+   *
    * @public
    */
   PathOptions?: PathOptions | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the dataset.</p>
+   * Metadata tags that have been applied to the dataset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) for the dataset.</p>
+   * The unique Amazon Resource Name (ARN) for the dataset.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
@@ -2655,14 +2721,15 @@ export interface Dataset {
  */
 export interface ListDatasetsResponse {
   /**
-   * <p>A list of datasets that are defined.</p>
+   * A list of datasets that are defined.
+   *
    * @public
    */
   Datasets: Dataset[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2673,139 +2740,155 @@ export interface ListDatasetsResponse {
  */
 export interface ListJobRunsRequest {
   /**
-   * <p>The name of the job.</p>
+   * The name of the job.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * The token returned by a previous call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents one run of a DataBrew job.</p>
+ * Represents one run of a DataBrew job.
+ *
  * @public
  */
 export interface JobRun {
   /**
-   * <p>The number of times that DataBrew has attempted to run the job.</p>
+   * The number of times that DataBrew has attempted to run the job.
+   *
    * @public
    */
   Attempt?: number | undefined;
 
   /**
-   * <p>The date and time when the job completed processing.</p>
+   * The date and time when the job completed processing.
+   *
    * @public
    */
   CompletedOn?: Date | undefined;
 
   /**
-   * <p>The name of the dataset for the job to process.</p>
+   * The name of the dataset for the job to process.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>A message indicating an error (if any) that was encountered when the job ran.</p>
+   * A message indicating an error (if any) that was encountered when the job ran.
+   *
    * @public
    */
   ErrorMessage?: string | undefined;
 
   /**
-   * <p>The amount of time, in seconds, during which a job run consumed resources.</p>
+   * The amount of time, in seconds, during which a job run consumed resources.
+   *
    * @public
    */
   ExecutionTime?: number | undefined;
 
   /**
-   * <p>The name of the job being processed during this run.</p>
+   * The name of the job being processed during this run.
+   *
    * @public
    */
   JobName?: string | undefined;
 
   /**
-   * <p>The unique identifier of the job run.</p>
+   * The unique identifier of the job run.
+   *
    * @public
    */
   RunId?: string | undefined;
 
   /**
-   * <p>The current state of the job run entity itself.</p>
+   * The current state of the job run entity itself.
+   *
    * @public
    */
   State?: JobRunState | undefined;
 
   /**
-   * <p>The current status of Amazon CloudWatch logging for the job run.</p>
+   * The current status of Amazon CloudWatch logging for the job run.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The name of an Amazon CloudWatch log group, where the job writes diagnostic messages
-   *             when it runs.</p>
+   * The name of an Amazon CloudWatch log group, where the job writes diagnostic messages when it runs.
+   *
    * @public
    */
   LogGroupName?: string | undefined;
 
   /**
-   * <p>One or more output artifacts from a job run.</p>
+   * One or more output artifacts from a job run.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
 
   /**
-   * <p>One or more artifacts that represent the Glue Data Catalog output
-   *             from running the job.</p>
+   * One or more artifacts that represent the Glue Data Catalog output from running the job.
+   *
    * @public
    */
   DataCatalogOutputs?: DataCatalogOutput[] | undefined;
 
   /**
-   * <p>Represents a list of JDBC database output objects which defines the output
-   *             destination for a DataBrew recipe job to write into.</p>
+   * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+   *
    * @public
    */
   DatabaseOutputs?: DatabaseOutput[] | undefined;
 
   /**
-   * <p>The set of steps processed by the job.</p>
+   * The set of steps processed by the job.
+   *
    * @public
    */
   RecipeReference?: RecipeReference | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who initiated the job run. </p>
+   * The Amazon Resource Name (ARN) of the user who initiated the job run.
+   *
    * @public
    */
   StartedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the job run began. </p>
+   * The date and time when the job run began.
+   *
    * @public
    */
   StartedOn?: Date | undefined;
 
   /**
-   * <p>A sample configuration for profile jobs only, which determines the number of rows on which the
-   *             profile job is run. If a <code>JobSample</code> value isn't provided, the default
-   *             is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the
-   *             size parameter.</p>
+   * A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run. If a `JobSample` value isn't provided, the default is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
+   *
    * @public
    */
   JobSample?: JobSample | undefined;
 
   /**
-   * <p>List of validation configurations that are applied to the profile job run.</p>
+   * List of validation configurations that are applied to the profile job run.
+   *
    * @public
    */
   ValidationConfigurations?: ValidationConfiguration[] | undefined;
@@ -2816,14 +2899,15 @@ export interface JobRun {
  */
 export interface ListJobRunsResponse {
   /**
-   * <p>A list of job runs that have occurred for the specified job.</p>
+   * A list of job runs that have occurred for the specified job.
+   *
    * @public
    */
   JobRuns: JobRun[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2834,210 +2918,210 @@ export interface ListJobRunsResponse {
  */
 export interface ListJobsRequest {
   /**
-   * <p>The name of a dataset. Using this parameter indicates to return only those jobs that
-   *             act on the specified dataset.</p>
+   * The name of a dataset. Using this parameter indicates to return only those jobs that act on the specified dataset.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token generated by DataBrew that specifies where to continue pagination if a
-   *             previous request was truncated. To get the next set of pages, pass in the NextToken
-   *             value from the response object of the previous page call. </p>
+   * A token generated by DataBrew that specifies where to continue pagination if a previous request was truncated. To get the next set of pages, pass in the NextToken value from the response object of the previous page call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The name of a project. Using this parameter indicates to return only those jobs that
-   *             are associated with the specified project.</p>
+   * The name of a project. Using this parameter indicates to return only those jobs that are associated with the specified project.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 }
 
 /**
- * <p>Represents all of the attributes of a DataBrew job.</p>
+ * Represents all of the attributes of a DataBrew job.
+ *
  * @public
  */
 export interface Job {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the job.</p>
+   * The ID of the Amazon Web Services account that owns the job.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the job.</p>
+   * The Amazon Resource Name (ARN) of the user who created the job.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the job was created.</p>
+   * The date and time that the job was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>A dataset that the job is to process.</p>
+   * A dataset that the job is to process.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the job
-   *             output. For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html">Encrypting data
-   *                 written by DataBrew jobs</a>
-   *          </p>
+   * The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output. For more information, see [Encrypting data written by DataBrew jobs](https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html)
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The encryption mode for the job, which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
-   *             </li>
-   *          </ul>
+   * The encryption mode for the job, which can be one of the following:
+   *
+   * - `SSE-KMS` - Server-side encryption with keys managed by KMS.
+   * - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+   *
    * @public
    */
   EncryptionMode?: EncryptionMode | undefined;
 
   /**
-   * <p>The unique name of the job.</p>
+   * The unique name of the job.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The job type of the job, which must be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PROFILE</code> - A job to analyze a dataset, to determine its size, data
-   *                     types, data distribution, and more.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RECIPE</code> - A job to apply one or more transformations to a
-   *                     dataset.</p>
-   *             </li>
-   *          </ul>
+   * The job type of the job, which must be one of the following:
+   *
+   * - `PROFILE` - A job to analyze a dataset, to determine its size, data types, data distribution, and more.
+   * - `RECIPE` - A job to apply one or more transformations to a dataset.
+   *
    * @public
    */
   Type?: JobType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the job.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the job.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The modification date and time of the job.</p>
+   * The modification date and time of the job.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The current status of Amazon CloudWatch logging for the job.</p>
+   * The current status of Amazon CloudWatch logging for the job.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The maximum number of nodes that can be consumed when the job processes data.</p>
+   * The maximum number of nodes that can be consumed when the job processes data.
+   *
    * @public
    */
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The maximum number of times to retry the job after a job run fails.</p>
+   * The maximum number of times to retry the job after a job run fails.
+   *
    * @public
    */
   MaxRetries?: number | undefined;
 
   /**
-   * <p>One or more artifacts that represent output from running the job.</p>
+   * One or more artifacts that represent output from running the job.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
 
   /**
-   * <p>One or more artifacts that represent the Glue Data Catalog output
-   *             from running the job.</p>
+   * One or more artifacts that represent the Glue Data Catalog output from running the job.
+   *
    * @public
    */
   DataCatalogOutputs?: DataCatalogOutput[] | undefined;
 
   /**
-   * <p>Represents a list of JDBC database output objects which defines the output
-   *             destination for a DataBrew recipe job to write into.</p>
+   * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+   *
    * @public
    */
   DatabaseOutputs?: DatabaseOutput[] | undefined;
 
   /**
-   * <p>The name of the project that the job is associated with.</p>
+   * The name of the project that the job is associated with.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 
   /**
-   * <p>A set of steps that the job runs.</p>
+   * A set of steps that the job runs.
+   *
    * @public
    */
   RecipeReference?: RecipeReference | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) for the job.</p>
+   * The unique Amazon Resource Name (ARN) for the job.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role to be assumed for this job.</p>
+   * The Amazon Resource Name (ARN) of the role to be assumed for this job.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
-   *             period ends with a status of <code>TIMEOUT</code>.</p>
+   * The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the job.</p>
+   * Metadata tags that have been applied to the job.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A sample configuration for profile jobs only, which determines the number of rows on which the
-   *             profile job is run. If a <code>JobSample</code> value isn't provided, the default value
-   *             is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the
-   *             size parameter.</p>
+   * A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run. If a `JobSample` value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.
+   *
    * @public
    */
   JobSample?: JobSample | undefined;
 
   /**
-   * <p>List of validation configurations that are applied to the profile job.</p>
+   * List of validation configurations that are applied to the profile job.
+   *
    * @public
    */
   ValidationConfigurations?: ValidationConfiguration[] | undefined;
@@ -3048,14 +3132,15 @@ export interface Job {
  */
 export interface ListJobsResponse {
   /**
-   * <p>A list of jobs that are defined.</p>
+   * A list of jobs that are defined.
+   *
    * @public
    */
   Jobs: Job[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3066,105 +3151,120 @@ export interface ListJobsResponse {
  */
 export interface ListProjectsRequest {
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * The token returned by a previous call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>Represents all of the attributes of a DataBrew project.</p>
+ * Represents all of the attributes of a DataBrew project.
+ *
  * @public
  */
 export interface Project {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the project.</p>
+   * The ID of the Amazon Web Services account that owns the project.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The date and time that the project was created.</p>
+   * The date and time that the project was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who crated the project.</p>
+   * The Amazon Resource Name (ARN) of the user who crated the project.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The dataset that the project is to act upon.</p>
+   * The dataset that the project is to act upon.
+   *
    * @public
    */
   DatasetName?: string | undefined;
 
   /**
-   * <p>The last modification date and time for the project.</p>
+   * The last modification date and time for the project.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the project.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the project.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The unique name of a project.</p>
+   * The unique name of a project.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of a recipe that will be developed during a project session.</p>
+   * The name of a recipe that will be developed during a project session.
+   *
    * @public
    */
   RecipeName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the project.</p>
+   * The Amazon Resource Name (ARN) for the project.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The sample size and sampling type to apply to the data. If this parameter isn't
-   *             specified, then the sample consists of the first 500 rows from the dataset.</p>
+   * The sample size and sampling type to apply to the data. If this parameter isn't specified, then the sample consists of the first 500 rows from the dataset.
+   *
    * @public
    */
   Sample?: Sample | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the project.</p>
+   * Metadata tags that have been applied to the project.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the role that will be assumed for this
-   *             project.</p>
+   * The Amazon Resource Name (ARN) of the role that will be assumed for this project.
+   *
    * @public
    */
   RoleArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user that opened the project for use.</p>
+   * The Amazon Resource Name (ARN) of the user that opened the project for use.
+   *
    * @public
    */
   OpenedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the project was opened.</p>
+   * The date and time when the project was opened.
+   *
    * @public
    */
   OpenDate?: Date | undefined;
@@ -3175,14 +3275,15 @@ export interface Project {
  */
 export interface ListProjectsResponse {
   /**
-   * <p>A list of projects that are defined .</p>
+   * A list of projects that are defined .
+   *
    * @public
    */
   Projects: Project[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3193,125 +3294,126 @@ export interface ListProjectsResponse {
  */
 export interface ListRecipesRequest {
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * The token returned by a previous call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Return only those recipes with a version identifier of <code>LATEST_WORKING</code> or
-   *                 <code>LATEST_PUBLISHED</code>. If <code>RecipeVersion</code> is omitted,
-   *                 <code>ListRecipes</code> returns all of the <code>LATEST_PUBLISHED</code> recipe
-   *             versions.</p>
-   *          <p>Valid values: <code>LATEST_WORKING</code> | <code>LATEST_PUBLISHED</code>
-   *          </p>
+   * Return only those recipes with a version identifier of `LATEST_WORKING` or `LATEST_PUBLISHED`. If `RecipeVersion` is omitted, `ListRecipes` returns all of the `LATEST_PUBLISHED` recipe versions.
+   *
+   * Valid values: `LATEST_WORKING` | `LATEST_PUBLISHED`
+   *
    * @public
    */
   RecipeVersion?: string | undefined;
 }
 
 /**
- * <p>Represents one or more actions to be performed on a DataBrew dataset.</p>
+ * Represents one or more actions to be performed on a DataBrew dataset.
+ *
  * @public
  */
 export interface Recipe {
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the recipe.</p>
+   * The Amazon Resource Name (ARN) of the user who created the recipe.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the recipe was created.</p>
+   * The date and time that the recipe was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the recipe.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the recipe.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The last modification date and time of the recipe.</p>
+   * The last modification date and time of the recipe.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The name of the project that the recipe is associated with.</p>
+   * The name of the project that the recipe is associated with.
+   *
    * @public
    */
   ProjectName?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who published the recipe.</p>
+   * The Amazon Resource Name (ARN) of the user who published the recipe.
+   *
    * @public
    */
   PublishedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the recipe was published.</p>
+   * The date and time when the recipe was published.
+   *
    * @public
    */
   PublishedDate?: Date | undefined;
 
   /**
-   * <p>The description of the recipe.</p>
+   * The description of the recipe.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The unique name for the recipe.</p>
+   * The unique name for the recipe.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the recipe.</p>
+   * The Amazon Resource Name (ARN) for the recipe.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>A list of steps that are defined by the recipe.</p>
+   * A list of steps that are defined by the recipe.
+   *
    * @public
    */
   Steps?: RecipeStep[] | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the recipe.</p>
+   * Metadata tags that have been applied to the recipe.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The identifier for the version for the recipe. Must be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Numeric version (<code>X.Y</code>) - <code>X</code> and <code>Y</code> stand
-   *                     for major and minor version numbers. The maximum length of each is 6 digits, and
-   *                     neither can be negative values. Both <code>X</code> and <code>Y</code> are
-   *                     required, and "0.0" isn't a valid version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LATEST_WORKING</code> - the most recent valid version being developed in
-   *                     a DataBrew project.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LATEST_PUBLISHED</code> - the most recent published version.</p>
-   *             </li>
-   *          </ul>
+   * The identifier for the version for the recipe. Must be one of the following:
+   *
+   * - Numeric version (`X.Y`) - `X` and `Y` stand for major and minor version numbers. The maximum length of each is 6 digits, and neither can be negative values. Both `X` and `Y` are required, and "0.0" isn't a valid version.
+   * - `LATEST_WORKING` - the most recent valid version being developed in a DataBrew project.
+   * - `LATEST_PUBLISHED` - the most recent published version.
+   *
    * @public
    */
   RecipeVersion?: string | undefined;
@@ -3322,14 +3424,15 @@ export interface Recipe {
  */
 export interface ListRecipesResponse {
   /**
-   * <p>A list of recipes that are defined.</p>
+   * A list of recipes that are defined.
+   *
    * @public
    */
   Recipes: Recipe[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3340,19 +3443,22 @@ export interface ListRecipesResponse {
  */
 export interface ListRecipeVersionsRequest {
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * The token returned by a previous call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The name of the recipe for which to return version information.</p>
+   * The name of the recipe for which to return version information.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3363,14 +3469,15 @@ export interface ListRecipeVersionsRequest {
  */
 export interface ListRecipeVersionsResponse {
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of versions for the specified recipe.</p>
+   * A list of versions for the specified recipe.
+   *
    * @public
    */
   Recipes: Recipe[] | undefined;
@@ -3381,95 +3488,106 @@ export interface ListRecipeVersionsResponse {
  */
 export interface ListRulesetsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter
-   *             indicates to return only those rulesets that are associated with the specified resource.</p>
+   * The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter indicates to return only those rulesets that are associated with the specified resource.
+   *
    * @public
    */
   TargetArn?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in this request.</p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>A token generated by DataBrew that specifies where to continue pagination
-   *             if a previous request was truncated. To get the next set of pages, pass in
-   *             the NextToken value from the response object of the previous page call.</p>
+   * A token generated by DataBrew that specifies where to continue pagination if a previous request was truncated. To get the next set of pages, pass in the NextToken value from the response object of the previous page call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Contains metadata about the ruleset.</p>
+ * Contains metadata about the ruleset.
+ *
  * @public
  */
 export interface RulesetItem {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the ruleset.</p>
+   * The ID of the Amazon Web Services account that owns the ruleset.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the ruleset.</p>
+   * The Amazon Resource Name (ARN) of the user who created the ruleset.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the ruleset was created.</p>
+   * The date and time that the ruleset was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The description of the ruleset.</p>
+   * The description of the ruleset.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the ruleset.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the ruleset.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The modification date and time of the ruleset.</p>
+   * The modification date and time of the ruleset.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The name of the ruleset.</p>
+   * The name of the ruleset.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the ruleset.</p>
+   * The Amazon Resource Name (ARN) for the ruleset.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The number of rules that are defined in the ruleset.</p>
+   * The number of rules that are defined in the ruleset.
+   *
    * @public
    */
   RuleCount?: number | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the ruleset.</p>
+   * Metadata tags that have been applied to the ruleset.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is
-   *             associated with.</p>
+   * The Amazon Resource Name (ARN) of a resource (dataset) that the ruleset is associated with.
+   *
    * @public
    */
   TargetArn: string | undefined;
@@ -3480,14 +3598,15 @@ export interface RulesetItem {
  */
 export interface ListRulesetsResponse {
   /**
-   * <p>A list of RulesetItem. RulesetItem contains meta data of a ruleset.</p>
+   * A list of RulesetItem. RulesetItem contains meta data of a ruleset.
+   *
    * @public
    */
   Rulesets: RulesetItem[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3498,88 +3617,99 @@ export interface ListRulesetsResponse {
  */
 export interface ListSchedulesRequest {
   /**
-   * <p>The name of the job that these schedules apply to.</p>
+   * The name of the job that these schedules apply to.
+   *
    * @public
    */
   JobName?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in this request. </p>
+   * The maximum number of results to return in this request.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   * The token returned by a previous call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents one or more dates and times when a job is to run.</p>
+ * Represents one or more dates and times when a job is to run.
+ *
  * @public
  */
 export interface Schedule {
   /**
-   * <p>The ID of the Amazon Web Services account that owns the schedule.</p>
+   * The ID of the Amazon Web Services account that owns the schedule.
+   *
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the schedule.</p>
+   * The Amazon Resource Name (ARN) of the user who created the schedule.
+   *
    * @public
    */
   CreatedBy?: string | undefined;
 
   /**
-   * <p>The date and time that the schedule was created.</p>
+   * The date and time that the schedule was created.
+   *
    * @public
    */
   CreateDate?: Date | undefined;
 
   /**
-   * <p>A list of jobs to be run, according to the schedule.</p>
+   * A list of jobs to be run, according to the schedule.
+   *
    * @public
    */
   JobNames?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the user who last modified the schedule.</p>
+   * The Amazon Resource Name (ARN) of the user who last modified the schedule.
+   *
    * @public
    */
   LastModifiedBy?: string | undefined;
 
   /**
-   * <p>The date and time when the schedule was last modified.</p>
+   * The date and time when the schedule was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the schedule.</p>
+   * The Amazon Resource Name (ARN) of the schedule.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The dates and times when the job is to run. For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html">Cron
-   *             expressions</a> in the <i>
-   *                Glue DataBrew Developer
-   *             Guide</i>.</p>
+   * The dates and times when the job is to run. For more information, see [Cron expressions](https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html) in the *Glue DataBrew Developer Guide*.
+   *
    * @public
    */
   CronExpression?: string | undefined;
 
   /**
-   * <p>Metadata tags that have been applied to the schedule.</p>
+   * Metadata tags that have been applied to the schedule.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name of the schedule.</p>
+   * The name of the schedule.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3590,14 +3720,15 @@ export interface Schedule {
  */
 export interface ListSchedulesResponse {
   /**
-   * <p>A list of schedules that are defined.</p>
+   * A list of schedules that are defined.
+   *
    * @public
    */
   Schedules: Schedule[] | undefined;
 
   /**
-   * <p>A token that you can use in a subsequent call to retrieve the next set of
-   *             results.</p>
+   * A token that you can use in a subsequent call to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -3608,8 +3739,8 @@ export interface ListSchedulesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource.
-   *         </p>
+   * The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -3620,7 +3751,8 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tags associated with the DataBrew resource.</p>
+   * A list of tags associated with the DataBrew resource.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -3631,13 +3763,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface PublishRecipeRequest {
   /**
-   * <p>A description of the recipe to be published, for this version of the recipe.</p>
+   * A description of the recipe to be published, for this version of the recipe.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the recipe to be published.</p>
+   * The name of the recipe to be published.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3648,52 +3782,57 @@ export interface PublishRecipeRequest {
  */
 export interface PublishRecipeResponse {
   /**
-   * <p>The name of the recipe that you published.</p>
+   * The name of the recipe that you published.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Represents the data being transformed during an action.</p>
+ * Represents the data being transformed during an action.
+ *
  * @public
  */
 export interface ViewFrame {
   /**
-   * <p>The starting index for the range of columns to return in the view frame.</p>
+   * The starting index for the range of columns to return in the view frame.
+   *
    * @public
    */
   StartColumnIndex: number | undefined;
 
   /**
-   * <p>The number of columns to include in the view frame, beginning with the
-   *                 <code>StartColumnIndex</code> value and ignoring any columns in the
-   *                 <code>HiddenColumns</code> list.</p>
+   * The number of columns to include in the view frame, beginning with the `StartColumnIndex` value and ignoring any columns in the `HiddenColumns` list.
+   *
    * @public
    */
   ColumnRange?: number | undefined;
 
   /**
-   * <p>A list of columns to hide in the view frame.</p>
+   * A list of columns to hide in the view frame.
+   *
    * @public
    */
   HiddenColumns?: string[] | undefined;
 
   /**
-   * <p>The starting index for the range of rows to return in the view frame.</p>
+   * The starting index for the range of rows to return in the view frame.
+   *
    * @public
    */
   StartRowIndex?: number | undefined;
 
   /**
-   * <p>The number of rows to include in the view frame, beginning with the
-   *             <code>StartRowIndex</code> value.</p>
+   * The number of rows to include in the view frame, beginning with the `StartRowIndex` value.
+   *
    * @public
    */
   RowRange?: number | undefined;
 
   /**
-   * <p>Controls if analytics computation is enabled or disabled. Enabled by default.</p>
+   * Controls if analytics computation is enabled or disabled. Enabled by default.
+   *
    * @public
    */
   Analytics?: AnalyticsMode | undefined;
@@ -3704,40 +3843,43 @@ export interface ViewFrame {
  */
 export interface SendProjectSessionActionRequest {
   /**
-   * <p>If true, the result of the recipe step will be returned, but not applied.</p>
+   * If true, the result of the recipe step will be returned, but not applied.
+   *
    * @public
    */
   Preview?: boolean | undefined;
 
   /**
-   * <p>The name of the project to apply the action to.</p>
+   * The name of the project to apply the action to.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Represents a single step from a DataBrew recipe to be performed.</p>
+   * Represents a single step from a DataBrew recipe to be performed.
+   *
    * @public
    */
   RecipeStep?: RecipeStep | undefined;
 
   /**
-   * <p>The index from which to preview a step. This index is used to preview the result of
-   *             steps that have already been applied, so that the resulting view frame is from earlier
-   *             in the view frame stack.</p>
+   * The index from which to preview a step. This index is used to preview the result of steps that have already been applied, so that the resulting view frame is from earlier in the view frame stack.
+   *
    * @public
    */
   StepIndex?: number | undefined;
 
   /**
-   * <p>A unique identifier for an interactive session that's currently open and ready for
-   *             work. The action will be performed on this session.</p>
+   * A unique identifier for an interactive session that's currently open and ready for work. The action will be performed on this session.
+   *
    * @public
    */
   ClientSessionId?: string | undefined;
 
   /**
-   * <p>Represents the data being transformed during an action.</p>
+   * Represents the data being transformed during an action.
+   *
    * @public
    */
   ViewFrame?: ViewFrame | undefined;
@@ -3748,19 +3890,22 @@ export interface SendProjectSessionActionRequest {
  */
 export interface SendProjectSessionActionResponse {
   /**
-   * <p>A message indicating the result of performing the action.</p>
+   * A message indicating the result of performing the action.
+   *
    * @public
    */
   Result?: string | undefined;
 
   /**
-   * <p>The name of the project that was affected by the action.</p>
+   * The name of the project that was affected by the action.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A unique identifier for the action that was performed.</p>
+   * A unique identifier for the action that was performed.
+   *
    * @public
    */
   ActionId?: number | undefined;
@@ -3771,7 +3916,8 @@ export interface SendProjectSessionActionResponse {
  */
 export interface StartJobRunRequest {
   /**
-   * <p>The name of the job to be run.</p>
+   * The name of the job to be run.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3782,7 +3928,8 @@ export interface StartJobRunRequest {
  */
 export interface StartJobRunResponse {
   /**
-   * <p>A system-generated identifier for this particular job run.</p>
+   * A system-generated identifier for this particular job run.
+   *
    * @public
    */
   RunId: string | undefined;
@@ -3793,14 +3940,15 @@ export interface StartJobRunResponse {
  */
 export interface StartProjectSessionRequest {
   /**
-   * <p>The name of the project to act upon.</p>
+   * The name of the project to act upon.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A value that, if true, enables you to take control of a session, even if a different
-   *             client is currently accessing the project.</p>
+   * A value that, if true, enables you to take control of a session, even if a different client is currently accessing the project.
+   *
    * @public
    */
   AssumeControl?: boolean | undefined;
@@ -3811,13 +3959,15 @@ export interface StartProjectSessionRequest {
  */
 export interface StartProjectSessionResponse {
   /**
-   * <p>The name of the project to be acted upon.</p>
+   * The name of the project to be acted upon.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A system-generated identifier for the session.</p>
+   * A system-generated identifier for the session.
+   *
    * @public
    */
   ClientSessionId?: string | undefined;
@@ -3828,13 +3978,15 @@ export interface StartProjectSessionResponse {
  */
 export interface StopJobRunRequest {
   /**
-   * <p>The name of the job to be stopped.</p>
+   * The name of the job to be stopped.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The ID of the job run to be stopped.</p>
+   * The ID of the job run to be stopped.
+   *
    * @public
    */
   RunId: string | undefined;
@@ -3845,7 +3997,8 @@ export interface StopJobRunRequest {
  */
 export interface StopJobRunResponse {
   /**
-   * <p>The ID of the job run that you stopped.</p>
+   * The ID of the job run that you stopped.
+   *
    * @public
    */
   RunId: string | undefined;
@@ -3856,15 +4009,15 @@ export interface StopJobRunResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The DataBrew resource to which tags should be added. The value for this parameter is
-   *             an Amazon Resource Name (ARN). For DataBrew, you can tag a dataset, a job, a project, or
-   *             a recipe.</p>
+   * The DataBrew resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN). For DataBrew, you can tag a dataset, a job, a project, or a recipe.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>One or more tags to be assigned to the resource.</p>
+   * One or more tags to be assigned to the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -3880,14 +4033,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>A DataBrew resource from which you want to remove a tag or tags. The value for this
-   *             parameter is an Amazon Resource Name (ARN). </p>
+   * A DataBrew resource from which you want to remove a tag or tags. The value for this parameter is an Amazon Resource Name (ARN).
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tag keys (names) of one or more tags to be removed.</p>
+   * The tag keys (names) of one or more tags to be removed.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -3903,33 +4057,36 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDatasetRequest {
   /**
-   * <p>The name of the dataset to be updated.</p>
+   * The name of the dataset to be updated.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
+   * The file format of a dataset that is created from an Amazon S3 file or folder.
+   *
    * @public
    */
   Format?: InputFormat | undefined;
 
   /**
-   * <p>Represents a set of options that define the structure of either comma-separated value (CSV),
-   *             Excel, or JSON input.</p>
+   * Represents a set of options that define the structure of either comma-separated value (CSV), Excel, or JSON input.
+   *
    * @public
    */
   FormatOptions?: FormatOptions | undefined;
 
   /**
-   * <p>Represents information on how DataBrew can find data, in either the Glue Data Catalog or
-   *             Amazon S3.</p>
+   * Represents information on how DataBrew can find data, in either the Glue Data Catalog or Amazon S3.
+   *
    * @public
    */
   Input: Input | undefined;
 
   /**
-   * <p>A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.</p>
+   * A set of options that defines how DataBrew interprets an Amazon S3 path of the dataset.
+   *
    * @public
    */
   PathOptions?: PathOptions | undefined;
@@ -3940,7 +4097,8 @@ export interface UpdateDatasetRequest {
  */
 export interface UpdateDatasetResponse {
   /**
-   * <p>The name of the dataset that you updated.</p>
+   * The name of the dataset that you updated.
+   *
    * @public
    */
   Name: string | undefined;
@@ -3951,95 +4109,88 @@ export interface UpdateDatasetResponse {
  */
 export interface UpdateProfileJobRequest {
   /**
-   * <p>Configuration for profile jobs. Used to select columns, do evaluations,
-   *             and override default parameters of evaluations. When configuration is null, the
-   *             profile job will run with default settings.</p>
+   * Configuration for profile jobs. Used to select columns, do evaluations, and override default parameters of evaluations. When configuration is null, the profile job will run with default settings.
+   *
    * @public
    */
   Configuration?: ProfileConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
-   *             job.</p>
+   * The Amazon Resource Name (ARN) of an encryption key that is used to protect the job.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The encryption mode for the job, which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon
-   *                     S3.</p>
-   *             </li>
-   *          </ul>
+   * The encryption mode for the job, which can be one of the following:
+   *
+   * - `SSE-KMS` - Server-side encryption with keys managed by KMS.
+   * - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+   *
    * @public
    */
   EncryptionMode?: EncryptionMode | undefined;
 
   /**
-   * <p>The name of the job to be updated.</p>
+   * The name of the job to be updated.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
-   *             CloudWatch writes one log stream for each job run.</p>
+   * Enables or disables Amazon CloudWatch logging for the job. If logging is enabled, CloudWatch writes one log stream for each job run.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The maximum number of compute nodes that DataBrew can use when the job processes
-   *             data.</p>
+   * The maximum number of compute nodes that DataBrew can use when the job processes data.
+   *
    * @public
    */
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The maximum number of times to retry the job after a job run fails.</p>
+   * The maximum number of times to retry the job after a job run fails.
+   *
    * @public
    */
   MaxRetries?: number | undefined;
 
   /**
-   * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
-   *             input data, or write output from a job.</p>
+   * Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+   *
    * @public
    */
   OutputLocation: S3Location | undefined;
 
   /**
-   * <p>List of validation configurations that are applied to the profile job.</p>
+   * List of validation configurations that are applied to the profile job.
+   *
    * @public
    */
   ValidationConfigurations?: ValidationConfiguration[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
-   *             be assumed when DataBrew runs the job.</p>
+   * The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
-   *             period ends with a status of <code>TIMEOUT</code>.</p>
+   * The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.
+   *
    * @public
    */
   Timeout?: number | undefined;
 
   /**
-   * <p>Sample configuration for Profile Jobs only. Determines the number of rows on which the
-   *             Profile job will be executed. If a JobSample value is not provided for profile jobs, the
-   *             default value will be used. The default value is CUSTOM_ROWS for the mode parameter and
-   *             20000 for the size parameter.</p>
+   * Sample configuration for Profile Jobs only. Determines the number of rows on which the Profile job will be executed. If a JobSample value is not provided for profile jobs, the default value will be used. The default value is CUSTOM_ROWS for the mode parameter and 20000 for the size parameter.
+   *
    * @public
    */
   JobSample?: JobSample | undefined;
@@ -4050,7 +4201,8 @@ export interface UpdateProfileJobRequest {
  */
 export interface UpdateProfileJobResponse {
   /**
-   * <p>The name of the job that was updated.</p>
+   * The name of the job that was updated.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4061,20 +4213,22 @@ export interface UpdateProfileJobResponse {
  */
 export interface UpdateProjectRequest {
   /**
-   * <p>Represents the sample size and sampling type for DataBrew to use for interactive data
-   *             analysis.</p>
+   * Represents the sample size and sampling type for DataBrew to use for interactive data analysis.
+   *
    * @public
    */
   Sample?: Sample | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed for this request.</p>
+   * The Amazon Resource Name (ARN) of the IAM role to be assumed for this request.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The name of the project to be updated.</p>
+   * The name of the project to be updated.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4085,13 +4239,15 @@ export interface UpdateProjectRequest {
  */
 export interface UpdateProjectResponse {
   /**
-   * <p>The date and time that the project was last modified.</p>
+   * The date and time that the project was last modified.
+   *
    * @public
    */
   LastModifiedDate?: Date | undefined;
 
   /**
-   * <p>The name of the project that you updated.</p>
+   * The name of the project that you updated.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4102,20 +4258,22 @@ export interface UpdateProjectResponse {
  */
 export interface UpdateRecipeRequest {
   /**
-   * <p>A description of the recipe.</p>
+   * A description of the recipe.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The name of the recipe to be updated.</p>
+   * The name of the recipe to be updated.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>One or more steps to be performed by the recipe. Each step consists of an action, and
-   *             the conditions under which the action should succeed.</p>
+   * One or more steps to be performed by the recipe. Each step consists of an action, and the conditions under which the action should succeed.
+   *
    * @public
    */
   Steps?: RecipeStep[] | undefined;
@@ -4126,7 +4284,8 @@ export interface UpdateRecipeRequest {
  */
 export interface UpdateRecipeResponse {
   /**
-   * <p>The name of the recipe that was updated.</p>
+   * The name of the recipe that was updated.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4137,83 +4296,81 @@ export interface UpdateRecipeResponse {
  */
 export interface UpdateRecipeJobRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of an encryption key that is used to protect the
-   *             job.</p>
+   * The Amazon Resource Name (ARN) of an encryption key that is used to protect the job.
+   *
    * @public
    */
   EncryptionKeyArn?: string | undefined;
 
   /**
-   * <p>The encryption mode for the job, which can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-KMS</code> - Server-side encryption with keys managed by KMS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SSE-S3</code> - Server-side encryption with keys managed by Amazon S3.</p>
-   *             </li>
-   *          </ul>
+   * The encryption mode for the job, which can be one of the following:
+   *
+   * - `SSE-KMS` - Server-side encryption with keys managed by KMS.
+   * - `SSE-S3` - Server-side encryption with keys managed by Amazon S3.
+   *
    * @public
    */
   EncryptionMode?: EncryptionMode | undefined;
 
   /**
-   * <p>The name of the job to update.</p>
+   * The name of the job to update.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
-   *             CloudWatch writes one log stream for each job run.</p>
+   * Enables or disables Amazon CloudWatch logging for the job. If logging is enabled, CloudWatch writes one log stream for each job run.
+   *
    * @public
    */
   LogSubscription?: LogSubscription | undefined;
 
   /**
-   * <p>The maximum number of nodes that DataBrew can consume when the job processes
-   *             data.</p>
+   * The maximum number of nodes that DataBrew can consume when the job processes data.
+   *
    * @public
    */
   MaxCapacity?: number | undefined;
 
   /**
-   * <p>The maximum number of times to retry the job after a job run fails.</p>
+   * The maximum number of times to retry the job after a job run fails.
+   *
    * @public
    */
   MaxRetries?: number | undefined;
 
   /**
-   * <p>One or more artifacts that represent the output from running the job. </p>
+   * One or more artifacts that represent the output from running the job.
+   *
    * @public
    */
   Outputs?: Output[] | undefined;
 
   /**
-   * <p>One or more artifacts that represent the Glue Data Catalog output from running the job.</p>
+   * One or more artifacts that represent the Glue Data Catalog output from running the job.
+   *
    * @public
    */
   DataCatalogOutputs?: DataCatalogOutput[] | undefined;
 
   /**
-   * <p>Represents a list of JDBC database output objects which defines the output destination for a
-   *             DataBrew recipe job to write into.</p>
+   * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
+   *
    * @public
    */
   DatabaseOutputs?: DatabaseOutput[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to
-   *             be assumed when DataBrew runs the job.</p>
+   * The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be assumed when DataBrew runs the job.
+   *
    * @public
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
-   *             period ends with a status of <code>TIMEOUT</code>.</p>
+   * The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.
+   *
    * @public
    */
   Timeout?: number | undefined;
@@ -4224,7 +4381,8 @@ export interface UpdateRecipeJobRequest {
  */
 export interface UpdateRecipeJobResponse {
   /**
-   * <p>The name of the job that you updated.</p>
+   * The name of the job that you updated.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4235,20 +4393,22 @@ export interface UpdateRecipeJobResponse {
  */
 export interface UpdateRulesetRequest {
   /**
-   * <p>The name of the ruleset to be updated.</p>
+   * The name of the ruleset to be updated.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the ruleset.</p>
+   * The description of the ruleset.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of rules that are defined with the ruleset. A rule includes one or more
-   *             checks to be validated on a DataBrew dataset.</p>
+   * A list of rules that are defined with the ruleset. A rule includes one or more checks to be validated on a DataBrew dataset.
+   *
    * @public
    */
   Rules: Rule[] | undefined;
@@ -4259,7 +4419,8 @@ export interface UpdateRulesetRequest {
  */
 export interface UpdateRulesetResponse {
   /**
-   * <p>The name of the updated ruleset.</p>
+   * The name of the updated ruleset.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4270,23 +4431,22 @@ export interface UpdateRulesetResponse {
  */
 export interface UpdateScheduleRequest {
   /**
-   * <p>The name or names of one or more jobs to be run for this schedule.</p>
+   * The name or names of one or more jobs to be run for this schedule.
+   *
    * @public
    */
   JobNames?: string[] | undefined;
 
   /**
-   * <p>The date or dates and time or times when the jobs are to be run. For more information,
-   *             see <a href="https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html">Cron
-   *                 expressions</a> in the <i>
-   *                Glue DataBrew Developer
-   *             Guide</i>.</p>
+   * The date or dates and time or times when the jobs are to be run. For more information, see [Cron expressions](https://docs.aws.amazon.com/databrew/latest/dg/jobs.cron.html) in the *Glue DataBrew Developer Guide*.
+   *
    * @public
    */
   CronExpression: string | undefined;
 
   /**
-   * <p>The name of the schedule to update.</p>
+   * The name of the schedule to update.
+   *
    * @public
    */
   Name: string | undefined;
@@ -4297,7 +4457,8 @@ export interface UpdateScheduleRequest {
  */
 export interface UpdateScheduleResponse {
   /**
-   * <p>The name of the schedule that was updated.</p>
+   * The name of the schedule that was updated.
+   *
    * @public
    */
   Name: string | undefined;

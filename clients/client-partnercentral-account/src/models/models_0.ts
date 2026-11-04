@@ -24,74 +24,86 @@ import type {
  */
 export interface AcceptConnectionInvitationRequest {
   /**
-   * <p>The catalog identifier where the connection invitation exists.</p>
+   * The catalog identifier where the connection invitation exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection invitation to accept.</p>
+   * The unique identifier of the connection invitation to accept.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about an AWS account.</p>
+ * Summary information about an AWS account.
+ *
  * @public
  */
 export interface AccountSummary {
   /**
-   * <p>The name associated with the AWS account.</p>
+   * The name associated with the AWS account.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A summary view of a partner profile containing basic identifying information.</p>
+ * A summary view of a partner profile containing basic identifying information.
+ *
  * @public
  */
 export interface PartnerProfileSummary {
   /**
-   * <p>The unique identifier of the partner profile.</p>
+   * The unique identifier of the partner profile.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The display name of the partner.</p>
+   * The display name of the partner.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>A summary view of a seller profile containing basic identifying information.</p>
+ * A summary view of a seller profile containing basic identifying information.
+ *
  * @public
  */
 export interface SellerProfileSummary {
   /**
-   * <p>The unique identifier of the seller profile.</p>
+   * The unique identifier of the seller profile.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The display name of the seller.</p>
+   * The display name of the seller.
+   *
    * @public
    */
   Name: string | undefined;
 }
 
 /**
- * <p>Represents a participant in a partner connection, containing their profile and account information.</p>
+ * Represents a participant in a partner connection, containing their profile and account information.
+ *
  * @public
  */
 export type Participant =
@@ -105,7 +117,8 @@ export type Participant =
  */
 export namespace Participant {
   /**
-   * <p>The partner profile information for the participant.</p>
+   * The partner profile information for the participant.
+   *
    * @public
    */
   export interface PartnerProfileMember {
@@ -116,7 +129,8 @@ export namespace Participant {
   }
 
   /**
-   * <p>The seller profile information for the participant.</p>
+   * The seller profile information for the participant.
+   *
    * @public
    */
   export interface SellerProfileMember {
@@ -127,7 +141,8 @@ export namespace Participant {
   }
 
   /**
-   * <p>The AWS account information for the participant.</p>
+   * The AWS account information for the participant.
+   *
    * @public
    */
   export interface AccountMember {
@@ -160,90 +175,105 @@ export namespace Participant {
 }
 
 /**
- * <p>Detailed information about a specific connection type within a connection.</p>
+ * Detailed information about a specific connection type within a connection.
+ *
  * @public
  */
 export interface ConnectionTypeDetail {
   /**
-   * <p>The timestamp when this connection type was created.</p>
+   * The timestamp when this connection type was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The email address of the person who initiated this connection type.</p>
+   * The email address of the person who initiated this connection type.
+   *
    * @public
    */
   InviterEmail: string | undefined;
 
   /**
-   * <p>The name of the person who initiated this connection type.</p>
+   * The name of the person who initiated this connection type.
+   *
    * @public
    */
   InviterName: string | undefined;
 
   /**
-   * <p>The current status of this connection type.</p>
+   * The current status of this connection type.
+   *
    * @public
    */
   Status: ConnectionTypeStatus | undefined;
 
   /**
-   * <p>The timestamp when this connection type was cancelled, if applicable.</p>
+   * The timestamp when this connection type was cancelled, if applicable.
+   *
    * @public
    */
   CanceledAt?: Date | undefined;
 
   /**
-   * <p>The AWS account ID of the participant who cancelled this connection type.</p>
+   * The AWS account ID of the participant who cancelled this connection type.
+   *
    * @public
    */
   CanceledBy?: string | undefined;
 
   /**
-   * <p>Information about the other participant in this connection type.</p>
+   * Information about the other participant in this connection type.
+   *
    * @public
    */
   OtherParticipant: Participant | undefined;
 }
 
 /**
- * <p>Base structure containing common connection properties.</p>
+ * Base structure containing common connection properties.
+ *
  * @public
  */
 export interface Connection {
   /**
-   * <p>The catalog identifier that the connection belongs to.</p>
+   * The catalog identifier that the connection belongs to.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection.</p>
+   * The unique identifier of the connection.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The AWS Resource Name (ARN) of the connection.</p>
+   * The AWS Resource Name (ARN) of the connection.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The AWS account ID of the other participant in the connection.</p>
+   * The AWS account ID of the other participant in the connection.
+   *
    * @public
    */
   OtherParticipantAccountId: string | undefined;
 
   /**
-   * <p>The timestamp when the connection was last updated.</p>
+   * The timestamp when the connection was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The type of connection.</p>
+   * The type of connection.
+   *
    * @public
    */
   ConnectionTypes: Partial<Record<ConnectionType, ConnectionTypeDetail>> | undefined;
@@ -254,56 +284,65 @@ export interface Connection {
  */
 export interface AcceptConnectionInvitationResponse {
   /**
-   * <p>The details of the accepted connection between the two partners.</p>
+   * The details of the accepted connection between the two partners.
+   *
    * @public
    */
   Connection: Connection | undefined;
 }
 
 /**
- * <p>Contains information about a business rule validation error that occurred during an operation.</p>
+ * Contains information about a business rule validation error that occurred during an operation.
+ *
  * @public
  */
 export interface BusinessValidationError {
   /**
-   * <p>A description of the business validation error.</p>
+   * A description of the business validation error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>A code identifying the specific business validation error.</p>
+   * A code identifying the specific business validation error.
+   *
    * @public
    */
   Code: BusinessValidationCode | undefined;
 }
 
 /**
- * <p>Contains information about a field-level validation error that occurred during an operation.</p>
+ * Contains information about a field-level validation error that occurred during an operation.
+ *
  * @public
  */
 export interface FieldValidationError {
   /**
-   * <p>The name of the field that failed validation.</p>
+   * The name of the field that failed validation.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>A description of the field validation error.</p>
+   * A description of the field validation error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>A code identifying the specific field validation error.</p>
+   * A code identifying the specific field validation error.
+   *
    * @public
    */
   Code: FieldValidationCode | undefined;
 }
 
 /**
- * <p>Contains information about a validation error, which can be either a field-level or business rule validation error.</p>
+ * Contains information about a validation error, which can be either a field-level or business rule validation error.
+ *
  * @public
  */
 export type ValidationError =
@@ -316,7 +355,8 @@ export type ValidationError =
  */
 export namespace ValidationError {
   /**
-   * <p>Details about a field-level validation error, if applicable.</p>
+   * Details about a field-level validation error, if applicable.
+   *
    * @public
    */
   export interface FieldValidationErrorMember {
@@ -326,7 +366,8 @@ export namespace ValidationError {
   }
 
   /**
-   * <p>Details about a business rule validation error, if applicable.</p>
+   * Details about a business rule validation error, if applicable.
+   *
    * @public
    */
   export interface BusinessValidationErrorMember {
@@ -356,30 +397,35 @@ export namespace ValidationError {
 }
 
 /**
- * <p>Contains contact information for the primary alliance lead responsible for partnership activities.</p>
+ * Contains contact information for the primary alliance lead responsible for partnership activities.
+ *
  * @public
  */
 export interface AllianceLeadContact {
   /**
-   * <p>The first name of the alliance lead contact person.</p>
+   * The first name of the alliance lead contact person.
+   *
    * @public
    */
   FirstName: string | undefined;
 
   /**
-   * <p>The last name of the alliance lead contact person.</p>
+   * The last name of the alliance lead contact person.
+   *
    * @public
    */
   LastName: string | undefined;
 
   /**
-   * <p>The email address of the alliance lead contact person.</p>
+   * The email address of the alliance lead contact person.
+   *
    * @public
    */
   Email: string | undefined;
 
   /**
-   * <p>The business title or role of the alliance lead contact person.</p>
+   * The business title or role of the alliance lead contact person.
+   *
    * @public
    */
   BusinessTitle: string | undefined;
@@ -390,31 +436,36 @@ export interface AllianceLeadContact {
  */
 export interface AssociateAwsTrainingCertificationEmailDomainRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The email address used to verify domain ownership for AWS training and certification association.</p>
+   * The email address used to verify domain ownership for AWS training and certification association.
+   *
    * @public
    */
   Email: string | undefined;
 
   /**
-   * <p>The verification code sent to the email address to confirm domain ownership.</p>
+   * The verification code sent to the email address to confirm domain ownership.
+   *
    * @public
    */
   EmailVerificationCode: string | undefined;
@@ -426,72 +477,84 @@ export interface AssociateAwsTrainingCertificationEmailDomainRequest {
 export interface AssociateAwsTrainingCertificationEmailDomainResponse {}
 
 /**
- * <p>Identifies a partner in a qualifications association group. Contains the partner's profile identifier and AWS account identifier. In requests, provide at least one of <code>ProfileId</code> or <code>AccountId</code>. In responses, both fields are populated.</p>
+ * Identifies a partner in a qualifications association group. Contains the partner's profile identifier and AWS account identifier. In requests, provide at least one of `ProfileId` or `AccountId`. In responses, both fields are populated.
+ *
  * @public
  */
 export interface QualificationsAssociationPartner {
   /**
-   * <p>The unique identifier for the partner profile, in the format <code>pprofile-*</code>. Required in requests if <code>AccountId</code> is not provided.</p>
+   * The unique identifier for the partner profile, in the format `pprofile-*`. Required in requests if `AccountId` is not provided.
+   *
    * @public
    */
   ProfileId?: string | undefined;
 
   /**
-   * <p>The 12-digit AWS account ID linked to the partner profile. Required in requests if <code>ProfileId</code> is not provided.</p>
+   * The 12-digit AWS account ID linked to the partner profile. Required in requests if `ProfileId` is not provided.
+   *
    * @public
    */
   AccountId?: string | undefined;
 }
 
 /**
- * <p>Contains the business information required for verifying a company's legal status and registration details within AWS Partner Central.</p>
+ * Contains the business information required for verifying a company's legal status and registration details within AWS Partner Central.
+ *
  * @public
  */
 export interface BusinessVerificationDetails {
   /**
-   * <p>The official legal name of the business as registered with the appropriate government authorities.</p>
+   * The official legal name of the business as registered with the appropriate government authorities.
+   *
    * @public
    */
   LegalName: string | undefined;
 
   /**
-   * <p>The unique business registration identifier assigned by the government or regulatory authority, such as a company registration number or tax identification number.</p>
+   * The unique business registration identifier assigned by the government or regulatory authority, such as a company registration number or tax identification number.
+   *
    * @public
    */
   RegistrationId: string | undefined;
 
   /**
-   * <p>The ISO 3166-1 alpha-2 country code where the business is legally registered and operates.</p>
+   * The ISO 3166-1 alpha-2 country code where the business is legally registered and operates.
+   *
    * @public
    */
   CountryCode: string | undefined;
 
   /**
-   * <p>The specific legal jurisdiction or state where the business was incorporated or registered, providing additional location context beyond the country code.</p>
+   * The specific legal jurisdiction or state where the business was incorporated or registered, providing additional location context beyond the country code.
+   *
    * @public
    */
   JurisdictionOfIncorporation?: string | undefined;
 }
 
 /**
- * <p>Contains the response information and results from a business verification process, including any verification-specific data returned by the verification service.</p>
+ * Contains the response information and results from a business verification process, including any verification-specific data returned by the verification service.
+ *
  * @public
  */
 export interface BusinessVerificationResponse {
   /**
-   * <p>The business verification details that were processed and verified, potentially including additional information discovered during the verification process.</p>
+   * The business verification details that were processed and verified, potentially including additional information discovered during the verification process.
+   *
    * @public
    */
   BusinessVerificationDetails: BusinessVerificationDetails | undefined;
 
   /**
-   * <p>A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.</p>
+   * A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.
+   *
    * @public
    */
   CompletionUrl?: string | undefined;
 
   /**
-   * <p>The timestamp when the completion URL expires and is no longer valid for accessing the verification workflow.</p>
+   * The timestamp when the completion URL expires and is no longer valid for accessing the verification workflow.
+   *
    * @public
    */
   CompletionUrlExpiresAt?: Date | undefined;
@@ -502,31 +565,36 @@ export interface BusinessVerificationResponse {
  */
 export interface CancelConnectionRequest {
   /**
-   * <p>The catalog identifier where the connection exists.</p>
+   * The catalog identifier where the connection exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection to cancel.</p>
+   * The unique identifier of the connection to cancel.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The type of connection to cancel (e.g., reseller, distributor, technology partner).</p>
+   * The type of connection to cancel (e.g., reseller, distributor, technology partner).
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The reason for canceling the connection, providing context for the termination.</p>
+   * The reason for canceling the connection, providing context for the termination.
+   *
    * @public
    */
   Reason: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -537,37 +605,43 @@ export interface CancelConnectionRequest {
  */
 export interface CancelConnectionResponse {
   /**
-   * <p>The catalog identifier where the connection was canceled.</p>
+   * The catalog identifier where the connection was canceled.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the canceled connection.</p>
+   * The unique identifier of the canceled connection.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the canceled connection.</p>
+   * The Amazon Resource Name (ARN) of the canceled connection.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The AWS account ID of the other participant in the canceled connection.</p>
+   * The AWS account ID of the other participant in the canceled connection.
+   *
    * @public
    */
   OtherParticipantAccountId: string | undefined;
 
   /**
-   * <p>The timestamp when the connection was last updated (canceled).</p>
+   * The timestamp when the connection was last updated (canceled).
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The list of connection types that were active before cancellation.</p>
+   * The list of connection types that were active before cancellation.
+   *
    * @public
    */
   ConnectionTypes: Partial<Record<ConnectionType, ConnectionTypeDetail>> | undefined;
@@ -578,19 +652,22 @@ export interface CancelConnectionResponse {
  */
 export interface CancelConnectionInvitationRequest {
   /**
-   * <p>The catalog identifier where the connection invitation exists.</p>
+   * The catalog identifier where the connection invitation exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection invitation to cancel.</p>
+   * The unique identifier of the connection invitation to cancel.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
@@ -601,85 +678,99 @@ export interface CancelConnectionInvitationRequest {
  */
 export interface CancelConnectionInvitationResponse {
   /**
-   * <p>The catalog identifier where the connection invitation was canceled.</p>
+   * The catalog identifier where the connection invitation was canceled.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the canceled connection invitation.</p>
+   * The unique identifier of the canceled connection invitation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the canceled connection invitation.</p>
+   * The Amazon Resource Name (ARN) of the canceled connection invitation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The identifier of the connection associated with the canceled invitation.</p>
+   * The identifier of the connection associated with the canceled invitation.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p>The type of connection that was being invited for.</p>
+   * The type of connection that was being invited for.
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was originally created.</p>
+   * The timestamp when the connection invitation was originally created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was last updated (canceled).</p>
+   * The timestamp when the connection invitation was last updated (canceled).
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation would have expired if not canceled.</p>
+   * The timestamp when the connection invitation would have expired if not canceled.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the other participant who was invited to connect.</p>
+   * The identifier of the other participant who was invited to connect.
+   *
    * @public
    */
   OtherParticipantIdentifier: string | undefined;
 
   /**
-   * <p>The type of participant (inviter or invitee) in the connection invitation.</p>
+   * The type of participant (inviter or invitee) in the connection invitation.
+   *
    * @public
    */
   ParticipantType: ParticipantType | undefined;
 
   /**
-   * <p>The current status of the connection invitation (canceled).</p>
+   * The current status of the connection invitation (canceled).
+   *
    * @public
    */
   Status: InvitationStatus | undefined;
 
   /**
-   * <p>The message that was included with the original connection invitation.</p>
+   * The message that was included with the original connection invitation.
+   *
    * @public
    */
   InvitationMessage: string | undefined;
 
   /**
-   * <p>The email address of the person who sent the connection invitation.</p>
+   * The email address of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterEmail: string | undefined;
 
   /**
-   * <p>The name of the person who sent the connection invitation.</p>
+   * The name of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterName: string | undefined;
@@ -690,163 +781,190 @@ export interface CancelConnectionInvitationResponse {
  */
 export interface CancelProfileUpdateTaskRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the profile update task to cancel.</p>
+   * The unique identifier of the profile update task to cancel.
+   *
    * @public
    */
   TaskId: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about an error that occurred during an operation.</p>
+ * Contains detailed information about an error that occurred during an operation.
+ *
  * @public
  */
 export interface ErrorDetail {
   /**
-   * <p>The locale or language code for the error message.</p>
+   * The locale or language code for the error message.
+   *
    * @public
    */
   Locale: string | undefined;
 
   /**
-   * <p>A human-readable description of the error.</p>
+   * A human-readable description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>A machine-readable code or reason for the error.</p>
+   * A machine-readable code or reason for the error.
+   *
    * @public
    */
   Reason: ProfileValidationErrorReason | undefined;
 }
 
 /**
- * <p>Contains the partner's headquarters location using International Organization for Standardization (ISO) 3166 country and subdivision codes.</p>
+ * Contains the partner's headquarters location using International Organization for Standardization (ISO) 3166 country and subdivision codes.
+ *
  * @public
  */
 export interface Headquarters {
   /**
-   * <p>The ISO 3166-1 alpha-2 country code of the partner's headquarters. For example, <code>US</code>, <code>BR</code>, or <code>DE</code>.</p>
+   * The ISO 3166-1 alpha-2 country code of the partner's headquarters. For example, `US`, `BR`, or `DE`.
+   *
    * @public
    */
   CountryCode: string | undefined;
 
   /**
-   * <p>The subdivision portion of the ISO 3166-2 code for the partner's headquarters (for example, <code>SP</code> from <code>BR-SP</code>, <code>NSW</code> from <code>AU-NSW</code>, or <code>13</code> from <code>JP-13</code>).</p>
+   * The subdivision portion of the ISO 3166-2 code for the partner's headquarters (for example, `SP` from `BR-SP`, `NSW` from `AU-NSW`, or `13` from `JP-13`).
+   *
    * @public
    */
   SubdivisionCode: string | undefined;
 }
 
 /**
- * <p>Contains localized content for a partner profile in a specific language or locale.</p>
+ * Contains localized content for a partner profile in a specific language or locale.
+ *
  * @public
  */
 export interface LocalizedContent {
   /**
-   * <p>The localized display name for the partner.</p>
+   * The localized display name for the partner.
+   *
    * @public
    */
   DisplayName: string | undefined;
 
   /**
-   * <p>The localized description of the partner's business and services.</p>
+   * The localized description of the partner's business and services.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The localized website URL for the partner.</p>
+   * The localized website URL for the partner.
+   *
    * @public
    */
   WebsiteUrl: string | undefined;
 
   /**
-   * <p>The URL to the partner's logo image for this locale.</p>
+   * The URL to the partner's logo image for this locale.
+   *
    * @public
    */
   LogoUrl: string | undefined;
 
   /**
-   * <p>The locale or language code for the localized content.</p>
+   * The locale or language code for the localized content.
+   *
    * @public
    */
   Locale: string | undefined;
 }
 
 /**
- * <p>Contains detailed information about a profile update task including the changes to be made.</p>
+ * Contains detailed information about a profile update task including the changes to be made.
+ *
  * @public
  */
 export interface TaskDetails {
   /**
-   * <p>The updated display name for the partner profile.</p>
+   * The updated display name for the partner profile.
+   *
    * @public
    */
   DisplayName: string | undefined;
 
   /**
-   * <p>The updated description for the partner profile.</p>
+   * The updated description for the partner profile.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The updated website URL for the partner profile.</p>
+   * The updated website URL for the partner profile.
+   *
    * @public
    */
   WebsiteUrl: string | undefined;
 
   /**
-   * <p>The updated logo URL for the partner profile.</p>
+   * The updated logo URL for the partner profile.
+   *
    * @public
    */
   LogoUrl: string | undefined;
 
   /**
-   * <p>The updated primary solution type for the partner profile.</p>
+   * The updated primary solution type for the partner profile.
+   *
    * @public
    */
   PrimarySolutionType: PrimarySolutionType | undefined;
 
   /**
-   * <p>The updated industry segments for the partner profile.</p>
+   * The updated industry segments for the partner profile.
+   *
    * @public
    */
   IndustrySegments: IndustrySegment[] | undefined;
 
   /**
-   * <p>The updated translation source locale for the partner profile.</p>
+   * The updated translation source locale for the partner profile.
+   *
    * @public
    */
   TranslationSourceLocale: string | undefined;
 
   /**
-   * <p>The updated localized content for the partner profile.</p>
+   * The updated localized content for the partner profile.
+   *
    * @public
    */
   LocalizedContents?: LocalizedContent[] | undefined;
 
   /**
-   * <p>The ISO 3166 country and subdivision codes for the partner's headquarters location. If you omit this field, the service retains the existing headquarters value.</p>
+   * The ISO 3166 country and subdivision codes for the partner's headquarters location. If you omit this field, the service retains the existing headquarters value.
+   *
    * @public
    */
   Headquarters?: Headquarters | undefined;
@@ -857,55 +975,64 @@ export interface TaskDetails {
  */
 export interface CancelProfileUpdateTaskResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the canceled profile update task.</p>
+   * The Amazon Resource Name (ARN) of the canceled profile update task.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the canceled profile update task.</p>
+   * The unique identifier of the canceled profile update task.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The details of the profile update task that was canceled.</p>
+   * The details of the profile update task that was canceled.
+   *
    * @public
    */
   TaskDetails: TaskDetails | undefined;
 
   /**
-   * <p>The timestamp when the profile update task was started.</p>
+   * The timestamp when the profile update task was started.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The current status of the profile update task (canceled).</p>
+   * The current status of the profile update task (canceled).
+   *
    * @public
    */
   Status: ProfileTaskStatus | undefined;
 
   /**
-   * <p>The timestamp when the profile update task was ended (canceled).</p>
+   * The timestamp when the profile update task was ended (canceled).
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 
   /**
-   * <p>A list of error details if any errors occurred during the profile update task.</p>
+   * A list of error details if any errors occurred during the profile update task.
+   *
    * @public
    */
   ErrorDetailList?: ErrorDetail[] | undefined;
@@ -916,43 +1043,50 @@ export interface CancelProfileUpdateTaskResponse {
  */
 export interface CreateConnectionInvitationRequest {
   /**
-   * <p>The catalog identifier where the connection invitation will be created.</p>
+   * The catalog identifier where the connection invitation will be created.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The type of connection being requested (e.g., reseller, distributor, technology partner).</p>
+   * The type of connection being requested (e.g., reseller, distributor, technology partner).
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The email address of the person to send the connection invitation to.</p>
+   * The email address of the person to send the connection invitation to.
+   *
    * @public
    */
   Email: string | undefined;
 
   /**
-   * <p>A custom message to include with the connection invitation.</p>
+   * A custom message to include with the connection invitation.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The name of the person sending the connection invitation.</p>
+   * The name of the person sending the connection invitation.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The identifier of the organization or partner to invite for connection.</p>
+   * The identifier of the organization or partner to invite for connection.
+   *
    * @public
    */
   ReceiverIdentifier: string | undefined;
@@ -963,85 +1097,99 @@ export interface CreateConnectionInvitationRequest {
  */
 export interface CreateConnectionInvitationResponse {
   /**
-   * <p>The catalog identifier where the connection invitation was created.</p>
+   * The catalog identifier where the connection invitation was created.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the created connection invitation.</p>
+   * The unique identifier of the created connection invitation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created connection invitation.</p>
+   * The Amazon Resource Name (ARN) of the created connection invitation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The identifier of the connection associated with this invitation.</p>
+   * The identifier of the connection associated with this invitation.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p>The type of connection being requested in the invitation.</p>
+   * The type of connection being requested in the invitation.
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was created.</p>
+   * The timestamp when the connection invitation was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was last updated.</p>
+   * The timestamp when the connection invitation was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation will expire if not responded to.</p>
+   * The timestamp when the connection invitation will expire if not responded to.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the organization or partner being invited.</p>
+   * The identifier of the organization or partner being invited.
+   *
    * @public
    */
   OtherParticipantIdentifier: string | undefined;
 
   /**
-   * <p>The type of participant (inviter or invitee) in the connection invitation.</p>
+   * The type of participant (inviter or invitee) in the connection invitation.
+   *
    * @public
    */
   ParticipantType: ParticipantType | undefined;
 
   /**
-   * <p>The current status of the connection invitation (pending, accepted, rejected, etc.).</p>
+   * The current status of the connection invitation (pending, accepted, rejected, etc.).
+   *
    * @public
    */
   Status: InvitationStatus | undefined;
 
   /**
-   * <p>The custom message included with the connection invitation.</p>
+   * The custom message included with the connection invitation.
+   *
    * @public
    */
   InvitationMessage: string | undefined;
 
   /**
-   * <p>The email address of the person who sent the connection invitation.</p>
+   * The email address of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterEmail: string | undefined;
 
   /**
-   * <p>The name of the person who sent the connection invitation.</p>
+   * The name of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterName: string | undefined;
@@ -1052,13 +1200,15 @@ export interface CreateConnectionInvitationResponse {
  */
 export interface GetConnectionInvitationRequest {
   /**
-   * <p>The catalog identifier where the connection invitation exists.</p>
+   * The catalog identifier where the connection invitation exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection invitation to retrieve.</p>
+   * The unique identifier of the connection invitation to retrieve.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -1069,85 +1219,99 @@ export interface GetConnectionInvitationRequest {
  */
 export interface GetConnectionInvitationResponse {
   /**
-   * <p>The catalog identifier where the connection invitation exists.</p>
+   * The catalog identifier where the connection invitation exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection invitation.</p>
+   * The unique identifier of the connection invitation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection invitation.</p>
+   * The Amazon Resource Name (ARN) of the connection invitation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The identifier of the connection associated with this invitation.</p>
+   * The identifier of the connection associated with this invitation.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p>The type of connection being requested in the invitation.</p>
+   * The type of connection being requested in the invitation.
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was created.</p>
+   * The timestamp when the connection invitation was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was last updated.</p>
+   * The timestamp when the connection invitation was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation will expire.</p>
+   * The timestamp when the connection invitation will expire.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the other participant in the connection invitation.</p>
+   * The identifier of the other participant in the connection invitation.
+   *
    * @public
    */
   OtherParticipantIdentifier: string | undefined;
 
   /**
-   * <p>The type of participant (inviter or invitee) in the connection invitation.</p>
+   * The type of participant (inviter or invitee) in the connection invitation.
+   *
    * @public
    */
   ParticipantType: ParticipantType | undefined;
 
   /**
-   * <p>The current status of the connection invitation.</p>
+   * The current status of the connection invitation.
+   *
    * @public
    */
   Status: InvitationStatus | undefined;
 
   /**
-   * <p>The custom message included with the connection invitation.</p>
+   * The custom message included with the connection invitation.
+   *
    * @public
    */
   InvitationMessage: string | undefined;
 
   /**
-   * <p>The email address of the person who sent the connection invitation.</p>
+   * The email address of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterEmail: string | undefined;
 
   /**
-   * <p>The name of the person who sent the connection invitation.</p>
+   * The name of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterName: string | undefined;
@@ -1158,115 +1322,134 @@ export interface GetConnectionInvitationResponse {
  */
 export interface ListConnectionInvitationsRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results in paginated responses.</p>
+   * The token for retrieving the next page of results in paginated responses.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Filter results by connection type (e.g., reseller, distributor, technology partner).</p>
+   * Filter results by connection type (e.g., reseller, distributor, technology partner).
+   *
    * @public
    */
   ConnectionType?: ConnectionType | undefined;
 
   /**
-   * <p>The maximum number of connection invitations to return in a single response.</p>
+   * The maximum number of connection invitations to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filter results by specific participant identifiers.</p>
+   * Filter results by specific participant identifiers.
+   *
    * @public
    */
   OtherParticipantIdentifiers?: string[] | undefined;
 
   /**
-   * <p>Filter results by participant type (inviter or invitee).</p>
+   * Filter results by participant type (inviter or invitee).
+   *
    * @public
    */
   ParticipantType?: ParticipantType | undefined;
 
   /**
-   * <p>Filter results by invitation status (pending, accepted, rejected, canceled, expired).</p>
+   * Filter results by invitation status (pending, accepted, rejected, canceled, expired).
+   *
    * @public
    */
   Status?: InvitationStatus | undefined;
 }
 
 /**
- * <p>A summary view of a connection invitation containing key information without full details.</p>
+ * A summary view of a connection invitation containing key information without full details.
+ *
  * @public
  */
 export interface ConnectionInvitationSummary {
   /**
-   * <p>The catalog identifier where the connection invitation exists.</p>
+   * The catalog identifier where the connection invitation exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection invitation.</p>
+   * The unique identifier of the connection invitation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection invitation.</p>
+   * The Amazon Resource Name (ARN) of the connection invitation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The identifier of the connection associated with this invitation.</p>
+   * The identifier of the connection associated with this invitation.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p>The type of connection being requested in the invitation.</p>
+   * The type of connection being requested in the invitation.
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was created.</p>
+   * The timestamp when the connection invitation was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was last updated.</p>
+   * The timestamp when the connection invitation was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation will expire.</p>
+   * The timestamp when the connection invitation will expire.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the other participant in the connection invitation.</p>
+   * The identifier of the other participant in the connection invitation.
+   *
    * @public
    */
   OtherParticipantIdentifier: string | undefined;
 
   /**
-   * <p>The type of participant (inviter or invitee) in the connection invitation.</p>
+   * The type of participant (inviter or invitee) in the connection invitation.
+   *
    * @public
    */
   ParticipantType: ParticipantType | undefined;
 
   /**
-   * <p>The current status of the connection invitation.</p>
+   * The current status of the connection invitation.
+   *
    * @public
    */
   Status: InvitationStatus | undefined;
@@ -1277,13 +1460,15 @@ export interface ConnectionInvitationSummary {
  */
 export interface ListConnectionInvitationsResponse {
   /**
-   * <p>A list of connection invitation summaries matching the specified criteria.</p>
+   * A list of connection invitation summaries matching the specified criteria.
+   *
    * @public
    */
   ConnectionInvitationSummaries: ConnectionInvitationSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results if more results are available.</p>
+   * The token for retrieving the next page of results if more results are available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1294,25 +1479,29 @@ export interface ListConnectionInvitationsResponse {
  */
 export interface RejectConnectionInvitationRequest {
   /**
-   * <p>The catalog identifier where the connection invitation exists.</p>
+   * The catalog identifier where the connection invitation exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection invitation to reject.</p>
+   * The unique identifier of the connection invitation to reject.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The reason for rejecting the connection invitation.</p>
+   * The reason for rejecting the connection invitation.
+   *
    * @public
    */
   Reason?: string | undefined;
@@ -1323,85 +1512,99 @@ export interface RejectConnectionInvitationRequest {
  */
 export interface RejectConnectionInvitationResponse {
   /**
-   * <p>The catalog identifier where the connection invitation was rejected.</p>
+   * The catalog identifier where the connection invitation was rejected.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the rejected connection invitation.</p>
+   * The unique identifier of the rejected connection invitation.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the rejected connection invitation.</p>
+   * The Amazon Resource Name (ARN) of the rejected connection invitation.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The identifier of the connection associated with the rejected invitation.</p>
+   * The identifier of the connection associated with the rejected invitation.
+   *
    * @public
    */
   ConnectionId?: string | undefined;
 
   /**
-   * <p>The type of connection that was being invited for.</p>
+   * The type of connection that was being invited for.
+   *
    * @public
    */
   ConnectionType: ConnectionType | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was originally created.</p>
+   * The timestamp when the connection invitation was originally created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation was last updated (rejected).</p>
+   * The timestamp when the connection invitation was last updated (rejected).
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the connection invitation would have expired.</p>
+   * The timestamp when the connection invitation would have expired.
+   *
    * @public
    */
   ExpiresAt?: Date | undefined;
 
   /**
-   * <p>The identifier of the other participant who sent the invitation.</p>
+   * The identifier of the other participant who sent the invitation.
+   *
    * @public
    */
   OtherParticipantIdentifier: string | undefined;
 
   /**
-   * <p>The type of participant (inviter or invitee) in the connection invitation.</p>
+   * The type of participant (inviter or invitee) in the connection invitation.
+   *
    * @public
    */
   ParticipantType: ParticipantType | undefined;
 
   /**
-   * <p>The current status of the connection invitation (rejected).</p>
+   * The current status of the connection invitation (rejected).
+   *
    * @public
    */
   Status: InvitationStatus | undefined;
 
   /**
-   * <p>The message that was included with the original connection invitation.</p>
+   * The message that was included with the original connection invitation.
+   *
    * @public
    */
   InvitationMessage: string | undefined;
 
   /**
-   * <p>The email address of the person who sent the connection invitation.</p>
+   * The email address of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterEmail: string | undefined;
 
   /**
-   * <p>The name of the person who sent the connection invitation.</p>
+   * The name of the person who sent the connection invitation.
+   *
    * @public
    */
   InviterName: string | undefined;
@@ -1412,7 +1615,8 @@ export interface RejectConnectionInvitationResponse {
  */
 export interface GetConnectionPreferencesRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
@@ -1423,37 +1627,43 @@ export interface GetConnectionPreferencesRequest {
  */
 export interface GetConnectionPreferencesResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection preferences.</p>
+   * The Amazon Resource Name (ARN) of the connection preferences.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The access type setting for connections (e.g., open, restricted, invitation-only).</p>
+   * The access type setting for connections (e.g., open, restricted, invitation-only).
+   *
    * @public
    */
   AccessType: AccessType | undefined;
 
   /**
-   * <p>A list of participant IDs that are excluded from connection requests or interactions.</p>
+   * A list of participant IDs that are excluded from connection requests or interactions.
+   *
    * @public
    */
   ExcludedParticipantIds?: string[] | undefined;
 
   /**
-   * <p>The timestamp when the connection preferences were last updated.</p>
+   * The timestamp when the connection preferences were last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The revision number of the connection preferences for optimistic locking.</p>
+   * The revision number of the connection preferences for optimistic locking.
+   *
    * @public
    */
   Revision: number | undefined;
@@ -1464,25 +1674,29 @@ export interface GetConnectionPreferencesResponse {
  */
 export interface UpdateConnectionPreferencesRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The revision number of the connection preferences for optimistic locking.</p>
+   * The revision number of the connection preferences for optimistic locking.
+   *
    * @public
    */
   Revision: number | undefined;
 
   /**
-   * <p>The access type setting for connections (e.g., open, restricted, invitation-only).</p>
+   * The access type setting for connections (e.g., open, restricted, invitation-only).
+   *
    * @public
    */
   AccessType: AccessType | undefined;
 
   /**
-   * <p>The updated list of participant identifiers to exclude from connections.</p>
+   * The updated list of participant identifiers to exclude from connections.
+   *
    * @public
    */
   ExcludedParticipantIdentifiers?: string[] | undefined;
@@ -1493,37 +1707,43 @@ export interface UpdateConnectionPreferencesRequest {
  */
 export interface UpdateConnectionPreferencesResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the updated connection preferences.</p>
+   * The Amazon Resource Name (ARN) of the updated connection preferences.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The updated access type setting for connections.</p>
+   * The updated access type setting for connections.
+   *
    * @public
    */
   AccessType: AccessType | undefined;
 
   /**
-   * <p>A list of participant IDs that are excluded from connection requests or interactions.</p>
+   * A list of participant IDs that are excluded from connection requests or interactions.
+   *
    * @public
    */
   ExcludedParticipantIds?: string[] | undefined;
 
   /**
-   * <p>The timestamp when the connection preferences were last updated.</p>
+   * The timestamp when the connection preferences were last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The updated revision number of the connection preferences.</p>
+   * The updated revision number of the connection preferences.
+   *
    * @public
    */
   Revision: number | undefined;
@@ -1534,13 +1754,15 @@ export interface UpdateConnectionPreferencesResponse {
  */
 export interface GetConnectionRequest {
   /**
-   * <p>The catalog identifier where the connection exists.</p>
+   * The catalog identifier where the connection exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection to retrieve.</p>
+   * The unique identifier of the connection to retrieve.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -1551,37 +1773,43 @@ export interface GetConnectionRequest {
  */
 export interface GetConnectionResponse {
   /**
-   * <p>The catalog identifier where the connection exists.</p>
+   * The catalog identifier where the connection exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection.</p>
+   * The unique identifier of the connection.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection.</p>
+   * The Amazon Resource Name (ARN) of the connection.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The AWS account ID of the other participant in the connection.</p>
+   * The AWS account ID of the other participant in the connection.
+   *
    * @public
    */
   OtherParticipantAccountId: string | undefined;
 
   /**
-   * <p>The timestamp when the connection was last updated.</p>
+   * The timestamp when the connection was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>The list of connection types active between the partners.</p>
+   * The list of connection types active between the partners.
+   *
    * @public
    */
   ConnectionTypes: Partial<Record<ConnectionType, ConnectionTypeDetail>> | undefined;
@@ -1592,91 +1820,106 @@ export interface GetConnectionResponse {
  */
 export interface ListConnectionsRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results in paginated responses.</p>
+   * The token for retrieving the next page of results in paginated responses.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Filter results by connection type (e.g., reseller, distributor, technology partner).</p>
+   * Filter results by connection type (e.g., reseller, distributor, technology partner).
+   *
    * @public
    */
   ConnectionType?: string | undefined;
 
   /**
-   * <p>The maximum number of connections to return in a single response.</p>
+   * The maximum number of connections to return in a single response.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>Filter results by specific participant identifiers.</p>
+   * Filter results by specific participant identifiers.
+   *
    * @public
    */
   OtherParticipantIdentifiers?: string[] | undefined;
 }
 
 /**
- * <p>Summary information about a specific connection type between partners.</p>
+ * Summary information about a specific connection type between partners.
+ *
  * @public
  */
 export interface ConnectionTypeSummary {
   /**
-   * <p>The current status of this connection type (active, canceled, etc.).</p>
+   * The current status of this connection type (active, canceled, etc.).
+   *
    * @public
    */
   Status: ConnectionTypeStatus | undefined;
 
   /**
-   * <p>Information about the other participant in this connection type.</p>
+   * Information about the other participant in this connection type.
+   *
    * @public
    */
   OtherParticipant: Participant | undefined;
 }
 
 /**
- * <p>A summary view of an active connection between partners containing key information.</p>
+ * A summary view of an active connection between partners containing key information.
+ *
  * @public
  */
 export interface ConnectionSummary {
   /**
-   * <p>The catalog identifier where the connection exists.</p>
+   * The catalog identifier where the connection exists.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the connection.</p>
+   * The unique identifier of the connection.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the connection.</p>
+   * The Amazon Resource Name (ARN) of the connection.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The AWS account ID of the other participant in the connection.</p>
+   * The AWS account ID of the other participant in the connection.
+   *
    * @public
    */
   OtherParticipantAccountId: string | undefined;
 
   /**
-   * <p>The timestamp when the connection was last updated.</p>
+   * The timestamp when the connection was last updated.
+   *
    * @public
    */
   UpdatedAt: Date | undefined;
 
   /**
-   * <p>A map of connection types and their summary information for this connection.</p>
+   * A map of connection types and their summary information for this connection.
+   *
    * @public
    */
   ConnectionTypes: Partial<Record<ConnectionType, ConnectionTypeSummary>> | undefined;
@@ -1687,31 +1930,36 @@ export interface ConnectionSummary {
  */
 export interface ListConnectionsResponse {
   /**
-   * <p>A list of connection summaries matching the specified criteria.</p>
+   * A list of connection summaries matching the specified criteria.
+   *
    * @public
    */
   ConnectionSummaries: ConnectionSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results if more results are available.</p>
+   * The token for retrieving the next page of results if more results are available.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A key-value pair used to associate metadata with AWS Partner Central Account resources.</p>
+ * A key-value pair used to associate metadata with AWS Partner Central Account resources.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key name of the tag. Tag keys are case-sensitive.</p>
+   * The key name of the tag. Tag keys are case-sensitive.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value associated with the tag key. Tag values are case-sensitive.</p>
+   * The value associated with the tag key. Tag values are case-sensitive.
+   *
    * @public
    */
   Value: string | undefined;
@@ -1722,127 +1970,148 @@ export interface Tag {
  */
 export interface CreatePartnerRequest {
   /**
-   * <p>The catalog identifier where the partner account will be created.</p>
+   * The catalog identifier where the partner account will be created.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The legal name of the organization becoming a partner.</p>
+   * The legal name of the organization becoming a partner.
+   *
    * @public
    */
   LegalName: string | undefined;
 
   /**
-   * <p>The primary type of solution or service the partner provides (e.g., consulting, software, managed services).</p>
+   * The primary type of solution or service the partner provides (e.g., consulting, software, managed services).
+   *
    * @public
    */
   PrimarySolutionType: PrimarySolutionType | undefined;
 
   /**
-   * <p>The primary contact person for alliance and partnership matters.</p>
+   * The primary contact person for alliance and partnership matters.
+   *
    * @public
    */
   AllianceLeadContact: AllianceLeadContact | undefined;
 
   /**
-   * <p>The verification code sent to the alliance lead contact's email to confirm account creation.</p>
+   * The verification code sent to the alliance lead contact's email to confirm account creation.
+   *
    * @public
    */
   EmailVerificationCode: string | undefined;
 
   /**
-   * <p>A list of tags to associate with the partner account for organization and billing purposes.</p>
+   * A list of tags to associate with the partner account for organization and billing purposes.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Represents a verified domain associated with a partner account.</p>
+ * Represents a verified domain associated with a partner account.
+ *
  * @public
  */
 export interface PartnerDomain {
   /**
-   * <p>The domain name that has been verified for the partner account.</p>
+   * The domain name that has been verified for the partner account.
+   *
    * @public
    */
   DomainName: string | undefined;
 
   /**
-   * <p>The timestamp when the domain was registered and verified for the partner account.</p>
+   * The timestamp when the domain was registered and verified for the partner account.
+   *
    * @public
    */
   RegisteredAt: Date | undefined;
 }
 
 /**
- * <p>Contains comprehensive profile information for a partner including public-facing details.</p>
+ * Contains comprehensive profile information for a partner including public-facing details.
+ *
  * @public
  */
 export interface PartnerProfile {
   /**
-   * <p>The public display name for the partner organization.</p>
+   * The public display name for the partner organization.
+   *
    * @public
    */
   DisplayName: string | undefined;
 
   /**
-   * <p>A description of the partner's business, services, and capabilities.</p>
+   * A description of the partner's business, services, and capabilities.
+   *
    * @public
    */
   Description: string | undefined;
 
   /**
-   * <p>The partner's primary website URL.</p>
+   * The partner's primary website URL.
+   *
    * @public
    */
   WebsiteUrl: string | undefined;
 
   /**
-   * <p>The URL to the partner's logo image.</p>
+   * The URL to the partner's logo image.
+   *
    * @public
    */
   LogoUrl: string | undefined;
 
   /**
-   * <p>The primary type of solution or service the partner provides.</p>
+   * The primary type of solution or service the partner provides.
+   *
    * @public
    */
   PrimarySolutionType: PrimarySolutionType | undefined;
 
   /**
-   * <p>The industry segments or verticals that the partner serves.</p>
+   * The industry segments or verticals that the partner serves.
+   *
    * @public
    */
   IndustrySegments: IndustrySegment[] | undefined;
 
   /**
-   * <p>The source locale used for automatic translation of profile content.</p>
+   * The source locale used for automatic translation of profile content.
+   *
    * @public
    */
   TranslationSourceLocale: string | undefined;
 
   /**
-   * <p>A list of localized content versions for different languages and regions.</p>
+   * A list of localized content versions for different languages and regions.
+   *
    * @public
    */
   LocalizedContents?: LocalizedContent[] | undefined;
 
   /**
-   * <p>The ISO 3166 country and subdivision codes for the partner's headquarters location. If no headquarters location is set, this field is not included in the response.</p>
+   * The ISO 3166 country and subdivision codes for the partner's headquarters location. If no headquarters location is set, this field is not included in the response.
+   *
    * @public
    */
   Headquarters?: Headquarters | undefined;
 
   /**
-   * <p>The unique identifier of the partner profile.</p>
+   * The unique identifier of the partner profile.
+   *
    * @public
    */
   ProfileId?: string | undefined;
@@ -1853,49 +2122,57 @@ export interface PartnerProfile {
  */
 export interface CreatePartnerResponse {
   /**
-   * <p>The catalog identifier where the partner account was created.</p>
+   * The catalog identifier where the partner account was created.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the created partner account.</p>
+   * The Amazon Resource Name (ARN) of the created partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the created partner account.</p>
+   * The unique identifier of the created partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The legal name of the partner organization.</p>
+   * The legal name of the partner organization.
+   *
    * @public
    */
   LegalName: string | undefined;
 
   /**
-   * <p>The timestamp when the partner account was created.</p>
+   * The timestamp when the partner account was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The partner profile information including display name, description, and other public details.</p>
+   * The partner profile information including display name, description, and other public details.
+   *
    * @public
    */
   Profile: PartnerProfile | undefined;
 
   /**
-   * <p>The list of verified email domains associated with AWS training and certification credentials for the partner organization.</p>
+   * The list of verified email domains associated with AWS training and certification credentials for the partner organization.
+   *
    * @public
    */
   AwsTrainingCertificationEmailDomains?: PartnerDomain[] | undefined;
 
   /**
-   * <p>The alliance lead contact information for the partner account.</p>
+   * The alliance lead contact information for the partner account.
+   *
    * @public
    */
   AllianceLeadContact: AllianceLeadContact | undefined;
@@ -1906,25 +2183,29 @@ export interface CreatePartnerResponse {
  */
 export interface DisassociateAwsTrainingCertificationEmailDomainRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The domain name to disassociate from AWS training and certification.</p>
+   * The domain name to disassociate from AWS training and certification.
+   *
    * @public
    */
   DomainName: string | undefined;
@@ -1940,13 +2221,15 @@ export interface DisassociateAwsTrainingCertificationEmailDomainResponse {}
  */
 export interface GetAllianceLeadContactRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -1957,25 +2240,29 @@ export interface GetAllianceLeadContactRequest {
  */
 export interface GetAllianceLeadContactResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the partner account.</p>
+   * The Amazon Resource Name (ARN) of the partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The alliance lead contact information including name, email, and business title.</p>
+   * The alliance lead contact information including name, email, and business title.
+   *
    * @public
    */
   AllianceLeadContact: AllianceLeadContact | undefined;
@@ -1986,13 +2273,15 @@ export interface GetAllianceLeadContactResponse {
  */
 export interface GetPartnerRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account to retrieve.</p>
+   * The unique identifier of the partner account to retrieve.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2003,43 +2292,50 @@ export interface GetPartnerRequest {
  */
 export interface GetPartnerResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the partner account.</p>
+   * The Amazon Resource Name (ARN) of the partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The legal name of the partner organization.</p>
+   * The legal name of the partner organization.
+   *
    * @public
    */
   LegalName: string | undefined;
 
   /**
-   * <p>The timestamp when the partner account was created.</p>
+   * The timestamp when the partner account was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
 
   /**
-   * <p>The partner profile information including display name, description, and other public details.</p>
+   * The partner profile information including display name, description, and other public details.
+   *
    * @public
    */
   Profile: PartnerProfile | undefined;
 
   /**
-   * <p>The list of verified email domains associated with AWS training and certification credentials for the partner organization.</p>
+   * The list of verified email domains associated with AWS training and certification credentials for the partner organization.
+   *
    * @public
    */
   AwsTrainingCertificationEmailDomains?: PartnerDomain[] | undefined;
@@ -2050,13 +2346,15 @@ export interface GetPartnerResponse {
  */
 export interface GetProfileUpdateTaskRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2067,55 +2365,64 @@ export interface GetProfileUpdateTaskRequest {
  */
 export interface GetProfileUpdateTaskResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the profile update task.</p>
+   * The Amazon Resource Name (ARN) of the profile update task.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the profile update task.</p>
+   * The unique identifier of the profile update task.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The details of the profile update task including what changes are being made.</p>
+   * The details of the profile update task including what changes are being made.
+   *
    * @public
    */
   TaskDetails: TaskDetails | undefined;
 
   /**
-   * <p>The timestamp when the profile update task was started.</p>
+   * The timestamp when the profile update task was started.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The current status of the profile update task (in progress, completed, failed, etc.).</p>
+   * The current status of the profile update task (in progress, completed, failed, etc.).
+   *
    * @public
    */
   Status: ProfileTaskStatus | undefined;
 
   /**
-   * <p>The timestamp when the profile update task was completed or failed.</p>
+   * The timestamp when the profile update task was completed or failed.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 
   /**
-   * <p>A list of error details if any errors occurred during the profile update task.</p>
+   * A list of error details if any errors occurred during the profile update task.
+   *
    * @public
    */
   ErrorDetailList?: ErrorDetail[] | undefined;
@@ -2126,13 +2433,15 @@ export interface GetProfileUpdateTaskResponse {
  */
 export interface GetProfileVisibilityRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2143,31 +2452,36 @@ export interface GetProfileVisibilityRequest {
  */
 export interface GetProfileVisibilityResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the partner account.</p>
+   * The Amazon Resource Name (ARN) of the partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The visibility setting for the partner profile (public, private, restricted, etc.).</p>
+   * The visibility setting for the partner profile (public, private, restricted, etc.).
+   *
    * @public
    */
   Visibility: ProfileVisibility | undefined;
 
   /**
-   * <p>The unique identifier of the partner profile.</p>
+   * The unique identifier of the partner profile.
+   *
    * @public
    */
   ProfileId: string | undefined;
@@ -2178,13 +2492,15 @@ export interface GetProfileVisibilityResponse {
  */
 export interface GetQualificationsAssociationDetailsRequest {
   /**
-   * <p>The catalog in which to look up the qualifications association. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * The catalog in which to look up the qualifications association. Valid values: `AWS`, `Sandbox`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * Your partner identifier. You can provide either a partner ID (for example, `partner-abc123`) or a partner ARN. You must own this identifier.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2195,43 +2511,50 @@ export interface GetQualificationsAssociationDetailsRequest {
  */
 export interface GetQualificationsAssociationDetailsResponse {
   /**
-   * <p>The catalog identifier echoed from the request.</p>
+   * The catalog identifier echoed from the request.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies your partner resource.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * Your unique partner identifier in the AWS Partner Network.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The current qualifications association status. Valid values: <code>ASSOCIATED</code> (the partner is associated with a primary), <code>NOT_ASSOCIATED</code> (the partner has no active association).</p>
+   * The current qualifications association status. Valid values: `ASSOCIATED` (the partner is associated with a primary), `NOT_ASSOCIATED` (the partner has no active association).
+   *
    * @public
    */
   Status: QualificationsAssociationStatus | undefined;
 
   /**
-   * <p>The primary partner's profile and account identifiers. This field is null when the status is <code>NOT_ASSOCIATED</code>.</p>
+   * The primary partner's profile and account identifiers. This field is null when the status is `NOT_ASSOCIATED`.
+   *
    * @public
    */
   PrimaryPartner?: QualificationsAssociationPartner | undefined;
 
   /**
-   * <p>The list of all partner profile and account identifiers currently associated under the primary partner. This field is null when the status is <code>NOT_ASSOCIATED</code>.</p>
+   * The list of all partner profile and account identifiers currently associated under the primary partner. This field is null when the status is `NOT_ASSOCIATED`.
+   *
    * @public
    */
   AssociatedPartners?: QualificationsAssociationPartner[] | undefined;
 
   /**
-   * <p>The timestamp when the qualifications association was last updated, in ISO 8601 format. This field is null when the status is <code>NOT_ASSOCIATED</code>.</p>
+   * The timestamp when the qualifications association was last updated, in ISO 8601 format. This field is null when the status is `NOT_ASSOCIATED`.
+   *
    * @public
    */
   UpdatedAt?: Date | undefined;
@@ -2242,13 +2565,15 @@ export interface GetQualificationsAssociationDetailsResponse {
  */
 export interface GetQualificationsAssociationTaskRequest {
   /**
-   * <p>The catalog in which to look up the qualifications association task. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * The catalog in which to look up the qualifications association task. Valid values: `AWS`, `Sandbox`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * Your partner identifier. You can provide either a partner ID (for example, `partner-abc123`) or a partner ARN. You must own this identifier.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2259,49 +2584,57 @@ export interface GetQualificationsAssociationTaskRequest {
  */
 export interface GetQualificationsAssociationTaskResponse {
   /**
-   * <p>The catalog identifier echoed from the request.</p>
+   * The catalog identifier echoed from the request.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies your partner resource.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * Your unique partner identifier in the AWS Partner Network.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the qualifications association task, in the format <code>pqatask-[a-z2-7]\{13\}</code>.</p>
+   * The unique identifier of the qualifications association task, in the format `pqatask-[a-z2-7]\{13\}`.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The current status of the qualifications association task. Valid values: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>.</p>
+   * The current status of the qualifications association task. Valid values: `IN_PROGRESS`, `SUCCEEDED`.
+   *
    * @public
    */
   Status: QualificationsAssociationTaskStatus | undefined;
 
   /**
-   * <p>The primary partner's profile and account identifiers that the task is associating qualifications with.</p>
+   * The primary partner's profile and account identifiers that the task is associating qualifications with.
+   *
    * @public
    */
   PrimaryPartner: QualificationsAssociationPartner | undefined;
 
   /**
-   * <p>The timestamp when the qualifications association task started, in ISO 8601 format.</p>
+   * The timestamp when the qualifications association task started, in ISO 8601 format.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the qualifications association task ended, in ISO 8601 format. This field is present only when the status is <code>SUCCEEDED</code>.</p>
+   * The timestamp when the qualifications association task ended, in ISO 8601 format. This field is present only when the status is `SUCCEEDED`.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
@@ -2312,13 +2645,15 @@ export interface GetQualificationsAssociationTaskResponse {
  */
 export interface GetQualificationsDisassociationTaskRequest {
   /**
-   * <p>The catalog in which to look up the qualifications disassociation task. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * The catalog in which to look up the qualifications disassociation task. Valid values: `AWS`, `Sandbox`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * Your partner identifier. You can provide either a partner ID (for example, `partner-abc123`) or a partner ARN. You must own this identifier.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -2329,49 +2664,57 @@ export interface GetQualificationsDisassociationTaskRequest {
  */
 export interface GetQualificationsDisassociationTaskResponse {
   /**
-   * <p>The catalog identifier echoed from the request.</p>
+   * The catalog identifier echoed from the request.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies your partner resource.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * Your unique partner identifier in the AWS Partner Network.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the qualifications disassociation task, in the format <code>pqdtask-[a-z2-7]\{13\}</code>.</p>
+   * The unique identifier of the qualifications disassociation task, in the format `pqdtask-[a-z2-7]\{13\}`.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The current status of the qualifications disassociation task. Valid values: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>.</p>
+   * The current status of the qualifications disassociation task. Valid values: `IN_PROGRESS`, `SUCCEEDED`.
+   *
    * @public
    */
   Status: QualificationsDisassociationTaskStatus | undefined;
 
   /**
-   * <p>The primary partner's profile and account identifiers that the task is disassociating qualifications from.</p>
+   * The primary partner's profile and account identifiers that the task is disassociating qualifications from.
+   *
    * @public
    */
   AssociatedPartner: QualificationsAssociationPartner | undefined;
 
   /**
-   * <p>The timestamp when the qualifications disassociation task started, in ISO 8601 format.</p>
+   * The timestamp when the qualifications disassociation task started, in ISO 8601 format.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the qualifications disassociation task ended, in ISO 8601 format. This field is present only when the status is <code>SUCCEEDED</code>.</p>
+   * The timestamp when the qualifications disassociation task ended, in ISO 8601 format. This field is present only when the status is `SUCCEEDED`.
+   *
    * @public
    */
   EndedAt?: Date | undefined;
@@ -2382,32 +2725,37 @@ export interface GetQualificationsDisassociationTaskResponse {
  */
 export interface GetVerificationRequest {
   /**
-   * <p>The type of verification to retrieve information for. Valid values include business verification for company registration details and registrant verification for individual identity confirmation.</p>
+   * The type of verification to retrieve information for. Valid values include business verification for company registration details and registrant verification for individual identity confirmation.
+   *
    * @public
    */
   VerificationType: VerificationType | undefined;
 }
 
 /**
- * <p>Contains the response information from a registrant verification process, including any verification-specific data and next steps for the individual verification workflow.</p>
+ * Contains the response information from a registrant verification process, including any verification-specific data and next steps for the individual verification workflow.
+ *
  * @public
  */
 export interface RegistrantVerificationResponse {
   /**
-   * <p>A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.</p>
+   * A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.
+   *
    * @public
    */
   CompletionUrl: string | undefined;
 
   /**
-   * <p>The timestamp when the completion URL expires and is no longer valid for accessing the verification workflow.</p>
+   * The timestamp when the completion URL expires and is no longer valid for accessing the verification workflow.
+   *
    * @public
    */
   CompletionUrlExpiresAt: Date | undefined;
 }
 
 /**
- * <p>A union structure containing the response details specific to different types of verification processes, providing type-specific information and results.</p>
+ * A union structure containing the response details specific to different types of verification processes, providing type-specific information and results.
+ *
  * @public
  */
 export type VerificationResponseDetails =
@@ -2420,7 +2768,8 @@ export type VerificationResponseDetails =
  */
 export namespace VerificationResponseDetails {
   /**
-   * <p>The response details from a business verification process, including verification results and any additional business information discovered.</p>
+   * The response details from a business verification process, including verification results and any additional business information discovered.
+   *
    * @public
    */
   export interface BusinessVerificationResponseMember {
@@ -2430,7 +2779,8 @@ export namespace VerificationResponseDetails {
   }
 
   /**
-   * <p>The response details from a registrant verification process, including verification results and any additional steps required for identity confirmation.</p>
+   * The response details from a registrant verification process, including verification results and any additional steps required for identity confirmation.
+   *
    * @public
    */
   export interface RegistrantVerificationResponseMember {
@@ -2464,37 +2814,43 @@ export namespace VerificationResponseDetails {
  */
 export interface GetVerificationResponse {
   /**
-   * <p>The type of verification that was requested and processed.</p>
+   * The type of verification that was requested and processed.
+   *
    * @public
    */
   VerificationType: VerificationType | undefined;
 
   /**
-   * <p>The current status of the verification process. Possible values include pending, in-progress, completed, failed, or expired.</p>
+   * The current status of the verification process. Possible values include pending, in-progress, completed, failed, or expired.
+   *
    * @public
    */
   VerificationStatus: VerificationStatus | undefined;
 
   /**
-   * <p>Additional information explaining the current verification status, particularly useful when the status indicates a failure or requires additional action.</p>
+   * Additional information explaining the current verification status, particularly useful when the status indicates a failure or requires additional action.
+   *
    * @public
    */
   VerificationStatusReason?: string | undefined;
 
   /**
-   * <p>Detailed response information specific to the type of verification performed, including any verification-specific data or results.</p>
+   * Detailed response information specific to the type of verification performed, including any verification-specific data or results.
+   *
    * @public
    */
   VerificationResponseDetails: VerificationResponseDetails | undefined;
 
   /**
-   * <p>The timestamp when the verification process was initiated.</p>
+   * The timestamp when the verification process was initiated.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the verification process was completed. This field is null if the verification is still in progress.</p>
+   * The timestamp when the verification process was completed. This field is null if the verification is still in progress.
+   *
    * @public
    */
   CompletedAt?: Date | undefined;
@@ -2505,49 +2861,57 @@ export interface GetVerificationResponse {
  */
 export interface ListPartnersRequest {
   /**
-   * <p>The catalog identifier to list partners from.</p>
+   * The catalog identifier to list partners from.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results in paginated responses.</p>
+   * The token for retrieving the next page of results in paginated responses.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A summary view of a partner account containing basic information for listing purposes.</p>
+ * A summary view of a partner account containing basic information for listing purposes.
+ *
  * @public
  */
 export interface PartnerSummary {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the partner account.</p>
+   * The Amazon Resource Name (ARN) of the partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The legal name of the partner organization.</p>
+   * The legal name of the partner organization.
+   *
    * @public
    */
   LegalName: string | undefined;
 
   /**
-   * <p>The timestamp when the partner account was created.</p>
+   * The timestamp when the partner account was created.
+   *
    * @public
    */
   CreatedAt: Date | undefined;
@@ -2558,13 +2922,15 @@ export interface PartnerSummary {
  */
 export interface ListPartnersResponse {
   /**
-   * <p>A list of partner summaries including basic information about each partner account.</p>
+   * A list of partner summaries including basic information about each partner account.
+   *
    * @public
    */
   PartnerSummaryList: PartnerSummary[] | undefined;
 
   /**
-   * <p>The token for retrieving the next page of results if more results are available.</p>
+   * The token for retrieving the next page of results if more results are available.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -2575,7 +2941,8 @@ export interface ListPartnersResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
+   * The Amazon Resource Name (ARN) of the resource to list tags for.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -2586,13 +2953,15 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource that the tags are associated with.</p>
+   * The Amazon Resource Name (ARN) of the resource that the tags are associated with.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of tags associated with the specified resource.</p>
+   * A list of tags associated with the specified resource.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -2603,25 +2972,29 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutAllianceLeadContactRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The alliance lead contact information to set for the partner account.</p>
+   * The alliance lead contact information to set for the partner account.
+   *
    * @public
    */
   AllianceLeadContact: AllianceLeadContact | undefined;
 
   /**
-   * <p>The verification code sent to the alliance lead contact's email to confirm the update.</p>
+   * The verification code sent to the alliance lead contact's email to confirm the update.
+   *
    * @public
    */
   EmailVerificationCode?: string | undefined;
@@ -2632,25 +3005,29 @@ export interface PutAllianceLeadContactRequest {
  */
 export interface PutAllianceLeadContactResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the partner account.</p>
+   * The Amazon Resource Name (ARN) of the partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The updated alliance lead contact information.</p>
+   * The updated alliance lead contact information.
+   *
    * @public
    */
   AllianceLeadContact: AllianceLeadContact | undefined;
@@ -2661,19 +3038,22 @@ export interface PutAllianceLeadContactResponse {
  */
 export interface PutProfileVisibilityRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>The visibility setting to apply to the partner profile.</p>
+   * The visibility setting to apply to the partner profile.
+   *
    * @public
    */
   Visibility: ProfileVisibility | undefined;
@@ -2684,31 +3064,36 @@ export interface PutProfileVisibilityRequest {
  */
 export interface PutProfileVisibilityResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the partner account.</p>
+   * The Amazon Resource Name (ARN) of the partner account.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The updated visibility setting for the partner profile.</p>
+   * The updated visibility setting for the partner profile.
+   *
    * @public
    */
   Visibility: ProfileVisibility | undefined;
 
   /**
-   * <p>The unique identifier of the partner profile.</p>
+   * The unique identifier of the partner profile.
+   *
    * @public
    */
   ProfileId: string | undefined;
@@ -2719,25 +3104,29 @@ export interface PutProfileVisibilityResponse {
  */
 export interface StartProfileUpdateTaskRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The details of the profile updates to be performed.</p>
+   * The details of the profile updates to be performed.
+   *
    * @public
    */
   TaskDetails: TaskDetails | undefined;
@@ -2748,55 +3137,64 @@ export interface StartProfileUpdateTaskRequest {
  */
 export interface StartProfileUpdateTaskResponse {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the started profile update task.</p>
+   * The Amazon Resource Name (ARN) of the started profile update task.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the partner account.</p>
+   * The unique identifier of the partner account.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the started profile update task.</p>
+   * The unique identifier of the started profile update task.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The details of the profile update task that was started.</p>
+   * The details of the profile update task that was started.
+   *
    * @public
    */
   TaskDetails: TaskDetails | undefined;
 
   /**
-   * <p>The timestamp when the profile update task was started.</p>
+   * The timestamp when the profile update task was started.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The current status of the profile update task (in progress).</p>
+   * The current status of the profile update task (in progress).
+   *
    * @public
    */
   Status: ProfileTaskStatus | undefined;
 
   /**
-   * <p>The timestamp when the profile update task ended (null for in-progress tasks).</p>
+   * The timestamp when the profile update task ended (null for in-progress tasks).
+   *
    * @public
    */
   EndedAt?: Date | undefined;
 
   /**
-   * <p>A list of error details if any errors occurred during the profile update task.</p>
+   * A list of error details if any errors occurred during the profile update task.
+   *
    * @public
    */
   ErrorDetailList?: ErrorDetail[] | undefined;
@@ -2807,25 +3205,29 @@ export interface StartProfileUpdateTaskResponse {
  */
 export interface StartQualificationsAssociationTaskRequest {
   /**
-   * <p>The catalog in which to perform the qualifications association. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * The catalog in which to perform the qualifications association. Valid values: `AWS`, `Sandbox`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * Your partner identifier. You can provide either a partner ID (for example, `partner-abc123`) or a partner ARN. You must own this identifier.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The primary (acquiring) partner's profile and account identifier to associate qualifications with. You must provide at least one of <code>ProfileId</code> or <code>AccountId</code>. You cannot specify yourself as the primary partner.</p>
+   * The primary (acquiring) partner's profile and account identifier to associate qualifications with. You must provide at least one of `ProfileId` or `AccountId`. You cannot specify yourself as the primary partner.
+   *
    * @public
    */
   PrimaryPartner: QualificationsAssociationPartner | undefined;
@@ -2836,43 +3238,50 @@ export interface StartQualificationsAssociationTaskRequest {
  */
 export interface StartQualificationsAssociationTaskResponse {
   /**
-   * <p>The catalog identifier echoed from the request.</p>
+   * The catalog identifier echoed from the request.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies your partner resource.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * Your unique partner identifier in the AWS Partner Network.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the started qualifications association task, in the format <code>pqatask-[a-z2-7]\{13\}</code>.</p>
+   * The unique identifier of the started qualifications association task, in the format `pqatask-[a-z2-7]\{13\}`.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The current status of the qualifications association task. The initial value is <code>IN_PROGRESS</code>.</p>
+   * The current status of the qualifications association task. The initial value is `IN_PROGRESS`.
+   *
    * @public
    */
   Status: QualificationsAssociationTaskStatus | undefined;
 
   /**
-   * <p>The resolved primary partner's profile and account identifiers, including both <code>ProfileId</code> and <code>AccountId</code>.</p>
+   * The resolved primary partner's profile and account identifiers, including both `ProfileId` and `AccountId`.
+   *
    * @public
    */
   PrimaryPartner: QualificationsAssociationPartner | undefined;
 
   /**
-   * <p>The timestamp when the qualifications association task started, in ISO 8601 format.</p>
+   * The timestamp when the qualifications association task started, in ISO 8601 format.
+   *
    * @public
    */
   StartedAt: Date | undefined;
@@ -2883,25 +3292,29 @@ export interface StartQualificationsAssociationTaskResponse {
  */
 export interface StartQualificationsDisassociationTaskRequest {
   /**
-   * <p>The catalog in which to perform the qualifications disassociation. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * The catalog in which to perform the qualifications disassociation. Valid values: `AWS`, `Sandbox`.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * Your partner identifier. You can provide either a partner ID (for example, `partner-abc123`) or a partner ARN. You must own this identifier.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The primary partner's profile and account identifier that you are currently associated with and will disassociate from. You must provide at least one of <code>ProfileId</code> or <code>AccountId</code>. The specified partner must match your current primary association.</p>
+   * The primary partner's profile and account identifier that you are currently associated with and will disassociate from. You must provide at least one of `ProfileId` or `AccountId`. The specified partner must match your current primary association.
+   *
    * @public
    */
   AssociatedPartner: QualificationsAssociationPartner | undefined;
@@ -2912,43 +3325,50 @@ export interface StartQualificationsDisassociationTaskRequest {
  */
 export interface StartQualificationsDisassociationTaskResponse {
   /**
-   * <p>The catalog identifier echoed from the request.</p>
+   * The catalog identifier echoed from the request.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * The Amazon Resource Name (ARN) that uniquely identifies your partner resource.
+   *
    * @public
    */
   Arn: string | undefined;
 
   /**
-   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * Your unique partner identifier in the AWS Partner Network.
+   *
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The unique identifier of the started qualifications disassociation task, in the format <code>pqdtask-[a-z2-7]\{13\}</code>.</p>
+   * The unique identifier of the started qualifications disassociation task, in the format `pqdtask-[a-z2-7]\{13\}`.
+   *
    * @public
    */
   TaskId: string | undefined;
 
   /**
-   * <p>The current status of the qualifications disassociation task. The initial value is <code>IN_PROGRESS</code>.</p>
+   * The current status of the qualifications disassociation task. The initial value is `IN_PROGRESS`.
+   *
    * @public
    */
   Status: QualificationsDisassociationTaskStatus | undefined;
 
   /**
-   * <p>The resolved primary partner's profile and account identifiers that the task is disassociating qualifications from.</p>
+   * The resolved primary partner's profile and account identifiers that the task is disassociating qualifications from.
+   *
    * @public
    */
   AssociatedPartner: QualificationsAssociationPartner | undefined;
 
   /**
-   * <p>The timestamp when the qualifications disassociation task started, in ISO 8601 format.</p>
+   * The timestamp when the qualifications disassociation task started, in ISO 8601 format.
+   *
    * @public
    */
   StartedAt: Date | undefined;
@@ -2959,13 +3379,15 @@ export interface StartQualificationsDisassociationTaskResponse {
  */
 export interface SendEmailVerificationCodeRequest {
   /**
-   * <p>The catalog identifier for the partner account.</p>
+   * The catalog identifier for the partner account.
+   *
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>The email address to send the verification code to.</p>
+   * The email address to send the verification code to.
+   *
    * @public
    */
   Email: string | undefined;
@@ -2977,13 +3399,15 @@ export interface SendEmailVerificationCodeRequest {
 export interface SendEmailVerificationCodeResponse {}
 
 /**
- * <p>Contains the personal information required for verifying an individual's identity as part of the partner registration process in AWS Partner Central.</p>
+ * Contains the personal information required for verifying an individual's identity as part of the partner registration process in AWS Partner Central.
+ *
  * @public
  */
 export interface RegistrantVerificationDetails {}
 
 /**
- * <p>A union structure containing the specific details required for different types of verification processes supported by AWS Partner Central.</p>
+ * A union structure containing the specific details required for different types of verification processes supported by AWS Partner Central.
+ *
  * @public
  */
 export type VerificationDetails =
@@ -2996,7 +3420,8 @@ export type VerificationDetails =
  */
 export namespace VerificationDetails {
   /**
-   * <p>The business verification details to be used when starting a business verification process.</p>
+   * The business verification details to be used when starting a business verification process.
+   *
    * @public
    */
   export interface BusinessVerificationDetailsMember {
@@ -3006,7 +3431,8 @@ export namespace VerificationDetails {
   }
 
   /**
-   * <p>The registrant verification details to be used when starting an individual identity verification process.</p>
+   * The registrant verification details to be used when starting an individual identity verification process.
+   *
    * @public
    */
   export interface RegistrantVerificationDetailsMember {
@@ -3040,13 +3466,15 @@ export namespace VerificationDetails {
  */
 export interface StartVerificationRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This prevents duplicate verification processes from being started accidentally.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This prevents duplicate verification processes from being started accidentally.
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The specific details required for the verification process, including business information for business verification or personal information for registrant verification.</p>
+   * The specific details required for the verification process, including business information for business verification or personal information for registrant verification.
+   *
    * @public
    */
   VerificationDetails?: VerificationDetails | undefined;
@@ -3057,37 +3485,43 @@ export interface StartVerificationRequest {
  */
 export interface StartVerificationResponse {
   /**
-   * <p>The type of verification that was started based on the provided verification details.</p>
+   * The type of verification that was started based on the provided verification details.
+   *
    * @public
    */
   VerificationType: VerificationType | undefined;
 
   /**
-   * <p>The initial status of the verification process after it has been started. Typically this will be pending or in-progress.</p>
+   * The initial status of the verification process after it has been started. Typically this will be pending or in-progress.
+   *
    * @public
    */
   VerificationStatus: VerificationStatus | undefined;
 
   /**
-   * <p>Additional information about the initial verification status, including any immediate feedback about the submitted verification details.</p>
+   * Additional information about the initial verification status, including any immediate feedback about the submitted verification details.
+   *
    * @public
    */
   VerificationStatusReason?: string | undefined;
 
   /**
-   * <p>Initial response details specific to the type of verification started, which may include next steps or additional requirements.</p>
+   * Initial response details specific to the type of verification started, which may include next steps or additional requirements.
+   *
    * @public
    */
   VerificationResponseDetails: VerificationResponseDetails | undefined;
 
   /**
-   * <p>The timestamp when the verification process was successfully initiated.</p>
+   * The timestamp when the verification process was successfully initiated.
+   *
    * @public
    */
   StartedAt: Date | undefined;
 
   /**
-   * <p>The timestamp when the verification process was completed. This field is typically null for newly started verifications unless they complete immediately.</p>
+   * The timestamp when the verification process was completed. This field is typically null for newly started verifications unless they complete immediately.
+   *
    * @public
    */
   CompletedAt?: Date | undefined;
@@ -3098,13 +3532,15 @@ export interface StartVerificationResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to tag.</p>
+   * The Amazon Resource Name (ARN) of the resource to tag.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of tags to add or update for the specified resource.</p>
+   * A list of tags to add or update for the specified resource.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -3120,13 +3556,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
+   * The Amazon Resource Name (ARN) of the resource to remove tags from.
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A list of tag keys to remove from the specified resource.</p>
+   * A list of tag keys to remove from the specified resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;

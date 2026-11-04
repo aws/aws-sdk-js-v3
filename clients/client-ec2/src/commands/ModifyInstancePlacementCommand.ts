@@ -23,32 +23,17 @@ export interface ModifyInstancePlacementCommandInput extends ModifyInstancePlace
 export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlacementResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the placement attributes for a specified instance. You can do the
- *             following:</p>
- *          <ul>
- *             <li>
- *                <p>Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
- *                         Host</a>. When affinity is set to <code>host</code> and the instance is
- *                     not associated with a specific Dedicated Host, the next time the instance is
- *                     started, it is automatically associated with the host on which it lands. If the
- *                     instance is restarted or rebooted, this relationship persists.</p>
- *             </li>
- *             <li>
- *                <p>Change the Dedicated Host with which an instance is associated.</p>
- *             </li>
- *             <li>
- *                <p>Change the instance tenancy of an instance.</p>
- *             </li>
- *             <li>
- *                <p>Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
- *                     group</a>.</p>
- *             </li>
- *          </ul>
- *          <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be
- *             specified in the request. Affinity and tenancy can be modified in the same
- *             request.</p>
- *          <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
- *             instance must be in the <code>stopped</code> state.</p>
+ * Modifies the placement attributes for a specified instance. You can do the following:
+ *
+ * - Modify the affinity between an instance and a [Dedicated Host](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html). When affinity is set to `host` and the instance is not associated with a specific Dedicated Host, the next time the instance is started, it is automatically associated with the host on which it lands. If the instance is restarted or rebooted, this relationship persists.
+ * - Change the Dedicated Host with which an instance is associated.
+ * - Change the instance tenancy of an instance.
+ * - Move an instance to or from a [placement group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
+ *
+ * At least one attribute for affinity, host ID, tenancy, or placement group name must be specified in the request. Affinity and tenancy can be modified in the same request.
+ *
+ * To modify the host ID, tenancy, placement group, or partition for an instance, the instance must be in the `stopped` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,8 +67,8 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

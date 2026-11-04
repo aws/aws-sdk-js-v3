@@ -23,14 +23,12 @@ export interface DisassociateNatGatewayAddressCommandInput extends DisassociateN
 export interface DisassociateNatGatewayAddressCommandOutput extends DisassociateNatGatewayAddressResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
- *             You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
- *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
- *          <p>An EIP is released only at the end of MaxDrainDurationSeconds. It stays
- *             associated and supports the existing connections but does not support any new connections
- *             (new connections are distributed across the remaining associated EIPs). As the existing
- *             connections drain out, the EIPs (and the corresponding private IP addresses mapped to them)
- *             are released.</p>
+ * Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You cannot disassociate your primary EIP. For more information, see [Edit secondary IP address associations](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary) in the *Amazon VPC User Guide*.
+ *
+ * While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.
+ *
+ * An EIP is released only at the end of MaxDrainDurationSeconds. It stays associated and supports the existing connections but does not support any new connections (new connections are distributed across the remaining associated EIPs). As the existing connections drain out, the EIPs (and the corresponding private IP addresses mapped to them) are released.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,8 +74,8 @@ export interface DisassociateNatGatewayAddressCommandOutput extends Disassociate
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

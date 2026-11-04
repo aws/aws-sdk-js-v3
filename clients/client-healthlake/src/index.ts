@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>This is the <i>HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is HealthLake?</a> in the <i>HealthLake Developer Guide</i>.</p>
+ * This is the *HealthLake API Reference*. For an introduction to the service, see [What is HealthLake?](https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html) in the *HealthLake Developer Guide*.
  *
  * @packageDocumentation
  */

@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from the specified resource.</p>
+ * Removes one or more tags from the specified resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,11 +52,12 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link MediaPackageV2ClientResolvedConfig | config} for MediaPackageV2Client's `config` shape.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input failed to meet the constraints specified by the AWS service.</p>
+ *
+ * The input failed to meet the constraints specified by the AWS service.
  *
  * @throws {@link MediaPackageV2ServiceException}
- * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ * Base exception class for all service exceptions from MediaPackageV2 service.
  *
  * @example Remove tags from a resource
  * ```javascript

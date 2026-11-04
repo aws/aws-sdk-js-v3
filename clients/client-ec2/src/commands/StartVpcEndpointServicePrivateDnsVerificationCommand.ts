@@ -26,10 +26,12 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput exten
 export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput extends StartVpcEndpointServicePrivateDnsVerificationResult, __MetadataBearer {}
 
 /**
- * <p>Initiates the verification process to prove that the service provider owns the private
- *             DNS name domain for the endpoint service.</p>
- *          <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
- *          <p>Before the service provider runs this command, they must add a record to the DNS server.</p>
+ * Initiates the verification process to prove that the service provider owns the private DNS name domain for the endpoint service.
+ *
+ * The service provider must successfully perform the verification before the consumer can use the name to access the service.
+ *
+ * Before the service provider runs this command, they must add a record to the DNS server.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,8 +59,8 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput exte
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

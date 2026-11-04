@@ -23,14 +23,12 @@ export interface CompleteLayerUploadCommandInput extends CompleteLayerUploadRequ
 export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadResponse, __MetadataBearer {}
 
 /**
- * <p>Informs Amazon ECR that the image layer upload is complete for a specified public registry,
- *          repository name, and upload ID. You can optionally provide a <code>sha256</code> digest of
- *          the image layer for data validation purposes.</p>
- *          <p>When an image is pushed, the CompleteLayerUpload API is called once for each new image
- *          layer to verify that the upload is complete.</p>
- *          <note>
- *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
- *          </note>
+ * Informs Amazon ECR that the image layer upload is complete for a specified public registry, repository name, and upload ID. You can optionally provide a `sha256` digest of the image layer for data validation purposes.
+ *
+ * When an image is pushed, the CompleteLayerUpload API is called once for each new image layer to verify that the upload is complete.
+ *
+ * > **Note:** This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the `docker` CLI to pull, tag, and push images.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,42 +63,48 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link EmptyUploadException} (client fault)
- *  <p>The specified layer upload doesn't contain any layer parts.</p>
+ *
+ * The specified layer upload doesn't contain any layer parts.
  *
  * @throws {@link InvalidLayerException} (client fault)
- *  <p>The layer digest calculation performed by Amazon ECR when the image layer doesn't match the
- *          digest specified.</p>
+ *
+ * The layer digest calculation performed by Amazon ECR when the image layer doesn't match the digest specified.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link LayerAlreadyExistsException} (client fault)
- *  <p>The image layer already exists in the associated repository.</p>
+ *
+ * The image layer already exists in the associated repository.
  *
  * @throws {@link LayerPartTooSmallException} (client fault)
- *  <p>Layer parts must be at least 5 MiB in size.</p>
+ *
+ * Layer parts must be at least 5 MiB in size.
  *
  * @throws {@link RegistryNotFoundException} (client fault)
- *  <p>The registry doesn't exist.</p>
+ *
+ * The registry doesn't exist.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository can't be found. Check the spelling of the specified repository
- *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * The specified repository can't be found. Check the spelling of the specified repository and ensure that you're performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link UploadNotFoundException} (client fault)
- *  <p>The upload can't be found, or the specified upload ID isn't valid for this
- *          repository.</p>
+ *
+ * The upload can't be found, or the specified upload ID isn't valid for this repository.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

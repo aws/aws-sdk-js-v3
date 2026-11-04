@@ -23,7 +23,8 @@ export interface DeleteHsmClientCertificateCommandInput extends DeleteHsmClientC
 export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified HSM client certificate.</p>
+ * Deletes the specified HSM client certificate.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,16 +49,16 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
- *  <p>There is no Amazon Redshift HSM client certificate with the specified
- *             identifier.</p>
+ *
+ * There is no Amazon Redshift HSM client certificate with the specified identifier.
  *
  * @throws {@link InvalidHsmClientCertificateStateFault} (client fault)
- *  <p>The specified HSM client certificate is not in the <code>available</code> state, or
- *             it is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ * The specified HSM client certificate is not in the `available` state, or it is still in use by one or more Amazon Redshift clusters.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

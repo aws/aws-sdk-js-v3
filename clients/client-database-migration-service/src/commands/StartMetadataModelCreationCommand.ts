@@ -23,39 +23,23 @@ export interface StartMetadataModelCreationCommandInput extends StartMetadataMod
 export interface StartMetadataModelCreationCommandOutput extends StartMetadataModelCreationResponse, __MetadataBearer {}
 
 /**
- * <p>Queues the creation of a metadata model in the source metadata tree. If other requests
- *          created by <code>Start*</code> operations are already in the migration project's queue, the
- *          creation begins after they complete.</p>
- *          <note>
- *             <p>This operation supports only Microsoft SQL Server to Aurora PostgreSQL and
- *          Microsoft SQL Server to Amazon RDS for PostgreSQL conversion paths.</p>
- *          </note>
- *          <p>To check the status of the creation request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelCreations.html">DescribeMetadataModelCreations</a> using the returned
- *          <code>RequestIdentifier</code> as a filter.</p>
- *          <p>To cancel a queued or in-progress request, call
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelCreation.html">CancelMetadataModelCreation</a> with the returned
- *          <code>RequestIdentifier</code>.</p>
- *          <important>
- *             <p>Calling
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a> with <code>Refresh</code> deletes metadata models
- *          created by this operation.</p>
- *          </important>
- *          <p>After the creation completes successfully:</p>
- *          <ul>
- *             <li>
- *                <p>To evaluate conversion complexity, call
- *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelAssessment.html">StartMetadataModelAssessment</a>.</p>
- *             </li>
- *             <li>
- *                <p>To convert to the target database format, call
- *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelConversion.html">StartMetadataModelConversion</a>.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:StartMetadataModelCreation</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
+ * Queues the creation of a metadata model in the source metadata tree. If other requests created by `Start*` operations are already in the migration project's queue, the creation begins after they complete.
+ *
+ * > **Note:** This operation supports only Microsoft SQL Server to Aurora PostgreSQL and Microsoft SQL Server to Amazon RDS for PostgreSQL conversion paths.
+ *
+ * To check the status of the creation request, call [DescribeMetadataModelCreations](https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelCreations.html) using the returned `RequestIdentifier` as a filter.
+ *
+ * To cancel a queued or in-progress request, call [CancelMetadataModelCreation](https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelCreation.html) with the returned `RequestIdentifier`.
+ *
+ * > **Important:** Calling [StartMetadataModelImport](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html) with `Refresh` deletes metadata models created by this operation.
+ *
+ * After the creation completes successfully:
+ *
+ * - To evaluate conversion complexity, call [StartMetadataModelAssessment](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelAssessment.html).
+ * - To convert to the target database format, call [StartMetadataModelConversion](https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelConversion.html).
+ *
+ * **Required permissions:** `dms:StartMetadataModelCreation`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,21 +73,24 @@ export interface StartMetadataModelCreationCommandOutput extends StartMetadataMo
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
- *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * The resource you are attempting to create already exists.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link ResourceQuotaExceededFault} (client fault)
- *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * The quota for this resource quota has been exceeded.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Create a metadata model for a SQL statement
  * ```javascript

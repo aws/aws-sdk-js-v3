@@ -23,7 +23,8 @@ export interface ListCloudConnectorsCommandInput extends ListCloudConnectorsRequ
 export interface ListCloudConnectorsCommandOutput extends ListCloudConnectorsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of cloud connectors in the current Amazon Web Services account and Amazon Web Services Region.</p>
+ * Returns a list of cloud connectors in the current Amazon Web Services account and Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,11 +70,12 @@ export interface ListCloudConnectorsCommandOutput extends ListCloudConnectorsRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

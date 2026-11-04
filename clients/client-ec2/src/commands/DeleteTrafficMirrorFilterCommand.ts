@@ -23,8 +23,10 @@ export interface DeleteTrafficMirrorFilterCommandInput extends DeleteTrafficMirr
 export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMirrorFilterResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Traffic Mirror filter.</p>
- *          <p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
+ * Deletes the specified Traffic Mirror filter.
+ *
+ * You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +54,8 @@ export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMir
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

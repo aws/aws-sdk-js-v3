@@ -23,12 +23,10 @@ export interface DescribeImageAttributeCommandInput extends DescribeImageAttribu
 export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __MetadataBearer {}
 
 /**
- * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute
- *       at a time.</p>
- *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
- *          </note>
+ * Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.
+ *
+ * > **Note:** The order of the elements in the response, including those within nested structures, might vary. Applications should not assume the elements appear in a particular order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,8 +111,8 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the launch permissions for an AMI
  * ```javascript

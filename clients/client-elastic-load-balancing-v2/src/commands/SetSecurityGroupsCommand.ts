@@ -23,12 +23,12 @@ export interface SetSecurityGroupsCommandInput extends SetSecurityGroupsInput {}
 export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput, __MetadataBearer {}
 
 /**
- * <p>Associates the specified security groups with the specified Application Load Balancer or
- *       Network Load Balancer. The specified security groups override the previously associated
- *       security groups.</p>
- *          <p>You can't perform this operation on a Network Load Balancer unless you specified a
- *       security group for the load balancer when you created it.</p>
- *          <p>You can't associate a security group with a Gateway Load Balancer.</p>
+ * Associates the specified security groups with the specified Application Load Balancer or Network Load Balancer. The specified security groups override the previously associated security groups.
+ *
+ * You can't perform this operation on a Network Load Balancer unless you specified a security group for the load balancer when you created it.
+ *
+ * You can't associate a security group with a Gateway Load Balancer.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,17 +62,20 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link InvalidSecurityGroupException} (client fault)
- *  <p>The specified security group does not exist.</p>
+ *
+ * The specified security group does not exist.
  *
  * @throws {@link LoadBalancerNotFoundException} (client fault)
- *  <p>The specified load balancer does not exist.</p>
+ *
+ * The specified load balancer does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To associate a security group with a load balancer
  * ```javascript

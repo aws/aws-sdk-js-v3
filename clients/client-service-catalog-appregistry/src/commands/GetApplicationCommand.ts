@@ -23,25 +23,8 @@ export interface GetApplicationCommandInput extends GetApplicationRequest {}
 export interface GetApplicationCommandOutput extends GetApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>
- *        Retrieves metadata information
- *        about one
- *        of your applications.
- *        The application can be specified
- *        by its ARN, ID, or name
- *        (which is unique
- *        within one account
- *        in one region
- *        at a given point
- *        in time).
- *        Specify
- *        by ARN or ID
- *        in automated workflows
- *        if you want
- *        to make sure
- *        that the exact same application is returned or a <code>ResourceNotFoundException</code> is thrown,
- *        avoiding the ABA addressing problem.
- *      </p>
+ * Retrieves metadata information about one of your applications. The application can be specified by its ARN, ID, or name (which is unique within one account in one region at a given point in time). Specify by ARN or ID in automated workflows if you want to make sure that the exact same application is returned or a `ResourceNotFoundException` is thrown, avoiding the ABA addressing problem.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,21 +75,24 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when processing the request (for example, a resource with the given
- *       name already exists within the account).</p>
+ *
+ * There was a conflict when processing the request (for example, a resource with the given name already exists within the account).
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

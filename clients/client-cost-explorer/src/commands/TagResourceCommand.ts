@@ -23,13 +23,12 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>An API operation for adding one or more tags (key-value pairs) to a resource.</p>
- *          <p>You can use the <code>TagResource</code> operation with a resource that already has tags.
- *       If you specify a new tag key for the resource, this tag is appended to the list of tags
- *       associated with the resource. If you specify a tag key that is already associated with the
- *       resource, the new tag value you specify replaces the previous value for that tag.</p>
- *          <p>Although the maximum number of array members is 200, user-tag maximum is 50. The remaining
- *       are reserved for Amazon Web Services use.</p>
+ * An API operation for adding one or more tags (key-value pairs) to a resource.
+ *
+ * You can use the `TagResource` operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value you specify replaces the previous value for that tag.
+ *
+ * Although the maximum number of array members is 200, user-tag maximum is 50. The remaining are reserved for Amazon Web Services use.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,18 +59,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * You made too many calls in a short period of time. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>Can occur if you specify a number of tags for a resource greater than the maximum 50
- *             user tags per resource.</p>
+ *
+ * Can occur if you specify a number of tags for a resource greater than the maximum 50 user tags per resource.
  *
  * @throws {@link CostExplorerServiceException}
- * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ * Base exception class for all service exceptions from CostExplorer service.
  *
  * @public
  */

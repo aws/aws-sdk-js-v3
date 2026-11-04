@@ -23,7 +23,10 @@ export interface DeleteDefaultMessageTypeCommandInput extends DeleteDefaultMessa
 export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMessageTypeResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing default message type on a configuration set.</p> <p> A message type is a type of messages that you plan to send. If you send account-related messages or time-sensitive messages such as one-time passcodes, choose <b>Transactional</b>. If you plan to send messages that contain marketing material or other promotional content, choose <b>Promotional</b>. This setting applies to your entire Amazon Web Services account. </p>
+ * Deletes an existing default message type on a configuration set.
+ *
+ * A message type is a type of messages that you plan to send. If you send account-related messages or time-sensitive messages such as one-time passcodes, choose **Transactional**. If you plan to send messages that contain marketing material or other promotional content, choose **Promotional**. This setting applies to your entire Amazon Web Services account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,23 +55,28 @@ export interface DeleteDefaultMessageTypeCommandOutput extends DeleteDefaultMess
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
+ *
+ * The request was denied because you don't have sufficient permissions to access the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
+ *
+ * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource couldn't be found.</p>
+ *
+ * A requested resource couldn't be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
+ *
+ * An error that occurred because too many requests were sent during a certain amount of time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation exception for a field.</p>
+ *
+ * A validation exception for a field.
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
- * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
+ * Base exception class for all service exceptions from PinpointSMSVoiceV2 service.
  *
  * @public
  */

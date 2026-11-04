@@ -23,12 +23,8 @@ export interface CreateHITTypeCommandInput extends CreateHITTypeRequest {}
 export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>CreateHITType</code> operation creates a new HIT type. This operation
- *             allows you to define a standard set of HIT properties to use when creating HITs.
- *             If you register a HIT type with values that match an existing HIT type, the HIT type
- *             ID of the existing type will be returned.
- *         </p>
+ * The `CreateHITType` operation creates a new HIT type. This operation allows you to define a standard set of HIT properties to use when creating HITs. If you register a HIT type with values that match an existing HIT type, the HIT type ID of the existing type will be returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +73,16 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface DeleteGitHubAccountTokenCommandInput extends DeleteGitHubAccoun
 export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccountTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a GitHub account connection.</p>
+ * Deletes a GitHub account connection.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,23 +51,28 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link GitHubAccountTokenDoesNotExistException} (client fault)
- *  <p>No GitHub account connection exists with the named specified in the call.</p>
+ *
+ * No GitHub account connection exists with the named specified in the call.
  *
  * @throws {@link GitHubAccountTokenNameRequiredException} (client fault)
- *  <p>The call is missing a required GitHub account connection name.</p>
+ *
+ * The call is missing a required GitHub account connection name.
  *
  * @throws {@link InvalidGitHubAccountTokenNameException} (client fault)
- *  <p>The format of the specified GitHub account connection name is invalid.</p>
+ *
+ * The format of the specified GitHub account connection name is invalid.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The API used does not support the deployment.</p>
+ *
+ * The API used does not support the deployment.
  *
  * @throws {@link ResourceValidationException} (client fault)
- *  <p>The specified resource could not be validated.</p>
+ *
+ * The specified resource could not be validated.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

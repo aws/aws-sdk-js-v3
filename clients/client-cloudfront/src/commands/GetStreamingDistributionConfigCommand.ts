@@ -23,7 +23,8 @@ export interface GetStreamingDistributionConfigCommandInput extends GetStreaming
 export interface GetStreamingDistributionConfigCommandOutput extends GetStreamingDistributionConfigResult, __MetadataBearer {}
 
 /**
- * <p>Get the configuration information about a streaming distribution.</p>
+ * Get the configuration information about a streaming distribution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,14 +79,16 @@ export interface GetStreamingDistributionConfigCommandOutput extends GetStreamin
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link NoSuchStreamingDistribution} (client fault)
- *  <p>The specified streaming distribution does not exist.</p>
+ *
+ * The specified streaming distribution does not exist.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @public
  */

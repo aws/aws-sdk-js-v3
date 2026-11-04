@@ -23,10 +23,8 @@ export interface CreateVerifiedAccessGroupCommandInput extends CreateVerifiedAcc
 export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAccessGroupResult, __MetadataBearer {}
 
 /**
- * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
- *          similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For
- *          example, you can group all Verified Access instances associated with "sales" applications together and
- *          use one common Verified Access policy.</p>
+ * An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have similar security requirements. Each instance within a Verified Access group shares an Verified Access policy. For example, you can group all Verified Access instances associated with "sales" applications together and use one common Verified Access policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,8 +89,8 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

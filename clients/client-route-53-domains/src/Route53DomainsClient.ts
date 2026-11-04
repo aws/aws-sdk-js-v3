@@ -444,8 +444,8 @@ export type Route53DomainsClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface Route53DomainsClientResolvedConfig extends Route53DomainsClientResolvedConfigType {}
 
 /**
- * <p>Amazon Route 53 API actions let you register domain names and perform related
- * 			operations.</p>
+ * Amazon Route 53 API actions let you register domain names and perform related operations.
+ *
  * @public
  */
 export class Route53DomainsClient extends __Client<

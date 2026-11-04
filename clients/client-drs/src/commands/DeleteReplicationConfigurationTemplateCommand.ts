@@ -26,7 +26,8 @@ export interface DeleteReplicationConfigurationTemplateCommandInput extends Dele
 export interface DeleteReplicationConfigurationTemplateCommandOutput extends DeleteReplicationConfigurationTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a single Replication Configuration Template by ID</p>
+ * Deletes a single Replication Configuration Template by ID
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput extends Del
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource for this operation was not found.</p>
+ *
+ * The resource for this operation was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>The account performing the request has not been initialized.</p>
+ *
+ * The account performing the request has not been initialized.
  *
  * @throws {@link DrsServiceException}
- * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * Base exception class for all service exceptions from Drs service.
  *
  * @public
  */

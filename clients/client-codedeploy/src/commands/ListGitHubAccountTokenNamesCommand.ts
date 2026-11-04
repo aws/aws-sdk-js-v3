@@ -23,7 +23,8 @@ export interface ListGitHubAccountTokenNamesCommandInput extends ListGitHubAccou
 export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAccountTokenNamesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the names of stored connections to GitHub accounts.</p>
+ * Lists the names of stored connections to GitHub accounts.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,17 +54,20 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token was specified in an invalid format.</p>
+ *
+ * The next token was specified in an invalid format.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The API used does not support the deployment.</p>
+ *
+ * The API used does not support the deployment.
  *
  * @throws {@link ResourceValidationException} (client fault)
- *  <p>The specified resource could not be validated.</p>
+ *
+ * The specified resource could not be validated.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

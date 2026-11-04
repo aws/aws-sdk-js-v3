@@ -23,7 +23,8 @@ export interface ListStageDevicesCommandInput extends ListStageDevicesRequest {}
 export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists devices allocated to the stage, containing detailed device information and deployment status.</p>
+ * Lists devices allocated to the stage, containing detailed device information and deployment status.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +70,8 @@ export interface ListStageDevicesCommandOutput extends ListStageDevicesResponse,
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

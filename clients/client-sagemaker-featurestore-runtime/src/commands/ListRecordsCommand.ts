@@ -23,9 +23,8 @@ export interface ListRecordsCommandInput extends ListRecordsRequest {}
 export interface ListRecordsCommandOutput extends ListRecordsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the <code>RecordIdentifier</code> values of all records stored in a
- *             <code>FeatureGroup</code>'s <code>OnlineStore</code>. This enables you to discover which
- *          records exist without retrieving the full record data.</p>
+ * Lists the `RecordIdentifier` values of all records stored in a `FeatureGroup`'s `OnlineStore`. This enables you to discover which records exist without retrieving the full record data.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,24 +57,28 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  * @throws {@link AccessForbidden} (client fault)
- *  <p>You do not have permission to perform an action.</p>
+ *
+ * You do not have permission to perform an action.
  *
  * @throws {@link InternalFailure} (server fault)
- *  <p>An internal failure occurred. Try your request again. If the problem persists, contact
- *             Amazon Web Services customer support.</p>
+ *
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>A resource that is required to perform an action was not found.</p>
+ *
+ * A resource that is required to perform an action was not found.
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ValidationError} (client fault)
- *  <p>There was an error validating your request.</p>
+ *
+ * There was an error validating your request.
  *
  * @throws {@link SageMakerFeatureStoreRuntimeServiceException}
- * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.
  *
  * @example List record identifiers from a feature group
  * ```javascript

@@ -23,7 +23,8 @@ export interface GetJobCommandInput extends GetJobRequest {}
 export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified Amazon Braket hybrid job.</p>
+ * Retrieves the specified Amazon Braket hybrid job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,23 +126,28 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The request failed because of an unknown error.</p>
+ *
+ * The request failed because of an unknown error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The API throttling rate limit is exceeded.</p>
+ *
+ * The API throttling rate limit is exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input request failed to satisfy constraints expected by Amazon Braket.</p>
+ *
+ * The input request failed to satisfy constraints expected by Amazon Braket.
  *
  * @throws {@link BraketServiceException}
- * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ * Base exception class for all service exceptions from Braket service.
  *
  * @public
  */

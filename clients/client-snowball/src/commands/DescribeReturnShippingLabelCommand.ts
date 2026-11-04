@@ -23,7 +23,8 @@ export interface DescribeReturnShippingLabelCommandInput extends DescribeReturnS
 export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturnShippingLabelResult, __MetadataBearer {}
 
 /**
- * <p>Information on the shipping label of a Snow device that is being returned to Amazon Web Services.</p>
+ * Information on the shipping label of a Snow device that is being returned to Amazon Web Services.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,20 +53,20 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
- *       when other requests are not completed.</p>
+ *
+ * You get this exception when you call `CreateReturnShippingLabel` more than once when other requests are not completed.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

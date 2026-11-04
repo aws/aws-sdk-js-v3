@@ -23,9 +23,10 @@ export interface CompleteWebAuthnRegistrationCommandInput extends CompleteWebAut
 export interface CompleteWebAuthnRegistrationCommandOutput extends CompleteWebAuthnRegistrationResponse, __MetadataBearer {}
 
 /**
- * <p>Completes registration of a passkey authenticator for the currently signed-in
- *             user.</p>
- *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
+ * Completes registration of a passkey authenticator for the currently signed-in user.
+ *
+ * Authorize this action with a signed-in user's access token. It must include the scope `aws.cognito.signin.user.admin`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,60 +52,64 @@ export interface CompleteWebAuthnRegistrationCommandOutput extends CompleteWebAu
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web
- *             ACL that's associated with your user pool.</p>
+ *
+ * This exception is thrown when WAF doesn't allow your request based on a web ACL that's associated with your user pool.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
+ *
+ * This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link PasswordResetRequiredException} (client fault)
- *  <p>This exception is thrown when a password reset is required.</p>
+ *
+ * This exception is thrown when a password reset is required.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link WebAuthnChallengeNotFoundException} (client fault)
- *  <p>This exception is thrown when the challenge from <code>StartWebAuthn</code>
- *             registration has expired.</p>
+ *
+ * This exception is thrown when the challenge from `StartWebAuthn` registration has expired.
  *
  * @throws {@link WebAuthnClientMismatchException} (client fault)
- *  <p>This exception is thrown when the access token is for a different client than the one
- *             in the original <code>StartWebAuthnRegistration</code> request.</p>
+ *
+ * This exception is thrown when the access token is for a different client than the one in the original `StartWebAuthnRegistration` request.
  *
  * @throws {@link WebAuthnCredentialNotSupportedException} (client fault)
- *  <p>This exception is thrown when a user presents passkey credentials from an unsupported
- *             device or provider.</p>
+ *
+ * This exception is thrown when a user presents passkey credentials from an unsupported device or provider.
  *
  * @throws {@link WebAuthnNotEnabledException} (client fault)
- *  <p>This exception is thrown when the passkey feature isn't enabled for the user
- *             pool.</p>
+ *
+ * This exception is thrown when the passkey feature isn't enabled for the user pool.
  *
  * @throws {@link WebAuthnOriginNotAllowedException} (client fault)
- *  <p>This exception is thrown when the passkey credential's registration origin does not
- *             align with the user pool relying party id.</p>
+ *
+ * This exception is thrown when the passkey credential's registration origin does not align with the user pool relying party id.
  *
  * @throws {@link WebAuthnRelyingPartyMismatchException} (client fault)
- *  <p>This exception is thrown when the given passkey credential is associated with a
- *             different relying party ID than the user pool relying party ID.</p>
+ *
+ * This exception is thrown when the given passkey credential is associated with a different relying party ID than the user pool relying party ID.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface DisableCapacityManagerCommandInput extends DisableCapacityManag
 export interface DisableCapacityManagerCommandOutput extends DisableCapacityManagerResult, __MetadataBearer {}
 
 /**
- * <p>
- * Disables EC2 Capacity Manager for your account. This stops data ingestion and removes access to capacity analytics and optimization recommendations.
- * Previously collected data is retained but no new data will be processed.
- * </p>
+ * Disables EC2 Capacity Manager for your account. This stops data ingestion and removes access to capacity analytics and optimization recommendations. Previously collected data is retained but no new data will be processed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,8 +53,8 @@ export interface DisableCapacityManagerCommandOutput extends DisableCapacityMana
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

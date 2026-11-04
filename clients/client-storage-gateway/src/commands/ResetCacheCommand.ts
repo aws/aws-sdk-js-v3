@@ -23,18 +23,10 @@ export interface ResetCacheCommandInput extends ResetCacheInput {}
 export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBearer {}
 
 /**
- * <p>Resets all cache disks that have encountered an error and makes the disks available for
- *          reconfiguration as cache storage. If your cache disk encounters an error, the gateway
- *          prevents read and write operations on virtual tapes in the gateway. For example, an error
- *          can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the
- *          gateway loses its cache storage. At this point, you can reconfigure the disks as cache
- *          disks. This operation is only supported in the cached volume and tape types.</p>
- *          <important>
- *             <p>If the cache disk you are resetting contains data that has not been uploaded to
- *                Amazon S3 yet, that data can be lost. After you reset cache disks, there will
- *             be no configured cache disks left in the gateway, so you must configure at least one new
- *             cache disk for your gateway to function properly.</p>
- *          </important>
+ * Resets all cache disks that have encountered an error and makes the disks available for reconfiguration as cache storage. If your cache disk encounters an error, the gateway prevents read and write operations on virtual tapes in the gateway. For example, an error can occur when a disk is corrupted or removed from the gateway. When a cache is reset, the gateway loses its cache storage. At this point, you can reconfigure the disks as cache disks. This operation is only supported in the cached volume and tape types.
+ *
+ * > **Important:** If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,16 +53,16 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To reset cache disks in error status
  * ```javascript

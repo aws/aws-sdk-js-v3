@@ -23,11 +23,10 @@ export interface DisassociateRouteTableCommandInput extends DisassociateRouteTab
 export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates a subnet or gateway from a route table.</p>
- *          <p>After you perform this action, the subnet no longer uses the routes in the route table.
- * 				Instead, it uses the routes in the VPC's main route table. For more information
- * 				about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
- * 				tables</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Disassociates a subnet or gateway from a route table.
+ *
+ * After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +52,8 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To disassociate a route table
  * ```javascript

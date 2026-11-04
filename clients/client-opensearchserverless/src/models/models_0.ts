@@ -30,79 +30,92 @@ import type {
  */
 export interface CreateAccessPolicyRequest {
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   type: AccessPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the policy. Typically used to store information about the permissions defined in the policy.</p>
+   * A description of the policy. Typically used to store information about the permissions defined in the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document to use as the content for the policy.</p>
+   * The JSON policy document to use as the content for the policy.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about an OpenSearch Serverless access policy.</p>
+ * Details about an OpenSearch Serverless access policy.
+ *
  * @public
  */
 export interface AccessPolicyDetail {
   /**
-   * <p>The type of access policy.</p>
+   * The type of access policy.
+   *
    * @public
    */
   type?: AccessPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The version of the policy.</p>
+   * The version of the policy.
+   *
    * @public
    */
   policyVersion?: string | undefined;
 
   /**
-   * <p>The description of the policy.</p>
+   * The description of the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document without any whitespaces.</p>
+   * The JSON policy document without any whitespaces.
+   *
    * @public
    */
   policy?: __DocumentType | undefined;
 
   /**
-   * <p>The date the policy was created.</p>
+   * The date the policy was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The timestamp of when the policy was last modified.</p>
+   * The timestamp of when the policy was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -113,7 +126,8 @@ export interface AccessPolicyDetail {
  */
 export interface CreateAccessPolicyResponse {
   /**
-   * <p>Details about the created access policy.</p>
+   * Details about the created access policy.
+   *
    * @public
    */
   accessPolicyDetail?: AccessPolicyDetail | undefined;
@@ -124,19 +138,22 @@ export interface CreateAccessPolicyResponse {
  */
 export interface DeleteAccessPolicyRequest {
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   type: AccessPolicyType | undefined;
 
   /**
-   * <p>The name of the policy to delete.</p>
+   * The name of the policy to delete.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -152,13 +169,15 @@ export interface DeleteAccessPolicyResponse {}
  */
 export interface GetAccessPolicyRequest {
   /**
-   * <p>Tye type of policy. Currently, the only supported value is <code>data</code>.</p>
+   * Tye type of policy. Currently, the only supported value is `data`.
+   *
    * @public
    */
   type: AccessPolicyType | undefined;
 
   /**
-   * <p>The name of the access policy.</p>
+   * The name of the access policy.
+   *
    * @public
    */
   name: string | undefined;
@@ -169,7 +188,8 @@ export interface GetAccessPolicyRequest {
  */
 export interface GetAccessPolicyResponse {
   /**
-   * <p>Details about the requested access policy.</p>
+   * Details about the requested access policy.
+   *
    * @public
    */
   accessPolicyDetail?: AccessPolicyDetail | undefined;
@@ -180,67 +200,78 @@ export interface GetAccessPolicyResponse {
  */
 export interface ListAccessPoliciesRequest {
   /**
-   * <p>The type of access policy.</p>
+   * The type of access policy.
+   *
    * @public
    */
   type: AccessPolicyType | undefined;
 
   /**
-   * <p>Resource filters (can be collections or indexes) that policies can apply to.</p>
+   * Resource filters (can be collections or indexes) that policies can apply to.
+   *
    * @public
    */
   resource?: string[] | undefined;
 
   /**
-   * <p>If your initial <code>ListAccessPolicies</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListAccessPolicies</code> operations, which returns results in the next page.</p>
+   * If your initial `ListAccessPolicies` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListAccessPolicies` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 20.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results. The default is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the data access policy.</p>
+ * A summary of the data access policy.
+ *
  * @public
  */
 export interface AccessPolicySummary {
   /**
-   * <p>The type of access policy. Currently, the only available type is <code>data</code>.</p>
+   * The type of access policy. Currently, the only available type is `data`.
+   *
    * @public
    */
   type?: AccessPolicyType | undefined;
 
   /**
-   * <p>The name of the access policy.</p>
+   * The name of the access policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The version of the policy.</p>
+   * The version of the policy.
+   *
    * @public
    */
   policyVersion?: string | undefined;
 
   /**
-   * <p>The description of the access policy.</p>
+   * The description of the access policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Epoch time when the access policy was created.</p>
+   * The Epoch time when the access policy was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The date and time when the collection was last modified.</p>
+   * The date and time when the collection was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -251,13 +282,15 @@ export interface AccessPolicySummary {
  */
 export interface ListAccessPoliciesResponse {
   /**
-   * <p>Details about the requested access policies.</p>
+   * Details about the requested access policies.
+   *
    * @public
    */
   accessPolicySummaries?: AccessPolicySummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -268,37 +301,43 @@ export interface ListAccessPoliciesResponse {
  */
 export interface UpdateAccessPolicyRequest {
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   type: AccessPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version of the policy being updated.</p>
+   * The version of the policy being updated.
+   *
    * @public
    */
   policyVersion: string | undefined;
 
   /**
-   * <p>A description of the policy. Typically used to store information about the permissions defined in the policy.</p>
+   * A description of the policy. Typically used to store information about the permissions defined in the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document to use as the content for the policy.</p>
+   * The JSON policy document to use as the content for the policy.
+   *
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -309,49 +348,57 @@ export interface UpdateAccessPolicyRequest {
  */
 export interface UpdateAccessPolicyResponse {
   /**
-   * <p>Details about the updated access policy.</p>
+   * Details about the updated access policy.
+   *
    * @public
    */
   accessPolicyDetail?: AccessPolicyDetail | undefined;
 }
 
 /**
- * <p>Statistics for an OpenSearch Serverless access policy.</p>
+ * Statistics for an OpenSearch Serverless access policy.
+ *
  * @public
  */
 export interface AccessPolicyStats {
   /**
-   * <p>The number of data access policies in the current account.</p>
+   * The number of data access policies in the current account.
+   *
    * @public
    */
   DataPolicyCount?: number | undefined;
 }
 
 /**
- * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units (OCUs). These limits are used to scale your collections based on the current workload. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
+ * The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units (OCUs). These limits are used to scale your collections based on the current workload. For more information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
+ *
  * @public
  */
 export interface CapacityLimits {
   /**
-   * <p>The maximum indexing capacity for collections.</p>
+   * The maximum indexing capacity for collections.
+   *
    * @public
    */
   maxIndexingCapacityInOCU?: number | undefined;
 
   /**
-   * <p>The maximum search capacity for collections.</p>
+   * The maximum search capacity for collections.
+   *
    * @public
    */
   maxSearchCapacityInOCU?: number | undefined;
 }
 
 /**
- * <p>OpenSearch Serverless-related information for the current account.</p>
+ * OpenSearch Serverless-related information for the current account.
+ *
  * @public
  */
 export interface AccountSettingsDetail {
   /**
-   * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units (OCUs). These limits are used to scale your collections based on the current workload. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
+   * The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units (OCUs). These limits are used to scale your collections based on the current workload. For more information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
+   *
    * @public
    */
   capacityLimits?: CapacityLimits | undefined;
@@ -362,187 +409,218 @@ export interface AccountSettingsDetail {
  */
 export interface BatchGetCollectionRequest {
   /**
-   * <p>A list of collection IDs. You can't provide names and IDs in the same request. The ID is part of the collection endpoint. You can also retrieve it using the <a href="https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html">ListCollections</a> API.</p>
+   * A list of collection IDs. You can't provide names and IDs in the same request. The ID is part of the collection endpoint. You can also retrieve it using the [ListCollections](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html) API.
+   *
    * @public
    */
   ids?: string[] | undefined;
 
   /**
-   * <p>A list of collection names. You can't provide names and IDs in the same request.</p>
+   * A list of collection names. You can't provide names and IDs in the same request.
+   *
    * @public
    */
   names?: string[] | undefined;
 }
 
 /**
- * <p>FIPS-compliant endpoint URLs for an OpenSearch Serverless collection. These endpoints ensure all data transmission uses FIPS 140-3 validated cryptographic implementations, meeting federal security requirements for government workloads.</p>
+ * FIPS-compliant endpoint URLs for an OpenSearch Serverless collection. These endpoints ensure all data transmission uses FIPS 140-3 validated cryptographic implementations, meeting federal security requirements for government workloads.
+ *
  * @public
  */
 export interface FipsEndpoints {
   /**
-   * <p>FIPS-compliant collection endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection. This endpoint uses FIPS 140-3 validated cryptography and is required for federal government workloads.</p>
+   * FIPS-compliant collection endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection. This endpoint uses FIPS 140-3 validated cryptography and is required for federal government workloads.
+   *
    * @public
    */
   collectionEndpoint?: string | undefined;
 
   /**
-   * <p>FIPS-compliant endpoint used to access OpenSearch Dashboards. This endpoint uses FIPS 140-3 validated cryptography and is required for federal government workloads that need dashboard visualization capabilities.</p>
+   * FIPS-compliant endpoint used to access OpenSearch Dashboards. This endpoint uses FIPS 140-3 validated cryptography and is required for federal government workloads that need dashboard visualization capabilities.
+   *
    * @public
    */
   dashboardEndpoint?: string | undefined;
 }
 
 /**
- * <p>Configuration options for vector search capabilities in an OpenSearch Serverless collection.</p>
+ * Configuration options for vector search capabilities in an OpenSearch Serverless collection.
+ *
  * @public
  */
 export interface VectorOptions {
   /**
-   * <p>Specifies whether serverless vector acceleration is enabled for the collection.</p>
+   * Specifies whether serverless vector acceleration is enabled for the collection.
+   *
    * @public
    */
   ServerlessVectorAcceleration: ServerlessVectorAccelerationStatus | undefined;
 }
 
 /**
- * <p>Details about each OpenSearch Serverless collection, including the collection endpoint, the OpenSearch Dashboards endpoint, and FIPS-compliant endpoints for federal government workloads.</p>
+ * Details about each OpenSearch Serverless collection, including the collection endpoint, the OpenSearch Dashboards endpoint, and FIPS-compliant endpoints for federal government workloads.
+ *
  * @public
  */
 export interface CollectionDetail {
   /**
-   * <p>A unique identifier for the collection.</p>
+   * A unique identifier for the collection.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the collection.</p>
+   * The name of the collection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the collection.</p>
+   * The current status of the collection.
+   *
    * @public
    */
   status?: CollectionStatus | undefined;
 
   /**
-   * <p>The type of collection.</p>
+   * The type of collection.
+   *
    * @public
    */
   type?: CollectionType | undefined;
 
   /**
-   * <p>A description of the collection.</p>
+   * A description of the collection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection.</p>
+   * The Amazon Resource Name (ARN) of the collection.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services KMS key used to encrypt the collection.</p>
+   * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>Details about an OpenSearch Serverless collection.</p>
+   * Details about an OpenSearch Serverless collection.
+   *
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * Indicates whether deletion protection is `ENABLED` or `DISABLED` for the collection.
+   *
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
 
   /**
-   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * Configuration options for vector search capabilities in the collection.
+   *
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
 
   /**
-   * <p>The Epoch time when the collection was created.</p>
+   * The Epoch time when the collection was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The date and time when the collection was last modified.</p>
+   * The date and time when the collection was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
 
   /**
-   * <p>Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.</p>
+   * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
+   *
    * @public
    */
   collectionEndpoint?: string | undefined;
 
   /**
-   * <p>Collection-specific endpoint used to access OpenSearch Dashboards.</p>
+   * Collection-specific endpoint used to access OpenSearch Dashboards.
+   *
    * @public
    */
   dashboardEndpoint?: string | undefined;
 
   /**
-   * <p>FIPS-compliant endpoints for the collection. These endpoints use FIPS 140-3 validated cryptographic modules and are required for federal government workloads that must comply with FedRAMP security standards.</p>
+   * FIPS-compliant endpoints for the collection. These endpoints use FIPS 140-3 validated cryptographic modules and are required for federal government workloads that must comply with FedRAMP security standards.
+   *
    * @public
    */
   fipsEndpoints?: FipsEndpoints | undefined;
 
   /**
-   * <p>A failure code associated with the request.</p>
+   * A failure code associated with the request.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>A message associated with the failure code.</p>
+   * A message associated with the failure code.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 
   /**
-   * <p>The name of the collection group that contains this collection.</p>
+   * The name of the collection group that contains this collection.
+   *
    * @public
    */
   collectionGroupName?: string | undefined;
 }
 
 /**
- * <p>Error information for an OpenSearch Serverless request.</p>
+ * Error information for an OpenSearch Serverless request.
+ *
  * @public
  */
 export interface CollectionErrorDetail {
   /**
-   * <p>If the request contains collection IDs, the response includes the IDs provided in the request.</p>
+   * If the request contains collection IDs, the response includes the IDs provided in the request.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>If the request contains collection names, the response includes the names provided in the request.</p>
+   * If the request contains collection names, the response includes the names provided in the request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the error. For example, <code>The specified Collection is not found.</code> </p>
+   * A description of the error. For example, `The specified Collection is not found.`
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
+   * The error code for the request. For example, `NOT_FOUND`.
+   *
    * @public
    */
   errorCode?: string | undefined;
@@ -553,13 +631,15 @@ export interface CollectionErrorDetail {
  */
 export interface BatchGetCollectionResponse {
   /**
-   * <p>Details about each collection.</p>
+   * Details about each collection.
+   *
    * @public
    */
   collectionDetails?: CollectionDetail[] | undefined;
 
   /**
-   * <p>Error information for the request.</p>
+   * Error information for the request.
+   *
    * @public
    */
   collectionErrorDetails?: CollectionErrorDetail[] | undefined;
@@ -570,199 +650,232 @@ export interface BatchGetCollectionResponse {
  */
 export interface BatchGetCollectionGroupRequest {
   /**
-   * <p>A list of collection group IDs. You can't provide names and IDs in the same request.</p>
+   * A list of collection group IDs. You can't provide names and IDs in the same request.
+   *
    * @public
    */
   ids?: string[] | undefined;
 
   /**
-   * <p>A list of collection group names. You can't provide names and IDs in the same request.</p>
+   * A list of collection group names. You can't provide names and IDs in the same request.
+   *
    * @public
    */
   names?: string[] | undefined;
 }
 
 /**
- * <p>Capacity limits for a collection group. These limits define the minimum and maximum OpenSearch Compute Units (OCUs) for indexing and search operations that can be used by collections in the group.</p>
+ * Capacity limits for a collection group. These limits define the minimum and maximum OpenSearch Compute Units (OCUs) for indexing and search operations that can be used by collections in the group.
+ *
  * @public
  */
 export interface CollectionGroupCapacityLimits {
   /**
-   * <p>The maximum indexing capacity for collections in the group.</p>
+   * The maximum indexing capacity for collections in the group.
+   *
    * @public
    */
   maxIndexingCapacityInOCU?: number | undefined;
 
   /**
-   * <p>The maximum search capacity for collections in the group.</p>
+   * The maximum search capacity for collections in the group.
+   *
    * @public
    */
   maxSearchCapacityInOCU?: number | undefined;
 
   /**
-   * <p>The minimum indexing capacity for collections in the group.</p>
+   * The minimum indexing capacity for collections in the group.
+   *
    * @public
    */
   minIndexingCapacityInOCU?: number | undefined;
 
   /**
-   * <p>The minimum search capacity for collections in the group.</p>
+   * The minimum search capacity for collections in the group.
+   *
    * @public
    */
   minSearchCapacityInOCU?: number | undefined;
 }
 
 /**
- * <p>Capacity details for an OpenSearch Serverless collection group, including the current capacity and autoscaling status.</p>
+ * Capacity details for an OpenSearch Serverless collection group, including the current capacity and autoscaling status.
+ *
  * @public
  */
 export interface CapacityDetails {
   /**
-   * <p>The current capacity in OpenSearch Compute Units (OCUs).</p>
+   * The current capacity in OpenSearch Compute Units (OCUs).
+   *
    * @public
    */
   capacityInOcu?: number | undefined;
 
   /**
-   * <p>The current autoscaling status for the collection group.</p>
+   * The current autoscaling status for the collection group.
+   *
    * @public
    */
   autoscalingStatus?: AutoscalingStatus | undefined;
 }
 
 /**
- * <p>Current search and indexing capacity for an OpenSearch Serverless collection group. Measured in OpenSearch Compute Units (OCUs).</p>
+ * Current search and indexing capacity for an OpenSearch Serverless collection group. Measured in OpenSearch Compute Units (OCUs).
+ *
  * @public
  */
 export interface CurrentCapacity {
   /**
-   * <p>The search capacity for the collection group.</p>
+   * The search capacity for the collection group.
+   *
    * @public
    */
   search?: CapacityDetails | undefined;
 
   /**
-   * <p>The indexing capacity for the collection group.</p>
+   * The indexing capacity for the collection group.
+   *
    * @public
    */
   indexing?: CapacityDetails | undefined;
 }
 
 /**
- * <p>A map of key-value pairs associated to an OpenSearch Serverless resource.</p>
+ * A map of key-value pairs associated to an OpenSearch Serverless resource.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key to use in the tag.</p>
+   * The key to use in the tag.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Details about a collection group.</p>
+ * Details about a collection group.
+ *
  * @public
  */
 export interface CollectionGroupDetail {
   /**
-   * <p>The unique identifier of the collection group.</p>
+   * The unique identifier of the collection group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * The Amazon Resource Name (ARN) of the collection group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the collection group.</p>
+   * The name of the collection group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether standby replicas are used for the collection group.</p>
+   * Indicates whether standby replicas are used for the collection group.
+   *
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
-   * <p>The description of the collection group.</p>
+   * The description of the collection group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map of key-value pairs associated with the collection group.</p>
+   * A map of key-value pairs associated with the collection group.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The Epoch time when the collection group was created.</p>
+   * The Epoch time when the collection group was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).
+   *
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
-   * <p>Current search and indexing capacity for the collection group.</p>
+   * Current search and indexing capacity for the collection group.
+   *
    * @public
    */
   currentCapacity?: CurrentCapacity | undefined;
 
   /**
-   * <p>The number of collections associated with the collection group.</p>
+   * The number of collections associated with the collection group.
+   *
    * @public
    */
   numberOfCollections?: number | undefined;
 
   /**
-   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * The generation of Amazon OpenSearch Serverless for the collection group.
+   *
    * @public
    */
   generation?: ServerlessGeneration | undefined;
 }
 
 /**
- * <p>Error details for a collection group operation.</p>
+ * Error details for a collection group operation.
+ *
  * @public
  */
 export interface CollectionGroupErrorDetail {
   /**
-   * <p>If the request contains collection group IDs, the response includes the IDs provided in the request.</p>
+   * If the request contains collection group IDs, the response includes the IDs provided in the request.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>If the request contains collection group names, the response includes the names provided in the request.</p>
+   * If the request contains collection group names, the response includes the names provided in the request.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the error. For example, <code>The specified Collection Group is not found.</code> </p>
+   * A description of the error. For example, `The specified Collection Group is not found.`
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
+   * The error code for the request. For example, `NOT_FOUND`.
+   *
    * @public
    */
   errorCode?: string | undefined;
@@ -773,31 +886,36 @@ export interface CollectionGroupErrorDetail {
  */
 export interface BatchGetCollectionGroupResponse {
   /**
-   * <p>Details about each collection group.</p>
+   * Details about each collection group.
+   *
    * @public
    */
   collectionGroupDetails?: CollectionGroupDetail[] | undefined;
 
   /**
-   * <p>Error information for the request.</p>
+   * Error information for the request.
+   *
    * @public
    */
   collectionGroupErrorDetails?: CollectionGroupErrorDetail[] | undefined;
 }
 
 /**
- * <p>The unique identifiers of policy types and resource names.</p>
+ * The unique identifiers of policy types and resource names.
+ *
  * @public
  */
 export interface LifecyclePolicyResourceIdentifier {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the OpenSearch Serverless ilndex resource.</p>
+   * The name of the OpenSearch Serverless ilndex resource.
+   *
    * @public
    */
   resource: string | undefined;
@@ -808,79 +926,92 @@ export interface LifecyclePolicyResourceIdentifier {
  */
 export interface BatchGetEffectiveLifecyclePolicyRequest {
   /**
-   * <p>The unique identifiers of policy types and resource names.</p>
+   * The unique identifiers of policy types and resource names.
+   *
    * @public
    */
   resourceIdentifiers: LifecyclePolicyResourceIdentifier[] | undefined;
 }
 
 /**
- * <p>Error information for an OpenSearch Serverless request.</p>
+ * Error information for an OpenSearch Serverless request.
+ *
  * @public
  */
 export interface EffectiveLifecyclePolicyDetail {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type?: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the OpenSearch Serverless index resource.</p>
+   * The name of the OpenSearch Serverless index resource.
+   *
    * @public
    */
   resource?: string | undefined;
 
   /**
-   * <p>The name of the lifecycle policy.</p>
+   * The name of the lifecycle policy.
+   *
    * @public
    */
   policyName?: string | undefined;
 
   /**
-   * <p>The type of OpenSearch Serverless resource. Currently, the only supported resource is <code>index</code>.</p>
+   * The type of OpenSearch Serverless resource. Currently, the only supported resource is `index`.
+   *
    * @public
    */
   resourceType?: ResourceType | undefined;
 
   /**
-   * <p>The minimum number of index retention in days or hours. This is an optional parameter that will return only if it’s set.</p>
+   * The minimum number of index retention in days or hours. This is an optional parameter that will return only if it’s set.
+   *
    * @public
    */
   retentionPeriod?: string | undefined;
 
   /**
-   * <p>The minimum number of index retention days set. That is an optional param that will return as <code>true</code> if the minimum number of days or hours is not set to a index resource.</p>
+   * The minimum number of index retention days set. That is an optional param that will return as `true` if the minimum number of days or hours is not set to a index resource.
+   *
    * @public
    */
   noMinRetentionPeriod?: boolean | undefined;
 }
 
 /**
- * <p>Error information for an OpenSearch Serverless request.</p>
+ * Error information for an OpenSearch Serverless request.
+ *
  * @public
  */
 export interface EffectiveLifecyclePolicyErrorDetail {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type?: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of OpenSearch Serverless index resource.</p>
+   * The name of OpenSearch Serverless index resource.
+   *
    * @public
    */
   resource?: string | undefined;
 
   /**
-   * <p>A description of the error. For example, <code>The specified Index resource is not found</code>.</p>
+   * A description of the error. For example, `The specified Index resource is not found`.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The error code for the request.</p>
+   * The error code for the request.
+   *
    * @public
    */
   errorCode?: string | undefined;
@@ -891,31 +1022,36 @@ export interface EffectiveLifecyclePolicyErrorDetail {
  */
 export interface BatchGetEffectiveLifecyclePolicyResponse {
   /**
-   * <p>A list of lifecycle policies applied to the OpenSearch Serverless indexes.</p>
+   * A list of lifecycle policies applied to the OpenSearch Serverless indexes.
+   *
    * @public
    */
   effectiveLifecyclePolicyDetails?: EffectiveLifecyclePolicyDetail[] | undefined;
 
   /**
-   * <p>A list of resources for which retrieval failed.</p>
+   * A list of resources for which retrieval failed.
+   *
    * @public
    */
   effectiveLifecyclePolicyErrorDetails?: EffectiveLifecyclePolicyErrorDetail[] | undefined;
 }
 
 /**
- * <p>The unique identifiers of policy types and policy names.</p>
+ * The unique identifiers of policy types and policy names.
+ *
  * @public
  */
 export interface LifecyclePolicyIdentifier {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the lifecycle policy.</p>
+   * The name of the lifecycle policy.
+   *
    * @public
    */
   name: string | undefined;
@@ -926,85 +1062,99 @@ export interface LifecyclePolicyIdentifier {
  */
 export interface BatchGetLifecyclePolicyRequest {
   /**
-   * <p>The unique identifiers of policy types and policy names.</p>
+   * The unique identifiers of policy types and policy names.
+   *
    * @public
    */
   identifiers: LifecyclePolicyIdentifier[] | undefined;
 }
 
 /**
- * <p>Details about an OpenSearch Serverless lifecycle policy.</p>
+ * Details about an OpenSearch Serverless lifecycle policy.
+ *
  * @public
  */
 export interface LifecyclePolicyDetail {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type?: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the lifecycle policy.</p>
+   * The name of the lifecycle policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The version of the lifecycle policy.</p>
+   * The version of the lifecycle policy.
+   *
    * @public
    */
   policyVersion?: string | undefined;
 
   /**
-   * <p>The description of the lifecycle policy.</p>
+   * The description of the lifecycle policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document without any whitespaces.</p>
+   * The JSON policy document without any whitespaces.
+   *
    * @public
    */
   policy?: __DocumentType | undefined;
 
   /**
-   * <p>The date the lifecycle policy was created.</p>
+   * The date the lifecycle policy was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The timestamp of when the lifecycle policy was last modified.</p>
+   * The timestamp of when the lifecycle policy was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
 }
 
 /**
- * <p>Error information for an OpenSearch Serverless request.</p>
+ * Error information for an OpenSearch Serverless request.
+ *
  * @public
  */
 export interface LifecyclePolicyErrorDetail {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type?: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the lifecycle policy.</p>
+   * The name of the lifecycle policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the error. For example, <code>The specified Lifecycle Policy is not found</code>.</p>
+   * A description of the error. For example, `The specified Lifecycle Policy is not found`.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
+   * The error code for the request. For example, `NOT_FOUND`.
+   *
    * @public
    */
   errorCode?: string | undefined;
@@ -1015,13 +1165,15 @@ export interface LifecyclePolicyErrorDetail {
  */
 export interface BatchGetLifecyclePolicyResponse {
   /**
-   * <p>A list of lifecycle policies matched to the input policy name and policy type.</p>
+   * A list of lifecycle policies matched to the input policy name and policy type.
+   *
    * @public
    */
   lifecyclePolicyDetails?: LifecyclePolicyDetail[] | undefined;
 
   /**
-   * <p>A list of lifecycle policy names and policy types for which retrieval failed.</p>
+   * A list of lifecycle policy names and policy types for which retrieval failed.
+   *
    * @public
    */
   lifecyclePolicyErrorDetails?: LifecyclePolicyErrorDetail[] | undefined;
@@ -1032,91 +1184,106 @@ export interface BatchGetLifecyclePolicyResponse {
  */
 export interface BatchGetVpcEndpointRequest {
   /**
-   * <p>A list of VPC endpoint identifiers.</p>
+   * A list of VPC endpoint identifiers.
+   *
    * @public
    */
   ids: string[] | undefined;
 }
 
 /**
- * <p>Details about an OpenSearch Serverless-managed interface endpoint.</p>
+ * Details about an OpenSearch Serverless-managed interface endpoint.
+ *
  * @public
  */
 export interface VpcEndpointDetail {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The ID of the VPC from which you access OpenSearch Serverless.</p>
+   * The ID of the VPC from which you access OpenSearch Serverless.
+   *
    * @public
    */
   vpcId?: string | undefined;
 
   /**
-   * <p>The ID of the subnets from which you access OpenSearch Serverless.</p>
+   * The ID of the subnets from which you access OpenSearch Serverless.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
+   * The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The current status of the endpoint.</p>
+   * The current status of the endpoint.
+   *
    * @public
    */
   status?: VpcEndpointStatus | undefined;
 
   /**
-   * <p>The date the endpoint was created.</p>
+   * The date the endpoint was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>A failure code associated with the request.</p>
+   * A failure code associated with the request.
+   *
    * @public
    */
   failureCode?: string | undefined;
 
   /**
-   * <p>A message associated with the failure code.</p>
+   * A message associated with the failure code.
+   *
    * @public
    */
   failureMessage?: string | undefined;
 }
 
 /**
- * <p>Error information for a failed <code>BatchGetVpcEndpoint</code> request.</p>
+ * Error information for a failed `BatchGetVpcEndpoint` request.
+ *
  * @public
  */
 export interface VpcEndpointErrorDetail {
   /**
-   * <p>The unique identifier of the VPC endpoint.</p>
+   * The unique identifier of the VPC endpoint.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>An error message describing the reason for the failure.</p>
+   * An error message describing the reason for the failure.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The error code for the failed request.</p>
+   * The error code for the failed request.
+   *
    * @public
    */
   errorCode?: string | undefined;
@@ -1127,13 +1294,15 @@ export interface VpcEndpointErrorDetail {
  */
 export interface BatchGetVpcEndpointResponse {
   /**
-   * <p>Details about the specified VPC endpoint.</p>
+   * Details about the specified VPC endpoint.
+   *
    * @public
    */
   vpcEndpointDetails?: VpcEndpointDetail[] | undefined;
 
   /**
-   * <p>Error information for a failed request.</p>
+   * Error information for a failed request.
+   *
    * @public
    */
   vpcEndpointErrorDetails?: VpcEndpointErrorDetail[] | undefined;
@@ -1144,19 +1313,22 @@ export interface BatchGetVpcEndpointResponse {
  */
 export interface CancelIngestionJobRequest {
   /**
-   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * The unique identifier of the collection that the ingestion job belongs to.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion job to cancel.</p>
+   * The unique identifier of the ingestion job to cancel.
+   *
    * @public
    */
   ingestionJobId: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1167,43 +1339,50 @@ export interface CancelIngestionJobRequest {
  */
 export interface CancelIngestionJobResponse {
   /**
-   * <p>The unique identifier of the cancelled ingestion job.</p>
+   * The unique identifier of the cancelled ingestion job.
+   *
    * @public
    */
   ingestionJobId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * The unique identifier of the collection that the ingestion job belongs to.
+   *
    * @public
    */
   collectionId?: string | undefined;
 
   /**
-   * <p>The name of the cancelled ingestion job.</p>
+   * The name of the cancelled ingestion job.
+   *
    * @public
    */
   ingestionJobName?: string | undefined;
 
   /**
-   * <p>The current status of the ingestion job.</p>
+   * The current status of the ingestion job.
+   *
    * @public
    */
   status?: IngestionJobStatus | undefined;
 }
 
 /**
- * <p>Encryption settings for a collection.</p>
+ * Encryption settings for a collection.
+ *
  * @public
  */
 export interface EncryptionConfig {
   /**
-   * <p>Indicates whether to use an Amazon Web Services-owned key for encryption.</p>
+   * Indicates whether to use an Amazon Web Services-owned key for encryption.
+   *
    * @public
    */
   aWSOwnedKey?: boolean | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services Key Management Service key used to encrypt the collection.</p>
+   * The ARN of the Amazon Web Services Key Management Service key used to encrypt the collection.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -1214,145 +1393,169 @@ export interface EncryptionConfig {
  */
 export interface CreateCollectionRequest {
   /**
-   * <p>Name of the collection.</p>
+   * Name of the collection.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of collection.</p>
+   * The type of collection.
+   *
    * @public
    */
   type?: CollectionType | undefined;
 
   /**
-   * <p>Description of the collection.</p>
+   * Description of the collection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection.</p>
+   * An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Indicates whether standby replicas should be used for a collection.</p>
+   * Indicates whether standby replicas should be used for a collection.
+   *
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
-   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * Configuration options for vector search capabilities in the collection.
+   *
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
 
   /**
-   * <p>The name of the collection group to associate with the collection.</p>
+   * The name of the collection group to associate with the collection.
+   *
    * @public
    */
   collectionGroupName?: string | undefined;
 
   /**
-   * <p>Encryption settings for the collection.</p>
+   * Encryption settings for the collection.
+   *
    * @public
    */
   encryptionConfig?: EncryptionConfig | undefined;
 
   /**
-   * <p>Indicates whether to enable deletion protection for the collection. When set to <code>ENABLED</code>, the collection cannot be deleted.</p>
+   * Indicates whether to enable deletion protection for the collection. When set to `ENABLED`, the collection cannot be deleted.
+   *
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about the created OpenSearch Serverless collection.</p>
+ * Details about the created OpenSearch Serverless collection.
+ *
  * @public
  */
 export interface CreateCollectionDetail {
   /**
-   * <p>The unique identifier of the collection.</p>
+   * The unique identifier of the collection.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the collection.</p>
+   * The name of the collection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the collection.</p>
+   * The current status of the collection.
+   *
    * @public
    */
   status?: CollectionStatus | undefined;
 
   /**
-   * <p>The type of collection.</p>
+   * The type of collection.
+   *
    * @public
    */
   type?: CollectionType | undefined;
 
   /**
-   * <p>A description of the collection.</p>
+   * A description of the collection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection.</p>
+   * The Amazon Resource Name (ARN) of the collection.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the collection.</p>
+   * The Amazon Resource Name (ARN) of the KMS key with which to encrypt the collection.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>Creates details about an OpenSearch Serverless collection.</p>
+   * Creates details about an OpenSearch Serverless collection.
+   *
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * Indicates whether deletion protection is `ENABLED` or `DISABLED` for the collection.
+   *
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
 
   /**
-   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * Configuration options for vector search capabilities in the collection.
+   *
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
 
   /**
-   * <p>The Epoch time when the collection was created.</p>
+   * The Epoch time when the collection was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The date and time when the collection was last modified.</p>
+   * The date and time when the collection was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
 
   /**
-   * <p>The name of the collection group that contains this collection.</p>
+   * The name of the collection group that contains this collection.
+   *
    * @public
    */
   collectionGroupName?: string | undefined;
@@ -1363,7 +1566,8 @@ export interface CreateCollectionDetail {
  */
 export interface CreateCollectionResponse {
   /**
-   * <p>Details about the collection.</p>
+   * Details about the collection.
+   *
    * @public
    */
   createCollectionDetail?: CreateCollectionDetail | undefined;
@@ -1374,43 +1578,50 @@ export interface CreateCollectionResponse {
  */
 export interface DeleteCollectionRequest {
   /**
-   * <p>The unique identifier of the collection. For example, <code>1iu5usc406kd</code>. The ID is part of the collection endpoint. You can also retrieve it using the <a href="https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html">ListCollections</a> API.</p>
+   * The unique identifier of the collection. For example, `1iu5usc406kd`. The ID is part of the collection endpoint. You can also retrieve it using the [ListCollections](https://docs.aws.amazon.com/opensearch-service/latest/ServerlessAPIReference/API_ListCollections.html) API.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about a deleted OpenSearch Serverless collection.</p>
+ * Details about a deleted OpenSearch Serverless collection.
+ *
  * @public
  */
 export interface DeleteCollectionDetail {
   /**
-   * <p>The unique identifier of the collection.</p>
+   * The unique identifier of the collection.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the collection.</p>
+   * The name of the collection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the collection.</p>
+   * The current status of the collection.
+   *
    * @public
    */
   status?: CollectionStatus | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * Indicates whether deletion protection is `ENABLED` or `DISABLED` for the collection.
+   *
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
@@ -1421,31 +1632,36 @@ export interface DeleteCollectionDetail {
  */
 export interface DeleteCollectionResponse {
   /**
-   * <p>Details of the deleted collection.</p>
+   * Details of the deleted collection.
+   *
    * @public
    */
   deleteCollectionDetail?: DeleteCollectionDetail | undefined;
 }
 
 /**
- * <p>A list of filter keys that you can use for LIST, UPDATE, and DELETE requests to OpenSearch Serverless collections.</p>
+ * A list of filter keys that you can use for LIST, UPDATE, and DELETE requests to OpenSearch Serverless collections.
+ *
  * @public
  */
 export interface CollectionFilters {
   /**
-   * <p>The name of the collection.</p>
+   * The name of the collection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the collection.</p>
+   * The current status of the collection.
+   *
    * @public
    */
   status?: CollectionStatus | undefined;
 
   /**
-   * <p>The name of the collection group to filter by.</p>
+   * The name of the collection group to filter by.
+   *
    * @public
    */
   collectionGroupName?: string | undefined;
@@ -1456,61 +1672,71 @@ export interface CollectionFilters {
  */
 export interface ListCollectionsRequest {
   /**
-   * <p> A list of filter names and values that you can use for requests.</p>
+   * A list of filter names and values that you can use for requests.
+   *
    * @public
    */
   collectionFilters?: CollectionFilters | undefined;
 
   /**
-   * <p>If your initial <code>ListCollections</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListCollections</code> operations, which returns results in the next page.</p>
+   * If your initial `ListCollections` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListCollections` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Default is 20. You can use <code>nextToken</code> to get the next page of results.</p>
+   * The maximum number of results to return. Default is 20. You can use `nextToken` to get the next page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Details about each OpenSearch Serverless collection.</p>
+ * Details about each OpenSearch Serverless collection.
+ *
  * @public
  */
 export interface CollectionSummary {
   /**
-   * <p>The unique identifier of the collection.</p>
+   * The unique identifier of the collection.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the collection.</p>
+   * The name of the collection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the collection.</p>
+   * The current status of the collection.
+   *
    * @public
    */
   status?: CollectionStatus | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection.</p>
+   * The Amazon Resource Name (ARN) of the collection.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon Web Services Key Management Service key used to encrypt the collection.</p>
+   * The ARN of the Amazon Web Services Key Management Service key used to encrypt the collection.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The name of the collection group that contains this collection.</p>
+   * The name of the collection group that contains this collection.
+   *
    * @public
    */
   collectionGroupName?: string | undefined;
@@ -1521,13 +1747,15 @@ export interface CollectionSummary {
  */
 export interface ListCollectionsResponse {
   /**
-   * <p>Details about each collection.</p>
+   * Details about each collection.
+   *
    * @public
    */
   collectionSummaries?: CollectionSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1538,109 +1766,127 @@ export interface ListCollectionsResponse {
  */
 export interface UpdateCollectionRequest {
   /**
-   * <p>The unique identifier of the collection.</p>
+   * The unique identifier of the collection.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A description of the collection.</p>
+   * A description of the collection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * Configuration options for vector search capabilities in the collection.
+   *
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable deletion protection for the collection. When set to <code>ENABLED</code>, the collection cannot be deleted.</p>
+   * Indicates whether to enable or disable deletion protection for the collection. When set to `ENABLED`, the collection cannot be deleted.
+   *
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
 
   /**
-   * <p>Encryption settings for a collection.</p>
+   * Encryption settings for a collection.
+   *
    * @public
    */
   encryptionConfig?: EncryptionConfig | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about an updated OpenSearch Serverless collection.</p>
+ * Details about an updated OpenSearch Serverless collection.
+ *
  * @public
  */
 export interface UpdateCollectionDetail {
   /**
-   * <p>The unique identifier of the collection.</p>
+   * The unique identifier of the collection.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the collection.</p>
+   * The name of the collection.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the collection.</p>
+   * The current status of the collection.
+   *
    * @public
    */
   status?: CollectionStatus | undefined;
 
   /**
-   * <p>The collection type.</p>
+   * The collection type.
+   *
    * @public
    */
   type?: CollectionType | undefined;
 
   /**
-   * <p>The description of the collection.</p>
+   * The description of the collection.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Configuration options for vector search capabilities in the collection.</p>
+   * Configuration options for vector search capabilities in the collection.
+   *
    * @public
    */
   vectorOptions?: VectorOptions | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (Amazon Web Services KMS) key used to encrypt the collection.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services Key Management Service (Amazon Web Services KMS) key used to encrypt the collection.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection.</p>
+   * The Amazon Resource Name (ARN) of the collection.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The date and time when the collection was created.</p>
+   * The date and time when the collection was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The date and time when the collection was last modified.</p>
+   * The date and time when the collection was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is <code>ENABLED</code> or <code>DISABLED</code> for the collection.</p>
+   * Indicates whether deletion protection is `ENABLED` or `DISABLED` for the collection.
+   *
    * @public
    */
   deletionProtection?: DeletionProtection | undefined;
@@ -1651,7 +1897,8 @@ export interface UpdateCollectionDetail {
  */
 export interface UpdateCollectionResponse {
   /**
-   * <p>Details about the updated collection.</p>
+   * Details about the updated collection.
+   *
    * @public
    */
   updateCollectionDetail?: UpdateCollectionDetail | undefined;
@@ -1662,103 +1909,120 @@ export interface UpdateCollectionResponse {
  */
 export interface CreateCollectionGroupRequest {
   /**
-   * <p>The name of the collection group.</p>
+   * The name of the collection group.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Indicates whether standby replicas should be used for a collection group.</p>
+   * Indicates whether standby replicas should be used for a collection group.
+   *
    * @public
    */
   standbyReplicas: StandbyReplicas | undefined;
 
   /**
-   * <p>A description of the collection group.</p>
+   * A description of the collection group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection group.</p>
+   * An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection group.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs). These limits control the maximum and minimum capacity for collections within the group.</p>
+   * The capacity limits for the collection group, in OpenSearch Compute Units (OCUs). These limits control the maximum and minimum capacity for collections within the group.
+   *
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
-   * <p>The generation of Amazon OpenSearch Serverless for the collection group. Valid values are <code>CLASSIC</code> and <code>NEXTGEN</code>.</p>
+   * The generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`.
+   *
    * @public
    */
   generation?: ServerlessGeneration | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about the created collection group.</p>
+ * Details about the created collection group.
+ *
  * @public
  */
 export interface CreateCollectionGroupDetail {
   /**
-   * <p>The unique identifier of the collection group.</p>
+   * The unique identifier of the collection group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * The Amazon Resource Name (ARN) of the collection group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the collection group.</p>
+   * The name of the collection group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Indicates whether standby replicas are used for the collection group.</p>
+   * Indicates whether standby replicas are used for the collection group.
+   *
    * @public
    */
   standbyReplicas?: StandbyReplicas | undefined;
 
   /**
-   * <p>The description of the collection group.</p>
+   * The description of the collection group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A map of key-value pairs associated with the collection group.</p>
+   * A map of key-value pairs associated with the collection group.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The Epoch time when the collection group was created.</p>
+   * The Epoch time when the collection group was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).
+   *
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
-   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * The generation of Amazon OpenSearch Serverless for the collection group.
+   *
    * @public
    */
   generation?: ServerlessGeneration | undefined;
@@ -1769,7 +2033,8 @@ export interface CreateCollectionGroupDetail {
  */
 export interface CreateCollectionGroupResponse {
   /**
-   * <p>Details about the created collection group.</p>
+   * Details about the created collection group.
+   *
    * @public
    */
   createCollectionGroupDetail?: CreateCollectionGroupDetail | undefined;
@@ -1780,13 +2045,15 @@ export interface CreateCollectionGroupResponse {
  */
 export interface DeleteCollectionGroupRequest {
   /**
-   * <p>The unique identifier of the collection group to delete.</p>
+   * The unique identifier of the collection group to delete.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1802,61 +2069,71 @@ export interface DeleteCollectionGroupResponse {}
  */
 export interface ListCollectionGroupsRequest {
   /**
-   * <p>If your initial <code>ListCollectionGroups</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListCollectionGroups</code> operations, which returns results in the next page.</p>
+   * If your initial `ListCollectionGroups` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListCollectionGroups` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Default is 20. You can use <code>nextToken</code> to get the next page of results.</p>
+   * The maximum number of results to return. Default is 20. You can use `nextToken` to get the next page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about a collection group.</p>
+ * Summary information about a collection group.
+ *
  * @public
  */
 export interface CollectionGroupSummary {
   /**
-   * <p>The unique identifier of the collection group.</p>
+   * The unique identifier of the collection group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * The Amazon Resource Name (ARN) of the collection group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the collection group.</p>
+   * The name of the collection group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The number of collections within the collection group.</p>
+   * The number of collections within the collection group.
+   *
    * @public
    */
   numberOfCollections?: number | undefined;
 
   /**
-   * <p>The Epoch time when the collection group was created.</p>
+   * The Epoch time when the collection group was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>Capacity limits for a collection group. These limits define the minimum and maximum OpenSearch Compute Units (OCUs) for indexing and search operations that can be used by collections in the group.</p>
+   * Capacity limits for a collection group. These limits define the minimum and maximum OpenSearch Compute Units (OCUs) for indexing and search operations that can be used by collections in the group.
+   *
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
-   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * The generation of Amazon OpenSearch Serverless for the collection group.
+   *
    * @public
    */
   generation?: ServerlessGeneration | undefined;
@@ -1867,13 +2144,15 @@ export interface CollectionGroupSummary {
  */
 export interface ListCollectionGroupsResponse {
   /**
-   * <p>Details about each collection group.</p>
+   * Details about each collection group.
+   *
    * @public
    */
   collectionGroupSummaries?: CollectionGroupSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1884,79 +2163,92 @@ export interface ListCollectionGroupsResponse {
  */
 export interface UpdateCollectionGroupRequest {
   /**
-   * <p>The unique identifier of the collection group to update.</p>
+   * The unique identifier of the collection group to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>A new description for the collection group.</p>
+   * A new description for the collection group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated capacity limits for the collection group, in OpenSearch Compute Units (OCUs). Updates to capacity limits are not incremental. Any field not specified resets to its default value.</p>
+   * The updated capacity limits for the collection group, in OpenSearch Compute Units (OCUs). Updates to capacity limits are not incremental. Any field not specified resets to its default value.
+   *
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about the updated collection group.</p>
+ * Details about the updated collection group.
+ *
  * @public
  */
 export interface UpdateCollectionGroupDetail {
   /**
-   * <p>The unique identifier of the collection group.</p>
+   * The unique identifier of the collection group.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection group.</p>
+   * The Amazon Resource Name (ARN) of the collection group.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the collection group.</p>
+   * The name of the collection group.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the collection group.</p>
+   * The description of the collection group.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).</p>
+   * The capacity limits for the collection group, in OpenSearch Compute Units (OCUs).
+   *
    * @public
    */
   capacityLimits?: CollectionGroupCapacityLimits | undefined;
 
   /**
-   * <p>The Epoch time when the collection group was created.</p>
+   * The Epoch time when the collection group was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The date and time when the collection group was last modified.</p>
+   * The date and time when the collection group was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
 
   /**
-   * <p>The generation of Amazon OpenSearch Serverless for the collection group.</p>
+   * The generation of Amazon OpenSearch Serverless for the collection group.
+   *
    * @public
    */
   generation?: ServerlessGeneration | undefined;
@@ -1967,31 +2259,36 @@ export interface UpdateCollectionGroupDetail {
  */
 export interface UpdateCollectionGroupResponse {
   /**
-   * <p>Details about the updated collection group.</p>
+   * Details about the updated collection group.
+   *
    * @public
    */
   updateCollectionGroupDetail?: UpdateCollectionGroupDetail | undefined;
 }
 
 /**
- * <p>Describes IAM Identity Center options for creating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * Describes IAM Identity Center options for creating an OpenSearch Serverless security configuration in the form of a key-value map.
+ *
  * @public
  */
 export interface CreateIamIdentityCenterConfigOptions {
   /**
-   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+   *
    * @public
    */
   instanceArn: string | undefined;
 
   /**
-   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * The user attribute for this IAM Identity Center integration. Defaults to `UserId`.
+   *
    * @public
    */
   userAttribute?: IamIdentityCenterUserAttribute | undefined;
 
   /**
-   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * The group attribute for this IAM Identity Center integration. Defaults to `GroupId`.
+   *
    * @public
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
@@ -2002,19 +2299,22 @@ export interface CreateIamIdentityCenterConfigOptions {
  */
 export interface CreateIndexRequest {
   /**
-   * <p>The unique identifier of the collection in which to create the index.</p>
+   * The unique identifier of the collection in which to create the index.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the index to create. Index names must be lowercase and can't begin with underscores (_) or hyphens (-).</p>
+   * The name of the index to create. Index names must be lowercase and can't begin with underscores (_) or hyphens (-).
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The JSON schema definition for the index, including field mappings and settings.</p>
+   * The JSON schema definition for the index, including field mappings and settings.
+   *
    * @public
    */
   indexSchema?: __DocumentType | undefined;
@@ -2026,36 +2326,42 @@ export interface CreateIndexRequest {
 export interface CreateIndexResponse {}
 
 /**
- * <p>The Amazon S3 source configuration for an ingestion job.</p>
+ * The Amazon S3 source configuration for an ingestion job.
+ *
  * @public
  */
 export interface IngestionJobS3Source {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the Amazon S3 bucket to ingest data from.</p>
+   * The name or Amazon Resource Name (ARN) of the Amazon S3 bucket to ingest data from.
+   *
    * @public
    */
   bucket?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket.</p>
+   * The Amazon Web Services account ID that owns the Amazon S3 bucket.
+   *
    * @public
    */
   bucketOwnerAccountId?: string | undefined;
 
   /**
-   * <p>A key prefix that limits ingestion to objects in the Amazon S3 bucket whose keys begin with the prefix.</p>
+   * A key prefix that limits ingestion to objects in the Amazon S3 bucket whose keys begin with the prefix.
+   *
    * @public
    */
   keyPrefix?: string | undefined;
 }
 
 /**
- * <p>The source that an ingestion job ingests data from.</p>
+ * The source that an ingestion job ingests data from.
+ *
  * @public
  */
 export interface IngestionJobSource {
   /**
-   * <p>The Amazon S3 source configuration for the ingestion job.</p>
+   * The Amazon S3 source configuration for the ingestion job.
+   *
    * @public
    */
   s3: IngestionJobS3Source | undefined;
@@ -2066,43 +2372,50 @@ export interface IngestionJobSource {
  */
 export interface CreateIngestionJobRequest {
   /**
-   * <p>The unique identifier of the collection to ingest data into.</p>
+   * The unique identifier of the collection to ingest data into.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>The name of the ingestion job. The name must be unique within the collection.</p>
+   * The name of the ingestion job. The name must be unique within the collection.
+   *
    * @public
    */
   ingestionJobName: string | undefined;
 
   /**
-   * <p>The name of the index to ingest documents into.</p>
+   * The name of the index to ingest documents into.
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * The name of the index where documents that fail to be ingested are recorded.
+   *
    * @public
    */
   failureIndexName?: string | undefined;
 
   /**
-   * <p>The Amazon S3 source to ingest data from.</p>
+   * The Amazon S3 source to ingest data from.
+   *
    * @public
    */
   source: IngestionJobSource | undefined;
 
   /**
-   * <p>An arbitrary set of tags (key–value pairs) to associate with the ingestion job.</p>
+   * An arbitrary set of tags (key–value pairs) to associate with the ingestion job.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2115,13 +2428,15 @@ export interface CreateIngestionJobRequest {
  */
 export interface IngestionAlert {
   /**
-   * <p>The code that identifies the alert.</p>
+   * The code that identifies the alert.
+   *
    * @public
    */
   code?: IngestionAlertCode | undefined;
 
   /**
-   * <p>A description of the alert.</p>
+   * A description of the alert.
+   *
    * @public
    */
   message?: string | undefined;
@@ -2133,145 +2448,169 @@ export interface IngestionAlert {
  */
 export interface IngestionFailureReason {
   /**
-   * <p>The code that identifies the reason for the failure.</p>
+   * The code that identifies the reason for the failure.
+   *
    * @public
    */
   code?: IngestionFailureCode | undefined;
 
   /**
-   * <p>A description of the reason for the failure.</p>
+   * A description of the reason for the failure.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>Processing statistics for the Amazon S3 objects in an ingestion source.</p>
+ * Processing statistics for the Amazon S3 objects in an ingestion source.
+ *
  * @public
  */
 export interface S3Statistics {
   /**
-   * <p>The number of Amazon S3 objects discovered for ingestion.</p>
+   * The number of Amazon S3 objects discovered for ingestion.
+   *
    * @public
    */
   objectsDiscovered?: number | undefined;
 
   /**
-   * <p>The number of Amazon S3 objects successfully ingested.</p>
+   * The number of Amazon S3 objects successfully ingested.
+   *
    * @public
    */
   objectsIngested?: number | undefined;
 
   /**
-   * <p>The number of Amazon S3 objects that failed to be ingested.</p>
+   * The number of Amazon S3 objects that failed to be ingested.
+   *
    * @public
    */
   objectsFailed?: number | undefined;
 }
 
 /**
- * <p>Processing statistics for an ingestion job or ingestion stream.</p>
+ * Processing statistics for an ingestion job or ingestion stream.
+ *
  * @public
  */
 export interface IngestionStatistics {
   /**
-   * <p>Processing statistics for the Amazon S3 source.</p>
+   * Processing statistics for the Amazon S3 source.
+   *
    * @public
    */
   s3?: S3Statistics | undefined;
 }
 
 /**
- * <p>Details about an ingestion job.</p>
+ * Details about an ingestion job.
+ *
  * @public
  */
 export interface IngestionJobDetail {
   /**
-   * <p>The unique identifier of the ingestion job.</p>
+   * The unique identifier of the ingestion job.
+   *
    * @public
    */
   ingestionJobId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ingestion job.</p>
+   * The Amazon Resource Name (ARN) of the ingestion job.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * The unique identifier of the collection that the ingestion job belongs to.
+   *
    * @public
    */
   collectionId?: string | undefined;
 
   /**
-   * <p>The name of the ingestion job.</p>
+   * The name of the ingestion job.
+   *
    * @public
    */
   ingestionJobName?: string | undefined;
 
   /**
-   * <p>The name of the index that documents are ingested into.</p>
+   * The name of the index that documents are ingested into.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * The name of the index where documents that fail to be ingested are recorded.
+   *
    * @public
    */
   failureIndexName?: string | undefined;
 
   /**
-   * <p>The Amazon S3 source that the ingestion job ingests data from.</p>
+   * The Amazon S3 source that the ingestion job ingests data from.
+   *
    * @public
    */
   source?: IngestionJobSource | undefined;
 
   /**
-   * <p>The current lifecycle status of the ingestion job. For example, <code>CREATING</code>, <code>ACTIVE</code>, <code>COMPLETED</code>, or <code>CANCELLED</code>.</p>
+   * The current lifecycle status of the ingestion job. For example, `CREATING`, `ACTIVE`, `COMPLETED`, or `CANCELLED`.
+   *
    * @public
    */
   status?: IngestionJobStatus | undefined;
 
   /**
-   * <p>The current processing state of the ingestion job. For example, <code>SCANNING</code>, <code>INGESTION_IN_PROGRESS</code>, or <code>INGESTION_COMPLETE</code>.</p>
+   * The current processing state of the ingestion job. For example, `SCANNING`, `INGESTION_IN_PROGRESS`, or `INGESTION_COMPLETE`.
+   *
    * @public
    */
   state?: IngestionState | undefined;
 
   /**
-   * <p>Processing statistics for the ingestion job, such as the number of Amazon S3 objects discovered, ingested, and failed.</p>
+   * Processing statistics for the ingestion job, such as the number of Amazon S3 objects discovered, ingested, and failed.
+   *
    * @public
    */
   statistics?: IngestionStatistics | undefined;
 
   /**
-   * <p>The revision number of the ingestion job.</p>
+   * The revision number of the ingestion job.
+   *
    * @public
    */
   revision?: number | undefined;
 
   /**
-   * <p>The date and time when the ingestion job was created.</p>
+   * The date and time when the ingestion job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the ingestion job was last updated.</p>
+   * The date and time when the ingestion job was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The reasons that the ingestion job reached a terminal failure state, if applicable.</p>
+   * The reasons that the ingestion job reached a terminal failure state, if applicable.
+   *
    * @public
    */
   failureReasons?: IngestionFailureReason[] | undefined;
 
   /**
-   * <p>Active alerts about operational issues that currently affect the ingestion job. Alerts are cleared when the issue is resolved.</p>
+   * Active alerts about operational issues that currently affect the ingestion job. Alerts are cleared when the issue is resolved.
+   *
    * @public
    */
   activeAlerts?: IngestionAlert[] | undefined;
@@ -2282,7 +2621,8 @@ export interface IngestionJobDetail {
  */
 export interface CreateIngestionJobResponse {
   /**
-   * <p>Details about the created ingestion job.</p>
+   * Details about the created ingestion job.
+   *
    * @public
    */
   ingestionJobDetail?: IngestionJobDetail | undefined;
@@ -2295,7 +2635,8 @@ export interface CreateIngestionJobResponse {
  */
 export interface StreamBucketConfig {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the Amazon S3 bucket to ingest data from.</p>
+   * The name or Amazon Resource Name (ARN) of the Amazon S3 bucket to ingest data from.
+   *
    * @public
    */
   bucket: string | undefined;
@@ -2308,37 +2649,43 @@ export interface StreamBucketConfig {
   bucketOwnerAccountId?: string | undefined;
 
   /**
-   * <p>Specifies whether to perform a one-time scan of the objects that already exist in the bucket before the stream begins processing Amazon S3 event notifications. If <code>DISABLED</code>, only new objects are ingested.</p>
+   * Specifies whether to perform a one-time scan of the objects that already exist in the bucket before the stream begins processing Amazon S3 event notifications. If `DISABLED`, only new objects are ingested.
+   *
    * @public
    */
   initialScan?: InitialScan | undefined;
 }
 
 /**
- * <p>The Amazon S3 source configuration for an ingestion stream.</p>
+ * The Amazon S3 source configuration for an ingestion stream.
+ *
  * @public
  */
 export interface IngestionStreamS3Source {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SQS queue that receives Amazon S3 event notifications for the source buckets.</p>
+   * The Amazon Resource Name (ARN) of the Amazon SQS queue that receives Amazon S3 event notifications for the source buckets.
+   *
    * @public
    */
   sqsArn: string | undefined;
 
   /**
-   * <p>The configuration for each Amazon S3 bucket that the ingestion stream ingests data from.</p>
+   * The configuration for each Amazon S3 bucket that the ingestion stream ingests data from.
+   *
    * @public
    */
   buckets?: StreamBucketConfig[] | undefined;
 }
 
 /**
- * <p>The source that an ingestion stream ingests data from.</p>
+ * The source that an ingestion stream ingests data from.
+ *
  * @public
  */
 export interface IngestionStreamSource {
   /**
-   * <p>The Amazon S3 source configuration for the ingestion stream.</p>
+   * The Amazon S3 source configuration for the ingestion stream.
+   *
    * @public
    */
   s3: IngestionStreamS3Source | undefined;
@@ -2349,151 +2696,176 @@ export interface IngestionStreamSource {
  */
 export interface CreateIngestionStreamRequest {
   /**
-   * <p>The unique identifier of the collection to ingest data into.</p>
+   * The unique identifier of the collection to ingest data into.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>The name of the ingestion stream. The name must be unique within the collection.</p>
+   * The name of the ingestion stream. The name must be unique within the collection.
+   *
    * @public
    */
   ingestionStreamName: string | undefined;
 
   /**
-   * <p>The name of the index to ingest documents into.</p>
+   * The name of the index to ingest documents into.
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * The name of the index where documents that fail to be ingested are recorded.
+   *
    * @public
    */
   failureIndexName?: string | undefined;
 
   /**
-   * <p>The Amazon S3 source to ingest data from, including the Amazon SQS queue that receives S3 event notifications.</p>
+   * The Amazon S3 source to ingest data from, including the Amazon SQS queue that receives S3 event notifications.
+   *
    * @public
    */
   source: IngestionStreamSource | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that OpenSearch Serverless assumes to read data from the source. The role must be in the same account as the collection.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that OpenSearch Serverless assumes to read data from the source. The role must be in the same account as the collection.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>An arbitrary set of tags (key–value pairs) to associate with the ingestion stream.</p>
+   * An arbitrary set of tags (key–value pairs) to associate with the ingestion stream.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about an ingestion stream.</p>
+ * Details about an ingestion stream.
+ *
  * @public
  */
 export interface IngestionStreamDetail {
   /**
-   * <p>The unique identifier of the ingestion stream.</p>
+   * The unique identifier of the ingestion stream.
+   *
    * @public
    */
   ingestionStreamId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ingestion stream.</p>
+   * The Amazon Resource Name (ARN) of the ingestion stream.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The unique identifier of the collection that the ingestion stream belongs to.</p>
+   * The unique identifier of the collection that the ingestion stream belongs to.
+   *
    * @public
    */
   collectionId?: string | undefined;
 
   /**
-   * <p>The name of the ingestion stream.</p>
+   * The name of the ingestion stream.
+   *
    * @public
    */
   ingestionStreamName?: string | undefined;
 
   /**
-   * <p>The name of the index that documents are ingested into.</p>
+   * The name of the index that documents are ingested into.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The name of the index where documents that fail to be ingested are recorded.</p>
+   * The name of the index where documents that fail to be ingested are recorded.
+   *
    * @public
    */
   failureIndexName?: string | undefined;
 
   /**
-   * <p>The Amazon S3 source that the ingestion stream ingests data from.</p>
+   * The Amazon S3 source that the ingestion stream ingests data from.
+   *
    * @public
    */
   source?: IngestionStreamSource | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that OpenSearch Serverless assumes to read data from the source.</p>
+   * The Amazon Resource Name (ARN) of the IAM role that OpenSearch Serverless assumes to read data from the source.
+   *
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the ingestion stream. For example, <code>CREATING</code>, <code>ACTIVE</code>, or <code>DELETING</code>.</p>
+   * The current lifecycle status of the ingestion stream. For example, `CREATING`, `ACTIVE`, or `DELETING`.
+   *
    * @public
    */
   status?: IngestionStreamStatus | undefined;
 
   /**
-   * <p>The current processing state of the ingestion stream. For example, <code>STARTING</code> or <code>INGESTION_IN_PROGRESS</code>.</p>
+   * The current processing state of the ingestion stream. For example, `STARTING` or `INGESTION_IN_PROGRESS`.
+   *
    * @public
    */
   state?: IngestionState | undefined;
 
   /**
-   * <p>Processing statistics for the ingestion stream, such as the number of Amazon S3 objects discovered, ingested, and failed.</p>
+   * Processing statistics for the ingestion stream, such as the number of Amazon S3 objects discovered, ingested, and failed.
+   *
    * @public
    */
   statistics?: IngestionStatistics | undefined;
 
   /**
-   * <p>The revision number of the ingestion stream.</p>
+   * The revision number of the ingestion stream.
+   *
    * @public
    */
   revision?: number | undefined;
 
   /**
-   * <p>The date and time when the ingestion stream was created.</p>
+   * The date and time when the ingestion stream was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the ingestion stream was last updated.</p>
+   * The date and time when the ingestion stream was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
 
   /**
-   * <p>The reasons that the ingestion stream reached a terminal failure state, if applicable.</p>
+   * The reasons that the ingestion stream reached a terminal failure state, if applicable.
+   *
    * @public
    */
   failureReasons?: IngestionFailureReason[] | undefined;
 
   /**
-   * <p>Active alerts about operational issues that currently affect the ingestion stream. Alerts are cleared when the issue is resolved.</p>
+   * Active alerts about operational issues that currently affect the ingestion stream. Alerts are cleared when the issue is resolved.
+   *
    * @public
    */
   activeAlerts?: IngestionAlert[] | undefined;
@@ -2504,7 +2876,8 @@ export interface IngestionStreamDetail {
  */
 export interface CreateIngestionStreamResponse {
   /**
-   * <p>Details about the created ingestion stream.</p>
+   * Details about the created ingestion stream.
+   *
    * @public
    */
   ingestionStreamDetail?: IngestionStreamDetail | undefined;
@@ -2515,31 +2888,36 @@ export interface CreateIngestionStreamResponse {
  */
 export interface CreateLifecyclePolicyRequest {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the lifecycle policy.</p>
+   * The name of the lifecycle policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the lifecycle policy.</p>
+   * A description of the lifecycle policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document to use as the content for the lifecycle policy.</p>
+   * The JSON policy document to use as the content for the lifecycle policy.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2550,61 +2928,71 @@ export interface CreateLifecyclePolicyRequest {
  */
 export interface CreateLifecyclePolicyResponse {
   /**
-   * <p>Details about the created lifecycle policy.</p>
+   * Details about the created lifecycle policy.
+   *
    * @public
    */
   lifecyclePolicyDetail?: LifecyclePolicyDetail | undefined;
 }
 
 /**
- * <p>Describes IAM federation options for an OpenSearch Serverless security configuration in the form of a key-value map. These options define how OpenSearch Serverless integrates with external identity providers using federation.</p>
+ * Describes IAM federation options for an OpenSearch Serverless security configuration in the form of a key-value map. These options define how OpenSearch Serverless integrates with external identity providers using federation.
+ *
  * @public
  */
 export interface IamFederationConfigOptions {
   /**
-   * <p>The group attribute for this IAM federation integration. This attribute is used to map identity provider groups to OpenSearch Serverless permissions.</p>
+   * The group attribute for this IAM federation integration. This attribute is used to map identity provider groups to OpenSearch Serverless permissions.
+   *
    * @public
    */
   groupAttribute?: string | undefined;
 
   /**
-   * <p>The user attribute for this IAM federation integration. This attribute is used to identify users in the federated authentication process.</p>
+   * The user attribute for this IAM federation integration. This attribute is used to identify users in the federated authentication process.
+   *
    * @public
    */
   userAttribute?: string | undefined;
 }
 
 /**
- * <p>Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+ *
  * @public
  */
 export interface SamlConfigOptions {
   /**
-   * <p>The XML IdP metadata file generated from your identity provider.</p>
+   * The XML IdP metadata file generated from your identity provider.
+   *
    * @public
    */
   metadata: string | undefined;
 
   /**
-   * <p>A user attribute for this SAML integration.</p>
+   * A user attribute for this SAML integration.
+   *
    * @public
    */
   userAttribute?: string | undefined;
 
   /**
-   * <p>The group attribute for this SAML integration.</p>
+   * The group attribute for this SAML integration.
+   *
    * @public
    */
   groupAttribute?: string | undefined;
 
   /**
-   * <p>Custom entity ID attribute to override the default entity ID for this SAML integration.</p>
+   * Custom entity ID attribute to override the default entity ID for this SAML integration.
+   *
    * @public
    */
   openSearchServerlessEntityId?: string | undefined;
 
   /**
-   * <p>The session timeout, in minutes. Default is 60 minutes (12 hours).</p>
+   * The session timeout, in minutes. Default is 60 minutes (12 hours).
+   *
    * @public
    */
   sessionTimeout?: number | undefined;
@@ -2615,145 +3003,169 @@ export interface SamlConfigOptions {
  */
 export interface CreateSecurityConfigRequest {
   /**
-   * <p>The type of security configuration.</p>
+   * The type of security configuration.
+   *
    * @public
    */
   type: SecurityConfigType | undefined;
 
   /**
-   * <p>The name of the security configuration.</p>
+   * The name of the security configuration.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the security configuration.</p>
+   * A description of the security configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Describes SAML options in the form of a key-value map. This field is required if you specify <code>SAML</code> for the <code>type</code> parameter.</p>
+   * Describes SAML options in the form of a key-value map. This field is required if you specify `SAML` for the `type` parameter.
+   *
    * @public
    */
   samlOptions?: SamlConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify <code>iamidentitycenter</code> for the <code>type</code> parameter.</p>
+   * Describes IAM Identity Center options in the form of a key-value map. This field is required if you specify `iamidentitycenter` for the `type` parameter.
+   *
    * @public
    */
   iamIdentityCenterOptions?: CreateIamIdentityCenterConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM federation options in the form of a key-value map. This field is required if you specify <code>iamFederation</code> for the <code>type</code> parameter.</p>
+   * Describes IAM federation options in the form of a key-value map. This field is required if you specify `iamFederation` for the `type` parameter.
+   *
    * @public
    */
   iamFederationOptions?: IamFederationConfigOptions | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map.
+ *
  * @public
  */
 export interface IamIdentityCenterConfigOptions {
   /**
-   * <p>The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.</p>
+   * The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+   *
    * @public
    */
   instanceArn?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+   *
    * @public
    */
   applicationArn?: string | undefined;
 
   /**
-   * <p>The name of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * The name of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+   *
    * @public
    */
   applicationName?: string | undefined;
 
   /**
-   * <p>The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.</p>
+   * The description of the IAM Identity Center application used to integrate with OpenSearch Serverless.
+   *
    * @public
    */
   applicationDescription?: string | undefined;
 
   /**
-   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code> </p>
+   * The user attribute for this IAM Identity Center integration. Defaults to `UserId`
+   *
    * @public
    */
   userAttribute?: IamIdentityCenterUserAttribute | undefined;
 
   /**
-   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * The group attribute for this IAM Identity Center integration. Defaults to `GroupId`.
+   *
    * @public
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
 }
 
 /**
- * <p>Details about a security configuration for OpenSearch Serverless.</p>
+ * Details about a security configuration for OpenSearch Serverless.
+ *
  * @public
  */
 export interface SecurityConfigDetail {
   /**
-   * <p>The unique identifier of the security configuration.</p>
+   * The unique identifier of the security configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The type of security configuration.</p>
+   * The type of security configuration.
+   *
    * @public
    */
   type?: SecurityConfigType | undefined;
 
   /**
-   * <p>The version of the security configuration.</p>
+   * The version of the security configuration.
+   *
    * @public
    */
   configVersion?: string | undefined;
 
   /**
-   * <p>The description of the security configuration.</p>
+   * The description of the security configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>SAML options for the security configuration in the form of a key-value map.</p>
+   * SAML options for the security configuration in the form of a key-value map.
+   *
    * @public
    */
   samlOptions?: SamlConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM Identity Center options in the form of a key-value map.</p>
+   * Describes IAM Identity Center options in the form of a key-value map.
+   *
    * @public
    */
   iamIdentityCenterOptions?: IamIdentityCenterConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.</p>
+   * Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
+   *
    * @public
    */
   iamFederationOptions?: IamFederationConfigOptions | undefined;
 
   /**
-   * <p>The date the configuration was created.</p>
+   * The date the configuration was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The timestamp of when the configuration was last modified.</p>
+   * The timestamp of when the configuration was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -2764,7 +3176,8 @@ export interface SecurityConfigDetail {
  */
 export interface CreateSecurityConfigResponse {
   /**
-   * <p>Details about the created security configuration.</p>
+   * Details about the created security configuration.
+   *
    * @public
    */
   securityConfigDetail?: SecurityConfigDetail | undefined;
@@ -2775,79 +3188,92 @@ export interface CreateSecurityConfigResponse {
  */
 export interface CreateSecurityPolicyRequest {
   /**
-   * <p>The type of security policy.</p>
+   * The type of security policy.
+   *
    * @public
    */
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the policy. Typically used to store information about the permissions defined in the policy.</p>
+   * A description of the policy. Typically used to store information about the permissions defined in the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document to use as the content for the new policy.</p>
+   * The JSON policy document to use as the content for the new policy.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Details about an OpenSearch Serverless security policy.</p>
+ * Details about an OpenSearch Serverless security policy.
+ *
  * @public
  */
 export interface SecurityPolicyDetail {
   /**
-   * <p>The type of security policy.</p>
+   * The type of security policy.
+   *
    * @public
    */
   type?: SecurityPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The version of the policy.</p>
+   * The version of the policy.
+   *
    * @public
    */
   policyVersion?: string | undefined;
 
   /**
-   * <p>The description of the security policy.</p>
+   * The description of the security policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document without any whitespaces.</p>
+   * The JSON policy document without any whitespaces.
+   *
    * @public
    */
   policy?: __DocumentType | undefined;
 
   /**
-   * <p>The date the policy was created.</p>
+   * The date the policy was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The timestamp of when the policy was last modified.</p>
+   * The timestamp of when the policy was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -2858,7 +3284,8 @@ export interface SecurityPolicyDetail {
  */
 export interface CreateSecurityPolicyResponse {
   /**
-   * <p>Details about the created security policy.</p>
+   * Details about the created security policy.
+   *
    * @public
    */
   securityPolicyDetail?: SecurityPolicyDetail | undefined;
@@ -2869,55 +3296,64 @@ export interface CreateSecurityPolicyResponse {
  */
 export interface CreateVpcEndpointRequest {
   /**
-   * <p>The name of the interface endpoint.</p>
+   * The name of the interface endpoint.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The ID of the VPC from which you'll access OpenSearch Serverless.</p>
+   * The ID of the VPC from which you'll access OpenSearch Serverless.
+   *
    * @public
    */
   vpcId: string | undefined;
 
   /**
-   * <p>The ID of one or more subnets from which you'll access OpenSearch Serverless.</p>
+   * The ID of one or more subnets from which you'll access OpenSearch Serverless.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
+   * The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Creation details for an OpenSearch Serverless-managed interface endpoint. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html">Access Amazon OpenSearch Serverless using an interface endpoint</a>.</p>
+ * Creation details for an OpenSearch Serverless-managed interface endpoint. For more information, see [Access Amazon OpenSearch Serverless using an interface endpoint](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vpc.html).
+ *
  * @public
  */
 export interface CreateVpcEndpointDetail {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status in the endpoint creation process.</p>
+   * The current status in the endpoint creation process.
+   *
    * @public
    */
   status?: VpcEndpointStatus | undefined;
@@ -2928,7 +3364,8 @@ export interface CreateVpcEndpointDetail {
  */
 export interface CreateVpcEndpointResponse {
   /**
-   * <p>Details about the created interface VPC endpoint.</p>
+   * Details about the created interface VPC endpoint.
+   *
    * @public
    */
   createVpcEndpointDetail?: CreateVpcEndpointDetail | undefined;
@@ -2939,13 +3376,15 @@ export interface CreateVpcEndpointResponse {
  */
 export interface DeleteIndexRequest {
   /**
-   * <p>The unique identifier of the collection containing the index to delete.</p>
+   * The unique identifier of the collection containing the index to delete.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the index to delete.</p>
+   * The name of the index to delete.
+   *
    * @public
    */
   indexName: string | undefined;
@@ -2961,19 +3400,22 @@ export interface DeleteIndexResponse {}
  */
 export interface DeleteIngestionStreamRequest {
   /**
-   * <p>The unique identifier of the collection that the ingestion stream belongs to.</p>
+   * The unique identifier of the collection that the ingestion stream belongs to.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion stream to delete.</p>
+   * The unique identifier of the ingestion stream to delete.
+   *
    * @public
    */
   ingestionStreamId: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -2984,25 +3426,29 @@ export interface DeleteIngestionStreamRequest {
  */
 export interface DeleteIngestionStreamResponse {
   /**
-   * <p>The unique identifier of the deleted ingestion stream.</p>
+   * The unique identifier of the deleted ingestion stream.
+   *
    * @public
    */
   ingestionStreamId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the collection that the ingestion stream belonged to.</p>
+   * The unique identifier of the collection that the ingestion stream belonged to.
+   *
    * @public
    */
   collectionId?: string | undefined;
 
   /**
-   * <p>The name of the deleted ingestion stream.</p>
+   * The name of the deleted ingestion stream.
+   *
    * @public
    */
   ingestionStreamName?: string | undefined;
 
   /**
-   * <p>The current status of the ingestion stream.</p>
+   * The current status of the ingestion stream.
+   *
    * @public
    */
   status?: IngestionStreamStatus | undefined;
@@ -3013,19 +3459,22 @@ export interface DeleteIngestionStreamResponse {
  */
 export interface DeleteLifecyclePolicyRequest {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the policy to delete.</p>
+   * The name of the policy to delete.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3041,13 +3490,15 @@ export interface DeleteLifecyclePolicyResponse {}
  */
 export interface DeleteSecurityConfigRequest {
   /**
-   * <p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>
+   * The security configuration identifier. For SAML the ID will be `saml/<accountId>/<idpProviderName>`. For example, `saml/123456789123/OKTADev`.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3063,19 +3514,22 @@ export interface DeleteSecurityConfigResponse {}
  */
 export interface DeleteSecurityPolicyRequest {
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>The name of the policy to delete.</p>
+   * The name of the policy to delete.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3091,37 +3545,43 @@ export interface DeleteSecurityPolicyResponse {}
  */
 export interface DeleteVpcEndpointRequest {
   /**
-   * <p>The VPC endpoint identifier.</p>
+   * The VPC endpoint identifier.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Deletion details for an OpenSearch Serverless-managed interface endpoint.</p>
+ * Deletion details for an OpenSearch Serverless-managed interface endpoint.
+ *
  * @public
  */
 export interface DeleteVpcEndpointDetail {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the endpoint deletion process.</p>
+   * The current status of the endpoint deletion process.
+   *
    * @public
    */
   status?: VpcEndpointStatus | undefined;
@@ -3132,7 +3592,8 @@ export interface DeleteVpcEndpointDetail {
  */
 export interface DeleteVpcEndpointResponse {
   /**
-   * <p>Details about the deleted endpoint.</p>
+   * Details about the deleted endpoint.
+   *
    * @public
    */
   deleteVpcEndpointDetail?: DeleteVpcEndpointDetail | undefined;
@@ -3148,7 +3609,8 @@ export interface GetAccountSettingsRequest {}
  */
 export interface GetAccountSettingsResponse {
   /**
-   * <p>OpenSearch Serverless-related details for the current account.</p>
+   * OpenSearch Serverless-related details for the current account.
+   *
    * @public
    */
   accountSettingsDetail?: AccountSettingsDetail | undefined;
@@ -3159,13 +3621,15 @@ export interface GetAccountSettingsResponse {
  */
 export interface GetIndexRequest {
   /**
-   * <p>The unique identifier of the collection containing the index.</p>
+   * The unique identifier of the collection containing the index.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the index to retrieve information about.</p>
+   * The name of the index to retrieve information about.
+   *
    * @public
    */
   indexName: string | undefined;
@@ -3176,7 +3640,8 @@ export interface GetIndexRequest {
  */
 export interface GetIndexResponse {
   /**
-   * <p>The JSON schema definition for the index, including field mappings and settings.</p>
+   * The JSON schema definition for the index, including field mappings and settings.
+   *
    * @public
    */
   indexSchema?: __DocumentType | undefined;
@@ -3187,13 +3652,15 @@ export interface GetIndexResponse {
  */
 export interface GetIngestionJobRequest {
   /**
-   * <p>The unique identifier of the collection that the ingestion job belongs to.</p>
+   * The unique identifier of the collection that the ingestion job belongs to.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion job to retrieve.</p>
+   * The unique identifier of the ingestion job to retrieve.
+   *
    * @public
    */
   ingestionJobId: string | undefined;
@@ -3204,7 +3671,8 @@ export interface GetIngestionJobRequest {
  */
 export interface GetIngestionJobResponse {
   /**
-   * <p>Details about the requested ingestion job.</p>
+   * Details about the requested ingestion job.
+   *
    * @public
    */
   ingestionJobDetail?: IngestionJobDetail | undefined;
@@ -3215,13 +3683,15 @@ export interface GetIngestionJobResponse {
  */
 export interface GetIngestionStreamRequest {
   /**
-   * <p>The unique identifier of the collection that the ingestion stream belongs to.</p>
+   * The unique identifier of the collection that the ingestion stream belongs to.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>The unique identifier of the ingestion stream to retrieve.</p>
+   * The unique identifier of the ingestion stream to retrieve.
+   *
    * @public
    */
   ingestionStreamId: string | undefined;
@@ -3232,7 +3702,8 @@ export interface GetIngestionStreamRequest {
  */
 export interface GetIngestionStreamResponse {
   /**
-   * <p>Details about the requested ingestion stream.</p>
+   * Details about the requested ingestion stream.
+   *
    * @public
    */
   ingestionStreamDetail?: IngestionStreamDetail | undefined;
@@ -3244,42 +3715,49 @@ export interface GetIngestionStreamResponse {
 export interface GetPoliciesStatsRequest {}
 
 /**
- * <p>Statistics for an OpenSearch Serverless lifecycle policy.</p>
+ * Statistics for an OpenSearch Serverless lifecycle policy.
+ *
  * @public
  */
 export interface LifecyclePolicyStats {
   /**
-   * <p>The number of retention lifecycle policies in the current account.</p>
+   * The number of retention lifecycle policies in the current account.
+   *
    * @public
    */
   RetentionPolicyCount?: number | undefined;
 }
 
 /**
- * <p>Statistics for an OpenSearch Serverless security configuration.</p>
+ * Statistics for an OpenSearch Serverless security configuration.
+ *
  * @public
  */
 export interface SecurityConfigStats {
   /**
-   * <p>The number of security configurations in the current account.</p>
+   * The number of security configurations in the current account.
+   *
    * @public
    */
   SamlConfigCount?: number | undefined;
 }
 
 /**
- * <p>Statistics for an OpenSearch Serverless security policy.</p>
+ * Statistics for an OpenSearch Serverless security policy.
+ *
  * @public
  */
 export interface SecurityPolicyStats {
   /**
-   * <p>The number of encryption policies in the current account.</p>
+   * The number of encryption policies in the current account.
+   *
    * @public
    */
   EncryptionPolicyCount?: number | undefined;
 
   /**
-   * <p>The number of network policies in the current account.</p>
+   * The number of network policies in the current account.
+   *
    * @public
    */
   NetworkPolicyCount?: number | undefined;
@@ -3290,31 +3768,36 @@ export interface SecurityPolicyStats {
  */
 export interface GetPoliciesStatsResponse {
   /**
-   * <p>Information about the data access policies in your account.</p>
+   * Information about the data access policies in your account.
+   *
    * @public
    */
   AccessPolicyStats?: AccessPolicyStats | undefined;
 
   /**
-   * <p>Information about the security policies in your account.</p>
+   * Information about the security policies in your account.
+   *
    * @public
    */
   SecurityPolicyStats?: SecurityPolicyStats | undefined;
 
   /**
-   * <p>Information about the security configurations in your account.</p>
+   * Information about the security configurations in your account.
+   *
    * @public
    */
   SecurityConfigStats?: SecurityConfigStats | undefined;
 
   /**
-   * <p>Information about the lifecycle policies in your account.</p>
+   * Information about the lifecycle policies in your account.
+   *
    * @public
    */
   LifecyclePolicyStats?: LifecyclePolicyStats | undefined;
 
   /**
-   * <p>The total number of OpenSearch Serverless security policies and configurations in your account.</p>
+   * The total number of OpenSearch Serverless security policies and configurations in your account.
+   *
    * @public
    */
   TotalPolicyCount?: number | undefined;
@@ -3325,7 +3808,8 @@ export interface GetPoliciesStatsResponse {
  */
 export interface GetSecurityConfigRequest {
   /**
-   * <p>The unique identifier of the security configuration.</p>
+   * The unique identifier of the security configuration.
+   *
    * @public
    */
   id: string | undefined;
@@ -3336,7 +3820,8 @@ export interface GetSecurityConfigRequest {
  */
 export interface GetSecurityConfigResponse {
   /**
-   * <p>Details of the requested security configuration.</p>
+   * Details of the requested security configuration.
+   *
    * @public
    */
   securityConfigDetail?: SecurityConfigDetail | undefined;
@@ -3347,13 +3832,15 @@ export interface GetSecurityConfigResponse {
  */
 export interface GetSecurityPolicyRequest {
   /**
-   * <p>The type of security policy.</p>
+   * The type of security policy.
+   *
    * @public
    */
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>The name of the security policy.</p>
+   * The name of the security policy.
+   *
    * @public
    */
   name: string | undefined;
@@ -3364,7 +3851,8 @@ export interface GetSecurityPolicyRequest {
  */
 export interface GetSecurityPolicyResponse {
   /**
-   * <p>Details about the requested security policy.</p>
+   * Details about the requested security policy.
+   *
    * @public
    */
   securityPolicyDetail?: SecurityPolicyDetail | undefined;
@@ -3375,19 +3863,22 @@ export interface GetSecurityPolicyResponse {
  */
 export interface UpdateIndexRequest {
   /**
-   * <p>The unique identifier of the collection containing the index to update.</p>
+   * The unique identifier of the collection containing the index to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the index to update.</p>
+   * The name of the index to update.
+   *
    * @public
    */
   indexName: string | undefined;
 
   /**
-   * <p>The updated JSON schema definition for the index, including field mappings and settings. </p>
+   * The updated JSON schema definition for the index, including field mappings and settings.
+   *
    * @public
    */
   indexSchema?: __DocumentType | undefined;
@@ -3403,67 +3894,80 @@ export interface UpdateIndexResponse {}
  */
 export interface ListIngestionJobsRequest {
   /**
-   * <p>The unique identifier of the collection to list ingestion jobs for.</p>
+   * The unique identifier of the collection to list ingestion jobs for.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>If your initial <code>ListIngestionJobs</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListIngestionJobs</code> operations, which returns results in the next page.</p>
+   * If your initial `ListIngestionJobs` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListIngestionJobs` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Valid values are 1–100. If you don't specify a value, the default is 100. You can use <code>nextToken</code> to get the next page of results.</p> <p>A response can contain fewer results than <code>maxResults</code>, or no results, and still include a <code>nextToken</code>. To retrieve all results, continue to make the call with the returned <code>nextToken</code> until no <code>nextToken</code> is returned.</p>
+   * The maximum number of results to return. Valid values are 1–100. If you don't specify a value, the default is 100. You can use `nextToken` to get the next page of results.
+   *
+   * A response can contain fewer results than `maxResults`, or no results, and still include a `nextToken`. To retrieve all results, continue to make the call with the returned `nextToken` until no `nextToken` is returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about an ingestion job.</p>
+ * Summary information about an ingestion job.
+ *
  * @public
  */
 export interface IngestionJobSummary {
   /**
-   * <p>The unique identifier of the ingestion job.</p>
+   * The unique identifier of the ingestion job.
+   *
    * @public
    */
   ingestionJobId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ingestion job.</p>
+   * The Amazon Resource Name (ARN) of the ingestion job.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the ingestion job.</p>
+   * The name of the ingestion job.
+   *
    * @public
    */
   ingestionJobName?: string | undefined;
 
   /**
-   * <p>The name of the index that documents are ingested into.</p>
+   * The name of the index that documents are ingested into.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the ingestion job.</p>
+   * The current lifecycle status of the ingestion job.
+   *
    * @public
    */
   status?: IngestionJobStatus | undefined;
 
   /**
-   * <p>The date and time when the ingestion job was created.</p>
+   * The date and time when the ingestion job was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the ingestion job was last updated.</p>
+   * The date and time when the ingestion job was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3474,13 +3978,15 @@ export interface IngestionJobSummary {
  */
 export interface ListIngestionJobsResponse {
   /**
-   * <p>Summary information about each ingestion job.</p>
+   * Summary information about each ingestion job.
+   *
    * @public
    */
   ingestionJobSummaries?: IngestionJobSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3491,67 +3997,80 @@ export interface ListIngestionJobsResponse {
  */
 export interface ListIngestionStreamsRequest {
   /**
-   * <p>The unique identifier of the collection to list ingestion streams for.</p>
+   * The unique identifier of the collection to list ingestion streams for.
+   *
    * @public
    */
   collectionId: string | undefined;
 
   /**
-   * <p>If your initial <code>ListIngestionStreams</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListIngestionStreams</code> operations, which returns results in the next page.</p>
+   * If your initial `ListIngestionStreams` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListIngestionStreams` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return. Valid values are 1–100. If you don't specify a value, the default is 100. You can use <code>nextToken</code> to get the next page of results.</p> <p>A response can contain fewer results than <code>maxResults</code>, or no results, and still include a <code>nextToken</code>. To retrieve all results, continue to make the call with the returned <code>nextToken</code> until no <code>nextToken</code> is returned.</p>
+   * The maximum number of results to return. Valid values are 1–100. If you don't specify a value, the default is 100. You can use `nextToken` to get the next page of results.
+   *
+   * A response can contain fewer results than `maxResults`, or no results, and still include a `nextToken`. To retrieve all results, continue to make the call with the returned `nextToken` until no `nextToken` is returned.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about an ingestion stream.</p>
+ * Summary information about an ingestion stream.
+ *
  * @public
  */
 export interface IngestionStreamSummary {
   /**
-   * <p>The unique identifier of the ingestion stream.</p>
+   * The unique identifier of the ingestion stream.
+   *
    * @public
    */
   ingestionStreamId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ingestion stream.</p>
+   * The Amazon Resource Name (ARN) of the ingestion stream.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the ingestion stream.</p>
+   * The name of the ingestion stream.
+   *
    * @public
    */
   ingestionStreamName?: string | undefined;
 
   /**
-   * <p>The name of the index that documents are ingested into.</p>
+   * The name of the index that documents are ingested into.
+   *
    * @public
    */
   indexName?: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the ingestion stream.</p>
+   * The current lifecycle status of the ingestion stream.
+   *
    * @public
    */
   status?: IngestionStreamStatus | undefined;
 
   /**
-   * <p>The date and time when the ingestion stream was created.</p>
+   * The date and time when the ingestion stream was created.
+   *
    * @public
    */
   createdAt?: Date | undefined;
 
   /**
-   * <p>The date and time when the ingestion stream was last updated.</p>
+   * The date and time when the ingestion stream was last updated.
+   *
    * @public
    */
   updatedAt?: Date | undefined;
@@ -3562,13 +4081,15 @@ export interface IngestionStreamSummary {
  */
 export interface ListIngestionStreamsResponse {
   /**
-   * <p>Summary information about each ingestion stream.</p>
+   * Summary information about each ingestion stream.
+   *
    * @public
    */
   ingestionStreamSummaries?: IngestionStreamSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3579,67 +4100,78 @@ export interface ListIngestionStreamsResponse {
  */
 export interface ListLifecyclePoliciesRequest {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>Resource filters that policies can apply to. Currently, the only supported resource type is <code>index</code>.</p>
+   * Resource filters that policies can apply to. Currently, the only supported resource type is `index`.
+   *
    * @public
    */
   resources?: string[] | undefined;
 
   /**
-   * <p>If your initial <code>ListLifecyclePolicies</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListLifecyclePolicies</code> operations, which returns results in the next page.</p>
+   * If your initial `ListLifecyclePolicies` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListLifecyclePolicies` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use use <code>nextToken</code> to get the next page of results. The default is 10.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use use `nextToken` to get the next page of results. The default is 10.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the lifecycle policy.</p>
+ * A summary of the lifecycle policy.
+ *
  * @public
  */
 export interface LifecyclePolicySummary {
   /**
-   * <p>The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type?: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the lifecycle policy.</p>
+   * The name of the lifecycle policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The version of the lifecycle policy.</p>
+   * The version of the lifecycle policy.
+   *
    * @public
    */
   policyVersion?: string | undefined;
 
   /**
-   * <p>The description of the lifecycle policy.</p>
+   * The description of the lifecycle policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Epoch time when the lifecycle policy was created.</p>
+   * The Epoch time when the lifecycle policy was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The date and time when the lifecycle policy was last modified.</p>
+   * The date and time when the lifecycle policy was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -3650,13 +4182,15 @@ export interface LifecyclePolicySummary {
  */
 export interface ListLifecyclePoliciesResponse {
   /**
-   * <p>Details about the requested lifecycle policies.</p>
+   * Details about the requested lifecycle policies.
+   *
    * @public
    */
   lifecyclePolicySummaries?: LifecyclePolicySummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3667,37 +4201,43 @@ export interface ListLifecyclePoliciesResponse {
  */
 export interface UpdateLifecyclePolicyRequest {
   /**
-   * <p> The type of lifecycle policy.</p>
+   * The type of lifecycle policy.
+   *
    * @public
    */
   type: LifecyclePolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version of the policy being updated.</p>
+   * The version of the policy being updated.
+   *
    * @public
    */
   policyVersion: string | undefined;
 
   /**
-   * <p>A description of the lifecycle policy.</p>
+   * A description of the lifecycle policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document to use as the content for the lifecycle policy.</p>
+   * The JSON policy document to use as the content for the lifecycle policy.
+   *
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * A unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -3708,7 +4248,8 @@ export interface UpdateLifecyclePolicyRequest {
  */
 export interface UpdateLifecyclePolicyResponse {
   /**
-   * <p>Details about the updated lifecycle policy.</p>
+   * Details about the updated lifecycle policy.
+   *
    * @public
    */
   lifecyclePolicyDetail?: LifecyclePolicyDetail | undefined;
@@ -3719,61 +4260,71 @@ export interface UpdateLifecyclePolicyResponse {
  */
 export interface ListSecurityConfigsRequest {
   /**
-   * <p>The type of security configuration.</p>
+   * The type of security configuration.
+   *
    * @public
    */
   type: SecurityConfigType | undefined;
 
   /**
-   * <p>If your initial <code>ListSecurityConfigs</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListSecurityConfigs</code> operations, which returns results in the next page.</p>
+   * If your initial `ListSecurityConfigs` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListSecurityConfigs` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 20.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results. The default is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of a security configuration for OpenSearch Serverless.</p>
+ * A summary of a security configuration for OpenSearch Serverless.
+ *
  * @public
  */
 export interface SecurityConfigSummary {
   /**
-   * <p>The unique identifier of the security configuration.</p>
+   * The unique identifier of the security configuration.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The type of security configuration.</p>
+   * The type of security configuration.
+   *
    * @public
    */
   type?: SecurityConfigType | undefined;
 
   /**
-   * <p>The version of the security configuration.</p>
+   * The version of the security configuration.
+   *
    * @public
    */
   configVersion?: string | undefined;
 
   /**
-   * <p>The description of the security configuration.</p>
+   * The description of the security configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Epoch time when the security configuration was created.</p>
+   * The Epoch time when the security configuration was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The timestamp of when the configuration was last modified.</p>
+   * The timestamp of when the configuration was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -3784,13 +4335,15 @@ export interface SecurityConfigSummary {
  */
 export interface ListSecurityConfigsResponse {
   /**
-   * <p>Details about the security configurations in your account.</p>
+   * Details about the security configurations in your account.
+   *
    * @public
    */
   securityConfigSummaries?: SecurityConfigSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3801,67 +4354,78 @@ export interface ListSecurityConfigsResponse {
  */
 export interface ListSecurityPoliciesRequest {
   /**
-   * <p>The type of policy.</p>
+   * The type of policy.
+   *
    * @public
    */
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>Resource filters (can be collection or indexes) that policies can apply to. </p>
+   * Resource filters (can be collection or indexes) that policies can apply to.
+   *
    * @public
    */
   resource?: string[] | undefined;
 
   /**
-   * <p>If your initial <code>ListSecurityPolicies</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListSecurityPolicies</code> operations, which returns results in the next page.</p>
+   * If your initial `ListSecurityPolicies` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListSecurityPolicies` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 20.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results. The default is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of a security policy for OpenSearch Serverless.</p>
+ * A summary of a security policy for OpenSearch Serverless.
+ *
  * @public
  */
 export interface SecurityPolicySummary {
   /**
-   * <p>The type of security policy.</p>
+   * The type of security policy.
+   *
    * @public
    */
   type?: SecurityPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The version of the policy.</p>
+   * The version of the policy.
+   *
    * @public
    */
   policyVersion?: string | undefined;
 
   /**
-   * <p>The description of the security policy.</p>
+   * The description of the security policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The date the policy was created.</p>
+   * The date the policy was created.
+   *
    * @public
    */
   createdDate?: number | undefined;
 
   /**
-   * <p>The timestamp of when the policy was last modified.</p>
+   * The timestamp of when the policy was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -3872,13 +4436,15 @@ export interface SecurityPolicySummary {
  */
 export interface ListSecurityPoliciesResponse {
   /**
-   * <p>Details about the security policies in your account.</p>
+   * Details about the security policies in your account.
+   *
    * @public
    */
   securityPolicySummaries?: SecurityPolicySummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -3889,7 +4455,8 @@ export interface ListSecurityPoliciesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in the <code>DELETING</code> state), and must be owned by the account ID included in the request.</p>
+   * The Amazon Resource Name (ARN) of the resource. The resource must be active (not in the `DELETING` state), and must be owned by the account ID included in the request.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -3900,19 +4467,22 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags associated with the resource.</p>
+   * The tags associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Filter the results of a <code>ListVpcEndpoints</code> request.</p>
+ * Filter the results of a `ListVpcEndpoints` request.
+ *
  * @public
  */
 export interface VpcEndpointFilters {
   /**
-   * <p>The current status of the endpoint.</p>
+   * The current status of the endpoint.
+   *
    * @public
    */
   status?: VpcEndpointStatus | undefined;
@@ -3923,43 +4493,50 @@ export interface VpcEndpointFilters {
  */
 export interface ListVpcEndpointsRequest {
   /**
-   * <p>Filter the results according to the current status of the VPC endpoint. Possible statuses are <code>CREATING</code>, <code>DELETING</code>, <code>UPDATING</code>, <code>ACTIVE</code>, and <code>FAILED</code>.</p>
+   * Filter the results according to the current status of the VPC endpoint. Possible statuses are `CREATING`, `DELETING`, `UPDATING`, `ACTIVE`, and `FAILED`.
+   *
    * @public
    */
   vpcEndpointFilters?: VpcEndpointFilters | undefined;
 
   /**
-   * <p>If your initial <code>ListVpcEndpoints</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next page. </p>
+   * If your initial `ListVpcEndpoints` operation returns a `nextToken`, you can include the returned `nextToken` in subsequent `ListVpcEndpoints` operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results. The default is 20.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use `nextToken` to get the next page of results. The default is 20.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The VPC endpoint object.</p>
+ * The VPC endpoint object.
+ *
  * @public
  */
 export interface VpcEndpointSummary {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the endpoint.</p>
+   * The current status of the endpoint.
+   *
    * @public
    */
   status?: VpcEndpointStatus | undefined;
@@ -3970,31 +4547,36 @@ export interface VpcEndpointSummary {
  */
 export interface ListVpcEndpointsResponse {
   /**
-   * <p>Details about each VPC endpoint, including the name and current status.</p>
+   * Details about each VPC endpoint, including the name and current status.
+   *
    * @public
    */
   vpcEndpointSummaries?: VpcEndpointSummary[] | undefined;
 
   /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   * When `nextToken` is returned, there are more results available. The value of `nextToken` is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Describes IAM Identity Center options for updating an OpenSearch Serverless security configuration in the form of a key-value map.</p>
+ * Describes IAM Identity Center options for updating an OpenSearch Serverless security configuration in the form of a key-value map.
+ *
  * @public
  */
 export interface UpdateIamIdentityCenterConfigOptions {
   /**
-   * <p>The user attribute for this IAM Identity Center integration. Defaults to <code>UserId</code>.</p>
+   * The user attribute for this IAM Identity Center integration. Defaults to `UserId`.
+   *
    * @public
    */
   userAttribute?: IamIdentityCenterUserAttribute | undefined;
 
   /**
-   * <p>The group attribute for this IAM Identity Center integration. Defaults to <code>GroupId</code>.</p>
+   * The group attribute for this IAM Identity Center integration. Defaults to `GroupId`.
+   *
    * @public
    */
   groupAttribute?: IamIdentityCenterGroupAttribute | undefined;
@@ -4005,43 +4587,50 @@ export interface UpdateIamIdentityCenterConfigOptions {
  */
 export interface UpdateSecurityConfigRequest {
   /**
-   * <p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>
+   * The security configuration identifier. For SAML the ID will be `saml/<accountId>/<idpProviderName>`. For example, `saml/123456789123/OKTADev`.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The version of the security configuration to be updated. You can find the most recent version of a security configuration using the <code>GetSecurityPolicy</code> command.</p>
+   * The version of the security configuration to be updated. You can find the most recent version of a security configuration using the `GetSecurityPolicy` command.
+   *
    * @public
    */
   configVersion: string | undefined;
 
   /**
-   * <p>A description of the security configuration.</p>
+   * A description of the security configuration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>SAML options in in the form of a key-value map.</p>
+   * SAML options in in the form of a key-value map.
+   *
    * @public
    */
   samlOptions?: SamlConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM Identity Center options in the form of a key-value map.</p>
+   * Describes IAM Identity Center options in the form of a key-value map.
+   *
    * @public
    */
   iamIdentityCenterOptionsUpdates?: UpdateIamIdentityCenterConfigOptions | undefined;
 
   /**
-   * <p>Describes IAM federation options in the form of a key-value map for updating an existing security configuration. Use this field to modify IAM federation settings for the security configuration.</p>
+   * Describes IAM federation options in the form of a key-value map for updating an existing security configuration. Use this field to modify IAM federation settings for the security configuration.
+   *
    * @public
    */
   iamFederationOptions?: IamFederationConfigOptions | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4052,7 +4641,8 @@ export interface UpdateSecurityConfigRequest {
  */
 export interface UpdateSecurityConfigResponse {
   /**
-   * <p>Details about the updated security configuration. </p>
+   * Details about the updated security configuration.
+   *
    * @public
    */
   securityConfigDetail?: SecurityConfigDetail | undefined;
@@ -4063,37 +4653,43 @@ export interface UpdateSecurityConfigResponse {
  */
 export interface UpdateSecurityPolicyRequest {
   /**
-   * <p>The type of access policy.</p>
+   * The type of access policy.
+   *
    * @public
    */
   type: SecurityPolicyType | undefined;
 
   /**
-   * <p>The name of the policy.</p>
+   * The name of the policy.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The version of the policy being updated.</p>
+   * The version of the policy being updated.
+   *
    * @public
    */
   policyVersion: string | undefined;
 
   /**
-   * <p>A description of the policy. Typically used to store information about the permissions defined in the policy.</p>
+   * A description of the policy. Typically used to store information about the permissions defined in the policy.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The JSON policy document to use as the content for the new policy.</p>
+   * The JSON policy document to use as the content for the new policy.
+   *
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -4104,7 +4700,8 @@ export interface UpdateSecurityPolicyRequest {
  */
 export interface UpdateSecurityPolicyResponse {
   /**
-   * <p>Details about the updated security policy.</p>
+   * Details about the updated security policy.
+   *
    * @public
    */
   securityPolicyDetail?: SecurityPolicyDetail | undefined;
@@ -4115,13 +4712,15 @@ export interface UpdateSecurityPolicyResponse {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. The resource must be active (not in the <code>DELETING</code> state), and must be owned by the account ID included in the request.</p>
+   * The Amazon Resource Name (ARN) of the resource. The resource must be active (not in the `DELETING` state), and must be owned by the account ID included in the request.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A list of tags (key-value pairs) to add to the resource. All tag keys in the request must be unique.</p>
+   * A list of tags (key-value pairs) to add to the resource. All tag keys in the request must be unique.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -4137,13 +4736,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to remove tags from. The resource must be active (not in the <code>DELETING</code> state), and must be owned by the account ID included in the request.</p>
+   * The Amazon Resource Name (ARN) of the resource to remove tags from. The resource must be active (not in the `DELETING` state), and must be owned by the account ID included in the request.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tag or set of tags to remove from the resource. All tag keys in the request must be unique.</p>
+   * The tag or set of tags to remove from the resource. All tag keys in the request must be unique.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -4159,7 +4760,8 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units (OCUs). These limits are used to scale your collections based on the current workload. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing capacity limits for Amazon OpenSearch Serverless</a>.</p>
+   * The maximum capacity limits for all OpenSearch Serverless collections, in OpenSearch Compute Units (OCUs). These limits are used to scale your collections based on the current workload. For more information, see [Managing capacity limits for Amazon OpenSearch Serverless](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html).
+   *
    * @public
    */
   capacityLimits?: CapacityLimits | undefined;
@@ -4170,7 +4772,8 @@ export interface UpdateAccountSettingsRequest {
  */
 export interface UpdateAccountSettingsResponse {
   /**
-   * <p>OpenSearch Serverless-related settings for the current Amazon Web Services account.</p>
+   * OpenSearch Serverless-related settings for the current Amazon Web Services account.
+   *
    * @public
    */
   accountSettingsDetail?: AccountSettingsDetail | undefined;
@@ -4181,79 +4784,92 @@ export interface UpdateAccountSettingsResponse {
  */
 export interface UpdateVpcEndpointRequest {
   /**
-   * <p>The unique identifier of the interface endpoint to update.</p>
+   * The unique identifier of the interface endpoint to update.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ID of one or more subnets to add to the endpoint.</p>
+   * The ID of one or more subnets to add to the endpoint.
+   *
    * @public
    */
   addSubnetIds?: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the subnets to remove from the endpoint.</p>
+   * The unique identifiers of the subnets to remove from the endpoint.
+   *
    * @public
    */
   removeSubnetIds?: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups to add to the endpoint. Security groups define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
+   * The unique identifiers of the security groups to add to the endpoint. Security groups define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+   *
    * @public
    */
   addSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups to remove from the endpoint.</p>
+   * The unique identifiers of the security groups to remove from the endpoint.
+   *
    * @public
    */
   removeSecurityGroupIds?: string[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * Unique, case-sensitive identifier to ensure idempotency of the request.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Update details for an OpenSearch Serverless-managed interface endpoint.</p>
+ * Update details for an OpenSearch Serverless-managed interface endpoint.
+ *
  * @public
  */
 export interface UpdateVpcEndpointDetail {
   /**
-   * <p>The unique identifier of the endpoint.</p>
+   * The unique identifier of the endpoint.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>The name of the endpoint.</p>
+   * The name of the endpoint.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The current status of the endpoint update process.</p>
+   * The current status of the endpoint update process.
+   *
    * @public
    */
   status?: VpcEndpointStatus | undefined;
 
   /**
-   * <p>The ID of the subnets from which you access OpenSearch Serverless.</p>
+   * The ID of the subnets from which you access OpenSearch Serverless.
+   *
    * @public
    */
   subnetIds?: string[] | undefined;
 
   /**
-   * <p>The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.</p>
+   * The unique identifiers of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
+   *
    * @public
    */
   securityGroupIds?: string[] | undefined;
 
   /**
-   * <p>The timestamp of when the endpoint was last modified.</p>
+   * The timestamp of when the endpoint was last modified.
+   *
    * @public
    */
   lastModifiedDate?: number | undefined;
@@ -4264,7 +4880,8 @@ export interface UpdateVpcEndpointDetail {
  */
 export interface UpdateVpcEndpointResponse {
   /**
-   * <p>Details about the updated VPC endpoint.</p>
+   * Details about the updated VPC endpoint.
+   *
    * @public
    */
   UpdateVpcEndpointDetail?: UpdateVpcEndpointDetail | undefined;

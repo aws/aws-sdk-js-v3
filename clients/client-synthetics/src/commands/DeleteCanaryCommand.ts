@@ -23,41 +23,19 @@ export interface DeleteCanaryCommandInput extends DeleteCanaryRequest {}
 export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __MetadataBearer {}
 
 /**
- * <p>Permanently deletes the specified canary.</p>
- *          <p>If the canary's <code>ProvisionedResourceCleanup</code> field is set to <code>AUTOMATIC</code>
- *          or you specify <code>DeleteLambda</code> in this operation as <code>true</code>, CloudWatch Synthetics also deletes
- *          the Lambda functions and layers that are used by the canary.</p>
- *          <p>Other resources used and created by the canary are not automatically deleted.
- *          After you delete a canary, you
- *       should also delete the following:</p>
- *          <ul>
- *             <li>
- *                <p>The CloudWatch alarms created for this canary. These alarms have a name of
- *                <code>Synthetics-Alarm-<i>first-198-characters-of-canary-name</i>-<i>canaryId</i>-<i>alarm number</i>
- *                   </code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Amazon S3 objects and buckets, such as the canary's artifact location.</p>
- *             </li>
- *             <li>
- *                <p>IAM roles created for the canary. If they were created in the console, these roles
- *                have the name <code>
- *                      role/service-role/CloudWatchSyntheticsRole-<i>First-21-Characters-of-CanaryName</i>
- *                   </code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>CloudWatch Logs log groups created for the canary. These logs groups have the name
- *                <code>/aws/lambda/cwsyn-<i>First-21-Characters-of-CanaryName</i>
- *                   </code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Before you delete a canary, you might want to use <code>GetCanary</code> to display
- *          the information about this canary. Make
- *          note of the information returned by this operation so that you can delete these resources
- *          after you delete the canary.</p>
+ * Permanently deletes the specified canary.
+ *
+ * If the canary's `ProvisionedResourceCleanup` field is set to `AUTOMATIC` or you specify `DeleteLambda` in this operation as `true`, CloudWatch Synthetics also deletes the Lambda functions and layers that are used by the canary.
+ *
+ * Other resources used and created by the canary are not automatically deleted. After you delete a canary, you should also delete the following:
+ *
+ * - The CloudWatch alarms created for this canary. These alarms have a name of `Synthetics-Alarm-first-198-characters-of-canary-name-canaryId-alarm number`
+ * - Amazon S3 objects and buckets, such as the canary's artifact location.
+ * - IAM roles created for the canary. If they were created in the console, these roles have the name `role/service-role/CloudWatchSyntheticsRole-First-21-Characters-of-CanaryName`
+ * - CloudWatch Logs log groups created for the canary. These logs groups have the name `/aws/lambda/cwsyn-First-21-Characters-of-CanaryName`
+ *
+ * Before you delete a canary, you might want to use `GetCanary` to display the information about this canary. Make note of the information returned by this operation so that you can delete these resources after you delete the canary.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,20 +61,24 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflicting operation is already in progress.</p>
+ *
+ * A conflicting operation is already in progress.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>One of the specified resources was not found.</p>
+ *
+ * One of the specified resources was not found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

@@ -23,26 +23,18 @@ export interface DeleteAlarmsCommandInput extends DeleteAlarmsInput {}
 export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified alarms. You can delete up to 100 alarms in one operation.
- *             However, this total can include no more than one composite alarm. For example, you could
- *             delete 99 metric alarms and one composite alarms with one operation, but you can't
- *             delete two composite alarms with one operation. Log alarms cannot be batch deleted.</p>
- *          <p> If you specify any incorrect alarm names, the alarms you specify with correct
- *             names are still deleted. Other syntax errors might result in no alarms being deleted. To
- *             confirm that alarms were deleted successfully, you can use the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> operation after using <code>DeleteAlarms</code>.</p>
- *          <note>
- *             <p>It is possible to create a loop or cycle of composite alarms, where composite
- *                 alarm A depends on composite alarm B, and composite alarm B also depends on
- *                 composite alarm A. In this scenario, you can't delete any composite alarm that is
- *                 part of the cycle because there is always still a composite alarm that depends on
- *                 that alarm that you want to delete.</p>
- *             <p>To get out of such a situation, you must break the cycle by changing the rule of
- *                 one of the composite alarms in the cycle to remove a dependency that creates the
- *                 cycle. The simplest change to make to break a cycle is to change the
- *                     <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p>
- *             <p>Additionally, the evaluation of composite alarms stops if CloudWatch
- *                 detects a cycle in the evaluation path. </p>
- *          </note>
+ * Deletes the specified alarms. You can delete up to 100 alarms in one operation. However, this total can include no more than one composite alarm. For example, you could delete 99 metric alarms and one composite alarms with one operation, but you can't delete two composite alarms with one operation. Log alarms cannot be batch deleted.
+ *
+ * If you specify any incorrect alarm names, the alarms you specify with correct names are still deleted. Other syntax errors might result in no alarms being deleted. To confirm that alarms were deleted successfully, you can use the [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html) operation after using `DeleteAlarms`.
+ *
+ * > **Note:**
+ * >
+ * > It is possible to create a loop or cycle of composite alarms, where composite alarm A depends on composite alarm B, and composite alarm B also depends on composite alarm A. In this scenario, you can't delete any composite alarm that is part of the cycle because there is always still a composite alarm that depends on that alarm that you want to delete.
+ * >
+ * > To get out of such a situation, you must break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest change to make to break a cycle is to change the `AlarmRule` of one of the alarms to `false`.
+ * >
+ * > Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +61,16 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link ResourceConflict} (client fault)
- *  <p>The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.</p>
+ *
+ * The operation could not be completed because the request conflicts with the current state of the alarm or its underlying scheduled query resource.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>The named resource does not exist.</p>
+ *
+ * The named resource does not exist.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

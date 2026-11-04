@@ -23,9 +23,8 @@ export interface OverrideStageConditionCommandInput extends OverrideStageConditi
 export interface OverrideStageConditionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Used to override a stage condition. For more information about conditions, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html">Stage
- *                 conditions</a> and <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html">How do
- *                 stage conditions work?</a>.</p>
+ * Used to override a stage condition. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,32 +52,36 @@ export interface OverrideStageConditionCommandOutput extends __MetadataBearer {}
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentPipelineExecutionsLimitExceededException} (client fault)
- *  <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ *
+ * The pipeline has reached the limit for concurrent pipeline executions.
  *
  * @throws {@link ConditionNotOverridableException} (client fault)
- *  <p>Unable to override because the condition does not allow overrides.</p>
+ *
+ * Unable to override because the condition does not allow overrides.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
- *             activities. Try again later.</p>
+ *
+ * Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.
  *
  * @throws {@link NotLatestPipelineExecutionException} (client fault)
- *  <p>The stage has failed in a later run of the pipeline and the
- *                 <code>pipelineExecutionId</code> associated with the request is out of
- *             date.</p>
+ *
+ * The stage has failed in a later run of the pipeline and the `pipelineExecutionId` associated with the request is out of date.
  *
  * @throws {@link PipelineNotFoundException} (client fault)
- *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * The pipeline was specified in an invalid format or cannot be found.
  *
  * @throws {@link StageNotFoundException} (client fault)
- *  <p>The stage was specified in an invalid format or cannot be found.</p>
+ *
+ * The stage was specified in an invalid format or cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

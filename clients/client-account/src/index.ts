@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Operations for Amazon Web Services Account Management</p>
+ * Operations for Amazon Web Services Account Management
  *
  * @packageDocumentation
  */

@@ -23,9 +23,8 @@ export interface CreateScheduledActionCommandInput extends CreateScheduledAction
 export interface CreateScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
- * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
- *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
- *         </p>
+ * Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action. For example, you can create a schedule of when to run the `ResizeCluster` API operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,33 +100,40 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link InvalidScheduledActionFault} (client fault)
- *  <p>The scheduled action is not valid. </p>
+ *
+ * The scheduled action is not valid.
  *
  * @throws {@link InvalidScheduleFault} (client fault)
- *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * The schedule you submitted isn't valid.
  *
  * @throws {@link ScheduledActionAlreadyExistsFault} (client fault)
- *  <p>The scheduled action already exists. </p>
+ *
+ * The scheduled action already exists.
  *
  * @throws {@link ScheduledActionQuotaExceededFault} (client fault)
- *  <p>The quota for scheduled actions exceeded. </p>
+ *
+ * The quota for scheduled actions exceeded.
  *
  * @throws {@link ScheduledActionTypeUnsupportedFault} (client fault)
- *  <p>The action type specified for a scheduled action is not supported. </p>
+ *
+ * The action type specified for a scheduled action is not supported.
  *
  * @throws {@link UnauthorizedOperation} (client fault)
- *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * Your account is not authorized to perform the requested operation.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

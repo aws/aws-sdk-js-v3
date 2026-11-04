@@ -23,10 +23,8 @@ export interface GetGeneratedTemplateCommandInput extends GetGeneratedTemplateIn
 export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a generated template. If the template is in an <code>InProgress</code> or
- *         <code>Pending</code> status then the template returned will be the template when the
- *       template was last in a <code>Complete</code> status. If the template has not yet been in a
- *         <code>Complete</code> status then an empty template will be returned.</p>
+ * Retrieves a generated template. If the template is in an `InProgress` or `Pending` status then the template returned will be the template when the template was last in a `Complete` status. If the template has not yet been in a `Complete` status then an empty template will be returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +53,12 @@ export interface GetGeneratedTemplateCommandOutput extends GetGeneratedTemplateO
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link GeneratedTemplateNotFoundException} (client fault)
- *  <p>The generated template was not found.</p>
+ *
+ * The generated template was not found.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @example To get a generated template in JSON format
  * ```javascript

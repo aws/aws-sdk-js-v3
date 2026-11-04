@@ -26,10 +26,10 @@ export interface GetScalingPlanResourceForecastDataCommandInput extends GetScali
 export interface GetScalingPlanResourceForecastDataCommandOutput extends GetScalingPlanResourceForecastDataResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the forecast data for a scalable resource.</p>
- *          <p>Capacity forecasts are represented as predicted values, or data points, that are
- *          calculated using historical data points from a specified CloudWatch load metric. Data points are
- *          available for up to 56 days. </p>
+ * Retrieves the forecast data for a scalable resource.
+ *
+ * Capacity forecasts are represented as predicted values, or data points, that are calculated using historical data points from a specified CloudWatch load metric. Data points are available for up to 56 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +68,16 @@ export interface GetScalingPlanResourceForecastDataCommandOutput extends GetScal
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ * An exception was thrown for a validation issue. Review the parameters provided.
  *
  * @throws {@link AutoScalingPlansServiceException}
- * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ * Base exception class for all service exceptions from AutoScalingPlans service.
  *
  * @public
  */

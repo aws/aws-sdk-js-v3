@@ -23,7 +23,8 @@ export interface DescribeSnapshotTierStatusCommandInput extends DescribeSnapshot
 export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapshotTierStatusResult, __MetadataBearer {}
 
 /**
- * <p>Describes the storage tier status of one or more Amazon EBS snapshots.</p>
+ * Describes the storage tier status of one or more Amazon EBS snapshots.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +82,8 @@ export interface DescribeSnapshotTierStatusCommandOutput extends DescribeSnapsho
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

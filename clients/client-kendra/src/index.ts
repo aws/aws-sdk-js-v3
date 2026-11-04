@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Kendra is a service for indexing large document sets.</p>
+ * Amazon Kendra is a service for indexing large document sets.
  *
  * @packageDocumentation
  */

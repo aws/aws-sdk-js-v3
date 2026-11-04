@@ -23,17 +23,16 @@ export interface CreateFlywheelCommandInput extends CreateFlywheelRequest {}
 export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __MetadataBearer {}
 
 /**
- * <p>A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification
- *       or custom entity recognition. You can create a flywheel to start with an existing trained model, or
- *       Comprehend can create and train a new model.</p>
- *          <p>When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training
- *       data and test data for all versions of the model.</p>
- *          <p>To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's
- *       training data and test data into the flywheel's data lake.</p>
- *          <p>To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data)
- *       when you create the flywheel.</p>
- *          <p>For more information about flywheels, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html">
- *       Flywheel overview</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ * A flywheel is an Amazon Web Services resource that orchestrates the ongoing training of a model for custom classification or custom entity recognition. You can create a flywheel to start with an existing trained model, or Comprehend can create and train a new model.
+ *
+ * When you create the flywheel, Comprehend creates a data lake in your account. The data lake holds the training data and test data for all versions of the model.
+ *
+ * To use a flywheel with an existing trained model, you specify the active model version. Comprehend copies the model's training data and test data into the flywheel's data lake.
+ *
+ * To use the flywheel with a new model, you need to provide a dataset for training data (and optional test data) when you create the flywheel.
+ *
+ * For more information about flywheels, see [Flywheel overview](https://docs.aws.amazon.com/comprehend/latest/dg/flywheels-about.html) in the *Amazon Comprehend Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,46 +100,48 @@ export interface CreateFlywheelCommandOutput extends CreateFlywheelResponse, __M
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid.</p>
+ *
+ * The request is invalid.
  *
  * @throws {@link KmsKeyValidationException} (client fault)
- *  <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
- *       re-enter it.</p>
+ *
+ * The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource name is already in use. Use a different name and try your request
- *       again.</p>
+ *
+ * The specified resource name is already in use. Use a different name and try your request again.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The maximum number of resources per account has been exceeded. Review the resources, and
- *       then try your request again.</p>
+ *
+ * The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
+ *
+ * The specified resource ARN was not found. Check the ARN and try your request again.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The specified resource is not available. Check the resource and try your request
- *       again.</p>
+ *
+ * The specified resource is not available. Check the resource and try your request again.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+ *
+ * The number of requests exceeds the limit. Resubmit your request later.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per
- *       resource). The maximum number of tags includes both existing tags and those included in your
- *       current request. </p>
+ *
+ * The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request.
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
- *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
- *     </p>
+ *
+ * Amazon Comprehend can't process the language of the input text. For a list of supported languages, [Supported languages](https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html) in the Comprehend Developer Guide.
  *
  * @throws {@link ComprehendServiceException}
- * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ * Base exception class for all service exceptions from Comprehend service.
  *
  * @public
  */

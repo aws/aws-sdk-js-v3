@@ -23,14 +23,10 @@ export interface BatchPutContactCommandInput extends BatchPutContactRequest {}
 export interface BatchPutContactCommandOutput extends BatchPutContactResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Only the Connect Customer outbound campaigns service principal is allowed to assume a role in your account
- *     and call this API.</p>
- *          </note>
- *          <p>Allows you to create a batch of contacts in Connect Customer. The outbound campaigns capability ingests dial
- *    requests via the <a href="https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html">PutDialRequestBatch</a> API. It then uses BatchPutContact to create contacts corresponding to those dial
- *    requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting
- *    voice call uses the same contactId that was created by BatchPutContact. </p>
+ * > **Note:** Only the Connect Customer outbound campaigns service principal is allowed to assume a role in your account and call this API.
+ *
+ * Allows you to create a batch of contacts in Connect Customer. The outbound campaigns capability ingests dial requests via the [PutDialRequestBatch](https://docs.aws.amazon.com/connect-outbound/latest/APIReference/API_PutDialRequestBatch.html) API. It then uses BatchPutContact to create contacts corresponding to those dial requests. If agents are available, the dial requests are dialed out, which results in a voice call. The resulting voice call uses the same contactId that was created by BatchPutContact.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,26 +101,32 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * You do not have sufficient permissions to perform this action.
  *
  * @throws {@link IdempotencyException} (client fault)
- *  <p>An entity with the same name already exists.</p>
+ *
+ * An entity with the same name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

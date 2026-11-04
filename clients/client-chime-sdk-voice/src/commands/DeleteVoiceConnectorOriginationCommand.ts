@@ -23,11 +23,10 @@ export interface DeleteVoiceConnectorOriginationCommandInput extends DeleteVoice
 export interface DeleteVoiceConnectorOriginationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the origination settings for the specified Amazon Chime SDK Voice Connector. </p>
- *          <note>
- *             <p>If emergency calling is configured for the Voice Connector, it must be
- *          deleted prior to deleting the origination settings.</p>
- *          </note>
+ * Deletes the origination settings for the specified Amazon Chime SDK Voice Connector.
+ *
+ * > **Note:** If emergency calling is configured for the Voice Connector, it must be deleted prior to deleting the origination settings.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,29 +51,36 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource couldn't be found.</p>
+ *
+ * The requested resource couldn't be found.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The number of customer requests exceeds the request rate limit.</p>
+ *
+ * The number of customer requests exceeds the request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client isn't authorized to request a resource.</p>
+ *
+ * The client isn't authorized to request a resource.
  *
  * @throws {@link ChimeSDKVoiceServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKVoice service.
  *
  * @public
  */

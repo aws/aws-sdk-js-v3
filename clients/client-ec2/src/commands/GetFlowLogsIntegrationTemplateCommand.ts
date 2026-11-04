@@ -23,29 +23,15 @@ export interface GetFlowLogsIntegrationTemplateCommandInput extends GetFlowLogsI
 export interface GetFlowLogsIntegrationTemplateCommandOutput extends GetFlowLogsIntegrationTemplateResult, __MetadataBearer {}
 
 /**
- * <p>Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs
- *             with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data.
- *             Based on the information that you provide, we configure resources in the template to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>Create a table in Athena that maps fields to a custom log format</p>
- *             </li>
- *             <li>
- *                <p>Create a Lambda function that updates the table with new partitions on a daily, weekly, or
- *                     monthly basis</p>
- *             </li>
- *             <li>
- *                <p>Create a table partitioned between two timestamps in the past</p>
- *             </li>
- *             <li>
- *                <p>Create a set of named queries in Athena that you can use to get started quickly</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>
- *                <code>GetFlowLogsIntegrationTemplate</code> does not support integration between
- *                     Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.</p>
- *          </note>
+ * Generates a CloudFormation template that streamlines and automates the integration of VPC flow logs with Amazon Athena. This make it easier for you to query and gain insights from VPC flow logs data. Based on the information that you provide, we configure resources in the template to do the following:
+ *
+ * - Create a table in Athena that maps fields to a custom log format
+ * - Create a Lambda function that updates the table with new partitions on a daily, weekly, or monthly basis
+ * - Create a table partitioned between two timestamps in the past
+ * - Create a set of named queries in Athena that you can use to get started quickly
+ *
+ * > **Note:** `GetFlowLogsIntegrationTemplate` does not support integration between Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,8 +70,8 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput extends GetFlowLogs
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

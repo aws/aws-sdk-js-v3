@@ -23,10 +23,10 @@ export interface CreateNotificationSubscriptionCommandInput extends CreateNotifi
 export interface CreateNotificationSubscriptionCommandOutput extends CreateNotificationSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
- *             confirmation message, and must confirm the subscription.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
- *             Guide</i>.</p>
+ * Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a confirmation message, and must confirm the subscription.
+ *
+ * For more information, see [Setting up notifications for an IAM user or role](https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html) in the *Amazon WorkDocs Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,21 +60,24 @@ export interface CreateNotificationSubscriptionCommandOutput extends CreateNotif
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * The pagination marker or limit fields are not valid.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * One or more of the dependencies is unavailable.
  *
  * @throws {@link TooManySubscriptionsException} (client fault)
- *  <p>You've reached the limit on the number of subscriptions for the WorkDocs
- *             instance.</p>
+ *
+ * You've reached the limit on the number of subscriptions for the WorkDocs instance.
  *
  * @throws {@link UnauthorizedResourceAccessException} (client fault)
- *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ * The caller does not have access to perform the action on the resource.
  *
  * @throws {@link WorkDocsServiceException}
- * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ * Base exception class for all service exceptions from WorkDocs service.
  *
  * @public
  */

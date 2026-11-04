@@ -23,14 +23,10 @@ export interface UpdateChapCredentialsCommandInput extends UpdateChapCredentials
 export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredentialsOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
- *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
- *          added security, you might use it. This operation is supported in the volume and tape
- *          gateway types.</p>
- *          <important>
- *             <p>When you update CHAP credentials, all existing connections on the target are closed
- *             and initiators must reconnect with the new credentials.</p>
- *          </important>
+ * Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for added security, you might use it. This operation is supported in the volume and tape gateway types.
+ *
+ * > **Important:** When you update CHAP credentials, all existing connections on the target are closed and initiators must reconnect with the new credentials.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,16 +57,16 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To update CHAP credentials for an iSCSI target
  * ```javascript

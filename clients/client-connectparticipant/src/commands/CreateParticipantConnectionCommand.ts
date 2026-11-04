@@ -23,64 +23,44 @@ export interface CreateParticipantConnectionCommandInput extends CreateParticipa
 export interface CreateParticipantConnectionCommandOutput extends CreateParticipantConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the participant's connection. </p>
- *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Connect Customer Chat security best practices</a>. </p>
- *          <p>For WebRTC security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security">Connect Customer WebRTC security best practices</a>. </p>
- *          <note>
- *             <p>
- *                <code>ParticipantToken</code> is used for invoking this API instead of
- *                     <code>ConnectionToken</code>.</p>
- *          </note>
- *          <p>The participant token is valid for the lifetime of the participant – until they are
- *             part of a contact. For WebRTC participants, if they leave or are disconnected for 60
- *             seconds, a new participant needs to be created using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateParticipant.html">CreateParticipant</a> API. </p>
- *          <p>
- *             <b>For <code>WEBSOCKET</code> Type</b>: </p>
- *          <p>The response URL for has a connect expiry timeout of 100s. Clients must manually
- *             connect to the returned websocket URL and subscribe to the desired topic. </p>
- *          <p>For chat, you need to publish the following on the established websocket
- *             connection:</p>
- *          <p>
- *             <code>\{"topic":"aws/subscribe","content":\{"topics":["aws/chat"]\}\}</code>
- *          </p>
- *          <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
- *             clients need to call this API again to obtain a new websocket URL and perform the same
- *             steps as before.</p>
- *          <p>The expiry time for the connection token is different than the
- *                 <code>ChatDurationInMinutes</code>. Expiry time for the connection token is 1
- *             day.</p>
- *          <p>
- *             <b>For <code>WEBRTC_CONNECTION</code> Type</b>: </p>
- *          <p>The response includes connection data required for the client application to join the
- *             call using the Amazon Chime SDK client libraries. The WebRTCConnection response contains
- *             Meeting and Attendee information needed to establish the media connection. </p>
- *          <p>The attendee join token in WebRTCConnection response is valid for the lifetime of the
- *             participant in the call. If a participant leaves or is disconnected for 60 seconds,
- *             their participant credentials will no longer be valid, and a new participant will need
- *             to be created to rejoin the call. </p>
- *          <p>
- *             <b>Message streaming support</b>: This API can also be used
- *             together with the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a> API to create a participant connection for chat
- *             contacts that are not using a websocket. For more information about message streaming,
- *                 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat
- *                 message streaming</a> in the <i>Amazon Connect Administrator
- *             Guide</i>.</p>
- *          <p>
- *             <b>Multi-user web, in-app, video calling support</b>: </p>
- *          <p>For WebRTC calls, this API is used in conjunction with the CreateParticipant API to
- *             enable multi-party calling. The StartWebRTCContact API creates the initial contact and
- *             routes it to an agent, while CreateParticipant adds additional participants to the
- *             ongoing call. For more information about multi-party WebRTC calls, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html">Enable multi-user web, in-app, and video calling</a> in the <i>Amazon Connect
- *                 Administrator Guide</i>. </p>
- *          <p>
- *             <b>Feature specifications</b>: For information about feature
- *             specifications, such as the allowed number of open websocket connections per participant
- *             or maximum number of WebRTC participants, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator
- *                 Guide</i>. </p>
- *          <note>
- *             <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
- *                     authentication</a>.</p>
- *          </note>
+ * Creates the participant's connection.
+ *
+ * For security recommendations, see [Connect Customer Chat security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat).
+ *
+ * For WebRTC security recommendations, see [Connect Customer WebRTC security best practices](https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-webrtc-security).
+ *
+ * > **Note:** `ParticipantToken` is used for invoking this API instead of `ConnectionToken`.
+ *
+ * The participant token is valid for the lifetime of the participant – until they are part of a contact. For WebRTC participants, if they leave or are disconnected for 60 seconds, a new participant needs to be created using the [CreateParticipant](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateParticipant.html) API.
+ *
+ * **For `WEBSOCKET` Type**:
+ *
+ * The response URL for has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic.
+ *
+ * For chat, you need to publish the following on the established websocket connection:
+ *
+ * `\{"topic":"aws/subscribe","content":\{"topics":["aws/chat"]\}\}`
+ *
+ * Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.
+ *
+ * The expiry time for the connection token is different than the `ChatDurationInMinutes`. Expiry time for the connection token is 1 day.
+ *
+ * **For `WEBRTC_CONNECTION` Type**:
+ *
+ * The response includes connection data required for the client application to join the call using the Amazon Chime SDK client libraries. The WebRTCConnection response contains Meeting and Attendee information needed to establish the media connection.
+ *
+ * The attendee join token in WebRTCConnection response is valid for the lifetime of the participant in the call. If a participant leaves or is disconnected for 60 seconds, their participant credentials will no longer be valid, and a new participant will need to be created to rejoin the call.
+ *
+ * **Message streaming support**: This API can also be used together with the [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html) API to create a participant connection for chat contacts that are not using a websocket. For more information about message streaming, [Enable real-time chat message streaming](https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html) in the *Amazon Connect Administrator Guide*.
+ *
+ * **Multi-user web, in-app, video calling support**:
+ *
+ * For WebRTC calls, this API is used in conjunction with the CreateParticipant API to enable multi-party calling. The StartWebRTCContact API creates the initial contact and routes it to an agent, while CreateParticipant adds additional participants to the ongoing call. For more information about multi-party WebRTC calls, see [Enable multi-user web, in-app, and video calling](https://docs.aws.amazon.com/connect/latest/adminguide/enable-multiuser-inapp.html) in the *Amazon Connect Administrator Guide*.
+ *
+ * **Feature specifications**: For information about feature specifications, such as the allowed number of open websocket connections per participant or maximum number of WebRTC participants, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits) in the *Amazon Connect Administrator Guide*.
+ *
+ * > **Note:** The Amazon Connect Participant Service APIs do not use [Signature Version 4 authentication](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,20 +118,24 @@ export interface CreateParticipantConnectionCommandOutput extends CreateParticip
  * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon Connect service.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
+ *
+ * The input fails to satisfy the constraints specified by Amazon Connect.
  *
  * @throws {@link ConnectParticipantServiceException}
- * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ * Base exception class for all service exceptions from ConnectParticipant service.
  *
  * @public
  */

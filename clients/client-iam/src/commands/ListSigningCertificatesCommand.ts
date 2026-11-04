@@ -23,16 +23,12 @@ export interface ListSigningCertificatesCommandInput extends ListSigningCertific
 export interface ListSigningCertificatesCommandOutput extends ListSigningCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the signing certificates associated with the specified IAM
- *             user. If none exists, the operation returns an empty list.</p>
- *          <p>Although each user is limited to a small number of signing certificates, you can still
- *             paginate the results using the <code>MaxItems</code> and <code>Marker</code>
- *             parameters.</p>
- *          <p>If the <code>UserName</code> field is not specified, the user name is determined
- *             implicitly based on the Amazon Web Services access key ID used to sign the request for this operation.
- *             This operation works for access keys under the Amazon Web Services account. Consequently, you can use
- *             this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
- *             associated users.</p>
+ * Returns information about the signing certificates associated with the specified IAM user. If none exists, the operation returns an empty list.
+ *
+ * Although each user is limited to a small number of signing certificates, you can still paginate the results using the `MaxItems` and `Marker` parameters.
+ *
+ * If the `UserName` field is not specified, the user name is determined implicitly based on the Amazon Web Services access key ID used to sign the request for this operation. This operation works for access keys under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated users.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,16 +67,16 @@ export interface ListSigningCertificatesCommandOutput extends ListSigningCertifi
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @example To list the signing certificates for an IAM user
  * ```javascript

@@ -10,7 +10,8 @@ import type {
 import { SSOAdminServiceException as __BaseException } from "./SSOAdminServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -19,7 +20,8 @@ export class AccessDeniedException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the access denied exception.</p>
+   * The reason for the access denied exception.
+   *
    * @public
    */
   Reason?: AccessDeniedExceptionReason | undefined;
@@ -39,7 +41,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
+ * Occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -62,7 +65,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure with an internal server.</p>
+ * The request processing has failed because of an unknown error, exception, or failure with an internal server.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -85,7 +89,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the principal has crossed the permitted number of resources that can be created.</p>
+ * Indicates that the principal has crossed the permitted number of resources that can be created.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -108,7 +113,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ * Indicates that the principal has crossed the throttling limits of the API operations.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -117,7 +123,8 @@ export class ThrottlingException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the throttling exception.</p>
+   * The reason for the throttling exception.
+   *
    * @public
    */
   Reason?: ThrottlingExceptionReason | undefined;
@@ -137,7 +144,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request failed because it contains a syntax error.</p>
+ * The request failed because it contains a syntax error.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -146,7 +154,8 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the validation exception.</p>
+   * The reason for the validation exception.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
@@ -166,7 +175,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a requested resource is not found.</p>
+ * Indicates that a requested resource is not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -175,7 +185,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the resource not found exception.</p>
+   * The reason for the resource not found exception.
+   *
    * @public
    */
   Reason?: ResourceNotFoundExceptionReason | undefined;

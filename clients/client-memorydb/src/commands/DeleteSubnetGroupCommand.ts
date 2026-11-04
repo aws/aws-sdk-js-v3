@@ -23,7 +23,8 @@ export interface DeleteSubnetGroupCommandInput extends DeleteSubnetGroupRequest 
 export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.</p>
+ * Deletes a subnet group. You cannot delete a default subnet group or one that is associated with any clusters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,17 +70,20 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The required service-linked role was not found.</p>
+ *
+ * The required service-linked role was not found.
  *
  * @throws {@link SubnetGroupInUseFault} (client fault)
- *  <p>The subnet group is currently in use and cannot be deleted.</p>
+ *
+ * The subnet group is currently in use and cannot be deleted.
  *
  * @throws {@link SubnetGroupNotFoundFault} (client fault)
- *  <p>The specified subnet group does not exist.</p>
+ *
+ * The specified subnet group does not exist.
  *
  * @throws {@link MemoryDBServiceException}
- * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ * Base exception class for all service exceptions from MemoryDB service.
  *
  * @public
  */

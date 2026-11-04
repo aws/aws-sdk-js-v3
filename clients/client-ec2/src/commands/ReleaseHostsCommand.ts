@@ -23,15 +23,12 @@ export interface ReleaseHostsCommandInput extends ReleaseHostsRequest {}
 export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __MetadataBearer {}
 
 /**
- * <p>When you no longer want to use an On-Demand Dedicated Host it can be released.
- *             On-Demand billing is stopped and the host goes into <code>released</code> state. The
- *             host ID of Dedicated Hosts that have been released can no longer be specified in another
- *             request, for example, to modify the host. You must stop or terminate all instances on a
- *             host before it can be released.</p>
- *          <p>When Dedicated Hosts are released, it may take some time for them to stop counting
- *             toward your limit and you may receive capacity errors when trying to allocate new
- *             Dedicated Hosts. Wait a few minutes and then try again.</p>
- *          <p>Released hosts still appear in a <a>DescribeHosts</a> response.</p>
+ * When you no longer want to use an On-Demand Dedicated Host it can be released. On-Demand billing is stopped and the host goes into `released` state. The host ID of Dedicated Hosts that have been released can no longer be specified in another request, for example, to modify the host. You must stop or terminate all instances on a host before it can be released.
+ *
+ * When Dedicated Hosts are released, it may take some time for them to stop counting toward your limit and you may receive capacity errors when trying to allocate new Dedicated Hosts. Wait a few minutes and then try again.
+ *
+ * Released hosts still appear in a DescribeHosts response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +68,8 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

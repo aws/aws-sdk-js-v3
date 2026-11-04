@@ -23,11 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a specified tag to a specified rescore execution
- *             plan. A rescore execution plan is an Amazon Kendra
- *             Intelligent Ranking resource used for provisioning the
- *             <code>Rescore</code> API. If the tag already exists,
- *             the existing value is replaced with the new value.</p>
+ * Adds a specified tag to a specified rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent Ranking resource used for provisioning the `Rescore` API. If the tag already exists, the existing value is replaced with the new value.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,34 +55,28 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don’t have sufficient access to perform this action.
- *             Please ensure you have the required permission policies
- *             and user accounts and try again.</p>
+ *
+ * You don’t have sufficient access to perform this action. Please ensure you have the required permission policies and user accounts and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for
- *             your Amazon Kendra Intelligent Ranking service.
- *             Please wait a few minutes and try again, or contact
- *             <a href="http://aws.amazon.com/contact-us/">Support</a>
- *             for help.</p>
+ *
+ * An issue occurred with the internal server used for your Amazon Kendra Intelligent Ranking service. Please wait a few minutes and try again, or contact [Support](http://aws.amazon.com/contact-us/) for help.
  *
  * @throws {@link ResourceUnavailableException} (client fault)
- *  <p>The resource you want to use is unavailable. Please
- *             check you have provided the correct resource
- *             information and try again.</p>
+ *
+ * The resource you want to use is unavailable. Please check you have provided the correct resource information and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.
- *             Please reduce the number of requests and try again.</p>
+ *
+ * The request was denied due to request throttling. Please reduce the number of requests and try again.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints set by
- *             the Amazon Kendra Intelligent Ranking service.
- *             Please provide the correct input and try again.</p>
+ *
+ * The input fails to satisfy the constraints set by the Amazon Kendra Intelligent Ranking service. Please provide the correct input and try again.
  *
  * @throws {@link KendraRankingServiceException}
- * <p>Base exception class for all service exceptions from KendraRanking service.</p>
  *
+ * Base exception class for all service exceptions from KendraRanking service.
  *
  * @public
  */

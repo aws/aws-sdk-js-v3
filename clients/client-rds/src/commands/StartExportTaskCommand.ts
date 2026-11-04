@@ -24,7 +24,14 @@ export interface StartExportTaskCommandInput extends StartExportTaskMessage {}
 export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBearer {}
 
 /**
- * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3. The provided IAM role must have access to the S3 bucket.</p> <p>You can't export snapshot data from RDS Custom DB instances. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.html"> Supported Regions and DB engines for exporting snapshots to S3 in Amazon RDS</a>.</p> <p>For more information on exporting DB snapshot data, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting DB snapshot data to Amazon S3</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-export-snapshot.html">Exporting DB cluster snapshot data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on exporting DB cluster data, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/export-cluster-data.html">Exporting DB cluster data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * Starts an export of DB snapshot or DB cluster data to Amazon S3. The provided IAM role must have access to the S3 bucket.
+ *
+ * You can't export snapshot data from RDS Custom DB instances. For more information, see [Supported Regions and DB engines for exporting snapshots to S3 in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.html).
+ *
+ * For more information on exporting DB snapshot data, see [Exporting DB snapshot data to Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html) in the *Amazon RDS User Guide* or [Exporting DB cluster snapshot data to Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-export-snapshot.html) in the *Amazon Aurora User Guide*.
+ *
+ * For more information on exporting DB cluster data, see [Exporting DB cluster data to Amazon S3](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/export-cluster-data.html) in the *Amazon Aurora User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,38 +83,48 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p> <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * `DBClusterIdentifier` doesn't refer to an existing DB cluster.
  *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * `DBClusterSnapshotIdentifier` doesn't refer to an existing DB cluster snapshot.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link ExportTaskAlreadyExistsFault} (client fault)
- *  <p>You can't start an export task that's already running.</p>
+ *
+ * You can't start an export task that's already running.
  *
  * @throws {@link IamRoleMissingPermissionsFault} (client fault)
- *  <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
+ *
+ * The IAM role requires additional permissions to export to an Amazon S3 bucket.
  *
  * @throws {@link IamRoleNotFoundFault} (client fault)
- *  <p>The IAM role is missing for exporting to an Amazon S3 bucket.</p>
+ *
+ * The IAM role is missing for exporting to an Amazon S3 bucket.
  *
  * @throws {@link InvalidExportOnlyFault} (client fault)
- *  <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
+ *
+ * The export is invalid for exporting to an Amazon S3 bucket.
  *
  * @throws {@link InvalidExportSourceStateFault} (client fault)
- *  <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
+ *
+ * The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.
  *
  * @throws {@link InvalidS3BucketFault} (client fault)
- *  <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
+ *
+ * The specified Amazon S3 bucket name can't be found or Amazon RDS isn't authorized to access the specified Amazon S3 bucket. Verify the **SourceS3BucketName** and **S3IngestionRoleArn** values and try again.
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
- *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * An error occurred accessing an Amazon Web Services KMS key.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To export a snapshot to Amazon S3
  * ```javascript

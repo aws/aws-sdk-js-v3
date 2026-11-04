@@ -23,7 +23,8 @@ export interface BatchGetFindingsCommandInput extends BatchGetFindingsRequest {}
 export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of requested findings from standard scans.</p>
+ * Returns a list of requested findings from standard scans.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,20 +120,24 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse,
  * @see {@link CodeGuruSecurityClientResolvedConfig | config} for CodeGuruSecurityClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CodeGuruSecurityServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruSecurity service.
  *
  * @public
  */

@@ -23,112 +23,51 @@ export interface GenerateDataKeyCommandInput extends GenerateDataKeyRequest {}
 export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
- *       plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS
- *       key that you specify. The bytes in the plaintext key are random; they are not related to the
- *       caller or the KMS key. You can use the plaintext key to encrypt your data outside of KMS and
- *       store the encrypted data key with the encrypted data.</p>
- *          <p>To generate a data key, specify the symmetric encryption KMS key that will be used to
- *       encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys. To get the
- *       type of your KMS key, use the <a>DescribeKey</a> operation.</p>
- *          <p>You must also specify the length of the data key. Use either the <code>KeySpec</code> or
- *         <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data keys, use
- *       the <code>KeySpec</code> parameter.</p>
- *          <p>To generate a 128-bit SM4 data key (China Regions only), specify a <code>KeySpec</code>
- *       value of <code>AES_128</code> or a <code>NumberOfBytes</code> value of <code>16</code>. The
- *       symmetric encryption key used in China Regions to encrypt your data key is an SM4 encryption
- *       key.</p>
- *          <p>To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To generate an asymmetric data key pair, use
- *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure
- *       random byte string, use <a>GenerateRandom</a>.</p>
- *          <p>You can use an optional encryption context to add additional security to the encryption
- *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
- *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
- *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption Context</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <code>GenerateDataKey</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
- *       isolated compute environment in Amazon EC2. To call <code>GenerateDataKey</code> for an Amazon Web Services Nitro
- *       enclave or NitroTPM, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the
- *         <code>Recipient</code> parameter to provide the attestation document for the attested
- *       environment. <code>GenerateDataKey</code> returns a copy of the data key encrypted under the
- *       specified KMS key, as usual. But instead of a plaintext copy of the data key, the response
- *       includes a copy of the data key encrypted under the public key from the attestation document
- *         (<code>CiphertextForRecipient</code>). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>How to use your data key</b>
- *          </p>
- *          <p>We recommend that you use the following pattern to encrypt data locally in your
- *       application. You can write your own code or use a client-side encryption library, such as the
- *         <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a>, the
- *         <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>,
- *       or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
- *         client-side encryption</a> to do these tasks for you.</p>
- *          <p>To encrypt data outside of KMS:</p>
- *          <ol>
- *             <li>
- *                <p>Use the <code>GenerateDataKey</code> operation to get a data key.</p>
- *             </li>
- *             <li>
- *                <p>Use the plaintext data key (in the <code>Plaintext</code> field of the response) to
- *           encrypt your data outside of KMS. Then erase the plaintext data key from memory.</p>
- *             </li>
- *             <li>
- *                <p>Store the encrypted data key (in the <code>CiphertextBlob</code> field of the
- *           response) with the encrypted data.</p>
- *             </li>
- *          </ol>
- *          <p>To decrypt data outside of KMS:</p>
- *          <ol>
- *             <li>
- *                <p>Use the <a>Decrypt</a> operation to decrypt the encrypted data key. The
- *           operation returns a plaintext copy of the data key.</p>
- *             </li>
- *             <li>
- *                <p>Use the plaintext data key to decrypt data outside of KMS, then erase the plaintext
- *           data key from memory.</p>
- *             </li>
- *          </ol>
- *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
- *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKey</a> (key policy)</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>Decrypt</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>Encrypt</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GenerateDataKeyPair</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GenerateDataKeyPairWithoutPlaintext</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GenerateDataKeyWithoutPlaintext</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Returns a unique symmetric data key for use outside of KMS. This operation returns a plaintext copy of the data key and a copy that is encrypted under a symmetric encryption KMS key that you specify. The bytes in the plaintext key are random; they are not related to the caller or the KMS key. You can use the plaintext key to encrypt your data outside of KMS and store the encrypted data key with the encrypted data.
+ *
+ * To generate a data key, specify the symmetric encryption KMS key that will be used to encrypt the data key. You cannot use an asymmetric KMS key to encrypt data keys. To get the type of your KMS key, use the DescribeKey operation.
+ *
+ * You must also specify the length of the data key. Use either the `KeySpec` or `NumberOfBytes` parameters (but not both). For 128-bit and 256-bit data keys, use the `KeySpec` parameter.
+ *
+ * To generate a 128-bit SM4 data key (China Regions only), specify a `KeySpec` value of `AES_128` or a `NumberOfBytes` value of `16`. The symmetric encryption key used in China Regions to encrypt your data key is an SM4 encryption key.
+ *
+ * To get only an encrypted copy of the data key, use GenerateDataKeyWithoutPlaintext. To generate an asymmetric data key pair, use the GenerateDataKeyPair or GenerateDataKeyPairWithoutPlaintext operation. To get a cryptographically secure random byte string, use GenerateRandom.
+ *
+ * You can use an optional encryption context to add additional security to the encryption operation. If you specify an `EncryptionContext`, you must specify the same encryption context (a case-sensitive exact match) when decrypting the encrypted data key. Otherwise, the request to decrypt fails with an `InvalidCiphertextException`. For more information, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html) in the *Key Management Service Developer Guide*.
+ *
+ * `GenerateDataKey` also supports [Amazon Web Services Nitro Enclaves](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html), which provide an isolated compute environment in Amazon EC2. To call `GenerateDataKey` for an Amazon Web Services Nitro enclave or NitroTPM, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk) or any Amazon Web Services SDK. Use the `Recipient` parameter to provide the attestation document for the attested environment. `GenerateDataKey` returns a copy of the data key encrypted under the specified KMS key, as usual. But instead of a plaintext copy of the data key, the response includes a copy of the data key encrypted under the public key from the attestation document (`CiphertextForRecipient`). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see [Cryptographic attestation support in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html) in the *Key Management Service Developer Guide*.
+ *
+ * The KMS key that you use for this operation must be in a compatible key state. For details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * **How to use your data key**
+ *
+ * We recommend that you use the following pattern to encrypt data locally in your application. You can write your own code or use a client-side encryption library, such as the [Amazon Web Services Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/), the [Amazon DynamoDB Encryption Client](https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/), or [Amazon S3 client-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html) to do these tasks for you.
+ *
+ * To encrypt data outside of KMS:
+ *
+ * 1. Use the `GenerateDataKey` operation to get a data key.
+ * 2. Use the plaintext data key (in the `Plaintext` field of the response) to encrypt your data outside of KMS. Then erase the plaintext data key from memory.
+ * 3. Store the encrypted data key (in the `CiphertextBlob` field of the response) with the encrypted data.
+ *
+ * To decrypt data outside of KMS:
+ *
+ * 1. Use the Decrypt operation to decrypt the encrypted data key. The operation returns a plaintext copy of the data key.
+ * 2. Use the plaintext data key to decrypt data outside of KMS, then erase the plaintext data key from memory.
+ *
+ * **Cross-account use**: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN in the value of the `KeyId` parameter.
+ *
+ * **Required permissions**: [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+ *
+ * **Related operations:**
+ *
+ * - Decrypt
+ * - Encrypt
+ * - GenerateDataKeyPair
+ * - GenerateDataKeyPairWithoutPlaintext
+ * - GenerateDataKeyWithoutPlaintext
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -172,76 +111,58 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link DisabledException} (client fault)
- *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * The request was rejected because the specified KMS key is not enabled.
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p> The request was rejected because the DryRun parameter was specified. </p>
+ *
+ * The request was rejected because the DryRun parameter was specified.
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
- *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * The request was rejected because the specified grant token is not valid.
  *
  * @throws {@link InvalidKeyUsageException} (client fault)
- *  <p>The request was rejected for one of the following reasons: </p>
- *          <ul>
- *             <li>
- *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
- *           operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
- *             </li>
- *          </ul>
- *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
- *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
- *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
- *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
- *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. For encapsulating and decapsulating
- *       shared secrets, the <code>KeyUsage</code> must be <code>ENCAPSULATE_DECAPSULATE</code>. To find
- *       the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
- *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *
+ * The request was rejected for one of the following reasons:
+ *
+ * - The `KeyUsage` value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key `(KeySpec`).
+ *
+ * For encrypting, decrypting, re-encrypting, and generating data keys, the `KeyUsage` must be `ENCRYPT_DECRYPT`. For signing and verifying messages, the `KeyUsage` must be `SIGN_VERIFY`. For generating and verifying message authentication codes (MACs), the `KeyUsage` must be `GENERATE_VERIFY_MAC`. For deriving key agreement secrets, the `KeyUsage` must be `KEY_AGREEMENT`. For encapsulating and decapsulating shared secrets, the `KeyUsage` must be `ENCAPSULATE_DECAPSULATE`. To find the `KeyUsage` of a KMS key, use the DescribeKey operation.
+ *
+ * To find the encryption or signing algorithms supported for a particular KMS key, use the DescribeKey operation.
  *
  * @throws {@link KeyUnavailableException} (server fault)
- *  <p>The request was rejected because the specified KMS key was not available. You can retry
- *       the request.</p>
+ *
+ * The request was rejected because the specified KMS key was not available. You can retry the request.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To generate a data key
  * ```javascript

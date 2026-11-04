@@ -23,8 +23,8 @@ export interface StartCommandExecutionCommandInput extends StartCommandExecution
 export interface StartCommandExecutionCommandOutput extends StartCommandExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Using the command created with the <code>CreateCommand</code> API, start a command
- *          execution on a specific device.</p>
+ * Using the command created with the `CreateCommand` API, start a command execution on a specific device.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,26 +65,32 @@ export interface StartCommandExecutionCommandOutput extends StartCommandExecutio
  * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict has occurred when performing the API request.</p>
+ *
+ * A conflict has occurred when performing the API request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred when performing the API request.</p>
+ *
+ * An internal server error occurred when performing the API request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota has been exceeded for this request.</p>
+ *
+ * The service quota has been exceeded for this request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The rate exceeds the limit.</p>
+ *
+ * The rate exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A validation error occurred when performing the API request.</p>
+ *
+ * A validation error occurred when performing the API request.
  *
  * @throws {@link IoTJobsDataPlaneServiceException}
- * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ * Base exception class for all service exceptions from IoTJobsDataPlane service.
  *
  * @public
  */

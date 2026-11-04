@@ -23,10 +23,8 @@ export interface ListJobTemplatesCommandInput extends ListJobTemplatesRequest {}
 export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists job templates based on a set of parameters. Job template stores values of
- *          StartJobRun API request in a template and can be used to start a job run. Job template
- *          allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing
- *          certain values in StartJobRun API request.</p>
+ * Lists job templates based on a set of parameters. Job template stores values of StartJobRun API request in a template and can be used to start a job run. Job template allows two use cases: avoid repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun API request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,14 +123,16 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

@@ -23,16 +23,11 @@ export interface CreateTagsCommandInput extends CreateTagsRequest {}
 export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>DEPRECATED - <code>CreateTags</code> is deprecated and not maintained. To create tags for EFS
- *         resources, use the  API action.</p>
- *          </note>
- *          <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
- *       a tag key specified in the request already exists on the file system, this operation
- *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
- *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
- *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
- *       action.</p>
+ * > **Note:** DEPRECATED - `CreateTags` is deprecated and not maintained. To create tags for EFS resources, use the API action.
+ *
+ * Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If a tag key specified in the request already exists on the file system, this operation overwrites its value with the value provided in the request. If you add the `Name` tag to your file system, Amazon EFS returns it in the response to the DescribeFileSystems operation.
+ *
+ * This operation requires permission for the `elasticfilesystem:CreateTags` action.
  *
  * @deprecated Use TagResource.
  * @example
@@ -65,19 +60,20 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  * @throws {@link BadRequest} (client fault)
- *  <p>Returned if the request is malformed or contains an error such as an invalid
- *             parameter value or a missing required parameter.</p>
+ *
+ * Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.
  *
  * @throws {@link FileSystemNotFound} (client fault)
- *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
- *             requester's Amazon Web Services account.</p>
+ *
+ * Returned if the specified `FileSystemId` value doesn't exist in the requester's Amazon Web Services account.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * Returned if an error occurred on the server side.
  *
  * @throws {@link EFSServiceException}
- * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ * Base exception class for all service exceptions from EFS service.
  *
  * @example To create a new tag
  * ```javascript

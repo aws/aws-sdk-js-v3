@@ -2,42 +2,77 @@
 import type { ResourceType } from "./enums";
 
 /**
- * <p>This structure contains the <code>Filter</code> parameter which you can use to specify which log groups are to share log events from this source account to the monitoring account.</p>
+ * This structure contains the `Filter` parameter which you can use to specify which log groups are to share log events from this source account to the monitoring account.
+ *
  * @public
  */
 export interface LogGroupConfiguration {
   /**
-   * <p>Use this field to specify which log groups are to share their log events with the monitoring account. Use the term <code>LogGroupName</code> and one or more of the following operands. Use single quotation marks (') around log group names. The matching of log group names is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are <code>AND</code> and <code>OR</code>.</p> <ul> <li> <p> <code>=</code> and <code>!=</code> </p> </li> <li> <p> <code>AND</code> </p> </li> <li> <p> <code>OR</code> </p> </li> <li> <p> <code>LIKE</code> and <code>NOT LIKE</code>. These can be used only as prefix searches. Include a <code>%</code> at the end of the string that you want to search for and include.</p> </li> <li> <p> <code>IN</code> and <code>NOT IN</code>, using parentheses <code>( )</code> </p> </li> </ul> <p>Examples:</p> <ul> <li> <p> <code>LogGroupName IN ('This-Log-Group', 'Other-Log-Group')</code> includes only the log groups with names <code>This-Log-Group</code> and <code>Other-Log-Group</code>.</p> </li> <li> <p> <code>LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')</code> includes all log groups except the log groups with names <code>Private-Log-Group</code> and <code>Private-Log-Group-2</code>.</p> </li> <li> <p> <code>LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'</code> includes all log groups that have names that start with <code>aws/lambda/</code> or <code>AWSLogs</code>.</p> </li> </ul> <note> <p>If you are updating a link that uses filters, you can specify <code>*</code> as the only value for the <code>filter</code> parameter to delete the filter and share all log groups with the monitoring account.</p> </note>
+   * Use this field to specify which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands. Use single quotation marks (') around log group names. The matching of log group names is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are `AND` and `OR`.
+   *
+   * - `=` and `!=`
+   * - `AND`
+   * - `OR`
+   * - `LIKE` and `NOT LIKE`. These can be used only as prefix searches. Include a `%` at the end of the string that you want to search for and include.
+   * - `IN` and `NOT IN`, using parentheses `( )`
+   *
+   * Examples:
+   *
+   * - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group`.
+   * - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2`.
+   * - `LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'` includes all log groups that have names that start with `aws/lambda/` or `AWSLogs`.
+   *
+   * > **Note:** If you are updating a link that uses filters, you can specify `*` as the only value for the `filter` parameter to delete the filter and share all log groups with the monitoring account.
+   *
    * @public
    */
   Filter: string | undefined;
 }
 
 /**
- * <p>This structure contains the <code>Filter</code> parameter which you can use to specify which metric namespaces are to be shared from this source account to the monitoring account.</p>
+ * This structure contains the `Filter` parameter which you can use to specify which metric namespaces are to be shared from this source account to the monitoring account.
+ *
  * @public
  */
 export interface MetricConfiguration {
   /**
-   * <p>Use this field to specify which metrics are to be shared with the monitoring account. Use the term <code>Namespace</code> and one or more of the following operands. Use single quotation marks (') around namespace names. The matching of namespace names is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are <code>AND</code> and <code>OR</code>.</p> <ul> <li> <p> <code>=</code> and <code>!=</code> </p> </li> <li> <p> <code>AND</code> </p> </li> <li> <p> <code>OR</code> </p> </li> <li> <p> <code>LIKE</code> and <code>NOT LIKE</code>. These can be used only as prefix searches. Include a <code>%</code> at the end of the string that you want to search for and include.</p> </li> <li> <p> <code>IN</code> and <code>NOT IN</code>, using parentheses <code>( )</code> </p> </li> </ul> <p>Examples:</p> <ul> <li> <p> <code>Namespace NOT LIKE 'AWS/%'</code> includes only namespaces that don't start with <code>AWS/</code>, such as custom namespaces.</p> </li> <li> <p> <code>Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')</code> includes only the metrics in the EC2, Elastic Load Balancing, and Amazon S3 namespaces. </p> </li> <li> <p> <code>Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'</code> includes only the EC2 namespace and your custom namespaces.</p> </li> </ul> <note> <p>If you are updating a link that uses filters, you can specify <code>*</code> as the only value for the <code>filter</code> parameter to delete the filter and share all metric namespaces with the monitoring account.</p> </note>
+   * Use this field to specify which metrics are to be shared with the monitoring account. Use the term `Namespace` and one or more of the following operands. Use single quotation marks (') around namespace names. The matching of namespace names is case sensitive. Each filter has a limit of five conditional operands. Conditional operands are `AND` and `OR`.
+   *
+   * - `=` and `!=`
+   * - `AND`
+   * - `OR`
+   * - `LIKE` and `NOT LIKE`. These can be used only as prefix searches. Include a `%` at the end of the string that you want to search for and include.
+   * - `IN` and `NOT IN`, using parentheses `( )`
+   *
+   * Examples:
+   *
+   * - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/`, such as custom namespaces.
+   * - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing, and Amazon S3 namespaces.
+   * - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
+   *
+   * > **Note:** If you are updating a link that uses filters, you can specify `*` as the only value for the `filter` parameter to delete the filter and share all metric namespaces with the monitoring account.
+   *
    * @public
    */
   Filter: string | undefined;
 }
 
 /**
- * <p>Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.</p>
+ * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+ *
  * @public
  */
 export interface LinkConfiguration {
   /**
-   * <p>Use this structure to filter which log groups are to send log events from the source account to the monitoring account.</p>
+   * Use this structure to filter which log groups are to send log events from the source account to the monitoring account.
+   *
    * @public
    */
   LogGroupConfiguration?: LogGroupConfiguration | undefined;
 
   /**
-   * <p>Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.</p>
+   * Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
+   *
    * @public
    */
   MetricConfiguration?: MetricConfiguration | undefined;
@@ -48,31 +83,50 @@ export interface LinkConfiguration {
  */
 export interface CreateLinkInput {
   /**
-   * <p>Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.</p> <p>You can use a custom label or use the following variables:</p> <ul> <li> <p> <code>$AccountName</code> is the name of the account</p> </li> <li> <p> <code>$AccountEmail</code> is the globally unique email address of the account</p> </li> <li> <p> <code>$AccountEmailNoDomain</code> is the email address of the account without the domain name</p> </li> </ul> <note> <p>In the Amazon Web Services GovCloud (US-East) and Amazon Web Services GovCloud (US-West) Regions, the only supported option is to use custom labels, and the <code>$AccountName</code>, <code>$AccountEmail</code>, and <code>$AccountEmailNoDomain</code> variables all resolve as <i>account-id</i> instead of the specified variable.</p> </note>
+   * Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+   *
+   * You can use a custom label or use the following variables:
+   *
+   * - `$AccountName` is the name of the account
+   * - `$AccountEmail` is the globally unique email address of the account
+   * - `$AccountEmailNoDomain` is the email address of the account without the domain name
+   *
+   * > **Note:** In the Amazon Web Services GovCloud (US-East) and Amazon Web Services GovCloud (US-West) Regions, the only supported option is to use custom labels, and the `$AccountName`, `$AccountEmail`, and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
+   *
    * @public
    */
   LabelTemplate: string | undefined;
 
   /**
-   * <p>An array of strings that define which types of data that the source account shares with the monitoring account.</p>
+   * An array of strings that define which types of data that the source account shares with the monitoring account.
+   *
    * @public
    */
   ResourceTypes: ResourceType[] | undefined;
 
   /**
-   * <p>The ARN of the sink to use to create this link. You can use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a> to find the ARNs of sinks.</p> <p>For more information about sinks, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a>.</p>
+   * The ARN of the sink to use to create this link. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.
+   *
+   * For more information about sinks, see [CreateSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html).
+   *
    * @public
    */
   SinkIdentifier: string | undefined;
 
   /**
-   * <p>Assigns one or more tags (key-value pairs) to the link. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+   * Assigns one or more tags (key-value pairs) to the link.
+   *
+   * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+   *
+   * For more information about using tags to control access, see [Controlling access to Amazon Web Services resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.</p>
+   * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
+   *
    * @public
    */
   LinkConfiguration?: LinkConfiguration | undefined;
@@ -83,49 +137,57 @@ export interface CreateLinkInput {
  */
 export interface CreateLinkOutput {
   /**
-   * <p>The ARN of the link that is newly created.</p>
+   * The ARN of the link that is newly created.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the link ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The label that you assigned to this link. If the <code>labelTemplate</code> includes variables, this field displays the variables resolved to their actual values.</p>
+   * The label that you assigned to this link. If the `labelTemplate` includes variables, this field displays the variables resolved to their actual values.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The exact label template that you specified, with the variables not resolved.</p>
+   * The exact label template that you specified, with the variables not resolved.
+   *
    * @public
    */
   LabelTemplate?: string | undefined;
 
   /**
-   * <p>The resource types supported by this link.</p>
+   * The resource types supported by this link.
+   *
    * @public
    */
   ResourceTypes?: string[] | undefined;
 
   /**
-   * <p>The ARN of the sink that is used for this link.</p>
+   * The ARN of the sink that is used for this link.
+   *
    * @public
    */
   SinkArn?: string | undefined;
 
   /**
-   * <p>The tags assigned to the link.</p>
+   * The tags assigned to the link.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>
+   * This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.
+   *
    * @public
    */
   LinkConfiguration?: LinkConfiguration | undefined;
@@ -136,13 +198,19 @@ export interface CreateLinkOutput {
  */
 export interface CreateSinkInput {
   /**
-   * <p>A name for the sink.</p>
+   * A name for the sink.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>Assigns one or more tags (key-value pairs) to the link. </p> <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.</p> <p>For more information about using tags to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
+   * Assigns one or more tags (key-value pairs) to the link.
+   *
+   * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+   *
+   * For more information about using tags to control access, see [Controlling access to Amazon Web Services resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html).
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -153,25 +221,29 @@ export interface CreateSinkInput {
  */
 export interface CreateSinkOutput {
   /**
-   * <p>The ARN of the sink that is newly created.</p>
+   * The ARN of the sink that is newly created.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the sink ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the sink.</p>
+   * The name of the sink.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The tags assigned to the sink.</p>
+   * The tags assigned to the sink.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -182,7 +254,8 @@ export interface CreateSinkOutput {
  */
 export interface DeleteLinkInput {
   /**
-   * <p>The ARN of the link to delete.</p>
+   * The ARN of the link to delete.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -198,7 +271,8 @@ export interface DeleteLinkOutput {}
  */
 export interface DeleteSinkInput {
   /**
-   * <p>The ARN of the sink to delete.</p>
+   * The ARN of the sink to delete.
+   *
    * @public
    */
   Identifier: string | undefined;
@@ -214,13 +288,17 @@ export interface DeleteSinkOutput {}
  */
 export interface GetLinkInput {
   /**
-   * <p>The ARN of the link to retrieve information for.</p>
+   * The ARN of the link to retrieve information for.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>Specifies whether to include the tags associated with the link in the response. When <code>IncludeTags</code> is set to <code>true</code> and the caller has the required permission, <code>oam:ListTagsForResource</code>, the API will return the tags for the specified resource. If the caller doesn't have the required permission, <code>oam:ListTagsForResource</code>, the API will raise an exception.</p> <p>The default value is <code>false</code>.</p>
+   * Specifies whether to include the tags associated with the link in the response. When `IncludeTags` is set to `true` and the caller has the required permission, `oam:ListTagsForResource`, the API will return the tags for the specified resource. If the caller doesn't have the required permission, `oam:ListTagsForResource`, the API will raise an exception.
+   *
+   * The default value is `false`.
+   *
    * @public
    */
   IncludeTags?: boolean | undefined;
@@ -231,49 +309,57 @@ export interface GetLinkInput {
  */
 export interface GetLinkOutput {
   /**
-   * <p>The ARN of the link.</p>
+   * The ARN of the link.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the link ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The label that you assigned to this link, with the variables resolved to their actual values.</p>
+   * The label that you assigned to this link, with the variables resolved to their actual values.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p>
+   * The exact label template that was specified when the link was created, with the template variables not resolved.
+   *
    * @public
    */
   LabelTemplate?: string | undefined;
 
   /**
-   * <p>The resource types supported by this link.</p>
+   * The resource types supported by this link.
+   *
    * @public
    */
   ResourceTypes?: string[] | undefined;
 
   /**
-   * <p>The ARN of the sink that is used for this link.</p>
+   * The ARN of the sink that is used for this link.
+   *
    * @public
    */
   SinkArn?: string | undefined;
 
   /**
-   * <p>The tags assigned to the link.</p>
+   * The tags assigned to the link.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>
+   * This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.
+   *
    * @public
    */
   LinkConfiguration?: LinkConfiguration | undefined;
@@ -284,13 +370,17 @@ export interface GetLinkOutput {
  */
 export interface GetSinkInput {
   /**
-   * <p>The ARN of the sink to retrieve information for.</p>
+   * The ARN of the sink to retrieve information for.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>Specifies whether to include the tags associated with the sink in the response. When <code>IncludeTags</code> is set to <code>true</code> and the caller has the required permission, <code>oam:ListTagsForResource</code>, the API will return the tags for the specified resource. If the caller doesn't have the required permission, <code>oam:ListTagsForResource</code>, the API will raise an exception.</p> <p>The default value is <code>false</code>.</p>
+   * Specifies whether to include the tags associated with the sink in the response. When `IncludeTags` is set to `true` and the caller has the required permission, `oam:ListTagsForResource`, the API will return the tags for the specified resource. If the caller doesn't have the required permission, `oam:ListTagsForResource`, the API will raise an exception.
+   *
+   * The default value is `false`.
+   *
    * @public
    */
   IncludeTags?: boolean | undefined;
@@ -301,25 +391,29 @@ export interface GetSinkInput {
  */
 export interface GetSinkOutput {
   /**
-   * <p>The ARN of the sink.</p>
+   * The ARN of the sink.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the sink ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the sink.</p>
+   * The name of the sink.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The tags assigned to the sink.</p>
+   * The tags assigned to the sink.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -330,7 +424,8 @@ export interface GetSinkOutput {
  */
 export interface GetSinkPolicyInput {
   /**
-   * <p>The ARN of the sink to retrieve the policy of.</p>
+   * The ARN of the sink to retrieve the policy of.
+   *
    * @public
    */
   SinkIdentifier: string | undefined;
@@ -341,19 +436,22 @@ export interface GetSinkPolicyInput {
  */
 export interface GetSinkPolicyOutput {
   /**
-   * <p>The ARN of the sink.</p>
+   * The ARN of the sink.
+   *
    * @public
    */
   SinkArn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the sink ARN.
+   *
    * @public
    */
   SinkId?: string | undefined;
 
   /**
-   * <p>The policy that you specified, in JSON format.</p>
+   * The policy that you specified, in JSON format.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -364,43 +462,50 @@ export interface GetSinkPolicyOutput {
  */
 export interface ListAttachedLinksInput {
   /**
-   * <p>Limits the number of returned links to the specified number.</p>
+   * Limits the number of returned links to the specified number.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of items to return. You received this token from a previous call.</p>
+   * The token for the next set of items to return. You received this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The ARN of the sink that you want to retrieve links for.</p>
+   * The ARN of the sink that you want to retrieve links for.
+   *
    * @public
    */
   SinkIdentifier: string | undefined;
 }
 
 /**
- * <p>A structure that contains information about one link attached to this monitoring account sink.</p>
+ * A structure that contains information about one link attached to this monitoring account sink.
+ *
  * @public
  */
 export interface ListAttachedLinksItem {
   /**
-   * <p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>
+   * The label that was assigned to this link at creation, with the variables resolved to their actual values.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The ARN of the link.</p>
+   * The ARN of the link.
+   *
    * @public
    */
   LinkArn?: string | undefined;
 
   /**
-   * <p>The resource types supported by this link.</p>
+   * The resource types supported by this link.
+   *
    * @public
    */
   ResourceTypes?: string[] | undefined;
@@ -411,13 +516,15 @@ export interface ListAttachedLinksItem {
  */
 export interface ListAttachedLinksOutput {
   /**
-   * <p>An array of structures that contain the information about the attached links.</p>
+   * An array of structures that contain the information about the attached links.
+   *
    * @public
    */
   Items: ListAttachedLinksItem[] | undefined;
 
   /**
-   * <p>The token to use when requesting the next set of links.</p>
+   * The token to use when requesting the next set of links.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -428,49 +535,57 @@ export interface ListAttachedLinksOutput {
  */
 export interface ListLinksInput {
   /**
-   * <p>Limits the number of returned links to the specified number.</p>
+   * Limits the number of returned links to the specified number.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of items to return. You received this token from a previous call.</p>
+   * The token for the next set of items to return. You received this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that contains information about one of this source account's links to a monitoring account.</p>
+ * A structure that contains information about one of this source account's links to a monitoring account.
+ *
  * @public
  */
 export interface ListLinksItem {
   /**
-   * <p>The ARN of the link.</p>
+   * The ARN of the link.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the link ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the link ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>
+   * The label that was assigned to this link at creation, with the variables resolved to their actual values.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The resource types supported by this link.</p>
+   * The resource types supported by this link.
+   *
    * @public
    */
   ResourceTypes?: string[] | undefined;
 
   /**
-   * <p>The ARN of the sink that this link is attached to.</p>
+   * The ARN of the sink that this link is attached to.
+   *
    * @public
    */
   SinkArn?: string | undefined;
@@ -481,13 +596,15 @@ export interface ListLinksItem {
  */
 export interface ListLinksOutput {
   /**
-   * <p>An array of structures that contain the information about the returned links.</p>
+   * An array of structures that contain the information about the returned links.
+   *
    * @public
    */
   Items: ListLinksItem[] | undefined;
 
   /**
-   * <p>The token to use when requesting the next set of links.</p>
+   * The token to use when requesting the next set of links.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -498,37 +615,43 @@ export interface ListLinksOutput {
  */
 export interface ListSinksInput {
   /**
-   * <p>Limits the number of returned links to the specified number.</p>
+   * Limits the number of returned links to the specified number.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next set of items to return. You received this token from a previous call.</p>
+   * The token for the next set of items to return. You received this token from a previous call.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>A structure that contains information about one of this monitoring account's sinks.</p>
+ * A structure that contains information about one of this monitoring account's sinks.
+ *
  * @public
  */
 export interface ListSinksItem {
   /**
-   * <p>The ARN of the sink.</p>
+   * The ARN of the sink.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the sink ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the sink.</p>
+   * The name of the sink.
+   *
    * @public
    */
   Name?: string | undefined;
@@ -539,13 +662,15 @@ export interface ListSinksItem {
  */
 export interface ListSinksOutput {
   /**
-   * <p>An array of structures that contain the information about the returned sinks.</p>
+   * An array of structures that contain the information about the returned sinks.
+   *
    * @public
    */
   Items: ListSinksItem[] | undefined;
 
   /**
-   * <p>The token to use when requesting the next set of sinks.</p>
+   * The token to use when requesting the next set of sinks.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -556,7 +681,16 @@ export interface ListSinksOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource that you want to view tags for.</p> <p>The ARN format of a sink is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i> </code> </p> <p>The ARN format of a link is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i> </code> </p> <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p> <important> <p>Unlike tagging permissions in other Amazon Web Services services, to retrieve the list of tags for links or sinks you must have the <code>oam:RequestTag</code> permission. The <code>aws:ReguestTag</code> permission does not allow you to tag and untag links and sinks.</p> </important>
+   * The ARN of the resource that you want to view tags for.
+   *
+   * The ARN format of a sink is `arn:aws:oam:Region:account-id:sink/sink-id`
+   *
+   * The ARN format of a link is `arn:aws:oam:Region:account-id:link/link-id`
+   *
+   * For more information about ARN format, see [CloudWatch Logs resources and operations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html).
+   *
+   * > **Important:** Unlike tagging permissions in other Amazon Web Services services, to retrieve the list of tags for links or sinks you must have the `oam:RequestTag` permission. The `aws:ReguestTag` permission does not allow you to tag and untag links and sinks.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -567,7 +701,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The list of tags associated with the requested resource.&gt;</p>
+   * The list of tags associated with the requested resource.&gt;
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -578,13 +713,19 @@ export interface ListTagsForResourceOutput {
  */
 export interface PutSinkPolicyInput {
   /**
-   * <p>The ARN of the sink to attach this policy to.</p>
+   * The ARN of the sink to attach this policy to.
+   *
    * @public
    */
   SinkIdentifier: string | undefined;
 
   /**
-   * <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.</p> <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p> <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p>
+   * The JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
+   *
+   * The policy must be in JSON string format with quotation marks escaped and no newlines.
+   *
+   * For examples of different types of policies, see the **Examples** section on this page.
+   *
    * @public
    */
   Policy: string | undefined;
@@ -595,19 +736,22 @@ export interface PutSinkPolicyInput {
  */
 export interface PutSinkPolicyOutput {
   /**
-   * <p>The ARN of the sink.</p>
+   * The ARN of the sink.
+   *
    * @public
    */
   SinkArn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the sink ARN.
+   *
    * @public
    */
   SinkId?: string | undefined;
 
   /**
-   * <p>The policy that you specified.</p>
+   * The policy that you specified.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -618,13 +762,21 @@ export interface PutSinkPolicyOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN of the resource that you're adding tags to.</p> <p>The ARN format of a sink is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i> </code> </p> <p>The ARN format of a link is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i> </code> </p> <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p>
+   * The ARN of the resource that you're adding tags to.
+   *
+   * The ARN format of a sink is `arn:aws:oam:Region:account-id:sink/sink-id`
+   *
+   * The ARN format of a link is `arn:aws:oam:Region:account-id:link/link-id`
+   *
+   * For more information about ARN format, see [CloudWatch Logs resources and operations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html).
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The list of key-value pairs to associate with the resource.</p>
+   * The list of key-value pairs to associate with the resource.
+   *
    * @public
    */
   Tags: Record<string, string> | undefined;
@@ -640,13 +792,21 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN of the resource that you're removing tags from.</p> <p>The ARN format of a sink is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i> </code> </p> <p>The ARN format of a link is <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i> </code> </p> <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs resources and operations</a>.</p>
+   * The ARN of the resource that you're removing tags from.
+   *
+   * The ARN format of a sink is `arn:aws:oam:Region:account-id:sink/sink-id`
+   *
+   * The ARN format of a link is `arn:aws:oam:Region:account-id:link/link-id`
+   *
+   * For more information about ARN format, see [CloudWatch Logs resources and operations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html).
+   *
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -662,25 +822,33 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateLinkInput {
   /**
-   * <p>The ARN of the link that you want to update.</p>
+   * The ARN of the link that you want to update.
+   *
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>An array of strings that define which types of data that the source account will send to the monitoring account.</p> <p>Your input here replaces the current set of data types that are shared.</p>
+   * An array of strings that define which types of data that the source account will send to the monitoring account.
+   *
+   * Your input here replaces the current set of data types that are shared.
+   *
    * @public
    */
   ResourceTypes: ResourceType[] | undefined;
 
   /**
-   * <p>Use this structure to filter which metric namespaces and which log groups are to be shared from the source account to the monitoring account.</p>
+   * Use this structure to filter which metric namespaces and which log groups are to be shared from the source account to the monitoring account.
+   *
    * @public
    */
   LinkConfiguration?: LinkConfiguration | undefined;
 
   /**
-   * <p>Specifies whether to include the tags associated with the link in the response after the update operation. When <code>IncludeTags</code> is set to <code>true</code> and the caller has the required permission, <code>oam:ListTagsForResource</code>, the API will return the tags for the specified resource. If the caller doesn't have the required permission, <code>oam:ListTagsForResource</code>, the API will raise an exception. </p> <p>The default value is <code>false</code>.</p>
+   * Specifies whether to include the tags associated with the link in the response after the update operation. When `IncludeTags` is set to `true` and the caller has the required permission, `oam:ListTagsForResource`, the API will return the tags for the specified resource. If the caller doesn't have the required permission, `oam:ListTagsForResource`, the API will raise an exception.
+   *
+   * The default value is `false`.
+   *
    * @public
    */
   IncludeTags?: boolean | undefined;
@@ -691,49 +859,57 @@ export interface UpdateLinkInput {
  */
 export interface UpdateLinkOutput {
   /**
-   * <p>The ARN of the link that you have updated.</p>
+   * The ARN of the link that you have updated.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The random ID string that Amazon Web Services generated as part of the sink ARN.</p>
+   * The random ID string that Amazon Web Services generated as part of the sink ARN.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The label assigned to this link, with the variables resolved to their actual values.</p>
+   * The label assigned to this link, with the variables resolved to their actual values.
+   *
    * @public
    */
   Label?: string | undefined;
 
   /**
-   * <p>The exact label template that was specified when the link was created, with the template variables not resolved.</p>
+   * The exact label template that was specified when the link was created, with the template variables not resolved.
+   *
    * @public
    */
   LabelTemplate?: string | undefined;
 
   /**
-   * <p>The resource types now supported by this link.</p>
+   * The resource types now supported by this link.
+   *
    * @public
    */
   ResourceTypes?: string[] | undefined;
 
   /**
-   * <p>The ARN of the sink that is used for this link.</p>
+   * The ARN of the sink that is used for this link.
+   *
    * @public
    */
   SinkArn?: string | undefined;
 
   /**
-   * <p>The tags assigned to the link.</p>
+   * The tags assigned to the link.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>
+   * This structure includes filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.
+   *
    * @public
    */
   LinkConfiguration?: LinkConfiguration | undefined;

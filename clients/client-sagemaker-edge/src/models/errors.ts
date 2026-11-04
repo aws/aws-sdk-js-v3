@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdgeServiceException";
 
 /**
- * <p>An internal failure occurred. Try your request again. If the problem
- *       persists, contact Amazon Web Services customer support.</p>
+ * An internal failure occurred. Try your request again. If the problem persists, contact Amazon Web Services customer support.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {

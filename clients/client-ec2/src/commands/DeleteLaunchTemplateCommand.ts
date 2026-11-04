@@ -24,8 +24,8 @@ export interface DeleteLaunchTemplateCommandInput extends DeleteLaunchTemplateRe
 export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateResult, __MetadataBearer {}
 
 /**
- * <p>Deletes a launch template. Deleting a launch template deletes all of its
- *             versions.</p>
+ * Deletes a launch template. Deleting a launch template deletes all of its versions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,8 +72,8 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To delete a launch template
  * ```javascript

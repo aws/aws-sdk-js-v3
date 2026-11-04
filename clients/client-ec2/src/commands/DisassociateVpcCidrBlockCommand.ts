@@ -23,12 +23,10 @@ export interface DisassociateVpcCidrBlockCommandInput extends DisassociateVpcCid
 export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCidrBlockResult, __MetadataBearer {}
 
 /**
- * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
- *             specify its association ID. You can get the association ID by using
- *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
- *             are associated with the CIDR block before you can disassociate it. </p>
- *          <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
- * 			primary CIDR block).</p>
+ * Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must specify its association ID. You can get the association ID by using DescribeVpcs. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it.
+ *
+ * You cannot disassociate the CIDR block with which you originally created the VPC (the primary CIDR block).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +73,8 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

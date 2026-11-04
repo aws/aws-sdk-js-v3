@@ -23,13 +23,12 @@ export interface DisableVpcClassicLinkDnsSupportCommandInput extends DisableVpcC
 export interface DisableVpcClassicLinkDnsSupportCommandOutput extends DisableVpcClassicLinkDnsSupportResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action is deprecated.</p>
- *          </note>
- *          <p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
- * 			public IP addresses when addressed between a linked EC2-Classic instance and instances
- * 			in the VPC to which it's linked.</p>
- *          <p>You must specify a VPC ID in the request.</p>
+ * > **Note:** This action is deprecated.
+ *
+ * Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it's linked.
+ *
+ * You must specify a VPC ID in the request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +55,8 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput extends DisableVpc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

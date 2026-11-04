@@ -23,7 +23,8 @@ export interface DeleteVpnConcentratorCommandInput extends DeleteVpnConcentrator
 export interface DeleteVpnConcentratorCommandOutput extends DeleteVpnConcentratorResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified VPN concentrator.</p>
+ * Deletes the specified VPN concentrator.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,8 @@ export interface DeleteVpnConcentratorCommandOutput extends DeleteVpnConcentrato
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

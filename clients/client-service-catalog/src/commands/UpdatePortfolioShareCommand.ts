@@ -23,22 +23,18 @@ export interface UpdatePortfolioShareCommandInput extends UpdatePortfolioShareIn
 export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing
- *          or Principal sharing for an existing portfolio share. </p>
- *          <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities.
- *          In this case, you must wait for the portfolio share to be completed.</p>
- *          <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>
- *          <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>
- *          <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>
- *          <note>
- *             <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is
- *          then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin,
- *          but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal
- *          name association for the portfolio. Although this user may not know which principal names are associated through
- *          Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then
- *          Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration,
- *          the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p>
- *          </note>
+ * Updates the specified portfolio share. You can use this API to enable or disable `TagOptions` sharing or Principal sharing for an existing portfolio share.
+ *
+ * The portfolio share cannot be updated if the `CreatePortfolioShare` operation is `IN_PROGRESS`, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be completed.
+ *
+ * You must provide the `accountId` or organization node in the input, but not both.
+ *
+ * If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke `UpdatePortfolioShare` separately for each share type.
+ *
+ * This API cannot be used for removing the portfolio share. You must use `DeletePortfolioShare` API for that action.
+ *
+ * > **Note:** When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is then shared with other accounts. For a user in a recipient account who is *not* an Service Catalog Admin, but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal name association for the portfolio. Although this user may not know which principal names are associated through Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then Service Catalog recommends using `PrincipalType` as `IAM`. With this configuration, the `PrincipalARN` must already exist in the recipient account before it can be associated.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,21 +70,24 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  * @throws {@link InvalidParametersException} (client fault)
- *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ * One or more parameters provided to the operation are not valid.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>An attempt was made to modify a resource that is in a state that is not valid.
- *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
+ *
+ * An attempt was made to modify a resource that is in a state that is not valid. Check your resources to ensure that they are in valid states before retrying the operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>The operation is not supported.</p>
+ *
+ * The operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ServiceCatalogServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalog service.
  *
  * @public
  */

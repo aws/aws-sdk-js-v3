@@ -23,13 +23,10 @@ export interface DescribeSnapshotsCommandInput extends DescribeSnapshotsMessage 
 export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about cluster or replication group snapshots. By default,
- *                 <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally
- *             describe a single snapshot, or just the snapshots associated with a particular cache
- *             cluster.</p>
- *          <note>
- *             <p>This operation is valid for Valkey or Redis OSS only.</p>
- *          </note>
+ * Returns information about cluster or replication group snapshots. By default, `DescribeSnapshots` lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.
+ *
+ * > **Note:** This operation is valid for Valkey or Redis OSS only.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,20 +114,24 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link CacheClusterNotFoundFault} (client fault)
- *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * The requested cluster ID does not refer to an existing cluster.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
- *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ * The requested snapshot name does not refer to an existing snapshot.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @example DescribeSnapshots
  * ```javascript

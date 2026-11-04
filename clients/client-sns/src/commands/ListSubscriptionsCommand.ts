@@ -23,11 +23,10 @@ export interface ListSubscriptionsCommandInput extends ListSubscriptionsInput {}
 export interface ListSubscriptionsCommandOutput extends ListSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of
- *             subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is
- *             also returned. Use the <code>NextToken</code> parameter in a new
- *                 <code>ListSubscriptions</code> call to get further results.</p>
- *          <p>This action is throttled at 30 transactions per second (TPS).</p>
+ * Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a `NextToken` is also returned. Use the `NextToken` parameter in a new `ListSubscriptions` call to get further results.
+ *
+ * This action is throttled at 30 transactions per second (TPS).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,18 +62,20 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

@@ -23,34 +23,17 @@ export interface GetVaultLockCommandInput extends GetVaultLockInput {}
 export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**
- * <p>This operation retrieves the following attributes from the <code>lock-policy</code>
- *          subresource set on the specified vault: </p>
- *          <ul>
- *             <li>
- *                <p>The vault lock policy set on the vault.</p>
- *             </li>
- *             <li>
- *                <p>The state of the vault lock, which is either <code>InProgess</code> or
- *                   <code>Locked</code>.</p>
- *             </li>
- *             <li>
- *                <p>When the lock ID expires. The lock ID is used to complete the vault locking
- *                process.</p>
- *             </li>
- *             <li>
- *                <p>When the vault lock was initiated and put into the <code>InProgress</code>
- *                state.</p>
- *             </li>
- *          </ul>
+ * This operation retrieves the following attributes from the `lock-policy` subresource set on the specified vault:
  *
- *          <p>A vault lock is put into the <code>InProgress</code> state by calling <a>InitiateVaultLock</a>. A vault lock is put into the <code>Locked</code> state by
- *          calling <a>CompleteVaultLock</a>. You can abort the vault locking process by
- *          calling <a>AbortVaultLock</a>. For more information about the vault locking
- *          process, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html">Amazon
- *             Glacier Vault Lock</a>. </p>
- *          <p>If there is no vault lock policy set on the vault, the operation returns a <code>404
- *             Not found</code> error. For more information about vault lock policies, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon
- *             Glacier Access Control with Vault Lock Policies</a>. </p>
+ * - The vault lock policy set on the vault.
+ * - The state of the vault lock, which is either `InProgess` or `Locked`.
+ * - When the lock ID expires. The lock ID is used to complete the vault locking process.
+ * - When the vault lock was initiated and put into the `InProgress` state.
+ *
+ * A vault lock is put into the `InProgress` state by calling InitiateVaultLock. A vault lock is put into the `Locked` state by calling CompleteVaultLock. You can abort the vault locking process by calling AbortVaultLock. For more information about the vault locking process, [Amazon Glacier Vault Lock](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html).
+ *
+ * If there is no vault lock policy set on the vault, the operation returns a `404 Not found` error. For more information about vault lock policies, [Amazon Glacier Access Control with Vault Lock Policies](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,24 +64,28 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * Returned if a parameter of the request is incorrectly specified.
  *
  * @throws {@link MissingParameterValueException} (client fault)
- *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * Returned if a required header or parameter is missing from the request.
  *
  * @throws {@link NoLongerSupportedException} (client fault)
- *  <p>Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.</p>
+ *
+ * Returned if the request was made by a customer with no Amazon Glacier storage. The request is denied as the API is no longer supported for new customers. Please use Amazon S3 Glacier storage classes instead.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
- *          exist.</p>
+ *
+ * Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't exist.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>Returned if the service cannot complete the request.</p>
+ *
+ * Returned if the service cannot complete the request.
  *
  * @throws {@link GlacierServiceException}
- * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
+ * Base exception class for all service exceptions from Glacier service.
  *
  * @example To retrieve vault lock-policy related attributes that are set on a vault
  * ```javascript

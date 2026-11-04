@@ -23,9 +23,8 @@ export interface DescribeMacModificationTasksCommandInput extends DescribeMacMod
 export interface DescribeMacModificationTasksCommandOutput extends DescribeMacModificationTasksResult, __MetadataBearer {}
 
 /**
- * <p>Describes a System Integrity Protection (SIP) modification task or volume ownership delegation
- *          task for an Amazon EC2 Mac instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure">Configure
- *             SIP for Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes a System Integrity Protection (SIP) modification task or volume ownership delegation task for an Amazon EC2 Mac instance. For more information, see [Configure SIP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html#mac-sip-configure) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,8 +89,8 @@ export interface DescribeMacModificationTasksCommandOutput extends DescribeMacMo
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

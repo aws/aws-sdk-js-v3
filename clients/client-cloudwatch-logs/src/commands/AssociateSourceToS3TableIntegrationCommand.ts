@@ -26,9 +26,8 @@ export interface AssociateSourceToS3TableIntegrationCommandInput extends Associa
 export interface AssociateSourceToS3TableIntegrationCommandOutput extends AssociateSourceToS3TableIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a data source with an S3 Table Integration for query access in the 'logs'
- *       namespace. This enables querying log data using analytics engines that support Iceberg such as
- *       Amazon Athena, Amazon Redshift, and Apache Spark.</p>
+ * Associates a data source with an S3 Table Integration for query access in the 'logs' namespace. This enables querying log data using analytics engines that support Iceberg such as Amazon Athena, Amazon Redshift, and Apache Spark.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,25 +58,28 @@ export interface AssociateSourceToS3TableIntegrationCommandOutput extends Associ
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * You don't have sufficient permissions to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This exception is returned
- *       when the service encounters an unexpected condition that prevents it from fulfilling the
- *       request.</p>
+ *
+ * An internal server error occurred while processing the request. This exception is returned when the service encounters an unexpected condition that prevents it from fulfilling the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

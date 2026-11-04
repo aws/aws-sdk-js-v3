@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { DataSyncServiceException as __BaseException } from "./DataSyncServiceException";
 
 /**
- * <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ * This exception is thrown when an error occurs in the DataSync service.
+ *
  * @public
  */
 export class InternalException extends __BaseException {
@@ -28,7 +28,8 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>This exception is thrown when the client submits a malformed request.</p>
+ * This exception is thrown when the client submits a malformed request.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {

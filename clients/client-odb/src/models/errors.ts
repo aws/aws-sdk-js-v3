@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { OdbServiceException as __BaseException } from "./OdbServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.</p>
+ * You don't have sufficient access to perform this action. Make sure you have the required permissions and try again.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.</p>
+ * Occurs when a conflict with the current status of your resource. Fix any inconsistencies with your resource and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that caused the conflict.</p>
+   * The identifier of the resource that caused the conflict.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that caused the conflict.</p>
+   * The type of resource that caused the conflict.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.</p>
+ * Occurs when there is an internal failure in the Oracle Database@Amazon Web Services service. Wait and try again.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -71,7 +76,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The number of seconds to wait before retrying the request after an internal server error.</p>
+   * The number of seconds to wait before retrying the request after an internal server error.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -91,7 +97,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -99,7 +106,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The number of seconds to wait before retrying the request after being throttled.</p>
+   * The number of seconds to wait before retrying the request after being throttled.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -119,7 +127,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request has failed validation because it is missing required fields or has invalid inputs.</p>
+ * The request has failed validation because it is missing required fields or has invalid inputs.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -127,13 +136,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason why the validation failed.</p>
+   * The reason why the validation failed.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A list of fields that failed validation.</p>
+   * A list of fields that failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -154,7 +165,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.</p>
+ * The operation tried to access a resource that doesn't exist. Make sure you provided the correct resource and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -162,13 +174,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that was not found.</p>
+   * The type of resource that was not found.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -189,7 +203,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded the service quota.</p>
+ * You have exceeded the service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -197,19 +212,22 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that exceeded the service quota.</p>
+   * The identifier of the resource that exceeded the service quota.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of resource that exceeded the service quota.</p>
+   * The type of resource that exceeded the service quota.
+   *
    * @public
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The unqiue identifier of the service quota that was exceeded.</p>
+   * The unqiue identifier of the service quota that was exceeded.
+   *
    * @public
    */
   quotaCode: string | undefined;

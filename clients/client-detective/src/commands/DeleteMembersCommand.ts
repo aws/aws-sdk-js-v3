@@ -23,19 +23,14 @@ export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified member accounts from the behavior graph. The removed accounts no
- *          longer contribute data to the behavior graph. This operation can only be called by the
- *          administrator account for the behavior graph.</p>
- *          <p>For invited accounts, the removed accounts are deleted from the list of accounts in the
- *          behavior graph. To restore the account, the administrator account must send another
- *          invitation.</p>
- *          <p>For organization accounts in the organization behavior graph, the Detective
- *          administrator account can always enable the organization account again. Organization
- *          accounts that are not enabled as member accounts are not included in the
- *             <code>ListMembers</code> results for the organization behavior graph.</p>
- *          <p>An administrator account cannot use <code>DeleteMembers</code> to remove their own
- *          account from the behavior graph. To disable a behavior graph, the administrator account
- *          uses the <code>DeleteGraph</code> API method.</p>
+ * Removes the specified member accounts from the behavior graph. The removed accounts no longer contribute data to the behavior graph. This operation can only be called by the administrator account for the behavior graph.
+ *
+ * For invited accounts, the removed accounts are deleted from the list of accounts in the behavior graph. To restore the account, the administrator account must send another invitation.
+ *
+ * For organization accounts in the organization behavior graph, the Detective administrator account can always enable the organization account again. Organization accounts that are not enabled as member accounts are not included in the `ListMembers` results for the organization behavior graph.
+ *
+ * An administrator account cannot use `DeleteMembers` to remove their own account from the behavior graph. To disable a behavior graph, the administrator account uses the `DeleteGraph` API method.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,24 +68,28 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request attempted an invalid action.</p>
+ *
+ * The request attempted an invalid action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * The request refers to a nonexistent resource.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

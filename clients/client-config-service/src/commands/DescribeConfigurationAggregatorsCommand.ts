@@ -26,10 +26,8 @@ export interface DescribeConfigurationAggregatorsCommandInput extends DescribeCo
 export interface DescribeConfigurationAggregatorsCommandOutput extends DescribeConfigurationAggregatorsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of one or more configuration aggregators.
- * 			If the configuration aggregator is not specified, this operation
- * 			returns the details for all the configuration aggregators associated
- * 			with the account. </p>
+ * Returns the details of one or more configuration aggregators. If the configuration aggregator is not specified, this operation returns the details for all the configuration aggregators associated with the account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,23 +99,24 @@ export interface DescribeConfigurationAggregatorsCommandOutput extends DescribeC
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * The specified limit is outside the allowable range.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
+ *
+ * The specified next token is not valid. Specify the `nextToken` string that was returned in the previous response to get the next page of results.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are not valid. Verify
- * 			that your parameters are valid and try again.</p>
+ *
+ * One or more of the specified parameters are not valid. Verify that your parameters are valid and try again.
  *
  * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
- *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * You have specified a configuration aggregator that does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

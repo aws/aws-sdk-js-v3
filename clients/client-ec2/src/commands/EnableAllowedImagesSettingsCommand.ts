@@ -23,35 +23,17 @@ export interface EnableAllowedImagesSettingsCommandInput extends EnableAllowedIm
 export interface EnableAllowedImagesSettingsCommandOutput extends EnableAllowedImagesSettingsResult, __MetadataBearer {}
 
 /**
- * <p>Enables Allowed AMIs for your account in the specified Amazon Web Services Region. Two values are
- *       accepted:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>enabled</code>: The image criteria in your Allowed AMIs settings are applied. As
- *           a result, only AMIs matching these criteria are discoverable and can be used by your
- *           account to launch instances.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>audit-mode</code>: The image criteria in your Allowed AMIs settings are not
- *           applied. No restrictions are placed on AMI discoverability or usage. Users in your account
- *           can launch instances using any public AMI or AMI shared with your account.</p>
- *                <p>The purpose of <code>audit-mode</code> is to indicate which AMIs will be affected when
- *           Allowed AMIs is <code>enabled</code>. In <code>audit-mode</code>, each AMI displays either
- *           <code>"ImageAllowed": true</code> or <code>"ImageAllowed": false</code> to indicate
- *           whether the AMI will be discoverable and available to users in the account when Allowed
- *           AMIs is enabled.</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of
- *         the criteria you set, the AMIs created by your account will always be discoverable and
- *         usable by users in your account.</p>
- *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
- *       Amazon EC2 with Allowed AMIs</a> in
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * Enables Allowed AMIs for your account in the specified Amazon Web Services Region. Two values are accepted:
+ *
+ * - `enabled`: The image criteria in your Allowed AMIs settings are applied. As a result, only AMIs matching these criteria are discoverable and can be used by your account to launch instances.
+ * - `audit-mode`: The image criteria in your Allowed AMIs settings are not applied. No restrictions are placed on AMI discoverability or usage. Users in your account can launch instances using any public AMI or AMI shared with your account.
+ *
+ *   The purpose of `audit-mode` is to indicate which AMIs will be affected when Allowed AMIs is `enabled`. In `audit-mode`, each AMI displays either `"ImageAllowed": true` or `"ImageAllowed": false` to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled.
+ *
+ * > **Note:** The Allowed AMIs feature does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account will always be discoverable and usable by users in your account.
+ *
+ * For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html) in *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +61,8 @@ export interface EnableAllowedImagesSettingsCommandOutput extends EnableAllowedI
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,55 +23,23 @@ export interface DisassociateResourceCommandInput extends DisassociateResourceRe
 export interface DisassociateResourceCommandOutput extends DisassociateResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *        Disassociates a resource from application.
- *        Both the resource and the application can be specified either by ID or name.
- *      </p>
- *          <p>
- *             <b>Minimum permissions</b>
- *          </p>
- *          <p>
- *        You must have the following permissions to remove a resource that's been associated with an application using the <code>APPLY_APPLICATION_TAG</code> option for <a href="https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html">AssociateResource</a>.
- *      </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>tag:GetResources</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>tag:UntagResources</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *        You must also have the following permissions if you don't use the <code>AWSServiceCatalogAppRegistryFullAccess</code> policy.
- *        For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html">AWSServiceCatalogAppRegistryFullAccess</a> in the AppRegistry Administrator Guide.
- *      </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>resource-groups:DisassociateResource</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>cloudformation:UpdateStack</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>cloudformation:DescribeStacks</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>
- *          In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource.
- *          For more information, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_UntTagResources.html">UntagResources</a> in the <i>Resource Groups Tagging API Reference</i>.
- *        </p>
- *          </note>
+ * Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.
+ *
+ * **Minimum permissions**
+ *
+ * You must have the following permissions to remove a resource that's been associated with an application using the `APPLY_APPLICATION_TAG` option for [AssociateResource](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_AssociateResource.html).
+ *
+ * - `tag:GetResources`
+ * - `tag:UntagResources`
+ *
+ * You must also have the following permissions if you don't use the `AWSServiceCatalogAppRegistryFullAccess` policy. For more information, see [AWSServiceCatalogAppRegistryFullAccess](https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html) in the AppRegistry Administrator Guide.
+ *
+ * - `resource-groups:DisassociateResource`
+ * - `cloudformation:UpdateStack`
+ * - `cloudformation:DescribeStacks`
+ *
+ * > **Note:** In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource. For more information, see [UntagResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_UntTagResources.html) in the *Resource Groups Tagging API Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,24 +69,24 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service is experiencing internal problems.</p>
+ *
+ * The service is experiencing internal problems.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>
- *       The maximum number
- *       of API requests
- *       has been exceeded.
- *     </p>
+ *
+ * The maximum number of API requests has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request has invalid or missing parameters.</p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link ServiceCatalogAppRegistryServiceException}
- * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ * Base exception class for all service exceptions from ServiceCatalogAppRegistry service.
  *
  * @public
  */

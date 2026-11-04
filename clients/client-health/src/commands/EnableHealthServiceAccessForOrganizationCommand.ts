@@ -22,29 +22,19 @@ export interface EnableHealthServiceAccessForOrganizationCommandInput {}
 export interface EnableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables Health to work with Organizations. You can use the organizational view feature
- *          to aggregate events from all Amazon Web Services accounts in your organization in a centralized location. </p>
- *          <p>This operation also creates a service-linked role for the management account in the
- *          organization. </p>
- *          <note>
- *             <p>To call this operation, you must meet the following requirements:</p>
- *             <ul>
- *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you call
- *                   the Health API from an Amazon Web Services account that doesn't have a
- *                   Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a <code>SubscriptionRequiredException</code>
- *                   error.</p>
- *                </li>
- *                <li>
- *                   <p>You must have permission to call this operation from the organization's
- *                   management account. For example IAM policies, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html">Health
- *                      identity-based policy examples</a>.</p>
- *                </li>
- *             </ul>
- *          </note>
- *          <p>If you don't have the required support plan, you can instead use the Health console
- *          to enable the organizational view feature. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
- *             Health events</a> in the <i>Health User Guide</i>.</p>
+ * Enables Health to work with Organizations. You can use the organizational view feature to aggregate events from all Amazon Web Services accounts in your organization in a centralized location.
+ *
+ * This operation also creates a service-linked role for the management account in the organization.
+ *
+ * > **Note:**
+ * >
+ * > To call this operation, you must meet the following requirements:
+ * >
+ * > - You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health API. If you call the Health API from an Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a `SubscriptionRequiredException` error.
+ * > - You must have permission to call this operation from the organization's management account. For example IAM policies, see [Health identity-based policy examples](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html).
+ *
+ * If you don't have the required support plan, you can instead use the Health console to enable the organizational view feature. For more information, see [Aggregating Health events](https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html) in the *Health User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,13 +57,12 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>
- *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
- *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ *
+ * [EnableHealthServiceAccessForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html) is already in progress. Wait for the action to complete before trying again. To get the current status, use the [DescribeHealthServiceStatusForOrganization](https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html) operation.
  *
  * @throws {@link HealthServiceException}
- * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ * Base exception class for all service exceptions from Health service.
  *
  * @public
  */

@@ -23,7 +23,10 @@ export interface RevokeCertificateCommandInput extends RevokeCertificateRequest 
 export interface RevokeCertificateCommandOutput extends RevokeCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Revokes a public ACM certificate. You can only revoke certificates that have been previously exported.</p> <important> <p>Once a certificate is revoked, you cannot reuse the certificate. Revoking a certificate is permanent.</p> </important>
+ * Revokes a public ACM certificate. You can only revoke certificates that have been previously exported.
+ *
+ * > **Important:** Once a certificate is revoked, you cannot reuse the certificate. Revoking a certificate is permanent.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,29 +54,36 @@ export interface RevokeCertificateCommandOutput extends RevokeCertificateRespons
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have access required to perform this action.</p>
+ *
+ * You do not have access required to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the association and try again.</p>
+ *
+ * The certificate is in use by another Amazon Web Services service in the caller's account. Remove the association and try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ *
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ * The request was denied because it exceeded a quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
  *
  * @throws {@link ACMServiceException}
- * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ * Base exception class for all service exceptions from ACM service.
  *
  * @public
  */

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IoTJobsDataPlaneServiceException as __BaseException } from "./IoTJobsDataPlaneServiceException";
 
 /**
- * <p>The certificate is invalid.</p>
+ * The certificate is invalid.
+ *
  * @public
  */
 export class CertificateValidationException extends __BaseException {
@@ -25,7 +26,8 @@ export class CertificateValidationException extends __BaseException {
 }
 
 /**
- * <p>A conflict has occurred when performing the API request.</p>
+ * A conflict has occurred when performing the API request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,7 +35,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>A conflict occurred while performing the API request on the resource ID.</p>
+   * A conflict occurred while performing the API request on the resource ID.
+   *
    * @public
    */
   resourceId?: string | undefined;
@@ -53,7 +56,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The contents of the request were invalid.</p>
+ * The contents of the request were invalid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -74,7 +78,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -95,7 +100,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -116,7 +122,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The job is in a terminal state.</p>
+ * The job is in a terminal state.
+ *
  * @public
  */
 export class TerminalStateException extends __BaseException {
@@ -137,7 +144,8 @@ export class TerminalStateException extends __BaseException {
 }
 
 /**
- * <p>The rate exceeds the limit.</p>
+ * The rate exceeds the limit.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -145,7 +153,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The payload associated with the exception.</p>
+   * The payload associated with the exception.
+   *
    * @public
    */
   payload?: Uint8Array | undefined;
@@ -165,7 +174,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred when performing the API request.</p>
+ * An internal server error occurred when performing the API request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -186,10 +196,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>An update attempted to change the job execution to a state that is invalid because of
- *          the job execution's current state (for example, an attempt to change a request in state
- *          SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains
- *          the executionState field.</p>
+ * An update attempted to change the job execution to a state that is invalid because of the job execution's current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains the executionState field.
+ *
  * @public
  */
 export class InvalidStateTransitionException extends __BaseException {
@@ -210,7 +218,8 @@ export class InvalidStateTransitionException extends __BaseException {
 }
 
 /**
- * <p>The service quota has been exceeded for this request.</p>
+ * The service quota has been exceeded for this request.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -231,7 +240,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>A validation error occurred when performing the API request.</p>
+ * A validation error occurred when performing the API request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

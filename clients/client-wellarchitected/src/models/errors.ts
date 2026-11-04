@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { WellArchitectedServiceException as __BaseException } from "./WellArchitectedServiceException";
 
 /**
- * <p>User does not have sufficient access to perform this action.</p>
+ * User does not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -33,7 +35,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The resource has already been processed, was deleted, or is too large.</p>
+ * The resource has already been processed, was deleted, or is too large.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -41,19 +44,22 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -74,7 +80,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>There is a problem with the Well-Architected Tool API service.</p>
+ * There is a problem with the Well-Architected Tool API service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -82,7 +89,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
@@ -101,7 +109,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested resource was not found.</p>
+ * The requested resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -109,19 +118,22 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   ResourceType: string | undefined;
@@ -142,7 +154,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Request was denied due to request throttling.</p>
+ * Request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -150,19 +163,22 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Service Quotas requirement to identify originating quota.</p>
+   * Service Quotas requirement to identify originating quota.
+   *
    * @public
    */
   QuotaCode?: string | undefined;
 
   /**
-   * <p>Service Quotas requirement to identify originating service.</p>
+   * Service Quotas requirement to identify originating service.
+   *
    * @public
    */
   ServiceCode?: string | undefined;
@@ -183,7 +199,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The user input is not valid.</p>
+ * The user input is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -191,19 +208,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>The reason why the request failed validation.</p>
+   * The reason why the request failed validation.
+   *
    * @public
    */
   Reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The fields that caused the error, if applicable.</p>
+   * The fields that caused the error, if applicable.
+   *
    * @public
    */
   Fields?: ValidationExceptionField[] | undefined;
@@ -224,7 +244,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The user has reached their resource quota.</p>
+ * The user has reached their resource quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -232,31 +253,36 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Description of the error.</p>
+   * Description of the error.
+   *
    * @public
    */
   Message: string | undefined;
 
   /**
-   * <p>Identifier of the resource affected.</p>
+   * Identifier of the resource affected.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>Type of the resource affected.</p>
+   * Type of the resource affected.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>Service Quotas requirement to identify originating quota.</p>
+   * Service Quotas requirement to identify originating quota.
+   *
    * @public
    */
   QuotaCode: string | undefined;
 
   /**
-   * <p>Service Quotas requirement to identify originating service.</p>
+   * Service Quotas requirement to identify originating service.
+   *
    * @public
    */
   ServiceCode: string | undefined;

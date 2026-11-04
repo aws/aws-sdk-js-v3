@@ -23,57 +23,26 @@ export interface CreateDataDeletionJobCommandInput extends CreateDataDeletionJob
 export interface CreateDataDeletionJobCommandOutput extends CreateDataDeletionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a batch job that deletes all
- *       references to specific users from an Amazon Personalize dataset group in batches. You specify the users to delete in a CSV file of userIds in
- *       an Amazon S3 bucket. After a job completes, Amazon Personalize no longer trains
- *       on the users’ data and no longer considers the users when generating user segments.
- *       For more information about creating a data deletion job, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html">Deleting users</a>.</p>
- *          <ul>
- *             <li>
- *                <p>Your input file must be a CSV file with a single USER_ID column that lists the users IDs. For more information
- *           about preparing the CSV file, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/prepare-deletion-input-file.html">Preparing your data deletion file and uploading it to Amazon S3</a>.</p>
- *             </li>
- *             <li>
- *                <p>To give Amazon Personalize permission to access your input CSV file of userIds, you must specify an IAM service role that has permission to
- *           read from the data source. This role
- *           needs <code>GetObject</code> and <code>ListBucket</code> permissions for the bucket and its content.
- *           These permissions are the same as importing data. For information on granting access to your Amazon S3
- *           bucket, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html">Giving
- *             Amazon Personalize Access to Amazon S3 Resources</a>. </p>
- *             </li>
- *          </ul>
- *          <p>
- *       After you create a job, it can take up to a day to delete all references to the users from datasets and models. Until the job completes,
- *       Amazon Personalize continues to use the data when training. And if you use a User Segmentation recipe, the users might appear in user segments.
- *     </p>
- *          <p>
- *             <b>Status</b>
- *          </p>
- *          <p>A data deletion job can have one of the following statuses:</p>
- *          <ul>
- *             <li>
- *                <p>PENDING > IN_PROGRESS > COMPLETED -or- FAILED</p>
- *             </li>
- *          </ul>
- *          <p>To get the status of the data deletion job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html">DescribeDataDeletionJob</a> API operation and specify the Amazon Resource Name
- *       (ARN) of the job. If the status is FAILED, the response
- *       includes a <code>failureReason</code> key, which describes why the job
- *       failed.</p>
- *          <p class="title">
- *             <b>Related APIs</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDataDeletionJobs.html">ListDataDeletionJobs</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html">DescribeDataDeletionJob</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Creates a batch job that deletes all references to specific users from an Amazon Personalize dataset group in batches. You specify the users to delete in a CSV file of userIds in an Amazon S3 bucket. After a job completes, Amazon Personalize no longer trains on the users’ data and no longer considers the users when generating user segments. For more information about creating a data deletion job, see [Deleting users](https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html).
+ *
+ * - Your input file must be a CSV file with a single USER_ID column that lists the users IDs. For more information about preparing the CSV file, see [Preparing your data deletion file and uploading it to Amazon S3](https://docs.aws.amazon.com/personalize/latest/dg/prepare-deletion-input-file.html).
+ * - To give Amazon Personalize permission to access your input CSV file of userIds, you must specify an IAM service role that has permission to read from the data source. This role needs `GetObject` and `ListBucket` permissions for the bucket and its content. These permissions are the same as importing data. For information on granting access to your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3 Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html).
+ *
+ * After you create a job, it can take up to a day to delete all references to the users from datasets and models. Until the job completes, Amazon Personalize continues to use the data when training. And if you use a User Segmentation recipe, the users might appear in user segments.
+ *
+ * **Status**
+ *
+ * A data deletion job can have one of the following statuses:
+ *
+ * - PENDING > IN_PROGRESS > COMPLETED -or- FAILED
+ *
+ * To get the status of the data deletion job, call [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html) API operation and specify the Amazon Resource Name (ARN) of the job. If the status is FAILED, the response includes a `failureReason` key, which describes why the job failed.
+ *
+ * **Related APIs**
+ *
+ * - [ListDataDeletionJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDataDeletionJobs.html)
+ * - [DescribeDataDeletionJob](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,26 +80,32 @@ export interface CreateDataDeletionJobCommandOutput extends CreateDataDeletionJo
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of requests per second has been exceeded.</p>
+ *
+ * The limit on the number of requests per second has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>The specified resource already exists.</p>
+ *
+ * The specified resource already exists.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+ *
+ * You have exceeded the maximum number of tags you can apply to this resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

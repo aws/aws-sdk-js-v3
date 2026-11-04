@@ -23,13 +23,12 @@ export interface DescribeFleetsCommandInput extends DescribeFleetsRequest {}
 export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified EC2 Fleet or all of your EC2 Fleets.</p>
- *          <important>
- *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID in the
- *             request, otherwise the fleet does not appear in the response.</p>
- *          </important>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Describe your
- *             EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Describes the specified EC2 Fleet or all of your EC2 Fleets.
+ *
+ * > **Important:** If a fleet is of type `instant`, you must specify the fleet ID in the request, otherwise the fleet does not appear in the response.
+ *
+ * For more information, see [Describe your EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -505,8 +504,8 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

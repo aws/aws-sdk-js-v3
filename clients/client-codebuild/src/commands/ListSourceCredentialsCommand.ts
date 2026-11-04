@@ -23,7 +23,8 @@ export interface ListSourceCredentialsCommandInput extends ListSourceCredentials
 export interface ListSourceCredentialsCommandOutput extends ListSourceCredentialsOutput, __MetadataBearer {}
 
 /**
- * <p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>
+ * Returns a list of `SourceCredentialsInfo` objects.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +56,12 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

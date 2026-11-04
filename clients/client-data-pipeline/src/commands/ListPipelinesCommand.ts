@@ -23,7 +23,9 @@ export interface ListPipelinesCommandInput extends ListPipelinesInput {}
 export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the pipeline identifiers for all active pipelines that you have permission to access.</p>
+ * Lists the pipeline identifiers for all active pipelines that you have permission to access.
+ *
+ *
  *
  *         <examples>
  *             <request>
@@ -88,14 +90,16 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
+ *
+ * The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
  *
  * @throws {@link DataPipelineServiceException}
- * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ * Base exception class for all service exceptions from DataPipeline service.
  *
  * @public
  */

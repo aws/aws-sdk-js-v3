@@ -23,22 +23,13 @@ export interface CreateDecoderManifestCommandInput extends CreateDecoderManifest
 export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifestResponse, __MetadataBearer {}
 
 /**
- * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
- *             manifest, the following must be true:</p>
- *          <ul>
- *             <li>
- *                <p>Every signal decoder has a unique name.</p>
- *             </li>
- *             <li>
- *                <p>Each signal decoder is associated with a network interface.</p>
- *             </li>
- *             <li>
- *                <p>Each network interface has a unique ID.</p>
- *             </li>
- *             <li>
- *                <p>The signal decoders are specified in the model manifest.</p>
- *             </li>
- *          </ul>
+ * Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:
+ *
+ * - Every signal decoder has a unique name.
+ * - Each signal decoder is associated with a network interface.
+ * - Each network interface has a unique ID.
+ * - The signal decoders are specified in the model manifest.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -182,34 +173,40 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * @see {@link IoTFleetWiseClientResolvedConfig | config} for IoTFleetWiseClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time.</p>
+ *
+ * The request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.
  *
  * @throws {@link DecoderManifestValidationException} (client fault)
- *  <p>The request couldn't be completed because it contains signal decoders with one or more
- *             validation errors.</p>
+ *
+ * The request couldn't be completed because it contains signal decoders with one or more validation errors.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A service quota was exceeded. </p>
+ *
+ * A service quota was exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource wasn't found.</p>
+ *
+ * The resource wasn't found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request couldn't be completed due to throttling.</p>
+ *
+ * The request couldn't be completed due to throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request couldn't be completed because the server temporarily failed.</p>
+ *
+ * The request couldn't be completed because the server temporarily failed.
  *
  * @throws {@link IoTFleetWiseServiceException}
- * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ * Base exception class for all service exceptions from IoTFleetWise service.
  *
  * @public
  */

@@ -23,41 +23,18 @@ export interface RollbackStackCommandInput extends RollbackStackInput {}
 export interface RollbackStackCommandOutput extends RollbackStackOutput, __MetadataBearer {}
 
 /**
- * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously
- *       provisioned resources when an operation fails. You can check the status of the stack through
- *       the <a>DescribeStacks</a> operation.</p>
- *          <p>Rolls back the specified stack to the last known stable state from
- *         <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code> stack statuses.</p>
- *          <p>This operation will delete a stack if it doesn't contain a last known stable state. A last
- *       known stable state includes any status in a <code>*_COMPLETE</code>. This includes the
- *       following stack statuses.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CREATE_COMPLETE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>UPDATE_COMPLETE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>UPDATE_ROLLBACK_COMPLETE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>IMPORT_COMPLETE</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>IMPORT_ROLLBACK_COMPLETE</code>
- *                </p>
- *             </li>
- *          </ul>
+ * When specifying `RollbackStack`, you preserve the state of previously provisioned resources when an operation fails. You can check the status of the stack through the DescribeStacks operation.
+ *
+ * Rolls back the specified stack to the last known stable state from `CREATE_FAILED` or `UPDATE_FAILED` stack statuses.
+ *
+ * This operation will delete a stack if it doesn't contain a last known stable state. A last known stable state includes any status in a `*_COMPLETE`. This includes the following stack statuses.
+ *
+ * - `CREATE_COMPLETE`
+ * - `UPDATE_COMPLETE`
+ * - `UPDATE_ROLLBACK_COMPLETE`
+ * - `IMPORT_COMPLETE`
+ * - `IMPORT_ROLLBACK_COMPLETE`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,11 +69,12 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
- *  <p>A client request token already exists.</p>
+ *
+ * A client request token already exists.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

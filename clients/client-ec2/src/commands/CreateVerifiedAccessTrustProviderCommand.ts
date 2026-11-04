@@ -26,10 +26,8 @@ export interface CreateVerifiedAccessTrustProviderCommandInput extends CreateVer
 export interface CreateVerifiedAccessTrustProviderCommandOutput extends CreateVerifiedAccessTrustProviderResult, __MetadataBearer {}
 
 /**
- * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
- *          information for users and devices. When an application request is made, the identity
- *          information sent by the trust provider is evaluated by Verified Access before allowing or
- *          denying the application request.</p>
+ * A trust provider is a third-party entity that creates, maintains, and manages identity information for users and devices. When an application request is made, the identity information sent by the trust provider is evaluated by Verified Access before allowing or denying the application request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,8 +139,8 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput extends CreateVe
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

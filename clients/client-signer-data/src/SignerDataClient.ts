@@ -273,7 +273,8 @@ export type SignerDataClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface SignerDataClientResolvedConfig extends SignerDataClientResolvedConfigType {}
 
 /**
- * <p>AWS Signer Data Plane service provides APIs for checking revocation status of signed artifacts.</p>
+ * AWS Signer Data Plane service provides APIs for checking revocation status of signed artifacts.
+ *
  * @public
  */
 export class SignerDataClient extends __Client<

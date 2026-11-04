@@ -23,12 +23,12 @@ export interface DeletePolicyCommandInput extends DeletePolicyType {}
 export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified scaling policy.</p>
- *          <p>Deleting either a step scaling policy or a simple scaling policy deletes the
- *             underlying alarm action, but does not delete the alarm, even if it no longer has an
- *             associated action.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Delete a scaling
- *                 policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Deletes the specified scaling policy.
+ *
+ * Deleting either a step scaling policy or a simple scaling policy deletes the underlying alarm action, but does not delete the alarm, even if it no longer has an associated action.
+ *
+ * For more information, see [Delete a scaling policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,15 +54,16 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link ServiceLinkedRoleFailure} (server fault)
- *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ * The service-linked role is not yet ready for use.
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To delete an Auto Scaling policy
  * ```javascript

@@ -23,21 +23,12 @@ export interface ResetServiceSettingCommandInput extends ResetServiceSettingRequ
 export interface ResetServiceSettingCommandOutput extends ResetServiceSettingResult, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
- *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
- *    Amazon Web Services service charges money to the account based on feature or service usage, then the Amazon Web Services
- *    service team might create a default setting of "false". This means the user can't use this
- *    feature unless they change the setting to "true" and intentionally opt in for a paid
- *    feature.</p>
- *          <p>Services map a <code>SettingId</code> object to a setting value. Amazon Web Services services teams define
- *    the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>,
- *    but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code>
- *    permission for the setting. Use the <a>GetServiceSetting</a> API operation to view the
- *    current value. Use the <a>UpdateServiceSetting</a> API operation to change the default
- *    setting. </p>
- *          <p>Reset the service setting for the account to the default value as provisioned by the Amazon Web Services
- *    service team. </p>
+ * `ServiceSetting` is an account-level setting for an Amazon Web Services service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an Amazon Web Services service charges money to the account based on feature or service usage, then the Amazon Web Services service team might create a default setting of "false". This means the user can't use this feature unless they change the setting to "true" and intentionally opt in for a paid feature.
+ *
+ * Services map a `SettingId` object to a setting value. Amazon Web Services services teams define the default value for a `SettingId`. You can't create a new `SettingId`, but you can overwrite the default value if you have the `ssm:UpdateServiceSetting` permission for the setting. Use the GetServiceSetting API operation to view the current value. Use the UpdateServiceSetting API operation to change the default setting.
+ *
+ * Reset the service setting for the account to the default value as provisioned by the Amazon Web Services service team.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,18 +62,20 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ServiceSettingNotFound} (client fault)
- *  <p>The specified service setting wasn't found. Either the service name or the setting hasn't
- *    been provisioned by the Amazon Web Services service team.</p>
+ *
+ * The specified service setting wasn't found. Either the service name or the setting hasn't been provisioned by the Amazon Web Services service team.
  *
  * @throws {@link TooManyUpdates} (client fault)
- *  <p>There are concurrent updates for a resource that supports one update at a time.</p>
+ *
+ * There are concurrent updates for a resource that supports one update at a time.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

@@ -23,23 +23,18 @@ export interface RevokeSecurityGroupIngressCommandInput extends RevokeSecurityGr
 export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityGroupIngressResult, __MetadataBearer {}
 
 /**
- * <p>Removes the specified inbound (ingress) rules from a security group.</p>
- *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
- *            rule properties, the values that you specify (for example, ports) must match the existing rule's
- *            values exactly. Each rule has a protocol, from and to ports, and source (CIDR range,
- *            security group, or prefix list). For the TCP and UDP protocols, you must also specify the
- *            destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type
- *            and code. If the security group rule has a description, you do not need to specify the description
- *            to revoke the rule.</p>
- *          <p>For a default VPC, if the values you specify do not match the existing rule's values,
- *             no error is returned, and the output describes the security group rules that were not
- *             revoked.</p>
- *          <p>For a non-default VPC, if the values you specify do not match the existing rule's
- *             values, an <code>InvalidPermission.NotFound</code> client error is returned, and no
- *             rules are revoked.</p>
- *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
- *          <p>Rule changes are propagated to instances within the security group as quickly as possible.
- *          However, a small delay might occur.</p>
+ * Removes the specified inbound (ingress) rules from a security group.
+ *
+ * You can specify rules using either rule IDs or security group rule properties. If you use rule properties, the values that you specify (for example, ports) must match the existing rule's values exactly. Each rule has a protocol, from and to ports, and source (CIDR range, security group, or prefix list). For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not need to specify the description to revoke the rule.
+ *
+ * For a default VPC, if the values you specify do not match the existing rule's values, no error is returned, and the output describes the security group rules that were not revoked.
+ *
+ * For a non-default VPC, if the values you specify do not match the existing rule's values, an `InvalidPermission.NotFound` client error is returned, and no rules are revoked.
+ *
+ * Amazon Web Services recommends that you describe the security group to verify that the rules were removed.
+ *
+ * Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -164,8 +159,8 @@ export interface RevokeSecurityGroupIngressCommandOutput extends RevokeSecurityG
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

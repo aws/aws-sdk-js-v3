@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ForecastqueryServiceException as __BaseException } from "./ForecastqueryServiceException";
 
 /**
- * <p>The value is invalid or is too long.</p>
+ * The value is invalid or is too long.
+ *
  * @public
  */
 export class InvalidInputException extends __BaseException {
@@ -27,7 +28,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The token is not valid. Tokens expire after 24 hours.</p>
+ * The token is not valid. Tokens expire after 24 hours.
+ *
  * @public
  */
 export class InvalidNextTokenException extends __BaseException {
@@ -50,7 +52,8 @@ export class InvalidNextTokenException extends __BaseException {
 }
 
 /**
- * <p>The limit on the number of requests per second has been exceeded.</p>
+ * The limit on the number of requests per second has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -73,7 +76,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified resource is in use.</p>
+ * The specified resource is in use.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -96,8 +100,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>We can't find that resource. Check the information that you've provided and try
- *       again.</p>
+ * We can't find that resource. Check the information that you've provided and try again.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

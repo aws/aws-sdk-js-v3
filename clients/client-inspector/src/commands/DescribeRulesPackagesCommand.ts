@@ -23,8 +23,8 @@ export interface DescribeRulesPackagesCommandInput extends DescribeRulesPackages
 export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackagesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the rules packages that are specified by the ARNs of the rules
- *          packages.</p>
+ * Describes the rules packages that are specified by the ARNs of the rules packages.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,15 +68,16 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Describe rules packages
  * ```javascript

@@ -23,37 +23,20 @@ export interface DeleteObjectAnnotationCommandInput extends DeleteObjectAnnotati
 export interface DeleteObjectAnnotationCommandOutput extends DeleteObjectAnnotationOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific annotation from an Amazon S3 object. Use the <code>x-amz-object-if-match</code>
- *       header to perform a conditional delete that only succeeds if the object's ETag matches the
- *       provided value, preventing race conditions during concurrent updates.</p>
- *          <p>Deleting an annotation is permanent. Annotations are not independently versioned, so there is no
- *       delete marker or way to recover a deleted annotation.</p>
- *          <p>To use this operation, you must have the <code>s3:DeleteObjectAnnotation</code> permission. If
- *       the object is protected by Object Lock in governance mode, you must also include the
- *       <code>x-amz-bypass-governance-retention</code> header.</p>
- *          <note>
- *             <p>Annotations are not supported by the following features: S3 Inventory Reports,
- *       API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and
- *       S3 Express One Zone (directory buckets).</p>
- *          </note>
- *          <p>The following operations are related to <code>DeleteObjectAnnotation</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html">PutObjectAnnotation</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html">GetObjectAnnotation</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html">ListObjectAnnotations</a>
- *                </p>
- *             </li>
- *          </ul>
+ * Deletes a specific annotation from an Amazon S3 object. Use the `x-amz-object-if-match` header to perform a conditional delete that only succeeds if the object's ETag matches the provided value, preventing race conditions during concurrent updates.
+ *
+ * Deleting an annotation is permanent. Annotations are not independently versioned, so there is no delete marker or way to recover a deleted annotation.
+ *
+ * To use this operation, you must have the `s3:DeleteObjectAnnotation` permission. If the object is protected by Object Lock in governance mode, you must also include the `x-amz-bypass-governance-retention` header.
+ *
+ * > **Note:** Annotations are not supported by the following features: S3 Inventory Reports, API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on Outposts, and S3 Express One Zone (directory buckets).
+ *
+ * The following operations are related to `DeleteObjectAnnotation`:
+ *
+ * - [PutObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html)
+ * - [GetObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html)
+ * - [ListObjectAnnotations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,14 +70,16 @@ export interface DeleteObjectAnnotationCommandOutput extends DeleteObjectAnnotat
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link NoSuchBucket} (client fault)
- *  <p>The specified bucket does not exist.</p>
+ *
+ * The specified bucket does not exist.
  *
  * @throws {@link NoSuchKey} (client fault)
- *  <p>The specified key does not exist.</p>
+ *
+ * The specified key does not exist.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @public
  */

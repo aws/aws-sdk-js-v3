@@ -23,18 +23,18 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or edits tags on an Application Auto Scaling scalable target.</p>
- *          <p>Each tag consists of a tag key and a tag value, which are both case-sensitive strings.
- *          To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag
- *          key and a new tag value.</p>
- *          <p>You can use this operation to tag an Application Auto Scaling scalable target, but you cannot tag a
- *          scaling policy or scheduled action.</p>
- *          <p>You can also add tags to an Application Auto Scaling scalable target while creating it
- *             (<code>RegisterScalableTarget</code>).</p>
- *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging your Amazon Web Services
- *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
- *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
- *             for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ * Adds or edits tags on an Application Auto Scaling scalable target.
+ *
+ * Each tag consists of a tag key and a tag value, which are both case-sensitive strings. To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag key and a new tag value.
+ *
+ * You can use this operation to tag an Application Auto Scaling scalable target, but you cannot tag a scaling policy or scheduled action.
+ *
+ * You can also add tags to an Application Auto Scaling scalable target while creating it (`RegisterScalableTarget`).
+ *
+ * For general information about tags, including the format and syntax, see [Tagging your Amazon Web Services resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *Amazon Web Services General Reference*.
+ *
+ * Use tags to control access to a scalable target. For more information, see [Tagging support for Application Auto Scaling](https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html) in the *Application Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,18 +62,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *
+ * The specified resource doesn't exist.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ *
+ * The request contains too many tags. Try the request again with fewer tags.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To add a tag to a scalable target
  * ```javascript

@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { NetworkFirewallServiceException as __BaseException } from "./NetworkFirewallServiceException";
 
 /**
- * <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
- *          system problem. Retry your request. </p>
+ * Your request is valid, but Network Firewall couldn't perform the operation because of a system problem. Retry your request.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -28,20 +28,12 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>The operation failed because of a problem with your request. Examples include: </p>
- *          <ul>
- *             <li>
- *                <p>You specified an unsupported parameter name or value.</p>
- *             </li>
- *             <li>
- *                <p>You tried to update a property with a value that isn't among the available
- *                types.</p>
- *             </li>
- *             <li>
- *                <p>Your request references an ARN that is malformed, or corresponds to a resource
- *                that isn't valid in the context of the request.</p>
- *             </li>
- *          </ul>
+ * The operation failed because of a problem with your request. Examples include:
+ *
+ * - You specified an unsupported parameter name or value.
+ * - You tried to update a property with a value that isn't among the available types.
+ * - Your request references an ARN that is malformed, or corresponds to a resource that isn't valid in the context of the request.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -64,7 +56,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Unable to locate a resource using the parameters that you provided.</p>
+ * Unable to locate a resource using the parameters that you provided.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -87,7 +80,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Unable to process the request due to throttling limitations.</p>
+ * Unable to process the request due to throttling limitations.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -110,8 +104,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
- *          request later. </p>
+ * Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your request later.
+ *
  * @public
  */
 export class InsufficientCapacityException extends __BaseException {
@@ -134,8 +128,8 @@ export class InsufficientCapacityException extends __BaseException {
 }
 
 /**
- * <p>The operation failed because it's not valid. For example, you might have tried to delete
- *          a rule group or firewall policy that's in use.</p>
+ * The operation failed because it's not valid. For example, you might have tried to delete a rule group or firewall policy that's in use.
+ *
  * @public
  */
 export class InvalidOperationException extends __BaseException {
@@ -158,7 +152,8 @@ export class InvalidOperationException extends __BaseException {
 }
 
 /**
- * <p>The token you provided is stale or isn't valid for the operation. </p>
+ * The token you provided is stale or isn't valid for the operation.
+ *
  * @public
  */
 export class InvalidTokenException extends __BaseException {
@@ -181,7 +176,8 @@ export class InvalidTokenException extends __BaseException {
 }
 
 /**
- * <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+ * Unable to perform the operation because doing so would violate a limit setting.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -204,7 +200,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The operation you requested isn't supported by Network Firewall. </p>
+ * The operation you requested isn't supported by Network Firewall.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -227,7 +224,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>The policy statement failed validation.</p>
+ * The policy statement failed validation.
+ *
  * @public
  */
 export class InvalidResourcePolicyException extends __BaseException {
@@ -250,7 +248,8 @@ export class InvalidResourcePolicyException extends __BaseException {
 }
 
 /**
- * <p>Unable to send logs to a configured logging destination. </p>
+ * Unable to send logs to a configured logging destination.
+ *
  * @public
  */
 export class LogDestinationPermissionException extends __BaseException {
@@ -273,7 +272,8 @@ export class LogDestinationPermissionException extends __BaseException {
 }
 
 /**
- * <p>Unable to change the resource because your account doesn't own it. </p>
+ * Unable to change the resource because your account doesn't own it.
+ *
  * @public
  */
 export class ResourceOwnerCheckException extends __BaseException {

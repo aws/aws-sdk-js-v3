@@ -26,15 +26,8 @@ export interface PutLifecycleEventHookExecutionStatusCommandInput extends PutLif
 export interface PutLifecycleEventHookExecutionStatusCommandOutput extends PutLifecycleEventHookExecutionStatusOutput, __MetadataBearer {}
 
 /**
- * <p> Sets the result of a Lambda validation function. The function validates
- *             lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available
- *             lifecycle hooks are <code>BeforeAllowTraffic</code> and <code>AfterAllowTraffic</code>.
- *             For Amazon ECS deployments, the available lifecycle hooks are
- *                 <code>BeforeInstall</code>, <code>AfterInstall</code>,
- *                 <code>AfterAllowTestTraffic</code>, <code>BeforeAllowTraffic</code>, and
- *                 <code>AfterAllowTraffic</code>. Lambda validation functions return
- *                 <code>Succeeded</code> or <code>Failed</code>. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an Lambda Deployment </a> and
- *                 <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
+ * Sets the result of a Lambda validation function. The function validates lifecycle hooks during a deployment that uses the Lambda or Amazon ECS compute platform. For Lambda deployments, the available lifecycle hooks are `BeforeAllowTraffic` and `AfterAllowTraffic`. For Amazon ECS deployments, the available lifecycle hooks are `BeforeInstall`, `AfterInstall`, `AfterAllowTestTraffic`, `BeforeAllowTraffic`, and `AfterAllowTraffic`. Lambda validation functions return `Succeeded` or `Failed`. For more information, see [AppSpec 'hooks' Section for an Lambda Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda) and [AppSpec 'hooks' Section for an Amazon ECS Deployment](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,33 +56,36 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput extends PutLi
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * The deployment with the user or Amazon Web Services account does not exist.
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
- *  <p>At least one deployment ID must be specified.</p>
+ *
+ * At least one deployment ID must be specified.
  *
  * @throws {@link InvalidDeploymentIdException} (client fault)
- *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * At least one of the deployment IDs was specified in an invalid format.
  *
  * @throws {@link InvalidLifecycleEventHookExecutionIdException} (client fault)
- *  <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your
- *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
- *             valid.</p>
+ *
+ * A lifecycle event hook is invalid. Review the `hooks` section in your AppSpec file to ensure the lifecycle events and `hooks` functions are valid.
  *
  * @throws {@link InvalidLifecycleEventHookExecutionStatusException} (client fault)
- *  <p>The result of a Lambda validation function that verifies a lifecycle event
- *             is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
+ *
+ * The result of a Lambda validation function that verifies a lifecycle event is invalid. It should return `Succeeded` or `Failed`.
  *
  * @throws {@link LifecycleEventAlreadyCompletedException} (client fault)
- *  <p>An attempt to return the status of an already completed lifecycle event
- *             occurred.</p>
+ *
+ * An attempt to return the status of an already completed lifecycle event occurred.
  *
  * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
- *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
+ * A call was submitted that is not supported for the specified deployment type.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

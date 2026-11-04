@@ -23,15 +23,15 @@ export interface CreateSystemInstanceCommandInput extends CreateSystemInstanceRe
 export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a system instance. </p>
- *          <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is
- *             specified by the <code>greengrassGroupName</code> parameter. It also adds a file to the S3 bucket specified by the <code>s3BucketName</code> parameter. You need to
- *             call <code>DeploySystemInstance</code> after running this action.</p>
- *          <p>For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions
- *          to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.</p>
- *          <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role
- *       that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>
- *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>
+ * Creates a system instance.
+ *
+ * This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is specified by the `greengrassGroupName` parameter. It also adds a file to the S3 bucket specified by the `s3BucketName` parameter. You need to call `DeploySystemInstance` after running this action.
+ *
+ * For Greengrass deployments, since this action modifies and adds resources to a Greengrass group and an S3 bucket on the caller's behalf, the calling identity must have write permissions to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.
+ *
+ * For cloud deployments, this action requires a `flowActionsRoleArn` value. This is an IAM role that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.
+ *
+ * If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.
  *
  * @deprecated since: 2022-08-30.
  * @example
@@ -87,23 +87,18 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p></p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p></p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p></p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p></p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p></p>
  *
  * @throws {@link IoTThingsGraphServiceException}
- * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ * Base exception class for all service exceptions from IoTThingsGraph service.
  *
  * @public
  */

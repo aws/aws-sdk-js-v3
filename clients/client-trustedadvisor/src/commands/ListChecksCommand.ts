@@ -23,7 +23,8 @@ export interface ListChecksCommandInput extends ListChecksRequest {}
 export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataBearer {}
 
 /**
- * <p>List a filterable set of Checks. This API provides global recommendations, eliminating the need to call the API in each AWS Region.</p>
+ * List a filterable set of Checks. This API provides global recommendations, eliminating the need to call the API in each AWS Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,20 +80,24 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  * @see {@link TrustedAdvisorClientResolvedConfig | config} for TrustedAdvisorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Exception that access has been denied due to insufficient access</p>
+ *
+ * Exception that access has been denied due to insufficient access
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Exception to notify that an unexpected internal error occurred during processing of the request</p>
+ *
+ * Exception to notify that an unexpected internal error occurred during processing of the request
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Exception to notify that requests are being throttled</p>
+ *
+ * Exception to notify that requests are being throttled
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Exception that the request failed to satisfy service constraints</p>
+ *
+ * Exception that the request failed to satisfy service constraints
  *
  * @throws {@link TrustedAdvisorServiceException}
- * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ * Base exception class for all service exceptions from TrustedAdvisor service.
  *
  * @example List all AWS Trusted Advisor Checks
  * ```javascript

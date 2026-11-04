@@ -23,16 +23,14 @@ export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
 export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __MetadataBearer {}
 
 /**
- * <p>Moves the specified instances into the standby state.</p>
- *          <p>If you choose to decrement the desired capacity of the Auto Scaling group, the instances can
- *             enter standby as long as the desired capacity of the Auto Scaling group after the instances are
- *             placed into standby is equal to or greater than the minimum capacity of the
- *             group.</p>
- *          <p>If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group
- *             launches new instances to replace the instances on standby.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
- *                 instances from your Auto Scaling group</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Moves the specified instances into the standby state.
+ *
+ * If you choose to decrement the desired capacity of the Auto Scaling group, the instances can enter standby as long as the desired capacity of the Auto Scaling group after the instances are placed into standby is equal to or greater than the minimum capacity of the group.
+ *
+ * If you choose not to decrement the desired capacity of the Auto Scaling group, the Auto Scaling group launches new instances to replace the instances on standby.
+ *
+ * For more information, see [Temporarily removing instances from your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,12 +76,12 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To move instances into standby mode
  * ```javascript

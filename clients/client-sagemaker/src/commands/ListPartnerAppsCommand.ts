@@ -23,7 +23,8 @@ export interface ListPartnerAppsCommandInput extends ListPartnerAppsRequest {}
 export interface ListPartnerAppsCommandOutput extends ListPartnerAppsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the SageMaker Partner AI Apps in an account.</p>
+ * Lists all of the SageMaker Partner AI Apps in an account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +61,8 @@ export interface ListPartnerAppsCommandOutput extends ListPartnerAppsResponse, _
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

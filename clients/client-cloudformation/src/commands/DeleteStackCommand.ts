@@ -23,11 +23,10 @@ export interface DeleteStackCommandInput extends DeleteStackInput {}
 export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a specified stack. Once the call completes successfully, stack deletion starts.
- *       Deleted stacks don't show up in the <a>DescribeStacks</a> operation if the deletion
- *       has been completed successfully.</p>
- *          <p>For more information about deleting a stack, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html">Delete a stack from
- *         the CloudFormation console</a> in the <i>CloudFormation User Guide</i>.</p>
+ * Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks don't show up in the DescribeStacks operation if the deletion has been completed successfully.
+ *
+ * For more information about deleting a stack, see [Delete a stack from the CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html) in the *CloudFormation User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,11 +61,12 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
- *  <p>A client request token already exists.</p>
+ *
+ * A client request token already exists.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

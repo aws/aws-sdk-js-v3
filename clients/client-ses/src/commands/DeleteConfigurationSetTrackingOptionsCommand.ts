@@ -26,16 +26,12 @@ export interface DeleteConfigurationSetTrackingOptionsCommandInput extends Delet
 export interface DeleteConfigurationSetTrackingOptionsCommandOutput extends DeleteConfigurationSetTrackingOptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an association between a configuration set and a custom domain for open and
- *             click event tracking.</p>
- *          <p>By default, images and links used for tracking open and click events are hosted on
- *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
- *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
- *          <note>
- *             <p>Deleting this kind of association results in emails sent using the specified
- *                 configuration set to capture open and click events using the standard,
- *                 Amazon SES-operated domains.</p>
- *          </note>
+ * Deletes an association between a configuration set and a custom domain for open and click event tracking.
+ *
+ * By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html).
+ *
+ * > **Note:** Deleting this kind of association results in emails sent using the specified configuration set to capture open and click events using the standard, Amazon SES-operated domains.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,14 +56,16 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput extends Dele
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link TrackingOptionsDoesNotExistException} (client fault)
- *  <p>Indicates that the TrackingOptions object you specified does not exist.</p>
+ *
+ * Indicates that the TrackingOptions object you specified does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface BatchGetMetricsCommandInput extends BatchGetMetricsRequest {}
 export interface BatchGetMetricsCommandOutput extends BatchGetMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Used to retrieve training metrics from SageMaker.</p>
+ * Used to retrieve training metrics from SageMaker.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface BatchGetMetricsCommandOutput extends BatchGetMetricsResponse, _
  * @see {@link SageMakerMetricsClientResolvedConfig | config} for SageMakerMetricsClient's `config` shape.
  *
  * @throws {@link SageMakerMetricsServiceException}
- * <p>Base exception class for all service exceptions from SageMakerMetrics service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerMetrics service.
  *
  * @public
  */

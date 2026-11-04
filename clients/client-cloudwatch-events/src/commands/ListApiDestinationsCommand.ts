@@ -23,7 +23,8 @@ export interface ListApiDestinationsCommandInput extends ListApiDestinationsRequ
 export interface ListApiDestinationsCommandOutput extends ListApiDestinationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of API destination in the account in the current Region.</p>
+ * Retrieves a list of API destination in the account in the current Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +67,12 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * This exception occurs due to unexpected causes.
  *
  * @throws {@link CloudWatchEventsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchEvents service.
  *
  * @public
  */

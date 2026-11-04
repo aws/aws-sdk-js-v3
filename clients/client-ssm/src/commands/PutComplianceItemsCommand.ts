@@ -23,71 +23,28 @@ export interface PutComplianceItemsCommandInput extends PutComplianceItemsReques
 export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResult, __MetadataBearer {}
 
 /**
- * <p>Registers a compliance type and other compliance details on a designated resource. This
- *    operation lets you register custom compliance details with a resource. This call overwrites
- *    existing compliance information on the resource, so you must provide a full list of compliance
- *    items each time that you send the request.</p>
- *          <p>ComplianceType can be one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>ExecutionId: The execution ID when the patch, association, or custom compliance item was
- *      applied.</p>
- *             </li>
- *             <li>
- *                <p>ExecutionType: Specify patch, association, or Custom:<code>string</code>.</p>
- *             </li>
- *             <li>
- *                <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to
- *      the managed node.</p>
- *                <important>
- *                   <p>For State Manager associations, this represents the time when compliance status was
- *       captured by the Systems Manager service during its internal compliance aggregation workflow, not
- *       necessarily when the association was executed on the managed node. State Manager updates
- *       compliance information for all associations on an instance whenever any association executes,
- *       which may result in multiple associations showing the same execution time.</p>
- *                </important>
- *             </li>
- *             <li>
- *                <p>Id: The patch, association, or custom compliance ID.</p>
- *             </li>
- *             <li>
- *                <p>Title: A title.</p>
- *             </li>
- *             <li>
- *                <p>Status: The status of the compliance item. For example, <code>approved</code> for patches,
- *      or <code>Failed</code> for associations.</p>
- *             </li>
- *             <li>
- *                <p>Severity: A patch severity. For example, <code>Critical</code>.</p>
- *             </li>
- *             <li>
- *                <p>DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.</p>
- *             </li>
- *             <li>
- *                <p>DocumentVersion: An SSM document version number. For example, 4.</p>
- *             </li>
- *             <li>
- *                <p>Classification: A patch classification. For example, <code>security updates</code>.</p>
- *             </li>
- *             <li>
- *                <p>PatchBaselineId: A patch baseline ID.</p>
- *             </li>
- *             <li>
- *                <p>PatchSeverity: A patch severity. For example, <code>Critical</code>.</p>
- *             </li>
- *             <li>
- *                <p>PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.</p>
- *             </li>
- *             <li>
- *                <p>PatchGroup: The name of a patch group.</p>
- *             </li>
- *             <li>
- *                <p>InstalledTime: The time the association, patch, or custom compliance item was applied to
- *      the resource. Specify the time by using the following format:
- *       <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>
- *                </p>
- *             </li>
- *          </ul>
+ * Registers a compliance type and other compliance details on a designated resource. This operation lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.
+ *
+ * ComplianceType can be one of the following:
+ *
+ * - ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.
+ * - ExecutionType: Specify patch, association, or Custom:`string`.
+ * - ExecutionTime. The time the patch, association, or custom compliance item was applied to the managed node.
+ *
+ *   > **Important:** For State Manager associations, this represents the time when compliance status was captured by the Systems Manager service during its internal compliance aggregation workflow, not necessarily when the association was executed on the managed node. State Manager updates compliance information for all associations on an instance whenever any association executes, which may result in multiple associations showing the same execution time.
+ * - Id: The patch, association, or custom compliance ID.
+ * - Title: A title.
+ * - Status: The status of the compliance item. For example, `approved` for patches, or `Failed` for associations.
+ * - Severity: A patch severity. For example, `Critical`.
+ * - DocumentName: An SSM document name. For example, `AWS-RunPatchBaseline`.
+ * - DocumentVersion: An SSM document version number. For example, 4.
+ * - Classification: A patch classification. For example, `security updates`.
+ * - PatchBaselineId: A patch baseline ID.
+ * - PatchSeverity: A patch severity. For example, `Critical`.
+ * - PatchState: A patch state. For example, `InstancesWithFailedPatches`.
+ * - PatchGroup: The name of a patch group.
+ * - InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: `yyyy-MM-dd'T'HH:mm:ss'Z'`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,31 +89,36 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link ComplianceTypeCountLimitExceededException} (client fault)
- *  <p>You specified too many custom compliance types. You can specify a maximum of 10 different
- *    types. </p>
+ *
+ * You specified too many custom compliance types. You can specify a maximum of 10 different types.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidItemContentException} (client fault)
- *  <p>One or more content items isn't valid.</p>
+ *
+ * One or more content items isn't valid.
  *
  * @throws {@link InvalidResourceId} (client fault)
- *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ * The resource ID isn't valid. Verify that you entered the correct ID and try again.
  *
  * @throws {@link InvalidResourceType} (client fault)
- *  <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
- *    the instance must be a registered managed node.</p>
+ *
+ * The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the instance must be a registered managed node.
  *
  * @throws {@link ItemSizeLimitExceededException} (client fault)
- *  <p>The inventory item size has exceeded the size limit.</p>
+ *
+ * The inventory item size has exceeded the size limit.
  *
  * @throws {@link TotalSizeLimitExceededException} (client fault)
- *  <p>The size of inventory data has exceeded the total size limit for the resource.</p>
+ *
+ * The size of inventory data has exceeded the total size limit for the resource.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

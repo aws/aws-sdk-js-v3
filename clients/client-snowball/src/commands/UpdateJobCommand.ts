@@ -23,9 +23,8 @@ export interface UpdateJobCommandInput extends UpdateJobRequest {}
 export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBearer {}
 
 /**
- * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
- *       the information associated with a job. Once the job changes to a different job state, usually
- *       within 60 minutes of the job being created, this action is no longer available.</p>
+ * While a job's `JobState` value is `New`, you can update some of the information associated with a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,32 +125,32 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link ClusterLimitExceededException} (client fault)
- *  <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
- *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
- *       create jobs until your cluster has exactly five nodes.</p>
+ *
+ * Job creation failed. Currently, clusters support five nodes. If you have fewer than five nodes for your cluster and you have more nodes to create for this cluster, try again and create jobs until your cluster has exactly five nodes.
  *
  * @throws {@link Ec2RequestFailedException} (client fault)
- *  <p>Your user lacks the necessary Amazon EC2 permissions to perform the attempted
- *       action.</p>
+ *
+ * Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
- *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * Job or cluster creation failed. One or more inputs were invalid. Confirm that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType, and try again.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link KMSRequestFailedException} (client fault)
- *  <p>The provided Key Management Service key lacks the permissions to perform the specified
- *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ * The provided Key Management Service key lacks the permissions to perform the specified CreateJob or UpdateJob action.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To update a job
  * ```javascript

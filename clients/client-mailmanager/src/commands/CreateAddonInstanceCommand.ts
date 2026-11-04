@@ -23,7 +23,8 @@ export interface CreateAddonInstanceCommandInput extends CreateAddonInstanceRequ
 export interface CreateAddonInstanceCommandOutput extends CreateAddonInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
+ * Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,20 +58,24 @@ export interface CreateAddonInstanceCommandOutput extends CreateAddonInstanceRes
  * @see {@link MailManagerClientResolvedConfig | config} for MailManagerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
+ *
+ * The request configuration has conflicts. For details, see the accompanying error message.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Occurs when a requested resource is not found.</p>
+ *
+ * Occurs when a requested resource is not found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Occurs when an operation exceeds a predefined service quota or limit.</p>
+ *
+ * Occurs when an operation exceeds a predefined service quota or limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request validation has failed. For details, see the accompanying error message.</p>
+ *
+ * The request validation has failed. For details, see the accompanying error message.
  *
  * @throws {@link MailManagerServiceException}
- * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ * Base exception class for all service exceptions from MailManager service.
  *
  * @public
  */

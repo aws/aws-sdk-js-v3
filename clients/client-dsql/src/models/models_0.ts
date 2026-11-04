@@ -10,18 +10,21 @@ import type {
 } from "./enums";
 
 /**
- * <p>Defines the structure for multi-Region cluster configurations, containing the witness region and linked cluster settings.</p>
+ * Defines the structure for multi-Region cluster configurations, containing the witness region and linked cluster settings.
+ *
  * @public
  */
 export interface MultiRegionProperties {
   /**
-   * <p>The Region that serves as the witness region for a multi-Region cluster. The witness Region helps maintain cluster consistency and quorum.</p>
+   * The Region that serves as the witness region for a multi-Region cluster. The witness Region helps maintain cluster consistency and quorum.
+   *
    * @public
    */
   witnessRegion?: string | undefined;
 
   /**
-   * <p>The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.</p>
+   * The set of peered clusters that form the multi-Region cluster configuration. Each peered cluster represents a database instance in a different Region.
+   *
    * @public
    */
   clusters?: string[] | undefined;
@@ -32,139 +35,164 @@ export interface MultiRegionProperties {
  */
 export interface CreateClusterInput {
   /**
-   * <p>If enabled, you can't delete your cluster. You must first disable this property before you can delete your cluster.</p>
+   * If enabled, you can't delete your cluster. You must first disable this property before you can delete your cluster.
+   *
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.</p>
+   * The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.
+   *
    * @public
    */
   kmsEncryptionKey?: string | undefined;
 
   /**
-   * <p>A map of key and value pairs to use to tag your cluster.</p>
+   * A map of key and value pairs to use to tag your cluster.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.
+   *
+   * If you don't specify a client token, the Amazon Web Services SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The configuration settings when creating a multi-Region cluster, including the witness region and linked cluster properties.</p>
+   * The configuration settings when creating a multi-Region cluster, including the witness region and linked cluster properties.
+   *
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
 
   /**
-   * <p>An optional resource-based policy document in JSON format that defines access permissions for the cluster.</p>
+   * An optional resource-based policy document in JSON format that defines access permissions for the cluster.
+   *
    * @public
    */
   policy?: string | undefined;
 
   /**
-   * <p>An optional field that controls whether to bypass the lockout prevention check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
+   * An optional field that controls whether to bypass the lockout prevention check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.
+   *
    * @public
    */
   bypassPolicyLockoutSafetyCheck?: boolean | undefined;
 }
 
 /**
- * <p>Configuration details about encryption for the cluster including the KMS key ARN, encryption type, and encryption status.</p>
+ * Configuration details about encryption for the cluster including the KMS key ARN, encryption type, and encryption status.
+ *
  * @public
  */
 export interface EncryptionDetails {
   /**
-   * <p>The type of encryption that protects the data on your cluster.</p>
+   * The type of encryption that protects the data on your cluster.
+   *
    * @public
    */
   encryptionType: EncryptionType | undefined;
 
   /**
-   * <p>The ARN of the KMS key that encrypts data in the cluster.</p>
+   * The ARN of the KMS key that encrypts data in the cluster.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The status of encryption for the cluster.</p>
+   * The status of encryption for the cluster.
+   *
    * @public
    */
   encryptionStatus: EncryptionStatus | undefined;
 }
 
 /**
- * <p>The output of a created cluster.</p>
+ * The output of a created cluster.
+ *
  * @public
  */
 export interface CreateClusterOutput {
   /**
-   * <p>The ID of the created cluster.</p>
+   * The ID of the created cluster.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The ARN of the created cluster.</p>
+   * The ARN of the created cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the created cluster.</p>
+   * The status of the created cluster.
+   *
    * @public
    */
   status: ClusterStatus | undefined;
 
   /**
-   * <p>The time of when created the cluster.</p>
+   * The time of when created the cluster.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The multi-Region cluster configuration details that were set during cluster creation</p>
+   * The multi-Region cluster configuration details that were set during cluster creation
+   *
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
 
   /**
-   * <p>The encryption configuration for the cluster that was specified during the creation process, including the KMS key identifier and encryption state.</p>
+   * The encryption configuration for the cluster that was specified during the creation process, including the KMS key identifier and encryption state.
+   *
    * @public
    */
   encryptionDetails?: EncryptionDetails | undefined;
 
   /**
-   * <p>Whether deletion protection is enabled on this cluster.</p>
+   * Whether deletion protection is enabled on this cluster.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The connection endpoint for the created cluster.</p>
+   * The connection endpoint for the created cluster.
+   *
    * @public
    */
   endpoint?: string | undefined;
 }
 
 /**
- * <p>Stores information about a field passed inside a request that resulted in an validation error.</p>
+ * Stores information about a field passed inside a request that resulted in an validation error.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the field.</p>
+   * The name of the field.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message describing why this field failed validation.</p>
+   * A message describing why this field failed validation.
+   *
    * @public
    */
   message: string | undefined;
@@ -175,43 +203,52 @@ export interface ValidationExceptionField {
  */
 export interface DeleteClusterInput {
   /**
-   * <p>The ID of the cluster to delete.</p>
+   * The ID of the cluster to delete.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.
+   *
+   * If you don't specify a client token, the Amazon Web Services SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The output from a deleted cluster.</p>
+ * The output from a deleted cluster.
+ *
  * @public
  */
 export interface DeleteClusterOutput {
   /**
-   * <p>The ID of the deleted cluster.</p>
+   * The ID of the deleted cluster.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The ARN of the deleted cluster.</p>
+   * The ARN of the deleted cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the cluster.</p>
+   * The status of the cluster.
+   *
    * @public
    */
   status: ClusterStatus | undefined;
 
   /**
-   * <p>The time of when the cluster was created.</p>
+   * The time of when the cluster was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -222,19 +259,22 @@ export interface DeleteClusterOutput {
  */
 export interface DeleteClusterPolicyInput {
   /**
-   * <p>The ID of the cluster.</p>
+   * The ID of the cluster.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The expected version of the policy to delete. This parameter ensures that you're deleting the correct version of the policy and helps prevent accidental deletions.</p>
+   * The expected version of the policy to delete. This parameter ensures that you're deleting the correct version of the policy and helps prevent accidental deletions.
+   *
    * @public
    */
   expectedPolicyVersion?: string | undefined;
 
   /**
-   * <p>Idempotency token so a request is only processed once.</p>
+   * Idempotency token so a request is only processed once.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -245,7 +285,8 @@ export interface DeleteClusterPolicyInput {
  */
 export interface DeleteClusterPolicyOutput {
   /**
-   * <p>The version of the policy that was deleted.</p>
+   * The version of the policy that was deleted.
+   *
    * @public
    */
   policyVersion: string | undefined;
@@ -256,67 +297,78 @@ export interface DeleteClusterPolicyOutput {
  */
 export interface GetClusterInput {
   /**
-   * <p>The ID of the cluster to retrieve.</p>
+   * The ID of the cluster to retrieve.
+   *
    * @public
    */
   identifier: string | undefined;
 }
 
 /**
- * <p>The output of a cluster.</p>
+ * The output of a cluster.
+ *
  * @public
  */
 export interface GetClusterOutput {
   /**
-   * <p>The ID of the retrieved cluster.</p>
+   * The ID of the retrieved cluster.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The ARN of the retrieved cluster.</p>
+   * The ARN of the retrieved cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the retrieved cluster.</p>
+   * The status of the retrieved cluster.
+   *
    * @public
    */
   status: ClusterStatus | undefined;
 
   /**
-   * <p>The time of when the cluster was created.</p>
+   * The time of when the cluster was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>Whether deletion protection is enabled in this cluster.</p>
+   * Whether deletion protection is enabled in this cluster.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>Returns the current multi-Region cluster configuration, including witness region and linked cluster information.</p>
+   * Returns the current multi-Region cluster configuration, including witness region and linked cluster information.
+   *
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
 
   /**
-   * <p>Map of tags.</p>
+   * Map of tags.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The current encryption configuration details for the cluster.</p>
+   * The current encryption configuration details for the cluster.
+   *
    * @public
    */
   encryptionDetails?: EncryptionDetails | undefined;
 
   /**
-   * <p>The connection endpoint for the cluster.</p>
+   * The connection endpoint for the cluster.
+   *
    * @public
    */
   endpoint?: string | undefined;
@@ -327,7 +379,8 @@ export interface GetClusterOutput {
  */
 export interface GetClusterPolicyInput {
   /**
-   * <p>The ID of the cluster to retrieve the policy from.</p>
+   * The ID of the cluster to retrieve the policy from.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -338,13 +391,15 @@ export interface GetClusterPolicyInput {
  */
 export interface GetClusterPolicyOutput {
   /**
-   * <p>The resource-based policy document attached to the cluster, returned as a JSON string.</p>
+   * The resource-based policy document attached to the cluster, returned as a JSON string.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>The version of the policy document. This version number is incremented each time the policy is updated.</p>
+   * The version of the policy document. This version number is incremented each time the policy is updated.
+   *
    * @public
    */
   policyVersion: string | undefined;
@@ -355,7 +410,8 @@ export interface GetClusterPolicyOutput {
  */
 export interface GetVpcEndpointServiceNameInput {
   /**
-   * <p>The ID of the cluster to retrieve.</p>
+   * The ID of the cluster to retrieve.
+   *
    * @public
    */
   identifier: string | undefined;
@@ -366,13 +422,15 @@ export interface GetVpcEndpointServiceNameInput {
  */
 export interface GetVpcEndpointServiceNameOutput {
   /**
-   * <p>The VPC endpoint service name.</p>
+   * The VPC endpoint service name.
+   *
    * @public
    */
   serviceName: string | undefined;
 
   /**
-   * <p>The VPC connection endpoint for the cluster.</p>
+   * The VPC connection endpoint for the cluster.
+   *
    * @public
    */
   clusterVpcEndpoint?: string | undefined;
@@ -383,31 +441,36 @@ export interface GetVpcEndpointServiceNameOutput {
  */
 export interface ListClustersInput {
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If your initial ListClusters operation returns a nextToken, you can include the returned nextToken in following ListClusters operations, which returns results in the next page.</p>
+   * If your initial ListClusters operation returns a nextToken, you can include the returned nextToken in following ListClusters operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A summary of the properties of a cluster.</p>
+ * A summary of the properties of a cluster.
+ *
  * @public
  */
 export interface ClusterSummary {
   /**
-   * <p>The ID of the cluster.</p>
+   * The ID of the cluster.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The ARN of the cluster.</p>
+   * The ARN of the cluster.
+   *
    * @public
    */
   arn: string | undefined;
@@ -418,13 +481,15 @@ export interface ClusterSummary {
  */
 export interface ListClustersOutput {
   /**
-   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>
+   * If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of the returned clusters.</p>
+   * An array of the returned clusters.
+   *
    * @public
    */
   clusters: ClusterSummary[] | undefined;
@@ -435,31 +500,36 @@ export interface ListClustersOutput {
  */
 export interface PutClusterPolicyInput {
   /**
-   * <p>The ID of the cluster.</p>
+   * The ID of the cluster.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The resource-based policy document to attach to the cluster. This should be a valid JSON policy document that defines permissions and conditions.</p>
+   * The resource-based policy document to attach to the cluster. This should be a valid JSON policy document that defines permissions and conditions.
+   *
    * @public
    */
   policy: string | undefined;
 
   /**
-   * <p>A flag that allows you to bypass the policy lockout safety check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.</p>
+   * A flag that allows you to bypass the policy lockout safety check. When set to true, this parameter allows you to apply a policy that might lock you out of the cluster. Use with caution.
+   *
    * @public
    */
   bypassPolicyLockoutSafetyCheck?: boolean | undefined;
 
   /**
-   * <p>The expected version of the current policy. This parameter ensures that you're updating the correct version of the policy and helps prevent concurrent modification conflicts.</p>
+   * The expected version of the current policy. This parameter ensures that you're updating the correct version of the policy and helps prevent concurrent modification conflicts.
+   *
    * @public
    */
   expectedPolicyVersion?: string | undefined;
 
   /**
-   * <p>Idempotency token so a request is only processed once.</p>
+   * Idempotency token so a request is only processed once.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -470,7 +540,8 @@ export interface PutClusterPolicyInput {
  */
 export interface PutClusterPolicyOutput {
   /**
-   * <p>The version of the policy after it has been updated or created.</p>
+   * The version of the policy after it has been updated or created.
+   *
    * @public
    */
   policyVersion: string | undefined;
@@ -481,86 +552,104 @@ export interface PutClusterPolicyOutput {
  */
 export interface UpdateClusterInput {
   /**
-   * <p>The ID of the cluster you want to update.</p>
+   * The ID of the cluster you want to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>Specifies whether to enable deletion protection in your cluster.</p>
+   * Specifies whether to enable deletion protection in your cluster.
+   *
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.</p> <p>To switch to the key owned by Amazon Web Services, specify the reserved value <code>AWS_OWNED_KMS_KEY</code>.</p>
+   * The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.
+   *
+   * To switch to the key owned by Amazon Web Services, specify the reserved value `AWS_OWNED_KMS_KEY`.
+   *
    * @public
    */
   kmsEncryptionKey?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully. The subsequent retries with the same client token return the result from the original successful request and they have no additional effect.
+   *
+   * If you don't specify a client token, the Amazon Web Services SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>The new multi-Region cluster configuration settings to be applied during an update operation.</p>
+   * The new multi-Region cluster configuration settings to be applied during an update operation.
+   *
    * @public
    */
   multiRegionProperties?: MultiRegionProperties | undefined;
 }
 
 /**
- * <p>The details of the cluster after it has been updated.</p>
+ * The details of the cluster after it has been updated.
+ *
  * @public
  */
 export interface UpdateClusterOutput {
   /**
-   * <p>The ID of the cluster to update.</p>
+   * The ID of the cluster to update.
+   *
    * @public
    */
   identifier: string | undefined;
 
   /**
-   * <p>The ARN of the updated cluster.</p>
+   * The ARN of the updated cluster.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the updated cluster.</p>
+   * The status of the updated cluster.
+   *
    * @public
    */
   status: ClusterStatus | undefined;
 
   /**
-   * <p>The time of when the cluster was created.</p>
+   * The time of when the cluster was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 }
 
 /**
- * <p>Kinesis stream target configuration.</p>
+ * Kinesis stream target configuration.
+ *
  * @public
  */
 export interface KinesisTargetDefinition {
   /**
-   * <p>The ARN of the Kinesis stream.</p>
+   * The ARN of the Kinesis stream.
+   *
    * @public
    */
   streamArn: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role (<code>arn:aws:iam::account-id:role/role-name</code>) or a role with a path prefix (<code>arn:aws:iam::account-id:role/service-role/role-name</code>), such as roles auto-created by the console.</p>
+   * The ARN of the IAM role that grants permission to write to the Kinesis stream. This can be a standard role (`arn:aws:iam::account-id:role/role-name`) or a role with a path prefix (`arn:aws:iam::account-id:role/service-role/role-name`), such as roles auto-created by the console.
+   *
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>Target definition for stream destination.</p>
+ * Target definition for stream destination.
+ *
  * @public
  */
 export type TargetDefinition =
@@ -572,7 +661,8 @@ export type TargetDefinition =
  */
 export namespace TargetDefinition {
   /**
-   * <p>Kinesis stream target configuration.</p>
+   * Kinesis stream target configuration.
+   *
    * @public
    */
   export interface KinesisMember {
@@ -603,85 +693,101 @@ export namespace TargetDefinition {
  */
 export interface CreateStreamInput {
   /**
-   * <p>The ID of the cluster for which to create the stream.</p>
+   * The ID of the cluster for which to create the stream.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The target destination configuration for the stream. Contains Kinesis stream configuration including stream ARN and IAM role ARN.</p>
+   * The target destination configuration for the stream. Contains Kinesis stream configuration including stream ARN and IAM role ARN.
+   *
    * @public
    */
   targetDefinition: TargetDefinition | undefined;
 
   /**
-   * <p>The ordering mode for the stream. Determines how change events are ordered when delivered to the target.</p>
+   * The ordering mode for the stream. Determines how change events are ordered when delivered to the target.
+   *
    * @public
    */
   ordering: StreamOrdering | undefined;
 
   /**
-   * <p>The format of the stream records.</p>
+   * The format of the stream records.
+   *
    * @public
    */
   format: StreamFormat | undefined;
 
   /**
-   * <p>A map of key and value pairs to use to tag your stream.</p>
+   * A map of key and value pairs to use to tag your stream.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.
+   *
+   * If you don't specify a client token, the Amazon Web Services SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The output of a created stream.</p>
+ * The output of a created stream.
+ *
  * @public
  */
 export interface CreateStreamOutput {
   /**
-   * <p>The ID of the cluster for the created stream.</p>
+   * The ID of the cluster for the created stream.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the created stream.</p>
+   * The ID of the created stream.
+   *
    * @public
    */
   streamIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the created stream.</p>
+   * The ARN of the created stream.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the created stream.</p>
+   * The status of the created stream.
+   *
    * @public
    */
   status: StreamStatus | undefined;
 
   /**
-   * <p>The time when created the stream.</p>
+   * The time when created the stream.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The ordering mode of the created stream.</p>
+   * The ordering mode of the created stream.
+   *
    * @public
    */
   ordering: StreamOrdering | undefined;
 
   /**
-   * <p>The format of the created stream records.</p>
+   * The format of the created stream records.
+   *
    * @public
    */
   format: StreamFormat | undefined;
@@ -692,55 +798,66 @@ export interface CreateStreamOutput {
  */
 export interface DeleteStreamInput {
   /**
-   * <p>The ID of the cluster containing the stream to delete.</p>
+   * The ID of the cluster containing the stream to delete.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the stream to delete.</p>
+   * The ID of the stream to delete.
+   *
    * @public
    */
   streamIdentifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.</p> <p>If you don't specify a client token, the Amazon Web Services SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect.
+   *
+   * If you don't specify a client token, the Amazon Web Services SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>The output from a deleted stream.</p>
+ * The output from a deleted stream.
+ *
  * @public
  */
 export interface DeleteStreamOutput {
   /**
-   * <p>The ID of the cluster for the deleted stream.</p>
+   * The ID of the cluster for the deleted stream.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the deleted stream.</p>
+   * The ID of the deleted stream.
+   *
    * @public
    */
   streamIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the deleted stream.</p>
+   * The ARN of the deleted stream.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The status of the stream.</p>
+   * The status of the stream.
+   *
    * @public
    */
   status: StreamStatus | undefined;
 
   /**
-   * <p>The time when the stream was created.</p>
+   * The time when the stream was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
@@ -751,7 +868,8 @@ export interface DeleteStreamOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The ARN of the resource for which you want to list the tags.</p>
+   * The ARN of the resource for which you want to list the tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -762,7 +880,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>A map of key and value pairs that you used to tag your resource.</p>
+   * A map of key and value pairs that you used to tag your resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -773,97 +892,113 @@ export interface ListTagsForResourceOutput {
  */
 export interface GetStreamInput {
   /**
-   * <p>The ID of the cluster containing the stream to retrieve.</p>
+   * The ID of the cluster containing the stream to retrieve.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the stream to retrieve.</p>
+   * The ID of the stream to retrieve.
+   *
    * @public
    */
   streamIdentifier: string | undefined;
 }
 
 /**
- * <p>Stream status reason with error and timestamp.</p>
+ * Stream status reason with error and timestamp.
+ *
  * @public
  */
 export interface StatusReason {
   /**
-   * <p>The error code for the stream failure.</p>
+   * The error code for the stream failure.
+   *
    * @public
    */
   error: StreamFailureErrorCode | undefined;
 
   /**
-   * <p>The timestamp when the status was updated.</p>
+   * The timestamp when the status was updated.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The output of a retrieved stream.</p>
+ * The output of a retrieved stream.
+ *
  * @public
  */
 export interface GetStreamOutput {
   /**
-   * <p>The ID of the cluster for the retrieved stream.</p>
+   * The ID of the cluster for the retrieved stream.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the retrieved stream.</p>
+   * The ID of the retrieved stream.
+   *
    * @public
    */
   streamIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the retrieved stream.</p>
+   * The ARN of the retrieved stream.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The current status of the retrieved stream.</p>
+   * The current status of the retrieved stream.
+   *
    * @public
    */
   status: StreamStatus | undefined;
 
   /**
-   * <p>The time when the stream was created.</p>
+   * The time when the stream was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The ordering mode of the stream.</p>
+   * The ordering mode of the stream.
+   *
    * @public
    */
   ordering: StreamOrdering | undefined;
 
   /**
-   * <p>The format of the stream records.</p>
+   * The format of the stream records.
+   *
    * @public
    */
   format: StreamFormat | undefined;
 
   /**
-   * <p>The target definition for the stream destination.</p>
+   * The target definition for the stream destination.
+   *
    * @public
    */
   targetDefinition?: TargetDefinition | undefined;
 
   /**
-   * <p>Stream status reason with error code and timestamp (if applicable).</p>
+   * Stream status reason with error code and timestamp (if applicable).
+   *
    * @public
    */
   statusReason?: StatusReason | undefined;
 
   /**
-   * <p>A map of tags associated with the stream.</p>
+   * A map of tags associated with the stream.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -874,55 +1009,64 @@ export interface GetStreamOutput {
  */
 export interface ListStreamsInput {
   /**
-   * <p>The ID of the cluster for which to list streams.</p>
+   * The ID of the cluster for which to list streams.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.</p>
+   * An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results. Default: 10.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.</p>
+   * If your initial ListStreams operation returns a nextToken, you can include the returned nextToken in following ListStreams operations, which returns results in the next page.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Summary information about a stream.</p>
+ * Summary information about a stream.
+ *
  * @public
  */
 export interface StreamSummary {
   /**
-   * <p>The ID of the cluster.</p>
+   * The ID of the cluster.
+   *
    * @public
    */
   clusterIdentifier: string | undefined;
 
   /**
-   * <p>The ID of the stream.</p>
+   * The ID of the stream.
+   *
    * @public
    */
   streamIdentifier: string | undefined;
 
   /**
-   * <p>The ARN of the stream.</p>
+   * The ARN of the stream.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The timestamp when the stream was created.</p>
+   * The timestamp when the stream was created.
+   *
    * @public
    */
   creationTime: Date | undefined;
 
   /**
-   * <p>The current status of the stream.</p>
+   * The current status of the stream.
+   *
    * @public
    */
   status: StreamStatus | undefined;
@@ -933,13 +1077,15 @@ export interface StreamSummary {
  */
 export interface ListStreamsOutput {
   /**
-   * <p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>
+   * If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array of the returned streams.</p>
+   * An array of the returned streams.
+   *
    * @public
    */
   streams: StreamSummary[] | undefined;
@@ -950,13 +1096,15 @@ export interface ListStreamsOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The ARN of the resource that you want to tag.</p>
+   * The ARN of the resource that you want to tag.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A map of key and value pairs to use to tag your resource.</p>
+   * A map of key and value pairs to use to tag your resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -967,13 +1115,15 @@ export interface TagResourceInput {
  */
 export interface UntagResourceInput {
   /**
-   * <p>The ARN of the resource from which to remove tags.</p>
+   * The ARN of the resource from which to remove tags.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The array of keys of the tags that you want to remove.</p>
+   * The array of keys of the tags that you want to remove.
+   *
    * @public
    */
   tagKeys: string[] | undefined;

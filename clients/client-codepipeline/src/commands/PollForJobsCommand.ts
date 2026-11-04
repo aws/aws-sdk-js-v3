@@ -23,16 +23,10 @@ export interface PollForJobsCommandInput extends PollForJobsInput {}
 export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about any jobs for CodePipeline to act on.
- *                 <code>PollForJobs</code> is valid only for action types with "Custom" in the owner
- *             field. If the action type contains <code>AWS</code> or <code>ThirdParty</code> in the
- *             owner field, the <code>PollForJobs</code> action returns an error.</p>
- *          <important>
- *             <p>When this API is called, CodePipeline returns temporary credentials for
- *                 the S3 bucket used to store artifacts for the pipeline, if the action requires
- *                 access to that S3 bucket for input or output artifacts. This API also returns any
- *                 secret values defined for the action.</p>
- *          </important>
+ * Returns information about any jobs for CodePipeline to act on. `PollForJobs` is valid only for action types with "Custom" in the owner field. If the action type contains `AWS` or `ThirdParty` in the owner field, the `PollForJobs` action returns an error.
+ *
+ * > **Important:** When this API is called, CodePipeline returns temporary credentials for the S3 bucket used to store artifacts for the pipeline, if the action requires access to that S3 bucket for input or output artifacts. This API also returns any secret values defined for the action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,14 +129,16 @@ export interface PollForJobsCommandOutput extends PollForJobsOutput, __MetadataB
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ActionTypeNotFoundException} (client fault)
- *  <p>The specified action type cannot be found.</p>
+ *
+ * The specified action type cannot be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

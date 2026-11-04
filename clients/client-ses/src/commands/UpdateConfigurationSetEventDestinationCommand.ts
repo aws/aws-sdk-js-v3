@@ -26,18 +26,12 @@ export interface UpdateConfigurationSetEventDestinationCommandInput extends Upda
 export interface UpdateConfigurationSetEventDestinationCommandOutput extends UpdateConfigurationSetEventDestinationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the event destination of a configuration set. Event destinations are
- *             associated with configuration sets, which enable you to publish email sending events to
- *             Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets,
- *             see <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer
- *                 Guide.</i>
- *          </p>
- *          <note>
- *             <p>When you create or update an event destination, you must provide one, and only
- *                 one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service
- *                 (Amazon SNS).</p>
- *          </note>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see [Monitoring Your Amazon SES Sending Activity](https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html) in the *Amazon SES Developer Guide.*
+ *
+ * > **Note:** When you create or update an event destination, you must provide one, and only one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,26 +79,28 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput extends Upd
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link EventDestinationDoesNotExistException} (client fault)
- *  <p>Indicates that the event destination does not exist.</p>
+ *
+ * Indicates that the event destination does not exist.
  *
  * @throws {@link InvalidCloudWatchDestinationException} (client fault)
- *  <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
- *             details.</p>
+ *
+ * Indicates that the Amazon CloudWatch destination is invalid. See the error message for details.
  *
  * @throws {@link InvalidFirehoseDestinationException} (client fault)
- *  <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
- *             message for details.</p>
+ *
+ * Indicates that the Amazon Kinesis Firehose destination is invalid. See the error message for details.
  *
  * @throws {@link InvalidSNSDestinationException} (client fault)
- *  <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
- *             invalid. See the error message for details.</p>
+ *
+ * Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is invalid. See the error message for details.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

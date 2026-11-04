@@ -23,12 +23,8 @@ export interface ListInvestigationsCommandInput extends ListInvestigationsReques
 export interface ListInvestigationsCommandOutput extends ListInvestigationsResponse, __MetadataBearer {}
 
 /**
- * <p>Detective investigations lets you investigate IAM users and
- *             IAM roles using indicators of compromise. An indicator of compromise
- *          (IOC) is an artifact observed in or on a network, system, or environment that can (with a
- *          high level of confidence) identify malicious activity or a security incident.
- *             <code>ListInvestigations</code> lists all active Detective
- *          investigations.</p>
+ * Detective investigations lets you investigate IAM users and IAM roles using indicators of compromise. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident. `ListInvestigations` lists all active Detective investigations.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,25 +86,28 @@ export interface ListInvestigationsCommandOutput extends ListInvestigationsRespo
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request issuer does not have permission to access this resource or perform this
- *          operation.</p>
+ *
+ * The request issuer does not have permission to access this resource or perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * The request was valid but failed because of a problem with the service.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * The request refers to a nonexistent resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request cannot be completed because too many other requests are occurring at the
- *          same time.</p>
+ *
+ * The request cannot be completed because too many other requests are occurring at the same time.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request parameters are invalid.</p>
+ *
+ * The request parameters are invalid.
  *
  * @throws {@link DetectiveServiceException}
- * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ * Base exception class for all service exceptions from Detective service.
  *
  * @public
  */

@@ -23,9 +23,8 @@ export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
 export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
- *             only streaming sessions for that user are described. If an authentication type is not provided,
- *             the default is to authenticate users using a streaming URL.</p>
+ * Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet, only streaming sessions for that user are described. If an authentication type is not provided, the default is to authenticate users using a streaming URL.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,11 +79,12 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

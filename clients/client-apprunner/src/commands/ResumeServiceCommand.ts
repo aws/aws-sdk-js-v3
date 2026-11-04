@@ -23,9 +23,10 @@ export interface ResumeServiceCommandInput extends ResumeServiceRequest {}
 export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Resume an active App Runner service. App Runner provisions compute capacity for the service.</p>
- *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
- *       call to track the operation's progress.</p>
+ * Resume an active App Runner service. App Runner provisions compute capacity for the service.
+ *
+ * This is an asynchronous operation. On a successful call, you can use the returned `OperationId` and the ListOperations call to track the operation's progress.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,20 +146,24 @@ export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __Met
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An unexpected service exception occurred.</p>
+ *
+ * An unexpected service exception occurred.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.
  *
  * @throws {@link InvalidStateException} (client fault)
- *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
+ * You can't perform this action when the resource is in its current state.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
+ *
+ * A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.
  *
  * @throws {@link AppRunnerServiceException}
- * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ * Base exception class for all service exceptions from AppRunner service.
  *
  * @public
  */

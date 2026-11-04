@@ -26,12 +26,10 @@ export interface ValidateSecurityGroupQuotasForInterfaceCommandInput extends Val
 export interface ValidateSecurityGroupQuotasForInterfaceCommandOutput extends ValidateSecurityGroupQuotasForInterfaceResult, __MetadataBearer {}
 
 /**
- * <p>Validates whether the specified security groups can be associated with a single
- *             network interface. The operation checks Amazon Virtual Private Cloud (Amazon VPC)
- *             quotas. It checks inbound or outbound rules per security group and security groups
- *             per network interface. Only authorized Amazon Web Services services can call this operation.</p>
- *          <p>For more information about security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups">Amazon
- *             VPC quotas</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * Validates whether the specified security groups can be associated with a single network interface. The operation checks Amazon Virtual Private Cloud (Amazon VPC) quotas. It checks inbound or outbound rules per security group and security groups per network interface. Only authorized Amazon Web Services services can call this operation.
+ *
+ * For more information about security group quotas, see [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-security-groups) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +59,8 @@ export interface ValidateSecurityGroupQuotasForInterfaceCommandOutput extends Va
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

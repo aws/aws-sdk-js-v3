@@ -26,402 +26,474 @@ import type {
 } from "./enums";
 
 /**
- * <p>An SAP application registered with AWS Systems Manager for SAP.</p>
+ * An SAP application registered with AWS Systems Manager for SAP.
+ *
  * @public
  */
 export interface Application {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The type of the application.</p>
+   * The type of the application.
+   *
    * @public
    */
   Type?: ApplicationType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * The Amazon Resource Name (ARN) of the application.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Application Registry.</p>
+   * The Amazon Resource Name (ARN) of the Application Registry.
+   *
    * @public
    */
   AppRegistryArn?: string | undefined;
 
   /**
-   * <p>The status of the application.</p>
+   * The status of the application.
+   *
    * @public
    */
   Status?: ApplicationStatus | undefined;
 
   /**
-   * <p>The latest discovery result for the application.</p>
+   * The latest discovery result for the application.
+   *
    * @public
    */
   DiscoveryStatus?: ApplicationDiscoveryStatus | undefined;
 
   /**
-   * <p>The components of the application.</p>
+   * The components of the application.
+   *
    * @public
    */
   Components?: string[] | undefined;
 
   /**
-   * <p>The time at which the application was last updated.</p>
+   * The time at which the application was last updated.
+   *
    * @public
    */
   LastUpdated?: Date | undefined;
 
   /**
-   * <p>The status message.</p>
+   * The status message.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names of the associated AWS Systems Manager for SAP applications.</p>
+   * The Amazon Resource Names of the associated AWS Systems Manager for SAP applications.
+   *
    * @public
    */
   AssociatedApplicationArns?: string[] | undefined;
 }
 
 /**
- * <p>The credentials of your SAP application.</p>
+ * The credentials of your SAP application.
+ *
  * @public
  */
 export interface ApplicationCredential {
   /**
-   * <p>The name of the SAP HANA database.</p>
+   * The name of the SAP HANA database.
+   *
    * @public
    */
   DatabaseName: string | undefined;
 
   /**
-   * <p>The type of the application credentials. </p>
+   * The type of the application credentials.
+   *
    * @public
    */
   CredentialType: CredentialType | undefined;
 
   /**
-   * <p>The secret ID created in AWS Secrets Manager to store the credentials of the SAP application. </p>
+   * The secret ID created in AWS Secrets Manager to store the credentials of the SAP application.
+   *
    * @public
    */
   SecretId: string | undefined;
 }
 
 /**
- * <p>The summary of the SAP application registered with AWS Systems Manager for SAP. </p>
+ * The summary of the SAP application registered with AWS Systems Manager for SAP.
+ *
  * @public
  */
 export interface ApplicationSummary {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The status of the latest discovery.</p>
+   * The status of the latest discovery.
+   *
    * @public
    */
   DiscoveryStatus?: ApplicationDiscoveryStatus | undefined;
 
   /**
-   * <p>The type of the application.</p>
+   * The type of the application.
+   *
    * @public
    */
   Type?: ApplicationType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   * The Amazon Resource Name (ARN) of the application.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The tags on the application.</p>
+   * The tags on the application.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Provides information of the IP address.</p>
+ * Provides information of the IP address.
+ *
  * @public
  */
 export interface IpAddressMember {
   /**
-   * <p>The IP address.</p>
+   * The IP address.
+   *
    * @public
    */
   IpAddress?: string | undefined;
 
   /**
-   * <p>The primary IP address.</p>
+   * The primary IP address.
+   *
    * @public
    */
   Primary?: boolean | undefined;
 
   /**
-   * <p>The type of allocation for the IP address.</p>
+   * The type of allocation for the IP address.
+   *
    * @public
    */
   AllocationType?: AllocationType | undefined;
 }
 
 /**
- * <p>Describes the properties of the associated host.</p>
+ * Describes the properties of the associated host.
+ *
  * @public
  */
 export interface AssociatedHost {
   /**
-   * <p>The name of the host.</p>
+   * The name of the host.
+   *
    * @public
    */
   Hostname?: string | undefined;
 
   /**
-   * <p>The ID of the Amazon EC2 instance.</p>
+   * The ID of the Amazon EC2 instance.
+   *
    * @public
    */
   Ec2InstanceId?: string | undefined;
 
   /**
-   * <p>The IP addresses of the associated host.</p>
+   * The IP addresses of the associated host.
+   *
    * @public
    */
   IpAddresses?: IpAddressMember[] | undefined;
 
   /**
-   * <p>The version of the operating system.</p>
+   * The version of the operating system.
+   *
    * @public
    */
   OsVersion?: string | undefined;
 }
 
 /**
- * <p>Configuration parameters for AWS Backint Agent for SAP HANA. You can backup your SAP HANA database with AWS Backup or Amazon S3.</p>
+ * Configuration parameters for AWS Backint Agent for SAP HANA. You can backup your SAP HANA database with AWS Backup or Amazon S3.
+ *
  * @public
  */
 export interface BackintConfig {
   /**
-   * <p>AWS service for your database backup.</p>
+   * AWS service for your database backup.
+   *
    * @public
    */
   BackintMode: BackintMode | undefined;
 
   /**
-   * <p/>
    * @public
    */
   EnsureNoBackupInProcess: boolean | undefined;
 }
 
 /**
- * <p>The connection specifications for the database.</p>
+ * The connection specifications for the database.
+ *
  * @public
  */
 export interface DatabaseConnection {
   /**
-   * <p>The method of connection.</p>
+   * The method of connection.
+   *
    * @public
    */
   DatabaseConnectionMethod?: DatabaseConnectionMethod | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the connected SAP HANA database.</p>
+   * The Amazon Resource Name of the connected SAP HANA database.
+   *
    * @public
    */
   DatabaseArn?: string | undefined;
 
   /**
-   * <p>The IP address for connection.</p>
+   * The IP address for connection.
+   *
    * @public
    */
   ConnectionIp?: string | undefined;
 }
 
 /**
- * <p>Describes the properties of the Dedicated Host. </p>
+ * Describes the properties of the Dedicated Host.
+ *
  * @public
  */
 export interface Host {
   /**
-   * <p>The name of the Dedicated Host.</p>
+   * The name of the Dedicated Host.
+   *
    * @public
    */
   HostName?: string | undefined;
 
   /**
-   * <p>The IP address of the Dedicated Host. </p>
+   * The IP address of the Dedicated Host.
+   *
    * @public
    */
   HostIp?: string | undefined;
 
   /**
-   * <p>The ID of Amazon EC2 instance.</p>
+   * The ID of Amazon EC2 instance.
+   *
    * @public
    */
   EC2InstanceId?: string | undefined;
 
   /**
-   * <p>The instance ID of the instance on the Dedicated Host.</p>
+   * The instance ID of the instance on the Dedicated Host.
+   *
    * @public
    */
   InstanceId?: string | undefined;
 
   /**
-   * <p>The role of the Dedicated Host.</p>
+   * The role of the Dedicated Host.
+   *
    * @public
    */
   HostRole?: HostRole | undefined;
 
   /**
-   * <p>The version of the operating system.</p>
+   * The version of the operating system.
+   *
    * @public
    */
   OsVersion?: string | undefined;
 }
 
 /**
- * <p>Details of the SAP HANA system replication for the instance.</p>
+ * Details of the SAP HANA system replication for the instance.
+ *
  * @public
  */
 export interface Resilience {
   /**
-   * <p>The tier of the component.</p>
+   * The tier of the component.
+   *
    * @public
    */
   HsrTier?: string | undefined;
 
   /**
-   * <p>The replication mode of the component.</p>
+   * The replication mode of the component.
+   *
    * @public
    */
   HsrReplicationMode?: ReplicationMode | undefined;
 
   /**
-   * <p>The operation mode of the component.</p>
+   * The operation mode of the component.
+   *
    * @public
    */
   HsrOperationMode?: OperationMode | undefined;
 
   /**
-   * <p>The cluster status of the component.</p>
+   * The cluster status of the component.
+   *
    * @public
    */
   ClusterStatus?: ClusterStatus | undefined;
 
   /**
-   * <p>Indicates if or not enqueue replication is enabled for the ASCS component.</p>
+   * Indicates if or not enqueue replication is enabled for the ASCS component.
+   *
    * @public
    */
   EnqueueReplication?: boolean | undefined;
 }
 
 /**
- * <p>The SAP component of your application.</p>
+ * The SAP component of your application.
+ *
  * @public
  */
 export interface Component {
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The SAP System Identifier of the application component.</p>
+   * The SAP System Identifier of the application component.
+   *
    * @public
    */
   Sid?: string | undefined;
 
   /**
-   * <p>The SAP system number of the application component.</p>
+   * The SAP system number of the application component.
+   *
    * @public
    */
   SystemNumber?: string | undefined;
 
   /**
-   * <p>The parent component of a highly available environment. For example, in a highly available SAP on AWS workload, the parent component consists of the entire setup, including the child components.</p>
+   * The parent component of a highly available environment. For example, in a highly available SAP on AWS workload, the parent component consists of the entire setup, including the child components.
+   *
    * @public
    */
   ParentComponent?: string | undefined;
 
   /**
-   * <p>The child components of a highly available environment. For example, in a highly available SAP on AWS workload, the child component consists of the primary and secondar instances.</p>
+   * The child components of a highly available environment. For example, in a highly available SAP on AWS workload, the child component consists of the primary and secondar instances.
+   *
    * @public
    */
   ChildComponents?: string[] | undefined;
 
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The type of the component.</p>
+   * The type of the component.
+   *
    * @public
    */
   ComponentType?: ComponentType | undefined;
 
   /**
-   * <p>The status of the component.</p> <ul> <li> <p>ACTIVATED - this status has been deprecated.</p> </li> <li> <p>STARTING - the component is in the process of being started.</p> </li> <li> <p>STOPPED - the component is not running.</p> </li> <li> <p>STOPPING - the component is in the process of being stopped.</p> </li> <li> <p>RUNNING - the component is running.</p> </li> <li> <p>RUNNING_WITH_ERROR - one or more child component(s) of the parent component is not running. Call <a href="https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_GetComponent.html"> <code>GetComponent</code> </a> to review the status of each child component.</p> </li> <li> <p>UNDEFINED - AWS Systems Manager for SAP cannot provide the component status based on the discovered information. Verify your SAP application.</p> </li> </ul>
+   * The status of the component.
+   *
+   * - ACTIVATED - this status has been deprecated.
+   * - STARTING - the component is in the process of being started.
+   * - STOPPED - the component is not running.
+   * - STOPPING - the component is in the process of being stopped.
+   * - RUNNING - the component is running.
+   * - RUNNING_WITH_ERROR - one or more child component(s) of the parent component is not running. Call [`GetComponent`](https://docs.aws.amazon.com/ssmsap/latest/APIReference/API_GetComponent.html) to review the status of each child component.
+   * - UNDEFINED - AWS Systems Manager for SAP cannot provide the component status based on the discovered information. Verify your SAP application.
+   *
    * @public
    */
   Status?: ComponentStatus | undefined;
 
   /**
-   * <p>The hostname of the component.</p>
+   * The hostname of the component.
+   *
    * @public
    */
   SapHostname?: string | undefined;
 
   /**
-   * <p>The SAP feature of the component.</p>
+   * The SAP feature of the component.
+   *
    * @public
    */
   SapFeature?: string | undefined;
 
   /**
-   * <p>The kernel version of the component.</p>
+   * The kernel version of the component.
+   *
    * @public
    */
   SapKernelVersion?: string | undefined;
 
   /**
-   * <p>The SAP HANA version of the component.</p>
+   * The SAP HANA version of the component.
+   *
    * @public
    */
   HdbVersion?: string | undefined;
 
   /**
-   * <p>Details of the SAP HANA system replication for the component.</p>
+   * Details of the SAP HANA system replication for the component.
+   *
    * @public
    */
   Resilience?: Resilience | undefined;
 
   /**
-   * <p>The associated host of the component.</p>
+   * The associated host of the component.
+   *
    * @public
    */
   AssociatedHost?: AssociatedHost | undefined;
 
   /**
-   * <p>The SAP HANA databases of the component.</p>
+   * The SAP HANA databases of the component.
+   *
    * @public
    */
   Databases?: string[] | undefined;
 
   /**
-   * <p>The hosts of the component.</p>
+   * The hosts of the component.
    *
    * @deprecated This shape is no longer used. Please use AssociatedHost.
    * @public
@@ -429,7 +501,7 @@ export interface Component {
   Hosts?: Host[] | undefined;
 
   /**
-   * <p>The primary host of the component.</p>
+   * The primary host of the component.
    *
    * @deprecated This shape is no longer used. Please use AssociatedHost.
    * @public
@@ -437,331 +509,392 @@ export interface Component {
   PrimaryHost?: string | undefined;
 
   /**
-   * <p>The connection specifications for the database of the component.</p>
+   * The connection specifications for the database of the component.
+   *
    * @public
    */
   DatabaseConnection?: DatabaseConnection | undefined;
 
   /**
-   * <p>The time at which the component was last updated.</p>
+   * The time at which the component was last updated.
+   *
    * @public
    */
   LastUpdated?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * The Amazon Resource Name (ARN) of the component.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>This is information about the component of your SAP application, such as Web Dispatcher.</p>
+ * This is information about the component of your SAP application, such as Web Dispatcher.
+ *
  * @public
  */
 export interface ComponentInfo {
   /**
-   * <p>This string is the type of the component.</p> <p>Accepted value is <code>WD</code>.</p>
+   * This string is the type of the component.
+   *
+   * Accepted value is `WD`.
+   *
    * @public
    */
   ComponentType: ComponentType | undefined;
 
   /**
-   * <p>This string is the SAP System ID of the component.</p> <p>Accepted values are alphanumeric.</p>
+   * This string is the SAP System ID of the component.
+   *
+   * Accepted values are alphanumeric.
+   *
    * @public
    */
   Sid: string | undefined;
 
   /**
-   * <p>This is the Amazon EC2 instance on which your SAP component is running.</p> <p>Accepted values are alphanumeric.</p>
+   * This is the Amazon EC2 instance on which your SAP component is running.
+   *
+   * Accepted values are alphanumeric.
+   *
    * @public
    */
   Ec2InstanceId: string | undefined;
 }
 
 /**
- * <p>The summary of the component.</p>
+ * The summary of the component.
+ *
  * @public
  */
 export interface ComponentSummary {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The type of the component.</p>
+   * The type of the component.
+   *
    * @public
    */
   ComponentType?: ComponentType | undefined;
 
   /**
-   * <p>The tags of the component.</p>
+   * The tags of the component.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the component summary.</p>
+   * The Amazon Resource Name (ARN) of the component summary.
+   *
    * @public
    */
   Arn?: string | undefined;
 }
 
 /**
- * <p>Represents a configuration check definition supported by AWS Systems Manager for SAP.</p>
+ * Represents a configuration check definition supported by AWS Systems Manager for SAP.
+ *
  * @public
  */
 export interface ConfigurationCheckDefinition {
   /**
-   * <p>The unique identifier of the configuration check.</p>
+   * The unique identifier of the configuration check.
+   *
    * @public
    */
   Id?: ConfigurationCheckType | undefined;
 
   /**
-   * <p>The name of the configuration check.</p>
+   * The name of the configuration check.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of what the configuration check validates.</p>
+   * A description of what the configuration check validates.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The list of SSMSAP application types that this configuration check can be evaluated against.</p>
+   * The list of SSMSAP application types that this configuration check can be evaluated against.
+   *
    * @public
    */
   ApplicableApplicationTypes?: ApplicationType[] | undefined;
 }
 
 /**
- * <p>A summary of rule results, providing counts for each status type.</p>
+ * A summary of rule results, providing counts for each status type.
+ *
  * @public
  */
 export interface RuleStatusCounts {
   /**
-   * <p>The number of rules that failed.</p>
+   * The number of rules that failed.
+   *
    * @public
    */
   Failed?: number | undefined;
 
   /**
-   * <p>The number of rules that returned warnings.</p>
+   * The number of rules that returned warnings.
+   *
    * @public
    */
   Warning?: number | undefined;
 
   /**
-   * <p>The number of rules that returned informational results.</p>
+   * The number of rules that returned informational results.
+   *
    * @public
    */
   Info?: number | undefined;
 
   /**
-   * <p>The number of rules that passed.</p>
+   * The number of rules that passed.
+   *
    * @public
    */
   Passed?: number | undefined;
 
   /**
-   * <p>The number of rules with unknown status.</p>
+   * The number of rules with unknown status.
+   *
    * @public
    */
   Unknown?: number | undefined;
 }
 
 /**
- * <p>Represents a configuration check operation that has been executed against an application.</p>
+ * Represents a configuration check operation that has been executed against an application.
+ *
  * @public
  */
 export interface ConfigurationCheckOperation {
   /**
-   * <p>The unique identifier of the configuration check operation.</p>
+   * The unique identifier of the configuration check operation.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The ID of the application against which the configuration check was performed.</p>
+   * The ID of the application against which the configuration check was performed.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The current status of the configuration check operation.</p>
+   * The current status of the configuration check operation.
+   *
    * @public
    */
   Status?: OperationStatus | undefined;
 
   /**
-   * <p>A message providing additional details about the status of the configuration check operation.</p>
+   * A message providing additional details about the status of the configuration check operation.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The unique identifier of the configuration check that was performed.</p>
+   * The unique identifier of the configuration check that was performed.
+   *
    * @public
    */
   ConfigurationCheckId?: ConfigurationCheckType | undefined;
 
   /**
-   * <p>The name of the configuration check that was performed.</p>
+   * The name of the configuration check that was performed.
+   *
    * @public
    */
   ConfigurationCheckName?: string | undefined;
 
   /**
-   * <p>A description of the configuration check that was performed.</p>
+   * A description of the configuration check that was performed.
+   *
    * @public
    */
   ConfigurationCheckDescription?: string | undefined;
 
   /**
-   * <p>The time at which the configuration check operation started.</p>
+   * The time at which the configuration check operation started.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The time at which the configuration check operation completed.</p>
+   * The time at which the configuration check operation completed.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>A summary of all the rule results, showing counts for each status type.</p>
+   * A summary of all the rule results, showing counts for each status type.
+   *
    * @public
    */
   RuleStatusCounts?: RuleStatusCounts | undefined;
 }
 
 /**
- * <p>The SAP HANA database of the application registered with AWS Systems Manager for SAP.</p>
+ * The SAP HANA database of the application registered with AWS Systems Manager for SAP.
+ *
  * @public
  */
 export interface Database {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The credentials of the database.</p>
+   * The credentials of the database.
+   *
    * @public
    */
   Credentials?: ApplicationCredential[] | undefined;
 
   /**
-   * <p>The ID of the SAP HANA database.</p>
+   * The ID of the SAP HANA database.
+   *
    * @public
    */
   DatabaseId?: string | undefined;
 
   /**
-   * <p>The name of the database.</p>
+   * The name of the database.
+   *
    * @public
    */
   DatabaseName?: string | undefined;
 
   /**
-   * <p>The type of the database.</p>
+   * The type of the database.
+   *
    * @public
    */
   DatabaseType?: DatabaseType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * The Amazon Resource Name (ARN) of the database.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The status of the database.</p>
+   * The status of the database.
+   *
    * @public
    */
   Status?: DatabaseStatus | undefined;
 
   /**
-   * <p>The primary host of the database.</p>
+   * The primary host of the database.
+   *
    * @public
    */
   PrimaryHost?: string | undefined;
 
   /**
-   * <p>The SQL port of the database.</p>
+   * The SQL port of the database.
+   *
    * @public
    */
   SQLPort?: number | undefined;
 
   /**
-   * <p>The time at which the database was last updated.</p>
+   * The time at which the database was last updated.
+   *
    * @public
    */
   LastUpdated?: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Names of the connected AWS Systems Manager for SAP components.</p>
+   * The Amazon Resource Names of the connected AWS Systems Manager for SAP components.
+   *
    * @public
    */
   ConnectedComponentArns?: string[] | undefined;
 }
 
 /**
- * <p>The summary of the database.</p>
+ * The summary of the database.
+ *
  * @public
  */
 export interface DatabaseSummary {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The ID of the database.</p>
+   * The ID of the database.
+   *
    * @public
    */
   DatabaseId?: string | undefined;
 
   /**
-   * <p>The type of the database.</p>
+   * The type of the database.
+   *
    * @public
    */
   DatabaseType?: DatabaseType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * The Amazon Resource Name (ARN) of the database.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The tags of the database.</p>
+   * The tags of the database.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -772,19 +905,22 @@ export interface DatabaseSummary {
  */
 export interface DeleteResourcePermissionInput {
   /**
-   * <p>Delete or restore the permissions on the target database.</p>
+   * Delete or restore the permissions on the target database.
+   *
    * @public
    */
   ActionType?: PermissionActionType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source resource.</p>
+   * The Amazon Resource Name (ARN) of the source resource.
+   *
    * @public
    */
   SourceResourceArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -795,7 +931,8 @@ export interface DeleteResourcePermissionInput {
  */
 export interface DeleteResourcePermissionOutput {
   /**
-   * <p>The policy that removes permissions on the target database.</p>
+   * The policy that removes permissions on the target database.
+   *
    * @public
    */
   Policy?: string | undefined;
@@ -806,7 +943,8 @@ export interface DeleteResourcePermissionOutput {
  */
 export interface DeregisterApplicationInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
@@ -818,24 +956,28 @@ export interface DeregisterApplicationInput {
 export interface DeregisterApplicationOutput {}
 
 /**
- * <p>A specific result obtained by specifying the name, value, and operator. </p>
+ * A specific result obtained by specifying the name, value, and operator.
+ *
  * @public
  */
 export interface Filter {
   /**
-   * <p>The name of the filter. Filter names are case-sensitive. </p>
+   * The name of the filter. Filter names are case-sensitive.
+   *
    * @public
    */
   Name: string | undefined;
 
   /**
-   * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a filter, the values are joined with an OR, and the request returns all results that match any of the specified values</p>
+   * The filter values. Filter values are case-sensitive. If you specify multiple values for a filter, the values are joined with an OR, and the request returns all results that match any of the specified values
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>The operator for the filter. </p>
+   * The operator for the filter.
+   *
    * @public
    */
   Operator: FilterOperator | undefined;
@@ -846,19 +988,22 @@ export interface Filter {
  */
 export interface GetApplicationInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the application. </p>
+   * The Amazon Resource Name (ARN) of the application.
+   *
    * @public
    */
   ApplicationArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the application registry.</p>
+   * The Amazon Resource Name (ARN) of the application registry.
+   *
    * @public
    */
   AppRegistryArn?: string | undefined;
@@ -869,13 +1014,15 @@ export interface GetApplicationInput {
  */
 export interface GetApplicationOutput {
   /**
-   * <p>Returns all of the metadata of an application registered with AWS Systems Manager for SAP.</p>
+   * Returns all of the metadata of an application registered with AWS Systems Manager for SAP.
+   *
    * @public
    */
   Application?: Application | undefined;
 
   /**
-   * <p>The tags of a registered application.</p>
+   * The tags of a registered application.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -886,13 +1033,15 @@ export interface GetApplicationOutput {
  */
 export interface GetComponentInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId: string | undefined;
@@ -903,13 +1052,15 @@ export interface GetComponentInput {
  */
 export interface GetComponentOutput {
   /**
-   * <p>The component of an application registered with AWS Systems Manager for SAP.</p>
+   * The component of an application registered with AWS Systems Manager for SAP.
+   *
    * @public
    */
   Component?: Component | undefined;
 
   /**
-   * <p>The tags of a component.</p>
+   * The tags of a component.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -920,7 +1071,8 @@ export interface GetComponentOutput {
  */
 export interface GetConfigurationCheckOperationInput {
   /**
-   * <p>The ID of the configuration check operation.</p>
+   * The ID of the configuration check operation.
+   *
    * @public
    */
   OperationId: string | undefined;
@@ -931,7 +1083,8 @@ export interface GetConfigurationCheckOperationInput {
  */
 export interface GetConfigurationCheckOperationOutput {
   /**
-   * <p>Returns the details of a configuration check operation.</p>
+   * Returns the details of a configuration check operation.
+   *
    * @public
    */
   ConfigurationCheckOperation?: ConfigurationCheckOperation | undefined;
@@ -942,25 +1095,29 @@ export interface GetConfigurationCheckOperationOutput {
  */
 export interface GetDatabaseInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The ID of the database.</p>
+   * The ID of the database.
+   *
    * @public
    */
   DatabaseId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the database.</p>
+   * The Amazon Resource Name (ARN) of the database.
+   *
    * @public
    */
   DatabaseArn?: string | undefined;
@@ -971,13 +1128,15 @@ export interface GetDatabaseInput {
  */
 export interface GetDatabaseOutput {
   /**
-   * <p>The SAP HANA database of an application registered with AWS Systems Manager for SAP.</p>
+   * The SAP HANA database of an application registered with AWS Systems Manager for SAP.
+   *
    * @public
    */
   Database?: Database | undefined;
 
   /**
-   * <p>The tags of a database.</p>
+   * The tags of a database.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -988,79 +1147,92 @@ export interface GetDatabaseOutput {
  */
 export interface GetOperationInput {
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   OperationId: string | undefined;
 }
 
 /**
- * <p>The operations performed by AWS Systems Manager for SAP.</p>
+ * The operations performed by AWS Systems Manager for SAP.
+ *
  * @public
  */
 export interface Operation {
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The type of the operation.</p>
+   * The type of the operation.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The status of the operation.</p>
+   * The status of the operation.
+   *
    * @public
    */
   Status?: OperationStatus | undefined;
 
   /**
-   * <p>The status message of the operation.</p>
+   * The status message of the operation.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The properties of the operation.</p>
+   * The properties of the operation.
+   *
    * @public
    */
   Properties?: Record<string, string | null> | undefined;
 
   /**
-   * <p>The resource type of the operation.</p>
+   * The resource type of the operation.
+   *
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
-   * <p>The resource ID of the operation.</p>
+   * The resource ID of the operation.
+   *
    * @public
    */
   ResourceId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the operation.</p>
+   * The Amazon Resource Name (ARN) of the operation.
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The start time of the operation.</p>
+   * The start time of the operation.
+   *
    * @public
    */
   StartTime?: Date | undefined;
 
   /**
-   * <p>The end time of the operation.</p>
+   * The end time of the operation.
+   *
    * @public
    */
   EndTime?: Date | undefined;
 
   /**
-   * <p>The time at which the operation was last updated.</p>
+   * The time at which the operation was last updated.
+   *
    * @public
    */
   LastUpdatedTime?: Date | undefined;
@@ -1071,7 +1243,8 @@ export interface Operation {
  */
 export interface GetOperationOutput {
   /**
-   * <p>Returns the details of an operation.</p>
+   * Returns the details of an operation.
+   *
    * @public
    */
   Operation?: Operation | undefined;
@@ -1082,13 +1255,13 @@ export interface GetOperationOutput {
  */
 export interface GetResourcePermissionInput {
   /**
-   * <p/>
    * @public
    */
   ActionType?: PermissionActionType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   ResourceArn: string | undefined;
@@ -1099,7 +1272,6 @@ export interface GetResourcePermissionInput {
  */
 export interface GetResourcePermissionOutput {
   /**
-   * <p/>
    * @public
    */
   Policy?: string | undefined;
@@ -1110,19 +1282,22 @@ export interface GetResourcePermissionOutput {
  */
 export interface ListApplicationsInput {
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The filter of name, value, and operator.</p>
+   * The filter of name, value, and operator.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1133,13 +1308,15 @@ export interface ListApplicationsInput {
  */
 export interface ListApplicationsOutput {
   /**
-   * <p>The applications registered with AWS Systems Manager for SAP.</p>
+   * The applications registered with AWS Systems Manager for SAP.
+   *
    * @public
    */
   Applications?: ApplicationSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1150,19 +1327,24 @@ export interface ListApplicationsOutput {
  */
 export interface ListComponentsInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p> <p>If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
+   * If you do not specify a value for MaxResults, the request returns 50 items per page by default.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1173,13 +1355,15 @@ export interface ListComponentsInput {
  */
 export interface ListComponentsOutput {
   /**
-   * <p>List of components registered with AWS System Manager for SAP.</p>
+   * List of components registered with AWS System Manager for SAP.
+   *
    * @public
    */
   Components?: ComponentSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1190,13 +1374,15 @@ export interface ListComponentsOutput {
  */
 export interface ListConfigurationCheckDefinitionsInput {
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1207,13 +1393,15 @@ export interface ListConfigurationCheckDefinitionsInput {
  */
 export interface ListConfigurationCheckDefinitionsOutput {
   /**
-   * <p>The configuration check types supported by AWS Systems Manager for SAP.</p>
+   * The configuration check types supported by AWS Systems Manager for SAP.
+   *
    * @public
    */
   ConfigurationChecks?: ConfigurationCheckDefinition[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1224,31 +1412,39 @@ export interface ListConfigurationCheckDefinitionsOutput {
  */
 export interface ListConfigurationCheckOperationsInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The mode for listing configuration check operations. Defaults to "LATEST_PER_CHECK".</p> <ul> <li> <p>LATEST_PER_CHECK - Will list the latest configuration check operation per check type.</p> </li> <li> <p>ALL_OPERATIONS - Will list all configuration check operations performed on the application.</p> </li> </ul>
+   * The mode for listing configuration check operations. Defaults to "LATEST_PER_CHECK".
+   *
+   * - LATEST_PER_CHECK - Will list the latest configuration check operation per check type.
+   * - ALL_OPERATIONS - Will list all configuration check operations performed on the application.
+   *
    * @public
    */
   ListMode?: ConfigurationCheckOperationListingMode | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The filters of an operation.</p>
+   * The filters of an operation.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1259,13 +1455,15 @@ export interface ListConfigurationCheckOperationsInput {
  */
 export interface ListConfigurationCheckOperationsOutput {
   /**
-   * <p>The configuration check operations performed by AWS Systems Manager for SAP.</p>
+   * The configuration check operations performed by AWS Systems Manager for SAP.
+   *
    * @public
    */
   ConfigurationCheckOperations?: ConfigurationCheckOperation[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1276,25 +1474,29 @@ export interface ListConfigurationCheckOperationsOutput {
  */
 export interface ListDatabasesInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId?: string | undefined;
 
   /**
-   * <p>The ID of the component.</p>
+   * The ID of the component.
+   *
    * @public
    */
   ComponentId?: string | undefined;
 
   /**
-   * <p>The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If you do not specify a value for MaxResults, the request returns 50 items per page by default.
+   *
    * @public
    */
   MaxResults?: number | undefined;
@@ -1305,13 +1507,15 @@ export interface ListDatabasesInput {
  */
 export interface ListDatabasesOutput {
   /**
-   * <p>The SAP HANA databases of an application.</p>
+   * The SAP HANA databases of an application.
+   *
    * @public
    */
   Databases?: DatabaseSummary[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1322,79 +1526,112 @@ export interface ListDatabasesOutput {
  */
 export interface ListOperationEventsInput {
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   OperationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p> <p>If you do not specify a value for <code>MaxResults</code>, the request returns 50 items per page by default.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
+   * If you do not specify a value for `MaxResults`, the request returns 50 items per page by default.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Optionally specify filters to narrow the returned operation event items.</p> <p>Valid filter names include <code>status</code>, <code>resourceID</code>, and <code>resourceType</code>. The valid operator for all three filters is <code>Equals</code>.</p>
+   * Optionally specify filters to narrow the returned operation event items.
+   *
+   * Valid filter names include `status`, `resourceID`, and `resourceType`. The valid operator for all three filters is `Equals`.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
 }
 
 /**
- * <p>The resource contains a <code>ResourceArn</code> and the <code>ResourceType</code>.</p>
+ * The resource contains a `ResourceArn` and the `ResourceType`.
+ *
  * @public
  */
 export interface Resource {
   /**
-   * <p>The Amazon Resource Name (ARN) of the source resource.</p> <p>Example of <code>ResourceArn</code>: "<code>arn:aws:ec2:us-east-1:111111111111:instance/i-abcdefgh987654321</code>"</p>
+   * The Amazon Resource Name (ARN) of the source resource.
+   *
+   * Example of `ResourceArn`: "`arn:aws:ec2:us-east-1:111111111111:instance/i-abcdefgh987654321`"
+   *
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
-   * <p>The resource type.</p> <p>Example of <code>ResourceType</code>: "<code>AWS::SystemsManagerSAP::Component</code>" or "<code>AWS::EC2::Instance</code>".</p>
+   * The resource type.
+   *
+   * Example of `ResourceType`: "`AWS::SystemsManagerSAP::Component`" or "`AWS::EC2::Instance`".
+   *
    * @public
    */
   ResourceType?: string | undefined;
 }
 
 /**
- * <p>An operation event returns details for an operation, including key milestones which can be used to monitor and track operations in progress.</p> <p>Operation events contain:</p> <ul> <li> <p>Description string</p> </li> <li> <p>Resource, including its ARN and type</p> </li> <li> <p>Status</p> </li> <li> <p>StatusMessage string</p> </li> <li> <p>TimeStamp</p> </li> </ul> <p>Operation event examples include StartApplication or StopApplication.</p>
+ * An operation event returns details for an operation, including key milestones which can be used to monitor and track operations in progress.
+ *
+ * Operation events contain:
+ *
+ * - Description string
+ * - Resource, including its ARN and type
+ * - Status
+ * - StatusMessage string
+ * - TimeStamp
+ *
+ * Operation event examples include StartApplication or StopApplication.
+ *
  * @public
  */
 export interface OperationEvent {
   /**
-   * <p>A description of the operation event. For example, "Stop the EC2 instance i-abcdefgh987654321".</p>
+   * A description of the operation event. For example, "Stop the EC2 instance i-abcdefgh987654321".
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The resource involved in the operations event.</p> <p>Contains <code>ResourceArn</code> ARN and <code>ResourceType</code>.</p>
+   * The resource involved in the operations event.
+   *
+   * Contains `ResourceArn` ARN and `ResourceType`.
+   *
    * @public
    */
   Resource?: Resource | undefined;
 
   /**
-   * <p>The status of the operation event. The possible statuses are: <code>IN_PROGRESS</code>, <code>COMPLETED</code>, and <code>FAILED</code>.</p>
+   * The status of the operation event. The possible statuses are: `IN_PROGRESS`, `COMPLETED`, and `FAILED`.
+   *
    * @public
    */
   Status?: OperationEventStatus | undefined;
 
   /**
-   * <p>The status message relating to a specific operation event.</p>
+   * The status message relating to a specific operation event.
+   *
    * @public
    */
   StatusMessage?: string | undefined;
 
   /**
-   * <p>The timestamp of the specified operation event.</p>
+   * The timestamp of the specified operation event.
+   *
    * @public
    */
   Timestamp?: Date | undefined;
@@ -1405,13 +1642,15 @@ export interface OperationEvent {
  */
 export interface ListOperationEventsOutput {
   /**
-   * <p>A returned list of operation events that meet the filter criteria.</p>
+   * A returned list of operation events that meet the filter criteria.
+   *
    * @public
    */
   OperationEvents?: OperationEvent[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1422,25 +1661,29 @@ export interface ListOperationEventsOutput {
  */
 export interface ListOperationsInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If you do not specify a value for MaxResults, the request returns 50 items per page by default.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value. If you do not specify a value for MaxResults, the request returns 50 items per page by default.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results. </p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The filters of an operation.</p>
+   * The filters of an operation.
+   *
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -1451,13 +1694,15 @@ export interface ListOperationsInput {
  */
 export interface ListOperationsOutput {
   /**
-   * <p>List of operations performed by AWS Systems Manager for SAP.</p>
+   * List of operations performed by AWS Systems Manager for SAP.
+   *
    * @public
    */
   Operations?: Operation[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1468,49 +1713,57 @@ export interface ListOperationsOutput {
  */
 export interface ListSubCheckResultsInput {
   /**
-   * <p>The ID of the configuration check operation.</p>
+   * The ID of the configuration check operation.
+   *
    * @public
    */
   OperationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a sub-check within a configuration check operation.</p>
+ * Represents the result of a sub-check within a configuration check operation.
+ *
  * @public
  */
 export interface SubCheckResult {
   /**
-   * <p>The unique identifier of the sub-check result.</p>
+   * The unique identifier of the sub-check result.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The name of the sub-check.</p>
+   * The name of the sub-check.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>A description of what the sub-check validates.</p>
+   * A description of what the sub-check validates.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>A list of references or documentation links related to the sub-check.</p>
+   * A list of references or documentation links related to the sub-check.
+   *
    * @public
    */
   References?: string[] | undefined;
@@ -1521,13 +1774,15 @@ export interface SubCheckResult {
  */
 export interface ListSubCheckResultsOutput {
   /**
-   * <p>The sub-check results of a configuration check operation.</p>
+   * The sub-check results of a configuration check operation.
+   *
    * @public
    */
   SubCheckResults?: SubCheckResult[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1538,55 +1793,64 @@ export interface ListSubCheckResultsOutput {
  */
 export interface ListSubCheckRuleResultsInput {
   /**
-   * <p>The ID of the sub check result.</p>
+   * The ID of the sub check result.
+   *
    * @public
    */
   SubCheckResultId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>
+   * The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * The token for the next page of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a single rule within a configuration check.</p>
+ * Represents the result of a single rule within a configuration check.
+ *
  * @public
  */
 export interface RuleResult {
   /**
-   * <p>The unique identifier of the rule result.</p>
+   * The unique identifier of the rule result.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>A description of what the rule validates.</p>
+   * A description of what the rule validates.
+   *
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p>The status of the rule result.</p>
+   * The status of the rule result.
+   *
    * @public
    */
   Status?: RuleResultStatus | undefined;
 
   /**
-   * <p>A message providing details about the rule result.</p>
+   * A message providing details about the rule result.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Additional metadata associated with the rule result.</p>
+   * Additional metadata associated with the rule result.
+   *
    * @public
    */
   Metadata?: Record<string, string> | undefined;
@@ -1597,13 +1861,15 @@ export interface RuleResult {
  */
 export interface ListSubCheckRuleResultsOutput {
   /**
-   * <p>The rule results of a sub-check belonging to a configuration check operation.</p>
+   * The rule results of a sub-check belonging to a configuration check operation.
+   *
    * @public
    */
   RuleResults?: RuleResult[] | undefined;
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -1614,7 +1880,8 @@ export interface ListSubCheckRuleResultsOutput {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1625,7 +1892,6 @@ export interface ListTagsForResourceRequest {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p/>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1636,19 +1902,16 @@ export interface ListTagsForResourceResponse {
  */
 export interface PutResourcePermissionInput {
   /**
-   * <p/>
    * @public
    */
   ActionType: PermissionActionType | undefined;
 
   /**
-   * <p/>
    * @public
    */
   SourceResourceArn: string | undefined;
 
   /**
-   * <p/>
    * @public
    */
   ResourceArn: string | undefined;
@@ -1659,7 +1922,6 @@ export interface PutResourcePermissionInput {
  */
 export interface PutResourcePermissionOutput {
   /**
-   * <p/>
    * @public
    */
   Policy?: string | undefined;
@@ -1670,55 +1932,66 @@ export interface PutResourcePermissionOutput {
  */
 export interface RegisterApplicationInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The type of the application.</p>
+   * The type of the application.
+   *
    * @public
    */
   ApplicationType: ApplicationType | undefined;
 
   /**
-   * <p>The Amazon EC2 instances on which your SAP application is running.</p>
+   * The Amazon EC2 instances on which your SAP application is running.
+   *
    * @public
    */
   Instances: string[] | undefined;
 
   /**
-   * <p>The SAP instance number of the application.</p>
+   * The SAP instance number of the application.
+   *
    * @public
    */
   SapInstanceNumber?: string | undefined;
 
   /**
-   * <p>The System ID of the application.</p>
+   * The System ID of the application.
+   *
    * @public
    */
   Sid?: string | undefined;
 
   /**
-   * <p>The tags to be attached to the SAP application.</p>
+   * The tags to be attached to the SAP application.
+   *
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The credentials of the SAP application.</p>
+   * The credentials of the SAP application.
+   *
    * @public
    */
   Credentials?: ApplicationCredential[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the SAP HANA database.</p>
+   * The Amazon Resource Name of the SAP HANA database.
+   *
    * @public
    */
   DatabaseArn?: string | undefined;
 
   /**
-   * <p>This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.</p> <p>This is an array of ApplicationComponent objects. You may input 0 to 5 items.</p>
+   * This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+   *
+   * This is an array of ApplicationComponent objects. You may input 0 to 5 items.
+   *
    * @public
    */
   ComponentsInfo?: ComponentInfo[] | undefined;
@@ -1729,13 +2002,15 @@ export interface RegisterApplicationInput {
  */
 export interface RegisterApplicationOutput {
   /**
-   * <p>The application registered with AWS Systems Manager for SAP.</p>
+   * The application registered with AWS Systems Manager for SAP.
+   *
    * @public
    */
   Application?: Application | undefined;
 
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   OperationId?: string | undefined;
@@ -1746,7 +2021,8 @@ export interface RegisterApplicationOutput {
  */
 export interface StartApplicationInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
@@ -1757,7 +2033,8 @@ export interface StartApplicationInput {
  */
 export interface StartApplicationOutput {
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   OperationId?: string | undefined;
@@ -1768,7 +2045,8 @@ export interface StartApplicationOutput {
  */
 export interface StartApplicationRefreshInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
@@ -1779,7 +2057,8 @@ export interface StartApplicationRefreshInput {
  */
 export interface StartApplicationRefreshOutput {
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   OperationId?: string | undefined;
@@ -1790,13 +2069,15 @@ export interface StartApplicationRefreshOutput {
  */
 export interface StartConfigurationChecksInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The list of configuration checks to perform.</p>
+   * The list of configuration checks to perform.
+   *
    * @public
    */
   ConfigurationCheckIds?: ConfigurationCheckType[] | undefined;
@@ -1807,7 +2088,8 @@ export interface StartConfigurationChecksInput {
  */
 export interface StartConfigurationChecksOutput {
   /**
-   * <p>The configuration check operations that were started.</p>
+   * The configuration check operations that were started.
+   *
    * @public
    */
   ConfigurationCheckOperations?: ConfigurationCheckOperation[] | undefined;
@@ -1818,19 +2100,24 @@ export interface StartConfigurationChecksOutput {
  */
 export interface StopApplicationInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>Specify the <code>ConnectedEntityType</code>. Accepted type is <code>DBMS</code>.</p> <p>If this parameter is included, the connected DBMS (Database Management System) will be stopped.</p>
+   * Specify the `ConnectedEntityType`. Accepted type is `DBMS`.
+   *
+   * If this parameter is included, the connected DBMS (Database Management System) will be stopped.
+   *
    * @public
    */
   StopConnectedEntity?: ConnectedEntityType | undefined;
 
   /**
-   * <p>Boolean. If included and if set to <code>True</code>, the StopApplication operation will shut down the associated Amazon EC2 instance in addition to the application.</p>
+   * Boolean. If included and if set to `True`, the StopApplication operation will shut down the associated Amazon EC2 instance in addition to the application.
+   *
    * @public
    */
   IncludeEc2InstanceShutdown?: boolean | undefined;
@@ -1841,7 +2128,8 @@ export interface StopApplicationInput {
  */
 export interface StopApplicationOutput {
   /**
-   * <p>The ID of the operation.</p>
+   * The ID of the operation.
+   *
    * @public
    */
   OperationId?: string | undefined;
@@ -1852,13 +2140,15 @@ export interface StopApplicationOutput {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The tags on a resource.</p>
+   * The tags on a resource.
+   *
    * @public
    */
   tags: Record<string, string> | undefined;
@@ -1874,13 +2164,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Adds/updates or removes credentials for applications registered with AWS Systems Manager for SAP.</p>
+   * Adds/updates or removes credentials for applications registered with AWS Systems Manager for SAP.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1896,31 +2188,36 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateApplicationSettingsInput {
   /**
-   * <p>The ID of the application.</p>
+   * The ID of the application.
+   *
    * @public
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The credentials to be added or updated.</p>
+   * The credentials to be added or updated.
+   *
    * @public
    */
   CredentialsToAddOrUpdate?: ApplicationCredential[] | undefined;
 
   /**
-   * <p>The credentials to be removed.</p>
+   * The credentials to be removed.
+   *
    * @public
    */
   CredentialsToRemove?: ApplicationCredential[] | undefined;
 
   /**
-   * <p>Installation of AWS Backint Agent for SAP HANA.</p>
+   * Installation of AWS Backint Agent for SAP HANA.
+   *
    * @public
    */
   Backint?: BackintConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name of the SAP HANA database that replaces the current SAP HANA connection with the SAP_ABAP application.</p>
+   * The Amazon Resource Name of the SAP HANA database that replaces the current SAP HANA connection with the SAP_ABAP application.
+   *
    * @public
    */
   DatabaseArn?: string | undefined;
@@ -1931,13 +2228,15 @@ export interface UpdateApplicationSettingsInput {
  */
 export interface UpdateApplicationSettingsOutput {
   /**
-   * <p>The update message.</p>
+   * The update message.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The IDs of the operations.</p>
+   * The IDs of the operations.
+   *
    * @public
    */
   OperationIds?: string[] | undefined;

@@ -1,25 +1,14 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Connect Customer Customer Profiles</fullname>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html">Customer Profiles actions</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html">Customer Profiles data types</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>Connect Customer Customer Profiles is a unified customer profile for your contact
- *          center that has pre-built connectors powered by AppFlow that make it easy to combine
- *          customer information from third party applications, such as Salesforce (CRM), ServiceNow
- *          (ITSM), and your enterprise resource planning (ERP), with contact history from your Connect Customer contact center. </p>
- *          <p>For more information about the Connect Customer Customer Profiles feature, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html">Use Customer
- *             Profiles</a> in the <i>Connect Customer Administrator's Guide</i>. </p>
+ * Connect Customer Customer Profiles
+ *
+ * - [Customer Profiles actions](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html)
+ * - [Customer Profiles data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html)
+ *
+ * Connect Customer Customer Profiles is a unified customer profile for your contact center that has pre-built connectors powered by AppFlow that make it easy to combine customer information from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your enterprise resource planning (ERP), with contact history from your Connect Customer contact center.
+ *
+ * For more information about the Connect Customer Customer Profiles feature, see [Use Customer Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html) in the *Connect Customer Administrator's Guide*.
  *
  * @packageDocumentation
  */

@@ -26,7 +26,8 @@ export interface ModifyIpamRoutingPolicyRegistrationCommandInput extends ModifyI
 export interface ModifyIpamRoutingPolicyRegistrationCommandOutput extends ModifyIpamRoutingPolicyRegistrationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing routing policy registration. You can update the authorized ASNs, maximum prefix length, and other properties of a Route Origin Authorization (ROA).</p>
+ * Modifies an existing routing policy registration. You can update the authorized ASNs, maximum prefix length, and other properties of a Route Origin Authorization (ROA).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +69,8 @@ export interface ModifyIpamRoutingPolicyRegistrationCommandOutput extends Modify
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

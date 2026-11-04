@@ -23,7 +23,8 @@ export interface DeleteContainerPolicyCommandInput extends DeleteContainerPolicy
 export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the access policy that is associated with the specified container.</p>
+ * Deletes the access policy that is associated with the specified container.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,21 +49,24 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  * @throws {@link ContainerInUseException} (client fault)
- *  <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ *
+ * The container that you specified in the request already exists or is being updated.
  *
  * @throws {@link ContainerNotFoundException} (client fault)
- *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * The container that you specified in the request does not exist.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The service is temporarily unavailable.</p>
+ *
+ * The service is temporarily unavailable.
  *
  * @throws {@link PolicyNotFoundException} (client fault)
- *  <p>The policy that you specified in the request does not exist.</p>
+ *
+ * The policy that you specified in the request does not exist.
  *
  * @throws {@link MediaStoreServiceException}
- * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ * Base exception class for all service exceptions from MediaStore service.
  *
  * @public
  */

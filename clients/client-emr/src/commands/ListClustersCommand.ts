@@ -23,11 +23,8 @@ export interface ListClustersCommandInput extends ListClustersInput {}
 export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
- * <p>Provides the status of all clusters visible to this Amazon Web Services account. Allows
- *          you to filter the list of clusters based on certain criteria; for example, filtering by
- *          cluster creation date and time or by status. This call returns a maximum of 50 clusters in
- *          unsorted order per call, but returns a marker to track the paging of the cluster list
- *          across multiple ListClusters calls.</p>
+ * Provides the status of all clusters visible to this Amazon Web Services account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters in unsorted order per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,15 +88,16 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Amazon EMR
- *          service.</p>
+ *
+ * This exception occurs when there is an internal failure in the Amazon EMR service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ * This exception occurs when there is something wrong with user input.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

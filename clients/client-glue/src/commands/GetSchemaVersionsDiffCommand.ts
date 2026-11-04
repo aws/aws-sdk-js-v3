@@ -23,8 +23,10 @@ export interface GetSchemaVersionsDiffCommandInput extends GetSchemaVersionsDiff
 export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDiffResponse, __MetadataBearer {}
 
 /**
- * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
- *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
+ * Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.
+ *
+ * This API allows you to compare two schema versions between two schema definitions under the same schema.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,20 +66,24 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

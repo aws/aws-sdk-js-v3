@@ -23,12 +23,12 @@ export interface CreateSubscriptionCommandInput extends CreateSubscriptionReques
 export interface CreateSubscriptionCommandOutput extends CreateSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Activates Shield Advanced for an account.</p>
- *          <note>
- *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
- *               regardless of whether the payer account itself is subscribed. </p>
- *          </note>
- *          <p>When you initially create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period.  You can change this by submitting an <code>UpdateSubscription</code> request. </p>
+ * Activates Shield Advanced for an account.
+ *
+ * > **Note:** For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account, regardless of whether the payer account itself is subscribed.
+ *
+ * When you initially create a subscription, your subscription is set to be automatically renewed at the end of the existing subscription period. You can change this by submitting an `UpdateSubscription` request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,14 +51,16 @@ export interface CreateSubscriptionCommandOutput extends CreateSubscriptionRespo
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>Exception indicating the specified resource already exists. If available, this exception includes details in additional properties. </p>
+ *
+ * Exception indicating the specified resource already exists. If available, this exception includes details in additional properties.
  *
  * @throws {@link ShieldServiceException}
- * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ * Base exception class for all service exceptions from Shield service.
  *
  * @public
  */

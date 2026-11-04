@@ -23,54 +23,29 @@ export interface GetMetricDataV2CommandInput extends GetMetricDataV2Request {}
 export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, __MetadataBearer {}
 
 /**
- * <p>Gets metric data from the specified Connect Customer instance. </p>
- *          <p>
- *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous version of this API. It
- *    has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels,
- *    queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months,
- *    at varying intervals. It does not support agent queues.</p>
- *          <p>For a description of the historical metrics that are supported by <code>GetMetricDataV2</code> and
- *     <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
- *          <note>
- *             <p>When you make a successful API request, you can expect the following metric values in the response:</p>
- *             <ol>
- *                <li>
- *                   <p>
- *                      <b>Metric value is null</b>: The calculation cannot be performed due to divide by
- *       zero or insufficient data</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <b>Metric value is a number (including 0) of defined type</b>: The number provided
- *       is the calculation result</p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <b>MetricResult list is empty</b>: The request cannot find any data in the
- *       system</p>
- *                </li>
- *             </ol>
- *             <p>The following guidelines can help you work with the API:</p>
- *             <ul>
- *                <li>
- *                   <p>Each dimension in the metric response must contain a value</p>
- *                </li>
- *                <li>
- *                   <p>Each item in MetricResult must include all requested metrics</p>
- *                </li>
- *                <li>
- *                   <p>If the response is slow due to large result sets, try these approaches:</p>
- *                   <ul>
- *                      <li>
- *                         <p>Narrow the time range of your request</p>
- *                      </li>
- *                      <li>
- *                         <p>Add filters to reduce the amount of data returned</p>
- *                      </li>
- *                   </ul>
- *                </li>
- *             </ul>
- *          </note>
+ * Gets metric data from the specified Connect Customer instance.
+ *
+ * `GetMetricDataV2` offers more features than [GetMetricData](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html), the previous version of this API. It has new metrics, offers filtering at a metric level, and offers the ability to filter and group data by channels, queues, routing profiles, agents, and agent hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. It does not support agent queues.
+ *
+ * For a description of the historical metrics that are supported by `GetMetricDataV2` and `GetMetricData`, see [Metrics definitions](https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html) in the *Connect Customer Administrator Guide*.
+ *
+ * > **Note:**
+ * >
+ * > When you make a successful API request, you can expect the following metric values in the response:
+ * >
+ * > 1. **Metric value is null**: The calculation cannot be performed due to divide by zero or insufficient data
+ * > 2. **Metric value is a number (including 0) of defined type**: The number provided is the calculation result
+ * > 3. **MetricResult list is empty**: The request cannot find any data in the system
+ * >
+ * > The following guidelines can help you work with the API:
+ * >
+ * > - Each dimension in the metric response must contain a value
+ * > - Each item in MetricResult must include all requested metrics
+ * > - If the response is slow due to large result sets, try these approaches:
+ * >
+ * >   - Narrow the time range of your request
+ * >   - Add filters to reduce the amount of data returned
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -176,23 +151,28 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

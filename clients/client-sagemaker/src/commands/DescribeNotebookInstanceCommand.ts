@@ -23,7 +23,8 @@ export interface DescribeNotebookInstanceCommandInput extends DescribeNotebookIn
 export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a notebook instance.</p>
+ * Returns information about a notebook instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,8 +81,8 @@ export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookI
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

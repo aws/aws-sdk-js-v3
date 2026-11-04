@@ -23,12 +23,10 @@ export interface ModifyWorkspaceStateCommandInput extends ModifyWorkspaceStateRe
 export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateResult, __MetadataBearer {}
 
 /**
- * <p>Sets the state of the specified WorkSpace.</p>
- *          <p>To maintain a WorkSpace without being interrupted, set the WorkSpace state to
- *             <code>ADMIN_MAINTENANCE</code>. WorkSpaces in this state do not respond to requests to
- *          reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not
- *          stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code>
- *          state.</p>
+ * Sets the state of the specified WorkSpace.
+ *
+ * To maintain a WorkSpace without being interrupted, set the WorkSpace state to `ADMIN_MAINTENANCE`. WorkSpaces in this state do not respond to requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not stopped. Users cannot log into a WorkSpace in the `ADMIN_MAINTENANCE` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,20 +52,24 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link InvalidResourceStateException} (client fault)
- *  <p>The state of the resource is not valid for this operation.</p>
+ *
+ * The state of the resource is not valid for this operation.
  *
  * @throws {@link OperationNotSupportedException} (client fault)
- *  <p>This operation is not supported.</p>
+ *
+ * This operation is not supported.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

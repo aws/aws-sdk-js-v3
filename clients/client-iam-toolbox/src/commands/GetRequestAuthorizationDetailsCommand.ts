@@ -23,7 +23,14 @@ export interface GetRequestAuthorizationDetailsCommandInput extends GetRequestAu
 export interface GetRequestAuthorizationDetailsCommandOutput extends GetRequestAuthorizationDetailsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the authorization details for a specific access denied request. The details include the request context, the evaluations performed, and the policies that were evaluated.</p> <p>Use this operation to understand why a request was denied. Supported services include an authorization ID in the access denied error message. Pass that ID to this operation to retrieve the details.</p> <p>Authorization details are available for at least 24 hours after the denial.</p> <p>To use this operation, you must have the <code>iam:GetRequestAuthorizationDetails</code> permission.</p>
+ * Retrieves the authorization details for a specific access denied request. The details include the request context, the evaluations performed, and the policies that were evaluated.
+ *
+ * Use this operation to understand why a request was denied. Supported services include an authorization ID in the access denied error message. Pass that ID to this operation to retrieve the details.
+ *
+ * Authorization details are available for at least 24 hours after the denial.
+ *
+ * To use this operation, you must have the `iam:GetRequestAuthorizationDetails` permission.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,20 +94,24 @@ export interface GetRequestAuthorizationDetailsCommandOutput extends GetRequestA
  * @see {@link IAMToolboxClientResolvedConfig | config} for IAMToolboxClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller does not have sufficient access to perform this action.</p>
+ *
+ * The caller does not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request. Try again.</p>
+ *
+ * An unexpected error occurred while processing the request. Try again.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested authorization details do not exist in this region or have expired. Verify that the authorization ID from the access denied error message is correct and the call is made in the region where the denial occurred. Ensure that the calling principal belongs to the same account or organization as the original denied request.</p>
+ *
+ * The requested authorization details do not exist in this region or have expired. Verify that the authorization ID from the access denied error message is correct and the call is made in the region where the denial occurred. Ensure that the calling principal belongs to the same account or organization as the original denied request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request is malformed or is missing one or more required parameters. Check the request parameters and try again.</p>
+ *
+ * The request is malformed or is missing one or more required parameters. Check the request parameters and try again.
  *
  * @throws {@link IAMToolboxServiceException}
- * <p>Base exception class for all service exceptions from IAMToolbox service.</p>
  *
+ * Base exception class for all service exceptions from IAMToolbox service.
  *
  * @public
  */

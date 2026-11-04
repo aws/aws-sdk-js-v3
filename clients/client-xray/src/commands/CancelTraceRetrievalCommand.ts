@@ -23,9 +23,8 @@ export interface CancelTraceRetrievalCommandInput extends CancelTraceRetrievalRe
 export interface CancelTraceRetrievalCommandOutput extends CancelTraceRetrievalResult, __MetadataBearer {}
 
 /**
- * <p>
- * Cancels an ongoing trace retrieval job initiated by <code>StartTraceRetrieval</code> using the provided <code>RetrievalToken</code>. A successful cancellation will return an HTTP 200 response.
- * </p>
+ * Cancels an ongoing trace retrieval job initiated by `StartTraceRetrieval` using the provided `RetrievalToken`. A successful cancellation will return an HTTP 200 response.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,18 +49,20 @@ export interface CancelTraceRetrievalCommandOutput extends CancelTraceRetrievalR
  * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is missing required parameters or has invalid parameters.</p>
+ *
+ * The request is missing required parameters or has invalid parameters.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
- *       correct.</p>
+ *
+ * The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is correct.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>The request exceeds the maximum number of requests per second.</p>
+ *
+ * The request exceeds the maximum number of requests per second.
  *
  * @throws {@link XRayServiceException}
- * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ * Base exception class for all service exceptions from XRay service.
  *
  * @public
  */

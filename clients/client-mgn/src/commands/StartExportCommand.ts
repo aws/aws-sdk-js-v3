@@ -23,7 +23,8 @@ export interface StartExportCommandInput extends StartExportRequest {}
 export interface StartExportCommandOutput extends StartExportResponse, __MetadataBearer {}
 
 /**
- * <p>Start export.</p>
+ * Start export.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,17 +74,20 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because it exceeded the service quota.</p>
+ *
+ * The request could not be completed because it exceeded the service quota.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validate exception.</p>
+ *
+ * Validate exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

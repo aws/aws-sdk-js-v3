@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { InternetMonitorServiceException as __BaseException } from "./InternetMonitorServiceException";
 
 /**
- * <p>You don't have sufficient permission to perform this action.</p>
+ * You don't have sufficient permission to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A bad request was received.</p>
+ * A bad request was received.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -46,7 +48,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested resource is in use.</p>
+ * The requested resource is in use.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -67,7 +70,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal error occurred.</p>
+ * An internal error occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -89,7 +93,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request exceeded a service quota.</p>
+ * The request exceeded a service quota.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -110,7 +115,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -134,7 +140,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Invalid request.</p>
+ * Invalid request.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -155,7 +162,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>There was an internal server error.</p>
+ * There was an internal server error.
+ *
  * @public
  */
 export class InternalServerErrorException extends __BaseException {
@@ -177,7 +185,8 @@ export class InternalServerErrorException extends __BaseException {
 }
 
 /**
- * <p>The request specifies something that doesn't exist.</p>
+ * The request specifies something that doesn't exist.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -198,7 +207,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>There were too many requests.</p>
+ * There were too many requests.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -222,7 +232,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The request specifies a resource that doesn't exist.</p>
+ * The request specifies a resource that doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

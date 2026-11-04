@@ -23,7 +23,8 @@ export interface DescribeDBSnapshotsCommandInput extends DescribeDBSnapshotsMess
 export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about DB snapshots. This API action supports pagination.</p>
+ * Returns information about DB snapshots. This API action supports pagination.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,11 +131,12 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` doesn't refer to an existing DB snapshot.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To describe a DB snapshot for a DB instance
  * ```javascript

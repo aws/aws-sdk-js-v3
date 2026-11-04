@@ -23,7 +23,8 @@ export interface SendEmailVerificationCodeCommandInput extends SendEmailVerifica
 export interface SendEmailVerificationCodeCommandOutput extends SendEmailVerificationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Sends an email verification code to the specified email address for account verification purposes.</p>
+ * Sends an email verification code to the specified email address for account verification purposes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,23 +50,28 @@ export interface SendEmailVerificationCodeCommandOutput extends SendEmailVerific
  * @see {@link PartnerCentralAccountClientResolvedConfig | config} for PartnerCentralAccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.</p>
+ *
+ * The request was denied due to insufficient permissions. The caller does not have the required permissions to perform this operation.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.</p>
+ *
+ * An internal server error occurred while processing the request. This is typically a temporary condition and the request may be retried.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.</p>
+ *
+ * The request was rejected because it would exceed a service quota or limit. This may occur when trying to create more resources than allowed by the service limits.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.</p>
+ *
+ * The request was throttled due to too many requests being sent in a short period of time. The client should implement exponential backoff and retry the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.</p>
+ *
+ * The request failed validation. One or more input parameters are invalid, missing, or do not meet the required format or constraints.
  *
  * @throws {@link PartnerCentralAccountServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralAccount service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralAccount service.
  *
  * @public
  */

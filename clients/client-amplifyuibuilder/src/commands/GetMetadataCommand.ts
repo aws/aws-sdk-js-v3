@@ -23,7 +23,8 @@ export interface GetMetadataCommandInput extends GetMetadataRequest {}
 export interface GetMetadataCommandOutput extends GetMetadataResponse, __MetadataBearer {}
 
 /**
- * <p>Returns existing metadata for an Amplify app.</p>
+ * Returns existing metadata for an Amplify app.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,14 +54,16 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * An invalid or out-of-range value was supplied for the input parameter.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You don't have permission to perform this operation.</p>
+ *
+ * You don't have permission to perform this operation.
  *
  * @throws {@link AmplifyUIBuilderServiceException}
- * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ * Base exception class for all service exceptions from AmplifyUIBuilder service.
  *
  * @public
  */

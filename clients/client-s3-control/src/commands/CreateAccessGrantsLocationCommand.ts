@@ -23,33 +23,22 @@ export interface CreateAccessGrantsLocationCommandInput extends CreateAccessGran
 export interface CreateAccessGrantsLocationCommandOutput extends CreateAccessGrantsLocationResult, __MetadataBearer {}
 
 /**
- * <p>The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following: </p>
- *          <ul>
- *             <li>
- *                <p>The default S3 location <code>s3://</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A bucket - <code>S3://<bucket-name></code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>A bucket and prefix - <code>S3://<bucket-name>/<prefix></code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering. Give S3 Access Grants permission to assume this role <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html">using a policy</a>. S3 Access Grants assumes this role to manage access to the location and to vend temporary credentials to grantees or client applications. </p>
- *          <dl>
- *             <dt>Permissions</dt>
- *             <dd>
- *                <p>You must have the <code>s3:CreateAccessGrantsLocation</code> permission to use this operation. </p>
- *             </dd>
- *             <dt>Additional Permissions</dt>
- *             <dd>
- *                <p>You must also have the following permission for the specified IAM role: <code>iam:PassRole</code>
- *                </p>
- *             </dd>
- *          </dl>
+ * The S3 data location that you would like to register in your S3 Access Grants instance. Your S3 data must be in the same Region as your S3 Access Grants instance. The location can be one of the following:
+ *
+ * - The default S3 location `s3://`
+ * - A bucket - `S3://<bucket-name>`
+ * - A bucket and prefix - `S3://<bucket-name>/<prefix>`
+ *
+ * When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering. Give S3 Access Grants permission to assume this role [using a policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location.html). S3 Access Grants assumes this role to manage access to the location and to vend temporary credentials to grantees or client applications.
+ *
+ * - **Permissions**
+ *
+ *   You must have the `s3:CreateAccessGrantsLocation` permission to use this operation.
+ *
+ * - **Additional Permissions**
+ *
+ *   You must also have the following permission for the specified IAM role: `iam:PassRole`
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +77,8 @@ export interface CreateAccessGrantsLocationCommandOutput extends CreateAccessGra
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

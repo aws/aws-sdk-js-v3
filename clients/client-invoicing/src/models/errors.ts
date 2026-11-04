@@ -6,7 +6,8 @@ import { InvoicingServiceException as __BaseException } from "./InvoicingService
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * You don't have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -14,7 +15,8 @@ export class AccessDeniedException extends __BaseException {
   readonly name = "AccessDeniedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>You don't have sufficient access to perform this action. </p>
+   * You don't have sufficient access to perform this action.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -34,7 +36,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The processing request failed because of an unknown error, exception, or failure. </p>
+ * The processing request failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -42,7 +45,8 @@ export class InternalServerException extends __BaseException {
   readonly name = "InternalServerException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The processing request failed because of an unknown error, exception, or failure.</p>
+   * The processing request failed because of an unknown error, exception, or failure.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -62,7 +66,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource could not be found. </p>
+ * The resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -70,7 +75,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource could not be found.</p>
+   * The resource could not be found.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -90,7 +96,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -111,7 +118,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -119,19 +127,22 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>You don't have sufficient access to perform this action. </p>
+   * You don't have sufficient access to perform this action.
+   *
    * @public
    */
   resourceName?: string | undefined;
 
   /**
-   * <p>You don't have sufficient access to perform this action. </p>
+   * You don't have sufficient access to perform this action.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+   * The input fails to satisfy the constraints specified by an Amazon Web Services service.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -153,7 +164,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.</p>
+ * The request could not be completed due to a conflict with the current state of the resource. This exception occurs when a concurrent modification is detected during an update operation, or when attempting to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -161,13 +173,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that caused the conflict.</p>
+   * The identifier of the resource that caused the conflict.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of resource that caused the conflict.</p>
+   * The type of resource that caused the conflict.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -188,7 +202,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded. </p>
+ * The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

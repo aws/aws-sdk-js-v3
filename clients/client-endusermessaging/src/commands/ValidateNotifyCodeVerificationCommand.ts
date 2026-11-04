@@ -23,7 +23,8 @@ export interface ValidateNotifyCodeVerificationCommandInput extends ValidateNoti
 export interface ValidateNotifyCodeVerificationCommandOutput extends ValidateNotifyCodeVerificationOutput, __MetadataBearer {}
 
 /**
- * <p>Validates a one-time passcode that a recipient submitted. Validation succeeds when the passcode matches, the validity period has not elapsed, and the maximum number of attempts has not been exceeded.</p>
+ * Validates a one-time passcode that a recipient submitted. Validation succeeds when the passcode matches, the validity period has not elapsed, and the maximum number of attempts has not been exceeded.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,13 +53,16 @@ export interface ValidateNotifyCodeVerificationCommandOutput extends ValidateNot
  * @see {@link EndUserMessagingClientResolvedConfig | config} for EndUserMessagingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied because it exceeded the allowed request rate.</p>
+ *
+ * The request was denied because it exceeded the allowed request rate.
  *
  * @throws {@link ValidationException} (client fault)
  *  A standard error for input validation failures.
@@ -66,8 +70,8 @@ export interface ValidateNotifyCodeVerificationCommandOutput extends ValidateNot
  * falls outside of the modeled or documented constraints.
  *
  * @throws {@link EndUserMessagingServiceException}
- * <p>Base exception class for all service exceptions from EndUserMessaging service.</p>
  *
+ * Base exception class for all service exceptions from EndUserMessaging service.
  *
  * @example Validate a submitted one-time passcode
  * ```javascript

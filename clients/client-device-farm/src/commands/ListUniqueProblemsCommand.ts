@@ -23,11 +23,10 @@ export interface ListUniqueProblemsCommandInput extends ListUniqueProblemsReques
 export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about unique problems, such as exceptions or crashes.</p>
- *          <p>Unique problems are defined as a single instance of an error across a run, job, or suite. For example,
- *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
- *                 MyActivity.java:386</code>), <code>ListUniqueProblems</code> returns a single entry instead of many
- *             individual entries for that exception.</p>
+ * Gets information about unique problems, such as exceptions or crashes.
+ *
+ * Unique problems are defined as a single instance of an error across a run, job, or suite. For example, if a call in your application consistently raises an exception (`OutOfBoundsException in MyActivity.java:386`), `ListUniqueProblems` returns a single entry instead of many individual entries for that exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -134,20 +133,24 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  * @throws {@link ArgumentException} (client fault)
- *  <p>An invalid argument was specified.</p>
+ *
+ * An invalid argument was specified.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>A limit was exceeded.</p>
+ *
+ * A limit was exceeded.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified entity was not found.</p>
+ *
+ * The specified entity was not found.
  *
  * @throws {@link ServiceAccountException} (client fault)
- *  <p>There was a problem with the service account.</p>
+ *
+ * There was a problem with the service account.
  *
  * @throws {@link DeviceFarmServiceException}
- * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ * Base exception class for all service exceptions from DeviceFarm service.
  *
  * @example To get information about unique problems
  * ```javascript

@@ -23,7 +23,8 @@ export interface ListWavesCommandInput extends ListWavesRequest {}
 export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all waves or multiple waves by ID.</p>
+ * Retrieves all waves or multiple waves by ID.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,11 +80,12 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>Uninitialized account exception.</p>
+ *
+ * Uninitialized account exception.
  *
  * @throws {@link MgnServiceException}
- * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ * Base exception class for all service exceptions from Mgn service.
  *
  * @public
  */

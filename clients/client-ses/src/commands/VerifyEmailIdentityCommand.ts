@@ -23,10 +23,10 @@ export interface VerifyEmailIdentityCommandInput extends VerifyEmailIdentityRequ
 export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>Adds an email address to the list of identities for your Amazon SES account in the current
- *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
- *             verification email is sent to the specified address.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Adds an email address to the list of identities for your Amazon SES account in the current Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a verification email is sent to the specified address.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +51,8 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example VerifyEmailIdentity
  * ```javascript

@@ -787,8 +787,10 @@ export type APIGatewayClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface APIGatewayClientResolvedConfig extends APIGatewayClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon API Gateway</fullname>
- *          <p>Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. API Gateway allows developers to securely connect mobile and web applications to APIs that run on Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.</p>
+ * Amazon API Gateway
+ *
+ * Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. API Gateway allows developers to securely connect mobile and web applications to APIs that run on Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.
+ *
  * @public
  */
 export class APIGatewayClient extends __Client<

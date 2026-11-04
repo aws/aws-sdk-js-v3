@@ -33,495 +33,460 @@ import type {
 } from "./enums";
 
 /**
- * <p>Represents information about free trial device minutes for an AWS
- *             account.</p>
+ * Represents information about free trial device minutes for an AWS account.
+ *
  * @public
  */
 export interface TrialMinutes {
   /**
-   * <p>The total number of free trial minutes that the account started with.</p>
+   * The total number of free trial minutes that the account started with.
+   *
    * @public
    */
   total?: number | undefined;
 
   /**
-   * <p>The number of free trial minutes remaining in the account.</p>
+   * The number of free trial minutes remaining in the account.
+   *
    * @public
    */
   remaining?: number | undefined;
 }
 
 /**
- * <p>A container for account-level settings in AWS Device Farm.</p>
+ * A container for account-level settings in AWS Device Farm.
+ *
  * @public
  */
 export interface AccountSettings {
   /**
-   * <p>The AWS account number specified in the <code>AccountSettings</code>
-   *             container.</p>
+   * The AWS account number specified in the `AccountSettings` container.
+   *
    * @public
    */
   awsAccountNumber?: string | undefined;
 
   /**
-   * <p>Returns the unmetered devices you have purchased or want to purchase.</p>
+   * Returns the unmetered devices you have purchased or want to purchase.
+   *
    * @public
    */
   unmeteredDevices?: Partial<Record<DevicePlatform, number>> | undefined;
 
   /**
-   * <p>Returns the unmetered remote access devices you have purchased or want to
-   *             purchase.</p>
+   * Returns the unmetered remote access devices you have purchased or want to purchase.
+   *
    * @public
    */
   unmeteredRemoteAccessDevices?: Partial<Record<DevicePlatform, number>> | undefined;
 
   /**
-   * <p>The maximum number of minutes a test run executes before it times out.</p>
+   * The maximum number of minutes a test run executes before it times out.
+   *
    * @public
    */
   maxJobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>Information about an AWS account's usage of free trial device minutes.</p>
+   * Information about an AWS account's usage of free trial device minutes.
+   *
    * @public
    */
   trialMinutes?: TrialMinutes | undefined;
 
   /**
-   * <p>The maximum number of device slots that the AWS account can purchase. Each maximum
-   *             is expressed as an <code>offering-id:number</code> pair, where the
-   *                 <code>offering-id</code> represents one of the IDs returned by the
-   *                 <code>ListOfferings</code> command.</p>
+   * The maximum number of device slots that the AWS account can purchase. Each maximum is expressed as an `offering-id:number` pair, where the `offering-id` represents one of the IDs returned by the `ListOfferings` command.
+   *
    * @public
    */
   maxSlots?: Record<string, number> | undefined;
 
   /**
-   * <p>The default number of minutes (at the account level) a test run executes before it times out. The
-   *             default value is 150 minutes.</p>
+   * The default number of minutes (at the account level) a test run executes before it times out. The default value is 150 minutes.
+   *
    * @public
    */
   defaultJobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *          <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
+   * When set to `true`, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+   *
+   * For more information about how Device Farm re-signs your apps, see [Do you modify my app?](http://aws.amazon.com/device-farm/faqs/) in the *AWS Device Farm FAQs*.
+   *
    * @public
    */
   skipAppResign?: boolean | undefined;
 }
 
 /**
- * <p>Represents the output of a test. Examples of artifacts include logs and
- *             screenshots.</p>
+ * Represents the output of a test. Examples of artifacts include logs and screenshots.
+ *
  * @public
  */
 export interface Artifact {
   /**
-   * <p>The artifact's ARN.</p>
+   * The artifact's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The artifact's name.</p>
+   * The artifact's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The artifact's type.</p>
-   *          <p>Allowed values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>UNKNOWN</p>
-   *             </li>
-   *             <li>
-   *                <p>SCREENSHOT</p>
-   *             </li>
-   *             <li>
-   *                <p>DEVICE_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>MESSAGE_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>VIDEO_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>RESULT_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>SERVICE_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>WEBKIT_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_OUTPUT</p>
-   *             </li>
-   *             <li>
-   *                <p>EXERCISER_MONKEY_OUTPUT: the artifact (log) generated by an Android fuzz test.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_SERVER_OUTPUT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_OUTPUT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_XML_OUTPUT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_OUTPUT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_XML_OUTPUT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPLICATION_CRASH_REPORT</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>VIDEO</p>
-   *             </li>
-   *             <li>
-   *                <p>CUSTOMER_ARTIFACT</p>
-   *             </li>
-   *             <li>
-   *                <p>CUSTOMER_ARTIFACT_LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>TESTSPEC_OUTPUT</p>
-   *             </li>
-   *          </ul>
+   * The artifact's type.
+   *
+   * Allowed values include the following:
+   *
+   * - UNKNOWN
+   * - SCREENSHOT
+   * - DEVICE_LOG
+   * - MESSAGE_LOG
+   * - VIDEO_LOG
+   * - RESULT_LOG
+   * - SERVICE_LOG
+   * - WEBKIT_LOG
+   * - INSTRUMENTATION_OUTPUT
+   * - EXERCISER_MONKEY_OUTPUT: the artifact (log) generated by an Android fuzz test.
+   * - APPIUM_SERVER_OUTPUT
+   * - APPIUM_JAVA_OUTPUT
+   * - APPIUM_JAVA_XML_OUTPUT
+   * - APPIUM_PYTHON_OUTPUT
+   * - APPIUM_PYTHON_XML_OUTPUT
+   * - APPLICATION_CRASH_REPORT
+   * - XCTEST_LOG
+   * - VIDEO
+   * - CUSTOMER_ARTIFACT
+   * - CUSTOMER_ARTIFACT_LOG
+   * - TESTSPEC_OUTPUT
+   *
    * @public
    */
   type?: ArtifactType | undefined;
 
   /**
-   * <p>The artifact's file extension.</p>
+   * The artifact's file extension.
+   *
    * @public
    */
   extension?: string | undefined;
 
   /**
-   * <p>The presigned Amazon S3 URL that can be used with a GET request to download the artifact's
-   *             file.</p>
+   * The presigned Amazon S3 URL that can be used with a GET request to download the artifact's file.
+   *
    * @public
    */
   url?: string | undefined;
 }
 
 /**
- * <p>Represents entity counters.</p>
+ * Represents entity counters.
+ *
  * @public
  */
 export interface Counters {
   /**
-   * <p>The total number of entities.</p>
+   * The total number of entities.
+   *
    * @public
    */
   total?: number | undefined;
 
   /**
-   * <p>The number of passed entities.</p>
+   * The number of passed entities.
+   *
    * @public
    */
   passed?: number | undefined;
 
   /**
-   * <p>The number of failed entities.</p>
+   * The number of failed entities.
+   *
    * @public
    */
   failed?: number | undefined;
 
   /**
-   * <p>The number of warned entities.</p>
+   * The number of warned entities.
+   *
    * @public
    */
   warned?: number | undefined;
 
   /**
-   * <p>The number of errored entities.</p>
+   * The number of errored entities.
+   *
    * @public
    */
   errored?: number | undefined;
 
   /**
-   * <p>The number of stopped entities.</p>
+   * The number of stopped entities.
+   *
    * @public
    */
   stopped?: number | undefined;
 
   /**
-   * <p>The number of skipped entities.</p>
+   * The number of skipped entities.
+   *
    * @public
    */
   skipped?: number | undefined;
 }
 
 /**
- * <p>Represents the amount of CPU that an app is using on a physical device. Does not represent system-wide
- *             CPU usage.</p>
+ * Represents the amount of CPU that an app is using on a physical device. Does not represent system-wide CPU usage.
+ *
  * @public
  */
 export interface CPU {
   /**
-   * <p>The CPU's frequency.</p>
+   * The CPU's frequency.
+   *
    * @public
    */
   frequency?: string | undefined;
 
   /**
-   * <p>The CPU's architecture (for example, x86 or ARM).</p>
+   * The CPU's architecture (for example, x86 or ARM).
+   *
    * @public
    */
   architecture?: string | undefined;
 
   /**
-   * <p>The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2
-   *             GHz CPU is expressed as 1200000000.</p>
+   * The clock speed of the device's CPU, expressed in hertz (Hz). For example, a 1.2 GHz CPU is expressed as 1200000000.
+   *
    * @public
    */
   clock?: number | undefined;
 }
 
 /**
- * <p>Represents a condition for a device pool.</p>
+ * Represents a condition for a device pool.
+ *
  * @public
  */
 export interface Rule {
   /**
-   * <p>The rule's stringified attribute. For example, specify the value as
-   *                 <code>"\"abc\""</code>.</p>
-   *          <p>The supported operators for each attribute are provided in the following
-   *             list.</p>
-   *          <dl>
-   *             <dt>APPIUM_VERSION</dt>
-   *             <dd>
-   *                <p>The Appium version for the test.</p>
-   *                <p>Supported operators: <code>CONTAINS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>ARN</dt>
-   *             <dd>
-   *                <p>The Amazon Resource Name (ARN) of the device (for example,
-   *                         <code>arn:aws:devicefarm:us-west-2::device:12345Example</code>.</p>
-   *                <p>Supported operators: <code>EQUALS</code>,
-   *                             <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>AVAILABILITY</dt>
-   *             <dd>
-   *                <p>The current availability of the device. Valid values are AVAILABLE,
-   *                         HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>FLEET_TYPE</dt>
-   *             <dd>
-   *                <p>The fleet type. Valid values are PUBLIC or PRIVATE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>FORM_FACTOR</dt>
-   *             <dd>
-   *                <p>The device form factor. Valid values are PHONE or TABLET.</p>
-   *                <p>Supported operators: <code>EQUALS</code>,
-   *                             <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>INSTANCE_ARN</dt>
-   *             <dd>
-   *                <p>The Amazon Resource Name (ARN) of the device instance.</p>
-   *                <p>Supported operators: <code>IN</code>,
-   *                             <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>INSTANCE_LABELS</dt>
-   *             <dd>
-   *                <p>The label of the device instance.</p>
-   *                <p>Supported operators: <code>CONTAINS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>MANUFACTURER</dt>
-   *             <dd>
-   *                <p>The device manufacturer (for example, Apple).</p>
-   *                <p>Supported operators: <code>EQUALS</code>,
-   *                             <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>MODEL</dt>
-   *             <dd>
-   *                <p>The device model, such as Apple iPad Air 2 or Google Pixel.</p>
-   *                <p>Supported operators: <code>CONTAINS</code>,
-   *                             <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>OS_VERSION</dt>
-   *             <dd>
-   *                <p>The operating system version (for example, 10.3.2).</p>
-   *                <p>Supported operators: <code>EQUALS</code>,
-   *                             <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>,
-   *                             <code>IN</code>, <code>LESS_THAN</code>,
-   *                             <code>LESS_THAN_OR_EQUALS</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>PLATFORM</dt>
-   *             <dd>
-   *                <p>The device platform. Valid values are ANDROID or IOS.</p>
-   *                <p>Supported operators: <code>EQUALS</code>,
-   *                             <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>REMOTE_ACCESS_ENABLED</dt>
-   *             <dd>
-   *                <p>Whether the device is enabled for remote access. Valid values are TRUE
-   *                         or FALSE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>REMOTE_DEBUG_ENABLED</dt>
-   *             <dd>
-   *                <p>Whether the device is enabled for remote debugging. Valid values are
-   *                         TRUE or FALSE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *                <p>Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                         longer supported</a>, this filter is ignored.</p>
-   *             </dd>
-   *          </dl>
+   * The rule's stringified attribute. For example, specify the value as `"\"abc\""`.
+   *
+   * The supported operators for each attribute are provided in the following list.
+   *
+   * - **APPIUM_VERSION**
+   *
+   *   The Appium version for the test.
+   *
+   *   Supported operators: `CONTAINS`
+   *
+   * - **ARN**
+   *
+   *   The Amazon Resource Name (ARN) of the device (for example, `arn:aws:devicefarm:us-west-2::device:12345Example`.
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **AVAILABILITY**
+   *
+   *   The current availability of the device. Valid values are AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **FLEET_TYPE**
+   *
+   *   The fleet type. Valid values are PUBLIC or PRIVATE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **FORM_FACTOR**
+   *
+   *   The device form factor. Valid values are PHONE or TABLET.
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **INSTANCE_ARN**
+   *
+   *   The Amazon Resource Name (ARN) of the device instance.
+   *
+   *   Supported operators: `IN`, `NOT_IN`
+   *
+   * - **INSTANCE_LABELS**
+   *
+   *   The label of the device instance.
+   *
+   *   Supported operators: `CONTAINS`
+   *
+   * - **MANUFACTURER**
+   *
+   *   The device manufacturer (for example, Apple).
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **MODEL**
+   *
+   *   The device model, such as Apple iPad Air 2 or Google Pixel.
+   *
+   *   Supported operators: `CONTAINS`, `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **OS_VERSION**
+   *
+   *   The operating system version (for example, 10.3.2).
+   *
+   *   Supported operators: `EQUALS`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `IN`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `NOT_IN`
+   *
+   * - **PLATFORM**
+   *
+   *   The device platform. Valid values are ANDROID or IOS.
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **REMOTE_ACCESS_ENABLED**
+   *
+   *   Whether the device is enabled for remote access. Valid values are TRUE or FALSE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **REMOTE_DEBUG_ENABLED**
+   *
+   *   Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   *   Because remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html), this filter is ignored.
+   *
    * @public
    */
   attribute?: DeviceAttribute | undefined;
 
   /**
-   * <p>Specifies how Device Farm compares the rule's attribute to the value. For the
-   *             operators that are supported by each attribute, see the attribute
-   *             descriptions.</p>
+   * Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute, see the attribute descriptions.
+   *
    * @public
    */
   operator?: RuleOperator | undefined;
 
   /**
-   * <p>The rule's value.</p>
+   * The rule's value.
+   *
    * @public
    */
   value?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the create device pool operation.</p>
+ * Represents a request to the create device pool operation.
+ *
  * @public
  */
 export interface CreateDevicePoolRequest {
   /**
-   * <p>The ARN of the project for the device pool.</p>
+   * The ARN of the project for the device pool.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>The device pool's name.</p>
+   * The device pool's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The device pool's description.</p>
+   * The device pool's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The device pool's rules.</p>
+   * The device pool's rules.
+   *
    * @public
    */
   rules: Rule[] | undefined;
 
   /**
-   * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are
-   *             available and meet the criteria that you assign for the <code>rules</code> parameter. Depending on how many
-   *             devices meet these constraints, your device pool might contain fewer devices than the value for this
-   *             parameter.</p>
-   *          <p>By specifying the maximum number of devices, you can control the costs that you incur
-   *             by running tests.</p>
+   * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+   *
+   * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+   *
    * @public
    */
   maxDevices?: number | undefined;
 }
 
 /**
- * <p>Represents a collection of device types.</p>
+ * Represents a collection of device types.
+ *
  * @public
  */
 export interface DevicePool {
   /**
-   * <p>The device pool's ARN.</p>
+   * The device pool's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The device pool's name.</p>
+   * The device pool's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The device pool's description.</p>
+   * The device pool's description.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The device pool's type.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CURATED: A device pool that is created and managed by AWS Device
-   *                     Farm.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRIVATE: A device pool that is created and managed by the device pool
-   *                     developer.</p>
-   *             </li>
-   *          </ul>
+   * The device pool's type.
+   *
+   * Allowed values include:
+   *
+   * - CURATED: A device pool that is created and managed by AWS Device Farm.
+   * - PRIVATE: A device pool that is created and managed by the device pool developer.
+   *
    * @public
    */
   type?: DevicePoolType | undefined;
 
   /**
-   * <p>Information about the device pool's rules.</p>
+   * Information about the device pool's rules.
+   *
    * @public
    */
   rules?: Rule[] | undefined;
 
   /**
-   * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are
-   *             available and meet the criteria that you assign for the <code>rules</code> parameter. Depending on how many
-   *             devices meet these constraints, your device pool might contain fewer devices than the value for this
-   *             parameter.</p>
-   *          <p>By specifying the maximum number of devices, you can control the costs that you incur
-   *             by running tests.</p>
+   * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+   *
+   * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+   *
    * @public
    */
   maxDevices?: number | undefined;
 }
 
 /**
- * <p>Represents the result of a create device pool request.</p>
+ * Represents the result of a create device pool request.
+ *
  * @public
  */
 export interface CreateDevicePoolResult {
   /**
-   * <p>The newly created device pool.</p>
+   * The newly created device pool.
+   *
    * @public
    */
   devicePool?: DevicePool | undefined;
@@ -532,83 +497,89 @@ export interface CreateDevicePoolResult {
  */
 export interface CreateInstanceProfileRequest {
   /**
-   * <p>The name of your instance profile.</p>
+   * The name of your instance profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of your instance profile.</p>
+   * The description of your instance profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
-   *                 <code>false</code> for private devices.</p>
+   * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
+   *
    * @public
    */
   packageCleanup?: boolean | undefined;
 
   /**
-   * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
-   *             after a test run.</p>
-   *          <p>The list of packages is considered only if you set <code>packageCleanup</code> to
-   *             <code>true</code>.</p>
+   * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
+   *
+   * The list of packages is considered only if you set `packageCleanup` to `true`.
+   *
    * @public
    */
   excludeAppPackagesFromCleanup?: string[] | undefined;
 
   /**
-   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
-   *                 <code>true</code>.</p>
+   * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
+   *
    * @public
    */
   rebootAfterUse?: boolean | undefined;
 }
 
 /**
- * <p>Represents the instance profile.</p>
+ * Represents the instance profile.
+ *
  * @public
  */
 export interface InstanceProfile {
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   * The Amazon Resource Name (ARN) of the instance profile.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>When set to <code>true</code>, Device Farm removes app packages after a test run. The default value is
-   *                 <code>false</code> for private devices.</p>
+   * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
+   *
    * @public
    */
   packageCleanup?: boolean | undefined;
 
   /**
-   * <p>An array of strings containing the list of app packages that should not be cleaned up from the device
-   *             after a test run completes.</p>
-   *          <p>The list of packages is considered only if you set <code>packageCleanup</code> to
-   *             <code>true</code>.</p>
+   * An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+   *
+   * The list of packages is considered only if you set `packageCleanup` to `true`.
+   *
    * @public
    */
   excludeAppPackagesFromCleanup?: string[] | undefined;
 
   /**
-   * <p>When set to <code>true</code>, Device Farm reboots the instance after a test run. The default value is
-   *                 <code>true</code>.</p>
+   * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
+   *
    * @public
    */
   rebootAfterUse?: boolean | undefined;
 
   /**
-   * <p>The name of the instance profile.</p>
+   * The name of the instance profile.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the instance profile.</p>
+   * The description of the instance profile.
+   *
    * @public
    */
   description?: string | undefined;
@@ -619,7 +590,8 @@ export interface InstanceProfile {
  */
 export interface CreateInstanceProfileResult {
   /**
-   * <p>An object that contains information about your instance profile.</p>
+   * An object that contains information about your instance profile.
+   *
    * @public
    */
   instanceProfile?: InstanceProfile | undefined;
@@ -630,166 +602,176 @@ export interface CreateInstanceProfileResult {
  */
 export interface CreateNetworkProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a
-   *             network profile.</p>
+   * The Amazon Resource Name (ARN) of the project for which you want to create a network profile.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>The name for the new network profile.</p>
+   * The name for the new network profile.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the network profile.</p>
+   * The description of the network profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of network profile to create. Valid values are listed here.</p>
+   * The type of network profile to create. Valid values are listed here.
+   *
    * @public
    */
   type?: NetworkProfileType | undefined;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
+   * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+   *
    * @public
    */
   uplinkBandwidthBits?: number | undefined;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
+   * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+   *
    * @public
    */
   downlinkBandwidthBits?: number | undefined;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   uplinkDelayMs?: number | undefined;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   downlinkDelayMs?: number | undefined;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
+   * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   uplinkJitterMs?: number | undefined;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
+   * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   downlinkJitterMs?: number | undefined;
 
   /**
-   * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
-   *             percent.</p>
+   * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+   *
    * @public
    */
   uplinkLossPercent?: number | undefined;
 
   /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   * Proportion of received packets that fail to arrive from 0 to 100 percent.
+   *
    * @public
    */
   downlinkLossPercent?: number | undefined;
 }
 
 /**
- * <p>An array of settings that describes characteristics of a network profile.</p>
+ * An array of settings that describes characteristics of a network profile.
+ *
  * @public
  */
 export interface NetworkProfile {
   /**
-   * <p>The Amazon Resource Name (ARN) of the network profile.</p>
+   * The Amazon Resource Name (ARN) of the network profile.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the network profile.</p>
+   * The name of the network profile.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the network profile.</p>
+   * The description of the network profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of network profile. Valid values are listed here.</p>
+   * The type of network profile. Valid values are listed here.
+   *
    * @public
    */
   type?: NetworkProfileType | undefined;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
+   * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+   *
    * @public
    */
   uplinkBandwidthBits?: number | undefined;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
+   * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+   *
    * @public
    */
   downlinkBandwidthBits?: number | undefined;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   uplinkDelayMs?: number | undefined;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   downlinkDelayMs?: number | undefined;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
+   * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   uplinkJitterMs?: number | undefined;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
+   * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   downlinkJitterMs?: number | undefined;
 
   /**
-   * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
-   *             percent.</p>
+   * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+   *
    * @public
    */
   uplinkLossPercent?: number | undefined;
 
   /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   * Proportion of received packets that fail to arrive from 0 to 100 percent.
+   *
    * @public
    */
   downlinkLossPercent?: number | undefined;
@@ -800,271 +782,291 @@ export interface NetworkProfile {
  */
 export interface CreateNetworkProfileResult {
   /**
-   * <p>The network profile that is returned by the create network profile
-   *             request.</p>
+   * The network profile that is returned by the create network profile request.
+   *
    * @public
    */
   networkProfile?: NetworkProfile | undefined;
 }
 
 /**
- * <p>Information about an environment variable for a project or a run.</p>
+ * Information about an environment variable for a project or a run.
+ *
  * @public
  */
 export interface EnvironmentVariable {
   /**
-   * <p>The name of the environment variable.</p>
+   * The name of the environment variable.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The value of the environment variable.</p>
+   * The value of the environment variable.
+   *
    * @public
    */
   value: string | undefined;
 }
 
 /**
- * <p>Contains the VPC configuration data necessary to interface with AWS Device Farm's services.</p>
+ * Contains the VPC configuration data necessary to interface with AWS Device Farm's services.
+ *
  * @public
  */
 export interface VpcConfig {
   /**
-   * <p>An array of one or more security groups IDs in your Amazon VPC.</p>
+   * An array of one or more security groups IDs in your Amazon VPC.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>An array of one or more subnet IDs in your Amazon VPC.</p>
+   * An array of one or more subnet IDs in your Amazon VPC.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon VPC.</p>
+   * The ID of the Amazon VPC.
+   *
    * @public
    */
   vpcId: string | undefined;
 }
 
 /**
- * <p>Represents a request to the create project operation.</p>
+ * Represents a request to the create project operation.
+ *
  * @public
  */
 export interface CreateProjectRequest {
   /**
-   * <p>The project's name.</p>
+   * The project's name.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Sets the execution timeout value (in minutes) for a project. All test runs in this project use the
-   *             specified execution timeout value unless overridden when scheduling a run.</p>
+   * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+   *
    * @public
    */
   defaultJobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>
-   *             A set of environment variables which are used by default for all runs in the project.
-   *             These environment variables are applied to the test run during the execution of a test spec file.
-   *         </p>
-   *          <p>
-   *             For more information about using test spec files, please see
-   *             <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html">Custom test environments </a> in <i>AWS Device
-   *             Farm.</i>
-   *          </p>
+   * A set of environment variables which are used by default for all runs in the project. These environment variables are applied to the test run during the execution of a test spec file.
+   *
+   * For more information about using test spec files, please see [Custom test environments](https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html) in *AWS Device Farm.*
+   *
    * @public
    */
   environmentVariables?: EnvironmentVariable[] | undefined;
 
   /**
-   * <p>An IAM role to be assumed by the test host for all runs in the project.</p>
+   * An IAM role to be assumed by the test host for all runs in the project.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 }
 
 /**
- * <p>Represents an operating-system neutral workspace for running and managing
- *             tests.</p>
+ * Represents an operating-system neutral workspace for running and managing tests.
+ *
  * @public
  */
 export interface Project {
   /**
-   * <p>The project's ARN.</p>
+   * The project's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The project's name.</p>
+   * The project's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The default number of minutes (at the project level) a test run executes before it times out. The
-   *             default value is 150 minutes.</p>
+   * The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
+   *
    * @public
    */
   defaultJobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>When the project was created.</p>
+   * When the project was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>Environment variables associated with the project.</p>
+   * Environment variables associated with the project.
+   *
    * @public
    */
   environmentVariables?: EnvironmentVariable[] | undefined;
 
   /**
-   * <p>The IAM execution role associated with the project.</p>
+   * The IAM execution role associated with the project.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a create project request.</p>
+ * Represents the result of a create project request.
+ *
  * @public
  */
 export interface CreateProjectResult {
   /**
-   * <p>The newly created project.</p>
+   * The newly created project.
+   *
    * @public
    */
   project?: Project | undefined;
 }
 
 /**
- * <p>Represents the http/s proxy configuration that will be applied to a device during a run.</p>
+ * Represents the http/s proxy configuration that will be applied to a device during a run.
+ *
  * @public
  */
 export interface DeviceProxy {
   /**
-   * <p>Hostname or IPv4 address of the proxy.</p>
+   * Hostname or IPv4 address of the proxy.
+   *
    * @public
    */
   host: string | undefined;
 
   /**
-   * <p>The port number on which the http/s proxy is listening.</p>
+   * The port number on which the http/s proxy is listening.
+   *
    * @public
    */
   port: number | undefined;
 }
 
 /**
- * <p>Configuration settings for a remote access session, including billing
- *             method.</p>
+ * Configuration settings for a remote access session, including billing method.
+ *
  * @public
  */
 export interface CreateRemoteAccessSessionConfiguration {
   /**
-   * <p>A list of upload ARNs for app packages to be installed onto your device. (Maximum 3)</p>
+   * A list of upload ARNs for app packages to be installed onto your device. (Maximum 3)
+   *
    * @public
    */
   auxiliaryApps?: string[] | undefined;
 
   /**
-   * <p>The billing method for the remote access session.</p>
+   * The billing method for the remote access session.
+   *
    * @public
    */
   billingMethod?: BillingMethod | undefined;
 
   /**
-   * <p>An array of ARNs included in the VPC endpoint configuration.</p>
+   * An array of ARNs included in the VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfigurationArns?: string[] | undefined;
 
   /**
-   * <p>The device proxy to be configured on the device for the remote access session.</p>
+   * The device proxy to be configured on the device for the remote access session.
+   *
    * @public
    */
   deviceProxy?: DeviceProxy | undefined;
 
   /**
-   * <p>The name-value string pairs that specify additional settings for the remote access
-   *             session.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>appium:version</code>: The major version of the Appium server to use for
-   *                     the session (for example, 2 or 3). The service may reject the selected version
-   *                     if it is not available for the selected device.</p>
-   *             </li>
-   *          </ul>
+   * The name-value string pairs that specify additional settings for the remote access session.
+   *
+   * - `appium:version`: The major version of the Appium server to use for the session (for example, 2 or 3). The service may reject the selected version if it is not available for the selected device.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Creates and submits a request to start a remote access session.</p>
+ * Creates and submits a request to start a remote access session.
+ *
  * @public
  */
 export interface CreateRemoteAccessSessionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to create a remote
-   *             access session.</p>
+   * The Amazon Resource Name (ARN) of the project for which you want to create a remote access session.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>The ARN of the device for which you want to create a remote access session.</p>
+   * The ARN of the device for which you want to create a remote access session.
+   *
    * @public
    */
   deviceArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the app to create the remote access session.</p>
+   * The Amazon Resource Name (ARN) of the app to create the remote access session.
+   *
    * @public
    */
   appArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the device instance for which you want to create a
-   *             remote access session.</p>
+   * The Amazon Resource Name (ARN) of the device instance for which you want to create a remote access session.
+   *
    * @public
    */
   instanceArn?: string | undefined;
 
   /**
-   * <p>The name of the remote access session to create.</p>
+   * The name of the remote access session to create.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The configuration information for the remote access session request.</p>
+   * The configuration information for the remote access session request.
+   *
    * @public
    */
   configuration?: CreateRemoteAccessSessionConfiguration | undefined;
 
   /**
-   * <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>
+   * The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.
    *
    * @deprecated (since 2019-09-09) Changing the interactive mode of Remote Access sessions is no longer available.
    * @public
@@ -1072,201 +1074,217 @@ export interface CreateRemoteAccessSessionRequest {
   interactionMode?: InteractionMode | undefined;
 
   /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *          <p>For more information on how Device Farm modifies your uploads during tests, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a>
-   *          </p>
+   * When set to `true`, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+   *
+   * For more information on how Device Farm modifies your uploads during tests, see [Do you modify my app?](http://aws.amazon.com/device-farm/faqs/)
+   *
    * @public
    */
   skipAppResign?: boolean | undefined;
 }
 
 /**
- * <p>Represents the device instance.</p>
+ * Represents the device instance.
+ *
  * @public
  */
 export interface DeviceInstance {
   /**
-   * <p>The Amazon Resource Name (ARN) of the device instance.</p>
+   * The Amazon Resource Name (ARN) of the device instance.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The ARN of the device.</p>
+   * The ARN of the device.
+   *
    * @public
    */
   deviceArn?: string | undefined;
 
   /**
-   * <p>An array of strings that describe the device instance.</p>
+   * An array of strings that describe the device instance.
+   *
    * @public
    */
   labels?: string[] | undefined;
 
   /**
-   * <p>The status of the device instance. Valid values are listed here.</p>
+   * The status of the device instance. Valid values are listed here.
+   *
    * @public
    */
   status?: InstanceStatus | undefined;
 
   /**
-   * <p>Unique device identifier for the device instance.</p>
+   * Unique device identifier for the device instance.
+   *
    * @public
    */
   udid?: string | undefined;
 
   /**
-   * <p>A object that contains information about the instance profile.</p>
+   * A object that contains information about the instance profile.
+   *
    * @public
    */
   instanceProfile?: InstanceProfile | undefined;
 }
 
 /**
- * <p>Represents the screen resolution of a device in height and width, expressed in
- *             pixels.</p>
+ * Represents the screen resolution of a device in height and width, expressed in pixels.
+ *
  * @public
  */
 export interface Resolution {
   /**
-   * <p>The screen resolution's width, expressed in pixels.</p>
+   * The screen resolution's width, expressed in pixels.
+   *
    * @public
    */
   width?: number | undefined;
 
   /**
-   * <p>The screen resolution's height, expressed in pixels.</p>
+   * The screen resolution's height, expressed in pixels.
+   *
    * @public
    */
   height?: number | undefined;
 }
 
 /**
- * <p>Represents a device type that an app is tested against.</p>
+ * Represents a device type that an app is tested against.
+ *
  * @public
  */
 export interface Device {
   /**
-   * <p>The device's ARN.</p>
+   * The device's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The device's display name.</p>
+   * The device's display name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The device's manufacturer name.</p>
+   * The device's manufacturer name.
+   *
    * @public
    */
   manufacturer?: string | undefined;
 
   /**
-   * <p>The device's model name.</p>
+   * The device's model name.
+   *
    * @public
    */
   model?: string | undefined;
 
   /**
-   * <p>The device's model ID.</p>
+   * The device's model ID.
+   *
    * @public
    */
   modelId?: string | undefined;
 
   /**
-   * <p>The device's form factor.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PHONE</p>
-   *             </li>
-   *             <li>
-   *                <p>TABLET</p>
-   *             </li>
-   *          </ul>
+   * The device's form factor.
+   *
+   * Allowed values include:
+   *
+   * - PHONE
+   * - TABLET
+   *
    * @public
    */
   formFactor?: DeviceFormFactor | undefined;
 
   /**
-   * <p>The device's platform.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ANDROID</p>
-   *             </li>
-   *             <li>
-   *                <p>IOS</p>
-   *             </li>
-   *          </ul>
+   * The device's platform.
+   *
+   * Allowed values include:
+   *
+   * - ANDROID
+   * - IOS
+   *
    * @public
    */
   platform?: DevicePlatform | undefined;
 
   /**
-   * <p>The device's operating system type.</p>
+   * The device's operating system type.
+   *
    * @public
    */
   os?: string | undefined;
 
   /**
-   * <p>Information about the device's CPU.</p>
+   * Information about the device's CPU.
+   *
    * @public
    */
   cpu?: CPU | undefined;
 
   /**
-   * <p>The resolution of the device.</p>
+   * The resolution of the device.
+   *
    * @public
    */
   resolution?: Resolution | undefined;
 
   /**
-   * <p>The device's heap size, expressed in bytes.</p>
+   * The device's heap size, expressed in bytes.
+   *
    * @public
    */
   heapSize?: number | undefined;
 
   /**
-   * <p>The device's total memory size, expressed in bytes.</p>
+   * The device's total memory size, expressed in bytes.
+   *
    * @public
    */
   memory?: number | undefined;
 
   /**
-   * <p>The device's image name.</p>
+   * The device's image name.
+   *
    * @public
    */
   image?: string | undefined;
 
   /**
-   * <p>The device's carrier.</p>
+   * The device's carrier.
+   *
    * @public
    */
   carrier?: string | undefined;
 
   /**
-   * <p>The device's radio.</p>
+   * The device's radio.
+   *
    * @public
    */
   radio?: string | undefined;
 
   /**
-   * <p>Specifies whether remote access has been enabled for the specified
-   *             device.</p>
+   * Specifies whether remote access has been enabled for the specified device.
+   *
    * @public
    */
   remoteAccessEnabled?: boolean | undefined;
 
   /**
-   * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
-   *             device.</p>
-   *          <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *             longer supported</a>.</p>
+   * This flag is set to `true` if remote debugging is enabled for the device.
+   *
+   * Remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html).
    *
    * @deprecated (since 2019-09-09) Direct Device Access is no longer available.
    * @public
@@ -1274,210 +1292,193 @@ export interface Device {
   remoteDebugEnabled?: boolean | undefined;
 
   /**
-   * <p>The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.</p>
+   * The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
+   *
    * @public
    */
   fleetType?: string | undefined;
 
   /**
-   * <p>The name of the fleet to which this device belongs.</p>
+   * The name of the fleet to which this device belongs.
+   *
    * @public
    */
   fleetName?: string | undefined;
 
   /**
-   * <p>The instances that belong to this device.</p>
+   * The instances that belong to this device.
+   *
    * @public
    */
   instances?: DeviceInstance[] | undefined;
 
   /**
-   * <p>Indicates how likely a device is available for a test run. Currently available in the <a>ListDevices</a> and GetDevice API methods.</p>
+   * Indicates how likely a device is available for a test run. Currently available in the ListDevices and GetDevice API methods.
+   *
    * @public
    */
   availability?: DeviceAvailability | undefined;
 }
 
 /**
- * <p>Represents the total (metered or unmetered) minutes used by the resource to run
- *             tests. Contains the sum of minutes consumed by all children.</p>
+ * Represents the total (metered or unmetered) minutes used by the resource to run tests. Contains the sum of minutes consumed by all children.
+ *
  * @public
  */
 export interface DeviceMinutes {
   /**
-   * <p>When specified, represents the total minutes used by the resource to run
-   *             tests.</p>
+   * When specified, represents the total minutes used by the resource to run tests.
+   *
    * @public
    */
   total?: number | undefined;
 
   /**
-   * <p>When specified, represents only the sum of metered minutes used by the resource to
-   *             run tests.</p>
+   * When specified, represents only the sum of metered minutes used by the resource to run tests.
+   *
    * @public
    */
   metered?: number | undefined;
 
   /**
-   * <p>When specified, represents only the sum of unmetered minutes used by the resource
-   *             to run tests.</p>
+   * When specified, represents only the sum of unmetered minutes used by the resource to run tests.
+   *
    * @public
    */
   unmetered?: number | undefined;
 }
 
 /**
- * <p>Represents the remote endpoints for viewing and controlling a device during a remote access session.</p>
+ * Represents the remote endpoints for viewing and controlling a device during a remote access session.
+ *
  * @public
  */
 export interface RemoteAccessEndpoints {
   /**
-   * <p>URL for controlling the device using WebDriver-compliant clients, like Appium, during the remote access session.</p>
+   * URL for controlling the device using WebDriver-compliant clients, like Appium, during the remote access session.
+   *
    * @public
    */
   remoteDriverEndpoint?: string | undefined;
 
   /**
-   * <p>URL for viewing and interacting with the device during the remote access session.</p>
+   * URL for viewing and interacting with the device during the remote access session.
+   *
    * @public
    */
   interactiveEndpoint?: string | undefined;
 }
 
 /**
- * <p>Represents information about the remote access session.</p>
+ * Represents information about the remote access session.
+ *
  * @public
  */
 export interface RemoteAccessSession {
   /**
-   * <p>The Amazon Resource Name (ARN) of the remote access session.</p>
+   * The Amazon Resource Name (ARN) of the remote access session.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The name of the remote access session.</p>
+   * The name of the remote access session.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The date and time the remote access session was created.</p>
+   * The date and time the remote access session was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The status of the remote access session. Can be any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING.</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_CONCURRENCY.</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_DEVICE.</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESSING.</p>
-   *             </li>
-   *             <li>
-   *                <p>SCHEDULING.</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARING.</p>
-   *             </li>
-   *             <li>
-   *                <p>RUNNING.</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPLETED.</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPING.</p>
-   *             </li>
-   *          </ul>
+   * The status of the remote access session. Can be any of the following:
+   *
+   * - PENDING.
+   * - PENDING_CONCURRENCY.
+   * - PENDING_DEVICE.
+   * - PROCESSING.
+   * - SCHEDULING.
+   * - PREPARING.
+   * - RUNNING.
+   * - COMPLETED.
+   * - STOPPING.
+   *
    * @public
    */
   status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The result of the remote access session. Can be any of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING.</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED.</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED.</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED.</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED.</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED.</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED.</p>
-   *             </li>
-   *          </ul>
+   * The result of the remote access session. Can be any of the following:
+   *
+   * - PENDING.
+   * - PASSED.
+   * - WARNED.
+   * - FAILED.
+   * - SKIPPED.
+   * - ERRORED.
+   * - STOPPED.
+   *
    * @public
    */
   result?: ExecutionResult | undefined;
 
   /**
-   * <p>A message about the remote access session.</p>
+   * A message about the remote access session.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The date and time the remote access session was started.</p>
+   * The date and time the remote access session was started.
+   *
    * @public
    */
   started?: Date | undefined;
 
   /**
-   * <p>The date and time the remote access session was stopped.</p>
+   * The date and time the remote access session was stopped.
+   *
    * @public
    */
   stopped?: Date | undefined;
 
   /**
-   * <p>The device (phone or tablet) used in the remote access session.</p>
+   * The device (phone or tablet) used in the remote access session.
+   *
    * @public
    */
   device?: Device | undefined;
 
   /**
-   * <p>The ARN of the instance.</p>
+   * The ARN of the instance.
+   *
    * @public
    */
   instanceArn?: string | undefined;
 
   /**
-   * <p>The billing method of the remote access session. Possible values include <code>METERED</code> or
-   *                 <code>UNMETERED</code>. For more information about metered devices, see <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology">AWS Device Farm
-   *                 terminology</a>.</p>
+   * The billing method of the remote access session. Possible values include `METERED` or `UNMETERED`. For more information about metered devices, see [AWS Device Farm terminology](https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology).
+   *
    * @public
    */
   billingMethod?: BillingMethod | undefined;
 
   /**
-   * <p>The number of minutes a device is used in a remote access session (including setup
-   *             and teardown minutes).</p>
+   * The number of minutes a device is used in a remote access session (including setup and teardown minutes).
+   *
    * @public
    */
   deviceMinutes?: DeviceMinutes | undefined;
 
   /**
-   * <p>The endpoint for the remote access session. This field is deprecated, and is replaced by the new <code>endpoints.interactiveEndpoint</code> field.</p>
+   * The endpoint for the remote access session. This field is deprecated, and is replaced by the new `endpoints.interactiveEndpoint` field.
    *
    * @deprecated (since 2025-11-17) This field is deprecated, and is replaced by the new endpoints.interactiveEndpoint field.
    * @public
@@ -1485,16 +1486,16 @@ export interface RemoteAccessSession {
   endpoint?: string | undefined;
 
   /**
-   * <p>Unique device identifier for the remote device. Only returned if remote debugging
-   *             is enabled for the remote access session.</p>
-   *          <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *             longer supported</a>.</p>
+   * Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.
+   *
+   * Remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html).
+   *
    * @public
    */
   deviceUdid?: string | undefined;
 
   /**
-   * <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>
+   * The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.
    *
    * @deprecated (since 2019-09-09) Changing the interactive mode of Remote Access sessions is no longer available.
    * @public
@@ -1502,72 +1503,80 @@ export interface RemoteAccessSession {
   interactionMode?: InteractionMode | undefined;
 
   /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *          <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
+   * When set to `true`, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+   *
+   * For more information about how Device Farm re-signs your apps, see [Do you modify my app?](http://aws.amazon.com/device-farm/faqs/) in the *AWS Device Farm FAQs*.
+   *
    * @public
    */
   skipAppResign?: boolean | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The device proxy configured for the remote access session.</p>
+   * The device proxy configured for the remote access session.
+   *
    * @public
    */
   deviceProxy?: DeviceProxy | undefined;
 
   /**
-   * <p>The ARN for the app to be installed onto your device.</p>
+   * The ARN for the app to be installed onto your device.
+   *
    * @public
    */
   appUpload?: string | undefined;
 
   /**
-   * <p>Represents the remote endpoints for viewing and controlling a device during a remote access session.</p>
+   * Represents the remote endpoints for viewing and controlling a device during a remote access session.
+   *
    * @public
    */
   endpoints?: RemoteAccessEndpoints | undefined;
 }
 
 /**
- * <p>Represents the server response from a request to create a remote access
- *             session.</p>
+ * Represents the server response from a request to create a remote access session.
+ *
  * @public
  */
 export interface CreateRemoteAccessSessionResult {
   /**
-   * <p>A container that describes the remote access session when the request to create a
-   *             remote access session is sent.</p>
+   * A container that describes the remote access session when the request to create a remote access session is sent.
+   *
    * @public
    */
   remoteAccessSession?: RemoteAccessSession | undefined;
 }
 
 /**
- * <p>The VPC security groups and subnets that are attached to a project.</p>
+ * The VPC security groups and subnets that are attached to a project.
+ *
  * @public
  */
 export interface TestGridVpcConfig {
   /**
-   * <p>A list of VPC security group IDs in your Amazon VPC.</p>
+   * A list of VPC security group IDs in your Amazon VPC.
+   *
    * @public
    */
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>A list of VPC subnet IDs in your Amazon VPC.</p>
+   * A list of VPC subnet IDs in your Amazon VPC.
+   *
    * @public
    */
   subnetIds: string[] | undefined;
 
   /**
-   * <p>The ID of the Amazon VPC.</p>
+   * The ID of the Amazon VPC.
+   *
    * @public
    */
   vpcId: string | undefined;
@@ -1578,55 +1587,64 @@ export interface TestGridVpcConfig {
  */
 export interface CreateTestGridProjectRequest {
   /**
-   * <p>Human-readable name of the Selenium testing project.</p>
+   * Human-readable name of the Selenium testing project.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Human-readable description of the project.</p>
+   * Human-readable description of the project.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: TestGridVpcConfig | undefined;
 }
 
 /**
- * <p>A Selenium testing project. Projects are used to collect and collate sessions.</p>
+ * A Selenium testing project. Projects are used to collect and collate sessions.
+ *
  * @public
  */
 export interface TestGridProject {
   /**
-   * <p>The ARN for the project.</p>
+   * The ARN for the project.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>A human-readable name for the project.</p>
+   * A human-readable name for the project.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A human-readable description for the project.</p>
+   * A human-readable description for the project.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: TestGridVpcConfig | undefined;
 
   /**
-   * <p>When the project was created.</p>
+   * When the project was created.
+   *
    * @public
    */
   created?: Date | undefined;
@@ -1637,7 +1655,8 @@ export interface TestGridProject {
  */
 export interface CreateTestGridProjectResult {
   /**
-   * <p>ARN of the Selenium testing project that was created.</p>
+   * ARN of the Selenium testing project that was created.
+   *
    * @public
    */
   testGridProject?: TestGridProject | undefined;
@@ -1648,14 +1667,15 @@ export interface CreateTestGridProjectResult {
  */
 export interface CreateTestGridUrlRequest {
   /**
-   * <p>ARN (from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>) to associate
-   *          with the short-term URL. </p>
+   * ARN (from CreateTestGridProject or ListTestGridProjects) to associate with the short-term URL.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>Lifetime, in seconds, of the URL.</p>
+   * Lifetime, in seconds, of the URL.
+   *
    * @public
    */
   expiresInSeconds: number | undefined;
@@ -1666,333 +1686,217 @@ export interface CreateTestGridUrlRequest {
  */
 export interface CreateTestGridUrlResult {
   /**
-   * <p>A signed URL, expiring in the time specified by the <code>CreateTestGridUrlRequest</code>, to be passed
-   *          to a <code>RemoteWebDriver</code>. </p>
+   * A signed URL, expiring in the time specified by the `CreateTestGridUrlRequest`, to be passed to a `RemoteWebDriver`.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The number of seconds the URL stays active from creation.</p>
+   * The number of seconds the URL stays active from creation.
+   *
    * @public
    */
   expires?: Date | undefined;
 }
 
 /**
- * <p>Represents a request to the create upload operation.</p>
+ * Represents a request to the create upload operation.
+ *
  * @public
  */
 export interface CreateUploadRequest {
   /**
-   * <p>The ARN of the project for the upload.</p>
+   * The ARN of the project for the upload.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>The upload's file name. The name should not contain any forward slashes (<code>/</code>). If you are
-   *             uploading an iOS app, the file name must end with the <code>.ipa</code> extension. If you are uploading an
-   *             Android app, the file name must end with the <code>.apk</code> extension. For all others, the file name must
-   *             end with the <code>.zip</code> file extension.</p>
+   * The upload's file name. The name should not contain any forward slashes (`/`). If you are uploading an iOS app, the file name must end with the `.ipa` extension. If you are uploading an Android app, the file name must end with the `.apk` extension. For all others, the file name must end with the `.zip` file extension.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The upload's upload type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ANDROID_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>IOS_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>WEB_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>EXTERNAL_DATA</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI_TEST_SPEC</p>
-   *             </li>
-   *          </ul>
-   *          <p> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified, AWS
-   *             Device Farm throws an <code>ArgumentException</code> error.</p>
+   * The upload's upload type.
+   *
+   * Must be one of the following values:
+   *
+   * - ANDROID_APP
+   * - IOS_APP
+   * - WEB_APP
+   * - EXTERNAL_DATA
+   * - APPIUM_JAVA_JUNIT_TEST_PACKAGE
+   * - APPIUM_JAVA_TESTNG_TEST_PACKAGE
+   * - APPIUM_PYTHON_TEST_PACKAGE
+   * - APPIUM_NODE_TEST_PACKAGE
+   * - APPIUM_RUBY_TEST_PACKAGE
+   * - APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+   * - APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+   * - APPIUM_WEB_PYTHON_TEST_PACKAGE
+   * - APPIUM_WEB_NODE_TEST_PACKAGE
+   * - APPIUM_WEB_RUBY_TEST_PACKAGE
+   * - INSTRUMENTATION_TEST_PACKAGE
+   * - XCTEST_TEST_PACKAGE
+   * - XCTEST_UI_TEST_PACKAGE
+   * - APPIUM_JAVA_JUNIT_TEST_SPEC
+   * - APPIUM_JAVA_TESTNG_TEST_SPEC
+   * - APPIUM_PYTHON_TEST_SPEC
+   * - APPIUM_NODE_TEST_SPEC
+   * - APPIUM_RUBY_TEST_SPEC
+   * - APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+   * - APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+   * - APPIUM_WEB_PYTHON_TEST_SPEC
+   * - APPIUM_WEB_NODE_TEST_SPEC
+   * - APPIUM_WEB_RUBY_TEST_SPEC
+   * - INSTRUMENTATION_TEST_SPEC
+   * - XCTEST_UI_TEST_SPEC
+   *
+   * If you call `CreateUpload` with `WEB_APP` specified, AWS Device Farm throws an `ArgumentException` error.
+   *
    * @public
    */
   type: UploadType | undefined;
 
   /**
-   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
+   * The upload's content type (for example, `application/octet-stream`).
+   *
    * @public
    */
   contentType?: string | undefined;
 }
 
 /**
- * <p>An app or a set of one or more tests to upload or that have been
- *             uploaded.</p>
+ * An app or a set of one or more tests to upload or that have been uploaded.
+ *
  * @public
  */
 export interface Upload {
   /**
-   * <p>The upload's ARN.</p>
+   * The upload's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The upload's file name.</p>
+   * The upload's file name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>When the upload was created.</p>
+   * When the upload was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The upload's type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ANDROID_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>IOS_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>WEB_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>EXTERNAL_DATA</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI_TEST_SPEC</p>
-   *             </li>
-   *          </ul>
+   * The upload's type.
+   *
+   * Must be one of the following values:
+   *
+   * - ANDROID_APP
+   * - IOS_APP
+   * - WEB_APP
+   * - EXTERNAL_DATA
+   * - APPIUM_JAVA_JUNIT_TEST_PACKAGE
+   * - APPIUM_JAVA_TESTNG_TEST_PACKAGE
+   * - APPIUM_PYTHON_TEST_PACKAGE
+   * - APPIUM_NODE_TEST_PACKAGE
+   * - APPIUM_RUBY_TEST_PACKAGE
+   * - APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+   * - APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+   * - APPIUM_WEB_PYTHON_TEST_PACKAGE
+   * - APPIUM_WEB_NODE_TEST_PACKAGE
+   * - APPIUM_WEB_RUBY_TEST_PACKAGE
+   * - INSTRUMENTATION_TEST_PACKAGE
+   * - XCTEST_TEST_PACKAGE
+   * - XCTEST_UI_TEST_PACKAGE
+   * - APPIUM_JAVA_JUNIT_TEST_SPEC
+   * - APPIUM_JAVA_TESTNG_TEST_SPEC
+   * - APPIUM_PYTHON_TEST_SPEC
+   * - APPIUM_NODE_TEST_SPEC
+   * - APPIUM_RUBY_TEST_SPEC
+   * - APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+   * - APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+   * - APPIUM_WEB_PYTHON_TEST_SPEC
+   * - APPIUM_WEB_NODE_TEST_SPEC
+   * - APPIUM_WEB_RUBY_TEST_SPEC
+   * - INSTRUMENTATION_TEST_SPEC
+   * - XCTEST_UI_TEST_SPEC
+   *
    * @public
    */
   type?: UploadType | undefined;
 
   /**
-   * <p>The upload's status.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>INITIALIZED</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                <p>SUCCEEDED</p>
-   *             </li>
-   *          </ul>
+   * The upload's status.
+   *
+   * Must be one of the following values:
+   *
+   * - FAILED
+   * - INITIALIZED
+   * - PROCESSING
+   * - SUCCEEDED
+   *
    * @public
    */
   status?: UploadStatus | undefined;
 
   /**
-   * <p>The presigned Amazon S3 URL that was used to store a file using a PUT request.</p>
+   * The presigned Amazon S3 URL that was used to store a file using a PUT request.
+   *
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The upload's metadata. For example, for Android, this contains information that is
-   *             parsed from the manifest and is displayed in the AWS Device Farm console after the
-   *             associated app is uploaded.</p>
+   * The upload's metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
+   *
    * @public
    */
   metadata?: string | undefined;
 
   /**
-   * <p>The upload's content type (for example, <code>application/octet-stream</code>).</p>
+   * The upload's content type (for example, `application/octet-stream`).
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>A message about the upload's result.</p>
+   * A message about the upload's result.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The upload's category. Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CURATED: An upload managed by AWS Device Farm.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRIVATE: An upload managed by the AWS Device Farm customer.</p>
-   *             </li>
-   *          </ul>
+   * The upload's category. Allowed values include:
+   *
+   * - CURATED: An upload managed by AWS Device Farm.
+   * - PRIVATE: An upload managed by the AWS Device Farm customer.
+   *
    * @public
    */
   category?: UploadCategory | undefined;
 }
 
 /**
- * <p>Represents the result of a create upload request.</p>
+ * Represents the result of a create upload request.
+ *
  * @public
  */
 export interface CreateUploadResult {
   /**
-   * <p>The newly created upload.</p>
+   * The newly created upload.
+   *
    * @public
    */
   upload?: Upload | undefined;
@@ -2003,65 +1907,71 @@ export interface CreateUploadResult {
  */
 export interface CreateVPCEConfigurationRequest {
   /**
-   * <p>The friendly name you give to your VPC endpoint configuration, to manage your
-   *             configurations more easily.</p>
+   * The friendly name you give to your VPC endpoint configuration, to manage your configurations more easily.
+   *
    * @public
    */
   vpceConfigurationName: string | undefined;
 
   /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   * The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+   *
    * @public
    */
   vpceServiceName: string | undefined;
 
   /**
-   * <p>The DNS name of the service running in your VPC that you want Device Farm to
-   *             test.</p>
+   * The DNS name of the service running in your VPC that you want Device Farm to test.
+   *
    * @public
    */
   serviceDnsName: string | undefined;
 
   /**
-   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
+   * An optional description that provides details about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfigurationDescription?: string | undefined;
 }
 
 /**
- * <p>Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
+ * Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.
+ *
  * @public
  */
 export interface VPCEConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration.</p>
+   * The Amazon Resource Name (ARN) of the VPC endpoint configuration.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
-   *             easily.</p>
+   * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+   *
    * @public
    */
   vpceConfigurationName?: string | undefined;
 
   /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   * The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+   *
    * @public
    */
   vpceServiceName?: string | undefined;
 
   /**
-   * <p>The DNS name that maps to the private IP address of the service you want to
-   *             access.</p>
+   * The DNS name that maps to the private IP address of the service you want to access.
+   *
    * @public
    */
   serviceDnsName?: string | undefined;
 
   /**
-   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
+   * An optional description that provides details about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfigurationDescription?: string | undefined;
@@ -2072,58 +1982,62 @@ export interface VPCEConfiguration {
  */
 export interface CreateVPCEConfigurationResult {
   /**
-   * <p>An object that contains information about your VPC endpoint configuration.</p>
+   * An object that contains information about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfiguration?: VPCEConfiguration | undefined;
 }
 
 /**
- * <p>A JSON object that specifies the paths where the artifacts generated by the customer's tests, on the
- *             device or in the test environment, are pulled from.</p>
- *          <p>Specify <code>deviceHostPaths</code> and optionally specify either
- *                 <code>iosPaths</code> or <code>androidPaths</code>.</p>
- *          <p>For web app tests, you can specify both <code>iosPaths</code> and
- *                 <code>androidPaths</code>.</p>
+ * A JSON object that specifies the paths where the artifacts generated by the customer's tests, on the device or in the test environment, are pulled from.
+ *
+ * Specify `deviceHostPaths` and optionally specify either `iosPaths` or `androidPaths`.
+ *
+ * For web app tests, you can specify both `iosPaths` and `androidPaths`.
+ *
  * @public
  */
 export interface CustomerArtifactPaths {
   /**
-   * <p>Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests
-   *             are pulled from.</p>
+   * Comma-separated list of paths on the iOS device where the artifacts generated by the customer's tests are pulled from.
+   *
    * @public
    */
   iosPaths?: string[] | undefined;
 
   /**
-   * <p>Comma-separated list of paths on the Android device where the artifacts generated by the customer's
-   *             tests are pulled from.</p>
+   * Comma-separated list of paths on the Android device where the artifacts generated by the customer's tests are pulled from.
+   *
    * @public
    */
   androidPaths?: string[] | undefined;
 
   /**
-   * <p>Comma-separated list of paths in the test execution environment where the artifacts generated by the
-   *             customer's tests are pulled from.</p>
+   * Comma-separated list of paths in the test execution environment where the artifacts generated by the customer's tests are pulled from.
+   *
    * @public
    */
   deviceHostPaths?: string[] | undefined;
 }
 
 /**
- * <p>Represents a request to the delete device pool operation.</p>
+ * Represents a request to the delete device pool operation.
+ *
  * @public
  */
 export interface DeleteDevicePoolRequest {
   /**
-   * <p>Represents the Amazon Resource Name (ARN) of the Device Farm device pool to delete.</p>
+   * Represents the Amazon Resource Name (ARN) of the Device Farm device pool to delete.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a delete device pool request.</p>
+ * Represents the result of a delete device pool request.
+ *
  * @public
  */
 export interface DeleteDevicePoolResult {}
@@ -2133,8 +2047,8 @@ export interface DeleteDevicePoolResult {}
  */
 export interface DeleteInstanceProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile you are requesting to
-   *             delete.</p>
+   * The Amazon Resource Name (ARN) of the instance profile you are requesting to delete.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2150,7 +2064,8 @@ export interface DeleteInstanceProfileResult {}
  */
 export interface DeleteNetworkProfileRequest {
   /**
-   * <p>The ARN of the network profile to delete.</p>
+   * The ARN of the network profile to delete.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2162,57 +2077,64 @@ export interface DeleteNetworkProfileRequest {
 export interface DeleteNetworkProfileResult {}
 
 /**
- * <p>Represents a request to the delete project operation.</p>
+ * Represents a request to the delete project operation.
+ *
  * @public
  */
 export interface DeleteProjectRequest {
   /**
-   * <p>Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.</p>
+   * Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a delete project request.</p>
+ * Represents the result of a delete project request.
+ *
  * @public
  */
 export interface DeleteProjectResult {}
 
 /**
- * <p>Represents the request to delete the specified remote access session.</p>
+ * Represents the request to delete the specified remote access session.
+ *
  * @public
  */
 export interface DeleteRemoteAccessSessionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the session for which you want to delete remote
-   *             access.</p>
+   * The Amazon Resource Name (ARN) of the session for which you want to delete remote access.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>The response from the server when a request is made to delete the remote access
- *             session.</p>
+ * The response from the server when a request is made to delete the remote access session.
+ *
  * @public
  */
 export interface DeleteRemoteAccessSessionResult {}
 
 /**
- * <p>Represents a request to the delete run operation.</p>
+ * Represents a request to the delete run operation.
+ *
  * @public
  */
 export interface DeleteRunRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the run to delete.</p>
+   * The Amazon Resource Name (ARN) for the run to delete.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a delete run request.</p>
+ * Represents the result of a delete run request.
+ *
  * @public
  */
 export interface DeleteRunResult {}
@@ -2222,7 +2144,8 @@ export interface DeleteRunResult {}
  */
 export interface DeleteTestGridProjectRequest {
   /**
-   * <p>The ARN of the project to delete, from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
+   * The ARN of the project to delete, from CreateTestGridProject or ListTestGridProjects.
+   *
    * @public
    */
   projectArn: string | undefined;
@@ -2234,19 +2157,22 @@ export interface DeleteTestGridProjectRequest {
 export interface DeleteTestGridProjectResult {}
 
 /**
- * <p>Represents a request to the delete upload operation.</p>
+ * Represents a request to the delete upload operation.
+ *
  * @public
  */
 export interface DeleteUploadRequest {
   /**
-   * <p>Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.</p>
+   * Represents the Amazon Resource Name (ARN) of the Device Farm upload to delete.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a delete upload request.</p>
+ * Represents the result of a delete upload request.
+ *
  * @public
  */
 export interface DeleteUploadResult {}
@@ -2256,8 +2182,8 @@ export interface DeleteUploadResult {}
  */
 export interface DeleteVPCEConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
-   *             delete.</p>
+   * The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to delete.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2269,43 +2195,49 @@ export interface DeleteVPCEConfigurationRequest {
 export interface DeleteVPCEConfigurationResult {}
 
 /**
- * <p>Represents the request sent to retrieve the account settings.</p>
+ * Represents the request sent to retrieve the account settings.
+ *
  * @public
  */
 export interface GetAccountSettingsRequest {}
 
 /**
- * <p>Represents the account settings return values from the
- *                 <code>GetAccountSettings</code> request.</p>
+ * Represents the account settings return values from the `GetAccountSettings` request.
+ *
  * @public
  */
 export interface GetAccountSettingsResult {
   /**
-   * <p>The account settings.</p>
+   * The account settings.
+   *
    * @public
    */
   accountSettings?: AccountSettings | undefined;
 }
 
 /**
- * <p>Represents a request to the get device request.</p>
+ * Represents a request to the get device request.
+ *
  * @public
  */
 export interface GetDeviceRequest {
   /**
-   * <p>The device type's ARN.</p>
+   * The device type's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a get device request.</p>
+ * Represents the result of a get device request.
+ *
  * @public
  */
 export interface GetDeviceResult {
   /**
-   * <p>An object that contains information about the requested device.</p>
+   * An object that contains information about the requested device.
+   *
    * @public
    */
   device?: Device | undefined;
@@ -2316,8 +2248,8 @@ export interface GetDeviceResult {
  */
 export interface GetDeviceInstanceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance you're requesting information
-   *             about.</p>
+   * The Amazon Resource Name (ARN) of the instance you're requesting information about.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2328,491 +2260,423 @@ export interface GetDeviceInstanceRequest {
  */
 export interface GetDeviceInstanceResult {
   /**
-   * <p>An object that contains information about your device instance.</p>
+   * An object that contains information about your device instance.
+   *
    * @public
    */
   deviceInstance?: DeviceInstance | undefined;
 }
 
 /**
- * <p>Represents a request to the get device pool operation.</p>
+ * Represents a request to the get device pool operation.
+ *
  * @public
  */
 export interface GetDevicePoolRequest {
   /**
-   * <p>The device pool's ARN.</p>
+   * The device pool's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a get device pool request.</p>
+ * Represents the result of a get device pool request.
+ *
  * @public
  */
 export interface GetDevicePoolResult {
   /**
-   * <p>An object that contains information about the requested device pool.</p>
+   * An object that contains information about the requested device pool.
+   *
    * @public
    */
   devicePool?: DevicePool | undefined;
 }
 
 /**
- * <p>Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for
- *             example, 47.6204, -122.3491).</p>
- *          <p>Elevation is currently not supported.</p>
+ * Represents a latitude and longitude pair, expressed in geographic coordinate system degrees (for example, 47.6204, -122.3491).
+ *
+ * Elevation is currently not supported.
+ *
  * @public
  */
 export interface Location {
   /**
-   * <p>The latitude.</p>
+   * The latitude.
+   *
    * @public
    */
   latitude: number | undefined;
 
   /**
-   * <p>The longitude.</p>
+   * The longitude.
+   *
    * @public
    */
   longitude: number | undefined;
 }
 
 /**
- * <p>Represents the set of radios and their states on a device. Examples of radios
- *             include Wi-Fi, GPS, Bluetooth, and NFC.</p>
+ * Represents the set of radios and their states on a device. Examples of radios include Wi-Fi, GPS, Bluetooth, and NFC.
+ *
  * @public
  */
 export interface Radios {
   /**
-   * <p>True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.</p>
+   * True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.
+   *
    * @public
    */
   wifi?: boolean | undefined;
 
   /**
-   * <p>True if Bluetooth is enabled at the beginning of the test. Otherwise, false.</p>
+   * True if Bluetooth is enabled at the beginning of the test. Otherwise, false.
+   *
    * @public
    */
   bluetooth?: boolean | undefined;
 
   /**
-   * <p>True if NFC is enabled at the beginning of the test. Otherwise, false.</p>
+   * True if NFC is enabled at the beginning of the test. Otherwise, false.
+   *
    * @public
    */
   nfc?: boolean | undefined;
 
   /**
-   * <p>True if GPS is enabled at the beginning of the test. Otherwise, false.</p>
+   * True if GPS is enabled at the beginning of the test. Otherwise, false.
+   *
    * @public
    */
   gps?: boolean | undefined;
 }
 
 /**
- * <p>Represents the settings for a run. Includes things like location, radio states,
- *             auxiliary apps, and network profiles.</p>
+ * Represents the settings for a run. Includes things like location, radio states, auxiliary apps, and network profiles.
+ *
  * @public
  */
 export interface ScheduleRunConfiguration {
   /**
-   * <p>The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to
-   *             external data for Android or the app's sandbox for iOS.</p>
+   * The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
+   *
    * @public
    */
   extraDataPackageArn?: string | undefined;
 
   /**
-   * <p>Reserved for internal use.</p>
+   * Reserved for internal use.
+   *
    * @public
    */
   networkProfileArn?: string | undefined;
 
   /**
-   * <p>Information about the locale that is used for the run.</p>
+   * Information about the locale that is used for the run.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>Information about the location that is used for the run.</p>
+   * Information about the location that is used for the run.
+   *
    * @public
    */
   location?: Location | undefined;
 
   /**
-   * <p>An array of ARNs for your VPC endpoint configurations.</p>
+   * An array of ARNs for your VPC endpoint configurations.
+   *
    * @public
    */
   vpceConfigurationArns?: string[] | undefined;
 
   /**
-   * <p>The device proxy to be configured on the device for the run.</p>
+   * The device proxy to be configured on the device for the run.
+   *
    * @public
    */
   deviceProxy?: DeviceProxy | undefined;
 
   /**
-   * <p>Input <code>CustomerArtifactPaths</code> object for the scheduled run
-   *             configuration.</p>
+   * Input `CustomerArtifactPaths` object for the scheduled run configuration.
+   *
    * @public
    */
   customerArtifactPaths?: CustomerArtifactPaths | undefined;
 
   /**
-   * <p>Information about the radio states for the run.</p>
+   * Information about the radio states for the run.
+   *
    * @public
    */
   radios?: Radios | undefined;
 
   /**
-   * <p>A list of upload ARNs for app packages to be installed with your app.</p>
+   * A list of upload ARNs for app packages to be installed with your app.
+   *
    * @public
    */
   auxiliaryApps?: string[] | undefined;
 
   /**
-   * <p>Specifies the billing method for a test run: <code>metered</code> or
-   *                 <code>unmetered</code>. If the parameter is not specified, the default value is
-   *                 <code>metered</code>.</p>
-   *          <note>
-   *             <p>If you have purchased unmetered device slots, you must set this parameter to <code>unmetered</code> to
-   *                 make use of them. Otherwise, your run counts against your metered time.</p>
-   *          </note>
+   * Specifies the billing method for a test run: `metered` or `unmetered`. If the parameter is not specified, the default value is `metered`.
+   *
+   * > **Note:** If you have purchased unmetered device slots, you must set this parameter to `unmetered` to make use of them. Otherwise, your run counts against your metered time.
+   *
    * @public
    */
   billingMethod?: BillingMethod | undefined;
 
   /**
-   * <p>Environment variables associated with the run.</p>
+   * Environment variables associated with the run.
+   *
    * @public
    */
   environmentVariables?: EnvironmentVariable[] | undefined;
 
   /**
-   * <p>An IAM role to be assumed by the test host for the run.</p>
+   * An IAM role to be assumed by the test host for the run.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>The types of insights to generate for a run. Specify one or more values to opt in to
-   *             insights generation when scheduling a run.</p>
-   *          <p>Insights are currently supported for custom mode runs with Instrumentation, Appium Java TestNG,
-   *             and XCTest UI test types.</p>
+   * The types of insights to generate for a run. Specify one or more values to opt in to insights generation when scheduling a run.
+   *
+   * Insights are currently supported for custom mode runs with Instrumentation, Appium Java TestNG, and XCTest UI test types.
+   *
    * @public
    */
   insightsTypes?: InsightsType[] | undefined;
 }
 
 /**
- * <p>Represents test settings. This data structure is passed in as the test parameter to ScheduleRun. For an
- *             example of the JSON request syntax, see <a>ScheduleRun</a>.</p>
+ * Represents test settings. This data structure is passed in as the test parameter to ScheduleRun. For an example of the JSON request syntax, see ScheduleRun.
+ *
  * @public
  */
 export interface ScheduleRunTest {
   /**
-   * <p>The test's type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>BUILTIN_FUZZ</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI</p>
-   *             </li>
-   *          </ul>
+   * The test's type.
+   *
+   * Must be one of the following values:
+   *
+   * - BUILTIN_FUZZ
+   * - APPIUM_JAVA_JUNIT
+   * - APPIUM_JAVA_TESTNG
+   * - APPIUM_PYTHON
+   * - APPIUM_NODE
+   * - APPIUM_RUBY
+   * - APPIUM_WEB_JAVA_JUNIT
+   * - APPIUM_WEB_JAVA_TESTNG
+   * - APPIUM_WEB_PYTHON
+   * - APPIUM_WEB_NODE
+   * - APPIUM_WEB_RUBY
+   * - INSTRUMENTATION
+   * - XCTEST
+   * - XCTEST_UI
+   *
    * @public
    */
   type: TestType | undefined;
 
   /**
-   * <p>The ARN of the uploaded test to be run.</p>
+   * The ARN of the uploaded test to be run.
+   *
    * @public
    */
   testPackageArn?: string | undefined;
 
   /**
-   * <p>The ARN of the YAML-formatted test specification.</p>
+   * The ARN of the YAML-formatted test specification.
+   *
    * @public
    */
   testSpecArn?: string | undefined;
 
   /**
-   * <p>The test's filter.</p>
+   * The test's filter.
+   *
    * @public
    */
   filter?: string | undefined;
 
   /**
-   * <p>The test's parameters, such as test framework parameters and fixture settings.
-   *             Parameters are represented by name-value pairs of strings.</p>
-   *          <p>For fuzz tests (Android only):</p>
-   *          <ul>
-   *             <li>
-   *                <p>event_count: The number of events, between 1 and 10000, that the UI fuzz
-   *                     test should perform.</p>
-   *             </li>
-   *             <li>
-   *                <p>throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should
-   *                     wait between events.</p>
-   *             </li>
-   *             <li>
-   *                <p>seed: A seed to use for randomizing the UI fuzz test. Using the same seed
-   *                     value between tests ensures identical event sequences.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For Instrumentation:</p>
-   *          <ul>
-   *             <li>
-   *                <p>filter: A test filter string. Examples:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Running a single test case: <code>com.android.abc.Test1</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Running a single test: <code>com.android.abc.Test1#smoke</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Running multiple tests:
-   *                             <code>com.android.abc.Test1,com.android.abc.Test2</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *          <p>For XCTest and XCTestUI:</p>
-   *          <ul>
-   *             <li>
-   *                <p>filter: A test filter string. Examples:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Running a single test class: <code>LoginTests</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Running a multiple test classes: <code>LoginTests,SmokeTests</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Running a single test: <code>LoginTests/testValid</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Running multiple tests:
-   *                             <code>LoginTests/testValid,LoginTests/testInvalid</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * The test's parameters, such as test framework parameters and fixture settings. Parameters are represented by name-value pairs of strings.
+   *
+   * For fuzz tests (Android only):
+   *
+   * - event_count: The number of events, between 1 and 10000, that the UI fuzz test should perform.
+   * - throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between events.
+   * - seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
+   *
+   * For Instrumentation:
+   *
+   * - filter: A test filter string. Examples:
+   *
+   *   - Running a single test case: `com.android.abc.Test1`
+   *   - Running a single test: `com.android.abc.Test1#smoke`
+   *   - Running multiple tests: `com.android.abc.Test1,com.android.abc.Test2`
+   *
+   * For XCTest and XCTestUI:
+   *
+   * - filter: A test filter string. Examples:
+   *
+   *   - Running a single test class: `LoginTests`
+   *   - Running a multiple test classes: `LoginTests,SmokeTests`
+   *   - Running a single test: `LoginTests/testValid`
+   *   - Running multiple tests: `LoginTests/testValid,LoginTests/testInvalid`
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Represents a request to the get device pool compatibility operation.</p>
+ * Represents a request to the get device pool compatibility operation.
+ *
  * @public
  */
 export interface GetDevicePoolCompatibilityRequest {
   /**
-   * <p>The device pool's ARN.</p>
+   * The device pool's ARN.
+   *
    * @public
    */
   devicePoolArn: string | undefined;
 
   /**
-   * <p>The ARN of the app that is associated with the specified device pool.</p>
+   * The ARN of the app that is associated with the specified device pool.
+   *
    * @public
    */
   appArn?: string | undefined;
 
   /**
-   * <p>The test type for the specified device pool.</p>
-   *          <p>Allowed values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>BUILTIN_FUZZ.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE.</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY.</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION.</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST.</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI.</p>
-   *             </li>
-   *          </ul>
+   * The test type for the specified device pool.
+   *
+   * Allowed values include the following:
+   *
+   * - BUILTIN_FUZZ.
+   * - APPIUM_JAVA_JUNIT.
+   * - APPIUM_JAVA_TESTNG.
+   * - APPIUM_PYTHON.
+   * - APPIUM_NODE.
+   * - APPIUM_RUBY.
+   * - APPIUM_WEB_JAVA_JUNIT.
+   * - APPIUM_WEB_JAVA_TESTNG.
+   * - APPIUM_WEB_PYTHON.
+   * - APPIUM_WEB_NODE.
+   * - APPIUM_WEB_RUBY.
+   * - INSTRUMENTATION.
+   * - XCTEST.
+   * - XCTEST_UI.
+   *
    * @public
    */
   testType?: TestType | undefined;
 
   /**
-   * <p>Information about the uploaded test to be run against the device pool.</p>
+   * Information about the uploaded test to be run against the device pool.
+   *
    * @public
    */
   test?: ScheduleRunTest | undefined;
 
   /**
-   * <p>An object that contains information about the settings for a run.</p>
+   * An object that contains information about the settings for a run.
+   *
    * @public
    */
   configuration?: ScheduleRunConfiguration | undefined;
 
   /**
-   * <p>The ARN of the project for which you want to check
-   *             device pool compatibility.</p>
+   * The ARN of the project for which you want to check device pool compatibility.
+   *
    * @public
    */
   projectArn?: string | undefined;
 }
 
 /**
- * <p>Represents information about incompatibility.</p>
+ * Represents information about incompatibility.
+ *
  * @public
  */
 export interface IncompatibilityMessage {
   /**
-   * <p>A message about the incompatibility.</p>
+   * A message about the incompatibility.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The type of incompatibility.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ARN</p>
-   *             </li>
-   *             <li>
-   *                <p>FORM_FACTOR (for example, phone or tablet)</p>
-   *             </li>
-   *             <li>
-   *                <p>MANUFACTURER</p>
-   *             </li>
-   *             <li>
-   *                <p>PLATFORM (for example, Android or iOS)</p>
-   *             </li>
-   *             <li>
-   *                <p>REMOTE_ACCESS_ENABLED</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_VERSION</p>
-   *             </li>
-   *          </ul>
+   * The type of incompatibility.
+   *
+   * Allowed values include:
+   *
+   * - ARN
+   * - FORM_FACTOR (for example, phone or tablet)
+   * - MANUFACTURER
+   * - PLATFORM (for example, Android or iOS)
+   * - REMOTE_ACCESS_ENABLED
+   * - APPIUM_VERSION
+   *
    * @public
    */
   type?: DeviceAttribute | undefined;
 }
 
 /**
- * <p>Represents a device pool compatibility result.</p>
+ * Represents a device pool compatibility result.
+ *
  * @public
  */
 export interface DevicePoolCompatibilityResult {
   /**
-   * <p>The device (phone or tablet) to return information about.</p>
+   * The device (phone or tablet) to return information about.
+   *
    * @public
    */
   device?: Device | undefined;
 
   /**
-   * <p>Whether the result was compatible with the device pool.</p>
+   * Whether the result was compatible with the device pool.
+   *
    * @public
    */
   compatible?: boolean | undefined;
 
   /**
-   * <p>Information about the compatibility.</p>
+   * Information about the compatibility.
+   *
    * @public
    */
   incompatibilityMessages?: IncompatibilityMessage[] | undefined;
 }
 
 /**
- * <p>Represents the result of describe device pool compatibility request.</p>
+ * Represents the result of describe device pool compatibility request.
+ *
  * @public
  */
 export interface GetDevicePoolCompatibilityResult {
   /**
-   * <p>Information about compatible devices.</p>
+   * Information about compatible devices.
+   *
    * @public
    */
   compatibleDevices?: DevicePoolCompatibilityResult[] | undefined;
 
   /**
-   * <p>Information about incompatible devices.</p>
+   * Information about incompatible devices.
+   *
    * @public
    */
   incompatibleDevices?: DevicePoolCompatibilityResult[] | undefined;
@@ -2823,7 +2687,8 @@ export interface GetDevicePoolCompatibilityResult {
  */
 export interface GetInstanceProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of an instance profile.</p>
+   * The Amazon Resource Name (ARN) of an instance profile.
+   *
    * @public
    */
   arn: string | undefined;
@@ -2834,334 +2699,313 @@ export interface GetInstanceProfileRequest {
  */
 export interface GetInstanceProfileResult {
   /**
-   * <p>An object that contains information about an instance profile.</p>
+   * An object that contains information about an instance profile.
+   *
    * @public
    */
   instanceProfile?: InstanceProfile | undefined;
 }
 
 /**
- * <p>Represents a request to the get job operation.</p>
+ * Represents a request to the get job operation.
+ *
  * @public
  */
 export interface GetJobRequest {
   /**
-   * <p>The job's ARN.</p>
+   * The job's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Contains aggregated metrics across all tests in a job.</p>
+ * Contains aggregated metrics across all tests in a job.
+ *
  * @public
  */
 export interface TestReportMetrics {
   /**
-   * <p>The total number of tests in the job.</p>
+   * The total number of tests in the job.
+   *
    * @public
    */
   testsTotal?: number | undefined;
 
   /**
-   * <p>The number of tests that passed.</p>
+   * The number of tests that passed.
+   *
    * @public
    */
   testsPassed?: number | undefined;
 
   /**
-   * <p>The number of tests that failed.</p>
+   * The number of tests that failed.
+   *
    * @public
    */
   testsFailed?: number | undefined;
 
   /**
-   * <p>The number of tests that were skipped.</p>
+   * The number of tests that were skipped.
+   *
    * @public
    */
   testsSkipped?: number | undefined;
 
   /**
-   * <p>The number of tests that errored.</p>
+   * The number of tests that errored.
+   *
    * @public
    */
   testsErrored?: number | undefined;
 
   /**
-   * <p>The number of tests with other result types.</p>
+   * The number of tests with other result types.
+   *
    * @public
    */
   testsOther?: number | undefined;
 
   /**
-   * <p>The percentage of tests that passed.</p>
+   * The percentage of tests that passed.
+   *
    * @public
    */
   testsPassedPercentage?: number | undefined;
 
   /**
-   * <p>The total execution duration of all tests in the job, in seconds.</p>
+   * The total execution duration of all tests in the job, in seconds.
+   *
    * @public
    */
   totalTestExecutionDurationSeconds?: number | undefined;
 
   /**
-   * <p>The median execution duration of tests in the job, in seconds.</p>
+   * The median execution duration of tests in the job, in seconds.
+   *
    * @public
    */
   medianTestExecutionDurationSeconds?: number | undefined;
 }
 
 /**
- * <p>Contains aggregated test-level metrics for a job.</p>
+ * Contains aggregated test-level metrics for a job.
+ *
  * @public
  */
 export interface TestReport {
   /**
-   * <p>A message associated with the test report.</p>
+   * A message associated with the test report.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The aggregated test-level metrics for the job.</p>
+   * The aggregated test-level metrics for the job.
+   *
    * @public
    */
   metrics?: TestReportMetrics | undefined;
 
   /**
-   * <p>A URL to the detailed test results.</p>
+   * A URL to the detailed test results.
+   *
    * @public
    */
   testDetailsUrl?: string | undefined;
 }
 
 /**
- * <p>Contains insights for a job, including report status, and test-level aggregated metrics such as per test execution time and median test execution time.</p>
+ * Contains insights for a job, including report status, and test-level aggregated metrics such as per test execution time and median test execution time.
+ *
  * @public
  */
 export interface JobInsights {
   /**
-   * <p>The status of the insights report for the job.</p>
+   * The status of the insights report for the job.
+   *
    * @public
    */
   status?: ReportStatus | undefined;
 
   /**
-   * <p>The test-level aggregated report for the job.</p>
+   * The test-level aggregated report for the job.
+   *
    * @public
    */
   testReport?: TestReport | undefined;
 }
 
 /**
- * <p>Represents a device.</p>
+ * Represents a device.
+ *
  * @public
  */
 export interface Job {
   /**
-   * <p>The job's ARN.</p>
+   * The job's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The job's name.</p>
+   * The job's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The job's type.</p>
-   *          <p>Allowed values include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>BUILTIN_FUZZ</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI</p>
-   *             </li>
-   *          </ul>
+   * The job's type.
+   *
+   * Allowed values include the following:
+   *
+   * - BUILTIN_FUZZ
+   * - APPIUM_JAVA_JUNIT
+   * - APPIUM_JAVA_TESTNG
+   * - APPIUM_PYTHON
+   * - APPIUM_NODE
+   * - APPIUM_RUBY
+   * - APPIUM_WEB_JAVA_JUNIT
+   * - APPIUM_WEB_JAVA_TESTNG
+   * - APPIUM_WEB_PYTHON
+   * - APPIUM_WEB_NODE
+   * - APPIUM_WEB_RUBY
+   * - INSTRUMENTATION
+   * - XCTEST
+   * - XCTEST_UI
+   *
    * @public
    */
   type?: TestType | undefined;
 
   /**
-   * <p>When the job was created.</p>
+   * When the job was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The job's status.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPING</p>
-   *             </li>
-   *          </ul>
+   * The job's status.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PENDING_CONCURRENCY
+   * - PENDING_DEVICE
+   * - PROCESSING
+   * - SCHEDULING
+   * - PREPARING
+   * - RUNNING
+   * - COMPLETED
+   * - STOPPING
+   *
    * @public
    */
   status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The job's result.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * The job's result.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PASSED
+   * - WARNED
+   * - FAILED
+   * - SKIPPED
+   * - ERRORED
+   * - STOPPED
+   *
    * @public
    */
   result?: ExecutionResult | undefined;
 
   /**
-   * <p>The job's start time.</p>
+   * The job's start time.
+   *
    * @public
    */
   started?: Date | undefined;
 
   /**
-   * <p>The job's stop time.</p>
+   * The job's stop time.
+   *
    * @public
    */
   stopped?: Date | undefined;
 
   /**
-   * <p>The job's result counters.</p>
+   * The job's result counters.
+   *
    * @public
    */
   counters?: Counters | undefined;
 
   /**
-   * <p>A message about the job's result.</p>
+   * A message about the job's result.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The device (phone or tablet).</p>
+   * The device (phone or tablet).
+   *
    * @public
    */
   device?: Device | undefined;
 
   /**
-   * <p>The ARN of the instance.</p>
+   * The ARN of the instance.
+   *
    * @public
    */
   instanceArn?: string | undefined;
 
   /**
-   * <p>Represents the total (metered or unmetered) minutes used by the job.</p>
+   * Represents the total (metered or unmetered) minutes used by the job.
+   *
    * @public
    */
   deviceMinutes?: DeviceMinutes | undefined;
 
   /**
-   * <p>The endpoint for streaming device video.</p>
+   * The endpoint for streaming device video.
+   *
    * @public
    */
   videoEndpoint?: string | undefined;
 
   /**
-   * <p>This value is set to true if video capture is enabled. Otherwise, it is set to false.</p>
+   * This value is set to true if video capture is enabled. Otherwise, it is set to false.
+   *
    * @public
    */
   videoCapture?: boolean | undefined;
 
   /**
-   * <p>The insights for the job, including the report status and test-level metrics. This field contains data only if you specified <code>insightsTypes</code> when you scheduled the run.</p>
+   * The insights for the job, including the report status and test-level metrics. This field contains data only if you specified `insightsTypes` when you scheduled the run.
+   *
    * @public
    */
   insights?: JobInsights | undefined;
 }
 
 /**
- * <p>Represents the result of a get job request.</p>
+ * Represents the result of a get job request.
+ *
  * @public
  */
 export interface GetJobResult {
   /**
-   * <p>An object that contains information about the requested job.</p>
+   * An object that contains information about the requested job.
+   *
    * @public
    */
   job?: Job | undefined;
@@ -3172,7 +3016,8 @@ export interface GetJobResult {
  */
 export interface GetNetworkProfileRequest {
   /**
-   * <p>The ARN of the network profile to return information about.</p>
+   * The ARN of the network profile to return information about.
+   *
    * @public
    */
   arn: string | undefined;
@@ -3183,1247 +3028,1141 @@ export interface GetNetworkProfileRequest {
  */
 export interface GetNetworkProfileResult {
   /**
-   * <p>The network profile.</p>
+   * The network profile.
+   *
    * @public
    */
   networkProfile?: NetworkProfile | undefined;
 }
 
 /**
- * <p>Represents the request to retrieve the offering status for the specified customer
- *             or account.</p>
+ * Represents the request to retrieve the offering status for the specified customer or account.
+ *
  * @public
  */
 export interface GetOfferingStatusRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>A number that represents the monetary amount for an offering or transaction.</p>
+ * A number that represents the monetary amount for an offering or transaction.
+ *
  * @public
  */
 export interface MonetaryAmount {
   /**
-   * <p>The numerical amount of an offering or transaction.</p>
+   * The numerical amount of an offering or transaction.
+   *
    * @public
    */
   amount?: number | undefined;
 
   /**
-   * <p>The currency code of a monetary amount. For example, <code>USD</code> means U.S. dollars.</p>
+   * The currency code of a monetary amount. For example, `USD` means U.S. dollars.
+   *
    * @public
    */
   currencyCode?: CurrencyCode | undefined;
 }
 
 /**
- * <p>Specifies whether charges for devices are recurring.</p>
+ * Specifies whether charges for devices are recurring.
+ *
  * @public
  */
 export interface RecurringCharge {
   /**
-   * <p>The cost of the recurring charge.</p>
+   * The cost of the recurring charge.
+   *
    * @public
    */
   cost?: MonetaryAmount | undefined;
 
   /**
-   * <p>The frequency in which charges recur.</p>
+   * The frequency in which charges recur.
+   *
    * @public
    */
   frequency?: RecurringChargeFrequency | undefined;
 }
 
 /**
- * <p>Represents the metadata of a device offering.</p>
+ * Represents the metadata of a device offering.
+ *
  * @public
  */
 export interface Offering {
   /**
-   * <p>The ID that corresponds to a device offering.</p>
+   * The ID that corresponds to a device offering.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>A string that describes the offering.</p>
+   * A string that describes the offering.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of offering (for example, <code>RECURRING</code>) for a device.</p>
+   * The type of offering (for example, `RECURRING`) for a device.
+   *
    * @public
    */
   type?: OfferingType | undefined;
 
   /**
-   * <p>The platform of the device (for example, <code>ANDROID</code> or <code>IOS</code>).</p>
+   * The platform of the device (for example, `ANDROID` or `IOS`).
+   *
    * @public
    */
   platform?: DevicePlatform | undefined;
 
   /**
-   * <p>Specifies whether there are recurring charges for the offering.</p>
+   * Specifies whether there are recurring charges for the offering.
+   *
    * @public
    */
   recurringCharges?: RecurringCharge[] | undefined;
 }
 
 /**
- * <p>The status of the offering.</p>
+ * The status of the offering.
+ *
  * @public
  */
 export interface OfferingStatus {
   /**
-   * <p>The type specified for the offering status.</p>
+   * The type specified for the offering status.
+   *
    * @public
    */
   type?: OfferingTransactionType | undefined;
 
   /**
-   * <p>Represents the metadata of an offering status.</p>
+   * Represents the metadata of an offering status.
+   *
    * @public
    */
   offering?: Offering | undefined;
 
   /**
-   * <p>The number of available devices in the offering.</p>
+   * The number of available devices in the offering.
+   *
    * @public
    */
   quantity?: number | undefined;
 
   /**
-   * <p>The date on which the offering is effective.</p>
+   * The date on which the offering is effective.
+   *
    * @public
    */
   effectiveOn?: Date | undefined;
 }
 
 /**
- * <p>Returns the status result for a device offering.</p>
+ * Returns the status result for a device offering.
+ *
  * @public
  */
 export interface GetOfferingStatusResult {
   /**
-   * <p>When specified, gets the offering status for the current period.</p>
+   * When specified, gets the offering status for the current period.
+   *
    * @public
    */
   current?: Record<string, OfferingStatus> | undefined;
 
   /**
-   * <p>When specified, gets the offering status for the next period.</p>
+   * When specified, gets the offering status for the next period.
+   *
    * @public
    */
   nextPeriod?: Record<string, OfferingStatus> | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the get project operation.</p>
+ * Represents a request to the get project operation.
+ *
  * @public
  */
 export interface GetProjectRequest {
   /**
-   * <p>The project's ARN.</p>
+   * The project's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a get project request.</p>
+ * Represents the result of a get project request.
+ *
  * @public
  */
 export interface GetProjectResult {
   /**
-   * <p>The project to get information about.</p>
+   * The project to get information about.
+   *
    * @public
    */
   project?: Project | undefined;
 }
 
 /**
- * <p>Represents the request to get information about the specified remote access
- *             session.</p>
+ * Represents the request to get information about the specified remote access session.
+ *
  * @public
  */
 export interface GetRemoteAccessSessionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the remote access session about which you want to
-   *             get session information.</p>
+   * The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the response from the server that lists detailed information about the
- *             remote access session.</p>
+ * Represents the response from the server that lists detailed information about the remote access session.
+ *
  * @public
  */
 export interface GetRemoteAccessSessionResult {
   /**
-   * <p>A container that lists detailed information about the remote access
-   *             session.</p>
+   * A container that lists detailed information about the remote access session.
+   *
    * @public
    */
   remoteAccessSession?: RemoteAccessSession | undefined;
 }
 
 /**
- * <p>Represents a request to the get run operation.</p>
+ * Represents a request to the get run operation.
+ *
  * @public
  */
 export interface GetRunRequest {
   /**
-   * <p>The run's ARN.</p>
+   * The run's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents a device filter used to select a set of devices to be included in a test
- *             run. This data structure is passed in as the <code>deviceSelectionConfiguration</code>
- *             parameter to <code>ScheduleRun</code>. For an example of the JSON request syntax, see
- *                 <a>ScheduleRun</a>.</p>
- *          <p>It is also passed in as the <code>filters</code> parameter to
- *             <code>ListDevices</code>. For an example of the JSON request syntax, see <a>ListDevices</a>.</p>
+ * Represents a device filter used to select a set of devices to be included in a test run. This data structure is passed in as the `deviceSelectionConfiguration` parameter to `ScheduleRun`. For an example of the JSON request syntax, see ScheduleRun.
+ *
+ * It is also passed in as the `filters` parameter to `ListDevices`. For an example of the JSON request syntax, see ListDevices.
+ *
  * @public
  */
 export interface DeviceFilter {
   /**
-   * <p>The aspect of a device such as platform or model used as the selection criteria in a
-   *             device filter.</p>
-   *          <p>The supported operators for each attribute are provided in the following list.</p>
-   *          <dl>
-   *             <dt>ARN</dt>
-   *             <dd>
-   *                <p>The Amazon Resource Name (ARN) of the device (for example,
-   *                             <code>arn:aws:devicefarm:us-west-2::device:12345Example</code>).</p>
-   *                <p>Supported operators: <code>EQUALS</code>, <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>PLATFORM</dt>
-   *             <dd>
-   *                <p>The device platform. Valid values are ANDROID or IOS.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>OS_VERSION</dt>
-   *             <dd>
-   *                <p>The operating system version (for example, 10.3.2).</p>
-   *                <p>Supported operators: <code>EQUALS</code>, <code>GREATER_THAN</code>,
-   *                             <code>GREATER_THAN_OR_EQUALS</code>, <code>IN</code>,
-   *                             <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>,
-   *                             <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>MODEL</dt>
-   *             <dd>
-   *                <p>The device model (for example, iPad 5th Gen).</p>
-   *                <p>Supported operators: <code>CONTAINS</code>, <code>EQUALS</code>,
-   *                             <code>IN</code>, <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>AVAILABILITY</dt>
-   *             <dd>
-   *                <p>The current availability of the device. Valid values are AVAILABLE,
-   *                         HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>FORM_FACTOR</dt>
-   *             <dd>
-   *                <p>The device form factor. Valid values are PHONE or TABLET.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>MANUFACTURER</dt>
-   *             <dd>
-   *                <p>The device manufacturer (for example, Apple).</p>
-   *                <p>Supported operators: <code>EQUALS</code>, <code>IN</code>,
-   *                             <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>REMOTE_ACCESS_ENABLED</dt>
-   *             <dd>
-   *                <p>Whether the device is enabled for remote access. Valid values are TRUE or
-   *                         FALSE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>REMOTE_DEBUG_ENABLED</dt>
-   *             <dd>
-   *                <p>Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *                <p>Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                         longer supported</a>, this filter is ignored.</p>
-   *             </dd>
-   *             <dt>INSTANCE_ARN</dt>
-   *             <dd>
-   *                <p>The Amazon Resource Name (ARN) of the device instance.</p>
-   *                <p>Supported operators: <code>EQUALS</code>, <code>IN</code>,
-   *                             <code>NOT_IN</code>
-   *                </p>
-   *             </dd>
-   *             <dt>INSTANCE_LABELS</dt>
-   *             <dd>
-   *                <p>The label of the device instance.</p>
-   *                <p>Supported operators: <code>CONTAINS</code>
-   *                </p>
-   *             </dd>
-   *             <dt>FLEET_TYPE</dt>
-   *             <dd>
-   *                <p>The fleet type. Valid values are PUBLIC or PRIVATE.</p>
-   *                <p>Supported operators: <code>EQUALS</code>
-   *                </p>
-   *             </dd>
-   *          </dl>
+   * The aspect of a device such as platform or model used as the selection criteria in a device filter.
+   *
+   * The supported operators for each attribute are provided in the following list.
+   *
+   * - **ARN**
+   *
+   *   The Amazon Resource Name (ARN) of the device (for example, `arn:aws:devicefarm:us-west-2::device:12345Example`).
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **PLATFORM**
+   *
+   *   The device platform. Valid values are ANDROID or IOS.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **OS_VERSION**
+   *
+   *   The operating system version (for example, 10.3.2).
+   *
+   *   Supported operators: `EQUALS`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `IN`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `NOT_IN`
+   *
+   * - **MODEL**
+   *
+   *   The device model (for example, iPad 5th Gen).
+   *
+   *   Supported operators: `CONTAINS`, `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **AVAILABILITY**
+   *
+   *   The current availability of the device. Valid values are AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **FORM_FACTOR**
+   *
+   *   The device form factor. Valid values are PHONE or TABLET.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **MANUFACTURER**
+   *
+   *   The device manufacturer (for example, Apple).
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **REMOTE_ACCESS_ENABLED**
+   *
+   *   Whether the device is enabled for remote access. Valid values are TRUE or FALSE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   * - **REMOTE_DEBUG_ENABLED**
+   *
+   *   Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE.
+   *
+   *   Supported operators: `EQUALS`
+   *
+   *   Because remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html), this filter is ignored.
+   *
+   * - **INSTANCE_ARN**
+   *
+   *   The Amazon Resource Name (ARN) of the device instance.
+   *
+   *   Supported operators: `EQUALS`, `IN`, `NOT_IN`
+   *
+   * - **INSTANCE_LABELS**
+   *
+   *   The label of the device instance.
+   *
+   *   Supported operators: `CONTAINS`
+   *
+   * - **FLEET_TYPE**
+   *
+   *   The fleet type. Valid values are PUBLIC or PRIVATE.
+   *
+   *   Supported operators: `EQUALS`
+   *
    * @public
    */
   attribute: DeviceFilterAttribute | undefined;
 
   /**
-   * <p>Specifies how Device Farm compares the filter's attribute to the value. See the attribute
-   *             descriptions.</p>
+   * Specifies how Device Farm compares the filter's attribute to the value. See the attribute descriptions.
+   *
    * @public
    */
   operator: RuleOperator | undefined;
 
   /**
-   * <p>An array of one or more filter values used in a device filter.</p>
-   *          <p class="title">
-   *             <b>Operator Values</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>The IN and NOT_IN operators can take a values array that has more than one
-   *                     element.</p>
-   *             </li>
-   *             <li>
-   *                <p>The other operators require an array with a single element.</p>
-   *             </li>
-   *          </ul>
-   *          <p class="title">
-   *             <b>Attribute Values</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>The PLATFORM attribute can be set to ANDROID or IOS.</p>
-   *             </li>
-   *             <li>
-   *                <p>The AVAILABILITY attribute can be set to AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
-   *                     TEMPORARY_NOT_AVAILABLE.</p>
-   *             </li>
-   *             <li>
-   *                <p>The FORM_FACTOR attribute can be set to PHONE or TABLET.</p>
-   *             </li>
-   *             <li>
-   *                <p>The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</p>
-   *             </li>
-   *          </ul>
+   * An array of one or more filter values used in a device filter.
+   *
+   * **Operator Values**
+   *
+   * - The IN and NOT_IN operators can take a values array that has more than one element.
+   * - The other operators require an array with a single element.
+   *
+   * **Attribute Values**
+   *
+   * - The PLATFORM attribute can be set to ANDROID or IOS.
+   * - The AVAILABILITY attribute can be set to AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   * - The FORM_FACTOR attribute can be set to PHONE or TABLET.
+   * - The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
+   *
    * @public
    */
   values: string[] | undefined;
 }
 
 /**
- * <p>Contains the run results requested by the device selection configuration and how many devices were
- *             returned. For an example of the JSON response syntax, see <a>ScheduleRun</a>.</p>
+ * Contains the run results requested by the device selection configuration and how many devices were returned. For an example of the JSON response syntax, see ScheduleRun.
+ *
  * @public
  */
 export interface DeviceSelectionResult {
   /**
-   * <p>The filters in a device selection result.</p>
+   * The filters in a device selection result.
+   *
    * @public
    */
   filters?: DeviceFilter[] | undefined;
 
   /**
-   * <p>The number of devices that matched the device filter selection criteria.</p>
+   * The number of devices that matched the device filter selection criteria.
+   *
    * @public
    */
   matchedDevicesCount?: number | undefined;
 
   /**
-   * <p>The maximum number of devices to be selected by a device filter and included in a test
-   *             run.</p>
+   * The maximum number of devices to be selected by a device filter and included in a test run.
+   *
    * @public
    */
   maxDevices?: number | undefined;
 }
 
 /**
- * <p>Contains aggregated metrics across all jobs in a run.</p>
+ * Contains aggregated metrics across all jobs in a run.
+ *
  * @public
  */
 export interface JobReportMetrics {
   /**
-   * <p>The total number of jobs in the run.</p>
+   * The total number of jobs in the run.
+   *
    * @public
    */
   jobsTotal?: number | undefined;
 
   /**
-   * <p>The number of jobs that passed.</p>
+   * The number of jobs that passed.
+   *
    * @public
    */
   jobsPassed?: number | undefined;
 
   /**
-   * <p>The number of jobs that failed.</p>
+   * The number of jobs that failed.
+   *
    * @public
    */
   jobsFailed?: number | undefined;
 
   /**
-   * <p>The number of jobs that were skipped.</p>
+   * The number of jobs that were skipped.
+   *
    * @public
    */
   jobsSkipped?: number | undefined;
 
   /**
-   * <p>The number of jobs that errored.</p>
+   * The number of jobs that errored.
+   *
    * @public
    */
   jobsErrored?: number | undefined;
 
   /**
-   * <p>The number of jobs that were stopped.</p>
+   * The number of jobs that were stopped.
+   *
    * @public
    */
   jobsStopped?: number | undefined;
 
   /**
-   * <p>The percentage of jobs that passed.</p>
+   * The percentage of jobs that passed.
+   *
    * @public
    */
   jobsPassedPercentage?: number | undefined;
 
   /**
-   * <p>The total execution duration of all jobs in the run, in seconds.</p>
+   * The total execution duration of all jobs in the run, in seconds.
+   *
    * @public
    */
   totalJobExecutionDurationSeconds?: number | undefined;
 
   /**
-   * <p>The average execution duration of jobs in the run, in seconds.</p>
+   * The average execution duration of jobs in the run, in seconds.
+   *
    * @public
    */
   averageJobExecutionDurationSeconds?: number | undefined;
 
   /**
-   * <p>The median execution duration of jobs in the run, in seconds.</p>
+   * The median execution duration of jobs in the run, in seconds.
+   *
    * @public
    */
   medianJobExecutionDurationSeconds?: number | undefined;
 }
 
 /**
- * <p>Contains aggregated job-level metrics for a run.</p>
+ * Contains aggregated job-level metrics for a run.
+ *
  * @public
  */
 export interface JobReport {
   /**
-   * <p>A message associated with the job report.</p>
+   * A message associated with the job report.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The aggregated job-level metrics for the run.</p>
+   * The aggregated job-level metrics for the run.
+   *
    * @public
    */
   metrics?: JobReportMetrics | undefined;
 
   /**
-   * <p>A URL to the detailed job results.</p>
+   * A URL to the detailed job results.
+   *
    * @public
    */
   jobDetailsUrl?: string | undefined;
 }
 
 /**
- * <p>Contains insights for a run, including report status, and job-level aggregated metrics such as per job execution time and median job execution time.</p>
+ * Contains insights for a run, including report status, and job-level aggregated metrics such as per job execution time and median job execution time.
+ *
  * @public
  */
 export interface RunInsights {
   /**
-   * <p>The status of the insights report for the run.</p>
+   * The status of the insights report for the run.
+   *
    * @public
    */
   status?: ReportStatus | undefined;
 
   /**
-   * <p>The job-level aggregated report for the run.</p>
+   * The job-level aggregated report for the run.
+   *
    * @public
    */
   jobReport?: JobReport | undefined;
 }
 
 /**
- * <p>Represents a test run on a set of devices with a given app package, test parameters, and so
- *             on.</p>
+ * Represents a test run on a set of devices with a given app package, test parameters, and so on.
+ *
  * @public
  */
 export interface Run {
   /**
-   * <p>The run's ARN.</p>
+   * The run's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The run's name.</p>
+   * The run's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The run's type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>BUILTIN_FUZZ</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI</p>
-   *             </li>
-   *          </ul>
+   * The run's type.
+   *
+   * Must be one of the following values:
+   *
+   * - BUILTIN_FUZZ
+   * - APPIUM_JAVA_JUNIT
+   * - APPIUM_JAVA_TESTNG
+   * - APPIUM_PYTHON
+   * - APPIUM_NODE
+   * - APPIUM_RUBY
+   * - APPIUM_WEB_JAVA_JUNIT
+   * - APPIUM_WEB_JAVA_TESTNG
+   * - APPIUM_WEB_PYTHON
+   * - APPIUM_WEB_NODE
+   * - APPIUM_WEB_RUBY
+   * - INSTRUMENTATION
+   * - XCTEST
+   * - XCTEST_UI
+   *
    * @public
    */
   type?: TestType | undefined;
 
   /**
-   * <p>The run's platform.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ANDROID</p>
-   *             </li>
-   *             <li>
-   *                <p>IOS</p>
-   *             </li>
-   *          </ul>
+   * The run's platform.
+   *
+   * Allowed values include:
+   *
+   * - ANDROID
+   * - IOS
+   *
    * @public
    */
   platform?: DevicePlatform | undefined;
 
   /**
-   * <p>When the run was created.</p>
+   * When the run was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The run's status.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPING</p>
-   *             </li>
-   *          </ul>
+   * The run's status.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PENDING_CONCURRENCY
+   * - PENDING_DEVICE
+   * - PROCESSING
+   * - SCHEDULING
+   * - PREPARING
+   * - RUNNING
+   * - COMPLETED
+   * - STOPPING
+   *
    * @public
    */
   status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The run's result.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * The run's result.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PASSED
+   * - WARNED
+   * - FAILED
+   * - SKIPPED
+   * - ERRORED
+   * - STOPPED
+   *
    * @public
    */
   result?: ExecutionResult | undefined;
 
   /**
-   * <p>The run's start time.</p>
+   * The run's start time.
+   *
    * @public
    */
   started?: Date | undefined;
 
   /**
-   * <p>The run's stop time.</p>
+   * The run's stop time.
+   *
    * @public
    */
   stopped?: Date | undefined;
 
   /**
-   * <p>The run's result counters.</p>
+   * The run's result counters.
+   *
    * @public
    */
   counters?: Counters | undefined;
 
   /**
-   * <p>A message about the run's result.</p>
+   * A message about the run's result.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>The total number of jobs for the run.</p>
+   * The total number of jobs for the run.
+   *
    * @public
    */
   totalJobs?: number | undefined;
 
   /**
-   * <p>The total number of completed jobs.</p>
+   * The total number of completed jobs.
+   *
    * @public
    */
   completedJobs?: number | undefined;
 
   /**
-   * <p>Specifies the billing method for a test run: <code>metered</code> or
-   *                 <code>unmetered</code>. If the parameter is not specified, the default value is
-   *                 <code>metered</code>.</p>
-   *          <note>
-   *             <p>If you have unmetered device slots, you must set this to <code>unmetered</code> to use them.
-   *                 Otherwise, the run is counted toward metered device minutes.</p>
-   *          </note>
+   * Specifies the billing method for a test run: `metered` or `unmetered`. If the parameter is not specified, the default value is `metered`.
+   *
+   * > **Note:** If you have unmetered device slots, you must set this to `unmetered` to use them. Otherwise, the run is counted toward metered device minutes.
+   *
    * @public
    */
   billingMethod?: BillingMethod | undefined;
 
   /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test run.</p>
+   * Represents the total (metered or unmetered) minutes used by the test run.
+   *
    * @public
    */
   deviceMinutes?: DeviceMinutes | undefined;
 
   /**
-   * <p>The network profile being used for a test run.</p>
+   * The network profile being used for a test run.
+   *
    * @public
    */
   networkProfile?: NetworkProfile | undefined;
 
   /**
-   * <p>The device proxy configured for the devices in the run.</p>
+   * The device proxy configured for the devices in the run.
+   *
    * @public
    */
   deviceProxy?: DeviceProxy | undefined;
 
   /**
-   * <p>Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package.
-   *             If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points
-   *             to.</p>
+   * Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+   *
    * @public
    */
   parsingResultUrl?: string | undefined;
 
   /**
-   * <p>Supporting field for the result field. Set only if <code>result</code> is <code>SKIPPED</code>.
-   *                 <code>PARSING_FAILED</code> if the result is skipped because of test package parsing failure.</p>
+   * Supporting field for the result field. Set only if `result` is `SKIPPED`. `PARSING_FAILED` if the result is skipped because of test package parsing failure.
+   *
    * @public
    */
   resultCode?: ExecutionResultCode | undefined;
 
   /**
-   * <p>For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same
-   *             seed value between tests ensures identical event sequences.</p>
+   * For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
+   *
    * @public
    */
   seed?: number | undefined;
 
   /**
-   * <p>An app to upload or that has been uploaded.</p>
+   * An app to upload or that has been uploaded.
+   *
    * @public
    */
   appUpload?: string | undefined;
 
   /**
-   * <p>For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz
-   *             test should perform.</p>
+   * For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
+   *
    * @public
    */
   eventCount?: number | undefined;
 
   /**
-   * <p>The number of minutes the job executes before it times out.</p>
+   * The number of minutes the job executes before it times out.
+   *
    * @public
    */
   jobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>The ARN of the device pool for the run.</p>
+   * The ARN of the device pool for the run.
+   *
    * @public
    */
   devicePoolArn?: string | undefined;
 
   /**
-   * <p>Information about the locale that is used for the run.</p>
+   * Information about the locale that is used for the run.
+   *
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>Information about the radio states for the run.</p>
+   * Information about the radio states for the run.
+   *
    * @public
    */
   radios?: Radios | undefined;
 
   /**
-   * <p>Information about the location that is used for the run.</p>
+   * Information about the location that is used for the run.
+   *
    * @public
    */
   location?: Location | undefined;
 
   /**
-   * <p>Output <code>CustomerArtifactPaths</code> object for the test run.</p>
+   * Output `CustomerArtifactPaths` object for the test run.
+   *
    * @public
    */
   customerArtifactPaths?: CustomerArtifactPaths | undefined;
 
   /**
-   * <p>The Device Farm console URL for the recording of the run.</p>
+   * The Device Farm console URL for the recording of the run.
+   *
    * @public
    */
   webUrl?: string | undefined;
 
   /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *          <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
+   * When set to `true`, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+   *
+   * For more information about how Device Farm re-signs your apps, see [Do you modify my app?](http://aws.amazon.com/device-farm/faqs/) in the *AWS Device Farm FAQs*.
+   *
    * @public
    */
   skipAppResign?: boolean | undefined;
 
   /**
-   * <p>The ARN of the YAML-formatted test specification for the run.</p>
+   * The ARN of the YAML-formatted test specification for the run.
+   *
    * @public
    */
   testSpecArn?: string | undefined;
 
   /**
-   * <p>The results of a device filter used to select the devices for a test run.</p>
+   * The results of a device filter used to select the devices for a test run.
+   *
    * @public
    */
   deviceSelectionResult?: DeviceSelectionResult | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>The IAM role associated with the run.</p>
+   * The IAM role associated with the run.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 
   /**
-   * <p>Environment variables associated with the run.</p>
+   * Environment variables associated with the run.
+   *
    * @public
    */
   environmentVariables?: EnvironmentVariable[] | undefined;
 
   /**
-   * <p>The types of insights requested for the run.</p>
+   * The types of insights requested for the run.
+   *
    * @public
    */
   insightsTypes?: InsightsType[] | undefined;
 
   /**
-   * <p>The insights for the run, including the report status and job-level metrics. This field contains data only if you specified <code>insightsTypes</code> when you scheduled the run.</p>
+   * The insights for the run, including the report status and job-level metrics. This field contains data only if you specified `insightsTypes` when you scheduled the run.
+   *
    * @public
    */
   insights?: RunInsights | undefined;
 }
 
 /**
- * <p>Represents the result of a get run request.</p>
+ * Represents the result of a get run request.
+ *
  * @public
  */
 export interface GetRunResult {
   /**
-   * <p>The run to get results from.</p>
+   * The run to get results from.
+   *
    * @public
    */
   run?: Run | undefined;
 }
 
 /**
- * <p>Represents a request to the get suite operation.</p>
+ * Represents a request to the get suite operation.
+ *
  * @public
  */
 export interface GetSuiteRequest {
   /**
-   * <p>The suite's ARN.</p>
+   * The suite's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents a collection of one or more tests.</p>
+ * Represents a collection of one or more tests.
+ *
  * @public
  */
 export interface Suite {
   /**
-   * <p>The suite's ARN.</p>
+   * The suite's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The suite's name.</p>
+   * The suite's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The suite's type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>BUILTIN_FUZZ</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI</p>
-   *             </li>
-   *          </ul>
+   * The suite's type.
+   *
+   * Must be one of the following values:
+   *
+   * - BUILTIN_FUZZ
+   * - APPIUM_JAVA_JUNIT
+   * - APPIUM_JAVA_TESTNG
+   * - APPIUM_PYTHON
+   * - APPIUM_NODE
+   * - APPIUM_RUBY
+   * - APPIUM_WEB_JAVA_JUNIT
+   * - APPIUM_WEB_JAVA_TESTNG
+   * - APPIUM_WEB_PYTHON
+   * - APPIUM_WEB_NODE
+   * - APPIUM_WEB_RUBY
+   * - INSTRUMENTATION
+   * - XCTEST
+   * - XCTEST_UI
+   *
    * @public
    */
   type?: TestType | undefined;
 
   /**
-   * <p>When the suite was created.</p>
+   * When the suite was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The suite's status.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPING</p>
-   *             </li>
-   *          </ul>
+   * The suite's status.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PENDING_CONCURRENCY
+   * - PENDING_DEVICE
+   * - PROCESSING
+   * - SCHEDULING
+   * - PREPARING
+   * - RUNNING
+   * - COMPLETED
+   * - STOPPING
+   *
    * @public
    */
   status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The suite's result.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * The suite's result.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PASSED
+   * - WARNED
+   * - FAILED
+   * - SKIPPED
+   * - ERRORED
+   * - STOPPED
+   *
    * @public
    */
   result?: ExecutionResult | undefined;
 
   /**
-   * <p>The suite's start time.</p>
+   * The suite's start time.
+   *
    * @public
    */
   started?: Date | undefined;
 
   /**
-   * <p>The suite's stop time.</p>
+   * The suite's stop time.
+   *
    * @public
    */
   stopped?: Date | undefined;
 
   /**
-   * <p>The suite's result counters.</p>
+   * The suite's result counters.
+   *
    * @public
    */
   counters?: Counters | undefined;
 
   /**
-   * <p>A message about the suite's result.</p>
+   * A message about the suite's result.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test
-   *             suite.</p>
+   * Represents the total (metered or unmetered) minutes used by the test suite.
+   *
    * @public
    */
   deviceMinutes?: DeviceMinutes | undefined;
 }
 
 /**
- * <p>Represents the result of a get suite request.</p>
+ * Represents the result of a get suite request.
+ *
  * @public
  */
 export interface GetSuiteResult {
   /**
-   * <p>A collection of one or more tests.</p>
+   * A collection of one or more tests.
+   *
    * @public
    */
   suite?: Suite | undefined;
 }
 
 /**
- * <p>Represents a request to the get test operation.</p>
+ * Represents a request to the get test operation.
+ *
  * @public
  */
 export interface GetTestRequest {
   /**
-   * <p>The test's ARN.</p>
+   * The test's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents a condition that is evaluated.</p>
+ * Represents a condition that is evaluated.
+ *
  * @public
  */
 export interface Test {
   /**
-   * <p>The test's ARN.</p>
+   * The test's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The test's name.</p>
+   * The test's name.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The test's type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>BUILTIN_FUZZ</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI</p>
-   *             </li>
-   *          </ul>
+   * The test's type.
+   *
+   * Must be one of the following values:
+   *
+   * - BUILTIN_FUZZ
+   * - APPIUM_JAVA_JUNIT
+   * - APPIUM_JAVA_TESTNG
+   * - APPIUM_PYTHON
+   * - APPIUM_NODE
+   * - APPIUM_RUBY
+   * - APPIUM_WEB_JAVA_JUNIT
+   * - APPIUM_WEB_JAVA_TESTNG
+   * - APPIUM_WEB_PYTHON
+   * - APPIUM_WEB_NODE
+   * - APPIUM_WEB_RUBY
+   * - INSTRUMENTATION
+   * - XCTEST
+   * - XCTEST_UI
+   *
    * @public
    */
   type?: TestType | undefined;
 
   /**
-   * <p>When the test was created.</p>
+   * When the test was created.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The test's status.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_CONCURRENCY</p>
-   *             </li>
-   *             <li>
-   *                <p>PENDING_DEVICE</p>
-   *             </li>
-   *             <li>
-   *                <p>PROCESSING</p>
-   *             </li>
-   *             <li>
-   *                <p>SCHEDULING</p>
-   *             </li>
-   *             <li>
-   *                <p>PREPARING</p>
-   *             </li>
-   *             <li>
-   *                <p>RUNNING</p>
-   *             </li>
-   *             <li>
-   *                <p>COMPLETED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPING</p>
-   *             </li>
-   *          </ul>
+   * The test's status.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PENDING_CONCURRENCY
+   * - PENDING_DEVICE
+   * - PROCESSING
+   * - SCHEDULING
+   * - PREPARING
+   * - RUNNING
+   * - COMPLETED
+   * - STOPPING
+   *
    * @public
    */
   status?: ExecutionStatus | undefined;
 
   /**
-   * <p>The test's result.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * The test's result.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PASSED
+   * - WARNED
+   * - FAILED
+   * - SKIPPED
+   * - ERRORED
+   * - STOPPED
+   *
    * @public
    */
   result?: ExecutionResult | undefined;
 
   /**
-   * <p>The test's start time.</p>
+   * The test's start time.
+   *
    * @public
    */
   started?: Date | undefined;
 
   /**
-   * <p>The test's stop time.</p>
+   * The test's stop time.
+   *
    * @public
    */
   stopped?: Date | undefined;
 
   /**
-   * <p>The test's result counters.</p>
+   * The test's result counters.
+   *
    * @public
    */
   counters?: Counters | undefined;
 
   /**
-   * <p>A message about the test's result.</p>
+   * A message about the test's result.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>Represents the total (metered or unmetered) minutes used by the test.</p>
+   * Represents the total (metered or unmetered) minutes used by the test.
+   *
    * @public
    */
   deviceMinutes?: DeviceMinutes | undefined;
 }
 
 /**
- * <p>Represents the result of a get test request.</p>
+ * Represents the result of a get test request.
+ *
  * @public
  */
 export interface GetTestResult {
   /**
-   * <p>A test condition that is evaluated.</p>
+   * A test condition that is evaluated.
+   *
    * @public
    */
   test?: Test | undefined;
@@ -4434,7 +4173,8 @@ export interface GetTestResult {
  */
 export interface GetTestGridProjectRequest {
   /**
-   * <p>The ARN of the Selenium testing project, from either <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>
+   * The ARN of the Selenium testing project, from either CreateTestGridProject or ListTestGridProjects.
+   *
    * @public
    */
   projectArn: string | undefined;
@@ -4445,7 +4185,8 @@ export interface GetTestGridProjectRequest {
  */
 export interface GetTestGridProjectResult {
   /**
-   * <p>A <a>TestGridProject</a>.</p>
+   * A TestGridProject.
+   *
    * @public
    */
   testGridProject?: TestGridProject | undefined;
@@ -4456,62 +4197,71 @@ export interface GetTestGridProjectResult {
  */
 export interface GetTestGridSessionRequest {
   /**
-   * <p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>
+   * The ARN for the project that this session belongs to. See CreateTestGridProject and ListTestGridProjects.
+   *
    * @public
    */
   projectArn?: string | undefined;
 
   /**
-   * <p>An ID associated with this session.</p>
+   * An ID associated with this session.
+   *
    * @public
    */
   sessionId?: string | undefined;
 
   /**
-   * <p>An ARN that uniquely identifies a <a>TestGridSession</a>.</p>
+   * An ARN that uniquely identifies a TestGridSession.
+   *
    * @public
    */
   sessionArn?: string | undefined;
 }
 
 /**
- * <p>A <a>TestGridSession</a> is a single instance of a browser launched from the URL provided by a
- *          call to <a>CreateTestGridUrl</a>.</p>
+ * A TestGridSession is a single instance of a browser launched from the URL provided by a call to CreateTestGridUrl.
+ *
  * @public
  */
 export interface TestGridSession {
   /**
-   * <p>The ARN of the session.</p>
+   * The ARN of the session.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The state of the session.</p>
+   * The state of the session.
+   *
    * @public
    */
   status?: TestGridSessionStatus | undefined;
 
   /**
-   * <p>The time that the session was started.</p>
+   * The time that the session was started.
+   *
    * @public
    */
   created?: Date | undefined;
 
   /**
-   * <p>The time the session ended.</p>
+   * The time the session ended.
+   *
    * @public
    */
   ended?: Date | undefined;
 
   /**
-   * <p>The number of billed minutes that were used for this session. </p>
+   * The number of billed minutes that were used for this session.
+   *
    * @public
    */
   billingMinutes?: number | undefined;
 
   /**
-   * <p>A JSON object of options and parameters passed to the Selenium WebDriver.</p>
+   * A JSON object of options and parameters passed to the Selenium WebDriver.
+   *
    * @public
    */
   seleniumProperties?: string | undefined;
@@ -4522,32 +4272,36 @@ export interface TestGridSession {
  */
 export interface GetTestGridSessionResult {
   /**
-   * <p>The <a>TestGridSession</a> that was requested.</p>
+   * The TestGridSession that was requested.
+   *
    * @public
    */
   testGridSession?: TestGridSession | undefined;
 }
 
 /**
- * <p>Represents a request to the get upload operation.</p>
+ * Represents a request to the get upload operation.
+ *
  * @public
  */
 export interface GetUploadRequest {
   /**
-   * <p>The upload's ARN.</p>
+   * The upload's ARN.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the result of a get upload request.</p>
+ * Represents the result of a get upload request.
+ *
  * @public
  */
 export interface GetUploadResult {
   /**
-   * <p>An app or a set of one or more tests to upload or that have been
-   *             uploaded.</p>
+   * An app or a set of one or more tests to upload or that have been uploaded.
+   *
    * @public
    */
   upload?: Upload | undefined;
@@ -4558,8 +4312,8 @@ export interface GetUploadResult {
  */
 export interface GetVPCEConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
-   *             describe.</p>
+   * The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to describe.
+   *
    * @public
    */
   arn: string | undefined;
@@ -4570,97 +4324,98 @@ export interface GetVPCEConfigurationRequest {
  */
 export interface GetVPCEConfigurationResult {
   /**
-   * <p>An object that contains information about your VPC endpoint configuration.</p>
+   * An object that contains information about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfiguration?: VPCEConfiguration | undefined;
 }
 
 /**
- * <p>Represents the request to install an Android application (in .apk format) or an iOS
- *             application (in .ipa format) as part of a remote access session.</p>
+ * Represents the request to install an Android application (in .apk format) or an iOS application (in .ipa format) as part of a remote access session.
+ *
  * @public
  */
 export interface InstallToRemoteAccessSessionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the remote access session about which you are
-   *             requesting information.</p>
+   * The Amazon Resource Name (ARN) of the remote access session about which you are requesting information.
+   *
    * @public
    */
   remoteAccessSessionArn: string | undefined;
 
   /**
-   * <p>The ARN of the app about which you are requesting information.</p>
+   * The ARN of the app about which you are requesting information.
+   *
    * @public
    */
   appArn: string | undefined;
 }
 
 /**
- * <p>Represents the response from the server after AWS Device Farm makes a request to
- *             install to a remote access session.</p>
+ * Represents the response from the server after AWS Device Farm makes a request to install to a remote access session.
+ *
  * @public
  */
 export interface InstallToRemoteAccessSessionResult {
   /**
-   * <p>An app to upload or that has been uploaded.</p>
+   * An app to upload or that has been uploaded.
+   *
    * @public
    */
   appUpload?: Upload | undefined;
 }
 
 /**
- * <p>Represents a request to the list artifacts operation.</p>
+ * Represents a request to the list artifacts operation.
+ *
  * @public
  */
 export interface ListArtifactsRequest {
   /**
-   * <p>The run, job, suite, or test ARN.</p>
+   * The run, job, suite, or test ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The artifacts' type.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>FILE</p>
-   *             </li>
-   *             <li>
-   *                <p>LOG</p>
-   *             </li>
-   *             <li>
-   *                <p>SCREENSHOT</p>
-   *             </li>
-   *          </ul>
+   * The artifacts' type.
+   *
+   * Allowed values include:
+   *
+   * - FILE
+   * - LOG
+   * - SCREENSHOT
+   *
    * @public
    */
   type: ArtifactCategory | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list artifacts operation.</p>
+ * Represents the result of a list artifacts operation.
+ *
  * @public
  */
 export interface ListArtifactsResult {
   /**
-   * <p>Information about the artifacts.</p>
+   * Information about the artifacts.
+   *
    * @public
    */
   artifacts?: Artifact[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4671,14 +4426,15 @@ export interface ListArtifactsResult {
  */
 export interface ListDeviceInstancesRequest {
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   * An integer that specifies the maximum number of items you want to return in the API response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4689,205 +4445,146 @@ export interface ListDeviceInstancesRequest {
  */
 export interface ListDeviceInstancesResult {
   /**
-   * <p>An object that contains information about your device instances.</p>
+   * An object that contains information about your device instances.
+   *
    * @public
    */
   deviceInstances?: DeviceInstance[] | undefined;
 
   /**
-   * <p>An identifier that can be used in the next call to this operation to return the next
-   *             set of items in the list.</p>
+   * An identifier that can be used in the next call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list device pools request.</p>
+ * Represents the result of a list device pools request.
+ *
  * @public
  */
 export interface ListDevicePoolsRequest {
   /**
-   * <p>The project ARN.</p>
+   * The project ARN.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The device pools' type.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CURATED: A device pool that is created and managed by AWS Device
-   *                     Farm.</p>
-   *             </li>
-   *             <li>
-   *                <p>PRIVATE: A device pool that is created and managed by the device pool
-   *                     developer.</p>
-   *             </li>
-   *          </ul>
+   * The device pools' type.
+   *
+   * Allowed values include:
+   *
+   * - CURATED: A device pool that is created and managed by AWS Device Farm.
+   * - PRIVATE: A device pool that is created and managed by the device pool developer.
+   *
    * @public
    */
   type?: DevicePoolType | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list device pools request.</p>
+ * Represents the result of a list device pools request.
+ *
  * @public
  */
 export interface ListDevicePoolsResult {
   /**
-   * <p>Information about the device pools.</p>
+   * Information about the device pools.
+   *
    * @public
    */
   devicePools?: DevicePool[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list devices request.</p>
+ * Represents the result of a list devices request.
+ *
  * @public
  */
 export interface ListDevicesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * The Amazon Resource Name (ARN) of the project.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Used to select a set of devices. A filter is made up of an attribute, an operator, and
-   *             one or more values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Attribute: The aspect of a device such as platform or model used as the
-   *                     selection criteria in a device filter.</p>
-   *                <p>Allowed values include:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>ARN: The Amazon Resource Name (ARN) of the device (for example,
-   *                                 <code>arn:aws:devicefarm:us-west-2::device:12345Example</code>).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>PLATFORM: The device platform. Valid values are ANDROID or IOS.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>OS_VERSION: The operating system version (for example, 10.3.2).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>MODEL: The device model (for example, iPad 5th Gen).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>AVAILABILITY: The current availability of the device. Valid values are AVAILABLE,
-   *                             HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>FORM_FACTOR: The device form factor. Valid values are PHONE or TABLET.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>MANUFACTURER: The device manufacturer (for example, Apple).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access. Valid values
-   *                             are TRUE or FALSE.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging. Valid values
-   *                             are TRUE or FALSE. Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                                 longer supported</a>, this attribute is ignored.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>INSTANCE_ARN: The Amazon Resource Name (ARN) of the device
-   *                             instance.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>INSTANCE_LABELS: The label of the device instance.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>FLEET_TYPE: The fleet type. Valid values are PUBLIC or PRIVATE.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Operator: The filter operator.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The EQUALS operator is available for every attribute except
-   *                             INSTANCE_LABELS.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The CONTAINS operator is available for the INSTANCE_LABELS and MODEL
-   *                             attributes.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The IN and NOT_IN operators are available for the ARN, OS_VERSION,
-   *                             MODEL, MANUFACTURER, and INSTANCE_ARN attributes.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and
-   *                             GREATER_THAN_OR_EQUALS operators are also available for the OS_VERSION
-   *                             attribute.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Values: An array of one or more filter values.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The IN and NOT_IN operators take a values array that has one or more
-   *                             elements.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The other operators require an array with a single element.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>In a request, the AVAILABILITY attribute takes the following values: AVAILABLE,
-   *                             HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * Used to select a set of devices. A filter is made up of an attribute, an operator, and one or more values.
+   *
+   * - Attribute: The aspect of a device such as platform or model used as the selection criteria in a device filter.
+   *
+   *   Allowed values include:
+   *
+   *   - ARN: The Amazon Resource Name (ARN) of the device (for example, `arn:aws:devicefarm:us-west-2::device:12345Example`).
+   *   - PLATFORM: The device platform. Valid values are ANDROID or IOS.
+   *   - OS_VERSION: The operating system version (for example, 10.3.2).
+   *   - MODEL: The device model (for example, iPad 5th Gen).
+   *   - AVAILABILITY: The current availability of the device. Valid values are AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   *   - FORM_FACTOR: The device form factor. Valid values are PHONE or TABLET.
+   *   - MANUFACTURER: The device manufacturer (for example, Apple).
+   *   - REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access. Valid values are TRUE or FALSE.
+   *   - REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE. Because remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html), this attribute is ignored.
+   *   - INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
+   *   - INSTANCE_LABELS: The label of the device instance.
+   *   - FLEET_TYPE: The fleet type. Valid values are PUBLIC or PRIVATE.
+   * - Operator: The filter operator.
+   *
+   *   - The EQUALS operator is available for every attribute except INSTANCE_LABELS.
+   *   - The CONTAINS operator is available for the INSTANCE_LABELS and MODEL attributes.
+   *   - The IN and NOT_IN operators are available for the ARN, OS_VERSION, MODEL, MANUFACTURER, and INSTANCE_ARN attributes.
+   *   - The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and GREATER_THAN_OR_EQUALS operators are also available for the OS_VERSION attribute.
+   * - Values: An array of one or more filter values.
+   *
+   *   - The IN and NOT_IN operators take a values array that has one or more elements.
+   *   - The other operators require an array with a single element.
+   *   - In a request, the AVAILABILITY attribute takes the following values: AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   *
    * @public
    */
   filters?: DeviceFilter[] | undefined;
 }
 
 /**
- * <p>Represents the result of a list devices operation.</p>
+ * Represents the result of a list devices operation.
+ *
  * @public
  */
 export interface ListDevicesResult {
   /**
-   * <p>Information about the devices.</p>
+   * Information about the devices.
+   *
    * @public
    */
   devices?: Device[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4898,14 +4595,15 @@ export interface ListDevicesResult {
  */
 export interface ListInstanceProfilesRequest {
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   * An integer that specifies the maximum number of items you want to return in the API response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4916,53 +4614,57 @@ export interface ListInstanceProfilesRequest {
  */
 export interface ListInstanceProfilesResult {
   /**
-   * <p>An object that contains information about your instance profiles.</p>
+   * An object that contains information about your instance profiles.
+   *
    * @public
    */
   instanceProfiles?: InstanceProfile[] | undefined;
 
   /**
-   * <p>An identifier that can be used in the next call to this operation to return the next
-   *             set of items in the list.</p>
+   * An identifier that can be used in the next call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list jobs operation.</p>
+ * Represents a request to the list jobs operation.
+ *
  * @public
  */
 export interface ListJobsRequest {
   /**
-   * <p>The run's Amazon Resource Name (ARN).</p>
+   * The run's Amazon Resource Name (ARN).
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list jobs request.</p>
+ * Represents the result of a list jobs request.
+ *
  * @public
  */
 export interface ListJobsResult {
   /**
-   * <p>Information about the jobs.</p>
+   * Information about the jobs.
+   *
    * @public
    */
   jobs?: Job[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4973,21 +4675,22 @@ export interface ListJobsResult {
  */
 export interface ListNetworkProfilesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to list network
-   *             profiles.</p>
+   * The Amazon Resource Name (ARN) of the project for which you want to list network profiles.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The type of network profile to return information about. Valid values are listed here.</p>
+   * The type of network profile to return information about. Valid values are listed here.
+   *
    * @public
    */
   type?: NetworkProfileType | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4998,14 +4701,15 @@ export interface ListNetworkProfilesRequest {
  */
 export interface ListNetworkProfilesResult {
   /**
-   * <p>A list of the available network profiles.</p>
+   * A list of the available network profiles.
+   *
    * @public
    */
   networkProfiles?: NetworkProfile[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5016,26 +4720,29 @@ export interface ListNetworkProfilesResult {
  */
 export interface ListOfferingPromotionsRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents information about an offering promotion.</p>
+ * Represents information about an offering promotion.
+ *
  * @public
  */
 export interface OfferingPromotion {
   /**
-   * <p>The ID of the offering promotion.</p>
+   * The ID of the offering promotion.
+   *
    * @public
    */
   id?: string | undefined;
 
   /**
-   * <p>A string that describes the offering promotion.</p>
+   * A string that describes the offering promotion.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5046,403 +4753,387 @@ export interface OfferingPromotion {
  */
 export interface ListOfferingPromotionsResult {
   /**
-   * <p>Information about the offering promotions.</p>
+   * Information about the offering promotions.
+   *
    * @public
    */
   offeringPromotions?: OfferingPromotion[] | undefined;
 
   /**
-   * <p>An identifier to be used in the next call to this operation, to return the next set
-   *             of items in the list.</p>
+   * An identifier to be used in the next call to this operation, to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the request to list all offerings.</p>
+ * Represents the request to list all offerings.
+ *
  * @public
  */
 export interface ListOfferingsRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the return values of the list of offerings.</p>
+ * Represents the return values of the list of offerings.
+ *
  * @public
  */
 export interface ListOfferingsResult {
   /**
-   * <p>A value that represents the list offering results.</p>
+   * A value that represents the list offering results.
+   *
    * @public
    */
   offerings?: Offering[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the request to list the offering transaction history.</p>
+ * Represents the request to list the offering transaction history.
+ *
  * @public
  */
 export interface ListOfferingTransactionsRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the metadata of an offering transaction.</p>
+ * Represents the metadata of an offering transaction.
+ *
  * @public
  */
 export interface OfferingTransaction {
   /**
-   * <p>The status of an offering transaction.</p>
+   * The status of an offering transaction.
+   *
    * @public
    */
   offeringStatus?: OfferingStatus | undefined;
 
   /**
-   * <p>The transaction ID of the offering transaction.</p>
+   * The transaction ID of the offering transaction.
+   *
    * @public
    */
   transactionId?: string | undefined;
 
   /**
-   * <p>The ID that corresponds to a device offering promotion.</p>
+   * The ID that corresponds to a device offering promotion.
+   *
    * @public
    */
   offeringPromotionId?: string | undefined;
 
   /**
-   * <p>The date on which an offering transaction was created.</p>
+   * The date on which an offering transaction was created.
+   *
    * @public
    */
   createdOn?: Date | undefined;
 
   /**
-   * <p>The cost of an offering transaction.</p>
+   * The cost of an offering transaction.
+   *
    * @public
    */
   cost?: MonetaryAmount | undefined;
 }
 
 /**
- * <p>Returns the transaction log of the specified offerings.</p>
+ * Returns the transaction log of the specified offerings.
+ *
  * @public
  */
 export interface ListOfferingTransactionsResult {
   /**
-   * <p>The audit log of subscriptions you have purchased and modified through AWS Device
-   *             Farm.</p>
+   * The audit log of subscriptions you have purchased and modified through AWS Device Farm.
+   *
    * @public
    */
   offeringTransactions?: OfferingTransaction[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list projects operation.</p>
+ * Represents a request to the list projects operation.
+ *
  * @public
  */
 export interface ListProjectsRequest {
   /**
-   * <p>Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm
-   *             returns a list of all projects for the AWS account. You can also specify a project
-   *             ARN.</p>
+   * Optional. If no Amazon Resource Name (ARN) is specified, then AWS Device Farm returns a list of all projects for the AWS account. You can also specify a project ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list projects request.</p>
+ * Represents the result of a list projects request.
+ *
  * @public
  */
 export interface ListProjectsResult {
   /**
-   * <p>Information about the projects.</p>
+   * Information about the projects.
+   *
    * @public
    */
   projects?: Project[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the request to return information about the remote access
- *             session.</p>
+ * Represents the request to return information about the remote access session.
+ *
  * @public
  */
 export interface ListRemoteAccessSessionsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project about which you are requesting
-   *             information.</p>
+   * The Amazon Resource Name (ARN) of the project about which you are requesting information.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the response from the server after AWS Device Farm makes a request to
- *             return information about the remote access session.</p>
+ * Represents the response from the server after AWS Device Farm makes a request to return information about the remote access session.
+ *
  * @public
  */
 export interface ListRemoteAccessSessionsResult {
   /**
-   * <p>A container that represents the metadata from the service about each remote access session you are
-   *             requesting.</p>
+   * A container that represents the metadata from the service about each remote access session you are requesting.
+   *
    * @public
    */
   remoteAccessSessions?: RemoteAccessSession[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list runs operation.</p>
+ * Represents a request to the list runs operation.
+ *
  * @public
  */
 export interface ListRunsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to list
-   *             runs.</p>
+   * The Amazon Resource Name (ARN) of the project for which you want to list runs.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list runs request.</p>
+ * Represents the result of a list runs request.
+ *
  * @public
  */
 export interface ListRunsResult {
   /**
-   * <p>Information about the runs.</p>
+   * Information about the runs.
+   *
    * @public
    */
   runs?: Run[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list samples operation.</p>
+ * Represents a request to the list samples operation.
+ *
  * @public
  */
 export interface ListSamplesRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the job used to list samples.</p>
+   * The Amazon Resource Name (ARN) of the job used to list samples.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a sample of performance data.</p>
- *          <important>
- *             <p>Device Farm does not support performance data samples during test executions.</p>
- *          </important>
+ * Represents a sample of performance data.
+ *
+ * > **Important:** Device Farm does not support performance data samples during test executions.
+ *
  * @public
  */
 export interface Sample {
   /**
-   * <p>The sample's ARN.</p>
+   * The sample's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The sample's type.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>CPU: A CPU sample type. This is expressed as the app processing CPU time
-   *                     (including child processes) as reported by process, as a percentage.</p>
-   *             </li>
-   *             <li>
-   *                <p>MEMORY: A memory usage sample type. This is expressed as the total
-   *                     proportional set size of an app process, in kilobytes.</p>
-   *             </li>
-   *             <li>
-   *                <p>NATIVE_AVG_DRAWTIME</p>
-   *             </li>
-   *             <li>
-   *                <p>NATIVE_FPS</p>
-   *             </li>
-   *             <li>
-   *                <p>NATIVE_FRAMES</p>
-   *             </li>
-   *             <li>
-   *                <p>NATIVE_MAX_DRAWTIME</p>
-   *             </li>
-   *             <li>
-   *                <p>NATIVE_MIN_DRAWTIME</p>
-   *             </li>
-   *             <li>
-   *                <p>OPENGL_AVG_DRAWTIME</p>
-   *             </li>
-   *             <li>
-   *                <p>OPENGL_FPS</p>
-   *             </li>
-   *             <li>
-   *                <p>OPENGL_FRAMES</p>
-   *             </li>
-   *             <li>
-   *                <p>OPENGL_MAX_DRAWTIME</p>
-   *             </li>
-   *             <li>
-   *                <p>OPENGL_MIN_DRAWTIME</p>
-   *             </li>
-   *             <li>
-   *                <p>RX</p>
-   *             </li>
-   *             <li>
-   *                <p>RX_RATE: The total number of bytes per second (TCP and UDP) that are sent,
-   *                     by app process.</p>
-   *             </li>
-   *             <li>
-   *                <p>THREADS: A threads sample type. This is expressed as the total number of
-   *                     threads per app process.</p>
-   *             </li>
-   *             <li>
-   *                <p>TX</p>
-   *             </li>
-   *             <li>
-   *                <p>TX_RATE: The total number of bytes per second (TCP and UDP) that are
-   *                     received, by app process.</p>
-   *             </li>
-   *          </ul>
+   * The sample's type.
+   *
+   * Must be one of the following values:
+   *
+   * - CPU: A CPU sample type. This is expressed as the app processing CPU time (including child processes) as reported by process, as a percentage.
+   * - MEMORY: A memory usage sample type. This is expressed as the total proportional set size of an app process, in kilobytes.
+   * - NATIVE_AVG_DRAWTIME
+   * - NATIVE_FPS
+   * - NATIVE_FRAMES
+   * - NATIVE_MAX_DRAWTIME
+   * - NATIVE_MIN_DRAWTIME
+   * - OPENGL_AVG_DRAWTIME
+   * - OPENGL_FPS
+   * - OPENGL_FRAMES
+   * - OPENGL_MAX_DRAWTIME
+   * - OPENGL_MIN_DRAWTIME
+   * - RX
+   * - RX_RATE: The total number of bytes per second (TCP and UDP) that are sent, by app process.
+   * - THREADS: A threads sample type. This is expressed as the total number of threads per app process.
+   * - TX
+   * - TX_RATE: The total number of bytes per second (TCP and UDP) that are received, by app process.
+   *
    * @public
    */
   type?: SampleType | undefined;
 
   /**
-   * <p>The presigned Amazon S3 URL that can be used with a GET request to download the sample's
-   *             file.</p>
+   * The presigned Amazon S3 URL that can be used with a GET request to download the sample's file.
+   *
    * @public
    */
   url?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list samples request.</p>
+ * Represents the result of a list samples request.
+ *
  * @public
  */
 export interface ListSamplesResult {
   /**
-   * <p>Information about the samples.</p>
+   * Information about the samples.
+   *
    * @public
    */
   samples?: Sample[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list suites operation.</p>
+ * Represents a request to the list suites operation.
+ *
  * @public
  */
 export interface ListSuitesRequest {
   /**
-   * <p>The job's Amazon Resource Name (ARN).</p>
+   * The job's Amazon Resource Name (ARN).
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list suites request.</p>
+ * Represents the result of a list suites request.
+ *
  * @public
  */
 export interface ListSuitesResult {
   /**
-   * <p>Information about the suites.</p>
+   * Information about the suites.
+   *
    * @public
    */
   suites?: Suite[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5453,33 +5144,29 @@ export interface ListSuitesResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource or resources for which to list tags. You can associate tags
-   *             with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>,
-   *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
-   *                 <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and
-   *             <code>VPCE_CONFIGURATION</code>.</p>
+   * The Amazon Resource Name (ARN) of the resource or resources for which to list tags. You can associate tags with the following Device Farm resources: `PROJECT`, `TESTGRID_PROJECT`, `RUN`, `NETWORK_PROFILE`, `INSTANCE_PROFILE`, `DEVICE_INSTANCE`, `SESSION`, `DEVICE_POOL`, `DEVICE`, and `VPCE_CONFIGURATION`.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 }
 
 /**
- * <p>The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a
- *             key and an optional value, both of which you define. Tag keys can have a maximum character length of 128
- *             characters. Tag values can have a maximum length of 256 characters. </p>
+ * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>One part of a key-value pair that makes up a tag. A <code>key</code> is a general label that acts like a
-   *             category for more specific tag values.</p>
+   * One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The optional part of a key-value pair that makes up a tag. A <code>value</code> acts as a descriptor in a
-   *             tag category (key).</p>
+   * The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor in a tag category (key).
+   *
    * @public
    */
   Value: string | undefined;
@@ -5490,8 +5177,8 @@ export interface Tag {
  */
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
-   *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
+   * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+   *
    * @public
    */
   Tags?: Tag[] | undefined;
@@ -5502,13 +5189,15 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListTestGridProjectsRequest {
   /**
-   * <p>Return no more than this number of results.</p>
+   * Return no more than this number of results.
+   *
    * @public
    */
   maxResult?: number | undefined;
 
   /**
-   * <p>From a response, used to continue a paginated listing. </p>
+   * From a response, used to continue a paginated listing.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5519,14 +5208,15 @@ export interface ListTestGridProjectsRequest {
  */
 export interface ListTestGridProjectsResult {
   /**
-   * <p>The list of TestGridProjects, based on a <a>ListTestGridProjectsRequest</a>.</p>
+   * The list of TestGridProjects, based on a ListTestGridProjectsRequest.
+   *
    * @public
    */
   testGridProjects?: TestGridProject[] | undefined;
 
   /**
-   * <p>Used for pagination. Pass into <a>ListTestGridProjects</a> to get more results in a paginated
-   *          request.</p>
+   * Used for pagination. Pass into ListTestGridProjects to get more results in a paginated request.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5537,55 +5227,64 @@ export interface ListTestGridProjectsResult {
  */
 export interface ListTestGridSessionActionsRequest {
   /**
-   * <p>The ARN of the session to retrieve.</p>
+   * The ARN of the session to retrieve.
+   *
    * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * <p>The maximum number of sessions to return per response.</p>
+   * The maximum number of sessions to return per response.
+   *
    * @public
    */
   maxResult?: number | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>An action taken by a <a>TestGridSession</a> browser instance.</p>
+ * An action taken by a TestGridSession browser instance.
+ *
  * @public
  */
 export interface TestGridSessionAction {
   /**
-   * <p>The action taken by the session.</p>
+   * The action taken by the session.
+   *
    * @public
    */
   action?: string | undefined;
 
   /**
-   * <p>The time that the session invoked the action.</p>
+   * The time that the session invoked the action.
+   *
    * @public
    */
   started?: Date | undefined;
 
   /**
-   * <p>The time, in milliseconds, that the action took to complete in the browser.</p>
+   * The time, in milliseconds, that the action took to complete in the browser.
+   *
    * @public
    */
   duration?: number | undefined;
 
   /**
-   * <p>HTTP status code returned to the browser when the action was taken.</p>
+   * HTTP status code returned to the browser when the action was taken.
+   *
    * @public
    */
   statusCode?: string | undefined;
 
   /**
-   * <p>HTTP method that the browser used to make the request.</p>
+   * HTTP method that the browser used to make the request.
+   *
    * @public
    */
   requestMethod?: string | undefined;
@@ -5596,13 +5295,15 @@ export interface TestGridSessionAction {
  */
 export interface ListTestGridSessionActionsResult {
   /**
-   * <p>The action taken by the session.</p>
+   * The action taken by the session.
+   *
    * @public
    */
   actions?: TestGridSessionAction[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5613,53 +5314,59 @@ export interface ListTestGridSessionActionsResult {
  */
 export interface ListTestGridSessionArtifactsRequest {
   /**
-   * <p>The ARN of a <a>TestGridSession</a>. </p>
+   * The ARN of a TestGridSession.
+   *
    * @public
    */
   sessionArn: string | undefined;
 
   /**
-   * <p>Limit results to a specified type of artifact.</p>
+   * Limit results to a specified type of artifact.
+   *
    * @public
    */
   type?: TestGridSessionArtifactCategory | undefined;
 
   /**
-   * <p>The maximum number of results to be returned by a request.</p>
+   * The maximum number of results to be returned by a request.
+   *
    * @public
    */
   maxResult?: number | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Artifacts are video and other files that are produced in the process of running a browser in an automated
- *          context. </p>
- *          <note>
- *             <p>Video elements might be broken up into multiple artifacts as they grow in size during creation. </p>
- *          </note>
+ * Artifacts are video and other files that are produced in the process of running a browser in an automated context.
+ *
+ * > **Note:** Video elements might be broken up into multiple artifacts as they grow in size during creation.
+ *
  * @public
  */
 export interface TestGridSessionArtifact {
   /**
-   * <p>The file name of the artifact.</p>
+   * The file name of the artifact.
+   *
    * @public
    */
   filename?: string | undefined;
 
   /**
-   * <p>The kind of artifact.</p>
+   * The kind of artifact.
+   *
    * @public
    */
   type?: TestGridSessionArtifactType | undefined;
 
   /**
-   * <p>A semi-stable URL to the content of the object.</p>
+   * A semi-stable URL to the content of the object.
+   *
    * @public
    */
   url?: string | undefined;
@@ -5670,13 +5377,15 @@ export interface TestGridSessionArtifact {
  */
 export interface ListTestGridSessionArtifactsResult {
   /**
-   * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
+   * A list of test grid session artifacts for a TestGridSession.
+   *
    * @public
    */
   artifacts?: TestGridSessionArtifact[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5687,49 +5396,57 @@ export interface ListTestGridSessionArtifactsResult {
  */
 export interface ListTestGridSessionsRequest {
   /**
-   * <p>ARN of a <a>TestGridProject</a>.</p>
+   * ARN of a TestGridProject.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>Return only sessions in this state.</p>
+   * Return only sessions in this state.
+   *
    * @public
    */
   status?: TestGridSessionStatus | undefined;
 
   /**
-   * <p>Return only sessions created after this time.</p>
+   * Return only sessions created after this time.
+   *
    * @public
    */
   creationTimeAfter?: Date | undefined;
 
   /**
-   * <p>Return only  sessions created before this time.</p>
+   * Return only sessions created before this time.
+   *
    * @public
    */
   creationTimeBefore?: Date | undefined;
 
   /**
-   * <p>Return only sessions that ended after this time.</p>
+   * Return only sessions that ended after this time.
+   *
    * @public
    */
   endTimeAfter?: Date | undefined;
 
   /**
-   * <p>Return only sessions that ended before this time.</p>
+   * Return only sessions that ended before this time.
+   *
    * @public
    */
   endTimeBefore?: Date | undefined;
 
   /**
-   * <p>Return only this many results at a time.</p>
+   * Return only this many results at a time.
+   *
    * @public
    */
   maxResult?: number | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5740,359 +5457,298 @@ export interface ListTestGridSessionsRequest {
  */
 export interface ListTestGridSessionsResult {
   /**
-   * <p>The sessions that match the criteria in a <a>ListTestGridSessionsRequest</a>. </p>
+   * The sessions that match the criteria in a ListTestGridSessionsRequest.
+   *
    * @public
    */
   testGridSessions?: TestGridSession[] | undefined;
 
   /**
-   * <p>Pagination token.</p>
+   * Pagination token.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list tests operation.</p>
+ * Represents a request to the list tests operation.
+ *
  * @public
  */
 export interface ListTestsRequest {
   /**
-   * <p>The test suite's Amazon Resource Name (ARN).</p>
+   * The test suite's Amazon Resource Name (ARN).
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list tests request.</p>
+ * Represents the result of a list tests request.
+ *
  * @public
  */
 export interface ListTestsResult {
   /**
-   * <p>Information about the tests.</p>
+   * Information about the tests.
+   *
    * @public
    */
   tests?: Test[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list unique problems operation.</p>
+ * Represents a request to the list unique problems operation.
+ *
  * @public
  */
 export interface ListUniqueProblemsRequest {
   /**
-   * <p>The unique problems' ARNs.</p>
+   * The unique problems' ARNs.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Information about a problem detail.</p>
+ * Information about a problem detail.
+ *
  * @public
  */
 export interface ProblemDetail {
   /**
-   * <p>The problem detail's ARN.</p>
+   * The problem detail's ARN.
+   *
    * @public
    */
   arn?: string | undefined;
 
   /**
-   * <p>The problem detail's name.</p>
+   * The problem detail's name.
+   *
    * @public
    */
   name?: string | undefined;
 }
 
 /**
- * <p>Represents a specific warning or failure.</p>
+ * Represents a specific warning or failure.
+ *
  * @public
  */
 export interface Problem {
   /**
-   * <p>Information about the associated run.</p>
+   * Information about the associated run.
+   *
    * @public
    */
   run?: ProblemDetail | undefined;
 
   /**
-   * <p>Information about the associated job.</p>
+   * Information about the associated job.
+   *
    * @public
    */
   job?: ProblemDetail | undefined;
 
   /**
-   * <p>Information about the associated suite.</p>
+   * Information about the associated suite.
+   *
    * @public
    */
   suite?: ProblemDetail | undefined;
 
   /**
-   * <p>Information about the associated test.</p>
+   * Information about the associated test.
+   *
    * @public
    */
   test?: ProblemDetail | undefined;
 
   /**
-   * <p>Information about the associated device.</p>
+   * Information about the associated device.
+   *
    * @public
    */
   device?: Device | undefined;
 
   /**
-   * <p>The problem's result.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * The problem's result.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PASSED
+   * - WARNED
+   * - FAILED
+   * - SKIPPED
+   * - ERRORED
+   * - STOPPED
+   *
    * @public
    */
   result?: ExecutionResult | undefined;
 
   /**
-   * <p>A message about the problem's result.</p>
+   * A message about the problem's result.
+   *
    * @public
    */
   message?: string | undefined;
 }
 
 /**
- * <p>A collection of one or more problems, grouped by their result.</p>
+ * A collection of one or more problems, grouped by their result.
+ *
  * @public
  */
 export interface UniqueProblem {
   /**
-   * <p>A message about the unique problems' result.</p>
+   * A message about the unique problems' result.
+   *
    * @public
    */
   message?: string | undefined;
 
   /**
-   * <p>Information about the problems.</p>
+   * Information about the problems.
+   *
    * @public
    */
   problems?: Problem[] | undefined;
 }
 
 /**
- * <p>Represents the result of a list unique problems request.</p>
+ * Represents the result of a list unique problems request.
+ *
  * @public
  */
 export interface ListUniqueProblemsResult {
   /**
-   * <p>Information about the unique problems.</p>
-   *          <p>Allowed values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>PENDING</p>
-   *             </li>
-   *             <li>
-   *                <p>PASSED</p>
-   *             </li>
-   *             <li>
-   *                <p>WARNED</p>
-   *             </li>
-   *             <li>
-   *                <p>FAILED</p>
-   *             </li>
-   *             <li>
-   *                <p>SKIPPED</p>
-   *             </li>
-   *             <li>
-   *                <p>ERRORED</p>
-   *             </li>
-   *             <li>
-   *                <p>STOPPED</p>
-   *             </li>
-   *          </ul>
+   * Information about the unique problems.
+   *
+   * Allowed values include:
+   *
+   * - PENDING
+   * - PASSED
+   * - WARNED
+   * - FAILED
+   * - SKIPPED
+   * - ERRORED
+   * - STOPPED
+   *
    * @public
    */
   uniqueProblems?: Partial<Record<ExecutionResult, UniqueProblem[]>> | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request to the list uploads operation.</p>
+ * Represents a request to the list uploads operation.
+ *
  * @public
  */
 export interface ListUploadsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to list
-   *             uploads.</p>
+   * The Amazon Resource Name (ARN) of the project for which you want to list uploads.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The type of upload.</p>
-   *          <p>Must be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>ANDROID_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>IOS_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>WEB_APP</p>
-   *             </li>
-   *             <li>
-   *                <p>EXTERNAL_DATA</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_RUBY_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI_TEST_PACKAGE</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_JUNIT_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_JAVA_TESTNG_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_PYTHON_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_NODE_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p> APPIUM_RUBY_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_PYTHON_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_NODE_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>APPIUM_WEB_RUBY_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>INSTRUMENTATION_TEST_SPEC</p>
-   *             </li>
-   *             <li>
-   *                <p>XCTEST_UI_TEST_SPEC</p>
-   *             </li>
-   *          </ul>
+   * The type of upload.
+   *
+   * Must be one of the following values:
+   *
+   * - ANDROID_APP
+   * - IOS_APP
+   * - WEB_APP
+   * - EXTERNAL_DATA
+   * - APPIUM_JAVA_JUNIT_TEST_PACKAGE
+   * - APPIUM_JAVA_TESTNG_TEST_PACKAGE
+   * - APPIUM_PYTHON_TEST_PACKAGE
+   * - APPIUM_NODE_TEST_PACKAGE
+   * - APPIUM_RUBY_TEST_PACKAGE
+   * - APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE
+   * - APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE
+   * - APPIUM_WEB_PYTHON_TEST_PACKAGE
+   * - APPIUM_WEB_NODE_TEST_PACKAGE
+   * - APPIUM_WEB_RUBY_TEST_PACKAGE
+   * - INSTRUMENTATION_TEST_PACKAGE
+   * - XCTEST_TEST_PACKAGE
+   * - XCTEST_UI_TEST_PACKAGE
+   * - APPIUM_JAVA_JUNIT_TEST_SPEC
+   * - APPIUM_JAVA_TESTNG_TEST_SPEC
+   * - APPIUM_PYTHON_TEST_SPEC
+   * - APPIUM_NODE_TEST_SPEC
+   * - APPIUM_RUBY_TEST_SPEC
+   * - APPIUM_WEB_JAVA_JUNIT_TEST_SPEC
+   * - APPIUM_WEB_JAVA_TESTNG_TEST_SPEC
+   * - APPIUM_WEB_PYTHON_TEST_SPEC
+   * - APPIUM_WEB_NODE_TEST_SPEC
+   * - APPIUM_WEB_RUBY_TEST_SPEC
+   * - INSTRUMENTATION_TEST_SPEC
+   * - XCTEST_UI_TEST_SPEC
+   *
    * @public
    */
   type?: UploadType | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can
-   *             be used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents the result of a list uploads request.</p>
+ * Represents the result of a list uploads request.
+ *
  * @public
  */
 export interface ListUploadsResult {
   /**
-   * <p>Information about the uploads.</p>
+   * Information about the uploads.
+   *
    * @public
    */
   uploads?: Upload[] | undefined;
 
   /**
-   * <p>If the number of items that are returned is significantly large, this is an identifier that is also
-   *             returned. It can be used in a subsequent call to this operation to return the next set of items in the
-   *             list.</p>
+   * If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6103,14 +5759,15 @@ export interface ListUploadsResult {
  */
 export interface ListVPCEConfigurationsRequest {
   /**
-   * <p>An integer that specifies the maximum number of items you want to return in the API response.</p>
+   * An integer that specifies the maximum number of items you want to return in the API response.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6121,336 +5778,278 @@ export interface ListVPCEConfigurationsRequest {
  */
 export interface ListVPCEConfigurationsResult {
   /**
-   * <p>An array of <code>VPCEConfiguration</code> objects that contain information about your VPC endpoint
-   *             configuration.</p>
+   * An array of `VPCEConfiguration` objects that contain information about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfigurations?: VPCEConfiguration[] | undefined;
 
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *             used to return the next set of items in the list.</p>
+   * An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Represents a request for a purchase offering.</p>
+ * Represents a request for a purchase offering.
+ *
  * @public
  */
 export interface PurchaseOfferingRequest {
   /**
-   * <p>The ID of the offering.</p>
+   * The ID of the offering.
+   *
    * @public
    */
   offeringId: string | undefined;
 
   /**
-   * <p>The number of device slots to purchase in an offering request.</p>
+   * The number of device slots to purchase in an offering request.
+   *
    * @public
    */
   quantity: number | undefined;
 
   /**
-   * <p>The ID of the offering promotion to be applied to the purchase.</p>
+   * The ID of the offering promotion to be applied to the purchase.
+   *
    * @public
    */
   offeringPromotionId?: string | undefined;
 }
 
 /**
- * <p>The result of the purchase offering (for example, success or failure).</p>
+ * The result of the purchase offering (for example, success or failure).
+ *
  * @public
  */
 export interface PurchaseOfferingResult {
   /**
-   * <p>Represents the offering transaction for the purchase result.</p>
+   * Represents the offering transaction for the purchase result.
+   *
    * @public
    */
   offeringTransaction?: OfferingTransaction | undefined;
 }
 
 /**
- * <p>A request that represents an offering renewal.</p>
+ * A request that represents an offering renewal.
+ *
  * @public
  */
 export interface RenewOfferingRequest {
   /**
-   * <p>The ID of a request to renew an offering.</p>
+   * The ID of a request to renew an offering.
+   *
    * @public
    */
   offeringId: string | undefined;
 
   /**
-   * <p>The quantity requested in an offering renewal.</p>
+   * The quantity requested in an offering renewal.
+   *
    * @public
    */
   quantity: number | undefined;
 }
 
 /**
- * <p>The result of a renewal offering.</p>
+ * The result of a renewal offering.
+ *
  * @public
  */
 export interface RenewOfferingResult {
   /**
-   * <p>Represents the status of the offering transaction for the renewal.</p>
+   * Represents the status of the offering transaction for the renewal.
+   *
    * @public
    */
   offeringTransaction?: OfferingTransaction | undefined;
 }
 
 /**
- * <p>Represents the device filters used in a test run and the maximum number of devices to be included in the
- *             run. It is passed in as the <code>deviceSelectionConfiguration</code> request parameter in <a>ScheduleRun</a>.</p>
+ * Represents the device filters used in a test run and the maximum number of devices to be included in the run. It is passed in as the `deviceSelectionConfiguration` request parameter in ScheduleRun.
+ *
  * @public
  */
 export interface DeviceSelectionConfiguration {
   /**
-   * <p>Used to dynamically select a set of devices for a test run. A filter is made up of an
-   *             attribute, an operator, and one or more values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Attribute</b>
-   *                </p>
-   *                <p>The aspect of a device such as platform or model used as the selection
-   *                     criteria in a device filter.</p>
-   *                <p>Allowed values include:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>ARN: The Amazon Resource Name (ARN) of the device (for example,
-   *                                 <code>arn:aws:devicefarm:us-west-2::device:12345Example</code>).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>PLATFORM: The device platform. Valid values are ANDROID or
-   *                             IOS.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>OS_VERSION: The operating system version (for example,
-   *                             10.3.2).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>MODEL: The device model (for example, iPad 5th Gen).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>AVAILABILITY: The current availability of the device. Valid values
-   *                             are AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
-   *                             TEMPORARY_NOT_AVAILABLE.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>FORM_FACTOR: The device form factor. Valid values are PHONE or
-   *                             TABLET.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>MANUFACTURER: The device manufacturer (for example,
-   *                             Apple).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote
-   *                             access. Valid values are TRUE or FALSE.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging. Valid values
-   *                             are TRUE or FALSE. Because remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *                                 longer supported</a>, this filter is ignored.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>INSTANCE_ARN: The Amazon Resource Name (ARN) of the device
-   *                             instance.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>INSTANCE_LABELS: The label of the device instance.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>FLEET_TYPE: The fleet type. Valid values are PUBLIC or PRIVATE.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Operator</b>
-   *                </p>
-   *                <p>The filter operator.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The EQUALS operator is available for every attribute except
-   *                             INSTANCE_LABELS.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The CONTAINS operator is available for the INSTANCE_LABELS and MODEL
-   *                             attributes.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The IN and NOT_IN operators are available for the ARN, OS_VERSION,
-   *                             MODEL, MANUFACTURER, and INSTANCE_ARN attributes.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and
-   *                             GREATER_THAN_OR_EQUALS operators are also available for the OS_VERSION
-   *                             attribute.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Values</b>
-   *                </p>
-   *                <p>An array of one or more filter values.</p>
-   *                <p class="title">
-   *                   <b>Operator Values</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The IN and NOT_IN operators can take a values array that has more than
-   *                             one element.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The other operators require an array with a single element.</p>
-   *                   </li>
-   *                </ul>
-   *                <p class="title">
-   *                   <b>Attribute Values</b>
-   *                </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>The PLATFORM attribute can be set to ANDROID or IOS.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The AVAILABILITY attribute can be set to AVAILABLE, HIGHLY_AVAILABLE, BUSY, or
-   *                             TEMPORARY_NOT_AVAILABLE.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The FORM_FACTOR attribute can be set to PHONE or TABLET.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   * Used to dynamically select a set of devices for a test run. A filter is made up of an attribute, an operator, and one or more values.
+   *
+   * - **Attribute**
+   *
+   *   The aspect of a device such as platform or model used as the selection criteria in a device filter.
+   *
+   *   Allowed values include:
+   *
+   *   - ARN: The Amazon Resource Name (ARN) of the device (for example, `arn:aws:devicefarm:us-west-2::device:12345Example`).
+   *   - PLATFORM: The device platform. Valid values are ANDROID or IOS.
+   *   - OS_VERSION: The operating system version (for example, 10.3.2).
+   *   - MODEL: The device model (for example, iPad 5th Gen).
+   *   - AVAILABILITY: The current availability of the device. Valid values are AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   *   - FORM_FACTOR: The device form factor. Valid values are PHONE or TABLET.
+   *   - MANUFACTURER: The device manufacturer (for example, Apple).
+   *   - REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access. Valid values are TRUE or FALSE.
+   *   - REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging. Valid values are TRUE or FALSE. Because remote debugging is [no longer supported](https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html), this filter is ignored.
+   *   - INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.
+   *   - INSTANCE_LABELS: The label of the device instance.
+   *   - FLEET_TYPE: The fleet type. Valid values are PUBLIC or PRIVATE.
+   * - **Operator**
+   *
+   *   The filter operator.
+   *
+   *   - The EQUALS operator is available for every attribute except INSTANCE_LABELS.
+   *   - The CONTAINS operator is available for the INSTANCE_LABELS and MODEL attributes.
+   *   - The IN and NOT_IN operators are available for the ARN, OS_VERSION, MODEL, MANUFACTURER, and INSTANCE_ARN attributes.
+   *   - The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and GREATER_THAN_OR_EQUALS operators are also available for the OS_VERSION attribute.
+   * - **Values**
+   *
+   *   An array of one or more filter values.
+   *
+   *   **Operator Values**
+   *
+   *   - The IN and NOT_IN operators can take a values array that has more than one element.
+   *   - The other operators require an array with a single element.
+   *
+   *   **Attribute Values**
+   *
+   *   - The PLATFORM attribute can be set to ANDROID or IOS.
+   *   - The AVAILABILITY attribute can be set to AVAILABLE, HIGHLY_AVAILABLE, BUSY, or TEMPORARY_NOT_AVAILABLE.
+   *   - The FORM_FACTOR attribute can be set to PHONE or TABLET.
+   *   - The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.
+   *
    * @public
    */
   filters: DeviceFilter[] | undefined;
 
   /**
-   * <p>The maximum number of devices to be included in a test run.</p>
+   * The maximum number of devices to be included in a test run.
+   *
    * @public
    */
   maxDevices: number | undefined;
 }
 
 /**
- * <p>Represents configuration information about a test run, such as the execution
- *             timeout (in minutes).</p>
+ * Represents configuration information about a test run, such as the execution timeout (in minutes).
+ *
  * @public
  */
 export interface ExecutionConfiguration {
   /**
-   * <p>The number of minutes a test run executes before it times out.</p>
+   * The number of minutes a test run executes before it times out.
+   *
    * @public
    */
   jobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>True if account cleanup is enabled at the beginning of the test. Otherwise, false.</p>
+   * True if account cleanup is enabled at the beginning of the test. Otherwise, false.
+   *
    * @public
    */
   accountsCleanup?: boolean | undefined;
 
   /**
-   * <p>True if app package cleanup is enabled at the beginning of the test. Otherwise, false.</p>
+   * True if app package cleanup is enabled at the beginning of the test. Otherwise, false.
+   *
    * @public
    */
   appPackagesCleanup?: boolean | undefined;
 
   /**
-   * <p>Set to true to enable video capture. Otherwise, set to false. The default is true.</p>
+   * Set to true to enable video capture. Otherwise, set to false. The default is true.
+   *
    * @public
    */
   videoCapture?: boolean | undefined;
 
   /**
-   * <p>When set to <code>true</code>, for private devices, Device Farm does not sign your app again. For public
-   *             devices, Device Farm always signs your apps again.</p>
-   *          <p>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do you modify my app?</a> in the <i>AWS Device
-   *                 Farm FAQs</i>.</p>
+   * When set to `true`, for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+   *
+   * For more information about how Device Farm re-signs your apps, see [Do you modify my app?](http://aws.amazon.com/device-farm/faqs/) in the *AWS Device Farm FAQs*.
+   *
    * @public
    */
   skipAppResign?: boolean | undefined;
 }
 
 /**
- * <p>Represents a request to the schedule run operation.</p>
+ * Represents a request to the schedule run operation.
+ *
  * @public
  */
 export interface ScheduleRunRequest {
   /**
-   * <p>The ARN of the project for the run to be scheduled.</p>
+   * The ARN of the project for the run to be scheduled.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>The ARN of an application package to run tests against, created with <a>CreateUpload</a>.
-   *             See <a>ListUploads</a>.</p>
+   * The ARN of an application package to run tests against, created with CreateUpload. See ListUploads.
+   *
    * @public
    */
   appArn?: string | undefined;
 
   /**
-   * <p>The ARN of the device pool for the run to be scheduled.</p>
+   * The ARN of the device pool for the run to be scheduled.
+   *
    * @public
    */
   devicePoolArn?: string | undefined;
 
   /**
-   * <p>The filter criteria used to dynamically select a set of devices for a test run and the maximum number of
-   *             devices to be included in the run.</p>
-   *          <p>Either <b>
-   *                <code>devicePoolArn</code>
-   *             </b> or <b>
-   *                <code>deviceSelectionConfiguration</code>
-   *             </b> is required in a
-   *             request.</p>
+   * The filter criteria used to dynamically select a set of devices for a test run and the maximum number of devices to be included in the run.
+   *
+   * Either **`devicePoolArn`** or **`deviceSelectionConfiguration`** is required in a request.
+   *
    * @public
    */
   deviceSelectionConfiguration?: DeviceSelectionConfiguration | undefined;
 
   /**
-   * <p>The name for the run to be scheduled.</p>
+   * The name for the run to be scheduled.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Information about the test for the run to be scheduled.</p>
+   * Information about the test for the run to be scheduled.
+   *
    * @public
    */
   test: ScheduleRunTest | undefined;
 
   /**
-   * <p>Information about the settings for the run to be scheduled.</p>
+   * Information about the settings for the run to be scheduled.
+   *
    * @public
    */
   configuration?: ScheduleRunConfiguration | undefined;
 
   /**
-   * <p>Specifies configuration information about a test run, such as the execution timeout
-   *             (in minutes).</p>
+   * Specifies configuration information about a test run, such as the execution timeout (in minutes).
+   *
    * @public
    */
   executionConfiguration?: ExecutionConfiguration | undefined;
 }
 
 /**
- * <p>Represents the result of a schedule run request.</p>
+ * Represents the result of a schedule run request.
+ *
  * @public
  */
 export interface ScheduleRunResult {
   /**
-   * <p>Information about the scheduled run.</p>
+   * Information about the scheduled run.
+   *
    * @public
    */
   run?: Run | undefined;
@@ -6461,7 +6060,8 @@ export interface ScheduleRunResult {
  */
 export interface StopJobRequest {
   /**
-   * <p>Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.</p>
+   * Represents the Amazon Resource Name (ARN) of the Device Farm job to stop.
+   *
    * @public
    */
   arn: string | undefined;
@@ -6472,57 +6072,64 @@ export interface StopJobRequest {
  */
 export interface StopJobResult {
   /**
-   * <p>The job that was stopped.</p>
+   * The job that was stopped.
+   *
    * @public
    */
   job?: Job | undefined;
 }
 
 /**
- * <p>Represents the request to stop the remote access session.</p>
+ * Represents the request to stop the remote access session.
+ *
  * @public
  */
 export interface StopRemoteAccessSessionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the remote access session to stop.</p>
+   * The Amazon Resource Name (ARN) of the remote access session to stop.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the response from the server that describes the remote access session
- *             when AWS Device Farm stops the session.</p>
+ * Represents the response from the server that describes the remote access session when AWS Device Farm stops the session.
+ *
  * @public
  */
 export interface StopRemoteAccessSessionResult {
   /**
-   * <p>A container that represents the metadata from the service about the remote access session you are
-   *             stopping.</p>
+   * A container that represents the metadata from the service about the remote access session you are stopping.
+   *
    * @public
    */
   remoteAccessSession?: RemoteAccessSession | undefined;
 }
 
 /**
- * <p>Represents the request to stop a specific run.</p>
+ * Represents the request to stop a specific run.
+ *
  * @public
  */
 export interface StopRunRequest {
   /**
-   * <p>Represents the Amazon Resource Name (ARN) of the Device Farm run to stop.</p>
+   * Represents the Amazon Resource Name (ARN) of the Device Farm run to stop.
+   *
    * @public
    */
   arn: string | undefined;
 }
 
 /**
- * <p>Represents the results of your stop run attempt.</p>
+ * Represents the results of your stop run attempt.
+ *
  * @public
  */
 export interface StopRunResult {
   /**
-   * <p>The run that was stopped.</p>
+   * The run that was stopped.
+   *
    * @public
    */
   run?: Run | undefined;
@@ -6533,18 +6140,15 @@ export interface StopRunResult {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags
-   *             with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>,
-   *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
-   *                 <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and
-   *             <code>VPCE_CONFIGURATION</code>.</p>
+   * The Amazon Resource Name (ARN) of the resource or resources to which to add tags. You can associate tags with the following Device Farm resources: `PROJECT`, `TESTGRID_PROJECT`, `RUN`, `NETWORK_PROFILE`, `INSTANCE_PROFILE`, `DEVICE_INSTANCE`, `SESSION`, `DEVICE_POOL`, `DEVICE`, and `VPCE_CONFIGURATION`.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
-   *             character length of 128 characters. Tag values can have a maximum length of 256 characters.</p>
+   * The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+   *
    * @public
    */
   Tags: Tag[] | undefined;
@@ -6560,17 +6164,15 @@ export interface TagResourceResponse {}
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate
-   *             tags with the following Device Farm resources: <code>PROJECT</code>, <code>TESTGRID_PROJECT</code>, <code>RUN</code>,
-   *                 <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
-   *                 <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and
-   *             <code>VPCE_CONFIGURATION</code>.</p>
+   * The Amazon Resource Name (ARN) of the resource or resources from which to delete tags. You can associate tags with the following Device Farm resources: `PROJECT`, `TESTGRID_PROJECT`, `RUN`, `NETWORK_PROFILE`, `INSTANCE_PROFILE`, `DEVICE_INSTANCE`, `SESSION`, `DEVICE_POOL`, `DEVICE`, and `VPCE_CONFIGURATION`.
+   *
    * @public
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The keys of the tags to be removed.</p>
+   * The keys of the tags to be removed.
+   *
    * @public
    */
   TagKeys: string[] | undefined;
@@ -6586,19 +6188,22 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateDeviceInstanceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the device instance.</p>
+   * The Amazon Resource Name (ARN) of the device instance.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The ARN of the profile that you want to associate with the device instance.</p>
+   * The ARN of the profile that you want to associate with the device instance.
+   *
    * @public
    */
   profileArn?: string | undefined;
 
   /**
-   * <p>An array of strings that you want to associate with the device instance.</p>
+   * An array of strings that you want to associate with the device instance.
+   *
    * @public
    */
   labels?: string[] | undefined;
@@ -6609,74 +6214,77 @@ export interface UpdateDeviceInstanceRequest {
  */
 export interface UpdateDeviceInstanceResult {
   /**
-   * <p>An object that contains information about your device instance.</p>
+   * An object that contains information about your device instance.
+   *
    * @public
    */
   deviceInstance?: DeviceInstance | undefined;
 }
 
 /**
- * <p>Represents a request to the update device pool operation.</p>
+ * Represents a request to the update device pool operation.
+ *
  * @public
  */
 export interface UpdateDevicePoolRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Device Farm device pool to update.</p>
+   * The Amazon Resource Name (ARN) of the Device Farm device pool to update.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A string that represents the name of the device pool to update.</p>
+   * A string that represents the name of the device pool to update.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the device pool to update.</p>
+   * A description of the device pool to update.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for
-   *             your request, the update replaces the existing rules.</p>
+   * Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for your request, the update replaces the existing rules.
+   *
    * @public
    */
   rules?: Rule[] | undefined;
 
   /**
-   * <p>The number of devices that Device Farm can add to your device pool. Device Farm adds
-   *             devices that are available and that meet the criteria that you assign for the
-   *                 <code>rules</code> parameter. Depending on how many devices meet these constraints,
-   *             your device pool might contain fewer devices than the value for this parameter.</p>
-   *          <p>By specifying the maximum number of devices, you can control the costs that you incur
-   *             by running tests.</p>
-   *          <p>If you use this parameter in your request, you cannot use the
-   *                 <code>clearMaxDevices</code> parameter in the same request.</p>
+   * The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and that meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
+   *
+   * By specifying the maximum number of devices, you can control the costs that you incur by running tests.
+   *
+   * If you use this parameter in your request, you cannot use the `clearMaxDevices` parameter in the same request.
+   *
    * @public
    */
   maxDevices?: number | undefined;
 
   /**
-   * <p>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If you set this parameter
-   *             to <code>true</code>, the <code>maxDevices</code> parameter does not apply, and Device Farm does not limit
-   *             the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices
-   *             that meet the criteria specified in the <code>rules</code> parameter.</p>
-   *          <p>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
-   *             parameter in the same request.</p>
+   * Sets whether the `maxDevices` parameter applies to your device pool. If you set this parameter to `true`, the `maxDevices` parameter does not apply, and Device Farm does not limit the number of devices that it adds to your device pool. In this case, Device Farm adds all available devices that meet the criteria specified in the `rules` parameter.
+   *
+   * If you use this parameter in your request, you cannot use the `maxDevices` parameter in the same request.
+   *
    * @public
    */
   clearMaxDevices?: boolean | undefined;
 }
 
 /**
- * <p>Represents the result of an update device pool request.</p>
+ * Represents the result of an update device pool request.
+ *
  * @public
  */
 export interface UpdateDevicePoolResult {
   /**
-   * <p>The device pool you just updated.</p>
+   * The device pool you just updated.
+   *
    * @public
    */
   devicePool?: DevicePool | undefined;
@@ -6687,42 +6295,45 @@ export interface UpdateDevicePoolResult {
  */
 export interface UpdateInstanceProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   * The Amazon Resource Name (ARN) of the instance profile.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The updated name for your instance profile.</p>
+   * The updated name for your instance profile.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The updated description for your instance profile.</p>
+   * The updated description for your instance profile.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The updated choice for whether you want to specify package cleanup. The default value
-   *             is <code>false</code> for private devices.</p>
+   * The updated choice for whether you want to specify package cleanup. The default value is `false` for private devices.
+   *
    * @public
    */
   packageCleanup?: boolean | undefined;
 
   /**
-   * <p>An array of strings that specifies the list of app packages that should not be cleaned up from the device
-   *             after a test run is over.</p>
-   *          <p>The list of packages is only considered if you set <code>packageCleanup</code> to
-   *                 <code>true</code>.</p>
+   * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run is over.
+   *
+   * The list of packages is only considered if you set `packageCleanup` to `true`.
+   *
    * @public
    */
   excludeAppPackagesFromCleanup?: string[] | undefined;
 
   /**
-   * <p>The updated choice for whether you want to reboot the device after use. The default
-   *             value is <code>true</code>.</p>
+   * The updated choice for whether you want to reboot the device after use. The default value is `true`.
+   *
    * @public
    */
   rebootAfterUse?: boolean | undefined;
@@ -6733,7 +6344,8 @@ export interface UpdateInstanceProfileRequest {
  */
 export interface UpdateInstanceProfileResult {
   /**
-   * <p>An object that contains information about your instance profile.</p>
+   * An object that contains information about your instance profile.
+   *
    * @public
    */
   instanceProfile?: InstanceProfile | undefined;
@@ -6744,83 +6356,85 @@ export interface UpdateInstanceProfileResult {
  */
 export interface UpdateNetworkProfileRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project for which you want to update network
-   *             profile settings.</p>
+   * The Amazon Resource Name (ARN) of the project for which you want to update network profile settings.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the network profile about which you are returning
-   *             information.</p>
+   * The name of the network profile about which you are returning information.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The description of the network profile about which you are returning
-   *             information.</p>
+   * The description of the network profile about which you are returning information.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The type of network profile to return information about. Valid values are listed here.</p>
+   * The type of network profile to return information about. Valid values are listed here.
+   *
    * @public
    */
   type?: NetworkProfileType | undefined;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
+   * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+   *
    * @public
    */
   uplinkBandwidthBits?: number | undefined;
 
   /**
-   * <p>The data throughput rate in bits per second, as an integer from 0 to
-   *             104857600.</p>
+   * The data throughput rate in bits per second, as an integer from 0 to 104857600.
+   *
    * @public
    */
   downlinkBandwidthBits?: number | undefined;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   uplinkDelayMs?: number | undefined;
 
   /**
-   * <p>Delay time for all packets to destination in milliseconds as an integer from 0 to
-   *             2000.</p>
+   * Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   downlinkDelayMs?: number | undefined;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
+   * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   uplinkJitterMs?: number | undefined;
 
   /**
-   * <p>Time variation in the delay of received packets in milliseconds as an integer from
-   *             0 to 2000.</p>
+   * Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+   *
    * @public
    */
   downlinkJitterMs?: number | undefined;
 
   /**
-   * <p>Proportion of transmitted packets that fail to arrive from 0 to 100
-   *             percent.</p>
+   * Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+   *
    * @public
    */
   uplinkLossPercent?: number | undefined;
 
   /**
-   * <p>Proportion of received packets that fail to arrive from 0 to 100 percent.</p>
+   * Proportion of received packets that fail to arrive from 0 to 100 percent.
+   *
    * @public
    */
   downlinkLossPercent?: number | undefined;
@@ -6831,69 +6445,73 @@ export interface UpdateNetworkProfileRequest {
  */
 export interface UpdateNetworkProfileResult {
   /**
-   * <p>A list of the available network profiles.</p>
+   * A list of the available network profiles.
+   *
    * @public
    */
   networkProfile?: NetworkProfile | undefined;
 }
 
 /**
- * <p>Represents a request to the update project operation.</p>
+ * Represents a request to the update project operation.
+ *
  * @public
  */
 export interface UpdateProjectRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the project whose name to update.</p>
+   * The Amazon Resource Name (ARN) of the project whose name to update.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A string that represents the new name of the project that you are updating.</p>
+   * A string that represents the new name of the project that you are updating.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The number of minutes a test run in the project executes before it times out.</p>
+   * The number of minutes a test run in the project executes before it times out.
+   *
    * @public
    */
   defaultJobTimeoutMinutes?: number | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: VpcConfig | undefined;
 
   /**
-   * <p>
-   *             A set of environment variables which are used by default for all runs in the project.
-   *             These environment variables are applied to the test run during the execution of a test spec file.
-   *         </p>
-   *          <p>
-   *             For more information about using test spec files, please see
-   *             <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html">Custom test environments </a> in <i>AWS Device
-   *             Farm.</i>
-   *          </p>
+   * A set of environment variables which are used by default for all runs in the project. These environment variables are applied to the test run during the execution of a test spec file.
+   *
+   * For more information about using test spec files, please see [Custom test environments](https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environments.html) in *AWS Device Farm.*
+   *
    * @public
    */
   environmentVariables?: EnvironmentVariable[] | undefined;
 
   /**
-   * <p>An IAM role to be assumed by the test host for all runs in the project.</p>
+   * An IAM role to be assumed by the test host for all runs in the project.
+   *
    * @public
    */
   executionRoleArn?: string | undefined;
 }
 
 /**
- * <p>Represents the result of an update project request.</p>
+ * Represents the result of an update project request.
+ *
  * @public
  */
 export interface UpdateProjectResult {
   /**
-   * <p>The project to update.</p>
+   * The project to update.
+   *
    * @public
    */
   project?: Project | undefined;
@@ -6904,25 +6522,29 @@ export interface UpdateProjectResult {
  */
 export interface UpdateTestGridProjectRequest {
   /**
-   * <p>ARN of the project to update.</p>
+   * ARN of the project to update.
+   *
    * @public
    */
   projectArn: string | undefined;
 
   /**
-   * <p>Human-readable name for the project.</p>
+   * Human-readable name for the project.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>Human-readable description for the project.</p>
+   * Human-readable description for the project.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   * The VPC security groups and subnets that are attached to a project.
+   *
    * @public
    */
   vpcConfig?: TestGridVpcConfig | undefined;
@@ -6933,7 +6555,8 @@ export interface UpdateTestGridProjectRequest {
  */
 export interface UpdateTestGridProjectResult {
   /**
-   * <p>The project, including updated information.</p>
+   * The project, including updated information.
+   *
    * @public
    */
   testGridProject?: TestGridProject | undefined;
@@ -6944,26 +6567,29 @@ export interface UpdateTestGridProjectResult {
  */
 export interface UpdateUploadRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>
+   * The Amazon Resource Name (ARN) of the uploaded test spec.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file
-   *             name must end with the <code>.yaml</code> or <code>.yml</code> file extension.</p>
+   * The upload's test spec file name. The name must not contain any forward slashes (/). The test spec file name must end with the `.yaml` or `.yml` file extension.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>The upload's content type (for example, <code>application/x-yaml</code>).</p>
+   * The upload's content type (for example, `application/x-yaml`).
+   *
    * @public
    */
   contentType?: string | undefined;
 
   /**
-   * <p>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</p>
+   * Set to true if the YAML file has changed and must be updated. Otherwise, set to false.
+   *
    * @public
    */
   editContent?: boolean | undefined;
@@ -6974,7 +6600,8 @@ export interface UpdateUploadRequest {
  */
 export interface UpdateUploadResult {
   /**
-   * <p>A test spec uploaded to Device Farm.</p>
+   * A test spec uploaded to Device Farm.
+   *
    * @public
    */
   upload?: Upload | undefined;
@@ -6985,34 +6612,36 @@ export interface UpdateUploadResult {
  */
 export interface UpdateVPCEConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to
-   *             update.</p>
+   * The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to update.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The friendly name you give to your VPC endpoint configuration to manage your configurations more
-   *             easily.</p>
+   * The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+   *
    * @public
    */
   vpceConfigurationName?: string | undefined;
 
   /**
-   * <p>The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.</p>
+   * The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+   *
    * @public
    */
   vpceServiceName?: string | undefined;
 
   /**
-   * <p>The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already
-   *             be in use on the internet.</p>
+   * The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already be in use on the internet.
+   *
    * @public
    */
   serviceDnsName?: string | undefined;
 
   /**
-   * <p>An optional description that provides details about your VPC endpoint configuration.</p>
+   * An optional description that provides details about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfigurationDescription?: string | undefined;
@@ -7023,7 +6652,8 @@ export interface UpdateVPCEConfigurationRequest {
  */
 export interface UpdateVPCEConfigurationResult {
   /**
-   * <p>An object that contains information about your VPC endpoint configuration.</p>
+   * An object that contains information about your VPC endpoint configuration.
+   *
    * @public
    */
   vpceConfiguration?: VPCEConfiguration | undefined;

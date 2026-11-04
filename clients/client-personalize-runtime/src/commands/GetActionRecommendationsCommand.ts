@@ -23,12 +23,10 @@ export interface GetActionRecommendationsCommandInput extends GetActionRecommend
 export interface GetActionRecommendationsCommandOutput extends GetActionRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of recommended actions in sorted in descending order by prediction score.
- *       Use the <code>GetActionRecommendations</code> API if you have a custom
- *        campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
- *     </p>
- *          <p>For more information about PERSONALIZED_ACTIONS recipes, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html">PERSONALIZED_ACTIONS recipes</a>.
- *       For more information about getting action recommendations, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html">Getting action recommendations</a>.</p>
+ * Returns a list of recommended actions in sorted in descending order by prediction score. Use the `GetActionRecommendations` API if you have a custom campaign that deploys a solution version trained with a PERSONALIZED_ACTIONS recipe.
+ *
+ * For more information about PERSONALIZED_ACTIONS recipes, see [PERSONALIZED_ACTIONS recipes](https://docs.aws.amazon.com/personalize/latest/dg/nexts-best-action-recipes.html). For more information about getting action recommendations, see [Getting action recommendations](https://docs.aws.amazon.com/personalize/latest/dg/get-action-recommendations.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,14 +65,16 @@ export interface GetActionRecommendationsCommandOutput extends GetActionRecommen
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link PersonalizeRuntimeServiceException}
- * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
+ * Base exception class for all service exceptions from PersonalizeRuntime service.
  *
  * @public
  */

@@ -23,49 +23,25 @@ export interface AdminDisableProviderForUserCommandInput extends AdminDisablePro
 export interface AdminDisableProviderForUserCommandOutput extends AdminDisableProviderForUserResponse, __MetadataBearer {}
 
 /**
- * <p>Prevents the user from signing in with the specified external (SAML or social)
- *             identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools
- *             native username + password user, they can't use their password to sign in. If the user
- *             to deactivate is a linked external IdP user, any link between that user and an existing
- *             user is removed. When the external user signs in again, and the user is no longer
- *             attached to the previously linked <code>DestinationUser</code>, the user must create a
- *             new user account.</p>
- *          <p>The value of <code>ProviderName</code> must match the name of a user pool IdP.</p>
- *          <p>To deactivate a local user, set <code>ProviderName</code> to <code>Cognito</code> and
- *             the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. The
- *                 <code>ProviderAttributeValue</code> must be user's local username.</p>
- *          <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for
- *             social IdPs. The <code>ProviderAttributeValue</code> must always be the exact subject
- *             that was used when the user was originally linked as a source user.</p>
- *          <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has
- *             not yet been used to sign in, the <code>ProviderAttributeName</code> and
- *                 <code>ProviderAttributeValue</code> must be the same values that were used for the
- *                 <code>SourceUser</code> when the identities were originally linked using <code>
- *                 AdminLinkProviderForUser</code> call. This is also true if the linking was done with
- *                 <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>. If the user
- *             has already signed in, the <code>ProviderAttributeName</code> must be
- *                 <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the
- *                 <code>NameID</code> from their SAML assertion.</p>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Prevents the user from signing in with the specified external (SAML or social) identity provider (IdP). If the user that you want to deactivate is a Amazon Cognito user pools native username + password user, they can't use their password to sign in. If the user to deactivate is a linked external IdP user, any link between that user and an existing user is removed. When the external user signs in again, and the user is no longer attached to the previously linked `DestinationUser`, the user must create a new user account.
+ *
+ * The value of `ProviderName` must match the name of a user pool IdP.
+ *
+ * To deactivate a local user, set `ProviderName` to `Cognito` and the `ProviderAttributeName` to `Cognito_Subject`. The `ProviderAttributeValue` must be user's local username.
+ *
+ * The `ProviderAttributeName` must always be `Cognito_Subject` for social IdPs. The `ProviderAttributeValue` must always be the exact subject that was used when the user was originally linked as a source user.
+ *
+ * For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign in, the `ProviderAttributeName` and `ProviderAttributeValue` must be the same values that were used for the `SourceUser` when the identities were originally linked using `AdminLinkProviderForUser` call. This is also true if the linking was done with `ProviderAttributeName` set to `Cognito_Subject`. If the user has already signed in, the `ProviderAttributeName` must be `Cognito_Subject` and `ProviderAttributeValue` must be the `NameID` from their SAML assertion.
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,39 +71,40 @@ export interface AdminDisableProviderForUserCommandOutput extends AdminDisablePr
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link AliasExistsException} (client fault)
- *  <p>This exception is thrown when a user tries to confirm the account with an email
- *             address or phone number that has already been supplied as an alias for a different user
- *             profile. This exception indicates that an account with this email address or phone
- *             already exists in a user pool that you've configured to use email address or phone
- *             number as a sign-in alias.</p>
+ *
+ * This exception is thrown when a user tries to confirm the account with an email address or phone number that has already been supplied as an alias for a different user profile. This exception indicates that an account with this email address or phone already exists in a user pool that you've configured to use email address or phone number as a sign-in alias.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link UserNotFoundException} (client fault)
- *  <p>This exception is thrown when a user isn't found.</p>
+ *
+ * This exception is thrown when a user isn't found.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

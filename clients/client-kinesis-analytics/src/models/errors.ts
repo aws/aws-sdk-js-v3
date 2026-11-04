@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KinesisAnalyticsServiceException as __BaseException } from "./KinesisAnalyticsServiceException";
 
 /**
- * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
+ * Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.
+ *
  * @public
  */
 export class ConcurrentModificationException extends __BaseException {
@@ -25,7 +26,8 @@ export class ConcurrentModificationException extends __BaseException {
 }
 
 /**
- * <p>Specified input parameter value is invalid.</p>
+ * Specified input parameter value is invalid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -46,7 +48,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>Application is not available for this operation.</p>
+ * Application is not available for this operation.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Specified application can't be found.</p>
+ * Specified application can't be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -88,7 +92,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
+ *
  * @public
  */
 export class UnsupportedOperationException extends __BaseException {
@@ -109,7 +114,8 @@ export class UnsupportedOperationException extends __BaseException {
 }
 
 /**
- * <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
+ * User-provided application code (query) is invalid. This can be a simple syntax error.
+ *
  * @public
  */
 export class CodeValidationException extends __BaseException {
@@ -130,7 +136,8 @@ export class CodeValidationException extends __BaseException {
 }
 
 /**
- * <p>Exceeded the number of applications allowed.</p>
+ * Exceeded the number of applications allowed.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -151,7 +158,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+ * Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -172,11 +180,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>Discovery failed to get a record from the
- *             streaming source because of the Amazon Kinesis Streams
- *             ProvisionedThroughputExceededException. For more information,
- *             see <a href="https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a>
- *             in the Amazon Kinesis Streams API Reference.</p>
+ * Discovery failed to get a record from the streaming source because of the Amazon Kinesis Streams ProvisionedThroughputExceededException. For more information, see [GetRecords](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html) in the Amazon Kinesis Streams API Reference.
+ *
  * @public
  */
 export class ResourceProvisionedThroughputExceededException extends __BaseException {
@@ -197,7 +202,8 @@ export class ResourceProvisionedThroughputExceededException extends __BaseExcept
 }
 
 /**
- * <p>The service is unavailable. Back off and retry the operation. </p>
+ * The service is unavailable. Back off and retry the operation.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -218,8 +224,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for
- *             the given streaming source.</p>
+ * Data format is not valid. Amazon Kinesis Analytics is not able to detect schema for the given streaming source.
+ *
  * @public
  */
 export class UnableToDetectSchemaException extends __BaseException {
@@ -244,7 +250,8 @@ export class UnableToDetectSchemaException extends __BaseException {
 }
 
 /**
- * <p>User-provided application configuration is not valid.</p>
+ * User-provided application configuration is not valid.
+ *
  * @public
  */
 export class InvalidApplicationConfigurationException extends __BaseException {

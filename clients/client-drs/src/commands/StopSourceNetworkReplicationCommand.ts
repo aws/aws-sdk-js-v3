@@ -23,7 +23,8 @@ export interface StopSourceNetworkReplicationCommandInput extends StopSourceNetw
 export interface StopSourceNetworkReplicationCommandOutput extends StopSourceNetworkReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Stops replication for a Source Network. This action would make the Source Network unprotected.</p>
+ * Stops replication for a Source Network. This action would make the Source Network unprotected.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,26 +69,32 @@ export interface StopSourceNetworkReplicationCommandOutput extends StopSourceNet
  * @see {@link DrsClientResolvedConfig | config} for DrsClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the target resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource for this operation was not found.</p>
+ *
+ * The resource for this operation was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link UninitializedAccountException} (client fault)
- *  <p>The account performing the request has not been initialized.</p>
+ *
+ * The account performing the request has not been initialized.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the AWS service.
  *
  * @throws {@link DrsServiceException}
- * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ * Base exception class for all service exceptions from Drs service.
  *
  * @public
  */

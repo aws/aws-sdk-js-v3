@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BedrockRuntimeServiceException as __BaseException } from "./BedrockRuntimeServiceException";
 
 /**
- * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide</p>
+ * The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see [AccessDeniedException](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied) in the Amazon Bedrock User Guide
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>An internal server error occurred. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure">InternalFailure</a> in the Amazon Bedrock User Guide</p>
+ * An internal server error occurred. For troubleshooting this error, see [InternalFailure](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-internal-failure) in the Amazon Bedrock User Guide
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -46,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide</p>
+ * Your request was denied due to exceeding the account quotas for *Amazon Bedrock*. For troubleshooting this error, see [ThrottlingException](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception) in the Amazon Bedrock User Guide
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -67,7 +70,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide</p>
+ * The input fails to satisfy the constraints specified by *Amazon Bedrock*. For troubleshooting this error, see [ValidationError](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error) in the Amazon Bedrock User Guide
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -88,7 +92,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Error occurred because of a conflict while performing an operation.</p>
+ * Error occurred because of a conflict while performing an operation.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -109,7 +114,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide</p>
+ * The specified resource ARN was not found. For troubleshooting this error, see [ResourceNotFound](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found) in the Amazon Bedrock User Guide
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -130,7 +136,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
+ * Your request exceeds the service quota for your account. You can view your quotas at [Viewing service quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html). You can resubmit your request later.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -151,7 +158,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The service isn't currently available. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable">ServiceUnavailable</a> in the Amazon Bedrock User Guide</p>
+ * The service isn't currently available. For troubleshooting this error, see [ServiceUnavailable](https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-service-unavailable) in the Amazon Bedrock User Guide
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -172,7 +180,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to an error while processing the model.</p>
+ * The request failed due to an error while processing the model.
+ *
  * @public
  */
 export class ModelErrorException extends __BaseException {
@@ -180,13 +189,15 @@ export class ModelErrorException extends __BaseException {
   readonly name = "ModelErrorException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The original status code.</p>
+   * The original status code.
+   *
    * @public
    */
   originalStatusCode?: number | undefined;
 
   /**
-   * <p>The resource name.</p>
+   * The resource name.
+   *
    * @public
    */
   resourceName?: string | undefined;
@@ -207,7 +218,8 @@ export class ModelErrorException extends __BaseException {
 }
 
 /**
- * <p>The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide.</p>
+ * The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see [Retry behavior](https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html) in the *AWS SDKs and Tools* reference guide.
+ *
  * @public
  */
 export class ModelNotReadyException extends __BaseException {
@@ -229,7 +241,8 @@ export class ModelNotReadyException extends __BaseException {
 }
 
 /**
- * <p>The request took too long to process. Processing time exceeded the model timeout length.</p>
+ * The request took too long to process. Processing time exceeded the model timeout length.
+ *
  * @public
  */
 export class ModelTimeoutException extends __BaseException {
@@ -250,7 +263,8 @@ export class ModelTimeoutException extends __BaseException {
 }
 
 /**
- * <p>An error occurred while streaming the response. Retry your request.</p>
+ * An error occurred while streaming the response. Retry your request.
+ *
  * @public
  */
 export class ModelStreamErrorException extends __BaseException {
@@ -258,13 +272,15 @@ export class ModelStreamErrorException extends __BaseException {
   readonly name = "ModelStreamErrorException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The original status code.</p>
+   * The original status code.
+   *
    * @public
    */
   originalStatusCode?: number | undefined;
 
   /**
-   * <p>The original message.</p>
+   * The original message.
+   *
    * @public
    */
   originalMessage?: string | undefined;

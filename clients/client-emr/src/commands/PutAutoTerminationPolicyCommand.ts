@@ -23,15 +23,10 @@ export interface PutAutoTerminationPolicyCommandInput extends PutAutoTermination
 export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminationPolicyOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and
- *             later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an
- *                auto-termination policy</a>.</p>
- *          </note>
- *          <p>Creates or updates an auto-termination policy for an Amazon EMR cluster. An
- *          auto-termination policy defines the amount of idle time in seconds after which a cluster
- *          automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control
- *             cluster termination</a>.</p>
+ * > **Note:** Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0 and later. For more information, see [Using an auto-termination policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html).
+ *
+ * Creates or updates an auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see [Control cluster termination](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +54,8 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

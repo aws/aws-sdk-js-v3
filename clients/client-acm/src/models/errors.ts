@@ -5,7 +5,8 @@ import { ACMServiceException as __BaseException } from "./ACMServiceException";
 import type { ThrottlingReason } from "./models_0";
 
 /**
- * <p>You do not have access required to perform this action.</p>
+ * You do not have access required to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ * The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+ *
  * @public
  */
 export class InvalidArnException extends __BaseException {
@@ -49,7 +51,8 @@ export class InvalidArnException extends __BaseException {
 }
 
 /**
- * <p>An input parameter was invalid.</p>
+ * An input parameter was invalid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -70,7 +73,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
+ * One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with `aws:`.
+ *
  * @public
  */
 export class InvalidTagException extends __BaseException {
@@ -91,7 +95,8 @@ export class InvalidTagException extends __BaseException {
 }
 
 /**
- * <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
+ * The specified certificate cannot be found in the caller's account or the caller's account cannot be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -112,7 +117,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+ * A specified tag did not comply with an existing tag policy and was rejected.
+ *
  * @public
  */
 export class TagPolicyException extends __BaseException {
@@ -133,7 +139,8 @@ export class TagPolicyException extends __BaseException {
 }
 
 /**
- * <p>The request was denied because it exceeded a quota.</p>
+ * The request was denied because it exceeded a quota.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -141,7 +148,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>One or more reasons why the request was throttled.</p>
+   * One or more reasons why the request was throttled.
+   *
    * @public
    */
   throttlingReasons?: ThrottlingReason[] | undefined;
@@ -161,7 +169,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ * The request contains too many tags. Try the request again with fewer tags.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -182,7 +191,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ * The supplied input failed to satisfy constraints of an Amazon Web Services service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -203,7 +213,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
+ * You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -224,7 +235,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception, or failure.</p>
+ * The request processing has failed because of an unknown error, exception, or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -246,7 +258,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>A service quota has been exceeded.</p>
+ * A service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -267,7 +280,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the association and try again.</p>
+ * The certificate is in use by another Amazon Web Services service in the caller's account. Remove the association and try again.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -288,7 +302,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+ * The certificate request is in process and the certificate in your account has not yet been issued.
+ *
  * @public
  */
 export class RequestInProgressException extends __BaseException {
@@ -309,7 +324,8 @@ export class RequestInProgressException extends __BaseException {
 }
 
 /**
- * <p>An ACM quota has been exceeded.</p>
+ * An ACM quota has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -330,7 +346,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>One or more of request parameters specified is not valid.</p>
+ * One or more of request parameters specified is not valid.
+ *
  * @public
  */
 export class InvalidArgsException extends __BaseException {
@@ -351,7 +368,8 @@ export class InvalidArgsException extends __BaseException {
 }
 
 /**
- * <p>One or more values in the <a>DomainValidationOption</a> structure is incorrect.</p>
+ * One or more values in the DomainValidationOption structure is incorrect.
+ *
  * @public
  */
 export class InvalidDomainValidationOptionsException extends __BaseException {
@@ -372,7 +390,8 @@ export class InvalidDomainValidationOptionsException extends __BaseException {
 }
 
 /**
- * <p>Processing has reached an invalid state.</p>
+ * Processing has reached an invalid state.
+ *
  * @public
  */
 export class InvalidStateException extends __BaseException {

@@ -23,8 +23,10 @@ export interface DescribeTunnelCommandInput extends DescribeTunnelRequest {}
 export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeTunnel</a> action.</p>
+ * Gets information about a tunnel identified by the unique tunnel id.
+ *
+ * Requires permission to access the [DescribeTunnel](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,11 +83,12 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
+ * Thrown when an operation is attempted on a resource that does not exist.
  *
  * @throws {@link IoTSecureTunnelingServiceException}
- * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
+ * Base exception class for all service exceptions from IoTSecureTunneling service.
  *
  * @public
  */

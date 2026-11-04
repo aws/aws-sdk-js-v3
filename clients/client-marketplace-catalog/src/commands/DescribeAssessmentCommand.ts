@@ -23,11 +23,10 @@ export interface DescribeAssessmentCommandInput extends DescribeAssessmentReques
 export interface DescribeAssessmentCommandOutput extends DescribeAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the metadata and detailed results of a single assessment, including the
- *             framework that was evaluated, the overall assessment result, and a paginated list of
- *             individual control evaluation results.</p>
- *          <p>To list available assessments before describing one, use the
- *             <code>ListAssessments</code> action.</p>
+ * Returns the metadata and detailed results of a single assessment, including the framework that was evaluated, the overall assessment result, and a paginated list of individual control evaluation results.
+ *
+ * To list available assessments before describing one, use the `ListAssessments` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,28 +92,38 @@ export interface DescribeAssessmentCommandOutput extends DescribeAssessmentRespo
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access is denied.</p>
- *          <p>HTTP status code: 403</p>
+ *
+ * Access is denied.
+ *
+ * HTTP status code: 403
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>There was an internal service exception.</p>
- *          <p>HTTP status code: 500</p>
+ *
+ * There was an internal service exception.
+ *
+ * HTTP status code: 500
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource wasn't found.</p>
- *          <p>HTTP status code: 404</p>
+ *
+ * The specified resource wasn't found.
+ *
+ * HTTP status code: 404
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests.</p>
- *          <p>HTTP status code: 429</p>
+ *
+ * Too many requests.
+ *
+ * HTTP status code: 429
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An error occurred during validation.</p>
- *          <p>HTTP status code: 422</p>
+ *
+ * An error occurred during validation.
+ *
+ * HTTP status code: 422
  *
  * @throws {@link MarketplaceCatalogServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceCatalog service.
  *
  * @public
  */

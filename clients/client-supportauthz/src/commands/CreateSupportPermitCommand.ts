@@ -23,7 +23,8 @@ export interface CreateSupportPermitCommandInput extends CreateSupportPermitInpu
 export interface CreateSupportPermitCommandOutput extends CreateSupportPermitOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a support permit that authorizes an AWS support operator to perform specified actions on specified resources. The permit is cryptographically signed using a customer-managed AWS KMS key (ECC_NIST_P384, SIGN_VERIFY) to ensure non-repudiation.</p>
+ * Creates a support permit that authorizes an AWS support operator to perform specified actions on specified resources. The permit is cryptographically signed using a customer-managed AWS KMS key (ECC_NIST_P384, SIGN_VERIFY) to ensure non-repudiation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,26 +111,32 @@ export interface CreateSupportPermitCommandOutput extends CreateSupportPermitOut
  * @see {@link SupportAuthZClientResolvedConfig | config} for SupportAuthZClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permissions to perform this operation.</p>
+ *
+ * You don't have sufficient permissions to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource.</p>
+ *
+ * The request conflicts with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal service error occurred. Try again later.</p>
+ *
+ * An internal service error occurred. Try again later.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota for your account.</p>
+ *
+ * The request exceeds a service quota for your account.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request rate exceeded the allowed limit. Try again later.</p>
+ *
+ * The request rate exceeded the allowed limit. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link SupportAuthZServiceException}
- * <p>Base exception class for all service exceptions from SupportAuthZ service.</p>
  *
+ * Base exception class for all service exceptions from SupportAuthZ service.
  *
  * @public
  */

@@ -23,26 +23,16 @@ export interface ResolveCustomerCommandInput extends ResolveCustomerRequest {}
 export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>ResolveCustomer</code> is called by a SaaS application during the registration
- *             process. When a buyer visits your website during the registration process, the buyer
- *             submits a registration token through their browser. The registration token is resolved
- *             through this API to obtain a <code>CustomerIdentifier</code> along with the
- *                 <code>CustomerAWSAccountId</code>, <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
- *          <important>
- *             <p>For new SaaS product integrations, the <code>CustomerIdentifier</code> field is not populated in the <code>ResolveCustomer</code> API response. New integrations must use <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> to identify customers. Existing integrations continue to work unchanged.</p>
- *          </important>
- *          <note>
- *             <p>To successfully resolve the token, the API must be called from the account that was used to publish the SaaS
- *                 application. For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example"> ResolveCustomer code example</a> in the <i>Amazon Web Services Marketplace Seller
- *                     Guide</i>.</p>
- *          </note>
- *          <p>Permission is required for this operation. Your IAM role or user performing this
- *             operation requires a policy to allow the <code>aws-marketplace:ResolveCustomer</code>
- *             action. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsmarketplacemeteringservice.html">Actions, resources, and condition keys for Amazon Web Services Marketplace Metering Service</a> in
- *             the <i>Service Authorization Reference</i>.</p>
- *          <p>For Amazon Web Services Regions that support <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#resolvecustomer-region-support">ResolveCustomer Region support</a>.
- *       </p>
+ * `ResolveCustomer` is called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a registration token through their browser. The registration token is resolved through this API to obtain a `CustomerIdentifier` along with the `CustomerAWSAccountId`, `ProductCode`, and `LicenseArn`.
+ *
+ * > **Important:** For new SaaS product integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response. New integrations must use `CustomerAWSAccountId` and `LicenseArn` to identify customers. Existing integrations continue to work unchanged.
+ *
+ * > **Note:** To successfully resolve the token, the API must be called from the account that was used to publish the SaaS application. For an example of using `ResolveCustomer`, see [ResolveCustomer code example](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example) in the *Amazon Web Services Marketplace Seller Guide*.
+ *
+ * Permission is required for this operation. Your IAM role or user performing this operation requires a policy to allow the `aws-marketplace:ResolveCustomer` action. For more information, see [Actions, resources, and condition keys for Amazon Web Services Marketplace Metering Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsmarketplacemeteringservice.html) in the *Service Authorization Reference*.
+ *
+ * For Amazon Web Services Regions that support `ResolveCustomer`, see [ResolveCustomer Region support](https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#resolvecustomer-region-support).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,28 +65,28 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
  *
  * @throws {@link DisabledApiException} (client fault)
- *  <p>The API is disabled in the Region.</p>
+ *
+ * The API is disabled in the Region.
  *
  * @throws {@link ExpiredTokenException} (client fault)
- *  <p>The submitted registration token has expired. This can happen if the buyer's browser
- *             takes too long to redirect to your page, the buyer has resubmitted the registration
- *             token, or your application has held on to the registration token for too long. Your SaaS
- *             registration website should redeem this token as soon as it is submitted by the buyer's
- *             browser.</p>
+ *
+ * The submitted registration token has expired. This can happen if the buyer's browser takes too long to redirect to your page, the buyer has resubmitted the registration token, or your application has held on to the registration token for too long. Your SaaS registration website should redeem this token as soon as it is submitted by the buyer's browser.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *             message with details on the Amazon Web Services forums.</p>
+ *
+ * An internal error has occurred. Retry your request. If the problem persists, post a message with details on the Amazon Web Services forums.
  *
  * @throws {@link InvalidTokenException} (client fault)
- *  <p>Registration token is invalid.</p>
+ *
+ * Registration token is invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The calls to the API are throttled.</p>
+ *
+ * The calls to the API are throttled.
  *
  * @throws {@link MarketplaceMeteringServiceException}
- * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ * Base exception class for all service exceptions from MarketplaceMetering service.
  *
  * @public
  */

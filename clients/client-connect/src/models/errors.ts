@@ -7,7 +7,8 @@ import type { InvalidRequestExceptionReason, ProblemDetail, ServiceQuotaExceeded
 import type { PropertyValidationExceptionProperty } from "./models_1";
 
 /**
- * <p>You do not have sufficient permissions to perform this action.</p>
+ * You do not have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -30,7 +31,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed because of an error or failure with the service.</p>
+ * Request processing failed because of an error or failure with the service.
+ *
  * @public
  */
 export class InternalServiceException extends __BaseException {
@@ -38,7 +40,8 @@ export class InternalServiceException extends __BaseException {
   readonly name = "InternalServiceException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The message.</p>
+   * The message.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -57,7 +60,8 @@ export class InternalServiceException extends __BaseException {
 }
 
 /**
- * <p>One or more of the specified parameters are not valid.</p>
+ * One or more of the specified parameters are not valid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -65,7 +69,8 @@ export class InvalidParameterException extends __BaseException {
   readonly name = "InvalidParameterException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message about the parameters.</p>
+   * The message about the parameters.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -84,7 +89,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>A resource already has that name.</p>
+ * A resource already has that name.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -107,7 +113,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>The specified resource was not found.</p>
+ * The specified resource was not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -115,7 +122,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message about the resource.</p>
+   * The message about the resource.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -134,7 +142,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The throttling limit has been exceeded.</p>
+ * The throttling limit has been exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -157,7 +166,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid.</p>
+ * The request is not valid.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -165,13 +175,15 @@ export class InvalidRequestException extends __BaseException {
   readonly name = "InvalidRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message about the request.</p>
+   * The message about the request.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>Reason why the request was invalid.</p>
+   * Reason why the request was invalid.
+   *
    * @public
    */
   Reason?: InvalidRequestExceptionReason | undefined;
@@ -191,7 +203,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>The service quota has been exceeded.</p>
+ * The service quota has been exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -200,7 +213,8 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   Reason?: ServiceQuotaExceededExceptionReason | undefined;
@@ -220,7 +234,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The allowed limit for the resource has been exceeded.</p>
+ * The allowed limit for the resource has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -228,7 +243,8 @@ export class LimitExceededException extends __BaseException {
   readonly name = "LimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message about the limit.</p>
+   * The message about the limit.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -247,7 +263,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>An entity with the same name already exists.</p>
+ * An entity with the same name already exists.
+ *
  * @public
  */
 export class IdempotencyException extends __BaseException {
@@ -270,7 +287,8 @@ export class IdempotencyException extends __BaseException {
 }
 
 /**
- * <p>Request processing failed because dependent condition failed.</p>
+ * Request processing failed because dependent condition failed.
+ *
  * @public
  */
 export class ConditionalOperationFailedException extends __BaseException {
@@ -293,7 +311,8 @@ export class ConditionalOperationFailedException extends __BaseException {
 }
 
 /**
- * <p>A resource with the specified name already exists.</p>
+ * A resource with the specified name already exists.
+ *
  * @public
  */
 export class DuplicateResourceException extends __BaseException {
@@ -316,8 +335,8 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
- * <p>Operation cannot be performed at this time as there is a conflict with another operation or contact
- *    state.</p>
+ * Operation cannot be performed at this time as there is a conflict with another operation or contact state.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -340,7 +359,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The flow is not valid.</p>
+ * The flow is not valid.
+ *
  * @public
  */
 export class InvalidContactFlowException extends __BaseException {
@@ -348,7 +368,8 @@ export class InvalidContactFlowException extends __BaseException {
   readonly name = "InvalidContactFlowException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The problems with the flow. Please fix before trying again.</p>
+   * The problems with the flow. Please fix before trying again.
+   *
    * @public
    */
   problems?: ProblemDetail[] | undefined;
@@ -367,7 +388,8 @@ export class InvalidContactFlowException extends __BaseException {
 }
 
 /**
- * <p>The problems with the module. Please fix before trying again.</p>
+ * The problems with the module. Please fix before trying again.
+ *
  * @public
  */
 export class InvalidContactFlowModuleException extends __BaseException {
@@ -390,7 +412,8 @@ export class InvalidContactFlowModuleException extends __BaseException {
 }
 
 /**
- * <p>The property is not valid.</p>
+ * The property is not valid.
+ *
  * @public
  */
 export class PropertyValidationException extends __BaseException {
@@ -415,7 +438,8 @@ export class PropertyValidationException extends __BaseException {
 }
 
 /**
- * <p>The test is not valid.</p>
+ * The test is not valid.
+ *
  * @public
  */
 export class InvalidTestCaseException extends __BaseException {
@@ -423,7 +447,8 @@ export class InvalidTestCaseException extends __BaseException {
   readonly name = "InvalidTestCaseException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The problems with the test. Please fix before trying again.</p>
+   * The problems with the test. Please fix before trying again.
+   *
    * @public
    */
   Problems?: ProblemDetail[] | undefined;
@@ -442,7 +467,8 @@ export class InvalidTestCaseException extends __BaseException {
 }
 
 /**
- * <p>The resource is not ready.</p>
+ * The resource is not ready.
+ *
  * @public
  */
 export class ResourceNotReadyException extends __BaseException {
@@ -465,9 +491,8 @@ export class ResourceNotReadyException extends __BaseException {
 }
 
 /**
- * <p>That resource is already in use (for example, you're trying to add a record with the same name as an existing
- *    record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute),
- *    remove its reference from related resources and then try again.</p>
+ * That resource is already in use (for example, you're trying to add a record with the same name as an existing record). If you are trying to delete a resource (for example, DeleteHoursOfOperation or DeletePredefinedAttribute), remove its reference from related resources and then try again.
+ *
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -476,13 +501,15 @@ export class ResourceInUseException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
-   * <p>The type of resource.</p>
+   * The type of resource.
+   *
    * @public
    */
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>The identifier for the resource.</p>
+   * The identifier for the resource.
+   *
    * @public
    */
   ResourceId?: string | undefined;
@@ -503,7 +530,8 @@ export class ResourceInUseException extends __BaseException {
 }
 
 /**
- * <p>Displayed when rate-related API limits are exceeded.</p>
+ * Displayed when rate-related API limits are exceeded.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -526,9 +554,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The contact has not been disconnected and is not in a terminated state. To delete PII,
- *    disconnect the contact first. Wait for it to reach the terminated state, then retry the
- *    request.</p>
+ * The contact has not been disconnected and is not in a terminated state. To delete PII, disconnect the contact first. Wait for it to reach the terminated state, then retry the request.
+ *
  * @public
  */
 export class ContactNotTerminatedException extends __BaseException {
@@ -551,7 +578,8 @@ export class ContactNotTerminatedException extends __BaseException {
 }
 
 /**
- * <p>The flow has not been published.</p>
+ * The flow has not been published.
+ *
  * @public
  */
 export class ContactFlowNotPublishedException extends __BaseException {
@@ -574,7 +602,8 @@ export class ContactFlowNotPublishedException extends __BaseException {
 }
 
 /**
- * <p>No user with the specified credentials was found in the Connect Customer instance.</p>
+ * No user with the specified credentials was found in the Connect Customer instance.
+ *
  * @public
  */
 export class UserNotFoundException extends __BaseException {
@@ -597,8 +626,8 @@ export class UserNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an
- *    OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.</p>
+ * Thrown for analyzed content when requested OutputType was not enabled for a given contact. For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction policy set in the flow.
+ *
  * @public
  */
 export class OutputTypeNotFoundException extends __BaseException {
@@ -621,7 +650,8 @@ export class OutputTypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ * This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.
+ *
  * @public
  */
 export class InvalidActiveRegionException extends __BaseException {
@@ -644,8 +674,8 @@ export class InvalidActiveRegionException extends __BaseException {
 }
 
 /**
- * <p>Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to
- *    get more tags.</p>
+ * Maximum number (1000) of tags have been returned with current request. Consider changing request parameters to get more tags.
+ *
  * @public
  */
 export class MaximumResultReturnedException extends __BaseException {
@@ -668,7 +698,8 @@ export class MaximumResultReturnedException extends __BaseException {
 }
 
 /**
- * <p>Outbound calls to the destination number are not allowed.</p>
+ * Outbound calls to the destination number are not allowed.
+ *
  * @public
  */
 export class DestinationNotAllowedException extends __BaseException {
@@ -676,7 +707,8 @@ export class DestinationNotAllowedException extends __BaseException {
   readonly name = "DestinationNotAllowedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message about the outbound calls.</p>
+   * The message about the outbound calls.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -695,7 +727,8 @@ export class DestinationNotAllowedException extends __BaseException {
 }
 
 /**
- * <p>The contact is not permitted.</p>
+ * The contact is not permitted.
+ *
  * @public
  */
 export class OutboundContactNotPermittedException extends __BaseException {
@@ -703,7 +736,8 @@ export class OutboundContactNotPermittedException extends __BaseException {
   readonly name = "OutboundContactNotPermittedException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message about the contact.</p>
+   * The message about the contact.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -722,7 +756,8 @@ export class OutboundContactNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>The contact with the specified ID does not exist.</p>
+ * The contact with the specified ID does not exist.
+ *
  * @public
  */
 export class ContactNotFoundException extends __BaseException {
@@ -730,7 +765,8 @@ export class ContactNotFoundException extends __BaseException {
   readonly name = "ContactNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The message.</p>
+   * The message.
+   *
    * @public
    */
   Message?: string | undefined;

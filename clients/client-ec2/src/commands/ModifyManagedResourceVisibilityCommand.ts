@@ -23,10 +23,8 @@ export interface ModifyManagedResourceVisibilityCommandInput extends ModifyManag
 export interface ModifyManagedResourceVisibilityCommandOutput extends ModifyManagedResourceVisibilityResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the managed resource visibility configuration for the account. Use this
- *             operation to control whether managed resources are hidden or visible by default.
- *             Visibility settings are account-wide and affect all IAM principals uniformly. Hidden
- *             resources remain fully operational and billable.</p>
+ * Modifies the managed resource visibility configuration for the account. Use this operation to control whether managed resources are hidden or visible by default. Visibility settings are account-wide and affect all IAM principals uniformly. Hidden resources remain fully operational and billable.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +54,8 @@ export interface ModifyManagedResourceVisibilityCommandOutput extends ModifyMana
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

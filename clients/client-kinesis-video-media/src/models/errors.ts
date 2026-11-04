@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";
 
 /**
- * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *       allowed client calls. Try making the call later.</p>
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
+ *
  * @public
  */
 export class ClientLimitExceededException extends __BaseException {
@@ -28,8 +28,8 @@ export class ClientLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
- *       allowed client connections.</p>
+ * Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client connections.
+ *
  * @public
  */
 export class ConnectionLimitExceededException extends __BaseException {
@@ -52,7 +52,8 @@ export class ConnectionLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The value for this input parameter is invalid.</p>
+ * The value for this input parameter is invalid.
+ *
  * @public
  */
 export class InvalidArgumentException extends __BaseException {
@@ -75,10 +76,8 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p> Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving
- *       such an exception, the user must call <code>GetDataEndpoint</code> with
- *         <code>AccessMode</code> set to "READ" and use the endpoint Kinesis Video returns in the next
- *         <code>GetMedia</code> call. </p>
+ * Status Code: 400, Caller used wrong endpoint to write data to a stream. On receiving such an exception, the user must call `GetDataEndpoint` with `AccessMode` set to "READ" and use the endpoint Kinesis Video returns in the next `GetMedia` call.
+ *
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
@@ -101,8 +100,8 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
- *       stream, or the token has expired.</p>
+ * Status Code: 403, The caller is not authorized to perform an operation on the given stream, or the token has expired.
+ *
  * @public
  */
 export class NotAuthorizedException extends __BaseException {
@@ -125,7 +124,8 @@ export class NotAuthorizedException extends __BaseException {
 }
 
 /**
- * <p>Status Code: 404, The stream with the given name does not exist.</p>
+ * Status Code: 404, The stream with the given name does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

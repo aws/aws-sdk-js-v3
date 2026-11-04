@@ -23,14 +23,12 @@ export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage 
 export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Forces a failover for a DB cluster.</p>
- *          <p>A failover for a DB cluster promotes one of the Read Replicas (read-only instances) in the
- *       DB cluster to be the primary instance (the cluster writer).</p>
- *          <p>Amazon Neptune will automatically fail over to a Read Replica, if one exists, when the
- *       primary instance fails. You can force a failover when you want to simulate a failure of a
- *       primary instance for testing. Because each instance in a DB cluster has its own endpoint
- *       address, you will need to clean up and re-establish any existing connections that use those
- *       endpoint addresses when the failover is complete.</p>
+ * Forces a failover for a DB cluster.
+ *
+ * A failover for a DB cluster promotes one of the Read Replicas (read-only instances) in the DB cluster to be the primary instance (the cluster writer).
+ *
+ * Amazon Neptune will automatically fail over to a Read Replica, if one exists, when the primary instance fails. You can force a failover when you want to simulate a failure of a primary instance for testing. Because each instance in a DB cluster has its own endpoint address, you will need to clean up and re-establish any existing connections that use those endpoint addresses when the failover is complete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -154,18 +152,20 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link DBClusterNotFoundFault} (client fault)
- *  <p>
- *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * *DBClusterIdentifier* does not refer to an existing DB cluster.
  *
  * @throws {@link InvalidDBClusterStateFault} (client fault)
- *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * The DB cluster is not in a valid state.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * The specified DB instance is not in the *available* state.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

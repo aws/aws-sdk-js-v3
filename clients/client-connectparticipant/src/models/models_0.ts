@@ -16,14 +16,15 @@ import type {
  */
 export interface CancelParticipantAuthenticationRequest {
   /**
-   * <p>The <code>sessionId</code> provided in the <code>authenticationInitiated</code>
-   *             event.</p>
+   * The `sessionId` provided in the `authenticationInitiated` event.
+   *
    * @public
    */
   SessionId: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
@@ -39,22 +40,22 @@ export interface CancelParticipantAuthenticationResponse {}
  */
 export interface CompleteAttachmentUploadRequest {
   /**
-   * <p>A list of unique identifiers for the attachments.</p>
+   * A list of unique identifiers for the attachments.
+   *
    * @public
    */
   AttachmentIds: string[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
@@ -70,181 +71,203 @@ export interface CompleteAttachmentUploadResponse {}
  */
 export interface CreateParticipantConnectionRequest {
   /**
-   * <p>Type of connection information required. If you need
-   *                 <code>CONNECTION_CREDENTIALS</code> along with marking participant as connected,
-   *             pass <code>CONNECTION_CREDENTIALS</code> in <code>Type</code>.</p>
+   * Type of connection information required. If you need `CONNECTION_CREDENTIALS` along with marking participant as connected, pass `CONNECTION_CREDENTIALS` in `Type`.
+   *
    * @public
    */
   Type?: ConnectionType[] | undefined;
 
   /**
-   * <p>This is a header parameter.</p>
-   *          <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
-   *             API response.</p>
+   * This is a header parameter.
+   *
+   * The ParticipantToken as obtained from [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API response.
+   *
    * @public
    */
   ParticipantToken: string | undefined;
 
   /**
-   * <p>Amazon Connect Participant is used to mark the participant as connected for customer
-   *             participant in message streaming, as well as for agent or manager participant in
-   *             non-streaming chats.</p>
+   * Amazon Connect Participant is used to mark the participant as connected for customer participant in message streaming, as well as for agent or manager participant in non-streaming chats.
+   *
    * @public
    */
   ConnectParticipant?: boolean | undefined;
 }
 
 /**
- * <p>Connection credentials. </p>
+ * Connection credentials.
+ *
  * @public
  */
 export interface ConnectionCredentials {
   /**
-   * <p>The connection token.</p>
+   * The connection token.
+   *
    * @public
    */
   ConnectionToken?: string | undefined;
 
   /**
-   * <p>The expiration of the token.</p>
-   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
+   * The expiration of the token.
+   *
+   * It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   Expiry?: string | undefined;
 }
 
 /**
- * <p>The attendee information, including attendee ID and join token.</p>
+ * The attendee information, including attendee ID and join token.
+ *
  * @public
  */
 export interface Attendee {
   /**
-   * <p>The Amazon Chime SDK attendee ID.</p>
+   * The Amazon Chime SDK attendee ID.
+   *
    * @public
    */
   AttendeeId?: string | undefined;
 
   /**
-   * <p>The join token used by the Amazon Chime SDK attendee.</p>
+   * The join token used by the Amazon Chime SDK attendee.
+   *
    * @public
    */
   JoinToken?: string | undefined;
 }
 
 /**
- * <p>A set of endpoints used by clients to connect to the media service group for an
- *             Amazon Chime SDK meeting.</p>
+ * A set of endpoints used by clients to connect to the media service group for an Amazon Chime SDK meeting.
+ *
  * @public
  */
 export interface WebRTCMediaPlacement {
   /**
-   * <p>The audio host URL.</p>
+   * The audio host URL.
+   *
    * @public
    */
   AudioHostUrl?: string | undefined;
 
   /**
-   * <p>The audio fallback URL.</p>
+   * The audio fallback URL.
+   *
    * @public
    */
   AudioFallbackUrl?: string | undefined;
 
   /**
-   * <p>The signaling URL.</p>
+   * The signaling URL.
+   *
    * @public
    */
   SignalingUrl?: string | undefined;
 
   /**
-   * <p>The event ingestion URL to which you send client meeting events.</p>
+   * The event ingestion URL to which you send client meeting events.
+   *
    * @public
    */
   EventIngestionUrl?: string | undefined;
 }
 
 /**
- * <p>Has audio-specific configurations as the operating parameter for Echo Reduction.</p>
+ * Has audio-specific configurations as the operating parameter for Echo Reduction.
+ *
  * @public
  */
 export interface AudioFeatures {
   /**
-   * <p>Makes echo reduction available to clients who connect to the meeting.</p>
+   * Makes echo reduction available to clients who connect to the meeting.
+   *
    * @public
    */
   EchoReduction?: MeetingFeatureStatus | undefined;
 }
 
 /**
- * <p>The configuration settings of the features available to a meeting.</p>
+ * The configuration settings of the features available to a meeting.
+ *
  * @public
  */
 export interface MeetingFeaturesConfiguration {
   /**
-   * <p>The configuration settings for the audio features available to a meeting.</p>
+   * The configuration settings for the audio features available to a meeting.
+   *
    * @public
    */
   Audio?: AudioFeatures | undefined;
 }
 
 /**
- * <p>A meeting created using the Amazon Chime SDK.</p>
+ * A meeting created using the Amazon Chime SDK.
+ *
  * @public
  */
 export interface WebRTCMeeting {
   /**
-   * <p>The media placement for the meeting.</p>
+   * The media placement for the meeting.
+   *
    * @public
    */
   MediaPlacement?: WebRTCMediaPlacement | undefined;
 
   /**
-   * <p>The configuration settings of the features available to a meeting.</p>
+   * The configuration settings of the features available to a meeting.
+   *
    * @public
    */
   MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
-   * <p>The Amazon Chime SDK meeting ID.</p>
+   * The Amazon Chime SDK meeting ID.
+   *
    * @public
    */
   MeetingId?: string | undefined;
 }
 
 /**
- * <p>Creates the participant’s WebRTC connection data required for the client application
- *             (mobile or web) to connect to the call.</p>
+ * Creates the participant’s WebRTC connection data required for the client application (mobile or web) to connect to the call.
+ *
  * @public
  */
 export interface WebRTCConnection {
   /**
-   * <p>The attendee information, including attendee ID and join token.</p>
+   * The attendee information, including attendee ID and join token.
+   *
    * @public
    */
   Attendee?: Attendee | undefined;
 
   /**
-   * <p>A meeting created using the Amazon Chime SDK.</p>
+   * A meeting created using the Amazon Chime SDK.
+   *
    * @public
    */
   Meeting?: WebRTCMeeting | undefined;
 }
 
 /**
- * <p>The websocket for the participant's connection.</p>
+ * The websocket for the participant's connection.
+ *
  * @public
  */
 export interface Websocket {
   /**
-   * <p>The URL of the websocket.</p>
+   * The URL of the websocket.
+   *
    * @public
    */
   Url?: string | undefined;
 
   /**
-   * <p>The URL expiration timestamp in ISO date format.</p>
-   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
+   * The URL expiration timestamp in ISO date format.
+   *
+   * It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   ConnectionExpiry?: string | undefined;
@@ -255,21 +278,22 @@ export interface Websocket {
  */
 export interface CreateParticipantConnectionResponse {
   /**
-   * <p>Creates the participant's websocket connection.</p>
+   * Creates the participant's websocket connection.
+   *
    * @public
    */
   Websocket?: Websocket | undefined;
 
   /**
-   * <p>Creates the participant's connection credentials. The authentication token associated
-   *             with the participant's connection.</p>
+   * Creates the participant's connection credentials. The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionCredentials?: ConnectionCredentials | undefined;
 
   /**
-   * <p>Creates the participant's WebRTC connection data required for the client application
-   *             (mobile application or website) to connect to the call. </p>
+   * Creates the participant's WebRTC connection data required for the client application (mobile application or website) to connect to the call.
+   *
    * @public
    */
   WebRTCConnection?: WebRTCConnection | undefined;
@@ -280,78 +304,85 @@ export interface CreateParticipantConnectionResponse {
  */
 export interface DescribeViewRequest {
   /**
-   * <p>An encrypted token originating from the interactive message of a ShowView block
-   *             operation. Represents the desired view.</p>
+   * An encrypted token originating from the interactive message of a ShowView block operation. Represents the desired view.
+   *
    * @public
    */
   ViewToken: string | undefined;
 
   /**
-   * <p>The connection token.</p>
+   * The connection token.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
 }
 
 /**
- * <p>View content containing all content necessary to render a view except for runtime
- *             input data.</p>
+ * View content containing all content necessary to render a view except for runtime input data.
+ *
  * @public
  */
 export interface ViewContent {
   /**
-   * <p>The schema representing the input data that the view template must be supplied to
-   *             render.</p>
+   * The schema representing the input data that the view template must be supplied to render.
+   *
    * @public
    */
   InputSchema?: string | undefined;
 
   /**
-   * <p>The view template representing the structure of the view.</p>
+   * The view template representing the structure of the view.
+   *
    * @public
    */
   Template?: string | undefined;
 
   /**
-   * <p>A list of actions possible from the view</p>
+   * A list of actions possible from the view
+   *
    * @public
    */
   Actions?: string[] | undefined;
 }
 
 /**
- * <p>A view resource object. Contains metadata and content necessary to render the
- *             view.</p>
+ * A view resource object. Contains metadata and content necessary to render the view.
+ *
  * @public
  */
 export interface View {
   /**
-   * <p>The identifier of the view.</p>
+   * The identifier of the view.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the view.</p>
+   * The Amazon Resource Name (ARN) of the view.
+   *
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p>The name of the view.</p>
+   * The name of the view.
+   *
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p>The current version of the view.</p>
+   * The current version of the view.
+   *
    * @public
    */
   Version?: number | undefined;
 
   /**
-   * <p>View content containing all content necessary to render a view except for runtime
-   *             input data.</p>
+   * View content containing all content necessary to render a view except for runtime input data.
+   *
    * @public
    */
   Content?: ViewContent | undefined;
@@ -362,8 +393,8 @@ export interface View {
  */
 export interface DescribeViewResponse {
   /**
-   * <p>A view resource object. Contains metadata and content necessary to render the
-   *             view.</p>
+   * A view resource object. Contains metadata and content necessary to render the view.
+   *
    * @public
    */
   View?: View | undefined;
@@ -374,16 +405,15 @@ export interface DescribeViewResponse {
  */
 export interface DisconnectParticipantRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
@@ -399,37 +429,37 @@ export interface DisconnectParticipantResponse {}
  */
 export interface GetAttachmentRequest {
   /**
-   * <p>A unique identifier for the attachment.</p>
+   * A unique identifier for the attachment.
+   *
    * @public
    */
   AttachmentId: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
 
   /**
-   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
-   *             yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+   * The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   UrlExpiryInSeconds?: number | undefined;
 
   /**
-   * <p>Specifies how a browser handles the file at the pre-signed URL. The following values
-   *             are valid:</p>
-   *          <dl>
-   *             <dt>INLINE</dt>
-   *             <dd>
-   *                <p>Displays the file in the browser.</p>
-   *             </dd>
-   *             <dt>ATTACHMENT</dt>
-   *             <dd>
-   *                <p>Downloads the file. This is the default behavior.</p>
-   *             </dd>
-   *          </dl>
+   * Specifies how a browser handles the file at the pre-signed URL. The following values are valid:
+   *
+   * - **INLINE**
+   *
+   *   Displays the file in the browser.
+   *
+   * - **ATTACHMENT**
+   *
+   *   Downloads the file. This is the default behavior.
+   *
    * @public
    */
   UrlContentDisposition?: ContentDisposition | undefined;
@@ -440,20 +470,22 @@ export interface GetAttachmentRequest {
  */
 export interface GetAttachmentResponse {
   /**
-   * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
-   * to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
+   * This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to [StartAttachmentUpload](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html).
+   *
    * @public
    */
   Url?: string | undefined;
 
   /**
-   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+   * The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   UrlExpiry?: string | undefined;
 
   /**
-   * <p>The size of the attachment in bytes.</p>
+   * The size of the attachment in bytes.
+   *
    * @public
    */
   AttachmentSizeInBytes: number | undefined;
@@ -464,20 +496,22 @@ export interface GetAttachmentResponse {
  */
 export interface GetAuthenticationUrlRequest {
   /**
-   * <p>The sessionId provided in the authenticationInitiated event.</p>
+   * The sessionId provided in the authenticationInitiated event.
+   *
    * @public
    */
   SessionId: string | undefined;
 
   /**
-   * <p>The URL where the customer will be redirected after Amazon Cognito authorizes the
-   *             user.</p>
+   * The URL where the customer will be redirected after Amazon Cognito authorizes the user.
+   *
    * @public
    */
   RedirectUri: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
@@ -488,35 +522,38 @@ export interface GetAuthenticationUrlRequest {
  */
 export interface GetAuthenticationUrlResponse {
   /**
-   * <p>The URL where the customer will sign in to the identity provider. This URL contains
-   *             the authorize endpoint for the Cognito UserPool used in the authentication.</p>
+   * The URL where the customer will sign in to the identity provider. This URL contains the authorize endpoint for the Cognito UserPool used in the authentication.
+   *
    * @public
    */
   AuthenticationUrl?: string | undefined;
 }
 
 /**
- * <p>A filtering option for where to start. For example, if you sent 100 messages, start
- *             with message 50. </p>
+ * A filtering option for where to start. For example, if you sent 100 messages, start with message 50.
+ *
  * @public
  */
 export interface StartPosition {
   /**
-   * <p>The ID of the message or event where to start. </p>
+   * The ID of the message or event where to start.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The time in ISO format where to start.</p>
-   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
+   * The time in ISO format where to start.
+   *
+   * It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   AbsoluteTime?: string | undefined;
 
   /**
-   * <p>The start position of the most recent message where you want to start. </p>
+   * The start position of the most recent message where you want to start.
+   *
    * @public
    */
   MostRecent?: number | undefined;
@@ -527,209 +564,234 @@ export interface StartPosition {
  */
 export interface GetTranscriptRequest {
   /**
-   * <p>The contactId from the current contact chain for which transcript is needed.</p>
+   * The contactId from the current contact chain for which transcript is needed.
+   *
    * @public
    */
   ContactId?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in the page. Default: 10. </p>
+   * The maximum number of results to return in the page. Default: 10.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p>The pagination token. Use the value returned previously in the next subsequent request
-   *             to retrieve the next set of results.</p>
+   * The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD
-   *             when no StartPosition is provided, FORWARD with StartPosition. </p>
+   * The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition.
+   *
    * @public
    */
   ScanDirection?: ScanDirection | undefined;
 
   /**
-   * <p>The sort order for the records. Default: DESCENDING.</p>
+   * The sort order for the records. Default: DESCENDING.
+   *
    * @public
    */
   SortOrder?: SortKey | undefined;
 
   /**
-   * <p>A filtering option for where to start.</p>
+   * A filtering option for where to start.
+   *
    * @public
    */
   StartPosition?: StartPosition | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
 }
 
 /**
- * <p>The case-insensitive input to indicate standard MIME type that describes the format of the file
- *             that will be uploaded.</p>
+ * The case-insensitive input to indicate standard MIME type that describes the format of the file that will be uploaded.
+ *
  * @public
  */
 export interface AttachmentItem {
   /**
-   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * Describes the MIME file type of the attachment. For a list of supported file types, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html) in the *Amazon Connect Administrator Guide*.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>A unique identifier for the attachment.</p>
+   * A unique identifier for the attachment.
+   *
    * @public
    */
   AttachmentId?: string | undefined;
 
   /**
-   * <p>A case-sensitive name of the attachment being uploaded.</p>
+   * A case-sensitive name of the attachment being uploaded.
+   *
    * @public
    */
   AttachmentName?: string | undefined;
 
   /**
-   * <p>Status of the attachment.</p>
+   * Status of the attachment.
+   *
    * @public
    */
   Status?: ArtifactStatus | undefined;
 }
 
 /**
- * <p>The receipt for the message delivered to the recipient.</p>
+ * The receipt for the message delivered to the recipient.
+ *
  * @public
  */
 export interface Receipt {
   /**
-   * <p>The time when the message was delivered to the recipient.</p>
+   * The time when the message was delivered to the recipient.
+   *
    * @public
    */
   DeliveredTimestamp?: string | undefined;
 
   /**
-   * <p>The time when the message was read by the recipient.</p>
+   * The time when the message was read by the recipient.
+   *
    * @public
    */
   ReadTimestamp?: string | undefined;
 
   /**
-   * <p>The identifier of the recipient of the message. </p>
+   * The identifier of the recipient of the message.
+   *
    * @public
    */
   RecipientParticipantId?: string | undefined;
 }
 
 /**
- * <p>Contains metadata related to a message.</p>
+ * Contains metadata related to a message.
+ *
  * @public
  */
 export interface MessageMetadata {
   /**
-   * <p>The identifier of the message that contains the metadata information. </p>
+   * The identifier of the message that contains the metadata information.
+   *
    * @public
    */
   MessageId?: string | undefined;
 
   /**
-   * <p>The list of receipt information for a message for different recipients.</p>
+   * The list of receipt information for a message for different recipients.
+   *
    * @public
    */
   Receipts?: Receipt[] | undefined;
 
   /**
-   * <p>The status of Message Processing for the message.</p>
+   * The status of Message Processing for the message.
+   *
    * @public
    */
   MessageProcessingStatus?: MessageProcessingStatus | undefined;
 }
 
 /**
- * <p>An item - message or event - that has been sent. </p>
+ * An item - message or event - that has been sent.
+ *
  * @public
  */
 export interface Item {
   /**
-   * <p>The time when the message or event was sent.</p>
-   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
+   * The time when the message or event was sent.
+   *
+   * It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   AbsoluteTime?: string | undefined;
 
   /**
-   * <p>The content of the message or event.</p>
+   * The content of the message or event.
+   *
    * @public
    */
   Content?: string | undefined;
 
   /**
-   * <p>The type of content of the item.</p>
+   * The type of content of the item.
+   *
    * @public
    */
   ContentType?: string | undefined;
 
   /**
-   * <p>The ID of the item.</p>
+   * The ID of the item.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>Type of the item: message or event. </p>
+   * Type of the item: message or event.
+   *
    * @public
    */
   Type?: ChatItemType | undefined;
 
   /**
-   * <p>The ID of the sender in the session.</p>
+   * The ID of the sender in the session.
+   *
    * @public
    */
   ParticipantId?: string | undefined;
 
   /**
-   * <p>The chat display name of the sender.</p>
+   * The chat display name of the sender.
+   *
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
+   * The role of the sender. For example, is it a customer, agent, or system.
+   *
    * @public
    */
   ParticipantRole?: ParticipantRole | undefined;
 
   /**
-   * <p>Provides information about the attachments.</p>
+   * Provides information about the attachments.
+   *
    * @public
    */
   Attachments?: AttachmentItem[] | undefined;
 
   /**
-   * <p>The metadata related to the message. Currently this supports only information related
-   *             to message receipts.</p>
+   * The metadata related to the message. Currently this supports only information related to message receipts.
+   *
    * @public
    */
   MessageMetadata?: MessageMetadata | undefined;
 
   /**
-   * <p>The contactId on which the transcript item was originally sent. This field is only
-   *             populated for persistent chats when the transcript item is from the past chat session.
-   *             For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent
-   *             chat</a>.</p>
+   * The contactId on which the transcript item was originally sent. This field is only populated for persistent chats when the transcript item is from the past chat session. For more information, see [Enable persistent chat](https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html).
+   *
    * @public
    */
   RelatedContactId?: string | undefined;
 
   /**
-   * <p>The contactId on which the transcript item was originally sent. This field is
-   *             populated only when the transcript item is from the current chat session.</p>
+   * The contactId on which the transcript item was originally sent. This field is populated only when the transcript item is from the current chat session.
+   *
    * @public
    */
   ContactId?: string | undefined;
@@ -740,20 +802,22 @@ export interface Item {
  */
 export interface GetTranscriptResponse {
   /**
-   * <p>The initial contact ID for the contact. </p>
+   * The initial contact ID for the contact.
+   *
    * @public
    */
   InitialContactId?: string | undefined;
 
   /**
-   * <p>The list of messages in the session.</p>
+   * The list of messages in the session.
+   *
    * @public
    */
   Transcript?: Item[] | undefined;
 
   /**
-   * <p>The pagination token. Use the value returned previously in the next subsequent request
-   *             to retrieve the next set of results.</p>
+   * The pagination token. Use the value returned previously in the next subsequent request to retrieve the next set of results.
+   *
    * @public
    */
   NextToken?: string | undefined;
@@ -764,45 +828,36 @@ export interface GetTranscriptResponse {
  */
 export interface SendEventRequest {
   /**
-   * <p>The content type of the request. Supported types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>application/vnd.amazonaws.connect.event.typing</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged (is no longer
-   *                     maintained since December 31, 2024) </p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.amazonaws.connect.event.message.delivered</p>
-   *             </li>
-   *             <li>
-   *                <p>application/vnd.amazonaws.connect.event.message.read</p>
-   *             </li>
-   *          </ul>
+   * The content type of the request. Supported types are:
+   *
+   * - application/vnd.amazonaws.connect.event.typing
+   * - application/vnd.amazonaws.connect.event.connection.acknowledged (is no longer maintained since December 31, 2024)
+   * - application/vnd.amazonaws.connect.event.message.delivered
+   * - application/vnd.amazonaws.connect.event.message.read
+   *
    * @public
    */
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the event to be sent (for example, message text). For content related
-   *             to message receipts, this is supported in the form of a JSON string.</p>
-   *          <p>Sample Content: "\{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"\}"</p>
+   * The content of the event to be sent (for example, message text). For content related to message receipts, this is supported in the form of a JSON string.
+   *
+   * Sample Content: "\{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"\}"
+   *
    * @public
    */
   Content?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
@@ -813,15 +868,17 @@ export interface SendEventRequest {
  */
 export interface SendEventResponse {
   /**
-   * <p>The ID of the response.</p>
+   * The ID of the response.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The time when the event was sent.</p>
-   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
+   * The time when the event was sent.
+   *
+   * It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   AbsoluteTime?: string | undefined;
@@ -832,53 +889,49 @@ export interface SendEventResponse {
  */
 export interface SendMessageRequest {
   /**
-   * <p>The type of the content. Possible types are <code>text/plain</code>,
-   *                 <code>text/markdown</code>, <code>application/json</code>, and
-   *                 <code>application/vnd.amazonaws.connect.message.interactive.response</code>.
-   *             </p>
-   *          <p>Supported types on the contact are configured through
-   *                 <code>SupportedMessagingContentTypes</code> on <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
-   *             and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html">StartOutboundChatContact</a>.</p>
-   *          <p> For Apple Messages for Business, SMS, and WhatsApp Business Messaging contacts, only
-   *                 <code>text/plain</code> is supported.</p>
+   * The type of the content. Possible types are `text/plain`, `text/markdown`, `application/json`, and `application/vnd.amazonaws.connect.message.interactive.response`.
+   *
+   * Supported types on the contact are configured through `SupportedMessagingContentTypes` on [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) and [StartOutboundChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html).
+   *
+   * For Apple Messages for Business, SMS, and WhatsApp Business Messaging contacts, only `text/plain` is supported.
+   *
    * @public
    */
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the message. Maximum of 16,384 bytes for all content types
-   *             (<code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>,
-   *             and <code>application/vnd.amazonaws.connect.message.interactive.response</code>).</p>
-   *          <p>Some messaging channels enforce lower limits. For channel-specific message size
-   *             limits, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html#chat-message-size-limits">Chat message size limits by channel</a> in the <i>Amazon Connect Customer
-   *                 Administrator Guide</i>.</p>
+   * The content of the message. Maximum of 16,384 bytes for all content types (`text/plain`, `text/markdown`, `application/json`, and `application/vnd.amazonaws.connect.message.interactive.response`).
+   *
+   * Some messaging channels enforce lower limits. For channel-specific message size limits, see [Chat message size limits by channel](https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html#chat-message-size-limits) in the *Amazon Connect Customer Administrator Guide*.
+   *
    * @public
    */
   Content: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The authentication token associated with the connection.</p>
+   * The authentication token associated with the connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
 }
 
 /**
- * <p>Contains metadata for chat messages.</p>
+ * Contains metadata for chat messages.
+ *
  * @public
  */
 export interface MessageProcessingMetadata {
   /**
-   * <p>The status of Message Processing for the message.</p>
+   * The status of Message Processing for the message.
+   *
    * @public
    */
   MessageProcessingStatus?: MessageProcessingStatus | undefined;
@@ -889,21 +942,24 @@ export interface MessageProcessingMetadata {
  */
 export interface SendMessageResponse {
   /**
-   * <p>The ID of the message.</p>
+   * The ID of the message.
+   *
    * @public
    */
   Id?: string | undefined;
 
   /**
-   * <p>The time when the message was sent.</p>
-   *          <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
+   * The time when the message was sent.
+   *
+   * It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   AbsoluteTime?: string | undefined;
 
   /**
-   * <p>Contains metadata for the message.</p>
+   * Contains metadata for the message.
+   *
    * @public
    */
   MessageMetadata?: MessageProcessingMetadata | undefined;
@@ -914,59 +970,64 @@ export interface SendMessageResponse {
  */
 export interface StartAttachmentUploadRequest {
   /**
-   * <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * Describes the MIME file type of the attachment. For a list of supported file types, see [Feature specifications](https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html) in the *Amazon Connect Administrator Guide*.
+   *
    * @public
    */
   ContentType: string | undefined;
 
   /**
-   * <p>The size of the attachment in bytes.</p>
+   * The size of the attachment in bytes.
+   *
    * @public
    */
   AttachmentSizeInBytes: number | undefined;
 
   /**
-   * <p>A case-sensitive name of the attachment being uploaded.</p>
+   * A case-sensitive name of the attachment being uploaded.
+   *
    * @public
    */
   AttachmentName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+   *
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * The authentication token associated with the participant's connection.
+   *
    * @public
    */
   ConnectionToken: string | undefined;
 }
 
 /**
- * <p>Fields to be used while uploading the attachment.</p>
+ * Fields to be used while uploading the attachment.
+ *
  * @public
  */
 export interface UploadMetadata {
   /**
-   * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
-   * to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
+   * This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response to [StartAttachmentUpload](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html).
+   *
    * @public
    */
   Url?: string | undefined;
 
   /**
-   * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+   * The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.
+   *
    * @public
    */
   UrlExpiry?: string | undefined;
 
   /**
-   * <p>The headers to be provided while uploading the file to the URL.</p>
+   * The headers to be provided while uploading the file to the URL.
+   *
    * @public
    */
   HeadersToInclude?: Record<string, string> | undefined;
@@ -977,13 +1038,15 @@ export interface UploadMetadata {
  */
 export interface StartAttachmentUploadResponse {
   /**
-   * <p>A unique identifier for the attachment.</p>
+   * A unique identifier for the attachment.
+   *
    * @public
    */
   AttachmentId?: string | undefined;
 
   /**
-   * <p>The headers to be provided while uploading the file to the URL.</p>
+   * The headers to be provided while uploading the file to the URL.
+   *
    * @public
    */
   UploadMetadata?: UploadMetadata | undefined;

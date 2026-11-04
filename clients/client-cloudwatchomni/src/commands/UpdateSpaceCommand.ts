@@ -97,8 +97,8 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceOutput, __MetadataB
  *  A parameter is specified incorrectly.
  *
  * @throws {@link CloudWatchOmniServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchOmni service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchOmni service.
  *
  * @example Rename a space
  * ```javascript

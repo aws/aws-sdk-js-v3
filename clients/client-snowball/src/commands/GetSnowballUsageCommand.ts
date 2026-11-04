@@ -23,10 +23,10 @@ export interface GetSnowballUsageCommandInput extends GetSnowballUsageRequest {}
 export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about the Snow Family service limit for your account, and also the
- *       number of Snow devices your account has in use.</p>
- *          <p>The default service limit for the number of Snow devices that you can have at one time
- *       is 1. If you want to increase your service limit, contact Amazon Web Services Support.</p>
+ * Returns information about the Snow Family service limit for your account, and also the number of Snow devices your account has in use.
+ *
+ * The default service limit for the number of Snow devices that you can have at one time is 1. If you want to increase your service limit, contact Amazon Web Services Support.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,8 +52,8 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @example To see your Snowball service limit and the number of Snowballs you have in use
  * ```javascript

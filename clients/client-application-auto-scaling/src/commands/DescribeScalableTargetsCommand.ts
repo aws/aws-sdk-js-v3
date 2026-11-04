@@ -23,9 +23,10 @@ export interface DescribeScalableTargetsCommandInput extends DescribeScalableTar
 export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTargetsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about the scalable targets in the specified namespace.</p>
- *          <p>You can filter the results using <code>ResourceIds</code> and
- *             <code>ScalableDimension</code>.</p>
+ * Gets information about the scalable targets in the specified namespace.
+ *
+ * You can filter the results using `ResourceIds` and `ScalableDimension`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,22 +77,24 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  * @throws {@link ConcurrentUpdateException} (server fault)
- *  <p>Concurrent updates caused an exception, for example, if you request an update to an
- *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an internal error.</p>
+ *
+ * The service encountered an internal error.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The next token supplied was invalid.</p>
+ *
+ * The next token supplied was invalid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception was thrown for a validation issue. Review the available parameters for the
- *          API request.</p>
+ *
+ * An exception was thrown for a validation issue. Review the available parameters for the API request.
  *
  * @throws {@link ApplicationAutoScalingServiceException}
- * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationAutoScaling service.
  *
  * @example To describe scalable targets
  * ```javascript

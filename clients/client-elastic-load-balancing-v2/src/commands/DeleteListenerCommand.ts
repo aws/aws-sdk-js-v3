@@ -23,9 +23,10 @@ export interface DeleteListenerCommandInput extends DeleteListenerInput {}
 export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified listener.</p>
- *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
- *         attached.</p>
+ * Deletes the specified listener.
+ *
+ * Alternatively, your listener is deleted when you delete the load balancer to which it is attached.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,14 +51,16 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>A specified resource is in use.</p>
+ *
+ * A specified resource is in use.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To delete a listener
  * ```javascript

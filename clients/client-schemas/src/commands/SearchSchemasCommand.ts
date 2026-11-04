@@ -23,7 +23,8 @@ export interface SearchSchemasCommandInput extends SearchSchemasRequest {}
 export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __MetadataBearer {}
 
 /**
- * <p>Search the schemas</p>
+ * Search the schemas
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +78,8 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
  * @throws {@link UnauthorizedException} (client fault)
  *
  * @throws {@link SchemasServiceException}
- * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ * Base exception class for all service exceptions from Schemas service.
  *
  * @public
  */

@@ -23,10 +23,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to a signing profile. Tags are labels that you can use to
- * 			identify and organize your AWS resources. Each tag consists of a key and an optional
- * 			value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
- * 			the tag, use a key-value pair.</p>
+ * Adds one or more tags to a signing profile. Tags are labels that you can use to identify and organize your AWS resources. Each tag consists of a key and an optional value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify the tag, use a key-value pair.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,22 +52,26 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request contains invalid parameters for the ARN or tags. This exception also
- * 			occurs when you call a tagging API on a cancelled signing profile.</p>
+ *
+ * The request contains invalid parameters for the ARN or tags. This exception also occurs when you call a tagging API on a cancelled signing profile.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The signing profile was not found.</p>
+ *
+ * The signing profile was not found.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

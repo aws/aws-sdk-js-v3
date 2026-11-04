@@ -23,15 +23,11 @@ export interface DescribeUserStackAssociationsCommandInput extends DescribeUserS
 export interface DescribeUserStackAssociationsCommandOutput extends DescribeUserStackAssociationsResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The stack name</p>
- *             </li>
- *             <li>
- *                <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p>
- *             </li>
- *          </ul>
+ * Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:
+ *
+ * - The stack name
+ * - The user name (email address of the user associated with the stack) and the authentication type for the user
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +66,16 @@ export interface DescribeUserStackAssociationsCommandOutput extends DescribeUser
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * Indicates an incorrect combination of parameters, or a missing parameter.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>The attempted operation is not permitted.</p>
+ *
+ * The attempted operation is not permitted.
  *
  * @throws {@link AppStreamServiceException}
- * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ * Base exception class for all service exceptions from AppStream service.
  *
  * @public
  */

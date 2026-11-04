@@ -23,29 +23,16 @@ export interface CreateExperimentTemplateCommandInput extends CreateExperimentTe
 export interface CreateExperimentTemplateCommandOutput extends CreateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an experiment template. </p>
- *          <p>An experiment template includes the following components:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Targets</b>: A target can be a specific resource in
- *                your Amazon Web Services environment, or one or more resources that match criteria that you
- *                specify, for example, resources that have specific tags.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Actions</b>: The actions to carry out on the
- *                target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Stop conditions</b>: If a stop condition is
- *                triggered while an experiment is running, the experiment is automatically
- *                stopped. You can define a stop condition as a CloudWatch alarm.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">experiment templates</a>
- *          in the <i>Fault Injection Service User Guide</i>.</p>
+ * Creates an experiment template.
+ *
+ * An experiment template includes the following components:
+ *
+ * - **Targets**: A target can be a specific resource in your Amazon Web Services environment, or one or more resources that match criteria that you specify, for example, resources that have specific tags.
+ * - **Actions**: The actions to carry out on the target. You can specify multiple actions, the duration of each action, and when to start each action during an experiment.
+ * - **Stop conditions**: If a stop condition is triggered while an experiment is running, the experiment is automatically stopped. You can define a stop condition as a CloudWatch alarm.
+ *
+ * For more information, see [experiment templates](https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html) in the *Fault Injection Service User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -238,20 +225,24 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict.</p>
+ *
+ * The request could not be processed because of a conflict.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource cannot be found.</p>
+ *
+ * The specified resource cannot be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have exceeded your service quota.</p>
+ *
+ * You have exceeded your service quota.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ * The specified input is not valid, or fails to satisfy the constraints for the request.
  *
  * @throws {@link FisServiceException}
- * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ * Base exception class for all service exceptions from Fis service.
  *
  * @public
  */

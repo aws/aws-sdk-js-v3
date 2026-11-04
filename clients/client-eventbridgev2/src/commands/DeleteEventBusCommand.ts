@@ -79,8 +79,8 @@ export interface DeleteEventBusCommandOutput extends DeleteEventBusResponse, __M
  * request with backoff.
  *
  * @throws {@link EventBridgeV2ServiceException}
- * <p>Base exception class for all service exceptions from EventBridgeV2 service.</p>
  *
+ * Base exception class for all service exceptions from EventBridgeV2 service.
  *
  * @public
  */

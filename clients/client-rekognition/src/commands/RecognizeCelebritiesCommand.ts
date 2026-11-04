@@ -23,33 +23,20 @@ export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRe
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of celebrities recognized in the input image. For more
- *       information, see Recognizing celebrities in the Amazon Rekognition Developer Guide. </p>
- *          <p>
- *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists
- *       the recognized celebrities in the <code>CelebrityFaces</code> array and any unrecognized faces
- *       in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return
- *       celebrities whose faces aren't among the largest 64 faces in the image.</p>
- *          <p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a
- *         <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity
- *       name, ID, URL links to additional information, match confidence, and a
- *         <code>ComparedFace</code> object that you can use to locate the celebrity's face on the
- *       image.</p>
- *          <p>Amazon Rekognition doesn't retain information about which images a celebrity has been recognized
- *       in. Your application must store this information and use the <code>Celebrity</code> ID
- *       property as a unique identifier for the celebrity. If you don't store the celebrity name or
- *       additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the
- *       ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a>
- *       operation.</p>
- *          <p>You pass the input image either as base64-encoded image bytes or as a reference to an
- *       image in an Amazon S3 bucket. If you use the
- *       AWS
- *       CLI to call Amazon Rekognition operations, passing image bytes is not
- *       supported. The image must be either a PNG or JPEG formatted file. </p>
- *          <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition
- *       Developer Guide.</p>
- *          <p>This operation requires permissions to perform the
- *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
+ * Returns an array of celebrities recognized in the input image. For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.
+ *
+ * `RecognizeCelebrities` returns the 64 largest faces in the image. It lists the recognized celebrities in the `CelebrityFaces` array and any unrecognized faces in the `UnrecognizedFaces` array. `RecognizeCelebrities` doesn't return celebrities whose faces aren't among the largest 64 faces in the image.
+ *
+ * For each celebrity recognized, `RecognizeCelebrities` returns a `Celebrity` object. The `Celebrity` object contains the celebrity name, ID, URL links to additional information, match confidence, and a `ComparedFace` object that you can use to locate the celebrity's face on the image.
+ *
+ * Amazon Rekognition doesn't retain information about which images a celebrity has been recognized in. Your application must store this information and use the `Celebrity` ID property as a unique identifier for the celebrity. If you don't store the celebrity name or additional information URLs returned by `RecognizeCelebrities`, you will need the ID to identify the celebrity in a call to the GetCelebrityInfo operation.
+ *
+ * You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file.
+ *
+ * For an example, see Recognizing celebrities in an image in the Amazon Rekognition Developer Guide.
+ *
+ * This operation requires permissions to perform the `rekognition:RecognizeCelebrities` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -168,37 +155,40 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link ImageTooLargeException} (client fault)
- *  <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
- *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
- *     </p>
+ *
+ * The input image size exceeds the allowed limit. If you are calling DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidImageFormatException} (client fault)
- *  <p>The provided image format is not supported. </p>
+ *
+ * The provided image format is not supported.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link InvalidS3ObjectException} (client fault)
- *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
+ *
+ * Amazon Rekognition is unable to access the S3 object specified in the request.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @public
  */

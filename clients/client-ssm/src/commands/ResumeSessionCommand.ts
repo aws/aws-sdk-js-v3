@@ -23,12 +23,10 @@ export interface ResumeSessionCommandInput extends ResumeSessionRequest {}
 export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Reconnects a session to a managed node after it has been disconnected. Connections can be
- *    resumed for disconnected sessions, but not terminated sessions.</p>
- *          <note>
- *             <p>This command is primarily for use by client machines to automatically reconnect during
- *     intermittent network issues. It isn't intended for any other use.</p>
- *          </note>
+ * Reconnects a session to a managed node after it has been disconnected. Connections can be resumed for disconnected sessions, but not terminated sessions.
+ *
+ * > **Note:** This command is primarily for use by client machines to automatically reconnect during intermittent network issues. It isn't intended for any other use.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,17 +55,18 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DoesNotExistException} (client fault)
- *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
- *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.
+ *
+ * For information about resource quotas in Amazon Web Services Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

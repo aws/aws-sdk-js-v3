@@ -23,11 +23,10 @@ export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscrip
 export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing event notification subscription. Note that you can't modify the
- *       source identifiers using this call; to change source identifiers for a subscription, use the
- *       <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a> calls.</p>
- *          <p>You can see a list of the event categories for a given SourceType
- *       by using the <b>DescribeEventCategories</b> action.</p>
+ * Modifies an existing event notification subscription. Note that you can't modify the source identifiers using this call; to change source identifiers for a subscription, use the AddSourceIdentifierToSubscription and RemoveSourceIdentifierFromSubscription calls.
+ *
+ * You can see a list of the event categories for a given SourceType by using the **DescribeEventCategories** action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,26 +74,32 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
- *  <p>You have exceeded the number of events you can subscribe to.</p>
+ *
+ * You have exceeded the number of events you can subscribe to.
  *
  * @throws {@link SNSInvalidTopicFault} (client fault)
- *  <p>The SNS topic is invalid.</p>
+ *
+ * The SNS topic is invalid.
  *
  * @throws {@link SNSNoAuthorizationFault} (client fault)
- *  <p>There is no SNS authorization.</p>
+ *
+ * There is no SNS authorization.
  *
  * @throws {@link SNSTopicArnNotFoundFault} (client fault)
- *  <p>The ARN of the SNS topic could not be found.</p>
+ *
+ * The ARN of the SNS topic could not be found.
  *
  * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
- *  <p>The designated subscription category could not be found.</p>
+ *
+ * The designated subscription category could not be found.
  *
  * @throws {@link SubscriptionNotFoundFault} (client fault)
- *  <p>The designated subscription could not be found.</p>
+ *
+ * The designated subscription could not be found.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

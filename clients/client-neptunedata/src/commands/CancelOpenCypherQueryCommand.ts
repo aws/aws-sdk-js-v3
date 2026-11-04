@@ -23,7 +23,10 @@ export interface CancelOpenCypherQueryCommandInput extends CancelOpenCypherQuery
 export interface CancelOpenCypherQueryCommandOutput extends CancelOpenCypherQueryOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a specified openCypher query. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html">Neptune openCypher status endpoint</a> for more information.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery">neptune-db:CancelQuery</a> IAM action in that cluster.</p>
+ * Cancels a specified openCypher query. See [Neptune openCypher status endpoint](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-opencypher-status.html) for more information.
+ *
+ * When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:CancelQuery](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelquery) IAM action in that cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,53 +55,68 @@ export interface CancelOpenCypherQueryCommandOutput extends CancelOpenCypherQuer
  * @see {@link NeptunedataClientResolvedConfig | config} for NeptunedataClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Raised when a request is submitted that cannot be processed.</p>
+ *
+ * Raised when a request is submitted that cannot be processed.
  *
  * @throws {@link ClientTimeoutException} (client fault)
- *  <p>Raised when a request timed out in the client.</p>
+ *
+ * Raised when a request timed out in the client.
  *
  * @throws {@link ConcurrentModificationException} (server fault)
- *  <p>Raised when a request attempts to modify data that is concurrently being modified by another process.</p>
+ *
+ * Raised when a request attempts to modify data that is concurrently being modified by another process.
  *
  * @throws {@link ConstraintViolationException} (client fault)
- *  <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ *
+ * Raised when a value in a request field did not satisfy required constraints.
  *
  * @throws {@link FailureByQueryException} (server fault)
- *  <p>Raised when a request fails.</p>
+ *
+ * Raised when a request fails.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Raised when an argument in a request is not supported.</p>
+ *
+ * Raised when an argument in a request is not supported.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Raised when an argument in a request has an invalid value.</p>
+ *
+ * Raised when an argument in a request has an invalid value.
  *
  * @throws {@link InvalidNumericDataException} (client fault)
- *  <p>Raised when invalid numerical data is encountered when servicing a request.</p>
+ *
+ * Raised when invalid numerical data is encountered when servicing a request.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Raised when a parameter value is not valid.</p>
+ *
+ * Raised when a parameter value is not valid.
  *
  * @throws {@link MissingParameterException} (client fault)
- *  <p>Raised when a required parameter is missing.</p>
+ *
+ * Raised when a required parameter is missing.
  *
  * @throws {@link ParsingException} (client fault)
- *  <p>Raised when a parsing issue is encountered.</p>
+ *
+ * Raised when a parsing issue is encountered.
  *
  * @throws {@link PreconditionsFailedException} (client fault)
- *  <p>Raised when a precondition for processing a request is not satisfied.</p>
+ *
+ * Raised when a precondition for processing a request is not satisfied.
  *
  * @throws {@link TimeLimitExceededException} (server fault)
- *  <p>Raised when the an operation exceeds the time limit allowed for it.</p>
+ *
+ * Raised when the an operation exceeds the time limit allowed for it.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Raised when the number of requests being processed exceeds the limit.</p>
+ *
+ * Raised when the number of requests being processed exceeds the limit.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ *
+ * Raised when a request attempts to initiate an operation that is not supported.
  *
  * @throws {@link NeptunedataServiceException}
- * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * Base exception class for all service exceptions from Neptunedata service.
  *
  * @public
  */

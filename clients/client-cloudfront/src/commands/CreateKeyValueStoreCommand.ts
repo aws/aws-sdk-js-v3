@@ -23,7 +23,8 @@ export interface CreateKeyValueStoreCommandInput extends CreateKeyValueStoreRequ
 export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the key value store resource to add to your account. In your account, the key value store names must be unique. You can also import key value store data in JSON format from an S3 bucket by providing a valid <code>ImportSource</code> that you own.</p>
+ * Specifies the key value store resource to add to your account. In your account, the key value store names must be unique. You can also import key value store data in JSON format from an S3 bucket by providing a valid `ImportSource` that you own.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,26 +73,32 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The entity already exists. You must provide a unique entity.</p>
+ *
+ * The entity already exists. You must provide a unique entity.
  *
  * @throws {@link EntityLimitExceeded} (client fault)
- *  <p>The entity limit has been exceeded.</p>
+ *
+ * The entity limit has been exceeded.
  *
  * @throws {@link EntitySizeLimitExceeded} (client fault)
- *  <p>The entity size limit was exceeded.</p>
+ *
+ * The entity size limit was exceeded.
  *
  * @throws {@link InvalidArgument} (client fault)
- *  <p>An argument is invalid.</p>
+ *
+ * An argument is invalid.
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this Amazon Web Services Region.</p>
+ *
+ * This operation is not supported in this Amazon Web Services Region.
  *
  * @throws {@link CloudFrontServiceException}
- * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * Base exception class for all service exceptions from CloudFront service.
  *
  * @example To create a KeyValueStore
  * ```javascript

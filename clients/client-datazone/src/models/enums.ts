@@ -323,13 +323,13 @@ export type ConfigurationStatus = (typeof ConfigurationStatus)[keyof typeof Conf
 export const GlueConnectionType = {
   BIGQUERY: "BIGQUERY",
   /**
-   * <p>A Databricks Unity Catalog (Iceberg REST) connection type.</p>
+   * A Databricks Unity Catalog (Iceberg REST) connection type.
    */
   DATABRICKSICEBERGRESTCATALOG: "DATABRICKSICEBERGRESTCATALOG",
   DOCUMENTDB: "DOCUMENTDB",
   DYNAMODB: "DYNAMODB",
   /**
-   * <p>A generic Iceberg REST catalog connection type.</p>
+   * A generic Iceberg REST catalog connection type.
    */
   ICEBERGRESTCATALOG: "ICEBERGRESTCATALOG",
   MYSQL: "MYSQL",
@@ -340,7 +340,7 @@ export const GlueConnectionType = {
   SAPHANA: "SAPHANA",
   SNOWFLAKE: "SNOWFLAKE",
   /**
-   * <p>A Snowflake Horizon (Iceberg REST) catalog connection type.</p>
+   * A Snowflake Horizon (Iceberg REST) catalog connection type.
    */
   SNOWFLAKEICEBERGRESTCATALOG: "SNOWFLAKEICEBERGRESTCATALOG",
   SQLSERVER: "SQLSERVER",
@@ -495,19 +495,19 @@ export const ConnectionType = {
   BIGQUERY: "BIGQUERY",
   DATABRICKS: "DATABRICKS",
   /**
-   * <p>A Databricks Unity Catalog (Iceberg REST) connection type.</p>
+   * A Databricks Unity Catalog (Iceberg REST) connection type.
    */
   DATABRICKSICEBERGRESTCATALOG: "DATABRICKSICEBERGRESTCATALOG",
   DOCUMENTDB: "DOCUMENTDB",
   DYNAMODB: "DYNAMODB",
   /**
-   * <p>A Git connection type.</p>
+   * A Git connection type.
    */
   GIT: "GIT",
   HYPERPOD: "HYPERPOD",
   IAM: "IAM",
   /**
-   * <p>A generic Iceberg REST catalog connection type.</p>
+   * A generic Iceberg REST catalog connection type.
    */
   ICEBERGRESTCATALOG: "ICEBERGRESTCATALOG",
   MLFLOW: "MLFLOW",
@@ -520,7 +520,7 @@ export const ConnectionType = {
   SAPHANA: "SAPHANA",
   SNOWFLAKE: "SNOWFLAKE",
   /**
-   * <p>A Snowflake Horizon (Iceberg REST) catalog connection type.</p>
+   * A Snowflake Horizon (Iceberg REST) catalog connection type.
    */
   SNOWFLAKEICEBERGRESTCATALOG: "SNOWFLAKEICEBERGRESTCATALOG",
   SPARK: "SPARK",
@@ -856,11 +856,11 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  */
 export const NotebookType = {
   /**
-   * <p>A data notebook.</p>
+   * A data notebook.
    */
   DATA: "DATA",
   /**
-   * <p>A SQL notebook.</p>
+   * A SQL notebook.
    */
   SQL: "SQL",
 } as const;
@@ -875,7 +875,7 @@ export type NotebookType = (typeof NotebookType)[keyof typeof NotebookType];
  */
 export const PackageManager = {
   /**
-   * <p>The UV package manager.</p>
+   * The UV package manager.
    */
   UV: "UV",
 } as const;
@@ -890,19 +890,19 @@ export type PackageManager = (typeof PackageManager)[keyof typeof PackageManager
  */
 export const NotebookStatus = {
   /**
-   * <p>The notebook is active.</p>
+   * The notebook is active.
    */
   ACTIVE: "ACTIVE",
   /**
-   * <p>The notebook is archived.</p>
+   * The notebook is archived.
    */
   ARCHIVED: "ARCHIVED",
   /**
-   * <p>The notebook sync failed.</p>
+   * The notebook sync failed.
    */
   SYNC_FAILED: "SYNC_FAILED",
   /**
-   * <p>The notebook sync is in progress.</p>
+   * The notebook sync is in progress.
    */
   SYNC_IN_PROGRESS: "SYNC_IN_PROGRESS",
 } as const;
@@ -1468,11 +1468,11 @@ export type MetadataGenerationTargetType =
  */
 export const FileFormat = {
   /**
-   * <p>Export the notebook as a Jupyter notebook (.ipynb) file.</p>
+   * Export the notebook as a Jupyter notebook (.ipynb) file.
    */
   IPYNB: "IPYNB",
   /**
-   * <p>Export the notebook as a PDF file.</p>
+   * Export the notebook as a PDF file.
    */
   PDF: "PDF",
 } as const;
@@ -1487,15 +1487,15 @@ export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
  */
 export const NotebookExportStatus = {
   /**
-   * <p>The notebook export failed.</p>
+   * The notebook export failed.
    */
   FAILED: "FAILED",
   /**
-   * <p>The notebook export is in progress.</p>
+   * The notebook export is in progress.
    */
   IN_PROGRESS: "IN_PROGRESS",
   /**
-   * <p>The notebook export succeeded.</p>
+   * The notebook export succeeded.
    */
   SUCCEEDED: "SUCCEEDED",
 } as const;
@@ -1510,11 +1510,11 @@ export type NotebookExportStatus = (typeof NotebookExportStatus)[keyof typeof No
  */
 export const NetworkAccessType = {
   /**
-   * <p>The notebook run uses public internet access only.</p>
+   * The notebook run uses public internet access only.
    */
   PUBLIC_INTERNET_ONLY: "PUBLIC_INTERNET_ONLY",
   /**
-   * <p>The notebook run uses VPC access only.</p>
+   * The notebook run uses VPC access only.
    */
   VPC_ONLY: "VPC_ONLY",
 } as const;
@@ -1529,31 +1529,31 @@ export type NetworkAccessType = (typeof NetworkAccessType)[keyof typeof NetworkA
  */
 export const NotifyOnState = {
   /**
-   * <p>Notify when the notebook run fails.</p>
+   * Notify when the notebook run fails.
    */
   FAILED: "FAILED",
   /**
-   * <p>Notify when the notebook run is queued.</p>
+   * Notify when the notebook run is queued.
    */
   QUEUED: "QUEUED",
   /**
-   * <p>Notify when the notebook run is running.</p>
+   * Notify when the notebook run is running.
    */
   RUNNING: "RUNNING",
   /**
-   * <p>Notify when the notebook run is starting.</p>
+   * Notify when the notebook run is starting.
    */
   STARTING: "STARTING",
   /**
-   * <p>Notify when the notebook run is stopped.</p>
+   * Notify when the notebook run is stopped.
    */
   STOPPED: "STOPPED",
   /**
-   * <p>Notify when the notebook run is stopping.</p>
+   * Notify when the notebook run is stopping.
    */
   STOPPING: "STOPPING",
   /**
-   * <p>Notify when the notebook run succeeds.</p>
+   * Notify when the notebook run succeeds.
    */
   SUCCEEDED: "SUCCEEDED",
 } as const;
@@ -1568,31 +1568,31 @@ export type NotifyOnState = (typeof NotifyOnState)[keyof typeof NotifyOnState];
  */
 export const NotebookRunStatus = {
   /**
-   * <p>The notebook run failed.</p>
+   * The notebook run failed.
    */
   FAILED: "FAILED",
   /**
-   * <p>The notebook run is queued.</p>
+   * The notebook run is queued.
    */
   QUEUED: "QUEUED",
   /**
-   * <p>The notebook run is running.</p>
+   * The notebook run is running.
    */
   RUNNING: "RUNNING",
   /**
-   * <p>The notebook run is starting.</p>
+   * The notebook run is starting.
    */
   STARTING: "STARTING",
   /**
-   * <p>The notebook run was stopped.</p>
+   * The notebook run was stopped.
    */
   STOPPED: "STOPPED",
   /**
-   * <p>The notebook run is stopping.</p>
+   * The notebook run is stopping.
    */
   STOPPING: "STOPPING",
   /**
-   * <p>The notebook run succeeded.</p>
+   * The notebook run succeeded.
    */
   SUCCEEDED: "SUCCEEDED",
 } as const;
@@ -1607,15 +1607,15 @@ export type NotebookRunStatus = (typeof NotebookRunStatus)[keyof typeof Notebook
  */
 export const TriggerSourceType = {
   /**
-   * <p>The notebook run was triggered manually.</p>
+   * The notebook run was triggered manually.
    */
   MANUAL: "MANUAL",
   /**
-   * <p>The notebook run was triggered by a schedule.</p>
+   * The notebook run was triggered by a schedule.
    */
   SCHEDULED: "SCHEDULED",
   /**
-   * <p>The notebook run was triggered by a workflow.</p>
+   * The notebook run was triggered by a workflow.
    */
   WORKFLOW: "WORKFLOW",
 } as const;

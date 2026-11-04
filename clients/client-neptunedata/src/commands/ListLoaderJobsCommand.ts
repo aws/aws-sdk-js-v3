@@ -23,7 +23,10 @@ export interface ListLoaderJobsCommandInput extends ListLoaderJobsInput {}
 export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of the <code>loadIds</code> for all active loader jobs.</p> <p>When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs">neptune-db:ListLoaderJobs</a> IAM action in that cluster..</p>
+ * Retrieves a list of the `loadIds` for all active loader jobs.
+ *
+ * When invoking this operation in a Neptune cluster that has IAM authentication enabled, the IAM user or role making the request must have a policy attached that allows the [neptune-db:ListLoaderJobs](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listloaderjobs) IAM action in that cluster..
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,44 +59,56 @@ export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __Met
  * @see {@link NeptunedataClientResolvedConfig | config} for NeptunedataClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>Raised when a request is submitted that cannot be processed.</p>
+ *
+ * Raised when a request is submitted that cannot be processed.
  *
  * @throws {@link BulkLoadIdNotFoundException} (client fault)
- *  <p>Raised when a specified bulk-load job ID cannot be found.</p>
+ *
+ * Raised when a specified bulk-load job ID cannot be found.
  *
  * @throws {@link ClientTimeoutException} (client fault)
- *  <p>Raised when a request timed out in the client.</p>
+ *
+ * Raised when a request timed out in the client.
  *
  * @throws {@link ConstraintViolationException} (client fault)
- *  <p>Raised when a value in a request field did not satisfy required constraints.</p>
+ *
+ * Raised when a value in a request field did not satisfy required constraints.
  *
  * @throws {@link IllegalArgumentException} (client fault)
- *  <p>Raised when an argument in a request is not supported.</p>
+ *
+ * Raised when an argument in a request is not supported.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>Raised when the processing of the request failed unexpectedly.</p>
+ *
+ * Raised when the processing of the request failed unexpectedly.
  *
  * @throws {@link InvalidArgumentException} (client fault)
- *  <p>Raised when an argument in a request has an invalid value.</p>
+ *
+ * Raised when an argument in a request has an invalid value.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Raised when a parameter value is not valid.</p>
+ *
+ * Raised when a parameter value is not valid.
  *
  * @throws {@link LoadUrlAccessDeniedException} (client fault)
- *  <p>Raised when access is denied to a specified load URL.</p>
+ *
+ * Raised when access is denied to a specified load URL.
  *
  * @throws {@link PreconditionsFailedException} (client fault)
- *  <p>Raised when a precondition for processing a request is not satisfied.</p>
+ *
+ * Raised when a precondition for processing a request is not satisfied.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Raised when the number of requests being processed exceeds the limit.</p>
+ *
+ * Raised when the number of requests being processed exceeds the limit.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>Raised when a request attempts to initiate an operation that is not supported.</p>
+ *
+ * Raised when a request attempts to initiate an operation that is not supported.
  *
  * @throws {@link NeptunedataServiceException}
- * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ * Base exception class for all service exceptions from Neptunedata service.
  *
  * @public
  */

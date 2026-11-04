@@ -23,39 +23,23 @@ export interface GetComputeAccessCommandInput extends GetComputeAccessInput {}
 export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
- *          <p>Requests authorization to remotely connect to a hosting resource in a Amazon GameLift Servers managed
- *             fleet. This operation is not used with Amazon GameLift Servers Anywhere fleets.</p>
- *          <p>
- *             <b>Request options</b>
- *          </p>
- *          <p>Provide the fleet ID and compute name. The compute name varies depending on the type
- *             of fleet.</p>
- *          <ul>
- *             <li>
- *                <p>For a compute in a managed EC2 fleet, provide an instance ID. Each instance in
- *                     the fleet is a compute.</p>
- *             </li>
- *             <li>
- *                <p>For a compute in a managed container fleet, provide a compute name. In a
- *                     container fleet, each game server container group on a fleet instance is
- *                     assigned a compute name. </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results</b>
- *          </p>
- *          <p>If successful, this operation returns a set of temporary Amazon Web Services credentials, including
- *             a two-part access key and a session token.</p>
- *          <ul>
- *             <li>
- *                <p>With a managed EC2 fleet (where compute type is <code>EC2</code>), use these
- *                     credentials with Amazon EC2 Systems Manager (SSM) to start a session with the compute. For more
- *                     details, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli"> Starting a session (CLI)</a> in the <i>Amazon EC2 Systems Manager User
- *                         Guide</i>.</p>
- *             </li>
- *          </ul>
+ * **This API works with the following fleet types:** EC2, Container
+ *
+ * Requests authorization to remotely connect to a hosting resource in a Amazon GameLift Servers managed fleet. This operation is not used with Amazon GameLift Servers Anywhere fleets.
+ *
+ * **Request options**
+ *
+ * Provide the fleet ID and compute name. The compute name varies depending on the type of fleet.
+ *
+ * - For a compute in a managed EC2 fleet, provide an instance ID. Each instance in the fleet is a compute.
+ * - For a compute in a managed container fleet, provide a compute name. In a container fleet, each game server container group on a fleet instance is assigned a compute name.
+ *
+ * **Results**
+ *
+ * If successful, this operation returns a set of temporary Amazon Web Services credentials, including a two-part access key and a session token.
+ *
+ * - With a managed EC2 fleet (where compute type is `EC2`), use these credentials with Amazon EC2 Systems Manager (SSM) to start a session with the compute. For more details, see [Starting a session (CLI)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html#sessions-start-cli) in the *Amazon EC2 Systems Manager User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,25 +82,28 @@ export interface GetComputeAccessCommandOutput extends GetComputeAccessOutput, _
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

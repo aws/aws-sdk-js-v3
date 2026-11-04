@@ -23,7 +23,8 @@ export interface StartDependencyInsightsCommandInput extends StartDependencyInsi
 export interface StartDependencyInsightsCommandOutput extends StartDependencyInsightsResponse, __MetadataBearer {}
 
 /**
- * <p>Starts generating dependency insights for a service. Generation runs asynchronously; the response returns the initial status, and you retrieve the results with GetDependencyInsights. To use this operation, you must have the <code>resiliencehub:StartDependencyInsights</code> permission on the service.</p>
+ * Starts generating dependency insights for a service. Generation runs asynchronously; the response returns the initial status, and you retrieve the results with GetDependencyInsights. To use this operation, you must have the `resiliencehub:StartDependencyInsights` permission on the service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,26 +52,32 @@ export interface StartDependencyInsightsCommandOutput extends StartDependencyIns
  * @see {@link Resiliencehubv2ClientResolvedConfig | config} for Resiliencehubv2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied — caller lacks required permissions.</p>
+ *
+ * Access denied — caller lacks required permissions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Conflict — resource already exists.</p>
+ *
+ * Conflict — resource already exists.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal service error.</p>
+ *
+ * Internal service error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Too many requests — rate limit exceeded.</p>
+ *
+ * Too many requests — rate limit exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation error — invalid input parameters.</p>
+ *
+ * Validation error — invalid input parameters.
  *
  * @throws {@link Resiliencehubv2ServiceException}
- * <p>Base exception class for all service exceptions from Resiliencehubv2 service.</p>
  *
+ * Base exception class for all service exceptions from Resiliencehubv2 service.
  *
  * @public
  */

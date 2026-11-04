@@ -26,7 +26,20 @@ export interface InvokeEndpointWithBidirectionalStreamCommandInput extends Invok
 export interface InvokeEndpointWithBidirectionalStreamCommandOutput extends InvokeEndpointWithBidirectionalStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Invokes a model endpoint with bidirectional streaming capabilities. This operation establishes a persistent connection that allows you to send multiple requests and receive streaming responses from the model in real-time.</p> <p>Bidirectional streaming is useful for interactive applications such as chatbots, real-time translation, or any scenario where you need to maintain a conversation-like interaction with the model. The connection remains open, allowing you to send additional input and receive responses without establishing a new connection for each request.</p> <p>For an overview of Amazon SageMaker AI, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>.</p> <p>Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p> <p>Calls to <code>InvokeEndpointWithBidirectionalStream</code> are authenticated by using Amazon Web Services Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p> <p>The bidirectional stream maintains the connection until either the client closes it or the model indicates completion. Each request and response in the stream is sent as an event with optional headers for data type and completion state.</p> <note> <p>Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker AI determines the account ID from the authentication token that is supplied by the caller.</p> </note>
+ * Invokes a model endpoint with bidirectional streaming capabilities. This operation establishes a persistent connection that allows you to send multiple requests and receive streaming responses from the model in real-time.
+ *
+ * Bidirectional streaming is useful for interactive applications such as chatbots, real-time translation, or any scenario where you need to maintain a conversation-like interaction with the model. The connection remains open, allowing you to send additional input and receive responses without establishing a new connection for each request.
+ *
+ * For an overview of Amazon SageMaker AI, see [How It Works](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html).
+ *
+ * Amazon SageMaker AI strips all POST headers except those supported by the API. Amazon SageMaker AI might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax.
+ *
+ * Calls to `InvokeEndpointWithBidirectionalStream` are authenticated by using Amazon Web Services Signature Version 4. For information, see [Authenticating Requests (Amazon Web Services Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) in the *Amazon S3 API Reference*.
+ *
+ * The bidirectional stream maintains the connection until either the client closes it or the model indicates completion. Each request and response in the stream is sent as an event with optional headers for data type and completion state.
+ *
+ * > **Note:** Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker AI determines the account ID from the authentication token that is supplied by the caller.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,26 +92,32 @@ export interface InvokeEndpointWithBidirectionalStreamCommandOutput extends Invo
  * @see {@link SageMakerRuntimeHTTP2ClientResolvedConfig | config} for SageMakerRuntimeHTTP2Client's `config` shape.
  *
  * @throws {@link InputValidationError} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InternalStreamFailure} (server fault)
- *  <p>Internal stream failure that occurs during streaming.</p>
+ *
+ * Internal stream failure that occurs during streaming.
  *
  * @throws {@link ModelError} (client fault)
- *  <p>An error occurred while processing the model.</p>
+ *
+ * An error occurred while processing the model.
  *
  * @throws {@link ModelStreamError} (client fault)
- *  <p>Model stream error that occurs during streaming.</p>
+ *
+ * Model stream error that occurs during streaming.
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The request has failed due to a temporary failure of the server.</p>
+ *
+ * The request has failed due to a temporary failure of the server.
  *
  * @throws {@link SageMakerRuntimeHTTP2ServiceException}
- * <p>Base exception class for all service exceptions from SageMakerRuntimeHTTP2 service.</p>
  *
+ * Base exception class for all service exceptions from SageMakerRuntimeHTTP2 service.
  *
  * @public
  */

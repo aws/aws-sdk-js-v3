@@ -26,8 +26,8 @@ export interface CreateDirectConnectGatewayAssociationCommandInput extends Creat
 export interface CreateDirectConnectGatewayAssociationCommandOutput extends CreateDirectConnectGatewayAssociationResult, __MetadataBearer {}
 
 /**
- * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
- *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
+ * Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,14 +86,16 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput extends Crea
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

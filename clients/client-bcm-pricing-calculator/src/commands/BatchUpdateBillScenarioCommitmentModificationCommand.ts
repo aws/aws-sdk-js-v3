@@ -26,7 +26,10 @@ export interface BatchUpdateBillScenarioCommitmentModificationCommandInput exten
 export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput extends BatchUpdateBillScenarioCommitmentModificationResponse, __MetadataBearer {}
 
 /**
- * <p> Update a newly added or existing commitment. You can update the commitment group based on a commitment ID and a Bill scenario ID. </p> <note> <p>The <code>BatchUpdateBillScenarioCommitmentModification</code> operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission <code>bcm-pricing-calculator:UpdateBillScenarioCommitmentModification</code> in your policies.</p> </note>
+ * Update a newly added or existing commitment. You can update the commitment group based on a commitment ID and a Bill scenario ID.
+ *
+ * > **Note:** The `BatchUpdateBillScenarioCommitmentModification` operation doesn't have its own IAM permission. To authorize this operation for Amazon Web Services principals, include the permission `bcm-pricing-calculator:UpdateBillScenarioCommitmentModification` in your policies.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,29 +91,36 @@ export interface BatchUpdateBillScenarioCommitmentModificationCommandOutput exte
  * @see {@link BCMPricingCalculatorClientResolvedConfig | config} for BCMPricingCalculatorClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The request could not be processed because of conflict in the current state of the resource. </p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link DataUnavailableException} (client fault)
- *  <p> The requested data is currently unavailable. </p>
+ *
+ * The requested data is currently unavailable.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified resource was not found. </p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You do not have sufficient access to perform this action. </p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>
+ *
+ * An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input provided fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input provided fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BCMPricingCalculatorServiceException}
- * <p>Base exception class for all service exceptions from BCMPricingCalculator service.</p>
  *
+ * Base exception class for all service exceptions from BCMPricingCalculator service.
  *
  * @public
  */

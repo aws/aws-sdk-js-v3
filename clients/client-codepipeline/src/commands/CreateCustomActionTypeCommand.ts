@@ -23,8 +23,8 @@ export interface CreateCustomActionTypeCommandInput extends CreateCustomActionTy
 export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new custom action that can be used in all pipelines associated with the
- *                 Amazon Web Services account. Only used for custom actions.</p>
+ * Creates a new custom action that can be used in all pipelines associated with the Amazon Web Services account. Only used for custom actions.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,24 +122,28 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * Unable to modify the tag due to a simultaneous update request.
  *
  * @throws {@link InvalidTagsException} (client fault)
- *  <p>The specified resource tags are invalid.</p>
+ *
+ * The specified resource tags are invalid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The number of pipelines associated with the Amazon Web Services account has exceeded
- *             the limit allowed for the account.</p>
+ *
+ * The number of pipelines associated with the Amazon Web Services account has exceeded the limit allowed for the account.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The tags limit for a resource has been exceeded.</p>
+ *
+ * The tags limit for a resource has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

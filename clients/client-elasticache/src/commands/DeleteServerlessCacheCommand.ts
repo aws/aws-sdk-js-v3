@@ -23,12 +23,10 @@ export interface DeleteServerlessCacheCommandInput extends DeleteServerlessCache
 export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCacheResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified existing serverless cache.</p>
- *          <note>
- *             <p>
- *                <code>CreateServerlessCacheSnapshot</code> permission is required to create a final snapshot.
- *            Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
- *          </note>
+ * Deletes a specified existing serverless cache.
+ *
+ * > **Note:** `CreateServerlessCacheSnapshot` permission is required to create a final snapshot. Without this permission, the API call will fail with an `Access Denied` exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,29 +103,36 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  * @throws {@link InvalidCredentialsException} (client fault)
- *  <p>You must enter valid credentials.</p>
+ *
+ * You must enter valid credentials.
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
- *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * Two or more incompatible parameters were specified.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>The value for a parameter is invalid.</p>
+ *
+ * The value for a parameter is invalid.
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
- *  <p>The account for these credentials is not currently active.</p>
+ *
+ * The account for these credentials is not currently active.
  *
  * @throws {@link ServerlessCacheNotFoundFault} (client fault)
- *  <p>The serverless cache was not found or does not exist.</p>
+ *
+ * The serverless cache was not found or does not exist.
  *
  * @throws {@link ServerlessCacheSnapshotAlreadyExistsFault} (client fault)
- *  <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
+ *
+ * A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
- *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * The specified service linked role (SLR) was not found.
  *
  * @throws {@link ElastiCacheServiceException}
- * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ * Base exception class for all service exceptions from ElastiCache service.
  *
  * @public
  */

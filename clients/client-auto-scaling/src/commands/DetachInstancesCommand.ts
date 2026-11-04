@@ -23,16 +23,16 @@ export interface DetachInstancesCommandInput extends DetachInstancesQuery {}
 export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __MetadataBearer {}
 
 /**
- * <p>Removes one or more instances from the specified Auto Scaling group.</p>
- *          <p>After the instances are detached, you can manage them independent of the Auto Scaling
- *             group.</p>
- *          <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
- *             instances to replace the ones that are detached.</p>
- *          <p>If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are
- *             deregistered from the load balancer. If there are target groups attached to the Auto Scaling
- *             group, the instances are deregistered from the target groups.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach
- *                 or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * Removes one or more instances from the specified Auto Scaling group.
+ *
+ * After the instances are detached, you can manage them independent of the Auto Scaling group.
+ *
+ * If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches instances to replace the ones that are detached.
+ *
+ * If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups.
+ *
+ * For more information, see [Detach or attach instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html) in the *Amazon EC2 Auto Scaling User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,12 +78,12 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To detach an instance from an Auto Scaling group
  * ```javascript

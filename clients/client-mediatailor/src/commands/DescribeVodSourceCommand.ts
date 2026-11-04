@@ -23,7 +23,8 @@ export interface DescribeVodSourceCommandInput extends DescribeVodSourceRequest 
 export interface DescribeVodSourceCommandOutput extends DescribeVodSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about a specific video on demand (VOD) source in a specific source location.</p>
+ * Provides details about a specific video on demand (VOD) source in a specific source location.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

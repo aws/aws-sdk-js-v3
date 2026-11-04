@@ -26,7 +26,8 @@ export interface SearchDiscoverableRegistryRecordsCommandInput extends SearchDis
 export interface SearchDiscoverableRegistryRecordsCommandOutput extends SearchDiscoverableRegistryRecordsResponse, __MetadataBearer {}
 
 /**
- * <p> Searches the discoverable registry records in a registry using a natural language query. Returns metadata for the matching records ordered by relevance.</p>
+ * Searches the discoverable registry records in a registry using a natural language query. Returns metadata for the matching records ordered by relevance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,26 +132,32 @@ export interface SearchDiscoverableRegistryRecordsCommandOutput extends SearchDi
  * @see {@link AgentRegistryClientResolvedConfig | config} for AgentRegistryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The caller is not authorized to perform the requested action.</p>
+ *
+ * The caller is not authorized to perform the requested action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an unexpected internal error; the caller may retry.</p>
+ *
+ * The request failed due to an unexpected internal error; the caller may retry.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource was not found.</p>
+ *
+ * The requested resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling; the caller may retry after a delay.</p>
+ *
+ * The request was denied due to request throttling; the caller may retry after a delay.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The request could not be authenticated.</p>
+ *
+ * The request could not be authenticated.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation of one or more input fields.</p>
+ *
+ * The request failed validation of one or more input fields.
  *
  * @throws {@link AgentRegistryServiceException}
- * <p>Base exception class for all service exceptions from AgentRegistry service.</p>
  *
+ * Base exception class for all service exceptions from AgentRegistry service.
  *
  * @public
  */

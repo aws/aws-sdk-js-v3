@@ -26,7 +26,8 @@ export interface ListSupplementalTaxRegistrationsCommandInput extends ListSupple
 export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSupplementalTaxRegistrationsResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves supplemental tax registrations for a single account. </p>
+ * Retrieves supplemental tax registrations for a single account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,17 +74,20 @@ export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSuppl
  * @see {@link TaxSettingsClientResolvedConfig | config} for TaxSettingsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The exception thrown when an unexpected error occurs when processing a request.</p>
+ *
+ * The exception thrown when an unexpected error occurs when processing a request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ *
+ * The exception thrown when the input doesn't have a resource associated to it.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The exception when the input doesn't pass validation for at least one of the input parameters. </p>
+ *
+ * The exception when the input doesn't pass validation for at least one of the input parameters.
  *
  * @throws {@link TaxSettingsServiceException}
- * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ * Base exception class for all service exceptions from TaxSettings service.
  *
  * @public
  */

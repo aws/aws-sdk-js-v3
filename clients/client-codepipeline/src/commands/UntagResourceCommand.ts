@@ -23,7 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Removes tags from an Amazon Web Services resource.</p>
+ * Removes tags from an Amazon Web Services resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,23 +52,28 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * Unable to modify the tag due to a simultaneous update request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The specified resource ARN is invalid.</p>
+ *
+ * The specified resource ARN is invalid.
  *
  * @throws {@link InvalidTagsException} (client fault)
- *  <p>The specified resource tags are invalid.</p>
+ *
+ * The specified resource tags are invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was specified in an invalid format.</p>
+ *
+ * The resource was specified in an invalid format.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

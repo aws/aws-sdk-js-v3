@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { NetworkMonitorServiceException as __BaseException } from "./NetworkMonitorServiceException";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This operation attempted to create a resource that already exists.</p>
+ * This operation attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -46,7 +48,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -68,7 +71,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>This request exceeds a service quota.</p>
+ * This request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -89,7 +93,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling</p>
+ * The request was denied due to request throttling
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -113,7 +118,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>One of the parameters for the request is not valid.</p>
+ * One of the parameters for the request is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -134,7 +140,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
+ * The specified resource does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

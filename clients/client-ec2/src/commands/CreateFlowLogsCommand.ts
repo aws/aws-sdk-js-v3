@@ -23,18 +23,14 @@ export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}
 export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __MetadataBearer {}
 
 /**
- * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,
- *             subnet, or VPC. </p>
- *          <p>Flow log data for a monitored network interface is recorded as flow log records, which are log events
- *             consisting of fields that describe the traffic flow. For more information, see
- *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html">Flow log records</a>
- *             in the <i>Amazon VPC User Guide</i>.</p>
- *          <p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network
- *             interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all
- *             of the monitored network interfaces are published to a single log file object that is stored in the specified
- *             bucket.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a>
- *             in the <i>Amazon VPC User Guide</i>.</p>
+ * Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC.
+ *
+ * Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see [Flow log records](https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html) in the *Amazon VPC User Guide*.
+ *
+ * When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.
+ *
+ * For more information, see [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) in the *Amazon VPC User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,8 +106,8 @@ export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

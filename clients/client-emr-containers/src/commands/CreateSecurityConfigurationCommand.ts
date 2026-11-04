@@ -23,10 +23,8 @@ export interface CreateSecurityConfigurationCommandInput extends CreateSecurityC
 export interface CreateSecurityConfigurationCommandOutput extends CreateSecurityConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a security configuration. Security configurations in Amazon EMR on EKS are
- *          templates for different security setups. You can use security configurations to configure
- *          the Lake Formation integration setup. You can also create a security configuration
- *          to re-use a security setup each time you create a virtual cluster.</p>
+ * Creates a security configuration. Security configurations in Amazon EMR on EKS are templates for different security setups. You can use security configurations to configure the Lake Formation integration setup. You can also create a security configuration to re-use a security setup each time you create a virtual cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,14 +99,16 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This is an internal server exception.</p>
+ *
+ * This is an internal server exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>There are invalid parameters in the client request.</p>
+ *
+ * There are invalid parameters in the client request.
  *
  * @throws {@link EMRContainersServiceException}
- * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ * Base exception class for all service exceptions from EMRContainers service.
  *
  * @public
  */

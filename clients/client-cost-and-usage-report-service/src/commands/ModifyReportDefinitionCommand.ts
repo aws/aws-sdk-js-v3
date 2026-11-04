@@ -23,7 +23,8 @@ export interface ModifyReportDefinitionCommandInput extends ModifyReportDefiniti
 export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to programmatically update your report preferences.</p>
+ * Allows you to programmatically update your report preferences.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,14 +71,16 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * An error on the server occurred during the processing of your request. Try again later.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
- * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
+ * Base exception class for all service exceptions from CostAndUsageReportService service.
  *
  * @public
  */

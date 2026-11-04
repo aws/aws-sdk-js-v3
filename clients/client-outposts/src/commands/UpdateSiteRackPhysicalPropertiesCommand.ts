@@ -23,12 +23,10 @@ export interface UpdateSiteRackPhysicalPropertiesCommandInput extends UpdateSite
 export interface UpdateSiteRackPhysicalPropertiesCommandOutput extends UpdateSiteRackPhysicalPropertiesOutput, __MetadataBearer {}
 
 /**
- * <p>Update the physical and logistical details for a rack at a site. For more information
- *       about hardware requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist">Network
- *         readiness checklist</a> in the Amazon Web Services Outposts User Guide.
- *          </p>
- *          <p>To update a rack at a site with an order of <code>IN_PROGRESS</code>, you must wait for
- *       the order to complete or cancel the order.</p>
+ * Update the physical and logistical details for a rack at a site. For more information about hardware requirements for racks, see [Network readiness checklist](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#checklist) in the Amazon Web Services Outposts User Guide.
+ *
+ * To update a rack at a site with an order of `IN_PROGRESS`, you must wait for the order to complete or cancel the order.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,23 +86,28 @@ export interface UpdateSiteRackPhysicalPropertiesCommandOutput extends UpdateSit
  * @see {@link OutpostsClientResolvedConfig | config} for OutpostsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have permission to perform this operation.</p>
+ *
+ * You do not have permission to perform this operation.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ *
+ * Updating or deleting this resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error has occurred.</p>
+ *
+ * An internal error has occurred.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The specified request is not valid.</p>
+ *
+ * The specified request is not valid.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter is not valid.</p>
+ *
+ * A parameter is not valid.
  *
  * @throws {@link OutpostsServiceException}
- * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ * Base exception class for all service exceptions from Outposts service.
  *
  * @public
  */

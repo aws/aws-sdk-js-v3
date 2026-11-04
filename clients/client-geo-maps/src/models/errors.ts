@@ -6,7 +6,8 @@ import { GeoMapsServiceException as __BaseException } from "./GeoMapsServiceExce
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.</p>
+ * The request was denied because of insufficient access or permissions. Check with an administrator to verify your permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -29,7 +30,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ * The request processing has failed because of an unknown error, exception or failure.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -53,7 +55,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -77,7 +80,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * The input fails to satisfy the constraints specified by an AWS service.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -86,13 +90,15 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message: string | undefined;
   /**
-   * <p>The field where the invalid entry was detected.</p>
+   * The field where the invalid entry was detected.
+   *
    * @public
    */
   Reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A message with the reason for the validation exception error.</p>
+   * A message with the reason for the validation exception error.
+   *
    * @public
    */
   FieldList: ValidationExceptionField[] | undefined;
@@ -113,7 +119,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Exception thrown when the associated resource could not be found.</p>
+ * Exception thrown when the associated resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {

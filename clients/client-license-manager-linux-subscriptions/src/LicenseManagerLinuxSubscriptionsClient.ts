@@ -327,8 +327,8 @@ export type LicenseManagerLinuxSubscriptionsClientResolvedConfigType = __SmithyR
 export interface LicenseManagerLinuxSubscriptionsClientResolvedConfig extends LicenseManagerLinuxSubscriptionsClientResolvedConfigType {}
 
 /**
- * <p>With License Manager, you can discover and track your commercial Linux subscriptions on running
- *       Amazon EC2 instances.</p>
+ * With License Manager, you can discover and track your commercial Linux subscriptions on running Amazon EC2 instances.
+ *
  * @public
  */
 export class LicenseManagerLinuxSubscriptionsClient extends __Client<

@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { PricingPlanManagerServiceException as __BaseException } from "./PricingPlanManagerServiceException";
 
 /**
- * <p>You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.</p>
+ * You do not have the required permissions to perform this operation. Verify that your IAM policy grants access to this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -25,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request conflicts with the current state of the resource. This typically occurs when the <code>ETag</code> value in the <code>If-Match</code> header does not match the current version of the subscription. Retrieve the latest version and retry.</p>
+ * The request conflicts with the current state of the resource. This typically occurs when the `ETag` value in the `If-Match` header does not match the current version of the subscription. Retrieve the latest version and retry.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -33,7 +35,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that has a conflicting state.</p>
+   * The identifier of the resource that has a conflicting state.
+   *
    * @public
    */
   resourceId: string | undefined;
@@ -53,7 +56,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An unexpected error occurred on the server. Retry the request.</p>
+ * An unexpected error occurred on the server. Retry the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -74,7 +78,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.</p>
+ * The specified subscription was not found. Verify that the ARN is correct and that the subscription belongs to your account.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -82,7 +87,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId: string | undefined;
@@ -102,7 +108,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request rate exceeds the allowed limit. Wait briefly and retry the request.</p>
+ * The request rate exceeds the allowed limit. Wait briefly and retry the request.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -123,7 +130,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.</p>
+ * The request failed a business rule validation. For example, the specified resource might already be associated with another subscription, or the subscription might not be in the required state for this operation.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -131,7 +139,8 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that failed validation.</p>
+   * The identifier of the resource that failed validation.
+   *
    * @public
    */
   resourceId?: string | undefined;
@@ -151,7 +160,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a service limit. You have reached the maximum number of subscriptions allowed for your account.</p>
+ * The request would exceed a service limit. You have reached the maximum number of subscriptions allowed for your account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

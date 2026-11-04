@@ -23,40 +23,23 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a user account for the specified Connect Customer instance.</p>
- *          <important>
- *             <p>Certain <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html">UserIdentityInfo</a> parameters are required in some situations. For example, <code>Email</code>,
- *      <code>FirstName</code> and <code>LastName</code> are required if you are using Connect Customer or SAML for
- *     identity management.</p>
- *          </important>
- *          <note>
- *             <p>Fields in <code>PhoneConfig</code> cannot be set simultaneously with their corresponding channel-specific configuration parameters. Specifically:</p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>PhoneConfig.AutoAccept</code> conflicts with <code>AutoAcceptConfigs</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>PhoneConfig.AfterContactWorkTimeLimit</code> conflicts with <code>AfterContactWorkConfigs</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>PhoneConfig.PhoneType</code> and <code>PhoneConfig.PhoneNumber</code> conflict with <code>PhoneNumberConfigs</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>PhoneConfig.PersistentConnection</code> conflicts with <code>PersistentConnectionConfigs</code>
- *                   </p>
- *                </li>
- *             </ul>
- *             <p>We recommend using channel-specific parameters such as <code>AutoAcceptConfigs</code>, <code>AfterContactWorkConfigs</code>, <code>PhoneNumberConfigs</code>, <code>PersistentConnectionConfigs</code>, and <code>VoiceEnhancementConfigs</code> for per-channel configuration.</p>
- *          </note>
- *          <p>For information about how to create users using the Connect Customer admin website, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in the <i>Connect Customer
- *     Administrator Guide</i>.</p>
+ * Creates a user account for the specified Connect Customer instance.
+ *
+ * > **Important:** Certain [UserIdentityInfo](https://docs.aws.amazon.com/connect/latest/APIReference/API_UserIdentityInfo.html) parameters are required in some situations. For example, `Email`, `FirstName` and `LastName` are required if you are using Connect Customer or SAML for identity management.
+ *
+ * > **Note:**
+ * >
+ * > Fields in `PhoneConfig` cannot be set simultaneously with their corresponding channel-specific configuration parameters. Specifically:
+ * >
+ * > - `PhoneConfig.AutoAccept` conflicts with `AutoAcceptConfigs`
+ * > - `PhoneConfig.AfterContactWorkTimeLimit` conflicts with `AfterContactWorkConfigs`
+ * > - `PhoneConfig.PhoneType` and `PhoneConfig.PhoneNumber` conflict with `PhoneNumberConfigs`
+ * > - `PhoneConfig.PersistentConnection` conflicts with `PersistentConnectionConfigs`
+ * >
+ * > We recommend using channel-specific parameters such as `AutoAcceptConfigs`, `AfterContactWorkConfigs`, `PhoneNumberConfigs`, `PersistentConnectionConfigs`, and `VoiceEnhancementConfigs` for per-channel configuration.
+ *
+ * For information about how to create users using the Connect Customer admin website, see [Add Users](https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html) in the *Connect Customer Administrator Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,29 +129,36 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link DuplicateResourceException} (client fault)
- *  <p>A resource with the specified name already exists.</p>
+ *
+ * A resource with the specified name already exists.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The allowed limit for the resource has been exceeded.</p>
+ *
+ * The allowed limit for the resource has been exceeded.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling limit has been exceeded.</p>
+ *
+ * The throttling limit has been exceeded.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

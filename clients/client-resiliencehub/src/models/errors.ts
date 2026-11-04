@@ -4,9 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ResiliencehubServiceException as __BaseException } from "./ResiliencehubServiceException";
 
 /**
- * <p>You don't have permissions to perform the requested operation. The user or role that is
- *       making the request must have at least one IAM permissions policy attached that grants the
- *       required permissions.</p>
+ * You don't have permissions to perform the requested operation. The user or role that is making the request must have at least one IAM permissions policy attached that grants the required permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,8 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when there is an internal failure in the Resilience Hub
- *       service.</p>
+ * This exception occurs when there is an internal failure in the Resilience Hub service.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -49,7 +48,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when the specified resource could not be found.</p>
+ * This exception occurs when the specified resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -57,13 +57,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that the exception applies to.</p>
+   * The identifier of the resource that the exception applies to.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that the exception applies to.</p>
+   * The type of the resource that the exception applies to.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -84,7 +86,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when you have exceeded the limit on the number of requests per second.</p>
+ * This exception occurs when you have exceeded the limit on the number of requests per second.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -92,7 +95,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The number of seconds to wait before retrying the operation.</p>
+   * The number of seconds to wait before retrying the operation.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -112,7 +116,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when a request is not valid.</p>
+ * This exception occurs when a request is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -133,10 +138,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when a conflict with a previous successful write is detected. This generally occurs
- *       when the previous write did not have time to propagate to the host serving the current
- *       request. A retry (with appropriate backoff logic) is the recommended response to this
- *       exception.</p>
+ * This exception occurs when a conflict with a previous successful write is detected. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -144,13 +147,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that the exception applies to.</p>
+   * The identifier of the resource that the exception applies to.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that the exception applies to.</p>
+   * The type of the resource that the exception applies to.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -171,8 +176,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the
- *       relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * This exception occurs when you have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

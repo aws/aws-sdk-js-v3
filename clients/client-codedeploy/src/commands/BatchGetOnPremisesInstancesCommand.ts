@@ -23,8 +23,8 @@ export interface BatchGetOnPremisesInstancesCommandInput extends BatchGetOnPremi
 export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPremisesInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about one or more on-premises instances. The maximum number of
- *             on-premises instances that can be returned is 25.</p>
+ * Gets information about one or more on-premises instances. The maximum number of on-premises instances that can be returned is 25.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,17 +68,20 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link BatchLimitExceededException} (client fault)
- *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * The maximum number of names or IDs allowed for this request (100) was exceeded.
  *
  * @throws {@link InstanceNameRequiredException} (client fault)
- *  <p>An on-premises instance name was not specified.</p>
+ *
+ * An on-premises instance name was not specified.
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
- *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * The on-premises instance name was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

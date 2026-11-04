@@ -40,7 +40,8 @@ export interface SageMakerRuntimeHTTP2 {
 }
 
 /**
- * <p> The Amazon SageMaker AI runtime HTTP/2 API. </p>
+ * The Amazon SageMaker AI runtime HTTP/2 API.
+ *
  * @public
  */
 export class SageMakerRuntimeHTTP2 extends SageMakerRuntimeHTTP2Client implements SageMakerRuntimeHTTP2 {}

@@ -23,29 +23,19 @@ export interface UpdateLagCommandInput extends UpdateLagRequest {}
 export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
- * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
- *          <p>You can update the following LAG attributes:</p>
- *          <ul>
- *             <li>
- *                <p>The name of the LAG.</p>
- *             </li>
- *             <li>
- *                <p>The value for the minimum number of connections that must be operational
- *           for the LAG itself to be operational. </p>
- *             </li>
- *             <li>
- *                <p>The LAG's MACsec encryption mode.</p>
- *                <p>Amazon Web Services assigns this value to each connection which is part of the LAG.</p>
- *             </li>
- *             <li>
- *                <p>The tags</p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>If you adjust the threshold value for the minimum number of operational connections, ensure
- *       that the new value does not cause the LAG to fall below the threshold and become
- *       non-operational.</p>
- *          </note>
+ * Updates the attributes of the specified link aggregation group (LAG).
+ *
+ * You can update the following LAG attributes:
+ *
+ * - The name of the LAG.
+ * - The value for the minimum number of connections that must be operational for the LAG itself to be operational.
+ * - The LAG's MACsec encryption mode.
+ *
+ *   Amazon Web Services assigns this value to each connection which is part of the LAG.
+ * - The tags
+ *
+ * > **Note:** If you adjust the threshold value for the minimum number of operational connections, ensure that the new value does not cause the LAG to fall below the threshold and become non-operational.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,14 +157,16 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
- *  <p>One or more parameters are not valid.</p>
+ *
+ * One or more parameters are not valid.
  *
  * @throws {@link DirectConnectServerException} (server fault)
- *  <p>A server-side error occurred.</p>
+ *
+ * A server-side error occurred.
  *
  * @throws {@link DirectConnectServiceException}
- * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ * Base exception class for all service exceptions from DirectConnect service.
  *
  * @public
  */

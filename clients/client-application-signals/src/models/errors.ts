@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ApplicationSignalsServiceException as __BaseException } from "./ApplicationSignalsServiceException";
 
 /**
- * <p>You don't have sufficient permissions to perform this action.</p>
+ * You don't have sufficient permissions to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled because of quota limits.</p>
+ * The request was throttled because of quota limits.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -50,7 +52,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The resource is not valid.</p>
+ * The resource is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -71,7 +74,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Resource not found.</p>
+ * Resource not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -79,13 +83,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource type is not valid.</p>
+   * The resource type is not valid.
+   *
    * @public
    */
   ResourceType: string | undefined;
 
   /**
-   * <p>Can't find the resource id.</p>
+   * Can't find the resource id.
+   *
    * @public
    */
   ResourceId: string | undefined;
@@ -108,7 +114,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>This operation attempted to create a resource that already exists.</p>
+ * This operation attempted to create a resource that already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -131,7 +138,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>This request exceeds a service quota.</p>
+ * This request exceeds a service quota.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

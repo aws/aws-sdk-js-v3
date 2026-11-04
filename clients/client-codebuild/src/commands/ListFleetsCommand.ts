@@ -23,7 +23,8 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of compute fleet names with each compute fleet name representing a single compute fleet.</p>
+ * Gets a list of compute fleet names with each compute fleet name representing a single compute fleet.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,11 +57,12 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input value that was provided is not valid.</p>
+ *
+ * The input value that was provided is not valid.
  *
  * @throws {@link CodeBuildServiceException}
- * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ * Base exception class for all service exceptions from CodeBuild service.
  *
  * @public
  */

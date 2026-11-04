@@ -23,9 +23,8 @@ export interface DescribeMaintenanceStartTimeCommandInput extends DescribeMainte
 export interface DescribeMaintenanceStartTimeCommandOutput extends DescribeMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
- * <p>Returns your gateway's maintenance window schedule information, with values for
- *          monthly or weekly cadence, specific day and time to begin maintenance, and which types of
- *          updates to apply. Time values returned are for the gateway's time zone.</p>
+ * Returns your gateway's maintenance window schedule information, with values for monthly or weekly cadence, specific day and time to begin maintenance, and which types of updates to apply. Time values returned are for the gateway's time zone.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,16 +59,16 @@ export interface DescribeMaintenanceStartTimeCommandOutput extends DescribeMaint
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To describe gateway's maintenance start time
  * ```javascript

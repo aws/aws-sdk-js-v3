@@ -23,8 +23,8 @@ export interface RegisterCrossAccountAccessRoleCommandInput extends RegisterCros
 export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
- *          perform security assessments.</p>
+ * Registers the IAM role that grants Amazon Inspector access to AWS Services needed to perform security assessments.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,25 +49,28 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * You do not have required permissions to access the requested resource.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidCrossAccountRoleException} (client fault)
- *  <p>Amazon Inspector cannot assume the cross-account role that it needs to list your EC2
- *          instances during the assessment run.</p>
+ *
+ * Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *          input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
- *  <p>The serice is temporary unavailable.</p>
+ *
+ * The serice is temporary unavailable.
  *
  * @throws {@link InspectorServiceException}
- * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ * Base exception class for all service exceptions from Inspector service.
  *
  * @example Register cross account access role
  * ```javascript

@@ -506,15 +506,15 @@ export type HarnessConversationRole = (typeof HarnessConversationRole)[keyof typ
  */
 export const HarnessBedrockApiFormat = {
   /**
-   * <p>Use the Chat Completions API format.</p>
+   * Use the Chat Completions API format.
    */
   CHAT_COMPLETIONS: "chat_completions",
   /**
-   * <p>Use the Bedrock Converse Stream API format.</p>
+   * Use the Bedrock Converse Stream API format.
    */
   CONVERSE_STREAM: "converse_stream",
   /**
-   * <p>Use the Responses API format.</p>
+   * Use the Responses API format.
    */
   RESPONSES: "responses",
 } as const;
@@ -529,11 +529,11 @@ export type HarnessBedrockApiFormat = (typeof HarnessBedrockApiFormat)[keyof typ
  */
 export const HarnessOpenAiApiFormat = {
   /**
-   * <p>Use the Chat Completions API format.</p>
+   * Use the Chat Completions API format.
    */
   CHAT_COMPLETIONS: "chat_completions",
   /**
-   * <p>Use the Responses API format.</p>
+   * Use the Responses API format.
    */
   RESPONSES: "responses",
 } as const;
@@ -784,23 +784,23 @@ export type PaymentInstrumentStatus = (typeof PaymentInstrumentStatus)[keyof typ
  */
 export const BlockchainChainId = {
   /**
-   * <p>Base Mainnet (EVM L2)</p>
+   * Base Mainnet (EVM L2)
    */
   BASE: "BASE",
   /**
-   * <p>Base Sepolia testnet (EVM L2)</p>
+   * Base Sepolia testnet (EVM L2)
    */
   BASE_SEPOLIA: "BASE_SEPOLIA",
   /**
-   * <p>Ethereum Mainnet (EVM L1)</p>
+   * Ethereum Mainnet (EVM L1)
    */
   ETHEREUM: "ETHEREUM",
   /**
-   * <p>Solana Mainnet</p>
+   * Solana Mainnet
    */
   SOLANA: "SOLANA",
   /**
-   * <p>Solana Devnet testnet</p>
+   * Solana Devnet testnet
    */
   SOLANA_DEVNET: "SOLANA_DEVNET",
 } as const;

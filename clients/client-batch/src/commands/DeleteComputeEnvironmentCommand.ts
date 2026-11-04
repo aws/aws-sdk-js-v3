@@ -23,13 +23,10 @@ export interface DeleteComputeEnvironmentCommandInput extends DeleteComputeEnvir
 export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Batch compute environment.</p>
- *          <p>Before you can delete a compute environment, you must set its state to
- *         <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and
- *       disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation.
- *       Compute environments that use Fargate resources must terminate all active jobs on that
- *       compute environment before deleting the compute environment. If this isn't done, the compute
- *       environment enters an invalid state.</p>
+ * Deletes an Batch compute environment.
+ *
+ * Before you can delete a compute environment, you must set its state to `DISABLED` with the UpdateComputeEnvironment API operation and disassociate it from any job queues with the UpdateJobQueue API operation. Compute environments that use Fargate resources must terminate all active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute environment enters an invalid state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,16 +51,16 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
- *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
- *    that's not valid.</p>
+ *
+ * These errors are usually caused by a client action. One example cause is using an action or resource on behalf of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier that's not valid.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * These errors are usually caused by a server issue.
  *
  * @throws {@link BatchServiceException}
- * <p>Base exception class for all service exceptions from Batch service.</p>
  *
+ * Base exception class for all service exceptions from Batch service.
  *
  * @example To delete a compute environment
  * ```javascript

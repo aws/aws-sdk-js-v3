@@ -23,7 +23,8 @@ export interface AcceptVpcEndpointConnectionsCommandInput extends AcceptVpcEndpo
 export interface AcceptVpcEndpointConnectionsCommandOutput extends AcceptVpcEndpointConnectionsResult, __MetadataBearer {}
 
 /**
- * <p>Accepts connection requests to your VPC endpoint service.</p>
+ * Accepts connection requests to your VPC endpoint service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +63,8 @@ export interface AcceptVpcEndpointConnectionsCommandOutput extends AcceptVpcEndp
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

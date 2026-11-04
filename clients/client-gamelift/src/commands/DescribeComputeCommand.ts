@@ -23,46 +23,25 @@ export interface DescribeComputeCommandInput extends DescribeComputeInput {}
 export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
- *          <p>Retrieves properties for a specific compute resource in an Amazon GameLift Servers fleet. You can list
- *             all computes in a fleet by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html">ListCompute</a>. </p>
- *          <p>
- *             <b>Request options</b>
- *          </p>
- *          <p>Provide the fleet ID and compute name. The compute name varies depending on the type
- *             of fleet.</p>
- *          <ul>
- *             <li>
- *                <p>For a compute in a managed EC2 fleet, provide an instance ID. Each instance in
- *                     the fleet is a compute.</p>
- *             </li>
- *             <li>
- *                <p>For a compute in a managed container fleet, provide a compute name. In a
- *                     container fleet, each game server container group on a fleet instance is
- *                     assigned a compute name.</p>
- *             </li>
- *             <li>
- *                <p>For a compute in an Anywhere fleet, provide a registered compute name.
- *                     Anywhere fleet computes are created when you register a hosting resource with
- *                     the fleet.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Results</b>
- *          </p>
- *          <p>If successful, this operation returns details for the requested compute resource.
- *             Depending on the fleet's compute type, the result includes the following information: </p>
- *          <ul>
- *             <li>
- *                <p>For a managed EC2 fleet, this operation returns information about the EC2
- *                     instance.</p>
- *             </li>
- *             <li>
- *                <p>For an Anywhere fleet, this operation returns information about the registered
- *                     compute.</p>
- *             </li>
- *          </ul>
+ * **This API works with the following fleet types:** EC2, Anywhere, Container
+ *
+ * Retrieves properties for a specific compute resource in an Amazon GameLift Servers fleet. You can list all computes in a fleet by calling [ListCompute](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html).
+ *
+ * **Request options**
+ *
+ * Provide the fleet ID and compute name. The compute name varies depending on the type of fleet.
+ *
+ * - For a compute in a managed EC2 fleet, provide an instance ID. Each instance in the fleet is a compute.
+ * - For a compute in a managed container fleet, provide a compute name. In a container fleet, each game server container group on a fleet instance is assigned a compute name.
+ * - For a compute in an Anywhere fleet, provide a registered compute name. Anywhere fleet computes are created when you register a hosting resource with the fleet.
+ *
+ * **Results**
+ *
+ * If successful, this operation returns details for the requested compute resource. Depending on the fleet's compute type, the result includes the following information:
+ *
+ * - For a managed EC2 fleet, this operation returns information about the EC2 instance.
+ * - For an Anywhere fleet, this operation returns information about the registered compute.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,25 +91,28 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>The service encountered an unrecoverable internal failure while processing the
- *             request. Clients can retry such requests immediately or after a waiting period.</p>
+ *
+ * The service encountered an unrecoverable internal failure while processing the request. Clients can retry such requests immediately or after a waiting period.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
- *             values before retrying.</p>
+ *
+ * One or more parameter values in the request are invalid. Correct the invalid parameter values before retrying.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The requested resource was not found. The resource was either not created yet or deleted.</p>
+ *
+ * The requested resource was not found. The resource was either not created yet or deleted.
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * The client failed authentication. Clients should not retry such requests.
  *
  * @throws {@link UnsupportedRegionException} (client fault)
- *  <p>The requested operation is not supported in the Region specified.</p>
+ *
+ * The requested operation is not supported in the Region specified.
  *
  * @throws {@link GameLiftServiceException}
- * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ * Base exception class for all service exceptions from GameLift service.
  *
  * @public
  */

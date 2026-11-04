@@ -23,20 +23,18 @@ export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelReques
 export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates a delivery channel to deliver configuration
- * 			information and other compliance information.</p>
- *          <p>You can use this operation to create a new delivery channel or to update the Amazon S3 bucket and the
- * 			Amazon SNS topic of an existing delivery channel.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html">
- *                <b>Working with the Delivery Channel</b>
- *             </a> in the <i>Config Developer Guide.</i>
- *          </p>
- *          <note>
- *             <p>
- *                <b>One delivery channel per account per Region</b>
- *             </p>
- *             <p>You can have only one delivery channel for each account for each Amazon Web Services Region.</p>
- *          </note>
+ * Creates or updates a delivery channel to deliver configuration information and other compliance information.
+ *
+ * You can use this operation to create a new delivery channel or to update the Amazon S3 bucket and the Amazon SNS topic of an existing delivery channel.
+ *
+ * For more information, see [**Working with the Delivery Channel**](https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html) in the *Config Developer Guide.*
+ *
+ * > **Note:**
+ * >
+ * > **One delivery channel per account per Region**
+ * >
+ * > You can have only one delivery channel for each account for each Amazon Web Services Region.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,35 +68,40 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InsufficientDeliveryPolicyException} (client fault)
- *  <p>Your Amazon S3 bucket policy does not allow Config to
- * 			write to it.</p>
+ *
+ * Your Amazon S3 bucket policy does not allow Config to write to it.
  *
  * @throws {@link InvalidDeliveryChannelNameException} (client fault)
- *  <p>The specified delivery channel name is not valid.</p>
+ *
+ * The specified delivery channel name is not valid.
  *
  * @throws {@link InvalidS3KeyPrefixException} (client fault)
- *  <p>The specified Amazon S3 key prefix is not valid.</p>
+ *
+ * The specified Amazon S3 key prefix is not valid.
  *
  * @throws {@link InvalidS3KmsKeyArnException} (client fault)
- *  <p>The specified Amazon KMS Key ARN is not valid.</p>
+ *
+ * The specified Amazon KMS Key ARN is not valid.
  *
  * @throws {@link InvalidSNSTopicARNException} (client fault)
- *  <p>The specified Amazon SNS topic does not exist.</p>
+ *
+ * The specified Amazon SNS topic does not exist.
  *
  * @throws {@link MaxNumberOfDeliveryChannelsExceededException} (client fault)
- *  <p>You have reached the limit of the number of delivery channels
- * 			you can create.</p>
+ *
+ * You have reached the limit of the number of delivery channels you can create.
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
- * 			recorder.</p>
+ *
+ * There are no customer managed configuration recorders available to record your resources. Use the [PutConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html) operation to create the customer managed configuration recorder.
  *
  * @throws {@link NoSuchBucketException} (client fault)
- *  <p>The specified Amazon S3 bucket does not exist.</p>
+ *
+ * The specified Amazon S3 bucket does not exist.
  *
  * @throws {@link ConfigServiceServiceException}
- * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ * Base exception class for all service exceptions from ConfigService service.
  *
  * @public
  */

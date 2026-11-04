@@ -23,7 +23,8 @@ export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotInpu
 export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOutput, __MetadataBearer {}
 
 /**
- * <p>Copies a snapshot of an elastic cluster.</p>
+ * Copies a snapshot of an elastic cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,29 +73,36 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOut
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ *
+ * An exception that occurs when there are not sufficient permissions to perform an action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was an access conflict.</p>
+ *
+ * There was an access conflict.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>There was an internal server error.</p>
+ *
+ * There was an internal server error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be located.</p>
+ *
+ * The specified resource could not be located.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The service quota for the action was exceeded.</p>
+ *
+ * The service quota for the action was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ *
+ * ThrottlingException will be thrown when request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A structure defining a validation exception.</p>
+ *
+ * A structure defining a validation exception.
  *
  * @throws {@link DocDBElasticServiceException}
- * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ * Base exception class for all service exceptions from DocDBElastic service.
  *
  * @example Basic Copy Cluster Snapshot Example
  * ```javascript

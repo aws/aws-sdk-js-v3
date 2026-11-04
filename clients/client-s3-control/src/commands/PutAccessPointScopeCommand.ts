@@ -23,13 +23,14 @@ export interface PutAccessPointScopeCommandInput extends PutAccessPointScopeRequ
 export interface PutAccessPointScopeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or replaces the access point scope for a directory bucket. You can use the access point scope to restrict access to specific prefixes, API operations, or a combination of both.</p>
- *          <note>
- *             <p>You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 256 bytes in size.</p>
- *          </note>
- *          <p>To use this operation, you must have the permission to perform the
- *          <code>s3express:PutAccessPointScope</code> action.</p>
- *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
+ * Creates or replaces the access point scope for a directory bucket. You can use the access point scope to restrict access to specific prefixes, API operations, or a combination of both.
+ *
+ * > **Note:** You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 256 bytes in size.
+ *
+ * To use this operation, you must have the permission to perform the `s3express:PutAccessPointScope` action.
+ *
+ * For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +64,8 @@ export interface PutAccessPointScopeCommandOutput extends __MetadataBearer {}
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

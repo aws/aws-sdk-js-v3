@@ -23,7 +23,8 @@ export interface ListRevenueAttributionsCommandInput extends ListRevenueAttribut
 export interface ListRevenueAttributionsCommandOutput extends ListRevenueAttributionsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of revenue attributions with optional filters.</p>
+ * Returns a paginated list of revenue attributions with optional filters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,23 +81,28 @@ export interface ListRevenueAttributionsCommandOutput extends ListRevenueAttribu
  * @see {@link PartnerCentralRevenueMeasurementClientResolvedConfig | config} for PartnerCentralRevenueMeasurementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied due to insufficient permissions.</p>
+ *
+ * The request was denied due to insufficient permissions.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * An internal server error occurred. Retry your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled due to too many requests. Retry your request.</p>
+ *
+ * The request was throttled due to too many requests. Retry your request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed validation due to invalid input parameters.</p>
+ *
+ * The request failed validation due to invalid input parameters.
  *
  * @throws {@link PartnerCentralRevenueMeasurementServiceException}
- * <p>Base exception class for all service exceptions from PartnerCentralRevenueMeasurement service.</p>
  *
+ * Base exception class for all service exceptions from PartnerCentralRevenueMeasurement service.
  *
  * @example Example for ListRevenueAttributions
  * ```javascript

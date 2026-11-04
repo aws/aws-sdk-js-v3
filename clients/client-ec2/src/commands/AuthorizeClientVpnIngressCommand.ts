@@ -23,9 +23,8 @@ export interface AuthorizeClientVpnIngressCommandInput extends AuthorizeClientVp
 export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientVpnIngressResult, __MetadataBearer {}
 
 /**
- * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
- * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
- * 			enable clients to access resources in Amazon Web Services or on-premises networks.</p>
+ * Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as firewall rules that grant access to networks. You must configure ingress authorization rules to enable clients to access resources in Amazon Web Services or on-premises networks.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +60,8 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

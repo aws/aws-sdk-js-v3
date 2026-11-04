@@ -26,29 +26,15 @@ export interface CreateAdditionalAssignmentsForHITCommandInput extends CreateAdd
 export interface CreateAdditionalAssignmentsForHITCommandOutput extends CreateAdditionalAssignmentsForHITResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The
- *             <code>CreateAdditionalAssignmentsForHIT</code>
- *             operation increases the maximum number of assignments of an existing HIT.
- *         </p>
- *         <p>
- *             To extend the maximum number of assignments, specify the number of additional assignments.</p>
- *         <note>
- *             <ul>
- *                <li>
- *                     <p>HITs created with fewer than 10 assignments cannot be extended to have 10 or more assignments. Attempting to add assignments in a way that brings the total number of assignments for a HIT from fewer than 10 assignments to 10 or more
- *                         assignments will result in an
- *                         <code>AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease</code>
- *                         exception.</p>
- *                 </li>
- *                <li>
- *                     <p>HITs that were created before July 22, 2015 cannot be extended. Attempting to extend HITs that were created before July 22, 2015 will result in an
- *                         <code>AWS.MechanicalTurk.HITTooOldForExtension</code>
- *                         exception.
- *                     </p>
- *                 </li>
- *             </ul>
- *         </note>
+ * The `CreateAdditionalAssignmentsForHIT` operation increases the maximum number of assignments of an existing HIT.
+ *
+ * To extend the maximum number of assignments, specify the number of additional assignments.
+ *
+ * > **Note:**
+ * >
+ * > - HITs created with fewer than 10 assignments cannot be extended to have 10 or more assignments. Attempting to add assignments in a way that brings the total number of assignments for a HIT from fewer than 10 assignments to 10 or more assignments will result in an `AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease` exception.
+ * > - HITs that were created before July 22, 2015 cannot be extended. Attempting to extend HITs that were created before July 22, 2015 will result in an `AWS.MechanicalTurk.HITTooOldForExtension` exception.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,14 +61,16 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput extends CreateAd
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

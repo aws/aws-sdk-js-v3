@@ -23,39 +23,17 @@ export interface UpdateProbeCommandInput extends UpdateProbeInput {}
 export interface UpdateProbeCommandOutput extends UpdateProbeOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a monitor probe. This action requires both the <code>monitorName</code> and <code>probeId</code> parameters. Run <code>ListMonitors</code> to get a list of monitor names. Run <code>GetMonitor</code> to get a list of probes and probe IDs. </p>
- *          <p>You can update the following para create a monitor with probes using this command. For
- *             each probe, you define the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>state</code>—The state of the probe.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>destination</code>— The target destination IP address for the
- *                     probe.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>destinationPort</code>—Required only if the protocol is
- *                     <code>TCP</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>protocol</code>—The communication protocol between the source and
- *                     destination. This will be either <code>TCP</code> or <code>ICMP</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>packetSize</code>—The size of the packets. This must be a number between
- *                         <code>56</code> and <code>8500</code>.</p>
- *             </li>
- *             <li>
- *                <p>(Optional) <code>tags</code> —Key-value pairs created and assigned to the
- *                     probe.</p>
- *             </li>
- *          </ul>
+ * Updates a monitor probe. This action requires both the `monitorName` and `probeId` parameters. Run `ListMonitors` to get a list of monitor names. Run `GetMonitor` to get a list of probes and probe IDs.
+ *
+ * You can update the following para create a monitor with probes using this command. For each probe, you define the following:
+ *
+ * - `state`—The state of the probe.
+ * - `destination`— The target destination IP address for the probe.
+ * - `destinationPort`—Required only if the protocol is `TCP`.
+ * - `protocol`—The communication protocol between the source and destination. This will be either `TCP` or `ICMP`.
+ * - `packetSize`—The size of the packets. This must be a number between `56` and `8500`.
+ * - (Optional) `tags` —Key-value pairs created and assigned to the probe.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,26 +80,32 @@ export interface UpdateProbeCommandOutput extends UpdateProbeOutput, __MetadataB
  * @see {@link NetworkMonitorClientResolvedConfig | config} for NetworkMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource does not exist.</p>
+ *
+ * The specified resource does not exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>This request exceeds a service quota.</p>
+ *
+ * This request exceeds a service quota.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling</p>
+ *
+ * The request was denied due to request throttling
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link NetworkMonitorServiceException}
- * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ * Base exception class for all service exceptions from NetworkMonitor service.
  *
  * @public
  */

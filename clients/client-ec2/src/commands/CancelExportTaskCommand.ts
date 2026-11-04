@@ -23,9 +23,8 @@ export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
 export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels an active export task. The request removes all artifacts of the export, including any partially-created
- *    Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the
- *    command fails and returns an error.</p>
+ * Cancels an active export task. The request removes all artifacts of the export, including any partially-created Amazon S3 objects. If the export task is complete or is in the process of transferring the final disk image, the command fails and returns an error.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,8 +49,8 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

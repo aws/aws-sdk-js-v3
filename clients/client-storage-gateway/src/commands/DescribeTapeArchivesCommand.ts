@@ -23,10 +23,10 @@ export interface DescribeTapeArchivesCommandInput extends DescribeTapeArchivesIn
 export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This
- *          operation is only supported in the tape gateway type.</p>
- *          <p>If a specific <code>TapeARN</code> is not specified, Storage Gateway returns a
- *          description of all virtual tapes found in the VTS associated with your account.</p>
+ * Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This operation is only supported in the tape gateway type.
+ *
+ * If a specific `TapeARN` is not specified, Storage Gateway returns a description of all virtual tapes found in the VTS associated with your account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,16 +74,16 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @public
  */

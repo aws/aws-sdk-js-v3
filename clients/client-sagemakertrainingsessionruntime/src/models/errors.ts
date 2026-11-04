@@ -6,7 +6,8 @@ import {
 } from "./SageMakerTrainingSessionRuntimeServiceException";
 
 /**
- * <p>The training session is in a state that cannot accept new operations. The session must be in <code>Running</code> or <code>Blocked</code> state to accept requests.</p>
+ * The training session is in a state that cannot accept new operations. The session must be in `Running` or `Blocked` state to accept requests.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -27,7 +28,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred. Retry the request using exponential backoff.</p>
+ * An internal service error occurred. Retry the request using exponential backoff.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -48,7 +50,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified training session or operation does not exist, or the operation does not belong to the specified training session.</p>
+ * The specified training session or operation does not exist, or the operation does not belong to the specified training session.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -69,7 +72,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled. Retry the request after a brief wait using exponential backoff.</p>
+ * The request was throttled. Retry the request after a brief wait using exponential backoff.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -90,7 +94,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.</p>
+ * The request is not valid. Check the request syntax and parameters. Examples include invalid sequence numbers, malformed client tokens, missing required fields, or invalid operation configuration.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

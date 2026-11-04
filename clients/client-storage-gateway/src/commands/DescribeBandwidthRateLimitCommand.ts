@@ -23,14 +23,10 @@ export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidt
 export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
- *          which means no bandwidth rate limiting is in effect. This operation is supported only for
- *          the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits
- *          for S3 file gateways, use <a>DescribeBandwidthRateLimitSchedule</a>.</p>
- *          <p>This operation returns a value for a bandwidth rate limit only if the limit is set. If
- *          no limits are set for the gateway, then this operation returns only the gateway ARN in the
- *          response body. To specify which gateway to describe, use the Amazon Resource Name (ARN) of
- *          the gateway in your request.</p>
+ * Returns the bandwidth rate limits of a gateway. By default, these limits are not set, which means no bandwidth rate limiting is in effect. This operation is supported only for the stored volume, cached volume, and tape gateway types. To describe bandwidth rate limits for S3 file gateways, use DescribeBandwidthRateLimitSchedule.
+ *
+ * This operation returns a value for a bandwidth rate limit only if the limit is set. If no limits are set for the gateway, then this operation returns only the gateway ARN in the response body. To specify which gateway to describe, use the Amazon Resource Name (ARN) of the gateway in your request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,16 +55,16 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To describe the bandwidth rate limits of a gateway
  * ```javascript

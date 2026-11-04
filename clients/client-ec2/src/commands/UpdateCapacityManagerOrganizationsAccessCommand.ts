@@ -26,10 +26,8 @@ export interface UpdateCapacityManagerOrganizationsAccessCommandInput extends Up
 export interface UpdateCapacityManagerOrganizationsAccessCommandOutput extends UpdateCapacityManagerOrganizationsAccessResult, __MetadataBearer {}
 
 /**
- * <p>
- * Updates the Organizations access setting for EC2 Capacity Manager. This controls whether Capacity Manager can aggregate
- * data from all accounts in your Amazon Web Services Organization or only from the current account.
- * </p>
+ * Updates the Organizations access setting for EC2 Capacity Manager. This controls whether Capacity Manager can aggregate data from all accounts in your Amazon Web Services Organization or only from the current account.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,8 +57,8 @@ export interface UpdateCapacityManagerOrganizationsAccessCommandOutput extends U
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

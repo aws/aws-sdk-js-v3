@@ -23,7 +23,8 @@ export interface DescribeListenerAttributesCommandInput extends DescribeListener
 export interface DescribeListenerAttributesCommandOutput extends DescribeListenerAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the attributes for the specified listener.</p>
+ * Describes the attributes for the specified listener.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,11 +56,12 @@ export interface DescribeListenerAttributesCommandOutput extends DescribeListene
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link ListenerNotFoundException} (client fault)
- *  <p>The specified listener does not exist.</p>
+ *
+ * The specified listener does not exist.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example Describe listener attributes
  * ```javascript

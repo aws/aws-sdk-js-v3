@@ -23,7 +23,8 @@ export interface ListModelCardExportJobsCommandInput extends ListModelCardExport
 export interface ListModelCardExportJobsCommandOutput extends ListModelCardExportJobsResponse, __MetadataBearer {}
 
 /**
- * <p>List the export jobs for the Amazon SageMaker Model Card.</p>
+ * List the export jobs for the Amazon SageMaker Model Card.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,8 +71,8 @@ export interface ListModelCardExportJobsCommandOutput extends ListModelCardExpor
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

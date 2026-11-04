@@ -23,11 +23,10 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationMessage 
 export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified application along with all associated versions and configurations.
- *       The application versions will not be deleted from your Amazon S3 bucket.</p>
- *          <note>
- *             <p>You cannot delete an application that has a running environment.</p>
- *          </note>
+ * Deletes the specified application along with all associated versions and configurations. The application versions will not be deleted from your Amazon S3 bucket.
+ *
+ * > **Note:** You cannot delete an application that has a running environment.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,12 +52,12 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link OperationInProgressException} (client fault)
- *  <p>Unable to perform the specified operation because another operation that effects an
- *       element in this activity is already in progress.</p>
+ *
+ * Unable to perform the specified operation because another operation that effects an element in this activity is already in progress.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To delete an application
  * ```javascript

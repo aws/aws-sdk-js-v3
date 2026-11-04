@@ -26,7 +26,8 @@ export interface GetClientVpnEndpointAuthorizationPolicyCommandInput extends Get
 export interface GetClientVpnEndpointAuthorizationPolicyCommandOutput extends GetClientVpnEndpointAuthorizationPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Describes the authorization policy for a Client VPN endpoint.</p>
+ * Describes the authorization policy for a Client VPN endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +59,8 @@ export interface GetClientVpnEndpointAuthorizationPolicyCommandOutput extends Ge
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

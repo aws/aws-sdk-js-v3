@@ -23,7 +23,8 @@ export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
 export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Causes the environment to restart the application container server running on each Amazon EC2 instance.</p>
+ * Causes the environment to restart the application container server running on each Amazon EC2 instance.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface RestartAppServerCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
- * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ * Base exception class for all service exceptions from ElasticBeanstalk service.
  *
  * @example To restart application servers
  * ```javascript

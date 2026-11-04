@@ -26,7 +26,8 @@ export interface DisassociateTransitGatewayPolicyTableCommandInput extends Disas
 export interface DisassociateTransitGatewayPolicyTableCommandOutput extends DisassociateTransitGatewayPolicyTableResult, __MetadataBearer {}
 
 /**
- * <p>Removes the association between an an attachment and a policy table.</p>
+ * Removes the association between an an attachment and a policy table.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface DisassociateTransitGatewayPolicyTableCommandOutput extends Disa
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

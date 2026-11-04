@@ -23,7 +23,8 @@ export interface DeletePartnerCommandInput extends PartnerIntegrationInputMessag
 export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
+ * Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,21 +55,24 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link PartnerNotFoundFault} (client fault)
- *  <p>The name of the partner was not found.</p>
+ *
+ * The name of the partner was not found.
  *
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
- *  <p>The partner integration is not authorized.</p>
+ *
+ * The partner integration is not authorized.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

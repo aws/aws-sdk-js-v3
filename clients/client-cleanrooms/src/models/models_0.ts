@@ -61,475 +61,588 @@ import type {
 } from "./enums";
 
 /**
- * <p>Detailed information about an access budget including time bounds, budget allocation, and configuration settings.</p>
+ * Detailed information about an access budget including time bounds, budget allocation, and configuration settings.
+ *
  * @public
  */
 export interface AccessBudgetDetails {
   /**
-   * <p>The start time for the access budget period.</p>
+   * The start time for the access budget period.
+   *
    * @public
    */
   startTime: Date | undefined;
 
   /**
-   * <p>The end time for the access budget period.</p>
+   * The end time for the access budget period.
+   *
    * @public
    */
   endTime?: Date | undefined;
 
   /**
-   * <p>The remaining budget amount available for use within this access budget.</p>
+   * The remaining budget amount available for use within this access budget.
+   *
    * @public
    */
   remainingBudget: number | undefined;
 
   /**
-   * <p>The total budget allocation amount for this access budget.</p>
+   * The total budget allocation amount for this access budget.
+   *
    * @public
    */
   budget: number | undefined;
 
   /**
-   * <p>Specifies the time period for limiting table usage in queries and jobs. For calendar-based periods, the budget can renew if auto refresh is enabled. For lifetime budgets, the limit applies to the total usage throughout the collaboration. Valid values are:</p> <p> <code>CALENDAR_DAY</code> - Limit table usage per day.</p> <p> <code>CALENDAR_WEEK</code> - Limit table usage per week.</p> <p> <code>CALENDAR_MONTH</code> - Limit table usage per month.</p> <p> <code>LIFETIME</code> - Limit total table usage for the collaboration duration.</p>
+   * Specifies the time period for limiting table usage in queries and jobs. For calendar-based periods, the budget can renew if auto refresh is enabled. For lifetime budgets, the limit applies to the total usage throughout the collaboration. Valid values are:
+   *
+   * `CALENDAR_DAY` - Limit table usage per day.
+   *
+   * `CALENDAR_WEEK` - Limit table usage per week.
+   *
+   * `CALENDAR_MONTH` - Limit table usage per month.
+   *
+   * `LIFETIME` - Limit total table usage for the collaboration duration.
+   *
    * @public
    */
   budgetType: AccessBudgetType | undefined;
 
   /**
-   * <p>Indicates whether the budget automatically refreshes for each time period specified in <code>budgetType</code>. Valid values are:</p> <p> <code>ENABLED</code> - The budget refreshes automatically at the start of each period.</p> <p> <code>DISABLED</code> - The budget must be refreshed manually.</p> <p> <code>NULL</code> - The value is null when <code>budgetType</code> is set to <code>LIFETIME</code>.</p>
+   * Indicates whether the budget automatically refreshes for each time period specified in `budgetType`. Valid values are:
+   *
+   * `ENABLED` - The budget refreshes automatically at the start of each period.
+   *
+   * `DISABLED` - The budget must be refreshed manually.
+   *
+   * `NULL` - The value is null when `budgetType` is set to `LIFETIME`.
+   *
    * @public
    */
   autoRefresh?: AutoRefreshMode | undefined;
 }
 
 /**
- * <p>Controls and tracks usage limits for associated configured tables within a collaboration across queries and job. Supports both period-based budgets that can renew (daily, weekly, or monthly) and fixed lifetime budgets. Contains the resource ARN, remaining budget information, and up to two budget configurations (period-based and lifetime). By default, table usage is unlimited unless a budget is configured.</p>
+ * Controls and tracks usage limits for associated configured tables within a collaboration across queries and job. Supports both period-based budgets that can renew (daily, weekly, or monthly) and fixed lifetime budgets. Contains the resource ARN, remaining budget information, and up to two budget configurations (period-based and lifetime). By default, table usage is unlimited unless a budget is configured.
+ *
  * @public
  */
 export interface AccessBudget {
   /**
-   * <p>The Amazon Resource Name (ARN) of the access budget resource.</p>
+   * The Amazon Resource Name (ARN) of the access budget resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>Detailed budget information including time bounds, remaining budget, and refresh settings.</p>
+   * Detailed budget information including time bounds, remaining budget, and refresh settings.
+   *
    * @public
    */
   details: AccessBudgetDetails[] | undefined;
 
   /**
-   * <p>The total remaining budget across all budget parameters, showing the lower value between the per-period budget and lifetime budget for this access budget. For individual parameter budgets, see <code>remainingBudget</code>.</p>
+   * The total remaining budget across all budget parameters, showing the lower value between the per-period budget and lifetime budget for this access budget. For individual parameter budgets, see `remainingBudget`.
+   *
    * @public
    */
   aggregateRemainingBudget: number | undefined;
 }
 
 /**
- * <p>Individual budget parameter configuration that defines specific budget allocation settings for access budgets.</p>
+ * Individual budget parameter configuration that defines specific budget allocation settings for access budgets.
+ *
  * @public
  */
 export interface BudgetParameter {
   /**
-   * <p>The type of budget parameter being configured.</p>
+   * The type of budget parameter being configured.
+   *
    * @public
    */
   type: AccessBudgetType | undefined;
 
   /**
-   * <p>The budget allocation amount for this specific parameter.</p>
+   * The budget allocation amount for this specific parameter.
+   *
    * @public
    */
   budget: number | undefined;
 
   /**
-   * <p>Whether this individual budget parameter automatically refreshes when the budget period resets.</p>
+   * Whether this individual budget parameter automatically refreshes when the budget period resets.
+   *
    * @public
    */
   autoRefresh?: AutoRefreshMode | undefined;
 }
 
 /**
- * <p>Input parameters for privacy budget templates that support access budgets functionality, enabling enhanced budget management capabilities.</p>
+ * Input parameters for privacy budget templates that support access budgets functionality, enabling enhanced budget management capabilities.
+ *
  * @public
  */
 export interface AccessBudgetsPrivacyTemplateParametersInput {
   /**
-   * <p>An array of budget parameters that define the access budget configuration for the privacy template.</p>
+   * An array of budget parameters that define the access budget configuration for the privacy template.
+   *
    * @public
    */
   budgetParameters: BudgetParameter[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource associated with this privacy budget template.</p>
+   * The Amazon Resource Name (ARN) of the resource associated with this privacy budget template.
+   *
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * <p>Output parameters for privacy budget templates with access budgets support, containing the configured budget information.</p>
+ * Output parameters for privacy budget templates with access budgets support, containing the configured budget information.
+ *
  * @public
  */
 export interface AccessBudgetsPrivacyTemplateParametersOutput {
   /**
-   * <p>An array of budget parameters returned from the access budget configuration.</p>
+   * An array of budget parameters returned from the access budget configuration.
+   *
    * @public
    */
   budgetParameters: BudgetParameter[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource associated with this privacy budget template.</p>
+   * The Amazon Resource Name (ARN) of the resource associated with this privacy budget template.
+   *
    * @public
    */
   resourceArn: string | undefined;
 }
 
 /**
- * <p>Update parameters for privacy budget templates with access budgets functionality, allowing modification of existing budget configurations.</p>
+ * Update parameters for privacy budget templates with access budgets functionality, allowing modification of existing budget configurations.
+ *
  * @public
  */
 export interface AccessBudgetsPrivacyTemplateUpdateParameters {
   /**
-   * <p>Updated array of budget parameters for the access budget configuration.</p>
+   * Updated array of budget parameters for the access budget configuration.
+   *
    * @public
    */
   budgetParameters: BudgetParameter[] | undefined;
 }
 
 /**
- * <p>Column in configured table that can be used in aggregate function in query.</p>
+ * Column in configured table that can be used in aggregate function in query.
+ *
  * @public
  */
 export interface AggregateColumn {
   /**
-   * <p>Column names in configured table of aggregate columns.</p>
+   * Column names in configured table of aggregate columns.
+   *
    * @public
    */
   columnNames: string[] | undefined;
 
   /**
-   * <p>Aggregation function that can be applied to aggregate column in query.</p>
+   * Aggregation function that can be applied to aggregate column in query.
+   *
    * @public
    */
   function: AggregateFunctionName | undefined;
 }
 
 /**
- * <p>Constraint on query output removing output rows that do not meet a minimum number of distinct values of a specified column.</p>
+ * Constraint on query output removing output rows that do not meet a minimum number of distinct values of a specified column.
+ *
  * @public
  */
 export interface AggregationConstraint {
   /**
-   * <p>Column in aggregation constraint for which there must be a minimum number of distinct values in an output row for it to be in the query output.</p>
+   * Column in aggregation constraint for which there must be a minimum number of distinct values in an output row for it to be in the query output.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The minimum number of distinct values that an output row must be an aggregation of. Minimum threshold of distinct values for a specified column that must exist in an output row for it to be in the query output.</p>
+   * The minimum number of distinct values that an output row must be an aggregation of. Minimum threshold of distinct values for a specified column that must exist in an output row for it to be in the query output.
+   *
    * @public
    */
   minimum: number | undefined;
 
   /**
-   * <p>The type of aggregation the constraint allows. The only valid value is currently `COUNT_DISTINCT`.</p>
+   * The type of aggregation the constraint allows. The only valid value is currently `COUNT_DISTINCT`.
+   *
    * @public
    */
   type: AggregationType | undefined;
 }
 
 /**
- * <p>Specifies the minimum number of distinct identities for an individual output column. This value overrides the table-wide <code>minimumIdentityCount</code> that you set in <code>AggregationThreshold</code>.</p>
+ * Specifies the minimum number of distinct identities for an individual output column. This value overrides the table-wide `minimumIdentityCount` that you set in `AggregationThreshold`.
+ *
  * @public
  */
 export interface OutputColumnThreshold {
   /**
-   * <p>The name of the output column that the override applies to. You can specify each column only once.</p>
+   * The name of the output column that the override applies to. You can specify each column only once.
+   *
    * @public
    */
   outputColumnName: string | undefined;
 
   /**
-   * <p>The minimum number of distinct identities that each query output group must represent for this column. Specify 0 to exempt the column from the threshold, or a value of 2 or greater to enforce a threshold.</p>
+   * The minimum number of distinct identities that each query output group must represent for this column. Specify 0 to exempt the column from the threshold, or a value of 2 or greater to enforce a threshold.
+   *
    * @public
    */
   minimumIdentityCount: number | undefined;
 }
 
 /**
- * <p>Specifies the minimum number of distinct identities that each query output group must represent.</p>
+ * Specifies the minimum number of distinct identities that each query output group must represent.
+ *
  * @public
  */
 export interface AggregationThreshold {
   /**
-   * <p>The identity column, such as <code>user_id</code>, whose distinct values Clean Rooms counts to enforce minimum aggregation thresholds. Currently, you can specify only one column, and its data type must be string, varchar, or char.</p>
+   * The identity column, such as `user_id`, whose distinct values Clean Rooms counts to enforce minimum aggregation thresholds. Currently, you can specify only one column, and its data type must be string, varchar, or char.
+   *
    * @public
    */
   identityColumns: string[] | undefined;
 
   /**
-   * <p>The minimum number of distinct identities that each query output group must represent. This threshold applies to all output columns in the table. To override this threshold for a specific column, use <code>outputColumnThresholds</code>.</p>
+   * The minimum number of distinct identities that each query output group must represent. This threshold applies to all output columns in the table. To override this threshold for a specific column, use `outputColumnThresholds`.
+   *
    * @public
    */
   minimumIdentityCount: number | undefined;
 
   /**
-   * <p>The type of aggregation that the threshold enforces. Currently, the only supported value is <code>COUNT_DISTINCT</code>, which counts the distinct values in the identity column.</p>
+   * The type of aggregation that the threshold enforces. Currently, the only supported value is `COUNT_DISTINCT`, which counts the distinct values in the identity column.
+   *
    * @public
    */
   type: AggregationThresholdType | undefined;
 
   /**
-   * <p>The per-column overrides of <code>minimumIdentityCount</code>. An output column without an override uses <code>minimumIdentityCount</code>.</p>
+   * The per-column overrides of `minimumIdentityCount`. An output column without an override uses `minimumIdentityCount`.
+   *
    * @public
    */
   outputColumnThresholds?: OutputColumnThreshold[] | undefined;
 
   /**
-   * <p>Specifies whether a query can aggregate a transformed column. This applies to the arguments of both aggregate and window functions. Valid values are:</p> <p> <code>COLUMNS_ONLY</code> – A query can aggregate only a direct column reference, such as <code>SUM(amount)</code>, or a constant. Clean Rooms rejects a query that transforms a column and then aggregates it, such as <code>SUM(amount * 2)</code> or <code>SUM(ROUND(amount))</code>.</p> <p> <code>ANY_EXPRESSION</code> – A query can aggregate any expression. This includes arithmetic, such as <code>SUM(price * quantity)</code>; a cast, such as <code>SUM(CAST(amount AS DECIMAL))</code>; a nested function call, such as <code>SUM(COALESCE(amount, 0))</code>; and a conditional, such as <code>SUM(CASE WHEN region = 'EU' THEN amount ELSE 0 END)</code>.</p>
+   * Specifies whether a query can aggregate a transformed column. This applies to the arguments of both aggregate and window functions. Valid values are:
+   *
+   * `COLUMNS_ONLY` – A query can aggregate only a direct column reference, such as `SUM(amount)`, or a constant. Clean Rooms rejects a query that transforms a column and then aggregates it, such as `SUM(amount * 2)` or `SUM(ROUND(amount))`.
+   *
+   * `ANY_EXPRESSION` – A query can aggregate any expression. This includes arithmetic, such as `SUM(price * quantity)`; a cast, such as `SUM(CAST(amount AS DECIMAL))`; a nested function call, such as `SUM(COALESCE(amount, 0))`; and a conditional, such as `SUM(CASE WHEN region = 'EU' THEN amount ELSE 0 END)`.
+   *
    * @public
    */
   allowedAggregateExpressionType: AllowedAggregateExpressionType | undefined;
 }
 
 /**
- * <p>The analysis log export error.</p>
+ * The analysis log export error.
+ *
  * @public
  */
 export interface AnalysisLogExportError {
   /**
-   * <p>The error code for the analysis log export.</p>
+   * The error code for the analysis log export.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>The message for the analysis log export error.</p>
+   * The message for the analysis log export error.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Contains output information for an analysis log export with an S3 output type.</p> <p>The exported logs are written under the bucket and key prefix that you specify. The path includes the collaboration ID, the protected query ID, and the analysis log export ID. Because the path includes the export ID, exporting the same query more than once doesn't overwrite the logs from an earlier export.</p> <note> <p>The exported logs are encrypted using the default encryption configuration of the destination bucket. Clean Rooms doesn't accept a KMS key for log export. To encrypt the exported logs with a customer managed key, configure the bucket's default encryption to use that key before you export.</p> </note>
+ * Contains output information for an analysis log export with an S3 output type.
+ *
+ * The exported logs are written under the bucket and key prefix that you specify. The path includes the collaboration ID, the protected query ID, and the analysis log export ID. Because the path includes the export ID, exporting the same query more than once doesn't overwrite the logs from an earlier export.
+ *
+ * > **Note:** The exported logs are encrypted using the default encryption configuration of the destination bucket. Clean Rooms doesn't accept a KMS key for log export. To encrypt the exported logs with a customer managed key, configure the bucket's default encryption to use that key before you export.
+ *
  * @public
  */
 export interface AnalysisLogExportS3OutputConfiguration {
   /**
-   * <p>The S3 bucket that the exported analysis logs are written to. The bucket must be in the same Amazon Web Services Region as the collaboration.</p>
+   * The S3 bucket that the exported analysis logs are written to. The bucket must be in the same Amazon Web Services Region as the collaboration.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p>The S3 key prefix under which the exported analysis logs are written.</p> <p>Only one export can be in progress at a time for a given query and destination. To export the same query twice at once, use a different key prefix for the second export.</p>
+   * The S3 key prefix under which the exported analysis logs are written.
+   *
+   * Only one export can be in progress at a time for a given query and destination. To export the same query twice at once, use a different key prefix for the second export.
+   *
    * @public
    */
   keyPrefix?: string | undefined;
 }
 
 /**
- * <p>Contains configuration details for analysis log export output.</p>
+ * Contains configuration details for analysis log export output.
+ *
  * @public
  */
 export interface AnalysisLogExportOutputConfiguration {
   /**
-   * <p>Required configuration for an analysis log export with an <code>s3</code> output type.</p>
+   * Required configuration for an analysis log export with an `s3` output type.
+   *
    * @public
    */
   s3: AnalysisLogExportS3OutputConfiguration | undefined;
 }
 
 /**
- * <p>Contains configurations for analysis log export results.</p>
+ * Contains configurations for analysis log export results.
+ *
  * @public
  */
 export interface AnalysisLogExportResultConfiguration {
   /**
-   * <p>The configuration for analysis log export results.</p>
+   * The configuration for analysis log export results.
+   *
    * @public
    */
   outputConfiguration: AnalysisLogExportOutputConfiguration | undefined;
 }
 
 /**
- * <p>An export of the redacted Apache Spark logs for a protected query.</p>
+ * An export of the redacted Apache Spark logs for a protected query.
+ *
  * @public
  */
 export interface AnalysisLogExport {
   /**
-   * <p>The unique identifier of the analysis log export.</p>
+   * The unique identifier of the analysis log export.
+   *
    * @public
    */
   analysisLogExportId: string | undefined;
 
   /**
-   * <p>The unique identifier of the protected query that the analysis logs were exported for.</p>
+   * The unique identifier of the protected query that the analysis logs were exported for.
+   *
    * @public
    */
   analysisId: string | undefined;
 
   /**
-   * <p>The type of analysis that the logs were exported for. Currently, only <code>PROTECTED_QUERY</code> is supported.</p>
+   * The type of analysis that the logs were exported for. Currently, only `PROTECTED_QUERY` is supported.
+   *
    * @public
    */
   analysisType: LogExportAnalysisType | undefined;
 
   /**
-   * <p>The unique identifier of the membership that the analysis log export belongs to.</p>
+   * The unique identifier of the membership that the analysis log export belongs to.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The status of the analysis log export. Possible values are:</p> <ul> <li> <p> <code>IN_PROGRESS</code> – The export is currently running.</p> </li> <li> <p> <code>SUCCESS</code> – The export completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The export failed. See the <code>error</code> field for details.</p> </li> </ul>
+   * The status of the analysis log export. Possible values are:
+   *
+   * - `IN_PROGRESS` – The export is currently running.
+   * - `SUCCESS` – The export completed successfully.
+   * - `FAILED` – The export failed. See the `error` field for details.
+   *
    * @public
    */
   status: AnalysisLogExportStatus | undefined;
 
   /**
-   * <p>Contains the details needed to write the exported analysis logs.</p>
+   * Contains the details needed to write the exported analysis logs.
+   *
    * @public
    */
   resultConfiguration: AnalysisLogExportResultConfiguration | undefined;
 
   /**
-   * <p>The time the analysis log export was created.</p>
+   * The time the analysis log export was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the analysis log export was last updated.</p>
+   * The time the analysis log export was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The analysis log export error. This is present only when the export <code>status</code> is <code>FAILED</code>.</p>
+   * The analysis log export error. This is present only when the export `status` is `FAILED`.
+   *
    * @public
    */
   error?: AnalysisLogExportError | undefined;
 }
 
 /**
- * <p>A summary of an analysis log export, including its identifier, status, analysis type, and creation time. Returned by <code>ListAnalysisLogExports</code>.</p>
+ * A summary of an analysis log export, including its identifier, status, analysis type, and creation time. Returned by `ListAnalysisLogExports`.
+ *
  * @public
  */
 export interface AnalysisLogExportSummary {
   /**
-   * <p>The unique identifier of the analysis log export.</p>
+   * The unique identifier of the analysis log export.
+   *
    * @public
    */
   analysisLogExportId: string | undefined;
 
   /**
-   * <p>The unique identifier of the protected query that the analysis logs were exported for.</p>
+   * The unique identifier of the protected query that the analysis logs were exported for.
+   *
    * @public
    */
   analysisId: string | undefined;
 
   /**
-   * <p>The type of analysis that the logs were exported for. Currently, only <code>PROTECTED_QUERY</code> is supported.</p>
+   * The type of analysis that the logs were exported for. Currently, only `PROTECTED_QUERY` is supported.
+   *
    * @public
    */
   analysisType: LogExportAnalysisType | undefined;
 
   /**
-   * <p>The status of the analysis log export. Possible values are:</p> <ul> <li> <p> <code>IN_PROGRESS</code> – The export is currently running.</p> </li> <li> <p> <code>SUCCESS</code> – The export completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The export failed.</p> </li> </ul>
+   * The status of the analysis log export. Possible values are:
+   *
+   * - `IN_PROGRESS` – The export is currently running.
+   * - `SUCCESS` – The export completed successfully.
+   * - `FAILED` – The export failed.
+   *
    * @public
    */
   status: AnalysisLogExportStatus | undefined;
 
   /**
-   * <p>The time the analysis log export was created.</p>
+   * The time the analysis log export was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 }
 
 /**
- * <p>Optional. The member who can query can provide this placeholder for a literal data value in an analysis template.</p>
+ * Optional. The member who can query can provide this placeholder for a literal data value in an analysis template.
+ *
  * @public
  */
 export interface AnalysisParameter {
   /**
-   * <p>The name of the parameter. The name must use only alphanumeric or underscore (_) characters.</p>
+   * The name of the parameter. The name must use only alphanumeric or underscore (_) characters.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of parameter.</p>
+   * The type of parameter.
+   *
    * @public
    */
   type: ParameterType | undefined;
 
   /**
-   * <p>Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.</p>
+   * Optional. The default value that is applied in the analysis template. The member who can query can override this value in the query editor.
+   *
    * @public
    */
   defaultValue?: string | undefined;
 }
 
 /**
- * <p> The configured table association analysis rule applied to a configured table with the aggregation analysis rule.</p>
+ * The configured table association analysis rule applied to a configured table with the aggregation analysis rule.
+ *
  * @public
  */
 export interface ConfiguredTableAssociationAnalysisRuleAggregation {
   /**
-   * <p> The list of collaboration members who are allowed to receive results of queries run with this configured table.</p>
+   * The list of collaboration members who are allowed to receive results of queries run with this configured table.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p> The list of resources or wildcards (ARNs) that are allowed to perform additional analysis on query output.</p> <p>The <code>allowedAdditionalAnalyses</code> parameter is currently supported for the list analysis rule (<code>AnalysisRuleList</code>) and the custom analysis rule (<code>AnalysisRuleCustom</code>).</p>
+   * The list of resources or wildcards (ARNs) that are allowed to perform additional analysis on query output.
+   *
+   * The `allowedAdditionalAnalyses` parameter is currently supported for the list analysis rule (`AnalysisRuleList`) and the custom analysis rule (`AnalysisRuleCustom`).
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p> The configured table association analysis rule applied to a configured table with the custom analysis rule.</p>
+ * The configured table association analysis rule applied to a configured table with the custom analysis rule.
+ *
  * @public
  */
 export interface ConfiguredTableAssociationAnalysisRuleCustom {
   /**
-   * <p> The list of collaboration members who are allowed to receive results of queries run with this configured table.</p>
+   * The list of collaboration members who are allowed to receive results of queries run with this configured table.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p> The list of resources or wildcards (ARNs) that are allowed to perform additional analysis on query output.</p>
+   * The list of resources or wildcards (ARNs) that are allowed to perform additional analysis on query output.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p> The configured table association analysis rule applied to a configured table with the list analysis rule.</p>
+ * The configured table association analysis rule applied to a configured table with the list analysis rule.
+ *
  * @public
  */
 export interface ConfiguredTableAssociationAnalysisRuleList {
   /**
-   * <p> The list of collaboration members who are allowed to receive results of queries run with this configured table.</p>
+   * The list of collaboration members who are allowed to receive results of queries run with this configured table.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p> The list of resources or wildcards (ARNs) that are allowed to perform additional analysis on query output.</p>
+   * The list of resources or wildcards (ARNs) that are allowed to perform additional analysis on query output.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p> Controls on the query specifications that can be run on an associated configured table.</p>
+ * Controls on the query specifications that can be run on an associated configured table.
+ *
  * @public
  */
 export type ConfiguredTableAssociationAnalysisRulePolicyV1 =
@@ -543,7 +656,8 @@ export type ConfiguredTableAssociationAnalysisRulePolicyV1 =
  */
 export namespace ConfiguredTableAssociationAnalysisRulePolicyV1 {
   /**
-   * <p> Analysis rule type that enables only list queries on a configured table.</p>
+   * Analysis rule type that enables only list queries on a configured table.
+   *
    * @public
    */
   export interface ListMember {
@@ -554,7 +668,8 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicyV1 {
   }
 
   /**
-   * <p> Analysis rule type that enables only aggregation queries on a configured table.</p>
+   * Analysis rule type that enables only aggregation queries on a configured table.
+   *
    * @public
    */
   export interface AggregationMember {
@@ -565,7 +680,8 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicyV1 {
   }
 
   /**
-   * <p> Analysis rule type that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy.</p>
+   * Analysis rule type that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy.
+   *
    * @public
    */
   export interface CustomMember {
@@ -598,7 +714,8 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicyV1 {
 }
 
 /**
- * <p> Controls on the query specifications that can be run on an associated configured table.</p>
+ * Controls on the query specifications that can be run on an associated configured table.
+ *
  * @public
  */
 export type ConfiguredTableAssociationAnalysisRulePolicy =
@@ -610,7 +727,8 @@ export type ConfiguredTableAssociationAnalysisRulePolicy =
  */
 export namespace ConfiguredTableAssociationAnalysisRulePolicy {
   /**
-   * <p> The policy for the configured table association analysis rule.</p>
+   * The policy for the configured table association analysis rule.
+   *
    * @public
    */
   export interface V1Member {
@@ -637,217 +755,253 @@ export namespace ConfiguredTableAssociationAnalysisRulePolicy {
 }
 
 /**
- * <p> Controls on the analysis specifications that can be run on a configured table.</p>
+ * Controls on the analysis specifications that can be run on a configured table.
+ *
  * @public
  */
 export interface ConsolidatedPolicyAggregation {
   /**
-   * <p> Aggregate columns in consolidated policy aggregation.</p>
+   * Aggregate columns in consolidated policy aggregation.
+   *
    * @public
    */
   aggregateColumns: AggregateColumn[] | undefined;
 
   /**
-   * <p> The columns to join on.</p>
+   * The columns to join on.
+   *
    * @public
    */
   joinColumns: string[] | undefined;
 
   /**
-   * <p> Join required</p>
+   * Join required
+   *
    * @public
    */
   joinRequired?: JoinRequiredOption | undefined;
 
   /**
-   * <p> The allowed join operators.</p>
+   * The allowed join operators.
+   *
    * @public
    */
   allowedJoinOperators?: JoinOperator[] | undefined;
 
   /**
-   * <p> The dimension columns of the consolidated policy aggregation.</p>
+   * The dimension columns of the consolidated policy aggregation.
+   *
    * @public
    */
   dimensionColumns: string[] | undefined;
 
   /**
-   * <p> The scalar functions.</p>
+   * The scalar functions.
+   *
    * @public
    */
   scalarFunctions: ScalarFunctions[] | undefined;
 
   /**
-   * <p> The output constraints of the consolidated policy aggregation.</p>
+   * The output constraints of the consolidated policy aggregation.
+   *
    * @public
    */
   outputConstraints: AggregationConstraint[] | undefined;
 
   /**
-   * <p> Additional analyses for the consolidated policy aggregation.</p>
+   * Additional analyses for the consolidated policy aggregation.
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 
   /**
-   * <p> The allowed result receivers.</p>
+   * The allowed result receivers.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p> The additional analyses allowed by the consolidated policy aggregation.</p>
+   * The additional analyses allowed by the consolidated policy aggregation.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p>Specifies how a query can compare the columns in a table, including literal comparisons and column-to-column comparisons.</p>
+ * Specifies how a query can compare the columns in a table, including literal comparisons and column-to-column comparisons.
+ *
  * @public
  */
 export interface ComparisonControls {
   /**
-   * <p>The columns that a query can compare to literal values, for example, in a WHERE clause. Clean Rooms rejects a query that compares any other column to a literal value. Specify an empty list to block literal comparison on every column. You can't specify a column that you also use as an identity column in an aggregation threshold.</p>
+   * The columns that a query can compare to literal values, for example, in a WHERE clause. Clean Rooms rejects a query that compares any other column to a literal value. Specify an empty list to block literal comparison on every column. You can't specify a column that you also use as an identity column in an aggregation threshold.
+   *
    * @public
    */
   allowedLiteralComparisonColumns: string[] | undefined;
 
   /**
-   * <p>The columns that a query can compare to another column, for example, in a join, a WHERE clause, a GROUP BY clause, or a window function. Clean Rooms rejects a query that uses any other column in a column-to-column comparison. Specify an empty list to block column-to-column comparison on every column.</p>
+   * The columns that a query can compare to another column, for example, in a join, a WHERE clause, a GROUP BY clause, or a window function. Clean Rooms rejects a query that uses any other column in a column-to-column comparison. Specify an empty list to block column-to-column comparison on every column.
+   *
    * @public
    */
   allowedColumnComparisonColumns: string[] | undefined;
 }
 
 /**
- * <p>Specifies the name of the column that contains the unique identifier of your users, whose privacy you want to protect.</p>
+ * Specifies the name of the column that contains the unique identifier of your users, whose privacy you want to protect.
+ *
  * @public
  */
 export interface DifferentialPrivacyColumn {
   /**
-   * <p>The name of the column, such as user_id, that contains the unique identifier of your users, whose privacy you want to protect. If you want to turn on differential privacy for two or more tables in a collaboration, you must configure the same column as the user identifier column in both analysis rules.</p>
+   * The name of the column, such as user_id, that contains the unique identifier of your users, whose privacy you want to protect. If you want to turn on differential privacy for two or more tables in a collaboration, you must configure the same column as the user identifier column in both analysis rules.
+   *
    * @public
    */
   name: string | undefined;
 }
 
 /**
- * <p>Specifies the unique identifier for your users.</p>
+ * Specifies the unique identifier for your users.
+ *
  * @public
  */
 export interface DifferentialPrivacyConfiguration {
   /**
-   * <p>The name of the column (such as user_id) that contains the unique identifier of your users whose privacy you want to protect. If you want to turn on diﬀerential privacy for two or more tables in a collaboration, you must conﬁgure the same column as the user identiﬁer column in both analysis rules.</p>
+   * The name of the column (such as user_id) that contains the unique identifier of your users whose privacy you want to protect. If you want to turn on diﬀerential privacy for two or more tables in a collaboration, you must conﬁgure the same column as the user identiﬁer column in both analysis rules.
+   *
    * @public
    */
   columns: DifferentialPrivacyColumn[] | undefined;
 }
 
 /**
- * <p>Controls on the analysis specifications that can be run on a configured table.</p>
+ * Controls on the analysis specifications that can be run on a configured table.
+ *
  * @public
  */
 export interface ConsolidatedPolicyCustom {
   /**
-   * <p> The allowed analyses.</p>
+   * The allowed analyses.
+   *
    * @public
    */
   allowedAnalyses: string[] | undefined;
 
   /**
-   * <p> The allowed analysis providers.</p>
+   * The allowed analysis providers.
+   *
    * @public
    */
   allowedAnalysisProviders?: string[] | undefined;
 
   /**
-   * <p> Additional analyses for the consolidated policy.</p>
+   * Additional analyses for the consolidated policy.
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 
   /**
-   * <p> Disallowed output columns</p>
+   * Disallowed output columns
+   *
    * @public
    */
   disallowedOutputColumns?: string[] | undefined;
 
   /**
-   * <p>Specifies the unique identifier for your users.</p>
+   * Specifies the unique identifier for your users.
+   *
    * @public
    */
   differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
 
   /**
-   * <p> The aggregation thresholds for the consolidated policy.</p>
+   * The aggregation thresholds for the consolidated policy.
+   *
    * @public
    */
   aggregationThresholds?: AggregationThreshold[] | undefined;
 
   /**
-   * <p> The comparison controls for the consolidated policy.</p>
+   * The comparison controls for the consolidated policy.
+   *
    * @public
    */
   comparisonControls?: ComparisonControls | undefined;
 
   /**
-   * <p> The allowed result receivers.</p>
+   * The allowed result receivers.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p> The additional analyses allowed by the consolidated policy.</p>
+   * The additional analyses allowed by the consolidated policy.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p>Controls on the analysis specifications that can be run on a configured table.</p>
+ * Controls on the analysis specifications that can be run on a configured table.
+ *
  * @public
  */
 export interface ConsolidatedPolicyList {
   /**
-   * <p> The columns to join on.</p>
+   * The columns to join on.
+   *
    * @public
    */
   joinColumns: string[] | undefined;
 
   /**
-   * <p> The allowed join operators in the consolidated policy list.</p>
+   * The allowed join operators in the consolidated policy list.
+   *
    * @public
    */
   allowedJoinOperators?: JoinOperator[] | undefined;
 
   /**
-   * <p> The columns in the consolidated policy list.</p>
+   * The columns in the consolidated policy list.
+   *
    * @public
    */
   listColumns: string[] | undefined;
 
   /**
-   * <p> Additional analyses for the consolidated policy list.</p>
+   * Additional analyses for the consolidated policy list.
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 
   /**
-   * <p> The allowed result receivers.</p>
+   * The allowed result receivers.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p> The additional analyses allowed by the consolidated policy list.</p>
+   * The additional analyses allowed by the consolidated policy list.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p>Controls on the analysis specifications that can be run on a configured table.</p>
+ * Controls on the analysis specifications that can be run on a configured table.
+ *
  * @public
  */
 export type ConsolidatedPolicyV1 =
@@ -861,7 +1015,8 @@ export type ConsolidatedPolicyV1 =
  */
 export namespace ConsolidatedPolicyV1 {
   /**
-   * <p> The list of consolidated policies.</p>
+   * The list of consolidated policies.
+   *
    * @public
    */
   export interface ListMember {
@@ -872,7 +1027,8 @@ export namespace ConsolidatedPolicyV1 {
   }
 
   /**
-   * <p> The aggregation setting for the consolidated policy.</p>
+   * The aggregation setting for the consolidated policy.
+   *
    * @public
    */
   export interface AggregationMember {
@@ -883,7 +1039,8 @@ export namespace ConsolidatedPolicyV1 {
   }
 
   /**
-   * <p> Custom policy</p>
+   * Custom policy
+   *
    * @public
    */
   export interface CustomMember {
@@ -916,7 +1073,8 @@ export namespace ConsolidatedPolicyV1 {
 }
 
 /**
- * <p>Controls on the analysis specifications that can be run on a configured table.</p>
+ * Controls on the analysis specifications that can be run on a configured table.
+ *
  * @public
  */
 export type ConsolidatedPolicy =
@@ -928,7 +1086,8 @@ export type ConsolidatedPolicy =
  */
 export namespace ConsolidatedPolicy {
   /**
-   * <p> The consolidated policy version 1.</p>
+   * The consolidated policy version 1.
+   *
    * @public
    */
   export interface V1Member {
@@ -955,133 +1114,157 @@ export namespace ConsolidatedPolicy {
 }
 
 /**
- * <p>A type of analysis rule that enables query structure and specified queries that produce aggregate statistics.</p>
+ * A type of analysis rule that enables query structure and specified queries that produce aggregate statistics.
+ *
  * @public
  */
 export interface AnalysisRuleAggregation {
   /**
-   * <p>The columns that query runners are allowed to use in aggregation queries.</p>
+   * The columns that query runners are allowed to use in aggregation queries.
+   *
    * @public
    */
   aggregateColumns: AggregateColumn[] | undefined;
 
   /**
-   * <p>Columns in configured table that can be used in join statements and/or as aggregate columns. They can never be outputted directly.</p>
+   * Columns in configured table that can be used in join statements and/or as aggregate columns. They can never be outputted directly.
+   *
    * @public
    */
   joinColumns: string[] | undefined;
 
   /**
-   * <p>Control that requires member who runs query to do a join with their configured table and/or other configured table in query.</p>
+   * Control that requires member who runs query to do a join with their configured table and/or other configured table in query.
+   *
    * @public
    */
   joinRequired?: JoinRequiredOption | undefined;
 
   /**
-   * <p>Which logical operators (if any) are to be used in an INNER JOIN match condition. Default is <code>AND</code>.</p>
+   * Which logical operators (if any) are to be used in an INNER JOIN match condition. Default is `AND`.
+   *
    * @public
    */
   allowedJoinOperators?: JoinOperator[] | undefined;
 
   /**
-   * <p>The columns that query runners are allowed to select, group by, or filter by.</p>
+   * The columns that query runners are allowed to select, group by, or filter by.
+   *
    * @public
    */
   dimensionColumns: string[] | undefined;
 
   /**
-   * <p>Set of scalar functions that are allowed to be used on dimension columns and the output of aggregation of metrics.</p>
+   * Set of scalar functions that are allowed to be used on dimension columns and the output of aggregation of metrics.
+   *
    * @public
    */
   scalarFunctions: ScalarFunctions[] | undefined;
 
   /**
-   * <p>Columns that must meet a specific threshold value (after an aggregation function is applied to it) for each output row to be returned.</p>
+   * Columns that must meet a specific threshold value (after an aggregation function is applied to it) for each output row to be returned.
+   *
    * @public
    */
   outputConstraints: AggregationConstraint[] | undefined;
 
   /**
-   * <p> An indicator as to whether additional analyses (such as Clean Rooms ML) can be applied to the output of the direct query. </p> <p>The <code>additionalAnalyses</code> parameter is currently supported for the list analysis rule (<code>AnalysisRuleList</code>) and the custom analysis rule (<code>AnalysisRuleCustom</code>).</p>
+   * An indicator as to whether additional analyses (such as Clean Rooms ML) can be applied to the output of the direct query.
+   *
+   * The `additionalAnalyses` parameter is currently supported for the list analysis rule (`AnalysisRuleList`) and the custom analysis rule (`AnalysisRuleCustom`).
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 }
 
 /**
- * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy, minimum aggregation thresholds, and comparison controls.</p>
+ * A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy, minimum aggregation thresholds, and comparison controls.
+ *
  * @public
  */
 export interface AnalysisRuleCustom {
   /**
-   * <p>The ARN of the analysis templates that are allowed by the custom analysis rule.</p>
+   * The ARN of the analysis templates that are allowed by the custom analysis rule.
+   *
    * @public
    */
   allowedAnalyses: string[] | undefined;
 
   /**
-   * <p>The IDs of the Amazon Web Services accounts that are allowed to query by the custom analysis rule. Required when <code>allowedAnalyses</code> is <code>ANY_QUERY</code>.</p>
+   * The IDs of the Amazon Web Services accounts that are allowed to query by the custom analysis rule. Required when `allowedAnalyses` is `ANY_QUERY`.
+   *
    * @public
    */
   allowedAnalysisProviders?: string[] | undefined;
 
   /**
-   * <p> An indicator as to whether additional analyses (such as Clean Rooms ML) can be applied to the output of the direct query.</p>
+   * An indicator as to whether additional analyses (such as Clean Rooms ML) can be applied to the output of the direct query.
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 
   /**
-   * <p> A list of columns that aren't allowed to be shown in the query output.</p>
+   * A list of columns that aren't allowed to be shown in the query output.
+   *
    * @public
    */
   disallowedOutputColumns?: string[] | undefined;
 
   /**
-   * <p>The differential privacy configuration.</p>
+   * The differential privacy configuration.
+   *
    * @public
    */
   differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
 
   /**
-   * <p>The aggregation thresholds that each query output group must satisfy. Clean Rooms filters out any group that represents fewer than the specified number of distinct identities. You can specify at most one threshold. You can't use aggregation thresholds with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * The aggregation thresholds that each query output group must satisfy. Clean Rooms filters out any group that represents fewer than the specified number of distinct identities. You can specify at most one threshold. You can't use aggregation thresholds with differential privacy, or when `allowedAnalyses` allows only jobs.
+   *
    * @public
    */
   aggregationThresholds?: AggregationThreshold[] | undefined;
 
   /**
-   * <p>The controls that restrict how a query can compare the columns in the configured table. You can't use comparison controls with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * The controls that restrict how a query can compare the columns in the configured table. You can't use comparison controls with differential privacy, or when `allowedAnalyses` allows only jobs.
+   *
    * @public
    */
   comparisonControls?: ComparisonControls | undefined;
 
   /**
-   * <p>The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the configured table.</p>
+   * The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the configured table.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p>The list of allowed additional analyses for the custom analysis rule.</p>
+   * The list of allowed additional analyses for the custom analysis rule.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 }
 
 /**
- * <p>Provides the name of the columns that are required to overlap.</p>
+ * Provides the name of the columns that are required to overlap.
+ *
  * @public
  */
 export interface QueryConstraintRequireOverlap {
   /**
-   * <p>The columns that are required to overlap.</p>
+   * The columns that are required to overlap.
+   *
    * @public
    */
   columns?: string[] | undefined;
 }
 
 /**
- * <p>Provides any necessary query constraint information.</p>
+ * Provides any necessary query constraint information.
+ *
  * @public
  */
 export type QueryConstraint =
@@ -1093,7 +1276,8 @@ export type QueryConstraint =
  */
 export namespace QueryConstraint {
   /**
-   * <p>An array of column names that specifies which columns are required in the JOIN statement.</p>
+   * An array of column names that specifies which columns are required in the JOIN statement.
+   *
    * @public
    */
   export interface RequireOverlapMember {
@@ -1120,61 +1304,71 @@ export namespace QueryConstraint {
 }
 
 /**
- * <p>Defines details for the analysis rule ID mapping table.</p>
+ * Defines details for the analysis rule ID mapping table.
+ *
  * @public
  */
 export interface AnalysisRuleIdMappingTable {
   /**
-   * <p>The columns that query runners are allowed to use in an INNER JOIN statement.</p>
+   * The columns that query runners are allowed to use in an INNER JOIN statement.
+   *
    * @public
    */
   joinColumns: string[] | undefined;
 
   /**
-   * <p>The query constraints of the analysis rule ID mapping table.</p>
+   * The query constraints of the analysis rule ID mapping table.
+   *
    * @public
    */
   queryConstraints: QueryConstraint[] | undefined;
 
   /**
-   * <p>The columns that query runners are allowed to select, group by, or filter by.</p>
+   * The columns that query runners are allowed to select, group by, or filter by.
+   *
    * @public
    */
   dimensionColumns?: string[] | undefined;
 }
 
 /**
- * <p>A type of analysis rule that enables row-level analysis.</p>
+ * A type of analysis rule that enables row-level analysis.
+ *
  * @public
  */
 export interface AnalysisRuleList {
   /**
-   * <p>Columns that can be used to join a configured table with the table of the member who can query and other members' configured tables.</p>
+   * Columns that can be used to join a configured table with the table of the member who can query and other members' configured tables.
+   *
    * @public
    */
   joinColumns: string[] | undefined;
 
   /**
-   * <p>The logical operators (if any) that are to be used in an INNER JOIN match condition. Default is <code>AND</code>.</p>
+   * The logical operators (if any) that are to be used in an INNER JOIN match condition. Default is `AND`.
+   *
    * @public
    */
   allowedJoinOperators?: JoinOperator[] | undefined;
 
   /**
-   * <p>Columns that can be listed in the output.</p>
+   * Columns that can be listed in the output.
+   *
    * @public
    */
   listColumns: string[] | undefined;
 
   /**
-   * <p> An indicator as to whether additional analyses (such as Clean Rooms ML) can be applied to the output of the direct query.</p>
+   * An indicator as to whether additional analyses (such as Clean Rooms ML) can be applied to the output of the direct query.
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 }
 
 /**
- * <p>Controls on the query specifications that can be run on configured table.</p>
+ * Controls on the query specifications that can be run on configured table.
+ *
  * @public
  */
 export type AnalysisRulePolicyV1 =
@@ -1189,7 +1383,8 @@ export type AnalysisRulePolicyV1 =
  */
 export namespace AnalysisRulePolicyV1 {
   /**
-   * <p>Analysis rule type that enables only list queries on a configured table.</p>
+   * Analysis rule type that enables only list queries on a configured table.
+   *
    * @public
    */
   export interface ListMember {
@@ -1201,7 +1396,8 @@ export namespace AnalysisRulePolicyV1 {
   }
 
   /**
-   * <p>Analysis rule type that enables only aggregation queries on a configured table.</p>
+   * Analysis rule type that enables only aggregation queries on a configured table.
+   *
    * @public
    */
   export interface AggregationMember {
@@ -1213,7 +1409,8 @@ export namespace AnalysisRulePolicyV1 {
   }
 
   /**
-   * <p>Analysis rule type that enables custom SQL queries on a configured table.</p>
+   * Analysis rule type that enables custom SQL queries on a configured table.
+   *
    * @public
    */
   export interface CustomMember {
@@ -1225,7 +1422,8 @@ export namespace AnalysisRulePolicyV1 {
   }
 
   /**
-   * <p>The ID mapping table.</p>
+   * The ID mapping table.
+   *
    * @public
    */
   export interface IdMappingTableMember {
@@ -1261,7 +1459,8 @@ export namespace AnalysisRulePolicyV1 {
 }
 
 /**
- * <p>Controls on the query specifications that can be run on configured table.</p>
+ * Controls on the query specifications that can be run on configured table.
+ *
  * @public
  */
 export type AnalysisRulePolicy =
@@ -1273,7 +1472,8 @@ export type AnalysisRulePolicy =
  */
 export namespace AnalysisRulePolicy {
   /**
-   * <p>Controls on the query specifications that can be run on configured table.</p>
+   * Controls on the query specifications that can be run on configured table.
+   *
    * @public
    */
   export interface V1Member {
@@ -1300,127 +1500,148 @@ export namespace AnalysisRulePolicy {
 }
 
 /**
- * <p>A specification about how data from the configured table can be used in a query.</p>
+ * A specification about how data from the configured table can be used in a query.
+ *
  * @public
  */
 export interface AnalysisRule {
   /**
-   * <p>The unique ID for the associated collaboration.</p>
+   * The unique ID for the associated collaboration.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The type of analysis rule.</p>
+   * The type of analysis rule.
+   *
    * @public
    */
   type: AnalysisRuleType | undefined;
 
   /**
-   * <p>The name for the analysis rule.</p>
+   * The name for the analysis rule.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time the analysis rule was created.</p>
+   * The time the analysis rule was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the analysis rule was last updated.</p>
+   * The time the analysis rule was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>A policy that describes the associated data usage limitations.</p>
+   * A policy that describes the associated data usage limitations.
+   *
    * @public
    */
   policy: AnalysisRulePolicy | undefined;
 
   /**
-   * <p> Controls on the query specifications that can be run on an associated configured table.</p>
+   * Controls on the query specifications that can be run on an associated configured table.
+   *
    * @public
    */
   collaborationPolicy?: ConfiguredTableAssociationAnalysisRulePolicy | undefined;
 
   /**
-   * <p> The consolidated policy for the analysis rule.</p>
+   * The consolidated policy for the analysis rule.
+   *
    * @public
    */
   consolidatedPolicy?: ConsolidatedPolicy | undefined;
 }
 
 /**
- * <p>A relation within an analysis.</p>
+ * A relation within an analysis.
+ *
  * @public
  */
 export interface AnalysisSchema {
   /**
-   * <p>The tables referenced in the analysis schema.</p>
+   * The tables referenced in the analysis schema.
+   *
    * @public
    */
   referencedTables?: string[] | undefined;
 }
 
 /**
- * <p>The S3 location.</p>
+ * The S3 location.
+ *
  * @public
  */
 export interface S3Location {
   /**
-   * <p> The bucket name.</p>
+   * The bucket name.
+   *
    * @public
    */
   bucket: string | undefined;
 
   /**
-   * <p> The object key.</p>
+   * The object key.
+   *
    * @public
    */
   key: string | undefined;
 }
 
 /**
- * <p>The analysis template artifact.</p>
+ * The analysis template artifact.
+ *
  * @public
  */
 export interface AnalysisTemplateArtifact {
   /**
-   * <p> The artifact location.</p>
+   * The artifact location.
+   *
    * @public
    */
   location: S3Location | undefined;
 }
 
 /**
- * <p>The analysis template artifacts.</p>
+ * The analysis template artifacts.
+ *
  * @public
  */
 export interface AnalysisTemplateArtifacts {
   /**
-   * <p> The entry point for the analysis template artifacts.</p>
+   * The entry point for the analysis template artifacts.
+   *
    * @public
    */
   entryPoint: AnalysisTemplateArtifact | undefined;
 
   /**
-   * <p> Additional artifacts for the analysis template.</p>
+   * Additional artifacts for the analysis template.
+   *
    * @public
    */
   additionalArtifacts?: AnalysisTemplateArtifact[] | undefined;
 
   /**
-   * <p> The role ARN for the analysis template artifacts.</p>
+   * The role ARN for the analysis template artifacts.
+   *
    * @public
    */
   roleArn: string | undefined;
 }
 
 /**
- * <p>The structure that defines the body of the analysis template.</p>
+ * The structure that defines the body of the analysis template.
+ *
  * @public
  */
 export type AnalysisSource =
@@ -1433,7 +1654,8 @@ export type AnalysisSource =
  */
 export namespace AnalysisSource {
   /**
-   * <p>The query text.</p>
+   * The query text.
+   *
    * @public
    */
   export interface TextMember {
@@ -1443,7 +1665,8 @@ export namespace AnalysisSource {
   }
 
   /**
-   * <p> The artifacts of the analysis source.</p>
+   * The artifacts of the analysis source.
+   *
    * @public
    */
   export interface ArtifactsMember {
@@ -1473,37 +1696,43 @@ export namespace AnalysisSource {
 }
 
 /**
- * <p> Hash</p>
+ * Hash
+ *
  * @public
  */
 export interface Hash {
   /**
-   * <p> The SHA-256 hash value.</p>
+   * The SHA-256 hash value.
+   *
    * @public
    */
   sha256?: string | undefined;
 }
 
 /**
- * <p>The analysis template artifact metadata.</p>
+ * The analysis template artifact metadata.
+ *
  * @public
  */
 export interface AnalysisTemplateArtifactMetadata {
   /**
-   * <p> The hash of the entry point for the analysis template artifact metadata.</p>
+   * The hash of the entry point for the analysis template artifact metadata.
+   *
    * @public
    */
   entryPointHash: Hash | undefined;
 
   /**
-   * <p> Additional artifact hashes for the analysis template.</p>
+   * Additional artifact hashes for the analysis template.
+   *
    * @public
    */
   additionalArtifactHashes?: Hash[] | undefined;
 }
 
 /**
- * <p>The analysis source metadata.</p>
+ * The analysis source metadata.
+ *
  * @public
  */
 export type AnalysisSourceMetadata =
@@ -1515,7 +1744,8 @@ export type AnalysisSourceMetadata =
  */
 export namespace AnalysisSourceMetadata {
   /**
-   * <p> The artifacts of the analysis source metadata.</p>
+   * The artifacts of the analysis source metadata.
+   *
    * @public
    */
   export interface ArtifactsMember {
@@ -1542,79 +1772,94 @@ export namespace AnalysisSourceMetadata {
 }
 
 /**
- * <p>A structure that defines the level of detail included in error messages returned by PySpark jobs. This configuration allows you to control the verbosity of error messages to help with troubleshooting PySpark jobs while maintaining appropriate security controls.</p>
+ * A structure that defines the level of detail included in error messages returned by PySpark jobs. This configuration allows you to control the verbosity of error messages to help with troubleshooting PySpark jobs while maintaining appropriate security controls.
+ *
  * @public
  */
 export interface ErrorMessageConfiguration {
   /**
-   * <p>The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.</p> <p>Because this setting may expose sensitive data, it is recommended for development and testing environments.</p>
+   * The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
+   *
+   * Because this setting may expose sensitive data, it is recommended for development and testing environments.
+   *
    * @public
    */
   type: ErrorMessageType | undefined;
 }
 
 /**
- * <p>Properties that define how a specific data column should be handled during synthetic data generation, including its name, type, and role in predictive modeling.</p>
+ * Properties that define how a specific data column should be handled during synthetic data generation, including its name, type, and role in predictive modeling.
+ *
  * @public
  */
 export interface SyntheticDataColumnProperties {
   /**
-   * <p>The name of the data column as it appears in the dataset.</p>
+   * The name of the data column as it appears in the dataset.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p>The data type of the column, which determines how the synthetic data generation algorithm processes and synthesizes values for this column.</p>
+   * The data type of the column, which determines how the synthetic data generation algorithm processes and synthesizes values for this column.
+   *
    * @public
    */
   columnType: SyntheticDataColumnType | undefined;
 
   /**
-   * <p>Indicates if this column contains predictive values that should be treated as target variables in machine learning models. This affects how the synthetic data generation preserves statistical relationships.</p>
+   * Indicates if this column contains predictive values that should be treated as target variables in machine learning models. This affects how the synthetic data generation preserves statistical relationships.
+   *
    * @public
    */
   isPredictiveValue: boolean | undefined;
 }
 
 /**
- * <p>Contains classification information for data columns, including mappings that specify how columns should be handled during synthetic data generation and privacy analysis.</p>
+ * Contains classification information for data columns, including mappings that specify how columns should be handled during synthetic data generation and privacy analysis.
+ *
  * @public
  */
 export interface ColumnClassificationDetails {
   /**
-   * <p>A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.</p>
+   * A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.
+   *
    * @public
    */
   columnMapping: SyntheticDataColumnProperties[] | undefined;
 }
 
 /**
- * <p>Parameters that control the generation of synthetic data for machine learning, including privacy settings and column classification details.</p>
+ * Parameters that control the generation of synthetic data for machine learning, including privacy settings and column classification details.
+ *
  * @public
  */
 export interface MLSyntheticDataParameters {
   /**
-   * <p>The epsilon value for differential privacy when generating synthetic data. Lower values provide stronger privacy guarantees but may reduce data utility.</p>
+   * The epsilon value for differential privacy when generating synthetic data. Lower values provide stronger privacy guarantees but may reduce data utility.
+   *
    * @public
    */
   epsilon: number | undefined;
 
   /**
-   * <p>The maximum acceptable score for membership inference attack vulnerability. Synthetic data generation fails if the score for the resulting data exceeds this threshold.</p>
+   * The maximum acceptable score for membership inference attack vulnerability. Synthetic data generation fails if the score for the resulting data exceeds this threshold.
+   *
    * @public
    */
   maxMembershipInferenceAttackScore: number | undefined;
 
   /**
-   * <p>Classification details for data columns that specify how each column should be treated during synthetic data generation.</p>
+   * Classification details for data columns that specify how each column should be treated during synthetic data generation.
+   *
    * @public
    */
   columnClassification: ColumnClassificationDetails | undefined;
 }
 
 /**
- * <p>The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.</p>
+ * The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.
+ *
  * @public
  */
 export type SyntheticDataParameters =
@@ -1626,7 +1871,8 @@ export type SyntheticDataParameters =
  */
 export namespace SyntheticDataParameters {
   /**
-   * <p>The machine learning-specific parameters for synthetic data generation.</p>
+   * The machine learning-specific parameters for synthetic data generation.
+   *
    * @public
    */
   export interface MlSyntheticDataParametersMember {
@@ -1653,150 +1899,177 @@ export namespace SyntheticDataParameters {
 }
 
 /**
- * <p>The reasons for the validation results.</p>
+ * The reasons for the validation results.
+ *
  * @public
  */
 export interface AnalysisTemplateValidationStatusReason {
   /**
-   * <p>The validation message.</p>
+   * The validation message.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>The status details of the analysis template validation. Clean Rooms Differential Privacy uses a general-purpose query structure to support complex SQL queries and validates whether an analysis template fits that general-purpose query structure. Validation is performed when analysis templates are created and fetched. Because analysis templates are immutable by design, we recommend that you create analysis templates after you associate the configured tables with their analysis rule to your collaboration.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy">https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy</a>.</p>
+ * The status details of the analysis template validation. Clean Rooms Differential Privacy uses a general-purpose query structure to support complex SQL queries and validates whether an analysis template fits that general-purpose query structure. Validation is performed when analysis templates are created and fetched. Because analysis templates are immutable by design, we recommend that you create analysis templates after you associate the configured tables with their analysis rule to your collaboration.
+ *
+ * For more information, see [https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy](https://docs.aws.amazon.com/clean-rooms/latest/userguide/analysis-rules-custom.html#custom-diff-privacy).
+ *
  * @public
  */
 export interface AnalysisTemplateValidationStatusDetail {
   /**
-   * <p>The type of validation that was performed.</p>
+   * The type of validation that was performed.
+   *
    * @public
    */
   type: AnalysisTemplateValidationType | undefined;
 
   /**
-   * <p>The status of the validation.</p>
+   * The status of the validation.
+   *
    * @public
    */
   status: AnalysisTemplateValidationStatus | undefined;
 
   /**
-   * <p>The reasons for the validation results.</p>
+   * The reasons for the validation results.
+   *
    * @public
    */
   reasons?: AnalysisTemplateValidationStatusReason[] | undefined;
 }
 
 /**
- * <p>The analysis template.</p>
+ * The analysis template.
+ *
  * @public
  */
 export interface AnalysisTemplate {
   /**
-   * <p>The identifier for the analysis template.</p>
+   * The identifier for the analysis template.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the analysis template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique ID for the associated collaboration of the analysis template.</p>
+   * The unique ID for the associated collaboration of the analysis template.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The unique ARN for the analysis template’s associated collaboration.</p>
+   * The unique ARN for the analysis template’s associated collaboration.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The identifier of a member who created the analysis template.</p>
+   * The identifier of a member who created the analysis template.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the member who created the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the member who created the analysis template.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The description of the analysis template.</p>
+   * The description of the analysis template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The name of the analysis template.</p>
+   * The name of the analysis template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time that the analysis template was created.</p>
+   * The time that the analysis template was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time that the analysis template was last updated.</p>
+   * The time that the analysis template was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The entire schema object.</p>
+   * The entire schema object.
+   *
    * @public
    */
   schema: AnalysisSchema | undefined;
 
   /**
-   * <p>The format of the analysis template.</p>
+   * The format of the analysis template.
+   *
    * @public
    */
   format: AnalysisFormat | undefined;
 
   /**
-   * <p>The source of the analysis template.</p>
+   * The source of the analysis template.
+   *
    * @public
    */
   source: AnalysisSource | undefined;
 
   /**
-   * <p> The source metadata for the analysis template.</p>
+   * The source metadata for the analysis template.
+   *
    * @public
    */
   sourceMetadata?: AnalysisSourceMetadata | undefined;
 
   /**
-   * <p>The parameters of the analysis template.</p>
+   * The parameters of the analysis template.
+   *
    * @public
    */
   analysisParameters?: AnalysisParameter[] | undefined;
 
   /**
-   * <p>Information about the validations performed on the analysis template.</p>
+   * Information about the validations performed on the analysis template.
+   *
    * @public
    */
   validations?: AnalysisTemplateValidationStatusDetail[] | undefined;
 
   /**
-   * <p>The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to <code>DETAILED</code>, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.</p>
+   * The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED`, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+   *
    * @public
    */
   errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
 
   /**
-   * <p>The parameters used to generate synthetic data for this analysis template.</p>
+   * The parameters used to generate synthetic data for this analysis template.
+   *
    * @public
    */
   syntheticDataParameters?: SyntheticDataParameters | undefined;
@@ -1807,61 +2080,71 @@ export interface AnalysisTemplate {
  */
 export interface CreateAnalysisTemplateInput {
   /**
-   * <p>The description of the analysis template.</p>
+   * The description of the analysis template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier for a membership resource.</p>
+   * The identifier for a membership resource.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The name of the analysis template.</p>
+   * The name of the analysis template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The format of the analysis template.</p>
+   * The format of the analysis template.
+   *
    * @public
    */
   format: AnalysisFormat | undefined;
 
   /**
-   * <p>The information in the analysis template.</p>
+   * The information in the analysis template.
+   *
    * @public
    */
   source: AnalysisSource | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The parameters of the analysis template.</p>
+   * The parameters of the analysis template.
+   *
    * @public
    */
   analysisParameters?: AnalysisParameter[] | undefined;
 
   /**
-   * <p>A relation within an analysis.</p>
+   * A relation within an analysis.
+   *
    * @public
    */
   schema?: AnalysisSchema | undefined;
 
   /**
-   * <p>The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to <code>DETAILED</code>, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.</p>
+   * The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED`, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+   *
    * @public
    */
   errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
 
   /**
-   * <p>The parameters for generating synthetic data when running the analysis template.</p>
+   * The parameters for generating synthetic data when running the analysis template.
+   *
    * @public
    */
   syntheticDataParameters?: SyntheticDataParameters | undefined;
@@ -1872,25 +2155,29 @@ export interface CreateAnalysisTemplateInput {
  */
 export interface CreateAnalysisTemplateOutput {
   /**
-   * <p>The analysis template.</p>
+   * The analysis template.
+   *
    * @public
    */
   analysisTemplate: AnalysisTemplate | undefined;
 }
 
 /**
- * <p>Describes validation errors for specific input parameters.</p>
+ * Describes validation errors for specific input parameters.
+ *
  * @public
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the input parameter.</p>
+   * The name of the input parameter.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A message for the input validation error.</p>
+   * A message for the input validation error.
+   *
    * @public
    */
   message: string | undefined;
@@ -1901,13 +2188,15 @@ export interface ValidationExceptionField {
  */
 export interface DeleteAnalysisTemplateInput {
   /**
-   * <p>The identifier for a membership resource.</p>
+   * The identifier for a membership resource.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The identifier for the analysis template resource.</p>
+   * The identifier for the analysis template resource.
+   *
    * @public
    */
   analysisTemplateIdentifier: string | undefined;
@@ -1923,13 +2212,15 @@ export interface DeleteAnalysisTemplateOutput {}
  */
 export interface GetAnalysisTemplateInput {
   /**
-   * <p>The identifier for a membership resource.</p>
+   * The identifier for a membership resource.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The identifier for the analysis template resource.</p>
+   * The identifier for the analysis template resource.
+   *
    * @public
    */
   analysisTemplateIdentifier: string | undefined;
@@ -1940,7 +2231,8 @@ export interface GetAnalysisTemplateInput {
  */
 export interface GetAnalysisTemplateOutput {
   /**
-   * <p>The analysis template.</p>
+   * The analysis template.
+   *
    * @public
    */
   analysisTemplate: AnalysisTemplate | undefined;
@@ -1951,91 +2243,106 @@ export interface GetAnalysisTemplateOutput {
  */
 export interface ListAnalysisTemplatesInput {
   /**
-   * <p>The identifier for a membership resource.</p>
+   * The identifier for a membership resource.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The metadata of the analysis template.</p>
+ * The metadata of the analysis template.
+ *
  * @public
  */
 export interface AnalysisTemplateSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the analysis template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The time that the analysis template summary was created.</p>
+   * The time that the analysis template summary was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The identifier of the analysis template.</p>
+   * The identifier of the analysis template.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the analysis template. </p>
+   * The name of the analysis template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time that the analysis template summary was last updated.</p>
+   * The time that the analysis template summary was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the member who created the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the member who created the analysis template.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The identifier for a membership resource.</p>
+   * The identifier for a membership resource.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The unique ARN for the analysis template summary’s associated collaboration.</p>
+   * The unique ARN for the analysis template summary’s associated collaboration.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>A unique identifier for the collaboration that the analysis template summary belongs to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the analysis template summary belongs to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The description of the analysis template.</p>
+   * The description of the analysis template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Indicates if this analysis template summary generated synthetic data.</p>
+   * Indicates if this analysis template summary generated synthetic data.
+   *
    * @public
    */
   isSyntheticData?: boolean | undefined;
@@ -2046,13 +2353,15 @@ export interface AnalysisTemplateSummary {
  */
 export interface ListAnalysisTemplatesOutput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Lists analysis template metadata.</p>
+   * Lists analysis template metadata.
+   *
    * @public
    */
   analysisTemplateSummaries: AnalysisTemplateSummary[] | undefined;
@@ -2063,19 +2372,22 @@ export interface ListAnalysisTemplatesOutput {
  */
 export interface UpdateAnalysisTemplateInput {
   /**
-   * <p>The identifier for a membership resource.</p>
+   * The identifier for a membership resource.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The identifier for the analysis template resource.</p>
+   * The identifier for the analysis template resource.
+   *
    * @public
    */
   analysisTemplateIdentifier: string | undefined;
 
   /**
-   * <p>A new description for the analysis template.</p>
+   * A new description for the analysis template.
+   *
    * @public
    */
   description?: string | undefined;
@@ -2086,61 +2398,71 @@ export interface UpdateAnalysisTemplateInput {
  */
 export interface UpdateAnalysisTemplateOutput {
   /**
-   * <p>The analysis template.</p>
+   * The analysis template.
+   *
    * @public
    */
   analysisTemplate: AnalysisTemplate | undefined;
 }
 
 /**
- * <p>Contains detailed information about the approval state of a given member in the collaboration for a given collaboration change request.</p>
+ * Contains detailed information about the approval state of a given member in the collaboration for a given collaboration change request.
+ *
  * @public
  */
 export interface ApprovalStatusDetails {
   /**
-   * <p>The approval status of a member's vote on the change request. Valid values are PENDING (if they haven't voted), APPROVED, or DENIED.</p>
+   * The approval status of a member's vote on the change request. Valid values are PENDING (if they haven't voted), APPROVED, or DENIED.
+   *
    * @public
    */
   status: ApprovalStatus | undefined;
 }
 
 /**
- * <p> A reference to a table within Athena.</p>
+ * A reference to a table within Athena.
+ *
  * @public
  */
 export interface AthenaTableReference {
   /**
-   * <p>The Amazon Web Services Region where the Athena table is located. This parameter is required to uniquely identify and access tables across different Regions.</p>
+   * The Amazon Web Services Region where the Athena table is located. This parameter is required to uniquely identify and access tables across different Regions.
+   *
    * @public
    */
   region?: CommercialRegion | undefined;
 
   /**
-   * <p> The workgroup of the Athena table reference.</p>
+   * The workgroup of the Athena table reference.
+   *
    * @public
    */
   workGroup: string | undefined;
 
   /**
-   * <p> The output location for the Athena table.</p>
+   * The output location for the Athena table.
+   *
    * @public
    */
   outputLocation?: string | undefined;
 
   /**
-   * <p> The database name.</p>
+   * The database name.
+   *
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p> The table reference.</p>
+   * The table reference.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p> The catalog name.</p>
+   * The catalog name.
+   *
    * @public
    */
   catalogName?: string | undefined;
@@ -2151,145 +2473,169 @@ export interface AthenaTableReference {
  */
 export interface BatchGetCollaborationAnalysisTemplateInput {
   /**
-   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   * The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.
+   *
    * @public
    */
   analysisTemplateArns: string[] | undefined;
 }
 
 /**
- * <p>The analysis template within a collaboration.</p>
+ * The analysis template within a collaboration.
+ *
  * @public
  */
 export interface CollaborationAnalysisTemplate {
   /**
-   * <p>The identifier of the analysis template.</p>
+   * The identifier of the analysis template.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the analysis template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The unique ARN for the analysis template’s associated collaboration.</p>
+   * The unique ARN for the analysis template’s associated collaboration.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The description of the analysis template.</p>
+   * The description of the analysis template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The name of the analysis template.</p>
+   * The name of the analysis template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time that the analysis template within a collaboration was created.</p>
+   * The time that the analysis template within a collaboration was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time that the analysis template in the collaboration was last updated.</p>
+   * The time that the analysis template in the collaboration was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The entire schema object.</p>
+   * The entire schema object.
+   *
    * @public
    */
   schema: AnalysisSchema | undefined;
 
   /**
-   * <p>The format of the analysis template in the collaboration.</p>
+   * The format of the analysis template in the collaboration.
+   *
    * @public
    */
   format: AnalysisFormat | undefined;
 
   /**
-   * <p>The source of the analysis template within a collaboration.</p>
+   * The source of the analysis template within a collaboration.
+   *
    * @public
    */
   source?: AnalysisSource | undefined;
 
   /**
-   * <p> The source metadata for the collaboration analysis template.</p>
+   * The source metadata for the collaboration analysis template.
+   *
    * @public
    */
   sourceMetadata?: AnalysisSourceMetadata | undefined;
 
   /**
-   * <p>The analysis parameters that have been specified in the analysis template.</p>
+   * The analysis parameters that have been specified in the analysis template.
+   *
    * @public
    */
   analysisParameters?: AnalysisParameter[] | undefined;
 
   /**
-   * <p>The validations that were performed.</p>
+   * The validations that were performed.
+   *
    * @public
    */
   validations?: AnalysisTemplateValidationStatusDetail[] | undefined;
 
   /**
-   * <p>The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to <code>DETAILED</code>, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.</p>
+   * The configuration that specifies the level of detail in error messages returned by analyses using this template. When set to `DETAILED`, error messages include more information to help troubleshoot issues with PySpark jobs. Detailed error messages may expose underlying data, including sensitive information. Recommended for faster troubleshooting in development and testing environments.
+   *
    * @public
    */
   errorMessageConfiguration?: ErrorMessageConfiguration | undefined;
 
   /**
-   * <p>The synthetic data generation parameters configured for this collaboration analysis template.</p>
+   * The synthetic data generation parameters configured for this collaboration analysis template.
+   *
    * @public
    */
   syntheticDataParameters?: SyntheticDataParameters | undefined;
 }
 
 /**
- * <p>Details of errors thrown by the call to retrieve multiple analysis templates within a collaboration by their identifiers.</p>
+ * Details of errors thrown by the call to retrieve multiple analysis templates within a collaboration by their identifiers.
+ *
  * @public
  */
 export interface BatchGetCollaborationAnalysisTemplateError {
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the analysis template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>An error code for the error.</p>
+   * An error code for the error.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A description of why the call failed.</p>
+   * A description of why the call failed.
+   *
    * @public
    */
   message: string | undefined;
@@ -2300,13 +2646,15 @@ export interface BatchGetCollaborationAnalysisTemplateError {
  */
 export interface BatchGetCollaborationAnalysisTemplateOutput {
   /**
-   * <p>The retrieved list of analysis templates within a collaboration.</p>
+   * The retrieved list of analysis templates within a collaboration.
+   *
    * @public
    */
   collaborationAnalysisTemplates: CollaborationAnalysisTemplate[] | undefined;
 
   /**
-   * <p>Error reasons for collaboration analysis templates that could not be retrieved. One error is returned for every collaboration analysis template that could not be retrieved.</p>
+   * Error reasons for collaboration analysis templates that could not be retrieved. One error is returned for every collaboration analysis template that could not be retrieved.
+   *
    * @public
    */
   errors: BatchGetCollaborationAnalysisTemplateError[] | undefined;
@@ -2317,176 +2665,209 @@ export interface BatchGetCollaborationAnalysisTemplateOutput {
  */
 export interface BatchGetSchemaInput {
   /**
-   * <p>A unique identifier for the collaboration that the schemas belong to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the schemas belong to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The names for the schema objects to retrieve.</p>
+   * The names for the schema objects to retrieve.
+   *
    * @public
    */
   names: string[] | undefined;
 }
 
 /**
- * <p>An error describing why a schema could not be fetched.</p>
+ * An error describing why a schema could not be fetched.
+ *
  * @public
  */
 export interface BatchGetSchemaError {
   /**
-   * <p>An error name for the error.</p>
+   * An error name for the error.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>An error code for the error. </p>
+   * An error code for the error.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>An error message for the error.</p>
+   * An error message for the error.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>A column within a schema relation, derived from the underlying table.</p>
+ * A column within a schema relation, derived from the underlying table.
+ *
  * @public
  */
 export interface Column {
   /**
-   * <p>The name of the column.</p>
+   * The name of the column.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the column.</p>
+   * The type of the column.
+   *
    * @public
    */
   type: string | undefined;
 }
 
 /**
- * <p>A reason why the schema status is set to its current value.</p>
+ * A reason why the schema status is set to its current value.
+ *
  * @public
  */
 export interface SchemaStatusReason {
   /**
-   * <p>The schema status reason code.</p>
+   * The schema status reason code.
+   *
    * @public
    */
   code: SchemaStatusReasonCode | undefined;
 
   /**
-   * <p>An explanation of the schema status reason code.</p>
+   * An explanation of the schema status reason code.
+   *
    * @public
    */
   message: string | undefined;
 }
 
 /**
- * <p>Information about the schema status.</p> <p>A status of <code>READY</code> means that based on the schema analysis rule, queries of the given analysis rule type are properly configured to run queries on this schema.</p>
+ * Information about the schema status.
+ *
+ * A status of `READY` means that based on the schema analysis rule, queries of the given analysis rule type are properly configured to run queries on this schema.
+ *
  * @public
  */
 export interface SchemaStatusDetail {
   /**
-   * <p>The status of the schema, indicating if it is ready to query.</p>
+   * The status of the schema, indicating if it is ready to query.
+   *
    * @public
    */
   status: SchemaStatus | undefined;
 
   /**
-   * <p>The reasons why the schema status is set to its current state.</p>
+   * The reasons why the schema status is set to its current state.
+   *
    * @public
    */
   reasons?: SchemaStatusReason[] | undefined;
 
   /**
-   * <p>The analysis rule type for which the schema status has been evaluated.</p>
+   * The analysis rule type for which the schema status has been evaluated.
+   *
    * @public
    */
   analysisRuleType?: AnalysisRuleType | undefined;
 
   /**
-   * <p>The configuration details of the schema analysis rule for the given type.</p>
+   * The configuration details of the schema analysis rule for the given type.
+   *
    * @public
    */
   configurations?: SchemaConfiguration[] | undefined;
 
   /**
-   * <p>The type of analysis that can be performed on the schema.</p> <p>A schema can have an <code>analysisType</code> of <code>DIRECT_ANALYSIS</code>, <code>ADDITIONAL_ANALYSIS_FOR_AUDIENCE_GENERATION</code>, or both.</p>
+   * The type of analysis that can be performed on the schema.
+   *
+   * A schema can have an `analysisType` of `DIRECT_ANALYSIS`, `ADDITIONAL_ANALYSIS_FOR_AUDIENCE_GENERATION`, or both.
+   *
    * @public
    */
   analysisType: AnalysisType | undefined;
 }
 
 /**
- * <p>Contains the schema type properties for a configured table association.</p>
+ * Contains the schema type properties for a configured table association.
+ *
  * @public
  */
 export interface ConfiguredTableAssociationSchemaTypeProperties {
   /**
-   * <p>The unique identifier of the configured table association.</p>
+   * The unique identifier of the configured table association.
+   *
    * @public
    */
   configuredTableAssociationId: string | undefined;
 }
 
 /**
- * <p>The input source of the ID mapping table.</p>
+ * The input source of the ID mapping table.
+ *
  * @public
  */
 export interface IdMappingTableInputSource {
   /**
-   * <p>The unique identifier of the ID namespace association.</p>
+   * The unique identifier of the ID namespace association.
+   *
    * @public
    */
   idNamespaceAssociationId: string | undefined;
 
   /**
-   * <p>The type of the input source of the ID mapping table.</p>
+   * The type of the input source of the ID mapping table.
+   *
    * @public
    */
   type: IdNamespaceType | undefined;
 }
 
 /**
- * <p>Additional properties that are specific to the type of the associated schema.</p>
+ * Additional properties that are specific to the type of the associated schema.
+ *
  * @public
  */
 export interface IdMappingTableSchemaTypeProperties {
   /**
-   * <p>Defines which ID namespace associations are used to create the ID mapping table.</p>
+   * Defines which ID namespace associations are used to create the ID mapping table.
+   *
    * @public
    */
   idMappingTableInputSource: IdMappingTableInputSource[] | undefined;
 
   /**
-   * <p>The unique identifier of the ID mapping table.</p>
+   * The unique identifier of the ID mapping table.
+   *
    * @public
    */
   idMappingTableId?: string | undefined;
 }
 
 /**
- * <p>Contains the schema type properties for an intermediate table.</p>
+ * Contains the schema type properties for an intermediate table.
+ *
  * @public
  */
 export interface IntermediateTableSchemaTypeProperties {
   /**
-   * <p>The unique identifier of the intermediate table.</p>
+   * The unique identifier of the intermediate table.
+   *
    * @public
    */
   intermediateTableId: string | undefined;
 }
 
 /**
- * <p>Information about the schema type properties.</p>
+ * Information about the schema type properties.
+ *
  * @public
  */
 export type SchemaTypeProperties =
@@ -2500,7 +2881,8 @@ export type SchemaTypeProperties =
  */
 export namespace SchemaTypeProperties {
   /**
-   * <p>The ID mapping table for the schema type properties.</p>
+   * The ID mapping table for the schema type properties.
+   *
    * @public
    */
   export interface IdMappingTableMember {
@@ -2511,7 +2893,8 @@ export namespace SchemaTypeProperties {
   }
 
   /**
-   * <p>The schema type properties for an intermediate table.</p>
+   * The schema type properties for an intermediate table.
+   *
    * @public
    */
   export interface IntermediateTableMember {
@@ -2522,7 +2905,8 @@ export namespace SchemaTypeProperties {
   }
 
   /**
-   * <p>The schema type properties for a configured table association.</p>
+   * The schema type properties for a configured table association.
+   *
    * @public
    */
   export interface ConfiguredTableAssociationMember {
@@ -2555,102 +2939,125 @@ export namespace SchemaTypeProperties {
 }
 
 /**
- * <p>A schema is a relation within a collaboration.</p>
+ * A schema is a relation within a collaboration.
+ *
  * @public
  */
 export interface Schema {
   /**
-   * <p>The columns for the relation that this schema represents.</p>
+   * The columns for the relation that this schema represents.
+   *
    * @public
    */
   columns: Column[] | undefined;
 
   /**
-   * <p>The partition keys for the dataset underlying this schema.</p>
+   * The partition keys for the dataset underlying this schema.
+   *
    * @public
    */
   partitionKeys: Column[] | undefined;
 
   /**
-   * <p>The analysis rule types that are associated with the schema. Currently, only one entry is present.</p>
+   * The analysis rule types that are associated with the schema. Currently, only one entry is present.
+   *
    * @public
    */
   analysisRuleTypes: AnalysisRuleType[] | undefined;
 
   /**
-   * <p>The analysis method for the schema. </p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>
+   * The analysis method for the schema.
+   *
+   * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+   *
+   * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+   *
+   * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+   *
    * @public
    */
   analysisMethod?: AnalysisMethod | undefined;
 
   /**
-   * <p> The selected analysis methods for the schema.</p>
+   * The selected analysis methods for the schema.
+   *
    * @public
    */
   selectedAnalysisMethods?: SelectedAnalysisMethod[] | undefined;
 
   /**
-   * <p>The unique account ID for the Amazon Web Services account that owns the schema.</p>
+   * The unique account ID for the Amazon Web Services account that owns the schema.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>A name for the schema. The schema relation is referred to by this name when queried by a protected query.</p>
+   * A name for the schema. The schema relation is referred to by this name when queried by a protected query.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique ID for the collaboration that the schema belongs to.</p>
+   * The unique ID for the collaboration that the schema belongs to.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The unique Amazon Resource Name (ARN) for the collaboration that the schema belongs to.</p>
+   * The unique Amazon Resource Name (ARN) for the collaboration that the schema belongs to.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>A description for the schema.</p>
+   * A description for the schema.
+   *
    * @public
    */
   description: string | undefined;
 
   /**
-   * <p>The time at which the schema was created.</p>
+   * The time at which the schema was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the schema was updated.</p>
+   * The most recent time at which the schema was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The type of schema.</p>
+   * The type of schema.
+   *
    * @public
    */
   type: SchemaType | undefined;
 
   /**
-   * <p>Details about the status of the schema. Currently, only one entry is present.</p>
+   * Details about the status of the schema. Currently, only one entry is present.
+   *
    * @public
    */
   schemaStatusDetails: SchemaStatusDetail[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the schema resource.</p>
+   * The Amazon Resource Name (ARN) of the schema resource.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p>The schema type properties.</p>
+   * The schema type properties.
+   *
    * @public
    */
   schemaTypeProperties?: SchemaTypeProperties | undefined;
@@ -2661,31 +3068,36 @@ export interface Schema {
  */
 export interface BatchGetSchemaOutput {
   /**
-   * <p>The retrieved list of schemas.</p>
+   * The retrieved list of schemas.
+   *
    * @public
    */
   schemas: Schema[] | undefined;
 
   /**
-   * <p>Error reasons for schemas that could not be retrieved. One error is returned for every schema that could not be retrieved.</p>
+   * Error reasons for schemas that could not be retrieved. One error is returned for every schema that could not be retrieved.
+   *
    * @public
    */
   errors: BatchGetSchemaError[] | undefined;
 }
 
 /**
- * <p>Defines the information that's necessary to retrieve an analysis rule schema. Schema analysis rules are uniquely identiﬁed by a combination of the schema name and the analysis rule type for a given collaboration.</p>
+ * Defines the information that's necessary to retrieve an analysis rule schema. Schema analysis rules are uniquely identiﬁed by a combination of the schema name and the analysis rule type for a given collaboration.
+ *
  * @public
  */
 export interface SchemaAnalysisRuleRequest {
   /**
-   * <p>The name of the analysis rule schema that you are requesting.</p>
+   * The name of the analysis rule schema that you are requesting.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of analysis rule schema that you are requesting.</p>
+   * The type of analysis rule schema that you are requesting.
+   *
    * @public
    */
   type: AnalysisRuleType | undefined;
@@ -2696,43 +3108,50 @@ export interface SchemaAnalysisRuleRequest {
  */
 export interface BatchGetSchemaAnalysisRuleInput {
   /**
-   * <p>The unique identifier of the collaboration that contains the schema analysis rule.</p>
+   * The unique identifier of the collaboration that contains the schema analysis rule.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The information that's necessary to retrieve a schema analysis rule.</p>
+   * The information that's necessary to retrieve a schema analysis rule.
+   *
    * @public
    */
   schemaAnalysisRuleRequests: SchemaAnalysisRuleRequest[] | undefined;
 }
 
 /**
- * <p>An error that describes why a schema could not be fetched.</p>
+ * An error that describes why a schema could not be fetched.
+ *
  * @public
  */
 export interface BatchGetSchemaAnalysisRuleError {
   /**
-   * <p>An error name for the error.</p>
+   * An error name for the error.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The analysis rule type.</p>
+   * The analysis rule type.
+   *
    * @public
    */
   type: AnalysisRuleType | undefined;
 
   /**
-   * <p>An error code for the error.</p>
+   * An error code for the error.
+   *
    * @public
    */
   code: string | undefined;
 
   /**
-   * <p>A description of why the call failed.</p>
+   * A description of why the call failed.
+   *
    * @public
    */
   message: string | undefined;
@@ -2743,199 +3162,250 @@ export interface BatchGetSchemaAnalysisRuleError {
  */
 export interface BatchGetSchemaAnalysisRuleOutput {
   /**
-   * <p>The retrieved list of analysis rules.</p>
+   * The retrieved list of analysis rules.
+   *
    * @public
    */
   analysisRules: AnalysisRule[] | undefined;
 
   /**
-   * <p>Error reasons for schemas that could not be retrieved. One error is returned for every schema that could not be retrieved.</p>
+   * Error reasons for schemas that could not be retrieved. One error is returned for every schema that could not be retrieved.
+   *
    * @public
    */
   errors: BatchGetSchemaAnalysisRuleError[] | undefined;
 }
 
 /**
- * <p>The ML member abilities for a collaboration member.</p>
+ * The ML member abilities for a collaboration member.
+ *
  * @public
  */
 export interface MLMemberAbilities {
   /**
-   * <p>The custom ML member abilities for a collaboration member. </p>
+   * The custom ML member abilities for a collaboration member.
+   *
    * @public
    */
   customMLMemberAbilities: CustomMLMemberAbility[] | undefined;
 }
 
 /**
- * <p>An object representing the collaboration member's payment responsibilities set by the collaboration creator for query and job compute costs.</p>
+ * An object representing the collaboration member's payment responsibilities set by the collaboration creator for query and job compute costs.
+ *
  * @public
  */
 export interface JobComputePaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query and job compute costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for query and job compute costs.</p> <p>An error is returned if the collaboration creator sets a <code>FALSE</code> value for the member who can run queries and jobs.</p>
+   * Indicates whether the collaboration creator has configured the collaboration member to pay for query and job compute costs (`TRUE`) or has not configured the collaboration member to pay for query and job compute costs (`FALSE`).
+   *
+   * One or more members can be configured as payer candidates for query and job compute costs.
+   *
+   * An error is returned if the collaboration creator sets a `FALSE` value for the member who can run queries and jobs.
+   *
    * @public
    */
   isResponsible: boolean | undefined;
 }
 
 /**
- * <p>An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.</p>
+ * An object representing the collaboration member's model inference payment responsibilities set by the collaboration creator.
+ *
  * @public
  */
 export interface ModelInferencePaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs (<code>TRUE</code>) or has not configured the collaboration member to pay for model inference costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for model inference costs.</p> <p>If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer.</p>
+   * Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs (`TRUE`) or has not configured the collaboration member to pay for model inference costs (`FALSE`).
+   *
+   * One or more members can be configured as payer candidates for model inference costs.
+   *
+   * If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer.
+   *
    * @public
    */
   isResponsible: boolean | undefined;
 }
 
 /**
- * <p>An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.</p>
+ * An object representing the collaboration member's model training payment responsibilities set by the collaboration creator.
+ *
  * @public
  */
 export interface ModelTrainingPaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs (<code>TRUE</code>) or has not configured the collaboration member to pay for model training costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for model training costs.</p> <p>If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer.</p>
+   * Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs (`TRUE`) or has not configured the collaboration member to pay for model training costs (`FALSE`).
+   *
+   * One or more members can be configured as payer candidates for model training costs.
+   *
+   * If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer.
+   *
    * @public
    */
   isResponsible: boolean | undefined;
 }
 
 /**
- * <p>Payment configuration for synthetic data generation.</p>
+ * Payment configuration for synthetic data generation.
+ *
  * @public
  */
 export interface SyntheticDataGenerationPaymentConfig {
   /**
-   * <p>Indicates who is responsible for paying for synthetic data generation.</p>
+   * Indicates who is responsible for paying for synthetic data generation.
+   *
    * @public
    */
   isResponsible: boolean | undefined;
 }
 
 /**
- * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
+ * An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+ *
  * @public
  */
 export interface MLPaymentConfig {
   /**
-   * <p>The payment responsibilities accepted by the member for model training.</p>
+   * The payment responsibilities accepted by the member for model training.
+   *
    * @public
    */
   modelTraining?: ModelTrainingPaymentConfig | undefined;
 
   /**
-   * <p>The payment responsibilities accepted by the member for model inference.</p>
+   * The payment responsibilities accepted by the member for model inference.
+   *
    * @public
    */
   modelInference?: ModelInferencePaymentConfig | undefined;
 
   /**
-   * <p>The payment configuration for machine learning synthetic data generation.</p>
+   * The payment configuration for machine learning synthetic data generation.
+   *
    * @public
    */
   syntheticDataGeneration?: SyntheticDataGenerationPaymentConfig | undefined;
 }
 
 /**
- * <p>An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.</p>
+ * An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+ *
  * @public
  */
 export interface QueryComputePaymentConfig {
   /**
-   * <p>Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs (<code>TRUE</code>) or has not configured the collaboration member to pay for query compute costs (<code>FALSE</code>).</p> <p>One or more members can be configured as payer candidates for query compute costs.</p> <p>If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer.</p>
+   * Indicates whether the collaboration creator has configured the collaboration member to pay for query compute costs (`TRUE`) or has not configured the collaboration member to pay for query compute costs (`FALSE`).
+   *
+   * One or more members can be configured as payer candidates for query compute costs.
+   *
+   * If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer.
+   *
    * @public
    */
   isResponsible: boolean | undefined;
 }
 
 /**
- * <p>An object representing the collaboration member's payment responsibilities set by the collaboration creator.</p>
+ * An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+ *
  * @public
  */
 export interface PaymentConfiguration {
   /**
-   * <p>The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.</p>
+   * The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+   *
    * @public
    */
   queryCompute: QueryComputePaymentConfig | undefined;
 
   /**
-   * <p>An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.</p>
+   * An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+   *
    * @public
    */
   machineLearning?: MLPaymentConfig | undefined;
 
   /**
-   * <p> The compute configuration for the job.</p>
+   * The compute configuration for the job.
+   *
    * @public
    */
   jobCompute?: JobComputePaymentConfig | undefined;
 }
 
 /**
- * <p>The settings for client-side encryption for cryptographic computing.</p>
+ * The settings for client-side encryption for cryptographic computing.
+ *
  * @public
  */
 export interface DataEncryptionMetadata {
   /**
-   * <p>Indicates whether encrypted tables can contain cleartext data (<code>TRUE</code>) or are to cryptographically process every column (<code>FALSE</code>).</p>
+   * Indicates whether encrypted tables can contain cleartext data (`TRUE`) or are to cryptographically process every column (`FALSE`).
+   *
    * @public
    */
   allowCleartext: boolean | undefined;
 
   /**
-   * <p>Indicates whether Fingerprint columns can contain duplicate entries (<code>TRUE</code>) or are to contain only non-repeated values (<code>FALSE</code>).</p>
+   * Indicates whether Fingerprint columns can contain duplicate entries (`TRUE`) or are to contain only non-repeated values (`FALSE`).
+   *
    * @public
    */
   allowDuplicates: boolean | undefined;
 
   /**
-   * <p>Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name (<code>TRUE</code>) or can only be joined on Fingerprint columns of the same name (<code>FALSE</code>).</p>
+   * Indicates whether Fingerprint columns can be joined on any other Fingerprint column with a different name (`TRUE`) or can only be joined on Fingerprint columns of the same name (`FALSE`).
+   *
    * @public
    */
   allowJoinsOnColumnsWithDifferentNames: boolean | undefined;
 
   /**
-   * <p>Indicates whether NULL values are to be copied as NULL to encrypted tables (<code>TRUE</code>) or cryptographically processed (<code>FALSE</code>).</p>
+   * Indicates whether NULL values are to be copied as NULL to encrypted tables (`TRUE`) or cryptographically processed (`FALSE`).
+   *
    * @public
    */
   preserveNulls: boolean | undefined;
 }
 
 /**
- * <p>Basic metadata used to construct a new member.</p>
+ * Basic metadata used to construct a new member.
+ *
  * @public
  */
 export interface MemberSpecification {
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration member.</p>
+   * The abilities granted to the collaboration member.
+   *
    * @public
    */
   memberAbilities: MemberAbility[] | undefined;
 
   /**
-   * <p>The ML abilities granted to the collaboration member.</p>
+   * The ML abilities granted to the collaboration member.
+   *
    * @public
    */
   mlMemberAbilities?: MLMemberAbilities | undefined;
 
   /**
-   * <p>The member's display name.</p>
+   * The member's display name.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The collaboration member's payment responsibilities set by the collaboration creator. </p> <p>If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.</p>
+   * The collaboration member's payment responsibilities set by the collaboration creator.
+   *
+   * If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
+   *
    * @public
    */
   paymentConfiguration?: PaymentConfiguration | undefined;
@@ -2946,205 +3416,257 @@ export interface MemberSpecification {
  */
 export interface CreateCollaborationInput {
   /**
-   * <p>A list of initial members, not including the creator. This list is immutable.</p>
+   * A list of initial members, not including the creator. This list is immutable.
+   *
    * @public
    */
   members: MemberSpecification[] | undefined;
 
   /**
-   * <p>The display name for a collaboration.</p>
+   * The display name for a collaboration.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the collaboration provided by the collaboration owner.</p>
+   * A description of the collaboration provided by the collaboration owner.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration creator.</p>
+   * The abilities granted to the collaboration creator.
+   *
    * @public
    */
   creatorMemberAbilities: MemberAbility[] | undefined;
 
   /**
-   * <p>The ML abilities granted to the collaboration creator.</p>
+   * The ML abilities granted to the collaboration creator.
+   *
    * @public
    */
   creatorMLMemberAbilities?: MLMemberAbilities | undefined;
 
   /**
-   * <p>The display name of the collaboration creator.</p>
+   * The display name of the collaboration creator.
+   *
    * @public
    */
   creatorDisplayName: string | undefined;
 
   /**
-   * <p>The settings for client-side encryption with Cryptographic Computing for Clean Rooms.</p>
+   * The settings for client-side encryption with Cryptographic Computing for Clean Rooms.
+   *
    * @public
    */
   dataEncryptionMetadata?: DataEncryptionMetadata | undefined;
 
   /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the collaboration.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * An indicator as to whether query logging has been enabled or disabled for the collaboration.
+   *
+   * When `ENABLED`, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED`.
+   *
    * @public
    */
   queryLogStatus: CollaborationQueryLogStatus | undefined;
 
   /**
-   * <p>Specifies whether job logs are enabled for this collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration; those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * Specifies whether job logs are enabled for this collaboration.
+   *
+   * When `ENABLED`, Clean Rooms logs details about jobs run within this collaboration; those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED`.
+   *
    * @public
    */
   jobLogStatus?: CollaborationJobLogStatus | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The collaboration creator's payment responsibilities set by the collaboration creator. </p> <p>If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer.</p>
+   * The collaboration creator's payment responsibilities set by the collaboration creator.
+   *
+   * If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer.
+   *
    * @public
    */
   creatorPaymentConfiguration?: PaymentConfiguration | undefined;
 
   /**
-   * <p> The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
+   * The analytics engine.
+   *
+   * > **Note:** After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
+   *
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
 
   /**
-   * <p>The types of change requests that are automatically approved for this collaboration.</p>
+   * The types of change requests that are automatically approved for this collaboration.
+   *
    * @public
    */
   autoApprovedChangeRequestTypes?: AutoApprovedChangeType[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Regions where collaboration query results can be stored. When specified, results can only be written to these Regions. This parameter enables you to meet your compliance and data governance requirements, and implement regional data governance policies.</p>
+   * The Amazon Web Services Regions where collaboration query results can be stored. When specified, results can only be written to these Regions. This parameter enables you to meet your compliance and data governance requirements, and implement regional data governance policies.
+   *
    * @public
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
 
   /**
-   * <p>An indicator as to whether metrics have been enabled or disabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries. The default value is <code>false</code>.</p>
+   * An indicator as to whether metrics have been enabled or disabled for the collaboration.
+   *
+   * When `true`, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries. The default value is `false`.
+   *
    * @public
    */
   isMetricsEnabled?: boolean | undefined;
 }
 
 /**
- * <p>The multi-party data share environment. The collaboration contains metadata about its purpose and participants.</p>
+ * The multi-party data share environment. The collaboration contains metadata about its purpose and participants.
+ *
  * @public
  */
 export interface Collaboration {
   /**
-   * <p>The unique ID for the collaboration.</p>
+   * The unique ID for the collaboration.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique ARN for the collaboration.</p>
+   * The unique ARN for the collaboration.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
+   * A human-readable identifier provided by the collaboration owner. Display names are not unique.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the collaboration provided by the collaboration owner.</p>
+   * A description of the collaboration provided by the collaboration owner.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>A display name of the collaboration creator.</p>
+   * A display name of the collaboration creator.
+   *
    * @public
    */
   creatorDisplayName: string | undefined;
 
   /**
-   * <p>The time when the collaboration was created.</p>
+   * The time when the collaboration was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the collaboration metadata was last updated.</p>
+   * The time the collaboration metadata was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The status of a member in a collaboration.</p>
+   * The status of a member in a collaboration.
+   *
    * @public
    */
   memberStatus: MemberStatus | undefined;
 
   /**
-   * <p>The unique ID for your membership within the collaboration.</p>
+   * The unique ID for your membership within the collaboration.
+   *
    * @public
    */
   membershipId?: string | undefined;
 
   /**
-   * <p>The unique ARN for your membership within the collaboration.</p>
+   * The unique ARN for your membership within the collaboration.
+   *
    * @public
    */
   membershipArn?: string | undefined;
 
   /**
-   * <p>The settings for client-side encryption for cryptographic computing.</p>
+   * The settings for client-side encryption for cryptographic computing.
+   *
    * @public
    */
   dataEncryptionMetadata?: DataEncryptionMetadata | undefined;
 
   /**
-   * <p>An indicator as to whether query logging has been enabled or disabled for the collaboration.</p> <p>When <code>ENABLED</code>, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * An indicator as to whether query logging has been enabled or disabled for the collaboration.
+   *
+   * When `ENABLED`, Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED`.
+   *
    * @public
    */
   queryLogStatus: CollaborationQueryLogStatus | undefined;
 
   /**
-   * <p>An indicator as to whether job logging has been enabled or disabled for the collaboration. </p> <p>When <code>ENABLED</code>, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is <code>DISABLED</code>.</p>
+   * An indicator as to whether job logging has been enabled or disabled for the collaboration.
+   *
+   * When `ENABLED`, Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED`.
+   *
    * @public
    */
   jobLogStatus?: CollaborationJobLogStatus | undefined;
 
   /**
-   * <p> The analytics engine for the collaboration.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
+   * The analytics engine for the collaboration.
+   *
+   * > **Note:** After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
+   *
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
 
   /**
-   * <p>The types of change requests that are automatically approved for this collaboration.</p>
+   * The types of change requests that are automatically approved for this collaboration.
+   *
    * @public
    */
   autoApprovedChangeTypes?: AutoApprovedChangeType[] | undefined;
 
   /**
-   * <p>The Amazon Web Services Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.</p>
+   * The Amazon Web Services Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+   *
    * @public
    */
   allowedResultRegions?: SupportedS3Region[] | undefined;
 
   /**
-   * <p>An indicator as to whether metrics are enabled for the collaboration.</p> <p>When <code>true</code>, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries.</p>
+   * An indicator as to whether metrics are enabled for the collaboration.
+   *
+   * When `true`, collaboration members can opt in to Amazon CloudWatch metrics for their membership queries.
+   *
    * @public
    */
   isMetricsEnabled?: boolean | undefined;
@@ -3155,62 +3677,82 @@ export interface Collaboration {
  */
 export interface CreateCollaborationOutput {
   /**
-   * <p>The collaboration.</p>
+   * The collaboration.
+   *
    * @public
    */
   collaboration: Collaboration | undefined;
 }
 
 /**
- * <p>Defines the specific changes being requested for a collaboration, including configuration modifications and approval requirements.</p>
+ * Defines the specific changes being requested for a collaboration, including configuration modifications and approval requirements.
+ *
  * @public
  */
 export interface CollaborationChangeSpecification {
   /**
-   * <p>Defines requested updates to properties of the collaboration. Currently, this only supports modifying which change types are auto-approved for the collaboration.</p>
+   * Defines requested updates to properties of the collaboration. Currently, this only supports modifying which change types are auto-approved for the collaboration.
+   *
    * @public
    */
   autoApprovedChangeTypes?: AutoApprovedChangeType[] | undefined;
 }
 
 /**
- * <p>Specifies changes to collaboration membership, including adding new members with their abilities and display names.</p>
+ * Specifies changes to collaboration membership, including adding new members with their abilities and display names.
+ *
  * @public
  */
 export interface MemberChangeSpecification {
   /**
-   * <p>The Amazon Web Services account ID of the member to add to the collaboration.</p>
+   * The Amazon Web Services account ID of the member to add to the collaboration.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.</p> <note> <p>The following values are currently not supported: <code>CAN_QUERY</code> and <code>CAN_RUN_JOB</code>. </p> <p>Set the value of <code>memberAbilities</code> to <code>[]</code> to allow a member to contribute data.</p> <p>Set the value of <code>memberAbilities</code> to <code>[CAN_RECEIVE_RESULTS]</code> to allow a member to contribute data and receive results.</p> <p>Set the value of <code>memberAbilities</code> to <code>[CAN_EXPORT_QUERY_ANALYSIS_LOG]</code> so that the member can export the analysis logs for a protected query. Having this ability isn't sufficient on its own: You can export logs only for queries that you ran or paid for.</p> </note>
+   * The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.
+   *
+   * > **Note:**
+   * >
+   * > The following values are currently not supported: `CAN_QUERY` and `CAN_RUN_JOB`.
+   * >
+   * > Set the value of `memberAbilities` to `[]` to allow a member to contribute data.
+   * >
+   * > Set the value of `memberAbilities` to `[CAN_RECEIVE_RESULTS]` to allow a member to contribute data and receive results.
+   * >
+   * > Set the value of `memberAbilities` to `[CAN_EXPORT_QUERY_ANALYSIS_LOG]` so that the member can export the analysis logs for a protected query. Having this ability isn't sufficient on its own: You can export logs only for queries that you ran or paid for.
+   *
    * @public
    */
   memberAbilities: MemberAbility[] | undefined;
 
   /**
-   * <p>The ML member abilities for a collaboration member.</p>
+   * The ML member abilities for a collaboration member.
+   *
    * @public
    */
   mlMemberAbilities?: MLMemberAbilities | undefined;
 
   /**
-   * <p>An object representing the collaboration member's payment responsibilities set by the collaboration creator.</p>
+   * An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+   *
    * @public
    */
   paymentConfiguration?: PaymentConfiguration | undefined;
 
   /**
-   * <p>Specifies the display name that will be shown for this member in the collaboration. While this field is required when inviting new members, it becomes optional when modifying abilities of existing collaboration members. </p>
+   * Specifies the display name that will be shown for this member in the collaboration. While this field is required when inviting new members, it becomes optional when modifying abilities of existing collaboration members.
+   *
    * @public
    */
   displayName?: string | undefined;
 }
 
 /**
- * <p>A union that contains the specification details for different types of changes.</p>
+ * A union that contains the specification details for different types of changes.
+ *
  * @public
  */
 export type ChangeSpecification =
@@ -3223,7 +3765,8 @@ export type ChangeSpecification =
  */
 export namespace ChangeSpecification {
   /**
-   * <p>The member change specification when the change type is <code>MEMBER</code>.</p>
+   * The member change specification when the change type is `MEMBER`.
+   *
    * @public
    */
   export interface MemberMember {
@@ -3233,7 +3776,8 @@ export namespace ChangeSpecification {
   }
 
   /**
-   * <p>The collaboration configuration changes being requested. Currently, this only supports modifying which change types are auto-approved for the collaboration.</p>
+   * The collaboration configuration changes being requested. Currently, this only supports modifying which change types are auto-approved for the collaboration.
+   *
    * @public
    */
   export interface CollaborationMember {
@@ -3263,18 +3807,21 @@ export namespace ChangeSpecification {
 }
 
 /**
- * <p>Specifies a change to apply to a collaboration.</p>
+ * Specifies a change to apply to a collaboration.
+ *
  * @public
  */
 export interface ChangeInput {
   /**
-   * <p>The type of specification for the change. Currently supports <code>MEMBER</code> for member-related changes.</p>
+   * The type of specification for the change. Currently supports `MEMBER` for member-related changes.
+   *
    * @public
    */
   specificationType: ChangeSpecificationType | undefined;
 
   /**
-   * <p>The specification details for the change. The structure depends on the specification type.</p>
+   * The specification details for the change. The structure depends on the specification type.
+   *
    * @public
    */
   specification: ChangeSpecification | undefined;
@@ -3285,91 +3832,106 @@ export interface ChangeInput {
  */
 export interface CreateCollaborationChangeRequestInput {
   /**
-   * <p>The identifier of the collaboration that the change request is made against.</p>
+   * The identifier of the collaboration that the change request is made against.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The list of changes to apply to the collaboration. Each change specifies the type of modification and the details of what should be changed.</p>
+   * The list of changes to apply to the collaboration. Each change specifies the type of modification and the details of what should be changed.
+   *
    * @public
    */
   changes: ChangeInput[] | undefined;
 }
 
 /**
- * <p>Represents a single change within a collaboration change request, containing the change identifier and specification.</p>
+ * Represents a single change within a collaboration change request, containing the change identifier and specification.
+ *
  * @public
  */
 export interface Change {
   /**
-   * <p>The type of specification for this change.</p>
+   * The type of specification for this change.
+   *
    * @public
    */
   specificationType: ChangeSpecificationType | undefined;
 
   /**
-   * <p>The specification details for this change.</p>
+   * The specification details for this change.
+   *
    * @public
    */
   specification: ChangeSpecification | undefined;
 
   /**
-   * <p>The list of change types that were applied.</p>
+   * The list of change types that were applied.
+   *
    * @public
    */
   types: ChangeType[] | undefined;
 }
 
 /**
- * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+ * Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.
+ *
  * @public
  */
 export interface CollaborationChangeRequest {
   /**
-   * <p>The unique identifier for the change request.</p>
+   * The unique identifier for the change request.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique identifier for the collaboration being modified.</p>
+   * The unique identifier for the collaboration being modified.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The time when the change request was created.</p>
+   * The time when the change request was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time when the change request was last updated.</p>
+   * The time when the change request was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The current status of the change request. Valid values are <code>PENDING</code>, <code>APPROVED</code>, <code>DENIED</code>, <code>COMMITTED</code>, and <code>CANCELLED</code>.</p>
+   * The current status of the change request. Valid values are `PENDING`, `APPROVED`, `DENIED`, `COMMITTED`, and `CANCELLED`.
+   *
    * @public
    */
   status: ChangeRequestStatus | undefined;
 
   /**
-   * <p>Whether the change request was automatically approved based on the collaboration's auto-approval settings.</p>
+   * Whether the change request was automatically approved based on the collaboration's auto-approval settings.
+   *
    * @public
    */
   isAutoApproved: boolean | undefined;
 
   /**
-   * <p>The list of changes specified in this change request.</p>
+   * The list of changes specified in this change request.
+   *
    * @public
    */
   changes: Change[] | undefined;
 
   /**
-   * <p>A list of approval details from collaboration members, including approval status and multi-party approval workflow information.</p>
+   * A list of approval details from collaboration members, including approval status and multi-party approval workflow information.
+   *
    * @public
    */
   approvals?: Record<string, ApprovalStatusDetails> | undefined;
@@ -3380,7 +3942,8 @@ export interface CollaborationChangeRequest {
  */
 export interface CreateCollaborationChangeRequestOutput {
   /**
-   * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+   * Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.
+   *
    * @public
    */
   collaborationChangeRequest: CollaborationChangeRequest | undefined;
@@ -3391,7 +3954,8 @@ export interface CreateCollaborationChangeRequestOutput {
  */
 export interface DeleteCollaborationInput {
   /**
-   * <p>The identifier for the collaboration.</p>
+   * The identifier for the collaboration.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
@@ -3407,13 +3971,15 @@ export interface DeleteCollaborationOutput {}
  */
 export interface DeleteMemberInput {
   /**
-   * <p>The unique identifier for the associated collaboration.</p>
+   * The unique identifier for the associated collaboration.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The account ID of the member to remove.</p>
+   * The account ID of the member to remove.
+   *
    * @public
    */
   accountId: string | undefined;
@@ -3429,7 +3995,8 @@ export interface DeleteMemberOutput {}
  */
 export interface GetCollaborationInput {
   /**
-   * <p>The identifier for the collaboration.</p>
+   * The identifier for the collaboration.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
@@ -3440,7 +4007,8 @@ export interface GetCollaborationInput {
  */
 export interface GetCollaborationOutput {
   /**
-   * <p>The entire collaboration for this identifier.</p>
+   * The entire collaboration for this identifier.
+   *
    * @public
    */
   collaboration: Collaboration | undefined;
@@ -3451,13 +4019,15 @@ export interface GetCollaborationOutput {
  */
 export interface GetCollaborationAnalysisTemplateInput {
   /**
-   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.</p>
+   * The Amazon Resource Name (ARN) associated with the analysis template within a collaboration.
+   *
    * @public
    */
   analysisTemplateArn: string | undefined;
@@ -3468,7 +4038,8 @@ export interface GetCollaborationAnalysisTemplateInput {
  */
 export interface GetCollaborationAnalysisTemplateOutput {
   /**
-   * <p>The analysis template within a collaboration.</p>
+   * The analysis template within a collaboration.
+   *
    * @public
    */
   collaborationAnalysisTemplate: CollaborationAnalysisTemplate | undefined;
@@ -3479,13 +4050,15 @@ export interface GetCollaborationAnalysisTemplateOutput {
  */
 export interface GetCollaborationChangeRequestInput {
   /**
-   * <p>The identifier of the collaboration that the change request is made against.</p>
+   * The identifier of the collaboration that the change request is made against.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the change request to retrieve.</p>
+   * A unique identifier for the change request to retrieve.
+   *
    * @public
    */
   changeRequestIdentifier: string | undefined;
@@ -3496,7 +4069,8 @@ export interface GetCollaborationChangeRequestInput {
  */
 export interface GetCollaborationChangeRequestOutput {
   /**
-   * <p>The collaboration change request that was requested.</p>
+   * The collaboration change request that was requested.
+   *
    * @public
    */
   collaborationChangeRequest: CollaborationChangeRequest | undefined;
@@ -3507,79 +4081,92 @@ export interface GetCollaborationChangeRequestOutput {
  */
 export interface GetCollaborationConfiguredAudienceModelAssociationInput {
   /**
-   * <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
+   * A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
+   * A unique identifier for the configured audience model association that you want to retrieve.
+   *
    * @public
    */
   configuredAudienceModelAssociationIdentifier: string | undefined;
 }
 
 /**
- * <p>The configured audience model association within a collaboration.</p>
+ * The configured audience model association within a collaboration.
+ *
  * @public
  */
 export interface CollaborationConfiguredAudienceModelAssociation {
   /**
-   * <p>The identifier of the configured audience model association.</p>
+   * The identifier of the configured audience model association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A unique identifier for the collaboration that the configured audience model associations belong to. Accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the configured audience model associations belong to. Accepts collaboration ID.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The unique ARN for the configured audience model's associated collaboration.</p>
+   * The unique ARN for the configured audience model's associated collaboration.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configure audience model.</p>
+   * The Amazon Resource Name (ARN) of the configure audience model.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The name of the configured audience model association.</p>
+   * The name of the configured audience model association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the configured audience model association.</p>
+   * The description of the configured audience model association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Only supports Amazon Web Services account ID.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The time at which the configured audience model association was created.</p>
+   * The time at which the configured audience model association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured audience model association was updated.</p>
+   * The most recent time at which the configured audience model association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -3590,7 +4177,8 @@ export interface CollaborationConfiguredAudienceModelAssociation {
  */
 export interface GetCollaborationConfiguredAudienceModelAssociationOutput {
   /**
-   * <p>The metadata of the configured audience model association.</p>
+   * The metadata of the configured audience model association.
+   *
    * @public
    */
   collaborationConfiguredAudienceModelAssociation: CollaborationConfiguredAudienceModelAssociation | undefined;
@@ -3601,139 +4189,166 @@ export interface GetCollaborationConfiguredAudienceModelAssociationOutput {
  */
 export interface GetCollaborationIdNamespaceAssociationInput {
   /**
-   * <p>The unique identifier of the collaboration that contains the ID namespace association that you want to retrieve.</p>
+   * The unique identifier of the collaboration that contains the ID namespace association that you want to retrieve.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the ID namespace association that you want to retrieve.</p>
+   * The unique identifier of the ID namespace association that you want to retrieve.
+   *
    * @public
    */
   idNamespaceAssociationIdentifier: string | undefined;
 }
 
 /**
- * <p>The configuration settings for the ID mapping table.</p>
+ * The configuration settings for the ID mapping table.
+ *
  * @public
  */
 export interface IdMappingConfig {
   /**
-   * <p>An indicator as to whether you can use your column as a dimension column in the ID mapping table (<code>TRUE</code>) or not (<code>FALSE</code>).</p> <p>Default is <code>FALSE</code>.</p>
+   * An indicator as to whether you can use your column as a dimension column in the ID mapping table (`TRUE`) or not (`FALSE`).
+   *
+   * Default is `FALSE`.
+   *
    * @public
    */
   allowUseAsDimensionColumn: boolean | undefined;
 }
 
 /**
- * <p>Provides the information for the ID namespace association input reference configuration.</p>
+ * Provides the information for the ID namespace association input reference configuration.
+ *
  * @public
  */
 export interface IdNamespaceAssociationInputReferenceConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.</p>
+   * The Amazon Resource Name (ARN) of the Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.
+   *
    * @public
    */
   inputReferenceArn: string | undefined;
 
   /**
-   * <p>When <code>TRUE</code>, Clean Rooms manages permissions for the ID namespace association resource.</p> <p>When <code>FALSE</code>, the resource owner manages permissions for the ID namespace association resource.</p>
+   * When `TRUE`, Clean Rooms manages permissions for the ID namespace association resource.
+   *
+   * When `FALSE`, the resource owner manages permissions for the ID namespace association resource.
+   *
    * @public
    */
   manageResourcePolicies: boolean | undefined;
 }
 
 /**
- * <p>Provides the information for the ID namespace association input reference properties.</p>
+ * Provides the information for the ID namespace association input reference properties.
+ *
  * @public
  */
 export interface IdNamespaceAssociationInputReferenceProperties {
   /**
-   * <p>The ID namespace type for this ID namespace association.</p>
+   * The ID namespace type for this ID namespace association.
+   *
    * @public
    */
   idNamespaceType: IdNamespaceType | undefined;
 
   /**
-   * <p>Defines how ID mapping workflows are supported for this ID namespace association.</p>
+   * Defines how ID mapping workflows are supported for this ID namespace association.
+   *
    * @public
    */
   idMappingWorkflowsSupported: __DocumentType[] | undefined;
 }
 
 /**
- * <p>Defines details for the collaboration ID namespace association.</p>
+ * Defines details for the collaboration ID namespace association.
+ *
  * @public
  */
 export interface CollaborationIdNamespaceAssociation {
   /**
-   * <p>The unique identifier of the collaboration ID namespace association.</p>
+   * The unique identifier of the collaboration ID namespace association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration ID namespace association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains the collaboration ID namespace association.</p>
+   * The unique identifier of the collaboration that contains the collaboration ID namespace association.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the collaboration ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains the collaboration ID namespace association.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The name of the collaboration ID namespace association.</p>
+   * The name of the collaboration ID namespace association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the collaboration ID namespace association.</p>
+   * The description of the collaboration ID namespace association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The unique identifier of the Amazon Web Services account that created the collaboration ID namespace association.</p>
+   * The unique identifier of the Amazon Web Services account that created the collaboration ID namespace association.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The time at which the collaboration ID namespace association was created.</p>
+   * The time at which the collaboration ID namespace association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the collaboration ID namespace was updated.</p>
+   * The most recent time at which the collaboration ID namespace was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The input reference configuration that's necessary to create the collaboration ID namespace association.</p>
+   * The input reference configuration that's necessary to create the collaboration ID namespace association.
+   *
    * @public
    */
   inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig | undefined;
 
   /**
-   * <p>The input reference properties that are needed to create the collaboration ID namespace association.</p>
+   * The input reference properties that are needed to create the collaboration ID namespace association.
+   *
    * @public
    */
   inputReferenceProperties: IdNamespaceAssociationInputReferenceProperties | undefined;
 
   /**
-   * <p>The configuration settings for the ID mapping table.</p>
+   * The configuration settings for the ID mapping table.
+   *
    * @public
    */
   idMappingConfig?: IdMappingConfig | undefined;
@@ -3744,7 +4359,8 @@ export interface CollaborationIdNamespaceAssociation {
  */
 export interface GetCollaborationIdNamespaceAssociationOutput {
   /**
-   * <p>The ID namespace association that you requested.</p>
+   * The ID namespace association that you requested.
+   *
    * @public
    */
   collaborationIdNamespaceAssociation: CollaborationIdNamespaceAssociation | undefined;
@@ -3755,38 +4371,44 @@ export interface GetCollaborationIdNamespaceAssociationOutput {
  */
 export interface GetCollaborationPrivacyBudgetTemplateInput {
   /**
-   * <p>A unique identifier for one of your collaborations.</p>
+   * A unique identifier for one of your collaborations.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for one of your privacy budget templates.</p>
+   * A unique identifier for one of your privacy budget templates.
+   *
    * @public
    */
   privacyBudgetTemplateIdentifier: string | undefined;
 }
 
 /**
- * <p>The epsilon and noise parameter values that were used for the differential privacy template.</p>
+ * The epsilon and noise parameter values that were used for the differential privacy template.
+ *
  * @public
  */
 export interface DifferentialPrivacyTemplateParametersOutput {
   /**
-   * <p>The epsilon value that you specified.</p>
+   * The epsilon value that you specified.
+   *
    * @public
    */
   epsilon: number | undefined;
 
   /**
-   * <p>Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
+   * Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
+   *
    * @public
    */
   usersNoisePerQuery: number | undefined;
 }
 
 /**
- * <p>The epsilon and noise parameters that were used in the privacy budget template.</p>
+ * The epsilon and noise parameters that were used in the privacy budget template.
+ *
  * @public
  */
 export type PrivacyBudgetTemplateParametersOutput =
@@ -3799,7 +4421,8 @@ export type PrivacyBudgetTemplateParametersOutput =
  */
 export namespace PrivacyBudgetTemplateParametersOutput {
   /**
-   * <p>The epsilon and noise parameters.</p>
+   * The epsilon and noise parameters.
+   *
    * @public
    */
   export interface DifferentialPrivacyMember {
@@ -3809,7 +4432,8 @@ export namespace PrivacyBudgetTemplateParametersOutput {
   }
 
   /**
-   * <p>Access budget configuration returned from the privacy budget template, containing the configured access budget settings.</p>
+   * Access budget configuration returned from the privacy budget template, containing the configured access budget settings.
+   *
    * @public
    */
   export interface AccessBudgetMember {
@@ -3839,66 +4463,79 @@ export namespace PrivacyBudgetTemplateParametersOutput {
 }
 
 /**
- * <p>An array that specifies the information for a collaboration's privacy budget template.</p>
+ * An array that specifies the information for a collaboration's privacy budget template.
+ *
  * @public
  */
 export interface CollaborationPrivacyBudgetTemplate {
   /**
-   * <p>The unique identifier of the collaboration privacy budget template.</p>
+   * The unique identifier of the collaboration privacy budget template.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration privacy budget template.</p>
+   * The ARN of the collaboration privacy budget template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that includes this collaboration privacy budget template.</p>
+   * The unique identifier of the collaboration that includes this collaboration privacy budget template.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration that includes this collaboration privacy budget template.</p>
+   * The ARN of the collaboration that includes this collaboration privacy budget template.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the account that created this collaboration privacy budget template.</p>
+   * The unique identifier of the account that created this collaboration privacy budget template.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The time at which the collaboration privacy budget template was created.</p>
+   * The time at which the collaboration privacy budget template was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the collaboration privacy budget template was updated.</p>
+   * The most recent time at which the collaboration privacy budget template was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The type of privacy budget template.</p>
+   * The type of privacy budget template.
+   *
    * @public
    */
   privacyBudgetType: PrivacyBudgetType | undefined;
 
   /**
-   * <p>How often the privacy budget refreshes.</p> <important> <p>If you plan to regularly bring new data into the collaboration, use <code>CALENDAR_MONTH</code> to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.</p> </important>
+   * How often the privacy budget refreshes.
+   *
+   * > **Important:** If you plan to regularly bring new data into the collaboration, use `CALENDAR_MONTH` to automatically get a new privacy budget for the collaboration every calendar month. Choosing this option allows arbitrary amounts of information to be revealed about rows of the data when repeatedly queried across refreshes. Avoid choosing this if the same rows will be repeatedly queried between privacy budget refreshes.
+   *
    * @public
    */
   autoRefresh: PrivacyBudgetTemplateAutoRefresh | undefined;
 
   /**
-   * <p>Specifies the epsilon and noise parameters for the privacy budget template.</p>
+   * Specifies the epsilon and noise parameters for the privacy budget template.
+   *
    * @public
    */
   parameters: PrivacyBudgetTemplateParametersOutput | undefined;
@@ -3909,7 +4546,8 @@ export interface CollaborationPrivacyBudgetTemplate {
  */
 export interface GetCollaborationPrivacyBudgetTemplateOutput {
   /**
-   * <p>Returns the details of the privacy budget template that you requested.</p>
+   * Returns the details of the privacy budget template that you requested.
+   *
    * @public
    */
   collaborationPrivacyBudgetTemplate: CollaborationPrivacyBudgetTemplate | undefined;
@@ -3920,13 +4558,15 @@ export interface GetCollaborationPrivacyBudgetTemplateOutput {
  */
 export interface GetSchemaInput {
   /**
-   * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
+   * A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The name of the relation to retrieve the schema for.</p>
+   * The name of the relation to retrieve the schema for.
+   *
    * @public
    */
   name: string | undefined;
@@ -3937,7 +4577,8 @@ export interface GetSchemaInput {
  */
 export interface GetSchemaOutput {
   /**
-   * <p>The entire schema object.</p>
+   * The entire schema object.
+   *
    * @public
    */
   schema: Schema | undefined;
@@ -3948,19 +4589,22 @@ export interface GetSchemaOutput {
  */
 export interface GetSchemaAnalysisRuleInput {
   /**
-   * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
+   * A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The name of the schema to retrieve the analysis rule for.</p>
+   * The name of the schema to retrieve the analysis rule for.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely identified by a combination of the collaboration, the schema name, and their type.</p>
+   * The type of the schema analysis rule to retrieve. Schema analysis rules are uniquely identified by a combination of the collaboration, the schema name, and their type.
+   *
    * @public
    */
   type: AnalysisRuleType | undefined;
@@ -3971,7 +4615,8 @@ export interface GetSchemaAnalysisRuleInput {
  */
 export interface GetSchemaAnalysisRuleOutput {
   /**
-   * <p>A specification about how data from the configured table can be used.</p>
+   * A specification about how data from the configured table can be used.
+   *
    * @public
    */
   analysisRule: AnalysisRule | undefined;
@@ -3982,85 +4627,99 @@ export interface GetSchemaAnalysisRuleOutput {
  */
 export interface ListCollaborationAnalysisTemplatesInput {
   /**
-   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The metadata of the analysis template within a collaboration.</p>
+ * The metadata of the analysis template within a collaboration.
+ *
  * @public
  */
 export interface CollaborationAnalysisTemplateSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis template.</p>
+   * The Amazon Resource Name (ARN) of the analysis template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The time that the summary of the analysis template in a collaboration was created.</p>
+   * The time that the summary of the analysis template in a collaboration was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The identifier of the analysis template.</p>
+   * The identifier of the analysis template.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the analysis template.</p>
+   * The name of the analysis template.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time that the summary of the analysis template in the collaboration was last updated.</p>
+   * The time that the summary of the analysis template in the collaboration was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique ARN for the analysis template’s associated collaboration.</p>
+   * The unique ARN for the analysis template’s associated collaboration.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the analysis templates belong to. Currently accepts collaboration ID.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The description of the analysis template.</p>
+   * The description of the analysis template.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Indicates if this collaboration analysis template uses synthetic data generation.</p>
+   * Indicates if this collaboration analysis template uses synthetic data generation.
+   *
    * @public
    */
   isSyntheticData?: boolean | undefined;
@@ -4071,13 +4730,15 @@ export interface CollaborationAnalysisTemplateSummary {
  */
 export interface ListCollaborationAnalysisTemplatesOutput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The metadata of the analysis template within a collaboration.</p>
+   * The metadata of the analysis template within a collaboration.
+   *
    * @public
    */
   collaborationAnalysisTemplateSummaries: CollaborationAnalysisTemplateSummary[] | undefined;
@@ -4088,79 +4749,92 @@ export interface ListCollaborationAnalysisTemplatesOutput {
  */
 export interface ListCollaborationChangeRequestsInput {
   /**
-   * <p>The identifier of the collaboration that the change request is made against.</p>
+   * The identifier of the collaboration that the change request is made against.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>A filter to only return change requests with the specified status.</p>
+   * A filter to only return change requests with the specified status.
+   *
    * @public
    */
   status?: ChangeRequestStatus | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call.</p>
+   * The maximum number of results that are returned for an API request call.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Summary information about a collaboration change request.</p>
+ * Summary information about a collaboration change request.
+ *
  * @public
  */
 export interface CollaborationChangeRequestSummary {
   /**
-   * <p>The unique identifier for the change request.</p>
+   * The unique identifier for the change request.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique identifier for the collaboration.</p>
+   * The unique identifier for the collaboration.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The time when the change request was created.</p>
+   * The time when the change request was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time when the change request was last updated.</p>
+   * The time when the change request was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The current status of the change request.</p>
+   * The current status of the change request.
+   *
    * @public
    */
   status: ChangeRequestStatus | undefined;
 
   /**
-   * <p>Whether the change request was automatically approved.</p>
+   * Whether the change request was automatically approved.
+   *
    * @public
    */
   isAutoApproved: boolean | undefined;
 
   /**
-   * <p>Summary of the changes in this change request.</p>
+   * Summary of the changes in this change request.
+   *
    * @public
    */
   changes: Change[] | undefined;
 
   /**
-   * <p>Summary of approval statuses from all collaboration members for this change request.</p>
+   * Summary of approval statuses from all collaboration members for this change request.
+   *
    * @public
    */
   approvals?: Record<string, ApprovalStatusDetails> | undefined;
@@ -4171,13 +4845,15 @@ export interface CollaborationChangeRequestSummary {
  */
 export interface ListCollaborationChangeRequestsOutput {
   /**
-   * <p>The list of collaboration change request summaries.</p>
+   * The list of collaboration change request summaries.
+   *
    * @public
    */
   collaborationChangeRequestSummaries: CollaborationChangeRequestSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4188,79 +4864,92 @@ export interface ListCollaborationChangeRequestsOutput {
  */
 export interface ListCollaborationConfiguredAudienceModelAssociationsInput {
   /**
-   * <p>A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.</p>
+   * A unique identifier for the collaboration that the configured audience model association belongs to. Accepts a collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the configured audience model association in the collaboration.</p>
+ * A summary of the configured audience model association in the collaboration.
+ *
  * @public
  */
 export interface CollaborationConfiguredAudienceModelAssociationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The time at which the configured audience model association was created.</p>
+   * The time at which the configured audience model association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The identifier of the configured audience model association.</p>
+   * The identifier of the configured audience model association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the configured audience model association.</p>
+   * The name of the configured audience model association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The most recent time at which the configured audience model association was updated.</p>
+   * The most recent time at which the configured audience model association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique ARN for the configured audience model's associated collaboration.</p>
+   * The unique ARN for the configured audience model's associated collaboration.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>A unique identifier for the collaboration that the configured audience model associations belong to. Accepts collaboration ID.</p>
+   * A unique identifier for the collaboration that the configured audience model associations belong to. Accepts collaboration ID.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Only supports Amazon Web Services account ID.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The description of the configured audience model association.</p>
+   * The description of the configured audience model association.
+   *
    * @public
    */
   description?: string | undefined;
@@ -4271,13 +4960,15 @@ export interface CollaborationConfiguredAudienceModelAssociationSummary {
  */
 export interface ListCollaborationConfiguredAudienceModelAssociationsOutput {
   /**
-   * <p>The metadata of the configured audience model association within a collaboration.</p>
+   * The metadata of the configured audience model association within a collaboration.
+   *
    * @public
    */
   collaborationConfiguredAudienceModelAssociationSummaries: CollaborationConfiguredAudienceModelAssociationSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4288,103 +4979,120 @@ export interface ListCollaborationConfiguredAudienceModelAssociationsOutput {
  */
 export interface ListCollaborationIdNamespaceAssociationsInput {
   /**
-   * <p>The unique identifier of the collaboration that contains the ID namespace associations that you want to retrieve.</p>
+   * The unique identifier of the collaboration that contains the ID namespace associations that you want to retrieve.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.&gt;</p>
+   * The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.&gt;
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Detailed information about the ID namespace association input reference properties.</p>
+ * Detailed information about the ID namespace association input reference properties.
+ *
  * @public
  */
 export interface IdNamespaceAssociationInputReferencePropertiesSummary {
   /**
-   * <p>The ID namespace type for this ID namespace association.</p>
+   * The ID namespace type for this ID namespace association.
+   *
    * @public
    */
   idNamespaceType: IdNamespaceType | undefined;
 }
 
 /**
- * <p>Provides summary information about the collaboration ID namespace association.</p>
+ * Provides summary information about the collaboration ID namespace association.
+ *
  * @public
  */
 export interface CollaborationIdNamespaceAssociationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration ID namespace association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The time at which the collaboration ID namespace association was created.</p>
+   * The time at which the collaboration ID namespace association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration ID namespace association.</p>
+   * The unique identifier of the collaboration ID namespace association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The most recent time at which the collaboration ID namespace association was updated.</p>
+   * The most recent time at which the collaboration ID namespace association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this collaboration ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains this collaboration ID namespace association.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains this collaboration ID namespace association.</p>
+   * The unique identifier of the collaboration that contains this collaboration ID namespace association.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account that created this collaboration ID namespace association.</p>
+   * The Amazon Web Services account that created this collaboration ID namespace association.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The input reference configuration that's used to create the collaboration ID namespace association.</p>
+   * The input reference configuration that's used to create the collaboration ID namespace association.
+   *
    * @public
    */
   inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig | undefined;
 
   /**
-   * <p>The name of the collaboration ID namespace association.</p>
+   * The name of the collaboration ID namespace association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the collaboration ID namepsace association.</p>
+   * The description of the collaboration ID namepsace association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The input reference properties that are used to create the collaboration ID namespace association.</p>
+   * The input reference properties that are used to create the collaboration ID namespace association.
+   *
    * @public
    */
   inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesSummary | undefined;
@@ -4395,13 +5103,15 @@ export interface CollaborationIdNamespaceAssociationSummary {
  */
 export interface ListCollaborationIdNamespaceAssociationsOutput {
   /**
-   * <p>The token value provided to access the next page of results.</p>
+   * The token value provided to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The summary information of the collaboration ID namespace associations that you requested.</p>
+   * The summary information of the collaboration ID namespace associations that you requested.
+   *
    * @public
    */
   collaborationIdNamespaceAssociationSummaries: CollaborationIdNamespaceAssociationSummary[] | undefined;
@@ -4412,80 +5122,93 @@ export interface ListCollaborationIdNamespaceAssociationsOutput {
  */
 export interface ListCollaborationPrivacyBudgetsInput {
   /**
-   * <p>A unique identifier for one of your collaborations.</p>
+   * A unique identifier for one of your collaborations.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the type of the privacy budget.</p>
+   * Specifies the type of the privacy budget.
+   *
    * @public
    */
   privacyBudgetType: PrivacyBudgetType | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Configured Table Association (ConfiguredTableAssociation) used to filter privacy budgets.</p>
+   * The Amazon Resource Name (ARN) of the Configured Table Association (ConfiguredTableAssociation) used to filter privacy budgets.
+   *
    * @public
    */
   accessBudgetResourceArn?: string | undefined;
 }
 
 /**
- * <p>Information about the total number of aggregations, as well as the remaining aggregations.</p>
+ * Information about the total number of aggregations, as well as the remaining aggregations.
+ *
  * @public
  */
 export interface DifferentialPrivacyPrivacyBudgetAggregation {
   /**
-   * <p>The different types of aggregation functions that you can perform.</p>
+   * The different types of aggregation functions that you can perform.
+   *
    * @public
    */
   type: DifferentialPrivacyAggregationType | undefined;
 
   /**
-   * <p>The maximum number of aggregation functions that you can perform with the given privacy budget.</p>
+   * The maximum number of aggregation functions that you can perform with the given privacy budget.
+   *
    * @public
    */
   maxCount: number | undefined;
 
   /**
-   * <p>The remaining number of aggregation functions that can be run with the available privacy budget.</p>
+   * The remaining number of aggregation functions that can be run with the available privacy budget.
+   *
    * @public
    */
   remainingCount: number | undefined;
 }
 
 /**
- * <p>Specifies the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations available.</p>
+ * Specifies the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations available.
+ *
  * @public
  */
 export interface DifferentialPrivacyPrivacyBudget {
   /**
-   * <p>This information includes the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations.</p>
+   * This information includes the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations.
+   *
    * @public
    */
   aggregations: DifferentialPrivacyPrivacyBudgetAggregation[] | undefined;
 
   /**
-   * <p>The epsilon value that you configured.</p>
+   * The epsilon value that you configured.
+   *
    * @public
    */
   epsilon: number | undefined;
 }
 
 /**
- * <p>The epsilon parameter value and number of each aggregation function that you can perform.</p>
+ * The epsilon parameter value and number of each aggregation function that you can perform.
+ *
  * @public
  */
 export type PrivacyBudget =
@@ -4498,7 +5221,8 @@ export type PrivacyBudget =
  */
 export namespace PrivacyBudget {
   /**
-   * <p>An object that specifies the epsilon parameter and the utility in terms of total aggregations, as well as the remaining aggregations available.</p>
+   * An object that specifies the epsilon parameter and the utility in terms of total aggregations, as well as the remaining aggregations available.
+   *
    * @public
    */
   export interface DifferentialPrivacyMember {
@@ -4508,7 +5232,8 @@ export namespace PrivacyBudget {
   }
 
   /**
-   * <p>Access budget information associated with this privacy budget.</p>
+   * Access budget information associated with this privacy budget.
+   *
    * @public
    */
   export interface AccessBudgetMember {
@@ -4538,66 +5263,77 @@ export namespace PrivacyBudget {
 }
 
 /**
- * <p>A summary of the collaboration privacy budgets. This summary includes the collaboration information, creation information, epsilon provided, and utility in terms of aggregations.</p>
+ * A summary of the collaboration privacy budgets. This summary includes the collaboration information, creation information, epsilon provided, and utility in terms of aggregations.
+ *
  * @public
  */
 export interface CollaborationPrivacyBudgetSummary {
   /**
-   * <p>The unique identifier of the collaboration privacy budget.</p>
+   * The unique identifier of the collaboration privacy budget.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration privacy budget template.</p>
+   * The unique identifier of the collaboration privacy budget template.
+   *
    * @public
    */
   privacyBudgetTemplateId: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration privacy budget template.</p>
+   * The ARN of the collaboration privacy budget template.
+   *
    * @public
    */
   privacyBudgetTemplateArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that includes this privacy budget.</p>
+   * The unique identifier of the collaboration that includes this privacy budget.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration that includes this privacy budget.</p>
+   * The ARN of the collaboration that includes this privacy budget.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the account that created this privacy budget.</p>
+   * The unique identifier of the account that created this privacy budget.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The type of privacy budget template.</p>
+   * The type of privacy budget template.
+   *
    * @public
    */
   type: PrivacyBudgetType | undefined;
 
   /**
-   * <p>The time at which the privacy budget was created.</p>
+   * The time at which the privacy budget was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the privacy budget was updated.</p>
+   * The most recent time at which the privacy budget was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The includes epsilon provided and utility in terms of aggregations.</p>
+   * The includes epsilon provided and utility in terms of aggregations.
+   *
    * @public
    */
   budget: PrivacyBudget | undefined;
@@ -4608,13 +5344,15 @@ export interface CollaborationPrivacyBudgetSummary {
  */
 export interface ListCollaborationPrivacyBudgetsOutput {
   /**
-   * <p>Summaries of the collaboration privacy budgets.</p>
+   * Summaries of the collaboration privacy budgets.
+   *
    * @public
    */
   collaborationPrivacyBudgetSummaries: CollaborationPrivacyBudgetSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -4625,73 +5363,85 @@ export interface ListCollaborationPrivacyBudgetsOutput {
  */
 export interface ListCollaborationPrivacyBudgetTemplatesInput {
   /**
-   * <p>A unique identifier for one of your collaborations.</p>
+   * A unique identifier for one of your collaborations.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the collaboration's privacy budget template. This summary includes information about who created the privacy budget template and what collaborations it belongs to.</p>
+ * A summary of the collaboration's privacy budget template. This summary includes information about who created the privacy budget template and what collaborations it belongs to.
+ *
  * @public
  */
 export interface CollaborationPrivacyBudgetTemplateSummary {
   /**
-   * <p>The unique identifier of the collaboration privacy budget template.</p>
+   * The unique identifier of the collaboration privacy budget template.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration privacy budget template.</p>
+   * The ARN of the collaboration privacy budget template.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains this collaboration privacy budget template.</p>
+   * The unique identifier of the collaboration that contains this collaboration privacy budget template.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration that contains this collaboration privacy budget template.</p>
+   * The ARN of the collaboration that contains this collaboration privacy budget template.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the account that created this collaboration privacy budget template.</p>
+   * The unique identifier of the account that created this collaboration privacy budget template.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The type of the privacy budget template.</p>
+   * The type of the privacy budget template.
+   *
    * @public
    */
   privacyBudgetType: PrivacyBudgetType | undefined;
 
   /**
-   * <p>The time at which the collaboration privacy budget template was created.</p>
+   * The time at which the collaboration privacy budget template was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the collaboration privacy budget template was updated.</p>
+   * The most recent time at which the collaboration privacy budget template was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -4702,13 +5452,15 @@ export interface CollaborationPrivacyBudgetTemplateSummary {
  */
 export interface ListCollaborationPrivacyBudgetTemplatesOutput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>An array that summarizes the collaboration privacy budget templates. The summary includes collaboration information, creation information, the privacy budget type.</p>
+   * An array that summarizes the collaboration privacy budget templates. The summary includes collaboration information, creation information, the privacy budget type.
+   *
    * @public
    */
   collaborationPrivacyBudgetTemplateSummaries: CollaborationPrivacyBudgetTemplateSummary[] | undefined;
@@ -4719,91 +5471,108 @@ export interface ListCollaborationPrivacyBudgetTemplatesOutput {
  */
 export interface ListCollaborationsInput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The caller's status in a collaboration.</p>
+   * The caller's status in a collaboration.
+   *
    * @public
    */
   memberStatus?: FilterableMemberStatus | undefined;
 }
 
 /**
- * <p>The metadata of the collaboration.</p>
+ * The metadata of the collaboration.
+ *
  * @public
  */
 export interface CollaborationSummary {
   /**
-   * <p>The identifier for the collaboration.</p>
+   * The identifier for the collaboration.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The ARN of the collaboration.</p>
+   * The ARN of the collaboration.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
+   * A human-readable identifier provided by the collaboration owner. Display names are not unique.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The display name of the collaboration creator.</p>
+   * The display name of the collaboration creator.
+   *
    * @public
    */
   creatorDisplayName: string | undefined;
 
   /**
-   * <p>The time when the collaboration was created.</p>
+   * The time when the collaboration was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the collaboration metadata was last updated.</p>
+   * The time the collaboration metadata was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The status of a member in a collaboration.</p>
+   * The status of a member in a collaboration.
+   *
    * @public
    */
   memberStatus: MemberStatus | undefined;
 
   /**
-   * <p>The identifier of a member in a collaboration.</p>
+   * The identifier of a member in a collaboration.
+   *
    * @public
    */
   membershipId?: string | undefined;
 
   /**
-   * <p>The ARN of a member in a collaboration.</p>
+   * The ARN of a member in a collaboration.
+   *
    * @public
    */
   membershipArn?: string | undefined;
 
   /**
-   * <p> The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
+   * The analytics engine.
+   *
+   * > **Note:** After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
+   *
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
@@ -4814,13 +5583,15 @@ export interface CollaborationSummary {
  */
 export interface ListCollaborationsOutput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of collaborations.</p>
+   * The list of collaborations.
+   *
    * @public
    */
   collaborationList: CollaborationSummary[] | undefined;
@@ -4831,85 +5602,99 @@ export interface ListCollaborationsOutput {
  */
 export interface ListMembersInput {
   /**
-   * <p>The identifier of the collaboration in which the members are listed.</p>
+   * The identifier of the collaboration in which the members are listed.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The member object listed by the request.</p>
+ * The member object listed by the request.
+ *
  * @public
  */
 export interface MemberSummary {
   /**
-   * <p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>
+   * The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.
+   *
    * @public
    */
   accountId: string | undefined;
 
   /**
-   * <p>The status of the member. </p>
+   * The status of the member.
+   *
    * @public
    */
   status: MemberStatus | undefined;
 
   /**
-   * <p>The member's display name.</p>
+   * The member's display name.
+   *
    * @public
    */
   displayName: string | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration member.</p>
+   * The abilities granted to the collaboration member.
+   *
    * @public
    */
   abilities: MemberAbility[] | undefined;
 
   /**
-   * <p>Provides a summary of the ML abilities for the collaboration member.</p>
+   * Provides a summary of the ML abilities for the collaboration member.
+   *
    * @public
    */
   mlAbilities?: MLMemberAbilities | undefined;
 
   /**
-   * <p>The time when the member was created.</p>
+   * The time when the member was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the member metadata was last updated.</p>
+   * The time the member metadata was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique ID for the member's associated membership, if present.</p>
+   * The unique ID for the member's associated membership, if present.
+   *
    * @public
    */
   membershipId?: string | undefined;
 
   /**
-   * <p>The unique ARN for the member's associated membership, if present.</p>
+   * The unique ARN for the member's associated membership, if present.
+   *
    * @public
    */
   membershipArn?: string | undefined;
 
   /**
-   * <p>The collaboration member's payment responsibilities set by the collaboration creator. </p>
+   * The collaboration member's payment responsibilities set by the collaboration creator.
+   *
    * @public
    */
   paymentConfiguration: PaymentConfiguration | undefined;
@@ -4920,13 +5705,15 @@ export interface MemberSummary {
  */
 export interface ListMembersOutput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The list of members returned by the ListMembers operation.</p>
+   * The list of members returned by the ListMembers operation.
+   *
    * @public
    */
   memberSummaries: MemberSummary[] | undefined;
@@ -4937,97 +5724,119 @@ export interface ListMembersOutput {
  */
 export interface ListSchemasInput {
   /**
-   * <p>A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.</p>
+   * A unique identifier for the collaboration that the schema belongs to. Currently accepts a collaboration ID.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>If present, filter schemas by schema type.</p>
+   * If present, filter schemas by schema type.
+   *
    * @public
    */
   schemaType?: SchemaType | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The schema summary for the objects listed by the request.</p>
+ * The schema summary for the objects listed by the request.
+ *
  * @public
  */
 export interface SchemaSummary {
   /**
-   * <p>The name for the schema object.</p>
+   * The name for the schema object.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of schema object.</p>
+   * The type of schema object.
+   *
    * @public
    */
   type: SchemaType | undefined;
 
   /**
-   * <p>The unique account ID for the Amazon Web Services account that owns the schema.</p>
+   * The unique account ID for the Amazon Web Services account that owns the schema.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 
   /**
-   * <p>The time the schema object was created.</p>
+   * The time the schema object was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the schema object was last updated.</p>
+   * The time the schema object was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique ID for the collaboration that the schema belongs to.</p>
+   * The unique ID for the collaboration that the schema belongs to.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The unique ARN for the collaboration that the schema belongs to.</p>
+   * The unique ARN for the collaboration that the schema belongs to.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The types of analysis rules that are associated with this schema object.</p>
+   * The types of analysis rules that are associated with this schema object.
+   *
    * @public
    */
   analysisRuleTypes: AnalysisRuleType[] | undefined;
 
   /**
-   * <p>The analysis method for the associated schema.</p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>
+   * The analysis method for the associated schema.
+   *
+   * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+   *
+   * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+   *
+   * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+   *
    * @public
    */
   analysisMethod?: AnalysisMethod | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the schema summary resource.</p>
+   * The Amazon Resource Name (ARN) of the schema summary resource.
+   *
    * @public
    */
   resourceArn?: string | undefined;
 
   /**
-   * <p> The selected analysis methods for the schema.</p>
+   * The selected analysis methods for the schema.
+   *
    * @public
    */
   selectedAnalysisMethods?: SelectedAnalysisMethod[] | undefined;
@@ -5038,13 +5847,15 @@ export interface SchemaSummary {
  */
 export interface ListSchemasOutput {
   /**
-   * <p>The retrieved list of schemas.</p>
+   * The retrieved list of schemas.
+   *
    * @public
    */
   schemaSummaries: SchemaSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5055,25 +5866,31 @@ export interface ListSchemasOutput {
  */
 export interface UpdateCollaborationInput {
   /**
-   * <p>The identifier for the collaboration.</p>
+   * The identifier for the collaboration.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>A human-readable identifier provided by the collaboration owner. Display names are not unique.</p>
+   * A human-readable identifier provided by the collaboration owner. Display names are not unique.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A description of the collaboration.</p>
+   * A description of the collaboration.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The analytics engine.</p> <note> <p>After July 16, 2025, the <code>CLEAN_ROOMS_SQL</code> parameter will no longer be available. </p> </note>
+   * The analytics engine.
+   *
+   * > **Note:** After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
+   *
    * @public
    */
   analyticsEngine?: AnalyticsEngine | undefined;
@@ -5084,7 +5901,8 @@ export interface UpdateCollaborationInput {
  */
 export interface UpdateCollaborationOutput {
   /**
-   * <p>The entire collaboration that has been updated.</p>
+   * The entire collaboration that has been updated.
+   *
    * @public
    */
   collaboration: Collaboration | undefined;
@@ -5095,19 +5913,24 @@ export interface UpdateCollaborationOutput {
  */
 export interface UpdateCollaborationChangeRequestInput {
   /**
-   * <p>The unique identifier of the collaboration that contains the change request to be updated.</p>
+   * The unique identifier of the collaboration that contains the change request to be updated.
+   *
    * @public
    */
   collaborationIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the specific change request to be updated within the collaboration.</p>
+   * The unique identifier of the specific change request to be updated within the collaboration.
+   *
    * @public
    */
   changeRequestIdentifier: string | undefined;
 
   /**
-   * <p>The action to perform on the change request. Valid values include APPROVE (approve the change), DENY (reject the change), CANCEL (cancel the request), and COMMIT (commit after the request is approved).</p> <p>For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.</p>
+   * The action to perform on the change request. Valid values include APPROVE (approve the change), DENY (reject the change), CANCEL (cancel the request), and COMMIT (commit after the request is approved).
+   *
+   * For change requests without automatic approval, a member in the collaboration can manually APPROVE or DENY a change request. The collaboration owner can manually CANCEL or COMMIT a change request.
+   *
    * @public
    */
   action: ChangeRequestAction | undefined;
@@ -5118,7 +5941,8 @@ export interface UpdateCollaborationChangeRequestInput {
  */
 export interface UpdateCollaborationChangeRequestOutput {
   /**
-   * <p>Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.</p>
+   * Represents a request to modify a collaboration. Change requests enable structured modifications to collaborations after they have been created.
+   *
    * @public
    */
   collaborationChangeRequest: CollaborationChangeRequest | undefined;
@@ -5129,115 +5953,136 @@ export interface UpdateCollaborationChangeRequestOutput {
  */
 export interface CreateConfiguredAudienceModelAssociationInput {
   /**
-   * <p>A unique identifier for one of your memberships for a collaboration. The configured audience model is associated to the collaboration that this membership belongs to. Accepts a membership ID.</p>
+   * A unique identifier for one of your memberships for a collaboration. The configured audience model is associated to the collaboration that this membership belongs to. Accepts a membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the configured audience model that you want to associate.</p>
+   * A unique identifier for the configured audience model that you want to associate.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The name of the configured audience model association.</p>
+   * The name of the configured audience model association.
+   *
    * @public
    */
   configuredAudienceModelAssociationName: string | undefined;
 
   /**
-   * <p>When <code>TRUE</code>, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When <code>FALSE</code>, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.</p> <p>Setting this to <code>TRUE</code> requires you to have permissions to create, update, and delete the resource policy for the <code>cleanrooms-ml</code> resource when you call the <a>DeleteConfiguredAudienceModelAssociation</a> resource. In addition, if you are the collaboration creator and specify <code>TRUE</code>, you must have the same permissions when you call the <a>DeleteMember</a> and <a>DeleteCollaboration</a> APIs.</p>
+   * When `TRUE`, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When `FALSE`, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.
+   *
+   * Setting this to `TRUE` requires you to have permissions to create, update, and delete the resource policy for the `cleanrooms-ml` resource when you call the DeleteConfiguredAudienceModelAssociation resource. In addition, if you are the collaboration creator and specify `TRUE`, you must have the same permissions when you call the DeleteMember and DeleteCollaboration APIs.
+   *
    * @public
    */
   manageResourcePolicies: boolean | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>A description of the configured audience model association.</p>
+   * A description of the configured audience model association.
+   *
    * @public
    */
   description?: string | undefined;
 }
 
 /**
- * <p>Details about the configured audience model association.</p>
+ * Details about the configured audience model association.
+ *
  * @public
  */
 export interface ConfiguredAudienceModelAssociation {
   /**
-   * <p>A unique identifier of the configured audience model association.</p>
+   * A unique identifier of the configured audience model association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for this configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that was used for this configured audience model association.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>A unique identifier for the membership that contains this configured audience model association.</p>
+   * A unique identifier for the membership that contains this configured audience model association.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership that contains this configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the membership that contains this configured audience model association.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>A unique identifier of the collaboration that contains this configured audience model association.</p>
+   * A unique identifier of the collaboration that contains this configured audience model association.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains this configured audience model association.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The name of the configured audience model association.</p>
+   * The name of the configured audience model association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>When <code>TRUE</code>, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When <code>FALSE</code>, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.</p>
+   * When `TRUE`, indicates that the resource policy for the configured audience model resource being associated is configured for Clean Rooms to manage permissions related to the given collaboration. When `FALSE`, indicates that the configured audience model resource owner will manage permissions related to the given collaboration.
+   *
    * @public
    */
   manageResourcePolicies: boolean | undefined;
 
   /**
-   * <p>The description of the configured audience model association.</p>
+   * The description of the configured audience model association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The time at which the configured audience model association was created.</p>
+   * The time at which the configured audience model association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured audience model association was updated.</p>
+   * The most recent time at which the configured audience model association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -5248,7 +6093,8 @@ export interface ConfiguredAudienceModelAssociation {
  */
 export interface CreateConfiguredAudienceModelAssociationOutput {
   /**
-   * <p>Information about the configured audience model association.</p>
+   * Information about the configured audience model association.
+   *
    * @public
    */
   configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation | undefined;
@@ -5259,13 +6105,15 @@ export interface CreateConfiguredAudienceModelAssociationOutput {
  */
 export interface DeleteConfiguredAudienceModelAssociationInput {
   /**
-   * <p>A unique identifier of the configured audience model association that you want to delete.</p>
+   * A unique identifier of the configured audience model association that you want to delete.
+   *
    * @public
    */
   configuredAudienceModelAssociationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier of the membership that contains the audience model association that you want to delete.</p>
+   * A unique identifier of the membership that contains the audience model association that you want to delete.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -5281,13 +6129,15 @@ export interface DeleteConfiguredAudienceModelAssociationOutput {}
  */
 export interface GetConfiguredAudienceModelAssociationInput {
   /**
-   * <p>A unique identifier for the configured audience model association that you want to retrieve.</p>
+   * A unique identifier for the configured audience model association that you want to retrieve.
+   *
    * @public
    */
   configuredAudienceModelAssociationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the membership that contains the configured audience model association that you want to retrieve.</p>
+   * A unique identifier for the membership that contains the configured audience model association that you want to retrieve.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -5298,7 +6148,8 @@ export interface GetConfiguredAudienceModelAssociationInput {
  */
 export interface GetConfiguredAudienceModelAssociationOutput {
   /**
-   * <p>Information about the configured audience model association that you requested.</p>
+   * Information about the configured audience model association that you requested.
+   *
    * @public
    */
   configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation | undefined;
@@ -5309,91 +6160,106 @@ export interface GetConfiguredAudienceModelAssociationOutput {
  */
 export interface ListConfiguredAudienceModelAssociationsInput {
   /**
-   * <p>A unique identifier for a membership that contains the configured audience model associations that you want to retrieve.</p>
+   * A unique identifier for a membership that contains the configured audience model associations that you want to retrieve.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>A summary of the configured audience model association.</p>
+ * A summary of the configured audience model association.
+ *
  * @public
  */
 export interface ConfiguredAudienceModelAssociationSummary {
   /**
-   * <p>A unique identifier of the membership that contains the configured audience model association.</p>
+   * A unique identifier of the membership that contains the configured audience model association.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership that contains the configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the membership that contains the configured audience model association.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains the configured audience model association.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>A unique identifier of the collaboration that configured audience model is associated with.</p>
+   * A unique identifier of the collaboration that configured audience model is associated with.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The time at which the configured audience model association was created.</p>
+   * The time at which the configured audience model association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the configured audience model association was updated.</p>
+   * The most recent time at which the configured audience model association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>A unique identifier of the configured audience model association.</p>
+   * A unique identifier of the configured audience model association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the configured audience model association.</p>
+   * The name of the configured audience model association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the configured audience model that was used for this configured audience model association.</p>
+   * The Amazon Resource Name (ARN) of the configured audience model that was used for this configured audience model association.
+   *
    * @public
    */
   configuredAudienceModelArn: string | undefined;
 
   /**
-   * <p>The description of the configured audience model association.</p>
+   * The description of the configured audience model association.
+   *
    * @public
    */
   description?: string | undefined;
@@ -5404,13 +6270,15 @@ export interface ConfiguredAudienceModelAssociationSummary {
  */
 export interface ListConfiguredAudienceModelAssociationsOutput {
   /**
-   * <p>Summaries of the configured audience model associations that you requested.</p>
+   * Summaries of the configured audience model associations that you requested.
+   *
    * @public
    */
   configuredAudienceModelAssociationSummaries: ConfiguredAudienceModelAssociationSummary[] | undefined;
 
   /**
-   * <p>The token value provided to access the next page of results.</p>
+   * The token value provided to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5421,25 +6289,29 @@ export interface ListConfiguredAudienceModelAssociationsOutput {
  */
 export interface UpdateConfiguredAudienceModelAssociationInput {
   /**
-   * <p>A unique identifier for the configured audience model association that you want to update.</p>
+   * A unique identifier for the configured audience model association that you want to update.
+   *
    * @public
    */
   configuredAudienceModelAssociationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier of the membership that contains the configured audience model association that you want to update.</p>
+   * A unique identifier of the membership that contains the configured audience model association that you want to update.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A new description for the configured audience model association.</p>
+   * A new description for the configured audience model association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A new name for the configured audience model association.</p>
+   * A new name for the configured audience model association.
+   *
    * @public
    */
   name?: string | undefined;
@@ -5450,7 +6322,8 @@ export interface UpdateConfiguredAudienceModelAssociationInput {
  */
 export interface UpdateConfiguredAudienceModelAssociationOutput {
   /**
-   * <p>Details about the configured audience model association that you updated.</p>
+   * Details about the configured audience model association that you updated.
+   *
    * @public
    */
   configuredAudienceModelAssociation: ConfiguredAudienceModelAssociation | undefined;
@@ -5461,157 +6334,183 @@ export interface UpdateConfiguredAudienceModelAssociationOutput {
  */
 export interface CreateConfiguredTableAssociationInput {
   /**
-   * <p>The name of the configured table association. This name is used to query the underlying configured table.</p>
+   * The name of the configured table association. This name is used to query the underlying configured table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the configured table association.</p>
+   * A description for the configured table association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A unique identifier for one of your memberships for a collaboration. The configured table is associated to the collaboration that this membership belongs to. Currently accepts a membership ID.</p>
+   * A unique identifier for one of your memberships for a collaboration. The configured table is associated to the collaboration that this membership belongs to. Currently accepts a membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.</p>
+   * A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>The service will assume this role to access catalog metadata and query the table.</p>
+   * The service will assume this role to access catalog metadata and query the table.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains information about a child resource of a given resource in a collaboration.</p>
+ * Contains information about a child resource of a given resource in a collaboration.
+ *
  * @public
  */
 export interface ChildResource {
   /**
-   * <p>The unique identifier of the child resource.</p>
+   * The unique identifier of the child resource.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the child resource.</p>
+   * The type of the child resource.
+   *
    * @public
    */
   resourceType: ChildResourceType | undefined;
 
   /**
-   * <p>The name of the child resource.</p>
+   * The name of the child resource.
+   *
    * @public
    */
   resourceName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the member who owns the child resource.</p>
+   * The Amazon Web Services account ID of the member who owns the child resource.
+   *
    * @public
    */
   ownerAccountId: string | undefined;
 
   /**
-   * <p>The current status of the child resource.</p>
+   * The current status of the child resource.
+   *
    * @public
    */
   resourceStatus?: ResourceStatus | undefined;
 }
 
 /**
- * <p>A configured table association links a configured table to a collaboration.</p>
+ * A configured table association links a configured table to a collaboration.
+ *
  * @public
  */
 export interface ConfiguredTableAssociation {
   /**
-   * <p>The unique ARN for the configured table association.</p>
+   * The unique ARN for the configured table association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique ID for the configured table association.</p>
+   * The unique ID for the configured table association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique ID for the configured table that the association refers to.</p>
+   * The unique ID for the configured table that the association refers to.
+   *
    * @public
    */
   configuredTableId: string | undefined;
 
   /**
-   * <p>The unique ARN for the configured table that the association refers to.</p>
+   * The unique ARN for the configured table that the association refers to.
+   *
    * @public
    */
   configuredTableArn: string | undefined;
 
   /**
-   * <p>The unique ID for the membership this configured table association belongs to.</p>
+   * The unique ID for the membership this configured table association belongs to.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The unique ARN for the membership this configured table association belongs to.</p>
+   * The unique ARN for the membership this configured table association belongs to.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The service will assume this role to access catalog metadata and query the table.</p>
+   * The service will assume this role to access catalog metadata and query the table.
+   *
    * @public
    */
   roleArn: string | undefined;
 
   /**
-   * <p>The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.</p>
+   * The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the configured table association.</p>
+   * A description of the configured table association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p> The analysis rule types for the configured table association.</p>
+   * The analysis rule types for the configured table association.
+   *
    * @public
    */
   analysisRuleTypes?: ConfiguredTableAssociationAnalysisRuleType[] | undefined;
 
   /**
-   * <p>The time the configured table association was created.</p>
+   * The time the configured table association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the configured table association was last updated.</p>
+   * The time the configured table association was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The child resources that depend on this configured table association.</p>
+   * The child resources that depend on this configured table association.
+   *
    * @public
    */
   childResources?: ChildResource[] | undefined;
@@ -5622,7 +6521,8 @@ export interface ConfiguredTableAssociation {
  */
 export interface CreateConfiguredTableAssociationOutput {
   /**
-   * <p>The configured table association.</p>
+   * The configured table association.
+   *
    * @public
    */
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
@@ -5633,73 +6533,85 @@ export interface CreateConfiguredTableAssociationOutput {
  */
 export interface CreateConfiguredTableAssociationAnalysisRuleInput {
   /**
-   * <p> A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p> The unique ID for the configured table association. Currently accepts the configured table association ID.</p>
+   * The unique ID for the configured table association. Currently accepts the configured table association ID.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p> The type of analysis rule.</p>
+   * The type of analysis rule.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAssociationAnalysisRuleType | undefined;
 
   /**
-   * <p>The analysis rule policy that was created for the configured table association.</p>
+   * The analysis rule policy that was created for the configured table association.
+   *
    * @public
    */
   analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicy | undefined;
 }
 
 /**
- * <p>An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the <code>ConfiguredTableAssociationAnalysisRule</code> is referred to as the <i>collaboration analysis rule</i>.</p>
+ * An analysis rule for a configured table association. This analysis rule specifies how data from the table can be used within its associated collaboration. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule*.
+ *
  * @public
  */
 export interface ConfiguredTableAssociationAnalysisRule {
   /**
-   * <p> The membership identifier for the configured table association analysis rule.</p>
+   * The membership identifier for the configured table association analysis rule.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p> The unique identifier for the configured table association.</p>
+   * The unique identifier for the configured table association.
+   *
    * @public
    */
   configuredTableAssociationId: string | undefined;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the configured table association.</p>
+   * The Amazon Resource Name (ARN) of the configured table association.
+   *
    * @public
    */
   configuredTableAssociationArn: string | undefined;
 
   /**
-   * <p> The policy of the configured table association analysis rule.</p>
+   * The policy of the configured table association analysis rule.
+   *
    * @public
    */
   policy: ConfiguredTableAssociationAnalysisRulePolicy | undefined;
 
   /**
-   * <p> The type of the configured table association analysis rule.</p>
+   * The type of the configured table association analysis rule.
+   *
    * @public
    */
   type: ConfiguredTableAssociationAnalysisRuleType | undefined;
 
   /**
-   * <p> The creation time of the configured table association analysis rule.</p>
+   * The creation time of the configured table association analysis rule.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p> The update time of the configured table association analysis rule.</p>
+   * The update time of the configured table association analysis rule.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -5710,7 +6622,8 @@ export interface ConfiguredTableAssociationAnalysisRule {
  */
 export interface CreateConfiguredTableAssociationAnalysisRuleOutput {
   /**
-   * <p>The analysis rule for the conﬁgured table association. In the console, the <code>ConfiguredTableAssociationAnalysisRule</code> is referred to as the <i>collaboration analysis rule</i>.</p>
+   * The analysis rule for the conﬁgured table association. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule*.
+   *
    * @public
    */
   analysisRule: ConfiguredTableAssociationAnalysisRule | undefined;
@@ -5721,13 +6634,15 @@ export interface CreateConfiguredTableAssociationAnalysisRuleOutput {
  */
 export interface DeleteConfiguredTableAssociationInput {
   /**
-   * <p>The unique ID for the configured table association to be deleted. Currently accepts the configured table ID.</p>
+   * The unique ID for the configured table association to be deleted. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -5743,19 +6658,22 @@ export interface DeleteConfiguredTableAssociationOutput {}
  */
 export interface DeleteConfiguredTableAssociationAnalysisRuleInput {
   /**
-   * <p> A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The identiﬁer for the conﬁgured table association that's related to the analysis rule that you want to delete.</p>
+   * The identiﬁer for the conﬁgured table association that's related to the analysis rule that you want to delete.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The type of the analysis rule that you want to delete.</p>
+   * The type of the analysis rule that you want to delete.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAssociationAnalysisRuleType | undefined;
@@ -5771,13 +6689,15 @@ export interface DeleteConfiguredTableAssociationAnalysisRuleOutput {}
  */
 export interface GetConfiguredTableAssociationInput {
   /**
-   * <p>The unique ID for the configured table association to retrieve. Currently accepts the configured table ID.</p>
+   * The unique ID for the configured table association to retrieve. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p>A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -5788,7 +6708,8 @@ export interface GetConfiguredTableAssociationInput {
  */
 export interface GetConfiguredTableAssociationOutput {
   /**
-   * <p>The entire configured table association object.</p>
+   * The entire configured table association object.
+   *
    * @public
    */
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
@@ -5799,19 +6720,22 @@ export interface GetConfiguredTableAssociationOutput {
  */
 export interface GetConfiguredTableAssociationAnalysisRuleInput {
   /**
-   * <p> A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p> The identiﬁer for the conﬁgured table association that's related to the analysis rule.</p>
+   * The identiﬁer for the conﬁgured table association that's related to the analysis rule.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p> The type of analysis rule that you want to retrieve.</p>
+   * The type of analysis rule that you want to retrieve.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAssociationAnalysisRuleType | undefined;
@@ -5822,7 +6746,8 @@ export interface GetConfiguredTableAssociationAnalysisRuleInput {
  */
 export interface GetConfiguredTableAssociationAnalysisRuleOutput {
   /**
-   * <p>The analysis rule for the conﬁgured table association. In the console, the <code>ConfiguredTableAssociationAnalysisRule</code> is referred to as the <i>collaboration analysis rule</i>.</p>
+   * The analysis rule for the conﬁgured table association. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule*.
+   *
    * @public
    */
   analysisRule: ConfiguredTableAssociationAnalysisRule | undefined;
@@ -5833,79 +6758,92 @@ export interface GetConfiguredTableAssociationAnalysisRuleOutput {
  */
 export interface ListConfiguredTableAssociationsInput {
   /**
-   * <p>A unique identifier for the membership to list configured table associations for. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership to list configured table associations for. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The configured table association summary for the objects listed by the request.</p>
+ * The configured table association summary for the objects listed by the request.
+ *
  * @public
  */
 export interface ConfiguredTableAssociationSummary {
   /**
-   * <p>The unique configured table ID that this configured table association refers to.</p>
+   * The unique configured table ID that this configured table association refers to.
+   *
    * @public
    */
   configuredTableId: string | undefined;
 
   /**
-   * <p>The unique ID for the membership that the configured table association belongs to.</p>
+   * The unique ID for the membership that the configured table association belongs to.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The unique ARN for the membership that the configured table association belongs to.</p>
+   * The unique ARN for the membership that the configured table association belongs to.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The name of the configured table association. The table is identified by this name when running Protected Queries against the underlying data.</p>
+   * The name of the configured table association. The table is identified by this name when running Protected Queries against the underlying data.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time the configured table association was created.</p>
+   * The time the configured table association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the configured table association was last updated.</p>
+   * The time the configured table association was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique ID for the configured table association.</p>
+   * The unique ID for the configured table association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique ARN for the configured table association.</p>
+   * The unique ARN for the configured table association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The analysis rule types that are associated with the configured table associations in this summary. </p>
+   * The analysis rule types that are associated with the configured table associations in this summary.
+   *
    * @public
    */
   analysisRuleTypes?: ConfiguredTableAssociationAnalysisRuleType[] | undefined;
@@ -5916,13 +6854,15 @@ export interface ConfiguredTableAssociationSummary {
  */
 export interface ListConfiguredTableAssociationsOutput {
   /**
-   * <p>The retrieved list of configured table associations.</p>
+   * The retrieved list of configured table associations.
+   *
    * @public
    */
   configuredTableAssociationSummaries: ConfiguredTableAssociationSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -5933,25 +6873,29 @@ export interface ListConfiguredTableAssociationsOutput {
  */
 export interface UpdateConfiguredTableAssociationInput {
   /**
-   * <p>The unique identifier for the configured table association to update. Currently accepts the configured table association ID.</p>
+   * The unique identifier for the configured table association to update. Currently accepts the configured table association ID.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The unique ID for the membership that the configured table association belongs to.</p>
+   * The unique ID for the membership that the configured table association belongs to.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A new description for the configured table association.</p>
+   * A new description for the configured table association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The service will assume this role to access catalog metadata and query the table.</p>
+   * The service will assume this role to access catalog metadata and query the table.
+   *
    * @public
    */
   roleArn?: string | undefined;
@@ -5962,7 +6906,8 @@ export interface UpdateConfiguredTableAssociationInput {
  */
 export interface UpdateConfiguredTableAssociationOutput {
   /**
-   * <p>The entire updated configured table association.</p>
+   * The entire updated configured table association.
+   *
    * @public
    */
   configuredTableAssociation: ConfiguredTableAssociation | undefined;
@@ -5973,25 +6918,29 @@ export interface UpdateConfiguredTableAssociationOutput {
  */
 export interface UpdateConfiguredTableAssociationAnalysisRuleInput {
   /**
-   * <p> A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.</p>
+   * A unique identifier for the membership that the configured table association belongs to. Currently accepts the membership ID.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p> The identifier for the configured table association to update.</p>
+   * The identifier for the configured table association to update.
+   *
    * @public
    */
   configuredTableAssociationIdentifier: string | undefined;
 
   /**
-   * <p> The analysis rule type that you want to update.</p>
+   * The analysis rule type that you want to update.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAssociationAnalysisRuleType | undefined;
 
   /**
-   * <p> The updated analysis rule policy for the conﬁgured table association.</p>
+   * The updated analysis rule policy for the conﬁgured table association.
+   *
    * @public
    */
   analysisRulePolicy: ConfiguredTableAssociationAnalysisRulePolicy | undefined;
@@ -6002,32 +6951,37 @@ export interface UpdateConfiguredTableAssociationAnalysisRuleInput {
  */
 export interface UpdateConfiguredTableAssociationAnalysisRuleOutput {
   /**
-   * <p> The updated analysis rule for the conﬁgured table association. In the console, the <code>ConfiguredTableAssociationAnalysisRule</code> is referred to as the <i>collaboration analysis rule</i>.</p>
+   * The updated analysis rule for the conﬁgured table association. In the console, the `ConfiguredTableAssociationAnalysisRule` is referred to as the *collaboration analysis rule*.
+   *
    * @public
    */
   analysisRule: ConfiguredTableAssociationAnalysisRule | undefined;
 }
 
 /**
- * <p>Details about Delta Sharing Connector for Databricks</p>
+ * Details about Delta Sharing Connector for Databricks
+ *
  * @public
  */
 export interface DatabricksDeltaSharingConnection {
   /**
-   * <p>The base URL of a Delta Sharing server that hosts shared datasets.</p>
+   * The base URL of a Delta Sharing server that hosts shared datasets.
+   *
    * @public
    */
   deltaShareEndpoint: string | undefined;
 
   /**
-   * <p>Name of the Share used for OpenSharing (Delta Sharing) the Databricks Table.</p>
+   * Name of the Share used for OpenSharing (Delta Sharing) the Databricks Table.
+   *
    * @public
    */
   shareName: string | undefined;
 }
 
 /**
- * <p>Type of the connector to be used for connecting to Databricks. Supported connector: Delta Sharing</p>
+ * Type of the connector to be used for connecting to Databricks. Supported connector: Delta Sharing
+ *
  * @public
  */
 export type DatabricksConnectionType =
@@ -6039,7 +6993,8 @@ export type DatabricksConnectionType =
  */
 export namespace DatabricksConnectionType {
   /**
-   * <p>Details about Connector for Databricks</p>
+   * Details about Connector for Databricks
+   *
    * @public
    */
   export interface DeltaSharingMember {
@@ -6066,79 +7021,92 @@ export namespace DatabricksConnectionType {
 }
 
 /**
- * <p> A reference to a table within Databricks.</p>
+ * A reference to a table within Databricks.
+ *
  * @public
  */
 export interface DatabricksTableReference {
   /**
-   * <p>Name of the Schema within Databricks.</p>
+   * Name of the Schema within Databricks.
+   *
    * @public
    */
   schemaName: string | undefined;
 
   /**
-   * <p>Name of the Table within Databricks.</p>
+   * Name of the Table within Databricks.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>URL for the Databricks Workspace.</p>
+   * URL for the Databricks Workspace.
+   *
    * @public
    */
   workspaceUrl: string | undefined;
 
   /**
-   * <p>Type of the connector to be used for connecting to Databricks. Supported connector: Delta Sharing</p>
+   * Type of the connector to be used for connecting to Databricks. Supported connector: Delta Sharing
+   *
    * @public
    */
   connectionType: DatabricksConnectionType | undefined;
 }
 
 /**
- * <p>A reference to a table within an Glue data catalog.</p>
+ * A reference to a table within an Glue data catalog.
+ *
  * @public
  */
 export interface GlueTableReference {
   /**
-   * <p>The Amazon Web Services Region where the Glue table is located. This parameter is required to uniquely identify and access tables across different Regions.</p>
+   * The Amazon Web Services Region where the Glue table is located. This parameter is required to uniquely identify and access tables across different Regions.
+   *
    * @public
    */
   region?: CommercialRegion | undefined;
 
   /**
-   * <p>The name of the Glue table.</p>
+   * The name of the Glue table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p>The name of the database the Glue table belongs to.</p>
+   * The name of the database the Glue table belongs to.
+   *
    * @public
    */
   databaseName: string | undefined;
 }
 
 /**
- * <p> The Snowflake table schema.</p>
+ * The Snowflake table schema.
+ *
  * @public
  */
 export interface SnowflakeTableSchemaV1 {
   /**
-   * <p> The column name.</p>
+   * The column name.
+   *
    * @public
    */
   columnName: string | undefined;
 
   /**
-   * <p> The column's data type. Supported data types: <code>ARRAY</code>, <code>BIGINT</code>, <code>BOOLEAN</code>, <code>CHAR</code>, <code>DATE</code>, <code>DECIMAL</code>, <code>DOUBLE</code>, <code>DOUBLE PRECISION</code>, <code>FLOAT</code>, <code>FLOAT4</code>, <code>INT</code>, <code>INTEGER</code>, <code>MAP</code>, <code>NUMERIC</code>, <code>NUMBER</code>, <code>REAL</code>, <code>SMALLINT</code>, <code>STRING</code>, <code>TIMESTAMP</code>, <code>TIMESTAMP_LTZ</code>, <code>TIMESTAMP_NTZ</code>, <code>DATETIME</code>, <code>TINYINT</code>, <code>VARCHAR</code>, <code>TEXT</code>, <code>CHARACTER</code>.</p>
+   * The column's data type. Supported data types: `ARRAY`, `BIGINT`, `BOOLEAN`, `CHAR`, `DATE`, `DECIMAL`, `DOUBLE`, `DOUBLE PRECISION`, `FLOAT`, `FLOAT4`, `INT`, `INTEGER`, `MAP`, `NUMERIC`, `NUMBER`, `REAL`, `SMALLINT`, `STRING`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `DATETIME`, `TINYINT`, `VARCHAR`, `TEXT`, `CHARACTER`.
+   *
    * @public
    */
   columnType: string | undefined;
 }
 
 /**
- * <p> The schema of a Snowflake table.</p>
+ * The schema of a Snowflake table.
+ *
  * @public
  */
 export type SnowflakeTableSchema =
@@ -6150,7 +7118,8 @@ export type SnowflakeTableSchema =
  */
 export namespace SnowflakeTableSchema {
   /**
-   * <p> The schema of a Snowflake table.</p>
+   * The schema of a Snowflake table.
+   *
    * @public
    */
   export interface V1Member {
@@ -6177,49 +7146,57 @@ export namespace SnowflakeTableSchema {
 }
 
 /**
- * <p> A reference to a table within Snowflake.</p>
+ * A reference to a table within Snowflake.
+ *
  * @public
  */
 export interface SnowflakeTableReference {
   /**
-   * <p> The secret ARN of the Snowflake table reference.</p>
+   * The secret ARN of the Snowflake table reference.
+   *
    * @public
    */
   secretArn: string | undefined;
 
   /**
-   * <p> The account identifier for the Snowflake table reference.</p>
+   * The account identifier for the Snowflake table reference.
+   *
    * @public
    */
   accountIdentifier: string | undefined;
 
   /**
-   * <p> The name of the database the Snowflake table belongs to.</p>
+   * The name of the database the Snowflake table belongs to.
+   *
    * @public
    */
   databaseName: string | undefined;
 
   /**
-   * <p> The name of the Snowflake table.</p>
+   * The name of the Snowflake table.
+   *
    * @public
    */
   tableName: string | undefined;
 
   /**
-   * <p> The schema name of the Snowflake table reference.</p>
+   * The schema name of the Snowflake table reference.
+   *
    * @public
    */
   schemaName: string | undefined;
 
   /**
-   * <p> The schema of the Snowflake table.</p>
+   * The schema of the Snowflake table.
+   *
    * @public
    */
   tableSchema: SnowflakeTableSchema | undefined;
 }
 
 /**
- * <p>A pointer to the dataset that underlies this table.</p>
+ * A pointer to the dataset that underlies this table.
+ *
  * @public
  */
 export type TableReference =
@@ -6234,7 +7211,8 @@ export type TableReference =
  */
 export namespace TableReference {
   /**
-   * <p>If present, a reference to the Glue table referred to by this table reference.</p>
+   * If present, a reference to the Glue table referred to by this table reference.
+   *
    * @public
    */
   export interface GlueMember {
@@ -6246,7 +7224,8 @@ export namespace TableReference {
   }
 
   /**
-   * <p> If present, a reference to the Snowflake table referred to by this table reference.</p>
+   * If present, a reference to the Snowflake table referred to by this table reference.
+   *
    * @public
    */
   export interface SnowflakeMember {
@@ -6258,7 +7237,8 @@ export namespace TableReference {
   }
 
   /**
-   * <p> If present, a reference to the Athena table referred to by this table reference.</p>
+   * If present, a reference to the Athena table referred to by this table reference.
+   *
    * @public
    */
   export interface AthenaMember {
@@ -6270,7 +7250,8 @@ export namespace TableReference {
   }
 
   /**
-   * <p> If present, a reference to the Databricks table referred to by this table reference.</p>
+   * If present, a reference to the Databricks table referred to by this table reference.
+   *
    * @public
    */
   export interface DatabricksMember {
@@ -6310,121 +7291,153 @@ export namespace TableReference {
  */
 export interface CreateConfiguredTableInput {
   /**
-   * <p>The name of the configured table.</p>
+   * The name of the configured table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the configured table.</p>
+   * A description for the configured table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A reference to the table being configured.</p>
+   * A reference to the table being configured.
+   *
    * @public
    */
   tableReference: TableReference | undefined;
 
   /**
-   * <p>The columns of the underlying table that can be used by collaborations or analysis rules.</p>
+   * The columns of the underlying table that can be used by collaborations or analysis rules.
+   *
    * @public
    */
   allowedColumns: string[] | undefined;
 
   /**
-   * <p>The analysis method allowed for the configured tables.</p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>
+   * The analysis method allowed for the configured tables.
+   *
+   * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+   *
+   * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+   *
+   * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+   *
    * @public
    */
   analysisMethod: AnalysisMethod | undefined;
 
   /**
-   * <p> The analysis methods to enable for the configured table. When configured, you must specify at least two analysis methods.</p>
+   * The analysis methods to enable for the configured table. When configured, you must specify at least two analysis methods.
+   *
    * @public
    */
   selectedAnalysisMethods?: SelectedAnalysisMethod[] | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>A table that has been configured for use in a collaboration.</p>
+ * A table that has been configured for use in a collaboration.
+ *
  * @public
  */
 export interface ConfiguredTable {
   /**
-   * <p>The unique ID for the configured table.</p>
+   * The unique ID for the configured table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique ARN for the configured table.</p>
+   * The unique ARN for the configured table.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>A name for the configured table.</p>
+   * A name for the configured table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description for the configured table.</p>
+   * A description for the configured table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The table that this configured table represents.</p>
+   * The table that this configured table represents.
+   *
    * @public
    */
   tableReference: TableReference | undefined;
 
   /**
-   * <p>Type of the Configured Table DataSource, example: Glue, Snowflake, Athena, Databricks</p>
+   * Type of the Configured Table DataSource, example: Glue, Snowflake, Athena, Databricks
+   *
    * @public
    */
   tableType?: TableReferenceType | undefined;
 
   /**
-   * <p>The time the configured table was created.</p>
+   * The time the configured table was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the configured table was last updated</p>
+   * The time the configured table was last updated
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The types of analysis rules associated with this configured table. Currently, only one analysis rule may be associated with a configured table.</p>
+   * The types of analysis rules associated with this configured table. Currently, only one analysis rule may be associated with a configured table.
+   *
    * @public
    */
   analysisRuleTypes: ConfiguredTableAnalysisRuleType[] | undefined;
 
   /**
-   * <p>The analysis method for the configured table.</p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>
+   * The analysis method for the configured table.
+   *
+   * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+   *
+   * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+   *
+   * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+   *
    * @public
    */
   analysisMethod: AnalysisMethod | undefined;
 
   /**
-   * <p>The columns within the underlying Glue table that can be used within collaborations.</p>
+   * The columns within the underlying Glue table that can be used within collaborations.
+   *
    * @public
    */
   allowedColumns: string[] | undefined;
 
   /**
-   * <p> The selected analysis methods for the configured table.</p>
+   * The selected analysis methods for the configured table.
+   *
    * @public
    */
   selectedAnalysisMethods?: SelectedAnalysisMethod[] | undefined;
@@ -6435,14 +7448,16 @@ export interface ConfiguredTable {
  */
 export interface CreateConfiguredTableOutput {
   /**
-   * <p>The created configured table.</p>
+   * The created configured table.
+   *
    * @public
    */
   configuredTable: ConfiguredTable | undefined;
 }
 
 /**
- * <p>Controls on the query specifications that can be run on a configured table.</p>
+ * Controls on the query specifications that can be run on a configured table.
+ *
  * @public
  */
 export type ConfiguredTableAnalysisRulePolicyV1 =
@@ -6456,7 +7471,8 @@ export type ConfiguredTableAnalysisRulePolicyV1 =
  */
 export namespace ConfiguredTableAnalysisRulePolicyV1 {
   /**
-   * <p>Analysis rule type that enables only list queries on a configured table.</p>
+   * Analysis rule type that enables only list queries on a configured table.
+   *
    * @public
    */
   export interface ListMember {
@@ -6467,7 +7483,8 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   }
 
   /**
-   * <p>Analysis rule type that enables only aggregation queries on a configured table.</p>
+   * Analysis rule type that enables only aggregation queries on a configured table.
+   *
    * @public
    */
   export interface AggregationMember {
@@ -6478,7 +7495,8 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   }
 
   /**
-   * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy, minimum aggregation thresholds, and comparison controls.</p>
+   * A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy, minimum aggregation thresholds, and comparison controls.
+   *
    * @public
    */
   export interface CustomMember {
@@ -6511,7 +7529,8 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
 }
 
 /**
- * <p>Controls on the query specifications that can be run on a configured table.</p>
+ * Controls on the query specifications that can be run on a configured table.
+ *
  * @public
  */
 export type ConfiguredTableAnalysisRulePolicy =
@@ -6523,7 +7542,8 @@ export type ConfiguredTableAnalysisRulePolicy =
  */
 export namespace ConfiguredTableAnalysisRulePolicy {
   /**
-   * <p>Controls on the query specifications that can be run on a configured table.</p>
+   * Controls on the query specifications that can be run on a configured table.
+   *
    * @public
    */
   export interface V1Member {
@@ -6554,61 +7574,71 @@ export namespace ConfiguredTableAnalysisRulePolicy {
  */
 export interface CreateConfiguredTableAnalysisRuleInput {
   /**
-   * <p>The identifier for the configured table to create the analysis rule for. Currently accepts the configured table ID. </p>
+   * The identifier for the configured table to create the analysis rule for. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>The type of analysis rule.</p>
+   * The type of analysis rule.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 
   /**
-   * <p>The analysis rule policy that was created for the configured table.</p>
+   * The analysis rule policy that was created for the configured table.
+   *
    * @public
    */
   analysisRulePolicy: ConfiguredTableAnalysisRulePolicy | undefined;
 }
 
 /**
- * <p>A configured table analysis rule, which limits how data for this table can be used.</p>
+ * A configured table analysis rule, which limits how data for this table can be used.
+ *
  * @public
  */
 export interface ConfiguredTableAnalysisRule {
   /**
-   * <p>The unique ID for the configured table.</p>
+   * The unique ID for the configured table.
+   *
    * @public
    */
   configuredTableId: string | undefined;
 
   /**
-   * <p>The unique ARN for the configured table.</p>
+   * The unique ARN for the configured table.
+   *
    * @public
    */
   configuredTableArn: string | undefined;
 
   /**
-   * <p>The policy that controls SQL query rules.</p>
+   * The policy that controls SQL query rules.
+   *
    * @public
    */
   policy: ConfiguredTableAnalysisRulePolicy | undefined;
 
   /**
-   * <p>The type of configured table analysis rule.</p>
+   * The type of configured table analysis rule.
+   *
    * @public
    */
   type: ConfiguredTableAnalysisRuleType | undefined;
 
   /**
-   * <p>The time the configured table analysis rule was created.</p>
+   * The time the configured table analysis rule was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the configured table analysis rule was last updated.</p>
+   * The time the configured table analysis rule was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -6619,7 +7649,8 @@ export interface ConfiguredTableAnalysisRule {
  */
 export interface CreateConfiguredTableAnalysisRuleOutput {
   /**
-   * <p>The analysis rule that was created for the configured table.</p>
+   * The analysis rule that was created for the configured table.
+   *
    * @public
    */
   analysisRule: ConfiguredTableAnalysisRule | undefined;
@@ -6630,14 +7661,16 @@ export interface CreateConfiguredTableAnalysisRuleOutput {
  */
 export interface DeleteConfiguredTableInput {
   /**
-   * <p>The unique ID for the configured table to delete.</p>
+   * The unique ID for the configured table to delete.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 }
 
 /**
- * <p>The empty output for a successful deletion.</p>
+ * The empty output for a successful deletion.
+ *
  * @public
  */
 export interface DeleteConfiguredTableOutput {}
@@ -6647,20 +7680,23 @@ export interface DeleteConfiguredTableOutput {}
  */
 export interface DeleteConfiguredTableAnalysisRuleInput {
   /**
-   * <p>The unique identifier for the configured table that the analysis rule applies to. Currently accepts the configured table ID.</p>
+   * The unique identifier for the configured table that the analysis rule applies to. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>The analysis rule type to be deleted. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
+   * The analysis rule type to be deleted. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 }
 
 /**
- * <p>An empty response that indicates a successful delete.</p>
+ * An empty response that indicates a successful delete.
+ *
  * @public
  */
 export interface DeleteConfiguredTableAnalysisRuleOutput {}
@@ -6670,7 +7706,8 @@ export interface DeleteConfiguredTableAnalysisRuleOutput {}
  */
 export interface GetConfiguredTableInput {
   /**
-   * <p>The unique ID for the configured table to retrieve.</p>
+   * The unique ID for the configured table to retrieve.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
@@ -6681,7 +7718,8 @@ export interface GetConfiguredTableInput {
  */
 export interface GetConfiguredTableOutput {
   /**
-   * <p>The retrieved configured table.</p>
+   * The retrieved configured table.
+   *
    * @public
    */
   configuredTable: ConfiguredTable | undefined;
@@ -6692,13 +7730,15 @@ export interface GetConfiguredTableOutput {
  */
 export interface GetConfiguredTableAnalysisRuleInput {
   /**
-   * <p>The unique identifier for the configured table to retrieve. Currently accepts the configured table ID.</p>
+   * The unique identifier for the configured table to retrieve. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>The analysis rule to be retrieved. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
+   * The analysis rule to be retrieved. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
@@ -6709,7 +7749,8 @@ export interface GetConfiguredTableAnalysisRuleInput {
  */
 export interface GetConfiguredTableAnalysisRuleOutput {
   /**
-   * <p>The entire analysis rule output.</p>
+   * The entire analysis rule output.
+   *
    * @public
    */
   analysisRule: ConfiguredTableAnalysisRule | undefined;
@@ -6720,73 +7761,91 @@ export interface GetConfiguredTableAnalysisRuleOutput {
  */
 export interface ListConfiguredTablesInput {
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>The configured table summary for the objects listed by the request.</p>
+ * The configured table summary for the objects listed by the request.
+ *
  * @public
  */
 export interface ConfiguredTableSummary {
   /**
-   * <p>The unique ID of the configured table.</p>
+   * The unique ID of the configured table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The unique ARN of the configured table.</p>
+   * The unique ARN of the configured table.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the configured table.</p>
+   * The name of the configured table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Type of the Configured Table DataSource, example: Glue, Snowflake, Athena, Databricks</p>
+   * Type of the Configured Table DataSource, example: Glue, Snowflake, Athena, Databricks
+   *
    * @public
    */
   tableType?: TableReferenceType | undefined;
 
   /**
-   * <p>The time the configured table was created.</p>
+   * The time the configured table was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the configured table was last updated.</p>
+   * The time the configured table was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The types of analysis rules associated with this configured table.</p>
+   * The types of analysis rules associated with this configured table.
+   *
    * @public
    */
   analysisRuleTypes: ConfiguredTableAnalysisRuleType[] | undefined;
 
   /**
-   * <p>The analysis method for the configured tables. </p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>
+   * The analysis method for the configured tables.
+   *
+   * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+   *
+   * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+   *
+   * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+   *
    * @public
    */
   analysisMethod: AnalysisMethod | undefined;
 
   /**
-   * <p> The selected analysis methods for the configured table summary.</p>
+   * The selected analysis methods for the configured table summary.
+   *
    * @public
    */
   selectedAnalysisMethods?: SelectedAnalysisMethod[] | undefined;
@@ -6797,13 +7856,15 @@ export interface ConfiguredTableSummary {
  */
 export interface ListConfiguredTablesOutput {
   /**
-   * <p>The configured tables listed by the request.</p>
+   * The configured tables listed by the request.
+   *
    * @public
    */
   configuredTableSummaries: ConfiguredTableSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -6814,43 +7875,56 @@ export interface ListConfiguredTablesOutput {
  */
 export interface UpdateConfiguredTableInput {
   /**
-   * <p>The identifier for the configured table to update. Currently accepts the configured table ID.</p>
+   * The identifier for the configured table to update. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>A new name for the configured table.</p>
+   * A new name for the configured table.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A new description for the configured table.</p>
+   * A new description for the configured table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>A pointer to the dataset that underlies this table.</p>
+   * A pointer to the dataset that underlies this table.
+   *
    * @public
    */
   tableReference?: TableReference | undefined;
 
   /**
-   * <p>The columns of the underlying table that can be used by collaborations or analysis rules.</p>
+   * The columns of the underlying table that can be used by collaborations or analysis rules.
+   *
    * @public
    */
   allowedColumns?: string[] | undefined;
 
   /**
-   * <p> The analysis method for the configured table.</p> <p> <code>DIRECT_QUERY</code> allows SQL queries to be run directly on this table.</p> <p> <code>DIRECT_JOB</code> allows PySpark jobs to be run directly on this table.</p> <p> <code>MULTIPLE</code> allows both SQL queries and PySpark jobs to be run directly on this table.</p>
+   * The analysis method for the configured table.
+   *
+   * `DIRECT_QUERY` allows SQL queries to be run directly on this table.
+   *
+   * `DIRECT_JOB` allows PySpark jobs to be run directly on this table.
+   *
+   * `MULTIPLE` allows both SQL queries and PySpark jobs to be run directly on this table.
+   *
    * @public
    */
   analysisMethod?: AnalysisMethod | undefined;
 
   /**
-   * <p> The selected analysis methods for the table configuration update.</p>
+   * The selected analysis methods for the table configuration update.
+   *
    * @public
    */
   selectedAnalysisMethods?: SelectedAnalysisMethod[] | undefined;
@@ -6861,7 +7935,8 @@ export interface UpdateConfiguredTableInput {
  */
 export interface UpdateConfiguredTableOutput {
   /**
-   * <p>The updated configured table.</p>
+   * The updated configured table.
+   *
    * @public
    */
   configuredTable: ConfiguredTable | undefined;
@@ -6872,19 +7947,22 @@ export interface UpdateConfiguredTableOutput {
  */
 export interface UpdateConfiguredTableAnalysisRuleInput {
   /**
-   * <p>The unique identifier for the configured table that the analysis rule applies to. Currently accepts the configured table ID.</p>
+   * The unique identifier for the configured table that the analysis rule applies to. Currently accepts the configured table ID.
+   *
    * @public
    */
   configuredTableIdentifier: string | undefined;
 
   /**
-   * <p>The analysis rule type to be updated. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.</p>
+   * The analysis rule type to be updated. Configured table analysis rules are uniquely identified by their configured table identifier and analysis rule type.
+   *
    * @public
    */
   analysisRuleType: ConfiguredTableAnalysisRuleType | undefined;
 
   /**
-   * <p>The new analysis rule policy for the configured table analysis rule.</p>
+   * The new analysis rule policy for the configured table analysis rule.
+   *
    * @public
    */
   analysisRulePolicy: ConfiguredTableAnalysisRulePolicy | undefined;
@@ -6895,25 +7973,31 @@ export interface UpdateConfiguredTableAnalysisRuleInput {
  */
 export interface UpdateConfiguredTableAnalysisRuleOutput {
   /**
-   * <p>The entire updated analysis rule.</p>
+   * The entire updated analysis rule.
+   *
    * @public
    */
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
 /**
- * <p>Provides the input reference configuration for the ID mapping table.</p>
+ * Provides the input reference configuration for the ID mapping table.
+ *
  * @public
  */
 export interface IdMappingTableInputReferenceConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the referenced resource in Entity Resolution. Valid values are ID mapping workflow ARNs.</p>
+   * The Amazon Resource Name (ARN) of the referenced resource in Entity Resolution. Valid values are ID mapping workflow ARNs.
+   *
    * @public
    */
   inputReferenceArn: string | undefined;
 
   /**
-   * <p>When <code>TRUE</code>, Clean Rooms manages permissions for the ID mapping table resource. </p> <p>When <code>FALSE</code>, the resource owner manages permissions for the ID mapping table resource.</p>
+   * When `TRUE`, Clean Rooms manages permissions for the ID mapping table resource.
+   *
+   * When `FALSE`, the resource owner manages permissions for the ID mapping table resource.
+   *
    * @public
    */
   manageResourcePolicies: boolean | undefined;
@@ -6924,139 +8008,162 @@ export interface IdMappingTableInputReferenceConfig {
  */
 export interface CreateIdMappingTableInput {
   /**
-   * <p>The unique identifier of the membership that contains the ID mapping table.</p>
+   * The unique identifier of the membership that contains the ID mapping table.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A name for the ID mapping table.</p>
+   * A name for the ID mapping table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the ID mapping table.</p>
+   * A description of the ID mapping table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The input reference configuration needed to create the ID mapping table.</p>
+   * The input reference configuration needed to create the ID mapping table.
+   *
    * @public
    */
   inputReferenceConfig: IdMappingTableInputReferenceConfig | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services KMS key. This value is used to encrypt the mapping table data that is stored by Clean Rooms.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services KMS key. This value is used to encrypt the mapping table data that is stored by Clean Rooms.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 }
 
 /**
- * <p>The input reference properties for the ID mapping table.</p>
+ * The input reference properties for the ID mapping table.
+ *
  * @public
  */
 export interface IdMappingTableInputReferenceProperties {
   /**
-   * <p>The input source of the ID mapping table.</p>
+   * The input source of the ID mapping table.
+   *
    * @public
    */
   idMappingTableInputSource: IdMappingTableInputSource[] | undefined;
 }
 
 /**
- * <p>Describes information about the ID mapping table.</p>
+ * Describes information about the ID mapping table.
+ *
  * @public
  */
 export interface IdMappingTable {
   /**
-   * <p>The unique identifier of the ID mapping table.</p>
+   * The unique identifier of the ID mapping table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ID mapping table.</p>
+   * The Amazon Resource Name (ARN) of the ID mapping table.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The input reference configuration for the ID mapping table.</p>
+   * The input reference configuration for the ID mapping table.
+   *
    * @public
    */
   inputReferenceConfig: IdMappingTableInputReferenceConfig | undefined;
 
   /**
-   * <p>The unique identifier of the membership resource for the ID mapping table.</p>
+   * The unique identifier of the membership resource for the ID mapping table.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership resource for the ID mapping table.</p>
+   * The Amazon Resource Name (ARN) of the membership resource for the ID mapping table.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains this ID mapping table.</p>
+   * The unique identifier of the collaboration that contains this ID mapping table.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The description of the ID mapping table.</p>
+   * The description of the ID mapping table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The name of the ID mapping table.</p>
+   * The name of the ID mapping table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The time at which the ID mapping table was created.</p>
+   * The time at which the ID mapping table was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ID mapping table was updated.</p>
+   * The most recent time at which the ID mapping table was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The input reference properties for the ID mapping table.</p>
+   * The input reference properties for the ID mapping table.
+   *
    * @public
    */
   inputReferenceProperties: IdMappingTableInputReferenceProperties | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services KMS key.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services KMS key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The child resources that depend on this ID mapping table.</p>
+   * The child resources that depend on this ID mapping table.
+   *
    * @public
    */
   childResources?: ChildResource[] | undefined;
@@ -7067,7 +8174,8 @@ export interface IdMappingTable {
  */
 export interface CreateIdMappingTableOutput {
   /**
-   * <p>The ID mapping table that was created.</p>
+   * The ID mapping table that was created.
+   *
    * @public
    */
   idMappingTable: IdMappingTable | undefined;
@@ -7078,13 +8186,15 @@ export interface CreateIdMappingTableOutput {
  */
 export interface DeleteIdMappingTableInput {
   /**
-   * <p>The unique identifier of the ID mapping table that you want to delete.</p>
+   * The unique identifier of the ID mapping table that you want to delete.
+   *
    * @public
    */
   idMappingTableIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID mapping table that you want to delete.</p>
+   * The unique identifier of the membership that contains the ID mapping table that you want to delete.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -7100,13 +8210,15 @@ export interface DeleteIdMappingTableOutput {}
  */
 export interface GetIdMappingTableInput {
   /**
-   * <p>The unique identifier of the ID mapping table identifier that you want to retrieve.</p>
+   * The unique identifier of the ID mapping table identifier that you want to retrieve.
+   *
    * @public
    */
   idMappingTableIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID mapping table that you want to retrieve.</p>
+   * The unique identifier of the membership that contains the ID mapping table that you want to retrieve.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -7117,7 +8229,8 @@ export interface GetIdMappingTableInput {
  */
 export interface GetIdMappingTableOutput {
   /**
-   * <p>The ID mapping table that you requested.</p>
+   * The ID mapping table that you requested.
+   *
    * @public
    */
   idMappingTable: IdMappingTable | undefined;
@@ -7128,91 +8241,106 @@ export interface GetIdMappingTableOutput {
  */
 export interface ListIdMappingTablesInput {
   /**
-   * <p>The unique identifier of the membership that contains the ID mapping tables that you want to view.</p>
+   * The unique identifier of the membership that contains the ID mapping tables that you want to view.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.</p>
+   * The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Detailed information about the ID mapping table.</p>
+ * Detailed information about the ID mapping table.
+ *
  * @public
  */
 export interface IdMappingTableSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains this ID mapping table.</p>
+   * The unique identifier of the collaboration that contains this ID mapping table.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership resource for this ID mapping table.</p>
+   * The unique identifier of the membership resource for this ID mapping table.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership resource for this ID mapping table.</p>
+   * The Amazon Resource Name (ARN) of the membership resource for this ID mapping table.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The time at which this ID mapping table was created.</p>
+   * The time at which this ID mapping table was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which this ID mapping table was updated.</p>
+   * The most recent time at which this ID mapping table was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique identifier of this ID mapping table.</p>
+   * The unique identifier of this ID mapping table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of this ID mapping table.</p>
+   * The Amazon Resource Name (ARN) of this ID mapping table.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The description of this ID mapping table.</p>
+   * The description of this ID mapping table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The input reference configuration for the ID mapping table.</p>
+   * The input reference configuration for the ID mapping table.
+   *
    * @public
    */
   inputReferenceConfig: IdMappingTableInputReferenceConfig | undefined;
 
   /**
-   * <p>The name of this ID mapping table.</p>
+   * The name of this ID mapping table.
+   *
    * @public
    */
   name: string | undefined;
@@ -7223,13 +8351,15 @@ export interface IdMappingTableSummary {
  */
 export interface ListIdMappingTablesOutput {
   /**
-   * <p>The summary information of the ID mapping tables that you requested.</p>
+   * The summary information of the ID mapping tables that you requested.
+   *
    * @public
    */
   idMappingTableSummaries: IdMappingTableSummary[] | undefined;
 
   /**
-   * <p>The token value provided to access the next page of results.</p>
+   * The token value provided to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -7240,19 +8370,30 @@ export interface ListIdMappingTablesOutput {
  */
 export interface PopulateIdMappingTableInput {
   /**
-   * <p>The unique identifier of the ID mapping table that you want to populate.</p>
+   * The unique identifier of the ID mapping table that you want to populate.
+   *
    * @public
    */
   idMappingTableIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID mapping table that you want to populate.</p>
+   * The unique identifier of the membership that contains the ID mapping table that you want to populate.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The job type of the rule-based ID mapping job. Valid values include:</p> <p> <code>INCREMENTAL</code>: Processes only new or changed data since the last job run. This is the default job type if the ID mapping workflow was created in Entity Resolution with <code>incrementalRunConfig</code> specified.</p> <p> <code>BATCH</code>: Processes all data from the input source, regardless of previous job runs. This is the default job type if the ID mapping workflow was created in Entity Resolution but <code>incrementalRunConfig</code> wasn't specified.</p> <p> <code>DELETE_ONLY</code>: Processes only deletion requests from <code>BatchDeleteUniqueId</code>, which is set in Entity Resolution.</p> <p>For more information about <code>incrementalRunConfig</code> and <code>BatchDeleteUniqueId</code>, see the <a href="https://docs.aws.amazon.com/entityresolution/latest/apireference/Welcome.html">Entity Resolution API Reference</a>.</p>
+   * The job type of the rule-based ID mapping job. Valid values include:
+   *
+   * `INCREMENTAL`: Processes only new or changed data since the last job run. This is the default job type if the ID mapping workflow was created in Entity Resolution with `incrementalRunConfig` specified.
+   *
+   * `BATCH`: Processes all data from the input source, regardless of previous job runs. This is the default job type if the ID mapping workflow was created in Entity Resolution but `incrementalRunConfig` wasn't specified.
+   *
+   * `DELETE_ONLY`: Processes only deletion requests from `BatchDeleteUniqueId`, which is set in Entity Resolution.
+   *
+   * For more information about `incrementalRunConfig` and `BatchDeleteUniqueId`, see the [Entity Resolution API Reference](https://docs.aws.amazon.com/entityresolution/latest/apireference/Welcome.html).
+   *
    * @public
    */
   jobType?: JobType | undefined;
@@ -7263,7 +8404,8 @@ export interface PopulateIdMappingTableInput {
  */
 export interface PopulateIdMappingTableOutput {
   /**
-   * <p>The unique identifier of the mapping job that will populate the ID mapping table.</p>
+   * The unique identifier of the mapping job that will populate the ID mapping table.
+   *
    * @public
    */
   idMappingJobId: string | undefined;
@@ -7274,25 +8416,29 @@ export interface PopulateIdMappingTableOutput {
  */
 export interface UpdateIdMappingTableInput {
   /**
-   * <p>The unique identifier of the ID mapping table that you want to update.</p>
+   * The unique identifier of the ID mapping table that you want to update.
+   *
    * @public
    */
   idMappingTableIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID mapping table that you want to update.</p>
+   * The unique identifier of the membership that contains the ID mapping table that you want to update.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A new description for the ID mapping table.</p>
+   * A new description for the ID mapping table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services KMS key.</p>
+   * The Amazon Resource Name (ARN) of the Amazon Web Services KMS key.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -7303,7 +8449,8 @@ export interface UpdateIdMappingTableInput {
  */
 export interface UpdateIdMappingTableOutput {
   /**
-   * <p>The updated ID mapping table.</p>
+   * The updated ID mapping table.
+   *
    * @public
    */
   idMappingTable: IdMappingTable | undefined;
@@ -7314,121 +8461,141 @@ export interface UpdateIdMappingTableOutput {
  */
 export interface CreateIdNamespaceAssociationInput {
   /**
-   * <p>The unique identifier of the membership that contains the ID namespace association.</p>
+   * The unique identifier of the membership that contains the ID namespace association.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The input reference configuration needed to create the ID namespace association.</p>
+   * The input reference configuration needed to create the ID namespace association.
+   *
    * @public
    */
   inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The name for the ID namespace association.</p>
+   * The name for the ID namespace association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the ID namespace association.</p>
+   * The description of the ID namespace association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration settings for the ID mapping table.</p>
+   * The configuration settings for the ID mapping table.
+   *
    * @public
    */
   idMappingConfig?: IdMappingConfig | undefined;
 }
 
 /**
- * <p>Provides information to create the ID namespace association.</p>
+ * Provides information to create the ID namespace association.
+ *
  * @public
  */
 export interface IdNamespaceAssociation {
   /**
-   * <p>The unique identifier for this ID namespace association.</p>
+   * The unique identifier for this ID namespace association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the ID namespace association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership resource for this ID namespace association.</p>
+   * The unique identifier of the membership resource for this ID namespace association.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains this ID namespace association.</p>
+   * The unique identifier of the collaboration that contains this ID namespace association.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The name of this ID namespace association.</p>
+   * The name of this ID namespace association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the ID namespace association.</p>
+   * The description of the ID namespace association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The time at which the ID namespace association was created.</p>
+   * The time at which the ID namespace association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which the ID namespace association was updated.</p>
+   * The most recent time at which the ID namespace association was updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The input reference configuration for the ID namespace association.</p>
+   * The input reference configuration for the ID namespace association.
+   *
    * @public
    */
   inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig | undefined;
 
   /**
-   * <p>The input reference properties for the ID namespace association.</p>
+   * The input reference properties for the ID namespace association.
+   *
    * @public
    */
   inputReferenceProperties: IdNamespaceAssociationInputReferenceProperties | undefined;
 
   /**
-   * <p>The configuration settings for the ID mapping table.</p>
+   * The configuration settings for the ID mapping table.
+   *
    * @public
    */
   idMappingConfig?: IdMappingConfig | undefined;
@@ -7439,7 +8606,8 @@ export interface IdNamespaceAssociation {
  */
 export interface CreateIdNamespaceAssociationOutput {
   /**
-   * <p>The ID namespace association that was created.</p>
+   * The ID namespace association that was created.
+   *
    * @public
    */
   idNamespaceAssociation: IdNamespaceAssociation | undefined;
@@ -7450,13 +8618,15 @@ export interface CreateIdNamespaceAssociationOutput {
  */
 export interface DeleteIdNamespaceAssociationInput {
   /**
-   * <p>The unique identifier of the ID namespace association that you want to delete.</p>
+   * The unique identifier of the ID namespace association that you want to delete.
+   *
    * @public
    */
   idNamespaceAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID namespace association that you want to delete.</p>
+   * The unique identifier of the membership that contains the ID namespace association that you want to delete.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -7472,13 +8642,15 @@ export interface DeleteIdNamespaceAssociationOutput {}
  */
 export interface GetIdNamespaceAssociationInput {
   /**
-   * <p>The unique identifier of the ID namespace association that you want to retrieve.</p>
+   * The unique identifier of the ID namespace association that you want to retrieve.
+   *
    * @public
    */
   idNamespaceAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID namespace association that you want to retrieve.</p>
+   * The unique identifier of the membership that contains the ID namespace association that you want to retrieve.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -7489,7 +8661,8 @@ export interface GetIdNamespaceAssociationInput {
  */
 export interface GetIdNamespaceAssociationOutput {
   /**
-   * <p>The ID namespace association that you requested.</p>
+   * The ID namespace association that you requested.
+   *
    * @public
    */
   idNamespaceAssociation: IdNamespaceAssociation | undefined;
@@ -7500,97 +8673,113 @@ export interface GetIdNamespaceAssociationOutput {
  */
 export interface ListIdNamespaceAssociationsInput {
   /**
-   * <p>The unique identifier of the membership that contains the ID namespace association that you want to view.</p>
+   * The unique identifier of the membership that contains the ID namespace association that you want to view.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.</p>
+   * The maximum size of the results that is returned per call. Service chooses a default if it has not been set. Service may return a nextToken even if the maximum results has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Detailed information about the ID namespace association.</p>
+ * Detailed information about the ID namespace association.
+ *
  * @public
  */
 export interface IdNamespaceAssociationSummary {
   /**
-   * <p>The unique identifier of the membership resource for this ID namespace association.</p>
+   * The unique identifier of the membership resource for this ID namespace association.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains this ID namespace association.</p>
+   * The unique identifier of the collaboration that contains this ID namespace association.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The time at which this ID namespace association was created.</p>
+   * The time at which this ID namespace association was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The most recent time at which this ID namespace association has been updated.</p>
+   * The most recent time at which this ID namespace association has been updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The unique identifier of this ID namespace association.</p>
+   * The unique identifier of this ID namespace association.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of this ID namespace association.</p>
+   * The Amazon Resource Name (ARN) of this ID namespace association.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The input reference configuration details for this ID namespace association.</p>
+   * The input reference configuration details for this ID namespace association.
+   *
    * @public
    */
   inputReferenceConfig: IdNamespaceAssociationInputReferenceConfig | undefined;
 
   /**
-   * <p>The name of the ID namespace association.</p>
+   * The name of the ID namespace association.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the ID namespace association.</p>
+   * The description of the ID namespace association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The input reference properties for this ID namespace association.</p>
+   * The input reference properties for this ID namespace association.
+   *
    * @public
    */
   inputReferenceProperties: IdNamespaceAssociationInputReferencePropertiesSummary | undefined;
@@ -7601,13 +8790,15 @@ export interface IdNamespaceAssociationSummary {
  */
 export interface ListIdNamespaceAssociationsOutput {
   /**
-   * <p>The token value provided to access the next page of results.</p>
+   * The token value provided to access the next page of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The summary information of the ID namespace associations that you requested.</p>
+   * The summary information of the ID namespace associations that you requested.
+   *
    * @public
    */
   idNamespaceAssociationSummaries: IdNamespaceAssociationSummary[] | undefined;
@@ -7618,31 +8809,36 @@ export interface ListIdNamespaceAssociationsOutput {
  */
 export interface UpdateIdNamespaceAssociationInput {
   /**
-   * <p>The unique identifier of the ID namespace association that you want to update.</p>
+   * The unique identifier of the ID namespace association that you want to update.
+   *
    * @public
    */
   idNamespaceAssociationIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the ID namespace association that you want to update.</p>
+   * The unique identifier of the membership that contains the ID namespace association that you want to update.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>A new name for the ID namespace association.</p>
+   * A new name for the ID namespace association.
+   *
    * @public
    */
   name?: string | undefined;
 
   /**
-   * <p>A new description for the ID namespace association.</p>
+   * A new description for the ID namespace association.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration settings for the ID mapping table.</p>
+   * The configuration settings for the ID mapping table.
+   *
    * @public
    */
   idMappingConfig?: IdMappingConfig | undefined;
@@ -7653,32 +8849,37 @@ export interface UpdateIdNamespaceAssociationInput {
  */
 export interface UpdateIdNamespaceAssociationOutput {
   /**
-   * <p>The updated ID namespace association.</p>
+   * The updated ID namespace association.
+   *
    * @public
    */
   idNamespaceAssociation: IdNamespaceAssociation | undefined;
 }
 
 /**
- * <p>Contains the SQL parameters used to populate an intermediate table.</p>
+ * Contains the SQL parameters used to populate an intermediate table.
+ *
  * @public
  */
 export interface PopulationAnalysisSqlParameters {
   /**
-   * <p>The SQL query string used to populate the intermediate table.</p>
+   * The SQL query string used to populate the intermediate table.
+   *
    * @public
    */
   queryString?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis template to use for populating the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the analysis template to use for populating the intermediate table.
+   *
    * @public
    */
   analysisTemplateArn?: string | undefined;
 }
 
 /**
- * <p>Contains the configuration that defines the analysis used to populate an intermediate table.</p>
+ * Contains the configuration that defines the analysis used to populate an intermediate table.
+ *
  * @public
  */
 export type PopulationAnalysisConfiguration =
@@ -7690,7 +8891,8 @@ export type PopulationAnalysisConfiguration =
  */
 export namespace PopulationAnalysisConfiguration {
   /**
-   * <p>The SQL parameters for the population analysis, including the query string or analysis template ARN.</p>
+   * The SQL parameters for the population analysis, including the query string or analysis template ARN.
+   *
    * @public
    */
   export interface SqlParametersMember {
@@ -7721,517 +8923,603 @@ export namespace PopulationAnalysisConfiguration {
  */
 export interface CreateIntermediateTableInput {
   /**
-   * <p>The unique identifier of the membership where the intermediate table is created.</p>
+   * The unique identifier of the membership where the intermediate table is created.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The display name for the intermediate table.</p>
+   * The display name for the intermediate table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>A description of the intermediate table.</p>
+   * A description of the intermediate table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The configuration that defines the analysis used to populate the intermediate table.</p>
+   * The configuration that defines the analysis used to populate the intermediate table.
+   *
    * @public
    */
   populationAnalysisConfiguration: PopulationAnalysisConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer-managed KMS key used to encrypt the intermediate table data.</p>
+   * The Amazon Resource Name (ARN) of the customer-managed KMS key used to encrypt the intermediate table data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The number of days to retain populated data versions.</p>
+   * The number of days to retain populated data versions.
+   *
    * @public
    */
   retentionInDays?: number | undefined;
 
   /**
-   * <p>An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.</p>
+   * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+   *
    * @public
    */
   tags?: Record<string, string> | undefined;
 }
 
 /**
- * <p>Contains information about a parent table that contributes an additional analyses constraint.</p>
+ * Contains information about a parent table that contributes an additional analyses constraint.
+ *
  * @public
  */
 export interface InheritedAdditionalAnalysesSource {
   /**
-   * <p>The name of the parent table.</p>
+   * The name of the parent table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent table.</p>
+   * The unique identifier of the parent table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The type of the parent table.</p>
+   * The type of the parent table.
+   *
    * @public
    */
   type: BaseTableDependencyType | undefined;
 
   /**
-   * <p>The additional analyses setting defined on the parent table.</p>
+   * The additional analyses setting defined on the parent table.
+   *
    * @public
    */
   value: AdditionalAnalyses | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the member who owns the parent table.</p>
+   * The Amazon Web Services account ID of the member who owns the parent table.
+   *
    * @public
    */
   sourceAccountId: string | undefined;
 }
 
 /**
- * <p>Contains the inherited additional analyses constraint and its sources from parent tables.</p>
+ * Contains the inherited additional analyses constraint and its sources from parent tables.
+ *
  * @public
  */
 export interface InheritedAdditionalAnalyses {
   /**
-   * <p>The effective additional analyses setting inherited from parent tables.</p>
+   * The effective additional analyses setting inherited from parent tables.
+   *
    * @public
    */
   value: AdditionalAnalyses | undefined;
 
   /**
-   * <p>The list of parent tables that contribute to this inherited constraint.</p>
+   * The list of parent tables that contribute to this inherited constraint.
+   *
    * @public
    */
   sources: InheritedAdditionalAnalysesSource[] | undefined;
 }
 
 /**
- * <p>Contains information about a parent table that contributes an allowed additional analyses constraint.</p>
+ * Contains information about a parent table that contributes an allowed additional analyses constraint.
+ *
  * @public
  */
 export interface InheritedAllowedAdditionalAnalysesSource {
   /**
-   * <p>The name of the parent table.</p>
+   * The name of the parent table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent table.</p>
+   * The unique identifier of the parent table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The type of the parent table.</p>
+   * The type of the parent table.
+   *
    * @public
    */
   type: BaseTableDependencyType | undefined;
 
   /**
-   * <p>The allowed additional analyses defined on the parent table.</p>
+   * The allowed additional analyses defined on the parent table.
+   *
    * @public
    */
   value: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the member who owns the parent table.</p>
+   * The Amazon Web Services account ID of the member who owns the parent table.
+   *
    * @public
    */
   sourceAccountId: string | undefined;
 }
 
 /**
- * <p>Contains the inherited allowed additional analyses constraint and its sources from parent tables.</p>
+ * Contains the inherited allowed additional analyses constraint and its sources from parent tables.
+ *
  * @public
  */
 export interface InheritedAllowedAdditionalAnalyses {
   /**
-   * <p>The effective list of allowed additional analyses inherited from parent tables.</p>
+   * The effective list of allowed additional analyses inherited from parent tables.
+   *
    * @public
    */
   value: string[] | undefined;
 
   /**
-   * <p>The list of parent tables that contribute to this inherited constraint.</p>
+   * The list of parent tables that contribute to this inherited constraint.
+   *
    * @public
    */
   sources: InheritedAllowedAdditionalAnalysesSource[] | undefined;
 }
 
 /**
- * <p>Contains information about a parent table that contributes an allowed result receivers constraint.</p>
+ * Contains information about a parent table that contributes an allowed result receivers constraint.
+ *
  * @public
  */
 export interface InheritedAllowedResultReceiversSource {
   /**
-   * <p>The name of the parent table.</p>
+   * The name of the parent table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The unique identifier of the parent table.</p>
+   * The unique identifier of the parent table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The type of the parent table.</p>
+   * The type of the parent table.
+   *
    * @public
    */
   type: BaseTableDependencyType | undefined;
 
   /**
-   * <p>The allowed result receiver account IDs defined on the parent table.</p>
+   * The allowed result receiver account IDs defined on the parent table.
+   *
    * @public
    */
   value: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the member who owns the parent table.</p>
+   * The Amazon Web Services account ID of the member who owns the parent table.
+   *
    * @public
    */
   sourceAccountId: string | undefined;
 }
 
 /**
- * <p>Contains the inherited allowed result receivers constraint and its sources from parent tables.</p>
+ * Contains the inherited allowed result receivers constraint and its sources from parent tables.
+ *
  * @public
  */
 export interface InheritedAllowedResultReceivers {
   /**
-   * <p>The effective list of Amazon Web Services account IDs allowed to receive results, inherited from parent tables.</p>
+   * The effective list of Amazon Web Services account IDs allowed to receive results, inherited from parent tables.
+   *
    * @public
    */
   value: string[] | undefined;
 
   /**
-   * <p>The list of parent tables that contribute to this inherited constraint.</p>
+   * The list of parent tables that contribute to this inherited constraint.
+   *
    * @public
    */
   sources: InheritedAllowedResultReceiversSource[] | undefined;
 }
 
 /**
- * <p>Contains column lineage information that traces a disallowed output column back to its source in a base table.</p>
+ * Contains column lineage information that traces a disallowed output column back to its source in a base table.
+ *
  * @public
  */
 export interface ColumnLineageEntry {
   /**
-   * <p>The name of the column in the intermediate table.</p>
+   * The name of the column in the intermediate table.
+   *
    * @public
    */
   column: string | undefined;
 
   /**
-   * <p>The name of the column in the source table.</p>
+   * The name of the column in the source table.
+   *
    * @public
    */
   sourceColumn: string | undefined;
 
   /**
-   * <p>The name of the source table.</p>
+   * The name of the source table.
+   *
    * @public
    */
   sourceName: string | undefined;
 
   /**
-   * <p>The unique identifier of the source table.</p>
+   * The unique identifier of the source table.
+   *
    * @public
    */
   sourceId: string | undefined;
 
   /**
-   * <p>The type of the source table.</p>
+   * The type of the source table.
+   *
    * @public
    */
   sourceType: BaseTableDependencyType | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the owner of the source table.</p>
+   * The Amazon Web Services account ID of the owner of the source table.
+   *
    * @public
    */
   sourceAccountId: string | undefined;
 }
 
 /**
- * <p>Contains the inherited disallowed output columns constraint and the column lineage tracing each column to its source.</p>
+ * Contains the inherited disallowed output columns constraint and the column lineage tracing each column to its source.
+ *
  * @public
  */
 export interface InheritedDisallowedOutputColumns {
   /**
-   * <p>The list of column names that are disallowed from appearing in query output, inherited from parent tables.</p>
+   * The list of column names that are disallowed from appearing in query output, inherited from parent tables.
+   *
    * @public
    */
   value: string[] | undefined;
 
   /**
-   * <p>The lineage information that traces each disallowed output column back to its source in a parent table.</p>
+   * The lineage information that traces each disallowed output column back to its source in a parent table.
+   *
    * @public
    */
   columnLineage: ColumnLineageEntry[] | undefined;
 }
 
 /**
- * <p>Contains the privacy constraints inherited from parent tables for an intermediate table version.</p>
+ * Contains the privacy constraints inherited from parent tables for an intermediate table version.
+ *
  * @public
  */
 export interface IntermediateTableInheritedConstraints {
   /**
-   * <p>The inherited additional analyses constraint.</p>
+   * The inherited additional analyses constraint.
+   *
    * @public
    */
   additionalAnalyses?: InheritedAdditionalAnalyses | undefined;
 
   /**
-   * <p>The inherited allowed additional analyses constraint.</p>
+   * The inherited allowed additional analyses constraint.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: InheritedAllowedAdditionalAnalyses | undefined;
 
   /**
-   * <p>The inherited allowed result receivers constraint.</p>
+   * The inherited allowed result receivers constraint.
+   *
    * @public
    */
   allowedResultReceivers?: InheritedAllowedResultReceivers | undefined;
 
   /**
-   * <p>The inherited disallowed output columns constraint.</p>
+   * The inherited disallowed output columns constraint.
+   *
    * @public
    */
   disallowedOutputColumns?: InheritedDisallowedOutputColumns | undefined;
 }
 
 /**
- * <p>Contains the details of the currently active version of an intermediate table.</p>
+ * Contains the details of the currently active version of an intermediate table.
+ *
  * @public
  */
 export interface IntermediateTableActiveVersion {
   /**
-   * <p>The unique identifier of the active version.</p>
+   * The unique identifier of the active version.
+   *
    * @public
    */
   versionId: string | undefined;
 
   /**
-   * <p>The identifier of the protected query that created this version.</p>
+   * The identifier of the protected query that created this version.
+   *
    * @public
    */
   analysisId: string | undefined;
 
   /**
-   * <p>The type of analysis that created this version.</p>
+   * The type of analysis that created this version.
+   *
    * @public
    */
   analysisType: PopulateIntermediateTableAnalysisType | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt this version's data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt this version's data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The runtime parameters that were used when populating this version.</p>
+   * The runtime parameters that were used when populating this version.
+   *
    * @public
    */
   parameters?: Record<string, string> | undefined;
 
   /**
-   * <p>The privacy constraints inherited from parent tables at the time this version was populated.</p>
+   * The privacy constraints inherited from parent tables at the time this version was populated.
+   *
    * @public
    */
   inheritedConstraints: IntermediateTableInheritedConstraints | undefined;
 
   /**
-   * <p>The time when this version expires based on the retention period.</p>
+   * The time when this version expires based on the retention period.
+   *
    * @public
    */
   expirationTime?: Date | undefined;
 }
 
 /**
- * <p>Contains the schema definition of an intermediate table.</p>
+ * Contains the schema definition of an intermediate table.
+ *
  * @public
  */
 export interface IntermediateTableSchema {
   /**
-   * <p>The list of columns in the intermediate table schema.</p>
+   * The list of columns in the intermediate table schema.
+   *
    * @public
    */
   columns: Column[] | undefined;
 }
 
 /**
- * <p>Contains information about a base table that an intermediate table depends on.</p>
+ * Contains information about a base table that an intermediate table depends on.
+ *
  * @public
  */
 export interface IntermediateTableDependency {
   /**
-   * <p>The unique identifier of the dependency table.</p>
+   * The unique identifier of the dependency table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The name of the dependency table.</p>
+   * The name of the dependency table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The type of the dependency table.</p>
+   * The type of the dependency table.
+   *
    * @public
    */
   type: BaseTableDependencyType | undefined;
 
   /**
-   * <p>The type of dependency, either direct or indirect. A direct dependency is a table explicitly referenced in the stored query. An indirect dependency is a table referenced through another intermediate table.</p>
+   * The type of dependency, either direct or indirect. A direct dependency is a table explicitly referenced in the stored query. An indirect dependency is a table referenced through another intermediate table.
+   *
    * @public
    */
   parentType: BaseTableParentType | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID of the member who owns the dependency table.</p>
+   * The Amazon Web Services account ID of the member who owns the dependency table.
+   *
    * @public
    */
   creatorAccountId: string | undefined;
 }
 
 /**
- * <p>Contains the details of an intermediate table in Clean Rooms. An intermediate table stores a query definition and its materialized results within a collaboration.</p>
+ * Contains the details of an intermediate table in Clean Rooms. An intermediate table stores a query definition and its materialized results within a collaboration.
+ *
  * @public
  */
 export interface IntermediateTable {
   /**
-   * <p>The unique identifier of the intermediate table.</p>
+   * The unique identifier of the intermediate table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the intermediate table.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the intermediate table.</p>
+   * The name of the intermediate table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the intermediate table.</p>
+   * The description of the intermediate table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership that contains the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains the intermediate table.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains the intermediate table.</p>
+   * The unique identifier of the collaboration that contains the intermediate table.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The child resources that depend on this intermediate table.</p>
+   * The child resources that depend on this intermediate table.
+   *
    * @public
    */
   childResources?: ChildResource[] | undefined;
 
   /**
-   * <p>The time the intermediate table was created.</p>
+   * The time the intermediate table was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the intermediate table was last updated.</p>
+   * The time the intermediate table was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The current status of the intermediate table.</p>
+   * The current status of the intermediate table.
+   *
    * @public
    */
   status: IntermediateTableStatus | undefined;
 
   /**
-   * <p>The reason for the current status of the intermediate table.</p>
+   * The reason for the current status of the intermediate table.
+   *
    * @public
    */
   statusReason?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the intermediate table data.</p>
+   * The Amazon Resource Name (ARN) of the KMS key used to encrypt the intermediate table data.
+   *
    * @public
    */
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The analysis configuration that defines the query used to populate the intermediate table.</p>
+   * The analysis configuration that defines the query used to populate the intermediate table.
+   *
    * @public
    */
   populationAnalysisConfiguration: PopulationAnalysisConfiguration | undefined;
 
   /**
-   * <p>The number of days that populated data is retained before expiring.</p>
+   * The number of days that populated data is retained before expiring.
+   *
    * @public
    */
   retentionInDays?: number | undefined;
 
   /**
-   * <p>The list of base tables that this intermediate table depends on.</p>
+   * The list of base tables that this intermediate table depends on.
+   *
    * @public
    */
   tableDependencies?: IntermediateTableDependency[] | undefined;
 
   /**
-   * <p>The details of the currently active version of the intermediate table.</p>
+   * The details of the currently active version of the intermediate table.
+   *
    * @public
    */
   intermediateTableVersion?: IntermediateTableActiveVersion | undefined;
 
   /**
-   * <p>The types of analysis rules associated with the intermediate table.</p>
+   * The types of analysis rules associated with the intermediate table.
+   *
    * @public
    */
   analysisRuleTypes?: IntermediateTableAnalysisRuleType[] | undefined;
 
   /**
-   * <p>The schema of the intermediate table, containing column definitions. Available after the table has been successfully populated.</p>
+   * The schema of the intermediate table, containing column definitions. Available after the table has been successfully populated.
+   *
    * @public
    */
   schema?: IntermediateTableSchema | undefined;
@@ -8242,74 +9530,86 @@ export interface IntermediateTable {
  */
 export interface CreateIntermediateTableOutput {
   /**
-   * <p>The intermediate table that was created.</p>
+   * The intermediate table that was created.
+   *
    * @public
    */
   intermediateTable: IntermediateTable | undefined;
 }
 
 /**
- * <p>Contains the custom analysis rule configuration for an intermediate table.</p>
+ * Contains the custom analysis rule configuration for an intermediate table.
+ *
  * @public
  */
 export interface IntermediateTableAnalysisRuleCustom {
   /**
-   * <p>The list of allowed analyses that can be performed on the intermediate table.</p>
+   * The list of allowed analyses that can be performed on the intermediate table.
+   *
    * @public
    */
   allowedAnalyses?: string[] | undefined;
 
   /**
-   * <p>The setting that controls whether additional analyses are allowed on the intermediate table.</p>
+   * The setting that controls whether additional analyses are allowed on the intermediate table.
+   *
    * @public
    */
   additionalAnalyses?: AdditionalAnalyses | undefined;
 
   /**
-   * <p>The list of allowed additional analyses for the intermediate table.</p>
+   * The list of allowed additional analyses for the intermediate table.
+   *
    * @public
    */
   allowedAdditionalAnalyses?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services account IDs for the allowed analysis providers.</p>
+   * The list of Amazon Web Services account IDs for the allowed analysis providers.
+   *
    * @public
    */
   allowedAnalysisProviders?: string[] | undefined;
 
   /**
-   * <p>The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the intermediate table.</p>
+   * The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the intermediate table.
+   *
    * @public
    */
   allowedResultReceivers?: string[] | undefined;
 
   /**
-   * <p>Specifies the unique identifier for your users.</p>
+   * Specifies the unique identifier for your users.
+   *
    * @public
    */
   differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
 
   /**
-   * <p>The list of columns that are not allowed in the query output.</p>
+   * The list of columns that are not allowed in the query output.
+   *
    * @public
    */
   disallowedOutputColumns?: string[] | undefined;
 
   /**
-   * <p>The aggregation thresholds that each query output group must satisfy. Clean Rooms filters out any group that represents fewer than the specified number of distinct identities. You can specify at most one threshold. You can't use aggregation thresholds with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * The aggregation thresholds that each query output group must satisfy. Clean Rooms filters out any group that represents fewer than the specified number of distinct identities. You can specify at most one threshold. You can't use aggregation thresholds with differential privacy, or when `allowedAnalyses` allows only jobs.
+   *
    * @public
    */
   aggregationThresholds?: AggregationThreshold[] | undefined;
 
   /**
-   * <p>The controls that restrict how a query can compare the columns in the intermediate table. You can't use comparison controls with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * The controls that restrict how a query can compare the columns in the intermediate table. You can't use comparison controls with differential privacy, or when `allowedAnalyses` allows only jobs.
+   *
    * @public
    */
   comparisonControls?: ComparisonControls | undefined;
 }
 
 /**
- * <p>Contains the version 1 policy for an intermediate table analysis rule.</p>
+ * Contains the version 1 policy for an intermediate table analysis rule.
+ *
  * @public
  */
 export type IntermediateTableAnalysisRulePolicyV1 =
@@ -8321,7 +9621,8 @@ export type IntermediateTableAnalysisRulePolicyV1 =
  */
 export namespace IntermediateTableAnalysisRulePolicyV1 {
   /**
-   * <p>The custom analysis rule policy.</p>
+   * The custom analysis rule policy.
+   *
    * @public
    */
   export interface CustomMember {
@@ -8348,7 +9649,8 @@ export namespace IntermediateTableAnalysisRulePolicyV1 {
 }
 
 /**
- * <p>Contains the policy for an intermediate table analysis rule.</p>
+ * Contains the policy for an intermediate table analysis rule.
+ *
  * @public
  */
 export type IntermediateTableAnalysisRulePolicy =
@@ -8360,7 +9662,8 @@ export type IntermediateTableAnalysisRulePolicy =
  */
 export namespace IntermediateTableAnalysisRulePolicy {
   /**
-   * <p>The version 1 policy for the analysis rule.</p>
+   * The version 1 policy for the analysis rule.
+   *
    * @public
    */
   export interface V1Member {
@@ -8391,67 +9694,78 @@ export namespace IntermediateTableAnalysisRulePolicy {
  */
 export interface CreateIntermediateTableAnalysisRuleInput {
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the intermediate table for which to create the analysis rule.</p>
+   * The unique identifier of the intermediate table for which to create the analysis rule.
+   *
    * @public
    */
   intermediateTableIdentifier: string | undefined;
 
   /**
-   * <p>The type of analysis rule to create. Currently, only <code>CUSTOM</code> is supported.</p>
+   * The type of analysis rule to create. Currently, only `CUSTOM` is supported.
+   *
    * @public
    */
   analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
 
   /**
-   * <p>The analysis rule policy to apply to the intermediate table.</p>
+   * The analysis rule policy to apply to the intermediate table.
+   *
    * @public
    */
   analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
 }
 
 /**
- * <p>Contains the details of an analysis rule for an intermediate table.</p>
+ * Contains the details of an analysis rule for an intermediate table.
+ *
  * @public
  */
 export interface IntermediateTableAnalysisRule {
   /**
-   * <p>The unique identifier of the intermediate table associated with this analysis rule.</p>
+   * The unique identifier of the intermediate table associated with this analysis rule.
+   *
    * @public
    */
   intermediateTableIdentifier: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the intermediate table associated with this analysis rule.</p>
+   * The Amazon Resource Name (ARN) of the intermediate table associated with this analysis rule.
+   *
    * @public
    */
   intermediateTableArn: string | undefined;
 
   /**
-   * <p>The policy of the analysis rule.</p>
+   * The policy of the analysis rule.
+   *
    * @public
    */
   analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
 
   /**
-   * <p>The type of the analysis rule.</p>
+   * The type of the analysis rule.
+   *
    * @public
    */
   analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
 
   /**
-   * <p>The time the analysis rule was created.</p>
+   * The time the analysis rule was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the analysis rule was last updated.</p>
+   * The time the analysis rule was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
@@ -8462,7 +9776,8 @@ export interface IntermediateTableAnalysisRule {
  */
 export interface CreateIntermediateTableAnalysisRuleOutput {
   /**
-   * <p>The analysis rule that was created for the intermediate table.</p>
+   * The analysis rule that was created for the intermediate table.
+   *
    * @public
    */
   analysisRule: IntermediateTableAnalysisRule | undefined;
@@ -8473,13 +9788,15 @@ export interface CreateIntermediateTableAnalysisRuleOutput {
  */
 export interface DeleteIntermediateTableInput {
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the intermediate table to delete.</p>
+   * The unique identifier of the intermediate table to delete.
+   *
    * @public
    */
   intermediateTableIdentifier: string | undefined;
@@ -8495,19 +9812,22 @@ export interface DeleteIntermediateTableOutput {}
  */
 export interface DeleteIntermediateTableAnalysisRuleInput {
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the intermediate table from which to delete the analysis rule.</p>
+   * The unique identifier of the intermediate table from which to delete the analysis rule.
+   *
    * @public
    */
   intermediateTableIdentifier: string | undefined;
 
   /**
-   * <p>The type of analysis rule to delete. Currently, only <code>CUSTOM</code> is supported.</p>
+   * The type of analysis rule to delete. Currently, only `CUSTOM` is supported.
+   *
    * @public
    */
   analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
@@ -8523,13 +9843,15 @@ export interface DeleteIntermediateTableAnalysisRuleOutput {}
  */
 export interface GetIntermediateTableInput {
   /**
-   * <p>The unique identifier of the intermediate table to retrieve.</p>
+   * The unique identifier of the intermediate table to retrieve.
+   *
    * @public
    */
   intermediateTableIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
@@ -8540,7 +9862,8 @@ export interface GetIntermediateTableInput {
  */
 export interface GetIntermediateTableOutput {
   /**
-   * <p>The intermediate table retrieved.</p>
+   * The intermediate table retrieved.
+   *
    * @public
    */
   intermediateTable: IntermediateTable | undefined;
@@ -8551,19 +9874,22 @@ export interface GetIntermediateTableOutput {
  */
 export interface GetIntermediateTableAnalysisRuleInput {
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The unique identifier of the intermediate table for which to retrieve the analysis rule.</p>
+   * The unique identifier of the intermediate table for which to retrieve the analysis rule.
+   *
    * @public
    */
   intermediateTableIdentifier: string | undefined;
 
   /**
-   * <p>The type of analysis rule to retrieve. Currently, only <code>CUSTOM</code> is supported.</p>
+   * The type of analysis rule to retrieve. Currently, only `CUSTOM` is supported.
+   *
    * @public
    */
   analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
@@ -8574,7 +9900,8 @@ export interface GetIntermediateTableAnalysisRuleInput {
  */
 export interface GetIntermediateTableAnalysisRuleOutput {
   /**
-   * <p>The analysis rule for the intermediate table.</p>
+   * The analysis rule for the intermediate table.
+   *
    * @public
    */
   analysisRule: IntermediateTableAnalysisRule | undefined;
@@ -8585,103 +9912,120 @@ export interface GetIntermediateTableAnalysisRuleOutput {
  */
 export interface ListIntermediateTablesInput {
   /**
-   * <p>The unique identifier of the membership for which to list intermediate tables.</p>
+   * The unique identifier of the membership for which to list intermediate tables.
+   *
    * @public
    */
   membershipIdentifier: string | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a <code>nextToken</code> even if the <code>maxResults</code> value has not been met.</p>
+   * The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the `maxResults` value has not been met.
+   *
    * @public
    */
   maxResults?: number | undefined;
 }
 
 /**
- * <p>Contains summary information about an intermediate table.</p>
+ * Contains summary information about an intermediate table.
+ *
  * @public
  */
 export interface IntermediateTableSummary {
   /**
-   * <p>The unique identifier of the intermediate table.</p>
+   * The unique identifier of the intermediate table.
+   *
    * @public
    */
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the intermediate table.
+   *
    * @public
    */
   arn: string | undefined;
 
   /**
-   * <p>The name of the intermediate table.</p>
+   * The name of the intermediate table.
+   *
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the intermediate table.</p>
+   * The description of the intermediate table.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the membership that contains the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * The unique identifier of the membership that contains the intermediate table.
+   *
    * @public
    */
   membershipId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collaboration that contains the intermediate table.</p>
+   * The Amazon Resource Name (ARN) of the collaboration that contains the intermediate table.
+   *
    * @public
    */
   collaborationArn: string | undefined;
 
   /**
-   * <p>The unique identifier of the collaboration that contains the intermediate table.</p>
+   * The unique identifier of the collaboration that contains the intermediate table.
+   *
    * @public
    */
   collaborationId: string | undefined;
 
   /**
-   * <p>The time the intermediate table was created.</p>
+   * The time the intermediate table was created.
+   *
    * @public
    */
   createTime: Date | undefined;
 
   /**
-   * <p>The time the intermediate table was last updated.</p>
+   * The time the intermediate table was last updated.
+   *
    * @public
    */
   updateTime: Date | undefined;
 
   /**
-   * <p>The current status of the intermediate table.</p>
+   * The current status of the intermediate table.
+   *
    * @public
    */
   status: IntermediateTableStatus | undefined;
 
   /**
-   * <p>The number of days that populated data is retained before expiring.</p>
+   * The number of days that populated data is retained before expiring.
+   *
    * @public
    */
   retentionInDays?: number | undefined;
 
   /**
-   * <p>The types of analysis rules associated with the intermediate table.</p>
+   * The types of analysis rules associated with the intermediate table.
+   *
    * @public
    */
   analysisRuleTypes?: IntermediateTableAnalysisRuleType[] | undefined;
@@ -8692,13 +10036,15 @@ export interface IntermediateTableSummary {
  */
 export interface ListIntermediateTablesOutput {
   /**
-   * <p>The list of intermediate table summaries.</p>
+   * The list of intermediate table summaries.
+   *
    * @public
    */
   intermediateTableSummaries: IntermediateTableSummary[] | undefined;
 
   /**
-   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * The pagination token that's used to fetch the next set of results.
+   *
    * @public
    */
   nextToken?: string | undefined;

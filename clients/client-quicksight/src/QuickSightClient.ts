@@ -1737,11 +1737,10 @@ export type QuickSightClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface QuickSightClientResolvedConfig extends QuickSightClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon Quick API Reference</fullname>
- *          <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
- *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
- *             organization. This API reference contains documentation for a programming interface that
- *             you can use to manage Amazon Quick Sight. </p>
+ * Amazon Quick API Reference
+ *
+ * Amazon Quick Sight is a fully managed, serverless business intelligence service for the Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your organization. This API reference contains documentation for a programming interface that you can use to manage Amazon Quick Sight.
+ *
  * @public
  */
 export class QuickSightClient extends __Client<

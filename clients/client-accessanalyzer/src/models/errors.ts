@@ -6,7 +6,8 @@ import type { ValidationExceptionReason } from "./enums";
 import type { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>You do not have sufficient access to perform this action.</p>
+ * You do not have sufficient access to perform this action.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>A conflict exception error.</p>
+ * A conflict exception error.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -35,13 +37,15 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -62,7 +66,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal server error.</p>
+ * Internal server error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -71,7 +76,8 @@ export class InternalServerException extends __BaseException {
   readonly $fault = "server" as const;
   $retryable = {};
   /**
-   * <p>The seconds to wait to retry.</p>
+   * The seconds to wait to retry.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -91,7 +97,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource could not be found.</p>
+ * The specified resource could not be found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -99,13 +106,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The ID of the resource.</p>
+   * The ID of the resource.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The type of the resource.</p>
+   * The type of the resource.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -126,7 +135,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Service quote met error.</p>
+ * Service quote met error.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -134,13 +144,15 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name = "ServiceQuotaExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The resource ID.</p>
+   * The resource ID.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   resourceType: string | undefined;
@@ -161,7 +173,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Throttling limit exceeded error.</p>
+ * Throttling limit exceeded error.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -172,7 +185,8 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The seconds to wait to retry.</p>
+   * The seconds to wait to retry.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;
@@ -192,7 +206,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Validation exception error.</p>
+ * Validation exception error.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -200,13 +215,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the exception.</p>
+   * The reason for the exception.
+   *
    * @public
    */
   reason: ValidationExceptionReason | undefined;
 
   /**
-   * <p>A list of fields that didn't validate.</p>
+   * A list of fields that didn't validate.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -227,7 +244,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>The specified parameter is invalid.</p>
+ * The specified parameter is invalid.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -248,7 +266,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The specified entity could not be processed.</p>
+ * The specified entity could not be processed.
+ *
  * @public
  */
 export class UnprocessableEntityException extends __BaseException {

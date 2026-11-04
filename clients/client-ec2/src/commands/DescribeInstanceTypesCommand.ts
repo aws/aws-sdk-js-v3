@@ -23,10 +23,8 @@ export interface DescribeInstanceTypesCommandInput extends DescribeInstanceTypes
 export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceTypesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified instance types. By default, all instance types for the current
- *    Region are described. Alternatively, you can filter the results. To include instance types
- *    that are not supported in the current Region, set <code>IncludeUnsupportedInRegion</code>
- *    to <code>true</code>.</p>
+ * Describes the specified instance types. By default, all instance types for the current Region are described. Alternatively, you can filter the results. To include instance types that are not supported in the current Region, set `IncludeUnsupportedInRegion` to `true`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -288,8 +286,8 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ModifyIpamPoolAllocationCommandInput extends ModifyIpamPoolAllo
 export interface ModifyIpamPoolAllocationCommandOutput extends ModifyIpamPoolAllocationResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the description of an IPAM pool allocation. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/modify-alloc-ipam.html">Modify an IPAM pool allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * Modifies the description of an IPAM pool allocation. For more information, see [Modify an IPAM pool allocation](https://docs.aws.amazon.com/vpc/latest/ipam/modify-alloc-ipam.html) in the *Amazon VPC IPAM User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface ModifyIpamPoolAllocationCommandOutput extends ModifyIpamPoolAll
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

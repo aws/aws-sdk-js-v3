@@ -23,8 +23,8 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Remove tags from the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
- *                 <i>Amazon SNS Developer Guide</i>.</p>
+ * Remove tags from the specified Amazon SNS topic. For an overview, see [Amazon SNS Tags](https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html) in the *Amazon SNS Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,34 +52,36 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link ConcurrentAccessException} (client fault)
- *  <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
- *             sequentially.</p>
+ *
+ * Can't perform multiple operations on a tag simultaneously. Perform the operations sequentially.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Can’t perform the action on the specified resource. Make sure that the resource
- *             exists.</p>
+ *
+ * Can’t perform the action on the specified resource. Make sure that the resource exists.
  *
  * @throws {@link StaleTagException} (client fault)
- *  <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
- *             short while and then retry the operation.</p>
+ *
+ * A tag has been added to a resource with the same ARN as a deleted resource. Wait a short while and then retry the operation.
  *
  * @throws {@link TagLimitExceededException} (client fault)
- *  <p>Can't add more than 50 tags to a topic.</p>
+ *
+ * Can't add more than 50 tags to a topic.
  *
  * @throws {@link TagPolicyException} (client fault)
- *  <p>The request doesn't comply with the IAM tag policy. Correct your request and then
- *             retry it.</p>
+ *
+ * The request doesn't comply with the IAM tag policy. Correct your request and then retry it.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

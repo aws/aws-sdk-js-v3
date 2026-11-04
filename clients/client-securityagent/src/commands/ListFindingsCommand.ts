@@ -23,7 +23,8 @@ export interface ListFindingsCommandInput extends ListFindingsInput {}
 export interface ListFindingsCommandOutput extends ListFindingsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the security findings for a pentest job.</p>
+ * Lists the security findings for a pentest job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,8 +78,8 @@ export interface ListFindingsCommandOutput extends ListFindingsOutput, __Metadat
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

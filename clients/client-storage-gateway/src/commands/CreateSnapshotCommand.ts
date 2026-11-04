@@ -23,30 +23,16 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotInput {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __MetadataBearer {}
 
 /**
- * <p>Initiates a snapshot of a volume.</p>
- *          <p>Storage Gateway provides the ability to back up point-in-time snapshots of your
- *          data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, and also
- *          import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute
- *          Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc basis.
- *          This API enables you to take an ad hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing a
- *             snapshot schedule</a>.</p>
- *          <p>In the <code>CreateSnapshot</code> request, you identify the volume by providing its
- *          Amazon Resource Name (ARN). You must also provide description for the snapshot. When
- *             Storage Gateway takes the snapshot of specified volume, the snapshot and
- *          description appears in the Storage Gateway console. In response, Storage Gateway
- *          returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or
- *          later use it when you want to create a volume from a snapshot. This operation is only
- *          supported in stored and cached volume gateway type.</p>
- *          <note>
- *             <p>To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
- *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
- *             or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html">DeleteSnapshot</a> in the <i>Amazon Elastic Compute Cloud API
- *                Reference</i>.</p>
- *          </note>
- *          <important>
- *             <p>Volume and snapshot IDs are changing to a longer length ID format. For more
- *             information, see the important note on the <a href="https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html">Welcome</a> page.</p>
- *          </important>
+ * Initiates a snapshot of a volume.
+ *
+ * Storage Gateway provides the ability to back up point-in-time snapshots of your data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, and also import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc basis. This API enables you to take an ad hoc snapshot. For more information, see [Editing a snapshot schedule](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot).
+ *
+ * In the `CreateSnapshot` request, you identify the volume by providing its Amazon Resource Name (ARN). You must also provide description for the snapshot. When Storage Gateway takes the snapshot of specified volume, the snapshot and description appears in the Storage Gateway console. In response, Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it when you want to create a volume from a snapshot. This operation is only supported in stored and cached volume gateway type.
+ *
+ * > **Note:** To list or delete a snapshot, you must use the Amazon EC2 API. For more information, see [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html) or [DeleteSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html) in the *Amazon Elastic Compute Cloud API Reference*.
+ *
+ * > **Important:** Volume and snapshot IDs are changing to a longer length ID format. For more information, see the important note on the [Welcome](https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html) page.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,20 +67,20 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>An internal server error has occurred because the service is unavailable. For more
- *          information, see the error and message fields.</p>
+ *
+ * An internal server error has occurred because the service is unavailable. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To create a snapshot of a gateway volume
  * ```javascript

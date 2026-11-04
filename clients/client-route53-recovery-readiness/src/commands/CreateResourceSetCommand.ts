@@ -23,7 +23,8 @@ export interface CreateResourceSetCommandInput extends CreateResourceSetRequest 
 export interface CreateResourceSetCommandOutput extends CreateResourceSetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
+ * Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,8 +123,8 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  *  The input fails to satisfy the constraints specified by an AWS service.
  *
  * @throws {@link Route53RecoveryReadinessServiceException}
- * <p>Base exception class for all service exceptions from Route53RecoveryReadiness service.</p>
  *
+ * Base exception class for all service exceptions from Route53RecoveryReadiness service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface BatchModifyClusterSnapshotsCommandInput extends BatchModifyClus
 export interface BatchModifyClusterSnapshotsCommandOutput extends BatchModifyClusterSnapshotsOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a set of cluster snapshots.</p>
+ * Modifies the settings for a set of cluster snapshots.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,16 +65,18 @@ export interface BatchModifyClusterSnapshotsCommandOutput extends BatchModifyClu
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link BatchModifyClusterSnapshotsLimitExceededFault} (client fault)
- *  <p>The maximum number for snapshot identifiers has been reached. The limit is 100.
- *         </p>
+ *
+ * The maximum number for snapshot identifiers has been reached. The limit is 100.
  *
  * @throws {@link InvalidRetentionPeriodFault} (client fault)
- *  <p>The retention period specified is either in the past or is not a valid value.</p>
- *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * The retention period specified is either in the past or is not a valid value.
+ *
+ * The value must be either -1 or an integer between 1 and 3,653.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

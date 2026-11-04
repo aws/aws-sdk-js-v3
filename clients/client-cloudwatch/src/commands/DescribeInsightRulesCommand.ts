@@ -23,9 +23,10 @@ export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesIn
 export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the Contributor Insights rules in your account.</p>
- *          <p>For more information about Contributor Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor
- *                 Insights to Analyze High-Cardinality Data</a>.</p>
+ * Returns a list of all the Contributor Insights rules in your account.
+ *
+ * For more information about Contributor Insights, see [Using Contributor Insights to Analyze High-Cardinality Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,11 +64,12 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InvalidNextToken} (client fault)
- *  <p>The next token specified is invalid.</p>
+ *
+ * The next token specified is invalid.
  *
  * @throws {@link CloudWatchServiceException}
- * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatch service.
  *
  * @public
  */

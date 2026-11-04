@@ -23,7 +23,8 @@ export interface DescribeWorkspaceDirectoriesCommandInput extends DescribeWorksp
 export interface DescribeWorkspaceDirectoriesCommandOutput extends DescribeWorkspaceDirectoriesResult, __MetadataBearer {}
 
 /**
- * <p>Describes the available directories that are registered with Amazon WorkSpaces.</p>
+ * Describes the available directories that are registered with Amazon WorkSpaces.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -175,11 +176,12 @@ export interface DescribeWorkspaceDirectoriesCommandOutput extends DescribeWorks
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  * @throws {@link InvalidParameterValuesException} (client fault)
- *  <p>One or more parameter values are not valid.</p>
+ *
+ * One or more parameter values are not valid.
  *
  * @throws {@link WorkSpacesServiceException}
- * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ * Base exception class for all service exceptions from WorkSpaces service.
  *
  * @public
  */

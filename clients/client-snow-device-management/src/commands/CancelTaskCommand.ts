@@ -23,12 +23,10 @@ export interface CancelTaskCommandInput extends CancelTaskInput {}
 export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Sends a cancel request for a specified task. You can cancel a task only if it's still in a
- *         <code>QUEUED</code> state. Tasks that are already running can't be cancelled.</p>
- *          <note>
- *             <p>A task might still run if it's processed from the queue before the
- *           <code>CancelTask</code> operation changes the task's state.</p>
- *          </note>
+ * Sends a cancel request for a specified task. You can cancel a task only if it's still in a `QUEUED` state. Tasks that are already running can't be cancelled.
+ *
+ * > **Note:** A task might still run if it's processed from the queue before the `CancelTask` operation changes the task's state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,23 +53,28 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred while processing the request.</p>
+ *
+ * An unexpected error occurred while processing the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that doesn't exist.</p>
+ *
+ * The request references a resource that doesn't exist.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SnowDeviceManagementServiceException}
- * <p>Base exception class for all service exceptions from SnowDeviceManagement service.</p>
  *
+ * Base exception class for all service exceptions from SnowDeviceManagement service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface ListMetricAttributionMetricsCommandInput extends ListMetricAttr
 export interface ListMetricAttributionMetricsCommandOutput extends ListMetricAttributionMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the metrics for the metric attribution.</p>
+ * Lists the metrics for the metric attribution.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,14 +60,16 @@ export interface ListMetricAttributionMetricsCommandOutput extends ListMetricAtt
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The token is not valid.</p>
+ *
+ * The token is not valid.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

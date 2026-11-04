@@ -23,23 +23,17 @@ export interface StartContactRecordingCommandInput extends StartContactRecording
 export interface StartContactRecordingCommandOutput extends StartContactRecordingResponse, __MetadataBearer {}
 
 /**
- * <p>Starts recording the contact: </p>
- *          <ul>
- *             <li>
- *                <p>If the API is called <i>before</i> the agent joins the call, recording starts when the agent
- *      joins the call.</p>
- *             </li>
- *             <li>
- *                <p>If the API is called <i>after</i> the agent joins the call, recording starts at the time of the
- *      API call.</p>
- *             </li>
- *          </ul>
- *          <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an
- *    ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and
- *    you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number),
- *    use SuspendContactRecording and ResumeContactRecording.</p>
- *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording behavior</a> block.</p>
- *          <p>Only voice recordings are supported at this time.</p>
+ * Starts recording the contact:
+ *
+ * - If the API is called *before* the agent joins the call, recording starts when the agent joins the call.
+ * - If the API is called *after* the agent joins the call, recording starts at the time of the API call.
+ *
+ * StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.
+ *
+ * You can use this API to override the recording behavior configured in the [Set recording behavior](https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html) block.
+ *
+ * Only voice recordings are supported at this time.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,23 +64,28 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * Request processing failed because of an error or failure with the service.
  *
  * @throws {@link InvalidActiveRegionException} (client fault)
- *  <p>This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.</p>
+ *
+ * This exception occurs when an API request is made to a non-active region in an Amazon Connect instance configured with Amazon Connect Global Resiliency. For example, if the active region is US West (Oregon) and a request is made to US East (N. Virginia), the exception will be returned.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * One or more of the specified parameters are not valid.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is not valid.</p>
+ *
+ * The request is not valid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ConnectServiceException}
- * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ * Base exception class for all service exceptions from Connect service.
  *
  * @public
  */

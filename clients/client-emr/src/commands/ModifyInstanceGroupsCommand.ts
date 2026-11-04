@@ -23,9 +23,8 @@ export interface ModifyInstanceGroupsCommandInput extends ModifyInstanceGroupsIn
 export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
- *          instance group. The input parameters include the new target instance count for the group
- *          and the instance group ID. The call will either succeed or fail atomically.</p>
+ * ModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,12 +88,12 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Indicates that an error occurred while processing the request and that the request was
- *          not completed.</p>
+ *
+ * Indicates that an error occurred while processing the request and that the request was not completed.
  *
  * @throws {@link EMRServiceException}
- * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ * Base exception class for all service exceptions from EMR service.
  *
  * @public
  */

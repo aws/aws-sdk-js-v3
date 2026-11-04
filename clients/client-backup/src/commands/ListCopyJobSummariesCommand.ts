@@ -23,14 +23,10 @@ export interface ListCopyJobSummariesCommandInput extends ListCopyJobSummariesIn
 export interface ListCopyJobSummariesCommandOutput extends ListCopyJobSummariesOutput, __MetadataBearer {}
 
 /**
- * <p>This request obtains a list of copy jobs created
- *          or running within the the most recent 14 days. You can
- *          include parameters AccountID, State, ResourceType, MessageCategory,
- *          AggregationPeriod, MaxResults, or NextToken to filter
- *          results.</p>
- *          <p>This request returns a summary that contains
- *          Region, Account, State, RestourceType, MessageCategory,
- *          StartTime, EndTime, and Count of included jobs.</p>
+ * This request obtains a list of copy jobs created or running within the the most recent 14 days. You can include parameters AccountID, State, ResourceType, MessageCategory, AggregationPeriod, MaxResults, or NextToken to filter results.
+ *
+ * This request returns a summary that contains Region, Account, State, RestourceType, MessageCategory, StartTime, EndTime, and Count of included jobs.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,15 +72,16 @@ export interface ListCopyJobSummariesCommandOutput extends ListCopyJobSummariesO
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

@@ -4,43 +4,50 @@
  */
 export interface DeleteKeyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * <p>The key to delete.</p>
+   * The key to delete.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The current version (ETag) of the Key Value Store that you are deleting keys from, which you can get using DescribeKeyValueStore.</p>
+   * The current version (ETag) of the Key Value Store that you are deleting keys from, which you can get using DescribeKeyValueStore.
+   *
    * @public
    */
   IfMatch: string | undefined;
 }
 
 /**
- * <p>Metadata information about a Key Value Store.</p>
+ * Metadata information about a Key Value Store.
+ *
  * @public
  */
 export interface DeleteKeyResponse {
   /**
-   * <p>Number of key value pairs in the Key Value Store after the successful delete.</p>
+   * Number of key value pairs in the Key Value Store after the successful delete.
+   *
    * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * <p>Total size of the Key Value Store after the successful delete, in bytes.</p>
+   * Total size of the Key Value Store after the successful delete, in bytes.
+   *
    * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * <p>The current version identifier of the Key Value Store after the successful delete.</p>
+   * The current version identifier of the Key Value Store after the successful delete.
+   *
    * @public
    */
   ETag: string | undefined;
@@ -51,61 +58,71 @@ export interface DeleteKeyResponse {
  */
 export interface DescribeKeyValueStoreRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 }
 
 /**
- * <p>Metadata information about a Key Value Store.</p>
+ * Metadata information about a Key Value Store.
+ *
  * @public
  */
 export interface DescribeKeyValueStoreResponse {
   /**
-   * <p>Number of key value pairs in the Key Value Store.</p>
+   * Number of key value pairs in the Key Value Store.
+   *
    * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * <p>Total size of the Key Value Store in bytes.</p>
+   * Total size of the Key Value Store in bytes.
+   *
    * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * <p>Date and time when the Key Value Store was created.</p>
+   * Date and time when the Key Value Store was created.
+   *
    * @public
    */
   Created: Date | undefined;
 
   /**
-   * <p>The version identifier for the current version of the Key Value Store.</p>
+   * The version identifier for the current version of the Key Value Store.
+   *
    * @public
    */
   ETag: string | undefined;
 
   /**
-   * <p>Date and time when the key value pairs in the Key Value Store was last modified.</p>
+   * Date and time when the key value pairs in the Key Value Store was last modified.
+   *
    * @public
    */
   LastModified?: Date | undefined;
 
   /**
-   * <p>The current status of the Key Value Store.</p>
+   * The current status of the Key Value Store.
+   *
    * @public
    */
   Status?: string | undefined;
 
   /**
-   * <p>The reason for Key Value Store creation failure.</p>
+   * The reason for Key Value Store creation failure.
+   *
    * @public
    */
   FailureReason?: string | undefined;
@@ -116,43 +133,50 @@ export interface DescribeKeyValueStoreResponse {
  */
 export interface GetKeyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * <p>The key to get.</p>
+   * The key to get.
+   *
    * @public
    */
   Key: string | undefined;
 }
 
 /**
- * <p>A key value pair.</p>
+ * A key value pair.
+ *
  * @public
  */
 export interface GetKeyResponse {
   /**
-   * <p>The key of the key value pair.</p>
+   * The key of the key value pair.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the key value pair.</p>
+   * The value of the key value pair.
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>Number of key value pairs in the Key Value Store.</p>
+   * Number of key value pairs in the Key Value Store.
+   *
    * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * <p>Total size of the Key Value Store in bytes.</p>
+   * Total size of the Key Value Store in bytes.
+   *
    * @public
    */
   TotalSizeInBytes: number | undefined;
@@ -163,37 +187,43 @@ export interface GetKeyResponse {
  */
 export interface ListKeysRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
+   * If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.</p>
+   * Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.
+   *
    * @public
    */
   MaxResults?: number | undefined;
 }
 
 /**
- * <p>A key value pair.</p>
+ * A key value pair.
+ *
  * @public
  */
 export interface ListKeysResponseListItem {
   /**
-   * <p>The key of the key value pair.</p>
+   * The key of the key value pair.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the key value pair.</p>
+   * The value of the key value pair.
+   *
    * @public
    */
   Value: string | undefined;
@@ -204,97 +234,113 @@ export interface ListKeysResponseListItem {
  */
 export interface ListKeysResponse {
   /**
-   * <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
+   * If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.
+   *
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p>Key value pairs</p>
+   * Key value pairs
+   *
    * @public
    */
   Items?: ListKeysResponseListItem[] | undefined;
 }
 
 /**
- * <p>A key value pair.</p>
+ * A key value pair.
+ *
  * @public
  */
 export interface PutKeyRequest {
   /**
-   * <p>The key to put.</p>
+   * The key to put.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value to put.</p>
+   * The value to put.
+   *
    * @public
    */
   Value: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * <p>The current version (ETag) of the Key Value Store that you are putting keys into, which you can get using DescribeKeyValueStore.</p>
+   * The current version (ETag) of the Key Value Store that you are putting keys into, which you can get using DescribeKeyValueStore.
+   *
    * @public
    */
   IfMatch: string | undefined;
 }
 
 /**
- * <p>Metadata information about a Key Value Store.</p>
+ * Metadata information about a Key Value Store.
+ *
  * @public
  */
 export interface PutKeyResponse {
   /**
-   * <p>Number of key value pairs in the Key Value Store after the successful put.</p>
+   * Number of key value pairs in the Key Value Store after the successful put.
+   *
    * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * <p>Total size of the Key Value Store after the successful put, in bytes.</p>
+   * Total size of the Key Value Store after the successful put, in bytes.
+   *
    * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * <p>The current version identifier of the Key Value Store after the successful put.</p>
+   * The current version identifier of the Key Value Store after the successful put.
+   *
    * @public
    */
   ETag: string | undefined;
 }
 
 /**
- * <p>List item for keys to delete.</p>
+ * List item for keys to delete.
+ *
  * @public
  */
 export interface DeleteKeyRequestListItem {
   /**
-   * <p>The key of the key value pair to be deleted.</p>
+   * The key of the key value pair to be deleted.
+   *
    * @public
    */
   Key: string | undefined;
 }
 
 /**
- * <p>List item for key value pair to put.</p>
+ * List item for key value pair to put.
+ *
  * @public
  */
 export interface PutKeyRequestListItem {
   /**
-   * <p>The key of the key value pair list item to put.</p>
+   * The key of the key value pair list item to put.
+   *
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p>The value for the key value pair to put.</p>
+   * The value for the key value pair to put.
+   *
    * @public
    */
   Value: string | undefined;
@@ -305,49 +351,57 @@ export interface PutKeyRequestListItem {
  */
 export interface UpdateKeysRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Value Store.</p>
+   * The Amazon Resource Name (ARN) of the Key Value Store.
+   *
    * @public
    */
   KvsARN: string | undefined;
 
   /**
-   * <p>The current version (ETag) of the Key Value Store that you are updating keys of, which you can get using DescribeKeyValueStore.</p>
+   * The current version (ETag) of the Key Value Store that you are updating keys of, which you can get using DescribeKeyValueStore.
+   *
    * @public
    */
   IfMatch: string | undefined;
 
   /**
-   * <p>List of key value pairs to put.</p>
+   * List of key value pairs to put.
+   *
    * @public
    */
   Puts?: PutKeyRequestListItem[] | undefined;
 
   /**
-   * <p>List of keys to delete.</p>
+   * List of keys to delete.
+   *
    * @public
    */
   Deletes?: DeleteKeyRequestListItem[] | undefined;
 }
 
 /**
- * <p>Metadata information about a Key Value Store.</p>
+ * Metadata information about a Key Value Store.
+ *
  * @public
  */
 export interface UpdateKeysResponse {
   /**
-   * <p>Number of key value pairs in the Key Value Store after the successful update.</p>
+   * Number of key value pairs in the Key Value Store after the successful update.
+   *
    * @public
    */
   ItemCount: number | undefined;
 
   /**
-   * <p>Total size of the Key Value Store after the successful update, in bytes.</p>
+   * Total size of the Key Value Store after the successful update, in bytes.
+   *
    * @public
    */
   TotalSizeInBytes: number | undefined;
 
   /**
-   * <p>The current version identifier of the Key Value Store after the successful update.</p>
+   * The current version identifier of the Key Value Store after the successful update.
+   *
    * @public
    */
   ETag: string | undefined;

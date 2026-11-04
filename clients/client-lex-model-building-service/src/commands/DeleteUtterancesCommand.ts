@@ -23,18 +23,13 @@ export interface DeleteUtterancesCommandInput extends DeleteUtterancesRequest {}
 export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes stored utterances.</p>
- *          <p>Amazon Lex stores the utterances that users send to your bot. Utterances
- *       are stored for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for use in improving the
- *       ability of your bot to respond to user input.</p>
- *          <p>Use the <code>DeleteUtterances</code> operation to manually delete
- *       stored utterances for a specific user. When you use the
- *         <code>DeleteUtterances</code> operation, utterances stored for improving
- *       your bot's ability to respond to user input are deleted immediately.
- *       Utterances stored for use with the <code>GetUtterancesView</code>
- *       operation are deleted after 15 days.</p>
- *          <p>This operation requires permissions for the
- *         <code>lex:DeleteUtterances</code> action.</p>
+ * Deletes stored utterances.
+ *
+ * Amazon Lex stores the utterances that users send to your bot. Utterances are stored for 15 days for use with the GetUtterancesView operation, and then stored indefinitely for use in improving the ability of your bot to respond to user input.
+ *
+ * Use the `DeleteUtterances` operation to manually delete stored utterances for a specific user. When you use the `DeleteUtterances` operation, utterances stored for improving your bot's ability to respond to user input are deleted immediately. Utterances stored for use with the `GetUtterancesView` operation are deleted after 15 days.
+ *
+ * This operation requires permissions for the `lex:DeleteUtterances` action.
  *
  * @deprecated (since 2025-09-08) Amazon Lex V1 is deprecated. Use Amazon Lex V2 instead.
  * @example
@@ -62,23 +57,24 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or
- *       a required field is missing. Check the field values, and try
- *       again.</p>
+ *
+ * The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and try again.
  *
  * @throws {@link InternalFailureException} (server fault)
- *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * An internal Amazon Lex error occurred. Try your request again.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * The request exceeded a limit. Try your request again.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the
- *       resource and try again.</p>
+ *
+ * The resource specified in the request was not found. Check the resource and try again.
  *
  * @throws {@link LexModelBuildingServiceServiceException}
- * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ * Base exception class for all service exceptions from LexModelBuildingService service.
  *
  * @public
  */

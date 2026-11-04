@@ -438,16 +438,18 @@ export type SFNClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
 
 /**
- * <fullname>Step Functions</fullname>
- *          <p>With Step Functions, you can create workflows, also called <i>state machines</i>, to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning pipelines.</p>
- *          <p>Through the Step Functions API, you can create, list, update, and delete state machines, activities, and other data types. You can start, stop, and redrive your state machines. Your activity workers can send task success, heartbeat, and failure responses.</p>
- *          <p>With API calls, you can also manage other aspects of your workflow, such as tags, versions, and aliases.</p>
- *          <p>For more information about developing solutions with Step Functions, see the <i>
- *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">Step Functions Developer Guide</a>
- *             </i>.</p>
- *          <important>
- *             <p>If you use the Step Functions API actions using Amazon Web Services SDK integrations, make sure the API actions are in camel case and parameter names are in Pascal case. For example, you might use Step Functions API action <code>startSyncExecution</code> and specify its parameter as <code>StateMachineArn</code>.</p>
- *          </important>
+ * Step Functions
+ *
+ * With Step Functions, you can create workflows, also called *state machines*, to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning pipelines.
+ *
+ * Through the Step Functions API, you can create, list, update, and delete state machines, activities, and other data types. You can start, stop, and redrive your state machines. Your activity workers can send task success, heartbeat, and failure responses.
+ *
+ * With API calls, you can also manage other aspects of your workflow, such as tags, versions, and aliases.
+ *
+ * For more information about developing solutions with Step Functions, see the *[Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html)* .
+ *
+ * > **Important:** If you use the Step Functions API actions using Amazon Web Services SDK integrations, make sure the API actions are in camel case and parameter names are in Pascal case. For example, you might use Step Functions API action `startSyncExecution` and specify its parameter as `StateMachineArn`.
+ *
  * @public
  */
 export class SFNClient extends __Client<

@@ -23,7 +23,8 @@ export interface DeleteSnapshotCopyGrantCommandInput extends DeleteSnapshotCopyG
 export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified snapshot copy grant.</p>
+ * Deletes the specified snapshot copy grant.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,16 +49,16 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidSnapshotCopyGrantStateFault} (client fault)
- *  <p>The snapshot copy grant can't be deleted because it is used by one or more
- *             clusters.</p>
+ *
+ * The snapshot copy grant can't be deleted because it is used by one or more clusters.
  *
  * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
- *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
- *             correctly and that the grant exists in the destination region.</p>
+ *
+ * The specified snapshot copy grant can't be found. Make sure that the name is typed correctly and that the grant exists in the destination region.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

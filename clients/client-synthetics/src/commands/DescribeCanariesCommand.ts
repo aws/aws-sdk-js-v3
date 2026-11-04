@@ -23,16 +23,12 @@ export interface DescribeCanariesCommandInput extends DescribeCanariesRequest {}
 export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns a list of the canaries in your account, along with full details
- *       about each canary.</p>
- *          <p>This operation supports resource-level authorization using an IAM policy and
- *       the <code>Names</code> parameter. If you specify the <code>Names</code> parameter, the operation is successful only if you have authorization to view
- *          all the canaries that you specify in your request. If you do not have permission to view any of
- *          the canaries, the request fails with a 403 response.</p>
- *          <p>You are required to use the <code>Names</code> parameter if you are logged on to a user or role that has an
- *          IAM policy that restricts which canaries that you are allowed to view. For more information,
- *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
- *             Limiting a user to viewing specific canaries</a>.</p>
+ * This operation returns a list of the canaries in your account, along with full details about each canary.
+ *
+ * This operation supports resource-level authorization using an IAM policy and the `Names` parameter. If you specify the `Names` parameter, the operation is successful only if you have authorization to view all the canaries that you specify in your request. If you do not have permission to view any of the canaries, the request fails with a 403 response.
+ *
+ * You are required to use the `Names` parameter if you are logged on to a user or role that has an IAM policy that restricts which canaries that you are allowed to view. For more information, see [Limiting a user to viewing specific canaries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -201,14 +197,16 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unknown internal error occurred.</p>
+ *
+ * An unknown internal error occurred.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>A parameter could not be validated.</p>
+ *
+ * A parameter could not be validated.
  *
  * @throws {@link SyntheticsServiceException}
- * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ * Base exception class for all service exceptions from Synthetics service.
  *
  * @public
  */

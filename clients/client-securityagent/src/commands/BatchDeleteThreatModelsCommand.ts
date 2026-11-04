@@ -23,7 +23,8 @@ export interface BatchDeleteThreatModelsCommandInput extends BatchDeleteThreatMo
 export interface BatchDeleteThreatModelsCommandOutput extends BatchDeleteThreatModelsOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes one or more threat models from an agent space.</p>
+ * Deletes one or more threat models from an agent space.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,8 +62,8 @@ export interface BatchDeleteThreatModelsCommandOutput extends BatchDeleteThreatM
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

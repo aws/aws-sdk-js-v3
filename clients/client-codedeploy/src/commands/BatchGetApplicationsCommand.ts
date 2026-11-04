@@ -23,8 +23,8 @@ export interface BatchGetApplicationsCommandInput extends BatchGetApplicationsIn
 export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about one or more applications. The maximum number of applications
- *             that can be returned is 100.</p>
+ * Gets information about one or more applications. The maximum number of applications that can be returned is 100.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,20 +62,24 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
+ * The application does not exist with the user or Amazon Web Services account.
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
- *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * The minimum number of required application names was not specified.
  *
  * @throws {@link BatchLimitExceededException} (client fault)
- *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * The maximum number of names or IDs allowed for this request (100) was exceeded.
  *
  * @throws {@link InvalidApplicationNameException} (client fault)
- *  <p>The application name was specified in an invalid format.</p>
+ *
+ * The application name was specified in an invalid format.
  *
  * @throws {@link CodeDeployServiceException}
- * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ * Base exception class for all service exceptions from CodeDeploy service.
  *
  * @public
  */

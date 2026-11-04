@@ -23,19 +23,12 @@ export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupReques
 export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a dataset group. Before you delete a dataset group, you must
- *       delete the following:</p>
- *          <ul>
- *             <li>
- *                <p>All associated event trackers.</p>
- *             </li>
- *             <li>
- *                <p>All associated solutions.</p>
- *             </li>
- *             <li>
- *                <p>All datasets in the dataset group.</p>
- *             </li>
- *          </ul>
+ * Deletes a dataset group. Before you delete a dataset group, you must delete the following:
+ *
+ * - All associated event trackers.
+ * - All associated solutions.
+ * - All datasets in the dataset group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,17 +53,20 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * Provide a valid value for the field or parameter.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Could not find the specified resource.</p>
+ *
+ * Could not find the specified resource.
  *
  * @throws {@link PersonalizeServiceException}
- * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ * Base exception class for all service exceptions from Personalize service.
  *
  * @public
  */

@@ -23,8 +23,8 @@ export interface StartResourceScanCommandInput extends StartResourceScanInput {}
 export interface StartResourceScanCommandOutput extends StartResourceScanOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a scan of the resources in this account in this Region. You can the status of a
- *       scan using the <code>ListResourceScans</code> API action.</p>
+ * Starts a scan of the resources in this account in this Region. You can the status of a scan using the `ListResourceScans` API action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,26 +58,20 @@ export interface StartResourceScanCommandOutput extends StartResourceScanOutput,
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link ResourceScanInProgressException} (client fault)
- *  <p>A resource scan is currently in progress. Only one can be run at a time for an account in a Region.</p>
+ *
+ * A resource scan is currently in progress. Only one can be run at a time for an account in a Region.
  *
  * @throws {@link ResourceScanLimitExceededException} (client fault)
- *  <p>The limit on resource scans has been exceeded. Reasons include:</p>
- *          <ul>
- *             <li>
- *                <p>Exceeded the daily quota for resource scans.</p>
- *             </li>
- *             <li>
- *                <p>A resource scan recently failed. You must wait 10 minutes before starting a new resource scan.</p>
- *             </li>
- *             <li>
- *                <p>The last resource scan failed after exceeding 100,000 resources. When this happens, you must wait 24 hours
- *      before starting a new resource scan.</p>
- *             </li>
- *          </ul>
+ *
+ * The limit on resource scans has been exceeded. Reasons include:
+ *
+ * - Exceeded the daily quota for resource scans.
+ * - A resource scan recently failed. You must wait 10 minutes before starting a new resource scan.
+ * - The last resource scan failed after exceeding 100,000 resources. When this happens, you must wait 24 hours before starting a new resource scan.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @example To start a resource scan
  * ```javascript

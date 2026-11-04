@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { ElasticLoadBalancingServiceException as __BaseException } from "./ElasticLoadBalancingServiceException";
 
 /**
- * <p>The specified load balancer does not exist.</p>
+ * The specified load balancer does not exist.
+ *
  * @public
  */
 export class AccessPointNotFoundException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessPointNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A tag key was specified more than once.</p>
+ * A tag key was specified more than once.
+ *
  * @public
  */
 export class DuplicateTagKeysException extends __BaseException {
@@ -50,7 +52,8 @@ export class DuplicateTagKeysException extends __BaseException {
 }
 
 /**
- * <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>
+ * The quota for the number of tags that can be assigned to a load balancer has been reached.
+ *
  * @public
  */
 export class TooManyTagsException extends __BaseException {
@@ -73,7 +76,8 @@ export class TooManyTagsException extends __BaseException {
 }
 
 /**
- * <p>The requested configuration change is not valid.</p>
+ * The requested configuration change is not valid.
+ *
  * @public
  */
 export class InvalidConfigurationRequestException extends __BaseException {
@@ -96,7 +100,8 @@ export class InvalidConfigurationRequestException extends __BaseException {
 }
 
 /**
- * <p>One or more of the specified security groups do not exist.</p>
+ * One or more of the specified security groups do not exist.
+ *
  * @public
  */
 export class InvalidSecurityGroupException extends __BaseException {
@@ -119,7 +124,8 @@ export class InvalidSecurityGroupException extends __BaseException {
 }
 
 /**
- * <p>The specified VPC has no associated Internet gateway.</p>
+ * The specified VPC has no associated Internet gateway.
+ *
  * @public
  */
 export class InvalidSubnetException extends __BaseException {
@@ -142,7 +148,8 @@ export class InvalidSubnetException extends __BaseException {
 }
 
 /**
- * <p>One or more of the specified subnets do not exist.</p>
+ * One or more of the specified subnets do not exist.
+ *
  * @public
  */
 export class SubnetNotFoundException extends __BaseException {
@@ -165,9 +172,8 @@ export class SubnetNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
- *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
- *             indicate that the certificate is not fully available yet.</p>
+ * The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might indicate that the certificate is not fully available yet.
+ *
  * @public
  */
 export class CertificateNotFoundException extends __BaseException {
@@ -190,7 +196,8 @@ export class CertificateNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A policy with the specified name already exists for this load balancer.</p>
+ * A policy with the specified name already exists for this load balancer.
+ *
  * @public
  */
 export class DuplicatePolicyNameException extends __BaseException {
@@ -213,7 +220,8 @@ export class DuplicatePolicyNameException extends __BaseException {
 }
 
 /**
- * <p>The quota for the number of policies for this load balancer has been reached.</p>
+ * The quota for the number of policies for this load balancer has been reached.
+ *
  * @public
  */
 export class TooManyPoliciesException extends __BaseException {
@@ -236,7 +244,8 @@ export class TooManyPoliciesException extends __BaseException {
 }
 
 /**
- * <p>The specified load balancer name already exists for this account.</p>
+ * The specified load balancer name already exists for this account.
+ *
  * @public
  */
 export class DuplicateAccessPointNameException extends __BaseException {
@@ -259,7 +268,8 @@ export class DuplicateAccessPointNameException extends __BaseException {
 }
 
 /**
- * <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>
+ * The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.
+ *
  * @public
  */
 export class InvalidSchemeException extends __BaseException {
@@ -282,7 +292,8 @@ export class InvalidSchemeException extends __BaseException {
 }
 
 /**
- * <p>This operation is not allowed.</p>
+ * This operation is not allowed.
+ *
  * @public
  */
 export class OperationNotPermittedException extends __BaseException {
@@ -305,7 +316,8 @@ export class OperationNotPermittedException extends __BaseException {
 }
 
 /**
- * <p>The quota for the number of load balancers has been reached.</p>
+ * The quota for the number of load balancers has been reached.
+ *
  * @public
  */
 export class TooManyAccessPointsException extends __BaseException {
@@ -328,7 +340,8 @@ export class TooManyAccessPointsException extends __BaseException {
 }
 
 /**
- * <p>The specified protocol or signature version is not supported.</p>
+ * The specified protocol or signature version is not supported.
+ *
  * @public
  */
 export class UnsupportedProtocolException extends __BaseException {
@@ -351,7 +364,8 @@ export class UnsupportedProtocolException extends __BaseException {
 }
 
 /**
- * <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>
+ * A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.
+ *
  * @public
  */
 export class DuplicateListenerException extends __BaseException {
@@ -374,7 +388,8 @@ export class DuplicateListenerException extends __BaseException {
 }
 
 /**
- * <p>One or more of the specified policy types do not exist.</p>
+ * One or more of the specified policy types do not exist.
+ *
  * @public
  */
 export class PolicyTypeNotFoundException extends __BaseException {
@@ -397,7 +412,8 @@ export class PolicyTypeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>
+ * A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.
+ *
  * @public
  */
 export class DependencyThrottleException extends __BaseException {
@@ -420,7 +436,8 @@ export class DependencyThrottleException extends __BaseException {
 }
 
 /**
- * <p>The specified endpoint is not valid.</p>
+ * The specified endpoint is not valid.
+ *
  * @public
  */
 export class InvalidEndPointException extends __BaseException {
@@ -443,7 +460,8 @@ export class InvalidEndPointException extends __BaseException {
 }
 
 /**
- * <p>The specified load balancer attribute does not exist.</p>
+ * The specified load balancer attribute does not exist.
+ *
  * @public
  */
 export class LoadBalancerAttributeNotFoundException extends __BaseException {
@@ -466,7 +484,8 @@ export class LoadBalancerAttributeNotFoundException extends __BaseException {
 }
 
 /**
- * <p>One or more of the specified policies do not exist.</p>
+ * One or more of the specified policies do not exist.
+ *
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {
@@ -489,7 +508,8 @@ export class PolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The load balancer does not have a listener configured at the specified port.</p>
+ * The load balancer does not have a listener configured at the specified port.
+ *
  * @public
  */
 export class ListenerNotFoundException extends __BaseException {

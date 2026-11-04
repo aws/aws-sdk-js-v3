@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { AmplifyUIBuilderServiceException as __BaseException } from "./AmplifyUIBuilderServiceException";
 
 /**
- * <p>An internal error has occurred. Please retry your request.</p>
+ * An internal error has occurred. Please retry your request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -25,7 +26,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ * An invalid or out-of-range value was supplied for the input parameter.
+ *
  * @public
  */
 export class InvalidParameterException extends __BaseException {
@@ -46,7 +48,8 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The requested resource does not exist, or access was denied.</p>
+ * The requested resource does not exist, or access was denied.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -67,7 +70,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -88,7 +92,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request conflicts with an existing resource.</p>
+ * The resource specified in the request conflicts with an existing resource.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -109,8 +114,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *       maximum number of service resources or operations for your Amazon Web Services account. </p>
+ * You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -131,7 +136,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>You don't have permission to perform this operation.</p>
+ * You don't have permission to perform this operation.
+ *
  * @public
  */
 export class UnauthorizedException extends __BaseException {

@@ -23,19 +23,14 @@ export interface DeleteDeliveryStreamCommandInput extends DeleteDeliveryStreamIn
 export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a Firehose stream and its data.</p>
- *          <p>You can delete a Firehose stream only if it is in one of the following states:
- *             <code>ACTIVE</code>, <code>DELETING</code>, <code>CREATING_FAILED</code>, or
- *             <code>DELETING_FAILED</code>. You can't delete a Firehose stream that is in the
- *          <code>CREATING</code> state. To check the state of a Firehose stream, use <a>DescribeDeliveryStream</a>. </p>
- *          <p>DeleteDeliveryStream is an asynchronous API. When an API request to DeleteDeliveryStream succeeds, the Firehose stream is marked for deletion, and it goes into the
- *          <code>DELETING</code> state.While the Firehose stream is in the <code>DELETING</code> state, the service might
- *          continue to accept records, but it doesn't make any guarantees with respect to delivering
- *          the data. Therefore, as a best practice, first stop any applications that are sending
- *          records before you delete a Firehose stream.</p>
- *          <p>Removal of a Firehose stream that is in the <code>DELETING</code> state is a low priority operation for the service. A stream may remain in the
- *          <code>DELETING</code> state for several minutes. Therefore, as a best practice, applications should not wait for streams in the <code>DELETING</code> state
- *          to be removed. </p>
+ * Deletes a Firehose stream and its data.
+ *
+ * You can delete a Firehose stream only if it is in one of the following states: `ACTIVE`, `DELETING`, `CREATING_FAILED`, or `DELETING_FAILED`. You can't delete a Firehose stream that is in the `CREATING` state. To check the state of a Firehose stream, use DescribeDeliveryStream.
+ *
+ * DeleteDeliveryStream is an asynchronous API. When an API request to DeleteDeliveryStream succeeds, the Firehose stream is marked for deletion, and it goes into the `DELETING` state.While the Firehose stream is in the `DELETING` state, the service might continue to accept records, but it doesn't make any guarantees with respect to delivering the data. Therefore, as a best practice, first stop any applications that are sending records before you delete a Firehose stream.
+ *
+ * Removal of a Firehose stream that is in the `DELETING` state is a low priority operation for the service. A stream may remain in the `DELETING` state for several minutes. Therefore, as a best practice, applications should not wait for streams in the `DELETING` state to be removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,14 +56,16 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The resource is already in use and not available for this operation.</p>
+ *
+ * The resource is already in use and not available for this operation.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link FirehoseServiceException}
- * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ * Base exception class for all service exceptions from Firehose service.
  *
  * @public
  */

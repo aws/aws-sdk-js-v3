@@ -23,125 +23,55 @@ export interface CreateExplainabilityCommandInput extends CreateExplainabilityRe
 export interface CreateExplainabilityCommandOutput extends CreateExplainabilityResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>Explainability is only available for Forecasts and Predictors generated from an
- *                 AutoPredictor (<a>CreateAutoPredictor</a>)</p>
- *          </note>
- *          <p>Creates an Amazon Forecast Explainability.</p>
- *          <p>Explainability helps you better understand how the attributes in your datasets impact
- *             forecast. Amazon Forecast uses a metric called Impact scores to quantify the relative
- *             impact of each attribute and determine whether they increase or decrease forecast
- *             values.</p>
- *          <p>To enable Forecast Explainability, your predictor must include at least one of the
- *             following: related time series, item metadata, or additional datasets like Holidays and
- *             the Weather Index.</p>
- *          <p>CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive
- *             aggregated Impact scores for all time series and time points in your datasets, provide a
- *             Predictor ARN. To receive Impact scores for specific time series and time points,
- *             provide a Forecast ARN.</p>
- *          <p>
- *             <b>CreateExplainability with a Predictor ARN</b>
- *          </p>
- *          <note>
- *             <p>You can only have one Explainability resource per predictor. If you already
- *                 enabled <code>ExplainPredictor</code> in <a>CreateAutoPredictor</a>, that
- *                 predictor already has an Explainability resource.</p>
- *          </note>
- *          <p>The following parameters are required when providing a Predictor ARN:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ExplainabilityName</code> - A unique name for the Explainability.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ResourceArn</code> - The Arn of the predictor.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TimePointGranularity</code> - Must be set to “ALL”.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TimeSeriesGranularity</code> - Must be set to “ALL”.</p>
- *             </li>
- *          </ul>
- *          <p>Do not specify a value for the following parameters:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DataSource</code> - Only valid when TimeSeriesGranularity is
- *                     “SPECIFIC”.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Schema</code> - Only valid when TimeSeriesGranularity is
- *                     “SPECIFIC”.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>StartDateTime</code> - Only valid when TimePointGranularity is
- *                     “SPECIFIC”.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EndDateTime</code> - Only valid when TimePointGranularity is
- *                     “SPECIFIC”.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>CreateExplainability with a Forecast ARN</b>
- *          </p>
- *          <note>
- *             <p>You can specify a maximum of 50 time series and 500 time points.</p>
- *          </note>
- *          <p>The following parameters are required when providing a Predictor ARN:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ExplainabilityName</code> - A unique name for the Explainability.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ResourceArn</code> - The Arn of the forecast.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TimePointGranularity</code> - Either “ALL” or “SPECIFIC”.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TimeSeriesGranularity</code> - Either “ALL” or “SPECIFIC”.</p>
- *             </li>
- *          </ul>
- *          <p>If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the
- *             following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>DataSource</code> - The S3 location of the CSV file specifying your time
- *                     series.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Schema</code> - The Schema defines the attributes and attribute types
- *                     listed in the Data Source.</p>
- *             </li>
- *          </ul>
- *          <p>If you set TimePointGranularity to “SPECIFIC”, you must also provide the
- *             following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>StartDateTime</code> - The first timestamp in the range of time
- *                     points.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>EndDateTime</code> - The last timestamp in the range of time
- *                     points.</p>
- *             </li>
- *          </ul>
+ * > **Note:** Explainability is only available for Forecasts and Predictors generated from an AutoPredictor (CreateAutoPredictor)
+ *
+ * Creates an Amazon Forecast Explainability.
+ *
+ * Explainability helps you better understand how the attributes in your datasets impact forecast. Amazon Forecast uses a metric called Impact scores to quantify the relative impact of each attribute and determine whether they increase or decrease forecast values.
+ *
+ * To enable Forecast Explainability, your predictor must include at least one of the following: related time series, item metadata, or additional datasets like Holidays and the Weather Index.
+ *
+ * CreateExplainability accepts either a Predictor ARN or Forecast ARN. To receive aggregated Impact scores for all time series and time points in your datasets, provide a Predictor ARN. To receive Impact scores for specific time series and time points, provide a Forecast ARN.
+ *
+ * **CreateExplainability with a Predictor ARN**
+ *
+ * > **Note:** You can only have one Explainability resource per predictor. If you already enabled `ExplainPredictor` in CreateAutoPredictor, that predictor already has an Explainability resource.
+ *
+ * The following parameters are required when providing a Predictor ARN:
+ *
+ * - `ExplainabilityName` - A unique name for the Explainability.
+ * - `ResourceArn` - The Arn of the predictor.
+ * - `TimePointGranularity` - Must be set to “ALL”.
+ * - `TimeSeriesGranularity` - Must be set to “ALL”.
+ *
+ * Do not specify a value for the following parameters:
+ *
+ * - `DataSource` - Only valid when TimeSeriesGranularity is “SPECIFIC”.
+ * - `Schema` - Only valid when TimeSeriesGranularity is “SPECIFIC”.
+ * - `StartDateTime` - Only valid when TimePointGranularity is “SPECIFIC”.
+ * - `EndDateTime` - Only valid when TimePointGranularity is “SPECIFIC”.
+ *
+ * **CreateExplainability with a Forecast ARN**
+ *
+ * > **Note:** You can specify a maximum of 50 time series and 500 time points.
+ *
+ * The following parameters are required when providing a Predictor ARN:
+ *
+ * - `ExplainabilityName` - A unique name for the Explainability.
+ * - `ResourceArn` - The Arn of the forecast.
+ * - `TimePointGranularity` - Either “ALL” or “SPECIFIC”.
+ * - `TimeSeriesGranularity` - Either “ALL” or “SPECIFIC”.
+ *
+ * If you set TimeSeriesGranularity to “SPECIFIC”, you must also provide the following:
+ *
+ * - `DataSource` - The S3 location of the CSV file specifying your time series.
+ * - `Schema` - The Schema defines the attributes and attribute types listed in the Data Source.
+ *
+ * If you set TimePointGranularity to “SPECIFIC”, you must also provide the following:
+ *
+ * - `StartDateTime` - The first timestamp in the range of time points.
+ * - `EndDateTime` - The last timestamp in the range of time points.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -197,25 +127,28 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>We can't process the request because it includes an invalid value or a value that exceeds
- *       the valid range.</p>
+ *
+ * We can't process the request because it includes an invalid value or a value that exceeds the valid range.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The limit on the number of resources per account has been exceeded.</p>
+ *
+ * The limit on the number of resources per account has been exceeded.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>There is already a resource with this name. Try again with a different name.</p>
+ *
+ * There is already a resource with this name. Try again with a different name.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The specified resource is in use.</p>
+ *
+ * The specified resource is in use.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
- *       again.</p>
+ *
+ * We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try again.
  *
  * @throws {@link ForecastServiceException}
- * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ * Base exception class for all service exceptions from Forecast service.
  *
  * @public
  */

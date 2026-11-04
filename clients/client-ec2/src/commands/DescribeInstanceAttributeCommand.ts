@@ -23,10 +23,8 @@ export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceA
 export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribute, __MetadataBearer {}
 
 /**
- * <p>Describes the specified attribute of the specified instance. You can specify only one
- *             attribute at a time. Available attributes include SQL license exemption configuration
- *             for instances registered with the SQL LE service.
- *         </p>
+ * Describes the specified attribute of the specified instance. You can specify only one attribute at a time. Available attributes include SQL license exemption configuration for instances registered with the SQL LE service.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,8 +119,8 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe the block device mapping for an instance
  * ```javascript

@@ -23,9 +23,10 @@ export interface DescribeSnapshotAttributeCommandInput extends DescribeSnapshotA
 export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshotAttributeResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified attribute of the specified snapshot. You can specify only one
- *       attribute at a time.</p>
- *          <p>For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html">Amazon EBS snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Describes the specified attribute of the specified snapshot. You can specify only one attribute at a time.
+ *
+ * For more information about EBS snapshots, see [Amazon EBS snapshots](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-snapshots.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +67,8 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To describe snapshot attributes
  * ```javascript

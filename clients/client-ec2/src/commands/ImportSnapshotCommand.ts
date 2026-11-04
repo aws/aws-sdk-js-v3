@@ -23,9 +23,10 @@ export interface ImportSnapshotCommandInput extends ImportSnapshotRequest {}
 export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Imports a disk into an EBS snapshot.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
- *    <i>VM Import/Export User Guide</i>.</p>
+ * Imports a disk into an EBS snapshot.
+ *
+ * For more information, see [Importing a disk as a snapshot using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html) in the *VM Import/Export User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,8 +107,8 @@ export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

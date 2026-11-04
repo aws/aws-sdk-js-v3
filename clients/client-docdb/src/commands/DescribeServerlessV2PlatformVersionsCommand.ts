@@ -26,7 +26,8 @@ export interface DescribeServerlessV2PlatformVersionsCommandInput extends Descri
 export interface DescribeServerlessV2PlatformVersionsCommandOutput extends ServerlessV2PlatformVersionsMessage, __MetadataBearer {}
 
 /**
- * <p>Describes the properties of specific platform versions for Amazon DocumentDB Serverless v2.</p>
+ * Describes the properties of specific platform versions for Amazon DocumentDB Serverless v2.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,8 +80,8 @@ export interface DescribeServerlessV2PlatformVersionsCommandOutput extends Serve
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  * @throws {@link DocDBServiceException}
- * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ * Base exception class for all service exceptions from DocDB service.
  *
  * @public
  */

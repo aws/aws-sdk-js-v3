@@ -23,12 +23,10 @@ export interface GetHealthCheckStatusCommandInput extends GetHealthCheckStatusRe
 export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets status of a specified health check. </p>
- *          <important>
- *             <p>This API is intended for use during development to diagnose behavior. It doesn’t
- * 				support production use-cases with high query rates that require immediate and
- * 				actionable responses.</p>
- *          </important>
+ * Gets status of a specified health check.
+ *
+ * > **Important:** This API is intended for use during development to diagnose behavior. It doesn’t support production use-cases with high query rates that require immediate and actionable responses.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,14 +62,16 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link NoSuchHealthCheck} (client fault)
- *  <p>No health check exists with the specified ID.</p>
+ *
+ * No health check exists with the specified ID.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

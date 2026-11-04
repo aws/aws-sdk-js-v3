@@ -23,7 +23,8 @@ export interface DeleteServiceSpecificCredentialCommandInput extends DeleteServi
 export interface DeleteServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified service-specific credential.</p>
+ * Deletes the specified service-specific credential.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,12 +50,12 @@ export interface DeleteServiceSpecificCredentialCommandOutput extends __Metadata
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

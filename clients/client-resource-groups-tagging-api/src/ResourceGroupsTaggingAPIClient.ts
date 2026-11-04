@@ -303,7 +303,8 @@ export type ResourceGroupsTaggingAPIClientResolvedConfigType = __SmithyResolvedC
 export interface ResourceGroupsTaggingAPIClientResolvedConfig extends ResourceGroupsTaggingAPIClientResolvedConfigType {}
 
 /**
- * <fullname>Resource Groups Tagging API</fullname>
+ * Resource Groups Tagging API
+ *
  * @public
  */
 export class ResourceGroupsTaggingAPIClient extends __Client<

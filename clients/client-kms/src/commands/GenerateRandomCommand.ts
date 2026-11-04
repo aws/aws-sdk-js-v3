@@ -23,29 +23,22 @@ export interface GenerateRandomCommandInput extends GenerateRandomRequest {}
 export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a random byte string that is cryptographically secure.</p>
- *          <p>You must use the <code>NumberOfBytes</code> parameter to specify the length of the random
- *       byte string. There is no default value for string length.</p>
- *          <p>By default, the random byte string is generated in KMS. To generate the byte string in
- *       the CloudHSM cluster associated with an CloudHSM key store, use the <code>CustomKeyStoreId</code>
- *       parameter.</p>
- *          <p>
- *             <code>GenerateRandom</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
- *       isolated compute environment in Amazon EC2. To call <code>GenerateRandom</code> for a Nitro enclave
- *       or NitroTPM, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
- *       parameter to provide the attestation document for the attested environment. Instead of
- *       plaintext bytes, the response includes the plaintext bytes encrypted under the public key from
- *       the attestation document (<code>CiphertextForRecipient</code>). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>For more information about entropy and random number generation, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#entropy-and-random-numbers">Entropy and random number generation</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>
- *             <b>Cross-account use</b>: Not applicable.
- *         <code>GenerateRandom</code> does not use any account-specific resources, such as KMS
- *       keys.</p>
- *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a> (IAM policy)</p>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Returns a random byte string that is cryptographically secure.
+ *
+ * You must use the `NumberOfBytes` parameter to specify the length of the random byte string. There is no default value for string length.
+ *
+ * By default, the random byte string is generated in KMS. To generate the byte string in the CloudHSM cluster associated with an CloudHSM key store, use the `CustomKeyStoreId` parameter.
+ *
+ * `GenerateRandom` also supports [Amazon Web Services Nitro Enclaves](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html), which provide an isolated compute environment in Amazon EC2. To call `GenerateRandom` for a Nitro enclave or NitroTPM, use the [Amazon Web Services Nitro Enclaves SDK](https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk) or any Amazon Web Services SDK. Use the `Recipient` parameter to provide the attestation document for the attested environment. Instead of plaintext bytes, the response includes the plaintext bytes encrypted under the public key from the attestation document (`CiphertextForRecipient`). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see [Cryptographic attestation support in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html) in the *Key Management Service Developer Guide*.
+ *
+ * For more information about entropy and random number generation, see [Entropy and random number generation](https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#entropy-and-random-numbers) in the *Key Management Service Developer Guide*.
+ *
+ * **Cross-account use**: Not applicable. `GenerateRandom` does not use any account-specific resources, such as KMS keys.
+ *
+ * **Required permissions**: [kms:GenerateRandom](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (IAM policy)
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,62 +71,36 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
- *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
- *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p>This exception is thrown under the following conditions:</p>
- *          <ul>
- *             <li>
- *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
- *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
- *             (<a>DisconnectCustomKeyStore</a>), then connect it
- *             (<code>ConnectCustomKeyStore</code>).</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
- *           not connected. This operations is valid only when the custom key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
- *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
- *             <code>DISCONNECTED</code>. This operation is valid for all other
- *             <code>ConnectionState</code> values.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
- *           disconnected. <code>UpdateCustomKeyStore</code> can be called on a custom key store in the
- *             <code>CONNECTED</code> state only to update <code>NewCustomKeyStoreName</code>.
- *             For all other properties, the custom key store
- *             <code>ConnectionState</code> must be <code>DISCONNECTED</code>.</p>
- *             </li>
- *             <li>
- *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
- *           that is not connected. This operation is valid only when the CloudHSM key store
- *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because of the `ConnectionState` of the custom key store. To get the `ConnectionState` of a custom key store, use the DescribeCustomKeyStores operation.
+ *
+ * This exception is thrown under the following conditions:
+ *
+ * - You requested the ConnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `FAILED`. This operation is valid for all other `ConnectionState` values. To reconnect a custom key store in a `FAILED` state, disconnect it (DisconnectCustomKeyStore), then connect it (`ConnectCustomKeyStore`).
+ * - You requested the CreateKey operation in a custom key store that is not connected. This operations is valid only when the custom key store `ConnectionState` is `CONNECTED`.
+ * - You requested the DisconnectCustomKeyStore operation on a custom key store with a `ConnectionState` of `DISCONNECTING` or `DISCONNECTED`. This operation is valid for all other `ConnectionState` values.
+ * - You requested the UpdateCustomKeyStore or DeleteCustomKeyStore operation on a custom key store that is not disconnected. `UpdateCustomKeyStore` can be called on a custom key store in the `CONNECTED` state only to update `NewCustomKeyStoreName`. For all other properties, the custom key store `ConnectionState` must be `DISCONNECTED`.
+ * - You requested the GenerateRandom operation in an CloudHSM key store that is not connected. This operation is valid only when the CloudHSM key store `ConnectionState` is `CONNECTED`.
  *
  * @throws {@link CustomKeyStoreNotFoundException} (client fault)
- *  <p>The request was rejected because KMS cannot find a custom key store with the specified
- *       key store name or ID.</p>
+ *
+ * The request was rejected because KMS cannot find a custom key store with the specified key store name or ID.
  *
  * @throws {@link DependencyTimeoutException} (server fault)
- *  <p>The system timed out while trying to fulfill the request. You can retry the
- *       request.</p>
+ *
+ * The system timed out while trying to fulfill the request. You can retry the request.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified
- *       resource is not valid for this operation.</p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To generate random data
  * ```javascript

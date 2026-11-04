@@ -23,9 +23,8 @@ export interface DisassociateOpsItemRelatedItemCommandInput extends Disassociate
 export interface DisassociateOpsItemRelatedItemCommandOutput extends DisassociateOpsItemRelatedItemResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the association between an OpsItem and a related item. For example, this API
- *    operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a tool in
- *    Amazon Web Services Systems Manager.</p>
+ * Deletes the association between an OpsItem and a related item. For example, this API operation can delete an Incident Manager incident from an OpsItem. Incident Manager is a tool in Amazon Web Services Systems Manager.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,25 +50,28 @@ export interface DisassociateOpsItemRelatedItemCommandOutput extends Disassociat
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link OpsItemConflictException} (client fault)
- *  <p>The specified OpsItem is in the process of being deleted.</p>
+ *
+ * The specified OpsItem is in the process of being deleted.
  *
  * @throws {@link OpsItemInvalidParameterException} (client fault)
- *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
+ *
+ * A specified parameter argument isn't valid. Verify the available arguments and try again.
  *
  * @throws {@link OpsItemNotFoundException} (client fault)
- *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ * The specified OpsItem ID doesn't exist. Verify the ID and try again.
  *
  * @throws {@link OpsItemRelatedItemAssociationNotFoundException} (client fault)
- *  <p>The association wasn't found using the parameters you specified in the call. Verify the
- *    information and try again.</p>
+ *
+ * The association wasn't found using the parameters you specified in the call. Verify the information and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

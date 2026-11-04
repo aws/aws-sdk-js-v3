@@ -23,9 +23,8 @@ export interface UnlockSnapshotCommandInput extends UnlockSnapshotRequest {}
 export interface UnlockSnapshotCommandOutput extends UnlockSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Unlocks a snapshot that is locked in governance mode or that is locked in compliance mode
- *       but still in the cooling-off period. You can't unlock a snapshot that is locked in compliance
- *       mode after the cooling-off period has expired.</p>
+ * Unlocks a snapshot that is locked in governance mode or that is locked in compliance mode but still in the cooling-off period. You can't unlock a snapshot that is locked in compliance mode after the cooling-off period has expired.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +52,8 @@ export interface UnlockSnapshotCommandOutput extends UnlockSnapshotResult, __Met
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

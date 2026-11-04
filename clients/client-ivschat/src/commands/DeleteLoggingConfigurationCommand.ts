@@ -23,7 +23,8 @@ export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingCon
 export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified logging configuration.</p>
+ * Deletes the specified logging configuration.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,23 +49,18 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  * @see {@link IvschatClientResolvedConfig | config} for IvschatClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
  *
  * @throws {@link IvschatServiceException}
- * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ * Base exception class for all service exceptions from Ivschat service.
  *
  * @public
  */

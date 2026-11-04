@@ -23,27 +23,14 @@ export interface CreateDataCatalogCommandInput extends CreateDataCatalogInput {}
 export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput, __MetadataBearer {}
 
 /**
- * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
- *             created are visible to all users of the same Amazon Web Services account.</p>
- *          <p>For a <code>FEDERATED</code> catalog, this API operation creates the following
- *             resources.</p>
- *          <ul>
- *             <li>
- *                <p>CFN Stack Name with a maximum length of 128 characters and prefix
- *                         <code>athenafederatedcatalog-CATALOG_NAME_SANITIZED</code> with length 23
- *                     characters.</p>
- *             </li>
- *             <li>
- *                <p>Lambda Function Name with a maximum length of 64 characters and prefix
- *                         <code>athenafederatedcatalog_CATALOG_NAME_SANITIZED</code> with length 23
- *                     characters.</p>
- *             </li>
- *             <li>
- *                <p>Glue Connection Name with a maximum length of 255 characters and a prefix
- *                         <code>athenafederatedcatalog_CATALOG_NAME_SANITIZED</code> with length 23
- *                     characters.  </p>
- *             </li>
- *          </ul>
+ * Creates (registers) a data catalog with the specified name and properties. Catalogs created are visible to all users of the same Amazon Web Services account.
+ *
+ * For a `FEDERATED` catalog, this API operation creates the following resources.
+ *
+ * - CFN Stack Name with a maximum length of 128 characters and prefix `athenafederatedcatalog-CATALOG_NAME_SANITIZED` with length 23 characters.
+ * - Lambda Function Name with a maximum length of 64 characters and prefix `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23 characters.
+ * - Glue Connection Name with a maximum length of 255 characters and a prefix `athenafederatedcatalog_CATALOG_NAME_SANITIZED` with length 23 characters.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,16 +78,16 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Indicates a platform issue, which may be due to a transient condition or
- *             outage.</p>
+ *
+ * Indicates a platform issue, which may be due to a transient condition or outage.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>Indicates that something is wrong with the input to the request. For example, a
- *             required parameter may be missing or out of range.</p>
+ *
+ * Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.
  *
  * @throws {@link AthenaServiceException}
- * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ * Base exception class for all service exceptions from Athena service.
  *
  * @public
  */

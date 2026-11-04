@@ -23,7 +23,8 @@ export interface DeleteVodSourceCommandInput extends DeleteVodSourceRequest {}
 export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, __MetadataBearer {}
 
 /**
- * <p>The video on demand (VOD) source to delete.</p>
+ * The video on demand (VOD) source to delete.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,8 +50,8 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  * @throws {@link MediaTailorServiceException}
- * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ * Base exception class for all service exceptions from MediaTailor service.
  *
  * @public
  */

@@ -23,7 +23,8 @@ export interface CreateDBSnapshotCommandInput extends CreateDBSnapshotMessage {}
 export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or <code>storage-optimization</code> state.</p>
+ * Creates a snapshot of a DB instance. The source DB instance must be in the `available` or `storage-optimization` state.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,20 +120,24 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
- *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * `DBInstanceIdentifier` doesn't refer to an existing DB instance.
  *
  * @throws {@link DBSnapshotAlreadyExistsFault} (client fault)
- *  <p> <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.</p>
+ *
+ * `DBSnapshotIdentifier` is already used by an existing snapshot.
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
- *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * The DB instance isn't in a valid state.
  *
  * @throws {@link SnapshotQuotaExceededFault} (client fault)
- *  <p>The request would result in the user exceeding the allowed number of DB snapshots.</p>
+ *
+ * The request would result in the user exceeding the allowed number of DB snapshots.
  *
  * @throws {@link RDSServiceException}
- * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ * Base exception class for all service exceptions from RDS service.
  *
  * @example To create a DB snapshot
  * ```javascript

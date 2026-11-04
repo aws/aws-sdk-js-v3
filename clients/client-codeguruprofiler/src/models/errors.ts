@@ -4,10 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { CodeGuruProfilerServiceException as __BaseException } from "./CodeGuruProfilerServiceException";
 
 /**
- * <p>The requested operation would cause a conflict with the current state
- *         of a service resource associated with the request. Resolve the conflict
- *         before retrying this request.
- *       </p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -28,7 +26,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The server encountered an internal error and is unable to complete the request.</p>
+ * The server encountered an internal error and is unable to complete the request.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -50,7 +49,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request does not exist.</p>
+ * The resource specified in the request does not exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -71,10 +71,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>You have exceeded your service quota. To perform the requested action,
- *         remove some of the relevant resources, or use <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a> to request a
- *         service quota increase.
- *       </p>
+ * You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html) to request a service quota increase.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -96,7 +94,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -118,7 +117,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The parameter is not valid.</p>
+ * The parameter is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {

@@ -23,17 +23,10 @@ export interface ListAggregateLogGroupSummariesCommandInput extends ListAggregat
 export interface ListAggregateLogGroupSummariesCommandOutput extends ListAggregateLogGroupSummariesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an aggregate summary of all log groups in the Region grouped by specified data
- *       source characteristics. Supports optional filtering by log group class, name patterns, and
- *       data sources. If you perform this action in a monitoring account, you can also return
- *       aggregated summaries of log groups from source accounts that are linked to the monitoring
- *       account. For more information about using cross-account observability to set up monitoring
- *       accounts and source accounts, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
- *         cross-account observability</a>.</p>
- *          <p>The operation aggregates log groups by data source name and type and optionally format,
- *       providing counts of log groups that share these characteristics. The operation paginates
- *       results. By default, it returns up to 50 results and includes a token to retrieve more
- *       results.</p>
+ * Returns an aggregate summary of all log groups in the Region grouped by specified data source characteristics. Supports optional filtering by log group class, name patterns, and data sources. If you perform this action in a monitoring account, you can also return aggregated summaries of log groups from source accounts that are linked to the monitoring account. For more information about using cross-account observability to set up monitoring accounts and source accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+ *
+ * The operation aggregates log groups by data source name and type and optionally format, providing counts of log groups that share these characteristics. The operation paginates results. By default, it returns up to 50 results and includes a token to retrieve more results.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,17 +78,20 @@ export interface ListAggregateLogGroupSummariesCommandOutput extends ListAggrega
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>A parameter is specified incorrectly.</p>
+ *
+ * A parameter is specified incorrectly.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service cannot complete the request.</p>
+ *
+ * The service cannot complete the request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the parameters for the request is not valid.</p>
+ *
+ * One of the parameters for the request is not valid.
  *
  * @throws {@link CloudWatchLogsServiceException}
- * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ * Base exception class for all service exceptions from CloudWatchLogs service.
  *
  * @public
  */

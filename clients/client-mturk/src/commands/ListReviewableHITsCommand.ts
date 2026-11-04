@@ -23,10 +23,8 @@ export interface ListReviewableHITsCommandInput extends ListReviewableHITsReques
 export interface ListReviewableHITsCommandOutput extends ListReviewableHITsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             The <code>ListReviewableHITs</code> operation retrieves the HITs with Status equal to
- *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
- *         </p>
+ * The `ListReviewableHITs` operation retrieves the HITs with Status equal to Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,14 +96,16 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  * @throws {@link RequestError} (client fault)
- *  <p>Your request is invalid.</p>
+ *
+ * Your request is invalid.
  *
  * @throws {@link ServiceFault} (server fault)
- *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ * Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.
  *
  * @throws {@link MTurkServiceException}
- * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ * Base exception class for all service exceptions from MTurk service.
  *
  * @public
  */

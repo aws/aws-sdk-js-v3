@@ -23,9 +23,10 @@ export interface ListSuiteRunsCommandInput extends ListSuiteRunsRequest {}
 export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists runs of the specified Device Advisor test suite. You can list all runs of the test
- *             suite, or the runs of a specific version of the test suite.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSuiteRuns</a> action.</p>
+ * Lists runs of the specified Device Advisor test suite. You can list all runs of the test suite, or the runs of a specific version of the test suite.
+ *
+ * Requires permission to access the [ListSuiteRuns](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +70,16 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Sends an Internal Failure exception.</p>
+ *
+ * Sends an Internal Failure exception.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Sends a validation exception.</p>
+ *
+ * Sends a validation exception.
  *
  * @throws {@link IotDeviceAdvisorServiceException}
- * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ * Base exception class for all service exceptions from IotDeviceAdvisor service.
  *
  * @public
  */

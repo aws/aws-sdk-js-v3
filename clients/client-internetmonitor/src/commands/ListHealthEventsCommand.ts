@@ -23,11 +23,10 @@ export interface ListHealthEventsCommandInput extends ListHealthEventsInput {}
 export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns information for health events including the event start and end times, and
- * 			the status.</p>
- *          <note>
- *             <p>Health events that have start times during the time frame that is requested are not included in the list of health events.</p>
- *          </note>
+ * Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns information for health events including the event start and end times, and the status.
+ *
+ * > **Note:** Health events that have start times during the time frame that is requested are not included in the list of health events.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,20 +124,24 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * You don't have sufficient permission to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Invalid request.</p>
+ *
+ * Invalid request.
  *
  * @throws {@link InternetMonitorServiceException}
- * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ * Base exception class for all service exceptions from InternetMonitor service.
  *
  * @public
  */

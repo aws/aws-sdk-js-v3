@@ -26,8 +26,8 @@ export interface DescribeEngineDefaultClusterParametersCommandInput extends Desc
 export interface DescribeEngineDefaultClusterParametersCommandOutput extends DescribeEngineDefaultClusterParametersResult, __MetadataBearer {}
 
 /**
- * <p>Returns the default engine and system parameter information for the cluster database
- *       engine.</p>
+ * Returns the default engine and system parameter information for the cluster database engine.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,8 +81,8 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput extends Des
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  * @throws {@link NeptuneServiceException}
- * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ * Base exception class for all service exceptions from Neptune service.
  *
  * @public
  */

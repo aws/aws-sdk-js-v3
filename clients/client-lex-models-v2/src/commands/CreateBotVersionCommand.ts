@@ -23,11 +23,8 @@ export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
 export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an immutable version of the bot. When you create the first
- *          version of a bot, Amazon Lex sets the version number to 1. Subsequent bot versions increase
- *          in an increment of 1. The version number will always represent the total number
- *          of versions created of the bot, not the current number of versions. If a bot version
- *          is deleted, that bot version number will not be reused.</p>
+ * Creates an immutable version of the bot. When you create the first version of a bot, Amazon Lex sets the version number to 1. Subsequent bot versions increase in an increment of 1. The version number will always represent the total number of versions created of the bot, not the current number of versions. If a bot version is deleted, that bot version number will not be reused.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,33 +66,32 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The action that you tried to perform couldn't be completed because
- *          the resource is in a conflicting state. For example, deleting a bot
- *          that is in the CREATING state. Try your request again. </p>
+ *
+ * The action that you tried to perform couldn't be completed because the resource is in a conflicting state. For example, deleting a bot that is in the CREATING state. Try your request again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service encountered an unexpected condition. Try your request
- *          again.</p>
+ *
+ * The service encountered an unexpected condition. Try your request again.
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>Your request couldn't be completed because one or more request
- *          fields aren't valid. Check the fields in your request and try
- *          again.</p>
+ *
+ * Your request couldn't be completed because one or more request fields aren't valid. Check the fields in your request and try again.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You have reached a quota for your bot. </p>
+ *
+ * You have reached a quota for your bot.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Your request rate is too high. Reduce the frequency of
- *          requests.</p>
+ *
+ * Your request rate is too high. Reduce the frequency of requests.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One of the input parameters in your request isn't valid. Check the
- *          parameters and try your request again.</p>
+ *
+ * One of the input parameters in your request isn't valid. Check the parameters and try your request again.
  *
  * @throws {@link LexModelsV2ServiceException}
- * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ * Base exception class for all service exceptions from LexModelsV2 service.
  *
  * @public
  */

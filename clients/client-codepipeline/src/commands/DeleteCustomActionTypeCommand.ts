@@ -23,15 +23,10 @@ export interface DeleteCustomActionTypeCommandInput extends DeleteCustomActionTy
 export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Marks a custom action as deleted. <code>PollForJobs</code> for the custom action
- *             fails after the action is marked for deletion. Used for custom actions only.</p>
- *          <important>
- *             <p>To re-create a custom action after it has been deleted you must use a string in
- *                 the version field that has never been used before. This string can be an incremented
- *                 version number, for example. To restore a deleted custom action, use a JSON file
- *                 that is identical to the deleted action, including the original string in the
- *                 version field.</p>
- *          </important>
+ * Marks a custom action as deleted. `PollForJobs` for the custom action fails after the action is marked for deletion. Used for custom actions only.
+ *
+ * > **Important:** To re-create a custom action after it has been deleted you must use a string in the version field that has never been used before. This string can be an incremented version number, for example. To restore a deleted custom action, use a JSON file that is identical to the deleted action, including the original string in the version field.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,14 +53,16 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * Unable to modify the tag due to a simultaneous update request.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

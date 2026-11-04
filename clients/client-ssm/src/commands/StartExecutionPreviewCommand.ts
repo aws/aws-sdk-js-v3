@@ -23,8 +23,8 @@ export interface StartExecutionPreviewCommandInput extends StartExecutionPreview
 export interface StartExecutionPreviewCommandOutput extends StartExecutionPreviewResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the process of creating a preview showing the effects that running a specified
- *    Automation runbook would have on the targeted resources.</p>
+ * Initiates the process of creating a preview showing the effects that running a specified Automation runbook would have on the targeted resources.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,15 +113,16 @@ export interface StartExecutionPreviewCommandOutput extends StartExecutionPrevie
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. Verify that you entered valid contents for the command and try
- *    again.</p>
+ *
+ * The request isn't valid. Verify that you entered valid contents for the command and try again.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @example StartExecutionPreview
  * ```javascript

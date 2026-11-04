@@ -23,10 +23,12 @@ export interface GetConsoleScreenshotCommandInput extends GetConsoleScreenshotRe
 export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotResult, __MetadataBearer {}
 
 /**
- * <p>Retrieve a JPG-format screenshot of a running instance to help with
- *             troubleshooting.</p>
- *          <p>The returned content is Base64-encoded.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output">Instance console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * Retrieve a JPG-format screenshot of a running instance to help with troubleshooting.
+ *
+ * The returned content is Base64-encoded.
+ *
+ * For more information, see [Instance console output](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +58,8 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

@@ -5,7 +5,8 @@ import type { ThrottleReason } from "./enums";
 import { LambdaCoreServiceException as __BaseException } from "./LambdaCoreServiceException";
 
 /**
- * <p>One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.</p>
+ * One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -13,7 +14,8 @@ export class InvalidParameterValueException extends __BaseException {
   readonly name = "InvalidParameterValueException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -33,7 +35,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>The request would exceed a network connector limit. For <code>CreateNetworkConnector</code>, the account has reached the maximum number of network connectors allowed. For <code>UpdateNetworkConnector</code>, the connector has reached the maximum number of versions allowed.</p>
+ * The request would exceed a network connector limit. For `CreateNetworkConnector`, the account has reached the maximum number of network connectors allowed. For `UpdateNetworkConnector`, the connector has reached the maximum number of versions allowed.
+ *
  * @public
  */
 export class NetworkConnectorLimitExceededException extends __BaseException {
@@ -41,7 +44,8 @@ export class NetworkConnectorLimitExceededException extends __BaseException {
   readonly name = "NetworkConnectorLimitExceededException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -61,7 +65,8 @@ export class NetworkConnectorLimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in <code>ACTIVE</code> state.</p>
+ * The request could not be completed due to a conflict with the current state of the resource. For example, attempting to update a connector that is not in `ACTIVE` state.
+ *
  * @public
  */
 export class ResourceConflictException extends __BaseException {
@@ -69,7 +74,8 @@ export class ResourceConflictException extends __BaseException {
   readonly name = "ResourceConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -89,7 +95,8 @@ export class ResourceConflictException extends __BaseException {
 }
 
 /**
- * <p>An internal service error occurred. Retry the request with exponential backoff.</p>
+ * An internal service error occurred. Retry the request with exponential backoff.
+ *
  * @public
  */
 export class ServiceException extends __BaseException {
@@ -97,7 +104,8 @@ export class ServiceException extends __BaseException {
   readonly name = "ServiceException" as const;
   readonly $fault = "server" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
@@ -119,7 +127,8 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.</p>
+ * The request was throttled due to exceeding the allowed request rate. Retry the request after a brief wait using exponential backoff.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -127,19 +136,22 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: string | undefined;
 
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p>The reason for the throttling.</p>
+   * The reason for the throttling.
+   *
    * @public
    */
   Reason?: ThrottleReason | undefined;
@@ -161,7 +173,8 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.</p>
+ * The specified network connector does not exist. Verify the identifier (ID, name, or ARN) and Region.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -169,7 +182,8 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The exception type.</p>
+   * The exception type.
+   *
    * @public
    */
   Type?: string | undefined;

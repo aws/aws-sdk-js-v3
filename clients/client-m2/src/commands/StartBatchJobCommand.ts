@@ -23,8 +23,8 @@ export interface StartBatchJobCommandInput extends StartBatchJobRequest {}
 export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a batch job and returns the unique identifier of this execution of the batch job.
- *          The associated application must be running in order to start the batch job.</p>
+ * Starts a batch job and returns the unique identifier of this execution of the batch job. The associated application must be running in order to start the batch job.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,26 +83,32 @@ export interface StartBatchJobCommandOutput extends StartBatchJobResponse, __Met
  * @see {@link M2ClientResolvedConfig | config} for M2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The account or role doesn't have the right permissions to make the request.</p>
+ *
+ * The account or role doesn't have the right permissions to make the request.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * The parameters provided in the request conflict with existing resources.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of the request.</p>
+ *
+ * An unexpected error occurred during the processing of the request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found.</p>
+ *
+ * The specified resource was not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The number of requests made exceeds the limit.</p>
+ *
+ * The number of requests made exceeds the limit.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more parameters provided in the request is not valid.</p>
+ *
+ * One or more parameters provided in the request is not valid.
  *
  * @throws {@link M2ServiceException}
- * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ * Base exception class for all service exceptions from M2 service.
  *
  * @public
  */

@@ -24,8 +24,8 @@ export interface ModifyUsageLimitCommandInput extends ModifyUsageLimitMessage {}
 export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBearer {}
 
 /**
- * <p>Modifies a usage limit in a cluster.
- *             You can't modify the feature type or period of a usage limit.</p>
+ * Modifies a usage limit in a cluster. You can't modify the feature type or period of a usage limit.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,17 +66,20 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidUsageLimitFault} (client fault)
- *  <p>The usage limit is not valid.</p>
+ *
+ * The usage limit is not valid.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link UsageLimitNotFoundFault} (client fault)
- *  <p>The usage limit identifier can't be found.</p>
+ *
+ * The usage limit identifier can't be found.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

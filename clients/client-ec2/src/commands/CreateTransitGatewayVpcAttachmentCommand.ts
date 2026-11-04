@@ -26,10 +26,12 @@ export interface CreateTransitGatewayVpcAttachmentCommandInput extends CreateTra
 export interface CreateTransitGatewayVpcAttachmentCommandOutput extends CreateTransitGatewayVpcAttachmentResult, __MetadataBearer {}
 
 /**
- * <p>Attaches the specified VPC to the specified transit gateway.</p>
- *          <p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached,
- *          the new VPC CIDR range is not propagated to the default propagation route table.</p>
- *          <p>To send VPC traffic to an attached transit gateway, add a route to the VPC route table using <a>CreateRoute</a>.</p>
+ * Attaches the specified VPC to the specified transit gateway.
+ *
+ * If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is already attached, the new VPC CIDR range is not propagated to the default propagation route table.
+ *
+ * To send VPC traffic to an attached transit gateway, add a route to the VPC route table using CreateRoute.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +102,8 @@ export interface CreateTransitGatewayVpcAttachmentCommandOutput extends CreateTr
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

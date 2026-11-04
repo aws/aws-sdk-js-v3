@@ -23,26 +23,16 @@ export interface CreateChannelFlowCommandInput extends CreateChannelFlowRequest 
 export interface CreateChannelFlowCommandOutput extends CreateChannelFlowResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions
- *          that perform actions on chat messages, such as stripping out profanity. You can associate
- *          channel flows with channels, and the processors in the channel flow then take action on all
- *          messages sent to that channel. This is a developer API.</p>
- *          <p>Channel flows process the following items:</p>
- *          <ol>
- *             <li>
- *                <p>New and updated messages</p>
- *             </li>
- *             <li>
- *                <p>Persistent and non-persistent messages</p>
- *             </li>
- *             <li>
- *                <p>The Standard message type</p>
- *             </li>
- *          </ol>
- *          <note>
- *             <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to
- *            <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>
- *          </note>
+ * Creates a channel flow, a container for processors. Processors are AWS Lambda functions that perform actions on chat messages, such as stripping out profanity. You can associate channel flows with channels, and the processors in the channel flow then take action on all messages sent to that channel. This is a developer API.
+ *
+ * Channel flows process the following items:
+ *
+ * 1. New and updated messages
+ * 2. Persistent and non-persistent messages
+ * 3. The Standard message type
+ *
+ * > **Note:** Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK messaging, refer to [Message types](https://docs.aws.amazon.com/chime-sdk/latest/dg/using-the-messaging-sdk.html#msg-types) in the *Amazon Chime developer guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,33 +80,40 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input parameters don't match the service's restrictions.</p>
+ *
+ * The input parameters don't match the service's restrictions.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *
+ * The request could not be processed because of conflict in the current state of the resource.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * The client is permanently forbidden from making the request.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The request exceeds the resource limit.</p>
+ *
+ * The request exceeds the resource limit.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The service encountered an unexpected error.</p>
+ *
+ * The service encountered an unexpected error.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is currently unavailable.</p>
+ *
+ * The service is currently unavailable.
  *
  * @throws {@link ThrottledClientException} (client fault)
- *  <p>The client exceeded its request rate limit.</p>
+ *
+ * The client exceeded its request rate limit.
  *
  * @throws {@link UnauthorizedClientException} (client fault)
- *  <p>The client is not currently authorized to make the request.</p>
+ *
+ * The client is not currently authorized to make the request.
  *
  * @throws {@link ChimeSDKMessagingServiceException}
- * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ * Base exception class for all service exceptions from ChimeSDKMessaging service.
  *
  * @public
  */

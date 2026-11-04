@@ -5,7 +5,8 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import { MWAAServiceException as __BaseException } from "./MWAAServiceException";
 
 /**
- * <p>Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html">Accessing an Amazon MWAA environment</a>.</p>
+ * Access to the Apache Airflow Web UI or CLI has been denied due to insufficient permissions. To learn more, see [Accessing an Amazon MWAA environment](https://docs.aws.amazon.com/mwaa/latest/userguide/access-policies.html).
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -28,7 +29,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>ResourceNotFoundException: The resource is not available.</p>
+ * ResourceNotFoundException: The resource is not available.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -49,7 +51,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>InternalServerException: An internal error has occurred.</p>
+ * InternalServerException: An internal error has occurred.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -70,7 +73,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>ServiceUnavailableException: The service is currently unavailable.</p>
+ * ServiceUnavailableException: The service is currently unavailable.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -91,7 +95,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>ValidationException: The provided input is not valid.</p>
+ * ValidationException: The provided input is not valid.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -112,7 +117,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating that a client-side error occurred during the Apache Airflow REST API call.</p>
+ * An exception indicating that a client-side error occurred during the Apache Airflow REST API call.
+ *
  * @public
  */
 export class RestApiClientException extends __BaseException {
@@ -120,13 +126,15 @@ export class RestApiClientException extends __BaseException {
   readonly name = "RestApiClientException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The HTTP status code returned by the Apache Airflow REST API call.</p>
+   * The HTTP status code returned by the Apache Airflow REST API call.
+   *
    * @public
    */
   RestApiStatusCode?: number | undefined;
 
   /**
-   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON object.</p>
+   * The error response data from the Apache Airflow REST API call, provided as a JSON object.
+   *
    * @public
    */
   RestApiResponse?: __DocumentType | undefined;
@@ -146,7 +154,8 @@ export class RestApiClientException extends __BaseException {
 }
 
 /**
- * <p>An exception indicating that a server-side error occurred during the Apache Airflow REST API call.</p>
+ * An exception indicating that a server-side error occurred during the Apache Airflow REST API call.
+ *
  * @public
  */
 export class RestApiServerException extends __BaseException {
@@ -154,13 +163,15 @@ export class RestApiServerException extends __BaseException {
   readonly name = "RestApiServerException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The HTTP status code returned by the Apache Airflow REST API call.</p>
+   * The HTTP status code returned by the Apache Airflow REST API call.
+   *
    * @public
    */
   RestApiStatusCode?: number | undefined;
 
   /**
-   * <p>The error response data from the Apache Airflow REST API call, provided as a JSON object.</p>
+   * The error response data from the Apache Airflow REST API call, provided as a JSON object.
+   *
    * @public
    */
   RestApiResponse?: __DocumentType | undefined;

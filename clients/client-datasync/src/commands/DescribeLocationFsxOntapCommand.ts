@@ -23,11 +23,10 @@ export interface DescribeLocationFsxOntapCommandInput extends DescribeLocationFs
 export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationFsxOntapResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about how an DataSync transfer location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
- *          <note>
- *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
- *         actually return a <code>Password</code>.</p>
- *          </note>
+ * Provides details about how an DataSync transfer location for an Amazon FSx for NetApp ONTAP file system is configured.
+ *
+ * > **Note:** If your location uses SMB, the `DescribeLocationFsxOntap` operation doesn't actually return a `Password`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,15 +86,16 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>This exception is thrown when an error occurs in the DataSync
- *       service.</p>
+ *
+ * This exception is thrown when an error occurs in the DataSync service.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ * This exception is thrown when the client submits a malformed request.
  *
  * @throws {@link DataSyncServiceException}
- * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ * Base exception class for all service exceptions from DataSync service.
  *
  * @public
  */

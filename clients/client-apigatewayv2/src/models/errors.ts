@@ -26,7 +26,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
+ * The request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.
+ *
  * @public
  */
 export class BadRequestException extends __BaseException {
@@ -34,7 +35,8 @@ export class BadRequestException extends __BaseException {
   readonly name = "BadRequestException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Describes the error encountered.</p>
+   * Describes the error encountered.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -53,7 +55,8 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.</p>
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. See the accompanying error message for details.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -61,7 +64,8 @@ export class ConflictException extends __BaseException {
   readonly name = "ConflictException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Describes the error encountered.</p>
+   * Describes the error encountered.
+   *
    * @public
    */
   Message?: string | undefined;
@@ -80,7 +84,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The resource specified in the request was not found. See the message field for more information.</p>
+ * The resource specified in the request was not found. See the message field for more information.
+ *
  * @public
  */
 export class NotFoundException extends __BaseException {
@@ -88,13 +93,15 @@ export class NotFoundException extends __BaseException {
   readonly name = "NotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Describes the error encountered.</p>
+   * Describes the error encountered.
+   *
    * @public
    */
   Message?: string | undefined;
 
   /**
-   * <p>The resource type.</p>
+   * The resource type.
+   *
    * @public
    */
   ResourceType?: string | undefined;
@@ -114,7 +121,8 @@ export class NotFoundException extends __BaseException {
 }
 
 /**
- * <p>A limit has been exceeded. See the accompanying error message for details.</p>
+ * A limit has been exceeded. See the accompanying error message for details.
+ *
  * @public
  */
 export class TooManyRequestsException extends __BaseException {
@@ -122,13 +130,15 @@ export class TooManyRequestsException extends __BaseException {
   readonly name = "TooManyRequestsException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The limit type.</p>
+   * The limit type.
+   *
    * @public
    */
   LimitType?: string | undefined;
 
   /**
-   * <p>Describes the error encountered.</p>
+   * Describes the error encountered.
+   *
    * @public
    */
   Message?: string | undefined;

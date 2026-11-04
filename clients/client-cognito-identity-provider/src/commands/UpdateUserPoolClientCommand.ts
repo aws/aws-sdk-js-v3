@@ -23,36 +23,21 @@ export interface UpdateUserPoolClientCommandInput extends UpdateUserPoolClientRe
 export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientResponse, __MetadataBearer {}
 
 /**
- * <p>Given a user pool app client ID, updates the configuration. To avoid setting
- *             parameters to Amazon Cognito defaults, construct this API request to pass the existing
- *             configuration of your app client, modified to include the changes that you want to
- *             make.</p>
- *          <important>
- *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
- *          </important>
- *          <p>Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a
- * branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't
- * available for your client until after you apply a branding style.</p>
- *          <note>
- *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you must use IAM credentials to authorize requests, and you must
- *     grant yourself the corresponding IAM permission in a policy.</p>
- *             <p class="title">
- *                <b>Learn more</b>
- *             </p>
- *             <ul>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *                   </p>
- *                </li>
- *             </ul>
- *          </note>
+ * Given a user pool app client ID, updates the configuration. To avoid setting parameters to Amazon Cognito defaults, construct this API request to pass the existing configuration of your app client, modified to include the changes that you want to make.
+ *
+ * > **Important:** If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.
+ *
+ * Unlike app clients created in the console, Amazon Cognito doesn't automatically assign a branding style to app clients that you configure with this API operation. Managed login and classic hosted UI pages aren't available for your client until after you apply a branding style.
+ *
+ * > **Note:**
+ * >
+ * > Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For this operation, you must use IAM credentials to authorize requests, and you must grant yourself the corresponding IAM permission in a policy.
+ * >
+ * > **Learn more**
+ * >
+ * > - [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+ * > - [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -186,55 +171,53 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>This exception is thrown if two or more modifications are happening
- *             concurrently.</p>
+ *
+ * This exception is thrown if two or more modifications are happening concurrently.
  *
  * @throws {@link FeatureUnavailableInTierException} (client fault)
- *  <p>This exception is thrown when a feature that you attempted to use or configure
- *             isn't included in your user pool's current feature plan. This can occur
- *             when:</p>
- *          <ul>
- *             <li>
- *                <p>You configure a feature that your feature plan doesn't support.</p>
- *             </li>
- *             <li>
- *                <p>You make a request that uses a feature that requires a higher feature
- *                     plan.</p>
- *             </li>
- *          </ul>
- *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
- *             feature.</p>
+ *
+ * This exception is thrown when a feature that you attempted to use or configure isn't included in your user pool's current feature plan. This can occur when:
+ *
+ * - You configure a feature that your feature plan doesn't support.
+ * - You make a request that uses a feature that requires a higher feature plan.
+ *
+ * To resolve this issue, upgrade your user pool to a feature plan that includes the feature.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidOAuthFlowException} (client fault)
- *  <p>This exception is thrown when the specified OAuth flow is not valid.</p>
+ *
+ * This exception is thrown when the specified OAuth flow is not valid.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link OperationNotEnabledException} (client fault)
- *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
+ *
+ * This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link ScopeDoesNotExistException} (client fault)
- *  <p>This exception is thrown when the specified scope doesn't exist.</p>
+ *
+ * This exception is thrown when the specified scope doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

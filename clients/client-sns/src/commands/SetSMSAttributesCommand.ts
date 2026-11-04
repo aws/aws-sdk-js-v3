@@ -23,17 +23,12 @@ export interface SetSMSAttributesCommandInput extends SetSMSAttributesInput {}
 export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Use this request to set the default settings for sending SMS messages and receiving
- *             daily SMS usage reports.</p>
- *          <p>You can override some of these settings for a single message when you use the
- *                 <code>Publish</code> action with the <code>MessageAttributes.entry.N</code>
- *             parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a>
- *             in the <i>Amazon SNS Developer Guide</i>.</p>
- *          <note>
- *             <p>To use this operation, you must grant the Amazon SNS service principal
- *                     (<code>sns.amazonaws.com</code>) permission to perform the
- *                     <code>s3:ListBucket</code> action. </p>
- *          </note>
+ * Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.
+ *
+ * You can override some of these settings for a single message when you use the `Publish` action with the `MessageAttributes.entry.N` parameter. For more information, see [Publishing to a mobile phone](https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html) in the *Amazon SNS Developer Guide*.
+ *
+ * > **Note:** To use this operation, you must grant the Amazon SNS service principal (`sns.amazonaws.com`) permission to perform the `s3:ListBucket` action.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,21 +55,24 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  * @throws {@link AuthorizationErrorException} (client fault)
- *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * Indicates that the user has been denied access to the requested resource.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>Indicates an internal service error.</p>
+ *
+ * Indicates an internal service error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Indicates that a request parameter does not comply with the associated
- *             constraints.</p>
+ *
+ * Indicates that a request parameter does not comply with the associated constraints.
  *
  * @throws {@link ThrottledException} (client fault)
- *  <p>Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.</p>
+ *
+ * Indicates that the rate at which requests have been submitted for this action exceeds the limit for your Amazon Web Services account.
  *
  * @throws {@link SNSServiceException}
- * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ * Base exception class for all service exceptions from SNS service.
  *
  * @public
  */

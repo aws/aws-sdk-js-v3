@@ -23,7 +23,8 @@ export interface CreateTargetDomainCommandInput extends CreateTargetDomainInput 
 export interface CreateTargetDomainCommandOutput extends CreateTargetDomainOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new target domain for penetration testing. A target domain is a web domain that must be registered and verified before it can be tested.</p>
+ * Creates a new target domain for penetration testing. A target domain is a web domain that must be registered and verified before it can be tested.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +72,8 @@ export interface CreateTargetDomainCommandOutput extends CreateTargetDomainOutpu
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

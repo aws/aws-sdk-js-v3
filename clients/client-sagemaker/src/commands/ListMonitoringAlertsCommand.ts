@@ -23,7 +23,8 @@ export interface ListMonitoringAlertsCommandInput extends ListMonitoringAlertsRe
 export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the alerts for a single monitoring schedule.</p>
+ * Gets the alerts for a single monitoring schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,11 +68,12 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceNotFound} (client fault)
- *  <p>Resource being access is not found.</p>
+ *
+ * Resource being access is not found.
  *
  * @throws {@link SageMakerServiceException}
- * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ * Base exception class for all service exceptions from SageMaker service.
  *
  * @public
  */

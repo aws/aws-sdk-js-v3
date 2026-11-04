@@ -23,8 +23,8 @@ export interface DeleteParameterCommandInput extends DeleteParameterRequest {}
 export interface DeleteParameterCommandOutput extends DeleteParameterResult, __MetadataBearer {}
 
 /**
- * <p>Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds
- *    to create a parameter with the same name.</p>
+ * Delete a parameter from the system. After deleting a parameter, wait for at least 30 seconds to create a parameter with the same name.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,19 +49,18 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link ParameterNotFound} (client fault)
- *  <p>The parameter couldn't be found. Verify the name and try again.</p>
- *          <note>
- *             <p>For the <code>DeleteParameter</code> and <code>GetParameter</code> actions, if the
- *     specified parameter doesn't exist, the <code>ParameterNotFound</code> exception is
- *      <i>not</i> recorded in CloudTrail event logs.</p>
- *          </note>
+ *
+ * The parameter couldn't be found. Verify the name and try again.
+ *
+ * > **Note:** For the `DeleteParameter` and `GetParameter` actions, if the specified parameter doesn't exist, the `ParameterNotFound` exception is *not* recorded in CloudTrail event logs.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

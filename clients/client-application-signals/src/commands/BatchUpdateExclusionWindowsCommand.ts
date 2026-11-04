@@ -23,7 +23,8 @@ export interface BatchUpdateExclusionWindowsCommandInput extends BatchUpdateExcl
 export interface BatchUpdateExclusionWindowsCommandOutput extends BatchUpdateExclusionWindowsOutput, __MetadataBearer {}
 
 /**
- * <p>Add or remove time window exclusions for one or more Service Level Objectives (SLOs).</p>
+ * Add or remove time window exclusions for one or more Service Level Objectives (SLOs).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,17 +88,20 @@ export interface BatchUpdateExclusionWindowsCommandOutput extends BatchUpdateExc
  * @see {@link ApplicationSignalsClientResolvedConfig | config} for ApplicationSignalsClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Resource not found.</p>
+ *
+ * Resource not found.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was throttled because of quota limits.</p>
+ *
+ * The request was throttled because of quota limits.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The resource is not valid.</p>
+ *
+ * The resource is not valid.
  *
  * @throws {@link ApplicationSignalsServiceException}
- * <p>Base exception class for all service exceptions from ApplicationSignals service.</p>
  *
+ * Base exception class for all service exceptions from ApplicationSignals service.
  *
  * @public
  */

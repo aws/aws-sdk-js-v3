@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { BackupServiceException as __BaseException } from "./BackupServiceException";
 
 /**
- * <p>The required resource already exists.</p>
+ * The required resource already exists.
+ *
  * @public
  */
 export class AlreadyExistsException extends __BaseException {
@@ -14,25 +15,21 @@ export class AlreadyExistsException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   CreatorRequestId?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -56,8 +53,8 @@ export class AlreadyExistsException extends __BaseException {
 }
 
 /**
- * <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
+ *
  * @public
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -67,13 +64,11 @@ export class InvalidParameterValueException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -95,8 +90,8 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p>Indicates that something is wrong with the input to the request. For example, a
- *          parameter is of the wrong type.</p>
+ * Indicates that something is wrong with the input to the request. For example, a parameter is of the wrong type.
+ *
  * @public
  */
 export class InvalidRequestException extends __BaseException {
@@ -106,13 +101,11 @@ export class InvalidRequestException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -134,7 +127,8 @@ export class InvalidRequestException extends __BaseException {
 }
 
 /**
- * <p>Indicates that a required parameter is missing.</p>
+ * Indicates that a required parameter is missing.
+ *
  * @public
  */
 export class MissingParameterValueException extends __BaseException {
@@ -144,13 +138,11 @@ export class MissingParameterValueException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -172,7 +164,8 @@ export class MissingParameterValueException extends __BaseException {
 }
 
 /**
- * <p>A resource that is required for the action doesn't exist.</p>
+ * A resource that is required for the action doesn't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -182,13 +175,11 @@ export class ResourceNotFoundException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -210,7 +201,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request failed due to a temporary failure of the server.</p>
+ * The request failed due to a temporary failure of the server.
+ *
  * @public
  */
 export class ServiceUnavailableException extends __BaseException {
@@ -220,13 +212,11 @@ export class ServiceUnavailableException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -248,8 +238,8 @@ export class ServiceUnavailableException extends __BaseException {
 }
 
 /**
- * <p>Backup is already performing an action on this recovery point. It can't
- *          perform the action you requested until the first action finishes. Try again later.</p>
+ * Backup is already performing an action on this recovery point. It can't perform the action you requested until the first action finishes. Try again later.
+ *
  * @public
  */
 export class InvalidResourceStateException extends __BaseException {
@@ -259,13 +249,11 @@ export class InvalidResourceStateException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -287,8 +275,8 @@ export class InvalidResourceStateException extends __BaseException {
 }
 
 /**
- * <p>Backup can't perform the action that you requested until it finishes
- *          performing a previous action. Try again later.</p>
+ * Backup can't perform the action that you requested until it finishes performing a previous action. Try again later.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -298,13 +286,11 @@ export class ConflictException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -326,8 +312,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
- *          in a request.</p>
+ * A limit in the request has been exceeded; for example, a maximum number of items allowed in a request.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -337,13 +323,11 @@ export class LimitExceededException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;
@@ -365,7 +349,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
+ * A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.
+ *
  * @public
  */
 export class DependencyFailureException extends __BaseException {
@@ -375,13 +360,11 @@ export class DependencyFailureException extends __BaseException {
   Code?: string | undefined;
   Message?: string | undefined;
   /**
-   * <p></p>
    * @public
    */
   Type?: string | undefined;
 
   /**
-   * <p></p>
    * @public
    */
   Context?: string | undefined;

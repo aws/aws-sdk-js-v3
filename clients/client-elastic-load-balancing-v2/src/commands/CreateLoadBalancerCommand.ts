@@ -23,30 +23,16 @@ export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerInput 
 export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load
- *       Balancer.</p>
- *          <p>For more information, see the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html">Application Load Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network Load
- *             Balancers</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html">Gateway Load
- *             Balancers</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>This operation is idempotent, which means that it completes at most one time. If you
- *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
+ * Creates an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+ *
+ * For more information, see the following:
+ *
+ * - [Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html)
+ * - [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html)
+ * - [Gateway Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-load-balancers.html)
+ *
+ * This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple load balancers with the same settings, each call succeeds.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -145,48 +131,60 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  * @throws {@link AllocationIdNotFoundException} (client fault)
- *  <p>The specified allocation ID does not exist.</p>
+ *
+ * The specified allocation ID does not exist.
  *
  * @throws {@link AvailabilityZoneNotSupportedException} (client fault)
- *  <p>The specified Availability Zone is not supported.</p>
+ *
+ * The specified Availability Zone is not supported.
  *
  * @throws {@link DuplicateLoadBalancerNameException} (client fault)
- *  <p>A load balancer with the specified name already exists.</p>
+ *
+ * A load balancer with the specified name already exists.
  *
  * @throws {@link DuplicateTagKeysException} (client fault)
- *  <p>A tag key was specified more than once.</p>
+ *
+ * A tag key was specified more than once.
  *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
- *  <p>The requested configuration is not valid.</p>
+ *
+ * The requested configuration is not valid.
  *
  * @throws {@link InvalidSchemeException} (client fault)
- *  <p>The requested scheme is not valid.</p>
+ *
+ * The requested scheme is not valid.
  *
  * @throws {@link InvalidSecurityGroupException} (client fault)
- *  <p>The specified security group does not exist.</p>
+ *
+ * The specified security group does not exist.
  *
  * @throws {@link InvalidSubnetException} (client fault)
- *  <p>The specified subnet is out of available addresses.</p>
+ *
+ * The specified subnet is out of available addresses.
  *
  * @throws {@link OperationNotPermittedException} (client fault)
- *  <p>This operation is not allowed.</p>
+ *
+ * This operation is not allowed.
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>A specified resource is in use.</p>
+ *
+ * A specified resource is in use.
  *
  * @throws {@link SubnetNotFoundException} (client fault)
- *  <p>The specified subnet does not exist.</p>
+ *
+ * The specified subnet does not exist.
  *
  * @throws {@link TooManyLoadBalancersException} (client fault)
- *  <p>You've reached the limit on the number of load balancers for your Amazon Web Services
- *       account.</p>
+ *
+ * You've reached the limit on the number of load balancers for your Amazon Web Services account.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags for this resource.</p>
+ *
+ * You've reached the limit on the number of tags for this resource.
  *
  * @throws {@link ElasticLoadBalancingV2ServiceException}
- * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ * Base exception class for all service exceptions from ElasticLoadBalancingV2 service.
  *
  * @example To create an Internet-facing load balancer
  * ```javascript

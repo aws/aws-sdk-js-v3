@@ -23,7 +23,8 @@ export interface DescribePartnersCommandInput extends DescribePartnersInputMessa
 export interface DescribePartnersCommandOutput extends DescribePartnersOutputMessage, __MetadataBearer {}
 
 /**
- * <p>Returns information about the partner integrations defined for a cluster.</p>
+ * Returns information about the partner integrations defined for a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,18 +63,20 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link UnauthorizedPartnerIntegrationFault} (client fault)
- *  <p>The partner integration is not authorized.</p>
+ *
+ * The partner integration is not authorized.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

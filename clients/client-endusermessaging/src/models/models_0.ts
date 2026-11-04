@@ -12,318 +12,371 @@ import type {
 } from "./enums";
 
 /**
- * <p>Specifies an attribute to create for a brand profile.</p>
+ * Specifies an attribute to create for a brand profile.
+ *
  * @public
  */
 export interface BrandProfileAttributeInput {
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
 
   /**
-   * <p>The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.</p>
+   * The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.
+   *
    * @public
    */
   attributeType: BrandProfileAttributeType | undefined;
 
   /**
-   * <p>The text value for the attribute. This value applies to attributes of type TEXT. For attributes of type IMAGE or DOCUMENT, provide the media through the attachment body instead.</p>
+   * The text value for the attribute. This value applies to attributes of type TEXT. For attributes of type IMAGE or DOCUMENT, provide the media through the attachment body instead.
+   *
    * @public
    */
   attributeValue?: string | undefined;
 
   /**
-   * <p>The binary content for an attribute of type IMAGE or DOCUMENT. The content is base64-encoded when it is sent over the wire.</p>
+   * The binary content for an attribute of type IMAGE or DOCUMENT. The content is base64-encoded when it is sent over the wire.
+   *
    * @public
    */
   attachmentBody?: Uint8Array | undefined;
 
   /**
-   * <p>A description of the attribute.</p>
+   * A description of the attribute.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The category of the attribute.</p>
+   * The category of the attribute.
+   *
    * @public
    */
   category?: string | undefined;
 }
 
 /**
- * <p>Contains information about an attribute that was created for a brand profile.</p>
+ * Contains information about an attribute that was created for a brand profile.
+ *
  * @public
  */
 export interface BrandProfileAttributeOutput {
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
 
   /**
-   * <p>The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.</p>
+   * The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.
+   *
    * @public
    */
   attributeType: BrandProfileAttributeType | undefined;
 
   /**
-   * <p>A presigned Amazon S3 URL that you can use to download the attribute media. The URL is valid for one hour and is present only for attributes of type IMAGE or DOCUMENT.</p>
+   * A presigned Amazon S3 URL that you can use to download the attribute media. The URL is valid for one hour and is present only for attributes of type IMAGE or DOCUMENT.
+   *
    * @public
    */
   mediaDownloadUrl?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a brand profile attribute in a list response.</p>
+ * Contains summary information about a brand profile attribute in a list response.
+ *
  * @public
  */
 export interface BrandProfileAttributeSummary {
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
 
   /**
-   * <p>The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.</p>
+   * The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.
+   *
    * @public
    */
   attributeType: BrandProfileAttributeType | undefined;
 
   /**
-   * <p>A description of the attribute.</p>
+   * A description of the attribute.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The category of the attribute.</p>
+   * The category of the attribute.
+   *
    * @public
    */
   category?: string | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>Contains information about a brand profile.</p>
+ * Contains information about a brand profile.
+ *
  * @public
  */
 export interface BrandProfileInfo {
   /**
-   * <p>The unique identifier of the brand profile.</p>
+   * The unique identifier of the brand profile.
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the brand profile.</p>
+   * The Amazon Resource Name (ARN) of the brand profile.
+   *
    * @public
    */
   brandProfileArn: string | undefined;
 
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the brand profile.</p>
+   * The current lifecycle status of the brand profile.
+   *
    * @public
    */
   status: Status | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 }
 
 /**
- * <p>The delivery parameters for the preapproved notify-template route over the SMS or voice channels.</p>
+ * The delivery parameters for the preapproved notify-template route over the SMS or voice channels.
+ *
  * @public
  */
 export interface NotifyParameters {
   /**
-   * <p>The identifier of a preapproved notify template for the SMS or voice channels.</p>
+   * The identifier of a preapproved notify template for the SMS or voice channels.
+   *
    * @public
    */
   notifyTemplateId?: string | undefined;
 
   /**
-   * <p>The Amazon Polly voice ID used when the notify template is delivered over the voice channel.</p>
+   * The Amazon Polly voice ID used when the notify template is delivered over the voice channel.
+   *
    * @public
    */
   voiceId?: string | undefined;
 }
 
 /**
- * <p>The delivery parameters for the text channel, which delivers over SMS or RCS.</p>
+ * The delivery parameters for the text channel, which delivers over SMS or RCS.
+ *
  * @public
  */
 export interface TextParameters {
   /**
-   * <p>The freeform message template used to render the one-time passcode for the SMS or RCS channels. The template must contain the code placeholder.</p>
+   * The freeform message template used to render the one-time passcode for the SMS or RCS channels. The template must contain the code placeholder.
+   *
    * @public
    */
   inlineTemplateBody?: string | undefined;
 
   /**
-   * <p>A map of country-specific parameters that control one-time passcode delivery.</p>
+   * A map of country-specific parameters that control one-time passcode delivery.
+   *
    * @public
    */
   destinationCountryParameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The delivery parameters for the voice channel.</p>
+ * The delivery parameters for the voice channel.
+ *
  * @public
  */
 export interface VoiceParameters {
   /**
-   * <p>The freeform message template used to render the one-time passcode for the voice channel. The template must contain the code placeholder.</p>
+   * The freeform message template used to render the one-time passcode for the voice channel. The template must contain the code placeholder.
+   *
    * @public
    */
   inlineTemplateBody?: string | undefined;
 
   /**
-   * <p>The BCP 47 language code used to render the voice message.</p>
+   * The BCP 47 language code used to render the voice message.
+   *
    * @public
    */
   languageCode?: string | undefined;
 
   /**
-   * <p>The Amazon Polly voice ID used for the voice channel.</p>
+   * The Amazon Polly voice ID used for the voice channel.
+   *
    * @public
    */
   voiceId?: string | undefined;
 
   /**
-   * <p>The format of the voice message body. Valid values are TEXT and SSML.</p>
+   * The format of the voice message body. Valid values are TEXT and SSML.
+   *
    * @public
    */
   voiceMessageBodyTextType?: VoiceMessageBodyTextType | undefined;
 }
 
 /**
- * <p>The delivery parameters for the WhatsApp channel.</p>
+ * The delivery parameters for the WhatsApp channel.
+ *
  * @public
  */
 export interface WhatsAppParameters {
   /**
-   * <p>The name of the Meta-approved WhatsApp authentication template.</p>
+   * The name of the Meta-approved WhatsApp authentication template.
+   *
    * @public
    */
   whatsAppTemplateName?: string | undefined;
 
   /**
-   * <p>The BCP 47 language code used to render the template. This value is required for the WhatsApp channel.</p>
+   * The BCP 47 language code used to render the template. This value is required for the WhatsApp channel.
+   *
    * @public
    */
   languageCode?: string | undefined;
 }
 
 /**
- * <p>The channel-specific parameters used to render and deliver a one-time passcode. Each member configures the parameters for one delivery route. Populate only the channels that a configuration or send request supports. A notify code configuration can carry every channel at once, and a send request resolves to a single route that selects the matching channel at send time.</p>
+ * The channel-specific parameters used to render and deliver a one-time passcode. Each member configures the parameters for one delivery route. Populate only the channels that a configuration or send request supports. A notify code configuration can carry every channel at once, and a send request resolves to a single route that selects the matching channel at send time.
+ *
  * @public
  */
 export interface ChannelParameters {
   /**
-   * <p>The parameters for the text channel, which delivers over SMS or RCS.</p>
+   * The parameters for the text channel, which delivers over SMS or RCS.
+   *
    * @public
    */
   text?: TextParameters | undefined;
 
   /**
-   * <p>The parameters for the voice channel.</p>
+   * The parameters for the voice channel.
+   *
    * @public
    */
   voice?: VoiceParameters | undefined;
 
   /**
-   * <p>The parameters for the preapproved notify-template route over the SMS or voice channels.</p>
+   * The parameters for the preapproved notify-template route over the SMS or voice channels.
+   *
    * @public
    */
   notify?: NotifyParameters | undefined;
 
   /**
-   * <p>The parameters for the WhatsApp channel.</p>
+   * The parameters for the WhatsApp channel.
+   *
    * @public
    */
   whatsApp?: WhatsAppParameters | undefined;
 }
 
 /**
- * <p>The passcode policy parameters that are grouped for reuse across a notify code configuration and its create request. Each member is optional. When you omit a member on a create request, no value is applied at create time and the default is applied when a passcode is sent.</p>
+ * The passcode policy parameters that are grouped for reuse across a notify code configuration and its create request. Each member is optional. When you omit a member on a create request, no value is applied at create time and the default is applied when a passcode is sent.
+ *
  * @public
  */
 export interface CodeConfigurationParameters {
   /**
-   * <p>The character set used to generate the one-time passcode. Valid values are NUMERIC (digits only), ALPHA (uppercase letters only), and ALPHANUMERIC (uppercase letters and digits). When you do not specify a value, the default is applied when a passcode is sent.</p>
+   * The character set used to generate the one-time passcode. Valid values are NUMERIC (digits only), ALPHA (uppercase letters only), and ALPHANUMERIC (uppercase letters and digits). When you do not specify a value, the default is applied when a passcode is sent.
+   *
    * @public
    */
   codeType?: CodeType | undefined;
 
   /**
-   * <p>The number of characters in the one-time passcode. Valid values range from 4 through 8. When you do not specify a value, the default is applied when a passcode is sent.</p>
+   * The number of characters in the one-time passcode. Valid values range from 4 through 8. When you do not specify a value, the default is applied when a passcode is sent.
+   *
    * @public
    */
   codeLength?: number | undefined;
 
   /**
-   * <p>The length of time, in minutes, that the one-time passcode remains valid. Valid values range from 1 through 60. When you do not specify a value, the default is applied when a passcode is sent.</p>
+   * The length of time, in minutes, that the one-time passcode remains valid. Valid values range from 1 through 60. When you do not specify a value, the default is applied when a passcode is sent.
+   *
    * @public
    */
   validityPeriodMinutes?: number | undefined;
 
   /**
-   * <p>The maximum number of validation attempts that are allowed before the verification is locked. Valid values range from 1 through 5. When you do not specify a value, the default is applied when a passcode is sent.</p>
+   * The maximum number of validation attempts that are allowed before the verification is locked. Valid values range from 1 through 5. When you do not specify a value, the default is applied when a passcode is sent.
+   *
    * @public
    */
   maxAttempts?: number | undefined;
 }
 
 /**
- * <p>Describes a tag as a key and value pair that you can associate with a resource.</p>
+ * Describes a tag as a key and value pair that you can associate with a resource.
+ *
  * @public
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * The key of the tag.
+   *
    * @public
    */
   key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * The value of the tag.
+   *
    * @public
    */
   value: string | undefined;
@@ -334,25 +387,29 @@ export interface Tag {
  */
 export interface CreateBrandProfileInput {
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * An array of key and value pair tags that are associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -363,49 +420,57 @@ export interface CreateBrandProfileInput {
  */
 export interface CreateBrandProfileOutput {
   /**
-   * <p>The unique identifier of the brand profile.</p>
+   * The unique identifier of the brand profile.
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the brand profile.</p>
+   * The Amazon Resource Name (ARN) of the brand profile.
+   *
    * @public
    */
   brandProfileArn: string | undefined;
 
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the brand profile.</p>
+   * The current lifecycle status of the brand profile.
+   *
    * @public
    */
   status: Status | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The number of default attributes that were created for the brand profile.</p>
+   * The number of default attributes that were created for the brand profile.
+   *
    * @public
    */
   attributesCreated: number | undefined;
@@ -434,19 +499,22 @@ export interface ValidationExceptionField {
  */
 export interface CreateBrandProfileAttributesInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The brand profile attributes.</p>
+   * The brand profile attributes.
+   *
    * @public
    */
   attributes: BrandProfileAttributeInput[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -457,7 +525,8 @@ export interface CreateBrandProfileAttributesInput {
  */
 export interface CreateBrandProfileAttributesOutput {
   /**
-   * <p>The brand profile attributes.</p>
+   * The brand profile attributes.
+   *
    * @public
    */
   attributes: BrandProfileAttributeOutput[] | undefined;
@@ -468,49 +537,57 @@ export interface CreateBrandProfileAttributesOutput {
  */
 export interface CreateBrandProfileFromRegistrationInput {
   /**
-   * <p>The identifier or Amazon Resource Name (ARN) of the registration to populate the brand profile from.</p>
+   * The identifier or Amazon Resource Name (ARN) of the registration to populate the brand profile from.
+   *
    * @public
    */
   registrationId: string | undefined;
 
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName: string | undefined;
 
   /**
-   * <p>Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.</p>
+   * Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.
+   *
    * @public
    */
   smartMatch?: boolean | undefined;
 
   /**
-   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * An array of key and value pair tags that are associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 }
 
 /**
- * <p>Pairs an asynchronous job with the resource identifier from your request that the job processes.</p>
+ * Pairs an asynchronous job with the resource identifier from your request that the job processes.
+ *
  * @public
  */
 export interface JobResult {
   /**
-   * <p>The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.</p>
+   * The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The identifier from your request that this job is processing.</p>
+   * The identifier from your request that this job is processing.
+   *
    * @public
    */
   resourceIdentifier: string | undefined;
@@ -521,7 +598,8 @@ export interface JobResult {
  */
 export interface CreateBrandProfileFromRegistrationOutput {
   /**
-   * <p>The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.</p>
+   * The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.
+   *
    * @public
    */
   results: JobResult[] | undefined;
@@ -532,91 +610,106 @@ export interface CreateBrandProfileFromRegistrationOutput {
  */
 export interface CreateNotifyCodeConfigurationInput {
   /**
-   * <p>The name of the notify code configuration.</p>
+   * The name of the notify code configuration.
+   *
    * @public
    */
   notifyCodeConfigurationName: string | undefined;
 
   /**
-   * <p>The passcode policy parameters, including the code type, length, validity period, and maximum number of attempts. Each member is optional. When you omit a member, no value is applied at create time and the default is applied when a passcode is sent.</p>
+   * The passcode policy parameters, including the code type, length, validity period, and maximum number of attempts. Each member is optional. When you omit a member, no value is applied at create time and the default is applied when a passcode is sent.
+   *
    * @public
    */
   codeConfigurationParameters?: CodeConfigurationParameters | undefined;
 
   /**
-   * <p>The channel-specific parameters used to render and deliver the one-time passcode. Provide parameters for any subset of channels. Each member configures one delivery route, and the route that is selected at send time uses the matching channel.</p>
+   * The channel-specific parameters used to render and deliver the one-time passcode. Provide parameters for any subset of channels. Each member configures one delivery route, and the route that is selected at send time uses the matching channel.
+   *
    * @public
    */
   channelParameters?: ChannelParameters | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * An array of key and value pair tags that are associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
 }
 
 /**
- * <p>Contains the settings of a notify code configuration, which is a reusable one-time passcode policy.</p>
+ * Contains the settings of a notify code configuration, which is a reusable one-time passcode policy.
+ *
  * @public
  */
 export interface NotifyCodeConfiguration {
   /**
-   * <p>The unique identifier of the notify code configuration.</p>
+   * The unique identifier of the notify code configuration.
+   *
    * @public
    */
   notifyCodeConfigurationId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the notify code configuration.</p>
+   * The Amazon Resource Name (ARN) of the notify code configuration.
+   *
    * @public
    */
   notifyCodeConfigurationArn: string | undefined;
 
   /**
-   * <p>The name of the notify code configuration.</p>
+   * The name of the notify code configuration.
+   *
    * @public
    */
   notifyCodeConfigurationName: string | undefined;
 
   /**
-   * <p>The passcode policy parameters, including the code type, length, validity period, and maximum number of attempts.</p>
+   * The passcode policy parameters, including the code type, length, validity period, and maximum number of attempts.
+   *
    * @public
    */
   codeConfigurationParameters?: CodeConfigurationParameters | undefined;
 
   /**
-   * <p>The channel-specific parameters used to render and deliver the one-time passcode. A configuration can carry parameters for every channel at once, and the send route selects the matching channel at send time.</p>
+   * The channel-specific parameters used to render and deliver the one-time passcode. A configuration can carry parameters for every channel at once, and the send route selects the matching channel at send time.
+   *
    * @public
    */
   channelParameters?: ChannelParameters | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -627,7 +720,8 @@ export interface NotifyCodeConfiguration {
  */
 export interface CreateNotifyCodeConfigurationOutput {
   /**
-   * <p>The notify code configuration resource.</p>
+   * The notify code configuration resource.
+   *
    * @public
    */
   notifyCodeConfiguration: NotifyCodeConfiguration | undefined;
@@ -638,25 +732,29 @@ export interface CreateNotifyCodeConfigurationOutput {
  */
 export interface CreateRegistrationsFromBrandProfileInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The registration types to create, for example US_TOLL_FREE_REGISTRATION or SENDER_ID.</p>
+   * The registration types to create, for example US_TOLL_FREE_REGISTRATION or SENDER_ID.
+   *
    * @public
    */
   registrationTypes: string[] | undefined;
 
   /**
-   * <p>Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.</p>
+   * Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.
+   *
    * @public
    */
   smartMatch?: boolean | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -667,7 +765,8 @@ export interface CreateRegistrationsFromBrandProfileInput {
  */
 export interface CreateRegistrationsFromBrandProfileOutput {
   /**
-   * <p>The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.</p>
+   * The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.
+   *
    * @public
    */
   results: JobResult[] | undefined;
@@ -678,7 +777,8 @@ export interface CreateRegistrationsFromBrandProfileOutput {
  */
 export interface DeleteBrandProfileInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
@@ -689,13 +789,15 @@ export interface DeleteBrandProfileInput {
  */
 export interface DeleteBrandProfileOutput {
   /**
-   * <p>The unique identifier of the brand profile.</p>
+   * The unique identifier of the brand profile.
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the brand profile.</p>
+   * The Amazon Resource Name (ARN) of the brand profile.
+   *
    * @public
    */
   brandProfileArn: string | undefined;
@@ -706,13 +808,15 @@ export interface DeleteBrandProfileOutput {
  */
 export interface DeleteBrandProfileAttributeInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
@@ -723,13 +827,15 @@ export interface DeleteBrandProfileAttributeInput {
  */
 export interface DeleteBrandProfileAttributeOutput {
   /**
-   * <p>The unique identifier of the brand profile.</p>
+   * The unique identifier of the brand profile.
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
@@ -740,7 +846,8 @@ export interface DeleteBrandProfileAttributeOutput {
  */
 export interface DeleteNotifyCodeConfigurationInput {
   /**
-   * <p>The unique identifier of the notify code configuration. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the notify code configuration. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   notifyCodeConfigurationId: string | undefined;
@@ -756,7 +863,8 @@ export interface DeleteNotifyCodeConfigurationOutput {}
  */
 export interface GetBrandProfileInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
@@ -767,43 +875,50 @@ export interface GetBrandProfileInput {
  */
 export interface GetBrandProfileOutput {
   /**
-   * <p>The unique identifier of the brand profile.</p>
+   * The unique identifier of the brand profile.
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the brand profile.</p>
+   * The Amazon Resource Name (ARN) of the brand profile.
+   *
    * @public
    */
   brandProfileArn: string | undefined;
 
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the brand profile.</p>
+   * The current lifecycle status of the brand profile.
+   *
    * @public
    */
   status: Status | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -814,13 +929,15 @@ export interface GetBrandProfileOutput {
  */
 export interface GetBrandProfileAttributeInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
@@ -831,61 +948,71 @@ export interface GetBrandProfileAttributeInput {
  */
 export interface GetBrandProfileAttributeOutput {
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
 
   /**
-   * <p>The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.</p>
+   * The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.
+   *
    * @public
    */
   attributeType: BrandProfileAttributeType | undefined;
 
   /**
-   * <p>The text value of the attribute. This value applies to attributes of type TEXT.</p>
+   * The text value of the attribute. This value applies to attributes of type TEXT.
+   *
    * @public
    */
   attributeValue?: string | undefined;
 
   /**
-   * <p>A description of the attribute.</p>
+   * A description of the attribute.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The category of the attribute.</p>
+   * The category of the attribute.
+   *
    * @public
    */
   category?: string | undefined;
 
   /**
-   * <p>The MIME content type of the attribute media.</p>
+   * The MIME content type of the attribute media.
+   *
    * @public
    */
   mediaContentType?: string | undefined;
 
   /**
-   * <p>The size of the attribute media, in bytes.</p>
+   * The size of the attribute media, in bytes.
+   *
    * @public
    */
   mediaSizeBytes?: number | undefined;
 
   /**
-   * <p>A presigned Amazon S3 URL that you can use to download the attribute media. The URL is valid for one hour and is present only for attributes of type IMAGE or DOCUMENT.</p>
+   * A presigned Amazon S3 URL that you can use to download the attribute media. The URL is valid for one hour and is present only for attributes of type IMAGE or DOCUMENT.
+   *
    * @public
    */
   mediaDownloadUrl?: string | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -896,31 +1023,36 @@ export interface GetBrandProfileAttributeOutput {
  */
 export interface GetJobInput {
   /**
-   * <p>The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.</p>
+   * The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.
+   *
    * @public
    */
   jobId: string | undefined;
 }
 
 /**
- * <p>Contains information about a resource that was created or updated by an asynchronous job.</p>
+ * Contains information about a resource that was created or updated by an asynchronous job.
+ *
  * @public
  */
 export interface JobResource {
   /**
-   * <p>The type of the resource that the job created or updated.</p>
+   * The type of the resource that the job created or updated.
+   *
    * @public
    */
   resourceType: JobResourceType | undefined;
 
   /**
-   * <p>The identifier of the resource that the job created or updated.</p>
+   * The identifier of the resource that the job created or updated.
+   *
    * @public
    */
   resourceId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -934,55 +1066,64 @@ export interface JobResource {
  */
 export interface Job {
   /**
-   * <p>The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.</p>
+   * The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the job.</p>
+   * The current lifecycle status of the job.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>The type of mutating operation that created the job.</p>
+   * The type of mutating operation that created the job.
+   *
    * @public
    */
   operationType: string | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The brand profile that the job operates on. This value is absent for operations that create a brand profile.</p>
+   * The brand profile that the job operates on. This value is absent for operations that create a brand profile.
+   *
    * @public
    */
   brandProfileId?: string | undefined;
 
   /**
-   * <p>A machine-readable code that identifies why the job failed. This value is present only when the job status is FAILED.</p>
+   * A machine-readable code that identifies why the job failed. This value is present only when the job status is FAILED.
+   *
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * <p>A human-readable description of why the job failed. This value is present only when the job status is FAILED.</p>
+   * A human-readable description of why the job failed. This value is present only when the job status is FAILED.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The resources that were created or updated by the job.</p>
+   * The resources that were created or updated by the job.
+   *
    * @public
    */
   resources?: JobResource[] | undefined;
@@ -993,7 +1134,8 @@ export interface Job {
  */
 export interface GetNotifyCodeConfigurationInput {
   /**
-   * <p>The unique identifier of the notify code configuration. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the notify code configuration. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   notifyCodeConfigurationId: string | undefined;
@@ -1004,7 +1146,8 @@ export interface GetNotifyCodeConfigurationInput {
  */
 export interface GetNotifyCodeConfigurationOutput {
   /**
-   * <p>The notify code configuration resource.</p>
+   * The notify code configuration resource.
+   *
    * @public
    */
   notifyCodeConfiguration: NotifyCodeConfiguration | undefined;
@@ -1015,19 +1158,22 @@ export interface GetNotifyCodeConfigurationOutput {
  */
 export interface ListBrandProfileAttributesInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1038,13 +1184,15 @@ export interface ListBrandProfileAttributesInput {
  */
 export interface ListBrandProfileAttributesOutput {
   /**
-   * <p>The list of brand profile attributes.</p>
+   * The list of brand profile attributes.
+   *
    * @public
    */
   brandProfileAttributes: BrandProfileAttributeSummary[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1055,13 +1203,15 @@ export interface ListBrandProfileAttributesOutput {
  */
 export interface ListBrandProfilesInput {
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
@@ -1072,13 +1222,15 @@ export interface ListBrandProfilesInput {
  */
 export interface ListBrandProfilesOutput {
   /**
-   * <p>The list of brand profiles.</p>
+   * The list of brand profiles.
+   *
    * @public
    */
   brandProfiles: BrandProfileInfo[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1089,91 +1241,106 @@ export interface ListBrandProfilesOutput {
  */
 export interface ListJobsInput {
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 
   /**
-   * <p>Filters the results to jobs that have the specified status.</p>
+   * Filters the results to jobs that have the specified status.
+   *
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>Filters the results to jobs for the specified brand profile.</p>
+   * Filters the results to jobs for the specified brand profile.
+   *
    * @public
    */
   brandProfileId?: string | undefined;
 
   /**
-   * <p>Filters the results to jobs of the specified operation type.</p>
+   * Filters the results to jobs of the specified operation type.
+   *
    * @public
    */
   operationType?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about an asynchronous job in a list response.</p>
+ * Contains summary information about an asynchronous job in a list response.
+ *
  * @public
  */
 export interface JobSummary {
   /**
-   * <p>The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.</p>
+   * The unique identifier of the asynchronous job. Use the GetJob operation to check the status of the job and to retrieve its results.
+   *
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the job.</p>
+   * The current lifecycle status of the job.
+   *
    * @public
    */
   status: JobStatus | undefined;
 
   /**
-   * <p>The type of mutating operation that created the job.</p>
+   * The type of mutating operation that created the job.
+   *
    * @public
    */
   operationType: string | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
 
   /**
-   * <p>The brand profile that the job operates on. This value is absent for operations that create a brand profile.</p>
+   * The brand profile that the job operates on. This value is absent for operations that create a brand profile.
+   *
    * @public
    */
   brandProfileId?: string | undefined;
 
   /**
-   * <p>A machine-readable code that identifies why the job failed. This value is present only when the job status is FAILED.</p>
+   * A machine-readable code that identifies why the job failed. This value is present only when the job status is FAILED.
+   *
    * @public
    */
   errorCode?: string | undefined;
 
   /**
-   * <p>A human-readable description of why the job failed. This value is present only when the job status is FAILED.</p>
+   * A human-readable description of why the job failed. This value is present only when the job status is FAILED.
+   *
    * @public
    */
   errorMessage?: string | undefined;
 
   /**
-   * <p>The resources that were created or updated by the job.</p>
+   * The resources that were created or updated by the job.
+   *
    * @public
    */
   resources?: JobResource[] | undefined;
@@ -1184,13 +1351,15 @@ export interface JobSummary {
  */
 export interface ListJobsOutput {
   /**
-   * <p>The list of asynchronous jobs.</p>
+   * The list of asynchronous jobs.
+   *
    * @public
    */
   jobs: JobSummary[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1201,13 +1370,15 @@ export interface ListJobsOutput {
  */
 export interface ListNotifyCodeConfigurationsInput {
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1218,13 +1389,15 @@ export interface ListNotifyCodeConfigurationsInput {
  */
 export interface ListNotifyCodeConfigurationsOutput {
   /**
-   * <p>The list of notify code configurations.</p>
+   * The list of notify code configurations.
+   *
    * @public
    */
   notifyCodeConfigurations: NotifyCodeConfiguration[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1235,49 +1408,57 @@ export interface ListNotifyCodeConfigurationsOutput {
  */
 export interface ListRegistrationsFromBrandProfileInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * The maximum number of results to return per page.
+   *
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Contains summary information about a registration that is associated with a brand profile.</p>
+ * Contains summary information about a registration that is associated with a brand profile.
+ *
  * @public
  */
 export interface RegistrationAssociationSummary {
   /**
-   * <p>The identifier of the registration.</p>
+   * The identifier of the registration.
+   *
    * @public
    */
   registrationId: string | undefined;
 
   /**
-   * <p>The type of the registration, for example US_TOLL_FREE_REGISTRATION or SENDER_ID.</p>
+   * The type of the registration, for example US_TOLL_FREE_REGISTRATION or SENDER_ID.
+   *
    * @public
    */
   registrationType: string | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Specifies whether smart matching was used to create the association.</p>
+   * Specifies whether smart matching was used to create the association.
+   *
    * @public
    */
   smartMatchUsed: boolean | undefined;
@@ -1288,13 +1469,15 @@ export interface RegistrationAssociationSummary {
  */
 export interface ListRegistrationsFromBrandProfileOutput {
   /**
-   * <p>The list of registrations that are associated with the brand profile.</p>
+   * The list of registrations that are associated with the brand profile.
+   *
    * @public
    */
   registrationAssociations: RegistrationAssociationSummary[] | undefined;
 
   /**
-   * <p>The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.</p>
+   * The token to retrieve the next page of results. This value is returned when more results are available, and is null when there are no more results to return.
+   *
    * @public
    */
   nextToken?: string | undefined;
@@ -1305,7 +1488,8 @@ export interface ListRegistrationsFromBrandProfileOutput {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
@@ -1316,7 +1500,8 @@ export interface ListTagsForResourceInput {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * An array of key and value pair tags that are associated with the resource.
+   *
    * @public
    */
   tags?: Tag[] | undefined;
@@ -1327,55 +1512,64 @@ export interface ListTagsForResourceOutput {
  */
 export interface SendNotifyCodeVerificationInput {
   /**
-   * <p>The channel used to deliver the one-time passcode to the recipient.</p>
+   * The channel used to deliver the one-time passcode to the recipient.
+   *
    * @public
    */
   channel: NotifyChannel | undefined;
 
   /**
-   * <p>The recipient identifier. For the TEXT and VOICE channels, specify an E.164 phone number. For the WhatsApp channel, specify a WhatsApp address.</p>
+   * The recipient identifier. For the TEXT and VOICE channels, specify an E.164 phone number. For the WhatsApp channel, specify a WhatsApp address.
+   *
    * @public
    */
   destinationIdentity: string | undefined;
 
   /**
-   * <p>The identity used to send the message, such as a phone number, sender ID, or pool that is owned by your account.</p>
+   * The identity used to send the message, such as a phone number, sender ID, or pool that is owned by your account.
+   *
    * @public
    */
   originationIdentity: string | undefined;
 
   /**
-   * <p>The identifier or Amazon Resource Name (ARN) of the notify code configuration that supplies the passcode policy and template defaults. When you do not specify a configuration, you must supply the template in the request.</p>
+   * The identifier or Amazon Resource Name (ARN) of the notify code configuration that supplies the passcode policy and template defaults. When you do not specify a configuration, you must supply the template in the request.
+   *
    * @public
    */
   notifyCodeConfiguration?: string | undefined;
 
   /**
-   * <p>The channel-specific parameters used to render and deliver the one-time passcode for this request. The route that is derived from the channel and the origination identity selects the matching channel. When you do not specify channel parameters, the service uses the parameters from the referenced notify code configuration.</p>
+   * The channel-specific parameters used to render and deliver the one-time passcode for this request. The route that is derived from the channel and the origination identity selects the matching channel. When you do not specify channel parameters, the service uses the parameters from the referenced notify code configuration.
+   *
    * @public
    */
   overrideChannelParameters?: ChannelParameters | undefined;
 
   /**
-   * <p>The per-send overrides for the passcode policy parameters, including the code type, length, validity period, and maximum number of attempts. These values override the values from the referenced notify code configuration. When you do not specify a value, the value from the configuration is used, and if neither is set, the service default applies.</p>
+   * The per-send overrides for the passcode policy parameters, including the code type, length, validity period, and maximum number of attempts. These values override the values from the referenced notify code configuration. When you do not specify a value, the value from the configuration is used, and if neither is set, the service default applies.
+   *
    * @public
    */
   overrideCodeConfigurationParameters?: CodeConfigurationParameters | undefined;
 
   /**
-   * <p>The name of the configuration set used to control how delivery events for the message are handled.</p>
+   * The name of the configuration set used to control how delivery events for the message are handled.
+   *
    * @public
    */
   configurationSetName?: string | undefined;
 
   /**
-   * <p>A map of custom key and value pairs that are propagated to the delivery events for this verification.</p>
+   * A map of custom key and value pairs that are propagated to the delivery events for this verification.
+   *
    * @public
    */
   context?: Record<string, string> | undefined;
 
   /**
-   * <p>A caller-supplied reference identifier that binds a send request to a later validate request. Specify the same value in both requests.</p>
+   * A caller-supplied reference identifier that binds a send request to a later validate request. Specify the same value in both requests.
+   *
    * @public
    */
   referenceId?: string | undefined;
@@ -1386,13 +1580,15 @@ export interface SendNotifyCodeVerificationInput {
  */
 export interface SendNotifyCodeVerificationOutput {
   /**
-   * <p>The service-generated identifier for the verification.</p>
+   * The service-generated identifier for the verification.
+   *
    * @public
    */
   verificationId: string | undefined;
 
   /**
-   * <p>The service-generated identifier for the message that delivers the one-time passcode.</p>
+   * The service-generated identifier for the message that delivers the one-time passcode.
+   *
    * @public
    */
   messageId: string | undefined;
@@ -1403,13 +1599,15 @@ export interface SendNotifyCodeVerificationOutput {
  */
 export interface TagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>An array of key and value pair tags that are associated with the resource.</p>
+   * An array of key and value pair tags that are associated with the resource.
+   *
    * @public
    */
   tags: Tag[] | undefined;
@@ -1425,13 +1623,15 @@ export interface TagResourceOutput {}
  */
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * The Amazon Resource Name (ARN) of the resource.
+   *
    * @public
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>The list of tag keys to remove from the resource.</p>
+   * The list of tag keys to remove from the resource.
+   *
    * @public
    */
   tagKeys: string[] | undefined;
@@ -1447,19 +1647,22 @@ export interface UntagResourceOutput {}
  */
 export interface UpdateBrandProfileInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName?: string | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
@@ -1470,43 +1673,50 @@ export interface UpdateBrandProfileInput {
  */
 export interface UpdateBrandProfileOutput {
   /**
-   * <p>The unique identifier of the brand profile.</p>
+   * The unique identifier of the brand profile.
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the brand profile.</p>
+   * The Amazon Resource Name (ARN) of the brand profile.
+   *
    * @public
    */
   brandProfileArn: string | undefined;
 
   /**
-   * <p>The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.</p>
+   * The name of the brand profile. The name can contain alphanumeric characters, underscores, hyphens, and spaces.
+   *
    * @public
    */
   brandProfileName: string | undefined;
 
   /**
-   * <p>The current lifecycle status of the brand profile.</p>
+   * The current lifecycle status of the brand profile.
+   *
    * @public
    */
   status: Status | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled: boolean | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1517,37 +1727,43 @@ export interface UpdateBrandProfileOutput {
  */
 export interface UpdateBrandProfileAttributeInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
 
   /**
-   * <p>The text value of the attribute. This value applies to attributes of type TEXT.</p>
+   * The text value of the attribute. This value applies to attributes of type TEXT.
+   *
    * @public
    */
   attributeValue?: string | undefined;
 
   /**
-   * <p>The binary content for an attribute of type IMAGE or DOCUMENT. The content is base64-encoded when it is sent over the wire.</p>
+   * The binary content for an attribute of type IMAGE or DOCUMENT. The content is base64-encoded when it is sent over the wire.
+   *
    * @public
    */
   attachmentBody?: Uint8Array | undefined;
 
   /**
-   * <p>A description of the attribute.</p>
+   * A description of the attribute.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The category of the attribute.</p>
+   * The category of the attribute.
+   *
    * @public
    */
   category?: string | undefined;
@@ -1558,55 +1774,64 @@ export interface UpdateBrandProfileAttributeInput {
  */
 export interface UpdateBrandProfileAttributeOutput {
   /**
-   * <p>The name of the brand profile attribute. The name is unique within a brand profile.</p>
+   * The name of the brand profile attribute. The name is unique within a brand profile.
+   *
    * @public
    */
   attributeName: string | undefined;
 
   /**
-   * <p>The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.</p>
+   * The type of the attribute. TEXT stores an inline value. IMAGE and DOCUMENT store binary media that you upload.
+   *
    * @public
    */
   attributeType: BrandProfileAttributeType | undefined;
 
   /**
-   * <p>The text value of the attribute. This value applies to attributes of type TEXT.</p>
+   * The text value of the attribute. This value applies to attributes of type TEXT.
+   *
    * @public
    */
   attributeValue?: string | undefined;
 
   /**
-   * <p>A description of the attribute.</p>
+   * A description of the attribute.
+   *
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>The category of the attribute.</p>
+   * The category of the attribute.
+   *
    * @public
    */
   category?: string | undefined;
 
   /**
-   * <p>The MIME content type of the attribute media.</p>
+   * The MIME content type of the attribute media.
+   *
    * @public
    */
   mediaContentType?: string | undefined;
 
   /**
-   * <p>The size of the attribute media, in bytes.</p>
+   * The size of the attribute media, in bytes.
+   *
    * @public
    */
   mediaSizeBytes?: number | undefined;
 
   /**
-   * <p>The time when the resource was created, in Unix epoch time.</p>
+   * The time when the resource was created, in Unix epoch time.
+   *
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>The time when the resource was last updated, in Unix epoch time.</p>
+   * The time when the resource was last updated, in Unix epoch time.
+   *
    * @public
    */
   updatedAt: Date | undefined;
@@ -1617,31 +1842,36 @@ export interface UpdateBrandProfileAttributeOutput {
  */
 export interface UpdateBrandProfileFromRegistrationInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The identifier or Amazon Resource Name (ARN) of the registration to import attributes from.</p>
+   * The identifier or Amazon Resource Name (ARN) of the registration to import attributes from.
+   *
    * @public
    */
   registrationId: string | undefined;
 
   /**
-   * <p>Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.</p>
+   * Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.
+   *
    * @public
    */
   smartMatch?: boolean | undefined;
 
   /**
-   * <p>Specifies how the service resolves an attribute that already exists. REPLACE overwrites the existing value with the incoming value. PRESERVE keeps the existing value.</p>
+   * Specifies how the service resolves an attribute that already exists. REPLACE overwrites the existing value with the incoming value. PRESERVE keeps the existing value.
+   *
    * @public
    */
   onAttributeConflict?: OnAttributeConflict | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1652,151 +1882,176 @@ export interface UpdateBrandProfileFromRegistrationInput {
  */
 export interface UpdateBrandProfileFromRegistrationOutput {
   /**
-   * <p>The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.</p>
+   * The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.
+   *
    * @public
    */
   results: JobResult[] | undefined;
 }
 
 /**
- * <p>The updated delivery parameters for the preapproved notify-template route. Absent members preserve the current value, and the empty sentinel on a member clears it.</p>
+ * The updated delivery parameters for the preapproved notify-template route. Absent members preserve the current value, and the empty sentinel on a member clears it.
+ *
  * @public
  */
 export interface UpdateNotifyParameters {
   /**
-   * <p>The updated identifier of a preapproved notify template for the SMS or voice channels. An empty string clears the previously stored value.</p>
+   * The updated identifier of a preapproved notify template for the SMS or voice channels. An empty string clears the previously stored value.
+   *
    * @public
    */
   notifyTemplateId?: string | undefined;
 
   /**
-   * <p>The updated Amazon Polly voice ID. An empty string clears the previously stored value.</p>
+   * The updated Amazon Polly voice ID. An empty string clears the previously stored value.
+   *
    * @public
    */
   voiceId?: string | undefined;
 }
 
 /**
- * <p>The updated delivery parameters for the text channel. Absent members preserve the current value, and the empty sentinel on a member clears it.</p>
+ * The updated delivery parameters for the text channel. Absent members preserve the current value, and the empty sentinel on a member clears it.
+ *
  * @public
  */
 export interface UpdateTextParameters {
   /**
-   * <p>The updated freeform SMS or RCS template body. An empty string clears the previously stored value.</p>
+   * The updated freeform SMS or RCS template body. An empty string clears the previously stored value.
+   *
    * @public
    */
   inlineTemplateBody?: string | undefined;
 
   /**
-   * <p>The updated map of country-specific parameters that control one-time passcode delivery. An empty map clears the previously stored value.</p>
+   * The updated map of country-specific parameters that control one-time passcode delivery. An empty map clears the previously stored value.
+   *
    * @public
    */
   destinationCountryParameters?: Record<string, string> | undefined;
 }
 
 /**
- * <p>The updated delivery parameters for the voice channel. Absent members preserve the current value, and the empty sentinel on a member clears it.</p>
+ * The updated delivery parameters for the voice channel. Absent members preserve the current value, and the empty sentinel on a member clears it.
+ *
  * @public
  */
 export interface UpdateVoiceParameters {
   /**
-   * <p>The updated freeform voice template body. An empty string clears the previously stored value.</p>
+   * The updated freeform voice template body. An empty string clears the previously stored value.
+   *
    * @public
    */
   inlineTemplateBody?: string | undefined;
 
   /**
-   * <p>The updated BCP 47 language code. An empty string clears the previously stored value.</p>
+   * The updated BCP 47 language code. An empty string clears the previously stored value.
+   *
    * @public
    */
   languageCode?: string | undefined;
 
   /**
-   * <p>The updated Amazon Polly voice ID. An empty string clears the previously stored value.</p>
+   * The updated Amazon Polly voice ID. An empty string clears the previously stored value.
+   *
    * @public
    */
   voiceId?: string | undefined;
 
   /**
-   * <p>The updated format of the voice message body. Valid values are TEXT and SSML. Omit this member to preserve the current value.</p>
+   * The updated format of the voice message body. Valid values are TEXT and SSML. Omit this member to preserve the current value.
+   *
    * @public
    */
   voiceMessageBodyTextType?: VoiceMessageBodyTextType | undefined;
 }
 
 /**
- * <p>The updated delivery parameters for the WhatsApp channel. Absent members preserve the current value, and the empty sentinel on a member clears it.</p>
+ * The updated delivery parameters for the WhatsApp channel. Absent members preserve the current value, and the empty sentinel on a member clears it.
+ *
  * @public
  */
 export interface UpdateWhatsAppParameters {
   /**
-   * <p>The updated name of the Meta-approved WhatsApp authentication template. An empty string clears the previously stored value.</p>
+   * The updated name of the Meta-approved WhatsApp authentication template. An empty string clears the previously stored value.
+   *
    * @public
    */
   whatsAppTemplateName?: string | undefined;
 
   /**
-   * <p>The updated BCP 47 language code. An empty string clears the previously stored value.</p>
+   * The updated BCP 47 language code. An empty string clears the previously stored value.
+   *
    * @public
    */
   languageCode?: string | undefined;
 }
 
 /**
- * <p>The updated channel-specific parameters used only when you update a notify code configuration. When you omit a channel, that channel's parameters remain unchanged. When you supply a channel, you can clear individual fields by using the empty-string or empty-map sentinel on a member, or drop the whole channel's parameters by clearing every member. These sentinels apply only when you update a configuration; a create request rejects empty values with a validation error.</p>
+ * The updated channel-specific parameters used only when you update a notify code configuration. When you omit a channel, that channel's parameters remain unchanged. When you supply a channel, you can clear individual fields by using the empty-string or empty-map sentinel on a member, or drop the whole channel's parameters by clearing every member. These sentinels apply only when you update a configuration; a create request rejects empty values with a validation error.
+ *
  * @public
  */
 export interface UpdateChannelParameters {
   /**
-   * <p>The text-channel parameters to update. Omit this member to leave the text-channel parameters unchanged.</p>
+   * The text-channel parameters to update. Omit this member to leave the text-channel parameters unchanged.
+   *
    * @public
    */
   text?: UpdateTextParameters | undefined;
 
   /**
-   * <p>The voice-channel parameters to update. Omit this member to leave the voice-channel parameters unchanged.</p>
+   * The voice-channel parameters to update. Omit this member to leave the voice-channel parameters unchanged.
+   *
    * @public
    */
   voice?: UpdateVoiceParameters | undefined;
 
   /**
-   * <p>The notify-template-route parameters to update. Omit this member to leave them unchanged.</p>
+   * The notify-template-route parameters to update. Omit this member to leave them unchanged.
+   *
    * @public
    */
   notify?: UpdateNotifyParameters | undefined;
 
   /**
-   * <p>The WhatsApp-channel parameters to update. Omit this member to leave the WhatsApp-channel parameters unchanged.</p>
+   * The WhatsApp-channel parameters to update. Omit this member to leave the WhatsApp-channel parameters unchanged.
+   *
    * @public
    */
   whatsApp?: UpdateWhatsAppParameters | undefined;
 }
 
 /**
- * <p>The loose variant of the passcode policy parameters that is used only when you update a notify code configuration. When you omit a member, its current value is preserved.</p>
+ * The loose variant of the passcode policy parameters that is used only when you update a notify code configuration. When you omit a member, its current value is preserved.
+ *
  * @public
  */
 export interface UpdateCodeConfigurationParameters {
   /**
-   * <p>The updated character set used to generate the one-time passcode. Omit this member to preserve the current value.</p>
+   * The updated character set used to generate the one-time passcode. Omit this member to preserve the current value.
+   *
    * @public
    */
   codeType?: CodeType | undefined;
 
   /**
-   * <p>The updated number of characters in the one-time passcode. Valid values range from 4 through 8. Omit this member to preserve the current value.</p>
+   * The updated number of characters in the one-time passcode. Valid values range from 4 through 8. Omit this member to preserve the current value.
+   *
    * @public
    */
   codeLength?: number | undefined;
 
   /**
-   * <p>The updated length of time, in minutes, that the one-time passcode remains valid. Valid values range from 1 through 60. Omit this member to preserve the current value.</p>
+   * The updated length of time, in minutes, that the one-time passcode remains valid. Valid values range from 1 through 60. Omit this member to preserve the current value.
+   *
    * @public
    */
   validityPeriodMinutes?: number | undefined;
 
   /**
-   * <p>The updated maximum number of validation attempts that are allowed before the verification is locked. Valid values range from 1 through 5. Omit this member to preserve the current value.</p>
+   * The updated maximum number of validation attempts that are allowed before the verification is locked. Valid values range from 1 through 5. Omit this member to preserve the current value.
+   *
    * @public
    */
   maxAttempts?: number | undefined;
@@ -1807,31 +2062,36 @@ export interface UpdateCodeConfigurationParameters {
  */
 export interface UpdateNotifyCodeConfigurationInput {
   /**
-   * <p>The unique identifier of the notify code configuration. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the notify code configuration. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   notifyCodeConfigurationId: string | undefined;
 
   /**
-   * <p>The name of the notify code configuration.</p>
+   * The name of the notify code configuration.
+   *
    * @public
    */
   notifyCodeConfigurationName?: string | undefined;
 
   /**
-   * <p>The updated passcode policy parameters, including the code type, length, validity period, and maximum number of attempts. When you omit a member, its current value is preserved.</p>
+   * The updated passcode policy parameters, including the code type, length, validity period, and maximum number of attempts. When you omit a member, its current value is preserved.
+   *
    * @public
    */
   codeConfigurationParameters?: UpdateCodeConfigurationParameters | undefined;
 
   /**
-   * <p>The updated channel-specific parameters used to render and deliver the one-time passcode. This is a loose, nested update: when you omit a channel, that channel's parameters remain unchanged. Within a supplied channel, an empty string on a string member, or an empty map on the destination-country parameters, clears the currently stored value, and absent members preserve the current value.</p>
+   * The updated channel-specific parameters used to render and deliver the one-time passcode. This is a loose, nested update: when you omit a channel, that channel's parameters remain unchanged. Within a supplied channel, an empty string on a string member, or an empty map on the destination-country parameters, clears the currently stored value, and absent members preserve the current value.
+   *
    * @public
    */
   channelParameters?: UpdateChannelParameters | undefined;
 
   /**
-   * <p>Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.</p>
+   * Specifies whether deletion protection is enabled. When enabled, the resource cannot be deleted until deletion protection is turned off.
+   *
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
@@ -1842,7 +2102,8 @@ export interface UpdateNotifyCodeConfigurationInput {
  */
 export interface UpdateNotifyCodeConfigurationOutput {
   /**
-   * <p>The notify code configuration resource.</p>
+   * The notify code configuration resource.
+   *
    * @public
    */
   notifyCodeConfiguration: NotifyCodeConfiguration | undefined;
@@ -1853,31 +2114,36 @@ export interface UpdateNotifyCodeConfigurationOutput {
  */
 export interface UpdateRegistrationsFromBrandProfileInput {
   /**
-   * <p>The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).</p>
+   * The unique identifier of the brand profile. You can specify either the bare ID or the full Amazon Resource Name (ARN).
+   *
    * @public
    */
   brandProfileId: string | undefined;
 
   /**
-   * <p>The identifiers of the registrations.</p>
+   * The identifiers of the registrations.
+   *
    * @public
    */
   registrationIds: string[] | undefined;
 
   /**
-   * <p>Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.</p>
+   * Specifies whether to use semantic field mapping between brand profile attributes and registration fields. The default is true. When false, the service maps fields using a fixed set of standard field types.
+   *
    * @public
    */
   smartMatch?: boolean | undefined;
 
   /**
-   * <p>Specifies how the service resolves an attribute that already exists. REPLACE overwrites the existing value with the incoming value. PRESERVE keeps the existing value.</p>
+   * Specifies how the service resolves an attribute that already exists. REPLACE overwrites the existing value with the incoming value. PRESERVE keeps the existing value.
+   *
    * @public
    */
   onAttributeConflict?: OnAttributeConflict | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.</p>
+   * A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you do not specify a client token, the AWS SDK automatically generates one.
+   *
    * @public
    */
   clientToken?: string | undefined;
@@ -1888,7 +2154,8 @@ export interface UpdateRegistrationsFromBrandProfileInput {
  */
 export interface UpdateRegistrationsFromBrandProfileOutput {
   /**
-   * <p>The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.</p>
+   * The results of the operation. Each result pairs a requested item with the asynchronous job that processes it.
+   *
    * @public
    */
   results: JobResult[] | undefined;
@@ -1899,19 +2166,22 @@ export interface UpdateRegistrationsFromBrandProfileOutput {
  */
 export interface ValidateNotifyCodeVerificationInput {
   /**
-   * <p>The recipient identifier. For the TEXT and VOICE channels, specify an E.164 phone number. For the WhatsApp channel, specify a WhatsApp address.</p>
+   * The recipient identifier. For the TEXT and VOICE channels, specify an E.164 phone number. For the WhatsApp channel, specify a WhatsApp address.
+   *
    * @public
    */
   destinationIdentity: string | undefined;
 
   /**
-   * <p>The caller-supplied reference identifier used to locate the verification. This value must match the value that you supplied to the SendNotifyCodeVerification operation.</p>
+   * The caller-supplied reference identifier used to locate the verification. This value must match the value that you supplied to the SendNotifyCodeVerification operation.
+   *
    * @public
    */
   referenceId?: string | undefined;
 
   /**
-   * <p>The one-time passcode that the recipient submitted for validation.</p>
+   * The one-time passcode that the recipient submitted for validation.
+   *
    * @public
    */
   code: string | undefined;
@@ -1922,7 +2192,8 @@ export interface ValidateNotifyCodeVerificationInput {
  */
 export interface ValidateNotifyCodeVerificationOutput {
   /**
-   * <p>The outcome of the validation attempt. VALID indicates that the submitted passcode matched an active verification. INVALID indicates that the passcode did not match, expired, or exceeded its attempt limit.</p>
+   * The outcome of the validation attempt. VALID indicates that the submitted passcode matched an active verification. INVALID indicates that the passcode did not match, expired, or exceeded its attempt limit.
+   *
    * @public
    */
   status: VerificationStatus | undefined;

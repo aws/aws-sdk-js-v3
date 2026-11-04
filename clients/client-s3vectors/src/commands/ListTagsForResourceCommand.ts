@@ -23,7 +23,14 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all of the tags applied to a specified Amazon S3 Vectors resource. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to resources. </p> <note> <p>For a list of S3 resources that support tagging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags">Managing tags for Amazon S3 resources</a>.</p> </note> <dl> <dt>Permissions</dt> <dd> <p>For vector buckets and vector indexes, you must have the <code>s3vectors:ListTagsForResource</code> permission to use this operation.</p> </dd> </dl>
+ * Lists all of the tags applied to a specified Amazon S3 Vectors resource. Each tag is a label consisting of a key and value pair. Tags can help you organize, track costs for, and control access to resources.
+ *
+ * > **Note:** For a list of S3 resources that support tagging, see [Managing tags for Amazon S3 resources](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#manage-tags).
+ *
+ * - **Permissions**
+ *
+ *   For vector buckets and vector indexes, you must have the `s3vectors:ListTagsForResource` permission to use this operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,29 +59,36 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link S3VectorsClientResolvedConfig | config} for S3VectorsClient's `config` shape.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified resource can't be found.</p>
+ *
+ * The request was rejected because the specified resource can't be found.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.</p>
+ *
+ * The service is unavailable. Wait briefly and retry your request. If it continues to fail, increase your waiting time between retries.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access denied.</p>
+ *
+ * Access denied.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request failed due to an internal server error.</p>
+ *
+ * The request failed due to an internal server error.
  *
  * @throws {@link RequestTimeoutException} (client fault)
- *  <p>The request timed out. Retry your request.</p>
+ *
+ * The request timed out. Retry your request.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action isn't valid.</p>
+ *
+ * The requested action isn't valid.
  *
  * @throws {@link S3VectorsServiceException}
- * <p>Base exception class for all service exceptions from S3Vectors service.</p>
  *
+ * Base exception class for all service exceptions from S3Vectors service.
  *
  * @public
  */

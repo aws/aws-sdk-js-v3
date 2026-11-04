@@ -23,8 +23,8 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
- *             to manage a resource. </p>
+ * Adds to or modifies the tags of the given resource. Tags are metadata that can be used to manage a resource.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,26 +55,32 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * Unable to modify the tag due to a simultaneous update request.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The specified resource ARN is invalid.</p>
+ *
+ * The specified resource ARN is invalid.
  *
  * @throws {@link InvalidTagsException} (client fault)
- *  <p>The specified resource tags are invalid.</p>
+ *
+ * The specified resource tags are invalid.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource was specified in an invalid format.</p>
+ *
+ * The resource was specified in an invalid format.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The tags limit for a resource has been exceeded.</p>
+ *
+ * The tags limit for a resource has been exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The validation was specified in an invalid format.</p>
+ *
+ * The validation was specified in an invalid format.
  *
  * @throws {@link CodePipelineServiceException}
- * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ * Base exception class for all service exceptions from CodePipeline service.
  *
  * @public
  */

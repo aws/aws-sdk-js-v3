@@ -23,27 +23,13 @@ export interface CreateRuleCommandInput extends CreateRuleRequest {}
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Recycle Bin retention rule. You can create two types of retention rules:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Tag-level retention rules</b> - These retention rules use
- *           resource tags to identify the resources to protect. For each retention rule, you specify one or
- *           more tag key and value pairs. Resources (of the specified type) that have at least one of these
- *           tag key and value pairs are automatically retained in the Recycle Bin upon deletion. Use this
- *           type of retention rule to protect specific resources in your account based on their tags.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Region-level retention rules</b> - These retention rules,
- *           by default, apply to all of the resources (of the specified type) in the Region, even if the
- *           resources are not tagged. However, you can specify exclusion tags to exclude resources that have
- *           specific tags. Use this type of retention rule to protect all resources of a specific type in a
- *           Region.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin.html">
- *       Create Recycle Bin retention rules</a> in the <i>Amazon EBS User Guide</i>.</p>
+ * Creates a Recycle Bin retention rule. You can create two types of retention rules:
+ *
+ * - **Tag-level retention rules** - These retention rules use resource tags to identify the resources to protect. For each retention rule, you specify one or more tag key and value pairs. Resources (of the specified type) that have at least one of these tag key and value pairs are automatically retained in the Recycle Bin upon deletion. Use this type of retention rule to protect specific resources in your account based on their tags.
+ * - **Region-level retention rules** - These retention rules, by default, apply to all of the resources (of the specified type) in the Region, even if the resources are not tagged. However, you can specify exclusion tags to exclude resources that have specific tags. Use this type of retention rule to protect all resources of a specific type in a Region.
+ *
+ * For more information, see [Create Recycle Bin retention rules](https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin.html) in the *Amazon EBS User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -132,17 +118,20 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * The service could not respond to the request due to an internal problem.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+ *
+ * The request would cause a service quota for the number of tags per resource to be exceeded.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>One or more of the parameters in the request is not valid.</p>
+ *
+ * One or more of the parameters in the request is not valid.
  *
  * @throws {@link RbinServiceException}
- * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ * Base exception class for all service exceptions from Rbin service.
  *
  * @public
  */

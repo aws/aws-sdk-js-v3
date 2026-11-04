@@ -23,60 +23,29 @@ export interface CreateBucketCommandInput extends CreateBucketRequest {}
 export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create
- *                Bucket</a> in the <i>Amazon S3 API Reference</i>. </p>
- *          </note>
- *          <p>Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To
- *          create an Outposts bucket, you must have S3 on Outposts. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
- *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
- *          <p>Not every string is an acceptable bucket name. For information on bucket naming
- *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules">Working with
- *             Amazon S3 Buckets</a>.</p>
- *          <p>S3 on Outposts buckets support:</p>
- *          <ul>
- *             <li>
- *                <p>Tags</p>
- *             </li>
- *             <li>
- *                <p>LifecycleConfigurations for deleting expired objects</p>
- *             </li>
- *          </ul>
- *          <p>For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html">
- *             Amazon S3 on Outposts Restrictions and Limitations</a>.</p>
- *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
- *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
- *          <p>The following actions are related to <code>CreateBucket</code> for
- *          Amazon S3 on Outposts:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html">GetBucket</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html">DeleteBucket</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html">CreateAccessPoint</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html">PutAccessPointPolicy</a>
- *                </p>
- *             </li>
- *          </ul>
+ * > **Note:** This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see [Create Bucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html) in the *Amazon S3 API Reference*.
+ *
+ * Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To create an Outposts bucket, you must have S3 on Outposts. For more information, see [Using Amazon S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html) in *Amazon S3 User Guide*.
+ *
+ * Not every string is an acceptable bucket name. For information on bucket naming restrictions, see [Working with Amazon S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules).
+ *
+ * S3 on Outposts buckets support:
+ *
+ * - Tags
+ * - LifecycleConfigurations for deleting expired objects
+ *
+ * For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see [Amazon S3 on Outposts Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html).
+ *
+ * For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and `x-amz-outpost-id` in your API request, see the [Examples](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples) section.
+ *
+ * The following actions are related to `CreateBucket` for Amazon S3 on Outposts:
+ *
+ * - [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html)
+ * - [GetBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html)
+ * - [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html)
+ * - [CreateAccessPoint](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html)
+ * - [PutAccessPointPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html)
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,16 +84,16 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link BucketAlreadyExists} (client fault)
- *  <p>The requested Outposts bucket name is not available. The bucket namespace is shared by
- *          all users of the Outposts in this Region. Select a different name and try
- *          again.</p>
+ *
+ * The requested Outposts bucket name is not available. The bucket namespace is shared by all users of the Outposts in this Region. Select a different name and try again.
  *
  * @throws {@link BucketAlreadyOwnedByYou} (client fault)
- *  <p>The Outposts bucket you tried to create already exists, and you own it. </p>
+ *
+ * The Outposts bucket you tried to create already exists, and you own it.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

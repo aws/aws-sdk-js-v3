@@ -23,34 +23,21 @@ export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
 export interface AllocateAddressCommandOutput extends AllocateAddressResult, __MetadataBearer {}
 
 /**
- * <p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate
- *          it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
- *          pool and can be allocated to a different Amazon Web Services account.</p>
- *          <p>You can allocate an Elastic IP address from one of the following address pools:</p>
- *          <ul>
- *             <li>
- *                <p>Amazon's pool of IPv4 addresses</p>
- *             </li>
- *             <li>
- *                <p>Public IPv4 address range that you own and bring to your Amazon Web Services account using
- *            <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>An IPv4 IPAM pool with an Amazon-provided or BYOIP public IPv4 address range</p>
- *             </li>
- *             <li>
- *                <p>IPv4 addresses from your on-premises network made available for use with an Outpost
- *           using a <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">customer-owned IP address
- *             pool</a> (CoIP pool)</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>If you release an Elastic IP address, you might be able to recover it. You cannot recover
- *       an Elastic IP address that you released after it is allocated to another Amazon Web Services account. To attempt to recover an Elastic IP address that you released, specify
- *       it in this operation.</p>
- *          <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier,
- *        to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance).</p>
+ * Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different Amazon Web Services account.
+ *
+ * You can allocate an Elastic IP address from one of the following address pools:
+ *
+ * - Amazon's pool of IPv4 addresses
+ * - Public IPv4 address range that you own and bring to your Amazon Web Services account using [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html)
+ * - An IPv4 IPAM pool with an Amazon-provided or BYOIP public IPv4 address range
+ * - IPv4 addresses from your on-premises network made available for use with an Outpost using a [customer-owned IP address pool](https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing) (CoIP pool)
+ *
+ * For more information, see [Elastic IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.
+ *
+ * If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another Amazon Web Services account. To attempt to recover an Elastic IP address that you released, specify it in this operation.
+ *
+ * You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,8 +88,8 @@ export interface AllocateAddressCommandOutput extends AllocateAddressResult, __M
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @example To allocate an Elastic IP address
  * ```javascript

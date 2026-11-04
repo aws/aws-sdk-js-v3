@@ -23,7 +23,8 @@ export interface AuthorizeEndpointAccessCommandInput extends AuthorizeEndpointAc
 export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorization, __MetadataBearer {}
 
 /**
- * <p>Grants access to a cluster.</p>
+ * Grants access to a cluster.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,27 +65,32 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link ClusterNotFoundFault} (client fault)
- *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
- *         </p>
+ *
+ * The `ClusterIdentifier` parameter does not refer to an existing cluster.
  *
  * @throws {@link EndpointAuthorizationAlreadyExistsFault} (client fault)
- *  <p>The authorization already exists for this endpoint.</p>
+ *
+ * The authorization already exists for this endpoint.
  *
  * @throws {@link EndpointAuthorizationsPerClusterLimitExceededFault} (client fault)
- *  <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
+ *
+ * The number of endpoint authorizations per cluster has exceeded its limit.
  *
  * @throws {@link InvalidAuthorizationStateFault} (client fault)
- *  <p>The status of the authorization is not valid.</p>
+ *
+ * The status of the authorization is not valid.
  *
  * @throws {@link InvalidClusterStateFault} (client fault)
- *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * The specified cluster is not in the `available` state.
  *
  * @throws {@link UnsupportedOperationFault} (client fault)
- *  <p>The requested operation isn't supported.</p>
+ *
+ * The requested operation isn't supported.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

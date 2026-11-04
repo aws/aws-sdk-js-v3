@@ -591,9 +591,8 @@ export type EMRClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface EMRClientResolvedConfig extends EMRClientResolvedConfigType {}
 
 /**
- * <p>Amazon EMR is a web service that makes it easier to process large amounts of
- *          data efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do tasks such as web indexing, data mining, log file analysis,
- *          machine learning, scientific simulation, and data warehouse management.</p>
+ * Amazon EMR is a web service that makes it easier to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several Amazon Web Services services to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehouse management.
+ *
  * @public
  */
 export class EMRClient extends __Client<

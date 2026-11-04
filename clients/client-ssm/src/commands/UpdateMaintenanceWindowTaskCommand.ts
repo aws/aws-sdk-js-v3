@@ -23,62 +23,21 @@ export interface UpdateMaintenanceWindowTaskCommandInput extends UpdateMaintenan
 export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintenanceWindowTaskResult, __MetadataBearer {}
 
 /**
- * <p>Modifies a task assigned to a maintenance window. You can't change the task type, but you
- *    can change the following values:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>TaskARN</code>. For example, you can change a <code>RUN_COMMAND</code> task from
- *       <code>AWS-RunPowerShellScript</code> to <code>AWS-RunShellScript</code>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>ServiceRoleArn</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TaskInvocationParameters</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>Priority</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MaxConcurrency</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MaxErrors</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
- *     Depending on the task, targets are optional for other maintenance window task types (Automation,
- *      Lambda, and Step Functions). For more information about running tasks
- *     that don't specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
- *      maintenance window tasks without targets</a> in the
- *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
- *          </note>
- *          <p>If the value for a parameter in <code>UpdateMaintenanceWindowTask</code> is null, then the
- *    corresponding field isn't modified. If you set <code>Replace</code> to true, then all fields
- *    required by the <a>RegisterTaskWithMaintenanceWindow</a> operation are required for
- *    this request. Optional fields that aren't specified are set to null.</p>
- *          <important>
- *             <p>When you update a maintenance window task that has options specified in
- *      <code>TaskInvocationParameters</code>, you must provide again all the
- *      <code>TaskInvocationParameters</code> values that you want to retain. The values you don't
- *     specify again are removed. For example, suppose that when you registered a Run Command task, you
- *     specified <code>TaskInvocationParameters</code> values for <code>Comment</code>,
- *      <code>NotificationConfig</code>, and <code>OutputS3BucketName</code>. If you update the
- *     maintenance window task and specify only a different <code>OutputS3BucketName</code> value, the
- *     values for <code>Comment</code> and <code>NotificationConfig</code> are removed.</p>
- *          </important>
+ * Modifies a task assigned to a maintenance window. You can't change the task type, but you can change the following values:
+ *
+ * - `TaskARN`. For example, you can change a `RUN_COMMAND` task from `AWS-RunPowerShellScript` to `AWS-RunShellScript`.
+ * - `ServiceRoleArn`
+ * - `TaskInvocationParameters`
+ * - `Priority`
+ * - `MaxConcurrency`
+ * - `MaxErrors`
+ *
+ * > **Note:** One or more targets must be specified for maintenance window Run Command-type tasks. Depending on the task, targets are optional for other maintenance window task types (Automation, Lambda, and Step Functions). For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html) in the *Amazon Web Services Systems Manager User Guide*.
+ *
+ * If the value for a parameter in `UpdateMaintenanceWindowTask` is null, then the corresponding field isn't modified. If you set `Replace` to true, then all fields required by the RegisterTaskWithMaintenanceWindow operation are required for this request. Optional fields that aren't specified are set to null.
+ *
+ * > **Important:** When you update a maintenance window task that has options specified in `TaskInvocationParameters`, you must provide again all the `TaskInvocationParameters` values that you want to retain. The values you don't specify again are removed. For example, suppose that when you registered a Run Command task, you specified `TaskInvocationParameters` values for `Comment`, `NotificationConfig`, and `OutputS3BucketName`. If you update the maintenance window task and specify only a different `OutputS3BucketName` value, the values for `Comment` and `NotificationConfig` are removed.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -270,17 +229,18 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  * @throws {@link DoesNotExistException} (client fault)
- *  <p>Error returned when the ID specified for a resource, such as a maintenance window or patch
- *    baseline, doesn't exist.</p>
- *          <p>For information about resource quotas in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm">Systems Manager service quotas</a> in the
- *     <i>Amazon Web Services General Reference</i>.</p>
+ *
+ * Error returned when the ID specified for a resource, such as a maintenance window or patch baseline, doesn't exist.
+ *
+ * For information about resource quotas in Amazon Web Services Systems Manager, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link SSMServiceException}
- * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ * Base exception class for all service exceptions from SSM service.
  *
  * @public
  */

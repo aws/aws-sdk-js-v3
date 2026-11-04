@@ -23,7 +23,8 @@ export interface CheckNoPublicAccessCommandInput extends CheckNoPublicAccessRequ
 export interface CheckNoPublicAccessCommandOutput extends CheckNoPublicAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether a resource policy can grant public access to the specified resource type.</p>
+ * Checks whether a resource policy can grant public access to the specified resource type.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,26 +60,32 @@ export interface CheckNoPublicAccessCommandOutput extends CheckNoPublicAccessRes
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Internal server error.</p>
+ *
+ * Internal server error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid.</p>
+ *
+ * The specified parameter is invalid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>Throttling limit exceeded error.</p>
+ *
+ * Throttling limit exceeded error.
  *
  * @throws {@link UnprocessableEntityException} (client fault)
- *  <p>The specified entity could not be processed.</p>
+ *
+ * The specified entity could not be processed.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Validation exception error.</p>
+ *
+ * Validation exception error.
  *
  * @throws {@link AccessAnalyzerServiceException}
- * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ * Base exception class for all service exceptions from AccessAnalyzer service.
  *
  * @example Passing check. S3 Bucket policy without public access.
  * ```javascript

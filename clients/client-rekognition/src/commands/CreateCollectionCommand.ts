@@ -23,21 +23,16 @@ export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a collection in an AWS Region. You can add faces to the collection using the
- *         <a>IndexFaces</a> operation. </p>
- *          <p>For example, you might create collections, one for each of your application users. A
- *       user can then index faces using the <code>IndexFaces</code> operation and persist results in a
- *       specific collection. Then, a user can search the collection for faces in the user-specific
- *       container. </p>
- *          <p>When you create a collection, it is associated with the latest version of the face model
- *       version.</p>
- *          <note>
- *             <p>Collection names are case-sensitive.</p>
- *          </note>
- *          <p>This operation requires permissions to perform the
- *         <code>rekognition:CreateCollection</code> action. If you want to tag your collection, you
- *       also require permission to perform the <code>rekognition:TagResource</code>
- *       operation.</p>
+ * Creates a collection in an AWS Region. You can add faces to the collection using the IndexFaces operation.
+ *
+ * For example, you might create collections, one for each of your application users. A user can then index faces using the `IndexFaces` operation and persist results in a specific collection. Then, a user can search the collection for faces in the user-specific container.
+ *
+ * When you create a collection, it is associated with the latest version of the face model version.
+ *
+ * > **Note:** Collection names are case-sensitive.
+ *
+ * This operation requires permissions to perform the `rekognition:CreateCollection` action. If you want to tag your collection, you also require permission to perform the `rekognition:TagResource` operation.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,33 +64,36 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You are not authorized to perform the action.</p>
+ *
+ * You are not authorized to perform the action.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
+ *
+ * Amazon Rekognition experienced a service issue. Try your call again.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>Input parameter violated a constraint. Validate your parameter before calling the API
- *       operation again.</p>
+ *
+ * Input parameter violated a constraint. Validate your parameter before calling the API operation again.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The number of requests exceeded your throughput limit. If you want to increase this
- *       limit, contact Amazon Rekognition.</p>
+ *
+ * The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>A resource with the specified ID already exists.</p>
+ *
+ * A resource with the specified ID already exists.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p></p>
- *          <p>The size of the collection exceeds the allowed limit. For more information,
- *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *
+ * The size of the collection exceeds the allowed limit. For more information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
  *
  * @throws {@link ThrottlingException} (server fault)
- *  <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
+ *
+ * Amazon Rekognition is temporarily unable to process the request. Try your call again.
  *
  * @throws {@link RekognitionServiceException}
- * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ * Base exception class for all service exceptions from Rekognition service.
  *
  * @example To create a collection
  * ```javascript

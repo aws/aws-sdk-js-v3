@@ -23,8 +23,8 @@ export interface ListGroupingStatusesCommandInput extends ListGroupingStatusesIn
 export interface ListGroupingStatusesCommandOutput extends ListGroupingStatusesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the status of the last grouping or ungrouping action for
- *             each resource in the specified application group. </p>
+ * Returns the status of the last grouping or ungrouping action for each resource in the specified application group.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,24 +72,28 @@ export interface ListGroupingStatusesCommandOutput extends ListGroupingStatusesO
  * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request includes one or more parameters that violate validation rules.</p>
+ *
+ * The request includes one or more parameters that violate validation rules.
  *
  * @throws {@link ForbiddenException} (client fault)
- *  <p>The caller isn't authorized to make the request. Check permissions.</p>
+ *
+ * The caller isn't authorized to make the request. Check permissions.
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  <p>An internal error occurred while processing the request. Try again later.</p>
+ *
+ * An internal error occurred while processing the request. Try again later.
  *
  * @throws {@link MethodNotAllowedException} (client fault)
- *  <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ *
+ * The request uses an HTTP method that isn't allowed for the specified resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
+ *
+ * You've exceeded throttling limits by making too many requests in a period of time.
  *
  * @throws {@link ResourceGroupsServiceException}
- * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ * Base exception class for all service exceptions from ResourceGroups service.
  *
  * @public
  */

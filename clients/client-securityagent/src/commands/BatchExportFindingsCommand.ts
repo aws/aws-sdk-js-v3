@@ -23,7 +23,8 @@ export interface BatchExportFindingsCommandInput extends BatchExportFindingsInpu
 export interface BatchExportFindingsCommandOutput extends BatchExportFindingsOutput, __MetadataBearer {}
 
 /**
- * <p>Exports a batch of findings to the connected issue tracker as issues.</p>
+ * Exports a batch of findings to the connected issue tracker as issues.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,29 +80,36 @@ export interface BatchExportFindingsCommandOutput extends BatchExportFindingsOut
  * @see {@link SecurityAgentClientResolvedConfig | config} for SecurityAgentClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *
+ * The request could not be completed due to a conflict with the current state of the resource.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An unexpected error occurred during the processing of your request.</p>
+ *
+ * An unexpected error occurred during the processing of your request.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.</p>
+ *
+ * The specified resource was not found. Verify that the resource identifier is correct and that the resource exists in the specified agent space or account.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request exceeds a service quota. Review your current usage and request a quota increase if needed.</p>
+ *
+ * The request exceeds a service quota. Review your current usage and request a quota increase if needed.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *
+ * The input fails to satisfy the constraints specified by the service.
  *
  * @throws {@link SecurityAgentServiceException}
- * <p>Base exception class for all service exceptions from SecurityAgent service.</p>
  *
+ * Base exception class for all service exceptions from SecurityAgent service.
  *
  * @public
  */

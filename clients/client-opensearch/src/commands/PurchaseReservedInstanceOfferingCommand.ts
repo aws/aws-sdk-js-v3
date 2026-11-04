@@ -26,7 +26,8 @@ export interface PurchaseReservedInstanceOfferingCommandInput extends PurchaseRe
 export interface PurchaseReservedInstanceOfferingCommandOutput extends PurchaseReservedInstanceOfferingResponse, __MetadataBearer {}
 
 /**
- * <p>Allows you to purchase Amazon OpenSearch Service Reserved Instances.</p>
+ * Allows you to purchase Amazon OpenSearch Service Reserved Instances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,26 +57,32 @@ export interface PurchaseReservedInstanceOfferingCommandOutput extends PurchaseR
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  * @throws {@link DisabledOperationException} (client fault)
- *  <p>An error occured because the client wanted to access an unsupported operation.</p>
+ *
+ * An error occured because the client wanted to access an unsupported operation.
  *
  * @throws {@link InternalException} (server fault)
- *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * Request processing failed because of an unknown error, exception, or internal failure.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+ *
+ * An exception for trying to create more than the allowed number of resources or sub-resources.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>An exception for creating a resource that already exists.</p>
+ *
+ * An exception for creating a resource that already exists.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ * An exception for accessing or deleting a resource that doesn't exist.
  *
  * @throws {@link OpenSearchServiceException}
- * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ * Base exception class for all service exceptions from OpenSearch service.
  *
  * @public
  */

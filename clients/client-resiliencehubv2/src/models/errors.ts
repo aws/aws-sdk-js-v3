@@ -6,7 +6,8 @@ import type { ValidationExceptionField } from "./models_0";
 import { Resiliencehubv2ServiceException as __BaseException } from "./Resiliencehubv2ServiceException";
 
 /**
- * <p>Access denied — caller lacks required permissions.</p>
+ * Access denied — caller lacks required permissions.
+ *
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -27,7 +28,8 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p>Conflict — resource already exists.</p>
+ * Conflict — resource already exists.
+ *
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -48,7 +50,8 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>Internal service error.</p>
+ * Internal service error.
+ *
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -69,7 +72,8 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>Resource not found.</p>
+ * Resource not found.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -77,13 +81,15 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name = "ResourceNotFoundException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The identifier of the resource that was not found.</p>
+   * The identifier of the resource that was not found.
+   *
    * @public
    */
   resourceId?: string | undefined;
 
   /**
-   * <p>The type of the resource that was not found.</p>
+   * The type of the resource that was not found.
+   *
    * @public
    */
   resourceType?: string | undefined;
@@ -104,7 +110,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Service quota exceeded.</p>
+ * Service quota exceeded.
+ *
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -125,7 +132,8 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>Validation error — invalid input parameters.</p>
+ * Validation error — invalid input parameters.
+ *
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -133,13 +141,15 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason for the validation failure.</p>
+   * The reason for the validation failure.
+   *
    * @public
    */
   reason?: ValidationExceptionReason | undefined;
 
   /**
-   * <p>The list of fields that failed validation.</p>
+   * The list of fields that failed validation.
+   *
    * @public
    */
   fieldList?: ValidationExceptionField[] | undefined;
@@ -160,7 +170,8 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p>Too many requests — rate limit exceeded.</p>
+ * Too many requests — rate limit exceeded.
+ *
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -168,7 +179,8 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The number of seconds to wait before retrying the request.</p>
+   * The number of seconds to wait before retrying the request.
+   *
    * @public
    */
   retryAfterSeconds?: number | undefined;

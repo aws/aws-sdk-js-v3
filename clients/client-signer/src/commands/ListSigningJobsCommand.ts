@@ -23,13 +23,8 @@ export interface ListSigningJobsCommandInput extends ListSigningJobsRequest {}
 export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to limit the
- * 			number of signing jobs that are returned in the response. If additional jobs remain to
- * 			be listed, AWS Signer returns a <code>nextToken</code> value. Use this value in
- * 			subsequent calls to <code>ListSigningJobs</code> to fetch the remaining values. You can
- * 			continue calling <code>ListSigningJobs</code> with your <code>maxResults</code>
- * 			parameter and with new values that Signer returns in the <code>nextToken</code>
- * 			parameter until all of your signing jobs have been returned. </p>
+ * Lists all your signing jobs. You can use the `maxResults` parameter to limit the number of signing jobs that are returned in the response. If additional jobs remain to be listed, AWS Signer returns a `nextToken` value. Use this value in subsequent calls to `ListSigningJobs` to fetch the remaining values. You can continue calling `ListSigningJobs` with your `maxResults` parameter and with new values that Signer returns in the `nextToken` parameter until all of your signing jobs have been returned.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,21 +90,26 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>An internal error occurred.</p>
+ *
+ * An internal error occurred.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The allowed number of job-signing requests has been exceeded.</p>
- *          <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ * The allowed number of job-signing requests has been exceeded.
+ *
+ * This error supersedes the error `ThrottlingException`.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>You signing certificate could not be validated.</p>
+ *
+ * You signing certificate could not be validated.
  *
  * @throws {@link SignerServiceException}
- * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ * Base exception class for all service exceptions from Signer service.
  *
  * @public
  */

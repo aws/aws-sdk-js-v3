@@ -23,7 +23,8 @@ export interface ListScanJobSummariesCommandInput extends ListScanJobSummariesIn
 export interface ListScanJobSummariesCommandOutput extends ListScanJobSummariesOutput, __MetadataBearer {}
 
 /**
- * <p>This is a request for a summary of scan jobs created or running within the most recent 14 days.</p>
+ * This is a request for a summary of scan jobs created or running within the most recent 14 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,15 +72,16 @@ export interface ListScanJobSummariesCommandOutput extends ListScanJobSummariesO
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
- *          out of range.</p>
+ *
+ * Indicates that something is wrong with a parameter's value. For example, the value is out of range.
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * The request failed due to a temporary failure of the server.
  *
  * @throws {@link BackupServiceException}
- * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ * Base exception class for all service exceptions from Backup service.
  *
  * @public
  */

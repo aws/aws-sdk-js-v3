@@ -23,9 +23,8 @@ export interface AssociateDataShareConsumerCommandInput extends AssociateDataSha
 export interface AssociateDataShareConsumerCommandOutput extends DataShare, __MetadataBearer {}
 
 /**
- * <p>From a datashare consumer account, associates a datashare with the
- *             account (AssociateEntireAccount) or the specified namespace (ConsumerArn). If you make this association, the consumer
- *             can consume the datashare.</p>
+ * From a datashare consumer account, associates a datashare with the account (AssociateEntireAccount) or the specified namespace (ConsumerArn). If you make this association, the consumer can consume the datashare.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,14 +70,16 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  * @throws {@link InvalidDataShareFault} (client fault)
- *  <p>There is an error with the datashare.</p>
+ *
+ * There is an error with the datashare.
  *
  * @throws {@link InvalidNamespaceFault} (client fault)
- *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
+ * The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.
  *
  * @throws {@link RedshiftServiceException}
- * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ * Base exception class for all service exceptions from Redshift service.
  *
  * @public
  */

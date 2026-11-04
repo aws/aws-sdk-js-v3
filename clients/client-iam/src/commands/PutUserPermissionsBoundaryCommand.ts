@@ -23,17 +23,10 @@ export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissio
 export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or updates the policy that is specified as the IAM user's permissions
- *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
- *             boundary for a user. Use the boundary to control the maximum permissions that the user
- *             can have. Setting a permissions boundary is an advanced feature that can affect the
- *             permissions for the user.</p>
- *          <important>
- *             <p>Policies that are used as permissions boundaries do not provide permissions. You
- *                 must also attach a permissions policy to the user. To learn how the effective
- *                 permissions for a user are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
- *                     evaluation logic</a> in the IAM User Guide. </p>
- *          </important>
+ * Adds or updates the policy that is specified as the IAM user's permissions boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for a user. Use the boundary to control the maximum permissions that the user can have. Setting a permissions boundary is an advanced feature that can affect the permissions for the user.
+ *
+ * > **Important:** Policies that are used as permissions boundaries do not provide permissions. You must also attach a permissions policy to the user. To learn how the effective permissions for a user are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the IAM User Guide.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,24 +52,24 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
- *       input parameter.</p>
+ *
+ * The request was rejected because an invalid or out-of-range value was supplied for an input parameter.
  *
  * @throws {@link NoSuchEntityException} (client fault)
- *  <p>The request was rejected because it referenced a resource entity that does not exist. The
- *       error message describes the resource.</p>
+ *
+ * The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.
  *
  * @throws {@link PolicyNotAttachableException} (client fault)
- *  <p>The request failed because Amazon Web Services service role policies can only be attached to the
- *       service-linked role for that service.</p>
+ *
+ * The request failed because Amazon Web Services service role policies can only be attached to the service-linked role for that service.
  *
  * @throws {@link ServiceFailureException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or
- *       failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link IAMServiceException}
- * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ * Base exception class for all service exceptions from IAM service.
  *
  * @public
  */

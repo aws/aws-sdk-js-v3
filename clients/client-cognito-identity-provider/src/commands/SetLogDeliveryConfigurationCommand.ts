@@ -23,10 +23,8 @@ export interface SetLogDeliveryConfigurationCommandInput extends SetLogDeliveryC
 export interface SetLogDeliveryConfigurationCommandOutput extends SetLogDeliveryConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Sets up or modifies the logging configuration of a user pool. User pools can export
- *             user notification logs and, when threat protection is active, user-activity logs. For
- *             more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html">Exporting user
- *                 pool logs</a>.</p>
+ * Sets up or modifies the logging configuration of a user pool. User pools can export user notification logs and, when threat protection is active, user-activity logs. For more information, see [Exporting user pool logs](https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,42 +83,37 @@ export interface SetLogDeliveryConfigurationCommandOutput extends SetLogDelivery
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link FeatureUnavailableInTierException} (client fault)
- *  <p>This exception is thrown when a feature that you attempted to use or configure
- *             isn't included in your user pool's current feature plan. This can occur
- *             when:</p>
- *          <ul>
- *             <li>
- *                <p>You configure a feature that your feature plan doesn't support.</p>
- *             </li>
- *             <li>
- *                <p>You make a request that uses a feature that requires a higher feature
- *                     plan.</p>
- *             </li>
- *          </ul>
- *          <p>To resolve this issue, upgrade your user pool to a feature plan that includes the
- *             feature.</p>
+ *
+ * This exception is thrown when a feature that you attempted to use or configure isn't included in your user pool's current feature plan. This can occur when:
+ *
+ * - You configure a feature that your feature plan doesn't support.
+ * - You make a request that uses a feature that requires a higher feature plan.
+ *
+ * To resolve this issue, upgrade your user pool to a feature plan that includes the feature.
  *
  * @throws {@link InternalErrorException} (server fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * This exception is thrown when Amazon Cognito encounters an internal error.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
- *             parameter.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service encounters an invalid parameter.
  *
  * @throws {@link NotAuthorizedException} (client fault)
- *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * This exception is thrown when a user isn't authorized.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
- *             resource.</p>
+ *
+ * This exception is thrown when the Amazon Cognito service can't find the requested resource.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>This exception is thrown when the user has made too many requests for a given
- *             operation.</p>
+ *
+ * This exception is thrown when the user has made too many requests for a given operation.
  *
  * @throws {@link CognitoIdentityProviderServiceException}
- * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * Base exception class for all service exceptions from CognitoIdentityProvider service.
  *
  * @public
  */

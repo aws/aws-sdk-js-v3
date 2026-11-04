@@ -26,11 +26,12 @@ export interface AssociateTransitGatewayConnectPeerCommandInput extends Associat
 export interface AssociateTransitGatewayConnectPeerCommandOutput extends AssociateTransitGatewayConnectPeerResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you
- *             specify a link, it must be associated with the specified device. </p>
- *          <p>You can only associate transit gateway Connect peers that have been created on a
- *             transit gateway that's registered in your global network.</p>
- *          <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
+ * Associates a transit gateway Connect peer with a device, and optionally, with a link. If you specify a link, it must be associated with the specified device.
+ *
+ * You can only associate transit gateway Connect peers that have been created on a transit gateway that's registered in your global network.
+ *
+ * You cannot associate a transit gateway Connect peer with more than one device and link.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,30 +67,36 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput extends Associa
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict processing the request. Updating or deleting the resource can
- *             cause an inconsistent state.</p>
+ *
+ * There was a conflict processing the request. Updating or deleting the resource can cause an inconsistent state.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request has failed due to an internal error.</p>
+ *
+ * The request has failed due to an internal error.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource could not be found.</p>
+ *
+ * The specified resource could not be found.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A service limit was exceeded.</p>
+ *
+ * A service limit was exceeded.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints.</p>
+ *
+ * The input fails to satisfy the constraints.
  *
  * @throws {@link NetworkManagerServiceException}
- * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ * Base exception class for all service exceptions from NetworkManager service.
  *
  * @public
  */

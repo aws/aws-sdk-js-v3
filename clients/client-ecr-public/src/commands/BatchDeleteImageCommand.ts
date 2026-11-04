@@ -23,13 +23,12 @@ export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
 export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a list of specified images that are within a repository in a public registry.
- *          Images are specified with either an <code>imageTag</code> or
- *          <code>imageDigest</code>.</p>
- *          <p>You can remove a tag from an image by specifying the image's tag in your request. When
- *          you remove the last tag from an image, the image is deleted from your repository.</p>
- *          <p>You can completely delete an image (and all of its tags) by specifying the digest of the
- *          image in your request.</p>
+ * Deletes a list of specified images that are within a repository in a public registry. Images are specified with either an `imageTag` or `imageDigest`.
+ *
+ * You can remove a tag from an image by specifying the image's tag in your request. When you remove the last tag from an image, the image is deleted from your repository.
+ *
+ * You can completely delete an image (and all of its tags) by specifying the digest of the image in your request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,22 +77,24 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link RepositoryNotFoundException} (client fault)
- *  <p>The specified repository can't be found. Check the spelling of the specified repository
- *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * The specified repository can't be found. Check the spelling of the specified repository and ensure that you're performing operations on the correct registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

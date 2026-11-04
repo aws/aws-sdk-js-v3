@@ -23,7 +23,8 @@ export interface ListCodeReviewsCommandInput extends ListCodeReviewsRequest {}
 export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the code reviews that the customer has created in the past 90 days.</p>
+ * Lists all the code reviews that the customer has created in the past 90 days.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,20 +114,24 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * You do not have sufficient access to perform this action.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * The server encountered an internal error and is unable to complete the request.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ * The input fails to satisfy the specified constraints.
  *
  * @throws {@link CodeGuruReviewerServiceException}
- * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
+ * Base exception class for all service exceptions from CodeGuruReviewer service.
  *
  * @public
  */

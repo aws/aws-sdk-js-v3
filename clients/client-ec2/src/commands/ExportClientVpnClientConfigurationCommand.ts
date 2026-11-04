@@ -26,9 +26,8 @@ export interface ExportClientVpnClientConfigurationCommandInput extends ExportCl
 export interface ExportClientVpnClientConfigurationCommandOutput extends ExportClientVpnClientConfigurationResult, __MetadataBearer {}
 
 /**
- * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration
- * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
- * 			with the Client VPN endpoint.</p>
+ * Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration file includes the Client VPN endpoint and certificate information clients need to establish a connection with the Client VPN endpoint.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,8 +55,8 @@ export interface ExportClientVpnClientConfigurationCommandOutput extends ExportC
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

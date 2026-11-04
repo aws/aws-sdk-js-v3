@@ -26,11 +26,14 @@ export interface ListAccessPointsForDirectoryBucketsCommandInput extends ListAcc
 export interface ListAccessPointsForDirectoryBucketsCommandOutput extends ListAccessPointsForDirectoryBucketsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the access points that are owned by the Amazon Web Services account and that are associated with the specified directory bucket.</p>
- *          <p>To list access points for general purpose buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html">ListAccesspoints</a>.</p>
- *          <p>To use this operation, you must have the permission to perform the
- *          <code>s3express:ListAccessPointsForDirectoryBuckets</code> action.</p>
- *          <p>For information about REST API errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses">REST error responses</a>.</p>
+ * Returns a list of the access points that are owned by the Amazon Web Services account and that are associated with the specified directory bucket.
+ *
+ * To list access points for general purpose buckets, see [ListAccesspoints](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html).
+ *
+ * To use this operation, you must have the permission to perform the `s3express:ListAccessPointsForDirectoryBuckets` action.
+ *
+ * For information about REST API errors, see [REST error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#RESTErrorResponses).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,8 +78,8 @@ export interface ListAccessPointsForDirectoryBucketsCommandOutput extends ListAc
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  * @throws {@link S3ControlServiceException}
- * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ * Base exception class for all service exceptions from S3Control service.
  *
  * @public
  */

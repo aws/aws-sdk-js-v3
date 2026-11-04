@@ -23,10 +23,8 @@ export interface SendSSHPublicKeyCommandInput extends SendSSHPublicKeyRequest {}
 export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Pushes an SSH public key to the specified EC2 instance for use by the specified user.
- *             The key remains for 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">Connect to
- *                 your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2
- *                 User Guide</i>.</p>
+ * Pushes an SSH public key to the specified EC2 instance for use by the specified user. The key remains for 60 seconds. For more information, see [Connect to your Linux instance using EC2 Instance Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html) in the *Amazon EC2 User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,32 +55,36 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
  *
  * @throws {@link AuthException} (client fault)
- *  <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+ *
+ * Either your AWS credentials are not valid or you do not have access to the EC2 instance.
  *
  * @throws {@link EC2InstanceNotFoundException} (client fault)
- *  <p>The specified instance was not found.</p>
+ *
+ * The specified instance was not found.
  *
  * @throws {@link EC2InstanceStateInvalidException} (client fault)
- *  <p>Unable to connect because the instance is not in a valid state.
- *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
- *             start your instance, and try to connect again.</p>
+ *
+ * Unable to connect because the instance is not in a valid state. Connecting to a stopped or terminated instance is not supported. If the instance is stopped, start your instance, and try to connect again.
  *
  * @throws {@link EC2InstanceUnavailableException} (server fault)
- *  <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ *
+ * The instance is currently unavailable. Wait a few minutes and try again.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One of the parameters is not valid.</p>
+ *
+ * One of the parameters is not valid.
  *
  * @throws {@link ServiceException} (server fault)
- *  <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+ *
+ * The service encountered an error. Follow the instructions in the error message and try again.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
- *             To increase the limit on your request frequency, contact AWS Support.</p>
+ *
+ * The requests were made too frequently and have been throttled. Wait a while and try again. To increase the limit on your request frequency, contact AWS Support.
  *
  * @throws {@link EC2InstanceConnectServiceException}
- * <p>Base exception class for all service exceptions from EC2InstanceConnect service.</p>
  *
+ * Base exception class for all service exceptions from EC2InstanceConnect service.
  *
  * @example To push an SSH key to an EC2 instance
  * ```javascript

@@ -23,18 +23,12 @@ export interface DeleteSnapshotScheduleCommandInput extends DeleteSnapshotSchedu
 export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotScheduleOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a snapshot of a volume.</p>
- *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
- *          action enables you to delete a snapshot schedule for a volume. For more information, see
- *             <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html">Backing up your
- *             volumes</a>. In the <code>DeleteSnapshotSchedule</code> request, you identify the
- *          volume by providing its Amazon Resource Name (ARN). This operation is only supported for
- *          cached volume gateway types.</p>
- *          <note>
- *             <p>To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
- *             go to <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
- *             in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
- *          </note>
+ * Deletes a snapshot of a volume.
+ *
+ * You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API action enables you to delete a snapshot schedule for a volume. For more information, see [Backing up your volumes](https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html). In the `DeleteSnapshotSchedule` request, you identify the volume by providing its Amazon Resource Name (ARN). This operation is only supported for cached volume gateway types.
+ *
+ * > **Note:** To list or delete a snapshot, you must use the Amazon EC2 API. For more information, go to [DescribeSnapshots](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html) in the *Amazon Elastic Compute Cloud API Reference*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,16 +55,16 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An internal server error has occurred during the request. For more information, see the
- *          error and message fields.</p>
+ *
+ * An internal server error has occurred during the request. For more information, see the error and message fields.
  *
  * @throws {@link InvalidGatewayRequestException} (client fault)
- *  <p>An exception occurred because an invalid gateway request was issued to the service. For
- *          more information, see the error and message fields.</p>
+ *
+ * An exception occurred because an invalid gateway request was issued to the service. For more information, see the error and message fields.
  *
  * @throws {@link StorageGatewayServiceException}
- * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ * Base exception class for all service exceptions from StorageGateway service.
  *
  * @example To delete a snapshot of a volume
  * ```javascript

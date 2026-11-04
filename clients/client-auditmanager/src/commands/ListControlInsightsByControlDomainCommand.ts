@@ -26,14 +26,10 @@ export interface ListControlInsightsByControlDomainCommandInput extends ListCont
 export interface ListControlInsightsByControlDomainCommandOutput extends ListControlInsightsByControlDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the latest analytics data for controls within a specific control domain across all
- *          active assessments.</p>
- *          <note>
- *             <p>Control insights are listed only if the control belongs to the control domain that
- *             was specified and the control collected evidence on the <code>lastUpdated</code> date of
- *                <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data
- *             is listed for that control. </p>
- *          </note>
+ * Lists the latest analytics data for controls within a specific control domain across all active assessments.
+ *
+ * > **Note:** Control insights are listed only if the control belongs to the control domain that was specified and the control collected evidence on the `lastUpdated` date of `controlInsightsMetadata`. If neither of these conditions are met, no data is listed for that control.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,22 +70,24 @@ export interface ListControlInsightsByControlDomainCommandOutput extends ListCon
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> Your account isn't registered with Audit Manager. Check the delegated
- *          administrator setup on the Audit Manager settings page, and try again. </p>
+ *
+ * Your account isn't registered with Audit Manager. Check the delegated administrator setup on the Audit Manager settings page, and try again.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p> An internal service error occurred during the processing of your request. Try again
- *          later. </p>
+ *
+ * An internal service error occurred during the processing of your request. Try again later.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The resource that's specified in the request can't be found. </p>
+ *
+ * The resource that's specified in the request can't be found.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The request has invalid or missing parameters. </p>
+ *
+ * The request has invalid or missing parameters.
  *
  * @throws {@link AuditManagerServiceException}
- * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ * Base exception class for all service exceptions from AuditManager service.
  *
  * @public
  */

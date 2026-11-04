@@ -23,7 +23,8 @@ export interface BatchGetIterableFormsCommandInput extends BatchGetIterableForms
 export interface BatchGetIterableFormsCommandOutput extends BatchGetIterableFormsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves multiple items from an iterable form on an asset in Glue Data Catalog in a single request.</p>
+ * Retrieves multiple items from an iterable form on an asset in Glue Data Catalog in a single request.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,23 +82,28 @@ export interface BatchGetIterableFormsCommandOutput extends BatchGetIterableForm
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Access to a resource was denied.</p>
+ *
+ * Access to a resource was denied.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>A specified entity does not exist</p>
+ *
+ * A specified entity does not exist
  *
  * @throws {@link InternalServiceException} (server fault)
- *  <p>An internal service error occurred.</p>
+ *
+ * An internal service error occurred.
  *
  * @throws {@link InvalidInputException} (client fault)
- *  <p>The input provided was not valid.</p>
+ *
+ * The input provided was not valid.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The throttling threshhold was exceeded.</p>
+ *
+ * The throttling threshhold was exceeded.
  *
  * @throws {@link GlueServiceException}
- * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ * Base exception class for all service exceptions from Glue service.
  *
  * @public
  */

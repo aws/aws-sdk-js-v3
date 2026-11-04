@@ -23,14 +23,8 @@ export interface CreatePrivateDnsNamespaceCommandInput extends CreatePrivateDnsN
 export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDnsNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon
- *    VPC. The namespace defines your service naming scheme. For example, if you name your namespace
- *     <code>example.com</code> and name your service <code>backend</code>, the resulting DNS name for
- *    the service is <code>backend.example.com</code>. Service instances that are registered using a
- *    private DNS namespace can be discovered using either a <code>DiscoverInstances</code> request or
- *    using DNS. For the current quota on the number of namespaces that you can create using the same
- *     Amazon Web Services account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud Map quotas</a> in the
- *     <i>Cloud Map Developer Guide</i>.</p>
+ * Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace defines your service naming scheme. For example, if you name your namespace `example.com` and name your service `backend`, the resulting DNS name for the service is `backend.example.com`. Service instances that are registered using a private DNS namespace can be discovered using either a `DiscoverInstances` request or using DNS. For the current quota on the number of namespaces that you can create using the same Amazon Web Services account, see [Cloud Map quotas](https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html) in the *Cloud Map Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,27 +67,28 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  * @throws {@link DuplicateRequest} (client fault)
- *  <p>The operation is already in progress.</p>
+ *
+ * The operation is already in progress.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
- *    numeric value might be outside the allowed range, or a string value might exceed length
- *    constraints.</p>
+ *
+ * One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, or a string value might exceed length constraints.
  *
  * @throws {@link NamespaceAlreadyExists} (client fault)
- *  <p>The namespace that you're trying to create already exists.</p>
+ *
+ * The namespace that you're trying to create already exists.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p>The resource can't be created because you've reached the quota on the number of
- *    resources.</p>
+ *
+ * The resource can't be created because you've reached the quota on the number of resources.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the resource is over the quota. The maximum number of tags that can be
- *    applied to a resource is 50.</p>
+ *
+ * The list of tags on the resource is over the quota. The maximum number of tags that can be applied to a resource is 50.
  *
  * @throws {@link ServiceDiscoveryServiceException}
- * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
+ * Base exception class for all service exceptions from ServiceDiscovery service.
  *
  * @example Example: Create private DNS namespace
  * ```javascript

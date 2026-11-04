@@ -23,9 +23,10 @@ export interface TestRenderTemplateCommandInput extends TestRenderTemplateReques
 export interface TestRenderTemplateCommandOutput extends TestRenderTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a preview of the MIME content of an email when provided with a template and a
- *             set of replacement data.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Creates a preview of the MIME content of an email when provided with a template and a set of replacement data.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,21 +54,20 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link InvalidRenderingParameterException} (client fault)
- *  <p>Indicates that one or more of the replacement values you provided is invalid. This
- *             error may occur when the TemplateData object contains invalid JSON.</p>
+ *
+ * Indicates that one or more of the replacement values you provided is invalid. This error may occur when the TemplateData object contains invalid JSON.
  *
  * @throws {@link MissingRenderingAttributeException} (client fault)
- *  <p>Indicates that one or more of the replacement values for the specified template was
- *             not specified. Ensure that the TemplateData object contains references to all of the
- *             replacement tags in the specified template.</p>
+ *
+ * Indicates that one or more of the replacement values for the specified template was not specified. Ensure that the TemplateData object contains references to all of the replacement tags in the specified template.
  *
  * @throws {@link TemplateDoesNotExistException} (client fault)
- *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
- *             account.</p>
+ *
+ * Indicates that the Template object you specified does not exist in your Amazon SES account.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @public
  */

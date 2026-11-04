@@ -4,7 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { SQSServiceException as __BaseException } from "./SQSServiceException";
 
 /**
- * <p>The specified ID is invalid.</p>
+ * The specified ID is invalid.
+ *
  * @public
  */
 export class InvalidAddress extends __BaseException {
@@ -25,7 +26,8 @@ export class InvalidAddress extends __BaseException {
 }
 
 /**
- * <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
+ * The request was not made over HTTPS or did not use SigV4 for signing.
+ *
  * @public
  */
 export class InvalidSecurity extends __BaseException {
@@ -46,10 +48,8 @@ export class InvalidSecurity extends __BaseException {
 }
 
 /**
- * <p>The specified action violates a limit. For example, <code>ReceiveMessage</code>
- *             returns this error if the maximum number of in flight messages is reached and
- *                 <code>AddPermission</code> returns this error if the maximum number of permissions
- *             for the queue is reached.</p>
+ * The specified action violates a limit. For example, `ReceiveMessage` returns this error if the maximum number of in flight messages is reached and `AddPermission` returns this error if the maximum number of permissions for the queue is reached.
+ *
  * @public
  */
 export class OverLimit extends __BaseException {
@@ -70,8 +70,8 @@ export class OverLimit extends __BaseException {
 }
 
 /**
- * <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
- *             deleted.</p>
+ * Ensure that the `QueueUrl` is correct and that the queue has not been deleted.
+ *
  * @public
  */
 export class QueueDoesNotExist extends __BaseException {
@@ -92,18 +92,11 @@ export class QueueDoesNotExist extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
- *          <ul>
- *             <li>
- *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
- *                     request.</p>
- *             </li>
- *             <li>
- *                <p>Ensure that the request rate is within the Amazon SQS limits for
- *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
- *                         Developer Guide</i>.</p>
- *             </li>
- *          </ul>
+ * The request was denied due to request throttling.
+ *
+ * - Exceeds the permitted request rate for the queue or for the recipient of the request.
+ * - Ensure that the request rate is within the Amazon SQS limits for sending messages. For more information, see [Amazon SQS quotas](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests) in the *Amazon SQS Developer Guide*.
+ *
  * @public
  */
 export class RequestThrottled extends __BaseException {
@@ -124,7 +117,8 @@ export class RequestThrottled extends __BaseException {
 }
 
 /**
- * <p>Error code 400. Unsupported operation.</p>
+ * Error code 400. Unsupported operation.
+ *
  * @public
  */
 export class UnsupportedOperation extends __BaseException {
@@ -145,7 +139,8 @@ export class UnsupportedOperation extends __BaseException {
 }
 
 /**
- * <p>One or more specified resources don't exist.</p>
+ * One or more specified resources don't exist.
+ *
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -166,7 +161,8 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The specified message isn't in flight.</p>
+ * The specified message isn't in flight.
+ *
  * @public
  */
 export class MessageNotInflight extends __BaseException {
@@ -187,7 +183,8 @@ export class MessageNotInflight extends __BaseException {
 }
 
 /**
- * <p>The specified receipt handle isn't valid.</p>
+ * The specified receipt handle isn't valid.
+ *
  * @public
  */
 export class ReceiptHandleIsInvalid extends __BaseException {
@@ -208,7 +205,8 @@ export class ReceiptHandleIsInvalid extends __BaseException {
 }
 
 /**
- * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
+ * Two or more batch entries in the request have the same `Id`.
+ *
  * @public
  */
 export class BatchEntryIdsNotDistinct extends __BaseException {
@@ -229,7 +227,8 @@ export class BatchEntryIdsNotDistinct extends __BaseException {
 }
 
 /**
- * <p>The batch request doesn't contain any entries.</p>
+ * The batch request doesn't contain any entries.
+ *
  * @public
  */
 export class EmptyBatchRequest extends __BaseException {
@@ -250,8 +249,8 @@ export class EmptyBatchRequest extends __BaseException {
 }
 
 /**
- * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
- *             specification.</p>
+ * The `Id` of a batch entry in a batch request doesn't abide by the specification.
+ *
  * @public
  */
 export class InvalidBatchEntryId extends __BaseException {
@@ -272,8 +271,8 @@ export class InvalidBatchEntryId extends __BaseException {
 }
 
 /**
- * <p>The batch request contains more entries than permissible. For Amazon SQS, the
- *             maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
+ * The batch request contains more entries than permissible. For Amazon SQS, the maximum number of entries you can include in a single [SendMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html), [DeleteMessageBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html), or [ChangeMessageVisibilityBatch](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html) request is 10.
+ *
  * @public
  */
 export class TooManyEntriesInBatchRequest extends __BaseException {
@@ -294,7 +293,8 @@ export class TooManyEntriesInBatchRequest extends __BaseException {
 }
 
 /**
- * <p>The specified attribute doesn't exist.</p>
+ * The specified attribute doesn't exist.
+ *
  * @public
  */
 export class InvalidAttributeName extends __BaseException {
@@ -315,7 +315,8 @@ export class InvalidAttributeName extends __BaseException {
 }
 
 /**
- * <p>A queue attribute value is invalid.</p>
+ * A queue attribute value is invalid.
+ *
  * @public
  */
 export class InvalidAttributeValue extends __BaseException {
@@ -336,8 +337,8 @@ export class InvalidAttributeValue extends __BaseException {
 }
 
 /**
- * <p>You must wait 60 seconds after deleting a queue before you can create another queue
- *             with the same name.</p>
+ * You must wait 60 seconds after deleting a queue before you can create another queue with the same name.
+ *
  * @public
  */
 export class QueueDeletedRecently extends __BaseException {
@@ -358,8 +359,8 @@ export class QueueDeletedRecently extends __BaseException {
 }
 
 /**
- * <p>A queue with this name already exists. Amazon SQS returns this error only if the request
- *             includes attributes whose values differ from those of the existing queue.</p>
+ * A queue with this name already exists. Amazon SQS returns this error only if the request includes attributes whose values differ from those of the existing queue.
+ *
  * @public
  */
 export class QueueNameExists extends __BaseException {
@@ -380,7 +381,7 @@ export class QueueNameExists extends __BaseException {
 }
 
 /**
- * <p>The specified receipt handle isn't valid for the current version.</p>
+ * The specified receipt handle isn't valid for the current version.
  *
  * @deprecated exception has been included in ReceiptHandleIsInvalid.
  * @public
@@ -403,9 +404,8 @@ export class InvalidIdFormat extends __BaseException {
 }
 
 /**
- * <p>Indicates that the specified queue previously received a <code>PurgeQueue</code>
- *             request within the last 60 seconds (the time it can take to delete the messages in the
- *             queue).</p>
+ * Indicates that the specified queue previously received a `PurgeQueue` request within the last 60 seconds (the time it can take to delete the messages in the queue).
+ *
  * @public
  */
 export class PurgeQueueInProgress extends __BaseException {
@@ -426,7 +426,8 @@ export class PurgeQueueInProgress extends __BaseException {
 }
 
 /**
- * <p>The caller doesn't have the required KMS access.</p>
+ * The caller doesn't have the required KMS access.
+ *
  * @public
  */
 export class KmsAccessDenied extends __BaseException {
@@ -447,7 +448,8 @@ export class KmsAccessDenied extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * The request was denied due to request throttling.
+ *
  * @public
  */
 export class KmsDisabled extends __BaseException {
@@ -468,17 +470,11 @@ export class KmsDisabled extends __BaseException {
 }
 
 /**
- * <p>The request was rejected for one of the following reasons:</p>
- *          <ul>
- *             <li>
- *                <p>The KeyUsage value of the KMS key is incompatible with the API
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>The encryption algorithm or signing algorithm specified for the operation is
- *                     incompatible with the type of key material in the KMS key (KeySpec).</p>
- *             </li>
- *          </ul>
+ * The request was rejected for one of the following reasons:
+ *
+ * - The KeyUsage value of the KMS key is incompatible with the API operation.
+ * - The encryption algorithm or signing algorithm specified for the operation is incompatible with the type of key material in the KMS key (KeySpec).
+ *
  * @public
  */
 export class KmsInvalidKeyUsage extends __BaseException {
@@ -499,8 +495,8 @@ export class KmsInvalidKeyUsage extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the state of the specified resource is not valid for
- *             this request.</p>
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
  * @public
  */
 export class KmsInvalidState extends __BaseException {
@@ -521,8 +517,8 @@ export class KmsInvalidState extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified entity or resource could not be found.
- *         </p>
+ * The request was rejected because the specified entity or resource could not be found.
+ *
  * @public
  */
 export class KmsNotFound extends __BaseException {
@@ -543,8 +539,8 @@ export class KmsNotFound extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because the specified key policy isn't syntactically or
- *             semantically correct.</p>
+ * The request was rejected because the specified key policy isn't syntactically or semantically correct.
+ *
  * @public
  */
 export class KmsOptInRequired extends __BaseException {
@@ -565,7 +561,8 @@ export class KmsOptInRequired extends __BaseException {
 }
 
 /**
- * <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
+ * Amazon Web Services KMS throttles requests for the following conditions.
+ *
  * @public
  */
 export class KmsThrottled extends __BaseException {
@@ -586,7 +583,8 @@ export class KmsThrottled extends __BaseException {
 }
 
 /**
- * <p>The message contains characters outside the allowed set.</p>
+ * The message contains characters outside the allowed set.
+ *
  * @public
  */
 export class InvalidMessageContents extends __BaseException {
@@ -607,7 +605,8 @@ export class InvalidMessageContents extends __BaseException {
 }
 
 /**
- * <p>The length of all the messages put together is more than the limit.</p>
+ * The length of all the messages put together is more than the limit.
+ *
  * @public
  */
 export class BatchRequestTooLong extends __BaseException {

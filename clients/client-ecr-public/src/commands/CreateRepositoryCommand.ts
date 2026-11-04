@@ -23,8 +23,8 @@ export interface CreateRepositoryCommandInput extends CreateRepositoryRequest {}
 export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a repository in a public registry. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon ECR
- *             repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * Creates a repository in a public registry. For more information, see [Amazon ECR repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon Elastic Container Registry User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,33 +88,36 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *          request.</p>
+ *
+ * The specified parameter is invalid. Review the available parameters for the API request.
  *
  * @throws {@link InvalidTagParameterException} (client fault)
- *  <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ *
+ * An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The operation didn't succeed because it would have exceeded a service limit for your
- *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
- *          Amazon Elastic Container Registry User Guide.</p>
+ *
+ * The operation didn't succeed because it would have exceeded a service limit for your account. For more information, see [Amazon ECR Service Quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html) in the Amazon Elastic Container Registry User Guide.
  *
  * @throws {@link RepositoryAlreadyExistsException} (client fault)
- *  <p>The specified repository already exists in the specified registry.</p>
+ *
+ * The specified repository already exists in the specified registry.
  *
  * @throws {@link ServerException} (server fault)
- *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * These errors are usually caused by a server-side issue.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
- *          can be applied to a repository is 50.</p>
+ *
+ * The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
  *
  * @throws {@link UnsupportedCommandException} (client fault)
- *  <p>The action isn't supported in this Region.</p>
+ *
+ * The action isn't supported in this Region.
  *
  * @throws {@link ECRPUBLICServiceException}
- * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ * Base exception class for all service exceptions from ECRPUBLIC service.
  *
  * @public
  */

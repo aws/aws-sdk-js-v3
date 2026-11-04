@@ -23,7 +23,8 @@ export interface CreateReturnShippingLabelCommandInput extends CreateReturnShipp
 export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShippingLabelResult, __MetadataBearer {}
 
 /**
- * <p>Creates a shipping label that will be used to return the Snow device to Amazon Web Services.</p>
+ * Creates a shipping label that will be used to return the Snow device to Amazon Web Services.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,28 +52,28 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You get this exception when you call <code>CreateReturnShippingLabel</code> more than once
- *       when other requests are not completed.</p>
+ *
+ * You get this exception when you call `CreateReturnShippingLabel` more than once when other requests are not completed.
  *
  * @throws {@link InvalidInputCombinationException} (client fault)
- *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * Job or cluster creation failed. One or more inputs were invalid. Confirm that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType, and try again.
  *
  * @throws {@link InvalidJobStateException} (client fault)
- *  <p>The action can't be performed because the job's current state doesn't allow that action
- *       to be performed.</p>
+ *
+ * The action can't be performed because the job's current state doesn't allow that action to be performed.
  *
  * @throws {@link InvalidResourceException} (client fault)
- *  <p>The specified resource can't be found. Check the information you provided in your last
- *       request, and try again.</p>
+ *
+ * The specified resource can't be found. Check the information you provided in your last request, and try again.
  *
  * @throws {@link ReturnShippingLabelAlreadyExistsException} (client fault)
- *  <p>You get this exception if you call <code>CreateReturnShippingLabel</code> and a valid
- *       return shipping label already exists. In this case, use
- *         <code>DescribeReturnShippingLabel</code> to get the URL.</p>
+ *
+ * You get this exception if you call `CreateReturnShippingLabel` and a valid return shipping label already exists. In this case, use `DescribeReturnShippingLabel` to get the URL.
  *
  * @throws {@link SnowballServiceException}
- * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
+ * Base exception class for all service exceptions from Snowball service.
  *
  * @public
  */

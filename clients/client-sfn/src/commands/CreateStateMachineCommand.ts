@@ -23,31 +23,16 @@ export interface CreateStateMachineCommandInput extends CreateStateMachineInput 
 export interface CreateStateMachineCommandOutput extends CreateStateMachineOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a state machine. A state machine consists of a collection of states that can do
- *       work (<code>Task</code> states), determine to which states to transition next
- *         (<code>Choice</code> states), stop an execution with an error (<code>Fail</code> states),
- *       and so on. State machines are specified using a JSON-based, structured language. For more
- *       information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States
- *         Language</a> in the Step Functions User Guide.</p>
- *          <p>If you set the <code>publish</code> parameter of this API action to <code>true</code>, it
- *       publishes version <code>1</code> as the first revision of the state machine.</p>
- *          <p>
- *         For additional control over security, you can encrypt your data using a <b>customer-managed key</b> for Step Functions state machines. You can configure a symmetric KMS key and data key reuse period when creating or updating a <b>State Machine</b>. The execution history and state machine definition will be encrypted with the key applied to the State Machine.
- *     </p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
- *          <note>
- *             <p>
- *                <code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create a
- *         duplicate resource if it was already created. <code>CreateStateMachine</code>'s idempotency
- *         check is based on the state machine <code>name</code>, <code>definition</code>,
- *           <code>type</code>, <code>LoggingConfiguration</code>,
- *         <code>TracingConfiguration</code>, and <code>EncryptionConfiguration</code> The check is also based on the <code>publish</code> and <code>versionDescription</code> parameters. If a following request has a different
- *           <code>roleArn</code> or <code>tags</code>, Step Functions will ignore these differences and treat
- *         it as an idempotent request of the previous. In this case, <code>roleArn</code> and
- *           <code>tags</code> will not be updated, even if they are different.</p>
- *          </note>
+ * Creates a state machine. A state machine consists of a collection of states that can do work (`Task` states), determine to which states to transition next (`Choice` states), stop an execution with an error (`Fail` states), and so on. State machines are specified using a JSON-based, structured language. For more information, see [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) in the Step Functions User Guide.
+ *
+ * If you set the `publish` parameter of this API action to `true`, it publishes version `1` as the first revision of the state machine.
+ *
+ * For additional control over security, you can encrypt your data using a **customer-managed key** for Step Functions state machines. You can configure a symmetric KMS key and data key reuse period when creating or updating a **State Machine**. The execution history and state machine definition will be encrypted with the key applied to the State Machine.
+ *
+ * > **Note:** This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.
+ *
+ * > **Note:** `CreateStateMachine` is an idempotent API. Subsequent requests won’t create a duplicate resource if it was already created. `CreateStateMachine`'s idempotency check is based on the state machine `name`, `definition`, `type`, `LoggingConfiguration`, `TracingConfiguration`, and `EncryptionConfiguration` The check is also based on the `publish` and `versionDescription` parameters. If a following request has a different `roleArn` or `tags`, Step Functions will ignore these differences and treat it as an idempotent request of the previous. In this case, `roleArn` and `tags` will not be updated, even if they are different.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,58 +91,70 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for <a>DeleteStateMachineVersion</a>, <a>PublishStateMachineVersion</a>, or <a>UpdateStateMachine</a> with the <code>publish</code> parameter set to <code>true</code>.</p>
- *          <p>HTTP Status Code: 409</p>
+ *
+ * Updating or deleting a resource can cause an inconsistent state. This error occurs when there're concurrent requests for DeleteStateMachineVersion, PublishStateMachineVersion, or UpdateStateMachine with the `publish` parameter set to `true`.
+ *
+ * HTTP Status Code: 409
  *
  * @throws {@link InvalidArn} (client fault)
- *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * The provided Amazon Resource Name (ARN) is not valid.
  *
  * @throws {@link InvalidDefinition} (client fault)
- *  <p>The provided Amazon States Language definition is not valid.</p>
+ *
+ * The provided Amazon States Language definition is not valid.
  *
  * @throws {@link InvalidEncryptionConfiguration} (client fault)
- *  <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ *
+ * Received when `encryptionConfiguration` is specified but various conditions exist which make the configuration invalid. For example, if `type` is set to `CUSTOMER_MANAGED_KMS_KEY`, but `kmsKeyId` is null, or `kmsDataKeyReusePeriodSeconds` is not between 60 and 900, or the KMS key is not symmetric or inactive.
  *
  * @throws {@link InvalidLoggingConfiguration} (client fault)
- *  <p>Configuration is not valid.</p>
+ *
+ * Configuration is not valid.
  *
  * @throws {@link InvalidName} (client fault)
- *  <p>The provided name is not valid.</p>
+ *
+ * The provided name is not valid.
  *
  * @throws {@link InvalidTracingConfiguration} (client fault)
- *  <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
- *       been set to <code>true</code> or <code>false</code>.</p>
+ *
+ * Your `tracingConfiguration` key does not match, or `enabled` has not been set to `true` or `false`.
  *
  * @throws {@link KmsAccessDeniedException} (client fault)
- *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * Either your KMS key policy or API caller does not have the required permissions.
  *
  * @throws {@link KmsThrottlingException} (client fault)
- *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
+ * Received when KMS returns `ThrottlingException` for a KMS call that Step Functions makes on behalf of the caller.
  *
  * @throws {@link StateMachineAlreadyExists} (client fault)
- *  <p>A state machine with the same name but a different definition or role ARN already
- *       exists.</p>
+ *
+ * A state machine with the same name but a different definition or role ARN already exists.
  *
  * @throws {@link StateMachineDeleting} (client fault)
- *  <p>The specified state machine is being deleted.</p>
+ *
+ * The specified state machine is being deleted.
  *
  * @throws {@link StateMachineLimitExceeded} (client fault)
- *  <p>The maximum number of state machines has been reached. Existing state machines must be
- *       deleted before a new state machine can be created.</p>
+ *
+ * The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.
  *
  * @throws {@link StateMachineTypeNotSupported} (client fault)
- *  <p>State machine type is not supported.</p>
+ *
+ * State machine type is not supported.
  *
  * @throws {@link TooManyTags} (client fault)
- *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       Step Functions Developer Guide.</p>
+ *
+ * You've exceeded the number of tags allowed for a resource. See the [Limits Topic](https://docs.aws.amazon.com/step-functions/latest/dg/limits.html) in the Step Functions Developer Guide.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * The input does not satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link SFNServiceException}
- * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ * Base exception class for all service exceptions from SFN service.
  *
  * @public
  */

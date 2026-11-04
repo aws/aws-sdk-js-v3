@@ -26,10 +26,12 @@ export interface DescribeScheduledInstanceAvailabilityCommandInput extends Descr
 export interface DescribeScheduledInstanceAvailabilityCommandOutput extends DescribeScheduledInstanceAvailabilityResult, __MetadataBearer {}
 
 /**
- * <p>Finds available schedules that meet the specified criteria.</p>
- *          <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
- *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
- *          to purchase Scheduled Instances with that schedule.</p>
+ * Finds available schedules that meet the specified criteria.
+ *
+ * You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.
+ *
+ * After you find a schedule that meets your needs, call PurchaseScheduledInstances to purchase Scheduled Instances with that schedule.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,8 +108,8 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput extends Desc
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  * @throws {@link EC2ServiceException}
- * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ * Base exception class for all service exceptions from EC2 service.
  *
  * @public
  */

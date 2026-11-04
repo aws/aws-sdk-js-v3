@@ -23,11 +23,10 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput exte
 export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables or disables the publishing of reputation metrics for emails sent using a
- *             specific configuration set in a given Amazon Web Services Region. Reputation metrics include bounce
- *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
- *             create alarms when bounce or complaint rates exceed certain thresholds.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Enables or disables the publishing of reputation metrics for emails sent using a specific configuration set in a given Amazon Web Services Region. Reputation metrics include bounce and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can create alarms when bounce or complaint rates exceed certain thresholds.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +52,12 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
- *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * Indicates that the configuration set does not exist.
  *
  * @throws {@link SESServiceException}
- * <p>Base exception class for all service exceptions from SES service.</p>
  *
+ * Base exception class for all service exceptions from SES service.
  *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript

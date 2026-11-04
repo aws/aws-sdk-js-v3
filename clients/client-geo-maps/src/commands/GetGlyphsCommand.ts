@@ -31,7 +31,10 @@ export type GetGlyphsCommandOutputType = Omit<GetGlyphsResponse, "Blob"> & {
 export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __MetadataBearer {}
 
 /**
- * <p> <code>GetGlyphs</code> returns the map's glyphs.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/styling-labels-with-glyphs.html">Style labels with glyphs</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * `GetGlyphs` returns the map's glyphs.
+ *
+ * For more information, see [Style labels with glyphs](https://docs.aws.amazon.com/location/latest/developerguide/styling-labels-with-glyphs.html) in the *Amazon Location Service Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +65,8 @@ export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __Me
  * @see {@link GeoMapsClientResolvedConfig | config} for GeoMapsClient's `config` shape.
  *
  * @throws {@link GeoMapsServiceException}
- * <p>Base exception class for all service exceptions from GeoMaps service.</p>
  *
+ * Base exception class for all service exceptions from GeoMaps service.
  *
  * @public
  */

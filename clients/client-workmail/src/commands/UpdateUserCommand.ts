@@ -23,9 +23,8 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Updates data for the user. To have the latest information, it must be preceded by a
- *             <a>DescribeUser</a> call. The dataset in the request should be the one
- *          expected when performing another <code>DescribeUser</code> call.</p>
+ * Updates data for the user. To have the latest information, it must be preceded by a DescribeUser call. The dataset in the request should be the one expected when performing another `DescribeUser` call.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,36 +66,40 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  * @throws {@link DirectoryServiceAuthenticationFailedException} (client fault)
- *  <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+ *
+ * The directory service doesn't recognize the credentials supplied by WorkMail.
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+ *
+ * The directory is unavailable. It might be located in another Region or deleted.
  *
  * @throws {@link EntityNotFoundException} (client fault)
- *  <p>The identifier supplied for the user, group, or resource does not exist in your
- *          organization.</p>
+ *
+ * The identifier supplied for the user, group, or resource does not exist in your organization.
  *
  * @throws {@link EntityStateException} (client fault)
- *  <p>You are performing an operation on a user, group, or resource that isn't in the
- *          expected state, such as trying to delete an active user.</p>
+ *
+ * You are performing an operation on a user, group, or resource that isn't in the expected state, such as trying to delete an active user.
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * One or more of the input parameters don't match the service's restrictions.
  *
  * @throws {@link OrganizationNotFoundException} (client fault)
- *  <p>An operation received a valid organization identifier that either doesn't belong or
- *          exist in the system.</p>
+ *
+ * An operation received a valid organization identifier that either doesn't belong or exist in the system.
  *
  * @throws {@link OrganizationStateException} (client fault)
- *  <p>The organization must have a valid state to perform certain
- *          operations on the organization or its members.</p>
+ *
+ * The organization must have a valid state to perform certain operations on the organization or its members.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>You can't perform a write operation against a read-only directory.</p>
+ *
+ * You can't perform a write operation against a read-only directory.
  *
  * @throws {@link WorkMailServiceException}
- * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ * Base exception class for all service exceptions from WorkMail service.
  *
  * @public
  */

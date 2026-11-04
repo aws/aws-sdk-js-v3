@@ -23,7 +23,8 @@ export interface CreateBillingViewCommandInput extends CreateBillingViewRequest 
 export interface CreateBillingViewCommandOutput extends CreateBillingViewResponse, __MetadataBearer {}
 
 /**
- * <p> Creates a billing view with the specified billing view attributes. </p>
+ * Creates a billing view with the specified billing view attributes.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,32 +87,40 @@ export interface CreateBillingViewCommandOutput extends CreateBillingViewRespons
  * @see {@link BillingClientResolvedConfig | config} for BillingClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link BillingViewHealthStatusException} (client fault)
- *  <p> Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than <code>HEALTHY</code>.</p>
+ *
+ * Exception thrown when a billing view's health status prevents an operation from being performed. This may occur if the billing view is in a state other than `HEALTHY`.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p> The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
+ *
+ * The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing failed because of an unknown error, exception, or failure. </p>
+ *
+ * The request processing failed because of an unknown error, exception, or failure.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p> The specified ARN in the request doesn't exist. </p>
+ *
+ * The specified ARN in the request doesn't exist.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p> You've reached the limit of resources you can create, or exceeded the size of an individual resource. </p>
+ *
+ * You've reached the limit of resources you can create, or exceeded the size of an individual resource.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. </p>
+ *
+ * The request was denied due to request throttling.
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>
+ *
+ * The input fails to satisfy the constraints specified by an Amazon Web Services service.
  *
  * @throws {@link BillingServiceException}
- * <p>Base exception class for all service exceptions from Billing service.</p>
  *
+ * Base exception class for all service exceptions from Billing service.
  *
  * @example Invoke CreateBillingView
  * ```javascript

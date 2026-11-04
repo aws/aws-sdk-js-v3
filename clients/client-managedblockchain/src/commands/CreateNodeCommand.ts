@@ -23,8 +23,10 @@ export interface CreateNodeCommandInput extends CreateNodeInput {}
 export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a node on the specified blockchain network.</p>
- *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
+ * Creates a node on the specified blockchain network.
+ *
+ * Applies to Hyperledger Fabric and Ethereum.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,39 +77,42 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *
+ * You don't have sufficient access to perform this action.
  *
  * @throws {@link InternalServiceErrorException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * The request processing has failed because of an unknown error, exception or failure.
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
+ *
+ * The action or operation requested is invalid. Verify that the action is typed correctly.
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
- *  <p>A resource request is issued for a resource that already exists.</p>
+ *
+ * A resource request is issued for a resource that already exists.
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
- *  <p>The maximum number of resources of that type already exist. Ensure the resources requested
- *          are within the boundaries of the service edition and your account limits.</p>
+ *
+ * The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>A requested resource doesn't exist. It may have been deleted or referenced incorrectly.</p>
+ *
+ * A requested resource doesn't exist. It may have been deleted or referenced incorrectly.
  *
  * @throws {@link ResourceNotReadyException} (client fault)
- *  <p>The requested resource exists but isn't in a status that can complete the operation.</p>
+ *
+ * The requested resource exists but isn't in a status that can complete the operation.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is
- *          throttling requests. The most common source of throttling errors is
- *          creating resources that exceed your service limit for this resource type.
- *          Request a limit increase or delete unused resources if possible.</p>
+ *
+ * The request or operation couldn't be performed because a service is throttling requests. The most common source of throttling errors is creating resources that exceed your service limit for this resource type. Request a limit increase or delete unused resources if possible.
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p></p>
  *
  * @throws {@link ManagedBlockchainServiceException}
- * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ * Base exception class for all service exceptions from ManagedBlockchain service.
  *
  * @public
  */

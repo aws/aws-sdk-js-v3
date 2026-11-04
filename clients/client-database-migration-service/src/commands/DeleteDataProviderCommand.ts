@@ -23,15 +23,12 @@ export interface DeleteDataProviderCommandInput extends DeleteDataProviderMessag
 export interface DeleteDataProviderCommandOutput extends DeleteDataProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified data provider.</p>
- *          <p>
- *             <b>Required permissions:</b>
- *             <code>dms:DeleteDataProvider</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
- *          <note>
- *             <p>All migration projects associated with the data provider must be deleted or modified
- *             before you can delete the data provider.</p>
- *          </note>
+ * Deletes the specified data provider.
+ *
+ * **Required permissions:** `dms:DeleteDataProvider`. For more information, see [Actions, resources, and condition keys for Database Migration Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html).
+ *
+ * > **Note:** All migration projects associated with the data provider must be deleted or modified before you can delete the data provider.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -167,21 +164,24 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedFault} (client fault)
- *  <p>DMS was denied access to the endpoint. Check that the
- *             role is correctly configured.</p>
+ *
+ * DMS was denied access to the endpoint. Check that the role is correctly configured.
  *
  * @throws {@link FailedDependencyFault} (client fault)
- *  <p>A dependency threw an exception.</p>
+ *
+ * A dependency threw an exception.
  *
  * @throws {@link InvalidResourceStateFault} (client fault)
- *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * The resource is in a state that prevents it from being used for database migration.
  *
  * @throws {@link ResourceNotFoundFault} (client fault)
- *  <p>The resource could not be found.</p>
+ *
+ * The resource could not be found.
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
- * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * Base exception class for all service exceptions from DatabaseMigrationService service.
  *
  * @example Delete a data provider
  * ```javascript

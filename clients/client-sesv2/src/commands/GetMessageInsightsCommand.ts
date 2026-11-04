@@ -23,9 +23,10 @@ export interface GetMessageInsightsCommandInput extends GetMessageInsightsReques
 export interface GetMessageInsightsCommandOutput extends GetMessageInsightsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides information about a specific message, including the from address, the
- *             subject, the recipient address, email tags, as well as events associated with the message.</p>
- *          <p>You can execute this operation no more than once per second.</p>
+ * Provides information about a specific message, including the from address, the subject, the recipient address, email tags, as well as events associated with the message.
+ *
+ * You can execute this operation no more than once per second.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,17 +84,20 @@ export interface GetMessageInsightsCommandOutput extends GetMessageInsightsRespo
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The input you provided is invalid.</p>
+ *
+ * The input you provided is invalid.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * The resource you attempted to access doesn't exist.
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>Too many requests have been made to the operation.</p>
+ *
+ * Too many requests have been made to the operation.
  *
  * @throws {@link SESv2ServiceException}
- * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ * Base exception class for all service exceptions from SESv2 service.
  *
  * @public
  */

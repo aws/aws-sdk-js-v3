@@ -85,8 +85,8 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
  *  The request failed because you exceeded the request rate limit for this operation.
  *
  * @throws {@link SigninServiceException}
- * <p>Base exception class for all service exceptions from Signin service.</p>
  *
+ * Base exception class for all service exceptions from Signin service.
  *
  * @public
  */

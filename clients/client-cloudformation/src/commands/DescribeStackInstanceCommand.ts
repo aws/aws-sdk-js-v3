@@ -23,9 +23,10 @@ export interface DescribeStackInstanceCommandInput extends DescribeStackInstance
 export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account,
- *       and Amazon Web Services Region.</p>
- *          <p>For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.</p>
+ * Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account, and Amazon Web Services Region.
+ *
+ * For a list of stack instances that are associated with a specific StackSet, use ListStackInstances.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,14 +78,16 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link StackInstanceNotFoundException} (client fault)
- *  <p>The specified stack instance doesn't exist.</p>
+ *
+ * The specified stack instance doesn't exist.
  *
  * @throws {@link StackSetNotFoundException} (client fault)
- *  <p>The specified StackSet doesn't exist.</p>
+ *
+ * The specified StackSet doesn't exist.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

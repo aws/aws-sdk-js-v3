@@ -23,59 +23,32 @@ export interface PutObjectTaggingCommandInput extends PutObjectTaggingRequest {}
 export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported for directory buckets.</p>
- *          </note>
- *          <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a key-value pair.
- *       For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
- *          <p>You can associate tags with an object by sending a PUT request against the tagging subresource that
- *       is associated with the object. You can retrieve tags by sending a GET request. For more information, see
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
- *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag
- *         Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per object.</p>
- *          <p>To use this operation, you must have permission to perform the <code>s3:PutObjectTagging</code>
- *       action. By default, the bucket owner has this permission and can grant this permission to others.</p>
- *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You also need
- *       permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
- *          <p>
- *             <code>PutObjectTagging</code> has the following special errors. For more Amazon S3 errors see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error Responses</a>.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error can occur if
- *           the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>MalformedXML</code> - The XML provided does not match the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>OperationAborted</code> - A conflicting conditional action is currently in progress
- *           against this resource. Please try again.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>InternalError</code> - The service was unable to apply the provided tag to the
- *           object.</p>
- *             </li>
- *          </ul>
- *          <p>The following operations are related to <code>PutObjectTagging</code>:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <important>
- *             <p>You must URL encode any signed header values that contain spaces. For example, if your header value is <code>my  file.txt</code>, containing two spaces after <code>my</code>, you must URL encode this value to <code>my%20%20file.txt</code>.</p>
- *          </important>
+ * > **Note:** This operation is not supported for directory buckets.
+ *
+ * Sets the supplied tag-set to an object that already exists in a bucket. A tag is a key-value pair. For more information, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+ *
+ * You can associate tags with an object by sending a PUT request against the tagging subresource that is associated with the object. You can retrieve tags by sending a GET request. For more information, see [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html).
+ *
+ * For tagging-related restrictions related to characters and encodings, see [Tag Restrictions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html). Note that Amazon S3 limits the maximum number of tags to 10 tags per object.
+ *
+ * To use this operation, you must have permission to perform the `s3:PutObjectTagging` action. By default, the bucket owner has this permission and can grant this permission to others.
+ *
+ * To put tags of any other version, use the `versionId` query parameter. You also need permission for the `s3:PutObjectVersionTagging` action.
+ *
+ * `PutObjectTagging` has the following special errors. For more Amazon S3 errors see, [Error Responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
+ *
+ * - `InvalidTag` - The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. For more information, see [Object Tagging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+ * - `MalformedXML` - The XML provided does not match the schema.
+ * - `OperationAborted` - A conflicting conditional action is currently in progress against this resource. Please try again.
+ * - `InternalError` - The service was unable to apply the provided tag to the object.
+ *
+ * The following operations are related to `PutObjectTagging`:
+ *
+ * - [GetObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html)
+ * - [DeleteObjectTagging](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html)
+ *
+ * > **Important:** You must URL encode any signed header values that contain spaces. For example, if your header value is `my file.txt`, containing two spaces after `my`, you must URL encode this value to `my%20%20file.txt`.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,8 +89,8 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  * @throws {@link S3ServiceException}
- * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ * Base exception class for all service exceptions from S3 service.
  *
  * @example To add tags to an existing object
  * ```javascript

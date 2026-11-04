@@ -23,41 +23,22 @@ export interface CreateHealthCheckCommandInput extends CreateHealthCheckRequest 
 export interface CreateHealthCheckCommandOutput extends CreateHealthCheckResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new health check.</p>
- *          <p>For information about adding health checks to resource record sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a> in <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. </p>
- *          <p>
- *             <b>ELB Load Balancers</b>
- *          </p>
- *          <p>If you're registering EC2 instances with an Elastic Load Balancing (ELB) load
- * 			balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you
- * 			register an EC2 instance with a load balancer, you configure settings for an ELB health
- * 			check, which performs a similar function to a Route 53 health check.</p>
- *          <p>
- *             <b>Private Hosted Zones</b>
- *          </p>
- *          <p>You can associate health checks with failover resource record sets in a private hosted
- * 			zone. Note the following:</p>
- *          <ul>
- *             <li>
- *                <p>Route 53 health checkers are outside the VPC. To check the health of an
- * 					endpoint within a VPC by IP address, you must assign a public IP address to the
- * 					instance in the VPC.</p>
- *             </li>
- *             <li>
- *                <p>You can configure a health checker to check the health of an external resource
- * 					that the instance relies on, such as a database server.</p>
- *             </li>
- *             <li>
- *                <p>You can create a CloudWatch metric, associate an alarm with the metric, and
- * 					then create a health check that is based on the state of the alarm. For example,
- * 					you might create a CloudWatch metric that checks the status of the Amazon EC2
- * 						<code>StatusCheckFailed</code> metric, add an alarm to the metric, and then
- * 					create a health check that is based on the state of the alarm. For information
- * 					about creating CloudWatch metrics and alarms by using the CloudWatch console,
- * 					see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon
- * 						CloudWatch User Guide</a>.</p>
- *             </li>
- *          </ul>
+ * Creates a new health check.
+ *
+ * For information about adding health checks to resource record sets, see [HealthCheckId](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId) in [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).
+ *
+ * **ELB Load Balancers**
+ *
+ * If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer, do not create Amazon Route 53 health checks for the EC2 instances. When you register an EC2 instance with a load balancer, you configure settings for an ELB health check, which performs a similar function to a Route 53 health check.
+ *
+ * **Private Hosted Zones**
+ *
+ * You can associate health checks with failover resource record sets in a private hosted zone. Note the following:
+ *
+ * - Route 53 health checkers are outside the VPC. To check the health of an endpoint within a VPC by IP address, you must assign a public IP address to the instance in the VPC.
+ * - You can configure a health checker to check the health of an external resource that the instance relies on, such as a database server.
+ * - You can create a CloudWatch metric, associate an alarm with the metric, and then create a health check that is based on the state of the alarm. For example, you might create a CloudWatch metric that checks the status of the Amazon EC2 `StatusCheckFailed` metric, add an alarm to the metric, and then create a health check that is based on the state of the alarm. For information about creating CloudWatch metrics and alarms by using the CloudWatch console, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -162,37 +143,29 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  * @throws {@link HealthCheckAlreadyExists} (client fault)
- *  <p> The health check you're attempting to create already exists. Amazon Route 53 returns
- * 			this error when you submit a request that has the following values:</p>
- *          <ul>
- *             <li>
- *                <p>The same value for <code>CallerReference</code> as an existing health check,
- * 					and one or more values that differ from the existing health check that has the
- * 					same caller reference.</p>
- *             </li>
- *             <li>
- *                <p>The same value for <code>CallerReference</code> as a health check that you
- * 					created and later deleted, regardless of the other settings in the
- * 					request.</p>
- *             </li>
- *          </ul>
+ *
+ * The health check you're attempting to create already exists. Amazon Route 53 returns this error when you submit a request that has the following values:
+ *
+ * - The same value for `CallerReference` as an existing health check, and one or more values that differ from the existing health check that has the same caller reference.
+ * - The same value for `CallerReference` as a health check that you created and later deleted, regardless of the other settings in the request.
  *
  * @throws {@link InvalidInput} (client fault)
- *  <p>The input is not valid.</p>
+ *
+ * The input is not valid.
  *
  * @throws {@link TooManyHealthChecks} (client fault)
- *  <p>This health check can't be created because the current account has reached the limit
- * 			on the number of active health checks.</p>
- *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
- * 				<i>Amazon Route 53 Developer Guide</i>.</p>
- *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
- *          <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
+ *
+ * This health check can't be created because the current account has reached the limit on the number of active health checks.
+ *
+ * For information about default limits, see [Limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html) in the *Amazon Route 53 Developer Guide*.
+ *
+ * For information about how to get the current limit for an account, see [GetAccountLimit](https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html). To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
+ *
+ * You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, [create a case](http://aws.amazon.com/route53-request) with the Amazon Web Services Support Center.
  *
  * @throws {@link Route53ServiceException}
- * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ * Base exception class for all service exceptions from Route53 service.
  *
  * @public
  */

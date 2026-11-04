@@ -23,11 +23,10 @@ export interface CreateStackCommandInput extends CreateStackInput {}
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a stack as specified in the template. After the call completes successfully, the
- *       stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a> operation.</p>
- *          <p>For more information about creating a stack and monitoring stack progress, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Managing Amazon Web Services
- *         resources as a single unit with CloudFormation stacks</a> in the
- *         <i>CloudFormation User Guide</i>.</p>
+ * Creates a stack as specified in the template. After the call completes successfully, the stack creation starts. You can check the status of the stack through the DescribeStacks operation.
+ *
+ * For more information about creating a stack and monitoring stack progress, see [Managing Amazon Web Services resources as a single unit with CloudFormation stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *CloudFormation User Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,22 +102,26 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The resource with the name requested already exists.</p>
+ *
+ * The resource with the name requested already exists.
  *
  * @throws {@link InsufficientCapabilitiesException} (client fault)
- *  <p>The template contains resources with capabilities that weren't specified in the Capabilities parameter.</p>
+ *
+ * The template contains resources with capabilities that weren't specified in the Capabilities parameter.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The quota for the resource has already been reached.</p>
- *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation quotas</a> in the
- *    <i>CloudFormation User Guide</i>.</p>
+ *
+ * The quota for the resource has already been reached.
+ *
+ * For information about resource and stack limitations, see [CloudFormation quotas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html) in the *CloudFormation User Guide*.
  *
  * @throws {@link TokenAlreadyExistsException} (client fault)
- *  <p>A client request token already exists.</p>
+ *
+ * A client request token already exists.
  *
  * @throws {@link CloudFormationServiceException}
- * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ * Base exception class for all service exceptions from CloudFormation service.
  *
  * @public
  */

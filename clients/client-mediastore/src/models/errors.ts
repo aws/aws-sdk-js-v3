@@ -4,8 +4,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { MediaStoreServiceException as __BaseException } from "./MediaStoreServiceException";
 
 /**
- * <p>The container that you specified in the request already exists or is being
- *          updated.</p>
+ * The container that you specified in the request already exists or is being updated.
+ *
  * @public
  */
 export class ContainerInUseException extends __BaseException {
@@ -28,7 +28,8 @@ export class ContainerInUseException extends __BaseException {
 }
 
 /**
- * <p>The container that you specified in the request does not exist.</p>
+ * The container that you specified in the request does not exist.
+ *
  * @public
  */
 export class ContainerNotFoundException extends __BaseException {
@@ -51,7 +52,8 @@ export class ContainerNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The CORS policy that you specified in the request does not exist.</p>
+ * The CORS policy that you specified in the request does not exist.
+ *
  * @public
  */
 export class CorsPolicyNotFoundException extends __BaseException {
@@ -74,7 +76,8 @@ export class CorsPolicyNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The service is temporarily unavailable.</p>
+ * The service is temporarily unavailable.
+ *
  * @public
  */
 export class InternalServerError extends __BaseException {
@@ -97,7 +100,8 @@ export class InternalServerError extends __BaseException {
 }
 
 /**
- * <p>A service limit has been exceeded.</p>
+ * A service limit has been exceeded.
+ *
  * @public
  */
 export class LimitExceededException extends __BaseException {
@@ -120,7 +124,8 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The policy that you specified in the request does not exist.</p>
+ * The policy that you specified in the request does not exist.
+ *
  * @public
  */
 export class PolicyNotFoundException extends __BaseException {

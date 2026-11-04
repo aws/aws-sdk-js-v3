@@ -23,88 +23,39 @@ export interface ReplicateKeyCommandInput extends ReplicateKeyRequest {}
 export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Replicates a multi-Region key into the specified Region. This operation creates a
- *       multi-Region replica key based on a multi-Region primary key in a different Region of the same
- *       Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a
- *       different Region. To create a multi-Region primary key, use the <a>CreateKey</a>
- *       operation.</p>
- *          <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
- *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
- *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
- *       it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>A <i>replica key</i> is a fully-functional KMS key that can be used
- *       independently of its primary and peer replica keys. A primary key and its replica keys share
- *       properties that make them interoperable. They have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a> and key material. They also
- *       have the same key spec, key usage, key material origin, and automatic key rotation status.
- *       KMS automatically synchronizes these shared properties among related multi-Region keys. All
- *       other properties of a replica key can differ, including its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">tags</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">aliases</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">key state</a>. KMS pricing and quotas for KMS keys
- *       apply to each primary key and replica key.</p>
- *          <p>When this operation completes, the new replica key has a transient key state of
- *         <code>Creating</code>. This key state changes to <code>Enabled</code> (or
- *         <code>PendingImport</code>) after a few seconds when the process of creating the new replica
- *       key is complete. While the key state is <code>Creating</code>, you can manage key, but you
- *       cannot yet use it in cryptographic operations. If you are creating and using the replica key
- *       programmatically, retry on <code>KMSInvalidStateException</code> or call
- *         <code>DescribeKey</code> to check its <code>KeyState</code> value before using it. For
- *       details about the <code>Creating</code> key state, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
- *          <p>You cannot create more than one replica of a primary key in any Region. If the Region
- *       already includes a replica of the key you're trying to replicate, <code>ReplicateKey</code>
- *       returns an <code>AlreadyExistsException</code> error. If the key state of the existing replica
- *       is <code>PendingDeletion</code>, you can cancel the scheduled key deletion (<a>CancelKeyDeletion</a>) or wait for the key to be deleted. The new replica key you
- *       create will have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-sync-properties">shared
- *         properties</a> as the original replica key.</p>
- *          <p>The CloudTrail log of a <code>ReplicateKey</code> operation records a
- *         <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
- *          <p>If you replicate a multi-Region primary key with imported key material, the replica key is
- *       created with no key material. You must import the same key material that you imported into the
- *       primary key.</p>
- *          <p>To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a>
- *       operation.</p>
- *          <note>
- *             <p>
- *                <code>ReplicateKey</code> uses different default values for the <code>KeyPolicy</code>
- *         and <code>Tags</code> parameters than those used in the KMS console. For details, see the
- *         parameter descriptions.</p>
- *          </note>
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot use this operation to
- *       create a replica key in a different Amazon Web Services account. </p>
- *          <p>
- *             <b>Required permissions</b>: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>kms:ReplicateKey</code> on the primary key (in the primary key's Region).
- *           Include this permission in the primary key's key policy.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>kms:CreateKey</code> in an IAM policy in the replica Region.</p>
- *             </li>
- *             <li>
- *                <p>To use the <code>Tags</code> parameter, <code>kms:TagResource</code> in an IAM policy
- *           in the replica Region.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Related operations</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdatePrimaryRegion</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
+ * Replicates a multi-Region key into the specified Region. This operation creates a multi-Region replica key based on a multi-Region primary key in a different Region of the same Amazon Web Services partition. You can create multiple replicas of a primary key, but each must be in a different Region. To create a multi-Region primary key, use the CreateKey operation.
+ *
+ * This operation supports *multi-Region keys*, an KMS feature that lets you create multiple interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see [Multi-Region keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the *Key Management Service Developer Guide*.
+ *
+ * A *replica key* is a fully-functional KMS key that can be used independently of its primary and peer replica keys. A primary key and its replica keys share properties that make them interoperable. They have the same [key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) and key material. They also have the same key spec, key usage, key material origin, and automatic key rotation status. KMS automatically synchronizes these shared properties among related multi-Region keys. All other properties of a replica key can differ, including its [key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html), [tags](https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html), [aliases](https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html), and [key state](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html). KMS pricing and quotas for KMS keys apply to each primary key and replica key.
+ *
+ * When this operation completes, the new replica key has a transient key state of `Creating`. This key state changes to `Enabled` (or `PendingImport`) after a few seconds when the process of creating the new replica key is complete. While the key state is `Creating`, you can manage key, but you cannot yet use it in cryptographic operations. If you are creating and using the replica key programmatically, retry on `KMSInvalidStateException` or call `DescribeKey` to check its `KeyState` value before using it. For details about the `Creating` key state, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Key Management Service Developer Guide*.
+ *
+ * You cannot create more than one replica of a primary key in any Region. If the Region already includes a replica of the key you're trying to replicate, `ReplicateKey` returns an `AlreadyExistsException` error. If the key state of the existing replica is `PendingDeletion`, you can cancel the scheduled key deletion (CancelKeyDeletion) or wait for the key to be deleted. The new replica key you create will have the same [shared properties](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-sync-properties) as the original replica key.
+ *
+ * The CloudTrail log of a `ReplicateKey` operation records a `ReplicateKey` operation in the primary key's Region and a CreateKey operation in the replica key's Region.
+ *
+ * If you replicate a multi-Region primary key with imported key material, the replica key is created with no key material. You must import the same key material that you imported into the primary key.
+ *
+ * To convert a replica key to a primary key, use the UpdatePrimaryRegion operation.
+ *
+ * > **Note:** `ReplicateKey` uses different default values for the `KeyPolicy` and `Tags` parameters than those used in the KMS console. For details, see the parameter descriptions.
+ *
+ * **Cross-account use**: No. You cannot use this operation to create a replica key in a different Amazon Web Services account.
+ *
+ * **Required permissions**:
+ *
+ * - `kms:ReplicateKey` on the primary key (in the primary key's Region). Include this permission in the primary key's key policy.
+ * - `kms:CreateKey` in an IAM policy in the replica Region.
+ * - To use the `Tags` parameter, `kms:TagResource` in an IAM policy in the replica Region.
+ *
+ * **Related operations**
+ *
+ * - CreateKey
+ * - UpdatePrimaryRegion
+ *
+ * **Eventual consistency**: The KMS API follows an eventual consistency model. For more information, see [KMS eventual consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -200,63 +151,55 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  * @throws {@link AlreadyExistsException} (client fault)
- *  <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ *
+ * The request was rejected because it attempted to create a resource that already exists.
  *
  * @throws {@link DisabledException} (client fault)
- *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * The request was rejected because the specified KMS key is not enabled.
  *
  * @throws {@link InvalidArnException} (client fault)
- *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
- *       valid.</p>
+ *
+ * The request was rejected because a specified ARN, or an ARN in a key policy, is not valid.
  *
  * @throws {@link KMSInternalException} (server fault)
- *  <p>The request was rejected because an internal exception occurred. The request can be
- *       retried.</p>
+ *
+ * The request was rejected because an internal exception occurred. The request can be retried.
  *
  * @throws {@link KMSInvalidStateException} (client fault)
- *  <p>The request was rejected because the state of the specified resource is not valid for this
- *       request.</p>
- *          <p>This exceptions means one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>The key state of the KMS key is not compatible with the operation. </p>
- *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
- *           information about which key states are compatible with each KMS operation, see
- *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
- *                      <i>Key Management Service Developer Guide</i>
- *                   </i>.</p>
- *             </li>
- *             <li>
- *                <p>For cryptographic operations on KMS keys in custom key stores, this exception
- *           represents a general failure with many possible causes. To identify the cause, see the
- *           error message that accompanies the exception.</p>
- *             </li>
- *          </ul>
+ *
+ * The request was rejected because the state of the specified resource is not valid for this request.
+ *
+ * This exceptions means one of the following:
+ *
+ * - The key state of the KMS key is not compatible with the operation.
+ *
+ *   To find the key state, use the DescribeKey operation. For more information about which key states are compatible with each KMS operation, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the **Key Management Service Developer Guide** .
+ * - For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a length constraint or quota was exceeded. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
- *       the <i>Key Management Service Developer Guide</i>.</p>
+ *
+ * The request was rejected because a length constraint or quota was exceeded. For more information, see [Quotas](https://docs.aws.amazon.com/kms/latest/developerguide/limits.html) in the *Key Management Service Developer Guide*.
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
- *  <p>The request was rejected because the specified policy is not syntactically or semantically
- *       correct.</p>
+ *
+ * The request was rejected because the specified policy is not syntactically or semantically correct.
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The request was rejected because the specified entity or resource could not be
- *       found.</p>
+ *
+ * The request was rejected because the specified entity or resource could not be found.
  *
  * @throws {@link TagException} (client fault)
- *  <p>The request was rejected because one or more tags are not valid.</p>
+ *
+ * The request was rejected because one or more tags are not valid.
  *
  * @throws {@link UnsupportedOperationException} (client fault)
- *  <p>The request was rejected because a specified parameter is not supported or a specified
- *       resource is not valid for this operation.</p>
+ *
+ * The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation.
  *
  * @throws {@link KMSServiceException}
- * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ * Base exception class for all service exceptions from KMS service.
  *
  * @example To replicate a multi-Region key in a different AWS Region
  * ```javascript

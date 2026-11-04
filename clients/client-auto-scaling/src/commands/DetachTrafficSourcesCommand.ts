@@ -23,12 +23,10 @@ export interface DetachTrafficSourcesCommandInput extends DetachTrafficSourcesTy
 export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
- *          <p>When you detach a traffic source, it enters the <code>Removing</code> state while
- *             deregistering the instances in the group. When all instances are deregistered, then you
- *             can no longer describe the traffic source using the
- *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a>
- *             API call. The instances continue to run.</p>
+ * Detaches one or more traffic sources from the specified Auto Scaling group.
+ *
+ * When you detach a traffic source, it enters the `Removing` state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the traffic source using the [DescribeTrafficSources](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html) API call. The instances continue to run.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,12 +57,12 @@ export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesR
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  * @throws {@link ResourceContentionFault} (server fault)
- *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
- *             instance, or load balancer).</p>
+ *
+ * You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group, instance, or load balancer).
  *
  * @throws {@link AutoScalingServiceException}
- * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ * Base exception class for all service exceptions from AutoScaling service.
  *
  * @example To detach a target group from an Auto Scaling group
  * ```javascript

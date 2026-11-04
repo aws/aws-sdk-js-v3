@@ -23,32 +23,20 @@ export interface PutItemCommandInput extends PutItemInput {}
 export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new item, or replaces an old item with a new item. If an item that has the
- *             same primary key as the new item already exists in the specified table, the new item
- *             completely replaces the existing item. You can perform a conditional put operation (add
- *             a new item if one with the specified primary key doesn't exist), or replace an existing
- *             item if it has certain attribute values. You can return the item's attribute values in
- *             the same operation, using the <code>ReturnValues</code> parameter.</p>
- *          <p>When you add an item, the primary key attributes are the only required attributes. </p>
- *          <p>Empty String and Binary attribute values are allowed. Attribute values of type String
- *             and Binary must have a length greater than zero if the attribute is used as a key
- *             attribute for a table or index. Set type attributes cannot be empty. </p>
- *          <p>Invalid Requests with empty values will be rejected with a
- *                 <code>ValidationException</code> exception.</p>
- *          <note>
- *             <p>To prevent a new item from replacing an existing item, use a conditional
- *                 expression that contains the <code>attribute_not_exists</code> function with the
- *                 name of the attribute being used as the partition key for the table. Since every
- *                 record must contain that attribute, the <code>attribute_not_exists</code> function
- *                 will only succeed if no matching item exists.</p>
- *          </note>
- *          <note>
- *             <p>To determine whether <code>PutItem</code> overwrote an existing item, use
- *                 <code>ReturnValues</code> set to <code>ALL_OLD</code>. If the response includes
- *                 the <code>Attributes</code> element, an existing item was overwritten.</p>
- *          </note>
- *          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with
- *                 Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ * Creates a new item, or replaces an old item with a new item. If an item that has the same primary key as the new item already exists in the specified table, the new item completely replaces the existing item. You can perform a conditional put operation (add a new item if one with the specified primary key doesn't exist), or replace an existing item if it has certain attribute values. You can return the item's attribute values in the same operation, using the `ReturnValues` parameter.
+ *
+ * When you add an item, the primary key attributes are the only required attributes.
+ *
+ * Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index. Set type attributes cannot be empty.
+ *
+ * Invalid Requests with empty values will be rejected with a `ValidationException` exception.
+ *
+ * > **Note:** To prevent a new item from replacing an existing item, use a conditional expression that contains the `attribute_not_exists` function with the name of the attribute being used as the partition key for the table. Since every record must contain that attribute, the `attribute_not_exists` function will only succeed if no matching item exists.
+ *
+ * > **Note:** To determine whether `PutItem` overwrote an existing item, use `ReturnValues` set to `ALL_OLD`. If the response includes the `Attributes` element, an existing item was overwritten.
+ *
+ * For more information about `PutItem`, see [Working with Items](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html) in the *Amazon DynamoDB Developer Guide*.
+ *
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -225,50 +213,46 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ConditionalCheckFailedException} (client fault)
- *  <p>A condition specified in the operation failed to be evaluated.</p>
+ *
+ * A condition specified in the operation failed to be evaluated.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>An error occurred on the server side.</p>
+ *
+ * An error occurred on the server side.
  *
  * @throws {@link InvalidEndpointException} (client fault)
  *
  * @throws {@link ItemCollectionSizeLimitExceededException} (client fault)
- *  <p>An item collection is too large. This exception is only returned for tables that
- *             have one or more local secondary indexes.</p>
+ *
+ * An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about
- *             why the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. The Amazon Web Services
- *             SDKs for DynamoDB automatically retry requests that receive this exception.
- *             Your request is eventually successful, unless your retry queue is too large to finish.
- *             Reduce the frequency of requests and use exponential backoff. For more information, go
- *             to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. The Amazon Web Services SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to [Error Retries and Exponential Backoff](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff) in the *Amazon DynamoDB Developer Guide*.
  *
  * @throws {@link ReplicatedWriteConflictException} (client fault)
- *  <p>The request was rejected because one or more items in the request are being modified
- *             by a request in another Region. </p>
+ *
+ * The request was rejected because one or more items in the request are being modified by a request in another Region.
  *
  * @throws {@link RequestLimitExceeded} (client fault)
- *  <p>Throughput exceeds the current throughput quota for your account. For detailed
- *             information about why the request was throttled and the ARN of the impacted resource,
- *             find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception. Contact <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a quota
- *             increase.</p>
+ *
+ * Throughput exceeds the current throughput quota for your account. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception. Contact [Amazon Web Services Support](https://aws.amazon.com/support) to request a quota increase.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a nonexistent table or index. The resource might not
- *             be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * The operation tried to access a nonexistent table or index. The resource might not be specified correctly, or its status might not be `ACTIVE`.
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. For detailed information about why
- *             the request was throttled and the ARN of the impacted resource, find the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html">ThrottlingReason</a> field in the returned exception.</p>
+ *
+ * The request was denied due to request throttling. For detailed information about why the request was throttled and the ARN of the impacted resource, find the [ThrottlingReason](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ThrottlingReason.html) field in the returned exception.
  *
  * @throws {@link TransactionConflictException} (client fault)
- *  <p>Operation was rejected because there is an ongoing transaction for the
- *             item.</p>
+ *
+ * Operation was rejected because there is an ongoing transaction for the item.
  *
  * @throws {@link DynamoDBServiceException}
- * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ * Base exception class for all service exceptions from DynamoDB service.
  *
  * @example To add an item to a table
  * ```javascript
